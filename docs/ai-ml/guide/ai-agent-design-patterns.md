@@ -185,7 +185,7 @@ Consider group chat orchestration when your scenario can be solved through spont
 
 Avoid this pattern in the following scenarios:
 
-- Simple task delegation or linear pipeline processing is sufficient.
+- Basic task delegation or linear pipeline processing is sufficient.
 
 - Real-time processing requirements make discussion overhead unacceptable.
 
@@ -245,7 +245,7 @@ Avoid this pattern in the following scenarios:
 
 - The appropriate agents and their order are always known upfront.
 
-- Task routing is simple and deterministically rule-based, not based on dynamic context window or dynamic interpretation.
+- Task routing is deterministic and rule-based, not based on dynamic context window or dynamic interpretation.
 
 - Suboptimal routing decisions might lead to a poor or frustrating user experience.
 
@@ -393,7 +393,7 @@ Distributing your AI system across multiple agents requires monitoring and testi
 
 Avoid these common mistakes when you implement agent orchestration patterns:
 
-- Creating unnecessary coordination complexity by using a complex pattern when simple sequential or concurrent orchestration would suffice.
+- Creating unnecessary coordination complexity by using a complex pattern when basic sequential or concurrent orchestration would suffice.
 
 - Adding agents that don't provide meaningful specialization.
 
@@ -448,7 +448,7 @@ You can also find many of these patterns in [AutoGen](https://microsoft.github.i
 
 ## Implementations in Microsoft Foundry Agent Service
 
-You can also use the [Microsoft Foundry Agent Service](/azure/ai-foundry/agents/overview) to chain agents together in relatively simple workflows by using its [connected agents](/azure/ai-foundry/agents/how-to/connected-agents) functionality. The workflows that you implement by using this service are primarily nondeterministic, which limits which patterns can be fully implemented in this no-code environment.
+You can also use the [Microsoft Foundry Agent Service](/azure/ai-foundry/agents/overview) to chain agents together in relatively basic workflows by using its [connected agents](/azure/ai-foundry/agents/how-to/connected-agents) functionality. The workflows that you implement by using this service are primarily nondeterministic, which limits which patterns can be fully implemented in this no-code environment.
 
 ## Contributors
 

@@ -53,7 +53,7 @@ These compute options all use the [Azure Monitor autoscale feature][monitoring] 
 
 - **Azure Functions** differs from the previous compute options because you don't need to configure any autoscale rules. Instead, Azure Functions automatically allocates compute power when your code runs. Azure Functions scales out as necessary to handle load. For more information, see [Choose the correct hosting plan for Azure Functions][functions-scale].
 
-A custom autoscaling solution can sometimes be useful. For example, you could use Azure Diagnostics and application-based metrics, along with custom code to monitor and export the application metrics. Then you could define custom rules based on these metrics, and use Azure Resource Manager REST APIs to trigger autoscaling. However, a custom solution isn't simple to implement and should be considered only if none of the previous approaches can fulfill your requirements.
+A custom autoscaling solution can sometimes be useful. For example, you could use Azure Diagnostics and application-based metrics, along with custom code to monitor and export the application metrics. Then you could define custom rules based on these metrics, and use Azure Resource Manager REST APIs to trigger autoscaling. However, a custom solution isn't easy to implement and should be considered only if none of the previous approaches can fulfill your requirements.
 
 Use the built-in autoscaling features of the platform if they meet your requirements. If not, carefully consider whether you need more complex scaling features. Examples of other requirements might include more granularity of control, different ways to detect trigger events for scaling, scaling across subscriptions, and scaling other types of resources.
 

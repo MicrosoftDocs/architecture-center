@@ -65,7 +65,7 @@ We recommend that you use availability zone volume placement to ensure that the 
 
 You should use cross-zone replication when you require data redundancy and HA across multiple availability zones and don't want to use or require application-level replication. If you use cross-zone replication, any changes made in one availability zone are automatically replicated to volumes in other zones. This replication ensures data consistency and enables failover to a secondary zone if there's a zone-level failure. It enhances data protection, DR, and overall system resilience for Teamcenter Root FSC file data.
 
-**Configure Azure NetApp Files snapshots.** Snapshots provide a point-in-time backup of data, enabling quick recovery if there's data loss or corruption. You can schedule snapshots to occur automatically regularly or create them manually when you need to. You can create as many as 255 snapshots per volume with Azure NetApp Files.
+**Configure Azure NetApp Files snapshots.** Snapshots provide a point-in-time backup of data, enabling quick recovery if there's data loss or corruption. You can schedule snapshots to occur automatically on a regular basis, or create them manually when needed. You can create as many as 255 snapshots per volume with Azure NetApp Files.
 
 You can set up Azure NetApp Files snapshots via scheduled policies or manually in the Azure portal or by using Azure SDKs or APIs. Your application consistency requirements can help you determine which method to use:
 

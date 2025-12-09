@@ -148,7 +148,7 @@ Query translation is an optional step in the information retrieval phase of a RA
 
 #### Query augmentation
 
-Query augmentation is a translation step that makes the query simpler and more usable and enhances the context. You should consider augmentation if your query is small or vague. For example, consider the query "Compare the earnings of Microsoft." That query doesn't include time frames or time units to compare and only specifies earnings. Consider an augmented version of the query, such as "Compare the earnings and revenue of Microsoft in the current year versus last year by quarter." The new query is clear and specific.
+Query augmentation is a translation step that simplifies the query, improves usability, and enhances context. You should consider augmentation if your query is small or vague. For example, consider the query "Compare the earnings of Microsoft." That query doesn't include time frames or time units to compare and only specifies earnings. Consider an augmented version of the query, such as "Compare the earnings and revenue of Microsoft in the current year versus last year by quarter." The new query is clear and specific.
 
 When you augment a query, you maintain the original query but add more context. Don't remove or alter the original query, and don't change the nature of the query.
 
@@ -219,7 +219,7 @@ Decomposition is the process of breaking down a complex query into multiple smal
 
 You should determine whether the query requires multiple searches before you run any searches. If you require multiple subqueries, you can run [manual multiple queries](#manual-multiple-queries) for all the queries. Use a language model to determine whether multiple subqueries are recommended.
 
-The following prompt categorizes a query as simple or complex. For more information, see [RAG experiment accelerator GitHub repository](https://github.com/microsoft/rag-experiment-accelerator/blob/development/rag_experiment_accelerator/llm/prompt/prompt.py).
+The following prompt categorizes a query as *simple* or *complex*. For more information, see [RAG experiment accelerator GitHub repository](https://github.com/microsoft/rag-experiment-accelerator/blob/development/rag_experiment_accelerator/llm/prompt/prompt.py).
 
 ```text
 Consider the given question to analyze and determine whether it falls into one of these categories:

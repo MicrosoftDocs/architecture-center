@@ -112,7 +112,7 @@ Consider whether the data in the payload is structured as a sequence of records 
 
 - **Tabular data:** Information is divided into rows and columns. Each column indicates a field, or the subject of the information, and each row contains values for those fields. This layout is efficient for a repeating set of information, such as time series data.
 
-  Comma-Separated Values (CSV) is one of the simplest text-based formats. It presents data as a sequence of records with a common header. For binary encoding, Apache Avro has a preamble that's similar to a CSV header but that generates a more compact encoding size.
+  Comma-Separated Values (CSV) is a basic text-based format. It presents data as a sequence of records with a common header. For binary encoding, Apache Avro has a preamble that's similar to a CSV header but that generates a more compact encoding size.
 
 ### Library support
 

@@ -13,7 +13,7 @@ ms.subservice: architecture-guide
 
 Foundation models are versioned dependencies that you use in your AI workload. Each foundation model has a life cycle that must be considered. Like code libraries and other dependencies in your workload, foundation models receive minor version updates that provide performance enhancements and optimizations. Major version updates introduce substantive changes to capabilities, performance, or training data freshness. Over time, foundation models might be deprecated because of obsolescence or your model's host preferences that are beyond your control.
 
-You must design your workload to support the documented life cycles of the models that you choose as dependencies. If you don't consider the models' life cycles, you might unnecessarily perform risky upgrades, introduce untested behavior changes, take unnecessary workload downtime, or experience outages because of the way that your hosting platform handles end-of-life models.
+You must design your workload to support the documented life cycles of the models that you choose as dependencies. If you don't consider the models' life cycles, you might unnecessarily make risky upgrades, introduce untested behavior changes, take unnecessary workload downtime, or experience outages because of the way that your hosting platform handles end-of-life models.
 
 A workload that's designed to support the life cycles of its models makes it easier to experiment and safely migrate to new foundation models as they enter the marketplace.
 
@@ -83,7 +83,7 @@ For each of these areas, consider downtime caused by updates and how you handle 
 
 1. **The model:** The obvious change is to the model itself. You deploy the new model by using your chosen model deployment strategy. You need to evaluate trade-offs between in-place upgrades versus side-by-side deployment.
 
-   When you move to a new model revision from a fine-tuned model, you need to perform the fine-tuning on the new model version again before you use it. When you update to use a different model, you need to determine if fine-tuning is required.
+   When you move to a new model revision from a fine-tuned model, you need to do the fine-tuning on the new model version again before you use it. When you update to use a different model, you need to determine if fine-tuning is required.
 
 1. **The model configuration:** When you update the foundation model in your AI solution, you might need to adjust hyperparameters or configurations to optimize performance for the new model's architecture and capabilities. For example, switching from a transformer-based model to a recurrent neural network might require different learning rates and batch sizes to achieve optimal results.
 
@@ -122,13 +122,13 @@ Implement automated pipelines to test and evaluate the differing aspects of your
 You should implement pipelines for the following reasons:
 
 - To help you in your iterative development and experimentation (inner loop)
-- To perform safe deployment and operationalization of your generative AI solution (outer loop)
+- To carry out safe deployment and operationalization of your generative AI solution (outer loop)
 
 When possible, use the same baseline data that you use with the production application to test the changes to your generative AI application. This approach might not be possible if the updated application uses new model features that require a change to the data.
 
 ### Architecture considerations
 
-In simple architectures, like the following architecture, the client directly calls the model with the correct prompt version and configuration. If there are changes to the prompt, a new client is deployed with the new prompt, and it calls the new model. Linking the prompt, configuration, and model versions isn't a challenge.
+In basic architectures, like the following architecture, the client directly calls the model with the correct prompt version and configuration. If there are changes to the prompt, a new client is deployed with the new prompt, and it calls the new model. Linking the prompt, configuration, and model versions isn't a challenge.
 
 :::image type="complex" source="_images/model-lifecycle-direct-access-from-client.svg" border="false" alt-text="Diagram of a chat scenario that shows an intelligent app directly accessing a model." lightbox="_images/model-lifecycle-direct-access-from-client.svg":::
 A diagram shows a user connecting to an intelligent application, which connects directly to model-x-v1. Three elements point to the intelligent app with dashed lines, which indicate that the app contains those elements. The elements are the configuration, prompt, and orchestration logic.

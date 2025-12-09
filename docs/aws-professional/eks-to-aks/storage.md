@@ -281,7 +281,7 @@ An Azure disk is mounted as *ReadWriteOnce*, so it's only available to a single 
 
 #### Premium SSD v2 disks
 
-[Premium SSD v2 disks](/azure/virtual-machines/disks-types#premium-ssd-v2) are designed for input/output(I/O)-intense enterprise workloads. They provide consistent submillisecond disk latency, high input/output operations per second (IOPS), and high throughput. You can independently configure the performance (capacity, IOPS, and throughput) of Premium SSD v2 disks at any time. So you easily improve cost efficiency while meeting performance needs. For more information about how to configure a new or existing AKS cluster to use Azure Premium SSD v2 disks, see [Use Premium SSD v2 disks on AKS](/azure/aks/use-premium-v2-disks).
+[Premium SSD v2 disks](/azure/virtual-machines/disks-types#premium-ssd-v2) are designed for input/output(I/O)-intense enterprise workloads. They provide consistent submillisecond disk latency, high input/output operations per second (IOPS), and high throughput. You can independently configure the performance (capacity, IOPS, and throughput) of Premium SSD v2 disks on demand. So you easily improve cost efficiency while meeting performance needs. For more information about how to configure a new or existing AKS cluster to use Azure Premium SSD v2 disks, see [Use Premium SSD v2 disks on AKS](/azure/aks/use-premium-v2-disks).
 
 #### Ultra Disk Storage
 

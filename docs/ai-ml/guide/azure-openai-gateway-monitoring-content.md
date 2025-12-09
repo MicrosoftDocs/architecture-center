@@ -1,10 +1,10 @@
-Monitoring workloads that include Azure OpenAI Service can be as simple as enabling diagnostics for Azure OpenAI and using preconfigured dashboards. However, this strategy doesn't satisfy several common, more complex, organizational monitoring requirements for generative AI workloads, such as:
+Monitoring workloads that include Azure OpenAI Service involves enabling diagnostics for Azure OpenAI and using preconfigured dashboards. However, this strategy doesn't satisfy several common, more complex, organizational monitoring requirements for generative AI workloads, such as:
 
 - [Tracking usage by client and model to manage quotas and implement chargeback solutions](#track-model-usage).
 
 - [Logging model inputs and model outputs for various auditing use cases and monitoring model performance](#audit-model-inputs-and-outputs).
 
-- [Performing near real-time monitoring](#near-real-time-monitoring).
+- [Running near real-time monitoring](#near-real-time-monitoring).
 
 > [!NOTE]
 > For more information about how to monitor Azure OpenAI directly, see [Monitor Azure OpenAI](/azure/ai-services/openai/how-to/monitor-openai).
@@ -37,7 +37,7 @@ You can use the native Azure OpenAI monitoring functionality to track telemetry 
    A diagram that shows two clients labeled A and B directly interfacing with a gateway. The gateway has two arrows that point to private endpoints. The first private endpoint has two solid arrows that point to a gpt-35-turbo deployment and a gpt-4o deployment in an Azure OpenAI deployment. The second private endpoint has a solid arrow that points to a gpt-4 deployment and a dashed line that points to a gpt-4o deployment in a second Azure OpenAI instance. Both Azure OpenAI instances pass Azure OpenAI metrics and logs to Azure Monitor. The gateway has an arrow that points to Azure Monitor that shows it passing usage metrics, including client IP address, model, and token data.
 :::image-end:::
 
-Introduce a gateway into this topology to capture the full client IP address, the Microsoft Entra ID (or alternative identity) of the client, or a custom identifier for a business unit, a tenant, or an application in one place. You can then use this data to implement a chargeback solution for budgeting and forecasting and to perform cost-benefit analyses of models.
+Introduce a gateway into this topology to capture the full client IP address, the Microsoft Entra ID (or alternative identity) of the client, or a custom identifier for a business unit, a tenant, or an application in one place. You can then use this data to implement a chargeback solution for budgeting and forecasting and to run cost-benefit analyses of models.
 
 The following examples show usage queries that are possible when you use Azure API Management as a gateway.
 
@@ -128,7 +128,7 @@ Monitoring inputs and outputs at the gateway allows you to apply auditing rules 
 
 ## Near real-time monitoring
 
-Azure Monitor isn't optimized for near real-time processing because of the inherent [latency in log data ingestion](/azure/azure-monitor/logs/data-ingestion-time#average-latency). If your solution requires near real-time processing of traffic, you can consider a design where you publish logs directly to a message bus and use a stream processing technology, such as Azure Stream Analytics, to perform windowed operations.
+Azure Monitor isn't optimized for near real-time processing because of the inherent [latency in log data ingestion](/azure/azure-monitor/logs/data-ingestion-time#average-latency). If your solution requires near real-time processing of traffic, you can consider a design where you publish logs directly to a message bus and use a stream processing technology, such as Azure Stream Analytics, to run windowed operations.
 
 :::image type="complex" border="false" source="_images/tracking-multiple-models-inputs-outputs-bus.svg" alt-text="Architecture diagram of a scenario that has multiple clients connecting to more than one model deployment across multiple instances of Azure OpenAI through a gateway. The gateway logs inputs and outputs to a message bus." lightbox="_images/tracking-multiple-models-inputs-outputs-bus.svg":::
    A diagram that shows two clients labeled A and B directly interfacing with a gateway. The gateway has two arrows that point to private endpoints. The first private endpoint has two solid arrows that point to a gpt-35-turbo deployment and a gpt-4o deployment in an Azure OpenAI deployment. The second private endpoint has a solid arrow that points to a gpt-4 deployment and a dashed line that points to a gpt-4o deployment in a second Azure OpenAI instance. Both Azure OpenAI instances are shown passing Azure OpenAI metrics and logs to Azure Monitor. The gateway has an arrow that points to Azure Monitor that shows it passing inputs and outputs. The gateway has another arrow that points to a message bus. The message bus has arrows that point to blob storage and to a stream processor.

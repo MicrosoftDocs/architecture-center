@@ -66,7 +66,7 @@ You might choose to implement this deployment pattern for one or more of the fol
 - Your organization doesn't require workspace-scoped features, such as sharing code repositories with Git.
 - You want to implement a lakehouse medallion architecture. When your organization is limited to a single workspace, you can achieve separation between bronze, silver, and gold layers by creating separate lakehouses within the workspace.
 - Your organization's business units share roles, and it's acceptable to have the same workspace-level permissions for users in the workspace. For example, when multiple users who belong to different business units are  administrators of a single workspace, they have the same rights on all items in the workspace.
-- Your organization can tolerate variable job completion times. If an organization doesn't have any requirements for performance guarantees (for example, a job must finish in a specific time period), it's acceptable to share a single provisioned capacity across business units. When a capacity is shared, users can run their queries at any time. The number of CUs that are available to run a job varies depending on what other queries are running on the capacity. It can lead to variable job completion times.
+- Your organization can tolerate variable job completion times. If an organization doesn't have any requirements for performance guarantees (for example, a job must finish in a specific time period), it's acceptable to share a single provisioned capacity across business units. When a capacity is shared, users can run their queries at any point. The number of CUs that are available to run a job varies depending on what other queries are running on the capacity. It can lead to variable job completion times.
 - Your organization can achieve all its business requirements (from a CU perspective) by using a single Fabric capacity.
 
 The following table presents considerations that might influence your decision to adopt this deployment pattern:
@@ -85,7 +85,7 @@ The following table presents considerations that might influence your decision t
 
 ## Pattern 2: Multiple workspaces backed by a single Fabric capacity
 
-In this deployment pattern, you use separate workspaces. Because a single capacity is shared across workspaces, workloads that run concurrently at any time might affect the performance of jobs and interactive queries.
+In this deployment pattern, you use separate workspaces. Because a single capacity is shared across workspaces, concurrent workloads can affect the performance of jobs and interactive queries.
 
 :::image type="content" source="../_images/fabric-deployment-pattern-2-multiple-workspaces-single-capacity.svg" alt-text="Diagram that shows a single Fabric tenant that contains a single capacity and two workspaces." border="false":::
 

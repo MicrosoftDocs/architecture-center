@@ -165,7 +165,7 @@ Consider a multi-agent approach when your workload exhibits the following charac
 
 - Information requires different permission levels. An HR agent might access employee data, while a customer service agent accesses only product information. Multi-agent architectures enable granular security boundaries at the agent level.
 
-- Different query interactions benefit from different models. A lightweight model handles simple questions, while a more powerful model processes complex reasoning tasks. This approach optimizes both cost and latency.
+- Different query interactions benefit from different models. A lightweight model handles basic questions, while a more powerful model processes complex reasoning tasks. This approach optimizes both cost and latency.
 
 - The chat experience serves as a front end to business processes that involve sequential or parallel steps that require different specialists.
 
@@ -572,7 +572,7 @@ Evaluate custom alerts, such as custom alerts in the Azure Monitor baseline aler
 
 Monitor the usage of tokens against your model deployments. In this architecture, Foundry tracks [token usage](/azure/ai-foundry/how-to/monitor-quality-safety) through its integration with Application Insights.
 
-Your jump boxes and build agent VMs reside in a highly privileged location, which provides those VMs a network line of sight to the data plane of all components in your architecture. Ensure that those VMs emit enough logs to understand when they're used, who uses them, and what actions they perform.
+Your jump boxes and build agent VMs reside in a highly privileged location, which provides those VMs a network line of sight to the data plane of all components in your architecture. Ensure that those VMs emit enough logs to understand when they're used, who uses them, and what actions they take.
 
 #### Agent versioning and life cycle
 
@@ -592,7 +592,7 @@ To prevent service disruptions, ensure safe and controlled agent deployment by i
 
 - **Version and track agents.** Assign clear version identifiers to each agent. Maintain records of which agent versions are active, along with their dependencies such as models, data sources, and tools. Prefer deploying new agent versions alongside existing ones to enable progressive rollout, rollback, and controlled migration of users or sessions.
 
-- **Plan for failback.** Microsoft Foundry doesn't provide built-in support for blue-green or canary deployments of agents. If you require these deployment patterns, implement a routing layer, such as an API gateway or custom router, in front of the agent API. This routing layer allows you to shift traffic incrementally between agent versions, monitor the effect, and perform a full switchover when ready.
+- **Plan for failback.** Microsoft Foundry doesn't provide built-in support for blue-green or canary deployments of agents. If you require these deployment patterns, implement a routing layer, such as an API gateway or custom router, in front of the agent API. This routing layer allows you to shift traffic incrementally between agent versions, monitor the effect, and do a full switchover when ready.
 
 - **Coordinate agent removal.** When you remove agents, coordinate the process with your application's state management and user experience requirements. Handle active chat sessions appropriately. Depending on your workload's functional requirements, you can migrate sessions, pin users to the old agent version, or require users to start new sessions.
 

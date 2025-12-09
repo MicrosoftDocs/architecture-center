@@ -18,7 +18,7 @@ AI is a technology that enables machines to imitate intelligent human behavior. 
 - Verbally interact in natural ways.
 - Make predictions and generate new data.
 
-You can incorporate AI into applications to perform functions or make decisions that traditional logic or processing can't handle effectively. As an architect that designs solutions, it's important to understand the AI and machine learning landscape and how you can integrate Azure solutions into your workload design.
+You can incorporate AI into applications to do tasks or make decisions that traditional logic or processing can't handle effectively. As an architect that designs solutions, it's important to understand the AI and machine learning landscape and how you can integrate Azure solutions into your workload design.
 
 ## Get started
 
@@ -26,7 +26,7 @@ Azure Architecture Center provides example architectures, architecture guides, a
 
 ## AI concepts
 
-AI concepts encompass a wide range of technologies and methodologies that enable machines to perform tasks that typically require human intelligence. The following sections provide an overview of key AI concepts.
+AI concepts encompass a wide range of technologies and methodologies that enable machines to do tasks that typically require human intelligence. The following sections provide an overview of key AI concepts.
 
 ### Algorithms
 
@@ -210,7 +210,7 @@ You can use Copilot and other generative AI features to transform and analyze da
 
 #### AI skills in Fabric
 
-You can use the Fabric AI skill feature to configure a generative AI system to generate queries that answer questions about your data. After you configure an AI skill, you can share it with your colleagues, who can then ask their questions in simple language. Based on their questions, the AI generates queries on the data that answers those questions.
+You can use the Fabric AI skill feature to configure a generative AI system to generate queries that answer questions about your data. After you configure an AI skill, you can share it with your colleagues, who can then ask their questions in plain language. Based on their questions, the AI generates queries on the data that answers those questions.
 
 For more information, see the following resources:
 
@@ -317,7 +317,7 @@ For more information, see [Data Factory end-to-end scenario: Introduction and ar
 
 You can use the Databricks Data Intelligence Platform to write code to create a machine learning workflow by using feature engineering. *Feature engineering* is the process of transforming raw data into features that you can use to train machine learning models. Databricks Data Intelligence Platform includes key features that support feature engineering:
 
-- **Data pipelines** ingest raw data, create feature tables, train models, and perform batch inference. When you use feature engineering in Unity Catalog to train and log a model, the model is packaged with feature metadata. When you use the model for batch scoring or online inference, it automatically retrieves feature values. The caller doesn't need to know about the values or include logic to look up or join features to score new data.
+- **Data pipelines** ingest raw data, create feature tables, train models, and do batch inference. When you use feature engineering in Unity Catalog to train and log a model, the model is packaged with feature metadata. When you use the model for batch scoring or online inference, it automatically retrieves feature values. The caller doesn't need to know about the values or include logic to look up or join features to score new data.
 
 - **Model and feature serving endpoints** are instantly accessible and provide milliseconds of latency.
 - **Monitoring** helps ensure the performance and accuracy of data and models.
@@ -488,15 +488,15 @@ For more information, see [Foundry portal versus Machine Learning studio](/ai/ai
 
 #### Azure AI Agent Service in the Foundry portal
 
-Azure AI Agent Service is a tool that use to create AI agents using a no-code and nondeterminsitic approach. The agents are exposed as microservices on the Foundry account.
+Azure AI Agent Service is a tool that use to create AI agents using a no-code and nondeterminisitic approach. The agents are exposed as microservices on the Foundry account.
 
-Each agent connects to a foundation model from the Azure AI model catalog. Agents can optionally connect to your own custom private knowledge stores or public data. Likewise, agents can invoke tools to perform tasks to call into custom code.
+Each agent connects to a foundation model from the Azure AI model catalog. Agents can optionally connect to your own custom private knowledge stores or public data. Likewise, agents can invoke tools to do tasks to call into custom code.
 
 ### Custom AI code languages
 
 The core concept of AI is the use of algorithms to analyze data and generate models to describe, or score, it in useful ways. Developers and data scientists, and sometimes other algorithms, use programming code to write algorithms. Two of the most popular programming languages for AI development are Python and R.
 
-[Python](https://www.python.org/) is a general-purpose, high-level programming language. It has a simple, easy-to-learn syntax that emphasizes readability. There's no compiling step. Python has a large standard library, and it supports the ability to add modules and packages. This feature encourages modularity and lets you expand capabilities when needed. There's a large and growing ecosystem of AI and machine learning libraries for Python, including many in Azure.
+[Python](https://www.python.org/) is a general-purpose, high-level programming language. Its syntax is straightforward and designed for readability. There's no compiling step. Python has a large standard library, and it supports the ability to add modules and packages. This feature encourages modularity and lets you expand capabilities when needed. There's a large and growing ecosystem of AI and machine learning libraries for Python, including many in Azure.
 
 For more information, see the following resources:
 

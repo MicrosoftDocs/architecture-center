@@ -55,7 +55,7 @@ A gateway resolves this scenario's challenges in the following ways:
 
 ### Recommendations for this scenario
 
-- Add more OAuth scopes to your application registration in your identity provider to enable granular permission to consumers. These scopes enable client applications to request permission to perform specific operations in your gateway, including [access to Azure OpenAI](/azure/api-management/api-management-authenticate-authorize-azure-openai#oauth-20-authorization-using-identity-provider).
+- Add more OAuth scopes to your application registration in your identity provider to enable granular permission to consumers. These scopes enable client applications to request permission to do specific operations in your gateway, including [access to Azure OpenAI](/azure/api-management/api-management-authenticate-authorize-azure-openai#oauth-20-authorization-using-identity-provider).
 
 - Configure this scenario for API Management by using inbound policies. Use the [`validate-jwt` policy](/azure/api-management/validate-jwt-policy) to enforce the existence, validity, and attribute values of a supported JWT.
 
@@ -119,7 +119,7 @@ A gateway provides several advantages in this scenario:
 
 ### Reasons to avoid a gateway for this scenario
 
-In simple environments that have few clients, the cost of handling security and certificate management in the client can outweigh the added complexity of introducing a gateway. Also, gateways can become single points of failure, increase latency because of added layers, and lead to vendor lock-in if you choose commercial solutions rather than custom implementations.
+In environments that have few clients, the cost of handling security and certificate management in the client can outweigh the added complexity of introducing a gateway. Also, gateways can become single points of failure, increase latency because of added layers, and lead to vendor lock-in if you choose commercial solutions rather than custom implementations.
 
 You must carefully assess your specific needs, resource availability, and the criticality of your applications before you implement a gateway for client certificate authentication.
 
