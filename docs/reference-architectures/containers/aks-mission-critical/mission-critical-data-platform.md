@@ -61,7 +61,7 @@ Consider using Azure Cosmos DB for NoSQL for mission-critical workloads. This op
   It's recommended that you use the native backup feature of Azure Cosmos DB for data protection. [Azure Cosmos DB backup feature](/azure/cosmos-db/online-backup-and-restore) supports online backups and on-demand data restore.
 
 > [!NOTE]
-> Most workloads aren't purely OLTP. There's an increasing demand for real-time reporting, such as running reports against the operational system. This is also referred to as HTAP (Hybrid Transactional and Analytical Processing). Azure Cosmos DB supports this capability via [Azure Synapse Link for Azure Cosmos DB](/azure/cosmos-db/synapse-link-use-cases).
+> Most workloads aren't purely OLTP. There's an increasing demand for real-time reporting, such as running reports against the operational system. This is also referred to as HTAP (Hybrid Transactional and Analytical Processing). Azure Cosmos DB supports this capability via [Mirroring in Fabric for Cosmos DB](/fabric/mirroring/azure-cosmos-db).
 
 ### Data model for the workload
 
