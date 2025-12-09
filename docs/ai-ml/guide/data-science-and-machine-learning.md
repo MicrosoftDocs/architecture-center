@@ -23,7 +23,6 @@ The following options are available for machine learning in the Azure cloud.
 | [Microsoft Fabric](#microsoft-fabric) | Unified analytics platform | Manage the entire data lifecycle, from ingestion to insights, by using a comprehensive platform that integrates various services and tools for data professionals, including data engineers, data scientists, and business analysts. |
 | [Azure&nbsp;AI&nbsp;services](#azure-ai-services) | Prebuilt AI capabilities that are implemented through REST APIs and SDKs  | Build intelligent applications by using standard programming languages. These languages call APIs that provide inferencing. Although you should ideally have machine learning and data science expertise, engineering teams that don't have these skills can also adopt this platform. |
 | [Azure SQL Managed Instance machine learning services](#sql-machine-learning) | In-database machine learning for SQL | Train and deploy models inside SQL Managed Instance. |
-| [Machine learning in Azure Synapse Analytics](#sql-machine-learning) | Analytics service that uses machine learning | Train and deploy models inside Azure Synapse Analytics. |
 | [Azure Databricks](#azure-databricks) | Apache Spark-based analytics platform | Build and deploy models and data workflows by integrating with open-source machine learning libraries and the [MLflow](/azure/databricks/applications/mlflow/) platform. |
 
 ## On-premises machine learning product
@@ -89,7 +88,6 @@ Use AI services to develop apps across devices and platforms. The APIs continuou
 
 - [SQL Server Machine Learning Services](/sql/machine-learning/sql-server-machine-learning-services).
 - [SQL Managed Instance Machine Learning Services](/azure/azure-sql/managed-instance/machine-learning-services-overview).
-- [Machine learning in Azure Synapse Analytics](/azure/synapse-analytics/machine-learning/what-is-machine-learning).
 - [Machine Learning extension for Azure Data Studio](/sql/azure-data-studio/machine-learning-extension).
 
 Use SQL machine learning when you need built-in AI and predictive analytics on relational data in SQL.
@@ -235,6 +233,7 @@ Principal authors:
 - [Mahdi Setayesh](https://www.linkedin.com/in/mahdi-setayesh-a03aa644/) | Principal Software Engineer
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [AI development products available from Microsoft](https://www.microsoft.com/ai)
