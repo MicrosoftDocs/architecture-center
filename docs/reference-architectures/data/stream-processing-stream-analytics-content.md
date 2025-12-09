@@ -158,7 +158,7 @@ Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. 
 
 Azure Stream Analytics is priced by the number of streaming units ($0.11/hour) required to process the data into the service.
 
-Stream Analytics can be expensive if you are not processing the data in real-time or small amounts of data. For those use cases, consider using Azure Functions or Logic Apps to move data from Azure Event Hubs to a data store.
+Stream Analytics can be expensive if you aren't processing the data in real-time or small amounts of data. For those use cases, consider using Azure Functions or Logic Apps to move data from Azure Event Hubs to a data store.
 
 #### Azure Event Hubs and Azure Cosmos DB
 
@@ -170,7 +170,7 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 #### Monitoring
 
-With any stream processing solution, it's important to monitor the performance and health of the system. [Azure Monitor](/azure/monitoring-and-diagnostics/) collects metrics and diagnostics logs for the Azure services used in the architecture. Azure Monitor is built into the Azure platform and does not require any additional code in your application.
+With any stream processing solution, it's important to monitor the performance and health of the system. [Azure Monitor](/azure/monitoring-and-diagnostics/) collects metrics and diagnostics logs for the Azure services used in the architecture. Azure Monitor is built into the Azure platform and doesn't require any additional code in your application.
 
 Any of the following warning signals indicate that you should scale out the relevant Azure resource:
 
@@ -186,7 +186,7 @@ The following image shows the dashboard after the Stream Analytics job ran for a
 
 The panel on the lower left shows that the SU consumption for the Stream Analytics job climbs during the first 15 minutes and then levels off. This is a typical pattern as the job reaches a steady state.
 
-Notice that Event Hubs is throttling requests, shown in the upper right panel. An occasional throttled request is not a problem, because the Event Hubs client SDK automatically retries when it receives a throttling error. However, if you see consistent throttling errors, it means the event hub needs more throughput units. The following graph shows a test run using the Event Hubs auto-inflate feature, which automatically scales out the throughput units as needed.
+Notice that Event Hubs is throttling requests, shown in the upper right panel. An occasional throttled request isn't a problem, because the Event Hubs client SDK automatically retries when it receives a throttling error. However, if you see consistent throttling errors, it means the event hub needs more throughput units. The following graph shows a test run using the Event Hubs auto-inflate feature, which automatically scales out the throughput units as needed.
 
 ![Screenshot of Event Hubs autoscaling.](./images/stream-processing-asa/stream-processing-eh-autoscale.png)
 
@@ -204,7 +204,7 @@ Interestingly, this had the side effect of increasing the SU utilization in the 
 
   In this architecture, Azure Event Hubs, Log Analytics, and Azure Cosmos DB are identified as a single workload. These resources are included in a single ARM template.
 
-- Consider staging your workloads. Deploy to various stages and run validation checks at each stage before moving to the next stage. That way you can push updates to your production environments in a highly controlled way and minimize unanticipated deployment issues.
+- Consider staging your workloads. Deploy to various stages and run validation checks at each stage before you continue to the next stage. That way you can push updates to your production environments in a highly controlled way and minimize unanticipated deployment issues.
 
 - Consider using [Azure Monitor][azure-monitor] to analyze the performance of your stream processing pipeline.
 

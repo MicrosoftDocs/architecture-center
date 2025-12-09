@@ -19,10 +19,10 @@ For links to articles that compare other AWS and Azure services and a complete s
 
 ## Managing account hierarchy
 
-A typical AWS environment uses an organizational structure like the one in the following diagram. There's an organization root and optionally a dedicated AWS management account. Below the root are organizational units that can be used to apply different policies to different accounts. AWS resources often use an AWS account as a logical and billing boundary.
+A typical AWS environment uses an organizational structure like the one in the following diagram. There's an organization root and optionally a dedicated AWS management account. Under the root are organizational units that can be used to apply different policies to different accounts. AWS resources often use an AWS account as a logical and billing boundary.
 
 :::image type="complex" source="../aws-professional/images/aws-accounts.jpg" lightbox="../aws-professional/images/aws-accounts.jpg" alt-text="Diagram of a typical AWS account organizational structure." border="false":::
-   Diagram that shows an AWS account. There's an organization root and an optional AWS management account. Below the organization root, there are organizational units. Below the organizational units, there are AWS accounts and resources. 
+   Diagram that shows an AWS account. There's an organization root and an optional AWS management account. Under the organization root, there are organizational units. Under the organizational units, there are AWS accounts and resources. 
 :::image-end:::
 
 An Azure structure looks similar, but, rather than a dedicated management account, it provides administrative permissions on the tenant. This design eliminates the need for an entire account just for management. Unlike AWS, Azure uses resource groups as a fundamental unit. Resources must be assigned to resource groups, and permissions can be applied at the resource-group level.
@@ -75,7 +75,7 @@ An Azure account represents a billing relationship, and Azure subscriptions help
 
 - **Co-administrator**. There can be multiple co-administrators assigned to a subscription. Co-administrators have the same access privileges as the Service Administrator, but they can't change the Service Administrator.
 
-Below the subscription level, user roles and individual permissions can also be assigned to specific resources, similarly to how permissions are granted to IAM users and groups in AWS. In Azure, all user accounts are associated with either a Microsoft account or an organizational account (an account managed through Microsoft Entra ID).
+Under the subscription level, user roles and individual permissions can also be assigned to specific resources, similarly to how permissions are granted to IAM users and groups in AWS. In Azure, all user accounts are associated with either a Microsoft account or an organizational account (an account managed through Microsoft Entra ID).
 
 Like AWS accounts, subscriptions have default service quotas and limits. For a full list of these limits, see [Azure subscription and service limits, quotas, and constraints](/azure/azure-subscription-service-limits). These limits can be increased up to the maximum by [filing a support request in the management portal](/archive/blogs/girishp/increasing-core-quota-limits-in-azure).
 

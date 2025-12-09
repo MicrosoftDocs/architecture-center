@@ -33,7 +33,7 @@ This article describes an Azure architecture that you can use to replace costly 
 
 ### Alternatives
 
-- Instead of using [Power BI](/power-bi/fundamentals/power-bi-overview), You can use [Microsoft Fabric](/fabric/) to ingest the processed output to a Lakehouse and then perform further analysis and processing of the output data.
+- You can use [Microsoft Fabric](/fabric/) instead of [Power BI](/power-bi/fundamentals/power-bi-overview) to ingest the processed output to a Lakehouse and then perform further analysis and processing of the output data.
 
 ## Scenario details
 
@@ -156,8 +156,7 @@ Other contributors:
 - [Video: Azure PDF Form Processing Automation](https://www.youtube.com/watch?v=2zvoO1jc8CE).
 - [Azure PDF Form Processing Automation Solution](https://github.com/microsoft/Azure-PDF-Form-Processing-Automation-Solution-Accelerator) GitHub repository
 - [Azure Invoice Process Automation Solution](https://github.com/microsoft/Azure-Invoice-Process-Automation-Solution-Accelerator) GitHub repository
-- [Business Process Automation](https://github.com/Azure/business-process-automation) GitHub repository
-- [Tutorial: Create workflows that process emails using Azure Logic Apps, Azure Functions, and Azure Storage](/azure/logic-apps/tutorial-process-email-attachments-workflow)
+- [Tutorial: Create workflows that process emails by using Azure Logic Apps, Azure Functions, and Azure Storage](/azure/logic-apps/tutorial-process-email-attachments-workflow)
 
 ## Related resources
 

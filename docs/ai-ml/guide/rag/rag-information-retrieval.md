@@ -3,7 +3,7 @@ title: Develop a RAG Solution—Information-Retrieval Phase
 description: Learn about how to configure a search index, the types of searches that you can perform, how to break queries into subqueries, and why and how to rerank queries.
 author: claytonsiemens77
 ms.author: pnp
-ms.date: 01/09/2025
+ms.date: 10/10/2025
 ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
@@ -55,7 +55,7 @@ Search platforms generally support full-text and vector searches. Some platforms
 [Vector searches](/azure/search/vector-search-how-to-query) compare the similarity between the vectorized query (prompt) and vector fields. For more information, see [Choose an Azure service for vector searches](../../../guide/technology-choices/vector-search.md).
 
 > [!IMPORTANT]
-> Before you embed the query, you should perform the same [cleaning operations](./rag-enrichment-phase.md#cleaning-data) that you performed on chunks. For example, if you lowercased every word in your embedded chunk, you should lowercase every word in the query before embedding.
+> Before you embed the query, you should perform the same [cleaning operations](./rag-enrichment-phase.md#clean-your-data) that you performed on chunks. For example, if you lowercased every word in your embedded chunk, you should lowercase every word in the query before embedding.
 
 > [!NOTE]
 > You can perform a vector search against multiple vector fields in the same query. In AI Search, this practice is considered a hybrid search. For more information, see [Hybrid search](#hybrid-search).
@@ -87,7 +87,7 @@ The code that embeds the query preprocesses the query first. That preprocess sho
 
 [Full-text searches](/azure/search/search-lucene-query-architecture) match plain text that's stored in an index. It's common practice to extract keywords from a query and use those extracted keywords in a full-text search against one or more indexed columns. You can configure full-text searches to return matches if any terms or all terms match.
 
-Experiment to determine which fields to run full-text searches against. As described in the [enrichment phase article](./rag-enrichment-phase.md#augmenting-chunks), you should use keyword and entity metadata fields for full-text searches in scenarios where content has similar semantic meaning but entities or keywords differ. Other common fields to consider for full-text search include title, summary, and chunk text.
+Experiment to determine which fields to run full-text searches against. As described in the [enrichment phase article](./rag-enrichment-phase.md#augment-your-chunks), you should use keyword and entity metadata fields for full-text searches in scenarios where content has similar semantic meaning but entities or keywords differ. Other common fields to consider for full-text search include title, summary, and chunk text.
 
 The following sample code performs a full-text search against the title, content, and summary fields.
 
@@ -349,7 +349,6 @@ The pipeline has the following steps:
 1. Each decomposed query performs three substeps. After all the decomposed queries go through the substeps, the output includes the original query, the augmented query, the decomposed queries, and an accumulated context. The accumulated context includes the aggregation of the top *N* results from all the decomposed queries that go through the substeps. The substeps include the following tasks:
 
     1. The optional query rewriter rewrites the decomposed query.
-    
     1. The search index processes the rewritten query or the original query. It runs the query by using search types, such as vector, full text, hybrid, or manual multiple. The search index can also use advanced query capabilities, such as HyDE.
     1. The results are reranked. The top *N* reranked results are added to the accumulated context.
 1. The original query, along with the accumulated context, goes through the same three substeps as each decomposed query. But only one query goes through the steps, and the caller receives the top *N* results.

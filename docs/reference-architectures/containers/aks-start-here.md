@@ -4,7 +4,7 @@ description: An overview of Microsoft Azure Kubernetes Service (AKS) guidance of
 author: francisnazareth
 ms.author: fnazaret
 ms.date: 06/26/2025
-ms.update-cycle: 730-days
+ms.update-cycle: 1095-days
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-containers
@@ -81,7 +81,7 @@ Getting your workload deployed on AKS is a great milestone and this is when [day
 
 ## Stay current with AKS
 
-Kubernetes and AKS are both moving fast. The platform is evolving and just knowing what's on the roadmap might help you make architectural decisions and understand planned deprecations; consider bookmarking it.
+Kubernetes and AKS are rapidly evolving. Staying aware of the roadmap can help you make informed architectural decisions and anticipate planned deprecations. Consider bookmarking it for quick access.
 
 > [!div class="nextstepaction"]
 > [AKS product roadmap](https://aka.ms/aks/roadmap)

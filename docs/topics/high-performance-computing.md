@@ -22,9 +22,9 @@ ms.custom:
 
 <!-- markdownlint-enable MD034 -->
 
-High-performance computing (HPC), also called "big compute", uses a large number of CPU or GPU-based computers to solve complex mathematical tasks.
+High-performance computing (HPC), also called *big compute*, uses a large number of CPU or GPU-based computers to solve complex mathematical tasks.
 
-Many industries use HPC to solve some of their most difficult problems.  These include workloads such as:
+Many industries use HPC to solve some of their most difficult problems. These include workloads such as:
 
 - Genomics
 - Oil and gas simulations
@@ -35,7 +35,7 @@ Many industries use HPC to solve some of their most difficult problems.  These i
 
 ### How is HPC different on the cloud?
 
-One of the primary differences between an on-premises HPC system and one in the cloud is the ability for resources to dynamically be added and removed as they're needed.  Dynamic scaling removes compute capacity as a bottleneck and instead allow customers to right size their infrastructure for the requirements of their jobs.
+One of the primary differences between an on-premises HPC system and one in the cloud is the ability for resources to dynamically be added and removed as they're needed. Dynamic scaling removes compute capacity as a bottleneck and instead allow customers to right size their infrastructure for the requirements of their jobs.
 
 The following articles provide more detail about this dynamic scaling capability.
 
@@ -222,14 +222,14 @@ The following are examples of cluster and workload managers that can run in Azur
 
 #### Containers
 
-Containers can also be used to manage some HPC workloads.  Services like the Azure Kubernetes Service (AKS) makes it simple to deploy a managed Kubernetes cluster in Azure.
+Containers can also be used to manage some HPC workloads. Services like the Azure Kubernetes Service (AKS) makes it simple to deploy a managed Kubernetes cluster in Azure.
 
 - [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)
 - [Container Registry](/azure/container-registry/container-registry-intro)
 
 ## Cost management
 
-Managing your HPC cost on Azure can be done through a few different ways.  Ensure you've reviewed the [Azure purchasing options](https://azure.microsoft.com/pricing/purchase-options) to find the method that works best for your organization.
+Managing your HPC cost on Azure can be done through a few different ways. Ensure you've reviewed the [Azure purchasing options](https://azure.microsoft.com/pricing/purchase-options) to find the method that works best for your organization.
 
 ## Security
 
@@ -348,7 +348,6 @@ For the latest announcements, see the following resources:
 These tutorials will provide you with details on running applications on Microsoft Batch:
 
 - [Get started developing with Batch](/azure/batch/quick-run-dotnet)
-- [Use Azure Batch code samples](https://github.com/Azure/azure-batch-samples)
 - [Use low-priority VMs with Batch](/azure/batch/batch-low-pri-vms)
 - [Use compute-intensive VMs in Batch pools](/azure/batch/batch-pool-compute-intensive-sizes)
 

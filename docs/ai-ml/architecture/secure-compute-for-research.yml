@@ -19,7 +19,7 @@ azureCategories:
 products:
    - azure-data-science-vm
    - azure-machine-learning
-   - azure-data-factory
+   - fabric
 name: Design a secure research environment for regulated data
 summary: Learn how to design an architecture on Azure for a regulated environment that allows researchers to access sensitive data.
 thumbnailUrl: /azure/architecture/browse/thumbs/secure-compute-for-research.png

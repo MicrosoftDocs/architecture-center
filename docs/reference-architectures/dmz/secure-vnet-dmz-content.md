@@ -211,7 +211,7 @@ New-AzSubscriptionDeployment -Location eastus `
 
 ---
 
-Once the deployment has been completed, verify site-to-site connectivity by looking at the newly created connection resources. While in the Azure portal, search for 'connections' and note that the status of each connection.
+After the deployment finishes, verify site-to-site connectivity by looking at the newly created connection resources. In the Azure portal, search for *connections* and check the status of each connection.
 
 ![Screenshot showing the status of connections.](./images/portal-connections.png)
 
@@ -248,7 +248,6 @@ For more information and other deployment options, see the Azure Resource Manage
 [guidance-vpn-gateway-security]: /azure/expressroute/expressroute-howto-coexist-resource-manager#security-considerations
 [nsg]: /azure/virtual-network/security-overview
 [ra-vpn-failover]: ../hybrid-networking/expressroute-vpn-failover.yml
-[ra-vpn]: /azure/expressroute/expressroute-howto-coexist-resource-manager
 [rbac-custom-roles]: /azure/role-based-access-control/custom-roles
 [rbac]: /azure/role-based-access-control/role-assignments-portal
 [routing-and-remote-access-service]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd469790(v=ws.11)

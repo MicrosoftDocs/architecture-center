@@ -118,15 +118,15 @@ The [Kubernetes AI toolchain operator (KAITO)](/azure/aks/ai-toolchain-operator)
 
 To improve machine learning operations, KAITO provides the following capabilities:
 
-- **Container image management**: Use container images to manage LLMs. KAITO provides an HTTP server so that you can use a [supported model library](https://github.com/Azure/kaito/tree/main/examples/inference) to perform inference calls.
+- **Container image management**: Use container images to manage LLMs. KAITO provides an HTTP server so that you can use a [supported model library](https://github.com/kaito-project/kaito/tree/main/examples/inference) to perform inference calls.
 
-- **GPU hardware configuration**: KAITO provides preset configurations that are automatically applied based on model requirements. You don't have to manually tune deployment parameters to fit GPU hardware. 
+- **GPU hardware configuration**: KAITO provides preset configurations that are automatically applied based on model requirements. You don't have to manually tune deployment parameters to fit GPU hardware.
 - **Automatic GPU node provisioning**: KAITO automatically provisions GPU nodes based on model requirements and recommends lower-cost GPU VM sizes to configure distributed inferencing.
 - **Integration with Microsoft Artifact Registry**: If your LLM license allows, KAITO can host model images in the public Artifact Registry. This method simplifies access to and deployment of supported models.
 
 For more information about KAITO, see the following resources:
 
-- [Explore the KAITO open-source project](https://github.com/Azure/Kaito)
+- [Explore the KAITO open-source project](https://github.com/kaito-project/kaito)
 - [Deploy an AI model on AKS with KAITO](/azure/aks/ai-toolchain-operator)
 - [Fine tune your language models with open-source KAITO](/azure/aks/concepts-fine-tune-language-models)
 - [Deploy KAITO on AKS by using Terraform](https://techcommunity.microsoft.com/t5/azure-for-isv-and-startups/deploy-kaito-on-aks-using-terraform/ba-p/4108930)
@@ -147,15 +147,15 @@ GPUs can increase cost. Properly monitor workloads to help understand what drive
 
 The following scenarios benefit from cost visibility.
 
-#### GPU-enabled VM size cost
+### GPU-enabled VM size cost
 
 Select the right GPU-enabled VM size to optimize the cost of running GPUs. Daily costs can vary depending on the VM size that you choose. A100 GPUs are costly. You should avoid them unless your workload has specific requirements. AKS cost analysis shows the daily cost for each of your VMs and breaks down the associated costs of each workload that runs on the GPU-enabled VM. Use this data to evaluate whether you have a proper VM size or if you need a more cost-effective option.
 
-#### Idle cost
+### Idle cost
 
 After you create a GPU-enabled node pool, you incur costs on the Azure resource even if you don't run a GPU workload. Idle costs represent the cost of available resource capacity that workloads don't use. This cost adds up quickly if you have several unused nodes. To avoid high idle costs, only create node pools when you run your workload, and use methods such as the [cluster stop feature](/azure/aks/start-stop-cluster) when you don't run your workload. AKS cost analysis shows idle costs for each of your nodes.
 
-#### Overprovisioning and underuse
+### Overprovisioning and underuse
 
 Overprovisioning is when you allocate more resources than necessary for a pod. Overprovisioning leads to resource waste and underuse. Excess resources remain reserved for the node even if you don't use them. To reduce overprovisioning, use the [vertical pod autoscaler](/azure/aks/vertical-pod-autoscaler) to set accurate requests and limits based on previous usage patterns.
 
@@ -172,9 +172,11 @@ For advanced scenarios, you can improve resource bin packing on your nodes. You 
 _This article is maintained by Microsoft. It was originally written by the following contributors._
 
 Principal author:
+
 - [Ayobami Ayodeji](https://www.linkedin.com/in/ayobamiayodeji/) | Senior Program Manager
 
 Other contributors:
+
 - [Steve Buchanan](https://www.linkedin.com/in/steveabuchanan/) | Principal Program Manager
 - [Sachi Desai](https://www.linkedin.com/in/sachi-desai/) | Product Manager
 - [Ally Ford](https://www.linkedin.com/in/allison-ford-pm/) | Product Manager 2

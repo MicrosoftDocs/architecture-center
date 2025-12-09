@@ -5,13 +5,13 @@ To support this worked example, the fictitious firm "Contoso" is used with an Az
 Contoso has implemented the following foundational Azure architecture, which is a subset of the [Enterprise Landing Zone](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-conceptual-architecture) design.
 [![Diagram that shows an example Enterprise Azure landing zone.](../images/dr-for-azure-data-platform-landing-zone-architecture.png)](../images/dr-for-azure-data-platform-landing-zone-architecture.png#lightbox)
 
-*The numbers in the following descriptions correspond to the preceding diagram above.*
+*The numbers in the following descriptions correspond to the preceding diagram.*
 
 ### Contoso's Azure Foundations - Workflow
 
 1. **Enterprise enrollment** - Contoso's top parent enterprise enrollment within Azure reflecting its commercial agreement with Microsoft, its organizational account structure and available Azure subscriptions. It provides the billing foundation for subscriptions and how the digital estate is administered.
 1. **Identity and access management** – The components required to provide identity, authentication, resource access and authorization services across Contoso's Azure estate.
-1. **Management group and subscription organization** - A scalable group hierarchy aligned to the data platform's core capabilities, allowing operationalization at scale using centrally managed security and governance where workloads have clear separation. Management groups provide a governance scope above subscriptions.
+1. **Management group and subscription organization** - A scalable group hierarchy aligned to the data platform's core capabilities, allowing operationalization at scale using centrally managed security and governance where workloads have clear separation. Management groups provide a governance scope over the subscriptions.
 1. **Management subscription** - A dedicated subscription for the various management level  functions of required to support the data platform.
 1. **Connectivity subscription** - A dedicated subscription for the connectivity functions of the data platform enabling it to identify named services, determine secure routing and communication across and between internal and external services.
 1. **Landing zone subscription** – One-to-many subscriptions for Azure native, online applications, internal and external facing workloads and resources
@@ -27,7 +27,7 @@ Within this foundational structure, Contoso has implemented the following elemen
 
 ### Contoso's Data Platform - Workflow
 
-The workflow is read left to right, following the flow of data:
+The workflow is read from left to right, following the flow of data:
 
 - **Data sources** - The sources or types of data that the data platform can consume from.
     
@@ -84,7 +84,7 @@ The following sections provide a baseline understanding of the DR process and le
 
 The following tables present a breakdown of each Azure service and component used across the Contoso – Data platform, with options for DR uplift.
 > [!NOTE]
-> The sections below are organized by stateful vs stateless services.
+> The following sections are organized by stateful versus stateless services.
 
 ### Stateful foundational components
 
@@ -422,14 +422,14 @@ The following tables present a breakdown of each Azure service and component use
         - For further details regarding disaster recovery for Fabric Data Science, refer to [Disaster recovery guidance for Fabric Data Science](/fabric/data-science/data-science-disaster-recovery).
 
 ## Stateful vs stateless components
-The speed of innovation across the Microsoft product suite and Azure, in particular, means the component set that we've used for this worked example quickly evolves. To future-proof against providing stale guidance and extend this guidance to components not explicitly covered in this document, the section below provides some instruction based upon the coarse-grain classification of state.
+The speed of innovation across the Microsoft product suite and Azure, in particular, means the component set that we've used for this worked example quickly evolves. To future-proof against providing stale guidance and extend this guidance to components not explicitly covered in this document, the following section provides some instruction based upon the coarse-grain classification of state.
 
 A component or service is considered stateful if it's designed to retain information from previous events or interactions. Examples include Lakehouse, Eventhouse, and Warehouse, which store data and metadata that must be protected and recovered. By contrast, stateless components keep no record of prior interactions; each request is processed independently using only the information provided at that moment. Examples include Data Factory and Notebooks, which orchestrate or process data without persisting it, relying on external stateful components for storage.
 
 For a DR scenario that calls for redeployment:
 
-- Components/services that are "stateless", like Azure Functions and Azure Data Factory pipelines, can be redeployed from source control with at least a smoke test to validate availability before being introduced into the broader system.
-- Components/services that are "stateful", like Azure SQL Database and storage accounts, require more attention.
+- Components/services that are stateless, like Azure Functions and Azure Data Factory pipelines, can be redeployed from source control with at least a smoke test to validate availability before being introduced into the broader system.
+- Components/services that are stateful, like Azure SQL Database and storage accounts, require more attention.
     - When procuring the component, a key decision is selecting the data redundancy feature. This decision typically focuses on a trade-off between availability and durability with operating costs.
 - Datastores also need a data backup strategy. The data redundancy functionality of the underlying storage mitigates this risk for some designs, while others, like SQL databases need a separate backup process.
     - If necessary, the component can be redeployed from source control with a validated configuration via a smoke-test.
