@@ -8,7 +8,7 @@ This solution uses an on-premises instance of Qlik to replicate on-premises data
 ## Architecture
 
 :::image type="complex" source="media/mainframe-midrange-data-replication-azure-qlik.svg" alt-text="Diagram of an architecture that uses Qlik to migrate data to Azure." lightbox="media/mainframe-midrange-data-replication-azure-qlik.svg" border="false":::
-   The diagram shows the process to migrate on-premises data to Azure. The diagram is divided into two main sections, on-premises datacenter and Azure, that are connected by Azure ExpressRoute. In the on-premises datacenter section, arrows represent how the host agent captures change log information from Db2, IMS, and VSAM data stores and passes it to the Qlik replication server. An arrow represents how the replication server passes data to stream ingestion services, like Eventstream and Eventhouse, in the Azure section of the diagram. Another arrow shows how the replication server passes data directly to Azure data services, like Azure SQL, Azure Data Lake Storage, and Microsoft Fabric. Arrows show how data can also pass from stream ingestion services to Data Lake Storage, Azure Databricks, or other Azure data services.
+   The diagram shows the process to migrate on-premises data to Azure. The diagram is divided into two main sections, on-premises datacenter and Azure, that are connected by Azure ExpressRoute. In the on-premises datacenter section, arrows represent how the host agent captures change log information from Db2, IMS, and VSAM data stores and passes it to the Qlik replication server. An arrow represents how the replication server passes data to stream ingestion services, like eventstreams and eventhouses, in the Azure section of the diagram. Another arrow shows how the replication server passes data directly to Azure data services, like Azure SQL, Azure Data Lake Storage, and Microsoft Fabric. Arrows show how data can also pass from stream ingestion services to Data Lake Storage, Azure Databricks, or other Azure data services.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/mainframe-midrange-data-replication-azure-qlik.vsdx) of this architecture.*
@@ -17,15 +17,15 @@ This solution uses an on-premises instance of Qlik to replicate on-premises data
 
 1. **Host agent:** The host agent on the on-premises system captures change log information from Db2, Information Management System (IMS), and Virtual Storage Access Method (VSAM) data stores and passes it to the Qlik replication server.
 
-1. **Replication server:** The Qlik replication server software ingests the change log information to Eventstream. In this example, Qlik is on-premises, but you can deploy it on a virtual machine in Azure.
+1. **Replication server:** The Qlik replication server software ingests the change log information to the eventstream. In this example, Qlik is on-premises, but you can deploy it on a virtual machine in Azure.
 
-1. **Stream ingestion:** Eventstream and Eventhouse provides for data staging and preperation.
+1. **Stream ingestion:** The eventstream and eventhouse handle data staging and preparation.
 
-     - **Eventstream:** Routes the real-time change log data from Qlik replication server, delivering them via the hot path to Eventhouse to enable near-realtime analytics.
-     - **Eventhouse:** Acts as the real-time analytical store, storing the change log data in Fabric for querying and analytics.
-     - **OneLake:** Unified data lake for historical analysis and large-scale data preparation for advanced analytics via the cold path. Stores curated or replicated change log data from Eventhouse (through OneLake availability) or ingests directly from Eventstream.
+     - **The eventstream** routes the real-time change log data from Qlik replication server. It sends the data via the hot path to the eventhouse to enable near real-time analytics.
+     - **The eventhouse** acts as the real-time analytical store and stores the change log data in Fabric for querying and analytics.
+     - **OneLake** is the unified data lake for historical analysis and large-scale data preparation for advanced analytics via the cold path. It stores curated or replicated change log data from the eventhouse (through OneLake availability) or ingests directly from the eventstream.
 
-1. **Azure data services:** Azure provides the following efficient data storage services and data procesing services.
+1. **Azure data services:** Azure provides the following efficient data storage services and data processing services.
 
    - **Relational database services:**
 
@@ -39,7 +39,7 @@ This solution uses an on-premises instance of Qlik to replicate on-premises data
 
    - **Azure Databricks:** Azure Databricks processes the change log data and updates the corresponding files on Azure.
 
-   - **Microsoft Fabric:** Microsoft Fabric is an all-in-one analytics solution for enterprises. It covers everything from data movement to data science, real-time analytics, and business intelligence. It provides a comprehensive suite of services, including data lake, data engineering, and data integration.
+   - **Microsoft Fabric:** Fabric is an all-in-one analytics solution for enterprises. It covers everything from data movement to data science, real-time analytics, and business intelligence. It provides a comprehensive suite of services, including data lake, data engineering, and data integration.
 
 ### Components
 
@@ -53,11 +53,11 @@ When you design application architecture, it's crucial to prioritize networking 
 
 #### Storage and databases
 
-Azure and Microsoft Fabric deliver managed services that enable secure, scalable, and efficient cloud storage, along with fully managed databases for flexible and intelligent data management. This architecture ensures scalable and more secure cloud storage as well as managed databases for modern data workloads.
+Azure and Fabric provide managed services that enable scalable cloud storage and managed databases for flexible and intelligent data management.
 
-- [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security) is a cloud-based data engineering and analytics platform built on Apache Spark. It can process and transform massive quantities of data. You can explore the data by using machine learning models. Jobs can be written in R, Python, Java, Scala, and Spark SQL. In this architecture, it transforms and analyzes large volumes of ingested data by using machine learning models and supports development in R, Python, Java, Scala, and Spark SQL.
+- [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security) is a cloud-based data engineering and analytics platform built on Apache Spark. It can process and transform massive quantities of data. You can explore the data by using machine learning models. Jobs can be written in R, Python, Java, Scala, and Spark SQL. In this architecture, Azure Databricks transforms and analyzes large volumes of ingested data by using machine learning models. It also supports development in R, Python, Java, Scala, and Spark SQL.
 
-- [OneLake](/fabric/onelake/onelake-overview) OneLake is a single, unified, logical data lake for your whole organization. Like OneDrive, OneLake comes automatically with every Microsoft Fabric tenant and is designed to be the single place for all your analytics data. In this architecture, it serves as the persistent storage layer for processed change log data from on-premises systems.
+- [OneLake](/fabric/onelake/onelake-overview) is a unified, logical data lake that can serve an entire organization. Like OneDrive, OneLake includes all Fabric tenants and provides a single place for all analytics data. In this architecture, OneLake serves as the persistent storage layer for processed change log data from on-premises systems.
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed NoSQL database service. In this architecture, it stores nontabular data migrated from mainframe systems and supports low-latency access across regions.
 
@@ -119,9 +119,9 @@ Reliability helps ensure that your application can meet the commitments that you
 
 - Qlik Data Integration can be configured in a high-availability cluster.
 
-- The Azure database services support zone redundancy and can be designed to fail over to a secondary node during a maintenance window or if an outage occurs.
+- The Azure database services support zone redundancy. You can design them to fail over to a secondary node during a maintenance window or an outage.
   
-- Microsoft Fabric provides regional resiliency through availability zones and supports cross-region recovery.
+- Fabric provides regional resiliency through availability zones and supports cross-region recovery.
 
 ### Security
 
@@ -131,21 +131,21 @@ Security provides assurances against deliberate attacks and the misuse of your v
 
 - Azure resources can be authenticated by using Microsoft Entra ID, and permissions are managed through role-based access control.
 
-- Azure database services and Microsoft Fabric support various security options, such as:
+- Azure database services and Fabric support various security options, including the following capabilities:
 
-  - Data encryption at rest.
+  - Data encryption at rest
 
-  - Dynamic data masking.
+  - Dynamic data masking
 
-  - Always-encrypted databases.
+  - Always-encrypted databases
 
-- For more information, see [Azure security documentation](/azure/security) and [Fabric security documentation](/fabric/security/security-overview)
+- For more information, see [Azure security documentation](/azure/security) and [Fabric security documentation](/fabric/security/security-overview).
 
 ### Cost Optimization
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) and [Microsoft Fabric pricing Estimatator](https://www.microsoft.com/microsoft-fabric/capacity-estimator) to estimate costs for your implementation.
+To estimate costs for your implementation, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) and [Fabric pricing estimator](https://www.microsoft.com/microsoft-fabric/capacity-estimator).
 
 ### Operational Excellence
 
@@ -153,13 +153,13 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 You can combine Application Insights and Log Analytics features to monitor the health of Azure resources. You can set alerts so that you can manage problems proactively.
 
-Microsoft Fabric enables Operational Excellence by unifying governance, observability, and resilient engineering patterns across OneLake, Warehousing, Data Engineering, Real‑Time and other workloads.
+Fabric enables operational excellence by unifying governance, observability, and resilient engineering patterns. This unification occurs across OneLake, Fabric Data Warehouse, Fabric Data Engineer, Fabric Real-Time Intelligence, and other workloads.
 
 ### Performance Efficiency
 
 Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-Microsoft Fabric, Azure Databricks, Data Lake Storage, and other Azure database services have autoscaling capabilities. For more information, see [Autoscaling](../../best-practices/auto-scaling.md).
+Fabric, Azure Databricks, Data Lake Storage, and other Azure database services have autoscaling capabilities. For more information, see [Autoscaling](../../best-practices/auto-scaling.md).
 
 ## Contributors
 
