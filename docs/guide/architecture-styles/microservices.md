@@ -86,6 +86,8 @@ The benefits of microservices come with trade-offs. Consider the following chall
 - Services communicate through well-designed APIs. Avoid leaking implementation details. APIs should model the domain, not the internal implementation of the service.
 
 - Avoid coupling between services. Causes of coupling include shared database schemas and rigid communication protocols.
+  
+- Use proven messaging frameworks for asynchronous communication. Adopt tools such as [MassTransit](https://masstransit.massient.com/) or [NServiceBus](https://particular.net/nservicebus) to handle routing, retries, durability, and workflow patterns instead of building custom messaging logic. These frameworks reduce distributed system complexity, improve reliability, and help teams avoid common pitfalls when implementing message-driven microservices.
 
 - Improve security by using mutual Transport Layer Security (mTLS) for service-to-service encryption. Implement role-based access control and use API gateways to enforce policies.
 
