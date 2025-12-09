@@ -65,11 +65,7 @@ The [Leader Election sample on GitHub](https://github.com/mspnp/cloud-design-pat
 > To avoid a faulted leader instance retaining the lease indefinitely, specify a lifetime for the lease. When this expires, the lease becomes available. However, while an instance holds the lease it can request that the lease is renewed, and it'll be granted the lease for a further period of time. The leader instance can continually repeat this process if it wants to retain the lease.
 > For more information on how to lease a blob, see [Lease Blob (REST API)](/rest/api/storageservices/Lease-Blob).
 
-<<<<<<< HEAD
-The `BlobDistributedMutex` class in the following C# example contains the `RunTaskWhenMutexAcquired` method that enables a worker instance to attempt to acquire a lease over a specified blob. The details of the blob (the name, container, and storage account) are passed to the constructor in a `BlobSettings` object when the `BlobDistributedMutex` object is created (this object is a simple struct that is included in the sample code). The constructor also accepts a `Task` that references the code that the worker instance should run if it successfully acquires the lease over the blob and is elected the leader. Note that the code that handles the low-level details of acquiring the lease is implemented in a separate helper class named `BlobLeaseManager`.
-=======
 The `BlobDistributedMutex` class in the C# example below contains the `RunTaskWhenMutexAcquired` method that enables a worker instance to attempt to acquire a lease over a specified blob. The details of the blob (the name, container, and storage account) are passed to the constructor in a `BlobSettings` object when the `BlobDistributedMutex` object is created (this object is a simple struct that is included in the sample code). The constructor also accepts a `Task` that references the code that the worker instance should run if it successfully acquires the lease over the blob and is elected the leader. The code that handles the low-level details of acquiring the lease is implemented in a separate helper class named `BlobLeaseManager`.
->>>>>>> 1077de794121d14b95aaecc1badf653e98d64391
 
 ```csharp
 public class BlobDistributedMutex
