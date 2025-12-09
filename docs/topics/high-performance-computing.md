@@ -190,10 +190,10 @@ In this Hybrid example diagram, we can see clearly how these services are distri
 ![Diagram shows example HPC architecture for CycleCloud on Azure in a Hybrid.](images/industry-standard-high-performance-computing-job-scheduler-hybrid-cloudbursting-model-azure-cyclecloud.jpg)
 
 ##### Cloud native model
+
 The cloud native model example diagram below, shows how the workload in the cloud will handle everything while still conserving the connection to the on-premises environment.
 
-![Diagram shows example HPC architecture for CycleCloud on Azure in Cloud native model
-.](images/industry-standard-high-performance-computing-job-scheduler-cloud-native-model-azure-cyclecloud.jpg)
+![Diagram shows example HPC architecture for CycleCloud on Azure in Cloud native model.](images/industry-standard-high-performance-computing-job-scheduler-cloud-native-model-azure-cyclecloud.jpg)
 
 ### Comparison chart
 
@@ -203,7 +203,7 @@ The cloud native model example diagram below, shows how the workload in the clou
 |Compute Resources |Software as a Service Nodes – Platform as a Service |Platform as a Service Software – Platform as a Service |
 |Monitor Tools |Azure Monitor |Azure Monitor, Grafana |
 |Customization |Custom image pools, Third Party images, Batch API access. |Use the comprehensive RESTful API to customize and extend functionality, deploy your own scheduler, and support into existing workload managers |
-|Integration | Synapse Pipelines, Azure Data Factory, Azure CLI |Built-In CLI for Windows and Linux |
+|Integration | Data Factory in Microsoft Fabric, Azure Data Factory, Azure CLI |Built-In CLI for Windows and Linux |
 |User type |Developers |Classic HPC administrators and users |
 |Work Type |Batch, Workflows |Tightly coupled (Message Passing Interface/MPI).|
 |Windows Support |Yes |Varies, depending on scheduler choice |
