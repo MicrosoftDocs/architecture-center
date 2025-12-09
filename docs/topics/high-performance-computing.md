@@ -222,7 +222,7 @@ The following are examples of cluster and workload managers that can run in Azur
 
 #### Containers
 
-Containers can also be used to manage some HPC workloads. Services like the Azure Kubernetes Service (AKS) makes it simple to deploy a managed Kubernetes cluster in Azure.
+Containers can also be used to manage some HPC workloads. Services like the Azure Kubernetes Service (AKS) make it simple to deploy a managed Kubernetes cluster in Azure.
 
 - [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)
 - [Container Registry](/azure/container-registry/container-registry-intro)
