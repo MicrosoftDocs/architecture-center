@@ -28,7 +28,7 @@ A traditional three-tier application has a presentation tier, an optional middle
 An N-tier application can have a **closed layer architecture** or an **open layer architecture**:
 
 - In a closed layer architecture, a layer can only call the next layer immediately down.
-- In an open layer architecture, a layer can call any layers below it.
+- In an open layer architecture, a layer can call any layers under it.
 
 A closed layer architecture limits the dependencies between layers. But this architecture might create unnecessary network traffic if one layer only passes requests along to the next layer.
 
@@ -74,7 +74,7 @@ Implement N-tier architectures effectively by using managed services that provid
 This section describes an N-tier architecture that runs on VMs.
 
 > [!NOTE]
-> Use VMs to host an N-teir architecture if you plan to migrate an existing application to Azure with minimal refactoring. Otherwise, consider using [managed services to implement the architecture](/azure/app-service/tutorial-secure-ntier-app), such as Azure App Service or Azure Container Apps.
+> Use VMs to host an N-tier architecture if you plan to migrate an existing application to Azure with minimal refactoring. Otherwise, consider using [managed services to implement the architecture](/azure/app-service/tutorial-secure-ntier-app), such as Azure App Service or Azure Container Apps.
 
 :::image type="complex" source="./images/n-tier-physical-bastion.png" border="false" lightbox="./images/n-tier-physical-bastion.png" alt-text="Diagram that shows an N-tier architecture.":::
 The flow begins with the internet, which connects to a load balancer that routes incoming traffic to two network virtual appliances (NVAs) located in the perimeter network. Traffic then passes through another load balancer to reach multiple VMs in the web tier. A third load balancer forwards traffic from the web tier to the business tier, which includes multiple VMs. The business tier connects through a fourth load balancer to the data tier, which includes a primary and secondary SQL Server. For secure administrative access, DevOps personnel use the Azure portal to connect to an Azure Bastion host located in the AzureBastionSubnet. The perimeter network, all tiers, and the AzureBastionSubnet reside in a virtual network.

@@ -130,7 +130,7 @@ The free tier might also be offered as a time-limited trial, and during the tria
 
 **Benefits:** It's very easy to market a solution when it's free.
 
-**Complexity and operational cost:** All of the complexity and operational cost concerns apply from the feature-based pricing model. You also have to consider the operational cost involved in managing free tenants. You might need to ensure that stale tenants are offboarded or removed, and you must have a clear retention policy, especially for free tenants. When moving a tenant to a paid tier, you might need to migrate the tenant's data or workload between Azure services to obtain higher SLAs. It will also be important to retain the tenant's data and configuration, when moving to a paid tier.
+**Complexity and operational cost:** All of the complexity and operational cost concerns apply from the feature-based pricing model. You also have to consider the operational cost involved in managing free tenants. You might need to ensure that stale tenants are offboarded or removed, and you must have a clear retention policy, especially for free tenants. When you move a tenant to a paid tier, you might need to migrate the tenant's data or workload between Azure services to obtain higher SLAs. It's also important to retain the tenant's data and configuration when you move to a paid tier.
 
 **Risks:** You need to ensure that you provide a high enough ROV for tenants to consider switching to a paid tier. Additionally, the cost of providing your solution to customers on the free tier needs to be covered by the profit margin from those who are on paid tiers.
 

@@ -26,7 +26,7 @@ Design your mission-critical workload with appropriate data stores. Consider usi
 
 - **Database**
 
-  Stores related to the workload.  It's recommended that all state is stored globally in a database separated from regional stamps. Build redundancy by deploying the database across regions. For mission-critical workloads, synchronizing data across regions should be the primary concern. Also, in case of a failure, write requests to the database should still be functional.
+  Stores related to the workload. It's recommended that all state is stored globally in a database separated from regional stamps. Build redundancy by deploying the database across regions. For mission-critical workloads, synchronizing data across regions should be the primary concern. Also, in case of a failure, write requests to the database should still be functional.
 
   Data replication in an active-active configuration is highly recommended. The application should be able to instantly connect with another region. All instances should be able to handle read and write requests.
 
@@ -54,7 +54,7 @@ Consider using Azure Cosmos DB for NoSQL for mission-critical workloads. This op
 
 - **Query optimization**
 
-  A general query efficiency recommendation for read-heavy containers with a high number of partitions is to add an equality filter with the itemID identified. An in-depth review of query optimization recommendations can be found at [Troubleshoot query issues when using Azure Cosmos DB](/azure/cosmos-db/sql/troubleshoot-query-performance).
+  A general query efficiency recommendation for read-heavy containers with a high number of partitions is to add an equality filter with the itemID identified. An in-depth review of query optimization recommendations can be found at [Troubleshoot query issues when you use Azure Cosmos DB](/azure/cosmos-db/sql/troubleshoot-query-performance).
 
 - **Backup feature**
 
@@ -137,7 +137,7 @@ The messaging system must be able to handle the required throughput (as in MB pe
 
 ### Every message must be processed
 
-Azure Service Bus premium tier is the recommended solution for high-value messages for which processing must be guaranteed. The following details describe this requirement when you use Azure Service Bus premium:
+Azure Service Bus premium tier is the recommended solution for high-value messages for which processing must be guaranteed. The following are details regarding this requirement when you use Azure Service Bus premium:
 
 - To ensure that messages are properly transferred to and accepted by the broker, message producers should use one of the supported Service Bus API clients. Supported APIs will only return successfully from a send operation if the message was persisted on the queue/topic.
 - To ensure messages on the bus are processed, you should use [PeekLock receive mode](/azure/service-bus-messaging/message-transfers-locks-settlement#peeklock). This mode enables at-least once processing. The following steps outline the process:
