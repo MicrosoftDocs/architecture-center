@@ -11,7 +11,7 @@ ms.subservice: architecture-guide
 
 # Design and develop a RAG solution
 
-The Retrieval-Augmented Generation (RAG) pattern is an industry-standard approach to building applications that use language models to process specific or proprietary data that the model doesn't already know. The architecture is straightforward, but designing, experimenting with, and evaluating RAG solutions that fit into this architecture involve many complex considerations that benefit from a rigorous, scientific approach.
+The retrieval-augmented generation (RAG) pattern is an industry-standard approach to building applications that use language models to process specific or proprietary data that the model doesn't already know. The architecture is straightforward, but designing, experimenting with, and evaluating RAG solutions that fit into this architecture involve many complex considerations that benefit from a rigorous, scientific approach.
 
 This article is the introduction of a series. Each article in the series covers a specific phase in RAG solution design.
 
@@ -103,7 +103,7 @@ Because of the number of steps and variables, it's important that you follow a s
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
+*Microsoft maintains this article. The following contributors wrote this article.*
 
 Principal authors:
 

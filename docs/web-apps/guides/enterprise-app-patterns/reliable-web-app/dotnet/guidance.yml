@@ -24,6 +24,6 @@ products:
   - dotnet
 name: Reliable Web App pattern for .NET
 summary: Implement the reliable web app pattern for .NET. Migrate (replatform) web apps to the cloud with prescriptive architecture, code, and configuration guidance.
-thumbnailUrl: /azure/architecture/browse/thumbs/reliable-web-app-dotnet-1.1.svg
+thumbnailUrl: /azure/architecture/browse/thumbs/reliable-web-app-dotnet.png
 content: |
    [!include[](guidance-content.md)]

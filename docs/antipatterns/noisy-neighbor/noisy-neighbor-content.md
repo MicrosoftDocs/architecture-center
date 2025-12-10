@@ -30,7 +30,7 @@ Sharing a single resource inherently carries the risk of noisy neighbor problems
 
 - **Purchase reserved capacity, if available.** For example, when you use Azure Cosmos DB, purchase [reserved throughput](/azure/cosmos-db/optimize-cost-throughput).
 
-- **Migrate to a service tier that has stronger isolation guarantees, if available.** For example, when you use Azure Service Bus, [migrate to the premium tier](/azure/service-bus-messaging/service-bus-premium-messaging). When you use Azure Cache for Redis, [provision a standard or premium tier cache](/azure/azure-cache-for-redis/cache-overview?branch=main#service-tiers).
+- **Migrate to a service tier that has stronger isolation guarantees, if available.** For example, when you use Azure Service Bus, [migrate to the premium tier](/azure/service-bus-messaging/service-bus-premium-messaging). When you use [Azure Managed Redis](/azure/redis/overview#choosing-the-right-tier) with dedicated infrastructure and private networking you help eliminate noisy neighbor effects.
 
 - **Migrate to a single-tenant instance of the service.** For example, when you use Azure ExpressRoute, [provision separate circuits for environments that are sensitive to performance](/azure/cloud-adoption-framework/ready/azure-best-practices/connectivity-to-azure).
 
@@ -52,7 +52,7 @@ Sharing a single resource inherently carries the risk of noisy neighbor problems
 
 - **Check whether your downstream services provide controls to mitigate noisy neighbor problems.** For example, when you use Kubernetes, consider using [pod limits](/azure/aks/developer-best-practices-resource-management). When you use Azure Service Fabric, consider using the [built-in governance capabilities](/azure/service-fabric/service-fabric-resource-governance).
 
-- **Restrict the operations that tenants can perform.** For example, restrict tenants from performing operations that run very large database queries, such as by specifying a maximum returnable record count or time limit on queries. Or change these operations to be asynchronous and schedule them to run at off-peak times. This action mitigates the risk of tenants taking actions that might negatively affect other tenants.
+- **Restrict the operations that tenants can perform.** For example, restrict tenants from running resource-intensive database queries by setting a maximum returnable record count or query time limit. Or change these operations to be asynchronous and schedule them to run at off-peak times. This action mitigates the risk of tenants taking actions that might negatively affect other tenants.
 
 - **Provide a quality of service (QoS) system.** When you apply QoS, you prioritize some processes or workloads before other processes or workloads. By factoring QoS into your design and architecture, you can ensure that high-priority operations take precedence when there's pressure on your resources.
 

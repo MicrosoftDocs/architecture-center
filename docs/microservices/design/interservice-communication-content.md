@@ -10,11 +10,11 @@ Here are some of the main challenges arising from service-to-service communicati
 
 - **[Circuit Breaker](../../patterns/circuit-breaker.md)**. Too many failed requests can cause a bottleneck, as pending requests accumulate in the queue. These blocked requests might hold critical system resources such as memory, threads, database connections, and so on, which can cause cascading failures. The Circuit Breaker pattern can prevent a service from repeatedly trying an operation that is likely to fail.
 
-**Load balancing**. When service "A" calls service "B", the request must reach a running instance of service "B". In Kubernetes, the `Service` resource type provides a stable IP address for a group of pods. Network traffic to the service's IP address gets forwarded to a pod by means of iptable rules. By default, a random pod is chosen. A service mesh (see below) can provide more intelligent load balancing algorithms based on observed latency or other metrics.
+**Load balancing**. When service "A" calls service "B", the request must reach a running instance of service "B". In Kubernetes, the `Service` resource type provides a stable IP address for a group of pods. Network traffic to the service's IP address gets forwarded to a pod by means of iptable rules. By default, a random pod is chosen. A [service mesh](#using-a-service-mesh) can provide more intelligent load balancing algorithms based on observed latency or other metrics.
 
 **Distributed tracing**. A single transaction might span multiple services. That can make it hard to monitor the overall performance and health of the system. Even if every service generates logs and metrics, without some way to tie them together, they are of limited use. 
 
-**Service versioning**. When a team deploys a new version of a service, they must avoid breaking any other services or external clients that depend on it. In addition, you might want to run multiple versions of a service side-by-side, and route requests to a particular version. For more information, see [API versioning](./api-design.yml#api-versioning).
+**Service versioning**. When a team deploys a new version of a service, they must avoid breaking any other services or external clients that depend on it. In addition, you might want to run multiple versions of a service side-by-side, and route requests to a particular version. For more information, see [API versioning](./api-design.md#api-versioning).
 
 **TLS encryption and mutual TLS authentication**. For security reasons, you might want to encrypt traffic between services with TLS, and use mutual TLS authentication to authenticate callers.
 
@@ -121,14 +121,14 @@ The Scheduler service itself might fail (for example, because a node crashes). I
 
 One approach is to save a checkpoint to a durable store after each step in the workflow is completed. If an instance of the Scheduler service crashes in the middle of a transaction, a new instance can use the checkpoint to resume where the previous instance left off. However, writing checkpoints can create a performance overhead.
 
-Another option is to design all operations to be idempotent. An operation is idempotent if it can be called multiple times without producing additional side-effects after the first call. Essentially, the downstream service should ignore duplicate calls, which means the service must be able to detect duplicate calls. It's not always straightforward to implement idempotent methods. For more information, see [Idempotent operations](./api-design.yml#idempotent-operations).
+Another option is to design all operations to be idempotent. An operation is idempotent if it can be called multiple times without producing additional side-effects after the first call. Essentially, the downstream service should ignore duplicate calls, which means the service must be able to detect duplicate calls. It's not always straightforward to implement idempotent methods. For more information, see [Idempotent operations](./api-design.md#idempotent-operations).
 
 ## Next steps
 
 For microservices that talk directly to each other, it's important to create well-designed APIs.
 
 > [!div class="nextstepaction"]
-> [API design](./api-design.yml)
+> [API design](./api-design.md)
 
 ## Related resources
 

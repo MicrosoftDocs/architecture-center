@@ -250,7 +250,7 @@ For site-to-site VPN DevOps considerations, see the [Configure a Hybrid Network 
 
 Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-ExpressRoute circuits provide a high-bandwidth path between networks. Generally, the higher the bandwidth, the higher the cost. 
+ExpressRoute circuits provide a high-bandwidth path between networks. Generally, the higher the bandwidth, the higher the cost.
 
 > [!NOTE]
 > Use the [Azure Connectivity Toolkit](/azure/expressroute/expressroute-troubleshooting-network-performance#azurect---the-azure-connectivity-toolkit) to ensure the ExpressRoute gateway meets workload requirements.
@@ -384,15 +384,9 @@ Microsoft Learn modules:
 [connect-to-an-Azure-vnet]: /microsoft-365/enterprise/connect-an-on-premises-network-to-a-microsoft-azure-virtual-network?view=o365-worldwide
 [configure-expressroute]: ./expressroute-vpn-failover.yml
 [configure-vpn]: /azure/expressroute/expressroute-howto-coexist-resource-manager
-[guidance-expressroute]: ./expressroute-vpn-failover.yml
 [guidance-vpn]: /azure/expressroute/use-s2s-vpn-as-backup-for-expressroute-privatepeering
-[best-practices-security]: /azure/best-practices-network-security
 [configure-expressroute-routing]: /azure/expressroute/expressroute-howto-routing-arm
 [sla-for-expressroute]: https://azure.microsoft.com/support/legal/sla/expressroute
-[devops-monitoring]: /azure/architecture/framework/devops/checklist
 [expressroute-introduction]: /azure/expressroute/expressroute-introduction
 [expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute/
-[AAF-devops]: /azure/architecture/framework/devops/overview
-[azurect]: https://github.com/Azure/NetworkMonitoring/tree/main/AzureCT
 [highly-available-network-architecture]: ./expressroute-vpn-failover.yml
-[visio-download]: https://arch-center.azureedge.net/hybrid-networking-expressroute.vsdx

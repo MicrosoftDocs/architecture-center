@@ -1,8 +1,8 @@
 ---
 title: Migrate from Amazon Elastic Kubernetes Service to Azure Kubernetes Service
 description: Learn how to migrate stateless and stateful workloads from Amazon Elastic Kubernetes Service (EKS) to Azure Kubernetes Service (AKS).
-author: ketan-chawda-msft
-ms.author: kechaw
+author: swgriffith
+ms.author: stgriffi
 ms.date: 01/28/2025
 ms.topic: concept-article
 ms.subservice: architecture-guide
@@ -152,7 +152,6 @@ Other contributors:
 
 ## Next steps
 
-- [Migration guide: Azure samples](https://github.com/Azure-Samples/eks-aks-migration-guide)
 - [Back up and restore workload clusters by using Velero in AKS hybrid](/azure/aks/hybrid/backup-workload-cluster)
 - [Migrate to AKS](/azure/aks/aks-migration)
 

@@ -37,7 +37,7 @@ Two comparative tables summarize nonrelational model traits to help you quickly 
 | Object and file | Large binary or semi-structured file storage | Azure Blob Storage or Azure Data Lake Storage |
 | Search and indexing | Full-text and multi-field relevance, secondary indexing | Azure AI Search |
 | Vector | Semantic or approximate nearest neighbor (ANN) similarity | Azure AI Search or Azure Cosmos DB variants |
-| Analytics, online analytical processing (OLAP), massively parallel processing (MPP) | Large-scale historical aggregation or business intelligence (BI) | Microsoft Fabric, Azure Synapse Analytics, Azure Data Explorer, Azure Analysis Services, or Azure Databricks |
+| Analytics, online analytical processing (OLAP), massively parallel processing (MPP) | Large-scale historical aggregation or business intelligence (BI) | Microsoft Fabric, Azure Data Explorer, Azure Analysis Services, or Azure Databricks |
 
 > [!NOTE]
 > A single service might provide multiple models, also known as *multimodel*. Choose the best-fit model instead of combining models in a way that complicates operations.
@@ -91,7 +91,7 @@ Use document data stores to store semi-structured documents, often in JSON forma
 
 - [Azure Cosmos DB for NoSQL](/azure/cosmos-db/nosql/) is a schema-less, multi-region NoSQL database that has low-latency reads and writes.
 
-- [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/overview) is a globally distributed database that has MongoDB wire protocol compatibility and autoscaling.
+- [Azure DocumentDB](/azure/documentdb/overview) is a globally distributed database that has MongoDB wire protocol compatibility and autoscaling.
 - [Azure Cosmos DB in Fabric](/fabric/database/cosmos-db/overview) is a schema-less, NoSQL database that has low-latency reads and writes, simplified management, and built-in Fabric analytics.
 
 Use the following table to help determine which Azure service meets your use case requirements.
@@ -99,7 +99,7 @@ Use the following table to help determine which Azure service meets your use cas
 | Service | Best for | Key features | Example use case |
 |--------|----------|--------------|------------------|
 | [Azure Cosmos DB for NoSQL](/azure/cosmos-db/nosql/) | Custom JSON document models that support SQL-like querying | Rich query language, multi-region writes, time to live (TTL), change feed | Building a multitenant SaaS platform that supports flexible schemas |
-| [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/overview) | Apps that use MongoDB drivers or JSON-centric APIs | Global distribution, autoscale, native MongoDB wire protocol | Migrating a Node.js app from MongoDB to Azure |
+| [Azure DocumentDB](/azure/documentdb/overview) | Apps that use MongoDB drivers or JSON-centric APIs | Global distribution, autoscale, MongoDB-native wire protocol | Migrating a Node.js app from MongoDB to Azure |
 | [Azure Cosmos DB in Fabric](/fabric/database/cosmos-db/overview) | Real-time analytics over NoSQL data | Automatic extract, transform, and load (ETL) to OneLake through Fabric integration | Transactional apps that include real-time analytical dashboards |
 
 ### Column-family data stores <a id="columnar-data-stores"></a>
@@ -200,7 +200,7 @@ Use the following table to help determine which Azure service meets your use cas
 
 |Service|Best for|Key features|Example use case|
 |-----|-----|-----|-----|
-|[Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction)|Big data analytics and hierarchical data|HDFS, hierarchical namespace, optimized for analytics|Storing and querying petabytes of structured and unstructured data by using Azure Synapse Analytics or Azure Databricks|
+|[Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction)|Big data analytics and hierarchical data|HDFS, hierarchical namespace, optimized for analytics|Storing and querying petabytes of structured and unstructured data by using Azure Data Factory or Azure Databricks|
 |[Blob Storage](/azure/storage/blobs/storage-blobs-introduction)|General-purpose object storage|Flat namespace, simple REST API, and tiered storage that includes hot, cool, and archive|Hosting images, documents, backups, and static website content|
 
 ### Search and indexing data stores <a id="search-engine-databases"></a>

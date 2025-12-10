@@ -124,7 +124,6 @@ This document refers to some services, technologies, and terminologies. You can 
 
 - [MITRE ATT&CK®](https://attack.mitre.org)
 - [ATT&CK® Navigator)](https://mitre-attack.github.io/attack-navigator)
-- [Public Preview: The MITRE ATT&CK Framework Blade in Microsoft Sentinel](https://azurecloudai.blog/2022/02/25/public-preview-the-mitre-attck-framework-blade-in-microsoft-sentinel), a post from the Azure Cloud & AI Domain Blog
 - [The Cyber Kill Chain®](https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html)
 - [Embrace proactive security with Zero Trust](https://www.microsoft.com/security/business/zero-trust)
 - [Blended threat](https://en.wikipedia.org/wiki/Blended_threat) on Wikipedia

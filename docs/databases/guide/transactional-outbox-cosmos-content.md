@@ -82,7 +82,7 @@ As soon as a `Contact` is created or updated, it emits events that contain infor
 
 ### Transactional batches
 
-To implement this pattern, you need to ensure the `Contact` business object and the corresponding events are saved in the same database transaction. In Azure Cosmos DB, transactions work differently than they do in relational database systems. Azure Cosmos DB transactions, called *transactional batches*, operate on a single [logical partition](https://learn.microsoft.com/azure/cosmos-db/partitioning-overview), so they guarantee Atomicity, Consistency, Isolation, and Durability (ACID) properties. You can't save two documents in a transactional batch operation in different containers or logical partitions. For the sample service, that means that both the business object and the event or events are put in the same container and logical partition.
+To implement this pattern, you need to ensure the `Contact` business object and the corresponding events are saved in the same database transaction. In Azure Cosmos DB, transactions work differently than they do in relational database systems. Azure Cosmos DB transactions, called *transactional batches*, operate on a single [logical partition](/azure/cosmos-db/partitioning-overview), so they guarantee Atomicity, Consistency, Isolation, and Durability (ACID) properties. You can't save two documents in a transactional batch operation in different containers or logical partitions. For the sample service, that means that both the business object and the event or events are put in the same container and logical partition.
 
 ### Context, repositories, and UnitOfWork
 

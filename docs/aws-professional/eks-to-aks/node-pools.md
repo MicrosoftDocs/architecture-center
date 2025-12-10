@@ -545,11 +545,7 @@ Other contributors:
 ## Next steps
 
 - [AKS cluster best practices](/azure/aks/best-practices)
-- [Create a private AKS cluster with a public DNS zone](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/private-aks-cluster-with-public-dns-zone)
 - [Use Azure Firewall to help protect an AKS cluster](../../guide/aks/aks-firewall.yml)
-- [Create a public or private AKS cluster with Azure NAT Gateway and Azure Application Gateway](https://github.com/Azure-Samples/aks-nat-agic)
-- [Use private endpoints with a private AKS cluster](https://github.com/azure-samples/private-aks-cluster)
-- [Create an AKS cluster with the Application Gateway Ingress Controller](https://github.com/Azure-Samples/aks-agic)
 - [Training: Introduction to Kubernetes](/learn/modules/intro-to-kubernetes/)
 - [Training: Introduction to Kubernetes on Azure](/learn/paths/intro-to-kubernetes-on-azure/)
 - [Training: Develop and deploy applications on Kubernetes](/learn/paths/develop-deploy-applications-kubernetes/)

@@ -169,15 +169,8 @@ Implementing network security boundaries adds complexity to operations and deplo
 - Implement [Azure Bastion](/azure/bastion/bastion-overview) for scenarios where operations teams need to access network secure resources.
 - The use of [Web Application Firewall on Azure Front Door](/azure/frontdoor/web-application-firewall) to provide centralized protection for HTTP and HTTPS requests is an example of the gateway offloading pattern. The responsibility of examining requests for exploits is offloaded to Web Application Firewall in Azure Front Door. The benefit from an operational excellence perspective is that you need to manage the rules in only one place.
 
-> [!IMPORTANT]
-> The [network secure ingress sample](https://github.com/Azure-Samples/frontdoor-bicep-network-secure-global-ingress) allows you to deploy all of the resources required for you to connect to a jump box through Azure Bastion and connect to a network secure VM.
-
 ### Performance efficiency
 
 Performance efficiency is the ability of your workload to scale to meet the demands that users place on it. For more information, see [Overview of the performance efficiency pillar](/azure/architecture/framework/scalability/overview).
 
 Global routing enables horizontal scaling through the deployment of more resources in the same region or different regions.
-
-## Next steps
-
-- Deploy this implementation by following the steps outlined in the [network secured ingress sample](https://github.com/Azure-Samples/frontdoor-bicep-network-secure-global-ingress).

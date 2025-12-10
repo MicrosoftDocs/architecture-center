@@ -29,7 +29,6 @@ The following resources can help you learn the core concepts of integration:
 - [Integration design for Dynamics 365 solutions][Integration design for Dynamics 365 solutions]
 - [Data integrations with Finance and Operations apps][Data integrations with Finance and Operations apps]
 - [Examine business integration for IoT solutions][Examine business integration for IoT solutions]
-- [Integrate data with Azure Data Factory or Azure Synapse Pipeline][Integrate data with Azure Data Factory or Azure Synapse Pipeline]
 - [Explore Event Grid integration][Explore Event Grid integration]
 - [Architect API integration in Azure][Architect API integration in Azure]
 
@@ -96,7 +95,7 @@ These reference architectures provide baseline implementations for various scena
 - [Data analysis workloads for regulated industries][Data analysis workloads for regulated industries]: Run data analytics workloads that take into account regulatory requirements.
 - [Basic enterprise integration on Azure][Basic enterprise integration on Azure]: Orchestrate synchronous calls to enterprise back-end systems.
 - [Enterprise integration using message broker and events](../example-scenario/integration/queues-events.yml): Orchestrate asynchronous calls to enterprise back-end systems by using queues and events.
-- [Enterprise business intelligence][Enterprise business intelligence]: Move data from an on-premises SQL Server database into Azure Synapse Analytics and transform the data for analysis.
+- [Enterprise business intelligence][Enterprise business intelligence]: Move data from an on-premises SQL Server database into Microsoft Fabric and transform the data for analysis.
 - [Web and mobile front ends][Web and mobile front ends]: Make third-party data available to web users.
 
 ## Operations guide
@@ -148,7 +147,6 @@ The following resources provide practical recommendations and information for sp
 [Google Cloud to Azure services comparison—Messaging and eventing]: ../gcp-professional/services.md#messaging-and-eventing
 [Google Cloud to Azure services comparison—Miscellaneous workflow]: ../gcp-professional/services.md#miscellaneous
 [Identify microservice boundaries]: ../microservices/model/microservice-boundaries.yml
-[Integrate data with Azure Data Factory or Azure Synapse Pipeline]: /training/modules/data-integration-azure-data-factory
 [Integrate Event Hubs with serverless functions on Azure]: ../serverless/event-hubs-functions/event-hubs-functions.yml
 [Integrate IBM mainframe and midrange message queues with Azure]: ../example-scenario/mainframe/integrate-ibm-message-queues-azure.yml
 [Integration design for Dynamics 365 solutions]: /training/modules/integration

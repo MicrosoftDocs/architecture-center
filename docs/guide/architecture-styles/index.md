@@ -30,9 +30,9 @@ This section gives a quick tour of the architecture styles that we identified, a
    The diagram illustrates the layered structure of an N-tier architecture with clear separation between components. Client requests enter through a web application firewall (WAF) that provides security filtering before reaching the web tier. The web tier serves as the presentation layer. It handles user interactions and routing requests to appropriate business logic components. Two distinct processing paths emerge from the web tier: one path flows directly to middle tier one for synchronous operations, while another path uses messaging infrastructure to communicate with middle tier two for asynchronous processing. Both middle tiers represent business logic layers that process requests and interact with the data tier through caching mechanisms to optimize performance. The data tier serves as the foundation. It stores and manages application data while supporting both middle tiers through cached data access patterns.
 :::image-end:::
 
-**[N-tier][n-tier]** is a traditional architecture for enterprise applications that divides an application into logical layers and physical tiers. Each layer has a specific responsibility, and layers manage dependencies by only calling into layers below them. Typical layers include presentation, business logic, and data access.
+**[N-tier][n-tier]** is a traditional architecture for enterprise applications that divides an application into logical layers and physical tiers. Each layer has a specific responsibility, and layers manage dependencies by only calling into layers under them. Typical layers include presentation, business logic, and data access.
 
-N-tier architectures are well-suited for migrating existing applications that already use a layered architecture. This approach requires minimal changes when moving to Azure and supports mixed environments with both on-premises and cloud components. But the horizontal layering can make it difficult to introduce changes without affecting multiple parts of the application, which limits agility for frequent updates.
+N-tier architectures are well-suited for migrating existing applications that already use a layered architecture. This approach requires minimal changes when you move to Azure and supports mixed environments with both on-premises and cloud components. But the horizontal layering can make it difficult to introduce changes without affecting multiple parts of the application, which limits agility for frequent updates.
 
 ### Web-Queue-Worker
 
@@ -110,7 +110,7 @@ The following table summarizes how each style manages dependencies, and the type
 | Architecture style | Dependency management | Domain type |
 |--------------------|------------------------|-------------|
 | [N-tier][n-tier] | Horizontal tiers divided by subnet | Traditional business domain. Frequency of updates is low. |
-| [Web-Queue-Worker](./web-queue-worker.yml) | Front-end and back-end jobs, decoupled by asynchronous messaging. | Relatively simple domain with some resource-intensive tasks. |
+| [Web-Queue-Worker](./web-queue-worker.md) | Front-end and back-end jobs, decoupled by asynchronous messaging. | Relatively simple domain with some resource-intensive tasks. |
 | [Microservices][microservices] | Vertically (functionally) decomposed services that call each other through APIs. | Complicated domain. Frequent updates. |
 | [Event-driven architecture](./event-driven.md) | Producer or consumer. Independent view for each subsystem. | Internet of Things (IoT) and real-time systems. |
 | [Big data](./big-data.md) | Divide a huge dataset into small chunks. Parallel processing on local datasets. | Batch and real-time data analysis. Predictive analysis by using machine learning. |
@@ -147,4 +147,4 @@ Consider the following types of challenges when you select an architecture style
 [ball-of-mud]: https://en.wikipedia.org/wiki/Big_ball_of_mud
 [microservices]: ./microservices.md
 [n-tier]: ./n-tier.md
-[web-queue-worker]: ./web-queue-worker.yml
+[web-queue-worker]: ./web-queue-worker.md

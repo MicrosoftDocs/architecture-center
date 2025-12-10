@@ -8,7 +8,7 @@ CDNs are typically used to deliver static content such as images, style sheets, 
 
 In Azure, the [Azure Content Delivery Network](/azure/cdn/cdn-overview) is a global CDN solution for delivering high-bandwidth content that is hosted in Azure or any other location. Using Azure Content Delivery Network, you can cache publicly available objects loaded from Azure blob storage, a web application, virtual machine, any publicly accessible web server.
 
-This topic describes some general best practices and considerations when using a CDN. For more information, see [Azure CDN](/azure/cdn).
+This topic describes some general best practices and considerations when you use a CDN. For more information, see [Azure CDN](/azure/cdn).
 
 ## How and why a CDN is used
 
@@ -74,7 +74,7 @@ You might need to use different CDN instances at various times. For example, whe
 
 Do not use the query string to denote different versions of the application in links to resources on the CDN because, when retrieving content from Azure blob storage, the query string is part of the resource name (the blob name). This approach can also affect how the client caches resources.
 
-Deploying new versions of static content when you update an application can be a challenge if the previous resources are cached on the CDN. For more information, see the section on cache control, below.
+Deploying new versions of static content when you update an application can be a challenge if the previous resources are cached on the CDN. For more information, see the following section on cache control.
 
 Consider restricting the CDN content access by country/region. Azure Content Delivery Network allows you to filter requests based on the country or region of origin and restrict the content delivered. For more information, see [Restrict access to your content by country/region](/azure/cdn/cdn-restrict-access-by-country-region).
 

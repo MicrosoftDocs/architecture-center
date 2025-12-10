@@ -137,16 +137,16 @@ The MicroProfile project provides a collection of specifications designed to hel
 
 The following table provides build or migration information by application type and Azure service.
 
-|                              | Type             | Java SE  | MicroProfile | JarkartaSE |
-|------------------------------|------------------|----------|--------------|------------|
-| **Virtual Machine**          | IaaS             | &#x2714; | &#x2714;     | &#x2714;   |
-| **VMware Tanzu**             | IaaS             | &#x2714; |              |            |
-| **Azure Kubernetes Service** | Container        | &#x2714; | &#x2714;     | &#x2714;   |
-| **Red Hat OpenShift**        | Container        | &#x2714; | &#x2714;     | &#x2714;   |
-| **Azure Container App**      | PaaS             | &#x2714; | &#x2714;     |            |
-| **JBoss EAP**                | PaaS App Service | &#x2714; |              | &#x2714;   |
-| **Apache Tomcat**            | PaaS App Service | &#x2714; |              |            |
-| **Java SE**                  | PaaS App Service | &#x2714; | &#x2714;     |            |
+|                              | Type             | Java SE  | MicroProfile | JakartaSE |
+|------------------------------|------------------|----------|--------------|-----------|
+| **Virtual Machine**          | IaaS             | &#x2714; | &#x2714;     | &#x2714;  |
+| **VMware Tanzu**             | IaaS             | &#x2714; |              |           |
+| **Azure Kubernetes Service** | Container        | &#x2714; | &#x2714;     | &#x2714;  |
+| **Red Hat OpenShift**        | Container        | &#x2714; | &#x2714;     | &#x2714;  |
+| **Azure Container App**      | PaaS             | &#x2714; | &#x2714;     |           |
+| **JBoss EAP**                | PaaS App Service | &#x2714; |              | &#x2714;  |
+| **Apache Tomcat**            | PaaS App Service | &#x2714; |              |           |
+| **Java SE**                  | PaaS App Service | &#x2714; | &#x2714;     |           |
 
 
 ## Contributors
