@@ -488,7 +488,7 @@ For more information, see [Foundry portal versus Machine Learning studio](/ai/ai
 
 #### Azure AI Agent Service in the Foundry portal
 
-Azure AI Agent Service is a tool that use to create AI agents using a no-code and nondeterminisitic approach. The agents are exposed as microservices on the Foundry account.
+Azure AI Agent Service is a tool that lets you create AI agents by using a no-code and nondeterminisitic approach. The agents are exposed as microservices on the Foundry account.
 
 Each agent connects to a foundation model from the Azure AI model catalog. Agents can optionally connect to your own custom private knowledge stores or public data. Likewise, agents can invoke tools to do tasks to call into custom code.
 
