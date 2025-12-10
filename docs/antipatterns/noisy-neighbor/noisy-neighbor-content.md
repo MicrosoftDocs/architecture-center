@@ -30,7 +30,7 @@ Sharing a single resource inherently carries the risk of noisy neighbor problems
 
 - **Purchase reserved capacity, if available.** For example, when you use Azure Cosmos DB, purchase [reserved throughput](/azure/cosmos-db/optimize-cost-throughput).
 
-- **Migrate to a service tier that has stronger isolation guarantees, if available.** For example, when you use Azure Service Bus, [migrate to the premium tier](/azure/service-bus-messaging/service-bus-premium-messaging). When you use [Azure Managed Redis](/azure/redis/overview#choosing-the-right-tier), you gain enterprise-grade isolation with dedicated infrastructure, private networking, and Redis Enterprise technology that eliminates noisy neighbor effects.
+- **Migrate to a service tier that has stronger isolation guarantees, if available.** For example, when you use Azure Service Bus, [migrate to the premium tier](/azure/service-bus-messaging/service-bus-premium-messaging). When you use [Azure Managed Redis](/azure/redis/overview#choosing-the-right-tier) with dedicated infrastructure and private networking you help eliminate noisy neighbor effects.
 
 - **Migrate to a single-tenant instance of the service.** For example, when you use Azure ExpressRoute, [provision separate circuits for environments that are sensitive to performance](/azure/cloud-adoption-framework/ready/azure-best-practices/connectivity-to-azure).
 
