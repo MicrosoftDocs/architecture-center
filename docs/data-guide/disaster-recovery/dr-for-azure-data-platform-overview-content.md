@@ -20,9 +20,9 @@ The scope of this article series includes:
     - A mid-large organization with a defined operational support function, following an Information Technology Infrastructure Library (ITIL) based service management methodology.
     - Not cloud-native, with its core enterprise, shared services like access and authentication management and incident management remaining on-premises.
     - On the journey of cloud migration to Azure, enabled by automation.
-- The data platform has implemented the following designs within the customer's Azure environment:
+- The data platform implements the following designs within the customer's Azure environment:
     - [Enterprise landing zone](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-conceptual-architecture) – Providing the platform foundation, including networking, monitoring, security, and so on.
-    - [Azure analytics platform](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end) - Providing the data components that support the various solutions and data products provided by the service.
+    - [Azure analytics platform](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end) - Provides the data components that support the various solutions and data products that the service provides.
 - The processes described in this article should be performed by an individual that has the following level of knowledge/skills:
     - [Azure Fundamentals](/certifications/exams/az-900) – working knowledge of Azure, its core services, and data components.
     - Working knowledge of Azure DevOps. Able to navigate source control and execute pipeline deployments.

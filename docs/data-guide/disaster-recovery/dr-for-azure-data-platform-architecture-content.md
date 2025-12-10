@@ -20,58 +20,87 @@ Contoso has implemented the following foundational Azure architecture, which is 
 > [!NOTE]
 > Many customers still retain a large infrastructure as a service (IaaS) footprint. To provide recovery capabilities across IaaS, the key component to be added is [Azure Site Recovery](/azure/site-recovery/site-recovery-overview). [Site Recovery](/azure/site-recovery/site-recovery-faq) orchestrates and automates the replication of Azure VMs between regions, on-premises virtual machines and physical servers to Azure, and on-premises machines to a secondary datacenter.
 
-Within this foundational structure, Contoso has implemented the following elements to support its enterprise business intelligence needs, aligned to the guidance in [Data platform end-to-end](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end).
+Within this foundational structure, Contoso implements the following elements to support its enterprise business intelligence (BI) needs. It's aligned to the guidance in [Data platform end-to-end](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end).
 
-[![Diagram that shows architecture for a modern data platform using Azure data services.](../images/azure-analytics-end-to-end.png)](../images/azure-analytics-end-to-end.png#lightbox)
-*Contoso's data platform*
+The following diagram shows the Contoso data platform.
 
-### Contoso's Data Platform - Workflow
+:::image type="complex" border="false" source="../images/azure-analytics-end-to-end.svg" alt-text="Architecture diagram that shows a modern data platform that uses Microsoft Fabric." lightbox="../images/azure-analytics-end-to-end.svg":::
+   The diagram shows a detailed architecture of a solution built on Microsoft Fabric. On the left, the architecture begins with diverse data sources that include on-premises systems, Amazon Simple Storage Service (AWS S3), Google Cloud Storage, and structured and unstructured data. Eventstreams ingest real-time data and on-premises databases mirror data to cloud platforms like Azure SQL Database, Azure Databricks, and Snowflake. A lakehouse stores raw and semistructured formats and Fabric Data Warehouse stores structured analytics, and shortcuts enable access across environments to enhance agility and integration. On the right, notebooks, stored procedures, DataFlow Gen2 in Fabric, and pipelines within Fabric process stored data. Advanced analytics and machine learning models enrich the data before and after it serves users. A lakehouse and SQL analytics endpoints, data agents, and Power BI make processed data available and provide visualizations to ensure high-quality, actionable insights. At the bottom, the platform layer supports the entire architecture with services like Microsoft Purview for governance, Microsoft Entra ID for identity management, and Azure Key Vault for secure secrets. GitHub and Azure DevOps enable continuous integration and continuous deployment (CI/CD). Azure Policy enforces compliance, the workspace monitoring feature in Fabric provides monitoring, and Copilot in Fabric provides AI-assisted development.
+:::image-end:::
 
-The workflow is read from left to right, following the flow of data:
+### The Contoso data platform - Workflow
 
-- **Data sources** - The sources or types of data that the data platform can consume from.
-    
+The workflow reads from left to right and shows the flow of data.
+
+- **Data sources:** The sources and types of data that the platform can ingest.
+
 - **Ingest**
-    - Ingest structured, semi-structured, and unstructured data into [OneLake](/fabric/onelake/onelake-overview) using [Data Factory](/fabric/data-factory/data-factory-overview), [Event Streams](/fabric/real-time-intelligence/event-streams/overview), [Notebooks](/fabric/data-engineering/how-to-use-notebook), [Shortcuts](/fabric/onelake/onelake-shortcuts), or [Mirroring](/fabric/mirroring/overview).
-    - Use Data Factory for batch ETL/ELT pipelines and Event Streams for real-time ingestion via [Real-Time Hub](/fabric/real-time-hub/).
-    - [Mirror supported databases](/fabric/mirroring/overview#types-of-mirroring) for near real-time replication or use Shortcuts to access external data without copying the data into OneLake.
-    - Real-time ingestion is supported via [Eventstreams](/fabric/real-time-intelligence/event-streams/overview), enabling a [Lambda architecture](/azure/architecture/data-guide/big-data/#lambda-architecture).
-        
+
+  - Ingest structured, semistructured, and unstructured data into [OneLake](/fabric/onelake/onelake-overview) by using [Data Factory](/fabric/data-factory/data-factory-overview), [eventstreams](/fabric/real-time-intelligence/event-streams/overview), [notebooks](/fabric/data-engineering/how-to-use-notebook), [shortcuts](/fabric/onelake/onelake-shortcuts), or [mirroring](/fabric/mirroring/overview).
+
+  - Use Data Factory for batch extract, transform, load (ETL) and extract, load, transform (ELT) pipelines. Use eventstreams for real-time ingestion via [Real-Time hub](/fabric/real-time-hub/real-time-hub-overview).
+
+  - [Mirror supported databases](/fabric/mirroring/overview#types-of-mirroring) for near real-time replication or use shortcuts to access external data without copying the data into OneLake.
+
+  - [Eventstreams](/fabric/real-time-intelligence/event-streams/overview) enable real-time ingestion and support a [Lambda architecture](/azure/architecture/data-guide/big-data/#lambda-architecture).
+
 - **Store**
-    - All ingested data is stored in OneLake, Microsoft Fabric's unified data lake, which serves as the foundation for all Fabric experiences. OneLake supports open formats such as Delta, Parquet, and CSV, and provides built-in geo-redundancy and [Business Continuity and Disaster Recovery (BCDR) options for OneLake](/fabric/onelake/onelake-disaster-recovery) to ensure durability and resilience. On top of OneLake, Fabric offers specialized services to organize data.
-        - [Lakehouse](/fabric/data-engineering/lakehouse-overview): It combines the flexibility of a data lake with the structured querying capabilities of a data warehouse, enabling large-scale analytics and machine learning workloads while maintaining schema enforcement for organized data management.
-        - [Data warehouse](/fabric/data-warehouse/data-warehousing): It is a fully managed, scalable SQL-based environment optimized for structured queries and enterprise analytics. It offers high performance for BI and reporting workloads.
-        - [Eventhouse](/fabric/real-time-intelligence/eventhouse): It is designed for real-time event streaming and processing, enabling the ingestion and analysis of time-sensitive data for scenarios such as IoT telemetry and operational monitoring.
-        - Mirrored database: It provides near real-time replication of operational data from sources such as Azure SQL Database or Cosmos DB into OneLake, ensuring analytics are always up to date without complex ETL processes.
-      
+
+  - All ingested data is stored in OneLake, the unified data lake in Microsoft Fabric, which serves as the foundation for all Fabric experiences. OneLake supports open formats like Delta, Parquet, and comma-separated values (CSV). It also provides built-in geo-redundancy and [business continuity and disaster recovery (BCDR) options for OneLake](/fabric/onelake/onelake-disaster-recovery) to ensure durability and resilience. With OneLake as the foundation, Fabric provides specialized services to organize and manage data.
+
+    - [Lakehouse](/fabric/data-engineering/lakehouse-overview) combines the flexibility of a data lake with the structured query capabilities of a data warehouse. It supports large-scale analytics and machine learning workloads while enforcing schemas to keep data organized and manageable.
+
+    - [Data warehouse](/fabric/data-warehouse/data-warehousing) is a fully managed, scalable SQL-based environment optimized for structured queries and enterprise analytics. It delivers high performance for BI and reporting workloads.
+
+    - [Eventhouse](/fabric/real-time-intelligence/eventhouse) is a service for real-time event streaming and processing. It ingests and analyzes time-sensitive data for scenarios like IoT telemetry and operational monitoring.
+
+    - Mirrored database provides near real-time replication of operational data from sources like Azure SQL Database or Azure Cosmos DB into OneLake. This approach keeps analytics up to date without requiring complex ETL processes.
+
 - **Process**
-    - Microsoft Fabric offers multiple ways to process and transform data, giving users flexibility to choose the right approach based on their workload and skill set. Whether you use low-code ETLs, perform advanced data engineering, use real-time analytics, or require embedded business logic, Fabric provides tools that work with data in OneLake. You are responsible to ensure that data is cleansed, enriched, and prepared for analytics or machine learning.
-      - [Notebook](/fabric/data-engineering/how-to-use-notebook): Run a Fabric notebook to perform advanced transformations, data cleansing, and enrichment using languages like PySpark or Spark SQL.
-      - [DataFlow Gen2](/fabric/data-factory/create-first-dataflow-gen2): Create a [dataflow](/fabric/data-factory/create-first-dataflow-gen2) to connect to multiple data sources and perform low-code ETL transformations, ideal for ingesting and shaping data from multiple sources.
-      - Stored Procedure: Execute stored procedures within your Fabric SQL environment to apply business logic or batch transformations directly on your OneLake tables.
-      - [Eventstreams](/fabric/real-time-intelligence/event-streams/overview): Use Eventstreams to process real-time data as it flows into your Eventhouse. Eventstreams allow you to apply transformations, filtering, and enrichment on incoming events before they are stored, ensuring that streaming data is immediately shaped for analytics or downstream applications. This approach is ideal for scenarios requiring instant insights, anomaly detection, or real-time dashboards.
-      
+
+  - Fabric provides multiple ways to process and transform data. Users have flexibility to choose the right approach based on workload and skill set. Whether they use low-code ETLs, perform advanced data engineering, apply real-time analytics, or require embedded business logic, Fabric provides tools that work with data in OneLake. Users remain responsible for ensuring that data is cleansed, enriched, and prepared for analytics or machine learning.
+
+    - [Notebook](/fabric/data-engineering/how-to-use-notebook): Run a Fabric notebook to perform advanced transformations, data cleansing, and enrichment by using languages like PySpark or Spark SQL.
+
+    - [DataFlow Gen2](/fabric/data-factory/create-first-dataflow-gen2): Create a [dataflow](/fabric/data-factory/create-first-dataflow-gen2) to connect to multiple data sources and perform low-code ETL transformations. This approach is ideal for ingesting and shaping data from multiple sources.
+
+    - Stored procedure: Run stored procedures within your Fabric SQL environment to apply business logic or batch transformations directly on your OneLake tables.
+
+    - [Eventstreams](/fabric/real-time-intelligence/event-streams/overview): Eventstreams process real-time data as it flows into your eventhouse. They apply transformations, filters, and enrichment to incoming events before storage, so streaming data is immediately shaped for analytics or downstream applications. This approach is ideal for scenarios that require instant insights, anomaly detection, or real-time dashboards.
+
 - **Serve**
-    - Serve curated data through [SQL Analytics Endpoints](/fabric/database/sql/tutorial-use-analytics-endpoint), which provide secure, governed access to [lakehouse](/fabric/data-engineering/lakehouse-overview), [data warehouse](/fabric/data-warehouse/data-warehousing) and [mirrored databases](/fabric/mirroring/overview) without exposing underlying data or direct connections to the data sources.
-    - Create a [semantic model](/power-bi/connect-data/service-datasets-understand) in [Direct Lake storage mode](/fabric/fundamentals/direct-lake-overview) to optimize performance and share governed datasets with business users for self-service analytics.
-    - Build [real-time dashboards](/fabric/real-time-intelligence/dashboard-real-time-create) in Real-Time Intelligence (RTI) hub in Microsoft Fabricto visualize streaming data and enable instant insights for operational decision-making..
-    - Expose data programmatically via [Microsoft Fabric API for GraphQL](/fabric/data-engineering/api-graphql-overview), allowing developers to query multiple curated data sources efficiently through a single endpoint.
-      
+
+  - Serve curated data through [SQL analytics endpoints](/fabric/database/sql/tutorial-use-analytics-endpoint), which provide secure, governed access to [lakehouse](/fabric/data-engineering/lakehouse-overview), [data warehouse](/fabric/data-warehouse/data-warehousing) and [mirrored databases](/fabric/mirroring/overview) without exposing underlying data or direct connections to the data sources.
+
+  - Create a [semantic model](/power-bi/connect-data/service-datasets-understand) in [Direct Lake storage mode](/fabric/fundamentals/direct-lake-overview) to optimize performance and share governed datasets with business users for self-service analytics.
+
+  - Build [real-time dashboards](/fabric/real-time-intelligence/dashboard-real-time-create) in the Real-Time Intelligence (RTI) hub in Fabric to visualize streaming data and enable instant insights for operational decision-making.
+
+  - Expose data programmatically via the [Fabric API for GraphQL](/fabric/data-engineering/api-graphql-overview). This API lets developers query multiple curated data sources efficiently through a single endpoint.
+
 - **Enrich**
-    - Leverage Fabric’s integrated data science tools and Azure ML to build, train, and deploy machine learning models. These models run directly on Fabric’s unified data foundation. This approach enables enriched datasets and delivers real-time predictive insights within analytics experiences.
-    - [Copilot in Power BI](/power-bi/create-reports/copilot-introduction) is designed for business users, analysts, and report creators who want to accelerate insights without writing complex queries or building visuals manually. It uses generative AI to help you create reports, summarize data, and generate visuals using natural language prompts. 
-    - Use [data agent](/fabric/data-science/concept-data-agent) in Microsoft Fabric to explore insights through natural language interactions. With Azure AI Foundry integration, the Data Agent provides access to enterprise data and enable data-driven decision-making.
-      
+
+  - Use Fabric's integrated data science tools and Azure Machine Learning to build, train, and deploy machine learning models. These models run directly on Fabric's unified data foundation. This approach enriches datasets and delivers real-time predictive insights within analytics experiences.
+
+  - [Copilot in Power BI](/power-bi/create-reports/copilot-introduction) is designed for business users, analysts, and report creators who want to accelerate insights without writing complex queries or building visuals manually. It uses generative AI to help create reports, summarize data, and generate visuals by using natural language prompts.
+
+- Use the [data agent](/fabric/data-science/concept-data-agent) in Fabric to explore insights through natural language interactions. With Azure AI Foundry integration, the data agent provides access to enterprise data and enables data-driven decision making.
+
 - **Data share**
-    - [External data sharing](/fabric/governance/external-data-sharing-overview) in Microsoft Fabric enables a provider tenant to securely share OneLake data with a consumer tenant, allowing cross-tenant access and collaboration without data movement. In the above diagram, a provider tenant is the organization that shares data externally, while a consuming tenant is the organization that accesses and uses that shared data. 
-    - Disaster recovery for external data sharing ensures that shared data remains accessible and consistent even during outages or failures. Key aspects include:
-        - Geo-redundancy: OneLake data is stored in geo-replicated regions, so shared datasets remain available if the primary region experiences downtime.
-        - Failover Support: In the event of a regional outage, the provider tenant’s DR strategy automatically redirects access to the secondary region, ensuring continuity for consumer tenants.
-        - Metadata Synchronization: Sharing configurations (permissions, access policies) are replicated across regions to maintain external sharing integrity during failover.
-        
-- **Discover and govern** - Use [Microsoft Purview](https://learn.microsoft.com/en-us/fabric/governance/microsoft-purview-fabric), [OneLake catalog](/fabric/governance/onelake-catalog-overview), and Microsoft Fabric governance tools for lineage, metadata, and access control.
-      
-- **Platform** - Fabric provides an end-to-end, unified SaaS analytics platform with centralized data storage with OneLake and embedded AI capabilities. Identity and access control are managed by Microsoft Entra ID, with [workspace monitoring](/fabric/fundamentals/workspace-monitoring-overview) and cost management providing operational visibility and optimization. Development and deployment workflows are supported by Azure DevOps and GitHub for CI/CD, and Azure policy ensures consistent governance across resources. Microsoft Fabric also supports Bring Your Own Key (BYOK) through Azure Key Vault, enabling organizations to manage and control encryption keys for securing data at rest.
+
+  - [External data sharing](/fabric/governance/external-data-sharing-overview) in Fabric enables a provider tenant to securely share OneLake data with a consumer tenant. This capability supports cross-tenant access and collaboration without moving data. In the previous diagram, a provider tenant is the organization that shares data externally, and a consumer tenant is the organization that accesses and uses that shared data.
+
+- DR for external data sharing ensures that shared data remains accessible and consistent during outages or failures. Key aspects include the following components:
+
+  - Geo-redundancy: OneLake data resides in geo-replicated regions, so shared datasets remain available if the primary region experiences downtime.
+
+  - Failover support: When a regional outage occurs, the provider tenant's DR strategy redirects access to the secondary region, which ensures continuity for consumer tenants.
+
+  - Metadata synchronization: Sharing configurations (like permissions and access policies) are replicated across regions to preserve external sharing integrity during failover.
+
+- **Discover and govern:** Use [Microsoft Purview](/fabric/governance/microsoft-purview-fabric), [OneLake catalog](/fabric/governance/onelake-catalog-overview), and Fabric governance tools to manage lineage, metadata, and access control.
+
+- **Platform:** Fabric provides an end-to-end, unified software as a service (SaaS) analytics platform with centralized data storage in OneLake and embedded AI capabilities. Microsoft Entra ID manages identity and access control. [Workspace monitoring](/fabric/fundamentals/workspace-monitoring-overview) and cost management deliver operational visibility and optimization. Azure DevOps and GitHub support development and deployment workflows for CI/CD, and Azure Policy enforces consistent governance across resources. Fabric also supports bring your own key (BYOK) through Azure Key Vault, which allows organizations to manage and control encryption keys for securing data at rest.
 
 > [!NOTE]
 > For many customers, the conceptual level of the Data Platform reference architecture that's used aligns, but the physical implementation might vary. For example, ELT (extract, load, transform) processes might be performed through [Azure Data Factory](/azure/data-factory/), and data modeling by [Azure SQL server](/azure/azure-sql/?view=azuresql). To address this concern, the following [Stateful vs stateless components](#stateful-vs-stateless-components) section provides guidance.
@@ -114,15 +143,15 @@ The following tables present a breakdown of each Azure service and component use
 
 - **GitHub**
     - Component recovery responsibility: GitHub (Microsoft)
-    - Workload/configuration recovery responsibility: GitHub (Microsoft
+    - Workload/configuration recovery responsibility: GitHub (Microsoft)
     - Contoso SKU selection: GitHub Enterprise Cloud
     - DR uplift options:
-        - Users can take [backups of repositoires](https://docs.github.com/en/enterprise-cloud@latest/repositories/archiving-a-github-repository/backing-up-a-repository) for disaster recovery purposes.
-        - Users can follow [disaster recovery for GitHub Codespaces](https://docs.github.com/en/enterprise-cloud@latest/codespaces/reference/disaster-recovery-for-github-codespaces) and prepare for the possbility that there is an outage of an entire region. If an entire region experiences a service disruption, the locally redundant copies of your data would be temporarily unavailable.
-    - Notes
-        - GitHub Enterprise Server (self-hosted/on-premises) remains the customer’s responsibility for disaster recovery, including backup and restore of repositories and configuration.
-        - Any third-party integrations (e.g., CI/CD tools, artifact repositories) are the customer’s responsibility for recovery.
-        - If GitHub Actions runners are hosted on customer-managed infrastructure (VMs or containers), their recovery is also the customer’s responsibility.
+      - Users can [back up repositories](https://docs.github.com/en/enterprise-cloud@latest/repositories/archiving-a-github-repository/backing-up-a-repository) for DR purposes.
+      - Users can follow [DR guidance for GitHub Codespaces](https://docs.github.com/enterprise-cloud@latest/codespaces/reference/disaster-recovery-for-github-codespaces) to prepare for the possibility of a regional outage. If an entire region experiences a service disruption, locally redundant copies of data become temporarily unavailable.
+    - Notes:
+      - GitHub Enterprise Server (self-hosted or on-premises) is the customer's responsibility for DR, including backup and restore of repositories and configuration.
+      - Any non-Microsoft integrations, like CI/CD tools and artifact repositories, are the customer's responsibility for recovery.  
+      - If GitHub Actions runners are hosted on customer-managed infrastructure (VMs or containers), their recovery is also the customer's responsibility.
 
 ### Stateless Foundational Components
 
@@ -160,7 +189,7 @@ The following tables present a breakdown of each Azure service and component use
     - Component recovery responsibility: Microsoft
     - Workload/configuration recovery responsibility: Microsoft
     - Contoso SKU selection: Single Zone - Public
-    - DR uplift options: N/A, DNS is highly available by design.
+    - DR uplift options: Not applicable. DNS is highly available by design.
 
 - **Virtual Networks, including Subnets, user-defined route (UDR) & network security groups (NSG)**
     - Component recovery responsibility: Contoso
@@ -208,7 +237,7 @@ The following tables present a breakdown of each Azure service and component use
     - Notes
         - GRS is recommended to uplift redundancy, providing a copy of the data in the paired region.
 
-- **Azure Database for PostgreSQL Flexible Server**
+- **Azure Database for PostgreSQL flexible server**
     - Component recovery responsibility: Microsoft
     - Workload/configuration recovery responsibility: Contoso
     - Contoso SKU selection: Standard
@@ -230,24 +259,25 @@ The following tables present a breakdown of each Azure service and component use
 - **Azure Data Explorer**
     - Component recovery responsibility: Microsoft
     - Workload/configuration recovery responsibility: Contoso
-    - Contoso SKU selection: Pay As You Go (or cluster size based on workload)
+    - Contoso SKU selection: Pay as you go (or cluster size based on workload)
     - DR uplift options:
-        - Azure Data Explorer does not provide automatic regional failover. For disaster recovery, deploy multiple clusters in paired regions (Active/Active or Active/Passive) and replicate ingestion pipelines.
-        - Use Zone Redundant Storage (ZRS) for intra-region resiliency and select Availability Zones during cluster creation to protect against zone-level failures. For regional resiliency, combine ZRS with multi-cluster architecture and ingestion redundancy via Event Hubs or IoT Hub.
+      - Azure Data Explorer doesn't provide automatic regional failover. For DR, deploy multiple clusters in paired regions (active-active or active-passive) and replicate ingestion pipelines.
+      - Use zone-redundant storage (ZRS) for intraregion resiliency, and select **Availability zones** during cluster creation to protect against zone-level failures. For regional resiliency, combine ZRS with a multiple-cluster architecture and ingestion redundancy through Event Hubs or IoT Hub.
     - Note:
-        - For details on Azure Data Explorer disaster recovery, see [Disaster Recovery - Azure Data Explorer](/azure/data-explorer/business-continuity-overview).
+      - For more information, see [DR - Azure Data Explorer](/azure/data-explorer/business-continuity-overview).
   
 - **Azure Event Hubs**
     - Component recovery responsibility: Microsoft
     - Workload/configuration recovery responsibility: Contoso
-    - Contoso SKU selection: Standard/Premium/Dedicated tiers
+    - Contoso SKU selection: Standard, Premium, and Dedicated tiers
     - DR uplift options:
-        - Enable Geo-disaster recovery for metadata replication across paired namespaces.
-        - For full data replication, use Geo-replication (Premium/Dedicated tiers only).
+      - Enable geo-disaster recovery for metadata
+       replication across paired namespaces.
+      - For full data replication, use geo-replication (Premium and Dedicated tiers only).
     - Notes:
-        - Geo-disaster recovery replicates metadata only, not event data.
-        - Geo-replication replicates both metadata and data for business continuity.
-        - For details on Azure Event Hubs disaster recovery, see [Azure Event Hubs - Geo-disaster recovery](/azure/event-hubs/event-hubs-geo-dr).
+      - Geo-disaster recovery replicates metadata only, not event data.
+      - Geo-replication replicates metadata and data for business continuity.
+      - For more information, see [Azure Event Hubs - Geo-disaster recovery](/azure/event-hubs/event-hubs-geo-dr).
 
 - **Azure Machine Learning**
     - Component recovery responsibility: Contoso and Microsoft
@@ -264,21 +294,21 @@ The following tables present a breakdown of each Azure service and component use
     - Workload/configuration recovery responsibility: Contoso
     - Contoso SKU selection: Business Critical or Premium tier recommended
     - DR uplift options:
-        - Enable Failover Groups for automatic cross-region failover.
-        - Use Active Geo-replication for readable secondary databases.
-        - Configure Geo-redundant backup storage for geo-restore capability.
+      - Enable failover groups for automatic cross-region failover.
+      - Use active geo-replication for readable secondary databases.
+      - Configure geo-redundant backup storage for geo-restore capability.
     - Notes:
-        - For details on Azure SQL Database disaster recovery, see [Disaster recovery guidance - Azure SQL Database](/azure/azure-sql/database/disaster-recovery-guidance).
+      - For more information, see [DR guidance - Azure SQL Database](/azure/azure-sql/database/disaster-recovery-guidance).
 
 - **Dataverse**
     - Component recovery responsibility: Microsoft
     - Workload/configuration recovery responsibility: Microsoft
-    - Contoso SKU selection: N/A
+    - Contoso SKU selection: Not applicable
     - DR uplift options:
-        - Built-in DR with Azure availability zones for in-region resilience.
-        - Self-service cross-region failover available for production environments.
+      - Use built-in DR with Azure availability zones for in-region resilience.
+      - Configure self-service cross-region failover for production environments.
     - Notes:
-        - For details on Dynamics 365 and Power Platform disaster recovery SaaS applications, see [Business continuity and disaster recovery - Dynamic 365 and Power Platform](/power-platform/admin/business-continuity-disaster-recovery)
+      - For more information, see [BCDR - Dynamic 365 and Power Platform](/power-platform/admin/business-continuity-disaster-recovery).
 
 - **Power BI**
     - Component recovery responsibility: Microsoft
@@ -296,7 +326,7 @@ The following tables present a breakdown of each Azure service and component use
     - Contoso SKU selection: Single Region Write with Periodic backup
     - DR uplift options:
         - Single-region accounts might lose availability following a regional outage. Resiliency can be uplifted to a [single write region and at least a second (read) region and enable Service-Managed failover](/azure/cosmos-db/high-availability#availability).
-        - It's [recommended](/azure/cosmos-db/high-availability#availability) that Azure Cosmos DB accounts used for production workloads to enable automatic failover. In the absence of this configuration, the account experiences loss of write availability for all the duration of the write region outage, as manual failover won't succeed due to lack of region connectivity.
+        - It's [recommended](/azure/cosmos-db/high-availability#availability) that Azure Cosmos DB accounts used for production workloads enable automatic failover. Without this configuration, the account loses write availability for the duration of a write region outage because manual failover can't succeed without region connectivity.
     - Notes
         - To protect against data loss in a region, Azure Cosmos DB provides two [different backup modes](/azure/cosmos-db/high-availability#durability) - *Periodic* and *Continuous.*
         - [Regional failovers](/azure/cosmos-db/high-availability#availability) are detected and handled in the Azure Cosmos DB client. They don't require any changes from the application.
@@ -314,70 +344,70 @@ The following tables present a breakdown of each Azure service and component use
     - Contoso SKU selection: N/A
     - DR uplift options: N/A
     - Notes
-        - [Microsoft Purview doesn't support automated business continuity and disaster recovery (BCDR)](/azure/purview/disaster-recovery#achieve-business-continuity-for-azure-purview). Until that support is added, the customer is responsible for all backup and restore activities.
+      - [Microsoft Purview doesn't support automated BCDR](/azure/purview/disaster-recovery#achieve-business-continuity-for-azure-purview). Until that support is added, the customer is responsible for all backup and restore activities.
 
- - **Microsoft Fabric: OneLake**
+- **Fabric: OneLake**
     - Component recovery responsibility: Microsoft
     - Workload/configuration recovery responsibility: Contoso
     - Contoso SKU selection: Fabric Capacity
     - DR uplift options:
-        - Enable BCDR for Fabric capacity.
-    - Notes
-        - For further details regarding disaster recovery for OneLake, refer to [Disaster recovery and data protection for OneLake](/fabric/onelake/onelake-disaster-recovery).
-
-- **Microsoft Fabric: SQL database in Fabric**
-    - Component recovery responsibility: Microsoft
-    - Workload/configuration recovery responsibility: Contoso
-    - Contoso SKU selection: Fabric Capacity
-    - DR uplift options:
-        - Enable DR Capacity in Fabric for cross-region replication of SQL database data via OneLake.
-        - Manual geo-backup or geo-replication for active/active setups across regions. 
-    - Notes
-        - For further details regarding disaster recovery for SQL Database, refer to [Experience-specific disaster recovery guidance - SQL Database](/fabric/security/experience-specific-guidance#sql-database).
-
-- **Microsoft Fabric: Data Engineering**
-    - Component recovery responsibility: Microsoft
-    - Workload/configuration recovery responsibility: Contoso
-    - Contoso SKU selection: Fabric Capacity
-    - DR uplift options:
-         - Enable DR Capacity in Fabric for cross-region replication of lakehouse data via OneLake.
-         - Manual geo-backup or geo-replication for active/active setups across regions.
-    - Notes
-        - Notebooks can be redployed via CI/CD.
-        - For further details regarding disaster recovery for Data Engineering in Fabric, refer to [Experience-specific disaster recovery guidance - Data Engineering](/fabric/security/experience-specific-guidance#data-engineering).
-        
-- **Microsoft Fabric: Data Warehouse**
-    - Component recovery responsibility: Microsoft
-    - Workload/configuration recovery responsibility: Contoso
-    - Contoso SKU selection: Fabric Capacity
-    - DR uplift options:
-        - Manual geo-backup or geo-replication for active/active setups across regions.
-        - Enable DR Capacity in Fabric for cross-region replication of Warehouse data via OneLake.
-    - Notes
-        - For further details regarding disaster recovery for the data warehouse, refer to [Experience-specific disaster recovery guidance - Data Warehouse](/fabric/security/experience-specific-guidance#data-warehouse).
-        - For customers who need cross-regional disaster recovery and fully automated business continuity, we recommend keeping two Fabric Warehouse setups in two different regions and maintaining code and data parity by doing regular deployments and data ingestion to both sites.
-
-- **Microsoft Fabric: SQL Analytics Endpoint**
-    - Component recovery responsibility: Microsoft
-    - Workload/configuration recovery responsibility: Contoso
-    - Contoso SKU selection: Fabric Capacity
-    - DR uplift options:
-        - Enable DR Capacity in Fabric for cross-region replication of Lakehouse and Warehouse data via OneLake.
-        - Use CI/CD pipelines to redeploy SQL objects (views, stored procedures, security roles) in the DR region.
-        - Use metadata sync API or UI refresh to ensure SQL endpoint schema is up-to-date after failover.
+      - Enable BCDR for Fabric capacity.
     - Notes:
-        - SQL analytics endpoint is read-only over Delta Lake tables stored in OneLake.
+      - For more information, see [DR and data protection for OneLake](/fabric/onelake/onelake-disaster-recovery).
 
-- **Microsoft Fabric: Mirrored Database**
+- **Fabric: SQL database in Fabric**
     - Component recovery responsibility: Microsoft
     - Workload/configuration recovery responsibility: Contoso
     - Contoso SKU selection: Fabric Capacity
     - DR uplift options:
-        - Manual geo-backup or geo-replication for active/active setups across regions.
+      - Enable DR Capacity in Fabric for cross-region replication of SQL database data via OneLake.
+      - Perform manual geo-backup or geo-replication for active-active setups across regions.
+    - Notes:
+      - For more information, see [Experience-specific DR guidance - SQL Database](/fabric/security/experience-specific-guidance#sql-database).
+
+- **Fabric: Data Engineering**
+    - Component recovery responsibility: Microsoft
+    - Workload/configuration recovery responsibility: Contoso
+    - Contoso SKU selection: Fabric Capacity
+    - DR uplift options:
+      - Enable DR Capacity in Fabric for cross-region replication of lakehouse data via OneLake.
+      - Perform manual geo-backup or geo-replication for active-active setups across regions.
+    - Notes:
+      - You can redeploy notebooks via CI/CD.
+      - For more information, see [Experience-specific DR guidance - Data Engineering](/fabric/security/experience-specific-guidance#data-engineering).
+
+- **Fabric: Data Warehouse**
+    - Component recovery responsibility: Microsoft
+    - Workload/configuration recovery responsibility: Contoso
+    - Contoso SKU selection: Fabric Capacity
+    - DR uplift options:
+      - Perform manual geo-backup or geo-replication for active-active setups across regions.
+      - Enable DR capacity in Fabric for cross-region replication of warehouse data via OneLake.
+    - Notes:
+      - For more information, see [Experience-specific DR guidance - Data Warehouse](/fabric/security/experience-specific-guidance#data-warehouse).
+      - For customers who need cross-regional DR and fully automated business continuity, we recommend that you keep two Fabric warehouse setups in different regions and maintain code and data parity by performing regular deployments and data ingestion at both sites.
+
+- **Fabric: SQL analytics endpoint**
+    - Component recovery responsibility: Microsoft
+    - Workload/configuration recovery responsibility: Contoso
+    - Contoso SKU selection: Fabric Capacity
+    - DR uplift options:
+      - Enable DR Capacity in Fabric for cross-region replication of lakehouse and warehouse data via OneLake.
+      - Use CI/CD pipelines to redeploy SQL objects (views, stored procedures, security roles) in the DR region.
+      - Use the metadata sync API or perform a UI refresh to ensure that the SQL endpoint schema remains up to date after failover.
+    - Notes:
+      - The SQL analytics endpoint provides read-only access to Delta Lake tables stored in OneLake.
+
+- **Fabric: Mirrored database**
+    - Component recovery responsibility: Microsoft
+    - Workload/configuration recovery responsibility: Contoso
+    - Contoso SKU selection: Fabric Capacity
+    - DR uplift options:
+      - Manual geo-backup or geo-replication for active-active setups across regions.
     - Note:
-        - Mirrored databases from the primary region remain unavailable to customers and the settings aren't replicated to the secondary region.
-        - Recreate mirrored database in another workspace from a different region.
-      
+      - Mirrored databases from the primary region remain unavailable to customers and the settings aren't replicated to the secondary region.
+      - Recreate a mirrored database in another workspace from a different region.
+
 ### Stateless data platform-specific services
 
 - **Azure AI Foundry**
@@ -385,52 +415,52 @@ The following tables present a breakdown of each Azure service and component use
     - Workload/configuration recovery responsibility: Contoso
     - Contoso SKU selection: Enterprise
     - DR uplift options:
-        - Deploy multi-region Azure AI Foundry workspaces to ensure redundancy for model hosting and orchestration.
-        - Enable geo-redundant storage for datasets, model artifacts, and prompt flows using Azure Storage with GRS or RA-GRS.
-    - Notes
-        - Refer to [Customer-enabled disaster recovery](/azure/ai-foundry/how-to/agent-service-disaster-recovery) for guidance on business continuity and disaster recovery with Azure AI Foundry agent service.
+      - Deploy multi-region Azure AI Foundry workspaces to ensure redundancy for model hosting and orchestration.
+      - Enable geo-redundant storage for datasets, model artifacts, and prompt flows by using Azure Storage with GRS or RA-GRS.
+    - Notes:
+      - Refer to [Customer-enabled DR](/azure/ai-foundry/how-to/agent-service-disaster-recovery) for guidance about BCDR with Azure AI Foundry agent service.
 
-- **Microsoft Fabric: Real-Time Intelligence**
+- **Fabric: Real-Time Intelligence**
     - Component recovery responsibility: Microsoft
     - Workload/configuration recovery responsibility: Contoso
     - Contoso SKU selection: Fabric Capacity
     - DR uplift options:
-        - Geo-replication for active/active setups across regions.
-    - Notes
-        - For customers requiring cross-regional disaster recovery and automated business continuity, maintain two Real-Time Intelligence in different regions. Ensure parity by replicating data, Eventstream configurations, KQL queries, and ingestion pipelines regularly.
-        - For further details regarding disaster recovery for Data Engineering in Fabric, refer to [Experience-specific disaster recovery guidance - RTI](/fabric/security/experience-specific-guidance#real-time-intelligence).
+      - Geo-replication for active-active setups across regions
+    - Notes:
+      - For customers that require cross-regional DR and automated business continuity, maintain two Real-Time Intelligence environments in different regions. Ensure parity by replicating data, eventstream configurations, KQL queries, and ingestion pipelines regularly.
+      - For more information about Data Engineering in Fabric, see [Experience-specific DR guidance - Real-Time Intelligence](/fabric/security/experience-specific-guidance#real-time-intelligence).
 
-- **Microsoft Fabric: Data Factory**
+- **Fabric: Data Factory**
     - Component recovery responsibility: Microsoft
     - Workload/configuration recovery responsibility: Contoso
     - Contoso SKU selection: Fabric Capacity
     - DR uplift options:
-        - Cross-region pipeline deployment.
-    - Notes
-        - Pipelines can be redeployed via CI/CD.
-        - When On-Prem or vNet Data Gateway are used in data pipelines, the gateways need to be reconfigured in another workspace from a different region.
-        - Follow step-by-step guides for [Experience-specific disaster recovery guidance - Data Factory](/fabric/security/experience-specific-guidance#data-factory).
+      - Cross-region pipeline deployment
+    - Notes:
+      - Pipelines can be redeployed via CI/CD.
+      - When on‑premises or virtual network data gateways are used in data pipelines, they must be reconfigured when you move to a workspace in a different region.
+      - For more information, see [Experience-specific DR guidance - Data Factory](/fabric/security/experience-specific-guidance#data-factory).
 
-- **Microsoft Fabric: Data Science**
+- **Fabric: Data Science**
     - Component recovery responsibility: Microsoft
     - Workload/configuration recovery responsibility: Contoso
     - Contoso SKU selection: Fabric Capacity
     - DR uplift options:
-        - Create workspaces in two different regions, then copy your data and import notebooks, machine learning experiments and models into the secondary workspace.
-    - Notes
-        - Disaster recovery for Data Science in Microsoft Fabric involves manual copying and recreation of resources in a secondary region, with no built-in cross region replication.
-        - For further details regarding disaster recovery for Fabric Data Science, refer to [Disaster recovery guidance for Fabric Data Science](/fabric/data-science/data-science-disaster-recovery).
+      - Create workspaces in two different regions. Then copy your data and import notebooks, machine learning experiments, and models into the secondary workspace.
+    - Notes:
+      - DR for Data Science in Fabric involves manual copying and recreation of resources in a secondary region, with no built-in cross region replication.
+      - For more information, see [DR guidance for Fabric Data Science](/fabric/data-science/data-science-disaster-recovery).
 
 ## Stateful vs stateless components
-The speed of innovation across the Microsoft product suite and Azure, in particular, means the component set that we've used for this worked example quickly evolves. To future-proof against providing stale guidance and extend this guidance to components not explicitly covered in this document, the following section provides some instruction based upon the coarse-grain classification of state.
+The speed of innovation across the Microsoft product suite and Azure, in particular, means the component set that we've used for this worked example quickly evolves. To future-proof against providing stale guidance and extend this guidance to components not explicitly covered in this article, the following section provides some instruction based upon the coarse-grain classification of state.
 
-A component or service is considered stateful if it's designed to retain information from previous events or interactions. Examples include Lakehouse, Eventhouse, and Warehouse, which store data and metadata that must be protected and recovered. By contrast, stateless components keep no record of prior interactions; each request is processed independently using only the information provided at that moment. Examples include Data Factory and Notebooks, which orchestrate or process data without persisting it, relying on external stateful components for storage.
+A component or service is considered stateful when it retains information from previous events or interactions. Examples include lakehouses, eventhouses, and warehouses, which store data and metadata that must be protected and recovered. By contrast, stateless components keep no record of prior interactions. Each request is processed independently by using only the information provided at that moment. Examples include Data Factory and notebooks, which orchestrate or process data without persisting information and depend on external stateful components for storage.
 
 For a DR scenario that calls for redeployment:
 
 - Components/services that are stateless, like Azure Functions and Azure Data Factory pipelines, can be redeployed from source control with at least a smoke test to validate availability before being introduced into the broader system.
 - Components/services that are stateful, like Azure SQL Database and storage accounts, require more attention.
-    - When procuring the component, a key decision is selecting the data redundancy feature. This decision typically focuses on a trade-off between availability and durability with operating costs.
+    - When you procure a component, a key decision is the selection of its data redundancy feature. This choice typically involves a trade-off between availability, durability, and operating costs.
 - Datastores also need a data backup strategy. The data redundancy functionality of the underlying storage mitigates this risk for some designs, while others, like SQL databases need a separate backup process.
     - If necessary, the component can be redeployed from source control with a validated configuration via a smoke-test.
     - A redeployed datastore must have its dataset rehydrated. Rehydration can be accomplished through data redundancy (when available) or a backup dataset. When rehydration has been completed, it must be validated for accuracy and completeness.
@@ -442,20 +472,32 @@ For a DR scenario that calls for redeployment:
 
 This section contains high availability (HA) and DR guidance for other key Azure data components and services.
 
-- Azure Analysis Services - HA guidance can be found in the [product documentation](/analysis-services/azure-analysis-services/analysis-services-bcdr).
-- Azure Database for MySQL
-    - Flexible Server HA guidance can be found in the [product documentation](/azure/mysql/flexible-server/concepts-business-continuity).
-    - Single Server HA guidance can be found in the [product documentation](/azure/mysql/).
-- SQL
-    - SQL on Azure VMs guidance can be found in the [product documentation](/azure/azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview).
-    - Azure SQL and Azure SQL Managed Instance guidance can be found in the [product documentation](/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview).
-- Azure AI services - If AI services has been deployed via customer deployed [Docker containers](/azure/ai-services/cognitive-services-container-support), recovery remains the responsibility of the customer.
-- Azure AI Search - There's [no built-in mechanism for disaster recovery](/azure/reliability/reliability-ai-search#disaster-recovery-and-service-outages). If continuous service is required during a catastrophic failure, the recommendation is to have a second service in a different region, and implementing a geo-replication strategy to ensure indexes are fully redundant across all services.
-- Azure IoT Hubs - IoT Hub provides Microsoft-Initiated Failover and Manual Failover by replicating data to the paired region for each IoT hub. IoT Hub provides [Intra-Region HA](/azure/iot-hub/how-to-schedule-broadcast-jobs?pivots=programming-language-csharp#intra-region-ha) and will automatically use an availability zone if created in a [predefined set of Azure regions](/azure/iot-hub/how-to-schedule-broadcast-jobs?pivots=programming-language-csharp#availability-zones).
-- Azure Stream Analytics - While Azure Stream Analytics is a fully managed platform as a service (PaaS) offering, it doesn't provide automatic geo-failover. [Geo-redundancy](/azure/stream-analytics/geo-redundancy) can be achieved by deploying identical Stream Analytics jobs in multiple Azure regions.
-- Azure Data Share - The Azure Data Share resiliency can be uplifted by [HA deployment into a secondary region](/azure/data-share/disaster-recovery#achieving-business-continuity-for-azure-data-share).
+- **Azure Analysis Services:** High availability guidance is available in the [product documentation](/analysis-services/azure-analysis-services/analysis-services-bcdr).  
+
+- **Azure Database for MySQL:**
+
+  - Flexible server HA guidance is available in the [product documentation](/azure/mysql/flexible-server/concepts-business-continuity).
+  
+  - Single server HA guidance is available in the [product documentation](/azure/mysql/).  
+
+- **SQL:**
+
+  - SQL on Azure VMs guidance is available in the [product documentation](/azure/azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview).
+
+  - Azure SQL and Azure SQL Managed Instance guidance is available in the [product documentation](/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview).
+
+- **Azure AI Services:** If AI services are deployed through customer-managed [Docker containers](/azure/ai-services/cognitive-services-container-support), the customer is responsible for recovery.
+
+- **Azure AI Search:** There's [no built-in mechanism for DR](/azure/reliability/reliability-ai-search#disaster-recovery-and-service-outages). If continuous service is required during a catastrophic failure, we recommend that you deploy a second service in a different region and implement a geo-replication strategy to ensure that indexes remain fully redundant across all services.  
+
+- **IoT Hub:** IoT Hub provides Microsoft-initiated failover and manual failover by replicating data to the paired region for each IoT hub. IoT Hub also provides [intraregion high availability](/azure/iot-hub/how-to-schedule-broadcast-jobs?pivots=programming-language-csharp#intra-region-ha) and automatically uses an availability zone if it's created in a [predefined set of Azure regions](/azure/iot-hub/how-to-schedule-broadcast-jobs?pivots=programming-language-csharp#availability-zones).
+
+- **Azure Stream Analytics:** Stream Analytics is a fully managed platform as a service (PaaS) offering, but it doesn't provide automatic geo-failover. Achieve [geo-redundancy](/azure/stream-analytics/geo-redundancy) by deploying identical Stream Analytics jobs in multiple Azure regions.
+
+- **Data Share:** Resiliency can be enhanced by [HA deployment into a secondary region](/azure/data-share/disaster-recovery#achieving-business-continuity-for-azure-data-share).
 
 ## Next steps
+
 Now that you've learned about the scenario's architecture, you can learn about the [scenario details](../disaster-recovery/dr-for-azure-data-platform-scenario-details.yml).
 
 ## Related resources
