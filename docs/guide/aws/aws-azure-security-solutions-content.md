@@ -1,5 +1,7 @@
 This guide describes how Microsoft security solutions can help secure and protect Amazon Web Services (AWS) account access and environments.
 
+#placeholder update
+
 This diagram summarizes how AWS installations can benefit from key Microsoft security components:
 
 :::image source="./media/aws-azure-security-solutions-architecture.png" alt-text="Architecture diagram that shows the benefits of implementing Azure security for AWS." border="false" lightbox="./media/aws-azure-security-solutions-architecture.png":::
