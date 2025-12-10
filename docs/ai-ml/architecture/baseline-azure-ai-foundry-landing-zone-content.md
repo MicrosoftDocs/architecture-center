@@ -341,7 +341,7 @@ The following example policies might lead to workload deployment complexities:
 
 - **Policy:** *Foundry models should not be preview.*
 
-  **Complication:** You might be in development using a preview model that you anticipate being generally available by the time you enable the agent capability in your production workload.
+  **Complication:** During development, you might use a preview model that you expect to be generally available by the time that you enable agent capability in your production workload.
 
 Platform teams might apply DINE policies to handle automated deployments into an application landing zone subscription. Preemptively incorporate and test the platform-initiated restrictions and changes into your IaC templates. If the platform team uses Azure policies that conflict with the requirements of the application, you can negotiate a resolution.
 

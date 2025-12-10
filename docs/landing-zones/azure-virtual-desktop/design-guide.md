@@ -42,7 +42,7 @@ When you design Virtual Desktop to run from an application landing zone, follow 
 - **Operational efficiency:** Includes automation and monitoring tools to reduce operational burden and improve system performance
 
 :::image type="complex" source="./media/virtual-desktop-accelerator-enterprise-landing-zone.svg" alt-text="Diagram that shows the reference architecture required for Virtual Desktop landing zone implementations." border="false" lightbox="./media/virtual-desktop-accelerator-enterprise-landing-zone.svg":::
-The diagram illustrates a comprehensive Azure architecture for managing subscriptions and workloads. At the top, the Enterprise Agreement and Microsoft Customer Agreement section connects to Microsoft Entra ID and Active Directory Domain Services, which represents identity and access management. The Management subscription includes dashboards and tools for governance and monitoring. The management group and subscription organization section shows a hierarchy of management groups, including platform, identity, connectivity, and landing zone subscriptions, with connections to DevOps processes.
+The diagram illustrates a comprehensive Azure architecture for managing subscriptions and workloads. At the top, the Enterprise Agreement and Microsoft Customer Agreement section connects to Microsoft Entra ID and Active Directory Domain Services, which represents identity and access management. Below that section, the Management subscription includes dashboards and tools for governance and monitoring. The management group and subscription organization section shows a hierarchy of management groups, including platform, identity, connectivity, and landing zone subscriptions, with connections to DevOps processes.
 
 The Identity subscription contains virtual networks labeled region 1 and region N. Each virtual network contains DNS, UDRs, NSGs or ASGs, resource groups, and recovery services vaults. The Connectivity subscription includes Azure DNS private zones, ExpressRoute, and Azure Firewall. Virtual network peering connects this subscription to other subscriptions. The Virtual Desktop landing zone subscriptions show details about virtual network configurations and peering. The Sandbox subscription contains applications and management tools. A legend at the bottom provides definitions for icons and connections in the diagram.
 :::image-end:::
@@ -209,7 +209,7 @@ When you're ready for deployment, do the following steps:
 
 To build on the concepts from this design guide, explore the following Microsoft Learn resources:
 
-- [Deploy an enterprise-scale Azure landing zone for Azure Virtual Desktop](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/enterprise-scale-landing-zone): Learn how to deploy a Virtual Desktop landing zone that align with the Cloud Adoption Framework.
+- [Deploy an enterprise-scale Azure landing zone for Azure Virtual Desktop](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/enterprise-scale-landing-zone): Learn how to deploy a Virtual Desktop landing zone that aligns with the Cloud Adoption Framework.
 
 - [Network topology and connectivity for Virtual Desktop](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/eslz-network-topology-and-connectivity): Explore recommended network designs, including hub-and-spoke topology, hybrid connectivity, RDP Shortpath, and security best practices for Virtual Desktop.
 

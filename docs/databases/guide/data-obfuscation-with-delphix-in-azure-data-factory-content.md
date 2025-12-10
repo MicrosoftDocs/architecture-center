@@ -62,7 +62,7 @@ Breaking down data silos presents challenges:
 
 ### How do Delphix CC and Data Factory solve automating compliant data?
 
-Delphix simplifies consistent data compliance, while Data Factory enables connecting and moving data. Together, Delphix and Data Factory combine industry-leading compliance and automation offerings to simplify the delivery of on-demand, compliant data.
+Delphix simplifies data compliance, while Data Factory enables data integration and movement. Together, Delphix and Data Factory combine industry-leading compliance and automation offerings to simplify the delivery of on-demand, compliant data.
 
 This solution uses Data Factory data source connectors to create two ETL pipelines that automate the following steps:
 

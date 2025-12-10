@@ -32,9 +32,9 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 1. [Azure Synapse Link for Azure Cosmos DB](/azure/cosmos-db/synapse-link) and [Azure Synapse Link for Dataverse](/powerapps/maker/data-platform/export-to-data-lake) enable you to run near real-time analytics over operational and business application data, by using the analytics engines that are available from your Azure Synapse workspace: [SQL Serverless](/azure/synapse-analytics/sql/on-demand-workspace-overview) and [Spark Pools](/azure/synapse-analytics/spark/apache-spark-overview).
 
-1. When using Azure Synapse Link for Azure Cosmos DB, use either a [SQL Serverless query](/azure/synapse-analytics/sql/query-cosmos-db-analytical-store?tabs=openrowset-key) or a [Spark Pool notebook](/azure/synapse-analytics/synapse-link/how-to-query-analytical-store-spark). You can access the [Azure Cosmos DB analytical store](/azure/cosmos-db/analytical-store-introduction) and then combine datasets from your near real-time operational data with data from your data lake or from your data warehouse.
+1. When you use Azure Synapse Link for Azure Cosmos DB, use either a [SQL Serverless query](/azure/synapse-analytics/sql/query-cosmos-db-analytical-store?tabs=openrowset-key) or a [Spark Pool notebook](/azure/synapse-analytics/synapse-link/how-to-query-analytical-store-spark). You can access the [Azure Cosmos DB analytical store](/azure/cosmos-db/analytical-store-introduction) and then combine datasets from your near real-time operational data with data from your data lake or from your data warehouse.
 
-1. When using Azure Synapse Link for Dataverse, use either a [SQL Serverless query](/powerapps/maker/data-platform/azure-synapse-link-serverless) or a [Spark Pool notebook](/powerapps/maker/data-platform/azure-synapse-link-spark). You can access the selected Dataverse tables and then combine datasets from your near real-time business applications data with data from your data lake or from your data warehouse.
+1. When you use Azure Synapse Link for Dataverse, use either a [SQL Serverless query](/powerapps/maker/data-platform/azure-synapse-link-serverless) or a [Spark Pool notebook](/powerapps/maker/data-platform/azure-synapse-link-spark). You can access the selected Dataverse tables and then combine datasets from your near real-time business applications data with data from your data lake or from your data warehouse.
 
 ##### Store
 
@@ -209,7 +209,7 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 - [Azure Databricks](https://azure.microsoft.com/services/databricks) can also be used as the compute engine used to process structured and unstructured data directly on the data lake.
 
-  When using Azure Databricks, you can connect your Power Apps serving layer directly to Delta Lake tables in Azure Databricks without exporting data. Consider this path when business teams need near real-time reads from curated lakehouse tables.
+  When you use Azure Databricks, you can connect your Power Apps serving layer directly to Delta Lake tables in Azure Databricks without exporting data. Consider this path when business teams need near real-time reads from curated lakehouse tables.
 
 - In the preceding architecture, Azure Stream Analytics is the service responsible for processing streaming data. Azure Synapse Spark pools and Azure Databricks can also be used to perform the same role through the execution of notebooks.
 

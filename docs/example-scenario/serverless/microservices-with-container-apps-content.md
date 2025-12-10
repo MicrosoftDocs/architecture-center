@@ -79,7 +79,7 @@ Fabrikam, Inc., a fictional company, implements a drone delivery workload where 
 
 The microservices application was deployed to an AKS cluster. But the Fabrikam team wasn't taking advantage of the advanced or platform-specific AKS features. They migrated the application to Container Apps, which enabled them to do the following actions:
 
-- Employ minimal code changes when moving the application from AKS to Container Apps. The code changes were related to observability libraries that augmented logs and metrics with Kubernetes node information, which aren't relevant in the new environment.
+- Employ minimal code changes when you move the application from AKS to Container Apps. The code changes were related to observability libraries that augmented logs and metrics with Kubernetes node information, which aren't relevant in the new environment.
 
 - Deploy both infrastructure and the workload with Bicep templates: No Kubernetes YAML manifests were needed to deploy their application containers.
 - Expose the application through managed ingress. Built-in support for external, HTTPS-based ingress to expose the ingestion service removed the need to configure their own ingress.
