@@ -125,7 +125,7 @@ The following sections present a breakdown of Contoso activity necessary across 
     - Contoso SKU selection: Fabric Capacity
     - DR impact:
       - Azure datacenter failure: Not applicable
-      - Availability Zone failure: Not applicable
+      - Availability zone failure: Not applicable
       - Azure regional failure: Contoso needs to deploy and [restore](/fabric/security/experience-specific-guidance#warehouse) the data platform Fabric into the secondary region and redeploy the warehouse.
     - Notes:
        - Cross-region restore:
@@ -135,9 +135,9 @@ The following sections present a breakdown of Contoso activity necessary across 
 - **Fabric – Pipelines**
     - Contoso SKU selection: Fabric Capacity
     - DR impact
-        - Azure datacenter failure: N/A
-        - Availability Zone failure: N/A
-        - Azure regional failure: Contoso would need to deploy and [restore](/fabric/security/experience-specific-guidance) the data platform Fabric into the secondary region and redeploy the pipelines.
+        - Azure datacenter failure: Not applicable
+        - Availability zone failure: Not applicable
+        - Azure regional failure: Contoso needs to deploy and [restore](/fabric/security/experience-specific-guidance) the data platform Fabric into the secondary region and redeploy the pipelines.
            
 - **Azure Event Hubs**
     - Contoso SKU selection: Standard
@@ -192,14 +192,14 @@ The following sections present a breakdown of Contoso activity necessary across 
     - Contoso SKU selection: Fabric Capacity
     - DR impact:
       - Azure datacenter failure: Not applicable
-      - Availability Zone failure: Not applicable
+      - Availability zone failure: Not applicable
       - Azure regional failure: Contoso redeploys Fabric eventhouse and pipelines in the secondary region.
 
 - **Fabric – Lakehouse**
     - Contoso SKU selection: Fabric Capacity
     - DR impact:
       - Azure datacenter failure: Not applicable
-      - Availability Zone failure: Not applicable
+      - Availability zone failure: Not applicable
       - Azure regional failure: Contoso needs to redeploy Fabric Lakehouse and pipelines in the secondary region and [restores](/fabric/security/experience-specific-guidance#lakehouse) the Fabric data platform there. The lakehouse is redeployed in the secondary region.
 
 - **Power BI**
@@ -240,11 +240,11 @@ The following sections present a breakdown of Contoso activity necessary across 
         - Azure datacenter failure: N/A
         - Availability Zone failure: Contoso would need to validate availability and redeploy if necessary.
         - Azure regional failure: Contoso would need to deploy an instance of Microsoft Purview into the secondary region.
-    - Notes
-        - This activity would be mitigated by implementing the "Warm Spare" strategy, having a second instance of Microsoft Purview available in the secondary region
+    - Notes:
+        - This activity is mitigated by implementing the *Warm Spare* strategy, which means that a second instance of Microsoft Purview is available in the secondary region.
         - A "Warm Spare" approach has the following [key callouts](/azure/purview/disaster-recovery#achieve-business-continuity-for-microsoft-purview):
             - The primary and secondary Microsoft Purview accounts can't be configured to the same Azure Data Factory, Data Share, or Fabric accounts, if applicable. As a result, lineage from Azure Data Factory and Data Share isn't visible in the secondary Microsoft Purview accounts.
-            - The integration runtimes are specific to a Microsoft Purview account. Hence, if scans must run in primary and secondary Microsoft Purview accounts in parallel, multiple self-hosted integration runtimes must be maintained.
+            - The integration runtimes are specific to a Microsoft Purview account. As a result, if scans must run in primary and secondary Microsoft Purview accounts in parallel, multiple self-hosted integration runtimes must be maintained.
 
 > [!NOTE]
 > This section is intended as general guidance. The vendor's documentation on disaster recovery, redundancy and backup should be consulted for the correct approach for a new component or service under consideration.
