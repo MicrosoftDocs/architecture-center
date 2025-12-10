@@ -109,7 +109,7 @@ The following sections present a breakdown of Contoso activity necessary across 
         - Azure datacenter failure: Not applicable
         - Availability zone failure: Contoso needs to validate availability and redeploy if necessary.
         - Azure regional failure: Contoso needs to redeploy the Data Platform Storage Accounts and rehydrate them with data in the secondary region.
-    - Notes
+    - Notes:
         - Storage Accounts have a broad range of [data redundancy](/azure/storage/common/storage-redundancy) options from primary region redundancy up to secondary region redundancy.
         - For Secondary region redundancy data is replicated to the [secondary region asynchronously](/azure/storage/common/storage-redundancy#redundancy-in-a-secondary-region). A failure that affects the primary region might result in data loss if the primary region can't be recovered. Azure Storage typically has a recovery point objective (RPO) of less than 15 minutes.
         - In the case of a regional outage, Storage accounts which, are geo-redundant, would be available in the secondary region as LRS. Additional configuration would need to be applied to uplift these components in the secondary region to be geo-redundant.
@@ -119,7 +119,7 @@ The following sections present a breakdown of Contoso activity necessary across 
     - DR impact:
       - Azure datacenter failure: Not applicable
       - Availability zone failure: Contoso needs to validate availability and redeploy if necessary.
-      - Azure regional failure: Microsoft handles the regional failures. OneLake data is available via the API as outlined in [OneLake DR](/fabric/onelake/onelake-disaster-recovery).
+      - Azure regional failure: Microsoft handles the regional failures. OneLake data is available via the API as outlined in [DR and data protection for OneLake](/fabric/onelake/onelake-disaster-recovery).
 
 - **Fabric – Data Warehouse**
     - Contoso SKU selection: Fabric Capacity

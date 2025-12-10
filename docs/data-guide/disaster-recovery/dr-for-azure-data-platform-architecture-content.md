@@ -84,19 +84,19 @@ The workflow reads from left to right and shows the flow of data.
 
   - [Copilot in Power BI](/power-bi/create-reports/copilot-introduction) is designed for business users, analysts, and report creators who want to accelerate insights without writing complex queries or building visuals manually. It uses generative AI to help create reports, summarize data, and generate visuals by using natural language prompts.
 
-- Use the [data agent](/fabric/data-science/concept-data-agent) in Fabric to explore insights through natural language interactions. With Azure AI Foundry integration, the data agent provides access to enterprise data and enables data-driven decision making.
+  - Use the [data agent](/fabric/data-science/concept-data-agent) in Fabric to explore insights through natural language interactions. With Azure AI Foundry integration, the data agent provides access to enterprise data and enables data-driven decision making.
 
 - **Data share**
 
   - [External data sharing](/fabric/governance/external-data-sharing-overview) in Fabric enables a provider tenant to securely share OneLake data with a consumer tenant. This capability supports cross-tenant access and collaboration without moving data. In the previous diagram, a provider tenant is the organization that shares data externally, and a consumer tenant is the organization that accesses and uses that shared data.
 
-- DR for external data sharing ensures that shared data remains accessible and consistent during outages or failures. Key aspects include the following components:
+  - DR for external data sharing ensures that shared data remains accessible and consistent during outages or failures. Key aspects include the following components:
 
-  - Geo-redundancy: OneLake data resides in geo-replicated regions, so shared datasets remain available if the primary region experiences downtime.
+    - Geo-redundancy: OneLake data resides in geo-replicated regions, so shared datasets remain available if the primary region experiences downtime.
 
-  - Failover support: When a regional outage occurs, the provider tenant's DR strategy redirects access to the secondary region, which ensures continuity for consumer tenants.
+    - Failover support: When a regional outage occurs, the provider tenant's DR strategy redirects access to the secondary region, which ensures continuity for consumer tenants.
 
-  - Metadata synchronization: Sharing configurations (like permissions and access policies) are replicated across regions to preserve external sharing integrity during failover.
+    - Metadata synchronization: Sharing configurations (like permissions and access policies) are replicated across regions to preserve external sharing integrity during failover.
 
 - **Discover and govern:** Use [Microsoft Purview](/fabric/governance/microsoft-purview-fabric), [OneLake catalog](/fabric/governance/onelake-catalog-overview), and Fabric governance tools to manage lineage, metadata, and access control.
 
