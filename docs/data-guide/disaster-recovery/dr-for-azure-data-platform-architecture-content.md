@@ -38,7 +38,7 @@ The workflow reads from left to right and shows the flow of data.
 
   - Ingest structured, semistructured, and unstructured data into [OneLake](/fabric/onelake/onelake-overview) by using [Data Factory](/fabric/data-factory/data-factory-overview), [eventstreams](/fabric/real-time-intelligence/event-streams/overview), [notebooks](/fabric/data-engineering/how-to-use-notebook), [shortcuts](/fabric/onelake/onelake-shortcuts), or [mirroring](/fabric/mirroring/overview).
 
-  - Use Data Factory for batch extract, transform, load (ETL) and extract, load, transform (ELT) pipelines. Use eventstreams for real-time ingestion via [Real-Time hub](/fabric/real-time-hub/real-time-hub-overview).
+  - Use Data Factory for batch extract, transform, load (ETL) and extract, load, transform (ELT) pipelines. Use eventstreams for real-time ingestion via the [Real-Time hub](/fabric/real-time-hub/real-time-hub-overview).
 
   - [Mirror supported databases](/fabric/mirroring/overview#types-of-mirroring) for near real-time replication or use shortcuts to access external data without copying the data into OneLake.
 
