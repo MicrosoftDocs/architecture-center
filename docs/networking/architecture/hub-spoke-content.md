@@ -249,7 +249,7 @@ Use [Azure Network Watcher](/azure/network-watcher/network-watcher-monitoring-ov
 
 If you're using ExpressRoute, use [ExpressRoute Traffic Collector](/azure/expressroute/traffic-collector) where you can analyze flow logs for the network flows sent over your ExpressRoute circuits. ExpressRoute Traffic Collector gives you visibility into traffic flowing over Microsoft enterprise edge routers.
 
-Use FQDN-based rules in Azure Firewall for protocols other than HTTP(S) or when configuring SQL Server. Using FQDNs lowers the management burden over managing individual IP addresses.
+Use FQDN-based rules in Azure Firewall for protocols other than HTTP(S) or when configuring SQL Server. Using FQDNs reduces the management burden compared to managing individual IP addresses.
 
 [Plan for IP addressing](/azure/cloud-adoption-framework/ready/azure-best-practices/plan-for-ip-addressing) based on your peering requirements, and make sure the address space doesn't overlap across cross-premises locations and Azure locations.
 

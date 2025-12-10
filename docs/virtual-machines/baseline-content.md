@@ -468,7 +468,7 @@ Security doesn't only refer to technical controls. We recommend that you follow 
 
 - **Network segmentation**. Workload resources are placed in a virtual network, which provides isolation from the internet. Within the virtual network, subnets can be used as trust boundaries. *Colocate related resources needed for handling a transaction in one subnet*. In this architecture, the virtual network is divided into subnets based on the logical grouping of the application and purpose of various Azure services used as part of the workload.
 
-    The advantage of subnet segmentation is that you can place security controls at the subnet perimeter to manage the flow of traffic in and out, which restricts access to workload resources.
+    The advantage of subnet segmentation is that you can place security controls at the subnet perimeter to manage the flow of traffic in and out, which restricts access to the workload resources.
 
 - **Identity segmentation**. Assign distinct roles to different identities with just-enough permissions to do their task. This architecture uses identities managed by [Microsoft Entra ID](/entra/fundamentals/whatis) to segment access to resources.
 
