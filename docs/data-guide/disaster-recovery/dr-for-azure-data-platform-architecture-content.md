@@ -138,7 +138,7 @@ The following tables present a breakdown of each Azure service and component use
     - DR uplift options: DevOps [service and data reliability](/azure/devops/organizations/security/data-protection?view=azure-devops#data-availability) is part of its SaaS offering.
     - Notes
         - DevOps Server as the on-premises offering remains the customer's responsibility for disaster recovery.
-        - If third party services (SonarCloud, JFrog Artifactory, Jenkins build servers for example) are used, they remain the customer's responsibility for recovery from a disaster.
+        - If third-party services (like SonarCloud, JFrog Artifactory, and Jenkins build servers) are used, they remain the customer's responsibility for recovery from a disaster.
         - If IaaS VMs are used within the DevOps toolchain, they remain the customer's responsibility for recovery from a disaster.
 
 - **GitHub**
