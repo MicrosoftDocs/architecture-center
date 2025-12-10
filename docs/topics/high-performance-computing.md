@@ -44,7 +44,7 @@ The following articles provide more detail about this dynamic scaling capability
 
 ## Implementation checklist
 
-As you're looking to implement your own HPC solution on Azure, ensure you're reviewed the following topics:
+As you're looking to implement your own HPC solution on Azure, ensure you've reviewed the following topics:
 
 > [!div class="checklist"]
 >
@@ -168,7 +168,7 @@ There are many workload managers offered in the [Azure Marketplace](https://azur
 
 SaaS providers or developers can use the Batch SDKs and tools to integrate HPC applications or container workloads with Azure, stage data to Azure, and build job execution pipelines.
 
-In Azure Batch all the services are running on the Cloud, the image below shows how the architecture looks with Azure Batch, having the scalability and job schedule configurations running in the Cloud while the results and reports can be sent to your on-premises environment.
+In Azure Batch all the services are running on the Cloud. The following image shows how the architecture looks with Azure Batch, having the scalability and job schedule configurations running in the Cloud while the results and reports can be sent to your on-premises environment.
 
 ![Diagram shows example HPC architecture for Azure Batch.](images/cloud-native-job-scheduler-azure-batch.jpg)
 
@@ -190,7 +190,7 @@ In this Hybrid example diagram, we can see clearly how these services are distri
 ![Diagram shows example HPC architecture for CycleCloud on Azure in a Hybrid.](images/industry-standard-high-performance-computing-job-scheduler-hybrid-cloudbursting-model-azure-cyclecloud.jpg)
 
 ##### Cloud native model
-The cloud native model example diagram below, shows how the workload in the cloud will handle everything while still conserving the connection to the on-premises environment.
+The following cloud native model example diagram shows how the workload in the cloud will handle everything while still conserving the connection to the on-premises environment.
 
 ![Diagram shows example HPC architecture for CycleCloud on Azure in Cloud native model
 .](images/industry-standard-high-performance-computing-job-scheduler-cloud-native-model-azure-cyclecloud.jpg)
@@ -222,7 +222,7 @@ The following are examples of cluster and workload managers that can run in Azur
 
 #### Containers
 
-Containers can also be used to manage some HPC workloads. Services like the Azure Kubernetes Service (AKS) makes it simple to deploy a managed Kubernetes cluster in Azure.
+Containers can also be used to manage some HPC workloads. Services like the Azure Kubernetes Service (AKS) make it simple to deploy a managed Kubernetes cluster in Azure.
 
 - [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)
 - [Container Registry](/azure/container-registry/container-registry-intro)
