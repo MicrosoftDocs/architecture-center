@@ -1,6 +1,6 @@
 ---
 title: Develop a RAG Solution—Information-Retrieval Phase
-description: Learn about how to configure a search index, the types of searches that you can perform, how to break queries into subqueries, and why and how to rerank queries.
+description: Learn about how to configure a search index, the types of searches that you can run, how to break queries into subqueries, and why and how to rerank queries.
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 10/10/2025
@@ -37,7 +37,7 @@ In AI Search, the vector configurations are encapsulated in a `vectorSearch` con
 
 When you run queries from your prompt orchestrator against your search store, consider the following factors:
 
-- The type of search that you want to perform, such as vector, keyword, or hybrid
+- The type of search that you want to run, such as vector, keyword, or hybrid
 
 - Whether you want to query against one or more columns
 - Whether you want to manually run multiple queries, such as a keyword query and a vector search
@@ -55,10 +55,10 @@ Search platforms generally support full-text and vector searches. Some platforms
 [Vector searches](/azure/search/vector-search-how-to-query) compare the similarity between the vectorized query (prompt) and vector fields. For more information, see [Choose an Azure service for vector searches](../../../guide/technology-choices/vector-search.md).
 
 > [!IMPORTANT]
-> Before you embed the query, you should perform the same [cleaning operations](./rag-enrichment-phase.md#clean-your-data) that you performed on chunks. For example, if you lowercased every word in your embedded chunk, you should lowercase every word in the query before embedding.
+> Before you embed the query, you should run the same [cleaning operations](./rag-enrichment-phase.md#clean-your-data) that you performed on chunks. For example, if you lowercased every word in your embedded chunk, you should lowercase every word in the query before embedding.
 
 > [!NOTE]
-> You can perform a vector search against multiple vector fields in the same query. In AI Search, this practice is considered a hybrid search. For more information, see [Hybrid search](#hybrid-search).
+> You can run a vector search against multiple vector fields in the same query. In AI Search, this practice is considered a hybrid search. For more information, see [Hybrid search](#hybrid-search).
 
 The following sample code performs a vector search against the contentVector field. 
 
@@ -136,7 +136,7 @@ results = client.search(
 
 You can run multiple queries, such as a vector search and a keyword full-text search, manually. You aggregate the results, [rerank](#use-reranking) the results manually, and return the top results. Consider the following use cases for manual multiple queries:
 
-- You use a search platform that doesn't support hybrid searches. You use manual multiple queries to perform your own hybrid search.
+- You use a search platform that doesn't support hybrid searches. You use manual multiple queries to run your own hybrid search.
 
 - You want to run full-text searches against different queries. For example, you might extract keywords from the query and run a full-text search against your keywords metadata field. You might then extract entities and run a query against the entities metadata field.
 - You want to control the reranking process.
@@ -331,7 +331,7 @@ query: {original_query}
 
 #### The HyDE technique
 
-[HyDE](https://medium.com/towards-data-science/how-to-use-hyde-for-better-llm-rag-retrieval-a0aa5d0e23e8) is an alternate information-retrieval technique for RAG solutions. Rather than converting a query into embeddings and using those embeddings to find the closest matches in a vector database, HyDE uses a language model to generate answers from the query. These answers are converted into embeddings, which are used to find the closest matches. This process enables HyDE to perform answer-to-answer embedding-similarity searches.
+[HyDE](https://medium.com/towards-data-science/how-to-use-hyde-for-better-llm-rag-retrieval-a0aa5d0e23e8) is an alternate information-retrieval technique for RAG solutions. Rather than converting a query into embeddings and using those embeddings to find the closest matches in a vector database, HyDE uses a language model to generate answers from the query. These answers are converted into embeddings, which are used to find the closest matches. This process enables HyDE to run answer-to-answer embedding-similarity searches.
 
 ### Combine query translations into a pipeline
 
@@ -382,7 +382,7 @@ Use reranking to run one or more queries, aggregate the results, and rank those 
 
 - Vector and keyword searches aren't always accurate. You want to increase the count of documents that you return from your search, which can include valid results that might otherwise be ignored, and use reranking to evaluate the results.
 
-You can use a language model or cross encoder to perform reranking. Some platforms, like AI Search, have proprietary methods to rerank results. You can evaluate these options for your data to determine what works best for your scenario. The following sections provide details about these methods.
+You can use a language model or cross encoder to apply reranking. Some platforms, like AI Search, have proprietary methods to rerank results. You can evaluate these options for your data to determine what works best for your scenario. The following sections provide details about these methods.
 
 #### Language model reranking
 
@@ -469,7 +469,7 @@ To evaluate your search solution, you can use the following well-established ret
 - **Recall at K:** The percentage of relevant items in the top *K* out of the total possible relative items. This metric focuses on search results coverage.
 - **Mean Reciprocal Rank (MRR):** The average of the reciprocal ranks of the first relevant answer in your ranked search results. This metric focuses on where the first relevant result occurs in the search results.
 
-You should test positive and negative examples. For the positive examples, you want the metrics to be as close to 1 as possible. For the negative examples, where your data shouldn't be able to address the queries, you want the metrics to be as close to 0 as possible. You should test all your test queries. Average the positive query results and the negative query results to understand how your search results perform in aggregate.
+You should test positive and negative examples. For the positive examples, you want the metrics to be as close to 1 as possible. For the negative examples, where your data shouldn't be able to address the queries, you want the metrics to be as close to 0 as possible. You should test all your test queries. Average the positive query results and the negative query results to understand how your search results behave in aggregate.
 
 ## Next step
 

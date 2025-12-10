@@ -42,7 +42,7 @@ public async Task<IHttpActionResult> GetAllFieldsAsync()
 }
 ```
 
-In the next example, the application retrieves data to perform an aggregation that could be done by the database instead. The application calculates total sales by getting every record for all orders sold, and then computing the sum over those records.
+In the next example, the application retrieves data to run an aggregation that could be done by the database instead. The application calculates total sales by getting every record for all orders sold, and then computing the sum over those records.
 
 ```csharp
 public async Task<IHttpActionResult> AggregateOnClientAsync()
@@ -93,7 +93,7 @@ public async Task<IHttpActionResult> GetRequiredFieldsAsync()
 }
 ```
 
-Similarly, perform aggregation in the database and not in application memory.
+Similarly, run aggregation in the database and not in application memory.
 
 ```csharp
 public async Task<IHttpActionResult> AggregateOnDatabaseAsync()
@@ -140,14 +140,14 @@ Symptoms of extraneous fetching include high latency and low throughput. If the 
 
 The symptoms of this antipattern and some of the telemetry obtained might be very similar to those of the [Monolithic Persistence antipattern][MonolithicPersistence].
 
-You can perform the following steps to help identify the cause:
+You can do the following steps to help identify the cause:
 
 1. Identify slow workloads or transactions by performing load-testing, process monitoring, or other methods of capturing instrumentation data.
 2. Observe any behavioral patterns exhibited by the system. Are there particular limits in terms of transactions per second or volume of users?
 3. Correlate the instances of slow workloads with behavioral patterns.
 4. Identify the data stores being used. For each data source, run lower-level telemetry to observe the behavior of operations.
 5. Identify any slow-running queries that reference these data sources.
-6. Perform a resource-specific analysis of the slow-running queries and determine what uses the data.
+6. Conduct a resource-specific analysis of the slow-running queries and determine what uses the data.
 
 Look for any of these symptoms:
 

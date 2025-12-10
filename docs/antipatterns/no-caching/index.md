@@ -133,7 +133,7 @@ Notice that the `GetAsync` method now calls the `CacheService` class, rather tha
 
 ## How to detect a no caching antipattern
 
-You can perform the following steps to help identify whether lack of caching is causing performance problems:
+You can do the following steps to help identify whether lack of caching is causing performance problems:
 
 1. Review the application design. Take an inventory of all the data stores that the application uses. For each, determine whether the application is using a cache. If possible, determine how frequently the data changes. Good initial candidates for caching include data that changes slowly, and static reference data that is read frequently.
 
@@ -141,7 +141,7 @@ You can perform the following steps to help identify whether lack of caching is 
 
 3. Profile the application in a test environment to capture low-level metrics about the overhead associated with data access operations or other frequently performed calculations.
 
-4. Perform load testing in a test environment to identify how the system responds under a normal workload and under heavy load. Load testing should simulate the pattern of data access observed in the production environment using realistic workloads.
+4. Run load testing in a test environment to identify how the system responds under a normal workload and under heavy load. Load testing should simulate the pattern of data access observed in the production environment using realistic workloads.
 
 5. Examine the data access statistics for the underlying data stores and review how often the same data requests are repeated.
 

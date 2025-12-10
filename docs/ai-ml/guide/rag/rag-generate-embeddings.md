@@ -11,7 +11,7 @@ ms.subservice: architecture-guide
 
 # RAG generate embeddings phase
 
-In the previous steps of your retrieval-augmented generation (RAG) solution, you divided your documents into chunks and enriched the chunks. In this step, you generate embeddings for those chunks and any metadata fields on which you plan to perform vector searches.
+In the previous steps of your retrieval-augmented generation (RAG) solution, you divided your documents into chunks and enriched the chunks. In this step, you generate embeddings for those chunks and any metadata fields on which you plan to run vector searches.
 
 This article is part of a series. Read the [introduction](./rag-solution-design-and-evaluation-guide.md).
 
@@ -62,7 +62,7 @@ When you choose a general embedding model, start with the [Hugging Face leaderbo
 
 For domain-specific content, determine whether you can use a domain-specific model. For example, your data might be in the biomedical domain, so you might use the [BioGPT model](https://github.com/microsoft/BioGPT). This language model is pretrained on a large collection of biomedical literature. You can use it for biomedical text mining and generation. If domain-specific models are available, evaluate how these models work with your data.
 
-If you don't have a domain-specific model, or the domain-specific model doesn't perform well, you can fine-tune a general embedding model with your domain-specific vocabulary.
+If you don't have a domain-specific model, or the domain-specific model doesn't run well, you can fine-tune a general embedding model with your domain-specific vocabulary.
 
 > [!IMPORTANT]
 > For any model that you choose, you need to verify that the license suits your needs and the model provides the necessary language support.
@@ -119,7 +119,7 @@ You can use a programmatic method to evaluate how well your embedding model work
 
 ## Evaluate embedding models by using retrieval performance
 
-To choose the best embedding model, evaluate how well it performs in retrieval scenarios. Embed your content, perform vector search, and assess whether the correct items are retrieved.
+To choose the best embedding model, evaluate how well it performs in retrieval scenarios. Embed your content, run a vector search, and assess whether the correct items are retrieved.
 
 You can experiment with different models, comparison formulas, and dimensionality settings. Use evaluation metrics to determine which model provides the best results for your use case.
 
