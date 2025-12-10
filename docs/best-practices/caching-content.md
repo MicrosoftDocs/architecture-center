@@ -554,7 +554,7 @@ For more information, see [Transactions in Redis](https://stackexchange.github.i
 
 When performing batch operations, you can use the `IBatch` interface of the StackExchange library. This interface provides access to a set of methods similar to those accessed by the `IDatabase` interface, except that all the methods are asynchronous.
 
-You create an `IBatch` object by using the `IDatabase.CreateBatch` method, and then run the batch by using the `IBatch.Execute` method, as shown in the following example. This code only sets a string value, increments and decrements the same counters used in the previous example, and displays the results:
+You create an `IBatch` object by using the `IDatabase.CreateBatch` method, and then run the batch by using the `IBatch.Execute` method, as shown in the following example. This code sets a string value, increments and decrements the same counters used in the previous example, and displays the results:
 
 ```csharp
 ConnectionMultiplexer redisHostConnection = ...;

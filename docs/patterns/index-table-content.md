@@ -81,7 +81,7 @@ As with any design decision, consider any tradeoffs against the goals of the oth
 
 ## Example
 
-Azure storage tables provide a highly scalable key/value data store for applications that run in the cloud. Applications store and retrieve data values by specifying a key. Data values can contain multiple fields, but the structure of a data item is opaque to table storage, which treats each item as an array of bytes.
+Azure storage tables provide a highly scalable key/value data store for applications that run in the cloud. Applications store and retrieve data values by specifying a key. These data values can contain multiple fields, but the structure of a data item is opaque to table storage, which treats each item as an array of bytes.
 
 Azure storage tables also support sharding. The sharding key includes two elements, a partition key and a row key. Items that have the same partition key are stored in the same partition (shard), and the items are stored in row key order within a shard. Table storage is optimized for performing queries that fetch data falling within a contiguous range of row key values within a partition. If you're building cloud applications that store information in Azure tables, you should structure your data with this feature in mind.
 
