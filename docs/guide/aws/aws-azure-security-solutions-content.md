@@ -179,6 +179,38 @@ Automatic attack disruption is an autonomous response capability in Microsoft De
 
 - __Visibility and Control:__ Even though the actions are automatic, the SOC remains in full control and informed. Defender XDR clearly tags and highlights incidents where attack disruption was triggered. Analysts can click in to see exactly what was done: which users were disabled, which devices contained, etc., via Action Center. Every automated action is logged and can be undone with a single click if needed and provides the ability to define exclusions. These safeguards, along with the high precision, are meant to balance speed with safety.
 
+#### Automatic Disruption for AWS
+
+![attack disruption](media/aws-azure-security-solutions-content/attack-disruption.png)
+
+Automatic attack disruption reduces dwell time and minimizing business impact. Integrating telemetry from AWS, Proofpoint, and Okta, security teams can transition from reactive detection to proactive, cross-platform protection, ensuring cohesive defense and lowering operational complexity. For more Information see - [Automatic attack disruption in Microsoft Defender XDR](/defender-xdr/automatic-attack-disruption)
+
+### Microsoft Security Copilot
+
+Microsoft Security Copilot is a generative AI-powered security assistant that works across Microsoft’s security stack to help organizations defend multi-cloud environments including AWS at machine speed. It integrates with tools like Microsoft Defender for Cloud, Microsoft Sentinel, and Entra ID to draw on their data and capabilities, layering intelligent analysis and automation on top of your AWS security controls.
+
+- __AI-Augmented Threat Detection:__ Security Copilot excels at correlating signals and spotting complex attack patterns that span multiple systems. Security Copilot’s Dynamic Threat Detection Agent can identify an ongoing AWS attack. For instance,  if a threat actor uses a compromised Entra ID account to federate into an AWS admin role and start exfiltrating data, Security Copilot can correlate unusual sign-in behavior from Entra ID  with AWS API activity (via Sentinel) and generate a proactive alert before the intruder fully completes a single sign-on, effectively stopping the attack in real-time to catch multi-stage attacks in AWS that would evade siloed alerts.
+
+ 
+
+·       __Rapid Incident Investigation:__ When an AWS-related incident occurs, Security Copilot can drastically speed up analysis by combing through AWS CloudTrail events, config changes, network logs, and more (as ingested by Sentinel/Defender) and present a natural language summary of what happened – e.g., _“User X (privileged) from IP Y created an access key and downloaded data from S3 bucket Z at 3:45 AM”_.  Analysts can ask follow-up questions in plain English (“_Which S3 buckets were accessed by that user?_”) and Copilot will dynamically query the data to answer. This reduces the time and skill needed to interpret AWS logs or pivot across consoles. Junior analysts can investigate complex AWS scenarios without deep KQL or AWS knowledge – Security Copilot translates their intent into the technical queries.
+
+ 
+
+·       __Step-by-Step Response Guidance:__ For confirmed threats or risks in AWS, Security Copilot provides actionable response steps grounded in Microsoft’s best practices and any playbooks your organization has provided, it will outline containment and remediation measures. For example, if an EC2 instance is compromised, Security Copilot might recommend steps like “isolate VM by removing from load balancers and security groups, then trigger instance snapshot for forensics” followed by “rotate any exposed IAM credentials”.
+
+ 
+
+·       __Automated Remediation & Scripting:__ Beyond guidance, Security Copilot can assist with the actual fixes. It can generate PowerShell, CLI commands, or Terraform snippets to remediate issues in AWS. For instance, if a policy violation is detected (like an S3 bucket made public), Copilot might produce an AWS CLI command to revoke public access or a Terraform code change to enforce the correct setting. This capability saves time.
+
+ 
+
+_Please Note: Any AI generated scripts should be reviewed before execution, but it provides a solid starting point._
+
+- __Natural Language Threat Hunting:__ Security Copilot allows analysts to hunt for threats in AWS using plain language. Instead of writing complex queries, an analyst can prompt Security Copilot with requests like _“Identify any anomalous AWS console logins outside business hours this week”._ This lowers the barrier for proactive threat hunting in AWS and empowers broader use of your AWS security data,
+
+Security Copilot acts as a force-multiplier for your SOC when dealing with AWS incidents. By deeply integrating with Defender for Cloud and Sentinel, it breaks down multi-cloud data silos and accelerates detection, accelerates investigation, and accelerates response. For more information, see - [Microsoft Security Copilot](/copilot/security/microsoft-security-copilot)
+
 ### Recommendations
 
 Use the Microsoft security solutions and basic AWS security recommendations to protect AWS accounts.
