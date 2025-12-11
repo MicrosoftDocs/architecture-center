@@ -86,7 +86,7 @@ Both MLOps and GenAIOps apply the fundamentals of data operations (DataOps) to c
 
 #### Training and fine-tuning
 
-This technical pattern should make use of the existing DataOps investments from your MLOps implementation. Reproducibility and data versioning allow you to experiment with different feature engineering data, compare the performance of the different models, and reproduce results.
+This technical pattern should maximize the existing DataOps investments from your MLOps implementation. Reproducibility and data versioning allow you to experiment with different feature engineering data, compare the performance of the different models, and reproduce results.
 
 #### RAG and prompt engineering
 
@@ -118,7 +118,7 @@ You can experiment on multiple dimensions for different prompts, including diffe
 - Methods for enriching chunks
 - Embedding model selection
 - Configuration of the search index
-- Types of searches to run, such as vector, full-text, and hybrid
+- Types of searches to run, like vector, full-text, and hybrid
 
 As described in [DataOps](#dataops), reproducibility and data versioning are key to experimentation. A good experimentation framework enables you to store inputs, such as changes to hyperparameters or prompts, along with outputs to be used when you [evaluate the experiment](#evaluation-and-experimentation).
 

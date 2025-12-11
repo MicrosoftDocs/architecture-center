@@ -33,7 +33,7 @@ This article describes an Azure architecture that you can use to replace costly 
 
 ### Alternatives
 
-- You can use [Microsoft Fabric](/fabric/) instead of [Power BI](/power-bi/fundamentals/power-bi-overview) to ingest the processed output to a Lakehouse and then do further analysis and processing of the output data.
+- You can use [Microsoft Fabric](/fabric/) instead of [Power BI](/power-bi/fundamentals/power-bi-overview) to ingest the processed output to a lakehouse and then further analyze and process the output data.
 
 ## Scenario details
 

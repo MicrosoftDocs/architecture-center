@@ -4,7 +4,7 @@ Monitoring workloads that include Azure OpenAI Service involves enabling diagnos
 
 - [Logging model inputs and model outputs for various auditing use cases and monitoring model performance](#audit-model-inputs-and-outputs).
 
-- [Running near real-time monitoring](#near-real-time-monitoring).
+- [Perform near real-time monitoring](#near-real-time-monitoring).
 
 > [!NOTE]
 > For more information about how to monitor Azure OpenAI directly, see [Monitor Azure OpenAI](/azure/ai-services/openai/how-to/monitor-openai).

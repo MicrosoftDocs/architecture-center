@@ -119,7 +119,7 @@ A gateway provides several advantages in this scenario:
 
 ### Reasons to avoid a gateway for this scenario
 
-In environments that have few clients, the cost of handling security and certificate management in the client can outweigh the added complexity of introducing a gateway. Also, gateways can become single points of failure, increase latency because of added layers, and lead to vendor lock-in if you choose commercial solutions rather than custom implementations.
+In simple environments that have few clients, the cost of handling security and certificate management in the client can outweigh the added complexity of introducing a gateway. Also, gateways can become single points of failure, increase latency because of added layers, and lead to vendor lock-in if you choose commercial solutions rather than custom implementations.
 
 You must carefully assess your specific needs, resource availability, and the criticality of your applications before you implement a gateway for client certificate authentication.
 

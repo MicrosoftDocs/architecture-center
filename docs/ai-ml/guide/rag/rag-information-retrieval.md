@@ -37,7 +37,7 @@ In AI Search, the vector configurations are encapsulated in a `vectorSearch` con
 
 When you run queries from your prompt orchestrator against your search store, consider the following factors:
 
-- The type of search that you want to run, such as vector, keyword, or hybrid
+- The type of search that you want to run, like vector, keyword, or hybrid
 
 - Whether you want to query against one or more columns
 - Whether you want to manually run multiple queries, such as a keyword query and a vector search

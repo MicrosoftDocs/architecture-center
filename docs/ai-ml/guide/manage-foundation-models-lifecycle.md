@@ -83,7 +83,7 @@ For each of these areas, consider downtime caused by updates and how you handle 
 
 1. **The model:** The obvious change is to the model itself. You deploy the new model by using your chosen model deployment strategy. You need to evaluate trade-offs between in-place upgrades versus side-by-side deployment.
 
-   When you move to a new model revision from a fine-tuned model, you need to do the fine-tuning on the new model version again before you use it. When you update to use a different model, you need to determine if fine-tuning is required.
+   When you move to a new model revision from a fine-tuned model, you need to fine-tune the new model version again before you use it. When you update to use a different model, you need to determine if fine-tuning is required.
 
 1. **The model configuration:** When you update the foundation model in your AI solution, you might need to adjust hyperparameters or configurations to optimize performance for the new model's architecture and capabilities. For example, switching from a transformer-based model to a recurrent neural network might require different learning rates and batch sizes to achieve optimal results.
 

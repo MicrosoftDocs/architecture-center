@@ -25,7 +25,7 @@ Many database systems can run code. Examples include stored procedures and trigg
 
 This antipattern typically occurs because:
 
-- The database is viewed as a service rather than a repository. An application might use the database server to format data (for example, converting to XML), manipulate string data, or carry out complex calculations.
+- The database is viewed as a service rather than a repository. An application might use the database server to format data (for example, converting to XML), manipulate string data, or do complex calculations.
 - Developers try to write queries whose results can be displayed directly to users. For example, a query might combine fields or format dates, times, and currency according to locale.
 - Developers are trying to correct the [Extraneous Fetching][ExtraneousFetching] antipattern by pushing computations to the database.
 - Stored procedures are used to encapsulate business logic, perhaps because they are considered easier to maintain and update.
@@ -208,7 +208,7 @@ using (var command = new SqlCommand(...))
 
 ## Considerations
 
-- Many database systems are highly optimized to run certain types of data processing, such as calculating aggregate values over large datasets. Don't move those types of processing out of the database.
+- Many database systems are highly optimized to run specific types of data processing, like calculating aggregate values over large datasets. Don't move those types of processing out of the database.
 
 - Do not relocate processing if doing so causes the database to transfer far more data over the network. See the [Extraneous Fetching antipattern][ExtraneousFetching].
 
@@ -224,7 +224,7 @@ You can do the following steps to help identify this problem:
 
 2. Examine the work performed by the database during these periods.
 
-3. If you suspect that particular operations might cause too much database activity, do load testing in a controlled environment. Each test should run a mixture of the suspect operations with a variable user load. Examine the telemetry from the load tests to observe how the database is used.
+3. If you suspect that specific operations might cause too much database activity, load test in a controlled environment. Each test should run a mixture of the suspect operations with a variable user load. Examine the telemetry from the load tests to observe how the database is used.
 
 4. If the database activity reveals significant processing but little data traffic, review the source code to determine whether the processing can better be performed elsewhere.
 

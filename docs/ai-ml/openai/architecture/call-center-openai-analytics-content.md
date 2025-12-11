@@ -47,7 +47,7 @@ This article describes how to extract insights from customer conversations at a 
 
 Depending on your scenario, you can add the following workflows.
 
-- Use [conversation summarization](/azure/ai-services/language-service/summarization/overview) by using the prebuilt model in Azure AI Language.
+- Perform [conversation summarization](/azure/ai-services/language-service/summarization/overview) by using the prebuilt model in Azure AI Language.
 - Azure also offers Speech Analytics which provides the entire orchestration for post call analytics in batch.
 
 ## Scenario details

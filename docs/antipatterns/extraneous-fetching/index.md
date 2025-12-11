@@ -93,7 +93,7 @@ public async Task<IHttpActionResult> GetRequiredFieldsAsync()
 }
 ```
 
-Similarly, run aggregation in the database and not in application memory.
+Similarly, run an aggregation in the database and not in application memory.
 
 ```csharp
 public async Task<IHttpActionResult> AggregateOnDatabaseAsync()

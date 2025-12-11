@@ -22,7 +22,7 @@ The other articles in this series cover the following considerations:
 - How to determine which chunks you should enrich and how to enrich them
 - How to choose the right embedding model
 - How to configure the search index
-- How to determine which searches, such as vector, full text, hybrid, and manual multiple searches, you should run
+- How to determine which searches, like vector, full text, hybrid, and manual multiple searches, that you should run
 - How to evaluate each step
 
 ## RAG architecture

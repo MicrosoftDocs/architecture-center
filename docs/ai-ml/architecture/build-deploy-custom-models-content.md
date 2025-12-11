@@ -66,7 +66,7 @@ The following dataflow corresponds to the previous diagram:
 
   - [Export labeled data](/azure/machine-learning/how-to-use-labeled-dataset#export-data-labels) as [COCO](https://cocodataset.org) or Machine Learning datasets. You can use these datasets to train and deploy models in Machine Learning notebooks.
 
-- [Azure OpenAI](/azure/ai-foundry/openai/overview) provides powerful [language models and multimodal models](/azure/ai-services/openai/concepts/models) as REST APIs that you can use to complete various tasks. In this architecture, Azure OpenAI models complete advanced language tasks such as [fine-tuning models](/azure/ai-services/openai/concepts/models#fine-tuning-models) to improve the model performance on data that's missing or underrepresented when the base model is originally trained. You can also use foundation models from multiple providers to complete these tasks.
+- [Azure OpenAI](/azure/ai-foundry/openai/overview) provides powerful [language models and multimodal models](/azure/ai-services/openai/concepts/models) as REST APIs that you can use to complete various tasks. In this architecture, Azure OpenAI models handle advanced language tasks such as [fine-tuning models](/azure/ai-services/openai/concepts/models#fine-tuning-models) to improve how the model works with data that's missing or underrepresented when the base model is first trained. You can also use foundation models from multiple providers to complete these tasks.
 
 ### Alternatives
 
