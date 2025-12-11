@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Baseline Microsoft Foundry Chat Reference Architecture
-  description: Use this baseline reference architecture to learn how to build network-secured, highly available, and zone-redundant enterprise chat applications by using Microsoft Foundry, the Azure AI Agent Service, Azure OpenAI models, and Azure App Service.
+  description: Use this baseline reference architecture to learn how to build network-secured, highly available, and zone-redundant enterprise chat applications by using Microsoft Foundry, the Foundry Agent Service, Azure OpenAI models, and Azure App Service.
   author: claytonsiemens77
   ms.author: pnp
   ms.date: 09/05/2025
@@ -21,7 +21,7 @@ products:
   - azure-ai-foundry
   - azure-ai-foundry-agent-service
 name: Baseline Microsoft Foundry chat reference architecture
-summary: Use this baseline reference architecture to learn how to build network-secured, highly available, and zone-redundant enterprise chat applications by using Microsoft Foundry, the Azure AI Agent Service, Azure OpenAI models, and Azure App Service.
+summary: Use this baseline reference architecture to learn how to build network-secured, highly available, and zone-redundant enterprise chat applications by using Microsoft Foundry, the Foundry Agent Service, Azure OpenAI models, and Azure App Service.
 thumbnailUrl: /azure/architecture/browse/thumbs/ai-foundry-end-to-end-baseline-deployment.png
 content: |
    [!INCLUDE[](baseline-azure-ai-foundry-chat-content.md)]

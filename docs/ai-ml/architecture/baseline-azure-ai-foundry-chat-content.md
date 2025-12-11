@@ -15,19 +15,19 @@ The chat UI follows the [baseline Azure App service web application](../../web-a
 > [!IMPORTANT]
 > This article doesn't describe components or architecture decisions from the [baseline App Service web application architecture](../../web-apps/app-service/architectures/baseline-zone-redundant.yml). Read that article for architectural guidance about how to host the web application that contains your chat UI.
 
-This architecture uses the [Foundry Agent Service standard agent setup](/azure/ai-services/agents/concepts/standard-agent-setup) to enable enterprise-grade security, compliance, and control. In this configuration, you bring your own network for network isolation and your own Azure resources to store chat and agent state. All communication between application components and Azure services occurs over private endpoints, which ensures that data traffic remains within your workload's virtual network. Outbound traffic from the agents strictly routes through Azure Firewall, which enforces egress rules.
+This architecture uses the [Agent Service standard agent setup](/azure/ai-services/agents/concepts/standard-agent-setup) to enable enterprise-grade security, compliance, and control. In this configuration, you bring your own network for network isolation and your own Azure resources to store chat and agent state. All communication between application components and Azure services occurs over private endpoints, which ensures that data traffic remains within your workload's virtual network. Outbound traffic from the agents strictly routes through Azure Firewall, which enforces egress rules.
 
 > [!TIP]
-> :::image type="icon" source="../../_images/github.svg"::: The [Foundry Agent Service reference implementation](https://github.com/Azure-Samples/microsoft-foundry-baseline) showcases a baseline end-to-end chat implementation on Azure. It serves as a foundation to develop custom solutions as you move toward production.
+> :::image type="icon" source="../../_images/github.svg"::: The [Agent Service reference implementation](https://github.com/Azure-Samples/microsoft-foundry-baseline) showcases a baseline end-to-end chat implementation on Azure. It serves as a foundation to develop custom solutions as you move toward production.
 
 ## Architecture
 
-:::image type="complex" source="_images/baseline-azure-ai-foundry.svg" border="false" lightbox="_images/baseline-azure-ai-foundry.svg" alt-text="Diagram that shows a baseline end-to-end chat architecture that uses Microsoft Foundry.":::
-    The diagram presents a detailed Azure architecture for deploying an AI solution. On the left, a user connects through an Application Gateway with a web application firewall, which is part of a virtual network. This gateway is linked to private DNS zones and protected by Azure DDoS Protection. Under the gateway, private endpoints connect to services such as App Service, Azure Key Vault, and Storage, which are used for client app deployment. The App Service is managed with identity and spans three zones. Application Insights and Azure Monitor provide monitoring, and Microsoft Entra ID handles authentication.
+:::image type="complex" source="_images/baseline-azure-ai-foundry.svg" border="false" lightbox="_images/baseline-azure-ai-foundry.svg" alt-text="Diagram that shows a baseline end-to-end chat architecture that uses Foundry.":::
+   The diagram presents a detailed Azure architecture for deploying an AI solution. On the left, a user connects through an Application Gateway with a web application firewall, which is part of a virtual network. This gateway is linked to private DNS zones and protected by Azure DDoS Protection. Under the gateway, private endpoints connect to services such as App Service, Azure Key Vault, and Storage, which are used for client app deployment. The App Service is managed with identity and spans three zones. Application Insights and Azure Monitor provide monitoring, and Microsoft Entra ID handles authentication.
 
-    To the right, the virtual network contains several subnets: App Service integration, private endpoint, Microsoft Foundry integration, Azure AI agent integration, Azure Bastion, jump box, build agents, and Azure firewall. Each subnet hosts specific endpoints or services, such as storage, Foundry, AI Search, Azure Cosmos DB, and knowledge store, all connected via private endpoints. Outbound traffic from the network passes through the Azure Firewall to reach internet sources.
+    To the right, the virtual network contains several subnets: App Service integration, private endpoint, Foundry integration, Azure AI agent integration, Azure Bastion, jump box, build agents, and Azure firewall. Each subnet hosts specific endpoints or services, such as storage, Foundry, AI Search, Azure Cosmos DB, and knowledge store, all connected via private endpoints. Outbound traffic from the network passes through the Azure Firewall to reach internet sources.
 
-    To the far right, a separate box represents Microsoft Foundry, which includes an account and a project. Managed identities are used to connect the Foundry Agent Service to the Foundry project, which in turn accesses an Azure OpenAI model. The diagram uses numbered green circles to indicate the logical flow, showing how user requests traverse the network, interact with various endpoints, and ultimately connect to Azure AI services and storage, with dependencies clearly grouped and labeled.
+    To the far right, a separate box represents Foundry, which includes an account and a project. Managed identities are used to connect the Agent Service to the Foundry project, which in turn accesses an Azure OpenAI model. The diagram uses numbered green circles to indicate the logical flow, showing how user requests traverse the network, interact with various endpoints, and ultimately connect to Azure AI services and storage, with dependencies clearly grouped and labeled.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/baseline-azure-ai-foundry.vsdx) of this architecture.*
@@ -36,7 +36,7 @@ This architecture uses the [Foundry Agent Service standard agent setup](/azure/a
 
 1. An application user interacts with a chat UI. The requests are routed through Azure Application Gateway. Azure Web Application Firewall inspects these requests before it forwards them to the back-end App Service.
 
-1. When the web application receives a user query or instruction, it invokes the purpose-built agent. The web application communicates with the agent via the Azure AI Agent SDK. The web application calls the agent over a private endpoint and authenticates to Microsoft Foundry by using its managed identity.
+1. When the web application receives a user query or instruction, it invokes the purpose-built agent. The web application communicates with the agent via the Azure AI Agent SDK. The web application calls the agent over a private endpoint and authenticates to Foundry by using its managed identity.
 
 1. The agent processes the user's request based on the instructions in its system prompt. To fulfill the user's intent, the agent has a configured language model, connected tools, and connected knowledge stores.
 
@@ -52,22 +52,22 @@ This architecture uses the [Foundry Agent Service standard agent setup](/azure/a
 
 ### Components
 
-This architecture builds on the [basic Microsoft Foundry chat reference architecture](./basic-azure-ai-foundry-chat.yml#components). This architecture introduces more Azure services to address enterprise requirements for reliability, security, and operational control. Each of the following components plays a specific role in a production enterprise chat solution:
+This architecture builds on the [basic Foundry chat reference architecture](./basic-azure-ai-foundry-chat.yml#components). This architecture introduces more Azure services to address enterprise requirements for reliability, security, and operational control. Each of the following components plays a specific role in a production enterprise chat solution:
 
-- [Foundry Agent Service](/azure/ai-services/agents/overview) is a cloud-native runtime environment that enables intelligent agents to operate securely and autonomously. In this architecture, Foundry Agent Service provides the orchestration layer for chat interactions. It hosts and manages agents that do the following tasks:
+- [Agent Service](/azure/ai-services/agents/overview) is a cloud-native runtime environment that enables intelligent agents to operate securely and autonomously. In this architecture, Agent Service provides the orchestration layer for chat interactions. It hosts and manages agents that do the following tasks:
 
   - Process user requests
   - Coordinate calls to tools and other agents
   - Enforce content safety
   - Integrate with enterprise identity, networking, and observability
 
-  The [standard agent setup](/azure/ai-services/agents/concepts/standard-agent-setup) ensures network isolation and provides control over data storage. You supply dedicated Azure resources for agent state, chat history, and file storage, which Foundry Agent Service manages exclusively. Other application components in the workload shouldn't use these required resources.
+  The [standard agent setup](/azure/ai-services/agents/concepts/standard-agent-setup) ensures network isolation and provides control over data storage. You supply dedicated Azure resources for agent state, chat history, and file storage, which Agent Service manages exclusively. Other application components in the workload shouldn't use these required resources.
 
-  - [Azure Cosmos DB for NoSQL](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, document database service. In this architecture, it hosts the workload's memory database, called `enterprise_memory`, within your subscription. This database stores the agent's operational state, including chat threads and agent definitions. This design ensures that chat history and agent configuration are isolated, auditable, and managed according to data governance requirements. Foundry Agent Service manages the database, its collections, and its data.
+  - [Azure Cosmos DB for NoSQL](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, document database service. In this architecture, it hosts the workload's memory database, called `enterprise_memory`, within your subscription. This database stores the agent's operational state, including chat threads and agent definitions. This design ensures that chat history and agent configuration are isolated, auditable, and managed according to data governance requirements. Agent Service manages the database, its collections, and its data.
 
-  - [Azure Storage](/azure/well-architected/service-guides/azure-blob-storage) is a cloud storage service for unstructured data. In this architecture, it provides dedicated storage for files uploaded during chat sessions. Hosting this account in your subscription provides granular access control, auditing capabilities, and compliance with data residency or retention policies. Foundry Agent Service manages the containers and data life cycle within those containers.
+  - [Azure Storage](/azure/well-architected/service-guides/azure-blob-storage) is a cloud storage service for unstructured data. In this architecture, it provides dedicated storage for files uploaded during chat sessions. Hosting this account in your subscription provides granular access control, auditing capabilities, and compliance with data residency or retention policies. Agent Service manages the containers and data life cycle within those containers.
 
-  - [AI Search](/azure/search/search-what-is-azure-search) is a search-as-a-service cloud solution that provides rich search capabilities. In this architecture, it stores a searchable, chunked index of uploaded files from conversations with the agent. AI Search also stores chunked, static files that are added as knowledge sources when the agent is created to be used across all agent invocations. Foundry Agent Service manages the index, schema, and data, and uses its own chunking strategy and query logic.
+  - [AI Search](/azure/search/search-what-is-azure-search) is a search-as-a-service cloud solution that provides rich search capabilities. In this architecture, it stores a searchable, chunked index of uploaded files from conversations with the agent. AI Search also stores chunked, static files that are added as knowledge sources when the agent is created to be used across all agent invocations. Agent Service manages the index, schema, and data, and uses its own chunking strategy and query logic.
 
 - [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is a web traffic load balancer and application delivery controller. In this architecture, it acts as a secure, scalable entry point for all HTTP and HTTPS traffic to the chat UI. It also provides Transport Layer Security (TLS) termination and path-based routing. Application Gateway distributes requests across availability zones, which supports high availability and performance for the web application tier. Its back end is the App Service instance that hosts the application code.
 
@@ -77,7 +77,7 @@ This architecture builds on the [basic Microsoft Foundry chat reference architec
 
 - [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block for private networks in Azure. In this architecture, it provides network isolation for all components to help you meet security and compliance requirements. When you place resources in a private virtual network, you control east-west and north-south traffic, enforce segmentation, keep traffic private, and enable inspection of ingress and egress flows.
 
-- [Azure Private Link](/azure/private-link/private-link-overview) provides private connectivity from a virtual network to Azure PaaS services. In this architecture, it connects all PaaS services, such as Azure Cosmos DB, Storage, AI Search, and Foundry Agent Service, to the virtual network via private endpoints. Private Link helps you ensure that all data traffic remains on the Azure backbone, which eliminates exposure to the public internet and reduces the attack surface.
+- [Azure Private Link](/azure/private-link/private-link-overview) provides private connectivity from a virtual network to Azure PaaS services. In this architecture, it connects all PaaS services, such as Azure Cosmos DB, Storage, AI Search, and Agent Service, to the virtual network via private endpoints. Private Link helps you ensure that all data traffic remains on the Azure backbone, which eliminates exposure to the public internet and reduces the attack surface.
 
 - [Azure Firewall](/azure/well-architected/service-guides/azure-firewall) is a managed, cloud-based network security service. In this architecture, it inspects and controls all outbound (egress) traffic from the virtual network. It also enforces fully qualified domain name (FQDN)-based rules, which ensures that only approved destinations are reachable. This configuration helps prevent data exfiltration and meet requirements for network security.
 
@@ -91,19 +91,19 @@ This architecture includes multiple components that you can substitute with othe
 
 #### Chat orchestration
 
-**Current approach:** This architecture uses [Foundry Agent Service](/azure/ai-services/agents/overview) to orchestrate chat flows, including fetching grounding data from knowledge stores and invoking Azure OpenAI models. Foundry Agent Service provides codeless, nondeterministic orchestration. It handles chat requests, thread management, tool invocation, content safety, and integration with identity, networking, and observability. It provides a native memory database solution.
+**Current approach:** This architecture uses [Agent Service](/azure/ai-services/agents/overview) to orchestrate chat flows, including fetching grounding data from knowledge stores and invoking Azure OpenAI models. Agent Service provides codeless, nondeterministic orchestration. It handles chat requests, thread management, tool invocation, content safety, and integration with identity, networking, and observability. It provides a native memory database solution.
 
 **Alternative approach:** You can self-host the orchestration layer by using frameworks such as [Microsoft Agent Framework](/agent-framework/overview/agent-framework-overview), [Semantic Kernel](/semantic-kernel/overview/), or [LangChain](/azure/ai-foundry/how-to/develop/langchain). Use these frameworks to implement deterministic, code-driven chat flows and custom orchestration logic.
 
 Consider this alternative if your workload requires the following capabilities:
 
-- The use of a model other than those [models supported by the Foundry Agent Service](/azure/ai-foundry/agents/concepts/model-region-support)
+- The use of a model other than those [models supported by the Agent Service](/azure/ai-foundry/agents/concepts/model-region-support)
 
 - Fine-grained, deterministic control over the orchestration sequence, tool invocation, or prompt engineering
 
-- Integration with custom business logic or external systems that Foundry Agent Service doesn't natively support
+- Integration with custom business logic or external systems that Agent Service doesn't natively support
 - Advanced client request routing for experimentation or safe deployment practices
-- A custom memory database solution that differs from the native Foundry Agent Service solution
+- A custom memory database solution that differs from the native Agent Service solution
 
 Self-hosted orchestration increases operational complexity and requires you to manage compute, scaling, and security.
 
@@ -171,7 +171,7 @@ Consider a multi-agent approach when your workload exhibits the following charac
 
 Multi-agent approaches introduce coordination complexity and increased latency because of communication between agents. Use a single agent when your use case is well-defined, doesn't require strict access isolation, and can be handled effectively by one model with a reasonable set of tools.
 
-For guidance about how to implement multiple coordinated agents, see [AI agent orchestration patterns](../guide/ai-agent-design-patterns.md). This article covers sequential, concurrent, group chat, handoff, and magentic orchestration approaches. You can implement some patterns within Foundry Agent Service. Other patterns require self-hosted orchestration by using an SDK such as Semantic Kernel.
+For guidance about how to implement multiple coordinated agents, see [AI agent orchestration patterns](../guide/ai-agent-design-patterns.md). This article covers sequential, concurrent, group chat, handoff, and magentic orchestration approaches. You can implement some patterns within Agent Service. Other patterns require self-hosted orchestration by using an SDK such as Semantic Kernel.
 
 ## Considerations
 
@@ -191,7 +191,7 @@ This section addresses reliability for components not covered in the App Service
 
 Enterprise deployments usually require zonal redundancy to minimize the risk of service disruption from zone-level failures. In Azure, zonal redundancy means that you use resources that support [availability zones](/azure/reliability/availability-zones-overview) and deploy at least three instances, or enable platform-level redundancy where direct instance control is unavailable.
 
-In this architecture, Foundry hosts the Foundry Agent Service capability. The agent's reliability depends on the availability of the Foundry Agent Service dependencies, which are Azure Cosmos DB, Storage, and AI Search. Foundry Agent Service manages the data within these services, but you configure their reliability in your subscription.
+In this architecture, Foundry hosts the Agent Service capability. The agent's reliability depends on the availability of the Agent Service dependencies, which are Azure Cosmos DB, Storage, and AI Search. Agent Service manages the data within these services, but you configure their reliability in your subscription.
 
 To achieve zonal redundancy for the orchestration layer, follow these recommendations:
 
@@ -205,9 +205,9 @@ To achieve zonal redundancy for the orchestration layer, follow these recommenda
 
 If your agent integrates with other workload-specific dependencies, such as custom tool connections or external knowledge stores, ensure that those dependencies meet your availability and redundancy requirements. Any single-zone or nonredundant dependency can undermine the overall reliability of the orchestration layer.
 
-The Foundry portal, its data plane APIs, and the Foundry Agent Service capability don't provide direct controls for zone redundancy.
+The Foundry portal, its data plane APIs, and the Agent Service capability don't provide direct controls for zone redundancy.
 
-#### Reliability in Microsoft Foundry model hosting
+#### Reliability in Foundry model hosting
 
 Foundry provides models as a service (MaaS) hosting with several deployment options. These options primarily support quota and throughput management, rather than traditional high availability within a region. Standard model deployments operate in a single region and don't support availability zones. To achieve multi-datacenter availability, you must use either a global or data zone model deployment.
 
@@ -237,9 +237,9 @@ If your workload requires a high volume of concurrent outbound connections, conf
 
 Monitor [SNAT port usage and firewall health](/azure/firewall/monitor-firewall#analyze-monitoring-data). If you observe connection failures or throughput problems, review firewall metrics and logs to identify and address SNAT exhaustion or other bottlenecks.
 
-#### Isolate Foundry Agent Service dependencies from similar workload components
+#### Isolate Agent Service dependencies from similar workload components
 
-To maximize reliability and minimize the blast radius of failures, strictly isolate the Foundry Agent Service dependencies from other workload components that use the same Azure services. Specifically, don't share AI Search, Azure Cosmos DB, or Storage resources between the agent service and other application components. Instead, provision dedicated instances for the agent service's required dependencies.
+To maximize reliability and minimize the blast radius of failures, strictly isolate the Agent Service dependencies from other workload components that use the same Azure services. Specifically, don't share AI Search, Azure Cosmos DB, or Storage resources between the agent service and other application components. Instead, provision dedicated instances for the agent service's required dependencies.
 
 This separation provides two key benefits:
 
@@ -247,10 +247,10 @@ This separation provides two key benefits:
 
 - It enables you to apply targeted operational processes, such as backup, restore, and failover. These processes are tuned to the specific availability and recovery requirements of the workload flow that uses those resources.
 
-For example, if your chat UI application needs to store transactional state in Azure Cosmos DB, provision a separate Azure Cosmos DB account and database for that purpose, rather than reusing the account or database that Foundry Agent Service manages. Even if cost or operational simplicity motivates resource sharing, the risk of a reliability event affecting unrelated workload features outweighs the potential savings in most enterprise scenarios.
+For example, if your chat UI application needs to store transactional state in Azure Cosmos DB, provision a separate Azure Cosmos DB account and database for that purpose, rather than reusing the account or database that Agent Service manages. Even if cost or operational simplicity motivates resource sharing, the risk of a reliability event affecting unrelated workload features outweighs the potential savings in most enterprise scenarios.
 
 > [!IMPORTANT]
-> If you colocate workload-specific data with the agent's dependencies for cost or operational reasons, never interact directly with the system-managed data, such as collections, containers, or indexes, that Foundry Agent Service creates. These internal implementation details are undocumented and subject to change without notice. Direct access can break the agent service or result in data loss. Always use the Foundry Agent Service data plane APIs for data manipulation, such as fulfilling right to be forgotten (RTBF) requests. Treat the underlying data as opaque and monitor-only.
+> If you colocate workload-specific data with the agent's dependencies for cost or operational reasons, never interact directly with the system-managed data, such as collections, containers, or indexes, that Agent Service creates. These internal implementation details are undocumented and subject to change without notice. Direct access can break the agent service or result in data loss. Always use the Agent Service data plane APIs for data manipulation, such as fulfilling right to be forgotten (RTBF) requests. Treat the underlying data as opaque and monitor-only.
 
 #### Multi-region design
 
@@ -276,11 +276,11 @@ This baseline architecture lacks multi-region capabilities, so regional outages 
 
 #### Disaster recovery
 
-Chat architectures contain stateful components, so DR planning is essential. These workloads typically require a memory store for active or paused chat sessions. They also require storage for supplemental data, such as documents or images, added to chat threads. The agent orchestration layer might also maintain state that's specific to conversation flows. In this architecture, Foundry Agent Service uses Azure Cosmos DB, Storage, and AI Search to persist operational and transactional state. The life cycle and coupling of this state across components determines your DR strategy and recovery operations.
+Chat architectures contain stateful components, so DR planning is essential. These workloads typically require a memory store for active or paused chat sessions. They also require storage for supplemental data, such as documents or images, added to chat threads. The agent orchestration layer might also maintain state that's specific to conversation flows. In this architecture, Agent Service uses Azure Cosmos DB, Storage, and AI Search to persist operational and transactional state. The life cycle and coupling of this state across components determines your DR strategy and recovery operations.
 
-For Foundry Agent Service, ensure that you can recover all dependencies to a consistent point in time. This approach helps maintain transactional integrity across the three external dependencies.
+For Agent Service, ensure that you can recover all dependencies to a consistent point in time. This approach helps maintain transactional integrity across the three external dependencies.
 
-The following recommendations are key excerpts from the [Foundry Agent Service disaster recovery](/azure/ai-foundry/how-to/agent-service-disaster-recovery?view=foundry) guide:
+The following recommendations are key excerpts from the [Agent Service disaster recovery](/azure/ai-foundry/how-to/agent-service-disaster-recovery?view=foundry) guide:
 
 - **Azure Cosmos DB:** Enable [continuous backup](/azure/cosmos-db/online-backup-and-restore) for the `enterprise_memory` database. This setup provides point-in-time restore (PITR) with a seven-day RPO, which includes agent definitions and chat threads. Test your restore process regularly to confirm that it meets your RTO and that the restored data remains available to the agent service. Always restore to the same account and database.
 
@@ -288,15 +288,15 @@ The following recommendations are key excerpts from the [Foundry Agent Service d
 
   Maintain a separate, regularly updated source of truth for your enterprise grounding knowledge. This practice ensures that you can rebuild indexes when necessary.
 
-- **Storage:** If you have a geo-redundant storage account, use [customer-managed failover](/azure/storage/common/storage-disaster-recovery-guidance#customer-managed-unplanned-failover) for blob containers that Foundry Agent Service uses. This setup allows you to initiate failover during a regional outage. If you use only zone-redundant storage, contact Microsoft support to restore data. This process might extend your RTO. As with AI Search, if your chat UI doesn't support file uploads and you don't have agents that use static files as knowledge, you might not need a DR plan for blob containers.
+- **Storage:** If you have a geo-redundant storage account, use [customer-managed failover](/azure/storage/common/storage-disaster-recovery-guidance#customer-managed-unplanned-failover) for blob containers that Agent Service uses. This setup allows you to initiate failover during a regional outage. If you use only zone-redundant storage, contact Microsoft support to restore data. This process might extend your RTO. As with AI Search, if your chat UI doesn't support file uploads and you don't have agents that use static files as knowledge, you might not need a DR plan for blob containers.
 
 - **Transactional consistency:** If the state store in your workload references Azure AI agent identifiers, such as thread IDs or agent IDs, coordinate recovery across all relevant data stores. Restoring only a subset of dependencies can result in orphaned or inconsistent data. Design your DR processes to maintain referential integrity between your workload and the agent service's state.
 
 - **Agent definitions and configuration:** Define agents *as code*. Store agent definitions, connections, system prompts, and parameters in source control. This practice enables you to redeploy agents from a known good configuration if you lose the orchestration layer. Avoid making untracked changes to agent configuration through the Foundry portal or data plane APIs. This approach ensures that your deployed agents remain reproducible.
 
-- **Microsoft Foundry projects:** Use a user-assigned managed identity for a project's identity. If you need to recover a project when it's accidentally deleted, having a user managed identity on that project will allow you to reuse your existing role assignments when you re-create your project and its capability host, minimizing change coordination with all project dependencies.
+- **Foundry projects:** Use a user-assigned managed identity for a project's identity. If you need to recover a project when it's accidentally deleted, having a user managed identity on that project will allow you to reuse your existing role assignments when you re-create your project and its capability host, minimizing change coordination with all project dependencies.
 
-As an added preventative measure for the Foundry Agent Service dependencies, we recommend you add a *delete* resource lock to each service. This will help protect against catastrophic loss of state in AI Search, Cosmos DB, and Storage.
+As an added preventative measure for the Agent Service dependencies, we recommend you add a *delete* resource lock to each service. This will help protect against catastrophic loss of state in AI Search, Cosmos DB, and Storage.
 
 Before you move to production, build a recovery runbook that addresses failures in both application-owned state and agent-owned state.
 
@@ -304,7 +304,7 @@ Before you move to production, build a recovery runbook that addresses failures 
 
 Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-This architecture extends the security foundation established in the [basic Microsoft Foundry chat reference architecture](./basic-azure-ai-foundry-chat.yml). The primary difference is the addition of a network security perimeter alongside the identity perimeter from the basic architecture. From a network perspective, Application Gateway is the only internet-exposed resource. It makes the chat UI application available to users. From an identity perspective, the chat UI should authenticate and authorize requests. Use managed identities when possible to authenticate applications to Azure services.
+This architecture extends the security foundation established in the [basic Foundry chat reference architecture](./basic-azure-ai-foundry-chat.yml). The primary difference is the addition of a network security perimeter alongside the identity perimeter from the basic architecture. From a network perspective, Application Gateway is the only internet-exposed resource. It makes the chat UI application available to users. From an identity perspective, the chat UI should authenticate and authorize requests. Use managed identities when possible to authenticate applications to Azure services.
 
 #### Identity and access management
 
@@ -312,7 +312,7 @@ This architecture primarily uses system-assigned managed identities for service-
 
 - Isolate identities by resource and function. Provision distinct managed identities for the following components:
 
-  - The Microsoft Foundry account
+  - The Foundry account
   - Each Foundry project
   - The web application
   - Any custom orchestrator or integration code
@@ -323,7 +323,7 @@ This architecture primarily uses system-assigned managed identities for service-
 
 ##### Connections
 
-Connections define how a Microsoft Foundry account or an individual project authenticates to and uses an [external dependency](/azure/ai-foundry/how-to/connections-add?#connection-types). Create connections at the project level when possible. Remove unused connections. Prefer Microsoft Entra ID-based authentication for all connections.
+Connections define how a Foundry account or an individual project authenticates to and uses an [external dependency](/azure/ai-foundry/how-to/connections-add?#connection-types). Create connections at the project level when possible. Remove unused connections. Prefer Microsoft Entra ID-based authentication for all connections.
 
 If Microsoft Entra ID isn't supported for a connection, you must supply a secret (for example, an API key). Store these secrets in a dedicated, self-hosted Azure Key Vault. Configure an [Azure Key Vault connection](/azure/ai-foundry/how-to/set-up-key-vault-connection) for the Foundry account so the service can read and write the secrets it manages.
 
@@ -333,7 +333,7 @@ In this architecture, there are two API key based connections: Application Insig
 
 If you use customer-managed keys (CMK) for encryption, you can host both the CMK keys and the connection secrets in the same dedicated vault, subject to your security governance policies concerning this.
 
-##### Microsoft Foundry portal employee access
+##### Foundry portal employee access
 
 When you onboard employees to Foundry projects, assign the minimum permissions required for their role. Use Microsoft Entra ID groups and Azure role-based access control (Azure RBAC) to enforce separation of duties. For example, distinguish agent developers from data scientists who handle fine-tuning tasks. However, be aware of the limitations and risks.
 
@@ -343,9 +343,9 @@ To mitigate the risk of unauthorized access, restrict portal usage in production
 
 Treat creating new projects in a Foundry account as a privileged action. Projects created through the portal don't automatically inherit your established network security controls, such as private endpoints or network security groups (NSGs). And new agents in those projects bypass your intended security perimeter. Enforce project creation exclusively through your controlled, auditable IaC processes.
 
-##### Microsoft Foundry project role assignments and connections
+##### Foundry project role assignments and connections
 
-To use Foundry Agent Service in Standard mode, the project must have administrative permissions on the Foundry Agent Service dependencies. Specifically, the project's managed identity must have elevated role assignments on the Storage account, AI Search, and the Azure Cosmos DB account. These permissions provide nearly full access to these resources, including the ability to read, write, modify, or delete data. To uphold least privilege access, isolate your workload resources from the Foundry Agent Service dependencies.
+To use Agent Service in Standard mode, the project must have administrative permissions on the Agent Service dependencies. Specifically, the project's managed identity must have elevated role assignments on the Storage account, AI Search, and the Azure Cosmos DB account. These permissions provide nearly full access to these resources, including the ability to read, write, modify, or delete data. To uphold least privilege access, isolate your workload resources from the Agent Service dependencies.
 
 All agents within a single Foundry project share the same managed identity. If your workload uses multiple agents that require access to different sets of resources, the principle of least privilege requires you to create a separate Foundry project for each distinct agent access pattern. This separation allows you to assign only the minimum required permissions to each project's managed identity, which reduces the risk of excessive or unintended access.
 
@@ -368,8 +368,8 @@ The network design includes the following safeguards:
 
 ##### Network flows
 
-:::image type="complex" source="_images/baseline-azure-ai-foundry-network-flow.svg" border="false" lightbox="_images/baseline-azure-ai-foundry-network-flow.svg" alt-text="Diagram that shows two networking flows from the baseline App Service web application architecture and the Foundry Agent Service networking flow.":::
-  The diagram resembles the baseline end-to-end chat architecture. It includes the Azure OpenAI architecture and three numbered network flows. The inbound flow and the flow from App Service to Azure PaaS services are copied from the baseline App Service web architecture. The Foundry Agent Service flow shows an arrow from the Microsoft Foundry private endpoint in the private virtual network that points to Foundry Agent Service. The second numbered arrow in the Foundry Agent Service flow shows calls from the Azure AI agent virtual interface in the private network flowing through private endpoints. The third numbered arrow shows an arrow from the virtual interface to an Azure Firewall box, which indicates that all calls to the internet flow through that firewall.
+:::image type="complex" source="_images/baseline-azure-ai-foundry-network-flow.svg" border="false" lightbox="_images/baseline-azure-ai-foundry-network-flow.svg" alt-text="Diagram that shows two networking flows from the baseline App Service web application architecture and the Agent Service networking flow.":::
+  The diagram resembles the baseline end-to-end chat architecture. It includes the Azure OpenAI architecture and three numbered network flows. The inbound flow and the flow from App Service to Azure PaaS services are copied from the baseline App Service web architecture. The Agent Service flow shows an arrow from the Foundry private endpoint in the private virtual network that points to Agent Service. The second numbered arrow in the Agent Service flow shows calls from the Azure AI agent virtual interface in the private network flowing through private endpoints. The third numbered arrow shows an arrow from the virtual interface to an Azure Firewall box, which indicates that all calls to the internet flow through that firewall.
 :::image-end:::
 
 The [baseline App Service web application architecture](../../web-apps/app-service/architectures/baseline-zone-redundant.yml) outlines the inbound flow from the user to the chat UI and the flow from App Service to [Azure PaaS services](../../web-apps/app-service/architectures/baseline-zone-redundant.yml#app-service-to-azure-paas-services-flow). This section focuses on agent interactions.
@@ -383,9 +383,9 @@ When the chat UI communicates with the agent deployed in Foundry, the following 
 
 Private endpoints serve as a critical security control in this architecture by supplementing identity-based security. Because this architecture uses private endpoints and UDRs in your virtual network, the [network security perimeter](/azure/ai-foundry/how-to/add-foundry-to-network-security-perimeter) capability of Foundry projects isn't supported.
 
-##### Ingress to Microsoft Foundry
+##### Ingress to Foundry
 
-This architecture disables public access to the Foundry data plane by only allowing traffic through a [private link for Microsoft Foundry](/azure/ai-foundry/how-to/configure-private-link). You can access much of the Foundry portal through the [portal website](https://ai.azure.com), but all project-level functionality requires network access. The portal relies on your Foundry account's data plane APIs, which are reachable only through private endpoints. As a result, developers and data scientists must access the portal through a jump box, a peered virtual network, or an ExpressRoute or site-to-site VPN connection.
+This architecture disables public access to the Foundry data plane by only allowing traffic through a [private link for Foundry](/azure/ai-foundry/how-to/configure-private-link). You can access much of the Foundry portal through the [portal website](https://ai.azure.com), but all project-level functionality requires network access. The portal relies on your Foundry account's data plane APIs, which are reachable only through private endpoints. As a result, developers and data scientists must access the portal through a jump box, a peered virtual network, or an ExpressRoute or site-to-site VPN connection.
 
 All programmatic interactions with the agent data plane, such as from the web application or from external orchestration code when invoking model inferencing, must also use these private endpoints. Private endpoints are defined at the account level, not the project level. Therefore, all projects within the account share the same set of endpoints. You can't segment network access at the project level, and all projects share the same network exposure.
 
@@ -398,12 +398,12 @@ To support this configuration, set up DNS for the following Foundry FQDN API end
 The following diagram shows how an AI developer connects through Azure Bastion to a virtual machine (VM) jump box. From that jump box, the author can access the project in the Foundry portal through a private endpoint in the same network.
 
 :::image type="complex" source="_images/baseline-azure-ai-foundry-portal-access.svg" border="false" lightbox="_images/baseline-azure-ai-foundry-portal-access.svg" alt-text="A diagram that shows how a user connects to a jump box VM through Azure Bastion.":::
-  An arrow points from an agent author, to Azure Bastion, to the jump box, to a Foundry (portal) private endpoint, and then to the Foundry project that contains Foundry Agent Service. From the Foundry project, an arrow points to a virtual interface in the Azure AI agent integration subnet. A final arrow points from the virtual interface to the three Foundry Agent Service dependency's private endpoints. Those dependencies are AI Search, Azure Cosmos DB, and Storage.
+  An arrow points from an agent author, to Azure Bastion, to the jump box, to a Foundry (portal) private endpoint, and then to the Foundry project that contains Agent Service. From the Foundry project, an arrow points to a virtual interface in the Azure AI agent integration subnet. A final arrow points from the virtual interface to the three Agent Service dependency's private endpoints. Those dependencies are AI Search, Azure Cosmos DB, and Storage.
 :::image-end:::
 
-##### Control traffic from the Microsoft Foundry agent subnet
+##### Control traffic from the Foundry agent subnet
 
-This architecture routes all outbound (egress) network traffic from the Foundry Agent Service capability through a delegated subnet within your virtual network. This subnet serves as the sole egress point for both the agent's required three service dependencies and any external knowledge sources or tool connections that the agent uses. This design helps reduce data exfiltration attempts from within the orchestration logic.
+This architecture routes all outbound (egress) network traffic from the Agent Service capability through a delegated subnet within your virtual network. This subnet serves as the sole egress point for both the agent's required three service dependencies and any external knowledge sources or tool connections that the agent uses. This design helps reduce data exfiltration attempts from within the orchestration logic.
 
 By forcing this egress path, you gain full control over outbound traffic. You can apply granular NSG rules, custom routing, and DNS control to all agent traffic that leaves the service.
 
@@ -427,7 +427,7 @@ The following table summarizes the NSG and firewall configuration for each subne
 | Private endpoints<br>`snet-privateEndpoints` | Virtual network | No traffic allowed             | Yes             | No traffic allowed    |
 | Application Gateway<br>`snet-appGateway`     | Chat UI user source IP addresses, such as the public internet, and required sources for the service | Private endpoint subnet and required items for the service | No | - |
 | App Service<br>`snet-appServicePlan`  | No traffic allowed     | Private endpoints and Azure Monitor | Yes        | To Azure Monitor      |
-| Foundry Agent Service<br>`snet-agentsEgress` | No traffic allowed     | Private endpoints and the internet | Yes             | Only public FQDNs that you allow your agents to use |
+| Agent Service<br>`snet-agentsEgress` | No traffic allowed     | Private endpoints and the internet | Yes             | Only public FQDNs that you allow your agents to use |
 | Jump box VMs<br>`snet-jumpBoxes`      | Azure Bastion subnet   | Private endpoints and the internet | Yes             | As needed by the VM       |
 | Build agents<br>`snet-buildAgents`    | Azure Bastion subnet   | Private endpoints and the internet | Yes             | As needed by the VM       |
 | Azure Bastion<br>`AzureBastionSubnet` | See [NSG access and Azure Bastion](/azure/bastion/bastion-nsg) | See [NSG access and Azure Bastion](/azure/bastion/bastion-nsg) | No | - |
@@ -461,13 +461,13 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 This [Azure pricing estimate](https://azure.com/e/9ed058e3b57b4386b7ac1bd3f782a344) provides a pricing example for this architecture. This example includes only the components in this architecture, so customize it to match your usage. The most expensive components in the scenario are Azure Cosmos DB, AI Search, and DDoS Protection. Other notable costs include the chat UI compute and Application Gateway. Optimize those resources to reduce costs.
 
-#### Foundry Agent Service
+#### Agent Service
 
 When you use the standard deployment, you must provision and manage the service's dependencies in your own Azure subscription.
 
 The following recommendations explain how to optimize costs for these required services:
 
-- Foundry Agent Service manages the request unit (RU) allocation on Azure Cosmos DB. To reduce long-term costs, purchase reserved capacity for Azure Cosmos DB. Align reservations with your expected usage duration and volume. Keep in mind that reserved capacity requires upfront commitment and lacks flexibility if your workload's usage patterns change significantly.
+- Agent Service manages the request unit (RU) allocation on Azure Cosmos DB. To reduce long-term costs, purchase reserved capacity for Azure Cosmos DB. Align reservations with your expected usage duration and volume. Keep in mind that reserved capacity requires upfront commitment and lacks flexibility if your workload's usage patterns change significantly.
 
 - If your chat scenario doesn't require file uploads, exclude this feature in your application. In that case, apply the following configuration changes:
 
@@ -481,13 +481,13 @@ The following recommendations explain how to optimize costs for these required s
   - The semantic ranker in AI Search
   - The gateway and multi-region write capabilities in Azure Cosmos DB
 
-- To avoid cross-region bandwidth charges, deploy Azure Cosmos DB, Storage, and AI Search in the same Azure region as Foundry Agent Service.
+- To avoid cross-region bandwidth charges, deploy Azure Cosmos DB, Storage, and AI Search in the same Azure region as Agent Service.
 
-- Avoid colocating workload-specific data in the same Azure Cosmos DB or AI Search resources that Foundry Agent Service uses. In some cases, you can share these resources to reduce unused capacity in RUs or search units, which reduces cost. Only consider resource sharing after a thorough risk assessment for reliability, security, and performance trade-offs.
+- Avoid colocating workload-specific data in the same Azure Cosmos DB or AI Search resources that Agent Service uses. In some cases, you can share these resources to reduce unused capacity in RUs or search units, which reduces cost. Only consider resource sharing after a thorough risk assessment for reliability, security, and performance trade-offs.
 
 #### Agent knowledge and tools
 
-Foundry Agent Service runs agent logic in a nondeterministic manner. It might invoke any connected knowledge store, tool, or other agent for each request, even if that resource isn't relevant to the user query. This behavior can result in unnecessary calls to external APIs or data sources, increase costs for each transaction, and introduce unpredictable usage patterns that complicate budget forecasting.
+Agent Service runs agent logic in a nondeterministic manner. It might invoke any connected knowledge store, tool, or other agent for each request, even if that resource isn't relevant to the user query. This behavior can result in unnecessary calls to external APIs or data sources, increase costs for each transaction, and introduce unpredictable usage patterns that complicate budget forecasting.
 
 To control costs and maintain predictable behavior, apply the following strategies:
 
@@ -495,7 +495,7 @@ To control costs and maintain predictable behavior, apply the following strategi
 
 - Carefully design and refine the system prompt to instruct the agent to minimize unnecessary or redundant external calls. The system prompt should guide the agent to use only the most relevant connections for each request.
 
-- Use Microsoft Foundry telemetry to monitor which external APIs, knowledge stores, or tools the agent accesses, how frequently it accesses them, and the associated costs. Regularly review this telemetry to identify unexpected usage patterns or cost spikes, and adjust your system prompt as needed.
+- Use Foundry telemetry to monitor which external APIs, knowledge stores, or tools the agent accesses, how frequently it accesses them, and the associated costs. Regularly review this telemetry to identify unexpected usage patterns or cost spikes, and adjust your system prompt as needed.
 
 - Be aware that nondeterministic invocation can make cost forecasting difficult, especially when integrating with metered APIs. If you require predictable costs, consider self-hosting the orchestrator by using deterministic code.
 
@@ -511,15 +511,15 @@ To control consumption model costs in this architecture, use a combination of th
 
   - Approve all model consumers. Don't expose models in a way that allows unrestricted access.
 
-  - Enforce token-limiting constraints such as `max_tokens` and `max_completions` through agent logic. This control is only available in self-hosted orchestration. Foundry Agent Service doesn't support this functionality.
+  - Enforce token-limiting constraints such as `max_tokens` and `max_completions` through agent logic. This control is only available in self-hosted orchestration. Agent Service doesn't support this functionality.
 
   - Optimize prompt input and response length. Longer prompts consume more tokens, which increases cost. Prompts that lack sufficient context reduce model effectiveness. Create concise prompts that provide enough context to allow the model to generate a useful response. Ensure that you optimize the limit of the response length.
 
-    This level of control is only available in self-hosted orchestration. Foundry Agent Service doesn't provide enough configuration to support this functionality.
+    This level of control is only available in self-hosted orchestration. Agent Service doesn't provide enough configuration to support this functionality.
 
 - **Choose the right model for the agent.** Select the least expensive model that meets your agent's requirements. Avoid using higher cost models unless they're essential. For example, the reference implementation uses GPT-4o instead of a more expensive model and achieves sufficient results.
 
-- **Monitor and manage usage.** Use [Microsoft Cost Management](/azure/ai-services/openai/how-to/manage-costs) and model telemetry to track token usage, set budgets, and create alerts for anomalies. Regularly review usage patterns and adjust quotas or client access as needed. For more information, see [Plan and manage costs for Microsoft Foundry](/azure/ai-foundry/how-to/costs-plan-manage).
+- **Monitor and manage usage.** Use [Microsoft Cost Management](/azure/ai-services/openai/how-to/manage-costs) and model telemetry to track token usage, set budgets, and create alerts for anomalies. Regularly review usage patterns and adjust quotas or client access as needed. For more information, see [Plan and manage costs for Foundry](/azure/ai-foundry/how-to/costs-plan-manage).
 
 - **Use the right deployment type.** Use pay-as-you-go pricing for unpredictable workloads, and switch to provisioned throughput when usage is stable and predictable. Combine both options when you establish a reliable baseline.
 
@@ -588,11 +588,11 @@ To prevent service disruptions, ensure safe and controlled agent deployment by i
 
 - **Test before production.** Validate agent behavior, prompts, and connections in preproduction environments. Use a combination of automated and manual tests to catch regressions, security problems, and unintended changes in agent behavior.
 
-  Agents defined in Foundry Agent Service behave nondeterministically, so you must determine how to measure and maintain your desired quality level. Create and run a test suite that checks for ideal responses to realistic user questions and scenarios.
+  Agents defined in Agent Service behave nondeterministically, so you must determine how to measure and maintain your desired quality level. Create and run a test suite that checks for ideal responses to realistic user questions and scenarios.
 
 - **Version and track agents.** Assign clear version identifiers to each agent. Maintain records of which agent versions are active, along with their dependencies such as models, data sources, and tools. Prefer deploying new agent versions alongside existing ones to enable progressive rollout, rollback, and controlled migration of users or sessions.
 
-- **Plan for failback.** Microsoft Foundry doesn't provide built-in support for blue-green or canary deployments of agents. If you require these deployment patterns, implement a routing layer, such as an API gateway or custom router, in front of the agent API. This routing layer allows you to shift traffic incrementally between agent versions, monitor the effect, and perform a full switchover when ready.
+- **Plan for failback.** Foundry doesn't provide built-in support for blue-green or canary deployments of agents. If you require these deployment patterns, implement a routing layer, such as an API gateway or custom router, in front of the agent API. This routing layer allows you to shift traffic incrementally between agent versions, monitor the effect, and perform a full switchover when ready.
 
 - **Coordinate agent removal.** When you remove agents, coordinate the process with your application's state management and user experience requirements. Handle active chat sessions appropriately. Depending on your workload's functional requirements, you can migrate sessions, pin users to the old agent version, or require users to start new sessions.
 
@@ -604,7 +604,7 @@ This section addresses performance efficiency for AI Search, model deployments, 
 
 #### Performance Efficiency in AI Search
 
-In Foundry Agent Service, you don't control the specific queries sent to your indexes because agents are codeless. To optimize performance, focus on what you can control in the index. Observe how your agent typically queries the index, and apply guidance to [analyze and optimize performance in AI Search](/azure/search/search-performance-analysis).
+In Agent Service, you don't control the specific queries sent to your indexes because agents are codeless. To optimize performance, focus on what you can control in the index. Observe how your agent typically queries the index, and apply guidance to [analyze and optimize performance in AI Search](/azure/search/search-performance-analysis).
 
 If index server-tuning alone doesn't resolve all bottlenecks, consider the following options:
 
@@ -636,7 +636,7 @@ Azure AI agents run on a serverless compute back end that doesn't support custom
 
 ## Deploy this scenario
 
-To deploy and run this reference implementation, follow the deployment guide in the [Foundry Agent Service chat baseline reference implementation](https://github.com/Azure-Samples/microsoft-foundry-baseline).
+To deploy and run this reference implementation, follow the deployment guide in the [Agent Service chat baseline reference implementation](https://github.com/Azure-Samples/microsoft-foundry-baseline).
 
 ## Contributors
 
@@ -659,7 +659,7 @@ Other contributors:
 
 ## Next step
 
-- [Baseline Microsoft Foundry chat architecture in an Azure landing zone](./baseline-azure-ai-foundry-landing-zone.yml)
+- [Baseline Foundry chat architecture in an Azure landing zone](./baseline-azure-ai-foundry-landing-zone.yml)
 
 ## Related resources
 

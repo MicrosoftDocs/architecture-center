@@ -28,7 +28,7 @@ The following dataflow corresponds to the previous diagram:
 
    - [Azure Machine Learning studio](https://ml.azure.com/): For labeling data for text classification or entity extraction to use with open-source frameworks like PyTorch or TensorFlow, use [Machine Learning studio](/azure/machine-learning/how-to-train-with-ui), the [Python SDK, Azure CLI, or the REST API](/azure/machine-learning/how-to-train-model). Machine Learning studio provides a [model catalog](/azure/machine-learning/concept-model-catalog) of foundation models. These foundation models have fine-tuning capabilities for various tasks like text classification, question answering, and summarization. To fine-tune foundation models, use the [Machine Learning studio UI](/azure/machine-learning/how-to-use-foundation-models) or [code](https://github.com/Azure/azureml-examples/tree/main/sdk/python/foundation-models/system/finetune).
 
-   - [Azure OpenAI Service](/azure/ai-services/openai/concepts/fine-tuning-considerations): To [fine-tune Azure OpenAI models](/azure/ai-services/openai/how-to/fine-tuning) on your own data or domain for various tasks like text summarization and question answering, use [Azure AI Foundry portal](/azure/ai-services/openai/how-to/fine-tuning?branch=main&tabs=azure-openai%2Cpython-new&pivots=programming-language-studio), [Python SDK](/azure/ai-services/openai/how-to/fine-tuning?tabs=azure-openai%2Cpython-new&pivots=programming-language-python), or [REST API](/azure/ai-services/openai/how-to/fine-tuning?tabs=azure-openai%2Cpython-new&pivots=rest-api).
+   - [Azure OpenAI Service](/azure/ai-services/openai/concepts/fine-tuning-considerations): To [fine-tune Azure OpenAI models](/azure/ai-services/openai/how-to/fine-tuning) on your own data or domain for various tasks like text summarization and question answering, use the [Microsoft Foundry portal](/azure/ai-services/openai/how-to/fine-tuning?branch=main&tabs=azure-openai%2Cpython-new&pivots=programming-language-studio), [Python SDK](/azure/ai-services/openai/how-to/fine-tuning?tabs=azure-openai%2Cpython-new&pivots=programming-language-python), or [REST API](/azure/ai-services/openai/how-to/fine-tuning?tabs=azure-openai%2Cpython-new&pivots=rest-api).
 
 1. To deploy the custom models and use them for inferencing:
 
@@ -38,7 +38,7 @@ The following dataflow corresponds to the previous diagram:
 
    - Machine Learning deploys custom models to online or batch [Machine Learning managed endpoints](/azure/machine-learning/concept-endpoints). You can also use the Machine Learning SDK to [deploy to Azure Kubernetes Service (AKS)](/azure/machine-learning/how-to-deploy-azure-kubernetes-service) as a web service. Fine-tuned foundation models can be deployed from the model catalog via managed compute or a [serverless API](/azure/machine-learning/how-to-deploy-models-serverless). Models deployed through managed compute can be inferenced by using managed endpoints, which include online endpoints for real-time inferencing and batch endpoints for batch inferencing.
 
-   - Azure AI Foundry provides multiple options to [deploy fine-tuned Azure OpenAI models](/azure/ai-foundry/openai/how-to/fine-tuning-deploy). You can deploy these models by using the Python SDK or REST API. You can also deploy fine-tuned foundation models from providers like Meta or Llama as [serverless APIs](/azure/ai-foundry/how-to/fine-tune-serverless) or by using [managed compute](/azure/ai-foundry/how-to/fine-tune-managed-compute).
+   - Foundry provides multiple options to [deploy fine-tuned Azure OpenAI models](/azure/ai-foundry/openai/how-to/fine-tuning-deploy). You can deploy these models by using the Python SDK or REST API. You can also deploy fine-tuned foundation models from providers like Meta or Llama as [serverless APIs](/azure/ai-foundry/how-to/fine-tune-serverless) or by using [managed compute](/azure/ai-foundry/how-to/fine-tune-managed-compute).
 
 ### Components
 
@@ -78,11 +78,11 @@ You can add more workflows to this scenario based on specific use cases.
 
 - Use preprocessing code to perform text processing steps. These steps include cleaning, stop words removal, lemmatization, stemming, and text summarization on extracted data according to document processing requirements. You can expose the code as REST APIs for automation. Manually complete or automate these steps by integrating with the [Azure Logic Apps](/azure/logic-apps/logic-apps-custom-api-host-deploy-call) or [Azure Functions](/samples/azure-samples/flask-app-on-azure-functions/azure-functions-python-create-flask-app) ingestion process.
 
-- You can use [Azure AI Foundry portal](/azure/ai-foundry/what-is-ai-foundry) to [fine-tune](/azure/ai-foundry/concepts/fine-tuning-overview) and deploy foundation models, and build generative AI applications.
+- You can use the [Foundry portal](/azure/ai-foundry/what-is-ai-foundry) to [fine-tune](/azure/ai-foundry/concepts/fine-tuning-overview) and deploy foundation models, and build generative AI applications.
 
-  Azure AI Foundry provides two compute options for models as a platform (MaaP) hosting, [serverless compute and managed compute](/azure/ai-foundry/concepts/fine-tuning-overview#serverless-or-managed-compute). [Specific models and regions](/azure/ai-foundry/how-to/deploy-models-serverless-availability) support deployment through serverless API, which provides models as a service (MaaS).
+  Foundry provides two compute options for models as a platform (MaaP) hosting, [serverless compute and managed compute](/azure/ai-foundry/concepts/fine-tuning-overview#serverless-or-managed-compute). [Specific models and regions](/azure/ai-foundry/how-to/deploy-models-serverless-availability) support deployment through serverless API, which provides models as a service (MaaS).
 
-  Machine Learning and Azure AI Foundry share capabilities, so [evaluate both platforms](/ai/ai-studio-experiences-overview) and choose the best one for your scenario.
+  Machine Learning and Foundry share capabilities, so [evaluate both platforms](/ai/ai-studio-experiences-overview) and choose the best one for your scenario.
 
 - You can use [Azure AI Content Understanding](/azure/ai-services/content-understanding/overview) to create a [custom analyzer](/azure/ai-services/content-understanding/quickstart/use-rest-api?tabs=document) by defining a field schema for extracting structured data from the document.
 
