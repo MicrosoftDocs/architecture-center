@@ -76,39 +76,45 @@ For more information on how to connect AWS environments to Defender for Cloud Ap
 
 ### Microsoft Defender for Cloud
 
-Defender for Cloud is a Cloud-Native Application Protection Platform that's made up of security measures and practices that are designed to protect cloud-based applications from various cyberthreats and vulnerabilities. Defender for Cloud provides the following capabilities:
+Misconfigurations or vulnerabilities in cloud resources can open the door for attackers. Microsoft Defender for Cloud is a Cloud-Native Application Protection Platform (CNAPP) that provides Continuous Security Posture Management (CSPM) and Cloud Workload Protection Platform (CWPP) for your AWS environment, it continuously scans for weaknesses and recommends fixes with defense-in-depth controls and brings multi-cloud visibility with posture across Azure, AWS, and GCP in a unified view.
 
-- A development security operations solution that unifies security management at the code level across multicloud and multiple-pipeline environments
+Defender for Cloud provides the following capabilities:
 
-- A cloud security posture management (CSPM) solution that surfaces actions that you can take to help prevent breaches
+- Cloud Security Posture Management (CSPM) is a configuration hygiene layer that surfaces actions that you can take to help prevent breaches. By reducing misconfigurations, you shrink the attack surface available to adversaries.
 
-- A cloud workload protection platform (CWPP) that provides protection for servers, containers, storage, databases, and other workloads
+- A Cloud Workload Protection Platform (CWPP) provides protection for servers, containers, storage, databases, dev ops, AI, and other workloads.
 
 Defender for Cloud native AWS support provides several benefits:
 
-- Foundational CSPM for AWS resources
+-  __Cloud Security Posture Management (CSPM):__ When you connect AWS accounts to Defender for Cloud, it immediately begins assessing those AWS resources against known best practices and benchmarks. Microsoft has a unified framework called the Microsoft Cloud Security Benchmark (MCSB) that includes controls for AWS as well. For example, it will check if your S3 buckets are public, if IAM users have MFA enabled, if security groups are overly permissive, if EKS clusters have the Kubernetes dashboard exposed, and so on. Each finding is reported as a Recommendation in the Azure portal, contributing to a Secure Score for your AWS environment. This gives a quantifiable measure of your AWS compliance/posture. 
 
-- Defender CSPM for AWS resources
+  -  __Foundational CSPM__ – provides unified asset inventory, recommendations on how to best harden your AWS resources and remediate misconfigurations with workflow automation. It also provides rich visualization and reporting and offers the foundational multicloud CSPM capabilities for free.
+  
+  -  __Defender CSPM__ - provides advanced posture management capabilities and agentless workload insights including critical assets.
+  
+    -  __Cloud Security Graph & Risk Prioritization - exposure__ based on AWS resource metadata, IAM roles, policies, and network and builds exploitability context across AWS services (EC2, S3, IAM, VPC) and correlates with identities and permissions.
+    
+    - __Attack Path Analysis (APA) -__ Detects multi-step attack chains in AWS (e.g., public EC2 → IAM role escalation → S3 bucket access) and visualizes paths and provides “break-the-path” remediation for AWS-specific misconfigurations.
+    
+    -  __Cloud Security Explorer -__ Query AWS posture using graph-based filters (e.g., “internet-exposed EC2 with attached IAM role granting S3 write”.
+    
+    - __Identity & Permission Exposure -__ Evaluates AWS IAM roles, policies, and effective permissions. Highlights toxic combinations (e.g., overly permissive roles + public exposure).
+    
+    - __Data Security Posture Management (DSPM)__ - Scans AWS S3 buckets and AWS RDS databases (Aurora, PostgreSQL, MySQL, MariaDB, SQL Server, Oracle SE2) useing built-in classification rules.
+    
+    - __Multi-Cloud Attack Path Correlation -__ Correlates AWS identities and resources with Azure/GCP for cross-cloud exploit chains. 
+    
+    -  __Governance & Compliance__ - tools to assess your [security compliance](/azure/defender-for-cloud/review-security-recommendations) with a wide range of benchmarks, regulatory standards. Microsoft provides built-in policies for AWS covering standards like AWS Foundational Security Best Practices Standard and PCI-DSS and any custom security policies required in your organization, industry, or region to track AWS compliance state.
+    
+- __Cloud Workload Platform Protection (CWPP):__ In addition to posture management, Defender for Cloud offers workload protection plans for various AWS workloads:
 
-- CWPP support for Amazon EKS clusters
-
-- CWPP support for AWS EC2 instances
-
-- CWPP support for SQL servers running on AWS EC2 and RDS Custom for SQL Server
-
-The foundational CPSM and Defender CSPM are both completely agentless. Foundational CSPM provides recommendations on how to best harden your AWS resources and remediate misconfigurations. Defender for Cloud offers foundational multicloud CSPM capabilities for free. 
-
-Defender CSPM provides advanced posture management capabilities like [attack path analysis](/azure/defender-for-cloud/how-to-manage-attack-path), [cloud security explorer](/azure/defender-for-cloud/how-to-manage-cloud-security-explorer), advanced threat hunting, and [security governance capabilities](/azure/defender-for-cloud/concept-regulatory-compliance). It also provides tools to assess your [security compliance](/azure/defender-for-cloud/review-security-recommendations) with a wide range of benchmarks, regulatory standards, and any custom security policies required in your organization, industry, or region.
-
-The CWPP support for AWS EC2 instances provides capabilities like automatic provisioning of prerequisites on existing and new machines, vulnerability assessment, an integrated license for Microsoft Defender for Endpoint, file integrity monitoring, and [more](/azure/defender-for-cloud/supported-machines-endpoint-solutions-clouds-servers?tabs=features-multicloud).
-
-The CWPP support for Amazon EKS clusters provides capabilities like discovery of unprotected clusters, advanced threat detection for the control plane and workload level, Kubernetes data plane recommendations (via the Azure Policy extension), and [more](/azure/defender-for-cloud/supported-machines-endpoint-solutions-clouds-containers?tabs=aws-eks).
-
-The CWPP support for SQL servers running on AWS EC2 and AWS RDS Custom for SQL Server provides capabilities like advanced threat protection, vulnerability assessment scanning, and [more](/azure/defender-for-cloud/defender-for-sql-introduction).
-
-Security standards provide support for assessing resources and workloads in AWS against regulatory compliance standards like Center for Internet Security (CIS) and Payment Card Industry (PCI) standards, and for the AWS Foundational Security Best Practices standard.
-
-For more information about protecting workloads in AWS, see [Connect your AWS account](/azure/defender-for-cloud/quickstart-onboard-aws) and [Assign regulatory compliance standards in Microsoft Defender for Cloud](/azure/defender-for-cloud/update-regulatory-compliance-packages). 
+  - __Servers (VMs on EC2):__ When you enable _Defender for Servers_ for an AWS account, any EC2 instances you have (running Windows or Linux) will be onboarded for advanced threat protection. This includes an integrated license to Microsoft Defender for Endpoint (MDE) for those VMs. Once onboarded, the VM gets industry-leading EDR capabilities: file integrity monitoring, malware scanning, behavior monitoring, and vulnerability assessment. The vulnerability scanner will report OS and software vulnerabilities on AWS VMs into Defender for Cloud, and MDE will report any endpoint threats (like ransomware behavior or suspicious process executions). All that information surfaces as security alerts in Defender for Cloud.  For more information see [Defender for Servers](/azure/defender-for-cloud/supported-machines-endpoint-solutions-clouds-servers?tabs=features-multicloud).
+  
+  -  __Containers (AWS EKS and more):__ Defender for Containers can protect Kubernetes clusters running on AWS (EKS). This works by deploying Azure Arc-enabled Kubernetes agents to the cluster and then Defender’s extension. It then provides capabilities such as image vulnerability scanning for container images, runtime threat detection for clusters (detecting suspicious process executions in containers, crypto-mining, etc.), and Kubernetes policy compliance It even monitors the Kubernetes control plane logs for suspicious events. For more information see [Defender for Containers](/azure/defender-for-cloud/defender-for-containers-aws-overview).
+  
+  - __Databases:__ Defender for Cloud supports SQL servers running on AWS EC2 and AWS RDS Custom. It provides capabilities for vulnerability assessment scanning (checking for misconfigurations or missing patches) and advanced threat protection for SQL (which detects anomalous queries, SQL injection attempts, etc.) and surfaces the alerts. For more information [Defender for SQL](/azure/defender-for-cloud/defender-for-sql-usage).
+  
+Defender for Cloud brings the “secure by design” philosophy to AWS through environment hardening, vulnerability management, and threat detection in one solution. For more information about protecting workloads in AWS, see [Connect your AWS account](/azure/defender-for-cloud/quickstart-onboard-aws) and [Assign regulatory compliance standards in Microsoft Defender for Cloud](/azure/defender-for-cloud/update-regulatory-compliance-packages). 
 
 ### Microsoft Sentinel
 
