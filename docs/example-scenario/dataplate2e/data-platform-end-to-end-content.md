@@ -30,7 +30,7 @@ Use [SQL database in Fabric](/fabric/database/sql/overview) when you need to uni
 
 #### Azure databases, external data sources, and relational databases
 
-This section explains how to bring data from Azure databases and platforms like Azure Databricks, as well as third-party platforms like Snowflake, into Fabric.
+This section explains how to bring data from Azure databases and platforms like Azure Databricks, as well as non-Microsoft platforms like Snowflake, into Fabric.
 
 ##### Ingest
 
