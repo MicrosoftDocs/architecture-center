@@ -114,7 +114,7 @@ Consider the following points when using autoscaling:
 
 ## Application design considerations
 
-Autoscaling isn't an instant solution. Adding resources to a system or running more instances of a process alone doesn't guarantee improved performance. Consider the following points when you design an autoscaling strategy:
+Autoscaling isn't an instant solution. Adding resources to a system or running more instances of a process doesn't guarantee improved performance. Consider the following points when you design an autoscaling strategy:
 
 - The system must be designed to be horizontally scalable. Avoid making assumptions about instance affinity. Don't design solutions that require that the code is always running in a specific instance of a process. When scaling a cloud service or website horizontally, don't assume that a series of requests from the same source are always routed to the same instance. For the same reason, design services to be stateless to avoid requiring a series of requests from an application to always be routed to the same instance of a service. When designing a service that reads messages from a queue and processes them, don't make any assumptions about which instance of the service handles a specific message. Autoscaling could start more instances of a service as the queue length grows. The [Competing Consumers pattern](../patterns/competing-consumers.yml) describes how to handle this scenario.
 
