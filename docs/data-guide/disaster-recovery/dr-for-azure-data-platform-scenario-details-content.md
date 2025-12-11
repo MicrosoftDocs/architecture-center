@@ -10,95 +10,95 @@ The following sections present a breakdown of Contoso activity necessary across 
 
 - **Microsoft Entra ID including role entitlements**
     - Contoso SKU selection: Premium P1
-    - DR impact
+    - DR impact:
         - Azure datacenter failure: N/A
         - Availability Zone failure: N/A
         - Azure regional failure: N/A
 
 - **Management Groups**
     - Contoso SKU selection: N/A
-    - DR impact
+    - DR impact:
         - Azure datacenter failure: N/A
         - Availability Zone failure: N/A
         - Azure regional failure: N/A
 
 - **Subscriptions**
     - Contoso SKU selection: N/A
-    - DR impact
+    - DR impact:
         - Azure datacenter failure: N/A
         - Availability Zone failure: N/A
         - Azure regional failure: N/A
 
 - **Azure Key Vault**
     - Contoso SKU selection: Standard
-    - DR impact
+    - DR impact:
         - Azure datacenter failure: N/A
         - Availability Zone failure: N/A
         - Azure regional failure: N/A
 
 - **Azure Monitor**
     - Contoso SKU selection: N/A
-    - DR impact
+    - DR impact:
         - Azure datacenter failure: N/A
         - Availability Zone failure: N/A
         - Azure regional failure: N/A
 
 - **Microsoft Defender for Cloud**
     - Contoso SKU selection: N/A
-    - DR impact
+    - DR impact:
         - Azure datacenter failure: N/A
         - Availability Zone failure: N/A
         - Azure regional failure: N/A
 
 - **Cost Management**
     - Contoso SKU selection: N/A
-    - DR impact
+    - DR impact:
         - Azure datacenter failure: N/A
         - Availability Zone failure: N/A
         - Azure regional failure: N/A
 
 - **Azure DNS**
     - Contoso SKU selection: N/A
-    - DR impact
+    - DR impact:
         - Azure datacenter failure: N/A
         - Availability Zone failure: N/A
         - Azure regional failure: N/A
 
 - **Virtual Networks (VNets), including Subnets, user-defined routes (UDRs) & network security groups (NSGs)**
     - Contoso SKU selection: N/A
-    - DR impact
+    - DR impact:
         - Azure datacenter failure: N/A
         - Availability Zone failure: N/A
         - Azure regional failure: Contoso would need to redeploy the Foundation and Data platform VNets with their attached UDRs & NSGs into the secondary region.
-    - Notes
+    - Notes:
         - [Traffic Manager](/azure/traffic-manager/traffic-manager-overview) can be used to geo-route traffic between regions that hold replica VNet structures. If they have the same address space, they can't be connected to the on-premises network, as it would cause routing issues. At the time of a disaster and loss of a VNet in one region, you can connect the other VNet in the available region, with the matching address space to your on-premises network.
 
 - **Resource Groups**
     - Contoso SKU selection: N/A
-    - DR impact
+    - DR impact:
         - Azure datacenter failure: N/A
         - Availability Zone failure: N/A
         - Azure regional failure: Contoso would need to redeploy the Foundation and Data platform Resource groups into the secondary region.
-    - Notes
+    - Notes:
         - This activity would be mitigated by implementing the "Warm Spare" strategy, having the network and resource group topology available in the secondary region.
 
 - **VPN Gateway**
     - Contoso SKU selection: VpnGw1
-    - DR impact
+    - DR impact:
         - Azure datacenter failure: N/A
         - Availability Zone failure: Contoso would need to validate availability and redeploy if necessary.
         - Azure regional failure: Contoso would need to redeploy the Foundation VPN Gateways into the secondary region.
-    - Notes
+    - Notes:
         - VPN Gateways can be created with [Availability Zones](/azure/vpn-gateway/about-zone-redundant-vnet-gateways) for increased availability.
         - A "Warm Spare" strategy would mitigate this activity.
 
 - **Azure DevOps**
     - Contoso SKU selection: DevOps Services
-    - DR impact
+    - DR impact:
         - Azure datacenter failure: N/A
         - Availability Zone failure: N/A
         - Azure regional failure: N/A
-    - Notes
+    - Notes:
         - DevOps Services is [built upon the Azure backbone](/azure/devops/organizations/security/data-protection?view=azure-devops#built-on-azure) and uses [Azure blob storage with geo-replication](/azure/devops/organizations/security/data-protection?view=azure-devops#data-redundancy) to ensure reliability.
 
 ### Area: Data Platform components
@@ -126,7 +126,7 @@ The following sections present a breakdown of Contoso activity necessary across 
     - DR impact:
       - Azure datacenter failure: Not applicable
       - Availability zone failure: Not applicable
-      - Azure regional failure: Contoso needs to deploy and [restore](/fabric/security/experience-specific-guidance#warehouse) the data platform Fabric into the secondary region and redeploy the warehouse.
+      - Azure regional failure: Contoso needs to deploy and [restore](/fabric/security/experience-specific-guidance#warehouse) the Fabricdata platform into the secondary region and redeploy the warehouse.
     - Notes:
        - Cross-region restore:
          - You can't restore a warehouse from one region or workspace to another. You must redeploy schema and reingest data.
@@ -134,46 +134,46 @@ The following sections present a breakdown of Contoso activity necessary across 
              
 - **Fabric – Pipelines**
     - Contoso SKU selection: Fabric Capacity
-    - DR impact
+    - DR impact:
         - Azure datacenter failure: Not applicable
         - Availability zone failure: Not applicable
         - Azure regional failure: Contoso needs to deploy and [restore](/fabric/security/experience-specific-guidance) the data platform Fabric into the secondary region and redeploy the pipelines.
            
 - **Azure Event Hubs**
     - Contoso SKU selection: Standard
-    - DR impact
+    - DR impact:
         - Azure datacenter failure: N/A
         - Availability Zone failure: N/A
         - Azure regional failure: Contoso would need to redeploy the Event Hubs instance into the secondary region.
-    - Notes
+    - Notes:
         - When you use the Azure portal, zone redundancy via support for availability zones is [automatically enabled](/azure/event-hubs/event-hubs-geo-dr#availability-zones), this can be disabled via using the Azure CLI or PowerShell commands.
         - Zone redundancy provides local resilience (continued operation during a zonal outage). For region-wide disruptions, you should use Event Hubs geo-disaster recovery feature to restore operations in a secondary region. See [Geo-disaster recovery](/azure/event-hubs/event-hubs-geo-dr).
 
 - **Azure IoT Hubs**
     - Contoso SKU selection: Standard
-    - DR impact
+    - DR impact:
         - Azure datacenter failure: N/A
         - Availability Zone failure: N/A
         - Azure regional failure: Contoso would need to redeploy the IoT Hub into the secondary region.
-    - Notes
+    - Notes:
         - IoT Hub provides [Intra-Region HA](/azure/iot-hub/iot-hub-ha-dr#intra-region-ha) and will automatically use an availability zone if created in a [predefined set of Azure regions](/azure/iot-hub/iot-hub-ha-dr#availability-zones).
 
 - **Azure Stream Analytics**
     - Contoso SKU selection: Standard
-    - DR impact
+    - DR impact:
         - Azure datacenter failure: N/A
         - Availability Zone failure: N/A
         - Azure regional failure: Contoso would need to redeploy the IoT Hub into the secondary region.
-    - Notes
+    - Notes:
         - A key feature of Stream Analytics is its ability to recover from [Node failure](/azure/stream-analytics/stream-analytics-concepts-checkpoint-replay#job-recovery-from-node-failure-including-os-upgrade).
 
 - **Azure Machine Learning**
     - Contoso SKU selection: General Purpose – D Series instances
-    - DR impact
+    - DR impact:
         - Azure datacenter failure: Contoso would need to validate availability and redeploy if necessary.
         - Availability Zone failure: Contoso would need to validate availability and redeploy if necessary.
         - Azure regional failure: Contoso would need to redeploy Machine Learning into the secondary region.
-    - Notes
+    - Notes:
         - While Microsoft manages the Machine Learning infrastructure, the customer manages [the associated resources](/azure/machine-learning/how-to-high-availability-machine-learning#understand-azure-services-for-azure-machine-learning). Only Key Vault is highly available by default.
         - Depending on the service criticality supported, Microsoft recommends a [multi-regional deployment](/azure/machine-learning/how-to-high-availability-machine-learning#plan-for-multi-regional-deployment).
 
@@ -216,27 +216,27 @@ The following sections present a breakdown of Contoso activity necessary across 
 
 - **Azure Cosmos DB**
     - Contoso SKU selection: Single Region Write with Periodic backup
-    - DR impact
+    - DR impact:
         - Azure datacenter failure: N/A
         - Availability Zone failure: N/A
         - Azure regional failure: Contoso should monitor, ensuring there are [enough provisioned request units (RUs)](/azure/cosmos-db/high-availability#what-to-expect-during-a-region-outage) in the remaining regions to support read and write activities.
-    - Notes
+    - Notes:
         - [Single-region accounts might lose availability](/azure/cosmos-db/high-availability#availability) following a regional outage. To ensure high availability of your Azure Cosmos DB instance, configure it with a single write region and at least a second (read) region and enable Service-Managed failover.
         - To avoid the loss of write availability, configure production workloads to *enable service-managed failover*, which enables automatic failover to [available regions](/azure/cosmos-db/high-availability#availability).
 
 - **Azure Data Share**
     - Contoso SKU selection: N/A
-    - DR impact
+    - DR impact:
         - Azure datacenter failure: Contoso would need to validate availability and redeploy if necessary.
         - Availability Zone failure: Contoso would need to validate availability and redeploy if necessary.
         - Azure regional failure: Contoso would need to redeploy the Data Share into the secondary region.
-    - Notes
+    - Notes:
         - Azure Data Share isn't currently supported by [Availability Zones](/azure/reliability/availability-zones-overview).
         - Uplifting Data Share to a [HA deployment](/azure/data-share/disaster-recovery#achieving-business-continuity-for-azure-data-share) will address each of these outage risks.
 
 - **Microsoft Purview**
     - Contoso SKU selection: N/A
-    - DR impact
+    - DR impact:
         - Azure datacenter failure: N/A
         - Availability Zone failure: Contoso would need to validate availability and redeploy if necessary.
         - Azure regional failure: Contoso would need to deploy an instance of Microsoft Purview into the secondary region.
