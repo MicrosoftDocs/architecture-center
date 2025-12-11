@@ -349,7 +349,7 @@ The following tables present a breakdown of each Azure service and component use
 - **Fabric: OneLake**
     - Component recovery responsibility: Microsoft
     - Workload/configuration recovery responsibility: Contoso
-    - Contoso SKU selection: Fabric Capacity
+    - Contoso SKU selection: Fabric capacity
     - DR uplift options:
       - Enable BCDR for Fabric capacity.
     - Notes:
@@ -358,9 +358,9 @@ The following tables present a breakdown of each Azure service and component use
 - **Fabric: SQL database in Fabric**
     - Component recovery responsibility: Microsoft
     - Workload/configuration recovery responsibility: Contoso
-    - Contoso SKU selection: Fabric Capacity
+    - Contoso SKU selection: Fabric capacity
     - DR uplift options:
-      - Enable DR Capacity in Fabric for cross-region replication of SQL database data via OneLake.
+      - Enable DR capacity in Fabric for cross-region replication of SQL database data via OneLake.
       - Perform manual geo-backup or geo-replication for active-active setups across regions.
     - Notes:
       - For more information, see [Experience-specific DR for SQL database](/fabric/security/experience-specific-guidance#sql-database).
@@ -368,9 +368,9 @@ The following tables present a breakdown of each Azure service and component use
 - **Fabric: Data Engineer**
     - Component recovery responsibility: Microsoft
     - Workload/configuration recovery responsibility: Contoso
-    - Contoso SKU selection: Fabric Capacity
+    - Contoso SKU selection: Fabric capacity
     - DR uplift options:
-      - Enable DR Capacity in Fabric for cross-region replication of lakehouse data via OneLake.
+      - Enable DR capacity in Fabric for cross-region replication of lakehouse data via OneLake.
       - Perform manual geo-backup or geo-replication for active-active setups across regions.
     - Notes:
       - You can redeploy notebooks via CI/CD.
@@ -379,7 +379,7 @@ The following tables present a breakdown of each Azure service and component use
 - **Fabric: Data Warehouse**
     - Component recovery responsibility: Microsoft
     - Workload/configuration recovery responsibility: Contoso
-    - Contoso SKU selection: Fabric Capacity
+    - Contoso SKU selection: Fabric capacity
     - DR uplift options:
       - Perform manual geo-backup or geo-replication for active-active setups across regions.
       - Enable DR capacity in Fabric for cross-region replication of warehouse data via OneLake.
@@ -390,9 +390,9 @@ The following tables present a breakdown of each Azure service and component use
 - **Fabric: SQL analytics endpoint**
     - Component recovery responsibility: Microsoft
     - Workload/configuration recovery responsibility: Contoso
-    - Contoso SKU selection: Fabric Capacity
+    - Contoso SKU selection: Fabric capacity
     - DR uplift options:
-      - Enable DR Capacity in Fabric for cross-region replication of lakehouse and warehouse data via OneLake.
+      - Enable DR capacity in Fabric for cross-region replication of lakehouse and warehouse data via OneLake.
       - Use CI/CD pipelines to redeploy SQL objects, like views, stored procedures, and security roles, in the DR region.
       - Use the metadata sync API or perform a UI refresh to ensure that the SQL endpoint schema remains up to date after failover.
     - Notes:
@@ -401,7 +401,7 @@ The following tables present a breakdown of each Azure service and component use
 - **Fabric: Mirrored database**
     - Component recovery responsibility: Microsoft
     - Workload/configuration recovery responsibility: Contoso
-    - Contoso SKU selection: Fabric Capacity
+    - Contoso SKU selection: Fabric capacity
     - DR uplift options:
       - Manual geo-backup or geo-replication for active-active setups across regions.
     - Notes:
@@ -423,7 +423,7 @@ The following tables present a breakdown of each Azure service and component use
 - **Fabric: Real-Time Intelligence**
     - Component recovery responsibility: Microsoft
     - Workload/configuration recovery responsibility: Contoso
-    - Contoso SKU selection: Fabric Capacity
+    - Contoso SKU selection: Fabric capacity
     - DR uplift options:
       - Use geo-replication for active-active setups across regions.
     - Notes:
@@ -433,7 +433,7 @@ The following tables present a breakdown of each Azure service and component use
 - **Fabric: Data Factory**
     - Component recovery responsibility: Microsoft
     - Workload/configuration recovery responsibility: Contoso
-    - Contoso SKU selection: Fabric Capacity
+    - Contoso SKU selection: Fabric capacity
     - DR uplift options:
       - Use a cross-region pipeline deployment.
     - Notes:
@@ -444,7 +444,7 @@ The following tables present a breakdown of each Azure service and component use
 - **Fabric: Data Science**
     - Component recovery responsibility: Microsoft
     - Workload/configuration recovery responsibility: Contoso
-    - Contoso SKU selection: Fabric Capacity
+    - Contoso SKU selection: Fabric capacity
     - DR uplift options:
       - Create workspaces in two different regions. Then copy your data and import notebooks, machine learning experiments, and models into the secondary workspace.
     - Notes:
