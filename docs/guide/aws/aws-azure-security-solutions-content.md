@@ -4,7 +4,9 @@ This guide describes how Microsoft security solutions provide a Zero Trust, defe
 
 This diagram summarizes how AWS installations can benefit from key Microsoft security components:
 
-:::image source="./media/aws-azure-security-solutions-architecture.png" alt-text="Architecture diagram that shows the benefits of implementing Azure security for AWS." border="false" lightbox="./media/aws-azure-security-solutions-architecture.png":::
+![AWS doc diagram](media/aws-azure-security-solutions-content/aws-doc-diagram.png)
+
+
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/1985346_aws-azure-security-solutions-architecture.pptx) of this diagram.*
 
