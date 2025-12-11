@@ -2,7 +2,7 @@ Workload architectures that involve Azure OpenAI Service might consist of one or
 
 Multiple Azure OpenAI instances or model deployments solve specific requirements in a workload architecture. They can be classified in four key topologies.
 
-- [Multiple model deployments in a single Azure OpenAI instance](#multiple-model-deployments-in-a-single-azure-open-ai-instance)
+- [Multiple model deployments in a single Azure OpenAI instance](#multiple-model-deployments-in-a-single-azure-openai-instance)
 - [Multiple Azure OpenAI instances in a single region and single subscription](#multiple-azure-openai-instances-in-a-single-region-and-single-subscription)
 - [Multiple Azure OpenAI instances in a single region across multiple subscriptions](#multiple-azure-openai-instances-in-a-single-region-across-multiple-subscriptions)
 - [Multiple Azure OpenAI instances across multiple regions](#multiple-azure-openai-instances-across-multiple-regions)
