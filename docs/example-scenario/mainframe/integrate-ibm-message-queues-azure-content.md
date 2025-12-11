@@ -37,12 +37,11 @@ When you use Azure as a modern data platform, you have your choice of platform a
 
 ### Alternatives
 
--   For the data layer, you have your choice of managed services, including
-    [Azure Database for PostgreSQL](/azure/postgresql/), [Azure Database for MySQL](/azure/mysql/overview), [Azure Cosmos DB](/azure/cosmos-db/introduction), and [Azure SQL](/azure/azure-sql/).
+- For the data layer, you have your choice of managed services, including [Azure Database for PostgreSQL](/azure/postgresql/), [Azure Database for MySQL](/azure/mysql/overview), [Azure Cosmos DB](/azure/cosmos-db/introduction), and [Azure SQL](/azure/azure-sql/).
 
--   For the storage layer, create an enterprise data lake using [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction).
+- For the storage layer, create an enterprise data lake using [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction).
 
--   For the data layer, create a big data analytics platform using [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is).
+- For the data layer, create a big data analytics platform using [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview).
 
 ## Scenario details
 
@@ -62,11 +61,11 @@ The following architecture illustrates how these options work in practice:
 
 Either of these approaches can be used to:
 
--   Enable loosely coupled applications that communicate through messaging systems to use the Azure data platform.
+- Enable loosely coupled applications that communicate through messaging systems to use the Azure data platform.
 
--   Sync or replicate data incrementally between a mainframe or midrange system and Azure.
+- Sync or replicate data incrementally between a mainframe or midrange system and Azure.
 
--   Flow event messages between mainframe or midrange systems and Azure.
+- Flow event messages between mainframe or midrange systems and Azure.
 
 ## Considerations
 
@@ -88,9 +87,9 @@ Cost Optimization is about looking at ways to reduce unnecessary expenses and im
 
 This article outlines a wide range of Azure Services to demonstrate the various possibilities and you probably won't use them all for MQ integration.
 
--   Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs for the Azure resources.
+- Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs for the Azure resources.
 
--   Use the [BizTalk pricing](https://azure.microsoft.com/pricing/details/biztalk-services/) to understand the pricing for the HIS solution.
+- Use the [BizTalk pricing](https://azure.microsoft.com/pricing/details/biztalk-services/) to understand the pricing for the HIS solution.
 
 ### Operational Excellence
 
@@ -105,19 +104,19 @@ In this example architecture, Logic Apps connectors can be used to send messages
 
 Both the PaaS and IaaS architecture options support many popular managed database services. You can load data using a custom-built loader, a vendor solution, or a managed service such as [Azure Data Factory](/azure/data-factory/introduction). Database options include:
 
--   [Azure SQL Database](https://azure.microsoft.com/services/sql-database/). Part of the Azure SQL family, Azure SQL Database is the intelligent, scalable, relational database service built for the cloud. Always up to date, it includes automated features that optimize performance, durability, and scalability, so you can focus on building new applications.
+- [Azure SQL Database](https://azure.microsoft.com/services/sql-database/). Part of the Azure SQL family, Azure SQL Database is the intelligent, scalable, relational database service built for the cloud. Always up to date, it includes automated features that optimize performance, durability, and scalability, so you can focus on building new applications.
 
--   [Azure SQL Managed Instance](https://azure.microsoft.com/services/azure-sql/sql-managed-instance/). Part of the Azure SQL service portfolio, SQL Managed Instance combines the broadest SQL Server engine compatibility with all the benefits of a fully managed PaaS.
+- [Azure SQL Managed Instance](https://azure.microsoft.com/services/azure-sql/sql-managed-instance/). Part of the Azure SQL service portfolio, SQL Managed Instance combines the broadest SQL Server engine compatibility with all the benefits of a fully managed PaaS.
 
--   [Azure SQL on Azure Virtual Machines](https://azure.microsoft.com/en-in/services/virtual-machines/sql-server/). Part of the Azure SQL family, this cost-effective option is designed for lifting and shifting SQL Server workloads to Azure. It combines the performance, security, and analytics of SQL Server with the flexibility and hybrid connectivity of Azure—with 100 percent code compatibility. Now includes SQL Server 2019 images.
+- [Azure SQL on Azure Virtual Machines](https://azure.microsoft.com/en-in/services/virtual-machines/sql-server/). Part of the Azure SQL family, this cost-effective option is designed for lifting and shifting SQL Server workloads to Azure. It combines the performance, security, and analytics of SQL Server with the flexibility and hybrid connectivity of Azure—with 100 percent code compatibility. Now includes SQL Server 2019 images.
 
--   [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/). This fully managed relational database service is based on the community edition of the open-source PostgreSQL database engine. You can focus on application innovation instead of database management and easily scale your workloads.
+- [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/). This fully managed relational database service is based on the community edition of the open-source PostgreSQL database engine. You can focus on application innovation instead of database management and easily scale your workloads.
 
--   [Azure Database for MySQL](/azure/mysql/overview). This fully managed relational database service is based on the community edition of the open-source MySQL database engine.
+- [Azure Database for MySQL](/azure/mysql/overview). This fully managed relational database service is based on the community edition of the open-source MySQL database engine.
 
--   [Azure Cosmos DB](/azure/cosmos-db/introduction). A globally distributed, multi-model database, Azure Cosmos DB provides throughput and storage that scales elastically and independently across any number of geographic regions. It is a fully managed NoSQL database service that guarantees single-digit-millisecond latencies at the 99th percentile anywhere in the world.
+- [Azure Cosmos DB](/azure/cosmos-db/introduction). A globally distributed, multi-model database, Azure Cosmos DB provides throughput and storage that scales elastically and independently across any number of geographic regions. It is a fully managed NoSQL database service that guarantees single-digit-millisecond latencies at the 99th percentile anywhere in the world.
 
--   [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is). This enterprise analytics service accelerates time to insight across data warehouses and big data systems.
+- [Data Warehouse in Microsoft Fabric](/fabric/data-warehouse/data-warehousing). This enterprise analytics service accelerates time to insight across data warehouses and big data systems.
 
 ### Performance Efficiency
 
@@ -127,20 +126,20 @@ Make sure to test the throughput and performance of your data transformation lay
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
- - [Ashish Khandelwal](https://www.linkedin.com/in/ashish-khandelwal-839a851a3/) | Principal Engineering Architecture Manager
- 
+- [Ashish Khandelwal](https://www.linkedin.com/in/ashish-khandelwal-839a851a3/) | Principal Engineering Architecture Manager
+
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
--   For more information, email [Azure Data Engineering - Mainframe & Midrange Modernization](mailto:datasqlninja@microsoft.com) (datasqlninja\@microsoft.com).
+- For more information, email [Azure Data Engineering - Mainframe & Midrange Modernization](mailto:datasqlninja@microsoft.com) (datasqlninja\@microsoft.com).
 
--   Read the [Azure Database Migration Guides](https://datamigration.microsoft.com/).
+- Read the [Azure Database Migration Guides](https://datamigration.microsoft.com/).
 
 ## Related resources
 
--   [Azure data platform end-to-end](../dataplate2e/data-platform-end-to-end.yml)
+- [Azure data platform end-to-end](../dataplate2e/data-platform-end-to-end.yml)
