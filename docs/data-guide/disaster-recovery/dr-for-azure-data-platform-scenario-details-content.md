@@ -122,7 +122,7 @@ The following sections present a breakdown of Contoso activity necessary across 
       - Azure regional failure: Microsoft handles the regional failures. OneLake data is available via the API. For more information, see [DR and data protection for OneLake](/fabric/onelake/onelake-disaster-recovery).
 
 - **Fabric – Data Warehouse**
-    - Contoso SKU selection: Fabric Capacity
+    - Contoso SKU selection: Fabric capacity
     - DR impact:
       - Azure datacenter failure: Not applicable
       - Availability zone failure: Not applicable
@@ -133,7 +133,7 @@ The following sections present a breakdown of Contoso activity necessary across 
          - You can pause Fabric capacity after restoration. During this paused state, only storage costs are incurred, which makes it a cost-effective strategy for maintaining a *live* snapshot.
              
 - **Fabric – Pipelines**
-    - Contoso SKU selection: Fabric Capacity
+    - Contoso SKU selection: Fabric capacity
     - DR impact:
         - Azure datacenter failure: Not applicable
         - Availability zone failure: Not applicable
@@ -189,21 +189,21 @@ The following sections present a breakdown of Contoso activity necessary across 
       - Customers implement [backup strategies](/azure/ai-foundry/openai/how-to/business-continuity-disaster-recovery) for custom models, datasets, and configuration artifacts because the platform doesn't automatically replicate them across regions.
 
 - **Fabric – Eventhouse**
-    - Contoso SKU selection: Fabric Capacity
+    - Contoso SKU selection: Fabric capacity
     - DR impact:
       - Azure datacenter failure: Not applicable
       - Availability zone failure: Not applicable
       - Azure regional failure: Contoso redeploys Fabric eventhouses and pipelines in the secondary region.
 
 - **Fabric – Lakehouse**
-    - Contoso SKU selection: Fabric Capacity
+    - Contoso SKU selection: Fabric capacity
     - DR impact:
       - Azure datacenter failure: Not applicable
       - Availability zone failure: Not applicable
       - Azure regional failure: Contoso needs to redeploy Fabric lakehouses and pipelines in the secondary region and [restores](/fabric/security/experience-specific-guidance#lakehouse) the Fabric data platform there. The lakehouse is redeployed in the secondary region.
 
 - **Power BI**
-    - Contoso SKU selection: Fabric Capacity or Power BI Pro
+    - Contoso SKU selection: Fabric capacity or Power BI Pro
     - DR impact:
       - Azure datacenter failure: Not applicable
       - Availability zone failure: Not applicable
