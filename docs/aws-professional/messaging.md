@@ -4,7 +4,7 @@ description: Compare messaging service differences between Azure and AWS. Know A
 author: johnkoukgit
 ms.author: johnkoukaras
 ms.date: 08/10/2021
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: cloud-fundamentals
 ms.collection: 
  - migration

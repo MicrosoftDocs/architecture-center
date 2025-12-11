@@ -10,7 +10,7 @@ Asynchronous messaging is an effective way to decouple senders from consumers, a
 
 ## Solution
 
-Introduce an asynchronous messaging subsystem that includes the following:
+Introduce an asynchronous messaging subsystem that includes the following components:
 
 - An input messaging channel used by the sender. The sender packages events into messages, using a known message format, and sends these messages via the input channel. The sender in this pattern is also called the *publisher*.
 
@@ -48,6 +48,8 @@ Pub/sub messaging has the following benefits:
 Consider the following points when deciding how to implement this pattern:
 
 - **Existing technologies.** It is strongly recommended to use available messaging products and services that support a publish-subscribe model, rather than building your own. In Azure, consider using [Service Bus](/azure/service-bus-messaging/), [Event Hubs](/azure/event-hubs/) or [Event Grid](/azure/event-grid/). Other technologies that can be used for pub/sub messaging include Redis, RabbitMQ, and Apache Kafka.
+
+  Libraries like [MassTransit](https://masstransit.io) and [NServiceBus](https://docs.particular.net/nservicebus/) also provide built-in support for the publish-subscribe model on Azure Service Bus and other messaging technologies.
 
 - **Subscription handling.** The messaging infrastructure must provide mechanisms that consumers can use to subscribe to or unsubscribe from available channels.
 

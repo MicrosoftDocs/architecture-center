@@ -4,7 +4,7 @@ description: Learn strategies for transitioning an IPv4 network environment on A
 author: brsteph
 ms.author: leuthaeusern
 ms.date: 01/17/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
 

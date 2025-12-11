@@ -4,7 +4,7 @@ description: Learn about cost management and allocation approaches for multitena
 author: johndowns
 ms.author: pnp
 ms.date: 08/19/2025 
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
 - arb-saas
@@ -34,7 +34,7 @@ By understanding the goal of measuring consumption by a tenant, you can determin
 
 ### Shared components
 
-You might be able to reduce the cost of a multitenant solution by moving tenants to shared infrastructure. However, you need to carefully consider the impact of sharing resources, such as whether your tenants will begin to experience the [noisy neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml).
+You might be able to reduce the cost of a multitenant solution by moving tenants to shared infrastructure. However, you need to carefully consider the impact of sharing resources, such as whether your tenants begin to experience the [noisy neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml).
 
 You also need to consider how you measure and allocate the costs of shared components. For example, you can evenly divide the cost between each of the tenants that use the shared component. Or you can meter each tenant's usage to get a more precise measurement of their consumption of shared components.
 

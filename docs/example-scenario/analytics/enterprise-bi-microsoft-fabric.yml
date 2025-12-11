@@ -1,0 +1,33 @@
+### YamlMime:Architecture
+metadata:
+  title: Use Microsoft Fabric to Design an Enterprise BI Solution
+  description: Learn how to implement a pipeline that moves data from an on-premises data warehouse into Microsoft Fabric and transforms the data for analysis.
+  author: bibhu250
+  ms.author: bibhuacharya
+  ms.date: 11/01/2025
+  ms.topic: example-scenario
+  ms.subservice: example-scenario
+  ms.category:
+    - analytics
+    - databases
+    - integration
+  ms.custom:
+    - arb-data
+    - example-scenario
+  ms.collection:
+    - migration
+    - onprem-to-azure
+name: Use Microsoft Fabric to design an enterprise BI solution
+azureCategories:
+  - analytics
+  - databases
+  - integration
+summary: Learn how to implement a pipeline that moves data from an on-premises data warehouse into Microsoft Fabric and transforms the data for analysis.
+products:
+  - fabric
+  - azure-blob-storage
+  - entra-id
+  - power-bi
+thumbnailUrl: /azure/architecture/browse/thumbs/enterprise-bi-scoped-architecture.png
+content: |
+   [!INCLUDE[](enterprise-bi-microsoft-fabric-content.md)]

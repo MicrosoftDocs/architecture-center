@@ -4,7 +4,7 @@ description: Learn about the considerations to keep in mind when you move to a m
 author: ovaismehboob 
 ms.author: ovmehboo
 ms.date: 06/16/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.reviewer: nasiddi
 ms.subservice: architecture-guide
 ms.custom: fcp

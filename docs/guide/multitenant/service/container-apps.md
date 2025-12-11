@@ -4,7 +4,7 @@ description: Learn about Azure Container Apps features that are useful in multit
 author: PlagueHO
 ms.author: dascottr
 ms.date: 02/05/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-saas
 ---

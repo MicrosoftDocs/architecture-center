@@ -12,7 +12,7 @@ Jupyter is a trademark of its respective company. No endorsement is implied by t
 
 ### Dataflow
 
-1. Azure Event Hubs, Azure IoT Hub, or Kafka ingest a wide variety of fast-flowing streaming data such as logs, business events, and user activities.
+1. Azure Event Hubs, Azure IoT Hub, or Kafka ingest a wide range of fast-flowing streaming data such as logs, business events, and user activities.
 
 1. Azure Functions or Azure Stream Analytics process the data in near real time.
 
@@ -73,7 +73,7 @@ This solution idea uses the following Azure components.
 
 ## Scenario details
 
-This solution uses Azure Data Explorer to get near real-time IoT telemetry analytics on fast-flowing, high-volume streaming data from a wide variety of IoT devices.
+This solution uses Azure Data Explorer to get near real-time IoT telemetry analytics on fast-flowing, high-volume streaming data from a wide range of IoT devices.
 
 ### Potential use cases
 

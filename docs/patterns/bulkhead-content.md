@@ -2,7 +2,7 @@ The Bulkhead pattern is a type of application design that is tolerant of failure
 
 ## Context and problem
 
-A cloud-based application might include multiple services, with each service having one or more consumers. Excessive load or failure in a service will impact all consumers of the service.
+A cloud-based application might include multiple services, with each service having one or more consumers. Excessive load or failure in a service will affect all consumers of the service.
 
 Moreover, a consumer might send requests to multiple services simultaneously, using resources for each request. When the consumer sends a request to a service that is misconfigured or not responding, the resources used by the client's request might not be freed in a timely manner. As requests to the service continue, those resources might be exhausted. For example, the client's connection pool might be exhausted. At that point, requests by the consumer to other services are affected. Eventually the consumer can no longer send requests to other services, not just the original unresponsive service.
 
@@ -20,7 +20,7 @@ The benefits of this pattern include:
 - Allows you to preserve some functionality in the event of a service failure. Other services and features of the application will continue to work.
 - Allows you to deploy services that offer a different quality of service for consuming applications. A high-priority consumer pool can be configured to use high-priority services.
 
-The following diagram shows bulkheads structured around connection pools that call individual services. If Service A fails or causes some other issue, the connection pool is isolated, so only workloads using the thread pool assigned to Service A are affected. Workloads that use Service B and C are not affected and can continue working without interruption.
+The following diagram shows bulkheads structured around connection pools that call individual services. If Service A fails or causes some other issue, the connection pool is isolated, so only workloads using the thread pool assigned to Service A are affected. Workloads that use Service B and C aren't affected and can continue working without interruption.
 
 ![First diagram of the Bulkhead pattern](./_images/bulkhead-1.png)
 
@@ -44,14 +44,14 @@ The next diagram shows multiple clients calling a single service. Each client is
 
 Use this pattern to:
 
-- Isolate resources used to consume a set of backend services, especially if the application can provide some level of functionality even when one of the services is not responding.
+- Isolate resources used to consume a set of backend services, especially if the application can provide some level of functionality even when one of the services isn't responding.
 - Isolate critical consumers from standard consumers.
 - Protect the application from cascading failures.
 
 This pattern might not be suitable when:
 
 - Less efficient use of resources might not be acceptable in the project.
-- The added complexity is not necessary
+- The added complexity isn't necessary
 
 ## Workload design
 

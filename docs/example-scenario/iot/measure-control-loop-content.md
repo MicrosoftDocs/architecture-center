@@ -43,7 +43,7 @@ This solution is ideal for the energy and environment industries. Examples of me
 - Smoke sensors: Trigger sprinklers upon sensing smoke from multiple sensors.
 - Power transformer: Shut down a transformer under a predicted severe thunderstorm.
 - Gas pipeline monitor: Open a valve to compensate for a pressure drop.
-- Home thermostat: Increase the heater gas flow upon sensing the room temperature falling below the setpoint.
+- Home thermostat: Increase the heater gas flow upon sensing the room temperature falling beneath the setpoint.
 - Wind turbine: Apply brakes to slow down a rotor when it is about to reach the warning RPM threshold.
 - Solar panels: Adjust solar panel angle as the sun moves over the horizon to maximize the power generated.
 

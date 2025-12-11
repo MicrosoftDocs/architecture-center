@@ -60,7 +60,7 @@ This workflow shows the steps to deploy the playbook. Make sure that the [Prereq
 
 - The Azure Well-Architected Framework is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 - Microsoft Sentinel offers more than 50 playbooks that are ready for use. You can find them on the **Playbook templates** tab of the **Microsoft Sentinel|Automation** page for your workspace.
-- [GitHub](https://github.com/azure/Azure-Sentinel/tree/master/Playbooks) has a variety of Microsoft Sentinel playbooks that are built by the community.
+- [GitHub](https://github.com/azure/Azure-Sentinel/tree/master/Playbooks) has various Microsoft Sentinel playbooks that are built by the community.
 
 ## Deploy this scenario
 
@@ -73,7 +73,7 @@ You can deploy this scenario by following the steps in [Workflow](#workflow) aft
 
 #### Prepare the software and choose a test user
 
-To implement and test the playbook, you need Azure and Microsoft Sentinel along with the following:
+To implement and test the playbook, you need Azure and Microsoft Sentinel along with the following prerequisites:
 
 - A Microsoft Entra ID Protection license (Premium P2, E3, or E5).
 - A Microsoft Entra user. You can use either an existing user or [create a new user](/entra/identity/enterprise-apps/add-application-portal-assign-users). If you do create a new user, you can delete it when you're done using it.
@@ -96,7 +96,7 @@ To deploy a Microsoft Sentinel playbook, proceed as follows:
   - Select the **Playbook templates (Preview)** tab.
   - In the search field, enter **Block Microsoft Entra user - Incident**.
   - In the list of playbooks, select **Block Microsoft Entra user - Incident** and then select **Create playbook** in the bottom right corner to get to the **Create playback** page.
-  - On the **Create playbook** page, do the following:
+  - On the **Create playbook** page, do the following steps:
     - Select values for **Subscription**, **Resource group**, and **Region** from the lists.
     - Enter a value for **Playbook name** if you don't want to use the default name that appears.
     - If you want, select **Enable diagnostics logs in Log Analytics** to enable logs.

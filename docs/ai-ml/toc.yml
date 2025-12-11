@@ -26,11 +26,11 @@ items:
         items:
         - name: Extract and map information from unstructured content
           href: idea/multi-modal-content-processing.yml
-        - name: Extract document templates from enterprise data
+        - name: Generate documents from your data
           href: idea/generate-documents-from-your-data.yml
         - name: Use AI enrichment with Azure AI Search
           href: ../solution-ideas/articles/ai-search-skillsets.yml
-        - name: Extract text using Power Automate
+        - name: Extract text by using Power Automate
           href: ../example-scenario/ai/extract-object-text.yml
       - name: Workflow automation
         items:
@@ -40,11 +40,11 @@ items:
       items:
       - name: Chat with data
         items:
-        - name: Basic Azure AI Foundry chat reference architecture
+        - name: Basic Microsoft Foundry chat reference architecture
           href: architecture/basic-azure-ai-foundry-chat.yml
-        - name: Baseline Azure AI Foundry chat reference architecture
+        - name: Baseline Microsoft Foundry chat reference architecture
           href: architecture/baseline-azure-ai-foundry-chat.yml
-        - name: Baseline Azure AI Foundry chat architecture in an Azure landing zone
+        - name: Baseline Microsoft Foundry chat architecture in an Azure landing zone
           href: architecture/baseline-azure-ai-foundry-landing-zone.yml
       - name: Document processing
         items:
@@ -99,60 +99,16 @@ items:
         - name: Generative AI operations with MLOps
           href: guide/genaiops-for-mlops.md
         - name: MLOps maturity model
-          href: guide/mlops-maturity-model.yml
-      - name: Proxy Azure OpenAI usage
+          href: guide/mlops-maturity-model.md
+      - name: Proxy generative AI models
         items:
-        - name: Use a gateway in front of Azure OpenAI
+        - name: Use a gateway in front of generative models
           href: guide/azure-openai-gateway-guide.yml
-        - name: A gateway for multiple Azure OpenAI backends
+        - name: A gateway for multiple models
           href: guide/azure-openai-gateway-multi-backend.yml
-        - name: Provide custom authentication to Azure OpenAI through a gateway
+        - name: Provide custom authentication to models through a gateway
           href: guide/azure-openai-gateway-custom-authentication.yml
-        - name: Implement advanced monitoring for Azure OpenAI through a gateway
+        - name: Implement advanced model monitoring through a gateway
           href: guide/azure-openai-gateway-monitoring.yml
       - name: Design to support foundation model life cycles
         href: guide/manage-foundation-models-lifecycle.md
-    - name: OpenAI
-      items:
-      - name: Design architectures
-        items:
-        - name: Basic Azure AI Foundry chat reference architecture
-          href: architecture/basic-azure-ai-foundry-chat.yml
-        - name: Baseline Azure AI Foundry chat reference architecture
-          href: architecture/baseline-azure-ai-foundry-chat.yml
-        - name: Baseline Azure AI Foundry chat architecture in an Azure landing zone
-          href: architecture/baseline-azure-ai-foundry-landing-zone.yml
-        - name: Extract and analyze call center data
-          href: openai/architecture/call-center-openai-analytics.yml
-      - name: Apply guidance
-        items:
-        - name: Developing and evaluating RAG solutions
-          items:
-          - name: Getting started
-            href: guide/rag/rag-solution-design-and-evaluation-guide.md
-          - name: Preparation phase
-            href: guide/rag/rag-preparation-phase.md
-          - name: Chunking phase
-            href: guide/rag/rag-chunking-phase.md
-          - name: Chunk enrichment phase
-            href: guide/rag/rag-enrichment-phase.md
-          - name: Embedding phase
-            href: guide/rag/rag-generate-embeddings.md
-          - name: Information-retrieval phase
-            href: guide/rag/rag-information-retrieval.md
-          - name: LLM end-to-end evaluation phase
-            href: guide/rag/rag-llm-evaluation-phase.md
-        - name: Design a secure multitenant RAG inferencing solution
-          href: guide/secure-multitenant-rag.md
-        - name: Proxy Azure OpenAI usage
-          items:
-          - name: Use a gateway in front of Azure OpenAI
-            href: guide/azure-openai-gateway-guide.yml
-          - name: A gateway for multiple Azure OpenAI backends
-            href: guide/azure-openai-gateway-multi-backend.yml
-          - name: Custom authentication for a gateway in front of Azure OpenAI
-            href: guide/azure-openai-gateway-custom-authentication.yml
-          - name: Implement advanced monitoring for Azure OpenAI through a gateway
-            href: guide/azure-openai-gateway-monitoring.yml
-        - name: Design to support foundation model lifecycles
-          href: guide/manage-foundation-models-lifecycle.md

@@ -1,10 +1,10 @@
 ---
 title: Kubernetes Monitoring and Logging
 description: Understand monitoring and logging for an Azure Kubernetes Service (AKS) cluster and workloads, and compare Amazon EKS and AKS monitoring and logging.
-author: ketan-chawda-msft
-ms.author: kechaw
+author: swgriffith
+ms.author: stgriffi
 ms.date: 01/28/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
   - arb-containers

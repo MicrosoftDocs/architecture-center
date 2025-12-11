@@ -4,7 +4,7 @@ description: Learn how to design and build a microservices architecture on Azure
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 09/23/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ai-usage: ai-assisted
 ---
@@ -19,11 +19,11 @@ This set of articles explores how to build a microservices architecture on Azure
 
 - [Interservice communication](./interservice-communication.yml): Design effective communication patterns between microservices by using synchronous and asynchronous approaches. Learn about REST APIs, messaging patterns, event-driven architectures, and service mesh technologies for reliable service-to-service communication.
 
-- [API design](./api-design.yml): Create well-designed APIs that support microservices architecture principles. Learn API versioning strategies, error handling patterns, and how to design APIs that promote loose coupling and independent service evolution.
+- [API design](./api-design.md): Create well-designed APIs that support microservices architecture principles. Learn API versioning strategies, error handling patterns, and how to design APIs that promote loose coupling and independent service evolution.
 
 - [API gateways](./gateway.yml): Implement API gateways to manage cross-cutting concerns like authentication, rate limiting, and request routing. Understand how gateways simplify client interactions and provide centralized policy enforcement across your microservices ecosystem.
 
-- [Data considerations](./data-considerations.yml): Address data management challenges in microservices architectures, including data consistency patterns, distributed transactions, and choosing appropriate data stores. Learn strategies for maintaining data integrity across service boundaries.
+- [Data considerations](./data-considerations.md): Address data management challenges in microservices architectures, including data consistency patterns, distributed transactions, and choosing appropriate data stores. Learn strategies for maintaining data integrity across service boundaries.
 
 - [Container orchestration](./orchestration.yml): Deploy and manage containerized microservices at scale by using container orchestrators. Understand how platforms like Kubernetes automate deployment, scaling, load balancing, and health management to maintain desired system state in production environments.
 
@@ -66,8 +66,8 @@ This architecture uses Kubernetes with [AKS](/azure/aks/). But many of the high-
 ## Related resources
 
 - [Design interservice communication for microservices](./interservice-communication.yml)
-- [Design APIs for microservices](./api-design.yml)
+- [Design APIs for microservices](./api-design.md)
 - [Use API gateways in microservices](./gateway.yml)
-- [Data considerations for microservices](./data-considerations.yml)
+- [Data considerations for microservices](./data-considerations.md)
 - [Container orchestration for microservices](./orchestration.yml)
 - [Design patterns for microservices](./patterns.yml)

@@ -4,7 +4,7 @@ description: Learn about structured approaches to designing scalable, resilient,
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 01/03/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
 

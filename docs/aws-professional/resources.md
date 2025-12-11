@@ -4,7 +4,7 @@ description: Compare resource management for Azure and AWS. Learn about the diff
 author: splitfinity81
 ms.author: yubaijna
 ms.date: 01/03/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: cloud-fundamentals
 ms.collection: 
  - migration

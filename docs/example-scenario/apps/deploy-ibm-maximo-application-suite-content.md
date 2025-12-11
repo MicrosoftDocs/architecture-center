@@ -10,7 +10,7 @@ The workload can be deployed internally or externally facing, depending on your 
 
 ### Workflow
 
-From the perspective of infrastructure, this architecture provides the following:
+From the perspective of infrastructure, this architecture provides the following capabilities:
 
 - A container hosting platform to deploy highly available workloads across availability zones
 - A privatized deployment of worker and control nodes that are integrated with storage
@@ -35,7 +35,7 @@ From the perspective of infrastructure, this architecture provides the following
 
 - [Azure Bastion](/azure/bastion/bastion-overview) (optional) and a subnet for enhanced-security access to any of the worker nodes or optional JumpBox machines. Azure Bastion is a fully managed service that provides RDP and SSH access to VMs without any exposure through public IP addresses.
 
-- [Azure SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) (optional) to provide data services to MAS. The database can also be another, like Oracle Exadata or IBM Db2 Warehouse. Azure SQL Database is not currently supported.
+- [Azure SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) (optional) to provide data services to MAS. The database can also be another, like Oracle Exadata or IBM Db2 Warehouse. Azure SQL Database isn't currently supported.
 
 - [Twilio Send Grid](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021) (optional) to send emails from MAS to your consumers.
 
@@ -96,7 +96,7 @@ Before you proceed with your deployment, you need to answer the following questi
 
 ### Maximo Application Suite
 
-Microsoft has tested MAS versions 8.7 and later on Azure. Our recommendation is to use the latest version of MAS, which currently is version 9.0. If you are on earlier versions of Maximo Application Suite, it is recommended to upgrade to benefit from better integration with Azure.
+Microsoft has tested MAS versions 8.7 and later on Azure. Our recommendation is to use the latest version of MAS, which currently is version 9.0. If you are on earlier versions of Maximo Application Suite, it's recommended to upgrade to benefit from better integration with Azure.
 
 Review the MAS applications that you need for your complete business scenario, and then review the requirements for each of the applications. For more information, see [IBM Maximo Application Suite system requirements](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=deploy-system-requirements). Each of the applications might need separate databases. We have tested and support the following databases on Azure:
 

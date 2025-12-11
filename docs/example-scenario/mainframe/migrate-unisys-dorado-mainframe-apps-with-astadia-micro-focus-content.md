@@ -7,7 +7,7 @@ This solution migrates Unisys Dorado mainframe systems to Azure with Astadia and
 This diagram shows the components that Unisys Sperry OS 1100/2200 mainframe systems typically contain:
 
 :::image type="complex" source="./media/migrate-unisys-dorado-mainframe-apps-original-architecture.svg" alt-text="Architecture diagram showing the components that make up a Unisys Dorado mainframe system. Examples include users, middleware, servers, and data storage." lightbox="./media/migrate-unisys-dorado-mainframe-apps-original-architecture.svg" border="false":::
-   The main part of the diagram is a box that contains several smaller boxes. Those boxes represent communications standards, application servers, data storage, middleware, monitoring components, an operating system, and a printer system. Above the box, icons represent users. Arrows connect the users with the communications box. Below the box, icons represent printers. Arrows connect the printers with the printer system box. Letter labels link parts of the diagram with the description in the document.
+   The main part of the diagram is a box that contains several smaller boxes. Those boxes represent communications standards, application servers, data storage, middleware, monitoring components, an operating system, and a printer system. Above the box, icons represent users. Arrows connect the users with the communications box. Underneath the box, icons represent printers. Arrows connect the printers with the printer system box. Letter labels link parts of the diagram with the description in the document.
 :::image-end:::
 
 *Download a [Visio file][Visio version of Sperry architecture diagram] of this architecture.*

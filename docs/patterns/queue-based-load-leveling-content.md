@@ -4,13 +4,13 @@ Use a queue that acts as a buffer between a task and a service it invokes in ord
 
 Many solutions in the cloud involve running tasks that invoke services. In this environment, if a service is subjected to intermittent heavy loads, it can cause performance or reliability issues.
 
-A service could be part of the same solution as the tasks that use it, or it could be a third-party service providing access to frequently used resources such as a cache or a storage service. If the same service is used by a number of tasks running concurrently, it can be difficult to predict the volume of requests to the service at any time.
+A service could be part of the same solution as the tasks that use it, or it could be a third-party service providing access to frequently used resources such as a cache or a storage service. When multiple tasks run concurrently and use the same service, predicting the volume of requests at any time becomes difficult.
 
 A service might experience peaks in demand that cause it to overload and be unable to respond to requests in a timely manner. Flooding a service with a large number of concurrent requests can also result in the service failing if it's unable to handle the contention these requests cause.
 
 ## Solution
 
-Refactor the solution and introduce a queue between the task and the service. The task and the service run asynchronously. The task posts a message containing the data required by the service to a queue. The queue acts as a buffer, storing the message until it's retrieved by the service. The service retrieves the messages from the queue and processes them. Requests from a number of tasks, which can be generated at a highly variable rate, can be passed to the service through the same message queue. This figure shows using a queue to level the load on a service.
+Refactor the solution and introduce a queue between the task and the service. The task and the service run asynchronously. The task posts a message containing the data required by the service to a queue. The queue acts as a buffer, storing the message until it's retrieved by the service. The service retrieves messages from the queue and processes them. Requests from multiple tasks, which can be generated at a highly variable rate, can be passed to the service through the same message queue. This figure shows how a queue can level the load on a service.
 
 ![Figure 1 - Using a queue to level the load on a service](./_images/queue-based-load-leveling-pattern.png)
 

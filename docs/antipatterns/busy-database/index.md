@@ -84,7 +84,7 @@ ORDER BY soh.[TotalDue] DESC
 FOR XML PATH ('Order'), ROOT('Orders')
 ```
 
-Clearly, this is complex query. As we'll see later, it turns out to use significant processing resources on the database server.
+Clearly, this is a complex query. As we'll see later, it turns out to use significant processing resources on the database server.
 
 ## How to fix the problem
 

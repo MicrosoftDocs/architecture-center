@@ -109,7 +109,7 @@ The subscription vending automation ends with subscription creation and configur
 
 **Manage subscription governance.** You should update the subscription as the governance requirements of the workload change. For example, you might need to move a subscription to a different management group. You should build automation for some of these routine operations. For more information, see:
 
-- [Moving management groups and subscription](/azure/governance/management-groups/overview#moving-management-groups-and-subscriptions)
+- [Move management groups and subscription](/azure/governance/management-groups/overview#moving-management-groups-and-subscriptions)
 - [Keep policies and policy initiatives up to date](/azure/cloud-adoption-framework/ready/landing-zone/design-area/keep-azure-landing-zone-up-to-date#keep-policies-and-policy-initiatives-up-to-date)
 - [Resource tagging](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-tagging)
 - [Tailor the Azure landing zone architecture to meet requirements](/azure/cloud-adoption-framework/ready/landing-zone/tailoring-alz)

@@ -4,7 +4,7 @@ description: Evaluate big data analytics technology options for Azure. Use key s
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 07/25/2022
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-data
 ---

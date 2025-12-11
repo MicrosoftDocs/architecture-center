@@ -4,7 +4,7 @@ description: Design and implement Windows 365 Azure network connections to integ
 author: PaulCollinge
 ms.author: paulcoll
 ms.date: 06/05/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
 

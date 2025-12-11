@@ -4,7 +4,7 @@ This solution provides a highly available deployment of SharePoint using a load 
 
 ## Potential use cases
 
-This solution address the capability to deliver highly available intranet capability to teams within your business, by using the latest and greatest support platforms.
+This solution addresses the capability to deliver highly available intranet capability to teams within your business, by using the latest and greatest support platforms.
 
 ## Architecture
 

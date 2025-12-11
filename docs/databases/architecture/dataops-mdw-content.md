@@ -144,7 +144,7 @@ For a detailed list of all resources, see the [Deployed Resources](https://githu
 
 ### Continuous integration and continuous delivery (CI/CD)
 
-The diagram below demonstrates the CI/CD process and sequence for the build and release pipelines.
+The following diagram demonstrates the CI/CD process and sequence for the build and release pipelines.
 
 :::image type="content" source="_images/ci-cd-process-diagram-new.svg" lightbox="_images/ci-cd-process-diagram-new.svg" alt-text="Diagram that shows the process and sequence for build and release." border="false":::
 

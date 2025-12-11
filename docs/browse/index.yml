@@ -4,7 +4,8 @@ browseType: architecture
 summary: Find architecture diagrams and technology descriptions for reference architectures, real world examples of cloud architectures, and solution ideas for common workloads on Azure.
 metadata:
   ms.topic: browse-hub
-  ms.date: 11/06/2024
+  ms.date: 11/05/2025
+  ms.update-cycle: 1095-days
   keywords:
     - "azure architecture"
     - "architecture diagrams"

@@ -4,7 +4,7 @@ description: Learn about Azure Cache for Redis features, like access control lis
 author: johndowns
 ms.author: pnp
 ms.date: 06/16/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-saas
 ---

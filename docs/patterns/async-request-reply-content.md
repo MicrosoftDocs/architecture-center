@@ -51,7 +51,7 @@ The following diagram shows a typical flow:
 
 ## Issues and considerations
 
-- There are a number of possible ways to implement this pattern over HTTP and not all upstream services have the same semantics. For example, most services won't return an HTTP 202 response back from a GET method when a remote process hasn't finished. Following pure REST semantics, they should return HTTP 404 (Not Found). This response makes sense when you consider the result of the call isn't present yet.
+- There are multiple ways to implement this pattern over HTTP and not all upstream services have the same semantics. For example, most services won't return an HTTP 202 response back from a GET method when a remote process hasn't finished. Following pure REST semantics, they should return HTTP 404 (Not Found). This response makes sense when you consider the result of the call isn't present yet.
 
 - An HTTP 202 response should indicate the location and frequency that the client should poll for the response. It should have the following additional headers:
 

@@ -16,6 +16,7 @@ azureCategories:
 products:
   - azure-data-factory
   - azure-databricks
+  - fabric
 name: Replicate and sync mainframe data to Azure
 summary: Learn how to replicate data while you modernize mainframe and midrange systems. Sync on-premises data with Azure data during modernization.
 thumbnailUrl: /azure/architecture/browse/thumbs/sync-mainframe-data-with-azure.png

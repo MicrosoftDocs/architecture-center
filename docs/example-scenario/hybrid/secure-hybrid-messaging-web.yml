@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Enhanced-security hybrid messaging — web access
+  title: Enhanced-security hybrid messaging for web access
   description: Enhance your security in a web access scenario by using Microsoft Entra multifactor authentication.
   author: claytonsiemens77
   ms.author: pnp
@@ -19,7 +19,7 @@ products:
   - entra-id
   - "m365"
   - "office-365"
-name: Enhanced-security hybrid messaging infrastructure — web access
+name: Enhanced-security hybrid messaging infrastructure for web access
 summary: Enhance your security in a web access scenario by using Microsoft Entra multifactor authentication.
 thumbnailUrl: /azure/architecture/browse/thumbs/hybrid-messaging-web.png
 content: |

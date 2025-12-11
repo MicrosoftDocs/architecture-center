@@ -279,7 +279,7 @@ Azure Files premium tier is a managed service that supports the NFS 4.1 protocol
  
 You can use `nconnect` to improve performance. This mount option spreads IO requests over multiple channels. For more information, see [NFS performance](/azure/storage/files/nfs-performance#nconnect).
 
-When using an NFS Azure file share in Azure Files, consider the following points:
+When you use an NFS Azure file share in Azure Files, consider the following points:
 - Adjust the provisioned capacity to meet performance requirements. The IOPS and throughput of NFS shares scale with the provisioned capacity. For more information, see [NFS performance](/azure/storage/files/files-nfs-protocol#performance).
 - Use nConnect in your mounts with a setting of `nconnect=4` for optimal-performance parallel channel use.
 - Optimize read-ahead settings to be 15 times the `rsize` and `wsize`. For most workloads, we recommend an `rsize` and `wsize` of 1 MB and a `read-ahead` setting of 15 MB. For more information, see [Increase read-ahead size](/azure/storage/files/nfs-performance#increase-read-ahead-size-to-improve-read-throughput).
@@ -288,11 +288,11 @@ When using an NFS Azure file share in Azure Files, consider the following points
 
 SAS tests have [validated NetApp performance for SAS Grid](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/td-p/579437). Specifically, testing shows that Azure NetApp Files is a viable primary storage option for SAS Grid clusters of up to 32 physical cores across multiple machines. When [NetApp provided-optimizations and Linux features](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/m-p/722261/highlight/true#M21648) are used, Azure NetApp Files can be the primary option for clusters up to 48 physical cores across multiple machines.
 
-Consider the following points when using this service:
+Consider the following points when you use this service:
 
 - Azure NetApp Files works well with Viya deployments. Don't use Azure NetApp Files for the CAS cache in Viya, because the write throughput is inadequate. If possible, use your VM's local ephemeral disk instead.
 - On SAS 9 Foundation with Grid 9.4, the performance of Azure NetApp Files with SAS for `SASDATA` files is good for clusters up to 32 physical cores. This increases to 48 cores when [tuning](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/m-p/722261/highlight/true#M21648) is applied.
-- To ensure good performance, select at least a Premium or Ultra storage tier [service level](/azure/azure-netapp-files/azure-netapp-files-service-levels) when deploying Azure NetApp Files. You can choose the Standard service level for very large volumes. Consider starting with the Premium level and switching to Ultra or Standard later. Service level changes can be done online, without disruption or data migrations.
+- To ensure good performance, select at least a Premium or Ultra storage tier [service level](/azure/azure-netapp-files/azure-netapp-files-service-levels) when deploying Azure NetApp Files. You can choose the Standard service level for high volumes. Consider starting with the Premium level and switching to Ultra or Standard later. Service level changes can be done online, without disruption or data migrations.
 - Read performance and write performance [differ](/azure/azure-netapp-files/azure-netapp-files-performance-considerations) for Azure NetApp Files. Write throughput for SAS hits limits at around 1600 MiB/s, while read throughput goes beyond that, to around 4500 MiB/s. If you need continuous high write throughput, Azure NetApp Files might not be a good fit.
 
 ##### NFS read-ahead tuning
@@ -324,7 +324,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-The output of your SAS workloads can be one of your organization's critical assets. SAS output provides insight into internal efficiencies and can play a critical role in your reporting strategy. It's important, then, to secure access to your SAS architecture. To achieve this goal, use secure authentication and address network vulnerabilities. Use encryption to help protect all data moving in and out of your architecture.
+The output of your SAS workloads can be one of your organization's critical assets. SAS output provides insight into internal efficiencies and can play a critical role in your reporting strategy. It's important to secure access to your SAS architecture. To achieve this goal, use secure authentication and address network vulnerabilities. Use encryption to help protect all data moving in and out of your architecture.
 
 Azure delivers SAS by using an infrastructure as a service (IaaS) cloud model. Microsoft builds security protections into the service at the following levels:
 
@@ -335,7 +335,7 @@ Azure delivers SAS by using an infrastructure as a service (IaaS) cloud model. M
 
 Carefully evaluate the services and technologies that you select for the areas above the hypervisor, such as the guest operating system for SAS. Make sure to provide the proper security controls for your architecture.
 
-SAS currently doesn't fully support [Microsoft Entra ID](/entra/identity/). For authentication into the visualization layer for SAS, you can use Microsoft Entra ID. But for back-end authorization, use a strategy that's similar to on-premises authentication. When managing IaaS resources, you can use Microsoft Entra ID for authentication and authorization to the Azure portal. When using Microsoft Entra Domain Services, you can't authenticate guest accounts. Guest attempts to sign in will fail.
+SAS currently doesn't fully support [Microsoft Entra ID](/entra/identity/). For authentication into the visualization layer for SAS, you can use Microsoft Entra ID. But for back-end authorization, use a strategy that's similar to on-premises authentication. When managing IaaS resources, you can use Microsoft Entra ID for authentication and authorization to the Azure portal. When you use Microsoft Entra Domain Services, you can't authenticate guest accounts. Guest attempts to sign in will fail.
 
 Use [network security groups](/azure/virtual-network/security-overview) to filter network traffic to and from resources in your [virtual network](/azure/virtual-network/virtual-networks-overview). With these groups, you can define rules that grant or deny access to your SAS services. Examples include:
 

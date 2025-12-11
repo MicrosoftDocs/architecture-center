@@ -4,7 +4,7 @@ description: Learn how to incorporate responsible engineering principles and pra
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 04/03/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
 

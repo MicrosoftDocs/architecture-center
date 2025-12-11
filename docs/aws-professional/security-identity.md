@@ -4,7 +4,7 @@ description: Learn about comparable AWS and Azure identity management solutions 
 author: jerrymsft
 ms.author: gerhoads
 ms.date: 10/01/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.collection: 
  - migration

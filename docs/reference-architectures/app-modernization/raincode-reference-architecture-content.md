@@ -42,7 +42,7 @@ This diagram shows how the legacy architecture can be migrated to Azure, taking 
 
 #### Workflow
 
-1. User access provided over TLS port 443 for accessing web-based applications. Web-based Applications presentation layer can be kept virtually unchanged to minimize end user retraining. Alternatively, the web application presentation layer can be updated with modern UX frameworks as requirements necessitate.
+1. User access provided over TLS port 443 for accessing web-based applications. The web-based applications' presentation layer can be kept with minimal changes to reduce user retraining. Alternatively, the web application presentation layer can be updated with modern UX frameworks as requirements necessitate.
 
 2. In Azure, access to the application compute clusters is through Azure Load Balancer, allowing for scale-out compute resources to process the input work.
 

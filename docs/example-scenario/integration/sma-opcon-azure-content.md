@@ -63,7 +63,7 @@ The diagram has two main sections: the on-premises network and Azure. The enviro
 
 OpCon Cloud is an Azure-installed version of OpCon that SMA sets up and manages, including software upgrades and monitoring services. You can purchase more services to help create workflows.
 
-This example architecture runs SMA's OpCon Cloud environment in Azure. It serves as a single automation control point to automate workflows across the enterprise, both on-premises and in Azure. OpCon facilitates workflows among all servers and systems in your enterprise. OpCon Schedule Activity Monitor (SAM) is the core OpCon module. It communicates with agents on target systems to schedule tasks, monitor tasks, and receive external events. These agents can be deployed across many platforms, including Windows, Linux/Unix, Unisys ClearPath Forward mainframes (MCP and 2200), IBM z/OS, and IBM AIX, which brings all systems under a unified automation framework.
+This example architecture runs the SMA OpCon Cloud environment in Azure. It serves as a single automation control point to automate workflows across the enterprise, both on-premises and in Azure. OpCon facilitates workflows among all servers and systems in your enterprise. OpCon Schedule Activity Monitor (SAM) is the core OpCon module. It communicates with agents on target systems to schedule tasks, monitor tasks, and receive external events. These agents can be deployed across many platforms, including Windows, Linux/Unix, Unisys ClearPath Forward mainframes (MCP and 2200), IBM z/OS, and IBM AIX, which brings all systems under a unified automation framework.
 
 OpCon Relay connects on-premises systems with the OpCon Cloud environment through a single point of contact. This feature removes the need for Azure VPN connections.
 
@@ -77,7 +77,7 @@ If you want more control, you can install and manage OpCon yourself within the A
 
 You can get the OpCon software from Docker Hub as Docker images. Deploy the OpCon environment within your Kubernetes cluster by using AKS and a SQL Database server.
 
-The following example architecture runs SMA's OpCon in Azure by using a Kubernetes configuration. It uses a site-to-site VPN gateway to securely connect the cloud infrastructure and the on-premises infrastructure. This implementation uses a single virtual network and multiple subnets to support various functions. NSGs filter network traffic between Azure resources in the virtual network.
+The following example architecture runs SMA OpCon in Azure by using a Kubernetes configuration. It uses a site-to-site VPN gateway to securely connect the cloud infrastructure and the on-premises infrastructure. This implementation uses a single virtual network and multiple subnets to support various functions. NSGs filter network traffic between Azure resources in the virtual network.
 
 :::image type="complex" source="./media/opcon-datacenter-architecture.svg" alt-text="Diagram that shows the OpCon datacenter architecture." lightbox="./media/opcon-datacenter-architecture.svg" border="false":::
 The diagram has two main sections: the on-premises network and Azure. The environments are connected via a site-to-site VPN tunnel over the internet. The on-premises network includes a subnet that contains a local network gateway, VPN connection, and virtual network gateway. This subnet points to Unisys ClearPath Forward, IBM zOS or AS400, and Windows and Linux servers via a green line that represents logical connections to OpCon agents. The subnet points to an OpCon MFT server via a red line that represents logical REST API connections to applications. Users also reside in the on-premises network. The Azure virtual network contains the OpCon subnet, private endpoint subnet, gateway subnet, and applications subnet. The OpCon subnet contains OpCon, which points to the opconconfig and opconlog components in the same subnet. It also points to SQL Database (via a black line) and Storage (via a blue line) in the private endpoint subnet. The applications subnet contains Unisys ClearPath Forward, Windows, Linux, an OpCon MFT server, and an application server. OpCon points to Unisys ClearPath Forward, Windows, and Linux via a green line. OpCon points to an OpCon MFT server and application server via a red line. An OpCon MFT server points to Storage via a blue line that represents Logical Connector connections to applications. All subnets except the private endpoint subnet are connected via NSGs.
@@ -116,7 +116,7 @@ The diagram has two main sections: the on-premises network and Azure. The enviro
      - OpCon administration 
      - OpCon MFT administration
      - OpCon workflow development, implementation, and monitoring  
-     - OfCon Self Service
+     - OpCon Self Service
      - OpCon Vision (task dashboard)
      - OpCon MFT central application (dashboard and query application)
 
@@ -126,7 +126,7 @@ The diagram has two main sections: the on-premises network and Azure. The enviro
 
 ## Scenario details
 
-The OpCon datacenter is the on-premises version of OpCon. You install and manage all software. This example architecture runs SMA's OpCon in Azure by using a Kubernetes configuration. It serves as a single automation control point to automate workflows across the enterprise, both on-premises and in Azure. OpCon facilitates workflows among all servers and systems in an enterprise. OpCon SAM is the core OpCon module. It communicates with agents on target systems to schedule tasks, monitor tasks, and receive external events. You can deploy these agents across many platforms, including Windows, Linux/Unix, Unisys ClearPath Forward mainframes (MCP and 2200), IBM z/OS, and IBM AIX, which brings all systems under a unified automation framework.
+The OpCon datacenter is the on-premises version of OpCon. You install and manage all software. This example architecture runs SMA OpCon in Azure by using a Kubernetes configuration. It serves as a single automation control point to automate workflows across the enterprise, both on-premises and in Azure. OpCon facilitates workflows among all servers and systems in an enterprise. OpCon SAM is the core OpCon module. It communicates with agents on target systems to schedule tasks, monitor tasks, and receive external events. You can deploy these agents across many platforms, including Windows, Linux/Unix, Unisys ClearPath Forward mainframes (MCP and 2200), IBM z/OS, and IBM AIX, which brings all systems under a unified automation framework.
 
 ### Choose between OpCon Cloud and the OpCon datacenter
 
@@ -266,7 +266,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-OpCon Cloud reduces infrastructure and maintenance costs, while providing you with the security and reliability of an always-on solution. It also provides fast recovery from unplanned system interruptions or disasters. OpCon has its own built-in resiliency capability. Or you can use Azure Site Recovery to maintain copies of the OpCon environment for use in disaster recovery situations. 
+OpCon Cloud reduces infrastructure and maintenance costs, while providing you with the security and reliability of an always-on solution. It also provides fast recovery from unplanned system interruptions or disasters. OpCon has its own built-in recovery capability. Or you can use Azure Site Recovery to maintain copies of the OpCon environment for use in disaster recovery situations. 
 
 For the Azure Files CSI driver in AKS, we recommend that you use the Premium_LRS tier. This tier provides locally redundant storage to ensure that your data is replicated within a single physical location. It also provides high performance and low latency, so it suits workloads that require fast and reliable storage.
 

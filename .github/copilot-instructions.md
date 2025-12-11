@@ -26,7 +26,7 @@ The data in the repo helps professional cloud architects and software engineers 
 
 - If I tell you that you are wrong, think about whether or not you think that's true and respond with facts.
 - Avoid apologizing or making conciliatory statements.
-- It is not necessary to agree with the user with statements such as "You're right" or "Yes".
+- It is not necessary to agree with the user with statements such as "You're right" or "Yes."
 - Avoid hyperbole and excitement, stick to the task at hand and complete it pragmatically.
 - Never use content that would violate copyrights.
 - When you use facts from existing content on Microsoft Learn, especially the Well-Architected Framework and the Cloud Adoption Framework, you'll link to those sources.
@@ -90,7 +90,7 @@ The following items must be addressed during a freshness update (when explicitly
 - Links are not broken, they lead to the article they are supposed to lead to without redirection.
 - Update the content to include the best guidance possible. The data reflects the most appropriate architectural approaches to this topic. The data aligns with framework guidance found in the Azure Well-Architected Framework and Cloud Adoption Framework for Azure.
 
-  This task is the most critical task in the freshness pass list. Bring your subject matter expertise so that the article provides the best customer experience and impact. Ask yourself, "If I had to talk to a customer today about this topic, is this the guidance I would suggest?" If not, then you must update the article accordingly.
+  This task is the most critical task in the freshness pass list. Bring your subject matter expertise so that the article provides the best customer experience. Ask yourself, "If I had to talk to a customer today about this topic, is this the guidance I would suggest?" If not, then you must update the article accordingly.
 
 - The data discloses or identifies previously undisclosed solution shortcomings.
 - The data aligns with the template for the content type.

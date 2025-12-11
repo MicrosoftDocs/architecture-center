@@ -4,7 +4,7 @@ description: Learn about steps to take to troubleshoot network problems in Azure
 author: francisnazareth
 ms.author: fnazaret
 ms.date: 04/15/2022
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
   - e2e-aks
@@ -198,7 +198,7 @@ KUBE_TOKEN=$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)
 curl -sSk -H "Authorization: Bearer $KUBE_TOKEN" https://$KUBERNETES_SERVICE_HOST:$KUBERNETES_SERVICE_PORT/api/v1/namespaces/default/pods
 ```
 
-Healthy output will look similar to the following.
+Healthy output will look similar to the following example:
 
 ```output
 { 

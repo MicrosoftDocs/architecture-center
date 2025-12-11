@@ -5,10 +5,9 @@ metadata:
   author: jelledruyts
   ms.author: jelled
   ms.date: 01/09/2025
-  ms.topic: conceptual
+  ms.topic: concept-article
   ms.collection: ce-skilling-ai-copilot
   ms.subservice: example-scenario
-  ms.custom: arb-aiml
   ai-usage: ai-assisted
 azureCategories:
   - databases

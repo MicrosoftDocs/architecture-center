@@ -4,7 +4,7 @@ description: Learn about architectural approaches for Azure IoT Hub-based multit
 author: MikeBazMSFT
 ms.author: micbaz
 ms.date: 12/13/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
   - arb-saas
@@ -32,7 +32,7 @@ It's important to plan your solution's scale. Scale is often considered across t
 * **Quantity of devices**: All Azure device management services - [Azure IoT Central](/azure/iot-central/core/concepts-quotas-limits), [Azure IoT Hub Device Provisioning Service (DPS)](/azure/iot-dps/about-iot-dps#quotas-and-limits), and [Azure IoT Hub](/azure/iot-hub/iot-hub-devguide-quotas-throttling) - have limitations on the number of devices supported in a single instance.
 
    > [!TIP]
-   > Refer to the [high scale documentation](/azure/architecture/guide/iot/scale-iot-solution-azure), if you plan to deploy a very large number of devices.
+   > Refer to the [high scale documentation](/azure/architecture/guide/iot/scale-iot-solution-azure) if you plan to deploy a large number of devices.
 
 * **Device throughput**: Different devices, even in the same solution, might have different throughput requirements. "Throughput" in this context refers to both the number of messages over a period of time and the size of the messages. For example, in a:
 

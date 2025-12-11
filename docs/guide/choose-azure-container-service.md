@@ -4,7 +4,7 @@ description: Understand how to evaluate which Azure container service is best su
 author: cmaclaughlin
 ms.author: cmaclaughlin
 ms.date: 06/20/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-containers
 ---

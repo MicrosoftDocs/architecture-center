@@ -22,7 +22,7 @@ In both cases, caching can be performed client-side and server-side. Client-side
 
 The most basic type of cache is an in-memory store. It's held in the address space of a single process and accessed directly by the code that runs in that process. This type of cache is quick to access. It can also provide an effective means for storing modest amounts of static data. The size of a cache is typically constrained by the amount of memory available on the machine that hosts the process.
 
-If you need to cache more information than is physically possible in memory, you can write cached data to the local file system. This process will be slower to access than data that's held in memory, but it should still be faster and more reliable than retrieving data across a network.
+If you need to cache more information than is physically possible in memory, you can write cached data to the local file system. This process is slower to access than data that's held in memory, but it should still be faster and more reliable than retrieving data across a network.
 
 If you have multiple instances of an application that uses this model running concurrently, each application instance has its own independent cache holding its own copy of the data.
 
@@ -92,7 +92,7 @@ In most cases, data that's held in a cache is a copy of data that's held in the 
 When cached data expires, it's removed from the cache, and the application must retrieve the data from the original data store (it can put the newly fetched information back into cache). You can set a default expiration policy when you configure the cache. In many cache services, you can also stipulate the expiration period for individual objects when you store them programmatically in the cache. Some caches enable you to specify the expiration period as an absolute value, or as a sliding value that causes the item to be removed from the cache if it isn't accessed within the specified time. This setting overrides any cache-wide expiration policy, but only for the specified objects.
 
 > [!NOTE]
-> Consider the expiration period for the cache and the objects that it contains carefully. If you make it too short, objects will expire too quickly and you will reduce the benefits of using the cache. If you make the period too long, you risk the data becoming stale.
+> Consider the expiration period for the cache and the objects that it contains carefully. If you make it too short, objects expire too quickly and you reduce the benefits of using the cache. If you make the period too long, you risk the data becoming stale.
 
 It's also possible that the cache might fill up if data is allowed to remain resident for a long time. In this case, any requests to add new items to the cache might cause some items to be forcibly removed in a process known as eviction. Cache services typically evict data on a least-recently-used (LRU) basis, but you can usually override this policy and prevent items from being evicted. However, if you adopt this approach, you risk exceeding the memory that's available in the cache. An application that attempts to add an item to the cache will fail with an exception.
 
@@ -116,7 +116,7 @@ Caches are often designed to be shared by multiple instances of an application. 
 
 Depending on the nature of the data and the likelihood of collisions, you can adopt one of two approaches to concurrency:
 
-- **Optimistic**. Immediately prior to updating the data, the application checks to see whether the data in the cache has changed since it was retrieved. If the data is still the same, the change can be made. Otherwise, the application has to decide whether to update it. (The business logic that drives this decision will be application-specific.) This approach is suitable for situations where updates are infrequent, or where collisions are unlikely to occur.
+- **Optimistic**. Immediately prior to updating the data, the application checks to see whether the data in the cache has changed since it was retrieved. If the data is still the same, the change can be made. Otherwise, the application has to decide whether to update it. (The business logic that drives this decision is application-specific.) This approach is suitable for situations where updates are infrequent, or where collisions are unlikely to occur.
 - **Pessimistic**. When it retrieves the data, the application locks it in the cache to prevent another instance from changing it. This process ensures that collisions can't occur, but they can also block other instances that need to process the same data. Pessimistic concurrency can affect the scalability of a solution and is recommended only for short-lived operations. This approach might be appropriate for situations where collisions are more likely, especially if an application updates multiple items in the cache and must ensure that these changes are applied consistently.
 
 ### Implement high availability and scalability, and improve performance
@@ -164,14 +164,14 @@ Irrespective of the cache service you use, consider how to protect the data that
 - The privacy of the data in the cache.
 - The privacy of data as it flows between the cache and the application that's using the cache.
 
-To protect data in the cache, the cache service might implement an authentication mechanism that requires that applications specify the following:
+To protect data in the cache, the cache service might implement an authentication mechanism that requires that applications specify the following details:
 
 - Which identities can access data in the cache.
 - Which operations (read and write) that these identities are allowed to perform.
 
 To reduce overhead that's associated with reading and writing data, after an identity has been granted write or read access to the cache, that identity can use any data in the cache.
 
-If you need to restrict access to subsets of the cached data, you can do one of the following:
+If you need to restrict access to subsets of the cached data, you can do one of the following approaches:
 
 - Split the cache into partitions (by using different cache servers) and only grant access to identities for the partitions that they should be allowed to use.
 - Encrypt the data in each subset by using different keys, and provide the encryption keys only to identities that should have access to each subset. A client application might still be able to retrieve all of the data in the cache, but it will only be able to decrypt the data for which it has the keys.
@@ -197,7 +197,7 @@ Redis supports both read and write operations. In Redis, writes can be protected
 All writes are asynchronous and don't block clients from reading and writing data. When Redis starts running, it reads the data from the snapshot or log file and uses it to construct the in-memory cache. For more information, see [Redis persistence](https://redis.io/topics/persistence) on the Redis website.
 
 > [!NOTE]
-> Redis doesn't guarantee that all writes will be saved if there's a catastrophic failure, but at worst you might lose only a few seconds worth of data. Remember that a cache isn't intended to act as an authoritative data source, and it's the responsibility of the applications using the cache to ensure that critical data is saved successfully to an appropriate data store. For more information, see the [Cache-aside pattern](../patterns/cache-aside.yml).
+> Redis doesn't guarantee that all writes are saved if there's a catastrophic failure, but at worst you might lose only a few seconds worth of data. Remember that a cache isn't intended to act as an authoritative data source, and it's the responsibility of the applications using the cache to ensure that critical data is saved successfully to an appropriate data store. For more information, see the [Cache-aside pattern](../patterns/cache-aside.yml).
 
 #### Redis data types
 
@@ -217,11 +217,11 @@ Furthermore, each server in the cluster can be replicated by using primary/subor
 
 A Redis cache has a finite size that depends on the resources available on the host computer. When you configure a Redis server, you can specify the maximum amount of memory it can use. You can also configure a key in a Redis cache to have an expiration time, after which it's automatically removed from the cache. This feature can help prevent the in-memory cache from filling with old or stale data.
 
-As memory fills up, Redis can automatically evict keys and their values by following a number of policies. The default is LRU (least recently used), but you can also select other policies such as evicting keys at random or turning off eviction altogether (in which, case attempts to add items to the cache fail if it's full). The page [Using Redis as an LRU cache](https://redis.io/topics/lru-cache) provides more information.
+As memory fills up, Redis can automatically evict keys and their values based on different policies. The default is least recently used (LRU), but you can also choose other options, like evicting keys at random or disabling eviction entirely. In that case, attempts to add items to the cache fail if it's full. For more information, see [Use Redis as an LRU cache](https://redis.io/topics/lru-cache).
 
 ### Redis transactions and batches
 
-Redis enables a client application to submit a series of operations that read and write data in the cache as an atomic transaction. All the commands in the transaction are guaranteed to run sequentially, and no commands issued by other concurrent clients will be interwoven between them.
+Redis enables a client application to submit a series of operations that read and write data in the cache as an atomic transaction. All the commands in the transaction are guaranteed to run sequentially, and no commands issued by other concurrent clients are interwoven between them.
 
 However, these aren't true transactions as a relational database would perform them. Transaction processing consists of two stages--the first is when the commands are queued, and the second is when the commands are run. During the command queuing stage, the commands that comprise the transaction are submitted by the client. If some sort of error occurs at this point (such as a syntax error, or the wrong number of parameters) then Redis refuses to process the entire transaction and discards it.
 
@@ -229,7 +229,7 @@ During the run phase, Redis performs each queued command in sequence. If a comma
 
 Redis does implement a form of optimistic locking to assist in maintaining consistency. For detailed information about transactions and locking with Redis, visit the [Transactions page](https://redis.io/topics/transactions) on the Redis website.
 
-Redis also supports nontransactional batching of requests. The Redis protocol that clients use to send commands to a Redis server enables a client to send a series of operations as part of the same request. This can help to reduce packet fragmentation on the network. When the batch is processed, each command is performed. If any of these commands are malformed, they'll be rejected (which doesn't happen with a transaction), but the remaining commands will be performed. There's also no guarantee about the order in which the commands in the batch will be processed.
+Redis also supports nontransactional batching of requests. The Redis protocol that clients use to send commands to a Redis server enables a client to send a series of operations as part of the same request. This can help reduce packet fragmentation on the network. When the batch processes, each command runs. If any of these commands are malformed, they're rejected (which doesn't happen with a transaction), but the remaining commands are run. There's also no guarantee about the order in which the commands in the batch process.
 
 ### Redis security
 
@@ -250,7 +250,7 @@ For more information, visit the [Redis security](https://redis.io/topics/securit
 
 Azure Cache for Redis provides access to Redis servers that are hosted at an Azure datacenter. It acts as a façade that provides access control and security. You can provision a cache by using the Azure portal.
 
-The portal provides a number of predefined configurations. These range from a 53 GB cache running as a dedicated service that supports SSL communications (for privacy) and master/subordinate replication with a service-level agreement (SLA) of 99.9% availability, down to a 250 MB cache without replication (no availability guarantees) running on shared hardware.
+The portal provides several predefined configurations. These configurations range from a 53 GB cache running as a dedicated service that supports SSL communications (for privacy) and master/subordinate replication with a service-level agreement (SLA) of 99.9% availability, down to a 250 MB cache without replication (no availability guarantees) running on shared hardware.
 
 Using the Azure portal, you can also configure the eviction policy of the cache, and control access to the cache by adding users to the roles provided. These roles, which define the operations that members can perform, include Owner, Contributor, and Reader. For example, members of the Owner role have complete control over the cache (including security) and its contents, members of the Contributor role can read and write information in the cache, and members of the Reader role can only retrieve data from the cache.
 
@@ -302,7 +302,7 @@ Partitioning the cache involves splitting the cache across multiple computers. T
 - Spreading the load across servers, thereby improving performance and scalability.
 - Geolocating data close to the users that access it, thus reducing latency.
 
-For a cache, the most common form of partitioning is sharding. In this strategy, each partition (or shard) is a Redis cache in its own right. Data is directed to a specific partition by using sharding logic, which can use a variety of approaches to distribute the data. The [Sharding pattern](../patterns/sharding.yml) provides more information about implementing sharding.
+For a cache, the most common form of partitioning is sharding. In this strategy, each partition (or shard) is a Redis cache in its own right. Data is directed to a specific partition by using sharding logic, which can use various approaches to distribute the data. The [Sharding pattern](../patterns/sharding.yml) provides more information about implementing sharding.
 
 To implement partitioning in a Redis cache, you can take one of the following approaches:
 
@@ -462,9 +462,9 @@ The page [Pipelines and multiplexers](https://stackexchange.github.io/StackExcha
 
 The simplest use of Redis for caching concerns is key-value pairs where the value is an uninterpreted string of arbitrary length that can contain any binary data. (It's essentially an array of bytes that can be treated as a string). This scenario was illustrated in the section Implement Redis Cache client applications earlier in this article.
 
-Note that keys also contain uninterpreted data, so you can use any binary information as the key. The longer the key is, however, the more space it will take to store, and the longer it will take to perform lookup operations. For usability and ease of maintenance, design your keyspace carefully and use meaningful (but not verbose) keys.
+Keys also contain uninterpreted data, so you can use any binary information as the key. The longer the key is, however, the more space it will take to store, and the longer it will take to perform lookup operations. For usability and ease of maintenance, design your keyspace carefully and use meaningful (but not verbose) keys.
 
-For example, use structured keys such as "customer:100" to represent the key for the customer with ID 100 rather than simply "100". This scheme enables you to easily distinguish between values that store different data types. For example, you could also use the key "orders:100" to represent the key for the order with ID 100.
+For example, use structured keys such as "customer:100" to represent the key for the customer with ID 100 rather than simply "100." This scheme enables you to easily distinguish between values that store different data types. For example, you could also use the key "orders:100" to represent the key for the order with ID 100.
 
 Apart from one-dimensional binary strings, a value in a Redis key-value pair can also hold more structured information, including lists, sets (sorted and unsorted), and hashes. Redis provides a comprehensive command set that can manipulate these types, and many of these commands are available to .NET Framework applications through a client library such as StackExchange. The page [An introduction to Redis data types and abstractions](https://redis.io/topics/data-types-intro) on the Redis website provides a more detailed overview of these types and the commands that you can use to manipulate them.
 
@@ -472,7 +472,7 @@ This section summarizes some common use cases for these data types and commands.
 
 ### Perform atomic and batch operations
 
-Redis supports a series of atomic get-and-set operations on string values. These operations remove the possible race hazards that might occur when using separate `GET` and `SET` commands. The operations that are available include:
+Redis supports a series of atomic get-and-set operations on string values. These operations remove the possible race hazards that might occur when you use separate `GET` and `SET` commands. The operations that are available include:
 
 - `INCR`, `INCRBY`, `DECR`, and `DECRBY`, which perform atomic increment and decrement operations on integer numeric data values. The StackExchange library provides overloaded versions of the `IDatabase.StringIncrementAsync` and `IDatabase.StringDecrementAsync` methods to perform these operations and return the resulting value that is stored in the cache. The following code snippet illustrates how to use these methods:
 
@@ -491,7 +491,7 @@ Redis supports a series of atomic get-and-set operations on string values. These
   // newValue should be 50
   ```
 
-- `GETSET`, which retrieves the value that's associated with a key and changes it to a new value. The StackExchange library makes this operation available through the `IDatabase.StringGetSetAsync` method. The code snippet below shows an example of this method. This code returns the current value that's associated with the key "data:counter" from the previous example. Then it resets the value for this key back to zero, all as part of the same operation:
+- `GETSET`, which retrieves the value that's associated with a key and changes it to a new value. The StackExchange library makes this operation available through the `IDatabase.StringGetSetAsync` method. The following code snippet shows an example of this method. This code returns the current value that's associated with the key "data:counter" from the previous example. Then it resets the value for this key back to zero, all as part of the same operation:
 
   ```csharp
   ConnectionMultiplexer redisHostConnection = ...;
@@ -548,7 +548,7 @@ Console.WriteLine("Result of decrement: {0}", tx2.Result);
 
 Remember that Redis transactions are unlike transactions in relational databases. The `Execute` method simply queues all the commands that comprise the transaction to be run, and if any of them is malformed then the transaction is stopped. If all the commands have been queued successfully, each command runs asynchronously.
 
-If any command fails, the others still continue processing. If you need to verify that a command has completed successfully, you must fetch the results of the command by using the **Result** property of the corresponding task, as shown in the example above. Reading the **Result** property will block the calling thread until the task has completed.
+If any command fails, the others still continue processing. If you need to verify that a command has completed successfully, you must fetch the results of the command by using the **Result** property of the corresponding task, as shown in the previous example. Reading the **Result** property will block the calling thread until the task has completed.
 
 For more information, see [Transactions in Redis](https://stackexchange.github.io/StackExchange.Redis/Transactions).
 
@@ -573,7 +573,7 @@ It's important to understand that unlike a transaction, if a command in a batch 
 
 ### Perform fire and forget cache operations
 
-Redis supports fire and forget operations by using command flags. In this situation, the client simply initiates an operation but has no interest in the result and doesn't wait for the command to be completed. The example below shows how to perform the INCR command as a fire and forget operation:
+Redis supports fire and forget operations by using command flags. In this situation, the client simply initiates an operation but has no interest in the result and doesn't wait for the command to be completed. The following example shows how to perform the INCR command as a fire and forget operation:
 
 ```csharp
 ConnectionMultiplexer redisHostConnection = ...;
@@ -586,7 +586,7 @@ cache.StringIncrement("data:key1", flags: CommandFlags.FireAndForget);
 
 ### Specify automatically expiring keys
 
-When you store an item in a Redis cache, you can specify a timeout after which the item will be automatically removed from the cache. You can also query how much more time a key has before it expires by using the `TTL` command. This command is available to StackExchange applications by using the `IDatabase.KeyTimeToLive` method.
+When you store an item in a Redis cache, you can specify a timeout after which the item is automatically removed from the cache. You can also query how much more time a key has before it expires by using the `TTL` command. This command is available to StackExchange applications by using the `IDatabase.KeyTimeToLive` method.
 
 The following code snippet shows how to set an expiration time of 20 seconds on a key, and query the remaining lifetime of the key:
 
@@ -626,7 +626,7 @@ You can also combine existing sets to create new sets by using the SDIFF (set di
 
 The following code snippets show how sets can be useful for quickly storing and retrieving collections of related items. This code uses the `BlogPost` type that was described in the section Implement Redis Cache Client Applications earlier in this article.
 
-A `BlogPost` object contains four fields&mdash;an ID, a title, a ranking score, and a collection of tags. The first code snippet below shows the sample data that's used for populating a C# list of `BlogPost` objects:
+A `BlogPost` object contains four fields&mdash;an ID, a title, a ranking score, and a collection of tags. The first code snippet shows the sample data that's used for populating a C# list of `BlogPost` objects:
 
 ```csharp
 List<string[]> tags = new List<string[]>
@@ -721,7 +721,7 @@ A common task required of many applications is to find the most recently accesse
 
 You can implement this functionality by using a Redis list. A Redis list contains multiple items that share the same key. The list acts as a double-ended queue. You can push items to either end of the list by using the LPUSH (left push) and RPUSH (right push) commands. You can retrieve items from either end of the list by using the LPOP and RPOP commands. You can also return a set of elements by using the LRANGE and RRANGE commands.
 
-The code snippets below show how you can perform these operations by using the StackExchange library. This code uses the `BlogPost` type from the previous examples. As a blog post is read by a user, the `IDatabase.ListLeftPushAsync` method pushes the title of the blog post onto a list that's associated with the key "blog:recent_posts" in the Redis cache.
+The following code snippets show how you can perform these operations by using the StackExchange library. This code uses the `BlogPost` type from the previous examples. As a blog post is read by a user, the `IDatabase.ListLeftPushAsync` method pushes the title of the blog post onto a list that's associated with the key "blog:recent_posts" in the Redis cache.
 
 ```csharp
 ConnectionMultiplexer redisHostConnection = ...;
@@ -733,7 +733,7 @@ await cache.ListLeftPushAsync(
     redisKey, blogPost.Title); // Push the blog post onto the list
 ```
 
-As more blog posts are read, their titles are pushed onto the same list. The list is ordered by the sequence in which the titles have been added. The most recently read blog posts are toward the left end of the list. (If the same blog post is read more than once, it will have multiple entries in the list.)
+As more blog posts are read, their titles are pushed onto the same list. The list is ordered by the sequence in which the titles are added. The most recently read blog posts are toward the left end of the list. (If the same blog post is read more than once, it has multiple entries in the list.)
 
 You can display the titles of the most recently read posts by using the `IDatabase.ListRange` method. This method takes the key that contains the list, a starting point, and an ending point. The following code retrieves the titles of the 10 blog posts (items from 0 to 9) at the left-most end of the list:
 
@@ -745,9 +745,9 @@ foreach (string postTitle in await cache.ListRangeAsync(redisKey, 0, 9))
 }
 ```
 
-Note that the `ListRangeAsync` method doesn't remove items from the list. To do this, you can use the `IDatabase.ListLeftPopAsync` and `IDatabase.ListRightPopAsync` methods.
+The `ListRangeAsync` method doesn't remove items from the list. To do this, you can use the `IDatabase.ListLeftPopAsync` and `IDatabase.ListRightPopAsync` methods.
 
-To prevent the list from growing indefinitely, you can periodically cull items by trimming the list. The code snippet below shows you how to remove all but the five left-most items from the list:
+To prevent the list from growing indefinitely, you can periodically cull items by trimming the list. The following code snippet shows you how to remove all but the five left-most items from the list:
 
 ```csharp
 await cache.ListTrimAsync(redisKey, 0, 5);
@@ -803,9 +803,9 @@ foreach (var post in await cache.SortedSetRangeByScoreWithScoresAsync(
 
 ### Message by using channels
 
-Apart from acting as a data cache, a Redis server provides messaging through a high-performance publisher/subscriber mechanism. Client applications can subscribe to a channel, and other applications or services can publish messages to the channel. Subscribing applications will then receive these messages and can process them.
+Apart from acting as a data cache, a Redis server provides messaging through a high-performance publisher/subscriber mechanism. Client applications can subscribe to a channel, and other applications or services can publish messages to the channel. Subscribing applications can then receive these messages and process them.
 
-Redis provides the SUBSCRIBE command for client applications to use to subscribe to channels. This command expects the name of one or more channels on which the application will accept messages. The StackExchange library includes the `ISubscription` interface, which enables a .NET Framework application to subscribe and publish to channels.
+Redis provides the SUBSCRIBE command for client applications to use to subscribe to channels. This command expects the name of one or more channels on which the application accepts messages. The StackExchange library includes the `ISubscription` interface, which enables a .NET Framework application to subscribe and publish to channels.
 
 You create an `ISubscription` object by using the `GetSubscriber` method of the connection to the Redis server. Then you listen for messages on a channel by using the `SubscribeAsync` method of this object. The following code example shows how to subscribe to a channel named "messages:blogPosts":
 

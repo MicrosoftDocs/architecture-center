@@ -330,22 +330,6 @@ The source code for this scenario is available on [GitHub](https://github.com/Az
 
 *Download a [Visio file](https://arch-center.azureedge.net/aks-agic-multitenant.vsdx) of this architecture.*
 
-### Prerequisites
-
-For online deployments, you must have an existing Azure account. If you don't have one, create a [free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
-
-### Deploy to Azure
-
-1. Make sure you have your Azure subscription information handy.
-
-1. Clone the [workbench GitHub repository](https://github.com/Azure-Samples/aks-agic):
-
-   ```git
-   git clone https://github.com/Azure-Samples/aks-agic.git
-   ```
-
-1. Follow the instructions provided in the [README.md file](https://github.com/Azure-Samples/aks-agic/blob/main/README.md).
-
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*

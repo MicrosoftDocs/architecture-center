@@ -34,7 +34,7 @@ The following diagram shows the patient record creation request flow:
    - [OFStudio][Lift and shift] provides an IDE for programming, debugging, and maintaining applications.
 
 1. Azure ExpressRoute creates private connections between the on-premises infrastructure and Azure. Transport Layer Security (TLS) connections that use port 443 provide access to web-based applications:
-   - After migration, the web application presentation layer remains virtually unchanged. As a result, end users require minimal retraining. Alternatively, the web application presentation layer can be updated to align with UX goals.
+   - After migration, the web application presentation layer remains mostly unchanged. As a result, users require minimal retraining. Alternatively, the presentation layer can be updated to align with UX goals.
    - [Azure Bastion hosts][What is Azure Bastion] work to maximize security. While giving administrators access to VMs, these hosts minimize the number of open ports.
    - OpenFrame provides middleware integration. For instance, this functionality works with web services and [message queues (MQs)][Message queues].
 

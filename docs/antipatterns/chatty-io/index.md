@@ -57,7 +57,7 @@ public async Task<IHttpActionResult> GetProductsInSubCategoryAsync(int subcatego
 }
 ```
 
-This example shows the problem explicitly, but sometimes an O/RM can mask the problem, if it implicitly fetches child records one at a time. This is known as the "N+1 problem".
+This example shows the problem explicitly, but sometimes an O/RM can mask the problem, if it implicitly fetches child records one at a time. This is known as the *N+1 problem*.
 
 ### Implementing a single logical operation as a series of HTTP requests
 
@@ -246,7 +246,7 @@ The following sections apply these steps to the example shown earlier that queri
 
 ### Load test the application
 
-This graph shows the results of load testing. Median response time is measured in tens of seconds per request. The graph shows very high latency. With a load of 1000 users, a user might have to wait for nearly a minute to see the results of a query.
+This graph shows the results of load testing. Median response time is measured in tens of seconds per request. The graph shows high latency. With a load of 1,000 users, a user might have to wait for nearly a minute to see the results of a query.
 
 ![Key indicators load-test results for the chatty I/O sample application][key-indicators-chatty-io]
 
@@ -286,7 +286,7 @@ Rewriting the call to Entity Framework produced the following results.
 
 ![Key indicators load test results for the chunky API in the chatty I/O sample application][key-indicators-chunky-io]
 
-This load test was performed on the same deployment, using the same load profile. This time the graph shows much lower latency. The average request time at 1000 users is between 5 and 6 seconds, down from nearly a minute.
+This load test was performed on the same deployment, using the same load profile. This time the graph shows much lower latency. The average request time at 1,000 users is between 5 and 6 seconds, down from nearly a minute.
 
 This time the system supported an average of 3,970 requests per minute, compared to 410 for the earlier test.
 

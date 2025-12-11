@@ -4,7 +4,7 @@ description: Learn about the basics of the Microsoft Azure platform, accounts, a
 author: splitfinity81
 ms.author: yubaijna
 ms.date: 02/07/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.collection: 
  - migration

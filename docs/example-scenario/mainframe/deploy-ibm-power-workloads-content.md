@@ -96,7 +96,7 @@ If your capacity pool size requirements are consistent but performance requireme
 
 #### Automatically tier cold data
 
-Azure NetApp Files has a Standard storage service level with [cool access](https://learn.microsoft.com/azure/azure-netapp-files/cool-access-introduction). You can use this feature to tier cold data and reduce object storage cost. Cool access automatically moves cold blocks to Azure Blob storage and automatically returns them to the active file system when a client requests them.
+Azure NetApp Files has a Standard storage service level with [cool access](/azure/azure-netapp-files/cool-access-introduction). You can use this feature to tier cold data and reduce object storage cost. Cool access automatically moves cold blocks to Azure Blob storage and automatically returns them to the active file system when a client requests them.
 
 You can also provision and deprovision various types of capacity pools throughout the month to provide just-in-time performance and reduce costs during periods when you don't need high performance.
 
@@ -121,7 +121,7 @@ Service levels include:
 - Premium: 64MiB/s per 1 TiB
 - Ultra: 128MiB/s per 1 TiB
 
-If you need more performance than the capacity permits, consider setting the [manual Quality of Service (QoS)](https://learn.microsoft.com/azure/azure-netapp-files/manage-manual-qos-capacity-pool) type on the capacity pool to maximize the allowed throughput on the volume.
+If you need more performance than the capacity permits, consider setting the [manual Quality of Service (QoS)](/azure/azure-netapp-files/manage-manual-qos-capacity-pool) type on the capacity pool to maximize the allowed throughput on the volume.
 
 Use Azure NetApp Files to control costs based on required performance for your application workload.
 
@@ -133,11 +133,11 @@ For requirements related to your throughput and capacity, see:
 
 #### Skytap at scale
 
-To scale compute performance, you can add capacity to LPARs that run in Skytap on Azure. You can also dynamically scale storage for Azure NetApp Files volumes. [Automatic QoS](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-performance-considerations) automatically scales performance. For more granular control of each volume, use [manual QoS](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-performance-considerations#manual-qos-volume-quota-and-throughput) to control the performance of each volume separately for your capacity pools.
+To scale compute performance, you can add capacity to LPARs that run in Skytap on Azure. You can also dynamically scale storage for Azure NetApp Files volumes. [Automatic QoS](/azure/azure-netapp-files/azure-netapp-files-performance-considerations) automatically scales performance. For more granular control of each volume, use [manual QoS](/azure/azure-netapp-files/azure-netapp-files-performance-considerations#manual-qos-volume-quota-and-throughput) to control the performance of each volume separately for your capacity pools.
 
-Azure NetApp Files volumes are available in [Ultra, Premium, and Standard performance tiers](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels#supported-service-levels). When you choose the tier that best suits your performance requirements, consider that available performance bandwidth [scales with the size of a volume](https://docs.netapp.com/us-en/bluexp-azure-netapp-files/task-manage-volumes.html#:~:text=Change%20the%20volume%27s%20service%20level%201%20Open%20the,service%20level%20that%20you%20want.%204%20Click%20Change.). You can [change the service level of a volume](https://docs.netapp.com/us-en/occm37/task_manage_anf.html) at any time without disruption to storage operations. For more information about the Azure NetApp Files cost model, see [Pricing examples](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-cost-model#pricing-examples).
+Azure NetApp Files volumes are available in [Ultra, Premium, Standard and Flexible service levels](/azure/azure-netapp-files/azure-netapp-files-service-levels#supported-service-levels). When you choose the tier that best suits your performance requirements, consider that available performance bandwidth [scales with the size of a volume](https://docs.netapp.com/us-en/bluexp-azure-netapp-files/task-manage-volumes.html). You can [change the service level of a volume](https://docs.netapp.com/us-en/occm37/task_manage_anf.html) at any time without disruption to storage operations. For more information about the Azure NetApp Files cost model, see [Pricing examples](/azure/azure-netapp-files/azure-netapp-files-cost-model#pricing-examples).
 
-To get started, see the [Azure NetApp Files performance calculator](https://bluexp.netapp.com/azure-netapp-files/sizer).
+To get started, see the [Azure NetApp Files performance calculator](https://azure.github.io/azure-netapp-files/calc/).
 
 ## Contributors
 

@@ -3924,6 +3924,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/example-scenario/analytics/enterprise-bi-synapse.yml",
+      "redirect_url": "/azure/architecture/example-scenario/analytics/enterprise-bi-microsoft-fabric",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/example-scenario/data/search-blob-metadata.yml",
       "redirect_url": "/azure/architecture/ai-ml/architecture/search-blob-metadata",
       "redirect_document_id": true
@@ -7158,6 +7163,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/solution-ideas/articles/dfs-failover-cluster-vms.yml",
+      "redirect_url": "/azure/storage/files/files-manage-namespaces",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/guide/hadoop/apache-hdfs-migration.yml",
       "redirect_url": "/azure/hdinsight/",
       "redirect_document_id": false
@@ -7493,6 +7503,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/example-scenario/analytics/secure-data-lakehouse-synapse.yml",
+      "redirect_url": "/fabric/onelake/security/get-started-security",
+      "redirect_document_id": false
+    },
+    {  
       "source_path": "docs/ai-ml/guide/network-security-mlops.yml",
       "redirect_url": "/azure/machine-learning/how-to-secure-workspace-vnet",
       "redirect_document_id": false
@@ -7568,6 +7583,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/example-scenario/analytics/pipelines-disaster-recovery.yml",
+      "redirect_url": "/azure/data-factory/secure-your-azure-data-factory#backup-and-recovery",
+      "redirect_document_id": false
+    },
+    {      
       "source_path": "docs/reference-architectures/containers/aks-pci/aks-pci-monitor.yml",
       "redirect_url": "/azure/aks/pci-monitor",
       "redirect_document_id": false

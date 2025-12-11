@@ -4,7 +4,7 @@ description: Review a comparison of the regions and zones between Azure and AWS.
 author: splitfinity81
 ms.author: yubaijna
 ms.date: 12/13/2021
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: cloud-fundamentals
 ms.collection: 
  - migration

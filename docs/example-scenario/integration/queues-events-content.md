@@ -142,7 +142,7 @@ For more Service Bus recommendations, see [Best practices for performance improv
 ## Related resources
 
 - [Basic enterprise integration on Azure](../../reference-architectures/enterprise-integration/basic-enterprise-integration.yml)
-- [Enterprise business intelligence](../../example-scenario/analytics/enterprise-bi-synapse.yml)
+- [Use Microsoft Fabric to design an enterprise BI solution](../../example-scenario/analytics/enterprise-bi-microsoft-fabric.yml)
 
 
 [aaf-cost]: /azure/architecture/framework/cost/overview

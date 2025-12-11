@@ -4,7 +4,7 @@ description: Learn about atomicity, consistency, and other features of online tr
 author: hz4dkr
 ms.author: callard
 ms.date: 07/23/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-data
 ---

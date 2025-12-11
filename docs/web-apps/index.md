@@ -4,7 +4,7 @@ description: Get an overview of Azure web app technologies, guidance, solution i
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 06/14/2023
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
 

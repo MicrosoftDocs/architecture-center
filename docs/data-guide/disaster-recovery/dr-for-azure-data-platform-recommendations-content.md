@@ -157,7 +157,7 @@ There are four high-level options for a DR strategy:
 
 ### DR strategy effects  
 
-The operating cost attributed to the higher levels of service resiliency often plays a major role in the [key design decision](/azure/architecture/framework/cost/tradeoffs#cost-vs-reliability) for a DR strategy, but other important factors should also be considered.
+The operating cost attributed to the higher levels of service reliability often plays a major role in the [key design decision](/azure/architecture/framework/cost/tradeoffs#cost-vs-reliability) for a DR strategy, but other important factors should also be considered.
 
 > [!NOTE]  
 > [Cost Optimization](/azure/well-architected/cost-optimization/checklist) is one of the five pillars of architectural excellence within the [Azure Well-Architected Framework](/azure/well-architected/pillars). Its goal is to reduce unnecessary expenses and improve operational efficiencies.  

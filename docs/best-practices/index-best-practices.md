@@ -5,7 +5,7 @@ ms.author: pnp
 author: claytonsiemens77
 ms.date: 01/04/2022
 ms.topic: best-practice
-ms.subservice: design-pattern
+ms.subservice: cloud-fundamentals
 ms.custom:
   - design-pattern
 keywords:

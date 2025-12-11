@@ -16,9 +16,9 @@ The concepts in this article apply to:
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/US-1881435-scalable-apps-performance-modeling-site-reliability.pptx) of this architecture.*
 
-The architecture that's considered here is that of a scalable API platform. The solution comprises multiple microservices that use a variety of databases and storage services, including software as a service (SaaS) solutions such as Dynamics 365 and Microsoft 365.
+The architecture that's considered here is that of a scalable API platform. The solution comprises multiple microservices that use various databases and storage services, including software as a service (SaaS) solutions such as Dynamics 365 and Microsoft 365.
 
-This article considers a solution that handles high-level marketplace and e-Commerce use cases to demonstrates the blocks shown in the diagram. The use cases are:
+This article considers a solution that handles high-level marketplace and e-Commerce use cases to demonstrate the blocks shown in the diagram. The use cases are:
 
 - Product browsing.
 - Registration and login.
@@ -31,7 +31,7 @@ Client applications such as web apps, mobile apps, and even service applications
 
 - [Azure Front Door](/azure/well-architected/service-guides/azure-front-door) provides a secured, unified point of entry for all requests to the solution. For more information, see [Routing architecture overview](/azure/frontdoor/front-door-routing-architecture).
 - [Azure API Management](/azure/well-architected/service-guides/api-management/operational-excellence) provides a governance layer on top of all published APIs. You can use Azure API Management policies to apply additional capabilities on the API layer, such as access restrictions, caching, and data transformation. API Management supports autoscaling in Standard and Premium tiers.
-- [Azure Kubernetes Service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) is the Azure implementation of open-source Kubernetes clusters. As a hosted Kubernetes service, Azure handles critical tasks like health monitoring and maintenance. Since Kubernetes masters are managed by Azure, you only manage and maintain the agent nodes. In this architecture, all microservices are deployed in AKS.
+- [Azure Kubernetes Service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) is the Azure implementation of open-source Kubernetes clusters. As a hosted Kubernetes service, Azure handles critical tasks like health monitoring and maintenance. Since Azure manages the Kubernetes API server, you only manage and maintain the agent nodes. In this architecture, all microservices are deployed in AKS.
 - [Azure Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is an application delivery controller service. It operates at layer 7, the application layer, and has various load-balancing capabilities. The Application Gateway Ingress Controller (AGIC) is a Kubernetes application that makes it possible for Azure Kubernetes Service (AKS) customers to use the Azure native Application Gateway L7 load-balancer to expose cloud software to the Internet. Autoscaling and zone redundancy are supported in the v2 SKU.
 - [Azure Storage](/azure/storage/common/storage-introduction), [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction), [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) and [Azure SQL](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview) can store both structured and non-structured content. Azure Cosmos DB containers and databases can be created with autoscale throughput.
 - [Microsoft Dynamics 365](/dynamics365/get-started/intro-crossapp-index) is a software as a service (SaaS) offering from Microsoft which provides several business applications for Customer Service, Sales, Marketing, and finance. In this architecture, Dynamics 365 is primarily used for managing product catalogs and for Customer Service management. Scale units provide resiliency to Dynamics 365 applications.
@@ -54,11 +54,11 @@ Another important term to note is *service level indicator* (service-level indic
 
 SLOs and SLIs always go hand in hand, and are usually defined in an iterative manner. SLOs are driven by key business objectives, whereas SLIs are driven by what's possible to be measured while implementing the service.
 
-The relationship between the monitored metric, the SLI, and the SLO is depicted below:
+The following image shows the relationship between the monitored metric, the SLI, and the SLO:
 
-:::image type="content" source="media/scalable-apps-performance-modeling-site-reliability-slo.png" alt-text="Identify the right metric for reliability, define how to calculate its SLI, set a target SLO." :::
+:::image type="content" source="media/scalable-apps-performance-modeling-site-reliability-slo.png" alt-text="Diagram that shows how to identify the right metric for reliability, define how to calculate its SLI, and set a target SLO." :::
 
-This is explained in more detail in [Define SLI metrics to calculate SLOs](#define-sli-metrics-to-calculate-slos).
+For more information on this process, see [Define SLI metrics to calculate SLOs](#define-sli-metrics-to-calculate-slos).
 
 ## Modeling scale and performance expectations
 
@@ -145,11 +145,11 @@ The measurement period for defining an SLO is very important. It must capture ac
 
 ### Establish a performance governance process
 
-The performance of an API must be managed from its inception until it's deprecated or retired. A robust governance process must be in place to ensure that performance issues are detected and fixed early, before they cause a major outage that impacts the business.
+The performance of an API must be managed from its inception until it's deprecated or retired. A robust governance process must be in place to ensure that performance issues are detected and fixed early, before they cause a major outage that affects the business.
 
 Here are the elements of performance governance:
 
-:::image type="content" source="media/scalable-apps-performance-modeling-site-reliability-lifecycle.png" alt-text="The seven elements of performance governance, as described below." :::
+:::image type="content" source="media/scalable-apps-performance-modeling-site-reliability-lifecycle.png" alt-text="Diagram that shows the seven elements of performance governance, as described in the following section." :::
 
 - **Performance Objectives:** Define the aspirational performance SLOs for the business scenarios.
 - **Performance Modeling:** Identify business-critical workflows and transactions, and conduct modeling to understand the performance-related implications. Capture this information at a granular level for more accurate predictions.
@@ -180,7 +180,7 @@ The SLOs can be tailored to suit specific application requirements. However, it'
 
 ### Measure initial SLOs that are based on data from the logs
 
-Monitoring logs are created automatically when the API service is in use. Assume that a week of data shows the following:
+Monitoring logs are created automatically when the API service is in use. Assume that a week of data shows the following results:
 
 - Requests: 123,456
 - Successful requests: 123,204

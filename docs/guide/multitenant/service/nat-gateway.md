@@ -4,7 +4,7 @@ description: Learn about Azure NAT Gateway features that are useful when you wor
 author: johndowns
 ms.author: pnp
 ms.date: 06/13/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-saas
 ---

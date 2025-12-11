@@ -61,7 +61,7 @@ This section describes the components and services that appear in the diagram. M
     | **DDOS** | DDoS protection implemented on the virtual network to help you mitigate different types of DDoS attacks. | [Azure DDoS Network Protection overview](/azure/ddos-protection/ddos-protection-overview) |
     | **TLS/SSL** | TLS/SSL deliver encryption in transit for most Azure services that exchange information, such as Azure Storage and Web Apps. | [Configure end-to-end TLS by using Application Gateway with PowerShell](/azure/application-gateway/application-gateway-end-to-end-ssl-powershell) |
     | **Private Link** | Service that allows you to create a private network for an Azure service that initially is exposed to the internet. | [What is Azure Private Link?](/azure/private-link/private-link-overview) |
-    | **Private endpoint** | Creates a network interface and attaches it to the Azure service. Private Endpoint is part of Private Link. This configuration lets the service, by using a private endpoint, be part of your virtual network. | [What is a private endpoint?](/azure/private-link/private-endpoint-overview) |
+    | **Private endpoint** | Creates a network interface and attaches it to the Azure service. Private Endpoint is part of Private Link. This configuration lets the service become part of your virtual network through a private endpoint. | [What is a private endpoint?](/azure/private-link/private-endpoint-overview) |
 
 1. **Infrastructure and endpoints**
 

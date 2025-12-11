@@ -18,7 +18,7 @@ Depending on the license that you acquire for Microsoft 365, you can also get th
 -   Microsoft Defender for Office
 -   Microsoft Defender for Cloud Apps
 
-* "Microsoft Defender for Cloud Apps" accessed through "security.microsoft.com" is different from "Microsoft Defender for Cloud" that is another security solution accessed through "portal.azure.com".
+* "Microsoft Defender for Cloud Apps" accessed through "security.microsoft.com" is different from "Microsoft Defender for Cloud" that is another security solution accessed through "portal.azure.com."
 
 The following diagram illustrates the relationship of solutions and main services that Microsoft 365 offers, though not all services are listed.
 

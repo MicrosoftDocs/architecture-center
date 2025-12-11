@@ -4,7 +4,7 @@ description: Learn about the advantages of using data lake storage repositories,
 author: PRASADA1207
 ms.author: prasada
 ms.date: 08/13/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
 
@@ -62,7 +62,7 @@ The following table compares data lakes and data warehouses.
 | **Data type**               | Raw, unstructured, semi-structured, and structured                           | Structured and highly organized                                                |
 | **Query performance**       | Slower, especially for complex queries; depends on data format and tools     | Fast and optimized for analytical queries                                      |
 | **Latency**                 | Higher latency due to on-the-fly processing                                  | Low latency with pre-processed, structured data                                |
-| **Data transformation stage**         | Transformation happens at query time, impacting overall processing time               | Transformation happens during the ETL or ELT process              |
+| **Data transformation stage**         | Transformation happens at query time, affecting overall processing time               | Transformation happens during the ETL or ELT process              |
 | **Scalability**             | Highly scalable and cost-effective for large volumes of diverse data         | Scalable but more expensive, especially at large scale                         |
 | **Cost**                    | Lower storage costs; compute costs vary based on usage                       | Higher storage and compute costs due to performance optimizations              |
 | **Use case fit**            | Best for big data, machine learning, and exploratory analytics. In medallion architectures, the Gold layer is leveraged for reporting purposes               | Ideal for business intelligence, reporting, and structured data analysis       |

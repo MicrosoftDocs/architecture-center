@@ -1,10 +1,10 @@
 ---
 title: Microservices Architecture Style
 description: Learn about microservices on Azure. This architectural style builds applications that are resilient, highly scalable, and independently deployable.
-author: RobBagby
-ms.author: robbag
+author: claytonsiemens77
+ms.author: pnp
 ms.date: 06/30/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: fcp
 ---
@@ -86,6 +86,8 @@ The benefits of microservices come with trade-offs. Consider the following chall
 - Services communicate through well-designed APIs. Avoid leaking implementation details. APIs should model the domain, not the internal implementation of the service.
 
 - Avoid coupling between services. Causes of coupling include shared database schemas and rigid communication protocols.
+  
+- Use messaging frameworks for asynchronous communication. Adopt tools such as [MassTransit](https://masstransit.massient.com/) or [NServiceBus](https://particular.net/nservicebus) to handle routing, retries, durability, and workflow patterns instead of building custom messaging logic. Frameworks help reduce distributed system complexity, improve reliability, and avoid common pitfalls when implementing message-driven microservices.
 
 - Improve security by using mutual Transport Layer Security (mTLS) for service-to-service encryption. Implement role-based access control and use API gateways to enforce policies.
 

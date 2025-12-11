@@ -22,17 +22,17 @@ In this image:
 - **snet-workload** is an example of a subnet in a peered spoke virtual network containing Windows virtual machines.
 - **nsg-ms** is a network security group policy that allows traffic to the WSUS VM but denies other internet traffic.
 
-You can reuse an existing server or deploy a new one that will be the WSUS server. Your WSUS VM must meet the documented [system requirements](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment#system-requirements).  As this is a security sensitive capability, you should plan on accessing this virtual machine by using just-in-time (JIT). See [Manage virtual machine access using just-in-time](/azure/security-center/security-center-just-in-time).
+You can reuse an existing server or deploy a new one that becomes the WSUS server. Your WSUS VM must meet the documented [system requirements](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment#system-requirements).  As this is a security sensitive capability, you should plan on accessing this virtual machine by using just-in-time (JIT). See [Manage virtual machine access by using just-in-time](/azure/security-center/security-center-just-in-time).
 
-Your network will have more than one Azure virtual network, which can be in the same region or in different regions. You'll need to evaluate all Windows Server VMs to see if one can be used as a WSUS server. If you have thousands of VMs to update, we recommend dedicating a Windows Server VM to the WSUS role. We also encourage that VMs don't use a WSUS server in a different region as their primary source.
+Your network will have more than one Azure virtual network, which can be in the same region or in different regions. You need to evaluate all Windows Server VMs to see if one can be used as a WSUS server. If you have thousands of VMs to update, we recommend dedicating a Windows Server VM to the WSUS role. We also encourage that VMs don't use a WSUS server in a different region as their primary source.
 
 If all your virtual networks are in the same region, we suggest having one WSUS for every 18,000 VMs. This suggestion is based on a combination of the VM requirements, the number of client VMs being updated, and the cost of communicating between virtual networks. For more information on WSUS capacity requirements, see [Plan your WSUS deployment](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment).
 
-You can determine the cost of these configurations by using the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator). You'll need to provide the specifications of your WSUS virtual machines and your network expectations; same region, across regions. For data transfer, start with 3 GB. Note that prices will vary by region.
+You can determine the cost of these configurations by using the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator). You need to provide the specifications of your WSUS virtual machines and your network expectations; same region, across regions. For data transfer, start with 3 GB. Prices vary by region.
 
 ## Manual deployment
 
-After you either identify the Azure virtual network to use or determine you need to create a new Windows Server instance, you need to create an NSG rule. The rule will allow internet traffic, which allows Windows Update metadata and content to sync with the WSUS server that you'll create. Here are the rules that you need to add:
+After you either identify the Azure virtual network to use or determine you need to create a new Windows Server instance, you need to create an NSG rule. The rule will allow internet traffic, which allows Windows Update metadata and content to sync with the WSUS server that you create. Here are the rules that you need to add:
 
 - Inbound/outbound NSG rule to allow traffic to and from the internet on port 80 (for content).
 - Inbound/outbound NSG rule to allow traffic to and from the internet on port 443 (for metadata).
@@ -52,7 +52,7 @@ You can also combine the two approaches by using the automation script to do mos
 The `Configure-WSUSServer` script allows you to set up a WSUS server that will automatically synchronize and approve updates for a chosen set of products and languages.
 
 > [!NOTE]
-> The script always sets up WSUS to use Windows Internal Database to store its update data. This speeds up setup and reduces administration complexity. But if your server will support thousands of client computers, especially if you also need to support a wide variety of products and languages, you should set up WSUS manually instead so that you can use SQL Server as the database.
+> The script always sets up WSUS to use Windows Internal Database to store its update data. This speeds up setup and reduces administration complexity. But if your server will support thousands of client computers, especially if you also need to support a wide range of products and languages, you should set up WSUS manually instead so that you can use SQL Server as the database.
 
 The latest version of this script is [available on GitHub](https://github.com/mspnp/wsus-configuration).
 
@@ -109,7 +109,7 @@ During synchronization, WSUS determines if any new updates have been made availa
 
 Next, set up Azure virtual network peering or global virtual network peering to communicate with the hub. We recommend that you set up a WSUS server in each region you've deployed to minimize latency.
 
-On each Azure virtual network that's a spoke, you'll need to create an NSG policy that has these rules:
+On each Azure virtual network that's a spoke, you need to create an NSG policy that has these rules:
 
 - An inbound/outbound NSG rule to allow traffic to the WSUS VM on port 8530 (default unless configured).
 - An inbound/outbound NSG rule to deny traffic to the internet.

@@ -107,7 +107,7 @@ The diagram shows a virtual hub that Azure Firewall secures. It's connected to t
 **HTTP flow**
 
 1. With the DNS result in hand, the private IP address of the storage account, the client issues an HTTP request to `stgworkload00.blob.core.windows.net`.
-1. The request is sent to the private IP address (10.1.2.4) of the storage account. This request routes successfully, assuming no conflicting restrictions on the local Network Security Groups on the client subnet or the private endpoint subnet. It's important to understand that, even though Azure Firewall is securing private traffic, the request doesn't get routed through Azure Firewall because the private endpoint is in the same virtual network as the client.  Meaning no Azure Firewall allowances need to be made for this scenario.
+1. The request is sent to the private IP address (10.1.2.4) of the storage account. This request routes successfully, assuming no conflicting restrictions on the local Network Security Groups on the client subnet or the private endpoint subnet. It's important to understand that, even though Azure Firewall is securing private traffic, the request doesn't get routed through Azure Firewall because the private endpoint is in the same virtual network as the client. Meaning no Azure Firewall allowances need to be made for this scenario.
 1. A private connection to the storage account is established through the Private Link service. The storage account allows only private network access, and accepts the HTTP request.
 
 ### Virtual hub extension for DNS considerations

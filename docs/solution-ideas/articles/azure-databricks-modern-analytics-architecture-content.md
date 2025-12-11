@@ -180,7 +180,6 @@ To learn about related solutions, see the following guides and architectures.
 [Medallion model]: /azure/databricks/lakehouse/medallion
 [MLflow]: https://mlflow.org
 [MLflow Model Registry]: https://www.mlflow.org/docs/latest/registry.html
-[Native connectors]: /azure/databricks/data/data-sources/azure/synapse-analytics
 [Photon improves performance]: /azure/databricks/compute/photon
 [Power BI connector for Azure Databricks]: /azure/databricks/integrations/bi/power-bi
 [Stream processing with Azure Databricks]: ../../reference-architectures/data/stream-processing-databricks.yml
@@ -196,4 +195,3 @@ To learn about related solutions, see the following guides and architectures.
 [Microsoft Fabric]: /fabric/get-started/microsoft-fabric-overview
 [Data Factory in Microsoft Fabric]: /fabric/data-factory/data-factory-overview
 [Direct Lake]: /fabric/get-started/direct-lake-overview
-

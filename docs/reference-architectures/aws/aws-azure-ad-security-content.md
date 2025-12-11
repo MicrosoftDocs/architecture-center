@@ -223,7 +223,7 @@ Use the following steps to configure Microsoft Entra SSO for AWS:
 
 1. On **AWS Console**, follow the steps on [Configure AWS SSO](/entra/identity/saas-apps/amazon-web-service-tutorial#configure-aws-single-account-access-sso) to configure your **AWS account** for single sign-on. As part of this configuration, you create a new IAM user that acts on behalf of the Microsoft Entra provisioning agent to allow synchronization of all available **AWS IAM roles** into **Microsoft Entra ID**. AWS needs this IAM user to map users to roles before they can sign in to the **AWS Management Console**.
 
-- Make it clear which components you create to support this integration. For example, name service accounts with a standard naming convention like "Svc-".
+- Make it clear which components you create to support this integration. For example, name service accounts with a standard naming convention like *Svc-*.
 - Be sure to document all new items.
 - Make sure any new credentials include complex passwords that you store centrally for secure lifecycle management.
 

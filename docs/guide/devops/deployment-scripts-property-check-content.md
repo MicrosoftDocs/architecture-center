@@ -6,7 +6,7 @@ This article uses an Azure Virtual WAN scenario to illustrate the technique. The
 > - [`azResourceStateCheck.bicep`](https://github.com/Azure/CAE-Bits/blob/main/infra/samples/deployment-scripts-property-check/modules/azResourceStateCheck.bicep)
 > - [Invoke-AzResourceStateCheck.ps1](https://github.com/Azure/CAE-Bits/blob/main/infra/samples/deployment-scripts-property-check/scripts/Invoke-AzResourceStateCheck.ps1)
 
-You can adapt the files for your deployment. The azResourceStateCheck.bicep module is parameterized for ease of reuse. Be sure to note how the **dependsOn** property is used in orchestration.bicep to make the vwanvhcs.bicep module deployment depend on the azResourceStateCheck.bicep nodule deployment.
+You can adapt the files for your deployment. The azResourceStateCheck.bicep module is parameterized for ease of reuse. Be sure to note how the **dependsOn** property is used in orchestration.bicep to make the vwanvhcs.bicep module deployment depend on the azResourceStateCheck.bicep module deployment.
 
 ## Architecture
 
@@ -53,7 +53,7 @@ The following excerpt from orchestration.bicep shows the use of **dependsOn**:
 
 <!--
 
-The following is not currently supported in the architecture-center-pr repo:
+The following isn't currently supported in the architecture-center-pr repo:
 
 :::code language="bicep" source="~/azure-cae-bits/infra/samples/deployment-scripts-property-check/orchestration.bicep" range="57-68,98-134" highlight="110,125-127":::
 
@@ -133,7 +133,7 @@ The Invoke-AzResourceStateCheck.ps1 script is as follows:
 
 <!--
 
-The following is not currently supported in the architecture-center-pr repo:
+The following isn't currently supported in the architecture-center-pr repo:
 
 :::code language="powershell" source="~/azure-cae-bits/infra/samples/deployment-scripts-property-check/scripts/Invoke-AzResourceStateCheck.ps1" :::
 

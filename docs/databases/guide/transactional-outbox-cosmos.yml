@@ -2,10 +2,10 @@
 metadata:
   title: Transactional Outbox pattern with Azure Cosmos DB
   description: How to use Azure Cosmos DB, change feed, and Azure Service Bus for reliable messaging and guaranteed delivery of domain events in distributed applications.
-  author: cdennig
-  ms.author: dechrist
-  ms.date: 09/02/2025
-  ms.topic: conceptual
+  author: wueda
+  ms.author: awild
+  ms.date: 11/18/2025
+  ms.topic: concept-article
   ms.subservice: architecture-guide
   ms.custom: arb-data
 azureCategories:

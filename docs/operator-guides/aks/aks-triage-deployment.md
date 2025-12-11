@@ -4,7 +4,7 @@ description: Learn how to check whether workload deployments and DaemonSet featu
 author: francisnazareth
 ms.author: fnazaret
 ms.date: 01/20/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
   - e2e-aks

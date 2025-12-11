@@ -460,13 +460,13 @@
 			</g>
 			<g id="shape49-92" v:mID="49" v:groupContext="shape" transform="translate(53.9901,-7.46851)">
 				<title>Sheet.49</title>
-				<desc>Azure Database for PostgreSQL Flexible Server</desc>
+				<desc>Azure Database for PostgreSQL flexible server</desc>
 				<v:textBlock v:margins="rect(4,4,4,4)"/>
 				<v:textRect cx="62.7732" cy="646.468" width="125.55" height="39.0637"/>
 				<rect x="0" y="626.936" width="125.546" height="39.0637" class="st12"/>
 				<text x="18.71" y="635.67" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Database <v:newlineChar/><v:paragraph
 							v:horizAlign="1"/><tspan x="20.1" dy="1.2em" class="st11">for PostgreSQL </tspan><tspan x="21.47"
-							dy="1.2em" class="st11">Flexible Server</tspan></text>			</g>
+							dy="1.2em" class="st11">flexible server</tspan></text>			</g>
 		</g>
 		<g id="shape50-97" v:mID="50" v:groupContext="shape" v:layerMember="0" transform="translate(805.5,-522)">
 			<title>Dynamic connector.50</title>
@@ -597,13 +597,13 @@
 			</g>
 			<g id="shape90-151" v:mID="90" v:groupContext="shape" transform="translate(53.9901,-7.46751)">
 				<title>Sheet.90</title>
-				<desc>Azure Cosmos DB for MongoDB (vCore)</desc>
+				<desc>Azure DocumentDB</desc>
 				<v:textBlock v:margins="rect(4,4,4,4)"/>
 				<v:textRect cx="62.7732" cy="646.471" width="125.55" height="39.0585"/>
 				<rect x="0" y="626.941" width="125.546" height="39.0585" class="st12"/>
-				<text x="12.98" y="635.67" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Cosmos DB<v:newlineChar/><v:paragraph
-							v:horizAlign="1"/><tspan x="24.07" dy="1.2em" class="st11">for MongoDB </tspan><tspan x="42.05"
-							dy="1.2em" class="st11">(vCore)</tspan></text>			</g>
+				<text x="12.98" y="635.67" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure DocumentDB<v:newlineChar/><v:paragraph
+							v:horizAlign="1"/><tspan x="24.07" dy="1.2em" class="st11"></tspan><tspan x="42.05"
+							dy="1.2em" class="st11"></tspan></text>			</g>
 		</g>
 		<g id="shape91-156" v:mID="91" v:groupContext="shape" v:layerMember="0" transform="translate(679.5,-252)">
 			<title>Dynamic connector.91</title>

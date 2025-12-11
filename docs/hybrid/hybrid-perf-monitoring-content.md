@@ -28,7 +28,7 @@ This reference architecture shows how to use Azure Monitor to monitor the perfor
 - **Azure Monitor - Visualizations**. Azure Monitor uses visualization tools to review application and infrastructure components and communications between services in Azure Monitor. Visualization tools include **Application Map in Azure Application Insight**, **the Map feature of Azure Monitor for VMs**, **Azure Monitor Workbooks**, and various dashboard views available within Azure Monitor. For more information, see [Use the Map feature of Azure Monitor for VMs to understand application components][service-map], [Create and share dashboards of Log Analytics data][share-dashboards], and [Azure Monitor Workbooks][monitor-workbooks].
 - **Azure Monitor - Integrations**. Azure Monitor integrates with a range of partner and third-party tools and extensions. These tools and extensions enhance and build upon existing Azure Monitor functionality, such as analysis and visualizations.
 - **Azure Monitor - Actions - Alerts**. Variations in metric and log data can indicate the occurrence of events. Rules define the data variations that trigger alerts, provide notifications, and initiate remediation responses. In this architecture, when an alert is triggered, automation runbooks automatically remediate the on-premises VMs and Azure VMs. Webhook actions, Service Management integration, and other action types are also available. For more information, see [Create, view, and manage metric alerts using Azure Monitor][manage-metrics-alerts] and [Create, view, and manage log alerts using Azure Monitor][manage-log-alerts].
-- **Azure Monitor - Actions - Autoscale**. Autoscale adds or removes VM instances according to deman, which maintains performance and increases cost effectiveness. In this architecture, Autoscale has conditions defined around average CPU load (in percentage). When conditions are met, Azure Monitor Autoscale will adjust the scale set according to demand. For more information, see [Overview of autoscale in Microsoft Azure][autoscale-overview].
+- **Azure Monitor - Actions - Autoscale**. Autoscale adds or removes VM instances according to demand, which maintains performance and increases cost effectiveness. In this architecture, Autoscale has conditions defined around average CPU load (in percentage). When conditions are met, Azure Monitor Autoscale will adjust the scale set according to demand. For more information, see [Overview of autoscale in Microsoft Azure][autoscale-overview].
 
 ### Components
 
@@ -193,7 +193,7 @@ The following are considerations for scaling your environment.
 
 Learn more about the component technologies:
 
-- [Azure Event Hubs — A big data streaming platform and event ingestion service](/azure/event-hubs/event-hubs-about)
+- [Azure Event Hubs: A big data streaming platform and event ingestion service](/azure/event-hubs/event-hubs-about)
 - [Azure Monitor overview](/azure/azure-monitor/overview)
 - [Overview of Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview)
 - [What are virtual machine scale sets?](/azure/virtual-machine-scale-sets/overview)

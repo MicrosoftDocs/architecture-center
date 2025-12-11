@@ -4,7 +4,7 @@ description: Use partitioning to address limits to the ability to scale up. Limi
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 08/30/2018
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
 

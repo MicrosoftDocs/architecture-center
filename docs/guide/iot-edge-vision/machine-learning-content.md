@@ -117,7 +117,7 @@ First, formulate a clear, data-driven problem statement, and decide on the desir
 
 1. Label the data.
 
-   You can label the data for a small number of images in-house, such as when using transfer learning. If many images need labeling, you can hire a vendor for both data collection and labeling.
+   You can label the data for a small number of images in-house, like when you use transfer learning. If many images need labeling, you can hire a vendor for both data collection and labeling.
    
 1. Train a model with an ML framework.
 

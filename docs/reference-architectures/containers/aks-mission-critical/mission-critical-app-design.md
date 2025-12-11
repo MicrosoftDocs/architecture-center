@@ -4,7 +4,7 @@ description: Learn how to implement a mission-critical workload that users acces
 author: msimecek
 ms.author: msimecek
 ms.date: 06/05/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
   - arb-containers

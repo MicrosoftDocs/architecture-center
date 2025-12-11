@@ -4,7 +4,7 @@ description: Evaluate analytical data store options for big data by reviewing ke
 author: rajasekharreddy-duddugunta
 ms.author: rduddugunta
 ms.date: 03/26/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
 

@@ -4,11 +4,10 @@ metadata:
   description: Learn about an approach for machine learning operations (MLOps) that uses Azure Databricks to run model training and batch scoring.
   author: prabdeb
   ms.author: prdeb
-  ms.date: 10/22/2024
+  ms.date: 09/25/2025
   ms.topic: solution-idea
   ms.collection: ce-skilling-ai-copilot  
   ms.subservice: solution-idea
-  ms.custom: arb-aiml
   ai-usage: ai-assisted
 name: Use Azure Databricks to orchestrate MLOps
 azureCategories:

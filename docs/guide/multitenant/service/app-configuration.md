@@ -1,10 +1,10 @@
 ---
 title: Azure App Configuration Considerations for Multitenancy
-description: Learn about the features of Azure App Configuration that are useful when working with multitenant systems, and use the provided links for guidance and examples.
+description: Learn about the features of Azure App Configuration that are useful when you work with multitenant systems, and use the provided links for guidance and examples.
 author: johndowns
 ms.author: pnp
 ms.date: 09/05/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-saas
 ---

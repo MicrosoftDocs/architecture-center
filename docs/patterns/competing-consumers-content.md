@@ -13,7 +13,7 @@ Use a message queue to implement the communication channel between the applicati
 ![Using a message queue to distribute work to instances of a service](./_images/competing-consumers-diagram.png)
 
 >[!NOTE]
->Although there are multiple consumers of these messages, this is not the same as the [Publish Subscribe pattern](publisher-subscriber.yml) (pub/sub). With the Competing Consumers approach, each message is passed to a single consumer for processing, whereas with the Pub/Sub approach, **all** consumers get passed **every** message.
+>Although there are multiple consumers of these messages, this isn't the same as the [Publish Subscribe pattern](publisher-subscriber.yml) (pub/sub). With the Competing Consumers approach, each message is passed to a single consumer for processing, whereas with the Pub/Sub approach, **all** consumers get passed **every** message.
 
 This solution has the following benefits:
 

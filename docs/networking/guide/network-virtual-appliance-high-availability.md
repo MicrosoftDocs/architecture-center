@@ -4,7 +4,7 @@ description: Learn how to deploy network virtual appliances in high availability
 author: erjosito
 ms.author: jomore
 ms.date: 03/21/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
 

@@ -4,7 +4,7 @@ description: Learn about approaches, including common patterns and antipatterns,
 author: johndowns
 ms.author: pnp
 ms.date: 07/17/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
    - arb-saas
