@@ -116,7 +116,7 @@ Caches are often designed to be shared by multiple instances of an application. 
 
 Depending on the nature of the data and the likelihood of collisions, you can adopt one of two approaches to concurrency:
 
-- **Optimistic**. The application checks whether the data in the cache has changed since it was retrieved before it updates the data. If the data is still the same, the change can be made. Otherwise, the application has to decide whether to update it. (The business logic that drives this decision is application-specific.) This approach is suitable for situations where updates are infrequent, or where collisions are unlikely to occur.
+- **Optimistic**. Before the application updates the data, it checks whether the data in the cache has changed since it was retrieved. If the data is still the same, the change can be made. Otherwise, the application has to decide whether to update it. (The business logic that drives this decision is application-specific.) This approach is suitable for situations where updates are infrequent, or where collisions are unlikely to occur.
 - **Pessimistic**. When it retrieves the data, the application locks it in the cache to prevent another instance from changing it. This process ensures that collisions can't occur, but they can also block other instances that need to process the same data. Pessimistic concurrency can affect the scalability of a solution and is recommended only for short-lived operations. This approach might be appropriate for situations where collisions are more likely, especially if an application updates multiple items in the cache and must ensure that these changes are applied consistently.
 
 ### Implement high availability and scalability, and improve performance
@@ -464,7 +464,7 @@ The simplest use of Redis for caching concerns is key-value pairs where the valu
 
 Keys also contain uninterpreted data, so you can use any binary information as the key. The longer the key is, however, the more space it will take to store, and the longer it will take to perform lookup operations. For usability and ease of maintenance, design your keyspace carefully and use meaningful (but not verbose) keys.
 
-For example, use structured keys like `customer:100` to represent the key for the customer with ID 100 instead of `100`. This scheme enables you to distinguish between values that store different data types. For example, you can also use the key `orders:100` to represent the key for the order with ID 100.
+For example, use structured keys like `customer:100` (instead of just `100`) to represent the key for the customer with ID 100. This scheme enables you to distinguish between values that store different data types. For example, you can also use the key `orders:100` to represent the key for the order with ID 100.
 
 Apart from one-dimensional binary strings, a value in a Redis key-value pair can also hold more structured information, including lists, sets (sorted and unsorted), and hashes. Redis provides a comprehensive command set that can manipulate these types, and many of these commands are available to .NET Framework applications through a client library such as StackExchange. The page [An introduction to Redis data types and abstractions](https://redis.io/topics/data-types-intro) on the Redis website provides a more detailed overview of these types and the commands that you can use to manipulate them.
 
@@ -546,7 +546,7 @@ Console.WriteLine("Result of increment: {0}", tx1.Result);
 Console.WriteLine("Result of decrement: {0}", tx2.Result);
 ```
 
-Remember that Redis transactions are unlike transactions in relational databases. The `Execute` method queues all the commands that consist of the transaction to be run, and if any of them is invalid, then the transaction is stopped. If all the commands have been queued successfully, each command runs asynchronously.
+Remember that Redis transactions are unlike transactions in relational databases. The `Execute` method queues all the commands that comprise the transaction to be run, and if any of them is invalid, then the transaction is stopped. If all the commands have been queued successfully, each command runs asynchronously.
 
 If any command fails, the others still continue processing. If you need to verify that a command has completed successfully, you must fetch the results of the command by using the **Result** property of the corresponding task, as shown in the previous example. Reading the **Result** property will block the calling thread until the task has completed.
 

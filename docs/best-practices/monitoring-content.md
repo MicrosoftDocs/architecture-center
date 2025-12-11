@@ -269,7 +269,7 @@ Depending on the nature of the application, there might be statutory or other le
 
 ### Requirements for auditing
 
-An analyst must be able to trace the sequence of business operations that users perform so that you can reconstruct users' actions. This record might be necessary only for documentation purposes, or as part of a forensic investigation.
+An analyst must be able to trace the sequence of business operations that users perform so that you can reconstruct users' actions. This record might be necessary simply for documentation purposes, or as part of a forensic investigation.
 
 Audit information is highly sensitive. It likely includes data that identifies the users of the system, together with the tasks that they're performing. For this reason, audit information most likely takes the form of reports that are available only to trusted analysts rather than as an interactive system that supports drill-down of graphical operations. An analyst should be able to generate a range of reports. For example, reports might list all users' activities occurring during a specified time frame, detail the chronology of activity for a single user, or list the sequence of operations performed against one or more resources.
 
