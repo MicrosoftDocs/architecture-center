@@ -1,4 +1,4 @@
-This guide describes how Microsoft security solutions can help secure and protect Amazon Web Services (AWS) account access and environments.
+This guide describes how Microsoft security solutions provide a Zero Trust, defense-in-depth controls that can be extended to AWS to eliminate blind spots and ensure consistent visibility, enforcement, and protection.
 
 #placeholder update
 
@@ -10,51 +10,69 @@ This diagram summarizes how AWS installations can benefit from key Microsoft sec
 
 ## Microsoft Entra
 
-### Centralized identity and access management
+Microsoft Entra ID is a comprehensive, cloud-based centralized identity and access management solution that can help secure and protect AWS accounts and environments.  Microsoft Entra ID provides strong SSO authentication to almost any app or platform that follows common web authentication standards, including AWS. AWS accounts that support critical workloads and highly sensitive information need strong identity protection and access control. Microsoft Entra ensures access to AWS resources is _“verified explicitly”_ every time and _“least privilege”_ is maintained. AWS identity management is enhanced when you combine it with Microsoft Entra ID.
 
-Microsoft Entra ID is a comprehensive, cloud-based centralized identity and access management solution that can help secure and protect AWS accounts and environments.
+AWS organizations that use Microsoft Entra ID for Microsoft 365 or hybrid cloud identity and access protection can quickly and easily deploy Microsoft Entra ID for AWS accounts, often without incurring additional costs. 
 
-Microsoft Entra ID provides strong SSO authentication to almost any app or platform that follows common web authentication standards, including AWS. AWS accounts that support critical workloads and highly sensitive information need strong identity protection and access control. AWS identity management is enhanced when you combine it with Microsoft Entra ID.
+Microsoft Entra ID provides several capabilities for direct integration with AWS:
 
-AWS organizations that use Microsoft Entra ID for Microsoft 365 or hybrid cloud identity and access protection can quickly and easily deploy Microsoft Entra ID for AWS accounts, often without incurring additional costs. Microsoft Entra ID provides several capabilities for direct integration with AWS:
+- __Centralized Identities__: Entra federation with AWS IAM Identity Center enforces “never trust, always verify” for AWS access. Entra ID allows enhanced security, improved user experience, centralized access control, and SSO across legacy, traditional, and modern authentication solutions.
 
-- Integration with AWS IAM Identity Center for enhanced security, improved user experience, centralized access control, and SSO across legacy, traditional, and modern authentication solutions.
+- __Lifecycle Automation:__ With SSO in place, automate lifecycle management with integrated HR workflows. Design AWS role mappings with group memberships that are mapped to AWS roles for authorization.
 
-- Microsoft Entra multifactor authentication, including integration with several third-party solutions from [Microsoft Intelligent Security Association](https://www.microsoft.com/security/business/intelligent-security-association) partners.
+- __Enforce Strong Authentication:__ Powerful Conditional Access features to enforce zero trust principle of verify explicitly to AWS logins. Require strong authentication with Microsoft Entra multifactor authentication or integration with several third-party solutions from [Microsoft Intelligent Security Association](https://www.microsoft.com/security/business/intelligent-security-association) partners.  For example, you can require MFA every time, Entra will “challenge” or reject login attempts as per policy _before_ the user ever touches AWS. This significantly reduces the risk of account takeover. Entra ID can also enable enforcement of several other factors such as risk, network location, device compliance – ensuring only managed, healthy devices can access the AWS.
 
-- Powerful Conditional Access features for strong authentication and strict governance. Microsoft Entra ID uses Conditional Access policies and risk-based assessments to authenticate and authorize user access to the AWS Management Console and AWS resources. 
+- __Identity Protection:__ Improved protection against identity-based attacks via real-time detection, continuous risk assessment, and remediation of risky sign-ins and unusual user behavior. Additionally, Entra Identity Protection with conditional access policies can detect if an account had suspicious activities (e.g. leaked credentials on the dark web) and automatically impose tighter controls or disable it.
 
-- Improved protection against identity-based attacks via real-time detection and remediation of risky sign-ins and unusual user behavior.
+- __Privileged Identity Management (PIM):__ enables just-in-time and least privileges to govern administrative access to AWS roles.  Reduce standing access and limit exposure to attacks. Instead of giving a user a permanent AWS admin access key, assign them to an Entra group that corresponds to an AWS admin role; with PIM, that group membership can be “eligible” and only active when the user needs it. Entra PIM will log and require approval for activations.  You can expand PIM to any delegated permission by controlling access to custom groups that you create for access to AWS roles.
 
-- Privileged Identity Management (PIM) to enable just-in-time provisioning of specific resources. You can expand PIM to any delegated permission by controlling access to custom groups, like groups that you create for access to AWS roles.
+- __Identity Governance:__ Extend Entra governance features to AWS. Provide self-service governance using Entra ID Access Packages that are time bound to handle AWS access requests with approval workflows. Conduct periodic access reviews to remove excess or standing access to reduce risk. Access recertification also help simplify reporting and prove regulatory compliance.
 
-For more information and detailed instructions, see [Microsoft Entra identity and access management for AWS](/azure/architecture/reference-architectures/aws/aws-azure-ad-security). 
+- __Workload identities:__ Leverage Entra workload identity federation for AWS to issue short-lived tokens that AWS trusts for API access – eliminating the need for static AWS access keys. This approach tightly integrates Entra ID with AWS IAM roles, so Azure-based workloads can seamlessly assume AWS roles resulting in no long-lived credentials to leak, every access is verified in real-time, and identities are governed centrally. By using Entra as the identity plane for AWS, you achieve a __unified identity security stance across multi-cloud__ – users have one identity, one strong authentication policy, and one place to be de-provisioned if they leave, thereby closing gaps that siloed accounts would create.  For more information and detailed instructions, see [Microsoft Entra identity and access management for AWS](/azure/architecture/reference-architectures/aws/aws-azure-ad-security). 
 
 ### Microsoft Defender for Cloud Apps
 
-When several users or roles make administrative changes, _configuration drift_ away from intended security architecture and standards can occur. Security standards can also change over time. Security personnel must constantly and consistently detect new risks, evaluate mitigation options, and update security architecture to help prevent potential breaches. Security management across multiple public cloud and private infrastructure environments can become burdensome.
+Defender for Cloud Apps provides enhanced protection for Software as a Service (SaaS) applications. Defender for Cloud Apps adds a dynamic layer of security on user activities and data in cloud applications. It provides the following features to help you monitor and protect your cloud app data:
 
-Defender for Cloud Apps provides enhanced protection for software as a service (SaaS) applications. It provides the following features to help you monitor and protect your cloud app data:
+- __Fundamental Cloud Access Security Broker functionality__ including shadow IT discovery, visibility into cloud app usage, enhanced protection against app-based threats from anywhere in the cloud, and information protection and compliance assessments.
 
-- __Fundamental Cloud Access Security Broker functionality__, including shadow IT discovery, visibility into cloud app usage, enhanced protection against app-based threats from anywhere in the cloud, and information protection and compliance assessments.
+- __SaaS Security Posture Management features__ that enable security teams to improve the organization's security posture.
 
-- __SaaS Security Posture Management features__ that enable security teams to improve the organization's security posture.
+- __Advanced threat protection__ as part of the Microsoft extended detection and response solution, enables powerful correlation of signal and visibility across the full cyberattack chain of advanced attacks.
 
-- __Advanced threat protection__, as part of the Microsoft extended detection and response solution, which enables powerful correlation of signal and visibility across the full cyberattack chain of advanced attacks.
+- __App-to-app protection__ which extends the core threat scenarios to OAuth-enabled apps that have permissions and privileges to critical data and resources.
 
-- __App-to-app protection__, which extends the core threat scenarios to OAuth-enabled apps that have permissions and privileges to critical data and resources.
+Connecting AWS to Defender for Cloud Apps helps you secure your assets and detect potential threats by monitoring administrative and sign-in activities. You get notifications of possible brute force attacks, malicious use of privileged user accounts, unusual deletions of VMs, and publicly exposed storage buckets. Defender for Cloud Apps helps protect AWS environments from abuse of cloud resources, compromised accounts and insider threats, data leakage, and resource misconfiguration and insufficient access control. It enforces Zero Trust at the session/application level: even after a user is authenticated to AWS and continues to monitor and validate their actions.
 
-Connecting AWS to Defender for Cloud Apps helps you secure your assets and detect potential threats by monitoring administrative and sign-in activities. You get notifications of possible brute force attacks, malicious use of privileged user accounts, unusual deletions of VMs, and publicly exposed storage buckets. Defender for Cloud Apps helps protect AWS environments from abuse of cloud resources, compromised accounts and insider threats, data leakage, and resource misconfiguration and insufficient access control. The following Defender for Cloud Apps capabilities are especially useful when you work with AWS environments.
+By connecting AWS to Defender for Cloud Apps, you gain:
 
-- [Detect cloud threats, compromised accounts, malicious insiders, and ransomware](/defender-cloud-apps/best-practices#detect-cloud-threats-compromised-accounts-malicious-insiders-and-ransomware). Defender for Cloud Apps anomaly detection policies are triggered when there are unusual activities performed by users in AWS. Defender for Cloud Apps continually monitors your users' activities and uses UEBA and machine learning to learn and understand the typical behavior of your users and trigger alerts on any deviations.
+- __Visibility into activities:__ A consolidated activity log of user and admin actions in AWS. This log is presented in Defender for Cloud Apps where you can filter and search across all cloud apps. For example, you can query “Show me all AWS console activities by user X in the last 24 hours” easily. This is useful for investigations and to feed anomaly detection.
 
-- [Limit exposure of shared data and enforce collaboration policies](/defender-cloud-apps/best-practices). Automate governance controls via actions like notifying users about alerts, requiring re-authentication or suspending users, making an S3 bucket private, or removing collaborators from an S3 bucket.
+- __Anomaly detection policies:__ Defender for Cloud Apps continually monitors your users' activities and uses UEBA and machine learning to learn and understand the typical behavior of your users and trigger alerts on any deviations to [detect cloud threats, compromised accounts, malicious insiders, and ransomware](/defender-cloud-apps/best-practices). Some examples of anomalies include:
 
-- [Audit activities](/defender-cloud-apps/best-practices). Connect AWS auditing to Defender for Cloud apps to get visibility into user, admin, and sign-in activities.
+  - Impossible travel: User logs into AWS from say the US and then 30 minutes later from Russia – impossible given the distance. This indicates account compromise, triggering an alert.
+  
+  - Activity from a risky IP or anonymous proxy: If a user normally comes from a known IP range and suddenly is active from a TOR node is flagged.
+  
+  - Unusual administrative activity: e.g., deletion of an unusual number of VMs or changing logging settings that the user never touched before.
+  
+  - Mass download or deletion: If someone tries to download a large number of objects from S3 or delete many resources in a short span – possible sabotage or cleanup actions by an attacker. Each anomaly that triggers generates an alert in Defender for Cloud Apps catching activities that signature-based detections miss
+  
+- __Policy enforcement and governance:__ Beyond just detecting and alerting, Defener for Cloud Apps lets you set policies to take action. For instance, you can define a policy: “Alert and suspend user if they delete more than 5 EC2 instances within 10 minutes” or “If any S3 bucket is made public, notify the security team and optionally revert the ACL”. In fact, it includes file policies like detecting if an S3 bucket becomes publicly accessible, and activity policies for critical changes (IAM changes, Network ACL changes, etc.). Many of these are available as template policies which you can simply enable. For governance, MCAS can automatically remediate via API. Example actions are below and these automated actions enforce security in near real-time, often mitigating issues faster than a human admin could respond.
 
-- [Get enhanced real-time protection for AWS](/defender-cloud-apps/proxy-intro-aad). Use Defender for Cloud Apps Conditional Access app control to block and help protect downloads of sensitive AWS data by risky users.
+  - Suspend user: disable the Entra ID user which in turn blocks access to AWS via federation identity.
+  
+  - Require re-authentication: sign the user out of AWS and force them to log in again via Entra ID requiring MFA if a session is deemed risky.
+  
+  - Notify user: Pop-up or email a user that what they did is against policy, e.g. “You have violated policy by downloading 1000 records from S3” – a gentle nudge for insiders or a marker for accidental policy violations.
+  
+  - Make S3 bucket private: Through AWS API, Defender for Cloud Apps can remove public access from an S3 bucket if a policy triggers.
+  
+  - Remove collaborator: If someone shared an S3 bucket with an external account for example, Defender for Cloud Apps could remove that external collaborator automatically.
+  
+- __Session control (real-time intervention):__ One powerful feature of Defender for Cloud Apps is Conditional Access App Control. With AWS, you can route user traffic through Defender for Cloud Apps and Entra ID Conditional Access to actively block or monitor specific actions in real time. For example, if a user tries to download files from AWS on an unmanaged device, session control can prevent the download or replace the file with a sanitized message. Similarly, it can apply Purview DLP policies to data exfiltration attempts – e.g., block copying of secret keys or certain patterns via the console.
 
-For more information on how to connect AWS environments to Defender for Cloud Apps, see [Protect your Amazon Web Services environment](/defender-cloud-apps/protect-aws).
+For more information on how to connect AWS environments to Defender for Cloud Apps, see [Protect your Amazon Web Services environment](/defender-cloud-apps/protect-aws).
 
 ### Microsoft Defender for Cloud
 
@@ -143,6 +161,6 @@ Principal author:
 - [Protect workloads in AWS](/azure/defender-for-cloud/quickstart-onboard-aws)
 - [Connect Microsoft Sentinel to Amazon Web Services to ingest AWS service log data](/azure/sentinel/connect-aws?tabs=s3)
 
-## Related resources 
+## Related resources
 
 - [Secure AWS identities](/azure/architecture/reference-architectures/aws/aws-azure-ad-security) 
