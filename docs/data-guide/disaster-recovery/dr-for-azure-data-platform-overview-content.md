@@ -21,8 +21,8 @@ The scope of this article series includes:
     - Not cloud-native, with its core enterprise, shared services like access and authentication management and incident management remaining on-premises.
     - On the journey of cloud migration to Azure, enabled by automation.
 - The data platform implements the following designs within the customer's Azure environment:
-    - [Enterprise landing zone](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-conceptual-architecture) – Provides the platform foundation, including networking, monitoring, security, and other capabilities.
-    - [Azure analytics platform](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end) - Provides the data components that support the various solutions and data products that the service provides.
+    - The [enterprise landing zone](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-conceptual-architecture) provides the platform foundation, including networking, monitoring, security, and other capabilities.
+    - The [Azure analytics platform](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end) provides the data components that support the various solutions and data products that the service provides.
 - The processes described in this article should be performed by an individual that has the following level of knowledge/skills:
     - [Azure Fundamentals](/certifications/exams/az-900) – working knowledge of Azure, its core services, and data components.
     - Working knowledge of Azure DevOps. Able to navigate source control and execute pipeline deployments.

@@ -108,7 +108,7 @@ The following sections present a breakdown of Contoso activity necessary across 
     - DR impact:
         - Azure datacenter failure: Not applicable
         - Availability zone failure: Contoso needs to validate availability and redeploy if necessary.
-        - Azure regional failure: Contoso needs to redeploy the Data Platform Storage Accounts and rehydrate them with data in the secondary region.
+        - Azure regional failure: Contoso needs to redeploy the Data Platform storage accounts and rehydrate them with data in the secondary region.
     - Notes:
         - Storage Accounts have a broad range of [data redundancy](/azure/storage/common/storage-redundancy) options from primary region redundancy up to secondary region redundancy.
         - For Secondary region redundancy data is replicated to the [secondary region asynchronously](/azure/storage/common/storage-redundancy#redundancy-in-a-secondary-region). A failure that affects the primary region might result in data loss if the primary region can't be recovered. Azure Storage typically has a recovery point objective (RPO) of less than 15 minutes.
@@ -119,7 +119,7 @@ The following sections present a breakdown of Contoso activity necessary across 
     - DR impact:
       - Azure datacenter failure: Not applicable
       - Availability zone failure: Contoso needs to validate availability and redeploy if necessary.
-      - Azure regional failure: Microsoft handles the regional failures. OneLake data is available via the API as outlined in [DR and data protection for OneLake](/fabric/onelake/onelake-disaster-recovery).
+      - Azure regional failure: Microsoft handles the regional failures. OneLake data is available via the API. For more information, see [DR and data protection for OneLake](/fabric/onelake/onelake-disaster-recovery).
 
 - **Fabric – Data Warehouse**
     - Contoso SKU selection: Fabric Capacity
@@ -129,8 +129,8 @@ The following sections present a breakdown of Contoso activity necessary across 
       - Azure regional failure: Contoso needs to deploy and [restore](/fabric/security/experience-specific-guidance#warehouse) the data platform Fabric into the secondary region and redeploy the warehouse.
     - Notes:
        - Cross-region restore:
-         - You can't restore a warehouse from one region or workspace to another. Schema must be redeployed and data must be reingested.
-         - Fabric enables capacity to be paused after restoration. During this paused state, only storage costs are incurred, which makes it a cost-effective strategy for maintaining a *live* snapshot.
+         - You can't restore a warehouse from one region or workspace to another. You must redeploy schema and reingest data.
+         - You can pause Fabric capacity after restoration. During this paused state, only storage costs are incurred, which makes it a cost-effective strategy for maintaining a *live* snapshot.
              
 - **Fabric – Pipelines**
     - Contoso SKU selection: Fabric Capacity
@@ -177,15 +177,15 @@ The following sections present a breakdown of Contoso activity necessary across 
         - While Microsoft manages the Machine Learning infrastructure, the customer manages [the associated resources](/azure/machine-learning/how-to-high-availability-machine-learning#understand-azure-services-for-azure-machine-learning). Only Key Vault is highly available by default.
         - Depending on the service criticality supported, Microsoft recommends a [multi-regional deployment](/azure/machine-learning/how-to-high-availability-machine-learning#plan-for-multi-regional-deployment).
 
-- **Azure AI Foundry**
-    - Contoso SKU selection: Provisioned throughput units (PTUs) or pay-as-you-go (PAYG)
+- **Microsoft Foundry**
+    - Contoso SKU selection: Provisioned throughput units (PTUs) or pay-as-you-go
     - DR impact:
-      - Azure datacenter failure: Contoso validates service availability and redeploys AI Foundry resources if necessary.  
+      - Azure datacenter failure: Contoso validates service availability and redeploys Foundry resources if necessary.  
       - Availability zone failure: Contoso confirms availability and redeploys workloads to another zone within the same region.  
-      - Azure regional failure: Contoso redeploys AI Foundry resources in a secondary region to maintain continuity.  
+      - Azure regional failure: Contoso redeploys Foundry resources in a secondary region to maintain continuity.  
     - Notes:
-      - Microsoft manages the AI Foundry platform infrastructure, but customers handle associated resources like storage accounts, compute clusters, and networking to ensure high availability and DR.  
-      - Microsoft recommends that you plan for [multi-region deployment](/azure/ai-foundry/how-to/disaster-recovery) and use geo-redundant storage (GRS) for critical assets to meet recovery time objectives (RTO) and recovery point objectives (RPO).
+      - Microsoft manages the Foundry platform infrastructure, but customers handle associated resources like storage accounts, compute clusters, and networking to ensure high availability and DR.  
+      - We recommend that you plan for [multi-region deployment](/azure/ai-foundry/how-to/disaster-recovery) and use geo-redundant storage (GRS) for critical assets to meet recovery time objectives (RTOs) and recovery point objectives (RPOs).
       - Customers implement [backup strategies](/azure/ai-foundry/openai/how-to/business-continuity-disaster-recovery) for custom models, datasets, and configuration artifacts because the platform doesn't automatically replicate them across regions.
 
 - **Fabric – Eventhouse**
@@ -193,24 +193,24 @@ The following sections present a breakdown of Contoso activity necessary across 
     - DR impact:
       - Azure datacenter failure: Not applicable
       - Availability zone failure: Not applicable
-      - Azure regional failure: Contoso redeploys Fabric eventhouse and pipelines in the secondary region.
+      - Azure regional failure: Contoso redeploys Fabric eventhouses and pipelines in the secondary region.
 
 - **Fabric – Lakehouse**
     - Contoso SKU selection: Fabric Capacity
     - DR impact:
       - Azure datacenter failure: Not applicable
       - Availability zone failure: Not applicable
-      - Azure regional failure: Contoso needs to redeploy Fabric Lakehouse and pipelines in the secondary region and [restores](/fabric/security/experience-specific-guidance#lakehouse) the Fabric data platform there. The lakehouse is redeployed in the secondary region.
+      - Azure regional failure: Contoso needs to redeploy Fabric lakehouses and pipelines in the secondary region and [restores](/fabric/security/experience-specific-guidance#lakehouse) the Fabric data platform there. The lakehouse is redeployed in the secondary region.
 
 - **Power BI**
-    - Contoso SKU selection: Fabric Capacity/Power BI Pro
+    - Contoso SKU selection: Fabric Capacity or Power BI Pro
     - DR impact:
       - Azure datacenter failure: Not applicable
       - Availability zone failure: Not applicable
       - Azure regional failure: Wait for a signal from Microsoft before you publish or edit.
     - Notes:
-      - The customer won't [need to do anything](/power-bi/admin/service-admin-failover#how-does-microsoft-decide-to-fail-over-) if the outage is decided or declared by the Power BI team.
-          - A failed-over Power BI service instance [only supports read operations](/power-bi/admin/service-admin-failover#what-is-a-power-bi-failover-). Reports that use Direct Query or Live connect [won't work during a failover](/power-bi/enterprise/service-admin-failover#do-gateways-function-in-failover-mode-).
+      - The customer doesn't [need to do anything](/power-bi/admin/service-admin-failover#how-does-microsoft-decide-to-fail-over-) if the Power BI team declares an outage.
+          - A failed-over Power BI service instance [only supports read operations](/power-bi/admin/service-admin-failover#what-is-a-power-bi-failover-). Reports that use Direct Query or Live connect [don't work during a failover](/power-bi/enterprise/service-admin-failover#do-gateways-function-in-failover-mode-).
           - Publishing restrictions: Contoso shouldn't publish or modify reports until Microsoft confirms that the failover instance is writable or that the primary region has been restored.
           - Gateway limitations: On-premises data refreshes through Power BI gateways are paused during failover.
 
@@ -241,7 +241,7 @@ The following sections present a breakdown of Contoso activity necessary across 
         - Availability Zone failure: Contoso would need to validate availability and redeploy if necessary.
         - Azure regional failure: Contoso would need to deploy an instance of Microsoft Purview into the secondary region.
     - Notes:
-        - This activity is mitigated by implementing the *Warm Spare* strategy, which means that a second instance of Microsoft Purview is available in the secondary region.
+        - This activity is mitigated by implementing the *warm spare* strategy, which means that a second instance of Microsoft Purview is available in the secondary region.
         - A "Warm Spare" approach has the following [key callouts](/azure/purview/disaster-recovery#achieve-business-continuity-for-microsoft-purview):
             - The primary and secondary Microsoft Purview accounts can't be configured to the same Azure Data Factory, Data Share, or Fabric accounts, if applicable. As a result, lineage from Azure Data Factory and Data Share isn't visible in the secondary Microsoft Purview accounts.
             - The integration runtimes are specific to a Microsoft Purview account. As a result, if scans must run in primary and secondary Microsoft Purview accounts in parallel, multiple self-hosted integration runtimes must be maintained.

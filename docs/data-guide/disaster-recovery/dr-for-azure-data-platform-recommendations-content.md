@@ -50,7 +50,7 @@
 
 - Identify recovery tasks that can be parallelized across solutions. This approach reduces the total RTO.
 
-- If Fabric Pipelines is used in a solution, don't forget to include on-premise data gateways in the scope. [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) is ideal for these machines.
+- If your solution uses Fabric pipelines, include on-premises data gateways in the scope. Use [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) for these machines.
 
 - Automate manual operations as much as possible to prevent human error, especially when under pressure. We recommend that you:
 
@@ -119,7 +119,7 @@
 
 - **Relying on Microsoft to do it all**
 
-  Within Microsoft Azure services, there's a clear [shared responsibility for reliability](/azure/reliability/concept-shared-responsibility), defined by the cloud service tier in use.
+  Microsoft Azure services define a clear [shared responsibility model for reliability](/azure/reliability/concept-shared-responsibility) based on the cloud service tier.
   
   ![Diagram that shows the shared responsibility model.](../images/shared-responsibility-model.png)  
 
