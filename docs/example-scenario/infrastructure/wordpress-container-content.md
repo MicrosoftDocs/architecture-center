@@ -5,7 +5,7 @@ This article describes a container solution that hosts a large, storage-intensiv
 ## Architecture
 
 :::image type="complex" source="media/wordpress-aks-azure-netapp-files.svg" alt-text="Architecture diagram of an AKS WordPress deployment. Azure NetApp Files stores static content. Private endpoints provide access to other services." lightbox="media/wordpress-aks-azure-netapp-files.svg" border="false":::
-The diagram shows a WordPress deployment architecture within Microsoft Azure, organized inside a virtual network outlined by a dashed border. On the left, the public internet connects to Azure Front Door, which includes Azure Web Application Firewall. Azure Front Door routes traffic to an internal load balancer, which distributes incoming requests to components inside the virtual network. Within the network, multiple subnets are protected by network security groups (NSGs). The central component is AKS. Traffic flows through an ingress controller into the WordPress pods. These pods access secrets through a Container Storage Interface (CSI) connected to a secure store. Another subnet contains Azure NetApp Files and is protected by its own NSG. On the right side, four services connect to the virtual network via private endpoints: Azure Container Registry, Azure Key Vault, Azure Database for MySQL – Flexible Server, and Azure Cache for Redis. Each service communicates securely within the network without direct internet exposure.
+The diagram shows a WordPress deployment architecture within Microsoft Azure, organized inside a virtual network outlined by a dashed border. On the left, the public internet connects to Azure Front Door, which includes Azure Web Application Firewall. Azure Front Door routes traffic to an internal load balancer, which distributes incoming requests to components inside the virtual network. Within the network, multiple subnets are protected by network security groups (NSGs). The central component is AKS. Traffic flows through an ingress controller into the WordPress pods. These pods access secrets through a Container Storage Interface (CSI) connected to a secure store. Another subnet contains Azure NetApp Files and is protected by its own NSG. On the right side, four services connect to the virtual network via private endpoints: Azure Container Registry, Azure Key Vault, Azure Database for MySQL – Flexible Server, and Azure Managed Redis. Each service communicates securely within the network without direct internet exposure.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-wordpress-container.vsdx) of this architecture.*
@@ -29,7 +29,7 @@ The following dataflow corresponds to the previous diagram:
 
 - [AKS](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed Kubernetes service that you can use to deploy, manage, and scale containerized applications. In this architecture, AKS hosts the WordPress containers and provides the orchestration platform that runs the containerized WordPress application to ensure high availability and scalability.
 
-- [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is a managed in-memory data store and caching service. In this architecture, Azure Cache for Redis hosts a key-value cache that all pods share. WordPress performance optimization plug-ins use the cache to improve response times.
+- [Azure Managed Redis](/azure/redis/overview) is a managed in-memory data store and caching service. In this architecture, Azure Managed Redis hosts a key-value cache that all pods share. WordPress performance optimization plug-ins use the cache to improve response times.
 
 - [Azure Database for MySQL - Flexible Server](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) is a managed relational database service based on the open-source MySQL database engine. In this architecture, this database stores WordPress data.
 
@@ -49,7 +49,7 @@ The following dataflow corresponds to the previous diagram:
 
 ### Alternatives
 
-- Instead of using the Azure Cache for Redis managed service, you can use a self-hosted pod within the AKS cluster as the cache.
+- Instead of using the Azure Managed Redis managed service, you can use a self-hosted Redis pod within the AKS cluster as the cache.
 
 - Instead of using a managed storage solution like Azure NetApp Files, you can use a self-hosted solution like [Rook-Ceph storage](https://rook.io). For more information, see [Use Rook Ceph on AKS](https://github.com/Azure/kubernetes-volume-drivers/tree/master/rook-ceph).
 - Instead of using AKS, you can use [Azure Container Apps](/azure/container-apps/overview) to host containerized WordPress workloads. Container Apps is a managed serverless container service that suits simpler or smaller-scale scenarios. For large, storage-intensive, and highly customizable deployments, use AKS.
@@ -91,7 +91,7 @@ Consider the following best practices when you deploy this solution:
 - Use Web Application Firewall on Azure Front Door to help protect the virtual network traffic that flows into the front-end application tier. For more information, see [Web Application Firewall on Azure Front Door](/azure/web-application-firewall/afds/afds-overview).
 
 - Don't allow outbound internet traffic to flow from the database tier.
-- Don't allow public access to private storage, and disable public access to resources. Use private endpoints for Azure Database for MySQL, Azure Cache for Redis, Key Vault, and Azure Container Registry. For more information, see [Azure Private Link](/azure/private-link/private-link-overview).
+- Don't allow public access to private storage, and disable public access to resources. Use private endpoints for Azure Database for MySQL, Azure Managed Redis, Key Vault, and Azure Container Registry. For more information, see [Azure Private Link](/azure/private-link/private-link-overview).
 
 For more information, see [General WordPress security and performance tips](../../guide/infrastructure/wordpress-overview.yml#general-wordpress-security-and-performance-tips) and [Azure security documentation](/azure/security).
 
