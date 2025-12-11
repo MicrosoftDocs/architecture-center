@@ -162,7 +162,7 @@ The major costs for this solution include:
 
     To help optimize costs, choose the right node type, cluster size, and number of nodes. Machine Learning provides options for training, such as setting the minimum number of compute cluster nodes to zero and defining the idle time before scaling down. For more information, see [Manage and optimize Machine Learning costs](/azure/machine-learning/how-to-manage-optimize-cost).
 
-- Data orchestration duration and activities. For Azure Data Factory, the charges for copy activities on the Azure integration runtime are based on the number of data integration units used and the time taken to run the activities. Added orchestration activity runs are also charged, based on their number.
+- Data orchestration duration and activities. For Azure Data Factory, the charges for copy activities on the Azure integration runtime are based on the number of data integration units used and the time taken to do the activities. Added orchestration activity runs are also charged, based on their number.
 
   Azure Logic Apps pricing plans depend on the resources that you create and use. The following articles can help you choose the right plan for specific use cases:
 
