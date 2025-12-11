@@ -122,7 +122,7 @@ The following tables present a breakdown of each Azure service and component use
     - Workload/configuration recovery responsibility: Microsoft
     - Contoso SKU selection: Premium P1
     - DR uplift options: Microsoft Entra reliability is part of its software as a service (SaaS) offering.
-    - Notes
+    - Notes:
         - [Advancing service resilience in Microsoft Entra ID](https://azure.microsoft.com/en-us/blog/advancing-service-resilience-in-azure-active-directory-with-its-backup-authentication-service/)
 
 - **Azure Key Vault**
@@ -136,7 +136,7 @@ The following tables present a breakdown of each Azure service and component use
     - Workload/configuration recovery responsibility: Microsoft
     - Contoso SKU selection: DevOps Services
     - DR uplift options: DevOps [service and data reliability](/azure/devops/organizations/security/data-protection?view=azure-devops#data-availability) is part of its SaaS offering.
-    - Notes
+    - Notes:
         - DevOps Server as the on-premises offering remains the customer's responsibility for disaster recovery.
         - If third-party services (like SonarCloud, JFrog Artifactory, and Jenkins build servers) are used, they remain the customer's responsibility for recovery from a disaster.
         - If IaaS VMs are used within the DevOps toolchain, they remain the customer's responsibility for recovery from a disaster.
@@ -148,7 +148,7 @@ The following tables present a breakdown of each Azure service and component use
     - DR uplift options:
       - Users can [back up repositories](https://docs.github.com/en/enterprise-cloud@latest/repositories/archiving-a-github-repository/backing-up-a-repository) for DR purposes.
       - Users can follow [DR guidance for GitHub Codespaces](https://docs.github.com/enterprise-cloud@latest/codespaces/reference/disaster-recovery-for-github-codespaces) to prepare for the possibility of a regional outage. If an entire region experiences a service disruption, locally redundant copies of data become temporarily unavailable.
-    - Notes
+    - Notes:
       - GitHub Enterprise Server (self-hosted or on-premises) is the customer's responsibility for DR, including backup and restore of repositories and configuration.
       - Non-Microsoft integrations, like CI/CD tools and artifact repositories, are the customer's responsibility for recovery.  
       - If GitHub Actions runners are hosted on customer-managed infrastructure (VMs or containers), their recovery is also the customer's responsibility.
@@ -217,7 +217,7 @@ The following tables present a breakdown of each Azure service and component use
         - ExpressRoute can be uplifted to use [private peering](/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering), delivering a geo-redundant service.
         - ExpressRoute also has [high availability (HA) designs](/azure/expressroute/designing-for-high-availability-with-expressroute) available.
         - [Site-to-Site VPN connection](/azure/expressroute/use-s2s-vpn-as-backup-for-expressroute-privatepeering) can be used as a backup for ExpressRoute.
-    - Notes
+    - Notes:
         - The ExpressRoute has [inbuilt redundancy](/azure/expressroute/expressroute-introduction#redundancy), with each circuit consisting of two connections to two Microsoft Enterprise edge routers (MSEEs) at an ExpressRoute Location from the connectivity provider/client's network edge.
         - [ExpressRoute premium](/azure/expressroute/expressroute-faqs#what-is-expressroute-premium) circuit enables access to all Azure regions globally.
 
@@ -234,7 +234,7 @@ The following tables present a breakdown of each Azure service and component use
     - Workload/configuration recovery responsibility: Contoso
     - Contoso SKU selection: LRS
     - DR uplift options: Storage Accounts have a broad range of [data redundancy](/azure/storage/common/storage-redundancy) options from primary region redundancy up to secondary region redundancy.
-    - Notes
+    - Notes:
         - GRS is recommended to uplift redundancy, providing a copy of the data in the paired region.
 
 - **Azure Database for PostgreSQL flexible server**
@@ -242,7 +242,7 @@ The following tables present a breakdown of each Azure service and component use
     - Workload/configuration recovery responsibility: Contoso
     - Contoso SKU selection: Standard
     - DR uplift options: Enable [availability zones](/azure/event-hubs/event-hubs-geo-dr?tabs=portal#availability-zones) for zone-level resilience (continued operation during a single zone failure). For region-wide disruptions add the [geo-disaster recovery](/azure/event-hubs/event-hubs-geo-dr?tabs=portal) capability to support failover and subsequent recovery procedures.
-    - Notes
+    - Notes:
         - By design, Event Hubs geo-disaster recovery doesn't replicate data, therefore there are several [considerations to keep in mind](/azure/event-hubs/event-hubs-geo-dr?tabs=portal#considerations) for failover and fallback.
 
 - **Azure Databricks**
@@ -252,7 +252,7 @@ The following tables present a breakdown of each Azure service and component use
     - DR uplift options:
     - IoT Hub resilience (continuity during localized faults) can be increased by a [cross regional HA implementation](/azure/iot-hub/iot-hub-ha-dr#achieve-cross-region). Cross-region deployment plus failover processes address recoverability.
         - Microsoft provides the following [guidance for HA/DR options](/azure/iot-hub/iot-hub-ha-dr#choose-the-right-hadr-option).
-    - Notes
+    - Notes:
         - IoT Hub provides Microsoft-Initiated Failover and Manual Failover by replicating data to the paired region for each IoT hub.
         - IoT Hub provides [Intra-Region HA](/azure/iot-hub/iot-hub-ha-dr#intra-region-ha) and automatically uses an availability zone if created in a [predefined set of Azure regions](/azure/iot-hub/iot-hub-ha-dr#availability-zones).
 
@@ -315,7 +315,7 @@ The following tables present a breakdown of each Azure service and component use
     - Workload/configuration recovery responsibility: Microsoft
     - Contoso SKU selection: Power BI Pro
     - DR uplift options: N/A, Power BI's reliability is part of its SaaS offering.
-    - Notes
+    - Notes:
         - Power BI resides in the Office365 tenancy, not that of Azure.
         - [Power BI uses Azure Availability Zones](/power-bi/enterprise/service-admin-failover#what-does--high-availability--mean-for-power-bi-) to protect Power BI reports, applications and data from datacenter failures.
         - In the case of regional failure, Power BI will [failover to a new region](/power-bi/enterprise/service-admin-failover#what-is-a-power-bi-failover-), usually in the same geographical location, as noted in the [Microsoft Trust Center](https://www.microsoft.com/en-us/trust-center/product-overview?rtc=1).
@@ -327,7 +327,7 @@ The following tables present a breakdown of each Azure service and component use
     - DR uplift options:
         - Single-region accounts might lose availability following a regional outage. Resiliency can be uplifted to a [single write region and at least a second (read) region and enable Service-Managed failover](/azure/cosmos-db/high-availability#availability).
         - Use [Azure Cosmos DB accounts](/azure/cosmos-db/high-availability#availability) for production workloads to enable automatic failover. Without this configuration, the account loses write availability for the duration of a write region outage because manual failover can't succeed without region connectivity.
-    - Notes
+    - Notes:
         - To protect against data loss in a region, Azure Cosmos DB provides two [different backup modes](/azure/cosmos-db/high-availability#durability) - *Periodic* and *Continuous.*
         - [Regional failovers](/azure/cosmos-db/high-availability#availability) are detected and handled in the Azure Cosmos DB client. They don't require any changes from the application.
         - The following guidance describes the [impact of a region outage based upon the Cosmos DB configuration](/azure/cosmos-db/high-availability#what-to-expect-during-a-region-outage).
@@ -343,7 +343,7 @@ The following tables present a breakdown of each Azure service and component use
     - Workload/configuration recovery responsibility: Contoso
     - Contoso SKU selection: N/A
     - DR uplift options: N/A
-    - Notes
+    - Notes:
       - [Microsoft Purview doesn't support automated BCDR](/azure/purview/disaster-recovery#achieve-business-continuity-for-azure-purview). The customer manages backup and restore activities.
 
 - **Fabric: OneLake**
@@ -404,7 +404,7 @@ The following tables present a breakdown of each Azure service and component use
     - Contoso SKU selection: Fabric Capacity
     - DR uplift options:
       - Manual geo-backup or geo-replication for active-active setups across regions.
-    - Notes
+    - Notes:
       - Mirrored databases from the primary region remain unavailable to customers and the settings aren't replicated to the secondary region.
       - Recreate a mirrored database in another workspace from a different region.
 
