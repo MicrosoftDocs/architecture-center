@@ -1,6 +1,6 @@
 ---
 title: Guidance for using Azure Private Link service in a multitenant solution
-description: This article describes the features of Azure Private Link that are useful when working with multitenanted systems, and it provides links to guidance and examples.
+description: This article describes the features of Azure Private Link that are useful when you work with multitenanted systems, and it provides links to guidance and examples.
 author: johndowns
 ms.author: pnp
 ms.date: 07/11/2025
@@ -108,7 +108,7 @@ When you share application tier resources between tenants, you might consider de
 
 ## Features of Azure Private Link that support multitenancy
 
-Private Link has several features that are helpful in a multitenant environment. However, the specific features available to you depend on the service you use. The foundational Azure Private Link service, for virtual machines and load balancers, supports all of the features described below. Other services with Private Link support might provide only a subset of these features.
+Private Link has several features that are helpful in a multitenant environment. However, the specific features available to you depend on the service you use. The foundational Azure Private Link service, for virtual machines and load balancers, supports all of the features described in the following sections. Other services with Private Link support might provide only a subset of these features.
 
 ### Service aliases
 

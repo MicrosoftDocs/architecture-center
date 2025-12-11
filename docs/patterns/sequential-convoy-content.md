@@ -2,7 +2,7 @@ Process a set of related messages in a defined order, without blocking processin
 
 ## Context and problem
 
-Applications often need to process a sequence of messages in the order they arrive, while still being able to scale out to handle increased load. In a distributed architecture, processing these messages in order is not straightforward, because the workers can scale independently and often pull messages independently, using a [Competing Consumers pattern](./competing-consumers.yml).
+Applications often need to process a sequence of messages in the order they arrive, while still being able to scale out to handle increased load. In a distributed architecture, processing these messages in order isn't straightforward, because the workers can scale independently and often pull messages independently, using a [Competing Consumers pattern](./competing-consumers.yml).
 
 For example, an order tracking system receives a ledger containing orders and the relevant operations on those orders. These operations could be to create an order, add a transaction to the order, modify a past transaction, or delete an order. In this system, operations must be performed in a first-in-first-out (FIFO) manner, but only at the order level. However, the initial queue receives a ledger containing transactions for many orders, which might be interleaved.
 
@@ -23,9 +23,9 @@ In the queue, messages for different categories might be interleaved, as shown i
 Consider the following points when deciding how to implement this pattern:
 
 - Category/scale unit. What property of your incoming messages can you scale out on? In the order tracking scenario, this property is the order ID.
-- Throughput. What is your target message throughput? If it is very high, you might need to reconsider your FIFO requirements. For example, can you enforce a start/end message, sort by time, then send a batch for processing?
+- Throughput. What is your target message throughput? If it's very high, you might need to reconsider your FIFO requirements. For example, can you enforce a start/end message, sort by time, then send a batch for processing?
 - Service capabilities. Does your choice of message bus allow for one-at-a-time processing of messages within a queue or category of a queue?
-- Evolvability. How will you add a new category of message to the system? For example, suppose the ledger system described above is specific one customer. If you needed to onboard a new customer, could you have a set of ledger processors that distribute work per customer ID?
+- Evolvability. How will you add a new category of message to the system? For example, suppose the ledger system described above is specific to one customer. If you needed to onboard a new customer, could you have a set of ledger processors that distribute work per customer ID?
 - It's possible that consumers might receive a message out of order, due to variable network latency when sending messages. Consider using sequence numbers to verify ordering. You might also include a special "end of sequence" flag in the last message of a transaction. Stream processing technologies such as Spark or Azure Stream Analytics can process messages in order within a time window.
 
 ## When to use this pattern

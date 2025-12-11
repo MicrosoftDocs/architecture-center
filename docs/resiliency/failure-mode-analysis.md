@@ -10,7 +10,7 @@ ms.subservice: architecture-guide
 
 # Failure mode analysis for Azure applications
 
-Failure mode analysis (FMA) is a process for building resiliency into a system, by identifying possible failure points in the system. The FMA should be part of the architecture and design phases, so that you can build failure recovery into the system from the beginning.
+Failure mode analysis (FMA) is a process for building reliability into a system by identifying possible failure points. The FMA should be part of the architecture and design phases, so that you can build both resiliency (the ability to withstand failures) and recoverability (the ability to restore functionality after failures) into the system from the beginning.
 
 Here is the general process to conduct an FMA:
 
@@ -297,7 +297,7 @@ For more information, see [Service Bus messaging exceptions][sb-messaging-except
 **Recovery:**
 
 - If possible, design your message processing operations to be idempotent. Otherwise, store message IDs of messages that are already processed, and check the ID before processing a message.
-- Enable duplicate detection, by creating the queue with `RequiresDuplicateDetection` set to true. With this setting, Service Bus automatically deletes any message that is sent with the same `MessageId` as a previous message.  Note the following:
+- Enable duplicate detection, by creating the queue with `RequiresDuplicateDetection` set to true. With this setting, Service Bus automatically deletes any message that is sent with the same `MessageId` as a previous message. Note the following points:
 
   - This setting prevents duplicate messages from being put into the queue. It doesn't prevent a receiver from processing the same message more than once.
   - Duplicate detection has a time window. If a duplicate is sent beyond this window, it won't be detected.

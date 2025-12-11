@@ -48,7 +48,7 @@ The following workflow corresponds to the previous diagram:
 
    - A Kubernetes [ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) object to expose the web application via the NGINX ingress controller.
 
-   - A [SecretProviderClass](https://learn.microsoft.com/azure/aks/aksarc/secrets-store-csi-driver) custom resource that retrieves the TLS certificate from the specified key vault by using the user-defined managed identity of the [Key Vault provider for Secrets Store CSI Driver](/azure/aks/csi-secrets-store-driver). This component creates a Kubernetes secret that contains the TLS certificate that the ingress object references.
+   - A [SecretProviderClass](/azure/aks/aksarc/secrets-store-csi-driver) custom resource that retrieves the TLS certificate from the specified key vault by using the user-defined managed identity of the [Key Vault provider for Secrets Store CSI Driver](/azure/aks/csi-secrets-store-driver). This component creates a Kubernetes secret that contains the TLS certificate that the ingress object references.
 
 1. An Azure Front Door [secret resource](/azure/templates/microsoft.cdn/profiles/secrets) is used to manage and store the TLS certificate that's in the key vault. This certificate is used by the [custom domain](/azure/templates/microsoft.cdn/profiles/customdomains) that's associated with the Azure Front Door endpoint. The Azure Front Door profile uses a user-assigned managed identity with the *Key Vault Administrator* role assignment to retrieve the TLS certificate from Key Vault.
 
@@ -352,7 +352,6 @@ Principal author:
 - [Best practices for network connectivity and security in AKS](/azure/aks/operator-best-practices-network)
 - [Best practices for storage and backups in AKS](/azure/aks/operator-best-practices-storage)
 - [Best practices for Azure Front Door](/azure/frontdoor/best-practices)
-- [Create a private AKS cluster](https://github.com/azure-samples/private-aks-cluster)
 - [Origins and origin groups in Azure Front Door](/azure/frontdoor/origin)
 - [Routing architecture overview](/azure/frontdoor/front-door-routing-architecture)
 - [Secure your origin with Private Link in Azure Front Door Premium](/azure/frontdoor/private-link)

@@ -67,8 +67,6 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist). 
 
-One of the key pillars of reliability is resiliency. The goal of resiliency is to return the workload to a fully functioning state after a failure occurs. 
-
 If you choose Azure Functions as your microservice computing platform, consider deploying the [Functions Premium plan](/azure/azure-functions/functions-premium-plan?tabs=portal) or Azure App Service plan in a zone-redundant configuration. For more information, see [Reliability in Functions](/azure/reliability/reliability-functions?tabs=azure-portal). 
 
 If you choose AKS as your microservice computing platform, you can enhance microservice reliability by deploying an [AKS cluster that uses availability zones](/azure/aks/availability-zones), by using the [Standard or Premium tier](/azure/aks/free-standard-pricing-tiers) for Azure Kubernetes clusters, and by increasing the minimum number of pods and nodes. For more information, see [Deployment and cluster reliability best practices for AKS](/azure/aks/best-practices-app-cluster-reliability).
@@ -123,4 +121,4 @@ Consider the following factors when you choose between an orchestrator approach 
 - [Design interservice communication for microservices](./interservice-communication.yml)
 - [Use domain analysis to model microservices](../model/domain-analysis.md)
 - [Design a microservices architecture](index.md)
-- [Design APIs for microservices](../design/api-design.yml)
+- [Design APIs for microservices](../design/api-design.md)

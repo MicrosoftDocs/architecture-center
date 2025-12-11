@@ -106,7 +106,7 @@ The following dataflow corresponds to the previous diagram:
 
 ## Scenario details
 
-Many machine learning problems are too complex for a single machine learning model to solve. Whether it's predicting sales for every item of every store or modeling maintenance for hundreds of oil wells, having a model for each instance might improve results on many machine learning problems. This *many models* pattern is common across a wide variety of industries, and has many real-world use cases. With the use of Machine Learning, an end-to-end many models pipeline can include model training, batch-inferencing deployment, and real-time deployment.
+Many machine learning problems are too complex for a single machine learning model to solve. Whether it's predicting sales for every item of every store or modeling maintenance for hundreds of oil wells, having a model for each instance might improve results on many machine learning problems. This *many models* pattern is common across a wide range of industries, and has many real-world use cases. With the use of Machine Learning, an end-to-end many models pipeline can include model training, batch-inferencing deployment, and real-time deployment.
 
 A many models solution requires a different dataset for every model during training and scoring. For instance, if the task is to predict sales for each item in every store, each dataset corresponds to a unique item-store combination.
 

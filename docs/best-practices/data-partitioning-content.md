@@ -7,7 +7,7 @@ However, the partitioning strategy must be chosen carefully to maximize the bene
 
 ## Why partition data?
 
-- **Improve scalability**. When you scale up a single database system, it will eventually reach a physical hardware limit. If you divide data across multiple partitions, each hosted on a separate server, you can scale out the system almost indefinitely.
+- **Improve scalability**. When you scale up a single database system, it eventually reaches a physical hardware limit. If you divide data across multiple partitions, each hosted on a separate server, you can scale out the system almost indefinitely.
 
 - **Improve performance**. Data access operations on each partition take place over a smaller volume of data. Correctly done, partitioning can make your system more efficient. Operations that affect more than one partition can run in parallel.
 
@@ -63,7 +63,7 @@ In this example, the application regularly queries the product name, description
 
 Other advantages of vertical partitioning:
 
-- Relatively slow-moving data (product name, description, and price) can be separated from the more dynamic data (stock level and last ordered date). Slow moving data is a good candidate for an application to cache in memory.
+- Relatively slow-moving data (product name, description, and price) can be separated from the more dynamic data (stock level and last ordered date). Slow-moving data is a good candidate for an application to cache in memory.
 
 - Sensitive data can be stored in a separate partition with additional security controls.
 
@@ -87,10 +87,10 @@ It's vital to consider size and workload for each partition and balance them so 
 
 Follow these steps when designing partitions for scalability:
 
-1. Analyze the application to understand the data access patterns, such as the size of the result set returned by each query, the frequency of access, the inherent latency, and the server-side compute processing requirements. In many cases, a few major entities will demand most of the processing resources.
-2. Use this analysis to determine the current and future scalability targets, such as data size and workload. Then distribute the data across the partitions to meet the scalability target. For horizontal partitioning, choosing the right shard key is important to make sure distribution is even. For more information, see the [sharding pattern](../patterns/sharding.yml).
-3. Make sure each partition has enough resources to handle the scalability requirements, in terms of data size and throughput. Depending on the data store, there might be a limit on the amount of storage space, processing power, or network bandwidth per partition. If the requirements are likely to exceed these limits, you might need to refine your partitioning strategy or split data out further, possibly combining two or more strategies.
-4. Monitor the system to verify that data is distributed as expected and that the partitions can handle the load. Actual usage doesn't always match what an analysis predicts. If so, it might be possible to rebalance the partitions, or else redesign some parts of the system to gain the required balance.
+1. Analyze the application to understand the data access patterns, such as the size of the result set returned by each query, the frequency of access, the inherent latency, and the server-side compute processing requirements. In many cases, a few major entities demand most of the processing resources.
+1. Use this analysis to determine the current and future scalability targets, such as data size and workload. Then, distribute the data across the partitions to meet the scalability target. For horizontal partitioning, choosing the right shard key is important to make sure distribution is even. For more information, see the [sharding pattern](../patterns/sharding.yml).
+1. Make sure each partition has enough resources to handle the scalability requirements, in terms of data size and throughput. Depending on the data store, there might be a limit on the amount of storage space, processing power, or network bandwidth per partition. If the requirements are likely to exceed these limits, you might need to refine your partitioning strategy or split data out further, possibly combining two or more strategies.
+1. Monitor the system to verify that data is distributed as expected and that the partitions can handle the load. Actual usage doesn't always match what an analysis predicts. If so, it might be possible to rebalance the partitions, or else redesign some parts of the system to gain the required balance.
 
 Some cloud environments allocate resources in terms of infrastructure boundaries. Ensure that the limits of your selected boundary provide enough room for any anticipated growth in the volume of data, in terms of data storage, processing power, and bandwidth.
 
@@ -108,14 +108,14 @@ Follow these steps when designing partitions for query performance:
    - Monitor the system to identify any queries that perform slowly.
    - Find which queries are performed most frequently. Even if a single query has a minimal cost, the cumulative resource consumption could be significant.
 
-2. Partition the data that is causing slow performance:
+1. Partition the data that is causing slow performance:
    - Limit the size of each partition so that the query response time is within target.
    - If you use horizontal partitioning, design the shard key so that the application can easily select the right partition. This prevents the query from having to scan through every partition.
    - Consider the location of a partition. If possible, try to keep data in partitions that are geographically close to the applications and users that access it.
 
-3. If an entity has throughput and query performance requirements, use functional partitioning based on that entity. If this still doesn't satisfy the requirements, apply horizontal partitioning as well. In most cases, a single partitioning strategy will suffice, but in some cases it's more efficient to combine both strategies.
+1. If an entity has throughput and query performance requirements, use functional partitioning based on that entity. If this still doesn't satisfy the requirements, apply horizontal partitioning as well. In most cases, a single partitioning strategy suffices, but in some cases it's more efficient to combine both strategies.
 
-4. Consider running queries in parallel across partitions to improve performance.
+1. Consider running queries in parallel across partitions to improve performance.
 
 ## Designing partitions for availability
 
@@ -137,17 +137,17 @@ Consider the following factors that affect availability:
 
 - Partitioning data by geographical area allows scheduled maintenance tasks to occur at off-peak hours for each location. Ensure that partitions aren't too large to prevent any planned maintenance from being completed during this period.
 
-**Whether to replicate critical data across partitions**. This strategy can improve availability and performance, but can also introduce consistency issues. It takes time to synchronize changes with every replica. During this period, different partitions will contain different data values.
+**Whether to replicate critical data across partitions**. This strategy can improve availability and performance, but can also introduce consistency issues. It takes time to synchronize changes with every replica. During this period, different partitions contain different data values.
 
 ## Application design considerations
 
-Partitioning adds complexity to the design and development of your system. Consider partitioning as a fundamental part of system design even if the system initially only contains a single partition. If you address partitioning as an afterthought, it will be more challenging because you already have a live system to maintain:
+Partitioning adds complexity to the design and development of your system. Consider partitioning as a fundamental part of system design even if the system initially only contains a single partition. If you address partitioning as an afterthought, it's more challenging because you already have a live system to maintain:
 
-- Data access logic will need to be modified.
+- Data access logic needs to be modified.
 - Large quantities of existing data might need to be migrated, to distribute it across partitions.
 - Users expect to be able to continue using the system during the migration.
 
-In some cases, partitioning isn't considered important because the initial dataset is small and can be easily handled by a single server. This might be true for some workloads, but many commercial systems need to expand as the number of users increases.
+In some cases, partitioning isn't considered important because the initial dataset is small and easily handled by a single server. This might be true for some workloads, but many commercial systems need to expand as the number of users increases.
 
 Moreover, it's not only large data stores that benefit from partitioning. For example, a small data store might be heavily accessed by hundreds of concurrent clients. Partitioning the data in this situation can help to reduce contention and improve throughput.
 
@@ -169,7 +169,7 @@ Consider the following points when you design a data partitioning scheme:
 
 **If you reach the physical limits of a partitioning strategy, you might need to extend the scalability to a different level**. For example, if partitioning is at the database level, you might need to locate or replicate partitions in multiple databases. If partitioning is already at the database level, and physical limitations are an issue, it might mean that you need to locate or replicate partitions in multiple hosting accounts.
 
-**Avoid transactions that access data in multiple partitions**. Some data stores implement transactional consistency and integrity for operations that modify data, but only when the data is located in a single partition. If you need transactional support across multiple partitions, you will probably need to implement this as part of your application logic because most partitioning systems do not provide native support.
+**Avoid transactions that access data in multiple partitions**. Some data stores implement transactional consistency and integrity for operations that modify data, but only when the data is located in a single partition. If you need transactional support across multiple partitions, you probably need to implement it as part of your application logic because most partitioning systems do not provide native support.
 
 All data stores require some operational management and monitoring activity. The tasks can range from loading data, backing up and restoring data, reorganizing data, and ensuring that the system is performing correctly and efficiently.
 
@@ -194,7 +194,7 @@ Some data stores, such as Azure Cosmos DB, can automatically rebalance partition
     - Which partitions need to be split (or possibly combined)?
     - What is the new partition key?
 
-2. Migrate data from the old partitioning scheme to the new set of partitions.
+1. Migrate data from the old partitioning scheme to the new set of partitions.
 
 Depending on the data store, you might be able to migrate data between partitions while they are in use. This is called *online migration*. If that's not possible, you might need to make partitions unavailable while the data is relocated (*offline migration*).
 
@@ -203,10 +203,10 @@ Depending on the data store, you might be able to migrate data between partition
 Offline migration is typically simpler because it reduces the chances of contention occurring. Conceptually, offline migration works as follows:
 
 1. Mark the partition offline.
-2. Split-merge and move the data to the new partitions.
-3. Verify the data.
-4. Bring the new partitions online.
-5. Remove the old partition.
+1. Split-merge and move the data to the new partitions.
+1. Verify the data.
+1. Bring the new partitions online.
+1. Remove the old partition.
 
 Optionally, you can mark a partition as read-only in step 1, so that applications can still read the data while it's being moved.
 

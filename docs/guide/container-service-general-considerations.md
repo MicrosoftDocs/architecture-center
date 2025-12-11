@@ -225,7 +225,7 @@ Advanced Container Networking Services (ACNS) equips AKS with advanced networkin
 
 - **Container network security:**
 
-  For clusters that use Azure Container Networking Interface powered by Cilium, ACNS provides fully qualified domain name (FQDN) filtering. Instead of managing static, IP address-based security policies, you can define policies based on domain names. This dynamic approach simplifies policy management and also aligns with modern, Zero Trust security models. This approach makes it easier for you to enforce robust security without constant manual updates.
+  For clusters that use Azure Container Networking Interface powered by Cilium, ACNS provides fully qualified domain name (FQDN) filtering. Instead of managing static, IP address-based security policies, you can define policies based on domain names. This dynamic approach simplifies policy management and also aligns with modern, zero trust security models. This approach makes it easier for you to enforce robust security without constant manual updates.
 
 For more information, see the following resources:
 
@@ -323,7 +323,7 @@ There are consequences to implementing network-restricted access to the Kubernet
 |---|---|---|
 | Kubernetes API network security | Not configurable in PaaS | Configurable by using a public or private IP address |
 
-ACNS enhances data plane security in AKS. For clusters that use Azure Container Networking Interface powered by Cilium, ACNS introduces container network security through FQDN filtering. Instead of managing static, IP address-based security policies, you can define dynamic policies based on FQDNs. This approach simplifies policy management, reduces administrative overhead, and supports a Zero Trust model by ensuring that only traffic to trusted domains is allowed.
+ACNS enhances data plane security in AKS. For clusters that use Azure Container Networking Interface powered by Cilium, ACNS introduces container network security through FQDN filtering. Instead of managing static, IP address-based security policies, you can define dynamic policies based on FQDNs. This approach simplifies policy management, reduces administrative overhead, and supports a zero trust model by ensuring that only traffic to trusted domains is allowed.
 
 > [!NOTE]
 > ACNS security features require Kubernetes version 1.29 or later and are available only on clusters that use the Cilium data plane.

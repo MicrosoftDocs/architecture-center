@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: High Availability Enterprise Deployment that uses App Service Environment
+  title: High Availability Enterprise Deployment That Uses App Service Environment
   description: Learn about the recommended architecture to deploy an enterprise application by using App Service Environment in multiple availability zones.
   author: deepbhattacharyya
   ms.author: deepbh
@@ -11,6 +11,7 @@ metadata:
     - management-and-governance
     - featured
   ms.custom: arb-web
+  ai-usage: ai-assisted
 name: High availability enterprise deployment that uses App Service Environment
 azureCategories:
   - management-and-governance

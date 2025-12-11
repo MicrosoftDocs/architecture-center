@@ -247,7 +247,7 @@ During this phase, operation monitoring and security monitoring tasks are perfor
 
 #### Best Practice – Enable centralized log monitoring and use SIEM products to monitor for real time security threats
 
-- Connect AKS diagnostics logs to Microsoft Sentinel for centralized security monitoring based on patterns and rules. Microsoft Sentinel enables this access seamlessly via [data connectors](/azure/sentinel/data-connectors-reference#azure-kubernetes-service-aks).
+- Connect AKS diagnostics logs to Microsoft Sentinel for centralized security monitoring based on patterns and rules. Microsoft Sentinel enables this access by way of [data connectors](/azure/sentinel/data-connectors-reference#azure-kubernetes-service-aks).
 
 #### Best Practice – Enable audit logging to monitor activity on your production clusters
 

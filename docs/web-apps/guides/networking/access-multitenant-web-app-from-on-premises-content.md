@@ -1,6 +1,6 @@
 This article shows how to set up improved-security private connectivity to an App Service web app or a function app from an on-premises network or from within an Azure virtual network. It also shows how to set up improved-security connectivity between the app and other Azure platform as a service (PaaS) solutions over Azure Private Link, without using the public internet.
 
-In this article, Azure App Service refers to the pricing tiers where there is shared infrastructure with other App Service customers, such as Basic, Standard, and the Premium tiers. App Service Environment deploys directly into your virtual network with dedicated supporting infrastructure and uses Isolated pricing tiers and is not the focus of this article.
+In this article, Azure App Service refers to the pricing tiers where there's shared infrastructure with other App Service customers, such as Basic, Standard, and the Premium tiers. App Service Environment deploys directly into your virtual network with dedicated supporting infrastructure and uses Isolated pricing tiers and isn't the focus of this article.
 
 ## Architecture
 

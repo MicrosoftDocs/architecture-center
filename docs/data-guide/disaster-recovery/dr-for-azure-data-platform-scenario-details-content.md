@@ -105,7 +105,7 @@ The following sections present a breakdown of Contoso activity necessary across 
         - Availability Zone failure: Contoso would need to validate availability and redeploy if necessary.
         - Azure regional failure: Contoso would need to redeploy the Foundation Azure Firewalls into the secondary region.
     - Notes
-        - Azure Firewall can be created with [Availability Zones](/en-au/azure/firewall/deploy-availability-zone-powershell) for increased availability.
+        - Azure Firewall can be created with [Availability Zones](/azure/firewall/deploy-availability-zone-powershell) for increased availability.
         - A "Warm Spare" strategy would mitigate this activity.
 
 - **Azure DDoS**
@@ -150,7 +150,7 @@ The following sections present a breakdown of Contoso activity necessary across 
         - Availability Zone failure: N/A
         - Azure regional failure: N/A
     - Notes
-        - DevOps Services is [built upon the Azure backbone](/azure/devops/organizations/security/data-protection?view=azure-devops#built-on-azure) and uses [Azure blob storage with geo-replication](/azure/devops/organizations/security/data-protection?view=azure-devops#data-redundancy) to ensure resiliency.
+        - DevOps Services is [built upon the Azure backbone](/azure/devops/organizations/security/data-protection?view=azure-devops#built-on-azure) and uses [Azure blob storage with geo-replication](/azure/devops/organizations/security/data-protection?view=azure-devops#data-redundancy) to ensure reliability.
 
 ### Area: Data Platform components
 
@@ -184,7 +184,7 @@ The following sections present a breakdown of Contoso activity necessary across 
         - Azure regional failure: Contoso would need to redeploy the Event Hubs instance into the secondary region.
     - Notes
         - When you use the Azure portal, zone redundancy via support for availability zones is [automatically enabled](/azure/event-hubs/event-hubs-geo-dr#availability-zones), this can be disabled via using the Azure CLI or PowerShell commands.
-        - This resiliency can be extended to cover a full region outage with [Geo-disaster recovery](/azure/event-hubs/event-hubs-geo-dr).
+        - Zone redundancy provides local resilience (continued operation during a zonal outage). For region-wide disruptions, you should use Event Hubs geo-disaster recovery feature to restore operations in a secondary region. See [Geo-disaster recovery](/azure/event-hubs/event-hubs-geo-dr).
 
 - **Azure IoT Hubs**
     - Contoso SKU selection: Standard
@@ -268,7 +268,7 @@ The following sections present a breakdown of Contoso activity necessary across 
         - Azure regional failure: Contoso should monitor, ensuring there are [enough provisioned request units (RUs)](/azure/cosmos-db/high-availability#what-to-expect-during-a-region-outage) in the remaining regions to support read and write activities.
     - Notes
         - [Single-region accounts might lose availability](/azure/cosmos-db/high-availability#availability) following a regional outage. To ensure high availability of your Azure Cosmos DB instance, configure it with a single write region and at least a second (read) region and enable Service-Managed failover.
-        - To avoid the loss of write availability, it advised that production workloads are configured with "enable service-managed failover", enabling automatic failover to [available regions](/azure/cosmos-db/high-availability#availability).
+        - To avoid the loss of write availability, configure production workloads to *enable service-managed failover*, which enables automatic failover to [available regions](/azure/cosmos-db/high-availability#availability).
 
 - **Azure AI Search**
     - Contoso SKU selection: Standard S1

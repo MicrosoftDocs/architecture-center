@@ -12,7 +12,7 @@ ms.subservice: best-practice
 
 # Best practices for message encoding
 
-Many cloud applications use asynchronous messages to exchange information between components of the system. An important aspect of messaging is the format used to encode the payload data. After you [choose a messaging technology](../guide/technology-choices/messaging.yml), the next step is to define how the messages will be encoded. There are many options available, but the right choice depends on your use case.
+Many cloud applications use asynchronous messages to exchange information between components of the system. An important aspect of messaging is the format used to encode the payload data. After you [choose a messaging technology](../guide/technology-choices/messaging.yml), the next step is to define how the messages are encoded. There are many options available, but the right choice depends on your use case.
 
 This article describes some of the considerations.
 
@@ -90,7 +90,7 @@ However, if on-demand decoding of the payload is more important than size, inclu
 
 ### Schema versioning
 
-As business requirements change, the shape is expected to change, and the schema will evolve. Versioning allows the producer to indicate schema updates that might include new features. Versioning has two key aspects:
+As business requirements change, the shape is expected to change, and the schema evolves. Versioning allows the producer to indicate schema updates that might include new features. Versioning has two key aspects:
 
 - The consumer should track and understand the changes.
 

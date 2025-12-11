@@ -13,10 +13,10 @@ azureCategories:
   - analytics
   - databases
 products:
-  - azure-synapse-analytics
+  - fabric
   - power-bi
 name: Analytics architecture design
 summary: Analytics solutions turn volumes of data into useful business intelligence (BI) and inventive artificial intelligence (AI).
 thumbnailUrl: /azure/architecture/browse/thumbs/analytics-get-started-diagram-thumb.png
 content: |
-   [!include[](analytics-start-here-content.md)]
+   [!INCLUDE[](analytics-start-here-content.md)]

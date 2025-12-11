@@ -2,9 +2,9 @@ The goal of microservices is to increase the velocity of application releases, b
 
 ![Microservices design patterns](../images/microservices-patterns.png)
 
-[**Ambassador**](../../patterns/ambassador.yml) can be used to offload common client connectivity tasks such as monitoring, logging, routing, and security (such as TLS) in a language agnostic way. Ambassador services are often deployed as a sidecar (see below).
+[**Ambassador**](../../patterns/ambassador.yml) can be used to offload common client connectivity tasks such as monitoring, logging, routing, and security (such as TLS) in a language agnostic way. Ambassador services are often deployed as a [sidecar](../../patterns/sidecar.yml).
 
-[**Anti-corruption layer**](../../patterns/anti-corruption-layer.yml) implements a façade between new and legacy applications, to ensure that the design of a new application is not limited by dependencies on legacy systems.
+[**Anti-corruption layer**](../../patterns/anti-corruption-layer.yml) implements a façade between new and legacy applications, to ensure that the design of a new application isn't limited by dependencies on legacy systems.
 
 [**Backends for Frontends**](../../patterns/backends-for-frontends.md) creates separate backend services for different types of clients, such as desktop and mobile. That way, a single backend service doesn't need to handle the conflicting requirements of various client types. This pattern can help keep each microservice simple, by separating client-specific concerns.
 
@@ -36,4 +36,4 @@ For the complete catalog of cloud design patterns on the Azure Architecture Cent
 - [Microservice architecture style](../../guide/architecture-styles/microservices.md)
 - [Design a microservices architecture](index.md)
 - [Using domain analysis to model microservices](../model/domain-analysis.md)
-- [Data considerations for microservices](data-considerations.yml)
+- [Data considerations for microservices](data-considerations.md)
