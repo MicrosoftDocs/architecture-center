@@ -291,7 +291,7 @@ The platform team must also host the private DNS zones for other workload depend
 
 ## Data scientist and agent developer access
 
-Like the [baseline architecture](./baseline-azure-ai-foundry-chat.yml#ingress-to-microsoft-foundry), this architecture disables public ingress access to the Foundry portal and other browser-based experiences. The baseline architecture deploys a jump box to provide a browser with a source IP address from the virtual network that various workload roles use.
+Like the [baseline architecture](./baseline-azure-ai-foundry-chat.yml#ingress-to-foundry), this architecture disables public ingress access to the Foundry portal and other browser-based experiences. The baseline architecture deploys a jump box to provide a browser with a source IP address from the virtual network that various workload roles use.
 
 When your workload connects to an Azure landing zone, your team gains more access options. Work with the platform team to see if you can get private access to various browser-based Foundry portals without managing and governing a virtual machine (VM). This access might be possible through transitive routing from an existing ExpressRoute or VPN Gateway connection.
 
