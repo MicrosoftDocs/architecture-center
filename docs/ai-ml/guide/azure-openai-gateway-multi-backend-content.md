@@ -192,7 +192,7 @@ In addition to those reasons, adding a gateway in this topology also supports a 
 
 ### Reasons to avoid a gateway for multiple instances in a single region and multiple subscriptions
 
-All of the [reasons to avoid a gateway for multiple instances in a single region and subscription](#reasons-to-avoid-a-gateway-for-multiple-instances-in-a-single-region-and-subscription) apply to this topology.
+All of the [reasons to avoid a gateway for multiple instances in a single region and subscription](#reasons-to-avoid-a-gateway-for-multiple-instances-in-a-single-region-and-single-subscription) apply to this topology.
 
 ## Multiple Azure OpenAI instances across multiple regions
 
