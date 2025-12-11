@@ -116,14 +116,32 @@ Defender for Cloud native AWS support provides several benefits:
   
 Defender for Cloud brings the “secure by design” philosophy to AWS through environment hardening, vulnerability management, and threat detection in one solution. For more information about protecting workloads in AWS, see [Connect your AWS account](/azure/defender-for-cloud/quickstart-onboard-aws) and [Assign regulatory compliance standards in Microsoft Defender for Cloud](/azure/defender-for-cloud/update-regulatory-compliance-packages). 
 
+### Microsoft Purview
+
+Data is ultimately what attackers seek to steal or what we must protect for compliance. In a multi-cloud environment, data can reside anywhere – in Azure SQL, on-prem files, or in AWS S3 buckets and databases. Microsoft Purview provides a unified data governance solution that helps answer “What data do we have in AWS, where is it, and how sensitive is it?” This is crucial for a defense-in-depth approach because it informs the protective measures needed at the data layer (encryption, DLP, access controls) and allows you to enforce Zero Trust for data. It’s also key for regulatory compliance – ensuring that AWS data repositories meet the same compliance standards as Azure or on-prem, through consistent classification and reporting.
+
+- __Multi-cloud data discovery__: Purview’s multi-cloud scanning connectors extend its discovery capabilities to AWS. For instance, an AWS S3 bucket can be registered as a data source in Purview and scan can be performed. The scanner will read object metadata and content and use Purview’s built-in classification rules (over 200 out-of-the-box detectors for things like credit card numbers, SSNs, API keys, etc.) to identify sensitive information within those objects. It does not copy the data out; it only retrieves metadata and classification results, which are stored in Purview’s Data Map. The scan provides the information for example: “Bucket: s3://my-finance-data/ – contains 3 files classified as Privacy/Personal Data, detected UK National Insurance Numbers”.   Similarly, Purview can scan Amazon RDS databases like RDS for PostgreSQL or SQL Server. It will connect and run queries to get schemas and sample data for classification.
+
+-  __Data Catalog and Governance:__ All discovered AWS data assets get onboarded into the Purview Data Catalog, sitting alongside your other data assets. This means data stewards and compliance officers can use a single portal to search for instance, “customer data” and find results whether that’s in an Azure Data Lake or an AWS bucket. Business glossary terms and sensitivity labels can be uniformly applied. This consistency is crucial for compliance to demonstrate to auditors that all personal data across clouds is inventoried and labeled.
+
+- __Risk management:__ Knowing what sensitive data is in AWS allows targeted security measures: e.g., if Purview finds credit card numbers in an S3 bucket, they could be encrypted or moved. Or you could set up a Defender for Cloud Apps policy to monitor access to that bucket more closely. Purview scans can be run on a schedule to detect changes. It essentially gives you continuous Data Security Posture Management (DSPM) – highlighting places where sensitive data lives in AWS and whether proper controls are enabled.
+
+- __Integration with broader security:__ Purview surfaces the sensitive data identified in Defender for Cloud and Defender for Cloud Apps to provide additional context for posture management and addressing alerts.
+
+- __Compliance reporting:__ For frameworks like GDPR, CCPA, etc., Purview Compliance Manager can generate reports of where personal data is stored, including AWS locations. This makes answering Data Subject Requests or doing impact assessments easier. Instead of manually searching AWS for data, you query Purview as your inventory. Regulatory Compliance: If your AWS data falls under PCI, Purview helps ensure you know all locations of cardholder data so you can put proper segmentations.
+
+By using Purview for AWS, you extend your data governance umbrella across clouds. It ensures that even at the deepest layer – the data itself – you have insight and control and provides the evidence for compliance that you are identifying and securing sensitive data regardless of where it resides. It also helps drive informed decision-making to apply other controls. For more information see - [Amazon S3 Multicloud Scanning Connector for Microsoft Purview](/purview/register-scan-amazon-s3)
+
 ### Microsoft Sentinel
 
-Microsoft Sentinel is a scalable cloud-native security information and event management (SIEM) system that provides an intelligent and comprehensive solution for SIEM and security orchestration, automation, and response. Microsoft Sentinel provides cyberthreat detection, investigation, response, and proactive hunting. It gives you a bird's-eye view across your enterprise.
+Microsoft Sentinel is a scalable, cloud-native Security Information and Event Management (SIEM) and SOAR platform. Microsoft Sentinel supports ingesting and analyzing logs from any source – on-premises, Azure, Microsoft 365, third-party SaaS, and Amazon Web Services (AWS). Sentinel provides advanced threat detection, investigation, proactive hunting, and automated response capabilities. In the context of AWS, Sentinel can collect a broad array of AWS security data, store it in its analytics and run cloud-scale queries and machine learning to detect malicious patterns. It aligns with Zero Trust by continuously monitoring and analyzing telemetry (assuming breach) and can automate response actions to contain incidents rapidly.
 
-You can use the AWS connectors to pull AWS service logs into Microsoft Sentinel. These connectors work by granting Microsoft Sentinel access to your AWS resource logs. Setting up the connector establishes a trust relationship between AWS and Microsoft Sentinel. You create this relationship on AWS by creating a role that gives permission to Microsoft Sentinel to access your AWS logs.
+- __Unified visibility and analytics:__ Sentinel is cloud-native and designed to aggregate data from any source – on-prem systems, Azure, M365, third-party SaaS, and AWS. Sentinel supports a range of AWS logs; you can use Microsoft published __AWS Sentinel Solution__ (available in Content Hub) that includes predefined analytics rules and workbooks and pull AWS service logs into Microsoft Sentinel. The connector can ingest logs from the following AWS services by pulling them from an S3 bucket:
 
-The connector can ingest logs from the following AWS services by pulling them from an S3 bucket:
-
+  - After ingestion, you can enable analytical rules – e.g., alert if “Root user usage” occurs (since in AWS root account usage is rare and high risk), or if “GuardDuty: CryptoCurrency Mining” finding is ingested, escalate to incident. There are also machine learning-based anomalies that Sentinel can detect across all logs.·
+  
+  - By bringing AWS logs into Sentinel, you enable cross-platform correlation. For example, Sentinel can correlate an AWS CloudTrail event (like an IAM user created) with an Azure AD log (the same user just logged in from a Tor IP) and an Office 365 event (the user downloaded a bunch of files) to flag a multi-stage attack spanning systems. This unified view is a huge advantage in multi-cloud operations, ensuring that your SOC isn’t blind to half of the environment. Many AWS customers using Microsoft 365 choose Sentinel so they can correlate O365 and Azure AD signals with AWS logs in one place, something neither platform’s native tools alone can do.
+  
 |Service|Data source|
 |-|-|
 |[Amazon Virtual Private Cloud (VPC)](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) | [VPC Flow Logs](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html)|
@@ -131,7 +149,35 @@ The connector can ingest logs from the following AWS services by pulling them fr
 |[AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html) | [Management](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html) and [data](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) events|
 |[AWS CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html) | [CloudWatch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html)|
 
-For more information on how to install and configure the AWS connector in Microsoft Sentinel, see [Connect Microsoft Sentinel to Amazon Web Services to ingest AWS service log data](/azure/sentinel/connect-aws?tabs=s3).
+-  __Leverage threat intelligence__: Sentinel can integrate threat intel (TI) feeds. You can match AWS logs (say, source IPs in CloudTrail or DNS queries from AWS if you ingest DNS logs) against known malicious indicators. If a match occurs (AWS resource communicating with a known bad IP), raise an alert. This cross-check adds another layer of defense (threat intel layer). 
+
+- __Detection and hunting:__ Once logs are in Sentinel, analysts can use __KQL (Kusto Query Language)__ to query AWS data alongside other logs. For instance, one could search for any AWS API calls by a user that also had failed Entra ID logins – a hypothetical query across two data types. Sentinel’s built-in rule templates for AWS cover scenarios like:
+
+  - __Exfiltration patterns__: sudden spikes in outgoing traffic in VPC Flow Logs after a new IAM access key creation (could indicate a stolen key being used to mass-download data and exfiltrate).
+  
+  - __Persistence or Privilege Escalation__: creation of an IAM user or access key by an unusual source, or changes to security group rules (opening ports that are normally closed).
+  
+  - __Brute force__: multiple failed login attempts to the AWS Console or to an EC2 instance (from CloudTrail events for AWS console login failures or analyzing authentication logs on Linux).
+  
+  - __Response automation:__ Sentinel is a SIEM+SOAR platform which means you can trigger Playbooks (Logic Apps) on AWS alerts. For example, if Sentinel gets an alert of “Critical GuardDuty finding: EC2 instance credential exfiltration,” you could have a playbook that automatically calls AWS APIs (using Azure’s AWS connectors or via an AWS Lambda) to isolate that EC2 instance (e.g., by modifying its security group or shutting it down). Another playbook could disable an IAM user in AWS if suspicious activity is detected. This automation ability is crucial for reacting quickly – bridging back to defense-in-depth,
+  
+By responding to incidents from Sentinel, you ensure a uniform, orchestrated approach – e.g., a single incident might involve disabling a user in Entra ID and locking their AWS API keys; Sentinel playbooks and its incident timeline can coordinate both.
+
+For more information on how to install and configure the AWS connector in Microsoft Sentinel, see [Connect Microsoft Sentinel to Amazon Web Services to ingest AWS service log data](/azure/sentinel/connect-aws?tabs=s3)
+
+### Microsoft Defender XDR
+
+Microsoft Defender XDR is a unified enterprise defense suite that provides integrated protection against sophisticated cyberattacks. It coordinates detection, prevention, investigation, and response across endpoints, identities, email, and applications, ensuring comprehensive security for organizations. This solution centralizes threat tooling and utilizes advanced technologies like machine learning and threat intelligence to enhance security operations.
+
+Automatic attack disruption is an autonomous response capability in Microsoft Defender XDR designed to stop active cyberattacks in real time with minimal human intervention. This capability aims to limit the impact of attacks by automatically isolating compromised assets and preventing lateral movement within the network. Key features of automatic disruption include:
+
+- __Real-time Containment:__ The feature automatically identifies and contains compromised user accounts, endpoints, session and token disruption, threat infrastructure, application as soon as a threat is detected, providing immediate protection against further exploitation.
+
+- __Enhanced Security for Critical Infrastructure:__ Updates to the automatic attack disruption capabilities have improved security for essential services like Active Directory, DNS, and DHCP servers, allowing for selective isolation of critical assets while maintaining service availability. 
+
+- __Cross Platform Detection:__ The automatic attack disruption feature works in conjunction with other Microsoft Defender products and extends beyond XDR, incorporating data from AWS, Proofpoint and Okta when brought in through Sentinel. By leveraging millions of signals from Microsoft Threat Intelligence, this feature uses AI to detect sophisticated threats like phishing, business email compromise, and identity compromise across federated accounts and cloud boundaries.
+
+- __Visibility and Control:__ Even though the actions are automatic, the SOC remains in full control and informed. Defender XDR clearly tags and highlights incidents where attack disruption was triggered. Analysts can click in to see exactly what was done: which users were disabled, which devices contained, etc., via Action Center. Every automated action is logged and can be undone with a single click if needed and provides the ability to define exclusions. These safeguards, along with the high precision, are meant to balance speed with safety.
 
 ### Recommendations
 
