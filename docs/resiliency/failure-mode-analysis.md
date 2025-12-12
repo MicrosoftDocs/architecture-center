@@ -190,30 +190,6 @@ Consider using Azure Service Bus Messaging queues, which provides a [dead-letter
 
 **Diagnostics**. Use application logging.
 
-## Azure Cache for Redis
-
-### Reading from the cache fails.
-
-**Detection**. Catch `StackExchange.Redis.RedisConnectionException`.
-
-**Recovery:**
-
-1. Retry on transient failures. Azure Cache for Redis supports built-in retry.
-2. Treat nontransient failures as a cache miss, and fall back to the original data source.
-
-**Diagnostics**. Use [Azure Cache for Redis diagnostics][redis-monitor].
-
-### Writing to the cache fails.
-
-**Detection**. Catch `StackExchange.Redis.RedisConnectionException`.
-
-**Recovery:**
-
-1. Retry on transient failures. Azure Cache for Redis supports built-in retry.
-2. If the error is nontransient, ignore it and let other transactions write to the cache later.
-
-**Diagnostics**. Use [Azure Cache for Redis diagnostics][redis-monitor].
-
 ## SQL Database
 
 ### Cannot connect to the database in the primary region.
@@ -297,7 +273,7 @@ For more information, see [Service Bus messaging exceptions][sb-messaging-except
 **Recovery:**
 
 - If possible, design your message processing operations to be idempotent. Otherwise, store message IDs of messages that are already processed, and check the ID before processing a message.
-- Enable duplicate detection, by creating the queue with `RequiresDuplicateDetection` set to true. With this setting, Service Bus automatically deletes any message that is sent with the same `MessageId` as a previous message.  Note the following points:
+- Enable duplicate detection, by creating the queue with `RequiresDuplicateDetection` set to true. With this setting, Service Bus automatically deletes any message that is sent with the same `MessageId` as a previous message. Note the following points:
 
   - This setting prevents duplicate messages from being put into the queue. It doesn't prevent a receiver from processing the same message more than once.
   - Duplicate detection has a time window. If a duplicate is sent beyond this window, it won't be detected.
@@ -414,7 +390,6 @@ See [Identify dependencies](/azure/well-architected/reliability/failure-mode-ana
 [lb-probe]: /azure/load-balancer/load-balancer-custom-probe-overview#types
 [QuotaExceededException]: /dotnet/api/microsoft.servicebus.messaging.quotaexceededexception
 [ra-web-apps-basic]: ../web-apps/app-service/architectures/basic-web-app.yml
-[redis-monitor]: /azure/azure-cache-for-redis/cache-how-to-monitor
 [rm-locks]: /azure/azure-resource-manager/resource-group-lock-resources/
 [sb-dead-letter-queue]: /azure/service-bus-messaging/service-bus-dead-letter-queues/
 [sb-georeplication-sample]: https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/GeoReplication

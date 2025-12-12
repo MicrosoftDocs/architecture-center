@@ -2,7 +2,7 @@ Use a gateway to aggregate multiple individual requests into a single request. T
 
 ## Context and problem
 
-To perform a single task, a client might have to make multiple calls to various backend services. An application that relies on many services to perform a task must expend resources on each request. When any new feature or service is added to the application, additional requests are needed, further increasing resource requirements and network calls. This chattiness between a client and a backend can adversely affect the performance and scale of the application.  Microservice architectures have made this problem more common, as applications built around many smaller services naturally have a higher amount of cross-service calls.
+To perform a single task, a client might have to make multiple calls to various backend services. An application that relies on many services to perform a task must expend resources on each request. When any new feature or service is added to the application, additional requests are needed, further increasing resource requirements and network calls. This chattiness between a client and a backend can adversely affect the performance and scale of the application. Microservice architectures have made this problem more common, as applications built around many smaller services naturally have a higher amount of cross-service calls.
 
 In the following diagram, the client sends requests to each service (1,2,3). Each service processes the request and sends the response back to the application (4,5,6). Over a cellular network with typically high latency, using individual requests in this manner is inefficient and could result in broken connectivity or incomplete requests. While each request might be done in parallel, the application must send, wait, and process data for each request, all on separate connections, increasing the chance of failure.
 
@@ -60,7 +60,7 @@ As with any design decision, consider any tradeoffs against the goals of the oth
 
 ## Example
 
-The following example illustrates how to create a simple a gateway aggregation NGINX service using Lua.
+The following example illustrates how to create a simple gateway aggregation NGINX service using Lua.
 
 ```lua
 worker_processes  4;

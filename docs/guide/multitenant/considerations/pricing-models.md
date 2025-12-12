@@ -96,7 +96,7 @@ In many systems, the number of users isn't the element that has the greatest eff
 
 ![Diagram showing revenue increase, as the number of devices increases.](media/pricing-models/per-unit.png)
 
-Additionally, some solutions have highly variable usage patterns, where a small number of users has a disproportionate impact on the COGS. For example, in a solution sold to brick-and-mortar retailers, a per-store pricing model might be appropriate regardless of how many users are in each store.
+Also, some solutions have highly variable usage patterns, where a few users disproportionately affect the COGS. For example, in a solution sold to brick-and-mortar retailers, a per-store pricing model might be appropriate regardless of how many users are in each store.
 
 **Benefits:** In systems where individual users don't have a significant effect on COGS, per-unit pricing is a better way to represent the reality of how the system scales and the resulting impact to COGS. It also can improve the alignment to the actual patterns of usage for a customer. For many IoT solutions, where each device generates a predictable and constant amount of consumption, this can be an effective model to scale your solution's growth.
 
@@ -130,7 +130,7 @@ The free tier might also be offered as a time-limited trial, and during the tria
 
 **Benefits:** It's very easy to market a solution when it's free.
 
-**Complexity and operational cost:** All of the complexity and operational cost concerns apply from the feature-based pricing model. You also have to consider the operational cost involved in managing free tenants. You might need to ensure that stale tenants are offboarded or removed, and you must have a clear retention policy, especially for free tenants. When moving a tenant to a paid tier, you might need to migrate the tenant's data or workload between Azure services to obtain higher SLAs. It will also be important to retain the tenant's data and configuration, when moving to a paid tier.
+**Complexity and operational cost:** All of the complexity and operational cost concerns apply from the feature-based pricing model. You also have to consider the operational cost involved in managing free tenants. You might need to ensure that stale tenants are offboarded or removed, and you must have a clear retention policy, especially for free tenants. When you move a tenant to a paid tier, you might need to migrate the tenant's data or workload between Azure services to obtain higher SLAs. It's also important to retain the tenant's data and configuration when you move to a paid tier.
 
 **Risks:** You need to ensure that you provide a high enough ROV for tenants to consider switching to a paid tier. Additionally, the cost of providing your solution to customers on the free tier needs to be covered by the profit margin from those who are on paid tiers.
 
@@ -256,7 +256,7 @@ Like any other part of your solution, pricing models have a lifecycle. As your a
 - Adding or removing features from a [feature and service-level pricing model](#feature--and-service-level-based-pricing).
 - Changing from a business-to-consumer (B2C) commercial model to a business-to-business (B2B) commercial model. This change then necessitates new pricing structures for your business customers.
 
-It is usually complex to implement and manage many different pricing models at once. It's also confusing to your customers. So, it's better to implement only one or two models, with a small number of tiers. This makes your solution more accessible and easier to manage.
+It is usually complex to implement and manage many different pricing models at once. It's also confusing to your customers. So, it's better to implement only one or two models, with a few tiers. This makes your solution more accessible and easier to manage.
 
 > [!NOTE]
 > Pricing models and billing functions should be tested, ideally using automated testing, just like any other part of your system. The more complex the pricing models, the more testing is required, and so the cost of development and operational complexity will increase.
