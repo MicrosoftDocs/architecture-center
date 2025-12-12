@@ -207,7 +207,15 @@ These models are distinct, and the approach that you select affects your impleme
 
 In some solutions, you might use [per-user licensing](pricing-models.md#per-user-pricing) as part of your commercial pricing model. In this scenario, you provide different tiers of user licenses that have different capabilities. For example, users with one license might be permitted to use a subset of the features of the application. The capabilities that specific users are allowed to access, based on their licenses, is sometimes called an *entitlement*.
 
-The application code or a dedicated entitlements system typically tracks and enforces entitlements instead of the identity system. This process is similar to authorization but occurs outside the identity management layer.
+We recommend that you track and enforce entitlements within your application code or a dedicated entitlements system, rather than relying on the identity system. This process is similar to authorization but occurs outside the identity management layer.
+
+There are several reasons for this separation:
+
+- **Complexity of licensing models:** Licensing rules are often complex and specific to the business model. For example, licenses might be per-seat, time-based (daily or monthly assignment), limit concurrent usage, or have specific reassignment rules. Identity providers are generally designed for user authentication and basic authorization, not for complex commercial licensing logic.
+
+- **Independence:** Relying on a identity provider features for license management can lock your solution into that provider or its constraints. If you support customers who use different identity providers, you would need to build a custom solution for them anyway.
+
+A common pattern is to manage licenses within the application's database or a dedicated service. When a user signs in, the system retrieves their entitlements and injects them into the session or checks them at runtime.
 
 ## Identity scale and authentication volume
 
