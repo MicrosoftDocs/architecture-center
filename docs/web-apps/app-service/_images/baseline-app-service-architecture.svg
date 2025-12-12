@@ -534,14 +534,14 @@
 						x="23.43" dy="1.2em" class="st14">Vault</tspan></text>		</g>
 		<g id="shape404-70" v:mID="404" v:groupContext="shape" transform="translate(625.582,-151.6)">
 			<title>Sheet.404</title>
-			<desc>Secrets</desc>
+			<desc>Certificates</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(22000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="60.0038" cy="525.938" width="120.01" height="19.125"/>
 			<rect x="0" y="516.375" width="120.008" height="19.125" class="st7"/>
-			<text x="44.25" y="528.94" class="st13" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Secrets</text>		</g>
+			<text x="37.25" y="528.94" class="st13" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Certificates</text>		</g>
 		<g id="shape410-73" v:mID="410" v:groupContext="shape" transform="translate(156.56,-437.043)">
 			<title>Sheet.410</title>
 			<v:userDefs>
