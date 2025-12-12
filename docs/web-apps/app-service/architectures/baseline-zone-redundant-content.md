@@ -88,11 +88,11 @@ Consider the following points when implementing virtual network integration and 
 
 The network in this architecture has separate subnets for the Application Gateway, App Service integration components, and private endpoints. Each subnet has a network security group (NSG) that limits both inbound and outbound traffic for those subnets to just what is required. The following table shows a selection of NSG rules that could be added to each subnet. The table gives a description of a rule.
 
-| Subnet   | Inbound | Outbound |
-| -------  | ---- | ---- |
-| GatewaySubnet    | `AppGw.In.Allow.ControlPlane`: Allow inbound control plane access<br><br>`AppGw.In.Allow443.Internet`: Allow inbound internet HTTPS access | `AppGw.Out.Allow.PrivateEndpoints`: Allow outbound access to PrivateEndpointsSubnet<br><br>`AppPlan.Out.Allow.AzureMonitor`: Allow outbound access to Azure Monitor |
+| Subnet                 | Inbound | Outbound |
+| :--------------------- | :------ | -------- |
+| GatewaySubnet          | `AppGw.In.Allow.ControlPlane`: Allow inbound control plane access<br><br>`AppGw.In.Allow443.Internet`: Allow inbound internet HTTPS access | `AppGw.Out.Allow.PrivateEndpoints`: Allow outbound access to PrivateEndpointsSubnet<br><br>`AppPlan.Out.Allow.AzureMonitor`: Allow outbound access to Azure Monitor |
 | PrivateEndpointsSubnet | Default rules: Allow inbound from virtual network | Default rules: Allow outbound to virtual network |
-| AppServicesSubnet | Default rules: Allow inbound from vnet  | `AppPlan.Out.Allow.PrivateEndpoints`: Allow outbound access to PrivateEndpointsSubnet<br><br>`AppPlan.Out.Allow.AzureMonitor`: Allow outbound access to Azure Monitor |
+| AppServicesSubnet      | Default rules: Allow inbound from vnet  | `AppPlan.Out.Allow.PrivateEndpoints`: Allow outbound access to PrivateEndpointsSubnet<br><br>`AppPlan.Out.Allow.AzureMonitor`: Allow outbound access to Azure Monitor |
 
 Consider the following points when implementing virtual network segmentation and security.
 
@@ -102,15 +102,13 @@ Consider the following points when implementing virtual network segmentation and
 
 An example of a network schema could be:
 
-| Type            | Name                   | Address Range |
-| --------------- | ---------------------- | ------------- |
+| Type            | Name                   | Address range |
+| :-------------- | :--------------------- | :------------ |
 | Virtual Network | Address Prefix         | 10.0.0.0/16   |
 | Subnet          | GatewaySubnet          | 10.0.1.0/24   |
 | Subnet          | AppServicesSubnet      | 10.0.0.0/24   |
 | Subnet          | PrivateEndpointsSubnet | 10.0.2.0/27   |
 | Subnet          | AgentsSubnet           | 10.0.2.32/27  |
-
-Reference [Azure-Samples\app-service-baseline-implementation](https://github.com/Azure-Samples/app-service-baseline-implementation)
 
 ## Considerations
 
@@ -279,17 +277,17 @@ Platform monitoring is the collection of data from the Azure services in your ar
 
 - Add a diagnostic setting for every Azure resource. Each Azure service has a different set of logs and metrics you can capture. Use the following table to figure out the metrics and logs you want to collect.
 
-  |Azure resource | Metrics and logs descriptions |
-  | --- | --- |
-  |Application Gateway | [Application Gateway metrics and logs descriptions](/azure/application-gateway/monitor-application-gateway-reference) |
-  |Web Application Firewall | [Web application firewall metrics and logs descriptions](/azure/web-application-firewall/ag/application-gateway-waf-metrics) |
-  |App Service | [App Service metrics and logs descriptions](/azure/app-service/monitor-app-service-reference) |
-  |Azure SQL Database | [Azure SQL Database metrics and logs description](/azure/azure-sql/database/monitoring-sql-database-azure-monitor-reference?view=azuresql) |
-  |CosmosDB | [Azure Cosmos DB metrics and logs descriptions](/azure/cosmos-db/monitor-reference) |
-  | Key Vault | [Key Vault metrics and logs descriptions](/azure/key-vault/general/monitor-key-vault-reference) |
-  |Blob Storage | [Azure Blob Storage metrics and logs descriptions](/azure/storage/blobs/monitor-blob-storage-reference) |
-  | Application Insights | [Application Insights metrics and logs descriptions](/azure/azure-monitor/app/api-custom-events-metrics) |
-  | Public IP address | [Public IP address metrics and logs descriptions](/azure/virtual-network/ip-services/monitor-public-ip) |
+  | Azure resource           | Metrics and logs descriptions |
+  | :----------------------- | :---------------------------- |
+  | Application Gateway      | [Application Gateway metrics and logs descriptions](/azure/application-gateway/monitor-application-gateway-reference) |
+  | Web Application Firewall | [Web application firewall metrics and logs descriptions](/azure/web-application-firewall/ag/application-gateway-waf-metrics) |
+  | App Service              | [App Service metrics and logs descriptions](/azure/app-service/monitor-app-service-reference) |
+  | Azure SQL Database       | [Azure SQL Database metrics and logs description](/azure/azure-sql/database/monitoring-sql-database-azure-monitor-reference?view=azuresql) |
+  | CosmosDB                 | [Azure Cosmos DB metrics and logs descriptions](/azure/cosmos-db/monitor-reference) |
+  | Key Vault                | [Key Vault metrics and logs descriptions](/azure/key-vault/general/monitor-key-vault-reference) |
+  | Blob Storage             | [Azure Blob Storage metrics and logs descriptions](/azure/storage/blobs/monitor-blob-storage-reference) |
+  | Application Insights     | [Application Insights metrics and logs descriptions](/azure/azure-monitor/app/api-custom-events-metrics) |
+  | Public IP address        | [Public IP address metrics and logs descriptions](/azure/virtual-network/ip-services/monitor-public-ip) |
 
 - Understand the cost of collecting metrics and logs. In general, the more metrics and logs you collect, the more it costs. For more information, see [Log Analytics cost calculations and options](/azure/azure-monitor/logs/cost-logs) and [Pricing for Log Analytics workspace](https://azure.microsoft.com/pricing/details/monitor/).
 - Create alerts. You should create alerts for all the Azure resources in the architecture and configure Actions to remediate issues. Pick common and recommended alert rules to start with and modify over time as needed. For more information, see:
@@ -363,7 +361,7 @@ Scaling database resources is a complex topic outside of the scope of this archi
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Modern Web App pattern for .NET](/azure/architecture/web-apps/guides/enterprise-app-patterns/modern-web-app/dotnet/guidance)
+> [Enterprise web app patterns](/azure/architecture/web-apps/guides/enterprise-app-patterns/overview)
 
 ## Related resources
 
