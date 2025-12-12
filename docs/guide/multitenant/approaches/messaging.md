@@ -11,7 +11,7 @@ ms.custom: arb-saas
 
 # Architectural approaches for messaging in multitenant solutions
 
-When you build distributed applications that include several internal and external services, you need asynchronous messaging and event-driven communication. When you design your multitenant solution, you must decide how to share or partition messages that belong to different tenants.
+Distributed applications that include multiple internal and external services require asynchronous messaging and event-driven communication. When you design your multitenant solution, you must decide how to share or partition messages that belong to different tenants.
 
 You can share a messaging system or event-streaming service across all tenants to reduce operational cost and management complexity. Alternatively, you can use a dedicated messaging system for each tenant to get better data isolation, reduce the risk of data leakage, eliminate the [noisy neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml), and charge Azure costs back to your tenants more easily.
 
@@ -19,9 +19,9 @@ This article helps solution architects decide how to use messaging or eventing i
 
 ## Messages, data points, and discrete events
 
-You need to understand the difference between services that deliver an event and systems that send a message. An *event* is a lightweight notification of a condition or a state change. An event typically describes something that already happened. A *message* contains raw data that a service produces to be consumed or stored elsewhere. Messages are implicit instructions or requests.
+You must understand the difference between services that deliver an event and systems that send a message. An *event* is a lightweight notification of a condition or state change. An event typically describes something that already happened. A *message* contains raw data that a service produces to be consumed or stored elsewhere. Messages are implicit instructions or requests.
 
-The following table describes the main kinds of messaging types, along with example multitenant solutions that might use that type of entity.
+The following table describes key messaging types and example multitenant solutions that might use that type of entity.
 
 | Entity type | Contents | Examples |
 |-|-|-|
