@@ -363,7 +363,7 @@ Scaling database resources is a complex topic outside of the scope of this archi
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Read Highly available multi-region web application](./multi-region.yml)
+> [Modern Web App pattern for .NET](/azure/architecture/web-apps/guides/enterprise-app-patterns/modern-web-app/dotnet/guidance)
 
 ## Related resources
 
