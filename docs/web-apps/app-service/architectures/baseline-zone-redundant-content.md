@@ -25,7 +25,7 @@ Many components of this architecture are the same as the [basic web application 
 
 ## Networking
 
-Network security is at the core of the App Services baseline architecture (*see Figure 2*).  From a high level, the network architecture enables the following capabilities:
+Network security is at the core of the App Services baseline architecture (*see Figure 2*). From a high level, the network architecture enables the following capabilities:
 
 1. A single secure entry point for client traffic
 1. Network traffic is filtered

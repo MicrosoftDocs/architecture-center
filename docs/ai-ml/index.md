@@ -144,7 +144,7 @@ For more information, see the following resources:
   :::image type="complex" source="./architecture/_images/baseline-azure-ai-foundry.svg" border="false" lightbox="./architecture/_images/baseline-azure-ai-foundry.svg" alt-text="Diagram that shows a baseline end-to-end chat architecture that uses Microsoft Foundry.":::
   The diagram presents a detailed Azure architecture for deploying an AI solution. On the left, a user connects through an Application Gateway with a web application firewall, which is part of a virtual network. This gateway is linked to private DNS zones and protected by Azure DDoS Protection. Below the gateway, private endpoints connect to services such as App Service, Azure Key Vault, and Storage, which are used for client app deployment. The App Service is managed with identity and spans three zones. Monitoring is provided by Application Insights and Azure Monitor, and authentication is handled by Microsoft Entra ID.
 
-  Moving right, the virtual network contains several subnets: App Service integration, private endpoint, Microsoft Foundry integration, Azure AI agent integration, Azure Bastion, jump box, build agents, and Azure firewall. Each subnet hosts specific endpoints or services, such as storage, Foundry, AI Search, Azure Cosmos DB, and knowledge store, all connected via private endpoints. Outbound traffic from the network passes through the Azure Firewall to reach internet sources.
+  To the right, the virtual network contains several subnets: App Service integration, private endpoint, Microsoft Foundry integration, Azure AI agent integration, Azure Bastion, jump box, build agents, and Azure firewall. Each subnet hosts specific endpoints or services, such as storage, Foundry, AI Search, Azure Cosmos DB, and knowledge store, all connected via private endpoints. Outbound traffic from the network passes through the Azure Firewall to reach internet sources.
 
   To the far right, a separate box represents Microsoft Foundry, which includes an account and a project. Managed identities are used to connect the Foundry Agent Service to the Foundry project, which in turn accesses an Azure OpenAI model. The diagram uses numbered green circles to indicate the logical flow, showing how user requests traverse the network, interact with various endpoints, and ultimately connect to Azure AI services and storage, with dependencies clearly grouped and labeled.
   :::image-end:::
@@ -488,7 +488,7 @@ For more information, see [Foundry portal versus Machine Learning studio](/ai/ai
 
 #### Azure AI Agent Service in the Foundry portal
 
-Azure AI Agent Service is a tool that use to create AI agents using a no-code and nondeterminsitic approach. The agents are exposed as microservices on the Foundry account.
+Azure AI Agent Service is a tool lets you create AI agents by using a no-code and nondeterminsitic approach. The agents are exposed as microservices on the Foundry account.
 
 Each agent connects to a foundation model from the Azure AI model catalog. Agents can optionally connect to your own custom private knowledge stores or public data. Likewise, agents can invoke tools to perform tasks to call into custom code.
 
@@ -526,7 +526,7 @@ For general information about custom AI on Azure, see the following resources:
 
 Many industries apply AI in innovative and inspiring ways. Consider the following customer case studies and success stories:
 
-- [Healthcare for all with Kry using Azure OpenAI](https://www.microsoft.com/customers/story/1693712644049090392-kry-azure-open-ai-service-sweden)
+- [Healthcare for all with Kry by using Azure OpenAI](https://www.microsoft.com/customers/story/1693712644049090392-kry-azure-open-ai-service-sweden)
 - [PIMCO boosts client service with an AI-powered search platform built on Azure AI](https://www.microsoft.com/en/customers/story/19744-pimco-sharepoint)
 - [Legrand and Azure OpenAI: Powering smarter solutions with AI-driven tools](https://www.microsoft.com/en/customers/story/19697-legrand-azure-cloud-services)
 - [C.H. Robinson overcomes decades-old barriers to automate the logistics industry by using Azure AI](https://www.microsoft.com/en/customers/story/19575-ch-robinson-azure-ai-studio)

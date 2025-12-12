@@ -63,7 +63,7 @@ In this example, the application regularly queries the product name, description
 
 Other advantages of vertical partitioning:
 
-- Relatively slow-moving data (product name, description, and price) can be separated from the more dynamic data (stock level and last ordered date). Slow moving data is a good candidate for an application to cache in memory.
+- Relatively slow-moving data (product name, description, and price) can be separated from the more dynamic data (stock level and last ordered date). Slow-moving data is a good candidate for an application to cache in memory.
 
 - Sensitive data can be stored in a separate partition with additional security controls.
 

@@ -180,7 +180,7 @@ This architecture isn't designed for production deployments, so it omits critica
 
 ### Other design recommendations
 
-Architects should design AI and machine learning workloads, such as this one, with the Well-Architected [AI workloads on Azure](/azure/well-architected/ai/get-started) guidance in mind. Combine insights from your POC using this architecture with broader AI and machine learning best practices when moving beyond POC.
+Architects should design AI and machine learning workloads, such as this one, with the Well-Architected [AI workloads on Azure](/azure/well-architected/ai/get-started) guidance in mind. Combine insights from your POC by using this architecture with broader AI and machine learning best practices when you move beyond POC.
 
 ## Deploy this scenario
 

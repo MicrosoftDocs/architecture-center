@@ -12,11 +12,9 @@ The example workload is a containerized microservices application. It reuses the
 
 ## Architecture
 
-:::image type="complex" border="false" source="./media/microservices-with-container-apps.png" alt-text="Diagram that shows the runtime architecture for the solution." lightbox="./media/microservices-with-container-apps.png":::
-   The diagram shows a Container Apps environment as a large rectangle that contains five container apps. An HTTP traffic source arrow points into the Ingestion service. An upward arrow from Ingestion goes to Azure Service Bus. A downward arrow goes from Service Bus and returns to the Workflow service. From Workflow, three black connectors descend and bend toward each lower service: the Package, the Drone Scheduler, and the Delivery services. Each lower service has a vertical arrow to its own external state store: Package service goes to Azure Cosmos DB for MongoDB API. Drone Scheduler service goes to Azure Cosmos DB for NoSQL. Delivery service goes to Azure Managed Redis. Two arrows exit the middle of the environment: the upper arrow goes to Azure Application Insights. The lower arrow goes to Azure Log Analytics workspace. Under the workspace is Azure Key Vault and below that Azure Container Registry, shown without connecting arrows.
+:::image type="complex" border="false" source="./media/microservices-with-container-apps.svg" alt-text="Diagram that shows the runtime architecture for the solution." lightbox="./media/microservices-with-container-apps.svg":::
+   The diagram shows a Container Apps environment as a large rectangle that contains five container apps. An HTTP traffic source arrow points into the Ingestion service. An upward arrow from Ingestion goes to Azure Service Bus. A downward arrow goes from Service Bus and returns to the Workflow service. From Workflow, three black connectors descend and bend toward each lower service: the Package, the Drone Scheduler, and the Delivery services. Each lower service has a vertical arrow to its own external state store: Package service goes to Azure DocumentDB. Drone Scheduler service goes to Azure Cosmos DB for NoSQL. Delivery service goes to Azure Managed Redis. Two arrows exit the middle of the environment: the upper arrow goes to Azure Application Insights. The lower arrow goes to Azure Log Analytics workspace. Under the workspace is Azure Key Vault and below that is Azure Container Registry, shown without connecting arrows.
 :::image-end:::
-
-The following diagram illustrates the runtime architecture for the solution.
 
 *Download a [Visio file](https://arch-center.azureedge.net/microservices-with-container-apps.vsdx) of this architecture.*
 
@@ -55,7 +53,9 @@ The workload uses the following Azure services in coordination with each other:
 
 - [Container Registry](/azure/container-registry/container-registry-intro) is a managed registry service for storing and managing private container images. In this architecture, it's the source of all container images that are deployed to the Container Apps environment. The registry is the same one used in the AKS implementation.
 
-- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, multiple-model database service. It supports open-source APIs for [MongoDB](/azure/cosmos-db/mongodb-introduction) and SQL. Microservices should write their state to dedicated external data stores. In this architecture, the microservices write their state and application data to their own Azure Cosmos DB databases.
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, multiple-model database service.  In this architecture, the drone scheduler service uses Azure Cosmos DB as its data store.
+
+- [Azure DocumentDB](/azure/documentdb/overview) is a fully managed MongoDB-compatible database service for building modern applications. In this architecture, the package service uses Azure DocumentDB as its data store.
 
 - [Service Bus](/azure/well-architected/service-guides/service-bus/reliability) is a cloud messaging service that provides asynchronous communication capabilities and hybrid integration. In this architecture, it handles asynchronous messaging between the ingestion service and the task-based, workflow microservice. The rest of the services in the existing application are designed so other services can invoke them with HTTP requests.
 
@@ -79,7 +79,7 @@ Fabrikam, Inc., a fictional company, implements a drone delivery workload where 
 
 The microservices application was deployed to an AKS cluster. But the Fabrikam team wasn't taking advantage of the advanced or platform-specific AKS features. They migrated the application to Container Apps, which enabled them to do the following actions:
 
-- Employ minimal code changes when moving the application from AKS to Container Apps. The code changes were related to observability libraries that augmented logs and metrics with Kubernetes node information, which aren't relevant in the new environment.
+- Employ minimal code changes when you move the application from AKS to Container Apps. The code changes were related to observability libraries that augmented logs and metrics with Kubernetes node information, which aren't relevant in the new environment.
 
 - Deploy both infrastructure and the workload with Bicep templates: No Kubernetes YAML manifests were needed to deploy their application containers.
 - Expose the application through managed ingress. Built-in support for external, HTTPS-based ingress to expose the ingestion service removed the need to configure their own ingress.
@@ -166,7 +166,7 @@ Container Apps helps you deploy, manage, maintain, and monitor the applications 
 
 - Use the dynamic load balancing and scaling features of Container Apps to improve availability. Over-provision your environment's subnet so that it always has enough [available IP addresses for future replicas or jobs](/azure/container-apps/custom-virtual-networks#subnet).
 
-- Avoid storing state directly within the Container Apps environment, because all state is lost when the replica shuts down. Externalize state to a dedicated state store for each microservice. This architecture distributes state across three distinct stores: Azure Managed Redis, Azure Cosmos DB for NoSQL, and Azure Cosmos DB for MongoDB.
+- Avoid storing state directly within the Container Apps environment, because all state is lost when the replica shuts down. Externalize state to a dedicated state store for each microservice. This architecture distributes state across three distinct stores: Azure Managed Redis, Azure Cosmos DB for NoSQL, and Azure DocumentDB.
 
 - Deploy all resources, including Container Apps, by using a multi-zone topology. For more information, see [Availability zone support in Container Apps](/azure/reliability/reliability-azure-container-apps#availability-zone-support).
 

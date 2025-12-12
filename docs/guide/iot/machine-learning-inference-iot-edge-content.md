@@ -59,7 +59,7 @@ The ONNX community [provides tools](https://onnx.ai/supported-tools.html) to hel
 
 To download trained AI models, we recommend that you use device twins to receive notifications when a new model is ready. Even if the device is offline, the message can be cached in IoT Hub until the edge device comes back online. The message is synchronized automatically.
 
-Following is an example of Python code that registers notifications for the device twins and then downloads the AI model in a ZIP file. It also performs further operations on the downloaded file.
+The following Python code example registers notifications for the device twins and then downloads the AI model in a ZIP file. It also performs further operations on the downloaded file.
 
 The code performs these tasks:
 
@@ -188,7 +188,7 @@ class InferenceProcedure():
         return json.dumps(results)
 ```
 
-Following is the ONNX version of the preceding code. The steps are mostly the same. The only difference is how the detection score is handled, because the `Labelmap` and model output parameters are different.
+The following example is the ONNX version of the preceding code. The steps are mostly the same. The only difference is how the detection score is handled, because the `Labelmap` and model output parameters are different.
 
 ```python
 class InferenceProcedure():

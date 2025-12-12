@@ -185,7 +185,7 @@ This layout can be integrated with an enterprise topology. That example is shown
 
 One of your initial network layout decisions relates to the network address range. Keep in mind the anticipated network growth during the capacity planning phase. The network should be large enough to sustain the growth, which might need extra networking constructs. For instance, the virtual network should have the capacity to accommodate the other VMs that result from a scaling operation.
 
-Conversely, right-size your address space. An excessively large virtual network can lead to underutilization. It's important to note that once the virtual network is created, the address range can't be modified.
+Conversely, right-size your address space. An excessively large virtual network can lead to underutilization. After the virtual network is created, you can't modify the address range.
 
 In this architecture, the address space is set to */21*, a decision based on the projected growth.
 
@@ -412,7 +412,7 @@ Here's an example calculation where the main goal is to provide an approximate c
 
 In the preceding example, reliability of VMs and the dependencies are included, such as disks associated with VMs. The SLAs associated with disk storage affect the overall reliability.
 
-There are some challenges when calculating the composite SLO. It's important to note that different tiers of service might come with different SLAs, and these often include financially backed guarantees that set reliability targets. Finally, there might be components of the architecture that don't have SLAs defined. For example, in terms of networking, NICs and virtual networks don't have their own SLAs.
+There are some challenges when calculating the composite SLO. Different service tiers might have different SLAs, and these SLAs often include financially backed guarantees that set reliability targets. Finally, there might be components of the architecture that don't have SLAs defined. For example, in terms of networking, NICs and virtual networks don't have their own SLAs.
 
 The business requirements and their targets must be clearly defined and factored into the calculation. Be aware of the service limits and other constraints imposed by the organization. Sharing your subscription with other workloads could affect the resources available for your VMs. The workload might be allowed to use a limited number of cores available for the VMs. Understanding the resource usage of your subscription can help you design your VMs more effectively.
 
@@ -442,7 +442,7 @@ This architecture uses zone-redundancy for several components. Each zone is made
 
 To prevent service level degradation and failures, ensure reliable scaling operations. Scale the workload horizontally (scale out), vertically (scale up), or use a combination of both those approaches. Use [Azure Monitor Autoscale](/azure/azure-monitor/autoscale/autoscale-overview) to provision enough resources to support the demand on your application without allocating more capacity than needed and incurring unnecessary costs. 
 
-Autoscale allows you to define different profiles based on different event types, such as time, schedule, or metrics. Metrics-based profiles can use built-in metrics (host-based) or more detailed metrics (in-guest VM metrics) that requires installing the Azure Monitor Agent to collect them.  Every profile contains rules for scale-out (increase) and scale-in (decrease). Consider exploring all different scaling scenarios based on designed profiles and evaluate them for potential loop conditions that can cause a series of opposing scale events. Azure Monitor will attempt to mitigate this situation by waiting for the cooldown period before it scales again. 
+Autoscale allows you to define different profiles based on different event types, such as time, schedule, or metrics. Metrics-based profiles can use built-in metrics (host-based) or more detailed metrics (in-guest VM metrics) that requires installing the Azure Monitor Agent to collect them. Every profile contains rules for scale-out (increase) and scale-in (decrease). Consider exploring all different scaling scenarios based on designed profiles and evaluate them for potential loop conditions that can cause a series of opposing scale events. Azure Monitor will attempt to mitigate this situation by waiting for the cooldown period before it scales again. 
 
 Although Azure Virtual Machine Scale Sets in Flexible mode supports heterogeneous environments, autoscaling of multiple profiles isn't supported. Consider creating different scale sets to manage them separately if you plan to use autoscale with more than one type of VM. 
 

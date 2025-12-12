@@ -1,7 +1,7 @@
 ### YamlMime:Hub
 metadata:
   title: Azure Architecture Center
-  description: The Azure Architecture Center provides guidance for designing and building solutions on Azure using established patterns and practices.
+  description: The Azure Architecture Center provides guidance for designing and building solutions on Azure by using established patterns and practices.
   ms.topic: hub-page
   ms.date: 08/27/2025
   ms.collection: collection
@@ -10,7 +10,7 @@ metadata:
   google-site-verification: b-xRLveOzJ9oSOh37wgRTRB2lMOoFY8HiHf9_0DIawE
 
 title: Azure Architecture Center
-summary: Design solutions on Azure using established patterns and practices. Azure Architecture Center is a catalog of solution ideas, example workloads, reference architectures, technology decision guides, and architecture guides for Azure workloads.
+summary: Design solutions on Azure by using established patterns and practices. Azure Architecture Center is a catalog of solution ideas, example workloads, reference architectures, technology decision guides, and architecture guides for Azure workloads.
 brand: azure
 
 # Ref: https://learn.microsoft.com/help/platform/navigation-how-create-hub-page#hub-page-template
@@ -20,7 +20,7 @@ highlightedContent:
     - title: Browse Azure architectures
       itemType: architecture
       url: browse/index.yml
-    - title: Build using application architecture fundamentals
+    - title: Build by using application architecture fundamentals
       itemType: concept
       url: guide/index.md
     - title: Make technology choices
