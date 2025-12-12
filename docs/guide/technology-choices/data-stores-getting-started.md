@@ -109,14 +109,14 @@ The following table lists common use scenario requirements and the recommended d
 | Deliver high availability and elastic scaling to open-source mobile and web apps by using a managed community MySQL database service, or migrate MySQL workloads to the cloud. | [Azure Database for MySQL](/azure/mysql/overview) |
 | Build applications that have guaranteed low latency and high availability anywhere, at any scale, or migrate Cassandra, MongoDB, Gremlin, and other NoSQL workloads to the cloud. | [Azure Cosmos DB](/azure/cosmos-db/introduction) |
 | Modernize existing Cassandra data clusters and apps, and gain flexibility by using a managed instance service. | [Azure Managed Instance for Apache Cassandra](/azure/managed-instance-apache-cassandra/introduction) |
-| Deliver fast, scalable applications by using an open-source-compatible in-memory data store. | [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) |
+| Deliver fast, scalable applications by using an open-source-compatible in-memory data store. | [Azure Managed Redis](/azure/redis/overview) |
 
 ## Database feature comparison
 
 The following table lists features available in Azure database services.
 
 | Feature | SQL Database | SQL Managed Instance | Azure Database for PostgreSQL | Azure Database for MySQL | Azure Managed Instance for Apache Cassandra | Azure Cosmos DB | Azure Managed Redis | Azure DocumentDB
-|------------------|---------|--------|--------|--------|--------|--------|--------|--------|--------|
+|------------------|---------|--------|--------|--------|--------|--------|--------|--------|
 |Database type|Relational |Relational |Relational |Relational |NoSQL |NoSQL |In-memory |NoSQL
 |Data model|Relational |Relational |Relational |Relational |Wide-column |Multimodel: Document, wide-column, key-value, graph |Key-value |Document |
 |Distributed multiprimary writes|No |No |No |No |Yes |Yes |Yes  |Yes 
