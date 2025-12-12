@@ -4,7 +4,7 @@ metadata:
   description: A baseline reference architecture for a network secured, highly available, and zone-redundant App Service web application.
   author: claytonsiemens77
   ms.author: pnp
-  ms.date: 11/27/2025
+  ms.date: 12/12/2025
   ms.topic: reference-architecture
   ms.subservice: reference-architecture
   ms.category:
