@@ -213,7 +213,7 @@ There are several reasons for this separation:
 
 - **Complexity of licensing models:** Licensing rules are often complex and specific to the business model. For example, licenses might be per-seat, time-based (daily or monthly assignment), limit concurrent usage, or have specific reassignment rules. Identity providers are generally designed for user authentication and basic authorization, not for complex commercial licensing logic.
 
-- **Independence:** Relying on a identity provider features for license management can lock your solution into that provider or its constraints. If you support customers who use different identity providers, you would need to build a custom solution for them anyway.
+- **Independence:** Relying on an identity provider features for license management can lock your solution into that provider or its constraints. If you support customers who use different identity providers, you would need to build a custom solution for them anyway.
 
 A common pattern is to manage licenses within the application's database or a dedicated service. When a user signs in, the system retrieves their entitlements and injects them into the session or checks them at runtime.
 
