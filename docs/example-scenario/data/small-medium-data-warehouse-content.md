@@ -110,6 +110,17 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 - [Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/) pricing depends on the tier that you choose, the number of throughput units provisioned, and the ingress traffic received. The example assumes one throughput unit in the Standard tier handling over one million events per month.
 
+### Reliability
+
+Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist). For most of Azure Services reliability is a shared responsibility. Microsoft provides a range of capabilities to support resiliency and recovery. You're responsible for understanding how those capabilities work within all of the services you use, and selecting the capabilities you need to meet your business objectives and uptime goals. Please review service specific documentation to select configuration that meets your business continuety and disaster recovery objectives. 
+
+-[Azure SQL Managed Instance](/azure/reliability/reliability-sql-managed-instance) 
+-[Azure SQL Database](/azure/reliability/reliability-sql-database)
+-[Azure Blob Storage](/azure/reliability/reliability-storage-blob)
+-[Fabric](/azure/reliability/reliability-fabric)
+-[Azure Data Factory](/azure/reliability/reliability-data-factory)
+
+
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
