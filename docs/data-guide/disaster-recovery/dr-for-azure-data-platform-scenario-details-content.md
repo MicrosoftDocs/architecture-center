@@ -64,14 +64,14 @@ The following sections present a breakdown of Contoso activity necessary across 
         - Availability Zone failure: N/A
         - Azure regional failure: N/A
 
-- **Virtual Networks (VNets), including Subnets, user-defined routes (UDRs) & network security groups (NSGs)**
+- **Virtual vetworks, including Subnets, user-defined routes (UDRs), and network security groups (NSGs)**
     - Contoso SKU selection: N/A
     - DR impact:
         - Azure datacenter failure: N/A
         - Availability Zone failure: N/A
-        - Azure regional failure: Contoso would need to redeploy the Foundation and Data platform VNets with their attached UDRs & NSGs into the secondary region.
+        - Azure regional failure: Contoso would need to redeploy the Foundation and Data platform virtual networks with their attached UDRs and NSGs into the secondary region.
     - Notes:
-        - [Traffic Manager](/azure/traffic-manager/traffic-manager-overview) can be used to geo-route traffic between regions that hold replica VNet structures. If they have the same address space, they can't be connected to the on-premises network, as it would cause routing issues. At the time of a disaster and loss of a VNet in one region, you can connect the other VNet in the available region, with the matching address space to your on-premises network.
+        - [Traffic Manager](/azure/traffic-manager/traffic-manager-overview) can be used to geo-route traffic between regions that hold replica virtual network structures. If they have the same address space, they can't be connected to the on-premises network, as it would cause routing issues. At the time of a disaster and loss of a virtual network in one region, you can connect the other virtual network in the available region, with the matching address space to your on-premises network.
 
 - **Resource Groups**
     - Contoso SKU selection: N/A
