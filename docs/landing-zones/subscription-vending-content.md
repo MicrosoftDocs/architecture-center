@@ -3,7 +3,8 @@ This article provides implementation guidance for subscription vending automatio
 [![Diagram showing how the subscriptions vending fits in an organization.](images/sample-subscription-vending-architecture.png)](images/sample-subscription-vending-architecture.png)
 *Figure 1. A subscription vending implementation in an example Azure environment.*
 
-:::image type="icon" source="../_images/github.svg"::: We created subscription vending [Bicep](https://aka.ms/lz-vending/bicep) and [Terraform](https://registry.terraform.io/modules/Azure/avm-ptn-alz-sub-vending/azure) modules that will help you accelerate the creation of Azure subscriptions (Application landing zones) at scale. You should tailor the input parameters and variables passed to the modules to fit the workloads' needs. For more information on the subscription vending process, see [Subscription vending overview](/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending).
+> [!TIP]
+> :::image type="icon" source="../_images/github.svg"::: We created subscription vending [Bicep](https://aka.ms/lz-vending/bicep) and [Terraform](https://registry.terraform.io/modules/Azure/avm-ptn-alz-sub-vending/azure) modules that will help you accelerate the creation of Azure subscriptions (Application landing zones) at scale. You should tailor the input parameters and variables passed to the modules to fit the workloads' needs. For more information on the subscription vending process, see [Subscription vending overview](/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending).
 <br/><br/>
 > [!VIDEO https://www.youtube.com/embed/OoC_0afxACg]
 
