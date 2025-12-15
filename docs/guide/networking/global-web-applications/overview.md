@@ -31,7 +31,7 @@ Azure Front Door is designed to provide the utmost resiliency and availability f
 
 If the business requirements demand a higher composite SLO or zero downtime in case of an outage, you need to rely on multiple alternate traffic ingress paths. Many large organizations and high-profile web properties use this approach to ensure the highest possible availability and to optimize delivery performance. However, the pursuit of a higher SLO comes with significant costs, operational overhead, and can inadvertently lower your overall reliability. Carefully consider the [tradeoffs](#tradeoffs) and potential problems that the alternate path might introduce in other components that are on the critical path. Even when the impact of unavailability is significant, complexity might outweigh the benefit.
 
-One approach is to define a secondary path with alternate services, which becomes the primary path when Azure Front Door is unavailable. Feature parity with Azure Front Door shouldn't be treated as a hard requirement. Prioritize features that you absolutely need for business continuity purposes, even potentially running in a limited capacity.
+One approach is to define a secondary path with alternate services, which becomes the primary path when Azure Front Door is unavailable. Don't treat feature parity with Azure Front Door as a strict requirement. Prioritize features that you absolutely need for business continuity purposes, even potentially running in a limited capacity.
 
 Multiple strategies can achieve high availability in web workloads. The following approach provides a straightforward, manual emergency solution that lets you quickly fail over during an outage and restore traffic to Azure Front Door after you confirm service health.
 
@@ -47,7 +47,7 @@ This approach introduces several components and provides guidance that helps you
 
 1. [Traffic Manager](/azure/traffic-manager/traffic-manager-overview) directs traffic to Azure Front Door or to your chosen alternative service.
 
-    Traffic Manager is a Domain Name System (DNS)-based global load balancer. Your domain's CNAME record points to Traffic Manager, which determines the destination based on how you configure its [routing method](/azure/traffic-manager/traffic-manager-routing-methods). For a mission-critical architecture, we recommend the *weighted* routing method. You can configure this method to send some or all of your traffic to different endpoints. In normal operations, typically all of your traffic routes through Azure Front Door.
+    Traffic Manager is a Domain Name System (DNS)-based global load balancer. Your domain's CNAME record points to Traffic Manager, which determines the destination based on how you configure its [routing method](/azure/traffic-manager/traffic-manager-routing-methods). For a mission-critical architecture, we recommend the *weighted* routing method. You can configure this method to send some or all of your traffic to different endpoints. In normal operations, all your traffic typically routes through Azure Front Door.
     
     We recommend that you disable endpoint monitoring in Traffic Manager. Create procedures to [detect when your primary traffic path becomes unavailable](#health-monitoring) and [switch traffic to the secondary path](#response-procedures).
 
