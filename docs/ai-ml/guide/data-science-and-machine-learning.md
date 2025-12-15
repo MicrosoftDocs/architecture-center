@@ -138,7 +138,7 @@ The following table summarizes the key differences between the Foundry portal an
 | **Languages**        | Supported languages             | Python only                                     | Python, R, Scala, Java                      |
 | **Training**         | AutoML                          | No                                              | Yes (regression, classification, forecasting, CV, NLP) |
 | **Compute targets**  | Training compute                | No                                              | Spark clusters, machine learning clusters, Azure Arc            |
-| **Generative AI**    | Language model catalog          | Yes (Azure OpenAI, Hugging Face, Meta)          | Yes (Azure OpenAI, Hugging Face, Meta)      |
+| **Generative AI**    | Language model catalog          | Yes (Azure OpenAI in Foundry Models, Hugging Face, Meta)          | Yes (Azure OpenAI, Hugging Face, Meta)      |
 | **Deployment**       | Real-time and batch serving     | Real-time (MaaS)                                | Batch endpoints, Azure Arc                  |
 | **Governance**       | Responsible AI tools            | No                                              | Yes (Responsible AI dashboard)              |
 
