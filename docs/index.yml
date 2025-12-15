@@ -68,13 +68,9 @@ productDirectory:
       links:
         - url: /azure/architecture/landing-zones/landing-zone-deploy
           text: Deploy a platform landing zone
-        - url: /azure/architecture/landing-zones/bicep/landing-zone-bicep
-          text: Bicep-based platform landing zone
-        - url: /azure/architecture/landing-zones/terraform/landing-zone-terraform
-          text: Terraform-based platform landing zone
         - url: /azure/architecture/landing-zones/subscription-vending
           text: Automate through subscription vending
-        - url: /azure/architecture/landing-zones/landing-zone-deploy#application
+        - url: /azure/architecture/landing-zones/landing-zone-deploy#application-landing-zone-architectures
           text: Application landing zone solutions
     - title: Specialized scenarios
       imageSrc: /media/common/i_best-practices.svg

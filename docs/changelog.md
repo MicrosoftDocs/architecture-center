@@ -187,7 +187,6 @@ The following new and updated articles have recently been published in the Azure
 - [Use AI to Forecast Customer Orders](./ai-ml/idea/next-order-forecasting.yml) ([#dbc13eeb47](https://github.com/MicrosoftDocs/architecture-center/commit/dbc13eeb47))
 - [Cache-Aside Pattern](./patterns/cache-aside.yml) ([#071c00e39a](https://github.com/MicrosoftDocs/architecture-center/commit/071c00e39a))
 - [Azure Virtual Desktop Landing Zone Design Guide](./landing-zones/azure-virtual-desktop/design-guide.md) ([#c8d0141fd0](https://github.com/MicrosoftDocs/architecture-center/commit/c8d0141fd0))
-- [Azure landing zones - Bicep modules design considerations](./landing-zones/bicep/landing-zone-bicep.md) ([#c8d0141fd0](https://github.com/MicrosoftDocs/architecture-center/commit/c8d0141fd0))
 - [Big Data Architectures](./databases/guide/big-data-architectures.md) ([#1c134123f5](https://github.com/MicrosoftDocs/architecture-center/commit/1c134123f5))
 - [Build and Deploy Custom Document Processing Models on Azure](./ai-ml/architecture/build-deploy-custom-models.yml) ([#2acffc8aba](https://github.com/MicrosoftDocs/architecture-center/commit/2acffc8aba))
 - [Design Principles for Azure Applications](./guide/design-principles/index.md) ([#400d41d666](https://github.com/MicrosoftDocs/architecture-center/commit/400d41d666))

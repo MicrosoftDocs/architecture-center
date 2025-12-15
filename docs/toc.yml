@@ -11,8 +11,6 @@ items:
   items:
   - name: Deployment options
     href: landing-zones/landing-zone-deploy.md
-  - name: Bicep platform landing zone implementation
-    href: landing-zones/bicep/landing-zone-bicep.md
   - name: Subscription vending implementation
     href: landing-zones/subscription-vending.yml
 - name: Application architecture fundamentals
