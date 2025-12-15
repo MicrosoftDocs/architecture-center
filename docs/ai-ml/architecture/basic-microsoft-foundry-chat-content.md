@@ -11,7 +11,7 @@ This article provides a basic architecture to help you learn how to run chat app
 :::image type="complex" source="./_images/openai-end-to-end-basic.svg" lightbox="./_images/openai-end-to-end-basic.svg" alt-text="Diagram that shows a basic end-to-end chat architecture." border= "false":::
   The diagram presents a flow of a basic chat application. To initiate interaction, an application user accesses a URL https://domainname.azurewebsites.net, which is labeled number 1. This request flows into an App Service instance that uses built-in authentication, which is labeled number 2. App Service has a component labeled managed identity, which indicates that the application uses managed identities for secure authentication.
 
-    App Service points to Agent Service, which is labeled number 3. Agent Service is in the same subsection as Foundry project and managed identities. This subsection is in a larger section named Foundry. The Foundry section also contains a Foundry account and an Azure OpenAI model. The Foundry account has a dotted line that points to Agent Service. Agent Service points to Azure OpenAI, which is labeled number 5. An arrow points from the Foundry project subsection to Azure AI Search, which falls outside of all sections. It's labeled number 4.
+    App Service points to Agent Service, which is labeled number 3. Agent Service is in the same subsection as Foundry project and managed identities. This subsection is in a larger section named Foundry. The Foundry section also contains a Foundry account and an Azure OpenAI model. The Foundry account has a dotted line that points to Agent Service. Agent Service points to an Azure OpenAI model, which is labeled number 5. An arrow points from the Foundry project subsection to Azure AI Search, which falls outside of all sections. It's labeled number 4.
 
     A separate subsection called monitoring contains Application Insights and Azure Monitor. This subsection is labeled number 6.
 :::image-end:::
@@ -89,7 +89,7 @@ The following guidance expands on the [identity and access management guidance](
 
 The Foundry project also has a managed identity. This identity authenticates to services such as AI Search through connection definitions. The project makes those connections available to Agent Service.
 
-An Foundry account can contain multiple Foundry projects. Each project should use its own managed identity. If different workload components require isolated access to connected data sources, create separate Foundry projects within the same account and avoid sharing connections across them. If your workload doesn't require isolation, use a single project.
+A Foundry account can contain multiple Foundry projects. Each project should use its own managed identity. If different workload components require isolated access to connected data sources, create separate Foundry projects within the same account and avoid sharing connections across them. If your workload doesn't require isolation, use a single project.
 
 #### Role-based access roles
 
@@ -195,5 +195,5 @@ Architects should design AI and machine learning workloads, such as this one, wi
 
 - [A Well-Architected Framework perspective on AI workloads on Azure](/azure/well-architected/ai/get-started)
 - [Deploy AI models in the Foundry portal](/azure/ai-foundry/concepts/deployments-overview)
-- [Explore Foundry Models](/azure/ai-foundry/concepts/foundry-models-overview)
+- [Explore Models](/azure/ai-foundry/concepts/foundry-models-overview)
 - [What is Agent Service?](/azure/ai-foundry/agents/overview)
