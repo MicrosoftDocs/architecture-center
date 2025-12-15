@@ -141,7 +141,7 @@ With a private cluster you can use network security groups (NSGs) and other buil
 
 [ ![Diagram showing network topology of the AKS cluster.](images/aks-baseline-network-topology.svg)](images/aks-baseline-network-topology.svg#lightbox)
 
-*Download a [Visio file](https://arch-center.azureedge.net/aks-baseline_network_topology.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/aks-baseline-network-topology.vsdx) of this architecture.*
 
 This reference architecture uses multiple networking approaches, which each requires an IP address space:
 
