@@ -1,9 +1,9 @@
 ---
-title: Deploy Azure Landing Zones
-description: Learn about deployment options for both platform and application landing zones in Azure to help ensure governance and cost efficiency.
+title: Deploy Azure landing zones
+description: Learn about deployment options for both platform and application landing zones in Azure to help ensure governance at scale.
 author: jtracey93
 ms.author: jatracey
-ms.date: 02/25/2025
+ms.date: 12/15/2025
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
@@ -17,7 +17,7 @@ This article describes the options available to help you deploy both a platform 
 
 ## Choose a platform landing zone approach
 
-The following platform deployment options provide an opinionated approach to deploy and operate the [Azure landing zone conceptual architecture](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-architecture) as described in the Cloud Adoption Framework for Azure. The resulting architecture can vary based on the customizations, so it might not be the same for all the deployment options listed in this article. The differences between the platform deployment options are based on their use of different technologies, approaches, and customizations.
+The following platform deployment options provide an opinionated approach to deploy and operate the [Azure landing zone reference architecture](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-architecture) as described in the Cloud Adoption Framework for Azure. The resulting architecture can vary based on the customizations, so it might not be the same for all the deployment options listed in this article. The differences between the platform deployment options are based on their use of different technologies, approaches, and customizations.
 
 ### Standard deployment options
 
@@ -25,9 +25,9 @@ Standard deployment options address typical enterprise Azure usage.
 
 | Azure platform landing zone deployment option | Description | Azure public clouds | Azure sovereign clouds like US Government and 21Vianet |
 | :--- | :--- | :--- | :--- |
-| The Azure portal deployment | The Azure portal-based deployment provides a full implementation of the [Azure landing zone conceptual architecture](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-architecture) and opinionated configurations for key components, such as management groups and policies. | Supported | Not supported. <br><br> You can deploy individual resources by using the Azure portal. However, this approach doesn't provide a unified, guided experience across resources. |
-| [Bicep deployment](./bicep/landing-zone-bicep.md) | A modular deployment that's based on Infrastructure as Code (IaC), where each Bicep module encapsulates a core capability of the [Azure landing zone conceptual architecture](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-architecture). These modules can be deployed individually, but the design recommends that you use orchestrator modules to encapsulate the complexity of deploying different topologies with the modules. | Supported | Not supported. <br><br> You can use the [bicep code](https://github.com/Azure/ALZ-Bicep) as a starting point to build your custom implementation following our [Azure platform landing zone](/azure/cloud-adoption-framework/ready/landing-zone/design-areas) best practices. For more information about what customizations are required to the code, see the [Azure sovereign cloud deployments](#azure-sovereign-cloud-deployments) section. |
-| [Terraform deployment](https://azure.github.io/Azure-Landing-Zones/terraform/)) | An Infrastructure as Code (IaC) deployment that uses [Azure verified modules](https://azure.github.io/Azure-Verified-Modules/) that provides a customizable way to deploy a platform landing zone with Terraform. | Supported | Not supported. <br><br> You can use the [Terraform code](https://github.com/Azure/alz-terraform-accelerator/tree/main/templates/platform_landing_zone) as a starting point to build your custom implementation following our [Azure platform landing zone](/azure/cloud-adoption-framework/ready/landing-zone/design-areas) best practices. For more information about what customizations are required to the code, see the [Azure sovereign cloud deployments](#azure-sovereign-cloud-deployments) section. |
+| The Azure portal deployment | The Azure portal-based deployment provides a full implementation of the [Azure landing zone reference architecture](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-architecture) and opinionated configurations for key components, such as management groups and policies. | Supported | Not supported. <br><br> You can deploy individual resources by using the Azure portal. However, this approach doesn't provide a unified, guided experience across resources. |
+| [Bicep deployment](https://aka.ms/alz/acc/bicep) | An Infrastructure as Code (IaC) deployment that uses [Azure verified modules](https://aka.ms/avm) that provides a customizable way to deploy a platform landing zone with Bicep. | Supported | Not supported. <br><br> You can use the [Bicep code](https://github.com/Azure/alz-bicep-accelerator/tree/main/templates) as a starting point to build your custom implementation following our [Azure platform landing zone](/azure/cloud-adoption-framework/ready/landing-zone/design-areas) best practices. For more information about what customizations are required to the code, see the [Azure sovereign cloud deployments](#azure-sovereign-cloud-deployments) section. |
+| [Terraform deployment](https://aka.ms/alz/acc/tf) | An Infrastructure as Code (IaC) deployment that uses [Azure verified modules](https://aka.ms/avm) that provides a customizable way to deploy a platform landing zone with Terraform. | Supported | Not supported. <br><br> You can use the [Terraform code](https://github.com/Azure/alz-terraform-accelerator/tree/main/templates/platform_landing_zone) as a starting point to build your custom implementation following our [Azure platform landing zone](/azure/cloud-adoption-framework/ready/landing-zone/design-areas) best practices. For more information about what customizations are required to the code, see the [Azure sovereign cloud deployments](#azure-sovereign-cloud-deployments) section. |
 
 #### Azure sovereign cloud deployments
 
@@ -43,11 +43,17 @@ The [Azure landing zone architecture](/azure/cloud-adoption-framework/ready/land
 
 ### Variants and specializations
 
-The [standard platform deployment options](#standard-deployment-options) address typical enterprise Azure usage, but some deployment options focus on specific specializations. For instance, a [sovereign landing zone](/industry/sovereignty/slz-overview) is a variant of the Azure landing zone designed for organizations that require advanced sovereign controls.
+The [standard platform deployment options](#standard-deployment-options) meet the requirements of most, if not all, organizations across all industries and sizes. However, in some scenarios we have provided pre-tailored architectures and deployment options to help you accelerate further in deploying your platform landing zone.
+
+The following options provide specialized platform landing zone implementations that you can use instead of the [standard deployment options](#standard-deployment-options).
+
+| Platform landing zone variant | Description |
+| :--- | :--- |
+| Sovereign landing zone | The [Sovereign landing zone](https://aka.ms/sovereign/slz) is a specialized implementation of the [Azure landing zone reference architecture](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-architecture) that's designed specifically for organizations that have stringent regulatory, compliance, and data residency requirements with a focus around sovereignty. It includes tailored configurations and policies to help meet these needs while still adhering to the core design principles and design areas of Azure landing zones. |
 
 #### Partner implementations
 
-Partner programs such as [Azure Migrate and Modernize](/azure/cloud-adoption-framework/ready/landing-zone/partner-landing-zone#option-1---azure-migrate-and-modernize) can help you design and implement a platform landing zone that's specific to your organization's needs. Those implementations start with the [Azure landing zone conceptual architecture](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-architecture) and design configurations that are specific to your cloud adoption strategy, organizational topology, and desired outcomes.
+Partner programs such as [Azure Migrate and Modernize](/azure/cloud-adoption-framework/ready/landing-zone/partner-landing-zone#option-1---azure-migrate-and-modernize) can help you design and implement a platform landing zone that's specific to your organization's needs. Those implementations start with the [Azure landing zone reference architecture](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-architecture) and design configurations that are specific to your cloud adoption strategy, organizational topology, and desired outcomes.
 
 #### Enterprise policy as code for policy management
 
@@ -78,8 +84,8 @@ To get started, follow the [subscription vending implementation guidance](./subs
 
 | Deployment option | Description |
 | :---------------- | :-----------|
-| [Bicep subscription vending](https://github.com/Azure/bicep-registry-modules/tree/main/avm/ptn/lz/sub-vending) | The subscription vending Bicep modules are designed to orchestrate the deployment of the individual application landing zones based on the configuration of each workload. They can be performed manually or as part of the automation process. |
-| [Terraform subscription vending](https://registry.terraform.io/modules/Azure/lz-vending/azurerm/latest) | Modules use Terraform to orchestrate the deployment of the individual application landing zones. |
+| [Bicep subscription vending](https://aka.ms/lz-vending/bicep) | The subscription vending Bicep modules, built upon [Azure verified modules](https://aka.ms/avm), are designed to orchestrate the deployment of the individual application landing zones. It can be deployed manually or as part of an automation process (recommended). |
+| [Terraform subscription vending](https://aka.ms/lz-vending/tf) | The subscription vending Bicep modules, built upon [Azure verified modules](https://aka.ms/avm), are designed to orchestrate the deployment of the individual application landing zones. It can be deployed manually or as part of an automation process (recommended). |
 
 ## Application landing zone architectures
 
