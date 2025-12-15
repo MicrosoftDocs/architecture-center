@@ -20,7 +20,7 @@ A multitenant solution is used by multiple customers. Each customer, or tenant, 
 There are multitenant concerns beyond ensuring that users only access the information they're authorized to access. However, this article focuses on that aspect of multitenancy. This article begins with an overview of single-tenant RAG architectures. It discusses the challenges that you might encounter in multitenancy with RAG and some common approaches to take. It also outlines multitenancy considerations and recommendations for improved security.
 
 > [!NOTE]
-> This article describes several features that are specific to Azure OpenAI Service, such as the Azure OpenAI On Your Data feature. However, you can apply most of the principles described in this article to foundational AI models on any platform.
+> This article describes several features that are specific to Azure OpenAI in Foundry Models, like the Azure OpenAI On Your Data feature. However, you can apply most of the principles described in this article to foundational AI models on any platform.
 
 ## Single-tenant RAG architecture with an orchestrator
 
