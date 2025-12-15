@@ -22,7 +22,7 @@ The following workflow corresponds to the previous diagram:
 
 1. The Azure App Service website receives the user request from the front end and calls an API hosted in Container Apps. That API processes the incoming task and determines which specialized AI agents are needed. The task is broken down into component parts for multiple-agent coordination.
 
-1. The Container Apps API connects to an Microsoft Foundry-hosted GPT-4o model. Multiple specialized AI agents are orchestrated to handle different aspects of the task. Agents collaborate to plan, perform, and validate the tasks to be done.
+1. The Container Apps API connects to a Microsoft Foundry-hosted GPT-4o model. Multiple specialized AI agents are orchestrated to handle different aspects of the task. Agents collaborate to plan, perform, and validate the tasks to be done.
 
 1. Azure Cosmos DB stores all data related to current and past plans and solutions. Historical task data and patterns are maintained for learning and optimization purposes. Agent decisions and outcomes are persisted for future reference.
 

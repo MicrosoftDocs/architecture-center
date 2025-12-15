@@ -162,7 +162,7 @@ Use your existing MLOps investments, with some possible adjustments, to deploy g
 
 #### RAG and prompting
 
-For RAG and prompting, consider orchestration logic, modifications to data stores such as indexes and schemas, and adjustments to data pipeline logic. Orchestration logic is typically encapsulated in a framework like the Microsoft Agent Framework SDK. You can deploy the orchestrator to different compute resources, including resources where you currently deploy custom models. Also, agent orchestrators can be low-code solutions, such as the Foundry Agent Service. For more information about how to deploy a chat agent, see [Baseline Foundry chat reference architecture](../architecture/baseline-azure-ai-foundry-chat.yml).
+For RAG and prompting, consider orchestration logic, modifications to data stores such as indexes and schemas, and adjustments to data pipeline logic. Orchestration logic is typically encapsulated in a framework like the Microsoft Agent Framework SDK. You can deploy the orchestrator to different compute resources, including resources where you currently deploy custom models. Also, agent orchestrators can be low-code solutions, such as Foundry Agent Service. For more information about how to deploy a chat agent, see [Baseline Foundry chat reference architecture](../architecture/baseline-azure-ai-foundry-chat.yml).
 
 Deployments of changes to database resources, like changes to data models or indexes, are new tasks that need to be handled in GenAIOps. A common practice when you work with large language models is to [use a gateway in front of the large language model](azure-openai-gateway-guide.yml).
 

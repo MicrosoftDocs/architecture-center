@@ -39,7 +39,7 @@ The following development platforms and tools are available for machine learning
 
 | Platform or tool | Description | Features and uses |
 |-|-|-|
-| [Microsoft&nbsp;Foundry&nbsp;portal](#foundry) | Unified development environment for AI and machine learning scenarios | Develop, evaluate, and deploy AI models and applications. The [Microsoft Foundry portal](https://ai.azure.com?cid=learnDocs) facilitates collaboration and project management across various Azure AI services. You can even use it as a common environment across multiple workload teams. |
+| [Microsoft&nbsp;Foundry&nbsp;portal](#foundry) | Unified development environment for AI and machine learning scenarios | Develop, evaluate, and deploy AI models and applications. The [Foundry portal](https://ai.azure.com?cid=learnDocs) facilitates collaboration and project management across various Azure AI services. You can even use it as a common environment across multiple workload teams. |
 | [Azure&nbsp;Machine&nbsp;Learning&nbsp;studio](#azure-machine-learning-studio) | Collaborative, drag-and-drop tool for machine learning | Build, test, and deploy predictive analytics solutions by using minimal coding. Machine Learning studio supports a wide range of machine learning algorithms and AI models. It provides tools for data preparation, model training, and evaluation. |
 | [Azure&nbsp;Data&nbsp;Science Virtual Machine](#azure-data-science-virtual-machine) | VM image that includes preinstalled data science tools | Use a preconfigured environment with tools like Jupyter, R, and Python to develop machine learning solutions on your own VMs.|
 | [Microsoft ML.NET](#mlnet) | Open-source, cross-platform machine learning SDK | Develop machine learning solutions for .NET applications. |
@@ -128,7 +128,7 @@ The [Foundry portal](https://ai.azure.com?cid=learnDocs) fosters collaboration a
 | **Machine learning phases**|- Data preparation<br>- Model training<br>- Deployment|
 |**Key benefits**           |- Requires no coding to build machine learning models<br/>- Supports a wide range of machine learning algorithms and tools for data preparation, model training, and evaluation<br/>- Provides a visual interface for connecting datasets and modules on an interactive canvas<br/>- Supports integration with Machine Learning for advanced machine learning tasks|
 
-For a comprehensive comparison of Machine Learning studio and the [Foundry portal](https://ai.azure.com?cid=learnDocs), see [Foundry portal or Machine Learning studio](/ai/ai-studio-experiences-overview). The following table summarizes the key differences between them:
+The following table summarizes the key differences between the Foundry portal and Machine Learning studio.
 
 | Category             | Feature                         | Foundry portal                         | Machine Learning studio               |
 |----------------------|---------------------------------|-------------------------------------------------|---------------------------------------------|
