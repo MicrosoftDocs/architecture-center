@@ -24,17 +24,17 @@ You can also use GPUs to accelerate tasks such as image classification, object d
 
 #### Computer vision and image processing
 
-Computer vision tasks interpret visual data to extract meaningful information. These tasks are increasingly common in AI-powered applications, autonomous vehicles, medical imaging, surveillance systems, and augmented reality. GPUs use parallel processing, so they can efficiently handle large-scale image data and complex computations for tasks like object detection, image classification, and feature extraction.
+Computer vision tasks interpret visual data to extract meaningful information. These tasks are found in AI-powered applications such as, autonomous vehicles, medical imaging, surveillance systems, and augmented reality. GPUs use parallel processing, so they can efficiently handle large-scale image data and complex computations for tasks like object detection, image classification, and feature extraction.
 
 #### Video processing and streaming
 
-Videos are increasingly prevalent in business, so organizations need GPU-powered hardware rather than CPUs. Video-processing workloads, including transcoding, encoding, and streaming, are compute-intensive, especially if they have high-definition content or 4K content. GPUs provide an efficient platform that delivers high-performance, low-latency video experiences across diverse applications, like streaming sports events or corporate videos.
+Workloads that perform video-processing tasks such as transcoding, encoding, and streaming, are compute-intensive, especially if they have high-resolution content. GPUs provide an efficient platform that delivers high-performance, low-latency video experiences across diverse applications, like streaming sports events or corporate videos.
 
 GPU-enabled agent nodes provide a rich customer experience in virtual desktop environments because they offload graphics-intensive tasks to the GPU. GPU-accelerated video encoding and decoding capabilities help improve real-time video streaming, video transcoding, and video analytics.
 
 To accelerate computer vision tasks like object detection, object tracking, and image or video processing, you can use frameworks like [OpenCV](https://opencv.org/), [OpenCL](https://www.khronos.org/opencl/), [NVIDIA CUDA](https://developer.nvidia.com/cuda-toolkit), and [NVIDIA cuDNN](https://developer.nvidia.com/cudnn).
 
-Gaming platforms and cloud gaming services rely on GPUs to deliver high-quality graphics and smooth gameplay experiences.
+Gaming platforms and cloud gaming services rely on GPUs to deliver high-quality graphics for streaming over internet and smooth gameplay experiences.
 
 #### High-performance computing
 
