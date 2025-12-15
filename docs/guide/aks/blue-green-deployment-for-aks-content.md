@@ -263,7 +263,7 @@ Blue-green deployment makes it possible to make changes to clusters without affe
 - Activating new AKS features
 - Changes to shared resources in the clusters
 - Updating the Kubernetes version
-- Modifying Kubernetes resources and objects, like the ingress gateway, the service mesh, operators, network policies and so on
+- Modifying Kubernetes resources and objects, like the ingress gateway, the service mesh, operators, network policies, and others
 - Rolling back to the previous version of an AKS cluster that's still deployed, without affecting the workloads that are running in the cluster
 
 ## Considerations

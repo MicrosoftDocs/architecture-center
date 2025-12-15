@@ -102,7 +102,7 @@ public class SingleHttpClientInstanceController : ApiController
 
 - The type of shared resource might dictate whether you should use a singleton or create a pool. The `HttpClient` class is designed to be shared rather than pooled. Other objects might support pooling, enabling the system to spread the workload across multiple instances.
 
-- Objects that you share across multiple requests *must* be thread-safe. The `HttpClient` class is designed to be used in this manner, but other classes might not support concurrent requests, so check the available documentation.
+- Objects that you share across multiple requests *must* be thread-safe. The `HttpClient` class is built for this usage pattern, but other classes might not support concurrent requests, so check the available documentation.
 
 - Be careful about setting properties on shared objects, as this can lead to race conditions. For example, setting `DefaultRequestHeaders` on the `HttpClient` class before each request can create a race condition. Set such properties once (for example, during startup), and create separate instances if you need to configure different settings.
 
