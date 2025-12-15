@@ -22,6 +22,6 @@ products:
   - azure-ai-foundry-agent-service
 name: Baseline Microsoft Foundry chat reference architecture
 summary: Use this baseline reference architecture to learn how to build network-secured, highly available, and zone-redundant enterprise chat applications by using Microsoft Foundry, Foundry Agent Service, Azure OpenAI models, and Azure App Service.
-thumbnailUrl: /azure/architecture/browse/thumbs/ai-foundry-end-to-end-baseline-deployment.png
+thumbnailUrl: /azure/architecture/browse/thumbs/microsoft-foundry-end-to-end-baseline-deployment.png
 content: |
    [!INCLUDE[](baseline-microsoft-foundry-chat-content.md)]

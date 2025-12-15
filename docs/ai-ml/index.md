@@ -92,7 +92,7 @@ For more information, see the following resources:
 
 - [Adopt, extend, and build Copilot experiences across the Microsoft Cloud](/microsoft-cloud/dev/copilot/overview)
 - [Copilot Studio](/microsoft-copilot-studio/fundamentals-what-is-copilot-studio)
-- [Microsoft Foundry](/azure/ai-foundry/what-is-ai-foundry)
+- [Microsoft Foundry](/azure/ai-foundry/what-is-azure-ai-foundry)
 
 ### Retrieval Augmented Generation
 
@@ -464,7 +464,7 @@ Prebuilt AI models are useful and increasingly flexible, but the best way to opt
 
 #### Foundry
 
-[Foundry](/azure/ai-foundry/what-is-ai-foundry) helps you efficiently build and deploy custom generative AI applications with the power of broad Azure AI offerings.
+[Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) helps you efficiently build and deploy custom generative AI applications with the power of broad Azure AI offerings.
 
 - Build together as one team. Your Foundry account provides enterprise-grade security and a collaborative environment that includes shared resources and connections to pretrained models, data, and compute.
 

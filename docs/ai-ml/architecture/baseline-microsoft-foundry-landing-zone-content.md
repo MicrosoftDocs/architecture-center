@@ -46,7 +46,7 @@ Like most application landing zone implementations, the workload team primarily 
 
 The following resources remain mostly unchanged from the [baseline architecture](./baseline-microsoft-foundry-chat.yml#components).
 
-- **[Foundry](/azure/ai-foundry/what-is-ai-foundry) account and projects** is an application platform for AI developers and data scientists to build, evaluate, and deploy AI models and host agents. In this architecture, Foundry enables the workload team to host generative AI models as a service, implement content safety, and establish workload-specific connections to knowledge sources and tools.
+- **[Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) account and projects** is an application platform for AI developers and data scientists to build, evaluate, and deploy AI models and host agents. In this architecture, Foundry enables the workload team to host generative AI models as a service, implement content safety, and establish workload-specific connections to knowledge sources and tools.
 
   If your organization's AI Center of Excellence restricts access to AI model deployments, the workload team might not host models in projects and accounts. Instead, they might need to use [centralized AI resources](/azure/cloud-adoption-framework/scenarios/ai/plan). In this scenario, all model consumption usually flows through a gateway that your AI platform team provides.
   
