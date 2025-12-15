@@ -90,7 +90,7 @@ This solution isn't recommended for:
 
 - A greenfield deployments of data warehouses, use this pattern instead [Greenfield Lakehouse on Microsoft Fabric](/azure/architecture/example-scenario/data/greenfield-lakehouse-fabric)
 
-- Migration of on-premises data warehouses that are larger than 1 TB or are projected to reach that size within a year.
+- Migration of on-premises data warehouses that are larger than 1 TB or are projected to reach that size within a year. Even though there is no standard size for a medium side data warehouse, 1 TB upwards is when most organizations consider adopting specialized data warehousing hardware/solutions/patterns which may require re-platforming. Please refer to Alternatives section above for ideas.
 
 ## Considerations
 
@@ -112,15 +112,15 @@ For most of Azure services reliability is a shared responsibility. Microsoft pro
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-- [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) enables you to modify values to understand how your specific requirements affect costs. You can see a pricing sample for an SMB data warehousing scenario in the Azure pricing calculator.
+- [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) enables you to modify values to understand how your specific requirements affect costs. You can see a [pricing sample](https://azure.com/e/0ed01ef7a1e54b9bba6f252ca145ea13) for an SMB data warehousing scenario in the Azure pricing calculator.
 
-- [SQL Database](https://azure.microsoft.com/pricing/details/azure-sql-database/single) pricing depends on the compute and service tiers that you choose and the number of vCores and database transaction units. The example describes a single database with provisioned compute and eight vCores and assumes that you need to run stored procedures in SQL Database.
+- [SQL Database](https://azure.microsoft.com/pricing/details/azure-sql-database/single) pricing depends on the compute and service tiers that you choose and the number of vCores and database transaction units. The example describes a single database with provisioned compute and eight vCores and assumes that you need to run stored procedures in SQL Database. Other assumptions include: 3y reservation of compute and [Azure Hubrid Benefit](/azure/azure-sql/azure-hybrid-benefit?view=azuresql&tabs=azure-portal) eligibility. This is the single essential component of the architecture and is associated with Lift & Shift of existing data warehouse and data transformation processees. Specification of hardware and selected SKU is a reasonable assumption of the needed performance level for majority of SMB customers. 
 
-- [Data Lake Storage Gen2](https://azure.microsoft.com/pricing/details/storage/data-lake/) pricing depends on the amount of data that you store and how often you use the data. The sample pricing covers 1 TB of data storage and other transactional assumptions. The 1 TB refers to the size of the data lake and not the size of the original legacy database.
+- [Data Lake Storage Gen2](https://azure.microsoft.com/pricing/details/storage/data-lake/) pricing depends on the amount of data that you store and how often you use the data. The sample pricing covers 1 TB of data storage and other transactional assumptions. The 1 TB refers to the size of the data lake and not the size of the original legacy database. This is an additional component associated with modernization, it is highlighting the estimated future utilization of the service shall you embrade the capability of integration with other data servcies through ADLS. 
 
-- [Fabric](https://azure.microsoft.com/pricing/details/microsoft-fabric/) pricing depends on either the Fabric F capacity price or the Premium Per Person price. Serverless capabilities use CPU and memory from your purchased dedicated capacity.
+- [Fabric](https://azure.microsoft.com/pricing/details/microsoft-fabric/) pricing depends on either the Fabric F capacity price or the Premium Per Person price. Serverless capabilities use CPU and memory from your purchased dedicated capacity. Existing reporting capability is not changing post modernization, all reports would carry on working using new data warehouse (Azure SQL DB or Azure SQL MI) with existing licensing construct. F2 is added to the calculator to highlight future modernisation opportunity with expanding your BI capabilities through self service data preparation, datamarting, real time intelligence and augmenting BI teams with AI assisted flows. Selected SKU (F2, 1y reserved) is a reasonable assumption for an entry level capability adoption. If you are currently using PBI Premium (or migrated to F64), you may not need to add any additional F capacities. 
 
-- [Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/) pricing depends on the tier that you choose, the number of throughput units provisioned, and the ingress traffic received. The example assumes one throughput unit in the Standard tier handling over one million events per month.
+- [Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/) pricing depends on the tier that you choose, the number of throughput units provisioned, and the ingress traffic received. The example assumes one throughput unit in the Standard tier handling over one million events per month. This is an additional component associated with modernization, it is highlighting the estimated future utilization of the service shall you embrade the capability of integration with other data servcies through streaming. 
 
 ## Contributors
 
