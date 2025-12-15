@@ -3,7 +3,7 @@ This article provides implementation guidance for subscription vending automatio
 [![Diagram showing how the subscriptions vending fits in an organization.](images/sample-subscription-vending-architecture.png)](images/sample-subscription-vending-architecture.png)
 *Figure 1. A subscription vending implementation in an example Azure environment.*
 
-![GitHub icon](../_images/github.png) We created subscription vending [Bicep](https://github.com/Azure/bicep-registry-modules/tree/main/avm/ptn/lz/sub-vending) and [Terraform](https://registry.terraform.io/modules/Azure/lz-vending) modules that you should use as a starting point. You should modify the templates to fit your implementation needs. For more information on the subscription vending process, see [Subscription vending overview](/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending).
+![GitHub icon](../_images/github.png) We created subscription vending [Bicep](https://aka.ms/lz-vending/bicep) and [Terraform](https://aka.ms/lz-vending/tf) modules that will help you accelerate the creation of Azure subscriptions (Application landing zones) at scale. You should tailor the input parameters and variables passed to the modules to fit your implementation needs. For more information on the subscription vending process, see [Subscription vending overview](/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending).
 <br/><br/>
 > [!VIDEO https://www.youtube.com/embed/OoC_0afxACg]
 
@@ -59,20 +59,23 @@ The notification and data from the data collection tool should trigger the platf
 }
 ```
 
-*[See entire file](https://github.com/Azure/bicep-registry-modules/tree/main/avm/ptn/lz/sub-vending#example-1-using-only-defaults). For more examples, see [Bicep examples](https://github.com/Azure/bicep-registry-modules/tree/main/avm/ptn/lz/sub-vending#Usage-examples) and [Terraform examples](https://registry.terraform.io/modules/Azure/lz-vending/azurerm/latest#example)*
+*[See entire file](https://github.com/Azure/bicep-registry-modules/tree/main/avm/ptn/lz/sub-vending#example-1-using-only-defaults). For more examples, see [Bicep examples](https://github.com/Azure/bicep-registry-modules/tree/main/avm/ptn/lz/sub-vending#Usage-examples) and [Terraform examples](https://registry.terraform.io/modules/Azure/avm-ptn-alz-sub-vending/azure/latest/examples/complete)*
 
-**Use one file per subscription request.** The subscription is the unit of deployment in the subscription vending process, so each subscription request should have one dedicated subscription parameter file.
+**Use one file per subscription request.** The subscription is the unit of deployment in the subscription vending process, so each subscription request should have one dedicated subscription parameter/variables file.
+
+> [!TIP]
+> For Terraform implementations, you should use a dedicated state file per subscription to vend to improve plan and apply performance and reduce the blast radius of potential misconfigurations.
 
 **Use a pull request system.** The Gitflow process that creates the subscription parameter file should automate the following steps:
 
 1. Create a new branch for each subscription request.
-1. Use the data collected to create a single YAML/JSON subscription parameter file for the new subscription in the branch.
+1. Use the data collected to create a single YAML/JSON/TFVARS subscription parameter file for the new subscription in the branch.
 1. Create a pull request from your branch into `main`.
 1. Update the data collection tool with a state change and reference to this pull request.
 
 The *request pipeline* in the example implementation executes these steps (*see figure 2*). You could also use a code-based solution hosted in Azure if the workflow is complex.
 
-**Validate the subscription parameter file.** The pull request should trigger a linting process to validate the request data. The goal is to ensure the deployment is successful. It should validate the YAML/JSON subscription parameter file. It could also verify that the IP address range is still available. You might also want to add a manual review gate with human intervention. They could perform the final review and make changes to the subscription parameter file. The output should be a JSON/YAML subscription parameter file with all the data to create a subscription.
+**Validate the subscription parameter/variables file.** The pull request should trigger a linting process to validate the request data. The goal is to ensure the deployment is successful. It should validate the YAML/JSON/TFVARS subscription parameter file. It could also verify that the IP address range is still available. You might also want to add a manual review gate with human intervention. They could perform the final review and make changes to the subscription parameter file. The output should be a JSON/YAML/TFVARS subscription parameter file with all the data to create a subscription.
 
 **Trigger the deployment pipeline.** When the pull request merges into the `main` branch, the merge should trigger the deployment pipeline.
 
@@ -118,8 +121,8 @@ The subscription vending automation ends with subscription creation and configur
 
 Subscription vending simplifies and standardizes the subscription creation process and places it under the governance of the organization. You should implement subscription vending automation to help your application teams access application landing zones faster and onboard workloads quicker. For more information, see:
 
-- [Bicep modules](https://github.com/Azure/bicep-registry-modules/tree/main/avm/ptn/lz/sub-vending)
-- [Terraform modules](https://registry.terraform.io/modules/Azure/lz-vending)
+- [Bicep modules](https://aka.ms/lz-vending/bicep)
+- [Terraform modules](https://aka.ms/lz-vending/tf)
 - [Subscription vending overview](/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending)
 - [Establish common subscription vending product lines](/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending-product-lines)
 - [Azure landing zone overview](/azure/cloud-adoption-framework/ready/landing-zone/)
