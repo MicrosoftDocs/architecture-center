@@ -46,8 +46,6 @@ To accelerate HPC applications, frameworks like [NVIDIA CUDA](https://developer.
 
 Health and life sciences workloads, like genomic analysis and bioinformatics applications, are increasingly common. These workloads involve processing genetic data, such as DNA sequences and protein structures, and require complex algorithms for sequence alignment, variant calling, and genomic data mining. GPUs expedite genomic analysis workflows so that researchers can process data and uncover insights faster.
 
-Consider cost implications before you deploy GPU nodes in AKS clusters. Understand GPU optimization for compute-intensive tasks like computer vision, video processing, HPC, and genomic analysis tasks. Consider these factors when you compare GPU resources versus CPU resources in AKS clusters.
-
 #### Generative AI models
 
 Language models, like [OpenAI GPT](https://platform.openai.com/docs/models), [Meta Llama](https://llama.meta.com/llama3/), [Falcon](https://falconllm.tii.ae/), or [Phi open models](https://azure.microsoft.com/products/phi/), can take advantage of GPU parallel-processing capabilities. Use GPUs with these models to improve performance.
