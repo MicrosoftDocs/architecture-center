@@ -153,7 +153,7 @@ The following tables present a breakdown of each Azure service and component use
       - Non-Microsoft integrations, like CI/CD tools and artifact repositories, are the customer's responsibility for recovery.  
       - If GitHub Actions runners are hosted on customer-managed infrastructure (VMs or containers), their recovery is also the customer's responsibility.
 
-### Stateless Foundational Components
+### Stateless foundational components
 
 - **Subscriptions**
     - Component recovery responsibility: Microsoft
