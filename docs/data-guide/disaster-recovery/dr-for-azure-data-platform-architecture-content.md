@@ -191,7 +191,7 @@ The following tables present a breakdown of each Azure service and component use
     - Contoso SKU selection: Single Zone - Public
     - DR uplift options: Not applicable. DNS is highly available by design.
 
-- **Virtual Networks, including Subnets, user-defined route (UDR) & network security groups (NSG)**
+- **Virtual networks, including subnets, user-defined routes (UDRs), and network security groups (NSGs)**
     - Component recovery responsibility: Contoso
     - Workload/configuration recovery responsibility: Contoso
     - Contoso SKU selection: N/A
