@@ -341,7 +341,7 @@ Use the following articles to choose a specialized data store:
 Learn about reference architectures that use the Azure services in this article:
 
 - The [baseline highly available zone-redundant web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml) architecture uses SQL Database as its relational data store.
-- The [deploy microservices with Azure Container Apps and Dapr](../../example-scenario/serverless/microservices-with-container-apps-dapr.yml) architecture uses SQL Database, Azure Cosmos DB, and Azure Cache for Redis as data stores.
+- The [deploy microservices with Azure Container Apps and Dapr](../../example-scenario/serverless/microservices-with-container-apps-dapr.yml) architecture uses SQL Database, Azure Cosmos DB, and Azure Managed Redis as data stores.
 - The [automate document classification in Azure](../../ai-ml/architecture/automate-document-classification-durable-functions.yml) architecture uses Azure Cosmos DB as its data store.
 
 
