@@ -122,7 +122,7 @@ The subscription vending automation ends with subscription creation and configur
 Subscription vending simplifies and standardizes the subscription creation process and places it under the governance of the organization. You should implement subscription vending automation to help your application teams access application landing zones faster and onboard workloads quicker. For more information, see:
 
 - [Bicep modules](https://github.com/Azure/bicep-registry-modules/tree/main/avm/ptn/lz/sub-vending)
-- [Terraform modules](hhttps://registry.terraform.io/modules/Azure/avm-ptn-alz-sub-vending/azure)
+- [Terraform modules](https://registry.terraform.io/modules/Azure/avm-ptn-alz-sub-vending/azure)
 - [Subscription vending overview](/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending)
 - [Establish common subscription vending product lines](/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending-product-lines)
 - [Azure landing zone overview](/azure/cloud-adoption-framework/ready/landing-zone/)
