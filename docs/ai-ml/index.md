@@ -88,7 +88,7 @@ For more information, see [Language model catalog](https://ai.azure.com/explore/
 
 The availability of language models led to the emergence of new ways to interact with applications and systems through digital copilots and connected, domain-specific agents. *Copilots* are generative AI assistants that integrate into applications, often as chat interfaces. They provide contextualized support for common tasks in those applications.
 
-[Microsoft Copilot](https://m365.cloud.microsoft/chat/) integrates with a wide range of Microsoft applications and user experiences. It's based on an open architecture where non-Microsoft developers can create their own plug-ins to extend or customize the user experience with Copilot. Partner developers can also create their own copilots by using the same open architecture.
+[M365 Copilot](https://m365.cloud.microsoft/chat/) integrates with a wide range of Microsoft applications and user experiences. It's based on an open architecture where non-Microsoft developers can create their own plug-ins to extend or customize the user experience with Copilot. Partner developers can also create their own copilots by using the same open architecture.
 
 For more information, see the following resources:
 
@@ -100,9 +100,13 @@ For more information, see the following resources:
 
 *Retrieval Augmented Generation (RAG)* is an architecture pattern that augments the capabilities of a large language model (LLM), like ChatGPT, that's trained only on public data. You can use this pattern to add a retrieval system that provides relevant grounding data in the context with the user request. An information retrieval system provides control over grounding data that a language model uses when it formulates a response. RAG architecture helps you scope generative AI to content that's sourced from vectorized documents, images, and other data formats. RAG isn't limited to vector search storage. You can use any data store technology.
 
-For more information, see [Design and develop a RAG solution](/azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide) and [Choose an Azure service for vector search](/azure/architecture/guide/technology-choices/vector-search).
+For more information, see [Design and develop a RAG solution](/azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide), [Choose an Azure service for vector search](/azure/architecture/guide/technology-choices/vector-search) or the most advanced [Agentic retrieval with FoundryIQ](/azure/ai-foundry/agents/how-to/tools/knowledge-retrieval).
 
 ## Agent-based architecture
+
+Agents are more than just LLMs that respond to user prompts. They can autonomously perform tasks, make decisions, and interact with other systems. Agents can be designed to handle specific tasks or operate in complex environments, making them suitable for a wide range of applications. Multi‑agent architecture lets you break complex problems into specialized agents that coordinate, boosting accuracy, scalability, and maintainability.
+
+There are tools available to help you build agent-based architectures, such as [Agent Framework](/agent-framework/overview/agent-framework-overview) or [Foundry workflows](/azure/ai-foundry/agents/concepts/workflow).
 
 For guidance about how to coordinate multiple agents in complex AI scenarios, see [AI agent orchestration patterns](/azure/architecture/ai-ml/guide/ai-agent-design-patterns).
 
@@ -134,7 +138,7 @@ Azure Machine Learning is a machine learning service that you can use to build a
 
 For more information, see the following resources:
 
-- [Compare Microsoft machine learning products and technologies](../ai-ml/guide/data-science-and-machine-learning.md)
+- [Compare Microsoft machine learning products and technologies](/azure/architecture/ai-ml/guide/data-science-and-machine-learning)
 - [Machine Learning documentation](/azure/machine-learning/)
 - [What is Machine Learning?](/azure/machine-learning/overview-what-is-azure-ml)
 
@@ -174,9 +178,9 @@ For more information, see [MLflow and Machine Learning](/azure/machine-learning/
 
 ### Generative AI tools
 
-- [Microsoft Foundry](https://azure.microsoft.com/products/ai-foundry) helps you experiment, develop, and deploy generative AI apps and APIs responsibly with a comprehensive platform. The [Microsoft Foundry portal](https://ai.azure.com?cid=learnDocs) provides access to Azure AI services, foundation models, a playground, and resources to help you fine-tune, evaluate, and deploy AI models and AI agents.
+- [Microsoft Foundry models](https://azure.microsoft.com/products/ai-foundry) helps you experiment, develop, and deploy generative AI apps and APIs responsibly with a comprehensive platform. The [Microsoft Foundry portal](https://ai.azure.com?cid=learnDocs) provides access to Azure AI services, foundation models, a playground, and resources to help you fine-tune, evaluate, and deploy AI models and AI agents.
 
-  [Foundry Agent Service](/azure/ai-foundry/agents/overview) hosts no-code agents that you define, connected to a foundation model in the AI model catalog and optionally your own custom knowledge stores or APIs. This capability is hosted within Foundry.
+  [Foundry Agent Service](/azure/ai-foundry/agents/overview) hosts agents that you define, connected to a foundation model in the AI model catalog and optionally your own custom knowledge stores or APIs. These agents can be defined declaratively or hosted (contenerized agents hosted by Foundry).
 
 - [Copilot Studio](/microsoft-copilot-studio/) extends Copilot in Microsoft 365. You can use Copilot Studio to build custom copilots for internal and external scenarios. Use a comprehensive authoring canvas to design, test, and publish copilots. You can easily create generative AI-enabled conversations, provide greater control of responses for existing copilots, and accelerate productivity by using automated workflows.
 
