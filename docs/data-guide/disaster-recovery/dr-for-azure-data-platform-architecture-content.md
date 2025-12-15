@@ -195,7 +195,7 @@ The following tables present a breakdown of each Azure service and component use
     - Component recovery responsibility: Contoso
     - Workload/configuration recovery responsibility: Contoso
     - Contoso SKU selection: N/A
-    - DR uplift options: [VNETs can be replicated](/azure/virtual-network/virtual-network-disaster-recovery-guidance#business-continuity) into the secondary, paired region.
+    - DR uplift options: [Virtual networks can be replicated](/azure/virtual-network/virtual-network-disaster-recovery-guidance#business-continuity) into the secondary, paired region.
 
 - **Azure Firewall**
     - Component recovery responsibility: Contoso
