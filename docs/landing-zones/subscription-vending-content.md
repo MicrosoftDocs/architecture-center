@@ -3,7 +3,7 @@ This article provides implementation guidance for subscription vending automatio
 [![Diagram showing how the subscriptions vending fits in an organization.](images/sample-subscription-vending-architecture.png)](images/sample-subscription-vending-architecture.png)
 *Figure 1. A subscription vending implementation in an example Azure environment.*
 
-![GitHub icon](../_images/github.png) We created subscription vending [Bicep](https://aka.ms/lz-vending/bicep) and [Terraform](https://aka.ms/lz-vending/tf) modules that will help you accelerate the creation of Azure subscriptions (Application landing zones) at scale. You should tailor the input parameters and variables passed to the modules to fit your implementation needs. For more information on the subscription vending process, see [Subscription vending overview](/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending).
+:::image type="icon" source="../_images/github.svg"::: We created subscription vending [Bicep](https://aka.ms/lz-vending/bicep) and [Terraform](https://registry.terraform.io/modules/Azure/avm-ptn-alz-sub-vending/azure) modules that will help you accelerate the creation of Azure subscriptions (Application landing zones) at scale. You should tailor the input parameters and variables passed to the modules to fit the workloads' needs. For more information on the subscription vending process, see [Subscription vending overview](/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending).
 <br/><br/>
 > [!VIDEO https://www.youtube.com/embed/OoC_0afxACg]
 
@@ -59,12 +59,12 @@ The notification and data from the data collection tool should trigger the platf
 }
 ```
 
-*[See entire file](https://github.com/Azure/bicep-registry-modules/tree/main/avm/ptn/lz/sub-vending#example-1-using-only-defaults). For more examples, see [Bicep examples](https://github.com/Azure/bicep-registry-modules/tree/main/avm/ptn/lz/sub-vending#Usage-examples) and [Terraform examples](https://registry.terraform.io/modules/Azure/avm-ptn-alz-sub-vending/azure/latest/examples/complete)*
+*[See entire file](https://github.com/Azure/bicep-registry-modules/tree/main/avm/ptn/lz/sub-vending#example-3-using-only-defaults). For more examples, see [Bicep examples](https://github.com/Azure/bicep-registry-modules/tree/main/avm/ptn/lz/sub-vending#Usage-examples) and [Terraform examples](https://registry.terraform.io/modules/Azure/avm-ptn-alz-sub-vending/azure/latest/examples/complete)*
 
-**Use one file per subscription request.** The subscription is the unit of deployment in the subscription vending process, so each subscription request should have one dedicated subscription parameter/variables file.
+**Use one file per subscription request.** The subscription is the unit of deployment in the subscription vending process, so each subscription request should have one dedicated subscription parameter file.
 
-> [!TIP]
-> For Terraform implementations, you should use a dedicated state file per subscription to vend to improve plan and apply performance and reduce the blast radius of potential misconfigurations.
+> [!IMPORTANT]
+> For Terraform implementations, you should use a dedicated state file per application landing zone subscription to improve plan and apply performance and reduce the blast radius of potential misconfigurations.
 
 **Use a pull request system.** The Gitflow process that creates the subscription parameter file should automate the following steps:
 
@@ -121,8 +121,8 @@ The subscription vending automation ends with subscription creation and configur
 
 Subscription vending simplifies and standardizes the subscription creation process and places it under the governance of the organization. You should implement subscription vending automation to help your application teams access application landing zones faster and onboard workloads quicker. For more information, see:
 
-- [Bicep modules](https://aka.ms/lz-vending/bicep)
-- [Terraform modules](https://aka.ms/lz-vending/tf)
+- [Bicep modules](https://github.com/Azure/bicep-registry-modules/tree/main/avm/ptn/lz/sub-vending)
+- [Terraform modules](hhttps://registry.terraform.io/modules/Azure/avm-ptn-alz-sub-vending/azure)
 - [Subscription vending overview](/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending)
 - [Establish common subscription vending product lines](/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending-product-lines)
 - [Azure landing zone overview](/azure/cloud-adoption-framework/ready/landing-zone/)

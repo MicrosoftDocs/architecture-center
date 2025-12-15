@@ -6999,12 +6999,12 @@
     },
     {
       "source_path": "docs/landing-zones/terraform/landing-zone-terraform.md",
-      "redirect_url": "https://aka.ms/alz/acc/tf",
+      "redirect_url": "https://azure.github.io/Azure-Landing-Zones/terraform/",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/landing-zones/bicep/landing-zone-bicep.md",
-      "redirect_url": "https://aka.ms/alz/acc/bicep",
+      "redirect_url": "https://azure.github.io/Azure-Landing-Zones/bicep/",
       "redirect_document_id": false
     },
     {
