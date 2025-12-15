@@ -1,7 +1,7 @@
 This article provides a basic architecture to help you learn how to run chat applications by using [Microsoft Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) and [Azure OpenAI in Foundry Models](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#azure-openai-in-azure-ai-foundry-models). The architecture includes a client user interface (UI) that runs in Azure App Service. To fetch grounding data for the language model, the UI uses an agent hosted in Foundry Agent Service to orchestrate the workflow from incoming prompts to data stores. The architecture runs in a single region.
 
 > [!IMPORTANT]
-> This architecture isn't for production. It's an introductory architecture for learning and proof of concept (POC) purposes. When you design production chat applications, use the [Baseline Foundry chat reference architecture](baseline-azure-ai-foundry-chat.yml), which adds production design decisions.
+> This architecture isn't for production. It's an introductory architecture for learning and proof of concept (POC) purposes. When you design production chat applications, use the [Baseline Foundry chat reference architecture](baseline-microsoft-foundry-chat.yml), which adds production design decisions.
 
 > [!IMPORTANT]
 > :::image type="icon" source="../../_images/github.svg"::: An [example implementation](https://github.com/Azure-Samples/microsoft-foundry-basic) supports this guidance. It includes deployment steps for a basic end-to-end chat implementation. You can use this implementation as a foundation for your POC to work with chat applications that use Foundry agents.
@@ -62,7 +62,7 @@ The following list outlines critical reliability features that this architecture
 
 - This architecture doesn't enable autoscaling for the client UI. To avoid capacity issues, overprovision compute during learning. Implement autoscale before production.
 
-- This architecture deploys Agent Service as a fully Microsoft-hosted solution. Microsoft hosts dependent services (Cosmos DB, Storage, AI Search) on your behalf. Your subscription doesn't show these resources. You don't control their reliability characteristics. For guidance on bringing your own dependencies, see the [baseline architecture](baseline-azure-ai-foundry-chat.yml).
+- This architecture deploys Agent Service as a fully Microsoft-hosted solution. Microsoft hosts dependent services (Cosmos DB, Storage, AI Search) on your behalf. Your subscription doesn't show these resources. You don't control their reliability characteristics. For guidance on bringing your own dependencies, see the [baseline architecture](baseline-microsoft-foundry-chat.yml).
 
   > [!NOTE]
   > The AI Search instance in the components section and diagram is different from the instance that's a dependency of Agent Service. The instance in the components section stores your grounding data. The dependency does real-time chunking of files that are uploaded within a chat session or as part of an agent's definition.
@@ -71,7 +71,7 @@ The following list outlines critical reliability features that this architecture
 
 - This architecture uses the AI Search Basic tier, which doesn't support [Azure availability zones](/azure/reliability/availability-zones-overview). For zone redundancy, use the Standard tier or higher in a zone-enabled region and deploy three or more replicas.
 
-For more information, see [Baseline Foundry chat reference architecture](baseline-azure-ai-foundry-chat.yml).
+For more information, see [Baseline Foundry chat reference architecture](baseline-microsoft-foundry-chat.yml).
 
 ### Security
 
@@ -107,17 +107,17 @@ To simplify the learning experience for building an end-to-end chat solution, th
 
 This architecture also doesn't restrict egress traffic. For example, an agent can be configured to connect to any public endpoint based on the endpoint's OpenAPI specification. So data exfiltration of private grounding data can't be prevented through network controls.
 
-For more information about network security as an extra perimeter in your architecture, see [networking in the baseline architecture](baseline-azure-ai-foundry-chat.yml#networking).
+For more information about network security as an extra perimeter in your architecture, see [networking in the baseline architecture](baseline-microsoft-foundry-chat.yml#networking).
 
 If you want some network security during your evaluation of this solution, you should use the [network security perimeter support](/azure/ai-foundry/how-to/add-foundry-to-network-security-perimeter) on your Foundry project. This approach provides ingress and egress control before you implement virtual network resources in your architecture. When the Agent Service is configured for standard, private deployment, the network security perimeter is replaced with Private Link connections.
 
 #### Microsoft Defender for Cloud
 
-For this basic architecture, you don't need to enable Microsoft Defender cloud workload protection plans for any services. When you move to production, follow the [security guidance in the baseline architecture](baseline-azure-ai-foundry-chat.yml#security) for Microsoft Defender, which uses multiple plans to cover your workload.
+For this basic architecture, you don't need to enable Microsoft Defender cloud workload protection plans for any services. When you move to production, follow the [security guidance in the baseline architecture](baseline-microsoft-foundry-chat.yml#security) for Microsoft Defender, which uses multiple plans to cover your workload.
 
 #### Governance through policy
 
-This architecture doesn't implement governance through Azure Policy. As you move toward production, follow the [governance recommendations in the baseline architecture](baseline-azure-ai-foundry-chat.yml#governance-through-policy). Those recommendations add Azure Policy across your workload's components.
+This architecture doesn't implement governance through Azure Policy. As you move toward production, follow the [governance recommendations in the baseline architecture](baseline-microsoft-foundry-chat.yml#governance-through-policy). Those recommendations add Azure Policy across your workload's components.
 
 ### Cost Optimization
 
@@ -125,7 +125,7 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 This basic architecture doesn't represent the costs for a production-ready solution. It also doesn't include controls to guard against cost overruns. The following considerations outline crucial features that this architecture doesn't include. These features affect cost.
 
-- This architecture assumes limited model calls. Use the Global Standard deployment type (pay-as-you-go) instead of provisioned throughput. As you move toward production, follow the [cost optimization guidance](baseline-azure-ai-foundry-chat.yml#cost-optimization) in the baseline architecture.
+- This architecture assumes limited model calls. Use the Global Standard deployment type (pay-as-you-go) instead of provisioned throughput. As you move toward production, follow the [cost optimization guidance](baseline-microsoft-foundry-chat.yml#cost-optimization) in the baseline architecture.
 
 - Agent Service incurs costs for files uploaded during chat interactions. Don't make file upload functionality available to application users if it's not part of the desired user experience. Extra knowledge connections, such as the [Grounding with Bing tool](https://www.microsoft.com/bing/apis/grounding-pricing), have their own pricing structures.
 
@@ -133,7 +133,7 @@ This basic architecture doesn't represent the costs for a production-ready solut
 
 - This architecture uses the App Service Basic pricing tier on a single instance. It doesn't provide protection from an availability zone outage. The [baseline App Service architecture](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#app-service) recommends Premium plans with three or more worker instances for high availability.
 
-- This architecture uses the AI Search Basic pricing tier with no added replicas. This topology can't withstand a zone failure. The [baseline end-to-end chat architecture](baseline-azure-ai-foundry-chat.yml#reliability-in-ai-search-for-enterprise-knowledge) recommends the Standard tier or higher and three or more replicas.
+- This architecture uses the AI Search Basic pricing tier with no added replicas. This topology can't withstand a zone failure. The [baseline end-to-end chat architecture](baseline-microsoft-foundry-chat.yml#reliability-in-ai-search-for-enterprise-knowledge) recommends the Standard tier or higher and three or more replicas.
 
 - This architecture doesn't include cost governance or containment controls. Set Azure budgets and alerts early to guard against unexpected token or tool usage.
 
@@ -162,7 +162,7 @@ This architecture is optimized for learning and isn't intended for production. P
 
 ##### Development
 
-For the basic architecture, you can create agents by using the browser-based experience in the Foundry portal. When you move toward production, follow the [development and source control guidance](baseline-azure-ai-foundry-chat.yml#agent-versioning-and-life-cycle) in the baseline architecture. When you no longer need an agent, be sure to delete it. If the agent that you delete is the last one that uses a connection, also remove the connection.
+For the basic architecture, you can create agents by using the browser-based experience in the Foundry portal. When you move toward production, follow the [development and source control guidance](baseline-microsoft-foundry-chat.yml#agent-versioning-and-life-cycle) in the baseline architecture. When you no longer need an agent, be sure to delete it. If the agent that you delete is the last one that uses a connection, also remove the connection.
 
 ##### Evaluation
 
@@ -189,7 +189,7 @@ Architects should design AI and machine learning workloads, such as this one, wi
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Baseline Foundry chat reference architecture](baseline-azure-ai-foundry-chat.yml)
+> [Baseline Foundry chat reference architecture](baseline-microsoft-foundry-chat.yml)
 
 ## Related resources
 

@@ -22,7 +22,7 @@ This architecture uses the [Agent Service standard agent setup](/azure/ai-servic
 
 ## Architecture
 
-:::image type="complex" source="_images/baseline-azure-ai-foundry.svg" border="false" lightbox="_images/baseline-azure-ai-foundry.svg" alt-text="Diagram that shows a baseline end-to-end chat architecture that uses Foundry.":::
+:::image type="complex" source="_images/baseline-microsoft-foundry.svg" border="false" lightbox="_images/baseline-microsoft-foundry.svg" alt-text="Diagram that shows a baseline end-to-end chat architecture that uses Foundry.":::
    The diagram presents a detailed Azure architecture for deploying an AI solution. On the left, a user connects through an Application Gateway with a web application firewall, which is part of a virtual network. This gateway is linked to private DNS zones and protected by Azure DDoS Protection. Under the gateway, private endpoints connect to services such as App Service, Azure Key Vault, and Storage, which are used for client app deployment. The App Service is managed with identity and spans three zones. Application Insights and Azure Monitor provide monitoring, and Microsoft Entra ID handles authentication.
 
     To the right, the virtual network contains several subnets: App Service integration, private endpoint, Foundry integration, Azure AI agent integration, Azure Bastion, jump box, build agents, and Azure firewall. Each subnet hosts specific endpoints or services, such as storage, Foundry, AI Search, Azure Cosmos DB, and knowledge store, all connected via private endpoints. Outbound traffic from the network passes through the Azure Firewall to reach internet sources.
@@ -30,7 +30,7 @@ This architecture uses the [Agent Service standard agent setup](/azure/ai-servic
     To the far right, a separate box represents Foundry, which includes an account and a project. Managed identities are used to connect the Agent Service to the Foundry project, which in turn accesses an Azure OpenAI model. The diagram uses numbered green circles to indicate the logical flow, showing how user requests traverse the network, interact with various endpoints, and ultimately connect to Azure AI services and storage, with dependencies clearly grouped and labeled.
 :::image-end:::
 
-*Download a [Visio file](https://arch-center.azureedge.net/baseline-azure-ai-foundry.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/baseline-microsoft-foundry.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -52,7 +52,7 @@ This architecture uses the [Agent Service standard agent setup](/azure/ai-servic
 
 ### Components
 
-This architecture builds on the [basic Foundry chat reference architecture](./basic-azure-ai-foundry-chat.yml#components). This architecture introduces more Azure services to address enterprise requirements for reliability, security, and operational control. Each of the following components plays a specific role in a production enterprise chat solution:
+This architecture builds on the [basic Foundry chat reference architecture](./basic-microsoft-foundry-chat.yml#components). This architecture introduces more Azure services to address enterprise requirements for reliability, security, and operational control. Each of the following components plays a specific role in a production enterprise chat solution:
 
 - [Agent Service](/azure/ai-services/agents/overview) is a cloud-native runtime environment that enables intelligent agents to operate securely and autonomously. In this architecture, Agent Service provides the orchestration layer for chat interactions. It hosts and manages agents that do the following tasks:
 
@@ -304,7 +304,7 @@ Before you move to production, build a recovery runbook that addresses failures 
 
 Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-This architecture extends the security foundation established in the [basic Foundry chat reference architecture](./basic-azure-ai-foundry-chat.yml). The primary difference is the addition of a network security perimeter alongside the identity perimeter from the basic architecture. From a network perspective, Application Gateway is the only internet-exposed resource. It makes the chat UI application available to users. From an identity perspective, the chat UI should authenticate and authorize requests. Use managed identities when possible to authenticate applications to Azure services.
+This architecture extends the security foundation established in the [basic Foundry chat reference architecture](./basic-microsoft-foundry-chat.yml). The primary difference is the addition of a network security perimeter alongside the identity perimeter from the basic architecture. From a network perspective, Application Gateway is the only internet-exposed resource. It makes the chat UI application available to users. From an identity perspective, the chat UI should authenticate and authorize requests. Use managed identities when possible to authenticate applications to Azure services.
 
 #### Identity and access management
 
@@ -368,7 +368,7 @@ The network design includes the following safeguards:
 
 ##### Network flows
 
-:::image type="complex" source="_images/baseline-azure-ai-foundry-network-flow.svg" border="false" lightbox="_images/baseline-azure-ai-foundry-network-flow.svg" alt-text="Diagram that shows two networking flows from the baseline App Service web application architecture and the Agent Service networking flow.":::
+:::image type="complex" source="_images/baseline-microsoft-foundry-network-flow.svg" border="false" lightbox="_images/baseline-microsoft-foundry-network-flow.svg" alt-text="Diagram that shows two networking flows from the baseline App Service web application architecture and the Agent Service networking flow.":::
   The diagram resembles the baseline end-to-end chat architecture. It includes the Azure OpenAI architecture and three numbered network flows. The inbound flow and the flow from App Service to Azure PaaS services are copied from the baseline App Service web architecture. The Agent Service flow shows an arrow from the Foundry private endpoint in the private virtual network that points to Agent Service. The second numbered arrow in the Agent Service flow shows calls from the Azure AI agent virtual interface in the private network flowing through private endpoints. The third numbered arrow shows an arrow from the virtual interface to an Azure Firewall box, which indicates that all calls to the internet flow through that firewall.
 :::image-end:::
 
@@ -397,7 +397,7 @@ To support this configuration, set up DNS for the following Foundry FQDN API end
 
 The following diagram shows how an AI developer connects through Azure Bastion to a virtual machine (VM) jump box. From that jump box, the author can access the project in the Foundry portal through a private endpoint in the same network.
 
-:::image type="complex" source="_images/baseline-azure-ai-foundry-portal-access.svg" border="false" lightbox="_images/baseline-azure-ai-foundry-portal-access.svg" alt-text="A diagram that shows how a user connects to a jump box VM through Azure Bastion.":::
+:::image type="complex" source="_images/baseline-microsoft-foundry-portal-access.svg" border="false" lightbox="_images/baseline-microsoft-foundry-portal-access.svg" alt-text="A diagram that shows how a user connects to a jump box VM through Azure Bastion.":::
   An arrow points from an agent author, to Azure Bastion, to the jump box, to a Foundry (portal) private endpoint, and then to the Foundry project that contains Agent Service. From the Foundry project, an arrow points to a virtual interface in the Azure AI agent integration subnet. A final arrow points from the virtual interface to the three Agent Service dependency's private endpoints. Those dependencies are AI Search, Azure Cosmos DB, and Storage.
 :::image-end:::
 
@@ -531,7 +531,7 @@ To control consumption model costs in this architecture, use a combination of th
 
 This architecture requires Azure Firewall as an egress control point. To optimize costs, use the Basic tier of Azure Firewall unless the rest of your workload components require advanced features. Higher tiers add cost, so only use them if you need their capabilities.
 
-If your organization uses an Azure landing zone, consider using shared firewall and distributed denial of service (DDoS) resources to defer or reduce costs. Workloads that have similar security and performance requirements can benefit from shared resources. Ensure that shared resources don't introduce security or operational risks. This architecture, [deployed in an Azure landing zone](./baseline-azure-ai-foundry-landing-zone.yml), uses shared resources.
+If your organization uses an Azure landing zone, consider using shared firewall and distributed denial of service (DDoS) resources to defer or reduce costs. Workloads that have similar security and performance requirements can benefit from shared resources. Ensure that shared resources don't introduce security or operational risks. This architecture, [deployed in an Azure landing zone](./baseline-microsoft-foundry-landing-zone.yml), uses shared resources.
 
 #### Microsoft Defender for Cloud
 
@@ -659,7 +659,7 @@ Other contributors:
 
 ## Next step
 
-- [Baseline Foundry chat architecture in an Azure landing zone](./baseline-azure-ai-foundry-landing-zone.yml)
+- [Baseline Foundry chat architecture in an Azure landing zone](./baseline-microsoft-foundry-landing-zone.yml)
 
 ## Related resources
 

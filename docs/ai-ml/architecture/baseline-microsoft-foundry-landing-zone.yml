@@ -23,6 +23,6 @@ products:
   - azure-ai-foundry
 name: Baseline Microsoft Foundry chat reference architecture in an Azure landing zone
 summary: Learn about deploying the baseline Microsoft Foundry, Foundry Agent Service, Azure OpenAI models, and Azure App Service chat architecture in an Azure landing zone.
-thumbnailUrl: ../../browse/thumbs/baseline-azure-ai-foundry-landing-zone.png
+thumbnailUrl: ../../browse/thumbs/baseline-microsoft-foundry-landing-zone.png
 content: |
    [!INCLUDE[](baseline-microsoft-foundry-landing-zone-content.md)]

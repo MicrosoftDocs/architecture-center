@@ -1,4 +1,4 @@
-This article is part of a series that builds on the [Baseline Microsoft Foundry chat reference architecture](baseline-azure-ai-foundry-chat.yml). Review the baseline architecture so that you can identify necessary adjustments before you deploy it in an Azure application landing zone subscription.
+This article is part of a series that builds on the [Baseline Microsoft Foundry chat reference architecture](baseline-microsoft-foundry-chat.yml). Review the baseline architecture so that you can identify necessary adjustments before you deploy it in an Azure application landing zone subscription.
 
 This article describes a generative AI workload architecture that deploys the baseline chat application but uses resources that are outside the workload team's scope. Platform teams centrally manage the resources, and multiple workload teams use them. Shared resources include networking resources for cross-premises connections, identity access management systems, and policies. This guidance helps organizations that use Azure landing zones maintain consistent governance and cost efficiency.
 
@@ -30,11 +30,11 @@ As a workload owner, you delegate shared resource management to platform teams s
 
 <!--docutune:ignore 'grayed-out VPN Gateway' -->
 
-:::image type="complex" source="./_images/baseline-azure-ai-foundry-landing-zone.svg" lightbox="./_images/baseline-azure-ai-foundry-landing-zone.svg" alt-text="Architecture diagram of the workload, including select platform subscription resources." border="false":::
+:::image type="complex" source="./_images/baseline-microsoft-foundry-landing-zone.svg" lightbox="./_images/baseline-microsoft-foundry-landing-zone.svg" alt-text="Architecture diagram of the workload, including select platform subscription resources." border="false":::
     This architecture diagram contains two primary sections. The top blue section is labeled application landing zone subscription. The bottom yellow section is labeled platform landing zone subscription. The top box contains both workload-created resources and subscription-vending resources. The workload resources consist of Azure Application Gateway and Azure Web Application Firewall, App Service and its integration subnet, and private endpoints for platform as a service (PaaS) solutions such as Azure Storage, Azure Key Vault, Azure AI Search, Foundry, Azure Cosmos DB, and Azure Storage. The workload resources also have a Foundry project with Foundry Agent Service and monitoring resources. App Service has three instances in different Azure zones. The platform subscription contains a hub virtual network, Azure Firewall, Azure Bastion, and a grayed-out Azure VPN Gateway and Azure ExpressRoute. A spoke virtual network in the application landing zone and the hub virtual network connect via virtual network peering. Controlled egress traffic goes from the application landing zone to Azure Firewall in the platform landing zone. A flow goes from App Service to the App Service integration subnet, to private endpoints, and then to the services of the private endpoints.
 :::image-end:::
 
-*Download a [Visio file](https://arch-center.azureedge.net/baseline-azure-ai-foundry-landing-zone.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/baseline-microsoft-foundry-landing-zone.vsdx) of this architecture.*
 
 ### Components
 
@@ -44,7 +44,7 @@ Like most application landing zone implementations, the workload team primarily 
 
 #### Workload team-owned resources
 
-The following resources remain mostly unchanged from the [baseline architecture](./baseline-azure-ai-foundry-chat.yml#components).
+The following resources remain mostly unchanged from the [baseline architecture](./baseline-microsoft-foundry-chat.yml#components).
 
 - **[Foundry](/azure/ai-foundry/what-is-ai-foundry) account and projects** is an application platform for AI developers and data scientists to build, evaluate, and deploy AI models and host agents. In this architecture, Foundry enables the workload team to host generative AI models as a service, implement content safety, and establish workload-specific connections to knowledge sources and tools.
 
@@ -149,11 +149,11 @@ The workload team and platform team must collaborate on details like management 
 
 ## Compute
 
-The orchestration layer and chat UI hosting remain the same as the [baseline architecture](./baseline-azure-ai-foundry-chat.yml).
+The orchestration layer and chat UI hosting remain the same as the [baseline architecture](./baseline-microsoft-foundry-chat.yml).
 
 ## Networking
 
-In the [baseline architecture](./baseline-azure-ai-foundry-chat.yml#networking), the workload is provisioned in a single virtual network.
+In the [baseline architecture](./baseline-microsoft-foundry-chat.yml#networking), the workload is provisioned in a single virtual network.
 
 *Change from the baseline:* This architecture divides the workload over two virtual networks. One network hosts workload components. The other network manages internet and hybrid connectivity. The platform team determines how the workload's virtual network integrates with the organization's larger network architecture, which typically follows a hub-spoke topology.
 
@@ -177,13 +177,13 @@ Because of this division of management and ownership, the workload team must cle
 
 ### Virtual network subnets
 
-In the spoke virtual network, you create and allocate the subnets based on the workload requirements. To provide segmentation, apply controls that restrict traffic into and out of the subnets. This architecture doesn't add subnets beyond the [subnets in the baseline architecture](./baseline-azure-ai-foundry-chat.yml#virtual-network-segmentation-and-security). However, the network architecture no longer requires the `AzureBastionSubnet` or `AzureFirewallSubnet` subnets because the platform team likely hosts this capability in their subscriptions.
+In the spoke virtual network, you create and allocate the subnets based on the workload requirements. To provide segmentation, apply controls that restrict traffic into and out of the subnets. This architecture doesn't add subnets beyond the [subnets in the baseline architecture](./baseline-microsoft-foundry-chat.yml#virtual-network-segmentation-and-security). However, the network architecture no longer requires the `AzureBastionSubnet` or `AzureFirewallSubnet` subnets because the platform team likely hosts this capability in their subscriptions.
 
 You still have to implement local network controls when you deploy your workload in an Azure landing zone. Your organization might impose further network restrictions to safeguard against data exfiltration and ensure visibility for the central security operations center and the IT network team.
 
 ### Ingress traffic
 
-The [ingress traffic flow remains the same as the baseline architecture](./baseline-azure-ai-foundry-chat.yml#network-flows).
+The [ingress traffic flow remains the same as the baseline architecture](./baseline-microsoft-foundry-chat.yml#network-flows).
 
 You manage resources related to public internet ingress into the workload. For example, in this architecture, Application Gateway and its public IP address reside in the spoke network rather than the hub network. Some organizations place ingress-facing resources in a connectivity subscription by using a centralized perimeter network (also known as DMZ, demilitarized zone, and screened subnet) implementation. Integration with that specific topology falls outside the scope of this article.
 
@@ -236,7 +236,7 @@ All traffic that leaves the spoke virtual network, including traffic from the ag
 
 *Download a [Visio file](https://arch-center.azureedge.net/baseline-landing-zone-networking-egress.vsdx) of this architecture.*
 
-East-west client communication to the private endpoints for Key Vault, Foundry, and other services remains the same as the [baseline architecture](./baseline-azure-ai-foundry-chat.yml#networking). The preceding diagram doesn't include that path.
+East-west client communication to the private endpoints for Key Vault, Foundry, and other services remains the same as the [baseline architecture](./baseline-microsoft-foundry-chat.yml#networking). The preceding diagram doesn't include that path.
 
 #### Route internet traffic to the firewall
 
@@ -291,7 +291,7 @@ The platform team must also host the private DNS zones for other workload depend
 
 ## Data scientist and agent developer access
 
-Like the [baseline architecture](./baseline-azure-ai-foundry-chat.yml#ingress-to-foundry), this architecture disables public ingress access to the Foundry portal and other browser-based experiences. The baseline architecture deploys a jump box to provide a browser with a source IP address from the virtual network that various workload roles use.
+Like the [baseline architecture](./baseline-microsoft-foundry-chat.yml#ingress-to-foundry), this architecture disables public ingress access to the Foundry portal and other browser-based experiences. The baseline architecture deploys a jump box to provide a browser with a source IP address from the virtual network that various workload roles use.
 
 When your workload connects to an Azure landing zone, your team gains more access options. Work with the platform team to see if you can get private access to various browser-based Foundry portals without managing and governing a virtual machine (VM). This access might be possible through transitive routing from an existing ExpressRoute or VPN Gateway connection.
 
@@ -311,7 +311,7 @@ The VM that serves as the jump box must comply with organizational requirements 
 
 ## Monitor resources
 
-The Azure landing zone platform provides shared observability resources as part of the management subscription. However, we recommend that you provision your own monitoring resources to facilitate ownership responsibilities of the workload. This approach aligns with the [baseline architecture](./baseline-azure-ai-foundry-chat.yml#monitoring).
+The Azure landing zone platform provides shared observability resources as part of the management subscription. However, we recommend that you provision your own monitoring resources to facilitate ownership responsibilities of the workload. This approach aligns with the [baseline architecture](./baseline-microsoft-foundry-chat.yml#monitoring).
 
 You provision the following monitoring resources:
 
@@ -325,7 +325,7 @@ The platform team might have more processes that affect resources in the applica
 
 ## Azure Policy
 
-The baseline architecture recommends [general policies](./baseline-azure-ai-foundry-chat.yml#governance-through-policy) to help govern the workload. When you deploy this architecture into an application landing zone, you don't need to add or remove extra policies. To help enforce governance and enhance the security of this workload, continue to apply policies to your subscription, resource groups, or resources.
+The baseline architecture recommends [general policies](./baseline-microsoft-foundry-chat.yml#governance-through-policy) to help govern the workload. When you deploy this architecture into an application landing zone, you don't need to add or remove extra policies. To help enforce governance and enhance the security of this workload, continue to apply policies to your subscription, resource groups, or resources.
 
 Expect the application landing zone subscription to have existing policies, even before you deploy the workload. Some policies help organizational governance by auditing or blocking specific configurations in deployments.
 
@@ -401,7 +401,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-This architecture maintains the [reliability guarantees in the baseline architecture](./baseline-azure-ai-foundry-chat.yml#reliability). It doesn't introduce new reliability considerations for the core workload components.
+This architecture maintains the [reliability guarantees in the baseline architecture](./baseline-microsoft-foundry-chat.yml#reliability). It doesn't introduce new reliability considerations for the core workload components.
 
 #### Critical dependencies
 
@@ -474,13 +474,13 @@ All data storage services in this architecture support Microsoft-managed or cust
 
 #### Microsoft Defender for Cloud
 
-Use the same configuration for Microsoft Defender for Cloud as discussed in the [baseline architecture](./baseline-azure-ai-foundry-chat.yml#microsoft-defender-for-cloud). If your subscription vending process doesn't automatically enable these Defender plans, ensure you take on this responsibility as the workload team. Purview integration for the AI components in this workload is enabled through the Defender for AI services plan.
+Use the same configuration for Microsoft Defender for Cloud as discussed in the [baseline architecture](./baseline-microsoft-foundry-chat.yml#microsoft-defender-for-cloud). If your subscription vending process doesn't automatically enable these Defender plans, ensure you take on this responsibility as the workload team. Purview integration for the AI components in this workload is enabled through the Defender for AI services plan.
 
 ### Cost Optimization
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-All [cost optimization strategies in the baseline architecture](./baseline-azure-ai-foundry-chat.yml#cost-optimization) apply to the workload resources in this architecture.
+All [cost optimization strategies in the baseline architecture](./baseline-microsoft-foundry-chat.yml#cost-optimization) apply to the workload resources in this architecture.
 
 This architecture greatly benefits from Azure landing zone [platform resources](#platform-team-owned-resources). For example, resources such as Azure Firewall and DDoS Protection transition from workload to platform resources. Even if you use those resources through a chargeback model, the added security and cross-premises connectivity are more cost-effective than self-managing those resources. Take advantage of other centralized offerings from your platform team to extend those benefits to your workload without compromising its service-level objective, recovery time objective, or recovery point objective.
 
@@ -491,7 +491,7 @@ This architecture greatly benefits from Azure landing zone [platform resources](
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-You remain responsible for all [operational excellence considerations from the baseline architecture](./baseline-azure-ai-foundry-chat.yml#operational-excellence). These responsibilities include monitoring, GenAIOps, quality assurance, and safe deployment practices.
+You remain responsible for all [operational excellence considerations from the baseline architecture](./baseline-microsoft-foundry-chat.yml#operational-excellence). These responsibilities include monitoring, GenAIOps, quality assurance, and safe deployment practices.
 
 #### Correlate data from multiple sinks
 
@@ -512,7 +512,7 @@ Make sure that the build agent management complies with organizational standards
 
 Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-The [performance efficiency considerations in the baseline architecture](./baseline-azure-ai-foundry-chat.yml#performance-efficiency) also apply to this architecture. Your team retains control over the resources in the application flows, not the platform team. Scale the chat UI host, language models, and other components according to the workload and cost constraints. Depending on the final implementation of your architecture, consider the following factors when you measure your performance against performance targets:
+The [performance efficiency considerations in the baseline architecture](./baseline-microsoft-foundry-chat.yml#performance-efficiency) also apply to this architecture. Your team retains control over the resources in the application flows, not the platform team. Scale the chat UI host, language models, and other components according to the workload and cost constraints. Depending on the final implementation of your architecture, consider the following factors when you measure your performance against performance targets:
 
 - Egress and cross-premises latency
 - SKU limitations from cost containment governance
