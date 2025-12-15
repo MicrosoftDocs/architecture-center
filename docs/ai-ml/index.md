@@ -1,9 +1,9 @@
 ---
 title: AI Architecture Design
 description: Get started with AI. Use high-level architectural types, see Azure AI platform offerings, and find customer success stories.
-author: anaharris-ms
-ms.author: pnp
-ms.date: 01/31/2025
+author: davihern
+ms.author: davihern
+ms.date: 15/12/2025
 ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
@@ -54,17 +54,19 @@ For more information, see [What is deep learning?](https://azure.microsoft.com/r
 
 ### Generative AI
 
-*Generative AI* trains models to generate original content based on many forms of content, such as natural language, computer vision, audio, or image input. With generative AI, you can describe a desired output in everyday language, and the model can respond by creating appropriate text, image, and code. Examples of generative AI applications include Microsoft Copilot and Azure OpenAI Service.
+*Generative AI* trains models to generate original content based on many forms of content, such as natural language, computer vision, audio, or image input. With generative AI, you can describe a desired output in everyday language, and the model can respond by creating appropriate text, image, and code. Examples of generative AI applications include M365 Copilot and Microsoft Foundry.
 
-- [Copilot](https://m365.cloud.microsoft/chat/) is primarily a user interface that helps you write code, documents, and other text-based content. It's based on popular OpenAI models and is integrated into a wide range of Microsoft applications and user experiences.
+- [M365 Copilot](https://m365.cloud.microsoft/chat/) is primarily a user interface that helps you write code, documents, and other text-based content. It's based on popular models from OpenAI and Anthropic and is integrated into a wide range of Microsoft applications and user experiences.
 
-- [Azure OpenAI](/azure/ai-services/openai/overview) is a development platform as a service that provides access to OpenAI's powerful language models, such as o1-preview, o1-mini, GPT-4o, GPT-4o mini, GPT-4 Turbo with Vision, GPT-4, GPT-3.5-Turbo, and the Embeddings model series. You can adapt these models to your specific tasks, such as:
+- [Microsoft Foundry](/azure/ai-services/openai/overview) is a development platform as a service that provides access to more that 11,000 language models, such as OpenAI's gpt-5.2, Sora2, Anthropic's Claude, Microsoft's Phi, xAI's Grok, etc... You can adapt these models to your specific tasks, such as:
 
   - Content generation.
   - Content summarization.
   - Image understanding.
   - Semantic search.
   - Natural language to code translation.
+  - Video generation.
+  - Speech to Speech
 
 ### Language models
 
@@ -74,11 +76,11 @@ Conventional language models are used in supervised settings for research purpos
 
 The number of parameters, or weights, determine the size of a language model. Parameters influence how the model processes input data and generates output. During training, the model adjusts the weights to minimize the difference between its predictions and the actual data. This process is how the model learns parameters. The more parameters a model has, the more complex and expressive it is. But it's also more computationally expensive to train and use.
 
-In general, small language models generally have fewer than 10 billion parameters, and large language models have more than 10 billion parameters. For example, the Microsoft Phi-3 model family has three versions:
+In general, small language models generally have fewer than 10 billion parameters, and large language models have more than 10 billion parameters. For example, the Microsoft Phi-4 model family has several versions like:
 
-- Mini, 3.8 billion parameters
-- Small, 7 billion parameters
-- Medium, 14 billion parameters
+- Phi-4-Mini, 3.8 billion parameters
+- Phi-4-Multimodal-instruct, 5.6 billion parameters
+- Phi-4 (base model), 14 billion parameters
 
 For more information, see [Language model catalog](https://ai.azure.com/explore/models).
 
@@ -104,21 +106,21 @@ For more information, see [Design and develop a RAG solution](/azure/architectur
 
 For guidance about how to coordinate multiple agents in complex AI scenarios, see [AI agent orchestration patterns](/azure/architecture/ai-ml/guide/ai-agent-design-patterns).
 
-## Azure AI services
+## Foundry tools
 
-With [Azure AI services](https://azure.microsoft.com/products/ai-services), developers and organizations can use ready-made, prebuilt, and customizable APIs and models to create intelligent, market-ready, and responsible applications. Use cases include natural language processing for conversations, search, monitoring, translation, speech, vision, and decision-making.
+With [Foundry tools](https://azure.microsoft.com/en-us/products/ai-foundry/tools), developers and organizations can use ready-made, prebuilt, and customizable APIs and models to create intelligent, market-ready, and responsible applications. Use cases include natural language processing for conversations, search, monitoring, translation, speech, vision, and decision-making.
 
 For more information, see the following resources:
 
 - [Choose an Azure AI services technology](../data-guide/technology-choices/ai-services.md)
-- [Azure AI services documentation](/azure/ai-services/what-are-ai-services)
+- [What are Foundry tools?](/azure/ai-services/what-are-ai-services)
 - [Choose a natural language processing technology in Azure](../data-guide/technology-choices/natural-language-processing.md)
 
 ## AI language models
 
 *LLMs*, such as the OpenAI GPT models, are powerful tools that can generate natural language across various domains and tasks. To choose a model, consider factors such as data privacy, ethical use, accuracy, and bias.
 
-[Phi open models](https://azure.microsoft.com/blog/new-models-added-to-the-phi-3-family-available-on-microsoft-azure/) are small, less compute-intensive models for generative AI solutions. A small language model might be more efficient, interpretable, and explainable than an LLM.
+[Phi open models](https://azure.microsoft.com/en-us/products/phi/) are small, less compute-intensive models for generative AI solutions. A small language model might be more efficient, interpretable, and explainable than an LLM.
 
 When you design a workload, you can use language models as a hosted solution behind a metered API. Alternatively, for many small language models, you can host language models in-process or at least on the same compute as the consumer. When you use language models in your solution, consider your choice of language model and its available hosting options to help ensure an optimized solution for your use case.
 
@@ -174,7 +176,7 @@ For more information, see [MLflow and Machine Learning](/azure/machine-learning/
 
 - [Microsoft Foundry](https://azure.microsoft.com/products/ai-foundry) helps you experiment, develop, and deploy generative AI apps and APIs responsibly with a comprehensive platform. The [Microsoft Foundry portal](https://ai.azure.com?cid=learnDocs) provides access to Azure AI services, foundation models, a playground, and resources to help you fine-tune, evaluate, and deploy AI models and AI agents.
 
-  [Azure AI Agent Service](/azure/ai-services/agents/overview) hosts no-code agents that you define, connected to a foundation model in the AI model catalog and optionally your own custom knowledge stores or APIs. This capability is hosted within Foundry.
+  [Foundry Agent Service](/azure/ai-foundry/agents/overview) hosts no-code agents that you define, connected to a foundation model in the AI model catalog and optionally your own custom knowledge stores or APIs. This capability is hosted within Foundry.
 
 - [Copilot Studio](/microsoft-copilot-studio/) extends Copilot in Microsoft 365. You can use Copilot Studio to build custom copilots for internal and external scenarios. Use a comprehensive authoring canvas to design, test, and publish copilots. You can easily create generative AI-enabled conversations, provide greater control of responses for existing copilots, and accelerate productivity by using automated workflows.
 
@@ -206,7 +208,7 @@ You can use Copilot and other generative AI features to transform and analyze da
 - [Copilot for Data Factory](/fabric/get-started/copilot-fabric-data-factory)
 - [Copilot for Data Warehouse](/fabric/data-warehouse/copilot)
 - [Copilot for Power BI](/power-bi/create-reports/copilot-introduction)
-- [Copilot for Real-Time Intelligence](/fabric/get-started/copilot-real-time-intelligence)
+- [Copilot for Real-Time Intelligence](/fabric/real-time-intelligence/copilot-writing-queries)
 
 #### AI skills in Fabric
 
@@ -307,9 +309,9 @@ You can use Fabric Data Factory to ingest, prepare, and transform data from mult
 
 Fabric Data Factory supports code solutions and no-code or low-code solutions:
 
-- Use [data pipelines](/fabric/data-factory/data-factory-overview#data-pipelines) to create workflow capabilities at cloud scale. Use the drag-and-drop interface to build workflows that can refresh your dataflow, move petabyte-size data, and define control-flow pipelines.
+- Use [data pipelines](/fabric/data-factory/pipeline-overview) to create workflow capabilities at cloud scale. Use the drag-and-drop interface to build workflows that can refresh your dataflow, move petabyte-size data, and define control-flow pipelines.
 
-- Use [dataflows](/fabric/data-factory/data-factory-overview#dataflows) as a low-code interface to ingest data from hundreds of data sources and transform it by using over 300 data transformations.
+- Use [dataflows](/fabric/data-factory/dataflows-gen2-overview) as a low-code interface to ingest data from hundreds of data sources and transform it by using over 300 data transformations.
 
 For more information, see [Data Factory end-to-end scenario: Introduction and architecture](/fabric/data-factory/tutorial-end-to-end-introduction).
 
@@ -396,11 +398,11 @@ Machine Learning offers the following capabilities:
 
 Although you can use many of the raw data fields to train a model, you might need to create other engineered features that provide information to better differentiate patterns in the data. This process is called feature engineering, where you use domain knowledge of the data to create features that help machine learning algorithms learn better.
 
-In Machine Learning, data-scaling and normalization techniques are applied to make feature engineering easier. Collectively, these techniques and feature engineering are called *featurization* in AutoML experiments. For more information, see [Data featurization in automated machine learning](/azure/machine-learning/how-to-configure-auto-features?view=azureml-api-1&preserve-view=true).
+In Machine Learning, data-scaling and normalization techniques are applied to make feature engineering easier. Collectively, these techniques and feature engineering are called *featurization* in AutoML experiments. For more information, see [Data featurization in automated machine learning](/azure/machine-learning/concept-automated-ml?view=azureml-api-2#feature-engineering).
 
-### Azure OpenAI
+### Microsoft Foundry
 
-In Azure OpenAI, you can use a process known as *fine-tuning* to tailor OpenAI models to your personal datasets. This customization step optimizes the service by providing:
+In Microsoft Foundry, you can use a process known as *fine-tuning* to tailor models to your personal datasets. This customization step optimizes the service by providing:
 
 - Higher quality results compared to [prompt engineering](/azure/ai-services/openai/concepts/prompt-engineering) only.
 - The ability to train on more examples than a model's maximum request context limit typically permits.
@@ -413,9 +415,9 @@ For more information, see the following resources:
 - [Tutorial: Azure OpenAI GPT-4o-mini fine-tuning](/azure/ai-services/openai/tutorials/fine-tune)
 - [Baseline Microsoft Foundry chat reference architecture](/azure/architecture/ai-ml/architecture/baseline-azure-ai-foundry-chat)
 
-### Azure AI services for custom AI
+### Foundry toold for custom AI
 
-[Azure AI services](https://azure.microsoft.com/products/ai-services) provides features to build custom AI models and applications. The following sections provide an overview of these key features.
+[Foundry tools](https://azure.microsoft.com/en-us/products/ai-foundry/tools) provides features to build custom AI models and applications. The following sections provide an overview of these key features.
 
 #### Custom speech
 
@@ -443,9 +445,9 @@ Custom translator offers the following features.
 |[Collaborate with others](/azure/ai-services/translator/custom-translator/how-to/create-manage-workspace#manage-workspace-settings)     |   Collaborate with your team by sharing your work with various people.     |
 |[Access your custom translation model](/azure/ai-services/translator/custom-translator/how-to/translate-with-custom-model)     |  Access your custom translation model anytime by using your existing applications or programs via Microsoft Translator Text API V3.       |
 
-#### Azure AI Document Intelligence custom models
+#### Azure Document Intelligence custom models
 
-[Azure AI Document Intelligence](/azure/ai-services/document-intelligence/overview) uses advanced machine learning technology to identify documents, detect and extract information from forms and documents, and return the extracted data in a structured JSON output. Use Document Intelligence to take advantage of prebuilt or pretrained document analysis models or trained standalone custom models.
+[Azure Document Intelligence](/azure/ai-services/document-intelligence/overview) uses advanced machine learning technology to identify documents, detect and extract information from forms and documents, and return the extracted data in a structured JSON output. Use Document Intelligence to take advantage of prebuilt or pretrained document analysis models or trained standalone custom models.
 
 [Document Intelligence custom models](/azure/ai-services/document-intelligence/train/custom-model) include custom classification models for scenarios where you need to identify the document type before you invoke the extraction model. You can pair a classification model with a custom extraction model to analyze and extract fields from forms and documents that are specific to your business. Combine standalone custom extraction models to create [composed models](/azure/ai-services/document-intelligence/train/composed-models).
 
@@ -526,7 +528,7 @@ For general information about custom AI on Azure, see the following resources:
 
 Many industries apply AI in innovative and inspiring ways. Consider the following customer case studies and success stories:
 
-- [Healthcare for all with Kry using Azure OpenAI](https://www.microsoft.com/customers/story/1693712644049090392-kry-azure-open-ai-service-sweden)
+- [NSF enables life-saving treatments to get to patients faster with Azure AI](https://www.microsoft.com/en/customers/story/25862-nsf-international-azure-openai)
 - [PIMCO boosts client service with an AI-powered search platform built on Azure AI](https://www.microsoft.com/en/customers/story/19744-pimco-sharepoint)
 - [Legrand and Azure OpenAI: Powering smarter solutions with AI-driven tools](https://www.microsoft.com/en/customers/story/19697-legrand-azure-cloud-services)
 - [C.H. Robinson overcomes decades-old barriers to automate the logistics industry by using Azure AI](https://www.microsoft.com/en/customers/story/19575-ch-robinson-azure-ai-studio)
