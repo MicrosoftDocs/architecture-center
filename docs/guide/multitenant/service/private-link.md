@@ -45,10 +45,11 @@ When traffic arrives into the multitenant solution, it has already been translat
 
 ### Provisioning process
 
-When working across different customers or tenants, Private Link typically requires both sides to take explicit action to provision and establish the connection. There can be multiple phases involved, each of which requires distinct permissions:
-- Creating the private endpoint in the destination virtual network, which must be performed by a user or principal with the [necessary permissions](/azure/private-link/rbac-permissions).
-- Establish a connection to the private endpoint, which also requires specific permisions.
-- Approving the connection. For more information about connection approvals in a multitenant solution, see [Connection approvals](#connection-approvals).
+When working across different customers or tenants, Private Link typically requires both sides to take explicit action to provision and establish the connection. The same general process applies whether a tenant is connecting to a service provider or vice versa. There can be multiple phases involved, each of which requires distinct permissions:
+
+- Create the private endpoint in the destination virtual network. This action must be performed by a user or principal with the [necessary permissions](/azure/private-link/rbac-permissions).
+- Establish a connection to the private endpoint. This action also requires permissions.
+- Approve the connection. For more information about connection approvals in a multitenant solution, see [Connection approvals](#connection-approvals).
 
 If you expect large number of private endpoints or connections, consider building self-service or automated tooling to provision and approve the connections.
 
