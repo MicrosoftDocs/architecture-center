@@ -45,7 +45,7 @@ When you plan messaging or eventing infrastructure, consider the number of tenan
 
 First, plan for capacity and establish the maximum throughput capacity for the messaging system. This planning helps you properly handle the expected volume of messages under regular and peak traffic.
 
-When your solution handles many tenants and has a separate messaging system for each tenant, apply a consistent strategy to automate the deployment, monitoring, alerting, and scaling of each infrastructure.
+When your solution handles many tenants and has a separate messaging system for each tenant, apply a consistent automation strategy. This strategy should automate the deployment, monitoring, alerting, and scaling of each infrastructure.
 
 For example, you can deploy a messaging system for a tenant during the provisioning process by using an infrastructure as code (IaC) tool like Terraform, Bicep, or Azure Resource Manager templates (ARM templates) and a DevOps system like Azure DevOps or GitHub Actions. For more information, see [Architectural approaches for the deployment and configuration of multitenant solutions](/azure/architecture/guide/multitenant/approaches/deployment-configuration).
 
@@ -70,7 +70,7 @@ From the start, plan how you intend to operate, monitor, and maintain your messa
   - Customize the pricing tier for each tenant based on the features and shared or dedicated isolation level that the tenant requests.
 
   - Create tenant-specific managed identities and Azure role assignments to assign the proper permissions only to the messaging entities that the tenant should access. For example, see [Authenticate a managed identity with Microsoft Entra ID to access Service Bus resources](/azure/service-bus-messaging/service-bus-managed-service-identity).
-- When you host the messaging system that your application uses in a dedicated set of VMs or containers, one for each tenant, define how to deploy, upgrade, monitor, and scale out these systems.
+- When you host the messaging system that your application uses in a dedicated set of VMs or containers (one for each tenant) define how to deploy, upgrade, monitor, and scale out these systems.
 
 ### Cost
 
@@ -110,25 +110,31 @@ Tenants might have different requirements for security, intra-region resiliency,
 
 The [Sharding pattern](../../../patterns/sharding.yml) involves deploying multiple messaging systems, also called *shards*. Each shard contains one or more tenants' messaging entities, like queues and topics. Unlike deployment stamps, shards don't imply that you duplicate the entire infrastructure. You might shard messaging systems without also duplicating or sharding other infrastructure in your solution.
 
-![Diagram showing a sharded messaging system. One messaging system contains the queues for tenants A and B, and the other contains the queues for tenant C.](media/messaging/sharding.png)
+:::image type="complex" border="false" source="media/messaging/sharding.png" alt-text="Diagram that shows a sharded messaging system." lightbox="media/messaging/sharding.png":::
+Tenants A, B, and C point to a section that contains a shared web server, shard map, and two messaging systems. One messaging system contains the queues for tenants A and B, and the other contains the queues for tenant C.
+:::image-end:::
 
-Every messaging system or *shard* can have different characteristics in terms of reliability, SKU, and location. For example, you can shard your tenants across multiple messaging systems with different characteristics based on their location or needs in terms of performance, reliability, data protection, or business continuity.
+Every messaging system or *shard* can have different characteristics in terms of reliability, SKU, and location. For example, you can shard your tenants across multiple messaging systems based on their location or requirements for performance, reliability, data protection, or business continuity.
 
-When you use the Sharding pattern, you need to use a [sharding strategy](/azure/architecture/patterns/sharding#sharding-strategies) to map a given tenant to the messaging system that contains its queues. The [lookup strategy](/azure/architecture/patterns/sharding#sharding-strategies) uses a map to individuate the target messaging system based on the tenant name or ID. Multiple tenants might share the same shard, but the messaging entities that a single tenant uses aren't spread across multiple shards. You can implement the map with a single dictionary that maps the tenant's name to the name or reference of the target messaging system. You can store the map in a distributed cache that's available to all the instances of a multitenant application, or in a persistent store like a table in a relational database or a table in a storage account.
+When you use the Sharding pattern, you need to use a [sharding strategy](/azure/architecture/patterns/sharding#sharding-strategies) to map a given tenant to the messaging system that contains its queues. The [lookup strategy](/azure/architecture/patterns/sharding#sharding-strategies) uses a map to individuate the target messaging system based on the tenant name or ID. Multiple tenants might share the same shard, but the messaging entities that a single tenant uses stay within one shard.
 
-The Sharding pattern can scale to support a high volume of tenants. Depending on your workload, you might achieve a high density of tenants to shards, which can reduce cost. You can also use the Sharding pattern to address [Azure subscription and service quotas, limits, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits).
+You can implement the map as a dictionary that links each tenant name to the name or reference of its target messaging system. You can store the map in a distributed cache that all instances of a multitenant application can access, or store it in a persistent store like a table in a relational database or storage account.
+
+The Sharding pattern can scale to support several tenants. Depending on your workload, you might achieve a high density of tenants to shards, which can reduce cost. You can also use the Sharding pattern to address [Azure subscription and service quotas, limits, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
 ### Use a multitenant app with dedicated messaging system for each tenant
 
-Another common approach is to deploy a single multitenant application with dedicated messaging systems for each tenant. In this tenancy model, you have some shared components, like computing resources, while you provision and manage other services by using a single-tenant, dedicated deployment approach. For example, you can build a single application tier and then deploy individual messaging systems for each tenant, as shown in the following illustration.
+You can also deploy a single multitenant application that uses dedicated messaging systems for each tenant. This tenancy model includes some shared components, like computing resources. You provision and manage other services by using a single-tenant, dedicated deployment approach. For example, you can build a single application tier and then deploy individual messaging systems for each tenant, as shown in the following illustration.
 
-![Diagram showing different messaging systems for each tenant.](media/messaging/dedicated-messaging-systems.png)
+:::image type="complex" border="false" source="media/messaging/dedicated-messaging-systems.png" alt-text="Diagram that shows different messaging systems for each tenant." lightbox="media/messaging/dedicated-messaging-systems.png":::
+Tenants A, B, and C point to a section that contains a shared web server and three separate messaging systems for each tenant.
+:::image-end:::
 
-If most of the load on your system is from specific components that you can deploy separately for each tenant, use a horizontally partitioned deployment to help mitigate noisy neighbor problems. For example, you might need to use a separate messaging or `eventstream` system for each tenant because a single instance isn't enough to keep up with traffic that multiple tenants generate. When you use a dedicated messaging system for each tenant, a large volume of messages or events from a single tenant might affect the shared components but not other tenants' messaging systems.
+If specific components generate most of your system's load and you can deploy these components separately for each tenant, use a horizontally partitioned deployment to reduce noisy neighbor problems. For example, use a separate messaging or `eventstream` system for each tenant if a single instance can't keep up with traffic that multiple tenants generate. When you use a dedicated messaging system for each tenant, a large volume of messages or events from a single tenant might affect the shared components but not other tenants' messaging systems.
 
-Because you provision dedicated resources for each tenant, the cost for this approach can be higher than a shared hosting model. However, it's easier to charge back resource costs of a dedicated system to the tenant that uses it when adopting this tenancy model. This approach allows you to achieve high density for other services, such as computing resources, and reduces these components' costs.
+Because you provision dedicated resources for each tenant, this approach often costs more than a shared hosting model. However, it also gives you a straightforward way to charge each tenant for the resources that they use. This approach lets you achieve high density for other services, like computing resources, and reduces these components' costs.
 
-With a horizontally partitioned deployment, you need to adopt an automated process to deploy and manage a multitenant application's services, especially services that a single tenant uses.
+With a horizontally partitioned deployment, you need an automated process to deploy and manage a multitenant application's services, especially services that a single tenant uses.
 
 ## Contributors
 
@@ -136,11 +142,11 @@ With a horizontally partitioned deployment, you need to adopt an automated proce
 
 Principal author:
 
-- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
+- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
 
 Other contributors:
 
-- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
+- [Daphne Choong](https://www.linkedin.com/in/daphnecys/) | Senior Partner Solution Architect
 - [Clemens Vasters](https://www.linkedin.com/in/clemensv) | Principal Architect, Messaging Services and Standards
 - [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 
