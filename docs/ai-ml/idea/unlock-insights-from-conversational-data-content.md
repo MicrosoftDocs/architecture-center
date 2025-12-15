@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This architecture shows a conversation knowledge mining solution that extracts actionable insights from large volumes of conversational data, such as from a call center. The solution uses Azure AI Content Understanding, Azure AI Search, Azure OpenAI, and supporting Azure services to analyze unstructured dialogue and transform it into meaningful, structured insights through natural language processing and vector-based search capabilities.
+This architecture shows a conversation knowledge mining solution that extracts actionable insights from large volumes of conversational data, such as from a call center. The solution uses Azure AI Content Understanding, Azure AI Search, Azure OpenAI in Foundry Models, and supporting Azure services to analyze unstructured dialogue and transform it into meaningful, structured insights through natural language processing and vector-based search capabilities.
 
 The architecture demonstrates how to build scalable conversation analytics pipelines that process audio and text inputs through event-driven workflows, extract entities and relationships, and enable interactive exploration of insights through natural language chat interfaces for enterprise-grade conversation intelligence.
 
