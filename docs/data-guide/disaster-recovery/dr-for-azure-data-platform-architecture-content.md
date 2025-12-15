@@ -271,8 +271,7 @@ The following tables present a breakdown of each Azure service and component use
     - Workload/configuration recovery responsibility: Contoso
     - Contoso SKU selection: Standard, Premium, and Dedicated tiers
     - DR uplift options:
-      - Enable geo-disaster recovery for metadata
-       replication across paired namespaces.
+      - Enable geo-disaster recovery for metadata replication across paired namespaces.
       - For full data replication, use geo-replication (Premium and Dedicated tiers only).
     - Notes:
       - Geo-disaster recovery replicates metadata only, not event data.
@@ -451,7 +450,7 @@ The following tables present a breakdown of each Azure service and component use
       - DR for Data Science requires you to manually copy and re-create resources in a secondary region because this workload doesn't include built-in cross-region replication.
       - For more information, see [DR for Data Science](/fabric/data-science/data-science-disaster-recovery).
 
-## Stateful vs stateless components
+## Stateful vs. stateless components
 The speed of innovation across the Microsoft product suite and Azure, in particular, means the component set that we've used for this worked example quickly evolves. To future-proof against providing stale guidance and extend this guidance to components not explicitly covered in this article, the following section provides some instruction based upon the coarse-grain classification of state.
 
 A component or service is considered stateful when it retains information from previous events or interactions. Examples include lakehouses, eventhouses, and warehouses, which store data and metadata that must be protected and recovered. By contrast, stateless components keep no record of prior interactions. Each request is processed independently by using only the information provided at that moment. Examples include Data Factory and notebooks, which orchestrate or process data without persisting information and depend on external stateful components for storage.

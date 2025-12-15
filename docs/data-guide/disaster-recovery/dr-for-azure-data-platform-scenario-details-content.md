@@ -126,7 +126,7 @@ The following sections present a breakdown of Contoso activity necessary across 
     - DR impact:
       - Azure datacenter failure: Not applicable
       - Availability zone failure: Not applicable
-      - Azure regional failure: Contoso needs to deploy and [restore](/fabric/security/experience-specific-guidance#warehouse) the Fabricdata platform into the secondary region and redeploy the warehouse.
+      - Azure regional failure: Contoso needs to deploy and [restore](/fabric/security/experience-specific-guidance#warehouse) the Fabric data platform into the secondary region and redeploy the warehouse.
     - Notes:
        - Cross-region restore:
          - You can't restore a warehouse from one region or workspace to another. You must redeploy schema and reingest data.
