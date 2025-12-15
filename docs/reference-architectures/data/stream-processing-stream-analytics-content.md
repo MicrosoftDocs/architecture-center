@@ -204,7 +204,7 @@ Interestingly, this had the side effect of increasing the SU utilization in the 
 
   In this architecture, Azure Event Hubs, Log Analytics, and Azure Cosmos DB are identified as a single workload. These resources are included in a single ARM template.
 
-- Consider staging your workloads. Deploy to various stages and run validation checks at each stage before moving to the next stage. That way you can push updates to your production environments in a highly controlled way and minimize unanticipated deployment issues.
+- Consider staging your workloads. Deploy to various stages and run validation checks at each stage before you continue to the next stage. That way you can push updates to your production environments in a highly controlled way and minimize unanticipated deployment issues.
 
 - Consider using [Azure Monitor][azure-monitor] to analyze the performance of your stream processing pipeline.
 

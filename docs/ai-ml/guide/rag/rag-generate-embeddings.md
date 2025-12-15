@@ -49,7 +49,7 @@ The semantic meanings of these subwords are far from the meaning of *histamine*.
 Determine the right embedding model for your use case. Consider the overlap between the embedding model's vocabulary and your data's words when you choose an embedding model.
 
 :::image type="complex" border="false" source="./_images/choose-embedding-model.png" lightbox="./_images/choose-embedding-model.png" alt-text="Diagram that shows the flow of how to choose an embedding model." ::: 
-   The first decision is "Domain-specific?" If no, the flow terminates at "Test top-ranked general models." If yes, the next decision is "Domain model available?" If no, the flow terminates at "Fine-tune general model." If yes, the flow terminates at "Test domain model".
+   The first decision is "Domain-specific?" If no, the flow terminates at "Test top-ranked general models." If yes, the next decision is "Domain model available?" If no, the flow terminates at "Fine-tune general model." If yes, the flow terminates at "Test domain model."
 :::image-end:::
 
 First, determine whether you have domain-specific content. For example, are your documents specific to a use case, your organization, or an industry? A good way to determine domain specificity is to check whether you can find the entities and keywords in your content on the internet. If you can, a general embedding model likely can, too.

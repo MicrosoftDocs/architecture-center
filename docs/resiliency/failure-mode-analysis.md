@@ -28,51 +28,6 @@ As a starting point for your FMA process, this article contains a catalog of pot
 > [!NOTE]
 > Failures should be distinguished from errors. A failure is an unexpected event within a system that prevents it from continuing to function normally. For example, a hardware malfunction that causes a network partition is a failure. Usually, failures require intervention or specific design for that class of failures. In contrast, errors are an expected part of normal operations, are dealt with immediately and the system will continue to operate at the same capacity following an error. For example, errors discovered during input validation can be handled through business logic.
 
-## App Service
-
-### App Service app shuts down.
-
-**Detection**. Possible causes:
-
-- Expected shutdown
-
-  - An operator shuts down the application; for example, using the Azure portal.
-  - The app was unloaded because it was idle. (Only if the `Always On` setting is disabled.)
-
-- Unexpected shutdown
-
-  - The app crashes.
-  - An App Service VM instance becomes unavailable.
-
-Application_End logging will catch the app domain shutdown (soft process crash) and is the only way to catch the application domain shutdowns.
-
-**Recovery:**
-
-- If the shutdown was expected, use the application's shutdown event to shut down gracefully. For example, in ASP.NET, use the `Application_End` method.
-- If the application was unloaded while idle, it is automatically restarted on the next request. However, you'll incur the "cold start" cost.
-- To prevent the application from being unloaded while idle, enable the `Always On` setting in the web app. See [Configure web apps in Azure App Service][app-service-configure].
-- To prevent an operator from shutting down the app, set a resource lock with `ReadOnly` level. See [Lock resources with Azure Resource Manager][rm-locks].
-- If the app crashes or an App Service VM becomes unavailable, App Service automatically restarts the app.
-
-**Diagnostics**. Application logs and web server logs. See [Enable diagnostics logging for web apps in Azure App Service][app-service-logging].
-
-### A particular user repeatedly makes bad requests or overloads the system.
-
-**Detection**. Authenticate users and include user ID in application logs.
-
-**Recovery:**
-
-- Use [Azure API Management][api-management] to throttle requests from the user. See [Advanced request throttling with Azure API Management][api-management-throttling]
-- Block the user.
-
-**Diagnostics**. Log all authentication requests.
-
-### A bad update was deployed.
-
-**Detection**. Monitor the application health through the Azure portal (see [Monitor Azure web app performance][app-insights-web-apps]) or implement the [health endpoint monitoring pattern][health-endpoint-monitoring-pattern].
-
-**Recovery:**. Use multiple [deployment slots][app-service-slots] and roll back to the last-known-good deployment. For more information, see [Basic web application][ra-web-apps-basic].
-
 <a name='azure-active-directory'></a>
 
 ## Microsoft Entra ID
@@ -190,30 +145,6 @@ Consider using Azure Service Bus Messaging queues, which provides a [dead-letter
 
 **Diagnostics**. Use application logging.
 
-## Azure Cache for Redis
-
-### Reading from the cache fails.
-
-**Detection**. Catch `StackExchange.Redis.RedisConnectionException`.
-
-**Recovery:**
-
-1. Retry on transient failures. Azure Cache for Redis supports built-in retry.
-2. Treat nontransient failures as a cache miss, and fall back to the original data source.
-
-**Diagnostics**. Use [Azure Cache for Redis diagnostics][redis-monitor].
-
-### Writing to the cache fails.
-
-**Detection**. Catch `StackExchange.Redis.RedisConnectionException`.
-
-**Recovery:**
-
-1. Retry on transient failures. Azure Cache for Redis supports built-in retry.
-2. If the error is nontransient, ignore it and let other transactions write to the cache later.
-
-**Diagnostics**. Use [Azure Cache for Redis diagnostics][redis-monitor].
-
 ## SQL Database
 
 ### Cannot connect to the database in the primary region.
@@ -297,7 +228,7 @@ For more information, see [Service Bus messaging exceptions][sb-messaging-except
 **Recovery:**
 
 - If possible, design your message processing operations to be idempotent. Otherwise, store message IDs of messages that are already processed, and check the ID before processing a message.
-- Enable duplicate detection, by creating the queue with `RequiresDuplicateDetection` set to true. With this setting, Service Bus automatically deletes any message that is sent with the same `MessageId` as a previous message.  Note the following:
+- Enable duplicate detection, by creating the queue with `RequiresDuplicateDetection` set to true. With this setting, Service Bus automatically deletes any message that is sent with the same `MessageId` as a previous message. Note the following points:
 
   - This setting prevents duplicate messages from being put into the queue. It doesn't prevent a receiver from processing the same message more than once.
   - Duplicate detection has a time window. If a duplicate is sent beyond this window, it won't be detected.
@@ -382,26 +313,12 @@ For more information, see [Overview of Service Bus dead-letter queues][sb-dead-l
 
 **Diagnostics**. Use [Azure Activity Logs][azure-activity-logs].
 
-## WebJobs
-
-### Continuous job stops running when the SCM host is idle.
-
-**Detection**. Pass a cancellation token to the WebJob function. For more information, see [Graceful shutdown][web-jobs-shutdown].
-
-**Recovery**. Enable the `Always On` setting in the web app. For more information, see [Run Background tasks with WebJobs][web-jobs].
-
 ## Next steps
 
 See [Identify dependencies](/azure/well-architected/reliability/failure-mode-analysis#identify-dependencies) in the Azure Well-Architected Framework. Building failure recovery into the system should be part of the architecture and design phases from the beginning to avoid the risk of failure.
 
 <!-- links -->
 
-[api-management]: /azure/api-management
-[api-management-throttling]: /azure/api-management/api-management-sample-flexible-throttling
-[app-insights-web-apps]: /azure/application-insights/app-insights-azure-web-apps
-[app-service-configure]: /azure/app-service-web/web-sites-configure
-[app-service-logging]: /azure/app-service-web/web-sites-enable-diagnostic-log
-[app-service-slots]: /azure/app-service-web/web-sites-staged-publishing
 [auto-rest-client-retry]: https://github.com/Azure/autorest/tree/main/docs
 [azure-activity-logs]: /azure/monitoring-and-diagnostics/monitoring-overview-activity-logs
 [azure-alerts]: /azure/monitoring-and-diagnostics/insights-alerts-portal
@@ -409,12 +326,9 @@ See [Identify dependencies](/azure/well-architected/reliability/failure-mode-ana
 [cassandra-error-handling]: https://www.datastax.com/dev/blog/cassandra-error-handling-done-right
 [circuit-breaker]: /azure/architecture/patterns/circuit-breaker
 [cosmos-db-multi-region]: /azure/cosmos-db/tutorial-global-distribution-sql-api
-[health-endpoint-monitoring-pattern]: ../patterns/health-endpoint-monitoring.yml
 [lb-monitor]: /azure/load-balancer/load-balancer-monitor-log
 [lb-probe]: /azure/load-balancer/load-balancer-custom-probe-overview#types
 [QuotaExceededException]: /dotnet/api/microsoft.servicebus.messaging.quotaexceededexception
-[ra-web-apps-basic]: ../web-apps/app-service/architectures/basic-web-app.yml
-[redis-monitor]: /azure/azure-cache-for-redis/cache-how-to-monitor
 [rm-locks]: /azure/azure-resource-manager/resource-group-lock-resources/
 [sb-dead-letter-queue]: /azure/service-bus-messaging/service-bus-dead-letter-queues/
 [sb-georeplication-sample]: https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/GeoReplication
@@ -433,5 +347,3 @@ See [Identify dependencies](/azure/well-architected/reliability/failure-mode-ana
 [storage-replication]: /azure/storage/storage-redundancy
 [Storage.RetryPolicies]: /dotnet/api/microsoft.azure.storage.retrypolicies
 [sys.event_log]: /sql/relational-databases/system-catalog-views/sys-event-log-azure-sql-database
-[web-jobs]: /azure/app-service-web/web-sites-create-web-jobs
-[web-jobs-shutdown]: /azure/app-service/webjobs-sdk-how-to#cancellation-tokens

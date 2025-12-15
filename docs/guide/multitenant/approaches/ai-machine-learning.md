@@ -134,7 +134,7 @@ Azure has several services that provide AI and machine learning technology acros
 Many managed machine learning services don't require model training or data, so there's usually no tenant data isolation concerns. However, some managed AI and machine learning services do provide a model customization capability:
 
 - [Azure custom voice](/azure/ai-services/speech-service/custom-neural-voice)
-- [Azure AI Custom Vision](/azure/ai-services/custom-vision-service/overview)
+- [Automated ML (AutoML) in Azure Machine Learning](/azure/machine-learning/concept-automated-ml)
 - [Face API](/azure/ai-services/computer-vision/how-to/add-faces)
 - [Document Intelligence custom models](/azure/ai-services/document-intelligence/concept-custom)
 - [OpenAI models that support customization and fine-tuning](/azure/ai-services/openai/how-to/fine-tuning)
@@ -171,7 +171,7 @@ The following diagram illustrates an example architecture that uses Machine Lear
 
 Azure provides several powerful analytics platforms that can be used for various purposes. These platforms include [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview), [Azure Databricks](/azure/databricks/scenarios/ml/), and [Apache Spark](/fabric/data-science/).
 
-You can consider using these platforms for AI and machine learning when you need to scale your machine learning capabilities to a very large number of tenants and require large-scale compute and orchestration. You might also consider using these platforms when you need a broad analytics solution for other parts of your system, such as data analytics and integration with reporting through Power BI. You can deploy a single platform that supports all of your analytics and AI and machine learning needs. When you implement data platforms in a multitenant solution, review [Architectural approaches for storage and data in multitenant solutions](storage-data.md).
+You can consider using these platforms for AI and machine learning when you need to scale your capabilities to support a high volume of tenants and require large-scale compute and orchestration. You might also consider using these platforms when you need a broad analytics solution for other parts of your system, such as data analytics and integration with reporting through Power BI. You can deploy a single platform that supports all of your analytics and AI and machine learning needs. When you implement data platforms in a multitenant solution, review [Architectural approaches for storage and data in multitenant solutions](storage-data.md).
 
 ## Machine learning operational model
 

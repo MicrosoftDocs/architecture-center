@@ -159,7 +159,7 @@ private async Task<StorageEntitySas> GetSharedAccessReferenceForUploadAsync(Blob
                                                                             DateTimeOffset.UtcNow.AddMinutes(3),
                                                                             cancellationToken);
 
-  // Limit the scope of this SaS token to the following:
+  // Limit the scope of this SaS token to the following parameters:
   var blobSasBuilder = new BlobSasBuilder
   {
       BlobContainerName = blobContainerClient.Name,     // - Specific container

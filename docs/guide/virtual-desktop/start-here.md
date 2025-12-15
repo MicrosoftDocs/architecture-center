@@ -27,7 +27,7 @@ If you're new to virtual desktops on Azure, the best way to learn more is [Micro
 
 ## Path to production
 
-Cloud Adoption Framework for Azure provides an end-to-end scenario to guide you through your virtual desktop migration or deployment. Start with [Migrate or deploy Azure Virtual Desktop instances to Azure](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop), and check out the other articles below that one in the table of contents.
+Cloud Adoption Framework for Azure provides an end-to-end scenario to guide you through your virtual desktop migration or deployment. Start with [Migrate or deploy Azure Virtual Desktop instances to Azure](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop), and check out the other articles under it in the table of contents.
 
 These are two more key Cloud Adoption Framework articles:
 

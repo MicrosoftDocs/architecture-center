@@ -65,7 +65,7 @@ The Azure Cosmos DB NoSQL database is used for high-performance storage. This st
 
 This solution supports deployment in containers, VMs, or virtual machine scale sets. Unlike VMs, containers and scale sets can scale in and out rapidly. Because the unit of scaling is containers, infrastructure utilization is optimized. 
 
-You can use the legacy web-application presentation layer virtually unchanged to minimize user retraining. Alternatively, you can update the web-application presentation layer with modern UX frameworks.
+You can use the legacy web-application presentation layer with minimal changes to reduce user retraining. Alternatively, you can update the web-application presentation layer with modern UX frameworks.
 
 ## Scenario details
 
@@ -151,5 +151,5 @@ See these additional resources:
 - [Mainframe application migration](/azure/cloud-adoption-framework/infrastructure/mainframe-migration/application-strategies?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [Make the switch from mainframes to Azure](/azure/cloud-adoption-framework/infrastructure/mainframe-migration/migration-strategies?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [Modernize mainframe and midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure)
-- [Moving archive data from mainframe systems to Azure](../../example-scenario/mainframe/move-archive-data-mainframes.yml)
-- [Re-engineer mainframe batch applications on Azure](../../example-scenario/mainframe/reengineer-mainframe-batch-apps-azure.yml)
+- [Move archive data from mainframe systems to Azure](../../example-scenario/mainframe/move-archive-data-mainframes.yml)
+- [Reengineer mainframe batch applications on Azure](../../example-scenario/mainframe/reengineer-mainframe-batch-apps-azure.yml)

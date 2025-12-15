@@ -35,7 +35,7 @@ For search scenarios, begin choosing the appropriate search data store for your 
 
 - Do you need to index data in common document formats such as PDF, Word, PowerPoint, and Excel? If yes, choose an option that provides document indexers.
 
-- Does your database have specific security needs? If yes, consider the security features listed below.
+- Does your database have specific security needs? If yes, consider the following security features.
 
 ## Capability matrix
 
@@ -55,7 +55,7 @@ The following tables summarize the key differences in capabilities.
 | Capability | AI Search | Elasticsearch | SQL Database |
 | --- | --- | --- | --- |
 | Updateable schema | Yes | Yes | Yes |
-| Supports scale out  | Yes | Yes | No |
+| Supports scale-out  | Yes | Yes | No |
 
 ### Analytic workload capabilities
 

@@ -43,7 +43,7 @@ The following table compares key Fabric components and their corresponding AWS s
 |------|---- |
 | [AWS Glue](https://aws.amazon.com/glue/) | [Data integration with Data Factory](/fabric/data-factory/) |
 | [Amazon Elastic MapReduce (EMR)](https://aws.amazon.com/emr/), [AWS Glue interactive sessions](https://docs.aws.amazon.com/glue/latest/dg/interactive-sessions.html) | [Data engineering with Apache Spark](/fabric/data-engineering/) |
-| [Amazon Redshift](https://aws.amazon.com/redshift/) | [Data warehousing with Synapse Data Warehouse](/fabric/data-warehouse/) |
+| [Amazon Redshift](https://aws.amazon.com/redshift/) | [Data warehousing with Fabric Data Warehouse](/fabric/data-warehouse/) |
 | [Amazon SageMaker](https://aws.amazon.com/sagemaker/) | [Data Science (Azure Machine Learning integration)](/fabric/data-science/)      |
 | [Amazon Kinesis](https://aws.amazon.com/kinesis/), [Amazon Managed Service for Apache Flink](https://aws.amazon.com/kinesis/data-analytics/) | [Real-time analytics (KQL database)](/fabric/real-time-intelligence/) |
 | [Amazon Quick Sight](https://aws.amazon.com/quicksight/) | [Power BI for business intelligence](https://powerbi.microsoft.com/) |

@@ -81,7 +81,7 @@ The foundation of the update strategy is the use of branches within the Git repo
 | Branch | Description |
 | ------ | ----------- |
 | **`feature/*`** and **`fix/*`** | The entry points for any change. Developers create these branches and should be given a descriptive name, like **`feature/catalog-update`** or **`fix/worker-timeout-bug`**. When changes are ready to be merged, a pull request (PR) against the **`main`** branch is created. At least one reviewer must approve all pull requests. With limited exceptions, every change that is proposed in a PR must run through the end-to-end (E2E) validation pipeline. Developers should use the E2E pipeline to test and debug changes to a complete environment. |
-| **`main`** | The continuously forward moving and stable branch. Mostly used for integration testing. Changes to **`main`** are made only through pull requests. A branch policy prohibits direct writes. Nightly releases against the permanent **`integration (int)`** environment are automatically executed from the **`main`** branch. The **`main`** branch is considered stable. It should be safe to assume that at any given time, a release can be created from it. |
+| **`main`** | The stable, continuously forward-moving branch. Mostly used for integration testing. Changes to **`main`** are made only through pull requests. A branch policy prohibits direct writes. Nightly releases against the permanent **`integration (int)`** environment are automatically executed from the **`main`** branch. The **`main`** branch is considered stable. It should be safe to assume that at any given time, a release can be created from it. |
 | **`release/*`** | Release branches are only created from the **`main`** branch. The branches follow the format **`release/2021.7.X`**. Branch policies are used so that only repo administrators are allowed to create **`release/*`** branches. Only these branches are used to deploy to the **`prod`** environment.
 
 For more information, see [Deployment and testing for mission-critical workloads on Azure: Branching strategy](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing#branching-strategy)
@@ -162,7 +162,7 @@ As part of the deployment pipeline for a release unit, there's a destroy stage t
 
 As part of the release cadence, a pre and post release checklist should be used. The following example is of items that should be in any checklist at a minimum.
 
-* **Pre-release checklist** - Before starting a release, check the following:
+* **Pre-release checklist** - Before starting a release, check the following items:
 
   * Ensure the latest state of the **`main`** branch was successfully deployed to and tested in the **`int`** environment.
 

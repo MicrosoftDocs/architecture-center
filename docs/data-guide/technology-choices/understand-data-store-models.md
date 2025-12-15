@@ -91,7 +91,7 @@ Use document data stores to store semi-structured documents, often in JSON forma
 
 - [Azure Cosmos DB for NoSQL](/azure/cosmos-db/nosql/) is a schema-less, multi-region NoSQL database that has low-latency reads and writes.
 
-- [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/overview) is a globally distributed database that has MongoDB wire protocol compatibility and autoscaling.
+- [Azure DocumentDB](/azure/documentdb/overview) is a globally distributed database that has MongoDB wire protocol compatibility and autoscaling.
 - [Azure Cosmos DB in Fabric](/fabric/database/cosmos-db/overview) is a schema-less, NoSQL database that has low-latency reads and writes, simplified management, and built-in Fabric analytics.
 
 Use the following table to help determine which Azure service meets your use case requirements.
@@ -99,7 +99,7 @@ Use the following table to help determine which Azure service meets your use cas
 | Service | Best for | Key features | Example use case |
 |--------|----------|--------------|------------------|
 | [Azure Cosmos DB for NoSQL](/azure/cosmos-db/nosql/) | Custom JSON document models that support SQL-like querying | Rich query language, multi-region writes, time to live (TTL), change feed | Building a multitenant SaaS platform that supports flexible schemas |
-| [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/overview) | Apps that use MongoDB drivers or JSON-centric APIs | Global distribution, autoscale, native MongoDB wire protocol | Migrating a Node.js app from MongoDB to Azure |
+| [Azure DocumentDB](/azure/documentdb/overview) | Apps that use MongoDB drivers or JSON-centric APIs | Global distribution, autoscale, MongoDB-native wire protocol | Migrating a Node.js app from MongoDB to Azure |
 | [Azure Cosmos DB in Fabric](/fabric/database/cosmos-db/overview) | Real-time analytics over NoSQL data | Automatic extract, transform, and load (ETL) to OneLake through Fabric integration | Transactional apps that include real-time analytical dashboards |
 
 ### Column-family data stores <a id="columnar-data-stores"></a>
@@ -341,7 +341,7 @@ Use the following articles to choose a specialized data store:
 Learn about reference architectures that use the Azure services in this article:
 
 - The [baseline highly available zone-redundant web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml) architecture uses SQL Database as its relational data store.
-- The [deploy microservices with Azure Container Apps and Dapr](../../example-scenario/serverless/microservices-with-container-apps-dapr.yml) architecture uses SQL Database, Azure Cosmos DB, and Azure Cache for Redis as data stores.
+- The [deploy microservices with Azure Container Apps and Dapr](../../example-scenario/serverless/microservices-with-container-apps-dapr.yml) architecture uses SQL Database, Azure Cosmos DB, and Azure Managed Redis as data stores.
 - The [automate document classification in Azure](../../ai-ml/architecture/automate-document-classification-durable-functions.yml) architecture uses Azure Cosmos DB as its data store.
 
 

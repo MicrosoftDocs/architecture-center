@@ -89,7 +89,7 @@ Consider this architecture style when you need to take the following actions:
 
 - **Apply schema-on-read semantics.** Using a data lake lets you combine storage for files in multiple formats, whether structured, semi-structured, or unstructured. Apply *schema-on-read* semantics, which project a schema onto data during processing instead of at the time of storage. This approach adds flexibility to the solution and helps prevent bottlenecks during data ingestion that data validation and type checking cause.
 
-- **Process batch data on arrival.** Traditional BI solutions often use an extract, transform, and load (ETL) process to move data into a data warehouse. However, with larger volumes of data and a greater variety of formats, big data solutions typically adopt variations of ETL, such as extract, load, and transform (ELT).
+- **Process batch data on arrival.** Traditional BI solutions often use an extract, transform, and load (ETL) process to move data into a data warehouse. However, with larger volumes of data and a wider range of formats, big data solutions typically adopt variations of ETL, such as extract, load, and transform (ELT).
 
 - **Process streaming data in flight.** For streaming solutions, transform the payload while the data is being transmitted. Because you're dealing with much smaller packets over the network, it's much easier to transform these smaller rows sets during generation. Land the transformed stream in an engine that's optimized for event-based data, such as a Real-Time Intelligence eventhouse, which makes the data immediately available for action.
 

@@ -112,7 +112,7 @@ public class SingleHttpClientInstanceController : ApiController
 
 ## How to detect improper instantiation antipattern
 
-Symptoms of this problem include a drop in throughput or an increased error rate, along with one or more of the following:
+Symptoms of this problem include a drop in throughput or an increased error rate, along with one or more of the following changes:
 
 - An increase in exceptions that indicate exhaustion of resources such as sockets, database connections, file handles, and so on.
 - Increased memory use and garbage collection.
