@@ -130,7 +130,7 @@ Principal author:
 
 - [Galina Polyakova](https://www.linkedin.com/in/galinagpolyakova/) | Senior Cloud Solution Architect
 
-Other contributors:
+Other contributor:
 
 - [Bhaskar Sharma](https://www.linkedin.com/in/bhaskar-sharma-00991555/) | Senior Program Manager
   
