@@ -7630,17 +7630,17 @@
     {
       "source_path": "docs/ai-ml/architecture/baseline-azure-ai-foundry-chat.yml",
       "redirect_url": "/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-chat",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path": "docs/ai-ml/architecture/baseline-azure-ai-foundry-landing-zone.yml",
       "redirect_url": "/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-landing-zone",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path": "docs/ai-ml/architecture/basic-azure-ai-foundry-chat.yml",
       "redirect_url": "/azure/architecture/ai-ml/basic-microsoft-foundry-chat",
-      "redirect_document_id": false     
+      "redirect_document_id": true
     },
     {
       "source_path": "docs/guide/technology-choices/data-store-overview.md",
