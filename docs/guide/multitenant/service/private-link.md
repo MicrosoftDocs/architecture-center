@@ -41,7 +41,7 @@ When you use Private Link to enable connectivity from each tenant to the multite
 
 ![Diagram showing connectivity between two tenants and a multitenant service, all of which use the same IP address space.](media/private-link/overlapping-ranges.png)
 
-When traffic arrives into the multitenant solution, it has already been translated. This means traffic appears to originate from within the multitenant service's own virtual network IP address space. Some Private Link services provide metadata for each socket through the [TCP Proxy Protocol v2](#proxy-protocol-v2) feature. This feature enables a multitenant service to know which private endpoint connection the request has come through, and therefore determine the tenant that sent the request. It also provides the original IP address from the source network. However, the availability of this metadata depends on the Azure service you're connecting to.
+When traffic arrives into the multitenant solution, it has already been translated. This means traffic appears to originate from within the multitenant service's own virtual network IP address space. Some Private Link services provide metadata for each socket through the [TCP Proxy Protocol v2](#proxy-protocol-v2) feature. This feature enables your workload component to know which private endpoint connection the request has come through, and therefore determine the tenant that sent the request. It also provides the original IP address from the source network. However, the availability of this metadata depends on the Azure service you're connecting to.
 
 ### Provisioning process
 
