@@ -7639,7 +7639,7 @@
     },
     {
       "source_path": "docs/ai-ml/architecture/basic-azure-ai-foundry-chat.yml",
-      "redirect_url": "/azure/architecture/ai-ml/basic-microsoft-foundry-chat",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/basic-microsoft-foundry-chat",
       "redirect_document_id": true
     },
     {
