@@ -33,7 +33,7 @@ Two comparative tables summarize nonrelational model traits to help you quickly 
 |----------|-----------------|------------------------------------|
 | Relational (OLTP) | Consistent transactional operations | Azure SQL Database, Azure Database for PostgreSQL, or Azure Database for MySQL |
 | Nonrelational, such as document, key-value, column-family, and graph | Flexible schema or relationship-centric workloads | Azure Cosmos DB APIs, Azure Managed Redis, Managed Cassandra, or HBase |
-| Time series | High-ingest timestamped metrics and events | Azure Data Explorer |
+| Time series | High-ingest timestamped metrics and events | Azure Data Explorer or Eventhouse in Fabric |
 | Object and file | Large binary or semi-structured file storage | Azure Blob Storage or Azure Data Lake Storage |
 | Search and indexing | Full-text and multi-field relevance, secondary indexing | Azure AI Search |
 | Vector | Semantic or approximate nearest neighbor (ANN) similarity | Azure AI Search or Azure Cosmos DB variants |
@@ -168,17 +168,28 @@ Use [SQL Server graph extensions](/sql/relational-databases/graphs/sql-graph-ove
 
 ### Time-series data stores <a id="time-series-data-stores"></a>
 
-Time-series data stores manage a set of values organized by time. They support features like time-based queries and aggregations and are optimized for ingesting and analyzing large volumes of data in near real time.
+Time-series data stores manage a set of values organized by time. They support features like time-based queries and aggregations. They're optimized to ingest and analyze large volumes of data in near real time. They're typically append-only databases.
 
-**Strengths:** Compression, windowed query performance, out-of-order ingestion handling  
+**Strengths:** Compression, high-volume ingestion, time-window queries and aggregations, out-of-order ingestion handling
 
-**Considerations:** Tag cardinality management, retention cost, downsampling strategy  
+**Considerations:** Tag cardinality management, retention cost, downsampling strategy, specialized query languages
 
-**Workloads:** IoT sensor metrics, application telemetry, monitoring, industrial data  
+**Workloads:** IoT sensor metrics, application telemetry, monitoring, industrial data, and financial market data
 
 #### Select an Azure service for time-series data stores
 
-Use [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) for storing time-series data. Azure Data Explorer is a managed, high-performance, big data analytics platform that makes it easy to analyze high volumes of data in near real time.
+- [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) is a managed big data storage platform. Use it to query and visualize high volumes of data in near real time. Choose this service if you need a standalone platform as a service (PaaS) solution with granular control over cluster configuration, networking, and scaling.
+
+- [Eventhouse in Microsoft Fabric](/fabric/real-time-intelligence/eventhouse) is part of the Real-Time Intelligence experience in Fabric. It uses KQL databases to handle streaming data. Choose this service if you want a software as a service (SaaS) experience that's integrated with the Fabric ecosystem, including OneLake and other Fabric workloads.
+
+- Some transactional databases provide limited time-series capabilities as part of their broader feature set or through extensions. For example, Azure Database for PostgreSQL flexible server supports [TimescaleDB](/azure/postgresql/extensions/concepts-extensions-considerations#timescaledb). Select this option if you need to query time-series data alongside existing transactional data in the database.
+
+When you choose a time-series data store, evaluate the service based on your workload's needs for:
+
+- Ingestion performance
+- Ad-hoc queries
+- Additional indexes beyond date/time fields
+- Time-series analytics and alerts
 
 ### Object data stores <a id="object-data-stores"></a>
 
@@ -186,7 +197,7 @@ Store large binary or semi-structured objects and include metadata that rarely c
 
 **Strengths:** Virtually unlimited scale, tiered cost, durability, parallel read capability
 
-**Considerations:** Whole-object operations, metadata query limited, eventual listing behaviors 
+**Considerations:** Whole-object operations, metadata query limited, eventual listing behaviors
 
 **Workloads:** Media assets, backups, data lake raw zones, log archives
 
