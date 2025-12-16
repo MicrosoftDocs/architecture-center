@@ -134,7 +134,7 @@ Azure has several services that provide AI and machine learning technology acros
 Many managed machine learning services don't require model training or data, so there's usually no tenant data isolation concerns. However, some managed AI and machine learning services do provide a model customization capability:
 
 - [Azure custom voice](/azure/ai-services/speech-service/custom-neural-voice)
-- [Azure AI Custom Vision](/azure/ai-services/custom-vision-service/overview)
+- [Automated ML (AutoML) in Azure Machine Learning](/azure/machine-learning/concept-automated-ml)
 - [Face API](/azure/ai-services/computer-vision/how-to/add-faces)
 - [Document Intelligence custom models](/azure/ai-services/document-intelligence/concept-custom)
 - [OpenAI models that support customization and fine-tuning](/azure/ai-services/openai/how-to/fine-tuning)
