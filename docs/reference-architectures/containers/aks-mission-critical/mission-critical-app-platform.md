@@ -152,7 +152,7 @@ To increase reliability, the cluster is configured to **use all available availa
 
 Other factors such as scale limits, compute capacity, subscription quota can also impact reliability. If there isn't enough capacity or limits are reached, scale out and scale up operations will fail but existing compute is expected to function.
 
-The cluster has autoscaling enabled to let node pools **automatically scale out if needed**, which improves reliability. When using multiple node pools, all node pools should be autoscaled.
+The cluster has autoscaling enabled to let node pools **automatically scale out if needed**, which improves reliability. When you use multiple node pools, all node pools should be autoscaled.
 
 At the pod level, the Horizontal Pod Autoscaler (HPA) scales pods based on configured CPU, memory, or custom metrics. Load test the components of the workload to establish a baseline for the autoscaler and HPA values.
 

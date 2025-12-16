@@ -45,7 +45,7 @@ The following dataflow corresponds to the previous diagram:
 
 ## How do Delphix CC and Data Factory solve automating compliant data?
 
-The movement of secure data is a challenge for all organizations. Delphix makes achieving consistent data compliance easy, while Data Factory enables connecting and moving data. Together, Delphix CC and Data Factory combine industry-leading compliance and automation offerings to simplify the delivery of on-demand, compliant data.
+The movement of secure data is a challenge for all organizations. Delphix simplifies achieving consistent data compliance, while Data Factory enables data integration and movement. Together, Delphix CC and Data Factory combine industry-leading compliance and automation offerings to simplify the delivery of on-demand, compliant data.
 
 This solution uses Data Factory data source connectors to create an ETL pipeline that allows a user to automate the following steps:
 

@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: claytonsiemens77
-ms.date: 12/01/2025
+ms.date: 12/15/2025
 ms.topic: whats-new
 ms.author: pnp
 ---
@@ -17,6 +17,34 @@ The Azure Architecture Center (AAC) helps you design, build, and operate solutio
 > [!VIDEO 9f9fdf91-3dcd-455f-b64e-8ec0802dd5db]
 
 The following new and updated articles have recently been published in the Azure Architecture Center.
+
+## December 2025
+
+### Updated articles
+
+- [Deploy Microservices to Azure Container Apps](./example-scenario/serverless/microservices-with-container-apps.yml) ([#7521d30186](https://github.com/MicrosoftDocs/architecture-center/commit/7521d30186))
+- [Choose an Azure Service for Vector Search](./guide/technology-choices/vector-search.md) ([#7521d30186](https://github.com/MicrosoftDocs/architecture-center/commit/7521d30186))
+- [Architectural Considerations for Identity in a Multitenant Solution](./guide/multitenant/considerations/identity.md) ([#00ee9cf7d3](https://github.com/MicrosoftDocs/architecture-center/commit/00ee9cf7d3))
+- [Reliable Web App Pattern for .NET](./web-apps/guides/enterprise-app-patterns/reliable-web-app/dotnet/guidance.yml) ([#0fea2e5039](https://github.com/MicrosoftDocs/architecture-center/commit/0fea2e5039))
+- [Replicate Mainframe and Midrange Data to Azure by Using Qlik](./example-scenario/mainframe/mainframe-midrange-data-replication-azure-qlik.yml) ([#76023e2c9b](https://github.com/MicrosoftDocs/architecture-center/commit/76023e2c9b))
+- [Choose a batch processing technology](./data-guide/technology-choices/batch-processing.md) ([#3830ea07c7](https://github.com/MicrosoftDocs/architecture-center/commit/3830ea07c7))
+- [Integrate IBM mainframe and midrange message queues with Azure](./example-scenario/mainframe/integrate-ibm-message-queues-azure.yml) ([#3830ea07c7](https://github.com/MicrosoftDocs/architecture-center/commit/3830ea07c7))
+- [DevSecOps for Infrastructure as Code (IaC)](./solution-ideas/articles/devsecops-infrastructure-as-code.yml) ([#7177c55f3a](https://github.com/MicrosoftDocs/architecture-center/commit/7177c55f3a))
+- [Design to Support Foundation Model Life Cycles](./ai-ml/guide/manage-foundation-models-lifecycle.md) ([#f351100aa7](https://github.com/MicrosoftDocs/architecture-center/commit/f351100aa7))
+- [Use Azure Firewall to help protect an AKS cluster](./guide/aks/aks-firewall.yml) ([#f351100aa7](https://github.com/MicrosoftDocs/architecture-center/commit/f351100aa7))
+- [AKS baseline for multiregion clusters](./reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml) ([#f351100aa7](https://github.com/MicrosoftDocs/architecture-center/commit/f351100aa7))
+- [Multiregion BCDR for Azure Virtual Desktop](./example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr.yml) ([#9c9f9b9b79](https://github.com/MicrosoftDocs/architecture-center/commit/9c9f9b9b79))
+- [Analytics end-to-end with Azure Synapse](./example-scenario/dataplate2e/data-platform-end-to-end.yml) ([#9c9f9b9b79](https://github.com/MicrosoftDocs/architecture-center/commit/9c9f9b9b79))
+- [Azure Local Baseline Reference Architecture](./hybrid/azure-local-baseline.yml) ([#9c9f9b9b79](https://github.com/MicrosoftDocs/architecture-center/commit/9c9f9b9b79))
+- [Compare Java application hosting options on Azure](./guide/technology-choices/service-for-java-comparison.yml) ([#c8b5795c3f](https://github.com/MicrosoftDocs/architecture-center/commit/c8b5795c3f))
+- [Prevent IPv4 Exhaustion in Azure](./networking/guide/internet-protocol-version-4-exhaustion.md) ([#c8b5795c3f](https://github.com/MicrosoftDocs/architecture-center/commit/c8b5795c3f))
+- [Monitoring and diagnostics guidance](./best-practices/monitoring.yml) ([#9c5f9272f6](https://github.com/MicrosoftDocs/architecture-center/commit/9c5f9272f6))
+- [Google Cloud to Azure services comparison](./gcp-professional/services.md) ([#9c5f9272f6](https://github.com/MicrosoftDocs/architecture-center/commit/9c5f9272f6))
+- [Caching guidance](./best-practices/caching.yml) ([#3b90d9d820](https://github.com/MicrosoftDocs/architecture-center/commit/3b90d9d820))
+- [DR for Azure Data Platform - Architecture](./data-guide/disaster-recovery/dr-for-azure-data-platform-architecture.yml) ([#3b90d9d820](https://github.com/MicrosoftDocs/architecture-center/commit/3b90d9d820))
+- [Baseline architecture for an AKS cluster](./reference-architectures/containers/aks/baseline-aks.yml) ([#daf47085b8](https://github.com/MicrosoftDocs/architecture-center/commit/daf47085b8))
+- [Enterprise Deployment that uses App Service Environment](./web-apps/app-service-environment/architectures/app-service-environment-standard-deployment.yml) ([#5ba01ed0ea](https://github.com/MicrosoftDocs/architecture-center/commit/5ba01ed0ea))
+- [Migrate Cloud Workloads Across Security Tenants](./solution-ideas/articles/migrate-cloud-workloads-across-security-tenants.yml) ([#c87b907cf0](https://github.com/MicrosoftDocs/architecture-center/commit/c87b907cf0))
 
 ## November 2025
 
@@ -178,7 +206,7 @@ The following new and updated articles have recently been published in the Azure
 - [IBM z/OS mainframe migration with Avanade AMT](./example-scenario/mainframe/avanade-amt-zos-migration.yml) ([#90e1321f71](https://github.com/MicrosoftDocs/architecture-center/commit/90e1321f71))
 - [Refactor mainframe architecture by using CloudFrame Renovate](./example-scenario/mainframe/cloudframe-renovate-mainframe-refactor.yml) ([#90e1321f71](https://github.com/MicrosoftDocs/architecture-center/commit/90e1321f71))
 - [Extend mainframe applications to Azure by using Verastream Host Integrator](./example-scenario/mainframe/extend-mainframe-applications.yml) ([#90e1321f71](https://github.com/MicrosoftDocs/architecture-center/commit/90e1321f71))
-- [Mainframe file and tape backup to Azure using Luminex](./example-scenario/mainframe/luminex-mainframe-file-tape-transfer.yml) ([#90e1321f71](https://github.com/MicrosoftDocs/architecture-center/commit/90e1321f71))
+- [Back Up Mainframe File and Tape to Azure by Using Luminex](./example-scenario/mainframe/luminex-mainframe-file-tape-transfer.yml) ([#90e1321f71](https://github.com/MicrosoftDocs/architecture-center/commit/90e1321f71))
 - [Migrate mainframe data tier to Azure with mLogica LIBER*IRIS](./example-scenario/mainframe/mainframe-data-replication-azure-data-platform.yml) ([#90e1321f71](https://github.com/MicrosoftDocs/architecture-center/commit/90e1321f71))
 - [Migrate Mainframe Data to Azure](./example-scenario/mainframe/mainframe-data-replication-azure-rdrs.yml) ([#90e1321f71](https://github.com/MicrosoftDocs/architecture-center/commit/90e1321f71))
 - [Modernize Mainframe Workloads by Using BMC AMI Cloud](./example-scenario/mainframe/mainframe-modernization-bmc-ami-cloud.yml) ([#90e1321f71](https://github.com/MicrosoftDocs/architecture-center/commit/90e1321f71))

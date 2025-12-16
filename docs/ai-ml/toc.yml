@@ -30,7 +30,7 @@ items:
           href: idea/generate-documents-from-your-data.yml
         - name: Use AI enrichment with Azure AI Search
           href: ../solution-ideas/articles/ai-search-skillsets.yml
-        - name: Extract text using Power Automate
+        - name: Extract text by using Power Automate
           href: ../example-scenario/ai/extract-object-text.yml
       - name: Workflow automation
         items:

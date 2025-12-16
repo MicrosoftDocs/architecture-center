@@ -23,14 +23,14 @@ The scope of the model update in your generative AI solution can vary drasticall
 
 | Scope of change | Benefits of updating the model | Example |
 | :--- | :--- | :--- |
-| Minor version update | Delivers improved performance and refined capabilities, usually without requiring significant changes to your existing implementation | Moving from GPT-4o v2024-08-06 to GPT-4o v2024-11-20 |
-| Intermediate version update | Provides substantial performance improvements, new capabilities, and enhanced reliability while maintaining most backward compatibility and requiring only moderate implementation adjustments | Moving from GPT-3 to GPT-3.5 |
-| Major version update | Delivers transformational improvements in reasoning, capabilities, context size, and performance that justify the significant implementation changes and adjustment of prompts | Moving from GPT-3 to GPT-4 |
-| Variant update | Provides specialized optimizations, such as increased processing speed and reduced latency, while maintaining the core architecture and usually ensuring backward compatibility with the base model | Moving from GPT-4 to GPT-4-Turbo |
-| Generational version update | Delivers significant improvements in reasoning, multimodal capabilities, and performance that fundamentally expand the model's utility while potentially requiring complete reimagining of implementation strategies | Moving from GPT-4 to GPT-4o |
-| General model change | Provides access to specialized capabilities, different price-performance ratios, and potentially better alignment with specific use cases | Moving from GPT-4 to DeepSeek |
-| Specialized model change | Provides domain-specific optimization, enhanced performance for particular tasks, and potentially lower costs compared to using general-purpose models for specialized applications | Moving from GPT-4 to Prizedata |
-| Deployment option change | Provides greater control over infrastructure, customization options, and potential cost savings while allowing for specialized optimization and enhanced data privacy at the expense of increased management responsibility | Moving from LLaMa-1 hosted as a managed online endpoint in Microsoft Foundry to self-hosting LLaMa-1 on a virtual machine |
+| Minor version update | Delivers improved performance and refined capabilities, usually without requiring significant changes to your existing implementation | The move from GPT-4o v2024-08-06 to GPT-4o v2024-11-20 |
+| Intermediate version update | Provides substantial performance improvements, new capabilities, and enhanced reliability while maintaining most backward compatibility and requiring only moderate implementation adjustments | The move from GPT-3 to GPT-3.5 |
+| Major version update | Delivers transformational improvements in reasoning, capabilities, context size, and performance that justify the significant implementation changes and adjustment of prompts | The move from GPT-3 to GPT-4 |
+| Variant update | Provides specialized optimizations, such as increased processing speed and reduced latency, while maintaining the core architecture and usually ensuring backward compatibility with the base model | The move from GPT-4 to GPT-4-Turbo |
+| Generational version update | Delivers significant improvements in reasoning, multimodal capabilities, and performance that fundamentally expand the model's utility while potentially requiring complete reimagining of implementation strategies | The move from GPT-4 to GPT-4o |
+| General model change | Provides access to specialized capabilities, different price-performance ratios, and potentially better alignment with specific use cases | The move from GPT-4 to DeepSeek |
+| Specialized model change | Provides domain-specific optimization, enhanced performance for particular tasks, and potentially lower costs compared to using general-purpose models for specialized applications | The move from GPT-4 to Prizedata |
+| Deployment option change | Provides greater control over infrastructure, customization options, and potential cost savings while allowing for specialized optimization and enhanced data privacy at the expense of increased management responsibility | The move from LLaMa-1 hosted as a managed online endpoint in Microsoft Foundry to self-hosting LLaMa-1 on a virtual machine |
 
 As illustrated in the table, the benefits of moving to a new model are typically a combination of the following factors:
 

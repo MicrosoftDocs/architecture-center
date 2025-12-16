@@ -2,7 +2,7 @@
 metadata:
   title: Virtual hub extension pattern 
   description: This article describes a pattern for exposing shared services, such as DNS, in a hub-and-spoke topology that uses Azure Virtual WAN.
-  author: robbag
+  author: claytonsiemens77
   ms.author: pnp
   ms.date: 04/26/2023
   ms.topic: concept-article

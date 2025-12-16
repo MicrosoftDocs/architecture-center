@@ -76,7 +76,7 @@ For a list of built-in metrics, see [Azure Monitor autoscaling common metrics][a
 
 You can configure autoscaling by using PowerShell, the Azure CLI, an Azure Resource Manager template, or the Azure portal. For more detailed control, use the [Resource Manager REST API](/rest/api/resources/). The [Azure Monitoring Management Library](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring) and the [Microsoft Insights Library](https://www.nuget.org/packages/Microsoft.Azure.Insights) (in preview) are SDKs that allow collecting metrics from different resources and perform autoscaling by making use of the REST APIs. For resources where Resource Manager support isn't available, or if you use Azure Cloud Services, the Service Management REST API can be used for autoscaling. In all other cases, use Resource Manager.
 
-Consider the following points when using autoscaling:
+Consider the following points when you use autoscaling:
 
 - Consider whether you can predict the load on the application accurately enough to use scheduled autoscaling, adding and removing instances to meet anticipated peaks in demand. If you can't, use reactive autoscaling based on runtime metrics to handle unpredictable changes in demand. Typically, you can combine these approaches.
 

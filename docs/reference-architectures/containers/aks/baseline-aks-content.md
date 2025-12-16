@@ -141,7 +141,7 @@ With a private cluster you can use network security groups (NSGs) and other buil
 
 [ ![Diagram showing network topology of the AKS cluster.](images/aks-baseline-network-topology.svg)](images/aks-baseline-network-topology.svg#lightbox)
 
-*Download a [Visio file](https://arch-center.azureedge.net/aks-baseline_network_topology.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/aks-baseline-network-topology.vsdx) of this architecture.*
 
 This reference architecture uses multiple networking approaches, which each requires an IP address space:
 
@@ -188,7 +188,7 @@ For the complete set of networking considerations for this architecture, see [AK
 
 Kubernetes and AKS continuously evolve, with faster release cycles than software for on-premises environments. This baseline architecture depends on select AKS preview features and AKS add-ons. Here's the difference between the two:
 
-- The AKS team describes preview features as *shipped and improving* because many of the preview features stay in that state for only a few months before moving to the general availability (GA) phase.
+- The AKS team describes preview features as *shipped and improving* because many of the preview features stay in that state for only a few months before they move to the general availability (GA) phase.
 
 - AKS [add-ons and extensions](/azure/aks/integrations#add-ons) provide extra, supported functionality. AKS manages their installation, configuration, and lifecycle.
 
@@ -585,7 +585,7 @@ Regular upkeep tasks on your cluster, such as timely updates, are crucial for re
 
 To protect against some types of outages, use [availability zones](/azure/aks/availability-zones) if the region supports them. Both the control plane components and the nodes in the node pools are then *zone-redundant*, which means they're spread across multiple zones. If an entire zone is unavailable, a node in another zone within the region is still available. Each node pool maps to a separate virtual machine scale set, which manages node instances and scalability. The AKS service manages scale set operations and configuration. Here are some considerations when you enable multiple zones:
 
-- **Entire infrastructure**: Choose a region that supports availability zones. For more information, see [Limitations](/azure/aks/availability-zones-overview#limitations). To have an uptime SLA, you need to choose the Standard or Premium tier. The uptime SLA is greater when using availability zones.
+- **Entire infrastructure**: Choose a region that supports availability zones. For more information, see [Limitations](/azure/aks/availability-zones-overview#limitations). To have an uptime SLA, you need to choose the Standard or Premium tier. The uptime SLA is greater when you use availability zones.
 
 - **Cluster**: You can only set availability zones when you create the node pool. They can't be changed later. The node sizes should be supported in all zones so that the expected distribution is possible. The underlying virtual machine scale set provides the same hardware configuration across zones.
 
@@ -806,7 +806,7 @@ You can configure the bootstrapping process by using one of the following method
 
 One of the main advantages of using the GitOps Flux v2 cluster extension for AKS is that there's effectively no gap between a provisioned cluster and a bootstrapped cluster. It sets up the environment with a solid management foundation going forward, and it also supports including that bootstrapping as resource templates to align with your IaC strategy.
 
-Finally, when using the GitOps Flux v2 cluster extension, kubectl isn't required for any part of the bootstrapping process. You can reserve kubectl-based access for emergency break-fix situations. Between templates for Azure resource definitions and the bootstrapping of manifests via the GitOps extension, you can perform all normal configuration activities without the need to use kubectl.
+Finally, when you use the GitOps Flux v2 cluster extension, kubectl isn't required for any part of the bootstrapping process. You can reserve kubectl-based access for emergency break-fix situations. Between templates for Azure resource definitions and the bootstrapping of manifests via the GitOps extension, you can perform all normal configuration activities without the need to use kubectl.
 
 ### Isolate workload responsibilities
 
@@ -875,7 +875,7 @@ While you can configure GitOps and Flux manually, we recommend the [GitOps with 
 
 Deploy *any* change, such as architecture components, workload, and cluster configuration, to at least one preproduction AKS cluster. Doing so simulates the change and might identify problems before they're deployed to production.
 
-Run tests and validations at each stage before moving on to the next. It helps ensure that you can push updates to the production environment in a highly controlled way and minimize disruption from unanticipated deployment problems. The deployment should follow a similar pattern as production, by using the same GitHub Actions pipeline or Flux operators.
+Run tests and validations at each stage before you continue to the next stage. It helps ensure that you can push updates to the production environment in a highly controlled way and minimize disruption from unanticipated deployment problems. The deployment should follow a similar pattern as production, by using the same GitHub Actions pipeline or Flux operators.
 
 Advanced deployment techniques, such as [blue-green deployment](https://martinfowler.com/bliki/BlueGreenDeployment.html), A/B testing, and [canary releases](https://martinfowler.com/bliki/CanaryRelease.html), require extra processes and potentially extra tooling. [Flagger](https://github.com/fluxcd/flagger) is a popular open-source solution to help solve for advanced deployment scenarios.
 
