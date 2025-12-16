@@ -33,7 +33,7 @@ Two comparative tables summarize nonrelational model traits to help you quickly 
 |----------|-----------------|------------------------------------|
 | Relational (OLTP) | Consistent transactional operations | Azure SQL Database, Azure Database for PostgreSQL, or Azure Database for MySQL |
 | Nonrelational, such as document, key-value, column-family, and graph | Flexible schema or relationship-centric workloads | Azure Cosmos DB APIs, Azure Managed Redis, Managed Cassandra, or HBase |
-| Time series | High-ingest timestamped metrics and events | Azure Data Explorer |
+| Time series | High-ingest timestamped metrics and events | Azure Data Explorer or Eventhouse in Fabric |
 | Object and file | Large binary or semi-structured file storage | Azure Blob Storage or Azure Data Lake Storage |
 | Search and indexing | Full-text and multi-field relevance, secondary indexing | Azure AI Search |
 | Vector | Semantic or approximate nearest neighbor (ANN) similarity | Azure AI Search or Azure Cosmos DB variants |
@@ -168,7 +168,7 @@ Use [SQL Server graph extensions](/sql/relational-databases/graphs/sql-graph-ove
 
 ### Time-series data stores <a id="time-series-data-stores"></a>
 
-Time-series data stores manage a set of values organized by time. They support features like time-based queries and aggregations and are optimized for ingesting and analyzing large volumes of data in near real time.
+Time-series data stores manage a set of values organized by time. They support features like time-based queries and aggregations and are optimized for ingesting and analyzing large volumes of data in near real time. They are typically append-only databases.
 
 **Strengths:** Compression, windowed query performance, out-of-order ingestion handling  
 
@@ -178,7 +178,16 @@ Time-series data stores manage a set of values organized by time. They support f
 
 #### Select an Azure service for time-series data stores
 
-Use [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) for storing time-series data. Azure Data Explorer is a managed, high-performance, big data analytics platform that makes it easy to analyze high volumes of data in near real time.
+- [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) is a managed, high-performance, big data storage platform that allows you to query and visualize high volumes of data in near real time. Choose this service when you need a standalone platform as a service (PaaS) solution with granular control over cluster configuration, networking, and scaling.
+
+- [Eventhouse in Fabric](/fabric/real-time-intelligence/eventhouse) is part of the Real-Time Intelligence experience in Microsoft Fabric. It uses KQL databases to handle streaming data. Choose this service when you want a software as a service (SaaS) experience that is integrated with the Microsoft Fabric ecosystem, including OneLake and other Fabric workloads.
+
+Some transactional databases can provide limited time-series capabilities as part of their broader feature set or through extensions, such as [timescaleDB](/azure/postgresql/extensions/concepts-extensions-considerations#timescaledb) for Azure Database for PostgreSQL flexible server. When choosing a time-series data store, evaluate their fit based on if your workload's needs for:
+
+- Ingestion performance
+- Ad-hoc queries
+- Additional indexes beyond date/time fields
+- Time-series analytics and alerts
 
 ### Object data stores <a id="object-data-stores"></a>
 
@@ -186,7 +195,7 @@ Store large binary or semi-structured objects and include metadata that rarely c
 
 **Strengths:** Virtually unlimited scale, tiered cost, durability, parallel read capability
 
-**Considerations:** Whole-object operations, metadata query limited, eventual listing behaviors 
+**Considerations:** Whole-object operations, metadata query limited, eventual listing behaviors
 
 **Workloads:** Media assets, backups, data lake raw zones, log archives
 
