@@ -336,7 +336,7 @@ items:
       - name: Security for AWS
         items:
         - name: Microsoft security for AWS
-          href: guide/aws/aws-azure-security-solutions.yml
+          href: guide/aws/aws-azure-security-solutions.md
   - name: Azure for Google Cloud professionals
     items:
     - name: Overview
