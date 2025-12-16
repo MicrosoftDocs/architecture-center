@@ -216,14 +216,14 @@ You can use Copilot and other generative AI features to transform and analyze da
 
 #### AI skills in Fabric
 
-You can use the Fabric AI skill feature to configure a generative AI system to generate queries that answer questions about your data. After you configure an AI skill, you can share it with your colleagues, who can then ask their questions in simple language. Based on their questions, the AI generates queries on the data that answers those questions.
+Data agent in Microsoft Fabric is a new Microsoft Fabric feature that enables you to build your own conversational Q&A systems by using generative AI. A Fabric data agent makes data insights more accessible and actionable for everyone in your organization. 
 
 For more information, see the following resources:
 
-- [What is the AI skill feature in Fabric?](/fabric/data-science/concept-ai-skill)
-- [How to create an AI skill](/fabric/data-science/how-to-create-ai-skill)
-- [AI skill example](/fabric/data-science/ai-skill-scenario)
-- [Difference between an AI skill and a copilot](/fabric/data-science/concept-ai-skill#difference-between-an-ai-skill-and-a-copilot)
+- [What Fabric data agent?](/fabric/data-science/concept-data-agent)
+- [How to create data agent](/fabric/data-science/how-to-create-data-agent)
+- [data agent example](/fabric/data-science/data-agent-end-to-end-tutorial)
+- [Difference between a Fabric data agent a copilot](/fabric/data-science/concept-data-agent#difference-between-a-fabric-data-agent-and-a-copilot)
 
 ### Apache Spark-based data platforms for AI
 
@@ -265,7 +265,7 @@ For more information, see the following resources:
 
 For more information, see the following resources:
 
-- [SynapseML features and capabilities](../ai-ml/guide/data-science-and-machine-learning.md#synapseml)
+- [SynapseML features and capabilities](/azure/architecture/ai-ml/guide/data-science-and-machine-learning#synapseml)
 - [HDInsight overview](/azure/hdinsight/hdinsight-overview)
 - [Tutorial: Build an Apache Spark machine learning application in HDInsight](/azure/hdinsight/spark/apache-spark-ipython-notebook-machine-learning)
 - [Apache Spark best practices on HDInsight](/azure/hdinsight/spark/spark-best-practices)
@@ -455,6 +455,13 @@ Custom translator offers the following features.
 
 [Document Intelligence custom models](/azure/ai-services/document-intelligence/train/custom-model) include custom classification models for scenarios where you need to identify the document type before you invoke the extraction model. You can pair a classification model with a custom extraction model to analyze and extract fields from forms and documents that are specific to your business. Combine standalone custom extraction models to create [composed models](/azure/ai-services/document-intelligence/train/composed-models).
 
+#### Content Understanding custom analyzer
+
+[Azure Content Understanding](/azure/ai-services/content-understanding/overview) uses generative AI to process/ingest content of many types (documents, images, videos, and audio) into a user-defined output format. Content Understanding comes with prebuilt analyzers for common content types and scenarios.
+
+[Azure Content Understanding custom analyzer](/azure/ai-services/content-understanding/how-to/customize-analyzer-content-understanding-studio) enables you to create custom analyzers tailored to your specific content processing needs. You can define custom extraction rules and entity recognition patterns to suit your business requirements.
+
+
 ### Custom AI tools
 
 Prebuilt AI models are useful and increasingly flexible, but the best way to optimize AI is to tailor a model to your specific needs. Two primary tools to create custom AI models are generative AI and traditional machine learning.
@@ -480,7 +487,7 @@ Prebuilt AI models are useful and increasingly flexible, but the best way to opt
 
 - Organize your work. Your Foundry project helps you save state so that you can iterate from the first idea to the first prototype and first production deployment. Easily invite others to collaborate with you.
 - Use your preferred development platform and frameworks, including GitHub, Visual Studio Code, Microsoft Agent Framework, Semantic Kernel, and AutoGen.
-- Discover and benchmark from over 1,600 models.
+- Discover and benchmark from over 11,000 models.
 - Provision models as a service (MaaS) through serverless APIs and hosted fine-tuning.
 - Incorporate multiple models, data sources, and modalities.
 - Build RAG by using your protected enterprise data, without the need for fine-tuning.
@@ -492,9 +499,9 @@ Prebuilt AI models are useful and increasingly flexible, but the best way to opt
 
 For more information, see [Foundry portal versus Machine Learning studio](/ai/ai-studio-experiences-overview).
 
-#### Azure AI Agent Service in the Foundry portal
+#### Foundry Agent Service in the Foundry portal
 
-Azure AI Agent Service is a tool that use to create AI agents using a no-code and nondeterminsitic approach. The agents are exposed as microservices on the Foundry account.
+Foundry Agent Service is a tool that use to create AI agents using a no-code and nondeterminsitic approach. The agents are exposed as microservices on the Foundry account.
 
 Each agent connects to a foundation model from the Azure AI model catalog. Agents can optionally connect to your own custom private knowledge stores or public data. Likewise, agents can invoke tools to perform tasks to call into custom code.
 
