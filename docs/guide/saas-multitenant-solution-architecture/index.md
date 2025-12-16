@@ -40,8 +40,7 @@ The following diagram illustrates how you can use a multitenant architecture to 
    The diagram shows a business model section and a technical architecture section. The business model section includes a SaaS section that has B2C and B2B SaaS types. Arrows point from these types to the tenants in the multitenant application section. The technical architecture section includes tenants, user groups, and employees.
 :::image-end:::
 
-The following diagram illustrates how you can use a multitenant architecture in a business model that isn't a SaaS. For example, in a large organization that has multiple business units and departments that
-wish to share a centralized application or platform:
+The following diagram illustrates how you can use a multitenant architecture in a business model that isn't a SaaS. For example, suppose you're designing a system for a large organization that has multiple business units and departments that wish to share a centralized application or platform. Each business unit is represented as a tenant, and has its own set of users.
 
 :::image type="complex" border="false" source="./images/enterprise-business-model.svg" alt-text="Diagram that shows how an organization can use a multitenant architecture." lightbox="./images/enterprise-business-model.svg":::
    The diagram shows a business model section and a technical architecture section. The business model section includes an enterprise section which contains a business units section. The business units section includes accounting, HR, and sales. The technical architecture section includes a multitenant application section which contains a tenant section that has multiple tenants.
