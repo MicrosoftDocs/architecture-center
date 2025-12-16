@@ -22,15 +22,11 @@ The following dataflow corresponds to the previous diagram:
 
 1. **[Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db)** is a fully managed, multiple-model database service. The output of an Azure Databricks job is a series of records, which are written to [Azure Cosmos DB for NoSQL](/azure/cosmos-db/nosql/overview). Azure Cosmos DB for NoSQL can be used for time series data modeling.
 
-   **[Mirroring Azure Cosmos DB for NoSQL in Microsoft Fabric](/fabric/database/mirrored-database/azure-cosmos-db)** enables near real-time analytical queries on operational data without impacting transactional workloads. After you mirror Azure Cosmos DB for NoSQL (or ingest data in Delta format), you can keep the operational dataset synchronized and integrate it with the rest of your data in Fabric. This allows you to query current data using:
+   **[Mirroring Azure Cosmos DB for NoSQL in Microsoft Fabric](/fabric/database/mirrored-database/azure-cosmos-db)** enables near real-time analytical queries on operational data without impacting transactional workloads or building a custom ETL process. After you mirror Azure Cosmos DB for NoSQL (or ingest data in Delta format), you can keep the operational dataset synchronized and integrate it with the rest of your data in Fabric. This allows you to query current data using:
 
    - Fabric SQL analytics endpoints in a lakehouse or warehouse
    - Spark notebooks for data engineering
    - Real-Time Analytics (KQL) for time-series exploration
-  
-   These capabilities eliminate the need for custom ETL and avoid affecting ingestion performance.
-
-   **[Mirroring Azure Cosmos DB for NoSQL in Microsoft Fabric](/fabric/database/mirrored-database/azure-cosmos-db)** allows you to integrate Azure Cosmos DB data with the rest of your data in Microsoft Fabric. It keeps the operational dataset synchronized so lakehouse, warehouse, and Real-Time Analytics queries can use current data without custom ETL.
 
 1. **[Log Analytics](/azure/well-architected/service-guides/azure-log-analytics)** is a tool within Azure Monitor that allows you to query and analyze log data from various sources. Application log data that [Azure Monitor](/azure/monitoring-and-diagnostics) collects is stored in a [Log Analytics workspace](/azure/log-analytics). You can use Log Analytics queries to analyze and visualize metrics and inspect log messages to identify problems within the application.
 
