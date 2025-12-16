@@ -64,7 +64,7 @@ The following sections present a breakdown of Contoso activity necessary across 
         - Availability Zone failure: N/A
         - Azure regional failure: N/A
 
-- **Virtual vetworks, including subnets, user-defined routes (UDRs), and network security groups (NSGs)**
+- **Virtual networks, including subnets, user-defined routes (UDRs), and network security groups (NSGs)**
     - Contoso SKU selection: N/A
     - DR impact:
         - Azure datacenter failure: N/A
