@@ -32,7 +32,7 @@ How you [define a tenant](../multitenant/considerations/tenancy-models.md#define
 
 ## Multitenant architecture for SaaS and non-SaaS business models
 
-Although multitenancy is typically associated with SaaS solutions, it is also possible to use multitenant architectures in non-SaaS scenarios. Although the underlying multitenant architecture might be similar, the business model affects how you define a tenant and your design choices.
+Although multitenancy is typically associated with SaaS solutions, it is also possible to use multitenant architectures in non-SaaS scenarios. The underlying multitenant architecture might be similar, but the business model affects how you define a tenant and your design choices.
 
 The following diagram illustrates how you can use a multitenant architecture to serve a SaaS business model:
 
