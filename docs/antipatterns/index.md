@@ -41,7 +41,7 @@ Here's the list of the antipatterns that we've identified:
 | [Busy Front End][BusyFrontEnd] | Moving resource-intensive tasks onto background threads. |
 | [Chatty I/O][ChattyIO] | Continually sending many small network requests. |
 | [Extraneous Fetching][ExtraneousFetching] | Retrieving more data than is needed, resulting in unnecessary I/O. |
-| [Improper Instantiation][ImproperInstantiation] | Repeatedly creating and destroying objects that you're meant to share and reuse. |
+| [Improper Instantiation][ImproperInstantiation] | Repeatedly creating and destroying objects that are designed to be shared and reused. |
 | [Monolithic Persistence][MonolithicPersistence] | Using the same data store for data with very different usage patterns. |
 | [No Caching][NoCaching] | Failing to cache data. |
 | [Noisy Neighbor][NoisyNeighbor] | A single tenant uses a disproportionate amount of the resources. |

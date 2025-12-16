@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Azure file shares in a hybrid environment
-  description: With identity-based authentication, you can control access to Azure file shares by using the Directory Services users and groups in Active Directory.
+  description: With identity-based authentication, you can control access to Azure file shares by using the Active Directory Domain Services.
   author: claytonsiemens77 
   ms.author: pnp
   ms.date: 09/20/2022
@@ -16,7 +16,7 @@ name: Use Azure file shares in a hybrid environment
 azureCategories:
   - hybrid
   - storage
-summary: With identity-based authentication, you can control access to Azure file shares by using the Directory Services users and groups in Active Directory.
+summary: With identity-based authentication, you can control access to Azure file shares by using the Active Directory Domain Services.
 products:
   - entra-id
   - azure-files
