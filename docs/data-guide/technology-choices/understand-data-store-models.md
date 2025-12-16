@@ -168,21 +168,23 @@ Use [SQL Server graph extensions](/sql/relational-databases/graphs/sql-graph-ove
 
 ### Time-series data stores <a id="time-series-data-stores"></a>
 
-Time-series data stores manage a set of values organized by time. They support features like time-based queries and aggregations and are optimized for ingesting and analyzing large volumes of data in near real time. They are typically append-only databases.
+Time-series data stores manage a set of values organized by time. They support features like time-based queries and aggregations. They're optimized to ingest and analyze large volumes of data in near real time. They're typically append-only databases.
 
-**Strengths:** Compression, windowed query performance, out-of-order ingestion handling  
+**Strengths:** Compression, high-volume ingestion, time-window queries and aggregations, out-of-order ingestion handling
 
-**Considerations:** Tag cardinality management, retention cost, downsampling strategy  
+**Considerations:** Tag cardinality management, retention cost, downsampling strategy, specialized query languages
 
-**Workloads:** IoT sensor metrics, application telemetry, monitoring, industrial data  
+**Workloads:** IoT sensor metrics, application telemetry, monitoring, industrial data, and financial market data
 
 #### Select an Azure service for time-series data stores
 
-- [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) is a managed, high-performance, big data storage platform that allows you to query and visualize high volumes of data in near real time. Choose this service when you need a standalone platform as a service (PaaS) solution with granular control over cluster configuration, networking, and scaling.
+- [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) is a managed big data storage platform. Use it to query and visualize high volumes of data in near real time. Choose this service if you need a standalone platform as a service (PaaS) solution with granular control over cluster configuration, networking, and scaling.
 
-- [Eventhouse in Fabric](/fabric/real-time-intelligence/eventhouse) is part of the Real-Time Intelligence experience in Microsoft Fabric. It uses KQL databases to handle streaming data. Choose this service when you want a software as a service (SaaS) experience that is integrated with the Microsoft Fabric ecosystem, including OneLake and other Fabric workloads.
+- [Eventhouse in Microsoft Fabric](/fabric/real-time-intelligence/eventhouse) is part of the Real-Time Intelligence experience in Fabric. It uses KQL databases to handle streaming data. Choose this service if you want a software as a service (SaaS) experience that's integrated with the Fabric ecosystem, including OneLake and other Fabric workloads.
 
-Some transactional databases can provide limited time-series capabilities as part of their broader feature set or through extensions, such as [timescaleDB](/azure/postgresql/extensions/concepts-extensions-considerations#timescaledb) for Azure Database for PostgreSQL flexible server. When choosing a time-series data store, evaluate their fit based on if your workload's needs for:
+- Some transactional databases provide limited time-series capabilities as part of their broader feature set or through extensions. For example, Azure Database for PostgreSQL flexible server supports [TimescaleDB](/azure/postgresql/extensions/concepts-extensions-considerations#timescaledb). Select this option if you need to query time-series data alongside existing transactional data in the database.
+
+When you choose a time-series data store, evaluate the service based on your workload's needs for:
 
 - Ingestion performance
 - Ad-hoc queries
