@@ -34,7 +34,7 @@ How you [define a tenant](../multitenant/considerations/tenancy-models.md#define
 
 Although multitenancy is typically associated with SaaS solutions, it is also possible to use multitenant architectures in non-SaaS scenarios. The underlying multitenant architecture might be similar, but the business model affects how you define a tenant and your design choices.
 
-In the followig diagram, you can see a multitenant architecture that's designed to serve a SaaS business model for both consumers (B2C) and business customers (B2B). Taking a technical lens, B2C tenants are represented by a group of users, like a family, with a set of users in each group. In contrast, B2B tenants represent other businesses and their employees are users.
+In the following diagram, you can see a multitenant architecture that's designed to serve a SaaS business model for both consumers (B2C) and business customers (B2B). Taking a technical lens, B2C tenants are represented by a group of users, like a family, with a set of users in each group. In contrast, B2B tenants represent other businesses and their employees are users.
 
 :::image type="complex" border="false" source="./images/saas-business-model.svg" alt-text="Diagram that shows a multitenant application architecture that serves a SaaS business model." lightbox="./images/saas-business-model.svg":::
    The diagram shows a business model section and a technical architecture section. The business model section includes a SaaS section that has B2C and B2B SaaS types. Arrows point from these types to the tenants in the multitenant application section. The technical architecture section includes tenants, user groups, and employees.
