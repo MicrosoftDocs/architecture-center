@@ -3,7 +3,7 @@ title: AI Architecture Design
 description: Get started with AI. Use high-level architectural types, see Azure AI platform offerings, and find customer success stories.
 author: davihern
 ms.author: davihern
-ms.date: 15/12/2025
+ms.date: 17/12/2025
 ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
@@ -116,9 +116,9 @@ With [Foundry tools](https://azure.microsoft.com/en-us/products/ai-foundry/tools
 
 For more information, see the following resources:
 
-- [Choose an Azure AI services technology](../data-guide/technology-choices/ai-services.md)
+- [Choose an Azure AI services technology](/azure/architecture/data-guide/technology-choices/ai-services)
 - [What are Foundry tools?](/azure/ai-services/what-are-ai-services)
-- [Choose a natural language processing technology in Azure](../data-guide/technology-choices/natural-language-processing.md)
+- [Choose a natural language processing technology in Azure](/azure/architecture/data-guide/technology-choices/natural-language-processing)
 
 ## AI language models
 
@@ -144,8 +144,8 @@ For more information, see the following resources:
 
 #### AI and Machine learning reference architectures for Azure
 
-- [Microsoft Foundry chat architecture in an Azure landing zone](./architecture/baseline-azure-ai-foundry-landing-zone.yml)
-- [Baseline Microsoft Foundry chat reference architecture](./architecture/baseline-azure-ai-foundry-chat.yml) describes how to build an end-to-end chat architecture by using OpenAI's GPT models in Microsoft Foundry. It incorporates grounding via enterprise data sources to enrich responses with contextual information.
+- [Microsoft Foundry chat architecture in an Azure landing zone](/azure/architecture/ai-ml/architecture/baseline-azure-ai-foundry-landing-zone)
+- [Baseline Microsoft Foundry chat reference architecture](/azure/architecture/ai-ml/architecture/baseline-azure-ai-foundry-chat) describes how to build an end-to-end chat architecture by using OpenAI's GPT models in Microsoft Foundry. It incorporates grounding via enterprise data sources to enrich responses with contextual information.
 
   :::image type="complex" source="./architecture/_images/baseline-azure-ai-foundry.svg" border="false" lightbox="./architecture/_images/baseline-azure-ai-foundry.svg" alt-text="Diagram that shows a baseline end-to-end chat architecture that uses Microsoft Foundry.":::
   The diagram presents a detailed Azure architecture for deploying an AI solution. On the left, a user connects through an Application Gateway with a web application firewall, which is part of a virtual network. This gateway is linked to private DNS zones and protected by Azure DDoS Protection. Below the gateway, private endpoints connect to services such as App Service, Azure Key Vault, and Storage, which are used for client app deployment. The App Service is managed with identity and spans three zones. Monitoring is provided by Application Insights and Azure Monitor, and authentication is handled by Microsoft Entra ID.
@@ -214,7 +214,7 @@ You can use Copilot and other generative AI features to transform and analyze da
 - [Copilot for Power BI](/power-bi/create-reports/copilot-introduction)
 - [Copilot for Real-Time Intelligence](/fabric/real-time-intelligence/copilot-writing-queries)
 
-#### AI skills in Fabric
+#### Data agent Fabric
 
 Data agent in Microsoft Fabric is a new Microsoft Fabric feature that enables you to build your own conversational Q&A systems by using generative AI. A Fabric data agent makes data insights more accessible and actionable for everyone in your organization. 
 
