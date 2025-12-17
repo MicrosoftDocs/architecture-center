@@ -3,7 +3,7 @@ title: Design and Develop a RAG Solution
 description: Learn about what to consider when you design a large language model RAG solution, including each step of the development process and how to evaluate those steps.
 author: claytonsiemens77
 ms.author: pnp
-ms.date: 12/9/2024
+ms.date: 12/17/2025
 ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot  
 ms.subservice: architecture-guide
