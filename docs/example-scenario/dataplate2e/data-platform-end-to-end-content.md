@@ -241,7 +241,7 @@ This approach can also be used to:
 - Integrate relational data sources with other unstructured datasets, with the use of big data processing technologies.
 - Use semantic modeling and powerful visualization tools for simpler data analysis.
 - Share datasets within the organization or with trusted external partners.
-- Implement knowledge mining solutions to extract valuable business information hidden in images, PDFs, documents, and so on.
+- Implement knowledge mining solutions to extract valuable business information hidden in images, PDFs, and documents.
 
 ## Recommendations
 

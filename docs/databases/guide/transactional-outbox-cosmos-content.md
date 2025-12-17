@@ -48,7 +48,7 @@ In practice, things aren't as easy as they might look at first. Most importantly
 
 ## Implementation in Azure Cosmos DB
 
-This section shows how to implement the Transactional Outbox pattern in Azure Cosmos DB to achieve reliable, in-order messaging between different services with the help of the Azure Cosmos DB change feed and Service Bus. It demonstrates a sample service that manages `Contact` objects (`FirstName`, `LastName`, `Email`, `Company` information, and so on). It uses the Command and Query Responsibility Segregation (CQRS) pattern and follows basic domain-driven design (DDD) concepts. You can find the sample code for the implementation on [GitHub](https://github.com/Azure-Samples/transactional-outbox-pattern).
+This section shows how to implement the Transactional Outbox pattern in Azure Cosmos DB to achieve reliable, in-order messaging between different services with the help of the Azure Cosmos DB change feed and Service Bus. It demonstrates a sample service that manages `Contact` objects ( for example, `FirstName`, `LastName`, `Email`, and `Company` information). It uses the Command and Query Responsibility Segregation (CQRS) pattern and follows basic domain-driven design (DDD) concepts. You can find the sample code for the implementation on [GitHub](https://github.com/Azure-Samples/transactional-outbox-pattern).
 
 A `Contact` object in the sample service has the following structure:
 

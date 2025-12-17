@@ -94,7 +94,7 @@ At level 2, make sure that the Kubernetes API server and Kubelet work properly. 
 - The overview by node grid summarizes total operation, total errors, and successful operations by percent and trend for each node.
 - The overview by operation type grid provides, for each type of operation, the number of operations, errors, and successful operations by percent and trend.
 
-Level 3 is dedicated to the Kubernetes objects and applications that are deployed by default in AKS, like omsagent, kube-proxy and so on. For this check, you can use the Insights view of Monitor to check the status of the AKS deployments:
+Level 3 is dedicated to the Kubernetes objects and applications that are deployed by default in AKS, like omsagent and kube-proxy. For this check, you can use the Insights view of Monitor to check the status of the AKS deployments:
 
 :::image type="content" source="media/blue-green-aks-deployment-screenshot-azure-monitor-insights-view.png" lightbox="media/blue-green-aks-deployment-screenshot-azure-monitor-insights-view.png" alt-text="Screenshot of the Monitor Insights view.":::
 
@@ -263,7 +263,7 @@ Blue-green deployment makes it possible to make changes to clusters without affe
 - Activating new AKS features
 - Changes to shared resources in the clusters
 - Updating the Kubernetes version
-- Modifying Kubernetes resources and objects, like the ingress gateway, the service mesh, operators, network policies and so on
+- Modifying Kubernetes resources and objects, like the ingress gateway, the service mesh, operators, and network policies
 - Rolling back to the previous version of an AKS cluster that's still deployed, without affecting the workloads that are running in the cluster
 
 ## Considerations

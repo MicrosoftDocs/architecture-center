@@ -21,7 +21,7 @@ The scope of this article series includes:
     - Not cloud-native, with its core enterprise, shared services like access and authentication management and incident management remaining on-premises.
     - On the journey of cloud migration to Azure, enabled by automation.
 - The Azure data platform has implemented the following designs within the customer's Azure tenancy:
-    - [Enterprise landing zone](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-conceptual-architecture) – Providing the platform foundation, including networking, monitoring, security, and so on.
+    - [Enterprise landing zone](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-conceptual-architecture) – Providing the platform foundation, including networking, monitoring, and security.
     - [Azure analytics platform](https://github.com/Azure/azure-synapse-analytics-end2end) - Providing the data components that support the various solutions and data products provided by the service.
 - The processes described in this article should be performed by an individual that has the following level of knowledge/skills:
     - [Azure Fundamentals](/certifications/exams/az-900) – working knowledge of Azure, its core services, and data components.
@@ -33,7 +33,7 @@ The scope of this article series includes:
 The following items are considered out-of-scope for this article series:
 
 - The fallback process, from the secondary region back to the primary region.
-- Any non-Azure applications, components, or systems – this includes but isn't limited to on-premises, other cloud vendors, third-party web services, and so on.
+- Any non-Azure applications, components, or systems – it includes but isn't limited to on-premises, other cloud vendors, and third-party web services.
 - Recovery of any upstream services, such as on-premises networks, gateways, enterprise shared services, and others, regardless of any dependencies on these services.
 - Recovery of any downstream services, such as on-premises operational systems, third party reporting systems, data modeling or data science applications, and others, regardless of any dependencies on these services.
 - Data loss scenarios, including recovery from [ransomware or similar data security incidents](/azure/security/fundamentals/backup-plan-to-protect-against-ransomware)

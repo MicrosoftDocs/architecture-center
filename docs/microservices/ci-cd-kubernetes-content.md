@@ -174,7 +174,7 @@ This file uses the Docker `ENTRYPOINT` command to run the tests, not the Docker 
 
 Here are some other best practices to consider for containers:
 
-- Define organization-wide conventions for container tags, versioning, and naming conventions for resources deployed to the cluster (pods, services, and so on). That can make it easier to diagnose deployment issues.
+- Define organization-wide conventions for container tags, versioning, and naming conventions for resources deployed to the cluster (for example,pods and services). That can make it easier to diagnose deployment issues.
 
 - During the development and test cycle, the CI/CD process builds many container images. Only some of those images are candidates for release, and then only some of those release candidates get promoted to production. Have a clear versioning strategy so that you know which images are currently deployed to production and to help roll back to a previous version if necessary.
 

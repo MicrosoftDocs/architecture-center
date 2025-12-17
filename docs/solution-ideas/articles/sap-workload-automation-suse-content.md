@@ -34,9 +34,9 @@ SUSE provides support with:
 
 1. Download the SUSE automation git repository to your local machine or Azure Cloud Shell and install the needed Terraform version, which comes with SLES4SAP or Cloud Shell.
 1. Create an Azure File Share instance and download SAP media to it.
-1. Tailor the example parameters—ssh-keys, network, SID, file-share, and so on—to your needs and values.
+1. Tailor the example parameters—ssh-keys, network, SID, and file-share—to your needs and values.
 1. Run Terraform to deploy the SAP infrastructure into Azure.
-   1. Terraform creates the infrastructure, including resource groups, networks, virtual machines, disks, availability groups, load balancers, and so on.
+   1. Terraform creates the infrastructure, including resource groups, networks, virtual machines, disks, availability groups, and load balancers.
    1. Terraform starts configuration with Salt.
 1. Salt performs the needed OS configuration:
    1. It installs SAP applications on the nodes.
