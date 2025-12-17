@@ -102,7 +102,7 @@ The following new and updated articles have recently been published in the Azure
 - [DR for Azure Data Platform - Architecture](./data-guide/disaster-recovery/dr-for-azure-data-platform-architecture.yml) ([#27371ebc0f](https://github.com/MicrosoftDocs/architecture-center/commit/27371ebc0f))
 - [Transactional Outbox pattern with Azure Cosmos DB](./databases/guide/transactional-outbox-cosmos.yml) ([#27371ebc0f](https://github.com/MicrosoftDocs/architecture-center/commit/27371ebc0f))
 - [Migrate a web app by using Azure API Management](./example-scenario/apps/apim-api-scenario.yml) ([#27371ebc0f](https://github.com/MicrosoftDocs/architecture-center/commit/27371ebc0f))
-- [Analytics end-to-end with Azure Synapse](./example-scenario/dataplate2e/data-platform-end-to-end.yml) ([#27371ebc0f](https://github.com/MicrosoftDocs/architecture-center/commit/27371ebc0f))
+- [Analytics end-to-end with Microsoft Fabric](./example-scenario/dataplate2e/data-platform-end-to-end.yml) ([#27371ebc0f](https://github.com/MicrosoftDocs/architecture-center/commit/27371ebc0f))
 
 ## October 2025
 
@@ -283,7 +283,7 @@ The following new and updated articles have recently been published in the Azure
 - [Data warehousing and analytics](./example-scenario/data/data-warehouse.yml) ([#79c8abff75](https://github.com/MicrosoftDocs/architecture-center/commit/79c8abff75))
 - [Esri ArcGIS Platform on Azure Virtual Desktop](./example-scenario/data/esri-arcgis-azure-virtual-desktop.yml) ([#79c8abff75](https://github.com/MicrosoftDocs/architecture-center/commit/79c8abff75))
 - [Greenfield Lakehouse on Microsoft Fabric](./example-scenario/data/greenfield-lakehouse-fabric.yml) ([#79c8abff75](https://github.com/MicrosoftDocs/architecture-center/commit/79c8abff75))
-- [Analytics end-to-end with Azure Synapse](./example-scenario/dataplate2e/data-platform-end-to-end.yml) ([#79c8abff75](https://github.com/MicrosoftDocs/architecture-center/commit/79c8abff75))
+- [Analytics end-to-end with Microsoft Fabric](./example-scenario/dataplate2e/data-platform-end-to-end.yml) ([#79c8abff75](https://github.com/MicrosoftDocs/architecture-center/commit/79c8abff75))
 - [Computer Forensics Chain of Custody in Azure](./example-scenario/forensics/index.yml) ([#79c8abff75](https://github.com/MicrosoftDocs/architecture-center/commit/79c8abff75))
 - [Azure Kubernetes Service (AKS) Baseline Architecture for AKS on Azure Local](./example-scenario/hybrid/aks-baseline.yml) ([#79c8abff75](https://github.com/MicrosoftDocs/architecture-center/commit/79c8abff75))
 - [Azure Files Accessed from On-Premises and Secured by AD DS in a Private Network](./example-scenario/hybrid/azure-files-on-premises-authentication.yml) ([#79c8abff75](https://github.com/MicrosoftDocs/architecture-center/commit/79c8abff75))

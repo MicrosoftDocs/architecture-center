@@ -585,7 +585,7 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Analytics end-to-end with Azure Synapse]]></title>
+        <title type="html"><![CDATA[Analytics end-to-end with Microsoft Fabric]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end</id>
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end"/>
         <updated>2025-11-05T18:05:18.000Z</updated>
@@ -1905,7 +1905,7 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Analytics end-to-end with Azure Synapse]]></title>
+        <title type="html"><![CDATA[Analytics end-to-end with Microsoft Fabric]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end</id>
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end"/>
         <updated>2025-09-04T17:29:02.000Z</updated>
