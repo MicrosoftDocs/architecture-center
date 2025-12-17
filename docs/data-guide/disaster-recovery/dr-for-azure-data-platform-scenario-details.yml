@@ -12,7 +12,7 @@ azureCategories:
   - analytics
 summary: Scenario details related to DR for Azure Data Platform solution idea.
 products:
-  - azure-synapse-analytics
+  - fabric
   - azure-machine-learning
   - azure-cosmos-db
   - azure-data-lake

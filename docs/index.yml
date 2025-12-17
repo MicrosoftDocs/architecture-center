@@ -151,7 +151,7 @@ conceptualContent:
         - text: Choose a data analytics technology
           itemType: quickstart
           url: ./data-guide/technology-choices/analysis-visualizations-reporting.md
-        - text: Analytics end-to-end with Azure Synapse 
+        - text: Analytics end-to-end with Microsoft Fabric 
           itemType: architecture
           url: ./example-scenario/dataplate2e/data-platform-end-to-end.yml
         - text: Enterprise BI with Microsoft Fabric
