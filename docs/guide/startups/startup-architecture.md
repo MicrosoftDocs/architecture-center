@@ -19,7 +19,7 @@ In the different startup life stages, developers, architects, and chief technica
 Kent Beck describes a [three-stage process](https://medium.com/@kentbeck_7670/fast-slow-in-3x-explore-expand-extract-6d4c94a7539) of software product innovation. Those stages are *explore*, *expand*, and *extract*. You can think about the different parts of this process as a graph:
 
 :::image type="complex" source="images/explore-expand-extract.png" alt-text="A graph that shows the Explore, Expand, and Extract phases of product development." border="false":::
-  A graph showing a sigmoid curve plotted against a y-axis "Certainty/Investment/Risk of Change" and an x-axis "Time". The graph has three areas highlighted: the initial portion before upward inflection labeled "Explore", the high growth part of the sigmoid curve labeled "Expand" and the plateau labeled "Extract".
+  A graph showing a sigmoid curve plotted against a y-axis labeled Certainty/Investment/Risk of Change and an x-axis labeled Time. The graph has three areas highlighted: the initial portion before upward inflection labeled Explore, the high growth part of the sigmoid curve labeled Expand and the plateau labeled Extract.
 :::image-end:::
 
 - The **Explore** stage starts with a low slope, where you're trying to find what works. Certainty is low, you only invest small amounts, and the risk from any changes you make is also low.
@@ -40,7 +40,7 @@ From an architecture perspective, choose services that optimize for speed, cost,
 
 As with your first product version, your first technology stack should be firmly rooted in exploration. That means the technology stack should ease rapid product iteration without wasting effort. You don't want to spend time or effort on infrastructure or architecture that isn't required for answering current questions.
 
-During the exploration phase, you need to optimize for speed, cost, and optionality. Speed is about how fast you can build and move forward with an idea, or move onto the next idea. Cost is how much you're spending to run your infrastructure. Optionality describes how fast you can change directions given the current architecture.
+During the exploration phase, you need to optimize for speed, cost, and optionality. Speed is about how fast you can build and move forward with an idea, or proceed to the next idea. Cost is how much you're spending to run your infrastructure. Optionality describes how fast you can change directions given the current architecture.
 
 It's important to balance cost, speed, and optionality. Too much focus on cost limits speed and optionality. Too much focus on speed can lead to increased costs and fewer options. Designing for too many options builds complexity, which increases costs and reduces speed.
 

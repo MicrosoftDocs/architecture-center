@@ -43,7 +43,7 @@ An App Service Environment can run regular web apps on Windows or, as in this ex
 
 - [Azure Container Apps][docs-container-apps] is a serverless platform that reduces infrastructure overhead and saves cost while running containerized applications. It eliminates the need to manage server configuration, container orchestration, and deployment details. Container Apps provides all the up-to-date server resources required to keep your applications stable and secure.
 
-- [Azure Kubernetes Service (AKS)][docs-kubernetes-service] is an open-source project and an orchestration platform designed to host complex multicontainer applications that typically use a microservices-based architecture. AKS is a managed Azure service that simplifies provisioning and configuring a Kubernetes cluster. You must have significant knowledge of the Kubernetes platform to support and maintain it, so hosting a small number of single-instance containerized web applications might not be the best option.
+- [Azure Kubernetes Service (AKS)][docs-kubernetes-service] is an open-source project and an orchestration platform designed to host complex multicontainer applications that typically use a microservices-based architecture. AKS is a managed Azure service that simplifies provisioning and configuring a Kubernetes cluster. You must have significant knowledge of the Kubernetes platform to support and maintain it, so hosting only a few single-instance containerized web applications might not be the best option.
 
 Use the following alternative for the data tier:
 

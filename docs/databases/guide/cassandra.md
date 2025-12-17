@@ -76,7 +76,7 @@ For more information, see [Comparing impact of disk read-ahead settings](https:/
 
 When running Cassandra on Azure, it's common to create an mdadm stripe set (that is, RAID 0) of multiple data disks to increase the overall disk throughput and IOPS closer to the VM limits. Optimal disk stripe size is an application-specific setting. For example, for SQL Server OLTP workloads, the recommendation is 64 KB. For data warehousing workloads, the recommendation is 256 KB.
 
-Our tests found no significant difference between chunk sizes of 64k, 128k, and 256k for Cassandra read workloads. There seems to be a small, slightly noticeable, advantage to the 128k chunk size. Therefore, we recommend the following:
+Our tests found no significant difference between chunk sizes of 64k, 128k, and 256k for Cassandra read workloads. There seems to be a small, slightly noticeable, advantage to the 128k chunk size. Therefore, we recommend the following approaches:
 
 - If you're already using a chunk size of 64 K or 256 K, it doesn't make sense to rebuild the disk array to use 128-K size.
 
@@ -110,7 +110,7 @@ For more information, see [Comparing relative performance of various Cassandra d
 
 ### Replication factor
 
-Most Cassandra workloads use a replication factor (RF) of 3 when using attached premium disks and even 5 when using temporary/ephemeral local disks. The number of nodes in the Cassandra ring should be a multiple of the replication factor. For example, RF 3 implies a ring of 3, 6, 9, or 12 nodes, while RF 5 would have 5, 10, 15, or 20 nodes. When using RF greater than 1 and a consistency level of LOCAL_QUORUM, it's normal for read and write performance to be lower than the same workload running with RF 1.
+Most Cassandra workloads use a replication factor (RF) of 3 when they use attached premium disks and even 5 when they use temporary/ephemeral local disks. The number of nodes in the Cassandra ring should be a multiple of the replication factor. For example, RF 3 implies a ring of 3, 6, 9, or 12 nodes, while RF 5 would have 5, 10, 15, or 20 nodes. When you use RF greater than 1 and a consistency level of LOCAL_QUORUM, it's normal for read and write performance to be lower than the same workload running with RF 1.
 
 For more information, see [Comparing relative performance of various replication factors](https://github.com/Azure-Samples/cassandra-on-azure-vms-performance-experiments/blob/master/docs/cassandra-replication-factors.md) (GitHub).
 
@@ -128,7 +128,7 @@ Cassandra natively supports the concept of multiple datacenters, making it easy 
 
 For a multiregion deployment, use Azure Global VNet-peering to connect the virtual networks in the different regions. When VMs are deployed in the same region but in separate availability zones, the VMs can be in the same virtual network.
 
-It's important to measure the baseline roundtrip latency between regions. Network latency between regions can be 10-100 times higher than latency within a region. Expect a lag between data appearing in the second region when using LOCAL_QUORUM write consistency, or significantly decreased performance of writes when using EACH_QUORUM.
+It's important to measure the baseline roundtrip latency between regions. Network latency between regions can be 10-100 times higher than latency within a region. Expect a lag between data appearing in the second region when you use LOCAL_QUORUM write consistency, or significantly decreased performance of writes when you use EACH_QUORUM.
 
 When you run Apache Cassandra at scale, and specifically in a multi-DC environment, [node repair](https://cassandra.apache.org/doc/4.0/cassandra/operating/repair.html) becomes challenging. Tools such as [Reaper](https://cassandra-reaper.io) can help to coordinate repairs at scale (for example, across all the nodes in a datacenter, one datacenter at a time, to limit the load on the whole cluster). However, node repair for large clusters isn't yet a fully solved problem and applies in all environments, whether on-premises or in the cloud.
 

@@ -3,9 +3,9 @@ title: Design and Develop a RAG Solution
 description: Learn about what to consider when you design a large language model RAG solution, including each step of the development process and how to evaluate those steps.
 author: claytonsiemens77
 ms.author: pnp
-ms.date: 12/9/2024
+ms.date: 12/17/2025
 ms.topic: concept-article
-ms.collection: ce-skilling-ai-copilot  
+ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
 ---
 
@@ -17,7 +17,7 @@ This article is the introduction of a series. Each article in the series covers 
 
 The other articles in this series cover the following considerations:
 
-- How to determine which test documents and queries to use during evaluation
+- How to determine which test media and queries to use during evaluation
 - How to choose a chunking strategy
 - How to determine which chunks you should enrich and how to enrich them
 - How to choose the right embedding model
@@ -42,9 +42,9 @@ The following workflow describes a high-level flow for a RAG application.
 
 The following workflow describes a high-level flow for a data pipeline that supplies grounding data for a RAG application.
 
-1. Documents are either pushed or pulled into a data pipeline.
-1. The data pipeline processes each document individually by completing the following steps:
-   1. Chunk document: Breaks down the document into semantically relevant parts that ideally have a single idea or concept.
+1. Documents or other media are either pushed or pulled into a data pipeline.
+1. The data pipeline processes each media file individually by completing the following steps:
+   1. Chunking: Breaks down the media file into semantically relevant parts that ideally have a single idea or concept.
    1. Enrich chunks: Adds metadata fields that the pipeline creates based on the content in the chunks. The data pipeline categorizes the metadata into discrete fields, such as title, summary, and keywords.
    1. Embed chunks: Uses an embedding model to vectorize the chunk and any other metadata fields that are used for vector searches.
    1. Persist chunks: Stores the chunks in the search index.
@@ -60,22 +60,22 @@ The following list provides a brief description of what you should do during eac
 - During the [preparation phase](./rag-preparation-phase.md), you should:
 
   - **Determine the solution domain.** Clearly define the business requirements for the RAG solution.
-  - **Gather representative test documents.** Gather test documents for your RAG solution that are representative of your document collection.
-  - **Gather test queries.** Gather information and test queries and generate synthetic queries and queries that your documents don't cover.
+  - **Gather representative test media.** Gather test media files for your RAG solution that are representative of your overall collection.
+  - **Gather test queries.** Gather information and test queries and generate synthetic queries and queries that your media files don't cover.
 
 - During the [chunking phase](./rag-chunking-phase.md), you should:
 
-  - **Understand chunking economics.** Understand which factors to consider as you evaluate the overall cost of your chunking solution for your text collection.
-  - **Perform document analysis.** Ask the following questions to help you make decisions when you analyze a document type:
-    - What content in the document do you want to ignore or exclude?
+  - **Understand chunking economics.** Understand which factors to consider as you evaluate the overall cost of your chunking solution for your media collection.
+  - **Perform media analysis.** Ask the following questions to help you make decisions when you analyze a media file type:
+    - What content in the media file do you want to ignore or exclude?
     - What content do you want to capture in chunks?
     - How do you want to chunk that content?
   - **Understand chunking approaches.** Understand the different approaches to chunking, including sentence-based, fixed-size, and custom approaches or by using language model augmentation, document layout analysis, and machine learning models.
-  - **Understand how document structure affects chunking.** Choose a chunking approach based on the degree of structure that the document has.
+  - **Understand how file structure affects chunking.** Choose a chunking approach based on the degree of structure that the media file has.
 
 - During the [chunk enrichment phase](./rag-enrichment-phase.md), you should:
 
-  - **Clean chunks.** Implement cleaning approaches to eliminate differences that don't affect the meaning of the text. This method supports closeness matches.
+  - **Clean chunks.** Implement cleaning approaches to eliminate differences that don't affect the meaning of the content. This method supports closeness matches.
   - **Augment chunks.** Consider augmenting your chunk data with common metadata fields and understand their potential uses in search. Learn about commonly used tools or techniques for generating metadata content.
 
 - During the [embedding phase](./rag-generate-embeddings.md), you should:

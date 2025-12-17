@@ -20,9 +20,9 @@ The scope of this article series includes:
     - A mid-large organization with a defined operational support function, following an Information Technology Infrastructure Library (ITIL) based service management methodology.
     - Not cloud-native, with its core enterprise, shared services like access and authentication management and incident management remaining on-premises.
     - On the journey of cloud migration to Azure, enabled by automation.
-- The Azure data platform has implemented the following designs within the customer's Azure tenancy:
-    - [Enterprise landing zone](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-conceptual-architecture) – Providing the platform foundation, including networking, monitoring, security, and so on.
-    - [Azure analytics platform](https://github.com/Azure/azure-synapse-analytics-end2end) - Providing the data components that support the various solutions and data products provided by the service.
+- The data platform implements the following designs within the customer's Azure environment:
+    - The [enterprise landing zone](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-conceptual-architecture) provides the platform foundation, including networking, monitoring, security, and other capabilities.
+    - The [Azure analytics platform](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end) provides the data components that support the various solutions and data products that the service provides.
 - The processes described in this article should be performed by an individual that has the following level of knowledge/skills:
     - [Azure Fundamentals](/certifications/exams/az-900) – working knowledge of Azure, its core services, and data components.
     - Working knowledge of Azure DevOps. Able to navigate source control and execute pipeline deployments.
@@ -52,7 +52,7 @@ The key assumptions for this DR worked example are:
 
 ## Next steps
 
-Now that you have learned about the scenario at a high level, you can move on to learn about the [architecture](../disaster-recovery/dr-for-azure-data-platform-architecture.yml) designed for the use case.
+After you review the scenario at a high level, proceed to the [architecture](../disaster-recovery/dr-for-azure-data-platform-architecture.yml) for this use case.
 
 ## Related resources
 

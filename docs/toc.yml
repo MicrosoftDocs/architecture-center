@@ -68,7 +68,7 @@ items:
     - name: N-tier application
       href: guide/architecture-styles/n-tier.md
     - name: Web-queue-worker
-      href: guide/architecture-styles/web-queue-worker.yml
+      href: guide/architecture-styles/web-queue-worker.md
   - name: Design principles for Azure applications
     items:
     - name: Overview
@@ -484,9 +484,7 @@ items:
       - name: Stream processing with Stream Analytics
         href: reference-architectures/data/stream-processing-stream-analytics.yml
       - name: Modern data warehouse for small business
-        href: example-scenario/data/small-medium-data-warehouse.yml
-      - name: Disaster recovery for data analytics pipelines
-        href: example-scenario/analytics/pipelines-disaster-recovery.yml        
+        href: example-scenario/data/small-medium-data-warehouse.yml        
     - name: Solution ideas
       items:
       - name: Ingestion, ETL, and stream processing
@@ -603,10 +601,6 @@ items:
           href: example-scenario/mainframe/migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus.yml
         - name: Unisys mainframe migration with Avanade AMT
           href: reference-architectures/migration/unisys-mainframe-migration.yml
-    - name: Solution ideas
-      items:
-      - name: DFS failover cluster
-        href: solution-ideas/articles/dfs-failover-cluster-vms.yml
     - name: SAP
       items:
       - name: Guides
@@ -631,7 +625,7 @@ items:
         items:
         - name: SAP S/4 HANA for Large Instances
           href: solution-ideas/articles/sap-s4-hana-on-hli-with-ha-and-dr.yml
-        - name: SAP workload automation using SUSE
+        - name: Automate SAP workloads by using SUSE on Azure
           href: solution-ideas/articles/sap-workload-automation-suse.yml
   - name: Containers
     items:
@@ -771,7 +765,7 @@ items:
         items:
         - name: Azure Arc solutions
           items:
-          - name: Manage Kubernetes using Azure Arc
+          - name: Manage Kubernetes by using Azure Arc
             href: hybrid/arc-hybrid-kubernetes.yml
           - name: Deploy an Azure Arc-enabled SQL managed instance for DR
             href: hybrid/arc-sql-managed-instance-disaster-recovery.yml
@@ -1036,7 +1030,7 @@ items:
         href: hybrid/hybrid-file-services.yml
       - name: Mainframe
         items:
-        - name: Mainframe file and tape backup to Azure using Luminex
+        - name: Back up mainframe file and tape to Azure by using Luminex
           href: example-scenario/mainframe/luminex-mainframe-file-tape-transfer.yml
         - name: Mainframe file replication on Azure
           href: solution-ideas/articles/mainframe-azure-file-replication.yml

@@ -28,7 +28,7 @@ Your network will have more than one Azure virtual network, which can be in the 
 
 If all your virtual networks are in the same region, we suggest having one WSUS for every 18,000 VMs. This suggestion is based on a combination of the VM requirements, the number of client VMs being updated, and the cost of communicating between virtual networks. For more information on WSUS capacity requirements, see [Plan your WSUS deployment](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment).
 
-You can determine the cost of these configurations by using the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator). You need to provide the specifications of your WSUS virtual machines and your network expectations; same region, across regions. For data transfer, start with 3 GB. Note that prices will vary by region.
+You can determine the cost of these configurations by using the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator). You need to provide the specifications of your WSUS virtual machines and your network expectations; same region, across regions. For data transfer, start with 3 GB. Prices vary by region.
 
 ## Manual deployment
 
@@ -52,7 +52,7 @@ You can also combine the two approaches by using the automation script to do mos
 The `Configure-WSUSServer` script allows you to set up a WSUS server that will automatically synchronize and approve updates for a chosen set of products and languages.
 
 > [!NOTE]
-> The script always sets up WSUS to use Windows Internal Database to store its update data. This speeds up setup and reduces administration complexity. But if your server will support thousands of client computers, especially if you also need to support a wide variety of products and languages, you should set up WSUS manually instead so that you can use SQL Server as the database.
+> The script always sets up WSUS to use Windows Internal Database to store its update data. This speeds up setup and reduces administration complexity. But if your server will support thousands of client computers, especially if you also need to support a wide range of products and languages, you should set up WSUS manually instead so that you can use SQL Server as the database.
 
 The latest version of this script is [available on GitHub](https://github.com/mspnp/wsus-configuration).
 

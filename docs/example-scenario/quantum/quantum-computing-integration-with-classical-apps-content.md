@@ -12,7 +12,7 @@ You can integrate this orchestration with classical applications in one of two w
 * **Integration via tight coupling.** Logic for the orchestration of quantum resources is integrated into the classical component or components.
 * **Integration via loose coupling.** Logic for the orchestration of quantum resources is exposed as an API that can be called by various classical software components.
 
-This article describes how to implement quantum applications in each of these designs. Each implementation utilizes Azure Quantum as the quantum computing engine but they differ slightly in other aspects as detailed below.
+This article describes how to implement quantum applications in each of these designs. Each implementation uses Azure Quantum as the quantum computing engine but they differ slightly in other aspects as detailed in the following sections.
 
 ## Tightly coupled approach
 
@@ -152,13 +152,13 @@ The architectures presented here are for business problems that require quantum 
 
 ### Considerations
 
-Some of the Azure quantum targets (especially quantum hardware) are a limited resource for the foreseeable future. Access to these resources is implemented via a queueing mechanism. When you submit a quantum job to Azure Quantum, this job is added to a job queue. The job is executed, once the target completes processing earlier queue entries. You can obtain the expected waiting time by [listing available targets](/azure/quantum/how-to-submit-jobs). To calculate the full response time, you need to add the time spent waiting for an available resource to the job execution time.
+Some of the Azure quantum targets (especially quantum hardware) are a limited resource for the foreseeable future. Access to these resources is implemented via a queueing mechanism. When you submit a quantum job to Azure Quantum, this job is added to a job queue. The job runs after the target completes processing earlier queue entries. You can obtain the expected waiting time by [listing available targets](/azure/quantum/how-to-submit-jobs). To calculate the full response time, you need to add the time spent waiting for an available resource to the job execution time.
 
 #### Reliability
 
 As quantum target environments like Azure Quantum typically provide limited error-correction (limited to the quantum processor in the case of Azure Quantum), other errors such as quantum machine timeout might still occur so it is recommended to monitor job execution so you can inform the user about job status. When job execution fails because of a transient error, implement a [retry pattern](/azure/architecture/patterns/retry). Submit the jobs via asynchronous calls, with polling for the result, to avoid unnecessarily blocking the calling client.
 
-As quantum computing resources are typically limited, resiliency expectations should consider this factor.  As such, the suggestions offered in this article might provide additional measures of resiliency.
+As quantum computing resources are typically limited, resiliency expectations should consider this factor. As such, the suggestions offered in this article might provide additional measures of resiliency.
 
 #### Cost Optimization
 
@@ -172,7 +172,7 @@ For the Azure Quantum service, consider that Quantum computing providers can be 
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-Incorporating quantum jobs into classical CI/CD pipelines can be accomplished using Azure DevOps with minor changes to a typical design. The design below illustrates a DevOps pipeline workflow that can be applied to the tightly coupled and loosely coupled architectures.
+Incorporating quantum jobs into classical CI/CD pipelines can be accomplished using Azure DevOps with minor changes to a typical design. The following design illustrates a DevOps pipeline workflow that can be applied to the tightly coupled and loosely coupled architectures.
 
 ##### Architecture
 

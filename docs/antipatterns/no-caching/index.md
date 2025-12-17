@@ -21,7 +21,7 @@ keywords:
 
 Antipatterns are common design flaws that can break your software or applications under stress situations and should not be overlooked. A *no caching antipattern* occurs when a cloud application that handles many concurrent requests, repeatedly fetches the same data. This can reduce performance and scalability.
 
-When data isn't cached, it can cause a number of undesirable behaviors, including:
+When data isn't cached, it can result in undesirable behaviors:
 
 - Repeatedly fetching the same information from a resource that is expensive to access, in terms of I/O overhead or latency.
 - Repeatedly constructing the same objects or data structures for multiple requests.

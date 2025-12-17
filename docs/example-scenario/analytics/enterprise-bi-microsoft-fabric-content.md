@@ -137,7 +137,7 @@ Fabric capacities in Power BI support multiple storage modes for connecting to A
 
 - **[Composite model](/power-bi/transform-model/desktop-composite-models):** Combines Import mode for some tables with DirectQuery for others in the same dataset.
 
-- **[Direct Lake](/fabric/fundamentals/direct-lake-overview):** Queries delta tables stored in OneLake from a Fabric workspace semantic model. It's optimized for interactive analysis of very large tables by loading data into memory on demand.
+- **[Direct Lake](/fabric/fundamentals/direct-lake-overview):** Queries delta tables stored in OneLake from a Fabric workspace semantic model. It's optimized for interactive analysis of large tables by loading data into memory on demand.
 
 This scenario uses the DirectQuery dashboard because it has a small amount of data and low model complexity. DirectQuery delegates the query to the underlying compute engine and uses security capabilities on the source. DirectQuery ensures that results are always consistent with the latest source data.
 
@@ -314,7 +314,7 @@ Other contributors:
 ## Related resources
 
 - [Databases architecture design](../../databases/index.yml)
-- [Analytics end-to-end with Azure Synapse Analytics](../../example-scenario/dataplate2e/data-platform-end-to-end.yml)
+- [Analytics end-to-end with Microsoft Fabric](../../example-scenario/dataplate2e/data-platform-end-to-end.yml)
 
 [blue-green-dep]: https://martinfowler.com/bliki/BlueGreenDeployment.html
 [canary-releases]: https://martinfowler.com/bliki/CanaryRelease.html
