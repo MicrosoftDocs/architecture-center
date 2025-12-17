@@ -16,7 +16,7 @@ Open-source software (OSS)-accelerated SQL query engines and columnar databases 
 
 #### Machine learning and deep learning
 
-Popular machine learning and deep learning frameworks like [TensorFlow](https://www.tensorflow.org), [PyTorch](https://pytorch.org), and [vLLM](https://docs.vllm.ai) benefit from GPUs because they can accelerate training and inference tasks.
+Popular machine learning and deep learning frameworks like [TensorFlow](https://www.tensorflow.org), [PyTorch](https://pytorch.org), [vLLM](https://docs.vllm.ai), and [Triton server](https://github.com/triton-inference-server/server) benefit from GPUs because they can accelerate training and/or inference tasks. For example, Azure Machine Learning (AML) supports high-performance model serving to a managed online endpoint [with the Triton inference server](/azure/machine-learning/how-to-deploy-with-triton).
 
 Deep learning models have complex neural networks. Parallel processing on GPUs speeds up the model's computations. GPUs provide highly efficient matrix multiplication and convolutions, which are core operations in deep learning.
 
