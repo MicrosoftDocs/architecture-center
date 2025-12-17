@@ -172,33 +172,35 @@ For AWS environments, Microsoft Sentinel collects a broad array of AWS security 
 |[AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html) | [Management](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html) and [data](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) events|
 |[AWS CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html) | [CloudWatch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html)|
 
--  **Leverage threat intelligence:** Microsoft Sentinel can integrate threat intel (TI) feeds. You can match AWS logs (say, source IPs in CloudTrail or DNS queries from AWS if you ingest DNS logs) against known malicious indicators. If a match occurs (AWS resource communicating with a known bad IP), raise an alert. This cross-check adds another layer of defense (threat intel layer). 
+-  **Apply threat intelligence:** Microsoft Sentinel can integrate threat intelligence feeds to provide an extra layer of defense. You can match AWS log data, like source IP addresses in CloudTrail or DNS queries, against known malicious indicators. When Microsoft Sentinel identifies a match, like an AWS resource that communicates with a known malicious IP address, it generates an alert. This threat intelligence correlation helps detect threats that activity-based detection alone might miss.
 
-- **Detection and hunting:** Once logs are in Microsoft Sentinel, analysts can use **KQL (Kusto Query Language)** to query AWS data alongside other logs. For instance, one could search for any AWS API calls by a user that also had failed Entra ID logins – a hypothetical query across two data types. Microsoft Sentinel's built-in rule templates for AWS cover scenarios like:
+- **Detection and hunting:** After logs are in Microsoft Sentinel, you can use Kusto Query Language (KQL) to query AWS data alongside other logs. For example, you can search for AWS API calls by a user who also has failed Entra ID sign-in attempts, which enables cross-platform threat investigations. Microsoft Sentinel built-in rule templates for AWS cover the following scenarios:
 
-  - **Exfiltration patterns:** sudden spikes in outgoing traffic in VPC Flow Logs after a new IAM access key creation (could indicate a stolen key being used to mass-download data and exfiltrate).
+  - *Exfiltration patterns:* Sudden spikes in outgoing traffic in VPC Flow Logs after a new IAM access key creation might indicate a stolen key being used to download and exfiltrate large volumes of data.
   
-  - **Persistence or Privilege Escalation:** creation of an IAM user or access key by an unusual source, or changes to security group rules (opening ports that are normally closed).
+  - *Persistence or privilege escalation:* An unusual source creates an IAM user or access key, or the source changes security group rules to open normally closed ports.
   
-  - **Brute force:** multiple failed login attempts to the AWS Console or to an EC2 instance (from CloudTrail events for AWS console login failures or analyzing authentication logs on Linux).
+  - *Brute force:* Multiple failed sign-in attempts to the AWS Console or an EC2 instance. Microsoft Sentinel detects these patterns from CloudTrail events for console sign-in failures and authentication logs on Linux instances.
   
-  - **Response automation:** Microsoft Sentinel is a SIEM and SOAR platform which means you can trigger Playbooks (Logic Apps) on AWS alerts. For example, if Microsoft Sentinel gets an alert of "Critical GuardDuty finding: EC2 instance credential exfiltration," you could have a playbook that automatically calls AWS APIs (using Azure's AWS connectors or via an AWS Lambda) to isolate that EC2 instance (e.g., by modifying its security group or shutting it down). Another playbook could disable an IAM user in AWS if suspicious activity is detected. This automation ability is crucial for reacting quickly – bridging back to defense-in-depth,
+  - *Response automation:* Microsoft Sentinel is a SIEM and SOAR platform, which means that you can trigger playbooks in Azure Logic Apps in response to AWS alerts.
   
-By responding to incidents from Microsoft Sentinel, you ensure a uniform, orchestrated approach – e.g., a single incident might involve disabling a user in Entra ID and locking their AWS API keys; Microsoft Sentinel playbooks and its incident timeline can coordinate both.
+    For example, Microsoft Sentinel might get an alert for a critical GuardDuty finding, like EC2 instance credential exfiltration. You can configure a playbook to respond to this alert by calling AWS APIs. The playbook uses Azure AWS connectors or an AWS Lambda function to isolate the compromised EC2 instance. Isolation occurs by modifying the instance's security group or shutting down the instance. Another playbook can disable an IAM user in AWS when it detects suspicious activity. This automation capability enables rapid response, which reinforces defense-in-depth security.
+  
+Microsoft Sentinel enables a uniform, orchestrated approach to incident response. For example, a single incident might involve disabling a user in Entra ID and locking their AWS API keys. Microsoft Sentinel playbooks and the incident timeline can coordinate both actions.
 
-For more information on how to install and configure the AWS connector in Microsoft Sentinel, see [Connect Microsoft Sentinel to Amazon Web Services to ingest AWS service log data](/azure/sentinel/connect-aws?tabs=s3)
+For more information, see [Connect Microsoft Sentinel to AWS to ingest AWS service log data](/azure/sentinel/connect-aws?tabs=s3).
 
 ### Microsoft Defender XDR
 
-Microsoft Defender XDR is a unified enterprise defense suite that provides integrated protection against sophisticated cyberattacks. It coordinates detection, prevention, investigation, and response across endpoints, identities, email, and applications, ensuring comprehensive security for organizations. This solution centralizes threat tooling and utilizes advanced technologies like machine learning and threat intelligence to enhance security operations.
+Microsoft Defender XDR is a unified enterprise defense suite that provides integrated protection against sophisticated cyberattacks. It coordinates detection, prevention, investigation, and response across endpoints, identities, email, and applications. The solution centralizes threat tooling and uses advanced technologies like machine learning and threat intelligence to enhance security operations.
 
-Automatic attack disruption is an autonomous response capability in Microsoft Defender XDR designed to stop active cyberattacks in real time with minimal human intervention. This capability aims to limit the impact of attacks by automatically isolating compromised assets and preventing lateral movement within the network. Key features of automatic disruption include:
+Automatic attack disruption is an autonomous response capability in Defender XDR. It stops active cyberattacks in real time with minimal human intervention. The capability limits attack impact by automatically isolating compromised assets and preventing lateral movement within the network. Key features of automatic disruption include:
 
-- **Real-time containment:** The feature automatically identifies and contains compromised user accounts, endpoints, session and token disruption, threat infrastructure, application as soon as a threat is detected, providing immediate protection against further exploitation.
+- **Real-time containment:** This feature automatically identifies and contains compromised user accounts, endpoints, sessions and tokens, threat infrastructure, and applications as soon as it detects a threat. This immediate containment provides protection against further exploitation.
 
-- **Enhanced security for critical infrastructure:** Updates to the automatic attack disruption capabilities have improved security for essential services like Active Directory, DNS, and DHCP servers, allowing for selective isolation of critical assets while maintaining service availability. 
+- **Enhanced security for critical infrastructure:** Automatic attack disruption provides enhanced security for essential services like Active Directory, DNS, and DHCP servers. This feature selectively isolates critical assets while maintaining service availability. 
 
-- **Cross platform detection:** The automatic attack disruption feature works in conjunction with other Microsoft Defender products and extends beyond XDR, incorporating data from AWS, Proofpoint and Okta when brought in through Microsoft Sentinel. By leveraging millions of signals from Microsoft Threat Intelligence, this feature uses AI to detect sophisticated threats like phishing, business email compromise, and identity compromise across federated accounts and cloud boundaries.
+- **Cross platform detection:** The automatic attack disruption feature works in conjunction with other Microsoft Defender products and extends beyond Defender XDR, incorporating data from AWS, Proofpoint and Okta when brought in through Microsoft Sentinel. By leveraging millions of signals from Microsoft Threat Intelligence, this feature uses AI to detect sophisticated threats like phishing, business email compromise, and identity compromise across federated accounts and cloud boundaries.
 
 - **Visibility and control:** Even though the actions are automatic, the SOC remains in full control and informed. Defender XDR clearly tags and highlights incidents where attack disruption was triggered. Analysts can click in to see exactly what was done: which users were disabled, which devices contained, etc., via Action Center. Every automated action is logged and can be undone with a single click if needed and provides the ability to define exclusions. These safeguards, along with the high precision, are meant to balance speed with safety.
 
@@ -206,7 +208,7 @@ Automatic attack disruption is an autonomous response capability in Microsoft De
 
 ![attack disruption](media/aws-azure-security-solutions-content/attack-disruption.png)
 
-Automatic attack disruption reduces dwell time and minimizing business impact. Integrating telemetry from AWS, Proofpoint, and Okta, security teams can transition from reactive detection to proactive, cross-platform protection, ensuring cohesive defense and lowering operational complexity. For more Information see - [Automatic attack disruption in Microsoft Defender XDR](/defender-xdr/automatic-attack-disruption)
+Automatic attack disruption reduces dwell time and minimizing business impact. Integrating telemetry from AWS, Proofpoint, and Okta, security teams can transition from reactive detection to proactive, cross-platform protection, ensuring cohesive defense and lowering operational complexity. For more Information, see [Automatic attack disruption in Defender XDR](/defender-xdr/automatic-attack-disruption).
 
 ### Microsoft Security Copilot
 
