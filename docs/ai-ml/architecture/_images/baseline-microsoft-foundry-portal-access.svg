@@ -1343,12 +1343,12 @@
 		</g>
 		<g id="shape1842-412" v:mID="1842" v:groupContext="shape" transform="translate(962.432,-282.938)">
 			<title>Sheet.1842</title>
-			<desc>Azure OpenAI</desc>
+			<desc>Azure OpenAI model</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="28.7209" cy="688.938" width="57.45" height="19.125"/>
 			<rect x="0" y="679.375" width="57.4418" height="19.125" class="st6"/>
 			<text x="11" y="679" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure <tspan
-						x="9" dy="1.2em" class="st20">OpenAI</tspan></text>		</g>
+						x="9" dy="1.2em" class="st20">OpenAI</tspan><tspan x="11" dy="1.2em" class="st20">model</tspan></text>		</g>
 		<g id="shape1847-417" v:mID="1847" v:groupContext="shape" transform="translate(513,-168.75)">
 			<title>Rectangle.2285</title>
 			<v:userDefs>

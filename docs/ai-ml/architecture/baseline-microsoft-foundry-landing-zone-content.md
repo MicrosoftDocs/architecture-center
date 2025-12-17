@@ -28,8 +28,6 @@ As a workload owner, you delegate shared resource management to platform teams s
 
 ## Architecture
 
-<!--docutune:ignore 'grayed-out VPN Gateway' -->
-
 :::image type="complex" source="./_images/baseline-microsoft-foundry-landing-zone.svg" lightbox="./_images/baseline-microsoft-foundry-landing-zone.svg" alt-text="Architecture diagram of the workload, including select platform subscription resources." border="false":::
     This architecture diagram contains two primary sections. The top blue section is labeled application landing zone subscription. The bottom yellow section is labeled platform landing zone subscription. The top box contains both workload-created resources and subscription-vending resources. The workload resources consist of Azure Application Gateway and Azure Web Application Firewall, App Service and its integration subnet, and private endpoints for platform as a service (PaaS) solutions such as Azure Storage, Azure Key Vault, Azure AI Search, Foundry, Azure Cosmos DB, and Azure Storage. The workload resources also have a Foundry project with Agent Service and monitoring resources. App Service has three instances in different Azure zones. The platform subscription contains a hub virtual network, Azure Firewall, Azure Bastion, and a grayed-out Azure VPN Gateway and Azure ExpressRoute. A spoke virtual network in the application landing zone and the hub virtual network connect via virtual network peering. Controlled egress traffic goes from the application landing zone to Azure Firewall in the platform landing zone. A flow goes from App Service to the App Service integration subnet, to private endpoints, and then to the services of the private endpoints.
 :::image-end:::
