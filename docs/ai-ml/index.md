@@ -3,7 +3,7 @@ title: AI Architecture Design
 description: Get started with AI. Use high-level architectural types, see Azure AI platform offerings, and find customer success stories.
 author: davihern
 ms.author: davihern
-ms.date: 17/12/2025
+ms.date: 12/17/2025
 ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
@@ -112,7 +112,7 @@ For guidance about how to coordinate multiple agents in complex AI scenarios, se
 
 ## Foundry tools
 
-With [Foundry tools](https://azure.microsoft.com/en-us/products/ai-foundry/tools), developers and organizations can use ready-made, prebuilt, and customizable APIs and models to create intelligent, market-ready, and responsible applications. Use cases include natural language processing for conversations, search, monitoring, translation, speech, vision, and decision-making.
+With [Foundry tools](https://azure.microsoft.com/products/ai-foundry/tools), developers and organizations can use ready-made, prebuilt, and customizable APIs and models to create intelligent, market-ready, and responsible applications. Use cases include natural language processing for conversations, search, monitoring, translation, speech, vision, and decision-making.
 
 For more information, see the following resources:
 
@@ -124,7 +124,7 @@ For more information, see the following resources:
 
 *LLMs*, such as the OpenAI GPT models, are powerful tools that can generate natural language across various domains and tasks. To choose a model, consider factors such as data privacy, ethical use, accuracy, and bias.
 
-[Phi open models](https://azure.microsoft.com/en-us/products/phi/) are small, less compute-intensive models for generative AI solutions. A small language model might be more efficient, interpretable, and explainable than an LLM.
+[Phi open models](https://azure.microsoft.com/products/phi/) are small, less compute-intensive models for generative AI solutions. A small language model might be more efficient, interpretable, and explainable than an LLM.
 
 When you design a workload, you can use language models as a hosted solution behind a metered API. Alternatively, for many small language models, you can host language models in-process or at least on the same compute as the consumer. When you use language models in your solution, consider your choice of language model and its available hosting options to help ensure an optimized solution for your use case.
 
@@ -421,7 +421,7 @@ For more information, see the following resources:
 
 ### Foundry toold for custom AI
 
-[Foundry tools](https://azure.microsoft.com/en-us/products/ai-foundry/tools) provides features to build custom AI models and applications. The following sections provide an overview of these key features.
+[Foundry tools](https://azure.microsoft.com/products/ai-foundry/tools) provides features to build custom AI models and applications. The following sections provide an overview of these key features.
 
 #### Custom speech
 
