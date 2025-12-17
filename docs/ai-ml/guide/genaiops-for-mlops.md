@@ -44,7 +44,7 @@ An orchestrator typically manages the workflow that generates these prompts. It 
 The following diagram shows an architecture for prompt engineering.
 
 :::image type="complex" source="_images/prompt-engineering-architecture.svg" lightbox="_images/prompt-engineering-architecture.svg" alt-text="Diagram that shows an architecture for prompt engineering." border="false":::
-   The diagram illustrates a flow. An intelligent application collects input from a user. The intelligent application and a headless intelligent application send the input to an orchestrator. The orchestrator calls the data stores. Then the orchestrator sends a prompt to Azure OpenAI.
+   The diagram illustrates a flow. An intelligent application collects input from a user. The intelligent application and a headless intelligent application send the input to an orchestrator. The orchestrator calls the data stores. Then the orchestrator sends a prompt to Azure OpenAI in Foundry Models.
 :::image-end:::
 
 This category of technical patterns can address many use cases:
@@ -63,7 +63,7 @@ A typical RAG implementation is to break up your source data into chunks and sto
 The following diagram illustrates a RAG architecture that includes data from documents.
 
 :::image type="complex" source="_images/rag-architecture.svg" lightbox="_images/rag-architecture.svg" alt-text="Diagram that shows a RAG architecture." border="false":::
-   The diagram illustrates two flows. The first flow starts with a user and then flows to an intelligent application. From there, the flow leads to an orchestrator. From the orchestrator, the flow leads to Azure OpenAI and to Azure AI Search, which is the last item in the second flow. The second flow starts with documents and then flows to four stages: chunk documents, enrich chunks, embed chunks, and index chunks. From there, the flow leads to the same Azure AI Search instance that connects to the first flow.
+   The diagram illustrates two flows. The first flow starts with a user and then flows to an intelligent application. From there, the flow leads to an orchestrator. From the orchestrator, the flow leads to Azure OpenAI in Foundry Models and to Azure AI Search, which is the last item in the second flow. The second flow starts with documents and then flows to four stages: chunk documents, enrich chunks, embed chunks, and index chunks. From there, the flow leads to the same Azure AI Search instance that connects to the first flow.
 :::image-end:::
 
 ## Extend MLOps for generative AI technical patterns

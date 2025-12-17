@@ -349,7 +349,7 @@
         <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-chat</id>
         <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-chat"/>
         <updated>2025-11-18T17:28:09.000Z</updated>
-        <summary type="html"><![CDATA[Use this baseline reference architecture to learn how to build network-secured, highly available, and zone-redundant enterprise chat applications by using Microsoft Foundry, the Azure AI Agent Service, Azure OpenAI models, and Azure App Service.]]></summary>
+        <summary type="html"><![CDATA[Use this baseline reference architecture to learn how to build network-secured, highly available, and zone-redundant enterprise chat applications by using Microsoft Foundry, the Azure AI Agent Service, Azure OpenAI in Foundry Models, and Azure App Service.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -357,7 +357,7 @@
         <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-landing-zone</id>
         <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-landing-zone"/>
         <updated>2025-11-18T17:28:09.000Z</updated>
-        <summary type="html"><![CDATA[Learn about deploying the baseline Microsoft Foundry, Foundry Agent Service, Azure OpenAI models, and Azure App Service chat architecture in an Azure landing zone.]]></summary>
+        <summary type="html"><![CDATA[Learn about deploying the baseline Microsoft Foundry, Foundry Agent Service, Azure OpenAI in Foundry Models, and Azure App Service chat architecture in an Azure landing zone.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -693,7 +693,7 @@
         <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/openai</id>
         <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/openai"/>
         <updated>2025-10-28T02:55:35.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to deploy Azure OpenAI models and work with the features associated with each model when you have a multitenant system.]]></summary>
+        <summary type="html"><![CDATA[Learn how to deploy Azure OpenAI in Foundry Models and work with the features associated with each model when you have a multitenant system.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -749,7 +749,7 @@
         <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/azure-openai-gateway-multi-backend</id>
         <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/azure-openai-gateway-multi-backend"/>
         <updated>2025-10-14T20:38:30.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to add a gateway in front of multiple Azure OpenAI model deployments or instances.]]></summary>
+        <summary type="html"><![CDATA[Learn how to add a gateway in front of multiple Azure OpenAI in Foundry Models deployments or instances.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -1621,7 +1621,7 @@
         <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-chat</id>
         <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-chat"/>
         <updated>2025-09-12T19:34:03.000Z</updated>
-        <summary type="html"><![CDATA[Use this baseline reference architecture to learn how to build network-secured, highly available, and zone-redundant enterprise chat applications by using Microsoft Foundry, the Azure AI Agent Service, Azure OpenAI models, and Azure App Service.]]></summary>
+        <summary type="html"><![CDATA[Use this baseline reference architecture to learn how to build network-secured, highly available, and zone-redundant enterprise chat applications by using Microsoft Foundry, the Azure AI Agent Service, Azure OpenAI in Foundry Models, and Azure App Service.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -1741,7 +1741,7 @@
         <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-landing-zone</id>
         <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-landing-zone"/>
         <updated>2025-09-08T17:26:18.000Z</updated>
-        <summary type="html"><![CDATA[Learn about deploying the baseline Microsoft Foundry, Foundry Agent Service, Azure OpenAI models, and Azure App Service chat architecture in an Azure landing zone.]]></summary>
+        <summary type="html"><![CDATA[Learn about deploying the baseline Microsoft Foundry, Foundry Agent Service, Azure OpenAI in Foundry Models, and Azure App Service chat architecture in an Azure landing zone.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
