@@ -112,7 +112,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-A reliable workload is resilient, recoverable, and available. *Resiliency* is the ability of the system to withstand failures and continue to function. The goal of resiliency is to prevent disruptions by tolerating faults. *Recoverability* is the ability to restore the application to a fully functioning state after a failure occurs. *Availability* is a measure of whether your users can access your workload when they need to.
+A reliable workload is resilient and recoverable. *Resiliency* is the ability of the system to withstand failures and continue to function. The goal of resiliency is to prevent disruptions by tolerating faults. *Recoverability* is the ability to restore the application to a fully functioning state after a failure occurs. Availability is the measure of whether your users can access your workload when they need to.
 
 For the availability guarantees of the Azure services in this solution, see [Service-level agreements (SLAs) for online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
