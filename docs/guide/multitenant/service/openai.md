@@ -78,7 +78,7 @@ You can create a model deployment for each tenant or for tenants that have speci
 
 - **Quota and cost management.** Dedicated model deployments facilitate tenant-specific TPM allocation by tracking the number of tokens that each model uses. You can use this number to precisely allocate costs and manage each tenant's usage. If you use [provisioned throughput units (PTUs)](/azure/ai-services/openai/concepts/provisioned-throughput), you can assign the PTUs to specific customers and use other billing models for other customers.
 
-- **Content filtering policies.** Sometimes, a specific tenant might require a unique content filtering policy, such as a tenant-specific blocklist of disallowed words. You specify the content filtering policy at the scope of a model deployment.
+- **Content filtering policies.** Sometimes, a specific tenant might require a unique content filtering policy, such as a tenant-specific block list of disallowed words. You specify the content filtering policy at the scope of a model deployment.
 
 - **Model types and versions.** You might need to use different models or model versions for different tenants. A tenant might also require their own model life cycle management process.
 
