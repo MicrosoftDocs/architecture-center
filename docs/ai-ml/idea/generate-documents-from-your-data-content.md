@@ -84,13 +84,13 @@ This architecture supports transactional usage only. It enables focused, real-ti
 
 ## Alternatives
 
-This architecture includes multiple components that you can substitute with other Azure services or approaches, depending on your workload's functional and nonfunctional requirements. Consider the following alternatives and trade-offs.
+This architecture includes a component that you can substitute with another Azure service or approach, depending on your workload's functional and nonfunctional requirements. Consider the following alternative and trade-offs.
 
 ### Document generation approach
 
 **Current approach:** Use custom AI-powered generation that includes enterprise data grounding and intelligent caching for both structured and unstructured documents.
 
-**Alternative approach:** Use Azure AI Foundry IQ with prebuilt forms for structured documents only, combined with traditional document management systems.
+**Alternative approach:** Use Azure AI Document Intelligence with prebuilt forms for structured documents only, combined with traditional document management systems.
 
 Consider the alternative if your workload primarily focuses on standardized forms that have minimal unstructured content requirements.
 
@@ -98,7 +98,7 @@ Consider the alternative if your workload primarily focuses on standardized form
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-This preconfigured [estimate in the Azure pricing calculator](https://azure.com/e/c42b93df96a64d9d9067d2cbc1c0c4d2) shows the costs to run this scenario.
+This preconfigured [estimate in the Azure pricing calculator](https://azure.com/e/5b97eefa86b94df58273fde3c7f6e5d9) shows the costs to run this scenario.
 
 Pricing varies based on region and usage, so you can't predict exact costs for your scenario. Most of the Azure resources used in this infrastructure are on usage-based pricing tiers.
 
