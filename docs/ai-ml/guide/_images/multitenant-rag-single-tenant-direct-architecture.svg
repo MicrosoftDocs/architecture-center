@@ -122,13 +122,12 @@
 		</g>
 		<g id="shape8-15" v:mID="8" v:groupContext="shape" transform="translate(325.928,-228.375)">
 			<title>Sheet.8</title>
-			<desc>Azure OpenAI Service</desc>
+			<desc>Azure OpenAI</desc>
 			<v:userDefs/>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="28.7209" cy="485.984" width="57.47" height="19.125"/>
 			<rect x="0" y="476.422" width="57.4418" height="19.125" class="st3"/>
-			<text x="16.05" y="476.98" class="st6" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure <tspan
-						x="12.01" dy="1.2em" class="st7">OpenAI </tspan><tspan x="13.18" dy="1.2em" class="st7">Service</tspan></text>		</g>
+			<text x="16.05" y="476.98" class="st6" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure<tspan x="16.05" dy="1.2em">OpenAI</tspan></text>		</g>
 		<g id="shape9-20" v:mID="9" v:groupContext="shape" transform="translate(322.875,-22.9998)">
 			<title>Rectangle.1287</title>
 			<v:userDefs>

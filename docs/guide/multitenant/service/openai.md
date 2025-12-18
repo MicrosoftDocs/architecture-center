@@ -13,9 +13,9 @@ ms.custom:
   - arb-aiml
 ---
 
-# Multitenancy and Azure OpenAI Service
+# Multitenancy and Azure OpenAI in Foundry Models
 
-[Azure OpenAI Service](/azure/ai-services/openai/overview) provides you with access to OpenAI's powerful language models. This article describes key features of Azure OpenAI that are beneficial for multitenant solutions. Review the recommended resources to help you plan your approach and use Azure OpenAI.
+[Azure OpenAI in Foundry Models](/azure/ai-services/openai/overview) provides you with access to OpenAI's powerful language models. This article describes key features of Azure OpenAI that are beneficial for multitenant solutions. Review the recommended resources to help you plan your approach and use Azure OpenAI.
 
 ## Isolation models
 

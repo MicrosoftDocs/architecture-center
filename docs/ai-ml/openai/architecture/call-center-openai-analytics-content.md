@@ -1,4 +1,4 @@
-This article describes how to extract insights from customer conversations at a call center by using Azure AI services and Azure OpenAI Service. Use these services to improve your customer interactions and satisfaction by analyzing call intent and sentiment, extracting key entities, and summarizing call content.
+This article describes how to extract insights from customer conversations at a call center by using Azure AI services and Azure OpenAI in Foundry Models. Use these services to improve your customer interactions and satisfaction by analyzing call intent and sentiment, extracting key entities, and summarizing call content.
 
 ## Architecture
 
@@ -23,7 +23,7 @@ This article describes how to extract insights from customer conversations at a 
 
    1. Pass the raw data to the Azure AI Language service to [detect and redact personal data](/azure/ai-services/language-service/personally-identifiable-information/how-to-call-for-conversations) in the transcript.
 
-   1. Send the redacted data to the Azure OpenAI service to perform various post call analytics like understand the intent and sentiment of the call, extract entities, or [summarize the conversation](/azure/ai-services/openai/quickstart#try-text-summarization) to evaluate the effectiveness of the call.
+   1. Send the redacted data to the Azure OpenAI to perform various post call analytics like understand the intent and sentiment of the call, extract entities, or [summarize the conversation](/azure/ai-services/openai/quickstart#try-text-summarization) to evaluate the effectiveness of the call.
 
    1. Store the processed output in Azure Storage for visualization or consumption by downstream applications for further processing.
 
