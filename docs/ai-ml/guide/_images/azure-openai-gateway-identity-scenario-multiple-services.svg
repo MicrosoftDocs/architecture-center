@@ -1256,7 +1256,7 @@
 			<v:textRect cx="8.21218" cy="439.695" width="45.63" height="26.5162"/>
 			<text x="-8.03" y="435.44" class="st4" v:langID="2057"><v:paragraph v:horizAlign="1"/><v:tabList/>API <tspan
 						class="st5" v:langID="1033">k</tspan>ey</text>		</g>
-		<g id="shape1152-228" v:mID="1152" v:groupContext="shape" transform="translate(253.446,-73.5641)">
+		<g id="shape1152-228" v:mID="1152" v:groupContext="shape" transform="translate(253.446,-78.5641)">
 			<title>Sheet.1152</title>
 			<desc>Azure OpenAI</desc>
 			<v:userDefs>
@@ -1266,7 +1266,7 @@
 			<v:textRect cx="41.1025" cy="415.197" width="82.21" height="20"/>
 			<rect x="0" y="405.197" width="82.2051" height="20" class="st1"/>
 			<text x="10.36" y="418.2" class="st4" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure OpenAI</text>		</g>
-		<g id="shape1153-231" v:mID="1153" v:groupContext="shape" transform="translate(253.7,-263.465)">
+		<g id="shape1153-231" v:mID="1153" v:groupContext="shape" transform="translate(253.7,-268.465)">
 			<title>Sheet.1153</title>
 			<desc>Azure OpenAI</desc>
 			<v:userDefs>

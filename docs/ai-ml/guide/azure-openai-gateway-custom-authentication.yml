@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Provide custom authentication to Azure OpenAI in Foundry Models through a gateway
+  title: Provide Custom Authentication to Azure OpenAI in Foundry Models Through a Gateway
   description: Learn how to implement alternative authentication mechanisms for client applications that communicate with Azure OpenAI in Foundry Models through a gateway.
   author: claytonsiemens77
   ms.author: pnp

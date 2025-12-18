@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Extract and analyze call center data by using Azure OpenAI in Foundry Models, Speech services, and Language services
+  title: Extract and Analyze Call Center Data by Using Azure OpenAI in Foundry Models, Speech Services, and Language Services
   description: Learn how to extract insights from customer conversations at a call center by using Azure AI services and Azure OpenAI in Foundry Models.
   author: DixitArora-MSFT
   ms.author: dixitaro
