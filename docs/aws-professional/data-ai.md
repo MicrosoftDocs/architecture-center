@@ -166,7 +166,7 @@ The following AI services create new content or data that resembles human-genera
 
 | AWS service | Azure service | Analysis |
 | ----  | --------  | ------  |
-| [Amazon Bedrock](https://aws.amazon.com/bedrock/) | [Foundry](https://azure.microsoft.com/products/ai-foundry/) | These services provide foundation models to create and deploy generative AI applications. |
+| [Amazon Bedrock](https://aws.amazon.com/bedrock/) | [Microsoft Foundry](https://azure.microsoft.com/products/ai-foundry/) | These services provide foundation models to create and deploy generative AI applications. |
 
 ## Contributors
 
