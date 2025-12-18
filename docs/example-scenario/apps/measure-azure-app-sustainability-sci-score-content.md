@@ -1,4 +1,4 @@
-The solution described in this article can help you measure sustainability metrics for a workload that is hosted on Azure. The model uses application data and proxies to score adn track an application's carbon impact and efficiency over time. We recommend that you align your measurements to ISO 21031:2024, known as the Software Carbon Intensity (SCI) score. It provides a baseline for measuring changes in an application's carbon output.
+The solution described in this article can help you measure sustainability metrics for a workload that is hosted on Azure. The model uses application data and proxies to score and track an application's carbon impact and efficiency over time. We recommend that you align your measurements to the Software Carbon Intensity (SCI) score, which is formalized in ISO 21031:2024. It provides a baseline for measuring changes in an application's carbon output.
 
 > [!IMPORTANT]
 > This article focuses on **measuring** the carbon impact of an existing application using the SCI score. For guidance on **designing** sustainable applications from the ground up, see the [Azure Well-Architected Framework Sustainability workload documentation](/azure/well-architected/sustainability/sustainability-get-started).
@@ -36,13 +36,13 @@ You can replace the Azure services in this architecture with similar services. T
 
 - Substitute Power BI dashboards with [Azure Monitor workbooks](/azure/azure-monitor/visualize/workbooks-overview) or [Azure Managed Grafana](https://azure.microsoft.com/services/managed-grafana/).
 - Substitute Application Insights with another application performance management (APM) tool, like Elasticsearch APM or OpenAPM.
-- Retain tabular or unstructured proxy data in any system of record, like [Azure Database for MySQL](/azure/mysql/flexible-server/overview) or [Azure Cosmos DB for NoSQL](/azure/cosmos-db/).
+- Retain tabular or unstructured proxy data in any system of record, like [Azure Database for MySQL](/azure/mysql/flexible-server/overview) or [Azure Cosmos DB for NoSQL](/azure/cosmos-db/nosql/overview).
 - If you have existing [Azure Functions](/azure/azure-functions/functions-overview) or Logic Apps deployments, run the calculations from there.
 - If application resources are distributed across multiple resource groups, use tags to correlate cost data and calculate carbon emissions.
 
 ## Scenario details
 
-This architecture gathers carbon optimization data from Azure and other sources to provide a comprehensive view of an application's environmental impact. Data comes from the Azure Carbon Optimization service. Where data is not available a proxy is used for the carbon metrics. After data consolidation, SCI calculations assess carbon footprint. Results are stored in a data lake for long-term retention, enabling BI analysis, historical reporting, and comparison to baselines. This approach ensures centralized tracking of carbon impact across diverse infrastructure and supports strategic sustainability efforts.
+This architecture gathers carbon optimization data from Azure and other sources to provide a comprehensive view of an application's environmental impact. Data comes from the Azure Carbon Optimization service. Where data is not available, a proxy is used for the carbon metrics. After data consolidation, SCI calculations assess carbon footprint. Results are stored in a data lake for long-term retention, enabling BI analysis, historical reporting, and comparison to baselines. This approach ensures centralized tracking of carbon impact across diverse infrastructure and supports strategic sustainability efforts.
 
 The carbon emissions information is partially gathered from available APIs and partially calculated, when possible, via proxy.
 
@@ -112,7 +112,7 @@ In this equation:
 - `R` is the **Functional Unit** (or scaling factor) for the application. This normalizes the score to a unit of work, such as per user, per API call, or per job.
 
 > [!NOTE]
-> This score is sometimes reduced to `SCI = C * R`, where `C` represents total carbon emissions measured through proxies. The expanded formula above provides greater granularity, allowing you to target specific variables for optimization: reducing energy consumption (`E`), shifting workloads to cleaner times/locations (`I`), or extending hardware lifespan (`M`).
+> This score is sometimes reduced to `SCI = C per R`, where `C` represents total carbon emissions measured through proxies. The expanded formula above provides greater granularity, allowing you to target specific variables for optimization: reducing energy consumption (`E`), shifting workloads to cleaner times/locations (`I`), or extending hardware lifespan (`M`).
 
 The time window is a critical aspect of this calculation. Carbon intensity (`I`) varies as the energy grid shifts between renewable and fossil fuel sources. Effective runtime carbon-aware decisions require real-time or near-real-time data (hourly or less) from [third-party APIs](#data-sources).
 
@@ -149,7 +149,7 @@ Based on these triggers, decide on actions like shifting job processing times or
 
 - Apply [graceful degradation](/azure/well-architected/reliability/self-preservation#implement-a-graceful-degradation-mode) of application services and features.
 
-  For example, enable an eco-mode version of your application. Eco mode is a simpler, small, more sustainable version with minimal features. Revert to this version during carbon emission spikes, or incentivize users to choose it.
+  For example, enable an eco mode version of your application. Eco mode is a simpler, small, more sustainable version with minimal features. Revert to this version during carbon emission spikes, or incentivize users to choose it.
 
 - Provide a "go green button" for a leaner interface with fewer graphics and limited features in exchange for a commitment to reduced carbon emissions.
 
