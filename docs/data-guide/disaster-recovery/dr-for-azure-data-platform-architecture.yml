@@ -2,9 +2,9 @@
 metadata:
   title: DR for Azure Data Platform - Architecture
   description: Second article in a series covering disaster recovery for an Azure data platform
-  author: claytonsiemens77
-  ms.author: pnp
-  ms.date: 10/08/2024
+  author: lponnam75
+  ms.author: lsuryadevara
+  ms.date: 12/18/2025
   ms.topic: concept-article
   ms.subservice: architecture-guide
 azureCategories:
