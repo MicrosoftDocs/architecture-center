@@ -74,7 +74,7 @@ The workload team also maintains the following resources:
 
 - **Spoke virtual network subnets and the network security groups (NSGs)** maintain segmentation and control traffic flow between subnets. In this architecture, they enforce network boundaries and security between workload components.
 
-- **Private endpoints** secure connectivity to platform as a service (PaaS) solutions. In this architecture, they ensure that sensitive services are only accessible within the private network, which reduces exposure to the public internet. Additional dependencies, such as state stores owned by other team, can be exposed to your workload as a private endpoint, avoiding transtive routing through the connectivity subscription.
+- **Private endpoints** secure connectivity to platform as a service (PaaS) solutions. In this architecture, they ensure that sensitive services are only accessible within the private network, which reduces exposure to the public internet. Additional dependencies, such as state stores owned by other team, can be exposed to your workload as a private endpoint, avoiding transitive routing through the connectivity subscription.
 
 #### Platform team-owned resources
 
