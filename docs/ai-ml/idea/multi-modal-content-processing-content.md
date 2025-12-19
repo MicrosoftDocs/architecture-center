@@ -40,9 +40,9 @@ The following workflow corresponds to the previous diagram:
 
 - [Container Apps](/azure/well-architected/service-guides/azure-container-apps) is a serverless container platform that you can use to run microservices and containerized applications on a serverless platform. In this architecture, Container Apps hosts the processing pipeline API that orchestrates content analysis, coordinates between AI services, and manages the extraction and transformation workflows. The code that runs is custom coded by your software engineering team.
 
-- [Microsoft Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) is a managed AI service that provides access to advanced language models for natural language processing and generation. In this architecture, Microsoft Foundry provides the foundation for deploying and managing AI models used in the content processing pipeline and is the gateway into the connected AI services, like Content Understanding.
+- [Microsoft Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) is a managed AI service that provides access to advanced language models for natural language processing and generation. In this architecture, Foundry provides the foundation for deploying and managing AI models used in the content processing pipeline and is the gateway into the connected AI services, like Content Understanding.
 
-  - [Azure OpenAI in Foundry Models](/azure/ai-foundry/openai/overview) is a component of Microsoft Foundry that provides language models, including GPT-4o and GPT-4o mini. In this architecture, the models are hosted as a service in Microsoft Foundry. These models perform schema-based data transformation, map extracted content to structured formats, and calculate confidence scores for extraction accuracy.
+  - [Azure OpenAI in Foundry Models](/azure/ai-foundry/openai/overview) is a component of Foundry that provides language models, including GPT-4o and GPT-4o mini. In this architecture, the models are hosted as a service in Foundry. These models perform schema-based data transformation, map extracted content to structured formats and calculate confidence scores for extraction accuracy.
 
   - [Content Understanding](/azure/ai-services/content-understanding/overview) is a multi-modal AI service that analyzes various media content, such as audio, video, text, and images, and transforms it into structured, searchable data. In this architecture, Content Understanding accurately performs advanced OCR and content extraction from multi-modal documents.
 
@@ -150,7 +150,7 @@ Principal author:
 
 - [Solomon Pickett](https://www.linkedin.com/in/gregory-solomon-pickett-307560130/) | Software Engineer II
 
-Other contributor:
+Other contributors:
 
 - [Todd Herman](https://www.linkedin.com/in/todd-herman) | Principal Software Engineer
 - [Malory Rose](https://www.linkedin.com/in/malory-rose-8aa503135/) | Senior Software Engineer
