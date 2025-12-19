@@ -26,11 +26,11 @@ items:
         items:
         - name: Extract and map information from unstructured content
           href: idea/multi-modal-content-processing.yml
-        - name: Extract document templates from enterprise data
+        - name: Generate documents from your data
           href: idea/generate-documents-from-your-data.yml
         - name: Use AI enrichment with Azure AI Search
           href: ../solution-ideas/articles/ai-search-skillsets.yml
-        - name: Extract text using Power Automate
+        - name: Extract text by using Power Automate
           href: ../example-scenario/ai/extract-object-text.yml
       - name: Workflow automation
         items:
@@ -41,11 +41,11 @@ items:
       - name: Chat with data
         items:
         - name: Basic Microsoft Foundry chat reference architecture
-          href: architecture/basic-azure-ai-foundry-chat.yml
+          href: architecture/basic-microsoft-foundry-chat.yml
         - name: Baseline Microsoft Foundry chat reference architecture
-          href: architecture/baseline-azure-ai-foundry-chat.yml
+          href: architecture/baseline-microsoft-foundry-chat.yml
         - name: Baseline Microsoft Foundry chat architecture in an Azure landing zone
-          href: architecture/baseline-azure-ai-foundry-landing-zone.yml
+          href: architecture/baseline-microsoft-foundry-landing-zone.yml
       - name: Document processing
         items:
         - name: Automate document classification

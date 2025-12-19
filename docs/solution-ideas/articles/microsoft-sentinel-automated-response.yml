@@ -3,7 +3,7 @@ metadata:
   title: Microsoft Sentinel automated responses
   description: Use Microsoft Sentinel playbooks to generate automated responses and deliver intelligent security analytics for enterprises.
   author: rudneir2
-  ms.author: ruolivei
+  ms.author: ruoliveira
   ms.date: 09/20/2024
   ms.topic: solution-idea
   ms.subservice: solution-idea

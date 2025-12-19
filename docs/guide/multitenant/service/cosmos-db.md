@@ -1,8 +1,8 @@
 ---
 title: Multitenancy and Azure Cosmos DB
 description: Learn about features of Azure Cosmos DB that you can use with multitenant systems. Find other resources about how to use Azure Cosmos DB in a multitenant solution.
-author: tarabhatiamsft
-ms.author: tarabhatia
+author: deborahc
+ms.author: dech
 ms.date: 11/16/2024
 ms.topic: concept-article
 ms.subservice: architecture-guide

@@ -73,11 +73,11 @@ For example, before it was moved to the cloud, Relecloud's ticketing web app was
 
 - *Cache:* Choose whether to add a cache to your web app architecture. [Azure Managed Redis](/azure/redis/overview) is the primary Azure cache solution. It's a managed in-memory data store that's based on Redis software. Relecloud's web app load is heavily skewed toward viewing concerts and venue details. Relecloud added Azure Managed Redis for the following reasons:
 
-    - *Reduced management overhead.* It's a fully managed service.
-    - *Speed and volume.* It has high-data throughput and low latency reads for commonly accessed, slow-changing data.
-    - *Diverse supportability.* It's a unified cache location for all instances of the web app to use.
-    - *External data store.* The on-premises application servers performed VM-local caching. This setup didn't offload highly frequented data, and it couldn't invalidate data.
-    - *Nonsticky sessions.* Externalizing session state supports nonsticky sessions.
+  - *Reduced management overhead.* It's a fully managed service.
+  - *Speed and volume.* It has high-data throughput and low latency reads for commonly accessed, slow-changing data.
+  - *Diverse supportability.* It's a unified cache location for all instances of the web app to use.
+  - *External data store.* The on-premises application servers performed VM-local caching. This setup didn't offload highly frequented data, and it couldn't invalidate data.
+  - *Nonsticky sessions.* Externalizing session state supports nonsticky sessions.
 
 - *Load balancer:* Web applications that use PaaS solutions should use Azure Front Door, Azure Application Gateway, or both, depending on web app architecture and requirements. Use the [load balancer decision tree](/azure/architecture/guide/technology-choices/load-balancing-overview) to pick the right load balancer. Relecloud needed a layer-7 load balancer that could route traffic across multiple regions. The company needed a multi-region web app to meet the SLO of 99.9%. Relecloud chose [Azure Front Door](/azure/frontdoor/front-door-overview) for the following reasons:
 
@@ -198,10 +198,10 @@ private static IAsyncPolicy<HttpResponseMessage> GetCircuitBreakerPolicy()
 
 [!INCLUDE [Cache-aside pattern intro](../includes/cache-aside.md)]
 
-- *Configure the application to use a cache.* Production apps should use a distributed Redis cache. This cache improves performance by reducing database queries. It also enables nonsticky sessions so that the load balancer can evenly distribute traffic. The reference implementation uses a distributed Redis cache. The [`AddAzureCacheForRedis` method](/dotnet/api/microsoft.extensions.dependencyinjection.memorycacheservicecollectionextensions.adddistributedmemorycache) configures the application to use Azure Cache for Redis:
+- *Configure the application to use a cache.* Production apps should use a distributed Redis cache. This cache improves performance by reducing database queries. It also enables nonsticky sessions so that the load balancer can evenly distribute traffic. The reference implementation uses a distributed Redis cache. The [`AddRedisCache` method](/dotnet/api/microsoft.extensions.dependencyinjection.memorycacheservicecollectionextensions.adddistributedmemorycache) configures the application to use Azure Managed Redis:
 
     ```csharp
-    private void AddAzureCacheForRedis(IServiceCollection services)
+    private void AddRedisCache(IServiceCollection services)
     {
         if (!string.IsNullOrWhiteSpace(Configuration["App:RedisCache:ConnectionString"]))
         {
@@ -315,13 +315,7 @@ The reference implementation uses the `Authentication` argument in the SQL datab
 
 [!INCLUDE [Right size environments intro](../includes/right-size.md)]
 
-For example, the reference implementation uses Bicep parameters to deploy more expensive tiers (SKUs) to the production environment:
-    
-```bicep
-    var redisCacheSkuName = isProd ? 'Standard' : 'Basic'
-    var redisCacheFamilyName = isProd ? 'C' : 'C'
-    var redisCacheCapacity = isProd ? 1 : 0
-```
+For example, the reference implementation uses Bicep parameters to deploy more expensive tiers (SKUs) to the production environment.
 
 ### Implement autoscaling
 

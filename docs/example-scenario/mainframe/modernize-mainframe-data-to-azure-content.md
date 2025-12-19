@@ -258,6 +258,6 @@ See the following articles:
 - [Mainframe workloads supported on Azure](/azure/virtual-machines/workloads/mainframe-rehosting/partner-workloads)
 - [Move mainframe compute to Azure](/azure/virtual-machines/workloads/mainframe-rehosting/concepts/mainframe-compute-azure)
 
-## Related resources
+## Related resource
 
-- [Analytics end to end with Azure Synapse Analytics](../../example-scenario/dataplate2e/data-platform-end-to-end.yml)
+- [Analytics end to end with Microsoft Fabric](../../example-scenario/dataplate2e/data-platform-end-to-end.yml)

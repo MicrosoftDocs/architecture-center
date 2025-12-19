@@ -1,9 +1,9 @@
 ---
 title: Guidance for using Azure Private Link service in a multitenant solution
-description: This article describes the features of Azure Private Link that are useful when working with multitenanted systems, and it provides links to guidance and examples.
+description: This article describes the features of Azure Private Link that are useful when you work with multitenanted systems, and it provides links to guidance and examples.
 author: johndowns
 ms.author: pnp
-ms.date: 07/11/2025
+ms.date: 12/16/2025
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
@@ -21,6 +21,16 @@ In this article, we review how you can configure Private Link for an Azure-hoste
 
 ## Key considerations
 
+### Service selection
+
+When you use Private Link, it's important to consider the service that you want to allow inbound connectivity to.
+
+*Azure Private Link service* is used with virtual machines behind a standard load balancer.
+
+You can also use Private Link with other Azure services. These services include application hosting platforms like Azure App Service. They also include Azure Application Gateway or Azure API Management, which are network and API gateways.
+
+The application platform you use determines many aspects of your Private Link configuration, and the limits that apply. Additionally, some services don't support Private Link for inbound traffic. Review the documentation for the Azure services you use to understand their support for Private Link.
+
 ### Overlapping IP address spaces
 
 Private Link provides powerful capabilities for multitenant solutions, where tenants can access the service through private address spaces.
@@ -31,17 +41,17 @@ When you use Private Link to enable connectivity from each tenant to the multite
 
 ![Diagram showing connectivity between two tenants and a multitenant service, all of which use the same IP address space.](media/private-link/overlapping-ranges.png)
 
-When traffic arrives into the multitenant solution, it has already been translated. This means traffic appears to originate from within the multitenant service's own virtual network IP address space. Private Link provides the [TCP Proxy Protocol v2](#proxy-protocol-v2) feature, which enables a multitenant service to know the tenant that sent the request, and even the original IP address from the source network.
+When traffic arrives into the multitenant solution, it has already been translated. This means traffic appears to originate from within the multitenant service's own virtual network IP address space. Some Private Link services provide metadata for each socket through the [TCP Proxy Protocol v2](#proxy-protocol-v2) feature. This feature enables your workload component to know which private endpoint connection the request has come through, and therefore determine the tenant that sent the request. It also provides the original IP address from the source network. However, the availability of this metadata depends on the Azure service you're connecting to.
 
-### Service selection
+### Provisioning process
 
-When you use Private Link, it's important to consider the service that you want to allow inbound connectivity to.
+When working across different customers or tenants, Private Link typically requires both sides to take explicit action to provision and establish the connection. The same general process applies whether a tenant is connecting to a service provider or vice versa. There can be multiple phases involved, each of which requires distinct permissions:
 
-*Azure Private Link service* is used with virtual machines behind a standard load balancer.
+- Create the private endpoint in the destination virtual network. This action must be performed by a user or principal with the [necessary permissions](/azure/private-link/rbac-permissions).
+- Establish a connection to the private endpoint. This action also requires permissions.
+- Approve the connection. For more information about connection approvals in a multitenant solution, see [Connection approvals](#connection-approvals).
 
-You can also use Private Link with other Azure services. These services include application hosting platforms like Azure App Service. They also include Azure Application Gateway or Azure API Management, which are network and API gateways.
-
-The application platform you use determines many aspects of your Private Link configuration, and the limits that apply. Additionally, some services don't support Private Link for inbound traffic. Review the documentation for the Azure services you use to understand their support for Private Link.
+If you expect large number of private endpoints or connections, consider building self-service or automated tooling to provision and approve the connections.
 
 ### Limits
 
@@ -108,7 +118,7 @@ When you share application tier resources between tenants, you might consider de
 
 ## Features of Azure Private Link that support multitenancy
 
-Private Link has several features that are helpful in a multitenant environment. However, the specific features available to you depend on the service you use. The foundational Azure Private Link service, for virtual machines and load balancers, supports all of the features described below. Other services with Private Link support might provide only a subset of these features.
+Private Link has several features that are helpful in a multitenant environment. However, the specific features available to you depend on the service you use. The foundational Azure Private Link service, for virtual machines and load balancers, supports all of the features described in the following sections. Other services with Private Link support might provide only a subset of these features.
 
 ### Service aliases
 
@@ -138,9 +148,11 @@ For more information, see [Control service access](/azure/private-link/private-l
 
 When you use the Private Link service, by default your application only has visibility of an IP address that has been through network address translation (NAT). This behavior means that traffic appears to flow from within your own virtual network.
 
-Private Link enables you to get access to the original client IP address, in the tenant's virtual network. This feature uses the [TCP Proxy Protocol v2](/azure/private-link/private-link-service-overview#getting-connection-information-using-tcp-proxy-v2).
+In some situations, Private Link enables you to get access to the original client IP address, in the tenant's virtual network. This feature uses the [TCP Proxy Protocol v2](/azure/private-link/private-link-service-overview#getting-connection-information-using-tcp-proxy-v2).
 
 For example, suppose your tenants' administrators need to add IP address-based access restrictions, such as *host 10.0.0.10 can access the service, but host 10.0.0.20 can't*. When you use Proxy Protocol v2, you can enable your tenants to configure these types of access restrictions in your application. However, your application code needs to inspect the client's original IP address and enforce the restrictions.
+
+When you use Azure Private Link service, you can use the TCP Proxy Protocol v2. However, when you use Private Link to connect to other Azure services, TCP sockets from clients might terminate within service-managed infrastructure that you don't see. Consult the service's documentation to understand whether they propagate the TCP socket metadata to your application.
 
 ## Related resources
 

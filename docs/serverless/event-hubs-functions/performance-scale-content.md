@@ -28,7 +28,7 @@ There are several hosting options for function apps and it is important to revie
 
 The Consumption plan is the default. Function apps in the Consumption plan scale independently and are most effective when they avoid long-running tasks.
 
-The Premium and Dedicated plans are often used to host multiple function apps and functions that are more CPU and memory intensive. With the Dedicated plan, you run your functions in an Azure App Service plan at regular App Service plan rates. It's important to note that all the function apps in these plans share the resources that are allocated to the plan. If functions have different load profiles or unique requirements, it's best to host them in different plans, especially in stream processing applications.
+The Premium and Dedicated plans are often used to host multiple function apps and functions that are more CPU and memory intensive. With the Dedicated plan, you run your functions in an Azure App Service plan at regular App Service plan rates. All the function apps in these plans share the resources that are allocated to the plan. If functions have different load profiles or unique requirements, it's best to host them in different plans, especially in stream processing applications.
 
 Azure Container Apps provides integrated support for developing, deploying, and managing containerized function apps on Azure Functions. This allows you to run your event-driven functions in a fully managed, Kubernetes-based environment with built-in support for open-source monitoring, mTLS, Dapr, and KEDA.
 

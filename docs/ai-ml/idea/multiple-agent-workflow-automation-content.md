@@ -32,13 +32,13 @@ The following workflow corresponds to the previous diagram:
 
 ### Components
 
-- [App Service](/azure/well-architected/service-guides/app-service-web-apps) is a platform as a service solution that provides a scalable web hosting environment for applications. In this architecture, the App Service website serves as the front-end interface for users to request and manage automated solutions. It provides a responsive web experience for submitting tasks and tracking their progress. 
+- [App Service](/azure/well-architected/service-guides/app-service-web-apps) is a platform as a service solution that provides a scalable web hosting environment for applications. In this architecture, the App Service website serves as the front-end interface for users to request and manage automated solutions. It provides a responsive web experience for submitting tasks and tracking their progress.
 
 - [Container Apps](/azure/well-architected/service-guides/azure-container-apps) is a serverless container platform that enables you to run microservices and containerized applications on a serverless platform. In this architecture, the Container Apps API serves as the central orchestration layer that processes user requests, coordinates multiple AI agents, and manages the completion state of tasks. It hosts the custom-developed code created by your software team that uses Microsoft Agent Framework.
 
 - [Microsoft Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) is a unified Azure platform-as-a-service offering for enterprise AI operations, model builders, and application development. This foundation combines production-grade infrastructure with friendly interfaces, enabling developers to focus on building applications rather than managing infrastructure. In this architecture, Microsoft Foundry provides the foundation for deploying and managing AI models used in chat interface and is the gateway into the connected AI services, like Foundry Agent Service.
-   - [Foundry Agent Service](/azure/ai-foundry/agents/overview) connects the core pieces of Foundry (such as models, tools, and frameworks) into a single agentic runtime. It manages conversations, orchestrates tool calls, enforces content safety, and integrates with identity, networking, and observability systems. In this architecture, Foundry Agent Service is invoked by the application to power the agent conversations.
 
+  - [Foundry Agent Service](/azure/ai-foundry/agents/overview) connects the core pieces of Foundry (such as models, tools, and frameworks) into a single agentic runtime. It manages conversations, orchestrates tool calls, enforces content safety, and integrates with identity, networking, and observability systems. In this architecture, Foundry Agent Service is invoked by the application to power the agent conversations.
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, multiple-model database service that provides low latency and elastic scalability. In this architecture, Azure Cosmos DB stores all data related to current and past automation plans and solutions. The Container Apps API writes data when new plans are created or tasks are run. The API reads data when users access their automation history via the App Service website.
 
@@ -104,7 +104,7 @@ This architecture includes a component that you can substitute with another Azur
 
 **Current approach:** This solution uses custom agent code, written with the Microsoft Agent Framework SDK, to orchestrate agents and their interactions. Container Apps serves as the central orchestrator compute that runs the code. The code coordinates the multiple AI agents that operate on active workflows. This approach is a code-first solution that provides maximum control over agent behavior, orchestration logic, and compute scale.
 
-**Alternative approach:** Use Microsoft Foundry Agent Service to define agents and connect them individually to relevant knowledge stores and tools. This approach is a no-code solution where you define agent behavior and agent relationships through a system prompt. The agents are hosted on your behalf, and you have no control over the compute that runs the agents.
+**Alternative approach:** Use Foundry Agent Service to define agents and connect them individually to relevant knowledge stores and tools. This approach is a no-code solution where you define agent behavior and agent relationships through a system prompt. The agents are hosted on your behalf, and you have no control over the compute that runs the agents.
 
 Consider this alternative if your workload has the following characteristics:
 
@@ -112,9 +112,9 @@ Consider this alternative if your workload has the following characteristics:
 
 - You don't require full control of your agents' compute.
 
-- You only need HTTPS-accessible tools, and your knowledge stores are compatible with Foundry Agent Service.
+- You only need HTTPS-accessible tools, and your knowledge stores are compatible with Agent Service.
 
-For organizations that have mixed requirements, a hybrid approach can be effective. Standard workflows use Foundry Agent Service while critical or highly customized processes use self-hosted orchestration on Container Apps.
+For organizations that have mixed requirements, a hybrid approach can be effective. Standard workflows use Agent Service while critical or highly customized processes use self-hosted orchestration on Container Apps.
 
 ## Multi-agent orchestration patterns
 
@@ -155,4 +155,4 @@ Other contributor:
 ## Next steps
 
 - [Overview of the Agent architecture](/semantic-kernel/frameworks/agent/agent-architecture) that uses Microsoft Agent Framework
-- [Foundry Agent Service documentation](/azure/ai-foundry/agents/overview)
+- [Agent Service documentation](/azure/ai-foundry/agents/overview)
