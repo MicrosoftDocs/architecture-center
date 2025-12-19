@@ -54,7 +54,8 @@ The following workflow corresponds to the preceding diagram:
 
 - [Azure Container Registry](/azure/container-registry/container-registry-intro) is a managed Docker registry service for storing and managing container images. In this architecture, Container Registry manages container images for the application components. This management ensures consistent deployment and version control across the solution.
 
-- [Microsoft Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) is a unified Azure platform-as-a-service offering for enterprise AI operations, model builders, and application development. This foundation combines production-grade infrastructure with friendly interfaces, enabling developers to focus on building applications rather than managing infrastructure.
+- [Microsoft Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) is a unified Azure platform-as-a-service offering for enterprise AI operations, model builders, and application development. This foundation combines production-grade infrastructure with friendly interfaces, enabling developers to focus on building applications rather than managing infrastructure. In this architecture, Microsoft Foundry provides the foundation for deploying and managing AI models used in chat interface and is the gateway into the connected AI services, like Foundry IQ. 
+   - [Foundry Agent Service](/azure/ai-foundry/agents/overview?view=foundry-classic) connects the core pieces of Foundry (such as models, tools, and frameworks) into a single runtime. It manages conversations, orchestrates tool calls, enforces content safety, and integrates with identity, networking, and observability systems. These activities help ensure that agents are secure, scalable, and production ready. In this architecture, Foundry Agent Service is invoked in the chat interface to power the chat completion.
 
 ## Scenario details
 
@@ -122,7 +123,7 @@ Consider the alternative approach if your workload has the following characteris
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-For more information about the costs to run this scenario, see the preconfigured estimate in the [Azure pricing calculator](https://azure.com/e/041278866a314de0a9046088b3eb1bde).
+For more information about the costs to run this scenario, see the preconfigured estimate in the [Azure pricing calculator](https://azure.com/e/c0979505ef6a45409c218c24ee4033de).
 
 Pricing varies by region and usage, so it's not possible to predict exact costs for your specific workload. Most Azure resources in this infrastructure follow usage-based pricing tiers. However, some services, such as Container Registry, incur fixed daily costs for each registry. Other services, like SQL Database and Azure Cosmos DB, might generate baseline charges as soon as they're provisioned, regardless of actual usage.
 
@@ -142,7 +143,7 @@ Principal author:
 
 Other contributor:
 
-- [Malory Rose](https://www.linkedin.com/in/malory-rose-8aa503135) | Senior Software Engineer
+- [Malory Rose](https://www.linkedin.com/in/malory-rose-8aa503135/) | Senior Software Engineer
 - [Anish Arora](https://www.linkedin.com/in/aniarora/) | Senior Software Engineer
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
