@@ -46,7 +46,7 @@ The following workflow corresponds to the previous diagram:
 
 ## Scenario details
 
-This document generation solution addresses the challenges that organizations encounter when they want to create consistent, high-quality business documents that use institutional knowledge. Traditional document creation often suffers from blank page syndrome, inconsistent formatting, missed relevant information, and significant time investment from subject matter experts (SMEs). This solution transforms document creation through conversational AI that generates structured documents like contracts, invoices, and promissory notes, and unstructured documents like proposals, reports, and briefings, all grounded in organizational data.
+This document generation solution addresses the challenges that organizations encounter when they want to create consistent, high-quality business documents that use institutional knowledge. Traditional document creation often suffers from initial drafting challenges, inconsistent formatting, missed relevant information, and significant time investment from subject matter experts (SMEs). This solution transforms document creation through conversational AI that generates structured documents like contracts, invoices, and promissory notes, and unstructured documents like proposals, reports, and briefings, all grounded in organizational data.
 
 This architecture supports transactional usage only. It enables focused, real-time document generation workflows that maintain quality and consistency for individual document requests. It doesn't support batch processing.
 
