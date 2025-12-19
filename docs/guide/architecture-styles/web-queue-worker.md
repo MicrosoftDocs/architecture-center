@@ -3,7 +3,7 @@ title: Web-Queue-Worker Architecture Style
 description: Learn about the Web-Queue-Worker pattern. Discover benefits, challenges, and implementation by using Azure App Service, Azure Functions, and message queues.
 author: claytonsiemens77
 ms.author: pnp
-ms.date: 07/26/2022
+ms.date: 12/19/2025
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-web
@@ -33,7 +33,7 @@ The front end might include a web API. A single‑page application can consume t
 
 ## When to use this architecture
 
-The Web-Queue-Worker architecture is typically implemented by using managed compute services like Azure App Service or Azure Kubernetes Service.
+The Web-Queue-Worker architecture is typically implemented by using managed compute services like [Azure App Service](/azure/app-service/overview), [Azure Kubernetes Service](/azure/aks/what-is-aks), or [Azure Container Apps](/azure/container-apps/)
 
 Consider this architecture for the following use cases:
 
@@ -82,7 +82,7 @@ Consider this architecture for the following use cases:
 This section describes a recommended Web-Queue-Worker architecture that uses App Service.
 
 :::image type="complex" border="false" source="./images/web-queue-worker-physical.svg" alt-text="Diagram that shows the Web-Queue-Worker architecture." lightbox="./images/web-queue-worker-physical.svg":::
-   Architecture diagram that shows users who access web applications through Azure CDN for static content delivery. Traffic flows to App Service web apps that handle user requests and send messages to Azure Service Bus or Azure Storage queues. Azure Functions workers process messages from the queues to handle resource-intensive tasks. The system includes Azure Managed Redis for session state and low-latency data access, Azure Blob Storage for file and document storage, and polyglot data storage with Azure SQL Database and Azure Cosmos DB. Web apps and Functions both run on App Service plans for compute infrastructure.
+   Architecture diagram that shows users who access web applications through Azure CDN for static content delivery. Traffic flows to App Service web apps that handle user requests and send messages to Azure Service Bus or Azure Storage queues. Azure Functions workers process messages from the queues to handle resource-intensive tasks. The system includes Azure Cache for Redis for session state and low-latency data access, Azure Blob Storage for file and document storage, and polyglot data storage with Azure SQL Database and Azure Cosmos DB. Web apps and Functions both run on App Service plans for compute infrastructure.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/web-queue-worker.vsdx) of this architecture.*
@@ -93,7 +93,7 @@ This section describes a recommended Web-Queue-Worker architecture that uses App
 
 - You can use either [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) or [Azure Storage queues](/azure/storage/queues/storage-queues-introduction) for the message queue. The previous diagram uses a Storage queue.
 
-- [Azure Managed Redis](/azure/redis/overview) stores session state and other data that requires low-latency access.
+- [Azure Cache for Redis](/azure/redis/overview) stores session state and other data that requires low-latency access.
 
 - [Azure Content Delivery Network](/azure/cdn/cdn-overview) is used to cache static content like images, CSS, or HTML.
 
@@ -111,7 +111,7 @@ For more information, see [Baseline highly available zone-redundant web applicat
 
 - Use separate App Service plans for production and testing.
 
-- Use deployment slots to manage deployments. This method lets you deploy an updated version to a staging slot, then swap over to the new version. It also lets you swap back to the previous version if there's a problem during the update.
+- Use deployment slots to manage deployments for App Service plans. This method lets you deploy an updated version to a staging slot, then swap over to the new version. It also lets you swap back to the previous version if there's a problem during the update.
 
 ## Related resource
 
