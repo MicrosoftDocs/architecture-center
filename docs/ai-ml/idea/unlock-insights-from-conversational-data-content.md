@@ -59,7 +59,7 @@ The following workflow corresponds to the previous diagram:
 
 - [Azure OpenAI](/azure/ai-foundry/openai/overview) is a cloud-based platform from Microsoft that provides access to advanced language models for natural language processing and generation. In this architecture, Azure OpenAI powers the conversational chat interface. This interface enables users to ask questions about their conversation data and receive contextual responses through the RAG pattern.
 
-- [Agent Framework](/semantic-kernel/overview/) is an open-source SDK that integrates large language models with conventional programming languages. In this architecture, Agent Framework orchestrates the interaction between Azure OpenAI and other Azure AI services. It also manages function calling and coordinates intelligent workflows.
+- [Agent Framework](/agent-framework/overview/agent-framework-overview) is an open-source SDK that integrates large language models with conventional programming languages. In this architecture, Agent Framework orchestrates the interaction between Azure OpenAI and other Azure AI services. It also manages function calling and coordinates intelligent workflows.
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, multiple-model database service that has low latency. In this architecture, Azure Cosmos DB stores chat history and user session data. This storage enables fast access to conversation context for the interactive front-end experience.
 
@@ -67,7 +67,7 @@ The following workflow corresponds to the previous diagram:
 
 - [Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) is a unified Azure PaaS offering for enterprise AI operations, model builders, and application development. It combines production-grade infrastructure with developer-friendly interfaces, which enables developers to focus on building applications rather than managing infrastructure. In this architecture, Foundry provides the foundation for deploying and managing AI models in the chat interface. It also serves as the gateway to connected AI services, like Foundry IQ. 
 
-  - [Foundry Agent Service](/azure/ai-foundry/agents/overview) is a managed runtime service that connects the core pieces of Foundry, like models, tools, and frameworks, into a single runtime. It manages conversations, orchestrates tool calls, enforces content safety, and integrates with identity, networking, and observability systems. These activities help ensure that agents remain secure, scalable, and production ready. In this architecture, the chat interface invokes Foundry Agent Service to power the chat completion.
+  [Foundry Agent Service](/azure/ai-foundry/agents/overview) is a managed runtime service that connects the core pieces of Foundry, like models, tools, and frameworks, into a single runtime. It manages conversations, orchestrates tool calls, enforces content safety, and integrates with identity, networking, and observability systems. These activities help ensure that agents remain secure, scalable, and production ready. In this architecture, the chat interface invokes Foundry Agent Service to power the chat completion.
 
 ## Scenario details
 
@@ -162,7 +162,7 @@ Other contributor:
 
 ## Next step
 
-- [AI Search vector search capabilities](/azure/search/vector-search-overview)
+- [Azure AI Search vector search capabilities](/azure/search/vector-search-overview)
 
 ## Related resource
 
