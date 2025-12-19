@@ -5,7 +5,7 @@ ms.author: pnp
 author: claytonsiemens77
 ms.date: 12/11/2024
 ms.topic: design-pattern
-ms.subservice: design-pattern
+ms.subservice: cloud-fundamentals
 ---
 
 # Cloud design patterns

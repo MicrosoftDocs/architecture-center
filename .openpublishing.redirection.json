@@ -2465,17 +2465,17 @@
     },
     {
       "source_path": "docs/ai-ml/architecture/baseline-openai-e2e-chat.yml",
-      "redirect_url": "/azure/architecture/ai-ml/architecture/baseline-azure-ai-foundry-chat",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-chat",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/ai-ml/architecture/basic-openai-e2e-chat.yml",
-      "redirect_url": "/azure/architecture/ai-ml/architecture/basic-azure-ai-foundry-chat",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/basic-microsoft-foundry-chat",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/ai-ml/architecture/azure-openai-baseline-landing-zone.yml",
-      "redirect_url": "/azure/architecture/ai-ml/architecture/baseline-azure-ai-foundry-landing-zone",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-landing-zone",
       "redirect_document_id": false
     },
     {
@@ -4974,7 +4974,7 @@
     },
     {
       "source_path": "docs/ai-ml/architecture/conversational-bot.yml",
-      "redirect_url": "/azure/architecture/ai-ml/architecture/baseline-azure-ai-foundry-chat",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-chat",
       "redirect_document_id": false
     },
     {
@@ -6294,7 +6294,7 @@
     },
     {
       "source_path": "docs/ai-ml/openai/guide/language-model-pipelines.yml",
-      "redirect_url": "/azure/architecture/ai-ml/architecture/baseline-azure-ai-foundry-chat",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-chat",
       "redirect_document_id": false
     },
     {
@@ -7163,6 +7163,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/solution-ideas/articles/dfs-failover-cluster-vms.yml",
+      "redirect_url": "/azure/storage/files/files-manage-namespaces",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/guide/hadoop/apache-hdfs-migration.yml",
       "redirect_url": "/azure/hdinsight/",
       "redirect_document_id": false
@@ -7578,6 +7583,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/example-scenario/analytics/pipelines-disaster-recovery.yml",
+      "redirect_url": "/azure/data-factory/secure-your-azure-data-factory#backup-and-recovery",
+      "redirect_document_id": false
+    },
+    {      
       "source_path": "docs/reference-architectures/containers/aks-pci/aks-pci-monitor.yml",
       "redirect_url": "/azure/aks/pci-monitor",
       "redirect_document_id": false
@@ -7615,7 +7625,22 @@
     {
       "source_path": "docs/data-guide/big-data/non-relational-data.yml",
       "redirect_url": "/azure/architecture/data-guide/technology-choices/understand-data-store-models",
-      "redirect_document_id": false 
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/ai-ml/architecture/baseline-azure-ai-foundry-chat.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-chat",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/ai-ml/architecture/baseline-azure-ai-foundry-landing-zone.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-landing-zone",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/ai-ml/architecture/basic-azure-ai-foundry-chat.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/basic-microsoft-foundry-chat",
+      "redirect_document_id": true
     },
     {
       "source_path": "docs/guide/technology-choices/data-store-overview.md",
