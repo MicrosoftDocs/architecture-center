@@ -812,7 +812,7 @@
 				<g id="shape1143-160" v:mID="1143" v:groupContext="groupContent">
 					<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
 					<v:textRect cx="16.5827" cy="288.697" width="71.72" height="21.2598"/>
-					<text x="-14.16" y="291.9" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure OpenAI</text>				</g>
+					<text x="-14.16" y="285.9" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure OpenAI</text>				</g>
 			</g>
 		</g>
 		<g id="shape1-163" v:mID="1" v:groupContext="shape" transform="translate(-1.22835,-0.687398)">
@@ -1226,6 +1226,6 @@
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="41.1025" cy="261.638" width="82.21" height="32.315"/>
 			<rect x="0" y="245.48" width="82.2051" height="32.315" class="st16"/>
-			<text x="10.36" y="264.84" class="st15" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure OpenAI</text>		</g>
+			<text x="10.36" y="260.84" class="st15" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure OpenAI</text>		</g>
 	</g>
 </svg>
