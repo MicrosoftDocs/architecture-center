@@ -4,7 +4,7 @@ metadata:
   description: Learn about deploying the baseline Microsoft Foundry, Foundry Agent Service, Azure OpenAI in Foundry Models, and Azure App Service chat architecture in an Azure landing zone.
   author: claytonsiemens77
   ms.author: pnp
-  ms.date: 06/22/2025
+  ms.date: 12/19/2025
   ms.topic: reference-architecture
   ms.collection: ce-skilling-ai-copilot
   ms.subservice: reference-architecture

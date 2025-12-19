@@ -48,11 +48,9 @@ The following resources remain mostly unchanged from the [baseline architecture]
 
   If your organization's AI Center of Excellence restricts access to AI model deployments, the workload team might not host models in projects and accounts. Instead, they might need to use [centralized AI resources](/azure/cloud-adoption-framework/scenarios/ai/plan). In this scenario, all model consumption usually flows through a gateway that your AI platform team provides.
   
-  This article assumes that generative AI models in this scenario are workload-owned resources. If they're not, the model host, or a gateway to the models, becomes a workload dependency. The platform team must maintain reliable network connectivity to the APIs.
-  
-  Agent Service treats model dependencies in a specific way, so challenges can occur when you consume centrally hosted models. You might need to use an alternative orchestrator.
+  This article assumes that generative AI models in this scenario are workload-owned resources. If they're not, the model host or an [AI gateway](/azure/api-management/genai-gateway-capabilities) becomes a workload dependency. The platform team must maintain reliable network connectivity from your virtual network to their virtual network or a private endpoint must be established.
 
-- **[Agent Service](/azure/ai-services/agents/overview)** is a cloud-native runtime environment that enables intelligent agents to operate securely and autonomously. In this architecture, Agent Service provides the orchestration layer for chat interactions. It hosts and manages the chat agent that processes user requests.
+- **[Agent Service](/azure/ai-services/agents/overview)** is a cloud-native runtime environment that enables intelligent agents to operate securely and autonomously. In this architecture, Agent Service provides the orchestration layer for chat interactions. It hosts and manages the chat agent that processes user requests. This architecture supports both declarative and containerized agents.
 
   Use the [standard agent setup](/azure/ai-services/agents/concepts/standard-agent-setup) in this architecture. Connect your agent to a dedicated subnet in your spoke virtual network, and route egress traffic through your connectivity subscription.
 
@@ -62,7 +60,7 @@ The following resources remain mostly unchanged from the [baseline architecture]
 
   An Azure Storage account hosts the web application's code as a ZIP file, which mounts within App Service.
 
-- **[AI Search](/azure/search/search-what-is-azure-search)** is a scalable search infrastructure that indexes heterogeneous content and enables data retrieval through APIs, applications, and AI agents. In this architecture, AI Search serves as the workload knowledge store for the [Retrieval Augmented Generation pattern](/azure/search/retrieval-augmented-generation-overview). This pattern extracts an appropriate query from a prompt, queries AI Search, and uses the results as grounding data for a generative AI foundation model.
+- **[AI Search](/azure/search/search-what-is-azure-search)** is a scalable search infrastructure that indexes heterogeneous content and enables data retrieval through APIs, applications, and AI agents. In this architecture, Foundry IQ powered by AI Search serves as the workload knowledge store for the [Retrieval Augmented Generation pattern](/azure/search/retrieval-augmented-generation-overview). This pattern extracts an appropriate query from a prompt, queries AI Search, and uses the results as grounding data for a generative AI foundation model.
 
 - **[Azure Application Gateway](/azure/well-architected/service-guides/azure-application-gateway)** is a web traffic load balancer and application delivery controller. In this architecture, it acts as the reverse proxy to route user requests to the chat UI hosted in App Service. It hosts an Azure web application firewall to help protect the front-end application from potentially malicious traffic.
 
@@ -76,7 +74,7 @@ The workload team also maintains the following resources:
 
 - **Spoke virtual network subnets and the network security groups (NSGs)** maintain segmentation and control traffic flow between subnets. In this architecture, they enforce network boundaries and security between workload components.
 
-- **Private endpoints** secure connectivity to platform as a service (PaaS) solutions. In this architecture, they ensure that sensitive services are only accessible within the private network, which reduces exposure to the public internet.
+- **Private endpoints** secure connectivity to platform as a service (PaaS) solutions. In this architecture, they ensure that sensitive services are only accessible within the private network, which reduces exposure to the public internet. Additional dependencies, such as state stores owned by other team, can be exposed to your workload as a private endpoint, avoiding transtive routing through the connectivity subscription.
 
 #### Platform team-owned resources
 
@@ -130,7 +128,7 @@ The platform team sets up the subscription for this architecture. The following 
 The workload team and platform team must collaborate on details like management group assignment, Azure Policy governance, and networking setup. Prepare a checklist of requirements to initiate discussion and negotiation with the platform team. The following checklist serves as an example.
 
 | &nbsp; | Design consideration | Workload requirement for this architecture |
-| ------ | :---- | :----------------------------------------- |
+| ------ | :------------------- | :----------------------------------------- |
 |&#9744;|**The number of spoke virtual networks and their size:** The platform team creates and configures the virtual network, then peers it to the regional hub to designate it as a spoke. They also need to ensure that the network can accommodate future workload growth. To carry out these tasks effectively, they must know the number of spokes required. | Deploy all resources in a single, dedicated spoke virtual network. Request `/22` contiguous address space to support full-scale operations and scenarios like side-by-side deployments. <br><br> The following factors determine most IP address needs: <br><br> - Application Gateway requirements for the subnet size (fixed size). <br><br>- Private endpoints with single IP addresses for PaaS services (fixed size). <br><br> - The subnet size for build agents (fixed size). <br><br> - Agent Service requires a subnet within a `/24` prefix.|
 |&#9744;|**Virtual network address prefixes:** Typically, the platform team assigns IP addresses based on existing conventions, avoidance of overlap with peered networks, and availability within the IP address management (IPAM) system. | The agent integration subnet must use an address prefix that starts with `172.` or `192.` such as `192.168.45.1/24`. A runtime restriction in the Agent Service capability host enforces this requirement. Agent Service doesn't support subnets that use `10.`. Ask your platform team to provide a spoke that has a valid address prefix for your agent subnet. |
 |&#9744;|**Deployment region:** The platform team needs to deploy a hub in the same region as the workload resources. | Communicate the selected region for the workload and the regions for underlying compute resources. Ensure that the regions support availability zones. [Azure OpenAI in Foundry Models](/azure/ai-services/openai/concepts/models#model-summary-table-and-region-availability) has limited regional availability. |
@@ -472,7 +470,11 @@ All data storage services in this architecture support Microsoft-managed or cust
 
 #### Microsoft Defender for Cloud
 
-Use the same configuration for Microsoft Defender for Cloud as discussed in the [baseline architecture](./baseline-microsoft-foundry-chat.yml#microsoft-defender-for-cloud). If your subscription vending process doesn't automatically enable these Defender plans, ensure you take on this responsibility as the workload team. Purview integration for the AI components in this workload is enabled through the Defender for AI services plan.
+Use the same configuration for Microsoft Defender for Cloud as discussed in the [baseline architecture](./baseline-microsoft-foundry-chat.yml#microsoft-defender-for-cloud). If your subscription vending process doesn't automatically enable these Defender plans, ensure you take on this responsibility as the workload team.
+
+#### Microsoft Purview
+
+It's expected that you'll be required to use the native integration of Microsoft Purview when deploying Foundry. During deployment, ensure you enable Microsoft Purview Data Security in the Microsoft Foundry Control Plane. See [Use Microsoft Purview to manage data security & compliance for Microsoft Foundry](/purview/ai-azure-foundry).
 
 ### Cost Optimization
 
