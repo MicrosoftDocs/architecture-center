@@ -59,9 +59,9 @@ Consider this architecture for the following use cases:
 
 - Without careful design, the front end and worker can become large monolithic components that are difficult to maintain and update.
 
-- If the front end and worker share data schemas or code modules, there might be hidden dependencies.
+- There might be hidden dependencies if the front end and worker share data schemas or code modules.
 
-- The web front end can fail after persisting to the database but before sending messages to the queue, which causes consistency problems because the worker doesn't do its part of the logic. To mitigate this problem, you can use techniques like the [Transactional Outbox pattern](../../best-practices/transactional-outbox-cosmos.yml), which require routing outgoing messages to first *loop back* through a separate queue. The [NServiceBus Transactional Session](https://docs.particular.net/nservicebus/transactional-session/) library supports this technique.
+- The web front end can fail after persisting to the database but before sending messages to the queue. This causes consistency problems because the worker doesn't do its part of the logic. To mitigate this problem, you can use techniques like the [Transactional Outbox pattern](../../best-practices/transactional-outbox-cosmos.yml), which require routing outgoing messages to first *loop back* through a separate queue. The [NServiceBus Transactional Session](https://docs.particular.net/nservicebus/transactional-session/) library supports this technique.
 
 ## Best practices
 
@@ -82,7 +82,7 @@ Consider this architecture for the following use cases:
 This section describes a recommended Web-Queue-Worker architecture that uses App Service.
 
 :::image type="complex" border="false" source="./images/web-queue-worker-physical.svg" alt-text="Diagram that shows the Web-Queue-Worker architecture." lightbox="./images/web-queue-worker-physical.svg":::
-   Architecture diagram that shows users who access web applications through Azure CDN for static content delivery. Traffic flows to App Service web apps that handle user requests and send messages to Azure Service Bus or Azure Storage queues. Azure Functions workers process messages from the queues to handle resource-intensive tasks. The system includes Azure Cache for Redis for session state and low-latency data access, Azure Blob Storage for file and document storage, and polyglot data storage with Azure SQL Database and Azure Cosmos DB. Web apps and Functions both run on App Service plans for compute infrastructure.
+   Architecture diagram that shows users who access web applications through Azure CDN for static content delivery. Traffic flows to App Service web apps that handle user requests and send messages to Azure Service Bus or Azure Storage queues. Azure Functions workers process messages from the queues to handle resource-intensive tasks. The system uses Azure Cache for Redis for session state and low-latency data access. Azure Blob Storage provides file and document storage. Azure SQL Database and Azure Cosmos DB provide polyglot data storage. Web apps and Functions both run on App Service plans for compute infrastructure.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/web-queue-worker.vsdx) of this architecture.*
@@ -105,7 +105,7 @@ For more information, see [Baseline highly available zone-redundant web applicat
 
 - Not every transaction must go through the queue and worker to storage. The web front end can do simple read and write operations directly. Workers are designed for resource-intensive tasks or long-running workflows. In some cases, you might not need a worker at all.
 
-- Use the built-in autoscale feature of your compute platform to scale out the number of instances. If the load on the application follows predictable patterns, use schedule-based autoscaling. If the load is unpredictable, use metrics-based autoscaling.
+- Scale out the number of instances by using the built-in autoscale feature of your compute platform. If the load on the application follows predictable patterns, use schedule-based autoscaling. If the load is unpredictable, use metrics-based autoscaling.
 
 - Consider putting the web app and the Functions app into separate App Service plans so that they can scale independently.
 
