@@ -16,9 +16,7 @@ Content delivery networks (CDNs) offer a range of capabilities to optimize perfo
 
 CDNs are an essential component in some solution architectures, so it’s an industry best practice for mission-critical workloads to use multiple CDNs to achieve a higher level of uptime. If one CDN experiences outage or degraded performance, your traffic is automatically diverted to another CDN.
 
-Microsoft offers an [industry-leading service level agreement (SLA) for Azure Front Door](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services). Even if a provider offers a 100% uptime SLA, that doesn't guarantee zero downtime. SLAs typically provide service credits in the event of an outage. For this reason, even Microsoft's competitors recommend using multiple CDNs for mission-critical workloads, and many companies who manage their own CDN also utilize other CDNs too.
-
-If you implement multiple CDNs, consider the implications of this approach. Each CDN provides a separate network path to your application servers, and you need to configure and test each CDN separately.
+As mentioned in the previous article in this series, Azure Front Door is designed to provide the utmost resiliency and availability not only for our external customers, but also for multiple properties across Microsoft. While Microsoft offers an [industry-leading service level agreement (SLA) for Azure Front Door](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services), hence if you implement multiple CDNs, consider the implications of this approach. Each CDN provides a separate network path to your application servers, and you need to configure and test each CDN separately.
 
 This article describes an approach for using Azure Front Door with another CDN. This approach is suitable for solutions that rely heavily on caching for delivering static content delivery, media, and high-scale eCommerce applications.
 
