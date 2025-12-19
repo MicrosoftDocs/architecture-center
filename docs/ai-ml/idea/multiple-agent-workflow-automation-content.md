@@ -32,11 +32,13 @@ The following workflow corresponds to the previous diagram:
 
 ### Components
 
-- [App Service](/azure/well-architected/service-guides/app-service-web-apps) is a platform as a service solution that provides a scalable web hosting environment for applications. In this architecture, the App Service website serves as the front-end interface for users to request and manage automated solutions. It provides a responsive web experience for submitting tasks and tracking their progress.
+- [App Service](/azure/well-architected/service-guides/app-service-web-apps) is a platform as a service solution that provides a scalable web hosting environment for applications. In this architecture, the App Service website serves as the front-end interface for users to request and manage automated solutions. It provides a responsive web experience for submitting tasks and tracking their progress. 
 
 - [Container Apps](/azure/well-architected/service-guides/azure-container-apps) is a serverless container platform that enables you to run microservices and containerized applications on a serverless platform. In this architecture, the Container Apps API serves as the central orchestration layer that processes user requests, coordinates multiple AI agents, and manages the completion state of tasks. It hosts the custom-developed code created by your software team that uses Microsoft Agent Framework.
 
-- [Microsoft Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) is a unified Azure platform-as-a-service offering for enterprise AI operations, model builders, and application development. This foundation combines production-grade infrastructure with friendly interfaces, enabling developers to focus on building applications rather than managing infrastructure.
+- [Microsoft Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) is a unified Azure platform-as-a-service offering for enterprise AI operations, model builders, and application development. This foundation combines production-grade infrastructure with friendly interfaces, enabling developers to focus on building applications rather than managing infrastructure. In this architecture, Microsoft Foundry provides the foundation for deploying and managing AI models used in chat interface and is the gateway into the connected AI services, like Foundry Agent Service.
+   - [Foundry Agent Service](/azure/ai-foundry/agents/overview) connects the core pieces of Foundry (such as models, tools, and frameworks) into a single agentic runtime. It manages conversations, orchestrates tool calls, enforces content safety, and integrates with identity, networking, and observability systems. In this architecture, Foundry Agent Service is invoked by the application to power the agent conversations.
+
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, multiple-model database service that provides low latency and elastic scalability. In this architecture, Azure Cosmos DB stores all data related to current and past automation plans and solutions. The Container Apps API writes data when new plans are created or tasks are run. The API reads data when users access their automation history via the App Service website.
 
@@ -96,7 +98,7 @@ Consider the following potential use cases for multiple-agent workflow automatio
 
 ## Alternatives
 
-This architecture includes multiple components that you can substitute with other Azure services or approaches, depending on your workload's functional and nonfunctional requirements. Consider the following alternatives and trade-offs.
+This architecture includes a component that you can substitute with another Azure service or approach, depending on your workload's functional and nonfunctional requirements. Consider the following alternative and trade-offs.
 
 ### Agent orchestration
 
@@ -122,7 +124,7 @@ When you design multi-agent automation systems, consider how agents must coordin
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-For more information about the costs of running this scenario, see the preconfigured estimate in the [Azure pricing calculator](https://azure.com/e/82efdb5321cc4c58aafa84607f68c24a).
+For more information about the costs of running this scenario, see the preconfigured estimate in the [Azure pricing calculator](https://azure.com/e/b00c1854756f4687a4fcbe0916951aba).
 
 Pricing varies by region and usage, so it's not possible to predict exact costs in advance. Most Azure resources in this infrastructure follow usage-based pricing models. But Container Registry incurs a daily fixed cost for each registry.
 
@@ -145,7 +147,7 @@ Principal author:
 Other contributor:
 
 - [Mark Taylor](https://www.linkedin.com/in/mark-taylor-5043351/) | Principal Software Engineer
-- [Malory Rose](https://www.linkedin.com/in/malory-rose-8aa503135) | Senior Software Engineer
+- [Malory Rose](https://www.linkedin.com/in/malory-rose-8aa503135/) | Senior Software Engineer
 - [Anish Arora](https://www.linkedin.com/in/aniarora/) | Senior Software Engineer
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*

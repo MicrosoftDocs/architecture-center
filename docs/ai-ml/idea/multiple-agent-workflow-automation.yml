@@ -12,7 +12,7 @@ azureCategories:
   - ai-machine-learning
 products:
   - azure-container-apps
-  - ai-services
+  - azure-cognitive-search
   - azure-cosmos-db
   - semantic-kernel
   - azure-ai-foundry
