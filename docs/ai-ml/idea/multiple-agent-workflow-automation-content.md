@@ -144,7 +144,7 @@ Principal author:
 
 - [Solomon Pickett](https://www.linkedin.com/in/gregory-solomon-pickett-307560130/) | Software Engineer II
 
-Other contributor:
+Other contributors:
 
 - [Mark Taylor](https://www.linkedin.com/in/mark-taylor-5043351/) | Principal Software Engineer
 - [Malory Rose](https://www.linkedin.com/in/malory-rose-8aa503135/) | Senior Software Engineer
