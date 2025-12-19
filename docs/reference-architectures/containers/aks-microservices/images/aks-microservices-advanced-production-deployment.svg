@@ -2097,15 +2097,15 @@
 		</g>
 		<g id="shape1825-488" v:mID="1825" v:groupContext="shape" transform="translate(984,-621.6)">
 			<title>Sheet.1825</title>
-			<desc>Azure Cosmos DB API for MongoDB</desc>
+			<desc>Azure DocumentDB</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(56000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="49.2" cy="812.077" width="98.41" height="59.625"/>
 			<rect x="0" y="782.265" width="98.4" height="59.625" class="st45"/>
-			<text x="5.99" y="808.78" class="st4" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Cosmos DB<v:newlineChar/><v:paragraph/><tspan
-						x="4" dy="1.2em" class="st8"> </tspan>API for MongoDB</text>		</g>
+			<text x="35.26" y="808.78" class="st4" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure <tspan
+						x="16.87" dy="1.2em" class="st8">DocumentDB</tspan></text>		</g>
 		<g id="shape1001-492" v:mID="1001" v:groupContext="shape" transform="translate(711,-231.201)">
 			<title>Sheet.1001</title>
 			<v:userDefs>

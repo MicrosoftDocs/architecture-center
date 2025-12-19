@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Access Azure OpenAI and other Language Models through a Gateway
+  title: Access Azure OpenAI in Foundry Models and Other Language Models Through a Gateway
   description: Understand how implementing a gateway helps manage access to Azure OpenAI and other language models more securely and efficiently.
   author: claytonsiemens77
   ms.author: pnp
@@ -14,7 +14,7 @@ products:
   - ai-services
   - azure-openai
   - azure-api-management
-name: Access Azure OpenAI and other language models through a gateway
+name: Access Azure OpenAI in Foundry Models and other language models through a gateway
 summary: Understand how implementing a gateway helps manage access to Azure OpenAI and other language models more securely and efficiently.
 thumbnailUrl: ../../browse/thumbs/azure-openai-gateway-conceptual-architecture.svg
 content: |

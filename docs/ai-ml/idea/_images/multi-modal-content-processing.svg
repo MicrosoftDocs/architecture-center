@@ -4933,16 +4933,16 @@
 				<path d="M2.08 460.91 A2.90206 2.90206 0 1 1 4.97 457.99 A2.91975 2.91975 0 0 1 2.08 460.91 Z" class="st27"/>
 			</g>
 		</g>
-		<g id="shape341-418" v:mID="341" v:groupContext="shape" transform="translate(581.527,-381.116)">
+		<g id="shape341-418" v:mID="341" v:groupContext="shape" transform="translate(545.385,-381.116)">
 			<title>Sheet.341</title>
-			<desc>Azure AI Foundry</desc>
+			<desc>Microsoft Foundry</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(78000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="42.5197" cy="449.712" width="85.04" height="22.4037"/>
-			<rect x="0" y="438.51" width="85.0394" height="22.4037" class="st2"/>
-			<text x="5.65" y="452.41" class="st14" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure AI Foundry</text>		</g>
+			<v:textRect cx="78.3783" cy="449.712" width="156.76" height="22.4037"/>
+			<rect x="0" y="438.51" width="156.757" height="22.4037" class="st2"/>
+			<text x="39.11" y="452.41" class="st14" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Microsoft Foundry</text>		</g>
 		<g id="shape342-421" v:mID="342" v:groupContext="shape" transform="translate(581.527,-326.984)">
 			<title>Sheet.342</title>
 			<desc>Azure OpenAI in Foundry Models</desc>

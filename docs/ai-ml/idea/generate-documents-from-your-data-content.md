@@ -7,7 +7,7 @@ The architecture combines retrieval, summarization, and generation with document
 ## Architecture
 
 :::image type="complex" border="false" source="./_images/generate-documents.svg" alt-text="Diagram that shows a document generation solution architecture that uses Azure AI services." lightbox="./_images/generate-documents.svg":::
-   This diagram shows a flow from sample data through Azure services to the web front end for form-based template generation and export. The flow begins with enterprise data, which passes through an enterprise data sync process. This process loads PDF files into a Storage account, and Azure AI Document Intelligence processes the files and indexes the content. The indexed content flows through App Service and then into Azure AI Foundry, which handles chat completion, conversation loops, and JSON mode via SDK. App Service also links to a web front end and Azure Cosmos DB. The web front-end enables users to chat with their own data, generate document templates, and export those templates.
+   This diagram shows a flow from sample data through Azure services to the web front end for form-based template generation and export. The flow begins with enterprise data, which passes through an enterprise data sync process. This process loads PDF files into a Storage account, and Azure AI Document Intelligence processes the files and indexes the content. The indexed content flows through App Service and then into Microsoft Foundry, which handles chat completion, conversation loops, and JSON mode via SDK. App Service also links to a web front end and Azure Cosmos DB. The web front-end enables users to chat with their own data, generate document templates, and export those templates.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/generate-documents.vsdx) of this architecture.*
@@ -24,7 +24,7 @@ The following workflow corresponds to the previous diagram:
 
 1. Azure AI Document Intelligence creates searchable indexes from the processed and enriched documents, which enables semantic search capabilities and rapid information retrieval for document generation. Indexing skills might maintain the index in Azure AI Search.
 
-1. Azure AI Foundry uses the indexed content to power conversational interactions through chat completion, conversation loops, and JSON mode via SDK. This process generates contextual documents based on user queries and organizational data.
+1. Microsoft Foundry uses the indexed content to power conversational interactions through chat completion, conversation loops, and JSON mode via SDK. This process generates contextual documents based on user queries and organizational data.
 
 1. Azure App Service hosts the web front end where users interact with the system by using natural language to generate documents.
 
@@ -34,7 +34,7 @@ The following workflow corresponds to the previous diagram:
 
 - [App Service](/azure/well-architected/service-guides/app-service-web-apps) is a platform as a service (PaaS) solution that provides a scalable web hosting environment for applications. In this architecture, App Service hosts the web front-end interface where users interact with their enterprise data through conversational AI functionality. App Service also generates DOCX files by using the docx React library and stores them in Storage for delivery. The interface enables both structured and unstructured document generation and DOCX export capabilities, which provides a responsive and intuitive user experience.
 
-- [Azure AI Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) is a managed AI service that provides access to advanced language models for natural language processing and generation. In this architecture, Azure AI Foundry provides models as a service (MaaS) for the Semantic Kernel-based agents to invoke.
+- [Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) is a managed AI service that provides access to advanced language models for natural language processing and generation. In this architecture, Foundry provides models as a service (MaaS) for the Semantic Kernel-based agents to invoke.
 
 - [Azure AI Document Intelligence](/azure/ai-services/document-intelligence/?view=doc-intel-4.0.0) is a cloud-based Azure AI service that uses machine learning models to automate data processing in applications and workflows. Azure AI Document Intelligence helps enhance data-driven strategies and enrich document search capabilities.
 

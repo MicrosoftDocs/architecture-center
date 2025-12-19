@@ -36,9 +36,9 @@ Data is loaded from these different data sources using several Azure components:
 
 ### Alternatives
 
-- The example pipeline includes several different kinds of data sources. This architecture can handle a wide variety of relational and non-relational data sources.
+- The example pipeline includes several different kinds of data sources. This architecture can handle a wide range of relational and non-relational data sources.
 - Data Factory orchestrates the workflows for your data pipeline. If you want to load data only one time or on demand, you could use tools like SQL Server bulk copy (bcp) and AzCopy to copy data into Azure Data Lake Storage. You can then load the data directly into Azure Synapse using PolyBase.
-- If you have very large datasets, consider using [Data Lake Storage](/azure/storage/data-lake-storage/introduction), which provides limitless storage for analytics data.
+- If you have large-scale datasets, consider using [Data Lake Storage](/azure/storage/data-lake-storage/introduction), which provides limitless storage for analytics data.
 - Azure Synapse isn't a good fit for OLTP workloads or data sets smaller than 250 GB. For those cases you should use Azure SQL Database or SQL Server.
 - For comparisons of other alternatives, see:
 

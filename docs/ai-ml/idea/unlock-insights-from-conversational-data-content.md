@@ -108,7 +108,7 @@ Consider the alternative approach if your workload has the following characteris
 
 - **Current approach:** This solution uses Foundry IQ with vector embeddings to enable semantic search across conversation transcripts. It supports natural language queries and RAG-based interactions.
 
-- **Alternative approach:** Implement a pure vector database solution by using Azure Cosmos DB for MongoDB with vector search capabilities. Alternatively, use Azure Database for PostgreSQL with the pgvector extension.
+- **Alternative approach:** Implement a pure vector database solution by using Azure DocumentDB with vector search capabilities. Alternatively, use Azure Database for PostgreSQL with the pgvector extension.
 
 Consider the alternative approach if your workload has the following characteristics:
 

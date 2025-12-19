@@ -137,5 +137,5 @@ To future-proof your architecture, consider the following derisking approaches:
 
 ## Next steps
 
-- [Explore Foundry models](/azure/ai-foundry/concepts/foundry-models-overview)
-- [Foundry models and capabilities that Azure sells directly](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure)
+- [Explore Models](/azure/ai-foundry/concepts/foundry-models-overview)
+- [Models and capabilities that Azure sells directly](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure)

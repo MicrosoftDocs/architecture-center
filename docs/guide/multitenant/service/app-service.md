@@ -1,6 +1,6 @@
 ---
 title: Azure App Service and Azure Functions Considerations for Multitenancy
-description: This article describes the features of Azure App Service and Azure Functions that are useful when working with multitenant systems.
+description: This article describes the features of Azure App Service and Azure Functions that are useful when you work with multitenant systems.
 author: johndowns
 ms.author: pnp
 ms.date: 08/10/2025
