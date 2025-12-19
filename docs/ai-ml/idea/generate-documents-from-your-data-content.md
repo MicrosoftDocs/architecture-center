@@ -7,7 +7,7 @@ The architecture combines retrieval, summarization, and generation with document
 ## Architecture
 
 :::image type="complex" border="false" source="./_images/generate-documents.svg" alt-text="Diagram that shows a document generation solution architecture that uses Azure AI services." lightbox="./_images/generate-documents.svg":::
-   This diagram shows a flow from sample data through Azure services to the web front end for form-based template generation and export. The flow begins with enterprise data, which passes through an enterprise data sync process. This process loads PDF files into a Storage account, and IQ processes the files and indexes the content. The indexed content flows through Azure App Service and then into Microsoft Foundry, which handles chat completion, conversation loops, and JSON mode via SDK. App Service also links to a web front end and Azure Cosmos DB. The web front-end lets users chat with their own data, generate document templates, and export those templates.
+   This diagram shows a flow from sample data through Azure services to the web front end for form-based template generation and export. The flow begins with enterprise data, which passes through an enterprise data sync process. This process loads PDF files into an Azure Storage account, and Foundry IQ processes the files and indexes the content. The indexed content flows through Azure App Service and then into Microsoft Foundry, which handles chat completion, conversation loops, and JSON mode via SDK. App Service also links to a web front end and Azure Cosmos DB. The web front end lets users chat with their own data, generate document templates, and export those templates.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/generate-documents.vsdx) of this architecture.*
@@ -22,9 +22,9 @@ The following workflow corresponds to the previous diagram:
 
 1. An Azure Storage account receives and stores enterprise documents, including PDF files. It makes them available for downstream services to process and index. A storage account also stores the generated documents from user sessions later.
 
-1. IQ creates searchable indexes from the processed and enriched documents, which enables semantic search capabilities and rapid information retrieval for document generation. Indexing skills might maintain the index in Azure AI Search.
+1. Foundry IQ creates searchable indexes from the processed and enriched documents, which enables semantic search capabilities and rapid information retrieval for document generation. Indexing skills might maintain the index in Azure AI Search.
 
-1. Microsoft Foundry uses the indexed content to power conversational interactions through chat completion, conversation loops, and JSON mode via SDK. This process generates contextual documents based on user queries and organizational data.
+1. Microsoft Foundry uses the indexed content to power conversational interactions through chat completion, conversation loops, and JSON mode via SDKs. This process generates contextual documents based on user queries and organizational data.
 
 1. Azure App Service hosts the web front end where users interact with the system by using natural language to generate documents.
 
@@ -34,11 +34,11 @@ The following workflow corresponds to the previous diagram:
 
 - [App Service](/azure/well-architected/service-guides/app-service-web-apps) is a platform as a service (PaaS) solution that provides a scalable web hosting environment for applications. In this architecture, App Service hosts the web front-end interface where users interact with their enterprise data through conversational AI functionality. App Service also generates DOCX files by using the docx React library and stores them in Storage for delivery. The interface supports both structured and unstructured document generation and DOCX export capabilities, which provides a responsive and intuitive user experience.
 
-- [Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) is a unified Azure PaaS offering for enterprise AI operations, model builders, and application development. This foundation combines production-grade infrastructure with developer‑oriented interfaces. These interfaces let developers focus on building applications rather than managing infrastructure. In this architecture, Foundry provides the foundation for deploying and managing AI models used in the chat interface and is the gateway into the connected AI services, like IQ.
+- [Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) is a unified Azure PaaS offering for enterprise AI operations, model builders, and application development. It combines production-grade infrastructure with developer‑oriented interfaces. These interfaces let developers focus on building applications rather than managing infrastructure. In this architecture, Foundry provides the foundation for deploying and managing AI models in the chat interface and serves as the gateway into the connected AI services, like Foundry IQ.
 
-  - [Foundry Agent Service](/azure/ai-foundry/agents/overview) is a managed platform within Foundry that integrates core components like models, tools, and frameworks into a unified agentic runtime. It manages conversations, orchestrates tool calls, enforces content safety, and integrates with identity, networking, and observability systems. In this architecture, Agent Service is invoked in the chat interface to power the chat completion, conversation loop, and JSON mode via the Microsoft Agent Framework SDK.
+  - [Foundry Agent Service](/azure/ai-foundry/agents/overview) is a managed platform within Foundry that integrates core components like models, tools, and frameworks into a unified agentic runtime. It manages conversations, orchestrates tool calls, enforces content safety, and integrates with identity, networking, and observability systems. In this architecture, the chat interface invokes Foundry Agent Service to power the chat completion, conversation loop, and JSON mode via the Microsoft Agent Framework SDK.
 
-  - [IQ](/azure/search/agentic-retrieval-overview) is a scalable search infrastructure that indexes heterogeneous content and enables retrieval through APIs, applications, and AI agents. The platform provides native integrations with the Azure AI stack (Azure OpenAI in Foundry Models, Foundry, Azure Machine Learning) and supports extensible architectures for non‑Microsoft and open source model integration. In this architecture, IQ creates and manages vectorized representations of PDF files. This approach enables semantic search and retrieval-augmented generation (RAG) patterns to identify relevant documents, summarize unstructured information, and generate document templates.
+  - [Foundry IQ](/azure/search/agentic-retrieval-overview) is a scalable search infrastructure that indexes heterogeneous content and enables retrieval through APIs, applications, and AI agents. The platform provides native integrations with the Azure AI stack (Azure OpenAI in Foundry Models, Foundry, Azure Machine Learning) and supports extensible architectures for non‑Microsoft and open-source model integration. In this architecture, Foundry IQ creates and manages vectorized representations of PDF files. This approach enables semantic search and retrieval-augmented generation (RAG) patterns to identify relevant documents, summarize unstructured information, and generate document templates.
 
 - [Storage](/azure/well-architected/service-guides/azure-blob-storage) is a Microsoft object storage solution optimized for storing massive amounts of unstructured data. In this architecture, a Storage account stores enterprise documents and reference materials, including PDF files, that provide the foundational knowledge base for the document generation process. A Storage account also stores generated documents for caching purposes.
 
@@ -60,13 +60,13 @@ Consider the following use cases.
 
 **Regulatory submission preparation:** Create compliance documentation by synthesizing relevant regulations, organizational policies, and historical submission data into properly formatted regulatory filings.
 
-**Legal brief drafting:** Generate legal document drafts by analyzing case law, precedents, and client information stored in an organization's knowledge base.
+**Legal brief drafting:** Generate legal document drafts by analyzing case law, precedents, and client information stored in your organization's knowledge base.
 
 #### Business operations and proposals
 
-**Investment proposal creation:** Synthesize market research, financial data, and strategic documents to generate comprehensive investment proposals tailored to specific opportunities and stakeholder requirements.
+**Investment proposal creation:** Synthesize market research, financial data, and strategic documents to generate investment proposals tailored to specific opportunities and stakeholder requirements.
 
-**Grant application development:** Create grant applications by combining project requirements, organizational capabilities, and historical successful submissions into compelling funding requests.
+**Grant application development:** Create grant applications by combining project requirements, organizational capabilities, and historical successful submissions into funding requests.
 
 **Requests for Proposals (RFP) response generation:** Automatically draft responses to RFPs by analyzing requirements against organizational capabilities and previous successful proposals.
 
@@ -80,7 +80,7 @@ Consider the following use cases.
 
 #### Healthcare and research applications
 
-**Clinical protocol documentation:** Generate research protocols by combining regulatory requirements, institutional guidelines, and previous study designs into compliant and comprehensive documents.
+**Clinical protocol documentation:** Generate research protocols by combining regulatory requirements, institutional guidelines, and previous study designs into compliant documents.
 
 **Patient care plan templates:** Create standardized care plan templates that incorporate best practices, institutional policies, and patient-specific considerations.
 
@@ -104,7 +104,7 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 This preconfigured [estimate in the Azure pricing calculator](https://azure.com/e/b7574e1a2952486e94073601a26ad52f) shows the costs to run this scenario.
 
-Pricing varies based on region and usage, so you can't predict exact costs for your scenario. Most of the Azure resources used in this infrastructure are on usage-based pricing tiers.
+Pricing varies based on region and usage, so you can't predict exact costs for your scenario. Most Azure resources in this infrastructure use usage-based pricing tiers.
 
 ## Deploy this scenario
 
