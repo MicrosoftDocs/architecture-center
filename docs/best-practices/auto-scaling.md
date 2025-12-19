@@ -65,7 +65,7 @@ Consider the following examples:
 
 - Scale out to 10 instances on weekdays, and scale in to four instances on Saturday and Sunday.
 
-- Scale out by one instance if average CPU usage is above 70%, and scale in by one instance if CPU usage falls below 50%.
+- Scale out by one instance if average CPU usage is higher than 70%, and scale in by one instance if CPU usage falls below 50%.
 - Scale out by one instance if the number of messages in a queue exceeds a certain threshold.
 
 Scale up the resource when load increases to ensure availability. At times of low usage, scale down so you can optimize cost. Always use a scale-out and scale-in rule combination. Otherwise, the autoscaling takes place only in one direction until it reaches the threshold (maximum or minimum instance counts) set in the profile.
@@ -76,7 +76,7 @@ For a list of built-in metrics, see [Azure Monitor autoscaling common metrics][a
 
 You can configure autoscaling by using PowerShell, the Azure CLI, an Azure Resource Manager template, or the Azure portal. For more detailed control, use the [Resource Manager REST API](/rest/api/resources/). The [Azure Monitoring Management Library](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring) and the [Microsoft Insights Library](https://www.nuget.org/packages/Microsoft.Azure.Insights) (in preview) are SDKs that allow collecting metrics from different resources and perform autoscaling by making use of the REST APIs. For resources where Resource Manager support isn't available, or if you use Azure Cloud Services, the Service Management REST API can be used for autoscaling. In all other cases, use Resource Manager.
 
-Consider the following points when using autoscaling:
+Consider the following points when you use autoscaling:
 
 - Consider whether you can predict the load on the application accurately enough to use scheduled autoscaling, adding and removing instances to meet anticipated peaks in demand. If you can't, use reactive autoscaling based on runtime metrics to handle unpredictable changes in demand. Typically, you can combine these approaches.
 
@@ -126,7 +126,7 @@ Autoscaling isn't an instant solution. Simply adding resources to a system or ru
 
 ### Other scaling criteria
 
-- Consider the length of the queue over which UI and background compute instances communicate. Use it as a criterion for your autoscaling strategy. This criteria can indicate an imbalance or difference between the current load and the processing capacity of the background task. There's a slightly more complex but better attribute to base scaling decisions on. Use the time between when a message was sent and when its processing was complete, known as the *critical time*. If this critical time value is below a meaningful business threshold, then it's unnecessary to scale, even if the queue length is long.
+- Consider the length of the queue over which UI and background compute instances communicate. Use it as a criterion for your autoscaling strategy. This criteria can indicate an imbalance or difference between the current load and the processing capacity of the background task. There's a slightly more complex but better attribute to base scaling decisions on. Use the time between when a message was sent and when its processing was complete, known as the *critical time*. If this critical time value is within an acceptable business range, then it's unnecessary to scale, even if the queue length is long.
   - For example, there could be 50,000 messages in a queue. But the critical time of the oldest message is 500 ms, and that endpoint is dealing with integration with a partner web service for sending out emails. Business stakeholders might not consider this scenario as urgent enough to justify the cost of scaling out.
 
   - On the other hand, there could be 500 messages in a queue, with the same 500-ms critical time. But the endpoint is part of the critical path in a real-time online game, where business stakeholders defined a 100-ms or less response time. In that case, scaling out makes sense.

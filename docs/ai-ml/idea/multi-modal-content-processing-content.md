@@ -20,11 +20,11 @@ The following workflow corresponds to the previous diagram:
 
 1. The Azure Container Apps website receives the content upload request and invokes the processing API hosted in Container Apps. Both components are custom-coded solutions tailored for this scenario. The API selects the appropriate processing pipeline and initiates content analysis workflows.
 
-1. Container Apps manages the processing workflow. It connects Content Understanding, which performs optical character recognition (OCR) and extracts text, with Azure OpenAI in Foundry Models. These models map schemas and convert the extracted data into structured formats.
+1. Container Apps manages the processing workflow. It connects Content Understanding, which performs optical character recognition (OCR) and extracts text, with Azure OpenAI. These models map schemas and convert the extracted data into structured formats.
 
 1. Content Understanding performs machine learning-based OCR for efficient text extraction from various content formats, including images, tables, and graphs.
 
-1. Azure OpenAI in Foundry Models with GPT Vision processes the extracted content, maps it to custom or industry-defined schemas, and generates a structured JSON output with confidence scoring.
+1. Azure OpenAI with GPT Vision processes the extracted content, maps it to custom or industry-defined schemas, and generates a structured JSON output with confidence scoring.
 
 1. The orchestration code in Container Apps stores processed results, confidence scores, schema mappings, and historical processing data for audit trails and continuous improvement in Azure Cosmos DB.
 

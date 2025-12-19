@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: SAP workload automation using SUSE on Azure
+  title: Automate SAP Workloads by Using SUSE on Azure
   description: The SUSE SAP automation solution speeds deployment of SAP infrastructure on Azure. Use it to bolster productivity and facilitate innovation.
   author: YenChiHo
   ms.author: yenchiho
@@ -19,7 +19,7 @@ products:
   - azure-cloud-shell
   - azure-load-balancer
   - azure-virtual-network
-name: SAP workload automation using SUSE on Azure
+name: Automate SAP workloads by using SUSE on Azure
 summary: The SUSE SAP automation solution speeds deployment of SAP infrastructure on Azure. Use it to bolster productivity and facilitate innovation.
 thumbnailUrl: /azure/architecture/browse/thumbs/sap-workload-automation-suse.png
 content: |
