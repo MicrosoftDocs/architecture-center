@@ -25,7 +25,13 @@ The red box represents a scale unit with services that scale together. To effect
 
 These individual scale units don't have any dependencies on one another and only communicate with shared services outside of the individual scale unit. You can use these scale units in a [blue-green deployment](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-deploy-test#deployment-zero-downtime-updates) by rolling out new scale units, validating that they function correctly, and gradually moving production traffic onto them.
 
-In this scenario, we consider scale units as temporary, which optimizes the rollout processes and provides scalability within and across regions. When you take this approach, you should store data only in the database because the database is replicated to the secondary region. If you need to store data in the scale unit, consider using Azure Cache for Redis for storage in the scale unit. If a scale unit must be abandoned, repopulating the cache might increase latency, but it doesn't cause outages.  
+In this scenario, we consider scale units as temporary, which optimizes the rollout processes and provides scalability within and across regions. When you take this approach, you should store data only in the database because the database is replicated to the secondary region. For this purpose, **Azure Managed Redis (AMR)** can be used within or alongside a scale unit to store auxiliary application state such as caching data, session state, rate-limiting counters, feature flags, and coordination metadata. Because AMR is based on Redis Enterprise, it supports high availability, clustering, optional persistence, and **Active Geo-Replication**, allowing Redis-backed state to participate safely in mission-critical designs.
+
+When required, Active Geo-Replication enables Redis data to be asynchronously replicated across regions to improve resiliency and reduce recovery time objectives (RTO) during regional failover scenarios. This capability is typically applied to auxiliary state that must survive regional outages, while purely rebuildable cache data can remain local to a scale unit or region.
+
+When scale units are replaced or abandoned, applications must be able to reconnect transparently to Redis. Redis-backed data should be designed as either:
+- **Rebuildable state**, such as cache entries that can be repopulated without affecting availability, or
+- **Durable auxiliary state**, protected by Redis Enterprise availability, persistence, and geo-replication features.
 
 Application Insights is excluded from the scale unit. Exclude services that store or monitor data. Separate them into their own resource group with their own life cycle.
 
@@ -39,7 +45,7 @@ This architecture uses the following components.
 
 - [App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed platform for building, deploying, and scaling web apps. In this architecture, App Service serves as the application-hosting platform within each scale unit. It provides the compute infrastructure for mission-critical web applications that have high availability and scalability requirements.
 
-- [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is an in-memory data structure store used as a database, cache, and message broker. In this architecture, Azure Cache for Redis caches requests within each scale unit to improve application performance. It can also serve as temporary storage for scale unit data that needs to be quickly repopulated if a scale unit is replaced.
+- [Azure Managed Redis](/azure/redis/overview) is a Redis Enterprise–based, fully managed, in-memory data platform. In this architecture, AMR provides low-latency access to auxiliary application state within or alongside each scale unit, such as caching, session data, rate limiting, feature flags, and distributed coordination. It supports clustering, availability zones, optional persistence, and Active Geo-Replication, making it suitable for mission-critical workloads.
 
 - [App Configuration](/azure/azure-app-configuration/overview) is a service that centrally manages application settings and feature flags. In this architecture, App Configuration stores configuration settings for the application within the scale unit. Its capacity directly correlates to the number of requests per second that each scale unit can handle.
 
@@ -64,15 +70,25 @@ Regardless of the application platform that you choose, we recommend that you pr
 
 ## Choose the data platform
 
-The database platform that you choose affects the overall workload architecture, especially the platform's active-active or active-passive configuration support. The reliable web app pattern uses Azure SQL, which doesn't natively support active-active deployments that have write operations in more than one instance. In this configuration, the data platform is limited to an active-passive strategy. A (partial) active-active strategy on the application level is possible if there are read-only replicas in all regions and you only write to a single region.
+The data platform that you choose affects the overall workload architecture, especially the platform’s support for active-active or active-passive deployment models. In the reliable web app pattern, Azure SQL is used as the primary relational data platform. Azure SQL does not natively support active-active deployments with concurrent writes in more than one region. As a result, this pattern typically follows an active-passive strategy at the database layer. A partial active-active approach is possible at the application tier by deploying read-only replicas in multiple regions while directing all write operations to a single primary region.
 
 :::image type="content" source="./media/mission-critical-web-apps/data-replication-architecture.svg" alt-text="A diagram that shows the architecture with Azure SQL Database replicated in each region." lightbox="./media/mission-critical-web-apps/data-replication-architecture.svg" border="false":::
 
-Multiple databases are common in complex architectures, such as microservices architectures that have a database for each service. Multiple databases allow the adoption of a multiple-primary write database like Azure Cosmos DB, which improves high availability and low latency. Cross-region latency can create limitations. It's crucial to consider nonfunctional requirements and factors like consistency, operability, cost, and complexity. Enable individual services to use separate data stores and specialized data technologies to meet their unique requirements. For more information, see [Data platform considerations for mission-critical workloads on Azure](/azure/well-architected/mission-critical/mission-critical-data-platform).
+For some mission-critical workloads, particularly those that are write-heavy or require very low write latency, writing directly to the relational database in the request path can become a scalability or latency bottleneck. In these scenarios, Azure Managed Redis (AMR) can be introduced as an application-tier data platform to accelerate write throughput and protect the system-of-record database.
+
+With this approach, AMR serves as the initial write target for selected data domains, while data is persisted asynchronously to Azure SQL using a **write-behind (write-back) pattern**. This design allows the application to absorb bursts of writes with low latency, while maintaining Azure SQL as the authoritative system of record. Typical use cases include session updates, counters, rate limiting, state transitions, telemetry aggregation, and other data that can tolerate eventual consistency.
+
+Azure Managed Redis, based on Redis Enterprise, also supports **Active Geo-Replication**, enabling Redis-backed data to be replicated asynchronously across regions. When applied selectively, Active Geo-Replication allows certain categories of application state to participate in active-active application designs, even when the primary relational database remains active-passive. This capability can significantly reduce recovery time objectives (RTO) during regional failover scenarios.
+
+In addition to write-behind, mission-critical workloads often use **prefetch (read-ahead) caching** to proactively load data into Azure Managed Redis based on predicted access patterns, scheduled jobs, or change events. Prefetching reduces cold-start latency for newly deployed scale units and improves tail latency during traffic spikes, which is particularly important when scale units are treated as ephemeral.
+
+Complex architectures commonly use multiple data platforms, such as microservices architectures where each service owns its own data store. Using multiple databases allows workloads to adopt specialized data technologies—such as Azure SQL for relational consistency, Azure Managed Redis for low-latency and high-throughput state, or Azure Cosmos DB for multi-primary writes—based on each service’s requirements. When making these choices, it is critical to evaluate nonfunctional requirements including consistency, availability, latency, operability, cost, and overall complexity.
+
+For more information, see [Data platform considerations for mission-critical workloads on Azure](/azure/well-architected/mission-critical/mission-critical-data-platform).
 
 ## Define a health model
 
-In complex multitier workloads that spread across multiple datacenters and geographical regions, you must define a health model. 
+In complex multitier workloads that spread across multiple datacenters and geographical regions, you must define a health model.
 
 To define a health model:
 
