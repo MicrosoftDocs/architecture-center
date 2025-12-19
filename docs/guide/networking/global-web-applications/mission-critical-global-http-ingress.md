@@ -14,7 +14,9 @@ ms.custom: guide
 
 Mission-critical applications need to maintain a high level of uptime, even when network components are unavailable or degraded. When you design web traffic ingress, routing, and security, you can consider combining multiple Azure services to achieve a higher level of availability and to avoid having a single point of failure.
 
-As mentioned in the previous article in this series, Azure Front Door is designed to provide the utmost resiliency and availability not only for our external customers, but also for multiple properties across Microsoft. While Microsoft offers an industry-leading service level agreement (SLA) for Azure Front Door. Hence, if you have a mission-critical application that demands even higher SLA, you need to rely on multiple CDNs. Hence, f you decide to adopt this approach, you'll need to implement separate network path to your application servers, and each path needs to be configured and tested separately. You must carefully consider the full implications of this approach.  
+As mentioned in the previous articles within this series, Azure Front Door is designed to provide the utmost resiliency and availability not only for our external customers, but also for multiple properties across Microsoft. While Microsoft offers an [industry-leading service level agreement (SLA) for Azure Front Door](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services, if you have a mission-critical application that demands even higher SLA, you need to lerverage alternate traffic ingress paths.
+
+If you decide to adopt this approach, you'll need to implement separate network path to your application servers, and each path needs to be configured and tested separately. You must carefully consider the full implications of this approach.  
 
 This article describes an approach to support global HTTP traffic ingress through Azure Front Door and Azure Application Gateway. This approach might suit your needs if your solution needs:
 
