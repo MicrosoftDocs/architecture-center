@@ -797,10 +797,10 @@
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(28000):26"/>
 			</v:userDefs>
-			<title>Azure OpenAI Service.1281</title>
+			<title>Azure OpenAI.1281</title>
 			<g id="group1143-154" v:mID="1143" v:groupContext="group">
 				<title>Sheet.1143</title>
-				<desc>Azure OpenAI Service</desc>
+				<desc>Azure OpenAI</desc>
 				<g id="shape1144-155" v:mID="1144" v:groupContext="shape">
 					<title>Sheet.1144</title>
 					<path d="M0 248.88 L0 272.69 C0 275.51 2.28 277.8 5.1 277.8 L28.91 277.8 C31.73 277.8 34.02 275.51 34.02 272.69
@@ -812,8 +812,7 @@
 				<g id="shape1143-160" v:mID="1143" v:groupContext="groupContent">
 					<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
 					<v:textRect cx="16.5827" cy="288.697" width="71.72" height="21.2598"/>
-					<text x="-14.16" y="285.7" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure OpenAI <tspan
-								x="1.04" dy="1.2em" class="st9">Service</tspan></text>				</g>
+					<text x="-14.16" y="285.9" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure OpenAI</text>				</g>
 			</g>
 		</g>
 		<g id="shape1-163" v:mID="1" v:groupContext="shape" transform="translate(-1.22835,-0.687398)">
@@ -1220,14 +1219,13 @@
 						x="14.51" dy="1.2em" class="st9">provider</tspan></text>		</g>
 		<g id="shape1147-175" v:mID="1147" v:groupContext="shape" transform="translate(286.866,-46.2047)">
 			<title>Sheet.1147</title>
-			<desc>Azure OpenAI Service</desc>
+			<desc>Azure OpenAI</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(32000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="41.1025" cy="261.638" width="82.21" height="32.315"/>
 			<rect x="0" y="245.48" width="82.2051" height="32.315" class="st16"/>
-			<text x="10.36" y="258.64" class="st15" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure OpenAI <tspan
-						x="25.56" dy="1.2em" class="st9">Service</tspan></text>		</g>
+			<text x="10.36" y="260.84" class="st15" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure OpenAI</text>		</g>
 	</g>
 </svg>
