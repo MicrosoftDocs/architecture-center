@@ -1,8 +1,8 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This architecture describes a content processing solution that extracts data and applies schemas across multi-modal content by using confidence scoring and user validation. It processes claims, invoices, contracts, and other documents by extracting information from unstructured content and mapping it to structured formats. This architecture applies Microsoft Foundry, Azure Content Understanding, Azure OpenAI in Foundry Models, and other Azure services to transform large volumes of unstructured content through event-driven processing pipelines.
+This content processing solution extracts data and applies schemas across multi-modal content through confidence scoring and user validation. It processes claims, invoices, contracts, and other documents by extracting information from unstructured content and mapping it to structured formats.
 
-This architecture demonstrates how to build scalable content processing systems. The systems handle text, images, tables, and graphs and include automated quality checks and human review for business document workflows.
+The architecture uses Microsoft Foundry, Azure Content Understanding, Azure OpenAI in Foundry Models, and other Azure services to transform large volumes of unstructured content through event-driven processing pipelines. It handles text, images, tables, and graphs with automated quality checks and human review capabilities for business document workflows.
 
 ## Architecture
 
@@ -18,7 +18,7 @@ The following workflow corresponds to the previous diagram:
 
 1. Users upload multi-modal content, like documents, images, contracts, and invoices, through the web front-end interface. Users submit the content with specific processing requirements and target schemas.
 
-1. The Azure Container Apps website receives the content upload request and invokes the processing API hosted in Container Apps. Your software team develops custom code for both components to tailor them for this scenario. The API selects the appropriate processing pipeline and initiates content analysis workflows.
+1. The Azure Container Apps website receives the content upload request and invokes the processing API hosted in Container Apps. The software team develops custom code for both components to tailor them for this scenario. The API selects the appropriate processing pipeline and initiates content analysis workflows.
 
 1. Container Apps manages the processing workflow and connects Content Understanding with Azure OpenAI.
 
@@ -51,7 +51,7 @@ The following workflow corresponds to the previous diagram:
 
   - [Azure OpenAI](/azure/ai-foundry/openai/overview) is a component of Foundry that provides language models, including GPT-4o and GPT-4o mini. In this architecture, Foundry hosts the models as a service. These models perform schema-based data transformation, map extracted content to structured formats, and calculate confidence scores for extraction accuracy.
 
-  - [Content Understanding](/azure/ai-services/content-understanding/overview) is a multi-modal AI service that analyzes various media content, like audio, video, text, and images. It transforms the content into structured, searchable data. In this architecture, Content Understanding accurately performs advanced OCR and content extraction from multi-modal documents.
+  - [Content Understanding](/azure/ai-services/content-understanding/overview) is a multi-modal AI service that analyzes various media content, like audio, video, text, and images. It transforms the content into structured, searchable data. In this architecture, Content Understanding performs advanced OCR and content extraction from multi-modal documents.
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, multiple-model database service that provides guaranteed low latency and elastic scalability. In this architecture, Azure Cosmos DB stores processed results, confidence scores, validation outcomes, and historical processing data for audit trails and performance optimization.
 
