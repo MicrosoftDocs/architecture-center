@@ -2,7 +2,7 @@
 
 This content processing solution extracts data and applies schemas across multi-modal content through confidence scoring and user validation. It processes claims, invoices, contracts, and other documents by extracting information from unstructured content and mapping it to structured formats.
 
-The architecture uses Microsoft Foundry, Azure Content Understanding, Azure OpenAI in Foundry Models, and other Azure services to transform large volumes of unstructured content through event-driven processing pipelines. It handles text, images, tables, and graphs with automated quality checks and human review capabilities for business document workflows.
+The architecture uses Microsoft Foundry, Azure Content Understanding, Azure OpenAI in Foundry Models, and other Azure services to transform large volumes of unstructured content through event-driven processing pipelines. It handles text, images, tables, and graphs, and provides automated quality checks and human review capabilities for business document workflows.
 
 ## Architecture
 
@@ -20,11 +20,11 @@ The following workflow corresponds to the previous diagram:
 
 1. The Azure Container Apps website receives the content upload request and invokes the processing API hosted in Container Apps. The software team develops custom code for both components to tailor them for this scenario. The API selects the appropriate processing pipeline and initiates content analysis workflows.
 
-1. Container Apps manages the processing workflow and connects Content Understanding with Azure OpenAI.
+1. Container Apps manages the processing workflow and connects Content Understanding to Azure OpenAI.
 
 1. Content Understanding performs machine learning-based optical character recognition (OCR) and extracts text from various content formats, including images, tables, and graphs.
 
-1. Azure OpenAI with GPT Vision processes the extracted content, maps it to custom or industry-defined schemas, and generates a structured JSON output with confidence scoring.
+1. Azure OpenAI with GPT Vision processes the extracted content, maps it to custom or industry-defined schemas, and generates a structured JSON output that includes confidence scoring.
 
 1. The orchestration code in Container Apps stores processed results, confidence scores, schema mappings, and historical processing data for audit trails and continuous improvement in Azure Cosmos DB.
 
@@ -55,7 +55,7 @@ The following workflow corresponds to the previous diagram:
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, multiple-model database service that provides guaranteed low latency and elastic scalability. In this architecture, Azure Cosmos DB stores processed results, confidence scores, validation outcomes, and historical processing data for audit trails and performance optimization.
 
-- [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is an object storage solution optimized for storing massive amounts of unstructured data. In this architecture, Blob Storage maintains source documents, intermediate processing artifacts, and final structured outputs with reliable durability and global availability.
+- [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is an object storage solution optimized for storing massive amounts of unstructured data. In this architecture, Blob Storage maintains source documents, intermediate processing artifacts, and final structured outputs. It provides durable, globally available storage.
 
 - [Azure Container Registry](/azure/container-registry/container-registry-intro) is a managed Docker registry service that stores and manages container images. In this architecture, Container Registry manages versioned container images for the processing pipeline components. This system ensures consistent deployment and rollback capabilities.
 
@@ -67,7 +67,7 @@ This architecture includes multiple components that you can substitute with othe
 
 #### Content extraction approach
 
-**Current approach:** This solution uses Content Understanding for advanced OCR and content extraction, combined with Azure OpenAI for schema mapping and transformation. This approach provides high accuracy for complex multi-modal content with flexible schema customization.
+**Current approach:** This solution uses Content Understanding for advanced OCR and content extraction, combined with Azure OpenAI for schema mapping and transformation. This approach provides high accuracy for complex multi-modal content and supports flexible schema customization.
 
 **Alternative approach:** Use Azure Document Intelligence for document processing by using prebuilt models for common document types like invoices, receipts, and forms. This approach provides faster implementation for standard document types but less flexibility for custom schemas.
 
@@ -75,7 +75,7 @@ Consider this alternative if your workload has the following characteristics:
 
 - You primarily process standard document types that have well-defined formats.
 
-- You need faster time-to-market with prebuilt extraction models.
+- You need faster time-to-market by using prebuilt extraction models.
 
 - Your schema requirements align with standard document intelligence models.
 
@@ -99,7 +99,7 @@ Consider this alternative if your workload has the following characteristics:
 
 ## Scenario details
 
-Some organizations extract meaningful data from large volumes of unstructured, multi-modal content daily. Traditional manual processing of documents like contracts, invoices, claims, and compliance reports is time-consuming, error-prone, and doesn't scale with business growth. As a result, organizations face inconsistent data quality, lack of standardization, and difficulty integrating extracted information into downstream business processes. This content processing solution addresses those problems.
+Some organizations extract meaningful data daily from large volumes of unstructured, multi-modal content. Traditional manual processing of documents like contracts, invoices, claims, and compliance reports is time-consuming, error-prone, and doesn't scale with business growth. As a result, organizations face inconsistent data quality, lack of standardization, and difficulty integrating extracted information into downstream business processes. This content processing solution addresses those problems.
 
 The solution uses advanced AI services to automatically extract, transform, and validate content from various document types. The system provides confidence scoring to enable automated processing for high-confidence extractions while flagging lower-confidence results for human review. This approach ensures both speed and accuracy while maintaining the flexibility to handle diverse content formats and custom business schemas.
 
