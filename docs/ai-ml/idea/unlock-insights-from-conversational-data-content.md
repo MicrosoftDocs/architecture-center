@@ -69,6 +69,42 @@ The following workflow corresponds to the previous diagram:
 
   [Foundry Agent Service](/azure/ai-foundry/agents/overview) is a managed runtime service that connects the core pieces of Foundry, like models, tools, and frameworks, into a single runtime. It manages conversations, orchestrates tool calls, enforces content safety, and integrates with identity, networking, and observability systems. These activities help ensure that agents remain secure, scalable, and production ready. In this architecture, the chat interface invokes Foundry Agent Service to power the chat completion.
 
+### Alternatives
+
+This architecture includes multiple components that you can substitute with other Azure services or approaches, depending on your workload's functional and nonfunctional requirements. Evaluate the following alternatives and trade-offs to align with your specific goals.
+
+#### Content processing approach
+
+- **Current approach:** This solution uses Content Understanding as the primary service for extracting entities, relationships, and insights from conversational data. It provides specialized conversation analysis capabilities with built-in understanding of dialogue patterns and conversational context.
+
+- **Alternative approach:** Combine Azure Document Intelligence with Azure OpenAI to process transcripts and extract structured information by using prompt engineering and few-shot learning (FSL) techniques.
+
+Consider the alternative approach if your workload has the following characteristics:
+
+- You need to process conversations that already exist in well-structured document formats.
+
+- You require custom entity extraction that goes beyond standard conversation analysis.
+
+- You want more control over the extraction logic through custom prompts and examples.
+
+- Your conversations include complex formatting or mixed content types that require document-specific processing.
+
+#### Search and retrieval strategy
+
+- **Current approach:** This solution uses Foundry IQ with vector embeddings to enable semantic search across conversation transcripts. It supports natural language queries and RAG-based interactions.
+
+- **Alternative approach:** Implement a pure vector database solution by using Azure DocumentDB with vector search capabilities. Alternatively, use Azure Database for PostgreSQL with the *pgvector* extension.
+
+Consider the alternative approach if your workload has the following characteristics:
+
+- You need high-performance vector similarity search with minimal latency.
+
+- Your solution requires tight integration with existing MongoDB or PostgreSQL ecosystems.
+
+- You want to minimize the number of different services in your architecture.
+
+- You only need vector-based search and don't require traditional full-text search.
+
 ## Scenario details
 
 Organizations accumulate large volumes of unstructured conversational data from customer interactions, support calls, sales conversations, and internal meetings. This conversation knowledge mining solution extracts actionable insights from that data. Traditional analysis methods struggle to process conversational data at scale and extract meaningful patterns. As a result, organizations face limitations in understanding customer sentiment, identifying operational problems, and uncovering opportunities for improvement.
@@ -95,43 +131,10 @@ Consider the following potential use cases.
 
 - **Sales conversation analysis:** Extract insights from sales calls to identify successful conversation patterns, objection-handling techniques, and competitive intelligence. Use these insights to improve sales effectiveness and enhance training programs.
 
-## Alternatives
+## Considerations
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
 
-This architecture includes multiple components that you can substitute with other Azure services or approaches, depending on your workload's functional and nonfunctional requirements. Evaluate the following alternatives and trade-offs to align with your specific goals.
-
-### Content processing approach
-
-- **Current approach:** This solution uses Content Understanding as the primary service for extracting entities, relationships, and insights from conversational data. It provides specialized conversation analysis capabilities with built-in understanding of dialogue patterns and conversational context.
-
-- **Alternative approach:** Combine Azure Document Intelligence with Azure OpenAI to process transcripts and extract structured information by using prompt engineering and few-shot learning (FSL) techniques.
-
-Consider the alternative approach if your workload has the following characteristics:
-
-- You need to process conversations that already exist in well-structured document formats.
-
-- You require custom entity extraction that goes beyond standard conversation analysis.
-
-- You want more control over the extraction logic through custom prompts and examples.
-
-- Your conversations include complex formatting or mixed content types that require document-specific processing.
-
-### Search and retrieval strategy
-
-- **Current approach:** This solution uses Foundry IQ with vector embeddings to enable semantic search across conversation transcripts. It supports natural language queries and RAG-based interactions.
-
-- **Alternative approach:** Implement a pure vector database solution by using Azure DocumentDB with vector search capabilities. Alternatively, use Azure Database for PostgreSQL with the *pgvector* extension.
-
-Consider the alternative approach if your workload has the following characteristics:
-
-- You need high-performance vector similarity search with minimal latency.
-
-- Your solution requires tight integration with existing MongoDB or PostgreSQL ecosystems.
-
-- You want to minimize the number of different services in your architecture.
-
-- You only need vector-based search and don't require traditional full-text search.
-
-## Cost Optimization
+### Cost Optimization
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
