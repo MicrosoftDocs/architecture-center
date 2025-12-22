@@ -41,9 +41,9 @@ The [deployment and tenancy model](../considerations/tenancy-models.md) that you
 
 ### Scale
 
-When you plan messaging or eventing infrastructure, consider the number of tenants, complexity of message flows and `eventstream`, volume of messages, expected traffic profile, and isolation level.
+When you plan messaging or eventing infrastructure, consider the number of tenants, complexity of message flows and eventstreams, volume of messages, expected traffic profile, and isolation level.
 
-First, plan for capacity and establish the maximum throughput capacity for the messaging system. This planning helps you properly handle the expected volume of messages under regular and peak traffic.
+First, plan for capacity and establish the maximum throughput capacity for the messaging system. This planning helps you properly handle the expected volume of messages during regular and peak traffic.
 
 When your solution handles many tenants and has a separate messaging system for each tenant, apply a consistent automation strategy. This strategy should automate the deployment, monitoring, alerting, and scaling of each infrastructure.
 
@@ -65,7 +65,7 @@ From the start, plan how you intend to operate, monitor, and maintain your messa
 
 - When you share a messaging system across multiple tenants, define how your solution collects and reports the usage metrics for each tenant or how it throttles the number of messages that each tenant can send or receive.
 
-- Determine how to migrate tenants when they need to move to a different type of messaging service, a different deployment, or another region.
+- When tenants need to move to a different type of messaging service, a different deployment, or another region, determine how to migrate them.
 - When your messaging system uses a platform as a service (PaaS) offering, account for the following considerations:
   - Customize the pricing tier for each tenant based on the features and shared or dedicated isolation level that the tenant requests.
 
@@ -85,14 +85,14 @@ When you plan a multitenant solution that involves messaging, consider the level
 - **Business continuity:** Identify tenants that need a high level of recoverability and business continuity. Consider zone redundancy, geo-redundancy, and geo-disaster recovery capabilities for these tenants where available.
 - **Worker processing:** When you use separate queue resources or a dedicated messaging system for each tenant, you can adopt a separate pool of worker processes for each tenant. This approach increases the data isolation level and reduces the complexity of managing multiple messaging entities.
 
-  Each instance of the processing system can adopt different credentials, like a connection string, service principal, or managed identity, to access the dedicated messaging system. This approach provides better security and isolation between tenants, but it increases identity management complexity.
+  Each instance of the processing system can adopt different credentials, like a connection string, service principal, or managed identity, to access the dedicated messaging system. This approach improves security and isolation between tenants, but it increases identity management complexity.
 
 ### Shared messaging system
 
 You might deploy a shared messaging system, like a single Service Bus namespace, and share it across all your tenants.
 
 :::image type="complex" border="false" source="media/messaging/shared-messaging-system.png" alt-text="Diagram that shows a single shared multitenant messaging system for all tenants." lightbox="media/messaging/shared-messaging-system.png":::
-The diagram shows three tenants, tenant A, B, and C. They all point to shared resources, which include a web server and messaging resources.
+The diagram shows tenants A, B, and C. They all point to shared resources, which include a web server and messaging resources.
 :::image-end:::
 
 This approach provides the highest density of tenants to the infrastructure and reduces the overall TCO. It often reduces management overhead because you only need to manage and secure a single messaging system or resource.
@@ -122,7 +122,7 @@ You can implement the map as a dictionary that links each tenant name to the nam
 
 The Sharding pattern can scale to support several tenants. Depending on your workload, you might achieve a high density of tenants to shards, which can reduce cost. You can also use the Sharding pattern to address [Azure subscription and service quotas, limits, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
-### Use a multitenant app with dedicated messaging system for each tenant
+### Use a multitenant app with a dedicated messaging system for each tenant
 
 You can also deploy a single multitenant application that uses dedicated messaging systems for each tenant. This tenancy model includes some shared components, like computing resources. You provision and manage other services by using a single-tenant, dedicated deployment approach. For example, you can build a single application tier and then deploy individual messaging systems for each tenant, as shown in the following illustration.
 
@@ -132,7 +132,7 @@ Tenants A, B, and C point to a section that contains a shared web server and thr
 
 If specific components generate most of your system's load and you can deploy these components separately for each tenant, use a horizontally partitioned deployment to reduce noisy neighbor problems. For example, use a separate messaging or `eventstream` system for each tenant if a single instance can't keep up with traffic that multiple tenants generate. When you use a dedicated messaging system for each tenant, a large volume of messages or events from a single tenant might affect the shared components but not other tenants' messaging systems.
 
-Because you provision dedicated resources for each tenant, this approach often costs more than a shared hosting model. However, it also gives you a straightforward way to charge each tenant for the resources that they use. This approach lets you achieve high density for other services, like computing resources, and reduces these components' costs.
+Because you provision dedicated resources for each tenant, this approach often costs more than a shared hosting model. However, it also gives you a straightforward way to charge each tenant for the resources that they use. This approach lets you achieve high density for other services, like computing resources, and reduces the cost of these components.
 
 With a horizontally partitioned deployment, you need an automated process to deploy and manage a multitenant application's services, especially services that a single tenant uses.
 
