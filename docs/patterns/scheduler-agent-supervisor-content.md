@@ -122,7 +122,7 @@ The Supervisor periodically examines the state store looking for orders with an 
 
 Although it isn't shown in this example, the Scheduler might need to keep the application that submitted the order informed about the progress and status of the order. The application and the Scheduler are isolated from each other to eliminate any dependencies between them. The application has no knowledge of which instance of the Scheduler is handling the order, and the Scheduler is unaware of which specific application instance posted the order.
 
-To allow the order status to be reported, the application could use its own private response queue. The details of this response queue would be included as part of the request sent to the submission process, which would include this information in the state store. The Scheduler would then post messages to this queue indicating the status of the order (request received, order completed, and order failed). It should include the order ID in these messages so they can be correlated with the original request by the application.
+To allow the order status to be reported, the application could use its own private response queue. The details of this response queue would be included as part of the request sent to the submission process, which would include this information in the state store. The Scheduler would then post messages to this queue indicating the status of the order (such as request received, order completed, and order failed). It should include the order ID in these messages so they can be correlated with the original request by the application.
 
 ## Next steps
 

@@ -102,7 +102,7 @@ As with any design decision, consider any tradeoffs against the goals of the oth
 
 ## Example
 
-You can use a sequence of message queues to provide the infrastructure required to implement a pipeline. An initial message queue receives unprocessed messages that become the start of the pipes and filters pattern implementation. A component implemented as a filter task listens for a message on this queue, performs its work, and then posts a new or transformed message to the next queue in the sequence. Another filter task can listen for messages on this queue, process them, post the results to another queue, and other steps, until the final step that ends the pipes and filters process. This diagram illustrates a pipeline that uses message queues:
+You can use a sequence of message queues to provide the infrastructure required to implement a pipeline. An initial message queue receives unprocessed messages that become the start of the pipes and filters pattern implementation. A component implemented as a filter task listens for a message on this queue, performs its work, and then posts a new or transformed message to the next queue in the sequence. Another filter task can listen for messages on this queue, process them, post the results to another queue, and complete other steps, until the final step that ends the pipes and filters process. This diagram illustrates a pipeline that uses message queues:
 
 ![Diagram showing a pipeline that uses message queues.](./_images/pipes-and-filters-message-queues.png)
 
