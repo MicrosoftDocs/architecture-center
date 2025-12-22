@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Build a Multiple-Agent Workflow Automation Solution with Microsoft Agent Framework
+  title: Build a Multiple-Agent Workflow Automation Solution by using Microsoft Agent Framework
   description: Learn how to design scalable automation pipelines where multiple AI agents collaborate by using Microsoft Agent Framework and Azure Container Apps.
   author: malrose07
   ms.author: malrose
@@ -15,7 +15,7 @@ products:
   - azure-cognitive-search
   - azure-cosmos-db
   - azure-ai-foundry
-name: Build a multiple-agent workflow automation solution with Microsoft Agent Framework
+name: Build a multiple-agent workflow automation solution by using Microsoft Agent Framework
 summary: Learn how to design scalable automation pipelines where multiple AI agents collaborate by using Microsoft Agent Framework and Azure Container Apps for enterprise-grade tasks.
 thumbnailUrl: /azure/architecture/browse/thumbs/multiple-agent-workflow-automation.png
 content: |
