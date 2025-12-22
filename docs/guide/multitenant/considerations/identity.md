@@ -3,7 +3,7 @@ title: Architectural Considerations for Identity in a Multitenant Solution
 description: Learn about multitenant identity architecture with authentication, authorization, SSO, federation, and tenant isolation strategies for secure solutions.
 author: plagueho
 ms.author: dascottr
-ms.date: 05/30/2025
+ms.date: 12/16/2025
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-saas
@@ -213,13 +213,13 @@ There are several reasons for this separation:
 
 - **Complexity of licensing models:** Licensing rules are often complex and specific to the business model. For example, licenses might be per-seat, time-based (daily or monthly assignment), limit concurrent usage, or have specific reassignment rules. Identity providers are generally designed for user authentication and basic authorization, not for complex commercial licensing logic.
 
-- **Independence:** Relying on an identity provider features for license management can lock your solution into that provider or its constraints. If you support customers who use different identity providers, you would need to build a custom solution for them anyway.
+- **Independence:** Relying on identity provider features for license management can lock your solution into that provider or its constraints. If you support customers who use different identity providers, you would need to build a custom solution for them anyway.
 
-A common pattern is to manage licenses within the application's database or a dedicated service. When a user signs in, the system retrieves their entitlements and injects them into the session or checks them at runtime.
+A common pattern is to manage licenses within the application's database or a dedicated service. When a user signs in, the identity provider retrieves their entitlements and injects them into the authorization token as custom claims that can be checked by the application components at run time.
 
 ## Identity scale and authentication volume
 
-As multitenant solutions grow, the number of users and sign-in requests that the solution needs to process increases. Consider the following factors:
+As multitenant solutions grow, the number of users and sign-in requests that the solution needs to process increases. Evaluate these scalability considerations:
 
 - Assess whether the user directory scales to support the required number of users.
 

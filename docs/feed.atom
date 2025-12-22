@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2025-12-08T21:34:59.933Z</updated>
+    <updated>2025-12-15T16:53:18.938Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
@@ -22,6 +22,78 @@
         <link href="https://learn.microsoft.com/azure/architecture/guide/technology-choices/vector-search"/>
         <updated>2025-12-03T18:25:40.000Z</updated>
         <summary type="html"><![CDATA[Learn how to use this information to decide which Azure service for vector search best suits your application.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Architectural Considerations for Identity in a Multitenant Solution]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/considerations/identity</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/considerations/identity"/>
+        <updated>2025-12-15T16:31:07.000Z</updated>
+        <summary type="html"><![CDATA[Learn about multitenant identity architecture with authentication, authorization, SSO, federation, and tenant isolation strategies for secure solutions.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Reliable Web App Pattern for .NET]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/web-apps/guides/enterprise-app-patterns/reliable-web-app/dotnet/guidance</id>
+        <link href="https://learn.microsoft.com/azure/architecture/web-apps/guides/enterprise-app-patterns/reliable-web-app/dotnet/guidance"/>
+        <updated>2025-12-11T18:10:47.000Z</updated>
+        <summary type="html"><![CDATA[Implement the Reliable Web App pattern for .NET. Migrate (replatform) web apps to the cloud with prescriptive architecture, code, and configuration guidance.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Replicate Mainframe and Midrange Data to Azure by Using Qlik]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/mainframe-midrange-data-replication-azure-qlik</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/mainframe-midrange-data-replication-azure-qlik"/>
+        <updated>2025-12-11T16:11:00.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use Qlik Replicate to migrate mainframe and midrange systems to the cloud or extend those systems by using cloud applications.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Choose a batch processing technology]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-guide/technology-choices/batch-processing</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-guide/technology-choices/batch-processing"/>
+        <updated>2025-12-10T18:47:30.000Z</updated>
+        <summary type="html"><![CDATA[Compare technology choices for big data batch processing in Azure, including key selection criteria and a capability matrix.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Integrate IBM mainframe and midrange message queues with Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/integrate-ibm-message-queues-azure</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/integrate-ibm-message-queues-azure"/>
+        <updated>2025-12-10T18:47:30.000Z</updated>
+        <summary type="html"><![CDATA[This example describes a data-first approach to middleware integration that enables IBM message queues (MQs).]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[DevSecOps for Infrastructure as Code (IaC)]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/devsecops-infrastructure-as-code</id>
+        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/devsecops-infrastructure-as-code"/>
+        <updated>2025-12-09T17:09:51.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use DevSecOps for IaC to more securely and efficiently deploy cloud infrastructure into a new Azure landing zone.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Design to Support Foundation Model Life Cycles]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/manage-foundation-models-lifecycle</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/manage-foundation-models-lifecycle"/>
+        <updated>2025-12-08T22:00:02.000Z</updated>
+        <summary type="html"><![CDATA[Learn about how to manage both new model versions and retired model versions in your generative AI application infrastructure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Use Azure Firewall to help protect an AKS cluster]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/aks/aks-firewall</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/aks/aks-firewall"/>
+        <updated>2025-12-08T22:00:02.000Z</updated>
+        <summary type="html"><![CDATA[Deploy an AKS cluster in a hub-and-spoke network topology by using Terraform and Azure DevOps. Help protect inbound and outbound traffic by using Azure Firewall.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[AKS baseline for multiregion clusters]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-multi-region/aks-multi-cluster</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-multi-region/aks-multi-cluster"/>
+        <updated>2025-12-08T22:00:02.000Z</updated>
+        <summary type="html"><![CDATA[Run Azure Kubernetes Service (AKS) cluster in multiple regions to achieve high availability.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -346,24 +418,24 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Baseline Microsoft Foundry Chat Reference Architecture]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-azure-ai-foundry-chat</id>
-        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-azure-ai-foundry-chat"/>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-chat</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-chat"/>
         <updated>2025-11-18T17:28:09.000Z</updated>
-        <summary type="html"><![CDATA[Use this baseline reference architecture to learn how to build network-secured, highly available, and zone-redundant enterprise chat applications by using Microsoft Foundry, the Azure AI Agent Service, Azure OpenAI models, and Azure App Service.]]></summary>
+        <summary type="html"><![CDATA[Use this baseline reference architecture to learn how to build network-secured, highly available, and zone-redundant enterprise chat applications by using Microsoft Foundry, the Azure AI Agent Service, Azure OpenAI in Foundry Models, and Azure App Service.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Baseline Microsoft Foundry Chat Reference Architecture in an Azure Landing Zone]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-azure-ai-foundry-landing-zone</id>
-        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-azure-ai-foundry-landing-zone"/>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-landing-zone</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-landing-zone"/>
         <updated>2025-11-18T17:28:09.000Z</updated>
-        <summary type="html"><![CDATA[Learn about deploying the baseline Microsoft Foundry, Foundry Agent Service, Azure OpenAI models, and Azure App Service chat architecture in an Azure landing zone.]]></summary>
+        <summary type="html"><![CDATA[Learn about deploying the baseline Microsoft Foundry, Foundry Agent Service, Azure OpenAI in Foundry Models, and Azure App Service chat architecture in an Azure landing zone.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Basic Microsoft Foundry Chat Reference Architecture]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/basic-azure-ai-foundry-chat</id>
-        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/basic-azure-ai-foundry-chat"/>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/basic-microsoft-foundry-chat</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/basic-microsoft-foundry-chat"/>
         <updated>2025-11-18T17:28:09.000Z</updated>
         <summary type="html"><![CDATA[Establish foundational knowledge for how to build and deploy enterprise chat applications by using Microsoft Foundry and Azure App Service.]]></summary>
         <category label="updated" term="updated"/>
@@ -453,7 +525,7 @@
         <id>https://learn.microsoft.com/azure/architecture/best-practices/cdn</id>
         <link href="https://learn.microsoft.com/azure/architecture/best-practices/cdn"/>
         <updated>2025-11-05T18:05:18.000Z</updated>
-        <summary type="html"><![CDATA[Guidance about using Content Delivery Networks (CDNs) to deliver high-bandwidth content hosted in Azure.]]></summary>
+        <summary type="html"><![CDATA[Guidance on using Content Delivery Networks (CDNs) to deliver high-bandwidth content hosted in Azure.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -513,7 +585,7 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Analytics end-to-end with Azure Synapse]]></title>
+        <title type="html"><![CDATA[Analytics end-to-end with Microsoft Fabric]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end</id>
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end"/>
         <updated>2025-11-05T18:05:18.000Z</updated>
@@ -693,7 +765,7 @@
         <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/openai</id>
         <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/openai"/>
         <updated>2025-10-28T02:55:35.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to deploy Azure OpenAI models and work with the features associated with each model when you have a multitenant system.]]></summary>
+        <summary type="html"><![CDATA[Learn how to deploy Azure OpenAI in Foundry Models and work with the features associated with each model when you have a multitenant system.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -714,8 +786,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Basic Microsoft Foundry Chat Reference Architecture]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/basic-azure-ai-foundry-chat</id>
-        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/basic-azure-ai-foundry-chat"/>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/basic-microsoft-foundry-chat</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/basic-microsoft-foundry-chat"/>
         <updated>2025-10-21T21:43:35.000Z</updated>
         <summary type="html"><![CDATA[Establish foundational knowledge for how to build and deploy enterprise chat applications by using Microsoft Foundry and Azure App Service.]]></summary>
         <category label="updated" term="updated"/>
@@ -749,7 +821,7 @@
         <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/azure-openai-gateway-multi-backend</id>
         <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/azure-openai-gateway-multi-backend"/>
         <updated>2025-10-14T20:38:30.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to add a gateway in front of multiple Azure OpenAI model deployments or instances.]]></summary>
+        <summary type="html"><![CDATA[Learn how to add a gateway in front of multiple Azure OpenAI in Foundry Models deployments or instances.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -781,7 +853,7 @@
         <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/app-configuration</id>
         <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/app-configuration"/>
         <updated>2025-10-13T21:53:04.000Z</updated>
-        <summary type="html"><![CDATA[Learn about the features of Azure App Configuration that are useful for multitenant systems, and explore the provided links for guidance and examples.]]></summary>
+        <summary type="html"><![CDATA[Learn about the features of Azure App Configuration that are useful when you work with multitenant systems, and use the provided links for guidance and examples.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -1217,7 +1289,7 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Back up mainframe file and tape to Azure by using Luminex]]></title>
+        <title type="html"><![CDATA[Back Up Mainframe File and Tape to Azure by Using Luminex]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/luminex-mainframe-file-tape-transfer</id>
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/luminex-mainframe-file-tape-transfer"/>
         <updated>2025-09-19T19:20:39.000Z</updated>
@@ -1618,10 +1690,10 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Baseline Microsoft Foundry Chat Reference Architecture]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-azure-ai-foundry-chat</id>
-        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-azure-ai-foundry-chat"/>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-chat</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-chat"/>
         <updated>2025-09-12T19:34:03.000Z</updated>
-        <summary type="html"><![CDATA[Use this baseline reference architecture to learn how to build network-secured, highly available, and zone-redundant enterprise chat applications by using Microsoft Foundry, the Azure AI Agent Service, Azure OpenAI models, and Azure App Service.]]></summary>
+        <summary type="html"><![CDATA[Use this baseline reference architecture to learn how to build network-secured, highly available, and zone-redundant enterprise chat applications by using Microsoft Foundry, the Azure AI Agent Service, Azure OpenAI in Foundry Models, and Azure App Service.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -1738,10 +1810,10 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Baseline Microsoft Foundry Chat Reference Architecture in an Azure Landing Zone]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-azure-ai-foundry-landing-zone</id>
-        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-azure-ai-foundry-landing-zone"/>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-landing-zone</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-landing-zone"/>
         <updated>2025-09-08T17:26:18.000Z</updated>
-        <summary type="html"><![CDATA[Learn about deploying the baseline Microsoft Foundry, Foundry Agent Service, Azure OpenAI models, and Azure App Service chat architecture in an Azure landing zone.]]></summary>
+        <summary type="html"><![CDATA[Learn about deploying the baseline Microsoft Foundry, Foundry Agent Service, Azure OpenAI in Foundry Models, and Azure App Service chat architecture in an Azure landing zone.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -1833,7 +1905,7 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Analytics end-to-end with Azure Synapse]]></title>
+        <title type="html"><![CDATA[Analytics end-to-end with Microsoft Fabric]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end</id>
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end"/>
         <updated>2025-09-04T17:29:02.000Z</updated>
