@@ -150,13 +150,13 @@ Other contributors:
 - [Clemens Vasters](https://www.linkedin.com/in/clemensv) | Principal Architect, Messaging Services and Standards
 - [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 
-## Next steps
+## Related resources
 
 For more information about messaging design patterns, see the following resources:
 
-- [Claim-Check pattern](/azure/architecture/patterns/claim-check)
-- [Competing Consumers pattern](/azure/architecture/patterns/competing-consumers)
-- [Event Sourcing pattern](/azure/architecture/patterns/event-sourcing)
-- [Pipes and Filters pattern](/azure/architecture/patterns/pipes-and-filters)
-- [Publisher-Subscriber pattern](/azure/architecture/patterns/publisher-subscriber)
-- [Sequential Convoy pattern](/azure/architecture/patterns/sequential-convoy)
+- [Claim-Check pattern](../../patterns/claim-check.yml)
+- [Competing Consumers pattern](../../patterns/competing-consumers.yml)
+- [Event Sourcing pattern](../../patterns/event-sourcing.yml)
+- [Pipes and Filters pattern](../../patterns/pipes-and-filters.yml)
+- [Publisher-Subscriber pattern](../../patterns/publisher-subscriber.yml)
+- [Sequential Convoy pattern](../../patterns/sequential-convoy.yml)
