@@ -1,10 +1,10 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This architecture describes a process automation system that uses multiple specialized AI agents to coordinate and run organizational tasks automatically. You deploy the agents in Azure Container Apps, and they use Azure AI services. Custom software that uses Microsoft Agent Framework defines the agent and orchestration behavior.
+This architecture describes a process automation system that uses multiple specialized AI agents to coordinate and run organizational tasks automatically.
 
-This article highlights the infrastructure and DevOps aspects of how to manage multiple-agent systems on Azure, including continuous integration, data persistence, and agent coordination.
+Multiple AI agents collaborate through a central API orchestrator to build scalable automation pipelines. Custom software that uses Microsoft Agent Framework defines the agent and orchestration behavior, and you deploy the agents in Azure Container Apps where they use Azure AI services.
 
-The architecture describes how to build scalable automation pipelines where multiple AI agents collaborate through a central API orchestrator. It supports persistent learning and automated deployment processes for enterprise-grade task automation.
+This article focuses on the infrastructure and DevOps aspects of managing multiple-agent systems on Azure. It covers continuous integration, data persistence, agent coordination, and automated deployment processes for enterprise-grade task automation.
 
 ## Architecture
 
@@ -38,11 +38,11 @@ The following workflow corresponds to the previous diagram:
 
 - [Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) is a unified Azure PaaS offering for enterprise AI operations, model builders, and application development. It combines production-grade infrastructure with developer-friendly interfaces, which enables developers to focus on building applications rather than managing infrastructure. In this architecture, Foundry provides the foundation for deploying and managing AI models in chat interface and serves as the gateway to connected AI services, like Foundry Agent Service.
 
-  - [Foundry Agent Service](/azure/ai-foundry/agents/overview) is a managed runtime service that connects the core pieces of Foundry, like models, tools, and frameworks, into a single agentic runtime. It manages conversations, orchestrates tool calls, enforces content safety, and integrates with identity, networking, and observability systems. In this architecture, the application invokes Foundry Agent Service to power the agent conversations.
+  [Foundry Agent Service](/azure/ai-foundry/agents/overview) is a managed runtime service that connects the core pieces of Foundry, like models, tools, and frameworks, into a single agentic runtime. It manages conversations, orchestrates tool calls, enforces content safety, and integrates with identity, networking, and observability systems. In this architecture, the application invokes Foundry Agent Service to power the agent conversations.
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, multiple-model database service that provides low latency and elastic scalability. In this architecture, Azure Cosmos DB stores all data related to current and past automation plans and solutions. The Container Apps API writes data when it creates new plans or runs tasks. The API reads data when users access their automation history via the App Service website.
 
-- [Container Registry](/azure/container-registry/) is a managed Docker registry service that stores and manages container images. In this architecture, Container Registry manages images for both the front-end website and the back-end API. This setup ensures consistent deployment and version control of the multiple-agent system components across environments.
+- [Container Registry](/azure/container-registry/container-registry-intro) is a managed Docker registry service that stores and manages container images. In this architecture, Container Registry manages images for both the front-end website and the back-end API. This setup ensures consistent deployment and version control of the multiple-agent system components across environments.
 
 ### Alternatives
 
@@ -84,11 +84,11 @@ Consider the following potential use cases for multiple-agent workflow automatio
    
    - A translation agent converts syntax to the target platform.
    
-    - A validation agent tests query equivalence.
+   - A validation agent tests query equivalence.
     
-    - A documentation agent generates migration notes.
+   - A documentation agent generates migration notes.
     
-    This approach addresses the common challenge of maintaining functional equivalence when you migrate from platforms like Oracle to Azure SQL Database or Azure Database for PostgreSQL.
+  This approach addresses the common challenge of maintaining functional equivalence when you migrate from platforms like Oracle to Azure SQL Database or Azure Database for PostgreSQL.
 
 - **Legacy application modernization:** Orchestrate agents that specialize in code analysis, business logic extraction, architecture assessment, and modernization planning. Agents collaborate to analyze legacy codebases, extract embedded business rules, assess technical debt, generate modernization roadmaps, and create documentation that captures institutional knowledge often lost during transitions.
 
