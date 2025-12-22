@@ -2,9 +2,9 @@
 metadata:
   title: Build a Multiple-Agent Workflow Automation Solution with Microsoft Agent Framework
   description: Learn how to design scalable automation pipelines where multiple AI agents collaborate by using Microsoft Agent Framework and Azure Container Apps for enterprise-grade tasks.
-  author: gpickett
-  ms.author: gpickett
-  ms.date: 6/16/2025
+  author: malrose07
+  ms.author: malrose
+  ms.date: 12/19/2025
   ms.topic: solution-idea
   ms.collection: ce-skilling-ai-copilot
   ms.subservice: solution-idea
@@ -12,9 +12,8 @@ azureCategories:
   - ai-machine-learning
 products:
   - azure-container-apps
-  - ai-services
+  - azure-cognitive-search
   - azure-cosmos-db
-  - semantic-kernel
   - azure-ai-foundry
 name: Build a multiple-agent workflow automation solution with Microsoft Agent Framework
 summary: Learn how to design scalable automation pipelines where multiple AI agents collaborate by using Microsoft Agent Framework and Azure Container Apps for enterprise-grade tasks.
