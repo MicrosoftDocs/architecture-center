@@ -59,7 +59,7 @@ In this case, you should properly size the messaging system to sustain the expec
 
 A multitenant application can use a hybrid approach. In this approach, core services use the same set of queues and topics in a single, shared messaging system to implement internal, asynchronous communications. In contrast, other services can adopt a dedicated group of messaging entities or even a dedicated messaging system for each tenant to mitigate the noisy neighbor problem and guarantee data isolation.
 
-### Management and operations complexity
+### Management and operational complexity
 
 From the start, plan how you intend to operate, monitor, and maintain your messaging and eventing infrastructure and how your multitenancy approach affects your operations and processes. For example, consider the following factors:
 
@@ -116,7 +116,7 @@ Tenants A, B, and C point to a section that contains a shared web server, shard 
 
 Every messaging system or *shard* can have different characteristics in terms of reliability, SKU, and location. For example, you can shard your tenants across multiple messaging systems based on their location or requirements for performance, reliability, data protection, or business continuity.
 
-When you use the Sharding pattern, you need to use a [sharding strategy](/azure/architecture/patterns/sharding#sharding-strategies) to map a given tenant to the messaging system that contains its queues. The [lookup strategy](/azure/architecture/patterns/sharding#sharding-strategies) uses a map to individuate the target messaging system based on the tenant name or ID. Multiple tenants might share the same shard, but the messaging entities that a single tenant uses stay within one shard.
+When you use the Sharding pattern, you need to use a [sharding strategy](/azure/architecture/patterns/sharding#sharding-strategies) to map a given tenant to the messaging system that contains its queues. The [lookup strategy](/azure/architecture/patterns/sharding#sharding-strategies) uses a map to identify the target messaging system based on the tenant name or ID. Multiple tenants might share the same shard, but the messaging entities that a single tenant uses stay within one shard.
 
 You can implement the map as a dictionary that links each tenant name to the name or reference of its target messaging system. You can store the map in a distributed cache that all instances of a multitenant application can access, or store it in a persistent store like a table in a relational database or storage account.
 
@@ -130,7 +130,7 @@ You can also deploy a single multitenant application that uses dedicated messagi
 Tenants A, B, and C point to a section that contains a shared web server and three separate messaging systems for each tenant.
 :::image-end:::
 
-If specific components generate most of your system's load and you can deploy these components separately for each tenant, use a horizontally partitioned deployment to reduce noisy neighbor problems. For example, use a separate messaging or `eventstream` system for each tenant if a single instance can't keep up with traffic that multiple tenants generate. When you use a dedicated messaging system for each tenant, a large volume of messages or events from a single tenant might affect the shared components but not other tenants' messaging systems.
+If specific components generate most of your system's load and you can deploy these components separately for each tenant, use a horizontally partitioned deployment to reduce noisy neighbor problems. For example, use a separate messaging or eventstream system for each tenant if a single instance can't keep up with traffic that multiple tenants generate. When you use a dedicated messaging system for each tenant, a large volume of messages or events from a single tenant might affect the shared components but not other tenants' messaging systems.
 
 Because you provision dedicated resources for each tenant, this approach often costs more than a shared hosting model. However, it also gives you a straightforward way to charge each tenant for the resources that they use. This approach lets you achieve high density for other services, like computing resources, and reduces the cost of these components.
 
@@ -154,9 +154,9 @@ Other contributors:
 
 For more information about messaging design patterns, see the following resources:
 
-- [Claim-Check pattern](../../patterns/claim-check.yml)
-- [Competing Consumers pattern](../../patterns/competing-consumers.yml)
-- [Event Sourcing pattern](../../patterns/event-sourcing.yml)
-- [Pipes and Filters pattern](../../patterns/pipes-and-filters.yml)
-- [Publisher-Subscriber pattern](../../patterns/publisher-subscriber.yml)
-- [Sequential Convoy pattern](../../patterns/sequential-convoy.yml)
+- [Claim-Check pattern](../../../patterns/claim-check.yml)
+- [Competing Consumers pattern](../../../patterns/competing-consumers.yml)
+- [Event Sourcing pattern](../../../patterns/event-sourcing.yml)
+- [Pipes and Filters pattern](../../../patterns/pipes-and-filters.yml)
+- [Publisher-Subscriber pattern](../../../patterns/publisher-subscriber.yml)
+- [Sequential Convoy pattern](../../../patterns/sequential-convoy.yml)
