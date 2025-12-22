@@ -34,7 +34,7 @@ items:
           href: ../example-scenario/ai/extract-object-text.yml
       - name: Workflow automation
         items:
-        - name: Build a multiple-agent workflow automation solution by using Microsoft Agent Framework
+        - name: Build a multiple-agent workflow automation solution by using Semantic Kernel
           href: idea/multiple-agent-workflow-automation.yml
     - name: Design architectures
       items:
