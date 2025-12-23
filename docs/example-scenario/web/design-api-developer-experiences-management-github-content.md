@@ -117,7 +117,7 @@ Productization comprises the following capabilities:
 
 - **Pricing plans**. Define the various pricing plans to make it attractive for the consumers.
 
-- **Taxonomy and content**. Define and create the content—textual, PDFs, images, and so on—that's required for the marketing strategy for these API products.
+- **Taxonomy and content**. Define and create the content (such as text, PDFs, and images) that's required in the marketing strategy for these API products.
 
 - **Physical assets**. This comprises the actual cloud services that are part of the specific API product and their corresponding lifecycle management. Consider the operations cost of maintaining these services while deriving the pricing plans.
 

@@ -24,7 +24,7 @@ This section provides a brief summary of the tactical DDD patterns. If you're fa
 
 **Aggregates**. An aggregate defines a consistency boundary around one or more entities. Exactly one entity in an aggregate is the root. Lookup is done using the root entity's identifier. Any other entities in the aggregate are children of the root, and are referenced by following pointers from the root.
 
-The purpose of an aggregate is to model transactional invariants. Things in the real world have complex webs of relationships. Customers create orders, orders contain products, products have suppliers, and so on. If the application modifies several related objects, how does it guarantee consistency? How do we keep track of invariants and enforce them?
+The purpose of an aggregate is to model transactional invariants. Things in the real world have complex webs of relationships. Customers create orders, orders contain products, and products have suppliers. If the application modifies several related objects, how does it guarantee consistency? How do we keep track of invariants and enforce them?
 
 Traditional applications have often used database transactions to enforce consistency. In a distributed application, however, that's often not feasible. A single business transaction might span multiple data stores, or might be long running, or might involve third-party services. Ultimately it's up to the application, not the data layer, to enforce the invariants required for the domain. That's what aggregates are meant to model.
 

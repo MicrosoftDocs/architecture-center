@@ -145,7 +145,7 @@ An operator should be able to raise an alert based on any performance measure fo
 
 ### Data sources, instrumentation, and data-collection requirements
 
-You can gather high-level performance data (throughput, number of concurrent users, number of business transactions, error rates, and so on) by monitoring the progress of users' requests as they arrive and pass through the system. This involves incorporating tracing statements at key points in the application code, together with timing information. All faults, exceptions, and warnings should be captured with sufficient data for correlating them with the requests that caused them. The Internet Information Services (IIS) log is another useful source.
+You can gather high-level performance data (such as throughput, number of concurrent users, number of business transactions, and error rates) by monitoring the progress of users' requests as they arrive and pass through the system. This involves incorporating tracing statements at key points in the application code, together with timing information. All faults, exceptions, and warnings should be captured with sufficient data for correlating them with the requests that caused them. The Internet Information Services (IIS) log is another useful source.
 
 If possible, you should also capture performance data for any external systems that the application uses. These external systems might provide their own performance counters or other features for requesting performance data. If this isn't possible, record information such as the start time and end time of each request made to an external system, together with the status (success, fail, or warning) of the operation. For example, you can use a stopwatch approach to time requests: start a timer when the request starts and then stop the timer when the request finishes.
 
@@ -314,7 +314,7 @@ An operator should also be able to generate graphs. For example, a graph might d
 
 ### Data sources, instrumentation, and data-collection requirements
 
-Usage tracking can be performed at a relatively high level. It can note the start and end times of each request and the nature of the request (read, write, and so on, depending on the resource in question). You can obtain this information by:
+Usage tracking can be performed at a relatively high level. It can note the start and end times of each request and the nature of the request (read, write, and other requests, depending on the resource in question). You can obtain this information by:
 
 - Tracing user activity.
 - Capturing performance counters that measure the utilization for each resource.
