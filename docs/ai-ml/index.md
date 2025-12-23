@@ -60,13 +60,13 @@ For more information, see [What is deep learning?](https://azure.microsoft.com/r
 
 - [Microsoft Foundry](/azure/ai-services/openai/overview) is a development platform as a service that provides access to more that 11,000 language models, such as OpenAI's gpt-5.2, Sora2, Anthropic's Claude, Microsoft's Phi, xAI's Grok, etc... You can adapt these models to your specific tasks, such as:
 
-  - Content generation.
-  - Content summarization.
-  - Image understanding.
-  - Semantic search.
-  - Natural language to code translation.
-  - Video generation.
-  - Speech to Speech
+  - Content generation
+  - Content summarization
+  - Image understanding
+  - Semantic search
+  - Natural language to code translation
+  - Video generation
+  - Speech to speech
 
 ### Language models
 
@@ -144,8 +144,8 @@ For more information, see the following resources:
 
 #### AI and Machine learning reference architectures for Azure
 
-- [Microsoft Foundry chat architecture in an Azure landing zone](./architecture/baseline-azure-ai-foundry-landing-zone.yml)
-- [Baseline Microsoft Foundry chat reference architecture](./architecture/baseline-azure-ai-foundry-chat.yml) describes how to build an end-to-end chat architecture by using OpenAI's GPT models in Microsoft Foundry. It incorporates grounding via enterprise data sources to enrich responses with contextual information.
+- [Microsoft Foundry chat architecture in an Azure landing zone](./architecture/baseline-microsoft-foundry-landing-zone.yml)
+- [Baseline Microsoft Foundry chat reference architecture](./architecture/baseline-microsoft-foundry-chat.yml) describes how to build an end-to-end chat architecture by using OpenAI's GPT models in Microsoft Foundry. It incorporates grounding via enterprise data sources to enrich responses with contextual information.
 
   :::image type="complex" source="./architecture/_images/baseline-microsoft-foundry.svg" border="false" lightbox="./architecture/_images/baseline-microsoft-foundry.svg" alt-text="Diagram that shows a baseline end-to-end chat architecture that uses Foundry.":::
    The diagram presents a detailed Azure architecture for deploying an AI solution. On the left, a user connects through an Application Gateway with a web application firewall, which is part of a virtual network. This gateway is linked to private DNS zones and protected by Azure DDoS Protection. Below the gateway, private endpoints connect to services such as App Service, Azure Key Vault, and Storage, which are used for client app deployment. The App Service is managed with identity and spans three zones. Monitoring is provided by Application Insights and Azure Monitor, and authentication is handled by Microsoft Entra ID. To the right, the virtual network contains several subnets: App Service integration, private endpoint, Foundry integration, Azure AI agent integration, Azure Bastion, jump box, build agents, and Azure firewall. Each subnet hosts specific endpoints or services, such as storage, Foundry, AI Search, Azure Cosmos DB, and knowledge store, all connected via private endpoints. Outbound traffic from the network passes through the Azure Firewall to reach internet sources. To the far right, a separate box represents Foundry, which includes an account and a project. Managed identities are used to connect the Foundry Agent Service to the Foundry project, which in turn accesses Azure OpenAI. The diagram uses numbered green circles to indicate the logical flow, showing how user requests traverse the network, interact with various endpoints, and ultimately connect to Azure AI services and storage, with dependencies clearly grouped and labeled.
@@ -398,7 +398,7 @@ Machine Learning offers the following capabilities:
 
 Although you can use many of the raw data fields to train a model, you might need to create other engineered features that provide information to better differentiate patterns in the data. This process is called feature engineering, where you use domain knowledge of the data to create features that help machine learning algorithms learn better.
 
-In Machine Learning, data-scaling and normalization techniques are applied to make feature engineering easier. Collectively, these techniques and feature engineering are called *featurization* in AutoML experiments. For more information, see [Data featurization in automated machine learning](/azure/machine-learning/concept-automated-ml?view=azureml-api-2#feature-engineering).
+In Machine Learning, data-scaling and normalization techniques are applied to make feature engineering easier. Collectively, these techniques and feature engineering are called *featurization* in AutoML experiments. For more information, see [Data featurization in automated machine learning](/azure/machine-learning/concept-automated-ml#feature-engineering).
 
 ### Microsoft Foundry
 
@@ -456,7 +456,6 @@ Custom translator offers the following features.
 [Azure Content Understanding](/azure/ai-services/content-understanding/overview) uses generative AI to process/ingest content of many types (documents, images, videos, and audio) into a user-defined output format. Content Understanding comes with prebuilt analyzers for common content types and scenarios.
 
 [Azure Content Understanding custom analyzer](/azure/ai-services/content-understanding/how-to/customize-analyzer-content-understanding-studio) enables you to create custom analyzers tailored to your specific content processing needs. You can define custom extraction rules and entity recognition patterns to suit your business requirements.
-
 
 ### Custom AI tools
 
