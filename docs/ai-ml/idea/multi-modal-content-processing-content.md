@@ -51,7 +51,7 @@ The following workflow corresponds to the previous diagram:
 
   - [Azure OpenAI](/azure/ai-foundry/openai/overview) is a component of Foundry that provides language models, including GPT-4o and GPT-4o mini. In this architecture, Foundry hosts the models as a service. These models perform schema-based data transformation, map extracted content to structured formats, and calculate confidence scores for extraction accuracy.
 
-  - [Content Understanding](/azure/ai-services/content-understanding/overview) is a multi-modal AI service that analyzes various media content, like audio, video, text, and images. It transforms the content into structured, searchable data. In this architecture, Content Understanding performs advanced OCR and content extraction from multi-modal documents.
+  - [Content Understanding](/azure/ai-services/content-understanding/overview) is a multi-modal AI service that analyzes various kinds of media content, like audio, video, text, and images. It transforms the content into structured, searchable data. In this architecture, Content Understanding performs advanced OCR and content extraction from multi-modal documents.
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, multiple-model database service that provides guaranteed low latency and elastic scalability. In this architecture, Azure Cosmos DB stores processed results, confidence scores, validation outcomes, and historical processing data for audit trails and performance optimization.
 
