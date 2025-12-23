@@ -1,7 +1,7 @@
 ---
 metadata:
-title: Microsoft Security for AWS
-description: See how Microsoft security solutions can help secure and protect Amazon Web Services (AWS) account access and environments.
+title: Microsoft Security Solutions for AWS
+description: Learn how Microsoft security solutions can help secure and protect Amazon Web Services (AWS) account access and environments.
 author: murthyla
 ms.author: lmurthy
 ms.date: 12/01/2025
@@ -11,13 +11,15 @@ ms.subservice: architecture-guide
 
 # Microsoft security solutions for AWS
 
-This guide describes how Microsoft security solutions provide Zero Trust-aligned, defense-in-depth controls that you can extend to Amazon Web Services (AWS). These controls help remove gaps and ensure consistent visibility, enforcement, and protection.
+This guide describes how to use Microsoft security solutions to help secure Amazon Web Services (AWS) by using defense-in-depth controls that align with Zero Trust principles. These solutions help ensure consistent visibility, enforcement, and protection across your AWS environment.
 
 The following diagram summarizes how AWS installations can benefit from key Microsoft security components.
 
-:::image type="content" border="false" source="media/aws-azure-security-solutions-content/aws-doc-diagram.png" alt-text="AWS doc diagram" lightbox="media/aws-azure-security-solutions-content/aws-doc-diagram.png":::
+:::image type="complex" border="false" source="media/aws-azure-security-solutions-content/aws-doc-diagram.svg" alt-text="AWS doc diagram" lightbox="media/aws-azure-security-solutions-content/aws-doc-diagram.svg":::
+The image shows three column diagram with Microsoft Azure services on the left, Benefits in the center, and AWS on the right, connected by arrows. The left column titled Microsoft Azure lists several services with descriptions. Microsoft Entra provides single sign-on (SSO), single life cycle automation, conditional access policies, identity protection, Privileged Identity Management (PIM), workload identities, entitlement management, and access reviews. Microsoft Defender for Cloud Apps provides visibility into activities, anomaly detection, policies, policy enforcement and governance, and session control. Microsoft Defender for Cloud provides cloud security graph, risk prioritization, attack path analysis, data identity and permission exposure, data security posture management, multicloud attack path correlation, governance and compliance, and workload protections for servers, containers, databases, and AI. Microsoft Purview provides multicloud data discovery, data catalog and governance, risk management, and compliance reporting. Microsoft Sentinel provides unified visibility and analytics, threat intelligence, detection and hunting, and response automation. Microsoft Defender XDR provides real-time containment, cross-platform detection, and enhanced security for critical infrastructure, visibility, and control. Microsoft Security Copilot provides rapid incident investigation, step-by-step response guidance, automated remediation and scripting, and natural language threat hunting. The center column titled Benefits shows aligned outcomes including centralized identity access management, strong authentication, identity governance, session protection, information protection, threat protection, Cloud Security Posture Management, cloud workload protection, AI security posture management and protection, information governance, regulatory compliance, threat protection and response, threat hunting, automatic attack disruption, and AI-augmented threat detection. The right column titled AWS shows the AWS Management Console with role-based authorization to access AWS account resources and an AWS resources section labeled workloads that run on the AWS platform. Arrows link the Azure services through the benefits to the AWS environment.
+:::
 
-*Download a [PowerPoint file](https://arch-center.azureedge.net/1985346_aws-azure-security-solutions-architecture.pptx) of this diagram.*
+*Download a [PowerPoint file](https://arch-center.azureedge.net/aws-azure-security-solutions-architecture.pptx) of this diagram.*
 
 ## Microsoft Entra
 
@@ -213,7 +215,7 @@ Automatic attack disruption is an autonomous response capability in Defender XDR
 
 #### Automatic disruption for AWS
 
-![attack disruption](media/aws-azure-security-solutions-content/attack-disruption.png)
+:::image type="content" source="media/aws-azure-security-solutions-content/attack-disruption.png" alt-text="Screenshot that shows an incident investigation in the Microsoft Defender XDR portal.":::
 
 Automatic attack disruption reduces dwell time and minimizes business impact. By integrating telemetry from AWS, Proofpoint, and Okta, the feature lets security teams shift from reactive detection to proactive, cross-platform protection. This approach provides unified defense and reduces operational complexity. For more information, see [Automatic attack disruption in Defender XDR](/defender-xdr/automatic-attack-disruption).
 
