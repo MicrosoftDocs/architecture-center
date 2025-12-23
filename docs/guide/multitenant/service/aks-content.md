@@ -66,7 +66,7 @@ According to the [Kubernetes documentation](https://kubernetes.io/docs/concepts/
 - Team applications that run in distinct namespaces can use different [service accounts](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account) to access resources within the same cluster, external applications, or managed services.
 - Use namespaces to improve performance at the control plane level. If workloads in a shared cluster are organized into multiple namespaces, the Kubernetes API has fewer items to search when running operations. This organization can reduce the latency of calls against the API server and increase the throughput of the control plane.
 
-For more information about isolation at the namespace level, see the following resources in the Kubernetes documentation: 
+For more information about isolation at the namespace level, see the following resources in the Kubernetes documentation:
 
 - [Namespaces](https://kubernetes.io/docs/concepts/security/multi-tenancy/#namespaces)
 - [Access controls](https://kubernetes.io/docs/concepts/security/multi-tenancy/#access-controls)
@@ -378,9 +378,12 @@ When AKS-hosted applications connect to a large number of databases or external 
 - [Azure NAT Gateway](/azure/virtual-network/nat-gateway/nat-overview): You can configure an AKS cluster to use Azure NAT Gateway to route egress traffic from tenant applications. NAT Gateway allows up to 64,512 outbound UDP and TCP traffic flows per public IP address, with a maximum of 16 IP addresses. To avoid the risk of SNAT port exhaustion when you use a NAT Gateway to handle outbound connections from an AKS cluster, you can associate more public IP addresses or a [public IP address prefix](/azure/virtual-network/ip-services/public-ip-address-prefix) to the gateway.
 
   For more information, see [Azure NAT Gateway considerations for multitenancy](/azure/architecture/guide/multitenant/service/nat-gateway).
-- [User-defined route (UDR)](/azure/aks/egress-outboundtype): You can customize an AKS cluster's egress route to support custom network scenarios, such as those that disallow public IP addresses and require the cluster to sit behind a network virtual appliance (NVA). When you configure a cluster for [user-defined routing](/azure/aks/egress-outboundtype#outbound-type-of-userdefinedrouting), AKS doesn't automatically configure egress paths. You must complete the egress setup. For example, you route egress traffic through an [Azure Firewall](/azure/aks/limit-egress-traffic#restrict-egress-traffic-using-azure-firewall). You must deploy the AKS cluster into an existing virtual network with a subnet that you previously configured. When you aren't using a standard load balancer architecture, you must establish explicit egress. As such, this architecture requires explicitly sending egress traffic to an appliance, like a firewall, gateway, or proxy. Or, the architecture allows the network address translation (NAT) to be done by a public IP that's assigned to the standard load balancer or appliance.
 
-Unless you have requirements to egress through a hub network, Azure NAT Gateway is the recommended approach to avoid SNAT port exhaustion.
+- [User-defined route (UDR)](/azure/aks/egress-outboundtype): You can customize an AKS cluster's egress route to support custom network scenarios, such as those that disallow public IP addresses and require the cluster to sit behind a network virtual appliance (NVA). When you configure a cluster for [user-defined routing](/azure/aks/egress-outboundtype#outbound-type-of-userdefinedrouting), AKS doesn't automatically configure egress paths. You must complete the egress setup. For example, you route egress traffic through an [Azure Firewall](/azure/aks/limit-egress-traffic#restrict-egress-traffic-using-azure-firewall).
+
+  You must deploy the AKS cluster into an existing virtual network with a subnet that you previously configuredand establish explicit egress. This approach requires you to explicitly send egress traffic to an appliance, like a firewall, gateway, or proxy. Network address translation (NAT) is then done by a public IP that's assigned to the appliance.
+
+Unless you have requirements to egress through a hub network or security appliance, Azure NAT Gateway is the recommended approach to avoid SNAT port exhaustion.
 
 ## Monitoring
 
