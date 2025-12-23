@@ -86,11 +86,11 @@ Consider the following use cases.
 
 **Research grant proposals:** Develop research funding proposals by synthesizing scientific literature, institutional capabilities, and funding agency requirements.
 
-### Alternatives
+## Alternatives
 
 This architecture includes a component that you can substitute with another Azure service or approach, depending on your workload's functional and nonfunctional requirements. Consider the following alternatives and trade-offs.
 
-#### Document generation approach
+### Document generation approach
 
 **Current approach:** Use custom AI-powered generation that includes enterprise data grounding and intelligent caching for both structured and unstructured documents.
 
@@ -98,7 +98,7 @@ This architecture includes a component that you can substitute with another Azur
 
 Consider the alternative if your workload primarily focuses on standardized forms that have minimal unstructured content requirements.
 
-### Cost Optimization
+## Cost Optimization
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
@@ -127,8 +127,5 @@ Other contributors:
 
 ## Next step
 
-- [AI Search documentation](/azure/search/)
-
-## Related resource
-
 - [Design and develop a RAG solution](../guide/rag/rag-solution-design-and-evaluation-guide.md)
+
