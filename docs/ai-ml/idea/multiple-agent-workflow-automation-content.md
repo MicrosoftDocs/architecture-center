@@ -70,7 +70,7 @@ This custom, multiple-agent automation engine addresses the challenge of coordin
 
 This solution uses custom-coded, specialized AI agents that collaborate to divide complex organizational tasks into manageable components. Each agent applies its specific knowledge and capabilities. The system manages sophisticated workflows that otherwise require human coordination across multiple departments. The architecture scales through containerized deployment, preserves learning via persistent data storage, and supports continuous improvement through automated integration and delivery pipelines.
 
-You can also apply this architecture to code modernization and legacy system migration, which includes challenges like technical complexity and business continuity requirements. Legacy systems often lack proper documentation, use outdated programming languages, and contain critical business logic that you must preserve. The multiple-agent approach coordinates specialized expertise across technical translation, business analysis, quality assurance, and documentation generation.
+You can also apply this architecture to code modernization and legacy system migration, which include challenges like technical complexity and business continuity requirements. Legacy systems often lack proper documentation, use outdated programming languages, and contain critical business logic that you must preserve. The multiple-agent approach coordinates specialized expertise across technical translation, business analysis, quality assurance, and documentation generation.
 
 ### Potential use cases
 
@@ -130,7 +130,7 @@ Consider the following potential use cases for multiple-agent workflow automatio
 
 When you design multiple-agent automation systems, consider how agents must coordinate to accomplish complex workflows. This architecture uses a custom orchestrator that manages agent interactions, but the coordination patterns that you choose significantly affect system performance and reliability.
 
-Sequential patterns suit dependent tasks like document approval workflows. Concurrent patterns suit independent operations like data collection from multiple sources. Group chat patterns enable collaborative problem-solving. Handoff patterns give specialized agents the ability to handle different workflow phases. For more information about how to implement these coordination strategies, see [AI agent orchestration patterns](/azure/architecture/ai-ml/guide/ai-agent-design-patterns). This article provides architectural patterns and implementation considerations for various multiple-agent scenarios.
+Sequential patterns suit dependent tasks like document approval workflows. Concurrent patterns suit independent operations like data collection from multiple sources. Group chat patterns enable collaborative problem-solving. Handoff patterns let specialized agents handle different workflow phases. For more information about how to implement these coordination strategies, see [AI agent orchestration patterns](/azure/architecture/ai-ml/guide/ai-agent-design-patterns). This article provides architectural patterns and implementation considerations for various multiple-agent scenarios.
 
 ## Considerations
 
