@@ -17,7 +17,7 @@ The following diagram summarizes how AWS installations can benefit from key Micr
 
 :::image type="content" border="false" source="media/aws-azure-security-solutions-content/aws-doc-diagram.png" alt-text="AWS doc diagram" lightbox="media/aws-azure-security-solutions-content/aws-doc-diagram.png":::
 
-*Download a [PowerPoint file](https://arch-center.azureedge.net/1985346*aws-azure-security-solutions-architecture.pptx) of this diagram.*
+*Download a [PowerPoint file](https://arch-center.azureedge.net/1985346_aws-azure-security-solutions-architecture.pptx) of this diagram.*
 
 ## Microsoft Entra
 
