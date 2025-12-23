@@ -100,11 +100,11 @@ For more information, see the following resources:
 
 *Retrieval Augmented Generation (RAG)* is an architecture pattern that augments the capabilities of a large language model (LLM), like ChatGPT, that's trained only on public data. You can use this pattern to add a retrieval system that provides relevant grounding data in the context with the user request. An information retrieval system provides control over grounding data that a language model uses when it formulates a response. RAG architecture helps you scope generative AI to content that's sourced from vectorized documents, images, and other data formats. RAG isn't limited to vector search storage. You can use any data store technology.
 
-For more information, see [Design and develop a RAG solution](/azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide), [Choose an Azure service for vector search](/azure/architecture/guide/technology-choices/vector-search) or the most advanced [Agentic retrieval with FoundryIQ](/azure/ai-foundry/agents/how-to/tools/knowledge-retrieval).
+For more information, see [Design and develop a RAG solution](./guide/rag/rag-solution-design-and-evaluation-guide.md), [Choose an Azure service for vector search](../guide/technology-choices/vector-search.md). Use [FoundyIQ knowledge bases](/azure/ai-foundry/agents/how-to/tools/knowledge-retrieval) for grounding data needed by Microsoft Foundry agents as a turn-key approach to RAG.
 
 ## Agent-based architecture
 
-Agents are more than just LLMs that respond to user prompts. They can autonomously perform tasks, make decisions, and interact with other systems. Agents can be designed to handle specific tasks or operate in complex environments, making them suitable for a wide range of applications. Multi‑agent architecture lets you break complex problems into specialized agents that coordinate, boosting accuracy, scalability, and maintainability.
+Agents are more than just code that calls LLMs to respond to user prompts. They can autonomously perform tasks, make decisions, and interact with other systems. Agents can be designed to handle specific tasks or operate in complex environments, making them suitable for a wide range of applications. Multi‑agent architecture lets you break complex problems into specialized agents that coordinate.
 
 There are tools available to help you build agent-based architectures, such as [Agent Framework](/agent-framework/overview/agent-framework-overview) or [Foundry workflows](/azure/ai-foundry/agents/concepts/workflow).
 
@@ -116,9 +116,9 @@ With [Foundry tools](https://azure.microsoft.com/products/ai-foundry/tools), dev
 
 For more information, see the following resources:
 
-- [Choose an Azure AI services technology](/azure/architecture/data-guide/technology-choices/ai-services)
+- [Choose an Azure AI services technology](../data-guide/technology-choices/ai-services.md)
 - [What are Foundry tools?](/azure/ai-services/what-are-ai-services)
-- [Choose a natural language processing technology in Azure](/azure/architecture/data-guide/technology-choices/natural-language-processing)
+- [Choose a natural language processing technology in Azure](../data-guide/technology-choices/natural-language-processing.md)
 
 ## AI language models
 
@@ -138,14 +138,14 @@ Azure Machine Learning is a machine learning service that you can use to build a
 
 For more information, see the following resources:
 
-- [Compare Microsoft machine learning products and technologies](/azure/architecture/ai-ml/guide/data-science-and-machine-learning)
+- [Compare Microsoft machine learning products and technologies](./guide/data-science-and-machine-learning.md)
 - [Machine Learning documentation](/azure/machine-learning/)
 - [What is Machine Learning?](/azure/machine-learning/overview-what-is-azure-ml)
 
 #### AI and Machine learning reference architectures for Azure
 
-- [Microsoft Foundry chat architecture in an Azure landing zone](/azure/architecture/ai-ml/architecture/baseline-azure-ai-foundry-landing-zone)
-- [Baseline Microsoft Foundry chat reference architecture](/azure/architecture/ai-ml/architecture/baseline-azure-ai-foundry-chat) describes how to build an end-to-end chat architecture by using OpenAI's GPT models in Microsoft Foundry. It incorporates grounding via enterprise data sources to enrich responses with contextual information.
+- [Microsoft Foundry chat architecture in an Azure landing zone](./architecture/baseline-azure-ai-foundry-landing-zone.yml)
+- [Baseline Microsoft Foundry chat reference architecture](./architecture/baseline-azure-ai-foundry-chat.yml) describes how to build an end-to-end chat architecture by using OpenAI's GPT models in Microsoft Foundry. It incorporates grounding via enterprise data sources to enrich responses with contextual information.
 
   :::image type="complex" source="./architecture/_images/baseline-microsoft-foundry.svg" border="false" lightbox="./architecture/_images/baseline-microsoft-foundry.svg" alt-text="Diagram that shows a baseline end-to-end chat architecture that uses Foundry.":::
    The diagram presents a detailed Azure architecture for deploying an AI solution. On the left, a user connects through an Application Gateway with a web application firewall, which is part of a virtual network. This gateway is linked to private DNS zones and protected by Azure DDoS Protection. Below the gateway, private endpoints connect to services such as App Service, Azure Key Vault, and Storage, which are used for client app deployment. The App Service is managed with identity and spans three zones. Monitoring is provided by Application Insights and Azure Monitor, and authentication is handled by Microsoft Entra ID. To the right, the virtual network contains several subnets: App Service integration, private endpoint, Foundry integration, Azure AI agent integration, Azure Bastion, jump box, build agents, and Azure firewall. Each subnet hosts specific endpoints or services, such as storage, Foundry, AI Search, Azure Cosmos DB, and knowledge store, all connected via private endpoints. Outbound traffic from the network passes through the Azure Firewall to reach internet sources. To the far right, a separate box represents Foundry, which includes an account and a project. Managed identities are used to connect the Foundry Agent Service to the Foundry project, which in turn accesses Azure OpenAI. The diagram uses numbered green circles to indicate the logical flow, showing how user requests traverse the network, interact with various endpoints, and ultimately connect to Azure AI services and storage, with dependencies clearly grouped and labeled.
@@ -174,9 +174,9 @@ For more information, see [MLflow and Machine Learning](/azure/machine-learning/
 
 ### Generative AI tools
 
-- [Microsoft Foundry models](https://azure.microsoft.com/products/ai-foundry) helps you experiment, develop, and deploy generative AI apps and APIs responsibly with a comprehensive platform. The [Microsoft Foundry portal](https://ai.azure.com?cid=learnDocs) provides access to Azure AI services, foundation models, a playground, and resources to help you fine-tune, evaluate, and deploy AI models and AI agents.
+- [Microsoft Foundry](https://azure.microsoft.com/products/ai-foundry) helps you experiment, develop, and deploy generative AI apps and APIs responsibly with a comprehensive platform. The [Microsoft Foundry portal](https://ai.azure.com?cid=learnDocs) provides access to Azure AI services, foundation models, a playground, and resources to help you fine-tune, evaluate, and deploy AI models and AI agents.
 
-  [Foundry Agent Service](/azure/ai-foundry/agents/overview) hosts agents that you define, connected to a foundation model in the AI model catalog and optionally your own custom knowledge stores or APIs. These agents can be defined declaratively or hosted (contenerized agents hosted by Foundry).
+  [Foundry Agent Service](/azure/ai-foundry/agents/overview) hosts agents that you define, connected to a foundation model in the AI model catalog and optionally your own custom knowledge stores or APIs. These agents can be defined declaratively or can be containerized and hosted by Foundry.
 
 - [Copilot Studio](/microsoft-copilot-studio/) extends Copilot in Microsoft 365. You can use Copilot Studio to build custom copilots for internal and external scenarios. Use a comprehensive authoring canvas to design, test, and publish copilots. You can easily create generative AI-enabled conversations, provide greater control of responses for existing copilots, and accelerate productivity by using automated workflows.
 
@@ -261,7 +261,7 @@ For more information, see the following resources:
 
 For more information, see the following resources:
 
-- [SynapseML features and capabilities](/azure/architecture/ai-ml/guide/data-science-and-machine-learning#synapseml)
+- [SynapseML features and capabilities](./guide/data-science-and-machine-learning.md#synapseml)
 - [HDInsight overview](/azure/hdinsight/hdinsight-overview)
 - [Tutorial: Build an Apache Spark machine learning application in HDInsight](/azure/hdinsight/spark/apache-spark-ipython-notebook-machine-learning)
 - [Apache Spark best practices on HDInsight](/azure/hdinsight/spark/spark-best-practices)
@@ -415,7 +415,7 @@ For more information, see the following resources:
 - [Tutorial: Azure OpenAI GPT-4o-mini fine-tuning](/azure/ai-services/openai/tutorials/fine-tune)
 - [Baseline Foundry chat reference architecture](/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-chat)
 
-### Foundry toold for custom AI
+### Foundry tools for custom AI
 
 [Foundry tools](https://azure.microsoft.com/products/ai-foundry/tools) provides features to build custom AI models and applications. The following sections provide an overview of these key features.
 
