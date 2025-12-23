@@ -102,11 +102,11 @@ The following workflow corresponds to the preceding diagram:
 
 ### Network design
 
-:::image type="complex" source="./_images/azure-data-factory-mission-critical-network.png" alt-text="Diagram that shows a hardened network design for a Data Factory workload." border="false" lightbox="_images/azure-data-factory-baseline-network.png":::
+:::image type="complex" source="./_images/azure-data-factory-hardened-network.svg" alt-text="Diagram that shows a hardened network design for a Data Factory workload." border="false" lightbox="_images/azure-data-factory-hardened-network.svg":::
     Diagram that shows an example of the workflow for a system using the Valet Key pattern. Boxes on the left show on-premises infrastructure and user connectivity. A box on the upper right shows ingress infrastructure in the Connectivity Hub subscription. Underneath the ingress infrastructure box are the main components of the design that all use private endpoints. To the right of the main infrastructure is a box with monitoring infrastructure in the shared services subscription.
 :::image-end:::
 
-*Download a [Visio file](https://arch-center.azureedge.net/azure-data-factory-mission-critical-network.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/azure-data-factory-baseline-network.vsdx) of this architecture.*
 
 - You should use a next-generation firewall like [Azure Firewall](/azure/firewall/overview) to secure network connectivity between your on-premises infrastructure and your Azure virtual network.
 

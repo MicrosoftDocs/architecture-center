@@ -2617,15 +2617,15 @@
 						class="st11" v:langID="1033">w</tspan>ebsite</text>		</g>
 		<g id="shape1073-118" v:mID="1073" v:groupContext="shape" transform="translate(248.315,-290.991)">
 			<title>Sheet.1073</title>
-			<desc>Azure AI Foundry GPT-4o model</desc>
+			<desc>Microsoft Foundry GPT-4o model</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(96000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="58.1787" cy="731.249" width="116.36" height="11.5174"/>
 			<rect x="0" y="725.49" width="116.357" height="11.5174" class="st3"/>
-			<text x="16.27" y="727.95" class="st19" v:langID="1036"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure AI Foundry<v:newlineChar/><tspan
-						x="23.14" dy="1.2em" class="st11">GPT</tspan><tspan class="st11" v:langID="1033">-</tspan>4o model</text>		</g>
+			<text x="13.64" y="727.95" class="st19" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Microsoft Foundry<v:newlineChar/><tspan
+						x="23.14" dy="1.2em" class="st11" v:langID="1036">GPT</tspan>-<tspan class="st11" v:langID="1036">4o model</tspan></text>		</g>
 		<g id="shape1074-123" v:mID="1074" v:groupContext="shape" transform="translate(544.606,-367.398)">
 			<title>Sheet.1074</title>
 			<desc>Container Registry</desc>

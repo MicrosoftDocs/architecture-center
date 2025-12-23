@@ -103,7 +103,7 @@ For production workloads, choose the [deployment type](/azure/ai-foundry/foundry
 
 - **Data-processing location:**
 
-  - Use *Global Standard or Global Provisioned* when you want the highest availability and inferencing can occur in any Microsoft Foundry region, while data at rest remains in your selected geography.
+  - Use *Global Standard or Global Provisioned* when you want the highest availability and inferencing can occur in any Foundry region, while data at rest remains in your selected geography.
 
   - Use *Data Zone Standard or Data Zone Provisioned* when you must keep inferencing within a Microsoft-defined data zone, for example US-only or EU-only, to meet data residency requirements.
 
@@ -123,19 +123,19 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 The most significant costs for this architecture include the following components:
 
-- Model inference usage via Microsoft Foundry, which includes OpenAI or other models
+- Model inference usage via Foundry, which includes OpenAI or other models
 - Document ingestion and processing via Document Intelligence
 - Indexing and search consumption via AI Search
 
 To optimize costs, consider the following recommendations:
 
-- **Use provisioned throughput units (PTUs) or reservations for Microsoft Foundry deployments** instead of pay-per-token usage when the workload is predictable.
+- **Use provisioned throughput units (PTUs) or reservations for Foundry deployments** instead of pay-per-token usage when the workload is predictable.
 
   - For more information, see the following resources:
 
     - [Provisioned throughput overview](/azure/ai-foundry/openai/concepts/provisioned-throughput)
-    - [Save costs with Microsoft Foundry reservations](/azure/cost-management-billing/reservations/microsoft-foundry)
-    - [Plan and manage Microsoft Foundry costs](/azure/ai-foundry/how-to/costs-plan-manage)
+    - [Save costs with Foundry reservations](/azure/cost-management-billing/reservations/microsoft-foundry)
+    - [Plan and manage Foundry costs](/azure/ai-foundry/how-to/costs-plan-manage)
 
 - **Plan for [regional deployments and operational scale-up scheduling](/azure/search/search-sku-manage-costs) in AI Search.**
 
@@ -157,7 +157,7 @@ This solution can expose performance bottlenecks when you process high volumes o
 
 - **Apply scalable compute and orchestration** by using durable functions, which is part of Azure Functions, for the document-processing pipeline and tune its scaling behavior. For more information, see [Performance and scale in durable functions](/azure/azure-functions/durable/durable-functions-perf-and-scale).
 
-- **Choose the appropriate deployment model in Microsoft Foundry** for inference workloads. Use serverless APIs for variable workloads and provisioned throughput models when you expect heavy, consistent traffic. For more information, see [Provisioned throughput for Foundry Models](/azure/ai-foundry/openai/concepts/provisioned-throughput) and [Performance and latency optimization for Azure OpenAI and Foundry Models](/azure/ai-foundry/openai/how-to/latency).
+- **Choose the appropriate deployment model in Foundry** for inference workloads. Use serverless APIs for variable workloads and provisioned throughput models when you expect heavy, consistent traffic. For more information, see [Provisioned throughput for Models](/azure/ai-foundry/openai/concepts/provisioned-throughput) and [Performance and latency optimization for Azure OpenAI and Models](/azure/ai-foundry/openai/how-to/latency).
 
 - **Optimize indexing and retrieval performance** by configuring appropriate partitioning, replicas, and schema for AI Search. For more information, see [AI Search performance tips](/azure/search/search-performance-tips).
 
@@ -192,7 +192,7 @@ For product documentation, see the following resources:
 
 - [Azure documentation for all products](/azure?product=all)
 - [Durable functions documentation](/azure/azure-functions/durable)
-- [Microsoft Foundry documentation](/azure/ai-foundry)
+- [Foundry documentation](/azure/ai-foundry)
 - [Document Intelligence documentation](/azure/ai-services/document-intelligence)
 - [AI Search documentation](/azure/search)
 - [Semantic Kernel documentation](/semantic-kernel/overview)

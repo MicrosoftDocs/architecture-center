@@ -40,7 +40,7 @@
 
   - Implement an efficient monitoring and alerting system with accountable teams that review metrics and alerts promptly to support the goal.
 
-- For subscription design, the extra infrastructure for DR can be stored in the original subscription. Platform-as-a-service services like Azure Data Lake Storage and Azure Data Factory typically include native failover features. These capabilities allow secondary instances in other regions while remaining within the original subscription. To optimize costs, some organizations might choose to allocate a dedicated resource group exclusively for DR-related resources.
+- For subscription design, extra infrastructure for DR can reside in the original subscription. Platform as a service (PaaS) offerings like Azure Data Lake Storage typically include native failover features. These capabilities support secondary instances in other regions while remaining within the original subscription. To optimize costs, some organizations choose to allocate a dedicated resource group exclusively for DR-related resources.
 
   - [Subscription limits](/azure/azure-resource-manager/management/azure-subscription-service-limits) might introduce constraints in this approach.
 
@@ -50,11 +50,11 @@
 
 - Identify recovery tasks that can be parallelized across solutions. This approach reduces the total RTO.
 
-- If Azure Data Factory is used in a solution, don't forget to include self-hosted integration runtimes in the scope. [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) is ideal for these machines.
+- If your solution uses Fabric pipelines, include on-premises data gateways in the scope. Use [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) for these machines.
 
 - Automate manual operations as much as possible to prevent human error, especially when under pressure. We recommend that you:
 
-  - Adopt resource provisioning through Bicep, Azure Resource Manager templates, or PowerShell scripts.
+  - Adopt resource provisioning through Bicep, Azure Resource Manager templates (ARM templates), Terraform, or PowerShell scripts.
 
   - Adopt versioning of source code and resource configuration.
 
@@ -119,7 +119,7 @@
 
 - **Relying on Microsoft to do it all**
 
-  Within the Microsoft Azure services, there's a clear [division of responsibility](/azure/reliability/business-continuity-management-program#shared-responsibility-model), anchored by the cloud service tier used.
+  Microsoft Azure services define a clear [shared responsibility model for reliability](/azure/reliability/concept-shared-responsibility) based on the cloud service tier.
   
   ![Diagram that shows the shared responsibility model.](../images/shared-responsibility-model.png)  
 

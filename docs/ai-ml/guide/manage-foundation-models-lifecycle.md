@@ -148,7 +148,7 @@ Because of the layers of indirection involved, your architecture must be designe
 
 #### Router
 
-The following diagram illustrates an architecture that uses a router to route requests to multiple deployments. Another [example of this architecture includes Microsoft Foundry](/azure/architecture/ai-ml/architecture/baseline-azure-ai-foundry-chat#architecture) and uses a managed online endpoint as the router. And the different versions of the orchestrator are deployed to managed compute.
+The following diagram illustrates an architecture that uses a router to route requests to multiple deployments. Another [example of this architecture includes Foundry](/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-chat#architecture) and uses a managed online endpoint as the router. And the different versions of the orchestrator are deployed to managed compute.
 
 :::image type="complex" source="_images/model-lifecycle-single-layer-abstraction.svg" border="false" alt-text="Diagram of a chat scenario that uses a router to route between deployments." lightbox="_images/model-lifecycle-single-layer-abstraction.svg":::
 A diagram shows a user connecting to an intelligent application, which connects to a router (labeled 1). The router connects to two deployments in an Orchestrator (labeled 2). Each deployment contains a configuration, prompt (labeled 3), and orchestration logic (labeled 4). Each deployment connects to a specific model (labeled 5). Deployment 1 connects to model-x-v1, while Deployment 2 connects to model-x-v1.1. The orchestrator also connects to an API or agent, which connects to a knowledge database.
@@ -230,6 +230,6 @@ Your architecture should support updates to new or different models and any nece
 
 ## Related resources
 
-- [Baseline Microsoft Foundry chat reference architecture](../architecture/baseline-azure-ai-foundry-chat.yml)
+- [Baseline Foundry chat reference architecture](../architecture/baseline-microsoft-foundry-chat.yml)
 - [MLOps](machine-learning-operations-v2.md)
 - [GenAIOps for MLOps practitioners](genaiops-for-mlops.md)
