@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This content processing solution extracts data and applies schemas across multi-modal content through confidence scoring and user validation. It processes claims, invoices, contracts, and other documents by extracting information from unstructured content and mapping it to structured formats.
+This content processing solution extracts data and applies schemas across multimodal content through confidence scoring and user validation. It processes claims, invoices, contracts, and other documents by extracting information from unstructured content and mapping it to structured formats.
 
 The architecture uses Microsoft Foundry, Azure Content Understanding, Azure OpenAI in Foundry Models, and other Azure services to transform large volumes of unstructured content through event-driven processing pipelines. It handles text, images, tables, and graphs, and provides automated quality checks and human review capabilities for business document workflows.
 
@@ -16,7 +16,7 @@ The architecture uses Microsoft Foundry, Azure Content Understanding, Azure Open
 
 The following workflow corresponds to the previous diagram:
 
-1. Users upload multi-modal content, like documents, images, contracts, and invoices, through the web front-end interface. Users submit the content with specific processing requirements and target schemas.
+1. Users upload multimodal content, like documents, images, contracts, and invoices, through the web front-end interface. Users submit the content with specific processing requirements and target schemas.
 
 1. The Azure Container Apps website receives the content upload request and invokes the processing API hosted in Container Apps. The software team develops custom code for both components to tailor them for this scenario. The API selects the appropriate processing pipeline and initiates content analysis workflows.
 
@@ -51,7 +51,7 @@ The following workflow corresponds to the previous diagram:
 
   - [Azure OpenAI](/azure/ai-foundry/openai/overview) is a component of Foundry that provides language models, including GPT-4o and GPT-4o mini. In this architecture, Foundry hosts the models as a service. These models perform schema-based data transformation, map extracted content to structured formats, and calculate confidence scores for extraction accuracy.
 
-  - [Content Understanding](/azure/ai-services/content-understanding/overview) is a multi-modal AI service that analyzes various kinds of media content, like audio, video, text, and images. It transforms the content into structured, searchable data. In this architecture, Content Understanding performs advanced OCR and content extraction from multi-modal documents.
+  - [Content Understanding](/azure/ai-services/content-understanding/overview) is a multimodal AI service that analyzes various kinds of media content, like audio, video, text, and images. It transforms the content into structured, searchable data. In this architecture, Content Understanding performs advanced OCR and content extraction from multimodal documents.
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, multiple-model database service that provides guaranteed low latency and elastic scalability. In this architecture, Azure Cosmos DB stores processed results, confidence scores, validation outcomes, and historical processing data for audit trails and performance optimization.
 
@@ -67,7 +67,7 @@ This architecture includes multiple components that you can substitute with othe
 
 #### Content extraction approach
 
-**Current approach:** This solution uses Content Understanding for advanced OCR and content extraction, combined with Azure OpenAI for schema mapping and transformation. This approach provides high accuracy for complex multi-modal content and supports flexible schema customization.
+**Current approach:** This solution uses Content Understanding for advanced OCR and content extraction, combined with Azure OpenAI for schema mapping and transformation. This approach provides high accuracy for complex multimodal content and supports flexible schema customization.
 
 **Alternative approach:** Use Azure Document Intelligence for document processing by using prebuilt models for common document types like invoices, receipts, and forms. This approach provides faster implementation for standard document types but less flexibility for custom schemas.
 
@@ -99,7 +99,7 @@ Consider this alternative if your workload has the following characteristics:
 
 ## Scenario details
 
-Some organizations extract meaningful data daily from large volumes of unstructured, multi-modal content. Traditional manual processing of documents like contracts, invoices, claims, and compliance reports is time-consuming, error-prone, and doesn't scale with business growth. As a result, organizations face inconsistent data quality, lack of standardization, and difficulty integrating extracted information into downstream business processes. This content processing solution addresses those problems.
+Some organizations extract meaningful data daily from large volumes of unstructured, multimodal content. Traditional manual processing of documents like contracts, invoices, claims, and compliance reports is time-consuming, error-prone, and doesn't scale with business growth. As a result, organizations face inconsistent data quality, lack of standardization, and difficulty integrating extracted information into downstream business processes. This content processing solution addresses those problems.
 
 The solution uses advanced AI services to automatically extract, transform, and validate content from various document types. The system provides confidence scoring to enable automated processing for high-confidence extractions while flagging lower-confidence results for human review. This approach ensures both speed and accuracy while maintaining the flexibility to handle diverse content formats and custom business schemas.
 
