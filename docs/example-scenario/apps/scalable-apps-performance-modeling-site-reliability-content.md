@@ -233,5 +233,8 @@ Cost optimization is a pillar of the [Microsoft Azure Well-Architected Framework
 
 ## Contributors
 
-- Subhajit Chatterjee
-- Dawid Obrocki
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- [Subhajit Chatterjee](https://www.linkedin.com/in/subhajit-chatterjee-b9b53b44) | Principal Software Engineer
