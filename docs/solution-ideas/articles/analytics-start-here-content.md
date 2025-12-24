@@ -30,15 +30,15 @@ Knowing how to [store your data](../../data-guide/technology-choices/analytical-
 
 To get started, consider the following example implementations:
 
--   [Analytics end-to-end with Azure Synapse](../../example-scenario/dataplate2e/data-platform-end-to-end.yml)
+- [Analytics end-to-end with Microsoft Fabric](../../example-scenario/dataplate2e/data-platform-end-to-end.yml)
 
--   [Databases architecture design](../../databases/index.yml)
+- [Databases architecture design](../../databases/index.yml)
 
--   [Data warehousing and analytics](../../example-scenario/data/data-warehouse.yml)
+- [Data warehousing and analytics](../../example-scenario/data/data-warehouse.yml)
 
--   [Stream processing with Azure Databricks](../../reference-architectures/data/stream-processing-databricks.yml)
+- [Stream processing with Azure Databricks](../../reference-architectures/data/stream-processing-databricks.yml)
 
--   [Stream processing with Azure Stream Analytics](../../reference-architectures/data/stream-processing-stream-analytics.yml)
+- [Stream processing with Azure Stream Analytics](../../reference-architectures/data/stream-processing-stream-analytics.yml)
 
 ## Best practices
 

@@ -21,7 +21,7 @@ This article covers AI services that provide video and image processing capabili
 
 The following services provide video and image processing capabilities for AI services:
 
-- [Azure OpenAI Service](#azure-openai)
+- [Azure OpenAI in Foundry Models](#azure-openai)
 
   - **Use** Azure OpenAI for image generation from natural language by using pretrained generative imaging models. For example, you can use Azure OpenAI to generate custom art on demand.
 

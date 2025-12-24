@@ -110,4 +110,4 @@ Principal authors:
 - [Analytics architecture design](../../solution-ideas/articles/analytics-start-here.yml)
 - [Choose an analytical data store in Azure](analytical-data-stores.md)
 - [Choose a data analytics technology in Azure](analysis-visualizations-reporting.md)
-- [Analytics end-to-end with Azure Synapse Analytics](../../example-scenario/dataplate2e/data-platform-end-to-end.yml)
+- [Analytics end-to-end with Microsoft Fabric](../../example-scenario/dataplate2e/data-platform-end-to-end.yml)

@@ -1,13 +1,13 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This architecture describes a content processing solution that extracts data and applies schemas across multi-modal content by using confidence scoring and user validation. It processes claims, invoices, contracts, and other documents by extracting information from unstructured content and mapping it to structured formats. This architecture applies Azure AI Foundry, Azure AI Content Understanding, Azure OpenAI in Azure AI Foundry Models, and other Azure services to transform large volumes of unstructured content through event-driven processing pipelines.
+This architecture describes a content processing solution that extracts data and applies schemas across multi-modal content by using confidence scoring and user validation. It processes claims, invoices, contracts, and other documents by extracting information from unstructured content and mapping it to structured formats. This architecture applies Microsoft Foundry, Azure AI Content Understanding, Azure OpenAI in Foundry Models, and other Azure services to transform large volumes of unstructured content through event-driven processing pipelines.
 
 This architecture shows how to build scalable systems for processing content. The systems handle text, images, tables, and graphs and include automatic quality checks and human review for business document workflows.
 
 ## Architecture
 
 :::image type="complex" border="false" source="./_images/multi-modal-content-processing.svg" alt-text="Diagram that shows a typical content processing architecture." lightbox="./_images/multi-modal-content-processing.svg":::
-   The image contains key sections that correspond to the workflow. The Client browser section has text that reads Upload file. An arrow points from this text to the Container Apps section. Four lines point from Content processor in the Container Apps section. The top line in this section splits into two lines. One line reads Extract or map and points to Azure OpenAI in Foundry Models. The other line reads Extract and points to Azure AI Content Understanding. The next line in this section reads Task result and points to Blob Storage. The next line reads Task history or result and points to Azure Cosmos DB. An arrow that reads Dequeue points to Azure Queue Storage. An arrow that reads Enqueue points from Content processor API to Queue Storage. An arrow points from the Monitor or update process section to Power BI. Another arrow points from Azure Cosmos DB to Power BI.
+   The image contains key sections that correspond to the workflow. The Client browser section has text that reads Upload file. An arrow points from this text to the Container Apps section. Four lines point from Content processor in the Container Apps section. The top line in this section splits into two lines. One line reads Extract or map and points to Azure OpenAI. The other line reads Extract and points to Azure AI Content Understanding. The next line in this section reads Task result and points to Blob Storage. The next line reads Task history or result and points to Azure Cosmos DB. An arrow that reads Dequeue points to Azure Queue Storage. An arrow that reads Enqueue points from Content processor API to Queue Storage. An arrow points from the Monitor or update process section to Power BI. Another arrow points from Azure Cosmos DB to Power BI.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/multi-modal-content-processing.vsdx) of this architecture.*
@@ -20,11 +20,11 @@ The following workflow corresponds to the previous diagram:
 
 1. The Azure Container Apps website receives the content upload request and invokes the processing API hosted in Container Apps. Both components are custom-coded solutions tailored for this scenario. The API selects the appropriate processing pipeline and initiates content analysis workflows.
 
-1. Container Apps manages the processing workflow. It connects Content Understanding, which performs optical character recognition (OCR) and extracts text, with Azure OpenAI in Foundry Models. These models map schemas and convert the extracted data into structured formats.
+1. Container Apps manages the processing workflow. It connects Content Understanding, which performs optical character recognition (OCR) and extracts text, with Azure OpenAI. These models map schemas and convert the extracted data into structured formats.
 
 1. Content Understanding performs machine learning-based OCR for efficient text extraction from various content formats, including images, tables, and graphs.
 
-1. Azure OpenAI in Foundry Models with GPT Vision processes the extracted content, maps it to custom or industry-defined schemas, and generates a structured JSON output with confidence scoring.
+1. Azure OpenAI with GPT Vision processes the extracted content, maps it to custom or industry-defined schemas, and generates a structured JSON output with confidence scoring.
 
 1. The orchestration code in Container Apps stores processed results, confidence scores, schema mappings, and historical processing data for audit trails and continuous improvement in Azure Cosmos DB.
 
@@ -40,9 +40,9 @@ The following workflow corresponds to the previous diagram:
 
 - [Container Apps](/azure/well-architected/service-guides/azure-container-apps) is a serverless container platform that you can use to run microservices and containerized applications on a serverless platform. In this architecture, Container Apps hosts the processing pipeline API that orchestrates content analysis, coordinates between AI services, and manages the extraction and transformation workflows. The code that runs is custom coded by your software engineering team.
 
-- [Azure AI Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) is a managed AI service that provides access to advanced language models for natural language processing and generation. In this architecture, Azure AI Foundry provides the foundation for deploying and managing AI models used in the content processing pipeline and is the gateway into the connected AI services, like Content Understanding.
+- [Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) is a managed AI service that provides access to advanced language models for natural language processing and generation. In this architecture, Foundry provides the foundation for deploying and managing AI models used in the content processing pipeline and is the gateway into the connected AI services, like Content Understanding.
 
-  - [Azure OpenAI in Foundry Models](/azure/ai-foundry/openai/overview) is a component of Azure AI Foundry that provides language models, including GPT-4o and GPT-4o mini. In this architecture, the models are hosted as a service in Azure AI Foundry. These models perform schema-based data transformation, map extracted content to structured formats, and calculate confidence scores for extraction accuracy.
+  - [Azure OpenAI](/azure/ai-foundry/openai/overview) is a component of Foundry that provides language models, including GPT-4o and GPT-4o mini. In this architecture, the models are hosted as a service in Foundry. These models perform schema-based data transformation, map extracted content to structured formats, and calculate confidence scores for extraction accuracy.
 
   - [Content Understanding](/azure/ai-services/content-understanding/overview) is a multi-modal AI service that analyzes various media content, such as audio, video, text, and images, and transforms it into structured, searchable data. In this architecture, Content Understanding accurately performs advanced OCR and content extraction from multi-modal documents.
 

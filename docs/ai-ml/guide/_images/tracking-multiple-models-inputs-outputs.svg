@@ -548,48 +548,46 @@
 			<text x="13.54" y="524.57" class="st25" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>Cache</text>		</g>
 		<g id="shape163-173" v:mID="163" v:groupContext="shape" transform="translate(340.157,-208.576)">
 			<title>Sheet.163</title>
-			<desc>Azure OpenAl Service private endpoint</desc>
+			<desc>Azure OpenAI private endpoint</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(7000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="53.3696" cy="513.094" width="106.74" height="36.8038"/>
 			<rect x="0" y="494.692" width="106.739" height="36.8038" class="st24"/>
-			<text x="5.83" y="510.09" class="st25" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure OpenAl Service<v:newlineChar/><tspan
-						x="16.87" dy="1.2em" class="st26">private endpoint</tspan></text>		</g>
+			<text x="5.83" y="510.09" class="st25" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure OpenAI<v:newlineChar/><tspan
+					x="5.83" dy="1.2em" class="st26">private endpoint</tspan></text>		</g>
 		<g id="shape164-177" v:mID="164" v:groupContext="shape" transform="translate(340.157,-336.493)">
 			<title>Sheet.164</title>
-			<desc>Azure OpenAl Service private endpoint</desc>
+			<desc>Azure OpenAI private endpoint</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(8000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="53.3696" cy="513.094" width="106.74" height="36.8038"/>
 			<rect x="0" y="494.692" width="106.739" height="36.8038" class="st24"/>
-			<text x="5.83" y="510.09" class="st25" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure OpenAl Service <v:newlineChar/><tspan
-						x="16.87" dy="1.2em" class="st26">private endpoint</tspan></text>		</g>
+			<text x="5.83" y="510.09" class="st25" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure OpenAI<v:newlineChar/><tspan
+					x="5.83" dy="1.2em" class="st26">private endpoint</tspan></text>		</g>
 		<g id="shape165-181" v:mID="165" v:groupContext="shape" transform="translate(584.757,-356.063)">
 			<title>Sheet.165</title>
-			<desc>Azure OpenAl Service</desc>
+			<desc>Azure OpenAI</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(9000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="36.1417" cy="521.586" width="72.29" height="19.8192"/>
 			<rect x="0" y="511.677" width="72.2835" height="19.8192" class="st24"/>
-			<text x="5.51" y="518.59" class="st25" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure OpenAl <tspan
-						x="20.6" dy="1.2em" class="st26">Service</tspan></text>		</g>
+			<text x="5.51" y="518.59" class="st25" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure OpenAI</text>		</g>
 		<g id="shape166-185" v:mID="166" v:groupContext="shape" transform="translate(580.447,-197.483)">
 			<title>Sheet.166</title>
-			<desc>Azure OpenAl Service</desc>
+			<desc>Azure OpenAI</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(10000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="36.1417" cy="521.586" width="72.29" height="19.8192"/>
 			<rect x="0" y="511.677" width="72.2835" height="19.8192" class="st24"/>
-			<text x="5.51" y="518.59" class="st25" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure OpenAl <tspan
-						x="20.6" dy="1.2em" class="st26">Service</tspan></text>		</g>
+			<text x="5.51" y="518.59" class="st25" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure OpenAI</text>		</g>
 		<g id="shape167-189" v:mID="167" v:groupContext="shape" transform="translate(498.189,-167.244)">
 			<title>Sheet.167</title>
 			<desc>gpt-4o</desc>
@@ -643,14 +641,14 @@
 						class="st26" v:langID="2052">Monitor</tspan> </text>		</g>
 		<g id="shape172-205" v:mID="172" v:groupContext="shape" transform="translate(697.308,-196.178)">
 			<title>Sheet.172</title>
-			<desc>Azure OpenAl metrics and logs</desc>
+			<desc>Azure OpenAI metrics and logs</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(16000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="53.3696" cy="487.854" width="106.74" height="87.2838"/>
 			<rect x="0" y="444.212" width="106.739" height="87.2838" class="st24"/>
-			<text x="4" y="484.85" class="st25" v:langID="1033"><v:paragraph/><v:tabList/>Azure OpenAl metrics <tspan x="4"
+			<text x="4" y="484.85" class="st25" v:langID="1033"><v:paragraph/><v:tabList/>Azure OpenAI metrics <tspan x="4"
 						dy="1.2em" class="st26">and logs</tspan></text>		</g>
 		<g id="shape173-209" v:mID="173" v:groupContext="shape" transform="translate(502.254,-263.041)">
 			<title>Sheet.173</title>

@@ -2,9 +2,9 @@
 metadata:
   title: DR for Azure Data Platform - Overview
   description: First article in a series covering disaster recovery for an Azure data platform
-  author: claytonsiemens77
-  ms.author: pnp
-  ms.date: 10/07/2024
+  author: lponnam75
+  ms.author: lsuryadevara
+  ms.date: 12/18/2025
   ms.topic: concept-article
   ms.subservice: architecture-guide
 name: DR for Azure Data Platform - Overview
@@ -13,7 +13,7 @@ azureCategories:
   - analytics
 summary: Overview of solution idea scenario.
 products:
-  - azure-synapse-analytics
+  - fabric
   - azure-machine-learning
   - azure-cosmos-db
   - azure-data-lake
