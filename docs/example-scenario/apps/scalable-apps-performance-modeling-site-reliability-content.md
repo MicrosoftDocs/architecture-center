@@ -42,7 +42,9 @@ Client applications such as web apps, mobile apps, and service applications cons
 For the compute plane, consider:
 
 - [Azure Functions](https://azure.microsoft.com/services/functions) for serverless API services.
-- [Azure Spring Apps](https://azure.microsoft.com/services/spring-apps) for Java-based microservices.
+- [Azure Spring Apps](https://azure.microsoft.com/services/spring-apps) for Java-based microservices.  
+  > [!NOTE]
+  > Azure Spring Apps is scheduled for retirement in 2028. For new Java workloads, consider [AKS](https://learn.microsoft.com/azure/aks/) or [Azure Container Apps](https://learn.microsoft.com/azure/container-apps/overview) as alternatives.
 
 ## Appropriate reliability
 
@@ -207,12 +209,15 @@ Cost optimization is a pillar of the [Microsoft Azure Well-Architected Framework
 
 ## Next steps
 
-- [Azure documentation](/azure)
 - [Microsoft Azure Well-Architected Framework](/azure/well-architected/)
+- [Microservices architecture on Azure Kubernetes Service](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices)
+
+## Related resources
+
+- [Azure documentation](/azure)
 - [Microservices architecture style](/azure/architecture/guide/architecture-styles/microservices)
 - [Design to scale out](/azure/architecture/guide/design-principles/scale-out)
 - [Choose an Azure compute service for your application](/azure/architecture/guide/technology-choices/compute-decision-tree)
-- [Microservices architecture on Azure Kubernetes Service](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices)
 - [What is Azure Front Door?](/azure/frontdoor/front-door-overview)
 - [About API Management](/azure/api-management/api-management-key-concepts)
 - [What is Application Gateway Ingress Controller?](/azure/application-gateway/ingress-controller-overview)
@@ -225,3 +230,8 @@ Cost optimization is a pillar of the [Microsoft Azure Well-Architected Framework
 - [Site reliability engineering documentation](/azure/site-reliability-engineering)
 - [AZ-400: Develop a Site Reliability Engineering (SRE) strategy](/training/paths/az-400-develop-sre-strategy)
 - [Baseline web application with zone redundancy](../../web-apps/app-service/architectures/baseline-zone-redundant.yml)
+
+## Contributors
+
+- Subhajit Chatterjee
+- Dawid Obrocki
