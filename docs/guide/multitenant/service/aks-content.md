@@ -414,12 +414,7 @@ When multiple tenants share the same infrastructure, managing data privacy, comp
 
 Principal author:
 
-<<<<<<< HEAD
-- [Ben Griffin](https://www.linkedin.com/in/bengriffin1/) | Senior Partner Solution Architect - Cloud & AI
-- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori/) | Principal Customer Engineer
-=======
 - [Ben Griffin](https://www.linkedin.com/in/bengriffin1/) | Senior Partner Solution Architect
->>>>>>> 36098c10f3 (Updated Contributors list.)
 
 Other contributors:
 
