@@ -414,11 +414,16 @@ When multiple tenants share the same infrastructure, managing data privacy, comp
 
 Principal author:
 
+<<<<<<< HEAD
 - [Ben Griffin](https://www.linkedin.com/in/bengriffin1/) | Senior Partner Solution Architect - Cloud & AI
 - [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori/) | Principal Customer Engineer
+=======
+- [Ben Griffin](https://www.linkedin.com/in/bengriffin1/) | Senior Partner Solution Architect
+>>>>>>> 36098c10f3 (Updated Contributors list.)
 
 Other contributors:
 
+- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori/) | Principal Customer Engineer
 - [Bohdan Cherchyk](https://www.linkedin.com/in/cherchyk/) | Senior Customer Engineer
 - [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer - Azure Patterns & Practices
 - [Chad Kittel](https://www.linkedin.com/in/chadkittel/)  | Principal Software Engineer - Azure Patterns & Practices
