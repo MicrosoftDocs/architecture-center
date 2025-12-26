@@ -1,5 +1,4 @@
 ---
-metadata:
 title: Microsoft Security Solutions for AWS
 description: Learn how Microsoft security solutions can help secure and protect Amazon Web Services (AWS) account access and environments.
 author: murthyla
