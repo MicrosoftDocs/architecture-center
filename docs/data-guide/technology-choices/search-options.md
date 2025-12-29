@@ -48,7 +48,7 @@ The following tables summarize the key differences in capabilities.
 | Is managed service | Yes | No | Yes |
 | REST API | Yes | Yes | No |
 | Programmability | .NET, Java, Python, JavaScript | Java | T-SQL |
-| Document indexers for common file types (PDF, DOCX, TXT, and so on) | Yes | No | No |
+| Document indexers for common file types (for example, PDF, DOCX, and TXT) | Yes | No | No |
 
 ### Manageability capabilities
 

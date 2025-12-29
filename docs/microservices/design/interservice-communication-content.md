@@ -8,7 +8,7 @@ Here are some of the main challenges arising from service-to-service communicati
 
 - **[Retry](../../patterns/retry.yml)**. A network call might fail because of a transient fault that goes away by itself. Rather than fail outright, the caller should typically retry the operation a certain number of times, or until a configured time-out period elapses. However, if an operation isn't idempotent, retries can cause unintended side effects. The original call might succeed, but the caller never gets a response. If the caller retries, the operation might be invoked twice. Generally, it's not safe to retry POST or PATCH methods, because these aren't guaranteed to be idempotent.
 
-- **[Circuit Breaker](../../patterns/circuit-breaker.md)**. Too many failed requests can cause a bottleneck, as pending requests accumulate in the queue. These blocked requests might hold critical system resources such as memory, threads, database connections, and so on, which can cause cascading failures. The Circuit Breaker pattern can prevent a service from repeatedly trying an operation that is likely to fail.
+- **[Circuit Breaker](../../patterns/circuit-breaker.md)**. Too many failed requests can cause a bottleneck, as pending requests accumulate in the queue. These blocked requests might hold critical system resources such as memory, threads, and database connections, which can cause cascading failures. The Circuit Breaker pattern can prevent a service from repeatedly trying an operation that is likely to fail.
 
 **Load balancing**. When service "A" calls service "B", the request must reach a running instance of service "B". In Kubernetes, the `Service` resource type provides a stable IP address for a group of pods. Network traffic to the service's IP address gets forwarded to a pod by means of iptable rules. By default, a random pod is chosen. A [service mesh](#using-a-service-mesh) can provide more intelligent load balancing algorithms based on observed latency or other metrics.
 
@@ -36,7 +36,7 @@ There are tradeoffs to each pattern. Request/response is a well-understood parad
 
 - **Failure isolation**. If the consumer fails, the sender can still send messages. The messages are picked up when the consumer recovers. This ability is especially useful in a microservices architecture, because each service has its own lifecycle. A service could become unavailable or be replaced with a newer version at any given time. Asynchronous messaging can handle intermittent downtime. Synchronous APIs, on the other hand, require the downstream service to be available or the operation fails.
 
-- **Responsiveness**. An upstream service can reply faster if it doesn't wait on downstream services. This is especially useful in a microservices architecture. If there's a chain of service dependencies (service A calls B, which calls C, and so on), waiting on synchronous calls can add unacceptable amounts of latency.
+- **Responsiveness**. An upstream service can reply faster if it doesn't wait on downstream services. This is especially useful in a microservices architecture. If there's a chain of service dependencies (for example, service A calls B, which calls C), waiting on synchronous calls can add unacceptable amounts of latency.
 
 - **Load leveling**. A queue can act as a buffer to level the workload, so that receivers can process messages at their own rate.
 

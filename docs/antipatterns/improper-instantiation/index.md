@@ -114,7 +114,7 @@ public class SingleHttpClientInstanceController : ApiController
 
 Symptoms of this problem include a drop in throughput or an increased error rate, along with one or more of the following changes:
 
-- An increase in exceptions that indicate exhaustion of resources such as sockets, database connections, file handles, and so on.
+- An increase in exceptions that indicate exhaustion of resources such as sockets, database connections, and file handles.
 - Increased memory use and garbage collection.
 - An increase in network, disk, or database activity.
 

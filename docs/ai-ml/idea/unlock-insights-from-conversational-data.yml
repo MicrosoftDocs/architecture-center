@@ -1,10 +1,10 @@
 ### YamlMime:Architecture
 metadata:
   title: Build a Conversation Knowledge Mining Solution by using Azure AI Services
-  description: Learn how to design a scalable conversation analytics system that extracts insights from conversational data by using Azure AI services and Azure OpenAI in Foundry Models.
-  author: gpickett
-  ms.author: gpickett
-  ms.date: 6/16/2025
+  description: Learn how to design a scalable conversation analytics system that extracts insights from conversational data by using Azure AI services and Microsoft Foundry.
+  author: malrose07
+  ms.author: malrose
+  ms.date: 12/02/2025
   ms.topic: solution-idea
   ms.collection: ce-skilling-ai-copilot
   ms.subservice: solution-idea
@@ -17,7 +17,7 @@ products:
   - semantic-kernel
   - azure-ai-foundry
 name: Build a conversation knowledge mining solution by using Azure AI services
-summary: Learn how to design a scalable conversation analytics system that extracts insights from conversational data by using Azure AI services and Azure OpenAI in Foundry Models.
+summary: Learn how to design a scalable conversation analytics system that extracts insights from conversational data by using Azure AI services and Microsoft Foundry.
 thumbnailUrl: /azure/architecture/browse/thumbs/unlock-insights-from-conversational-data.png
 content: |
   [!INCLUDE[](unlock-insights-from-conversational-data-content.md)]
