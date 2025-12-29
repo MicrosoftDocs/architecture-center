@@ -89,7 +89,7 @@ This section describes a recommended Web-Queue-Worker architecture that uses App
 
 ### Workflow
 
-- The front end is implemented as an [App Service](/azure/app-service/overview) web app, and the worker is implemented as an [Azure Functions](/azure/azure-functions/functions-overview) app. The web app and the Functions app are both associated with an App Service plan that provides the virtual machine (VM) instances.
+- The front end is implemented as an [App Service](/azure/app-service/overview) web app, and the worker is implemented as an [Azure Functions](/azure/azure-functions/functions-overview) app. The web app and the Functions app are both associated with an App Service plan.
 
 - You can use either [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) or [Azure Storage queues](/azure/storage/queues/storage-queues-introduction) for the message queue. The previous diagram uses a Storage queue.
 
