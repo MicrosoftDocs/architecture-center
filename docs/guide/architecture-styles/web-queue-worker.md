@@ -33,7 +33,7 @@ The front end might include a web API. A single‑page application can consume t
 
 ## When to use this architecture
 
-The Web-Queue-Worker architecture is typically implemented by using managed compute services like [Azure App Service](/azure/app-service/overview), [Azure Kubernetes Service](/azure/aks/what-is-aks), or [Azure Container Apps](/azure/container-apps/)
+The Web-Queue-Worker architecture is typically implemented by using managed compute services like [Azure App Service](/azure/app-service/overview), [Azure Kubernetes Service](/azure/aks/what-is-aks), or [Azure Container Apps](/azure/container-apps/).
 
 Consider this architecture for the following use cases:
 
