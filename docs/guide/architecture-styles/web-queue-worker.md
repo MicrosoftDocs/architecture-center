@@ -82,7 +82,7 @@ Consider this architecture for the following use cases:
 This section describes a recommended Web-Queue-Worker architecture that uses App Service.
 
 :::image type="complex" border="false" source="./images/web-queue-worker-physical.svg" alt-text="Diagram that shows the Web-Queue-Worker architecture." lightbox="./images/web-queue-worker-physical.svg":::
-   Architecture diagram that shows users who access web applications through Azure CDN for static content delivery. Traffic flows to App Service web apps that handle user requests and send messages to Azure Service Bus or Azure Storage queues. Azure Functions workers process messages from the queues to handle resource-intensive tasks. The system uses Azure Cache for Redis for session state and low-latency data access. Azure Blob Storage provides file and document storage. Azure SQL Database and Azure Cosmos DB provide polyglot data storage. Web apps and Functions both run on App Service plans for compute infrastructure.
+   Architecture diagram that shows users who access web applications through Azure CDN for static content delivery. Traffic flows to App Service web apps that handle user requests and send messages to Azure Service Bus or Azure Storage queues. Azure Functions workers process messages from the queues to handle resource-intensive tasks. The system uses Azure Managed Redis for session state and low-latency data access. Azure Blob Storage provides file and document storage. Azure SQL Database and Azure Cosmos DB provide polyglot data storage. Web apps and Functions both run on App Service plans for compute infrastructure.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/web-queue-worker.vsdx) of this architecture.*
@@ -93,7 +93,7 @@ This section describes a recommended Web-Queue-Worker architecture that uses App
 
 - You can use either [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) or [Azure Storage queues](/azure/storage/queues/storage-queues-introduction) for the message queue. The previous diagram uses a Storage queue.
 
-- [Azure Cache for Redis](/azure/redis/overview) stores session state and other data that requires low-latency access.
+- [Azure Managed Redis](/azure/redis/overview) stores session state and other data that requires low-latency access.
 
 - [Azure Content Delivery Network](/azure/cdn/cdn-overview) is used to cache static content like images, CSS, or HTML.
 
