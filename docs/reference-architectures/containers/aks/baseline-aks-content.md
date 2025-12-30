@@ -1,10 +1,10 @@
-This article provides a recommended baseline infrastructure architecture to deploy an Azure Kubernetes Service (AKS) cluster. It uses our design principles and is based on AKS [architectural best practices](/azure/architecture/framework/services/compute/azure-kubernetes-service/azure-kubernetes-service) from the [Azure Well-Architected Framework](/azure/well-architected/). This article helps guide multiple distinct interdisciplinary groups, such as networking, security, and identity teams, when they deploy this general-purpose infrastructure.
+This article provides a recommended baseline infrastructure architecture to deploy an Azure Kubernetes Service (AKS) cluster. It uses our design principles and is based on AKS [architectural best practices](/azure/architecture/framework/services/compute/azure-kubernetes-service/azure-kubernetes-service) from the [Azure Well-Architected Framework](/azure/well-architected/). This article helps guide multiple distinct interdisciplinary groups, like networking, security, and identity teams, when they deploy this general-purpose infrastructure.
 
 This architecture isn't focused on a workload. It concentrates on the AKS cluster itself. This information is the minimum recommended baseline for most AKS clusters. It integrates with Azure services that deliver observability, provide a network topology that supports multi-regional growth, and secure in-cluster traffic.
 
-Your business requirements influence the target architecture and it can vary between different application contexts. Consider the architecture as your starting point for preproduction and production stages.
+Your business requirements influence the target architecture, which can vary between different application contexts. Consider the architecture as your starting point for preproduction and production stages.
 
-Kubernetes is a broad ecosystem that extends beyond Azure and Microsoft technologies. When you deploy an AKS cluster, you take responsibility for numerous decisions about how your cluster is designed and operated. When you run an AKS cluster, it involves using closed-source components from various vendors, including Microsoft, along with open-source components from the Kubernetes ecosystem. The landscape changes frequently, and you might need to revisit decisions regularly. By adopting Kubernetes, you acknowledge that your workload needs its capabilities, and your workload team is prepared to invest on an ongoing basis.
+Kubernetes is a broad ecosystem that extends beyond Azure and Microsoft technologies. When you deploy an AKS cluster, you're responsible for numerous decisions about how your cluster is designed and operated. When you run an AKS cluster, it uses closed-source components from various vendors, including Microsoft, along with open-source components from the Kubernetes ecosystem. The landscape changes frequently, and you might need to revisit decisions regularly. When you adopt Kubernetes, you acknowledge that your workload needs its capabilities and that your workload team is prepared to invest on an ongoing basis.
 
 You can use an implementation of this architecture on [GitHub: AKS baseline reference implementation](https://github.com/mspnp/aks-baseline). Use it as an alternative starting point and configure the reference architecture based on your needs.
 
@@ -58,15 +58,23 @@ You can use an implementation of this architecture on [GitHub: AKS baseline refe
     :::column-end:::
 :::row-end:::
 
-## Network topology
+## Architecture
 
-This architecture uses a hub and spoke network topology. Deploy the hub and spokes in separate virtual networks that are connected through [virtual network peering](/azure/virtual-network/virtual-network-peering-overview). This topology has several advantages. Use this topology to:
+[![Architecture diagram that shows a hub-spoke network topology.](images/aks-baseline-architecture.svg)](images/aks-baseline-architecture.svg#lightbox)
 
-- Enable segregated management. You can apply governance and adhere to the principle of least privilege. It also supports the concept of an [Azure landing zone](/azure/cloud-adoption-framework/ready/landing-zone/) with a separation of duties.
+*Download a [Visio file](https://arch-center.azureedge.net/aks-baseline-architecture.vsdx) of this architecture.*
+
+For more information, see [Hub-spoke network topology in Azure](../../../networking/architecture/hub-spoke.yml).
+
+### Network topology
+
+This architecture uses a hub-and-spoke network topology. Deploy the hub and spokes in separate virtual networks that are connected through [virtual network peering](/azure/virtual-network/virtual-network-peering-overview). This topology has several advantages. Use this topology for the following capabilities and design goals:
+
+- Enable segregated management. You can apply governance and adhere to the principle of least privilege (PoLP). It also supports the concept of an [Azure landing zone](/azure/cloud-adoption-framework/ready/landing-zone/) with a separation of duties.
 
 - Minimize direct exposure of Azure resources to the public internet.
 
-- Provide regional hub and spoke topologies. You can expand hub and spoke network topologies in the future and provide workload isolation.
+- Provide regional hub-and-spoke topologies. You can expand hub-and-spoke network topologies in the future and provide workload isolation.
 
 - Employ a web application firewall service to help inspect HTTP traffic flow for all web applications.
 
@@ -78,28 +86,20 @@ This architecture uses a hub and spoke network topology. Deploy the hub and spok
 
 - Align with the [Azure enterprise-scale landing zone](/azure/cloud-adoption-framework/ready/enterprise-scale/implementation).
 
-## Architecture
-
-[![Architecture diagram that shows a hub-spoke network topology.](images/aks-baseline-architecture.svg)](images/aks-baseline-architecture.svg#lightbox)
-
-*Download a [Visio file](https://arch-center.azureedge.net/aks-baseline-architecture.vsdx) of this architecture.*
-
-For more information, see [Hub-spoke network topology in Azure](../../../networking/architecture/hub-spoke.yml).
-
 ### Hub virtual network
 
-The hub virtual network is the central point of connectivity and observability. In this architecture, the hub contains:
+The hub virtual network is the central point of connectivity and observability. In this architecture, the hub contains the following features:
 
-- Azure Firewall with global firewall policies, defined by your central IT teams to enforce organization-wide firewall policy.
-- Azure Bastion, which establishes a secure tunnel into the private network perimeter so that you can perform cluster management operations.
-- A gateway subnet for VPN connectivity.
-- Azure Monitor for network observability.
+- Azure Firewall with global firewall policies that your central IT teams define to enforce organization-wide rules
+- Azure Bastion, which establishes a secure tunnel into the private network perimeter so that you can perform cluster management operations
+- A gateway subnet for VPN connectivity
+- Azure Monitor for network observability
 
 Within the network, the architecture has three subnets.
 
 #### Subnet to host Azure Firewall
 
-[Azure Firewall](/azure/firewall/) is a managed firewall service. The Azure Firewall instance secures outbound network traffic. Without this layer of security, the traffic might communicate with a malicious, non-Microsoft service that could exfiltrate sensitive workload data. Use [Azure Firewall Manager](/azure/firewall-manager/overview) to centrally deploy and configure multiple Azure Firewall instances and manage Azure Firewall policies for this *hub virtual network* architecture type.
+[Azure Firewall](/azure/firewall/overview) is a managed firewall service. The Azure Firewall instance secures outbound network traffic. Without this layer of security, the traffic might communicate with a malicious, non-Microsoft service that could exfiltrate sensitive workload data. Use [Azure Firewall Manager](/azure/firewall-manager/overview) to centrally deploy and configure multiple Azure Firewall instances and manage Azure Firewall policies for this *hub virtual network* architecture type.
 
 #### Subnet to host a gateway
 
@@ -115,7 +115,7 @@ The spoke virtual network contains the AKS cluster and other related resources. 
 
 #### Subnet to host Azure Application Gateway
 
-[Application Gateway](/azure/application-gateway/overview) is a web traffic load balancer that operates at Layer 7. The reference implementation uses the Application Gateway v2 SKU that enables [Azure Web Application Firewall](/azure/application-gateway/waf-overview). Web Application Firewall secures incoming traffic from common web traffic attacks, including bots. The instance has a public front-end IP configuration that receives user requests. By design, Application Gateway requires a dedicated subnet.
+[Azure Application Gateway](/azure/application-gateway/overview) is a web traffic load balancer that operates at Layer 7. The reference implementation uses the Application Gateway v2 SKU that enables [Azure Web Application Firewall](/azure/web-application-firewall/ag/ag-overview). Web Application Firewall secures incoming traffic from common web traffic attacks, including bots. The instance has a public front-end IP configuration that receives user requests. By design, Application Gateway requires a dedicated subnet.
 
 #### Subnet to host the ingress resources
 
@@ -127,17 +127,17 @@ AKS maintains two node pools, which are separate groups of nodes. The system nod
 
 #### Subnet to host Azure Private Link endpoints
 
-Create Private Link connections for the [Azure Container Registry](/azure/container-registry/) and [Azure Key Vault](/azure/key-vault/general/overview) so that users can access these services by way of a [private endpoint](/azure/private-link/private-endpoint-overview) within the spoke virtual network. Private endpoints don't require a dedicated subnet. You can also place private endpoints in the hub virtual network. In the baseline implementation, the endpoints are deployed to a dedicated subnet within the spoke virtual network. This approach reduces traffic that passes through the peered network connection. It keeps the resources that belong to the cluster in the same virtual network. You can also apply granular security rules at the subnet level by using network security groups.
+Create Private Link connections for the [Azure Container Registry](/azure/container-registry/container-registry-intro) and [Azure Key Vault](/azure/key-vault/general/overview) so that users can access these services by way of a [private endpoint](/azure/private-link/private-endpoint-overview) within the spoke virtual network. Private endpoints don't require a dedicated subnet. You can also place private endpoints in the hub virtual network. In the baseline implementation, the endpoints are deployed to a dedicated subnet within the spoke virtual network. This approach reduces traffic that passes through the peered network connection. It keeps the resources that belong to the cluster in the same virtual network. You can also apply granular security rules at the subnet level by using network security groups (NSGs).
 
 For more information, see [Private Link deployment options](../../../networking/guide/private-link-hub-spoke-network.md#choose-the-best-private-link-deployment-configuration).
 
 #### Subnet for the AKS API server
 
-You can configure an AKS cluster to use [API Server VNet Integration](/azure/aks/api-server-vnet-integration), which projects the API server endpoint into a delegated subnet in your virtual network. This configuration ensures that all traffic between the API server, node pools, and connected clients stays entirely within your private network. It's a *private cluster*.
+You can configure an AKS cluster to use [API Server VNetIntegration](/azure/aks/api-server-vnet-integration), which projects the API server endpoint into a delegated subnet in your virtual network. This configuration ensures that all traffic between the API server, node pools, and connected clients remains entirely within your private network. It's a *private cluster*.
 
 All communication between the AKS-managed Kubernetes API server and clients (both cluster-internal and external clients) is restricted to a trusted network.
 
-With a private cluster, you can use network security groups (NSGs) and other built-in network controls to secure your environment. This configuration prohibits any unauthorized public access between the internet and the environment. For more information about how to set up such a cluster, see [Create a private Azure Kubernetes Service cluster](/azure/aks/private-clusters).
+With a private cluster, you can use NSGs and other built-in network controls to secure your environment. This configuration prohibits any unauthorized public access between the internet and the environment. For more information about how to set up such a cluster, see [Create a private AKS cluster](/azure/aks/private-clusters).
 
 ## Plan the IP addresses
 
@@ -145,64 +145,62 @@ With a private cluster, you can use network security groups (NSGs) and other bui
 
 *Download a [Visio file](https://arch-center.azureedge.net/aks-baseline_network_topology.vsdx) of this architecture.*
 
-This reference architecture uses multiple networking approaches, which each requires an IP address space:
+This reference architecture uses multiple networking approaches, each of which requires an IP address space:
 
 - Your Azure virtual network that you use for resources like cluster nodes, the cluster's API server, private endpoints for Azure services, and Application Gateway.
 - The cluster uses [Azure Container Networking Interface (CNI) Overlay](/azure/aks/azure-cni-overlay), which allocates IP addresses to pods from a separate address space to your Azure virtual network.
 
 ### Virtual network IP address space
 
-The address space of your Azure virtual network should be large enough to hold all of your subnets. Account for all entities that receive traffic. Kubernetes allocates IP addresses for the entities from the subnet address space. Consider the following points when you plan your Azure virtual network's IP addresses.
+The address space of your Azure virtual network should be large enough to hold all of your subnets. Account for all entities that receive traffic. Kubernetes allocates IP addresses for the entities from the subnet address space. Consider the following points when you plan your Azure virtual network's IP addresses:
 
-- **Upgrades:** AKS updates nodes regularly to make sure the underlying VMs are up to date on security features and other system patches. During an upgrade process, AKS creates a node that temporarily hosts the pods, while the upgrade node is cordoned and drained. That temporary node receives an IP address from the cluster subnet. Ensure you have enough address space for the temporary node IP addresses.
+- **Upgrades:** AKS updates nodes regularly to make sure that the underlying VMs are up to date on security features and other system patches. During an upgrade process, AKS creates a node that temporarily hosts the pods, while the upgrade node is cordoned and drained. That temporary node receives an IP address from the cluster subnet. Ensure that you have sufficient address space for the temporary node IP addresses.
 
   In this architecture, pods are allocated IP addresses from within the Azure CNI Overlay pod address space, including during rolling updates. This approach reduces the overall number of IP addresses used from your Azure virtual network compared to other Kubernetes networking approaches.
 
-- **Scalability:** Take into consideration the node count of all system and user nodes and their maximum scalability limit. Suppose you want to scale out by 400%. You need four times the number of addresses for all the scaled-out nodes.
+- **Scalability:** Consider the total number of system and user nodes and their maximum scalability limits. For example, if you want to scale out by 400%, you need four times the number of addresses for all the scaled-out nodes.
 
   Because this architecture uses Azure CNI Overlay, the scalability of your pods doesn't affect your virtual network's address space.
 
 - **Private Link addresses:** Factor in the addresses that are required for communication with other Azure services over Private Link. This architecture has two addresses assigned for the links to Container Registry and Key Vault.
 
-- **Private cluster API server addresses:** API Server VNet Integration helps you to project the AKS API server as an endpoint inside your virtual network. This feature requires a [minimum subnet size](/azure/aks/api-server-vnet-integration#create-a-private-aks-cluster-with-api-server-vnet-integration-using-bring-your-own-vnet), so ensure you meet these prerequisites during your network planning.
+- **Private cluster API server addresses:** API Server VNetIntegration helps you to project the AKS API server as an endpoint inside your virtual network. This feature requires a [minimum subnet size](/azure/aks/api-server-vnet-integration#create-a-private-aks-cluster-with-api-server-vnet-integration-using-bring-your-own-vnet), so ensure that you meet these prerequisites during your network planning.
 
-- **Reserved IP addresses:** Azure reserves [certain addresses](/azure/virtual-network/virtual-networks-faq#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets) for its uses. They can't be assigned.
+- **Reserved IP addresses:** Azure reserves [specific addresses](/azure/virtual-network/virtual-networks-faq#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets) for its uses. They can't be assigned.
 
 The preceding list isn't exhaustive. If your design has other resources that affect the number of available IP addresses, accommodate those addresses.
 
-This architecture is designed for a single workload. In a production AKS cluster, always separate the system node pool from the user node pool. When you run multiple workloads on the cluster, you might want to isolate the user node pools from each other. When you do that, it results in more subnets that are smaller in size. Also, the ingress resource might be more complex, and as a result you might need multiple ingress controllers that each require extra IP addresses.
+This architecture is designed for a single workload. In a production AKS cluster, always separate the system node pool from the user node pool. When you run multiple workloads on the cluster, you might want to isolate the user node pools from each other. This isolation results in more subnets that are smaller in size. The ingress resource might also be more complex. As a result, you might need multiple ingress controllers that each require extra IP addresses.
 
 ### Pod IP address space
 
-Azure CNI Overlay assigns IP addresses to pods by using a dedicated address space, which is separate from the address space you use in your virtual network. Use an IP address space that doesn't overlap with your virtual network or any peered virtual networks. But if you create multiple AKS clusters, you can safely use the same pod address space on each cluster.
+Azure CNI Overlay assigns IP addresses to pods by using a dedicated address space, which is separate from the address space that you use in your virtual network. Use an IP address space that doesn't overlap with your virtual network or any peered virtual networks. But if you create multiple AKS clusters, you can safely use the same pod address space on each cluster.
 
 Each node receives a /24 address space for its pods. It's important to ensure that the pod address space is sufficiently large. Allow for as many /24 blocks as you need for the number of nodes in your cluster. Remember to include any temporary nodes created during upgrades or scale-out operations. For example, if you use a /16 address space for your CIDR range, your cluster can grow to a maximum of about 250 nodes.
 
 Each node supports up to 250 pods, and this limit includes any pods that are temporarily created during upgrades.
 
-For more information, see the [guidance about IP address planning for Azure CNI Overlay](/azure/aks/azure-cni-overlay#ip-address-planning).
-
 ### Other IP address space considerations
 
-For the complete set of networking considerations for this architecture, see [AKS baseline network topology](https://github.com/mspnp/aks-baseline/blob/main/network-team/topology.md). For more information related to planning IP addressing for an AKS cluster, see [Plan IP addressing for your cluster](/azure/aks/configure-azure-cni#plan-ip-addressing-for-your-cluster).
+For the complete set of networking considerations for this architecture, see [AKS baseline network topology](https://github.com/mspnp/aks-baseline/blob/main/network-team/topology.md). For more information about how to plan IP addressing for an AKS cluster, see [Configure Azure CNI networking in AKS](/azure/aks/configure-azure-cni).
 
 ## Add-ons and preview features
 
 Kubernetes and AKS continuously evolve, with faster release cycles than software for on-premises environments. This baseline architecture depends on select AKS preview features and AKS add-ons. Here's the difference between the two:
 
-- The AKS team describes preview features as *shipped and improving* because many of the preview features stay in that state for only a few months before they move to the general availability (GA) phase.
+- Kubernetes and AKS continuously evolve, with faster release cycles than software for on‑premises environments. This baseline architecture depends on specific AKS preview features and AKS add‑ons. Consider the following differences between preview features and add‑ons:
 
-- AKS [add-ons and extensions](/azure/aks/integrations#add-ons) provide extra, supported functionality. AKS manages their installation, configuration, and lifecycle.
+- AKS [add-ons and extensions](/azure/aks/integrations#add-ons) provide extra, supported functionality. AKS manages their installation, configuration, and life cycle.
 
-The baseline architecture doesn't include every preview feature or add-on. Instead, it includes only the ones that add significant value to a general-purpose cluster. As these features come out of preview, this baseline architecture is revised accordingly. There are some other preview features or AKS add-ons you might want to evaluate in preproduction clusters. The features can improve your security, manageability, or other requirements. With non-Microsoft add-ons, you must install and maintain them, which includes tracking available versions and installing updates after upgrading a cluster's Kubernetes version.
+The baseline architecture doesn't include every preview feature or add-on. Instead, it includes only the ones that add significant value to a general-purpose cluster. As these features come out of preview, this baseline architecture is revised accordingly. There are some other preview features or AKS add-ons that you might want to evaluate in preproduction clusters. The features can improve your security, manageability, or other requirements. With non-Microsoft add-ons, you must install and maintain them, which includes tracking available versions and installing updates after you upgrade a cluster's Kubernetes version.
 
 ## Container image reference
 
-In addition to the workload, the cluster might contain several other images, such as the ingress controller. Some of those images might reside in public registries. Consider the following points when you pull the images into your cluster.
+The cluster might contain the workload and several other images, like the ingress controller. Some of those images might reside in public registries. Consider the following points when you pull the images into your cluster:
 
 - Authenticate the cluster to pull the image.
 
-- Import a public image into the container registry that aligns with your service-level objective (SLO), if you're using a public image. Otherwise, the image might be subject to unexpected availability problems. If the image is unavailable when you need it, that can cause operational problems. Here are some benefits of using a private container registry, like Azure Container Registry, instead of a public registry:
+- If you use a public image, import a public image into the container registry that aligns with your service-level objective (SLO). Otherwise, the image might be subject to unexpected availability problems. If the image is unavailable when you need it, operational problems can occur. Consider the following benefits of using a private container registry, like Azure Container Registry, instead of a public registry:
 
   - You can block unauthorized access to your images.
   - You don't have public-facing dependencies.
@@ -213,33 +211,33 @@ In addition to the workload, the cluster might contain several other images, suc
 
 ## Configure compute for the base cluster
 
-In AKS, each node pool usually maps to a virtual machine scale set. Nodes are VMs in each node pool.
+In AKS, each node pool usually maps to a virtual machine scale set. Nodes are virtual machines (VMs) in each node pool.
 
 Consider using a smaller VM size for the system node pool to minimize costs. This reference implementation deploys the system node pool with three D2dv5 nodes. That size is sufficient to meet the expected load of the system pods. The operating system ephemeral disk is 64 GB.
 
-When you're planning the capacity for a user node pool, consider the following recommendations:
+When you plan the capacity for a user node pool, consider the following recommendations:
 
 - Choose larger node sizes to pack the maximum number of pods set on a node. Large nodes minimize the footprint of services that run on all nodes, such as monitoring and logging.
 
-- Select the appropriate VM type if you have specific workload requirements. For example, you might need a memory-optimized product for some workloads, or a GPU-accelerated product for others. For more information, see [Sizes for virtual machines in Azure](/azure/virtual-machines/sizes/overview).
+- Select the appropriate VM type if you have specific workload requirements. For example, you might need a memory-optimized product for some workloads, or a GPU-accelerated product for others. For more information, see [Sizes for VMs in Azure](/azure/virtual-machines/sizes/overview).
 
 - Deploy at least two nodes, so the workload has a high availability pattern with two replicas. With AKS, you can change the node count without recreating the cluster.
 
-- Plan the actual node sizes for your workload based on the requirements determined by your design team. Based on the business requirements, this architecture uses the D4dv5 SKU for the production workload.
+- Plan the actual node sizes for your workload based on the requirements that your design team determines. Based on the business requirements, this architecture uses the D4dv5 SKU for the production workload.
 
-- Assume that your workload consumes up to 80% of each node when planning capacity for your cluster. The remaining 20% is reserved for AKS services.
+- Assume that your workload consumes up to 80% of each node when you plan capacity for your cluster. The remaining 20% is reserved for AKS services.
 
-- Set the maximum pods per node based on your capacity planning. If you're trying to establish a capacity baseline, start with a value of 30. Adjust that value based on the requirements of the workload, the node size, and your IP constraints.
+- Set the maximum pods for each node based on your capacity planning. If you try to establish a capacity baseline, start with a value of 30. Adjust that value based on the requirements of the workload, the node size, and your IP constraints.
 
 ### Select an operating system
 
-Most AKS clusters use Linux as the operating system for their node pools. In this reference implementation, we use [Azure Linux](/azure/aks/use-azure-linux), which is a lightweight, hardened Linux distribution that's tuned for Azure. You can choose another Linux distribution, such as Ubuntu, if you prefer, or if you have requirements that Azure Linux can't meet. If you choose a different operating system, ensure that the OS disk is sized appropriately for that image. Some distributions require more space than Azure Linux, so you might need to increase the disk size to avoid deployment or runtime issues.
+Most AKS clusters use Linux as the operating system for their node pools. In this reference implementation, we use [Azure Linux](/azure/aks/use-azure-linux), which is a lightweight, hardened Linux distribution that's tuned for Azure. You can choose another Linux distribution like Ubuntu if you prefer or if Azure Linux doesn't meet your requirements. If you choose a different operating system, ensure that the OS disk is sized appropriately for that image. Some distributions require more space than Azure Linux, so you might need to increase the disk size to avoid deployment or runtime problems.
 
 If your workload is composed of a mixture of technologies, you can use different operating systems in different node pools. But if you don't need different operating systems for your workload, we recommend that you use a single operating system for all your workload's node pools to reduce operational complexity.
 
 ## Integrate Microsoft Entra ID for the cluster
 
-Securing access to and from the cluster is critical. Think of it from the cluster's perspective when you're making security choices.
+Securing access to and from the cluster is critical. Apply security controls based on how they affect the cluster:
 
 - *Inside-out access:* Consider AKS access to Azure components such as networking infrastructure, Container Registry, and Key Vault. Authorize only the resources that the cluster should be allowed to access.
 - *Outside-in access:* Provide identities access to the Kubernetes cluster. Authorize only those external entities that are allowed access to the Kubernetes API server and Azure Resource Manager.
@@ -250,27 +248,27 @@ There are two ways to manage AKS to Azure access through Microsoft Entra ID: *se
 
 Of the two methods to manage AKS access to Azure, we recommend managed identities. With service principals, you must manage and rotate secrets, either manually or programmatically. With managed identities, Microsoft Entra ID manages and performs the authentication and timely rotation of secrets for you.
 
-We recommend that you enable and use [managed identities](/azure/aks/use-managed-identity#summary-of-managed-identities) so that the cluster can interact with external Azure resources through Microsoft Entra ID. Even if you don't use Microsoft Entra ID integration immediately, you can incorporate it later.
+We recommend that you enable and use [a managed identity in AKS](/azure/aks/use-managed-identity) so that the cluster can interact with external Azure resources through Microsoft Entra ID. Even if you don't use Microsoft Entra ID integration immediately, you can incorporate it later.
 
-By default, there are two primary [identities](/azure/aks/use-managed-identity#summary-of-managed-identities) the cluster uses: the *cluster identity* and the *kubelet identity*. The AKS control plane components use the *cluster identity* to manage cluster resources including ingress load balancers, and AKS managed public IPs. The *kubelet identity* authenticates with Container Registry. Some add-ons also support authentication by using a managed identity.
+By default, there are two primary [identities](/azure/aks/use-managed-identity#summary-of-managed-identities) the cluster uses: the *cluster identity* and the *kubelet identity*. The AKS control plane components use the *cluster identity* to manage cluster resources including ingress load balancers, and AKS managed public IP addresses. The *kubelet identity* authenticates with Container Registry. Some add-ons also support authentication by using a managed identity.
 
-You should use managed identities when the cluster needs to pull images from a container registry. This action requires the cluster to get the credentials of the registry. If you don't use a managed identity, then you might store that information in the form of a Kubernetes secret object and use `imagePullSecrets` to retrieve the secret. We don't recommend this approach because of security complexities. Not only do you need prior knowledge of the secret, you also need to store that secret within the DevOps pipeline. Another reason we don't recommend this approach is the operational overhead of managing the rotation of the secret. Instead, grant `AcrPull` access to the kubelet managed identity of the cluster to your registry. This approach addresses the concerns.
+You should use managed identities when the cluster needs to pull images from a container registry. This action requires the cluster to get the credentials of the registry. If you don't use a managed identity, then you might store that information in the form of a Kubernetes secret object and use `imagePullSecrets` to retrieve the secret. We don't recommend this approach because it introduces security complexities, including the need to know the secret in advance and to store it in the DevOps pipeline. It also adds operational overhead because you must rotate the secret. To address these concerns, grant `AcrPull` access to the kubelet managed identity of the cluster to your registry.
 
 In this architecture, the cluster accesses Azure resources that Microsoft Entra ID secures and the cluster performs operations that support managed identities. Assign Azure role-based access control (Azure RBAC) and permissions to the cluster's managed identities, depending on the operations that the cluster does. The cluster authenticates itself to Microsoft Entra ID and then is allowed or denied access based on the roles assigned to it. Here are some examples from this reference implementation where Azure built-in roles are assigned to the cluster:
 
-- [Network Contributor role](/azure/role-based-access-control/built-in-roles#network-contributor). Manages the cluster's ability to control the spoke virtual network. With this role assignment, the AKS cluster system-assigned identity can work with the dedicated subnet for the internal ingress controller service and AKS private API server.
+- The [Network Contributor role](/azure/role-based-access-control/built-in-roles#network-contributor) manages the cluster's ability to control the spoke virtual network. With this role assignment, the AKS cluster system-assigned identity can work with the dedicated subnet for the internal ingress controller service and AKS private API server.
 
-- [Private DNS Zone Contributor role](/azure/role-based-access-control/built-in-roles/networking#private-dns-zone-contributor). Manages the cluster's ability to link the zone directly to the spoke virtual network that hosts the cluster. A private cluster keeps DNS records off the public internet by using a private DNS zone. But it's still possible to [create a private AKS cluster with a public DNS address](/azure/aks/private-clusters#create-a-private-aks-cluster-with-a-public-dns-address). So, we recommend that you *explicitly* disable this feature by setting `enablePrivateClusterPublicFQDN` to `false` to prevent disclosure of your control plane's private IP address. Consider using Azure Policy to enforce the use of private clusters without public DNS records.
+- The [Private DNS Zone Contributor role](/azure/role-based-access-control/built-in-roles/networking#private-dns-zone-contributor) manages the cluster's ability to link the zone directly to the spoke virtual network that hosts the cluster. A private cluster keeps DNS records off the public internet by using a private DNS zone. But it's still possible to [create a private AKS cluster with a public DNS address](/azure/aks/private-clusters#create-a-private-aks-cluster-with-a-public-dns-address). We recommend that you *explicitly* prohibit this feature by setting `enablePrivateClusterPublicFQDN` to `false` to prevent disclosure of your control plane's private IP address. Consider using Azure Policy to enforce the use of private clusters without public DNS records.
 
-- [Monitoring Metrics Publisher role](/azure/role-based-access-control/built-in-roles#monitoring-metrics-publisher). Manages the cluster's ability to send metrics to Azure Monitor.
+- The [Monitoring Metrics Publisher role](/azure/role-based-access-control/built-in-roles#monitoring-metrics-publisher) manages the cluster's ability to send metrics to Azure Monitor.
 
-- [AcrPull role](/azure/role-based-access-control/built-in-roles#acrpull). Manages the cluster's ability to pull images from the specified Azure Container Registry instances.
+- The [AcrPull role](/azure/role-based-access-control/built-in-roles#acrpull) manages the cluster's ability to pull images from the specified Container Registry instances.
 
 ### Cluster access
 
-Microsoft Entra integration also simplifies security for outside-in access. For example, you might want to use kubectl. As an initial step, you can run the `az aks get-credentials` command to get the credentials of the cluster. Microsoft Entra ID authenticates your identity against the Azure roles that are allowed to get cluster credentials. For more information, see [Available cluster roles permissions](/azure/aks/control-kubeconfig-access#available-cluster-roles-permissions).
+Microsoft Entra integration also simplifies security for outside-in access. For example, you might want to use kubectl. As an initial step, you can run the `az aks get-credentials` command to get the credentials of the cluster. Microsoft Entra ID authenticates your identity against the Azure roles that are allowed to get cluster credentials. For more information, see [Available cluster roles permissions](/azure/aks/control-kubeconfig-access#available-permissions-for-cluster-roles).
 
-AKS supports Kubernetes access by using Microsoft Entra ID in two ways. The first is by using Microsoft Entra ID as an identity provider integrated with the native Kubernetes RBAC system. The other method uses native Azure RBAC to control cluster access. The following sections detail both approaches.
+AKS supports Kubernetes access through Microsoft Entra ID by using Microsoft Entra ID as an identity provider integrated with native Kubernetes RBAC or by using native Azure RBAC to control cluster access. The following sections detail both approaches.
 
 #### Associate Kubernetes RBAC with Microsoft Entra ID
 
@@ -286,17 +284,17 @@ Be sure that you include the Microsoft Entra groups for cluster and namespace ac
 
 #### Use Azure RBAC for Kubernetes authorization
 
-We recommend that you use Azure RBAC and Azure role assignments to enforce authorization checks on the cluster. This authorization approach integrates with Microsoft Entra authentication. You can even assign roles at the management group, subscription, or resource group scopes. All clusters under the scope then inherit a consistent set of role assignments with respect to who has permissions to access the objects on the Kubernetes cluster.
+We recommend that you use Azure RBAC and Azure role assignments to enforce authorization checks on the cluster. This authorization approach integrates with Microsoft Entra authentication. You can assign roles at the management group, subscription, or resource group scopes. All clusters under the scope then inherit a consistent set of role assignments with respect to who has permissions to access the objects on the Kubernetes cluster.
 
-We don't recommend using Kubernetes native RBAC with [`ClusterRoleBindings` and `RoleBindings`](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding).
+We don't recommend using Kubernetes-native RBAC with [`ClusterRoleBindings` and `RoleBindings`](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding).
 
 For more information, see [Azure RBAC for Kubernetes authorization](/azure/aks/manage-azure-rbac).
 
 #### Local accounts
 
-AKS supports native [Kubernetes user authentication](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#users-in-kubernetes). We don't recommend that you use this method to provide user access to clusters. This method is certificate-based and performed external to your primary identity provider, which makes your centralized user access control and governance difficult. Always manage access to your cluster by using Microsoft Entra ID, and configure your cluster to explicitly disable local account access.
+AKS supports native [Kubernetes user authentication](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#users-in-kubernetes). We don't recommend that you use this method to provide user access to clusters. This method is certificate-based and performed external to your primary identity provider, which makes your centralized user access control and governance difficult. Always manage access to your cluster by using Microsoft Entra ID, and configure your cluster to explicitly prohibit local account access.
 
-In this reference implementation, local cluster accounts access is explicitly disabled when the system deploys the cluster.
+In this reference implementation, local cluster accounts access is explicitly prohibited when the system deploys the cluster.
 
 <a name='integrate-azure-active-directory-for-the-workload'></a>
 
@@ -304,31 +302,31 @@ In this reference implementation, local cluster accounts access is explicitly di
 
 Similar to having an Azure system-assigned managed identity for the entire cluster, you can assign managed identities at the pod level. A workload identity enables the hosted workload to access resources through Microsoft Entra ID. For example, suppose the workload stores files in Azure Storage. When it needs to access those files, the pod authenticates itself against the resource as an Azure managed identity.
 
-In this reference implementation, [Microsoft Entra Workload ID on AKS](/azure/aks/workload-identity-overview) provides the managed identities for pods. This approach integrates with the Kubernetes native capabilities to federate with external identity providers. For more information about Microsoft Entra Workload ID federation, see [Workload identity federation](/entra/workload-id/workload-identity-federation).
+In this reference implementation, [Microsoft Entra Workload ID on AKS](/azure/aks/workload-identity-overview) provides the managed identities for pods. This approach integrates with the Kubernetes-native capabilities to federate with external identity providers. For more information about Microsoft Entra Workload ID federation, see [Workload identity federation](/entra/workload-id/workload-identity-federation).
 
 ## Select a networking model
 
 [!INCLUDE [kubenet retirement](~/reusable-content/ce-skilling/azure/includes/aks/includes/preview/retirement/kubenet-retirement-callout.md)]
 
-AKS supports multiple networking models including kubenet, CNI, and [Azure CNI Overlay](/azure/aks/azure-cni-overlay). The CNI models are the more advanced models, and offer high performance. When they communicate between pods, the performance of CNI is similar to the performance of VMs in a virtual network. CNI also offers enhanced security control because it enables the use of Azure network policy. We recommend a CNI-based networking model.
+AKS supports multiple networking models, including kubenet, CNI, and [Azure CNI Overlay](/azure/aks/azure-cni-overlay). The CNI models are the more advanced models, and provide high performance. When they communicate between pods, the performance of CNI is similar to the performance of VMs in a virtual network. CNI also provides enhanced security control because it enables the use of Azure network policy. We recommend a CNI-based networking model.
 
-In the nonoverlay CNI model, every pod gets an IP address from the subnet address space. Resources within the same network (or peered resources) can access the pods directly through their IP address. Network Address Translation (NAT) isn't needed for routing that traffic.
+In the nonoverlay CNI model, every pod gets an IP address from the subnet address space. Resources within the same network (or peered resources) can access the pods directly through their IP address. Network address translation (NAT) isn't needed to route that traffic.
 
 In this reference implementation, we use Azure CNI Overlay. It only allocates IP addresses from the node pool subnet for the nodes and uses an optimized overlay layer for pod IPs. Because Azure CNI Overlay uses fewer virtual network IP addresses than many other approaches, we recommend it for IP address-constrained deployments.
 
-For more information about the models, see [Configure Azure CNI Overlay networking in Azure Kubernetes Service (AKS)](/azure/aks/azure-cni-overlay#choosing-a-network-model-to-use) and [Best practices for network connectivity and security in Azure Kubernetes Service (AKS)](/azure/aks/operator-best-practices-network#choose-the-appropriate-network-model).
+For more information about the models, see [Configure Azure CNI Overlay networking in AKS](/azure/aks/azure-cni-overlay#choosing-a-network-model-to-use) and [Best practices for network connectivity and security in AKS](/azure/aks/operator-best-practices-network#choose-the-appropriate-network-model).
 
 ## Deploy ingress resources
 
 Kubernetes ingress resources handle routing and distributing for incoming traffic to the cluster. There are two parts of ingress resources:
 
-- The internal load balancer, managed by AKS. The load balancer exposes the ingress controller through a private static IP address. It serves as single point of contact that receives inbound flows.
+- **The internal load balancer that AKS manages:** The load balancer exposes the ingress controller through a private static IP address. It serves as single point of contact that receives inbound flows.
 
     This architecture uses Azure Load Balancer. Load Balancer is outside the cluster in a subnet dedicated for ingress resources. It receives traffic from Application Gateway and that communication is over transport layer security (TLS). For more information about TLS encryption for inbound traffic, see the [Ingress traffic flow](#ingress-traffic-flow) section in this article.
 
-- The ingress controller. This example uses Traefik. It runs in the user node pool in the cluster. It receives traffic from the internal load balancer, terminates TLS, and forwards it to the workload pods over HTTP.
+- **The ingress controller:** This example uses Traefik. It runs in the user node pool in the cluster. It receives traffic from the internal load balancer, terminates TLS, and forwards it to the workload pods over HTTP.
 
-The ingress controller is a critical component of the cluster. Consider the following points when configuring this component.
+The ingress controller is a critical component of the cluster. Consider the following points when you configure this component.
 
 - Constrain the ingress controller to a specific scope of operations as part of your design decisions. For example, you might allow the controller to only interact with the pods that run a specific workload.
 
@@ -340,14 +338,14 @@ The ingress controller is a critical component of the cluster. Consider the foll
 
 - Configure `readinessProbe` and `livenessProbe` settings that monitor the health of the pods at the specified interval. The ingress controller should send signals that indicate the health of pods.
 
-- Consider restricting the ingress controller's access to specific resources and the ability to perform certain actions. You can implement that restriction through Kubernetes RBAC permissions. For example, in this architecture, Traefik is granted permissions to watch, get, and list services and endpoints by using rules in the Kubernetes `ClusterRole` object.
+- Consider restricting the ingress controller's access to specific resources and limiting the actions that it can perform. You can implement that restriction through Kubernetes RBAC permissions. For example, in this architecture, Traefik is granted permissions to watch, get, and list services and endpoints by using rules in the Kubernetes `ClusterRole` object.
 
 > [!NOTE]
 > Choose an appropriate ingress controller based on your requirements, workload, team's skill set, and the supportability of the technology options. Most importantly, your ingress controller must meet your SLO expectation.
 >
 > Traefik is an open-source option for a Kubernetes cluster and is in this architecture for illustrative purposes. It shows non-Microsoft product integration with Azure services. For example, the implementation shows how to integrate Traefik with Microsoft Entra Workload ID and Key Vault.
 >
-> You can also use [Application Gateway Ingress Controller](/azure/application-gateway/ingress-controller-overview), which integrates well with AKS. Apart from its capabilities as an ingress controller, it offers other benefits. For example, Application Gateway acts as the virtual network entry point of your cluster. It can observe traffic entering the cluster. Use Application Gateway if you have an application that requires a web application firewall. Also, Application Gateway enables you to do TLS termination.
+> You can also use [Application Gateway Ingress Controller](/azure/application-gateway/ingress-controller-overview), which integrates well with AKS. Application Gateway provides benefits beyond its role as an ingress controller. It serves as the virtual network entry point for your cluster and can observe traffic entering the cluster. Use Application Gateway if your application requires a web application firewall. It also enables TLS termination.
 
 ### Router settings
 
@@ -419,11 +417,11 @@ The architecture only accepts TLS encrypted requests from the client. TLS v1.2 i
 
    Application Gateway processes web application firewall inspection rules and runs routing rules that forward the traffic to the configured back end.
 
-1. As traffic moves from Application Gateway to the back end, it's encrypted again with another TLS certificate, which is a wildcard for `*.aks-ingress.contoso.com`, as it forwards to the internal load balancer. This re-encryption helps ensure that unsecured traffic doesn't flow into the cluster subnet.
+1. As traffic moves from Application Gateway to the back end, it's encrypted again with another TLS certificate, which is a wildcard for `*.aks-ingress.contoso.com`, because it forwards to the internal load balancer. This re-encryption helps ensure that unsecured traffic doesn't flow into the cluster subnet.
 
 1. The ingress controller receives the encrypted traffic through the load balancer. The controller is another TLS termination point for `*.aks-ingress.contoso.com` and forwards the traffic to the workload pods over HTTP. The certificates are stored in Key Vault, and the Container Storage Interface (CSI) driver mounts them into the cluster. For more information, see [Add secret management](#add-secret-management).
 
-You can implement end-to-end TLS traffic at every hop through the workload pod. Be sure to measure the performance, latency, and operational effects when making the decision to secure pod-to-pod traffic. For most single-tenant clusters, with proper control plane RBAC and mature software development lifecycle practices, it's sufficient to TLS encrypt up to the ingress controller and protect with Web Application Firewall. This approach minimizes overhead in workload management and overhead because of poor network performance. Your workload and compliance requirements dictate where you perform [TLS termination](/azure/application-gateway/ssl-overview#tls-termination).
+You can implement end-to-end TLS traffic at every hop through the workload pod. Be sure to measure the performance, latency, and operational effects when making the decision to secure pod-to-pod traffic. For most single-tenant clusters, with proper control plane RBAC and mature software development life cycle practices, it's sufficient to TLS encrypt up to the ingress controller and protect with Web Application Firewall. This approach minimizes overhead in workload management and overhead because of poor network performance. Your workload and compliance requirements dictate where you perform [TLS termination](/azure/application-gateway/ssl-overview#tls-termination).
 
 ### Egress traffic flow
 
@@ -434,7 +432,7 @@ An alternative to Azure Firewall is to use the AKS [HTTP proxy](/azure/aks/http-
 For either method, review the required [egress network traffic rules](/azure/aks/limit-egress-traffic) for AKS.
 
 > [!NOTE]
-> If you use a public load balancer as your public point for ingress traffic and egress traffic through Azure Firewall using UDRs, you might see an [asymmetric routing situation](/azure/aks/limit-egress-traffic#allow-inbound-traffic-through-azure-firewall). This architecture uses internal load balancers in a dedicated ingress subnet behind Application Gateway. This design choice enhances security and also eliminates asymmetric routing concerns. Or you can route ingress traffic through Firewall before or after Application Gateway, but this approach isn't necessary for most situations, and we don't recommend it. For more information about asymmetric routing, see [Integrate Firewall with an Azure standard load balancer](/azure/firewall/integrate-lb#asymmetric-routing).
+> If you use a public load balancer as your public point for ingress traffic and egress traffic through Azure Firewall using UDRs, you might see an [asymmetric routing scenario](/azure/aks/limit-egress-traffic#allow-inbound-traffic-through-azure-firewall). This architecture uses internal load balancers in a dedicated ingress subnet behind Application Gateway. This design choice enhances security and also eliminates asymmetric routing concerns. Or you can route ingress traffic through Firewall before or after Application Gateway, but this approach isn't necessary for most situations, and we don't recommend it. For more information about asymmetric routing, see [Integrate Firewall with an Azure standard load balancer](/azure/firewall/integrate-lb#asymmetric-routing).
 
 An exception to the Zero Trust control is when the cluster needs to communicate with other Azure resources. For example, the cluster might need to pull an updated image from the container registry or secrets from Key Vault. In these scenarios, we recommend that you use [Private Link](/azure/private-link/private-link-overview). 
 
@@ -442,11 +440,11 @@ The advantage is that specific subnets reach the service directly, and the traff
 
 If Private Link or service endpoints aren't an option, you can reach other services through their public endpoints and control access through Azure Firewall rules and the firewall built into the target service. Because this traffic goes through the static IP addresses of the firewall, you can add those addresses to the service's IP allow list.
 
-One downside is that Azure Firewall then needs more rules to make sure it allows only traffic from a specific subnet. Factor in those addresses when you're planning multiple IP addresses for egress traffic with Azure Firewall. Otherwise, you could reach port exhaustion. For more information about planning for multiple IP addresses, see [Create an Azure Firewall with multiple IP addresses](/azure/firewall/quick-create-multiple-ip-bicep).
+One downside is that Azure Firewall then needs more rules to make sure it allows only traffic from a specific subnet. Factor in those addresses when you plan to use multiple IP addresses for egress traffic with Azure Firewall. Otherwise, you could reach port exhaustion. For more information about planning for multiple IP addresses, see [Create an Azure Firewall with multiple IP addresses](/azure/firewall/quick-create-multiple-ip-bicep).
 
 ### Pod-to-pod traffic
 
-By default, a pod can accept traffic from any other pod in the cluster. Use Kubernetes `NetworkPolicy` to restrict network traffic between pods. Apply policies judiciously, or you might have a situation where a critical network flow is blocked. *Only* allow specific communication paths, as needed, such as traffic between the ingress controller and workload. For more information, see [Network policies](/azure/aks/use-network-policies).
+By default, a pod can accept traffic from any other pod in the cluster. Use Kubernetes `NetworkPolicy` to restrict network traffic between pods. Apply policies carefully, or you might have a situation where a critical network flow is blocked. *Only* allow specific communication paths, as needed, such as traffic between the ingress controller and workload. For more information, see [Network policies](/azure/aks/use-network-policies).
 
 Enable network policy when you set up the cluster because you can't add it later. You have a few choices for technologies that implement `NetworkPolicy`. We recommend Azure network policy, which requires Azure CNI. Other options include Calico network policy, a well-known open-source option. Consider Calico if you need to manage cluster-wide network policies. Calico isn't covered under standard Azure support.
 
@@ -458,7 +456,7 @@ As part of running the cluster, the Kubernetes API server receives traffic from 
 
 For more information, see [Define API server-authorized IP ranges](/azure/aks/api-server-authorized-ip-ranges).
 
-We recommend that you deploy your AKS cluster as a private cluster. All control plane and node pool traffic remain on your private network and isn't exposed to the public internet. This reference implementation sets up a private cluster by using API Server VNet integration. For more information, see [AKS private clusters](/azure/aks/private-clusters).
+We recommend that you deploy your AKS cluster as a private cluster. All control plane and node pool traffic remain on your private network and isn't exposed to the public internet. This reference implementation sets up a private cluster by using API Server VNetIntegration. For more information, see [AKS private clusters](/azure/aks/private-clusters).
 
 Private traffic to a private AKS cluster might originate from the spoke virtual network, from peered networks, or from private endpoints in remote networks. Although the AKS nodes naturally live in the spoke, clients doing administrative tasks require a dedicated network path to reach the AKS API server privately. You can establish this connectivity in the following ways:
 
@@ -475,17 +473,17 @@ Store secrets in a managed key store, such as Key Vault. The advantage is that a
 
 Key Vault is well integrated with other Azure services. Use the built-in feature of those services to access secrets. For more information about how Application Gateway accesses TLS certificates for the ingress flow, see the [Ingress traffic flow](#ingress-traffic-flow) section.
 
-The Azure rule-based access control (Azure RBAC) permission model for Key Vault enables you to assign the workload identities to either the Key Vault Secrets User or Key Vault Reader role assignment, and access the secrets. For more information, see [Access Key Vault by using Azure RBAC](/azure/key-vault/general/rbac-guide).
+The Azure RBAC permission model for Key Vault enables you to assign the workload identities to either the Key Vault Secrets User or Key Vault Reader role assignment, and access the secrets. For more information, see [Access Key Vault by using Azure RBAC](/azure/key-vault/general/rbac-guide).
 
 ### Access cluster secrets
 
-You need to use workload identities to allow a pod to access secrets from a specific store. To facilitate the retrieval process, use a [secrets store CSI driver](https://github.com/kubernetes-sigs/secrets-store-csi-driver). When the pod needs a secret, the driver connects with the specified store, retrieves a secret on a volume, and mounts that volume in the cluster. The pod can then get the secret from the volume file system.
+You must use workload identities to allow a pod to access secrets from a specific store. To facilitate the retrieval process, use a [secrets store CSI driver](https://github.com/kubernetes-sigs/secrets-store-csi-driver). When the pod needs a secret, the driver connects with the specified store, retrieves a secret on a volume, and mounts that volume in the cluster. The pod can then get the secret from the volume file system.
 
 The CSI driver has many providers to support various managed stores. This implementation uses the [Key Vault with secrets store CSI driver](/azure/aks/csi-secrets-store-driver). The add-on retrieves the TLS certificate from Key Vault and loads the driver in the pod that runs the ingress controller. This operation occurs during pod creation, and the volume stores both public and the private keys.
 
 ## Workload storage
 
-The workload in this architecture is stateless. If you need to store state, we recommend that you persist it outside the cluster. Guidance for workload state is outside the scope of this article.
+The workload in this architecture is stateless. If you must store state, we recommend that you persist it outside the cluster. Guidance for workload state is outside the scope of this article.
 
 For more information, see [Storage options for applications in AKS](/azure/aks/concepts-storage).
 
@@ -502,17 +500,17 @@ A common example of where a policy can be useful is around governance and valida
 
 When you set policies, apply them based on the requirements of the workload. Consider these factors:
 
-- Do you want to set a collection of policies, also called *initiatives*, or choose individual policies? Azure Policy provides two built-in initiatives: basic and restricted. Each initiative is a collection of built-in policies applicable to an AKS cluster. We recommend that you select an initiative *and* choose other policies for the cluster and the resources, such as Container Registry, Application Gateway, or Key Vault, which interact with the cluster. Choose policies based on the requirements of your organization.
+- Decide whether to set a collection of policies, known as *initiatives*, or to choose individual policies. Azure Policy provides two built-in initiatives: basic and restricted. Each initiative is a collection of built-in policies applicable to an AKS cluster. We recommend that you select an initiative *and* choose other policies for the cluster and the resources, such as Container Registry, Application Gateway, or Key Vault, which interact with the cluster. Choose policies based on the requirements of your organization.
 
-- Do you want to **Audit** or **Deny** the action? In **Audit** mode, the action is allowed but flagged as **Non-Compliant**. Have processes to check noncompliant states at a regular cadence and take necessary action. In **Deny** mode, the action is blocked because it violates the policy. Be careful when choosing Deny mode, because it can be too restrictive for the workload to function.
+- Decide if you want to **Audit** or **Deny** the action. In **Audit** mode, the action is allowed but flagged as **Non-Compliant**. Have processes to check noncompliant states at a regular cadence and take necessary action. In **Deny** mode, the action is blocked because it violates the policy. Be careful when choosing Deny mode, because it can be too restrictive for the workload to function.
 
-- Do you have areas in your workload that shouldn't be compliant by design? Azure Policy can specify Kubernetes namespaces that are exempt from policy enforcement. We recommend that you still apply policies in **Audit** mode so that you're aware of those instances.
+- Decide if you have areas in your workload that shouldn't be compliant by design. Azure Policy can specify Kubernetes namespaces that are exempt from policy enforcement. We recommend that you still apply policies in **Audit** mode so that you're aware of those instances.
 
-- Do you have requirements that aren't covered by the built-in policies? You can create a custom Azure Policy definition that applies your custom OPA Gatekeeper policies. Don't apply custom policies directly to the cluster. For more information, see [Create and assign custom policy definitions](/azure/aks/use-azure-policy#create-and-assign-a-custom-policy-definition-preview).
+- Decide if you have requirements that aren't covered by the built-in policies. You can create a custom Azure Policy definition that applies your custom OPA Gatekeeper policies. Don't apply custom policies directly to the cluster. For more information, see [Create and assign custom policy definitions](/azure/aks/use-azure-policy#create-and-assign-a-custom-policy-definition-preview).
 
-- Do you have organization-wide requirements? If so, add those policies at the management group level. Your cluster should also assign its own workload-specific policies, even if your organization has generic policies.
+- Decide if you have organization-wide requirements. If so, add those policies at the management group level. Your cluster should also assign its own workload-specific policies, even if your organization has generic policies.
 
-- Do you assign Azure policies to specific scopes? Ensure the *production* policies are also validated against your *preproduction* environment. Otherwise, when you deploy to your production environment, you might run into unexpected extra restrictions that you didn't account for in preproduction.
+- Decide if you must assign Azure policies to specific scopes. Ensure the *production* policies are also validated against your *preproduction* environment. Otherwise, when you deploy to your production environment, you might run into unexpected extra restrictions that you didn't account for in preproduction.
 
 This reference implementation enables Azure Policy when the AKS cluster is created. The restrictive initiative is assigned in **Audit** mode to gain visibility into noncompliance.
 
@@ -542,7 +540,7 @@ In the HPA resource, we recommend that you set the minimum and maximum replica c
 
  The HPA can scale based on CPU usage, memory usage, and custom metrics. Only CPU usage is provided natively. The `HorizontalPodAutoscaler` definition specifies target values for the metrics. For instance, the spec sets the target CPU usage. While pods are running, the HPA controller uses the Kubernetes Metrics API to check each pod's CPU usage. It compares that value against the target usage and calculates a ratio. It then uses the ratio to determine whether pods are overallocated or underallocated. It relies on the Kubernetes scheduler to assign new pods to nodes or remove pods from nodes.
 
-A race condition might occur, whereby the HPA checks before a scaling operation finishes. So, the outcome could be an incorrect ratio calculation. For more information, see [Cooldown of scaling events](/azure/aks/concepts-scale#cooldown-of-scaling-events).
+A race condition might occur, like when the HPA checks before a scaling operation finishes. So, the outcome could be an incorrect ratio calculation. For more information, see [Cooldown of scaling events](/azure/aks/concepts-scale#cooldown-of-scaling-events).
 
 If your workload is event-driven, a popular open-source option is [Kubernetes event-driven autoscaling (KEDA)](https://keda.sh/). Consider KEDA if an event source, such as message queue, drives your workload, rather than your workload being CPU-bound or memory-bound. KEDA supports many event sources or scalers. Use the list of event sources that KEDA can scale at [KEDA scalers](https://keda.sh/#scalers). The list includes the [Azure Monitor scaler](https://keda.sh/docs/latest/scalers/azure-monitor/), which is a convenient way to scale KEDA workloads based on Azure Monitor metrics.
 
@@ -558,7 +556,7 @@ For the system node pool, the recommended minimum value is three.
 
 ## Business continuity decisions
 
-To maintain business continuity, define the SLO for the infrastructure and your application. For more information, see [Recommendations for defining reliability targets](/azure/well-architected/reliability/metrics). Review the service level agreement (SLA) conditions for AKS in the latest [SLA for online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services) article.
+To maintain business continuity, define the SLO for the infrastructure and your application. For more information, see [Recommendations for defining reliability targets](/azure/well-architected/reliability/metrics). Review the service-level agreement (SLA) conditions for AKS in the latest [SLA for online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services) article.
 
 ### Cluster nodes
 
@@ -576,14 +574,14 @@ Regular upkeep tasks on your cluster, such as timely updates, are crucial for re
 
   Configure multiple replicas in the deployment to handle disruptions such as hardware failures. For planned events such as updates and upgrades, a disruption budget can help ensure the required number of pod replicas exist to handle expected application load.
 
-- **Set resource quotas on the workload namespaces:** The resource quota on a namespace helps ensure pod requests and limits are properly set on a deployment. For more information, see [Enforce resource quotas](/azure/aks/operator-best-practices-scheduler#enforce-resource-quotas).
+- **Set resource quotas on the workload namespaces:** The resource quota on a namespace helps ensure that pod requests and limits are properly set on a deployment. For more information, see [Enforce resource quotas](/azure/aks/operator-best-practices-scheduler#enforce-resource-quotas).
 
   > [!NOTE]
-  > If you set resources quotas at the cluster level, problems can occur if you deploy non-Microsoft workloads that don't have proper requests and limits. When you set quotas at the namespace level, it ensures they only apply to your workload components.
+  > If you set resources quotas at the cluster level, problems can occur if you deploy non-Microsoft workloads that don't have proper requests and limits. When you set quotas at the namespace level, it ensures that they only apply to your workload components.
 
 - **Set pod requests and limits:** Set requests and limits to enable Kubernetes to efficiently allocate CPU and memory resources to the pods. It gives you higher container density on a node. Requests and limits can also increase your reliability while reducing your costs because of better hardware usage.
 
-  To estimate the limits for a workload, test and establish a baseline. Start with equal values for requests and limits. Then, gradually tune those values until you establish the threshold that causes instability in the cluster.
+  To estimate the limits for a workload, test and establish a baseline. Start with equal values for requests and limits. Then gradually tune those values until you establish the threshold that causes instability in the cluster.
 
   You can specify requests and limits in your deployment manifests. For more information, see [Set pod requests and limits](/azure/aks/developer-best-practices-resource-management#define-pod-resource-requests-and-limits).
 
@@ -591,7 +589,7 @@ Regular upkeep tasks on your cluster, such as timely updates, are crucial for re
 
 To protect against some types of outages, use [availability zones](/azure/aks/availability-zones) if the region supports them. Both the control plane components and the nodes in the node pools are then *zone-redundant*, which means they're spread across multiple zones. If an entire zone is unavailable, a node in another zone within the region is still available. Each node pool maps to a separate virtual machine scale set, which manages node instances and scalability. The AKS service manages scale set operations and configuration. Here are some considerations when you enable multiple zones:
 
-- **Entire infrastructure:** Choose a region that supports availability zones. For more information, see [Limitations](/azure/aks/availability-zones-overview#limitations). To have an uptime SLA, you need to choose the Standard or Premium tier. The uptime SLA is greater when you use availability zones.
+- **Entire infrastructure:** Choose a region that supports availability zones. For more information, see [Limitations](/azure/aks/availability-zones-overview#limitations). To have an uptime SLA, you must choose the Standard or Premium tier. The uptime SLA is greater when you use availability zones.
 
 - **Cluster:** You can only set availability zones when you create the node pool. They can't be changed later. The node sizes should be supported in all zones so that the expected distribution is possible. The underlying virtual machine scale set provides the same hardware configuration across zones.
 
@@ -599,7 +597,7 @@ To protect against some types of outages, use [availability zones](/azure/aks/av
 
 - **Dependent resources:** To achieve the resiliency benefit of using availability zones, all service dependencies must also support zones. If a dependent service doesn't support zones, it's possible that a zone failure can cause that service to fail.
 
-    For example, suppose your workload uses a database that isn't zone-resilient. If a failure happens, the AKS node might move to another zone, but the database doesn't move with the node to that zone, so your workload is disrupted.
+    For example, suppose your workload uses a database that isn't zone-resilient. If a failure occurs, the AKS node might move to another zone, but the database doesn't move with the node to that zone, so your workload is disrupted.
 
 For simplicity in this architecture, AKS is deployed to a single region with node pools that span availability zones one, two, and three. Other resources of the infrastructure, such as Azure Firewall and Application Gateway, are also deployed to the same region with multiple zone support. Geo-replication is enabled for Container Registry.
 
@@ -611,30 +609,30 @@ When you enable availability zones, it isn't enough coverage in the unlikely eve
 
 - Provide the location where the redundant service has its secondary instance if an Azure resource supports geo-redundancy. For example, by enabling geo-replication for Container Registry, it automatically replicates images to the selected Azure regions. It also provides continued access to images even if the primary region experiences an outage.
 
-- Choose a traffic router that can distribute traffic across zones or regions, depending on your requirement. This architecture deploys Load Balancer because it can distribute nonweb traffic across zones. If you need to distribute traffic across regions, consider Azure Front Door. For other options, see [Choose a load balancer](../../../guide/technology-choices/load-balancing-overview.md).
+- Choose a traffic router that can distribute traffic across zones or regions, depending on your requirement. This architecture deploys Load Balancer because it can distribute nonweb traffic across zones. If you must distribute traffic across regions, consider Azure Front Door. For other options, see [Choose a load balancer](../../../guide/technology-choices/load-balancing-overview.md).
 
 > [!NOTE]
 > The [AKS baseline for multiregion clusters example scenario](../aks-multi-region/aks-multi-cluster.yml) extends the architecture in this article to include multiple regions in an active/active and highly available configuration.
 
 ### Disaster recovery
 
-If a failure happens in the primary region, ideally, you can quickly create a new instance in another region. Here are some recommendations:
+Ideally, if a failure occurs in the primary region, you can quickly create a new instance in another region. Consider the following recommendations:
 
 - Use multiple regions. If your primary region has a paired region, use that pair. If not, select regions based on your data residency and latency requirements.
 
-- Use a nonstateful workload that you can replicate efficiently. If you need to store state in the cluster, which we don't recommend, be sure you back up the data frequently in another region.
+- Use a nonstateful workload that you can replicate efficiently. If you must store state in the cluster, which we don't recommend, be sure you back up the data frequently in another region.
 
 - Integrate the recovery strategy, such as replicating to another region, as part of the DevOps pipeline to meet your SLO.
 
 - Set up each Azure service by using features that support disaster recovery. For example, in this architecture, Container Registry is enabled for geo-replication. If a region fails, you can still pull images from the replicated region.
 
-- Deploy your infrastructure as code, including your AKS cluster and any other components you need. If you need to deploy into another region, you can reuse the scripts or templates to create an identical instance.
+- Deploy your infrastructure as code, including your AKS cluster and any other components you need. If you must deploy into another region, you can reuse the scripts or templates to create an identical instance.
 
 #### Cluster backup
 
 For many architectures, you can set up a new cluster and return it to operating state through GitOps-based [cluster bootstrapping](#cluster-bootstrapping), followed by application deployment. But if there's critical resource state, such as config maps, jobs, and secrets that can't be captured within your bootstrapping process, consider your recovery strategy. We recommend that you run stateless workloads in Kubernetes. If your architecture involves disk-based state, you must also consider your recovery strategy for that content.
 
-When cluster backup must be a part of your recovery strategy, you need to install a solution that matches your business requirements within the cluster. This agent is responsible for pushing cluster resource state out to a destination of your choosing and coordinating Azure disk-based, persistent volume snapshots.
+When cluster backup must be a part of your recovery strategy, you must install a solution that matches your business requirements within the cluster. This agent is responsible for pushing cluster resource state out to a destination of your choosing and coordinating Azure disk-based, persistent volume snapshots.
 
 VMware [Velero](https://velero.io/) is an example of a common Kubernetes backup solution that you can install and manage directly. Or you can use the [AKS backup extension](/azure/backup/azure-kubernetes-service-cluster-backup) to provide a managed Velero implementation. The AKS backup extension supports backing up both Kubernetes resources and persistent volumes, with schedules and backup scope externalized as vault configuration in Azure Backup.
 
@@ -648,9 +646,9 @@ You can use AKS as a free service, but that tier doesn't offer a financially bac
 
 For more information about specific SLAs for each service, see [SLA for online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
-### Tradeoff
+### Trade-off
 
-There's a cost-to-availability tradeoff for deploying the architecture across zones and especially regions. Some replication features, such as geo-replication in Container Registry, are available in premium SKUs, which is more expensive. For multi-region deployments, the cost also increases because bandwidth charges apply when traffic moves across regions.
+There's a cost-to-availability trade-off for deploying the architecture across zones and especially regions. Some replication features, such as geo-replication in Container Registry, are available in premium SKUs, which is more expensive. For multi-region deployments, the cost also increases because bandwidth charges apply when traffic moves across regions.
 
 Also, expect a small amount of extra network latency in node communication between zones, and more significant latency in communication between regions. Measure the effect of this architectural decision on your workload.
 
@@ -670,16 +668,16 @@ We recommend the Azure Monitor [Kubernetes monitoring services](/azure/azure-mon
 
 The [ContainerLogV2 log schema](/azure/azure-monitor/containers/container-insights-logs-schema) is designed to capture container logs from Kubernetes pods in a streamlined approach. Log entries are consolidated into the `ContainerLogV2` table in an Azure Log Analytics workspace.
 
-In an AKS cluster, there are two primary methods for configuring pod log collection. Both approaches let you customize settings. You can filter namespaces, adjust collection intervals, enable or disable specific features (for example, ContainerLogV2 or ContainerLogV2-HighScale), and specify which data streams to collect.
+In an AKS cluster, there are two primary methods for configuring pod log collection. Both approaches let you customize settings. You can filter namespaces, adjust collection intervals, enable or prohibit specific features (such as ContainerLogV2 or ContainerLogV2-HighScale), and specify which data streams to collect.
 
-- If you require centralized, reusable monitoring configurations across multiple clusters or prefer cluster configuration to be externalized in Azure-native resources, use [data collection rules](/azure/azure-monitor/essentials/data-collection-rule-overview) (DCRs). DCRs are native Azure resources managed by way of the Azure Resource Manager (ARM) control plane, and they can be included in Bicep files. The reference implementation uses DCRs.
+- If you require centralized, reusable monitoring configurations across multiple clusters or prefer cluster configuration to be externalized in Azure-native resources, use [data collection rules](/azure/azure-monitor/essentials/data-collection-rule-overview) (DCRs). DCRs are Azure resources that the Azure Resource Manager (ARM) control plane manages natively, and you can include them in Bicep files. The reference implementation uses DCRs.
 - Alternatively, you can define monitoring by using ConfigMaps, which are nonconfidential Kubernetes YAML objects configured through the Kubernetes API control plane. The Azure Monitor Agent that runs on the cluster monitors for ConfigMap objects. It uses predefined settings to determine which data to collect.
 
-When both methods are enabled, ConfigMap settings take precedence over DCRs. Avoid mixing ConfigMap and DCR configuration for container log collection, because it can result in hard-to-troubleshoot logging issues.
+When both methods are enabled, ConfigMap settings take precedence over DCRs. Avoid mixing ConfigMap and DCR configuration for container log collection, because it can result in hard-to-troubleshoot logging problems.
 
 ### Alerts and Prometheus metrics
 
-Outages and malfunctions pose significant risks to workload applications, making it essential to proactively identify issues related to your infrastructure's health and performance. When you monitor and then act on the information you see, it minimizes disruptions and increases the reliability of your solution. To anticipate potential failure conditions in your cluster, enable [the recommended Prometheus alert rules for Kubernetes](/azure/azure-monitor/containers/kubernetes-metric-alerts).
+Outages and malfunctions pose significant risks to workload applications, which makes it essential to proactively identify problems related to your infrastructure's health and performance. When you monitor your environment and act on what you learn, you reduce disruptions and improve the reliability of your solution. To anticipate potential failure conditions in your cluster, enable [the recommended Prometheus alert rules for Kubernetes](/azure/azure-monitor/containers/kubernetes-metric-alerts).
 
 Most workloads hosted in pods emit Prometheus metrics. Azure Monitor can integrate with Prometheus. You can view the application and workload metrics collected from containers, pods, nodes, and the cluster.
 
@@ -687,26 +685,26 @@ Some non-Microsoft solutions integrate with Kubernetes, such as Datadog, Grafana
 
 ### Azure infrastructure and Kubernetes control plane logs
 
-With AKS, Azure manages some of the core Kubernetes services. Azure implements the logs for the AKS control plane components as [resource logs](/azure/azure-monitor/essentials/resource-logs). We recommend that you enable the following options on most clusters. The options can help you troubleshoot cluster problems, and they have a relatively low log density.
+With AKS, Azure manages some of the core Kubernetes services. Azure implements the logs for the AKS control plane components as [resource logs](/azure/azure-monitor/platform/resource-logs). We recommend that you enable the following options on most clusters. These options can help you troubleshoot cluster problems, and they have a relatively low log density.
 
-- `ClusterAutoscaler`: gain observability into the scaling operations with logging. For more information, see [Retrieve cluster autoscaler logs and status](/azure/aks/cluster-autoscaler#retrieve-cluster-autoscaler-logs-and-status).
-- `KubeControllerManager`: gain observability into the interaction between Kubernetes and the Azure control plane.
-- `kube-audit-admin`: gain observability into activities that modify your cluster. There's no reason to have both `kube-audit` and `kube-audit-admin` enabled. `kube-audit` is a superset of `kube-audit-admin` that includes nonmodify (read) operations as well.
-- `guard`: capture Microsoft Entra ID and Azure RBAC audits.
+- `ClusterAutoscaler`: Gain observability into the scaling operations through logging. For more information, see [Retrieve cluster autoscaler logs and status](/azure/aks/cluster-autoscaler#retrieve-cluster-autoscaler-logs-and-status).
+- `KubeControllerManager`: Gain observability into the interaction between Kubernetes and the Azure control plane.
+- `kube-audit-admin`: Gain observability into activities that modify your cluster. There's no need to enable both `kube-audit` and `kube-audit-admin`. `kube-audit` is a superset of `kube-audit-admin` that includes nonmodify (read) operations.
+- `guard`: Capture Microsoft Entra ID and Azure RBAC audits.
 
-It might be helpful for you to enable other log categories, such as `KubeScheduler` or `kube-audit`, during early cluster or workload lifecycle development. The added cluster autoscaling, pod placement and scheduling, and similar data can help you troubleshoot cluster or workload operations concerns. But if you keep the extended troubleshooting logs on full time after your troubleshooting needs end, you might be incurring unnecessary costs to ingest and store the data in Azure Monitor.
+It might be helpful for you to enable other log categories, such as `KubeScheduler` or `kube-audit`, during early cluster or workload life cycle development. The added cluster autoscaling, pod placement and scheduling, and similar data can help you troubleshoot cluster or workload operations concerns. But if you keep the extended troubleshooting logs on full time after your troubleshooting needs end, you might be incurring unnecessary costs to ingest and store the data in Azure Monitor.
 
-While Azure Monitor includes a set of existing log queries to start with, you can also use them as a foundation to help build your own queries. As your library grows, you can save and reuse log queries by using one or more [query packs](/azure/azure-monitor/logs/query-packs). Your custom library of queries provides greater observability into the health and performance of your AKS clusters. It supports achieving your SLOs.
+Azure Monitor includes a set of existing log queries to start with, but you can also use them as a foundation to help build your own queries. As your library grows, you can save and reuse log queries by using one or more [query packs](/azure/azure-monitor/logs/query-packs). Your custom library of queries provides greater observability into the health and performance of your AKS clusters. It supports achieving your SLOs.
 
-For more information about our monitoring best practices for AKS, see [Monitor AKS with Azure Monitor](/azure/aks/monitor-aks).
+For more information about monitoring best practices for AKS, see [Monitor AKS with Azure Monitor](/azure/aks/monitor-aks).
 
 ### Network metrics
 
-Basic, cluster-level networking metrics are available through native [platform and Prometheus metrics](/azure/aks/monitor-aks#metrics). You can further use AKS [node network metrics](/azure/aks/monitor-aks#node-network-metrics) to expose network metrics at the node level by using Prometheus metrics. Most clusters should include network observability to provide extra network troubleshooting capabilities, and to detect unexpected network usage or problems at the node level.
+Basic, cluster-level networking metrics are available through native [platform and Prometheus metrics](/azure/aks/monitor-aks#aks-monitoring-data-metrics-logs-integrations). You can further use AKS [node network metrics](/azure/aks/monitor-aks#aks-node-network-metrics-monitoring) to expose network metrics at the node level by using Prometheus metrics. Most clusters should include network observability to provide extra network troubleshooting capabilities and to detect unexpected network usage or problems at the node level.
 
-The reference implementation uses Azure Monitor, which also collects some network-related metrics. The reference implementation disables directly collecting some network metrics from Azure Monitor, and instead collects the network observability metrics by using an Azure Monitor workspace with [managed Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview).
+The reference implementation uses Azure Monitor, which also collects some network-related metrics. The reference implementation prohibits directly collecting some network metrics from Azure Monitor, and instead collects the network observability metrics by using an Azure Monitor workspace with [managed Prometheus](/azure/azure-monitor/metrics/prometheus-metrics-overview).
 
-For workloads that are highly sensitive to Transmission Control Protocol (TCP) or User Datagram Protocol (UDP) packet loss, latency, or DNS pressure, the pod-level network metrics are important. In AKS, you can find that level of detail with the [Advanced Container Networking Services](/azure/aks/container-network-observability-guide) feature. Most workloads don't require this depth of network observability. You shouldn't enable advanced network observability unless your pods demand a highly optimized network, with sensitivity down to the packet level.
+For workloads that are highly sensitive to Transmission Control Protocol (TCP) or User Datagram Protocol (UDP) packet loss, latency, or DNS pressure, the pod-level network metrics are important. In AKS, you can access these detailed metrics by using the [Advanced Container Networking Services](/azure/aks/container-network-observability-guide) feature. Most workloads don't require this depth of network observability. You shouldn't enable advanced network observability unless your pods demand a highly optimized network, with sensitivity down to the packet level.
 
 ### Cost optimization for logging
 
@@ -830,7 +828,7 @@ Choose an idempotent declarative method over an imperative approach, where possi
 
 Be sure to set up resources per the governing policies. For example, when you select VM sizes, stay within the cost constraints and availability zone options to match the requirements of your application. You can also use Azure Policy to enforce your organization's policies for these decisions.
 
-If you need to write a sequence of commands, use [Azure CLI](/cli/azure/what-is-azure-cli). These commands cover a range of Azure services and you can automate them through scripting. Windows and Linux support Azure CLI. Another cross-platform option is Azure PowerShell. Your choice depends on your preferred skill set.
+If you must write a sequence of commands, use [Azure CLI](/cli/azure/what-is-azure-cli). These commands cover a range of Azure services and you can automate them through scripting. Windows and Linux support Azure CLI. Another cross-platform option is Azure PowerShell. Your choice depends on your preferred skill set.
 
 Store and version your scripts and template files in your source control system.
 
@@ -903,7 +901,7 @@ Consider using [AKS cost analysis](/azure/aks/cost-analysis) for granular cluste
 
     For nonproduction workloads that include Azure SQL Database or Azure App Service as part of the AKS workload architecture, evaluate if you're eligible to use [Azure Dev/Test subscriptions](https://azure.microsoft.com/pricing/dev-test/) and receive service discounts.
 
-- Set up a cluster with the minimum number of nodes, and enable the cluster autoscaler to monitor and make sizing decisions instead of starting with an oversized cluster to meet scaling needs.
+- Provision a cluster with the minimum number of nodes, and enable the cluster autoscaler to monitor and make sizing decisions instead of starting with an oversized cluster to meet scaling needs.
 
 - Set pod requests and limits to let Kubernetes allocate node resources with higher density so that you use the full capacity of the nodes.
 
@@ -911,11 +909,11 @@ Consider using [AKS cost analysis](/azure/aks/cost-analysis) for granular cluste
 
 - Commit to one-year or three-year Azure Reserved Virtual Machine Instances to reduce the node costs if your workload must exist for a long period of time. For more information, see [Save costs with Azure Reserved Virtual Machine Instances](/azure/virtual-machines/prepay-reserved-vm-instances).
 
-- Use tags when you create node pools. Tags help when you create custom reports to track incurred costs. You can use tags to track the total expenses and map any cost to a specific resource or team. Also, if the cluster is shared between teams, build chargeback reports per consumer to identify metered costs for shared cloud services. For more information, see [Specify a taint, label, or tag for a node pool](/azure/aks/use-multiple-node-pools).
+- Use tags when you create node pools. Tags help when you create custom reports to track incurred costs. You can use tags to track the total expenses and map any cost to a specific resource or team. If the cluster is shared between teams, build chargeback reports for each consumer to identify metered costs for shared cloud services. For more information, see [Specify a taint, label, or tag for a node pool](/azure/aks/use-multiple-node-pools).
 
 - Expect extra bandwidth costs if your workload is multi-region and you replicate data between regions. For more information, see [Bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/).
 
-- Create budgets to stay within the cost constraints that your organization identifies. You can create budgets through Microsoft Cost Management. You can also create alerts to get notifications when certain thresholds are exceeded. For more information, see [Create a budget using a template](/azure/cost-management-billing/costs/quick-create-budget-template).
+- Create budgets to stay within the cost constraints that your organization identifies. You can create budgets through Microsoft Cost Management. You can also create alerts to get notifications when specific thresholds are exceeded. For more information, see [Create a budget by using a template](/azure/cost-management-billing/costs/quick-create-budget-template).
 
 ### Monitor
 
@@ -923,43 +921,38 @@ You can monitor the entire cluster and the cost of compute, storage, bandwidth, 
 
 - [Azure Advisor](/azure/advisor/advisor-get-started)
 
-- [Microsoft Cost Management](/azure/cost-management-billing/costs/)
+- [Cost Management](/azure/cost-management-billing/costs/)
 
-Ideally, monitor your costs in real time or at least at a regular cadence. You can then take action before the end of the month when costs are already calculated. Also, monitor the monthly trends over time to stay in budget.
+Monitor your costs in real time or on a regular schedule so that you can take action before the end of the month, when costs are already calculated. Monitor the monthly trends over time to stay within budget.
 
 To make data-driven decisions, pinpoint which resource, at a granular level incurs the most cost. Also, have a good understanding of the meters that calculate resource usage. For example, by analyzing metrics, you can determine whether the platform is oversized. You can see the usage meters in Azure Monitor metrics.
 
 ### Optimize
 
-Act on recommendations provided by [Azure Advisor](https://portal.azure.com/#blade/Microsoft_Azure_Expert/AdvisorMenuBlade/overview). There are other ways to optimize:
+Follow the recommendations from Azure Advisor. Explore other ways to optimize:
 
 - Enable the cluster autoscaler to detect and remove underused nodes in the node pool.
 
   > [!IMPORTANT]
-  > Changing cluster autoscaler settings, such as minimum and maximum node settings for a node pool, to affect costs, might have counterproductive results. For example, if `scale-down-unneeded-time` is set to 10 minutes, and the minimum and maximum node settings are modified every five minutes based on workload characteristics, the number of nodes never reduces. It's because the calculation of the unneeded time for each node resets when the cluster autoscaler settings are refreshed.
+  > Changing cluster autoscaler settings to affect costs might have counterproductive results. For example, if `scale-down-unneeded-time` is set to 10 minutes, and the minimum and maximum node settings are modified every five minutes based on workload characteristics, the number of nodes never reduces. It's because the calculation of the unneeded time for each node resets when the cluster autoscaler settings are refreshed.
 
 - Choose a lower SKU for the node pools, if your workload supports it.
 
-- If the application doesn't require burst scaling, consider sizing the cluster to just the right size by analyzing performance metrics over time.
+- If the application doesn't require burst scaling, consider rightsizing the cluster by analyzing performance metrics over time.
 
-- If your workload supports it, [scale your user node pools to 0 nodes](/azure/aks/scale-cluster#scale-user-node-pools-to-0) when there's no expectation for them to be running. Also, if there are no workloads left scheduled to run in your cluster, consider using the [AKS start/stop feature](/azure/aks/start-stop-cluster) to shut down all compute, which includes your system node pool and the AKS control plane.
+- If your workload supports it, scale your user node pools to zero nodes when there's no expectation for them to run. If there are no workloads left scheduled to run in your cluster, consider using the AKS start/stop feature to shut down all compute, which includes your system node pool and the AKS control plane.
 
-For other cost-related information, see [AKS pricing](https://azure.microsoft.com/pricing/details/kubernetes-service/).
+For more information, see [AKS pricing](https://azure.microsoft.com/pricing/details/kubernetes-service/).
 
 ## Next steps
 
-- [Advanced AKS microservices architecture](../aks-microservices/aks-microservices-advanced.yml)
-- [AKS baseline for multiregion clusters](../aks-multi-region/aks-multi-cluster.yml)
+- [AKS roadmap on GitHub](https://github.com/orgs/Azure/projects/685)
+- [AKS landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/aks/landing-zone-accelerator)
 
 ## Related resources
 
-- [AKS roadmap on GitHub](https://github.com/orgs/Azure/projects/685)
-- [Intro to Kubernetes](/training/paths/intro-to-kubernetes-on-azure/)
-- [Develop and deploy applications on Kubernetes](/training/paths/develop-deploy-applications-kubernetes/)
-- [Well-Architected Framework review for AKS](/azure/architecture/framework/services/compute/azure-kubernetes-service/azure-kubernetes-service)
-- [Cloud Adoption Framework guidance for adopting AKS in an Azure landing zone](/azure/cloud-adoption-framework/scenarios/app-platform/aks/landing-zone-accelerator)
-- [AKS day-2 operations guide](/azure/architecture/operator-guides/aks/day-2-operations-guide)
-- [Microservices architecture on AKS](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices)
+- [Advanced AKS microservices architecture](../aks-microservices/aks-microservices-advanced.yml)
+- [Microservices architecture on AKS](../aks-microservices/aks-microservices.yml)
 - [Use Azure Firewall to help protect an AKS cluster](../../../guide/aks/aks-firewall.yml)
-- [GitOps for AKS](/azure/architecture/example-scenario/gitops-aks/gitops-blueprint-aks)
-- [Data streaming with AKS](/azure/architecture/solution-ideas/articles/data-streaming-scenario)
+- [GitOps for AKS](../../../example-scenario/gitops-aks/gitops-blueprint-aks.yml)
+- [Data streaming with AKS](../../../solution-ideas/articles/data-streaming-scenario.yml)
