@@ -5,28 +5,61 @@ This reference architecture shows an end-to-end stream processing pipeline. The 
 ## Architecture
 
 :::image type="complex" border="false" source="./images/stream-processing-databricks.svg" alt-text="Diagram that shows a reference architecture for stream processing with Azure Databricks." lightbox="./images/stream-processing-databricks.svg":::
-   Diagram that shows a reference architecture for stream processing with Azure Databricks. In the diagram, two data sources produce real-time streams of ride and fare information. Data is ingested via Azure Event Hubs, processed by Azure Databricks, stored in Azure Cosmos DB, and then analyzed by using Azure Synapse Link and Azure Log Analytics.
+  Diagram that shows a reference architecture for stream processing with Azure Databricks. In the diagram, two data sources produce real-time streams of ride and fare information. Data is ingested via Azure Event Hubs, processed by Azure Databricks, stored in Azure Cosmos DB, and then analyzed by using Microsoft Fabric (querying mirrored operational data in a lakehouse or warehouse) and Azure Log Analytics.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/stream-processing-databricks.vsdx) of this architecture.*
 
-### Workflow
+### Data flow
 
-The following dataflow corresponds to the previous diagram:
+The following data flow corresponds to the previous diagram.
 
-1. **In this architecture, there are two data sources that generate data streams in real time.** The first stream contains ride information, and the second stream contains fare information. The reference architecture includes a simulated data generator that reads from a set of static files and pushes the data to Azure Event Hubs. The data sources in a real application are devices installed in the taxi cabs.
+1. **Ingest**
 
-1. **[Event Hubs](/azure/well-architected/service-guides/event-hubs)** is an event ingestion service. This architecture uses two event hub instances, one for each data source. Each data source sends a stream of data to the associated event hub.
+   Two real‑time operational data streams feed the system: *fare* data and *trip* data. The data sources are devices installed in the taxi cabs. The devices publish events into Azure Event Hubs. Each stream is sent to its own Event Hub instance, providing independent ingestion paths.
 
-1. **[Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security)** is an Apache Spark-based analytics platform that's optimized for the Microsoft Azure cloud services platform. Azure Databricks is used to correlate the taxi ride and fare data and to enrich the correlated data with neighborhood data that's stored in the Azure Databricks file system.
+1. **Process**
 
-1. **[Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db)** is a fully managed, multiple-model database service. The output of an Azure Databricks job is a series of records, which are written to [Azure Cosmos DB for NoSQL](/azure/cosmos-db/nosql/overview). Azure Cosmos DB for NoSQL can be used for time series data modeling.
+   Azure Databricks consumes both Event Hubs streams and executes the following operations:
 
-    - **[Azure Synapse Link for Azure Cosmos DB](/azure/cosmos-db/synapse-link)** enables you to run near real-time analytics on operational data in Azure Cosmos DB, without any performance or cost effects on your transactional workload. You can achieve these results by using [serverless SQL pool](/azure/synapse-analytics/sql/on-demand-workspace-overview) and [Spark pools](/azure/synapse-analytics/spark/apache-spark-overview). These analytics engines are available from your Azure Synapse Analytics workspace.
+   - Correlation between fare and trip records
+   - Enrichment using a third dataset, neighborhood lookup data stored in the Azure Databricks file system
 
-    - **[Mirroring Azure Cosmos DB for NoSQL in Microsoft Fabric](/fabric/database/mirrored-database/azure-cosmos-db)** allows you to integrate Azure Cosmos DB data with the rest of your data in Microsoft Fabric.
+   The result is a unified, enriched dataset suitable for downstream analytics and storage.
 
-1. **[Log Analytics](/azure/well-architected/service-guides/azure-log-analytics)** is a tool within Azure Monitor that allows you to query and analyze log data from various sources. Application log data that [Azure Monitor](/azure/monitoring-and-diagnostics) collects is stored in a [Log Analytics workspace](/azure/log-analytics). You can use Log Analytics queries to analyze and visualize metrics and inspect log messages to identify problems within the application.
+1. **Store**
+
+   The output of the Azure Databricks jobs are a series of records. These processed records are written into Azure Cosmos DB for NoSQL.
+
+1. **Analyze / report**
+
+   Operational data in Cosmos DB is queried without impacting transactional performance using **[Mirroring Azure Cosmos DB for NoSQL in Microsoft Fabric](/fabric/database/mirrored-database/azure-cosmos-db)** which provides a no‑ETL path for analytics. In this architecture it can be used for the following purposes
+
+    - Mirrors Cosmos DB data (or Delta‑formatted data) into Fabric
+    - Keeps datasets synchronized with the operational system
+    - Enables analysis through:
+      - Fabric SQL analytics endpoints (Lakehouse/Warehouse)
+      - Spark notebooks
+      - Real‑Time Analytics (KQL) for time‑series and log‑style exploration
+
+1. **Monitor**
+
+   Azure Monitor collects telemetry from the Databricks processing pipeline. Application logs and metrics are stored in a Log Analytics workspace, where you will:
+
+   - Query operational logs
+   - Visualize metrics
+   - Inspect failures, anomalies, and performance issues
+   - Build dashboards
+
+## Components
+
+- [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security) is an Apache Spark-based analytics platform that's optimized for the Microsoft Azure cloud services platform. In this architecture, Azure Databricks jobs is enrich taxi ride and fare data and store the results in Azure Cosmos DB.
+
+- [Azure Event Hubs](/azure/well-architected/service-guides/event-hubs) is a managed, distributed ingestion service that can scale to ingest large amounts of events. This architecture uses two event hub instances to receive data from taxis.
+
+- [Azure Cosmos DB for NoSQL](/azure/well-architected/service-guides/cosmos-db) is a fully managed, multiple-model database service. In this architecture, it stores the output of the Azure Databricks enrichment jobs. Data from within the database is mirrored for analytical queries using [Mirroring Azure Cosmos DB for NoSQL in Microsoft Fabric](/fabric/database/mirrored-database/azure-cosmos-db).
+
+- [Azure Log Analytics](/azure/well-architected/service-guides/azure-log-analytics) is a tool within Azure Monitor that allows you to query and analyze log data from various sources. In this architecture all resources have Azure Diagnostics configured to store platform logs in this data store. This is also the data sink for all of the Spark job metrics emitted from the Databrick processing pipelines.
 
 ## Scenario details
 
