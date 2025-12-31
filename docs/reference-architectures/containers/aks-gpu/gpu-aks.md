@@ -25,7 +25,7 @@ This article describes how to efficiently run workloads that use graphics proces
 
 GPU workloads can be expensive to run. To avoid unnecessary cost, know when to deploy GPU-based nodes in your AKS clusters.
 
-GPUs are purpose-built for graphics, AI and machine learning, and specialized tasks, which makes them ideal for compute-intensive workloads. CPUs effectively manage complex logic and branching. GPUs are optimized for throughput and efficiently handle basic arithmetic and vector operations.
+GPUs are purpose-built for graphics, AI and machine learning, and specialized tasks, which makes them ideal for compute-intensive workloads. Central processing units (CPUs) effectively manage complex logic and branching. GPUs are optimized for throughput and efficiently handle basic arithmetic and vector operations.
 
 To determine when to use GPUs for AKS workloads, you must understand GPU optimization, compute intensity, and other factors that affect performance. To gain better insight into GPU usage for AKS workloads, consider the following workload examples that benefit from GPU nodes in an AKS cluster.
 
@@ -190,7 +190,7 @@ Linux GPU workload deployments on AKS support multiple-instance GPUs. Use this f
 
 NVIDIA supports other partitioning techniques, like time-slicing and Multi-Process Service (MPS). To manually apply these configurations, use the NVIDIA GPU Operator.
 
-For advanced scenarios, you can improve resource bin packing on AKS nodes and optimize the utilization of GPU resources in your cluster. You can set scheduler configurations by using one or more built-in (*in-tree*) Kubernetes scheduling plugins to introduce workload placement strategies that differ from the default AKS scheduler. For more information, see [Scheduler configuration concepts for workload placement in AKS (preview)](/azure/aks/concepts-scheduler-configuration).
+For advanced scenarios, you can improve resource bin packing on AKS nodes and optimize the utilization of GPU resources in your cluster. You can set scheduler configurations by using one or more built-in (or *in-tree*) Kubernetes scheduling plugins to introduce workload placement strategies that differ from the default AKS scheduler. For more information, see [Scheduler configuration concepts for workload placement in AKS (preview)](/azure/aks/concepts-scheduler-configuration).
 
 ## Contributors
 
