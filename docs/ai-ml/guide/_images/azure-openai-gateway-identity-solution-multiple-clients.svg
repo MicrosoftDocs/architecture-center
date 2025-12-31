@@ -487,7 +487,7 @@
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(1000):26"/>
 			</v:userDefs>
-			<title>Azure OpenAI Service.1220</title>
+			<title>Azure OpenAI.1220</title>
 			<g id="group1223-43" v:mID="1223" v:groupContext="group">
 				<title>Sheet.1223</title>
 				<desc>Azure OpenAI</desc>
@@ -815,15 +815,14 @@
 		</g>
 		<g id="shape1309-155" v:mID="1309" v:groupContext="shape" transform="translate(475.157,-106.659)">
 			<title>Sheet.1309</title>
-			<desc>Azure OpenAI Service</desc>
+			<desc>Azure OpenAI</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(16000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="41.1025" cy="334.589" width="82.21" height="16.8053"/>
 			<rect x="0" y="326.187" width="82.2051" height="16.8053" class="st1"/>
-			<text x="10.36" y="331.59" class="st6" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure OpenAI <tspan
-						x="25.56" dy="1.2em" class="st7">Service</tspan></text>		</g>
+			<text x="10.36" y="331.59" class="st6" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure OpenAI</text>		</g>
 		<g id="shape1-159" v:mID="1" v:groupContext="shape" transform="translate(1.22835,0.790165)">
 			<title>logo png.1</title>
 			<v:userDefs>

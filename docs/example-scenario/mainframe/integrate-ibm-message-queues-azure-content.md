@@ -140,6 +140,6 @@ Principal author:
 
 - Read the [Azure Database Migration Guides](https://datamigration.microsoft.com/).
 
-## Related resources
+## Related resource
 
-- [Azure data platform end-to-end](../dataplate2e/data-platform-end-to-end.yml)
+- [Analytics end-to-end with Microsoft Fabric](../dataplate2e/data-platform-end-to-end.yml)
