@@ -71,7 +71,7 @@ To simulate a data source, this reference architecture uses the [New York City t
 
 The data generator is a .NET Core application that reads the records and sends them to Event Hubs. The generator sends ride data in JSON format and fare data in CSV format.
 
-Event Hubs uses [partitions](/azure/event-hubs/event-hubs-features#partitions) to segment the data. Partitions let a consumer read each partition in parallel. When you send data to Event Hubs, you can specify the partition key directly. Otherwise, records are assigned to partitions in round-robin fashion.
+Event Hubs uses [partitions](/azure/event-hubs/event-hubs-features#partitions) to segment the data. Partitions let a consumer read each read data in parallel. When you send data to Event Hubs, you can specify the partition key directly. Otherwise, records are assigned to partitions in round-robin fashion.
 
 In this scenario, ride data and fare data should be assigned the same partition ID for a specific taxi cab. This assignment enables Databricks to apply a degree of parallelism when it correlates the two streams. For example, a record in partition *n* of the ride data matches a record in partition *n* of the fare data.
 
