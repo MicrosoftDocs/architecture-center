@@ -14,14 +14,14 @@ Failure mode analysis (FMA) is a process for building reliability into a system 
 
 Here is the general process to conduct an FMA:
 
-1. Identify all of the components in the system. Include external dependencies, such as identity providers, third-party services, and so on.
-2. For each component, identify potential failures that could occur. A single component might have more than one failure mode. For example, you should consider read failures and write failures separately, because the impact and possible mitigation steps will be different.
-3. Rate each failure mode according to its overall risk. Consider these factors:
+1. Identify all of the components in the system. Include external dependencies, such as identity providers and third-party services.
+1. For each component, identify potential failures that could occur. A single component might have more than one failure mode. For example, you should consider read failures and write failures separately, because the impact and possible mitigation steps will be different.
+1. Rate each failure mode according to its overall risk. Consider these factors:
 
    - What is the likelihood of the failure? Is it relatively common? Extremely rare? You don't need exact numbers; the purpose is to help rank the priority.
    - What is the impact on the application, in terms of availability, data loss, monetary cost, and business disruption?
 
-4. For each failure mode, determine how the application will respond and recover. Consider tradeoffs in cost and application complexity.
+1. For each failure mode, determine how the application will respond and recover. Consider tradeoffs in cost and application complexity.
 
 As a starting point for your FMA process, this article contains a catalog of potential failure modes and their mitigation steps. The catalog is organized by technology or Azure service, plus a general category for application-level design. The catalog isn't exhaustive, but covers many of the core Azure services.
 
@@ -37,15 +37,15 @@ As a starting point for your FMA process, this article contains a catalog of pot
 **Detection**. Possible failure modes include:
 
 1. Microsoft Entra ID isn't available, or can't be reached due to a network problem. Redirection to the authentication endpoint fails, and the OpenID Connect middleware throws an exception.
-2. Microsoft Entra tenant does not exist. Redirection to the authentication endpoint returns an HTTP error code, and the OpenID Connect middleware throws an exception.
-3. User can't authenticate. No detection strategy is necessary; Microsoft Entra ID handles login failures.
+1. Microsoft Entra tenant does not exist. Redirection to the authentication endpoint returns an HTTP error code, and the OpenID Connect middleware throws an exception.
+1. User can't authenticate. No detection strategy is necessary; Microsoft Entra ID handles login failures.
 
 **Recovery:**
 
 1. Catch unhandled exceptions from the middleware.
-2. Handle `AuthenticationFailed` events.
-3. Redirect the user to an error page.
-4. User retries.
+1. Handle `AuthenticationFailed` events.
+1. Redirect the user to an error page.
+1. User retries.
 
 ## Azure AI Search
 
@@ -259,8 +259,8 @@ For more information, see [Overview of Service Bus dead-letter queues][sb-dead-l
 **Recovery:**
 
 1. Retry the operation, to recover from transient failures. The [retry policy][Storage.RetryPolicies] in the client SDK handles this automatically.
-2. Implement the Circuit Breaker pattern to avoid overwhelming storage.
-3. If N retry attempts fail, perform a graceful fallback. For example:
+1. Implement the Circuit Breaker pattern to avoid overwhelming storage.
+1. If N retry attempts fail, perform a graceful fallback. For example:
 
    - Store the data in a local cache, and forward the writes to storage later, when the service becomes available.
    - If the write action was in a transactional scope, compensate the transaction.
@@ -274,8 +274,8 @@ For more information, see [Overview of Service Bus dead-letter queues][sb-dead-l
 **Recovery:**
 
 1. Retry the operation, to recover from transient failures. The [retry policy][Storage.RetryPolicies] in the client SDK handles this automatically.
-2. For RA-GRS storage, if reading from the primary endpoint fails, try reading from the secondary endpoint. The client SDK can handle this automatically. See [Azure Storage replication][storage-replication].
-3. If *N* retry attempts fail, take a fallback action to degrade gracefully. For example, if a product image can't be retrieved from storage, show a generic placeholder image.
+1. For RA-GRS storage, if reading from the primary endpoint fails, try reading from the secondary endpoint. The client SDK can handle this automatically. See [Azure Storage replication][storage-replication].
+1. If *N* retry attempts fail, take a fallback action to degrade gracefully. For example, if a product image can't be retrieved from storage, show a generic placeholder image.
 
 **Diagnostics**. Use [storage metrics][storage-metrics].
 

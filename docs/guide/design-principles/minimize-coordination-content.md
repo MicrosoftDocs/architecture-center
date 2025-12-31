@@ -2,7 +2,7 @@
 
 ## Minimize coordination to achieve scalability
 
-Most cloud applications consist of multiple application services &mdash; web front ends, databases, business processes, reporting and analysis, and so on. To achieve scalability and reliability, each of those services should run on multiple instances.
+Most cloud applications consist of multiple application services, like web front ends, databases, business processes, and reporting and analysis. To achieve scalability and reliability, each of those services should run on multiple instances.
 
 Uncoordinated systems, where work can be handled independently without the need to pass messages between machines, are generally simpler to scale. Coordination is usually not a binary state, but a spectrum. Coordination occurs at different layers, such as data or compute.
 
