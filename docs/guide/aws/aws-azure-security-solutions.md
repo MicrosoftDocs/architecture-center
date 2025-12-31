@@ -1,5 +1,4 @@
 ---
-metadata:
 title: Microsoft Security Solutions for AWS
 description: Learn how Microsoft security solutions can help secure and protect Amazon Web Services (AWS) account access and environments.
 author: murthyla
@@ -13,7 +12,7 @@ ms.subservice: architecture-guide
 
 This guide describes how to use Microsoft security solutions to help secure Amazon Web Services (AWS) by using defense-in-depth controls that align with Zero Trust principles. These solutions help ensure consistent visibility, enforcement, and protection across your AWS environment.
 
-The following diagram summarizes how AWS installations can benefit from key Microsoft security components.
+The following diagram summarizes how AWS environments can benefit from Microsoft security components.
 
 :::image type="complex" border="false" source="media/aws-azure-security-solutions-content/aws-doc-diagram.svg" alt-text="AWS doc diagram" lightbox="media/aws-azure-security-solutions-content/aws-doc-diagram.svg":::
 The image shows three column diagram with Microsoft Azure services on the left, Benefits in the center, and AWS on the right, connected by arrows. The left column titled Microsoft Azure lists several services with descriptions. Microsoft Entra provides single sign-on (SSO), single life cycle automation, conditional access policies, identity protection, Privileged Identity Management (PIM), workload identities, entitlement management, and access reviews. Microsoft Defender for Cloud Apps provides visibility into activities, anomaly detection, policies, policy enforcement and governance, and session control. Microsoft Defender for Cloud provides cloud security graph, risk prioritization, attack path analysis, data identity and permission exposure, data security posture management, multicloud attack path correlation, governance and compliance, and workload protections for servers, containers, databases, and AI. Microsoft Purview provides multicloud data discovery, data catalog and governance, risk management, and compliance reporting. Microsoft Sentinel provides unified visibility and analytics, threat intelligence, detection and hunting, and response automation. Microsoft Defender XDR provides real-time containment, cross-platform detection, and enhanced security for critical infrastructure, visibility, and control. Microsoft Security Copilot provides rapid incident investigation, step-by-step response guidance, automated remediation and scripting, and natural language threat hunting. The center column titled Benefits shows aligned outcomes including centralized identity access management, strong authentication, identity governance, session protection, information protection, threat protection, Cloud Security Posture Management, cloud workload protection, AI security posture management and protection, information governance, regulatory compliance, threat protection and response, threat hunting, automatic attack disruption, and AI-augmented threat detection. The right column titled AWS shows the AWS Management Console with role-based authorization to access AWS account resources and an AWS resources section labeled workloads that run on the AWS platform. Arrows link the Azure services through the benefits to the AWS environment.
@@ -21,43 +20,52 @@ The image shows three column diagram with Microsoft Azure services on the left, 
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/aws-azure-security-solutions-architecture.pptx) of this diagram.*
 
-## Microsoft Entra
+## Microsoft Entra ID
 
-Microsoft Entra ID is a cloud-based centralized identity and access management solution that can help secure and protect AWS accounts and environments. Microsoft Entra ID provides strong single sign-on (SSO) authentication to most apps and platforms that follow common web authentication standards, including AWS. AWS accounts that support critical workloads and highly sensitive information need strong identity protection and access control. Microsoft Entra ensures access to AWS resources is *verified explicitly* every time and *least privilege* is maintained. You can enhance AWS identity management when you combine it with Microsoft Entra ID.
+Microsoft Entra ID is a cloud-based centralized identity and access management solution that can help secure and protect AWS accounts and environments. Microsoft Entra seamless single sign-on (SSO) supports most apps and platforms that follow common web authentication standards, including AWS. AWS accounts that support critical workloads and highly sensitive information need strong identity protection and access control. Microsoft Entra ID explicitly verifies every access request and enforces least-privilege access to AWS resources. Add Microsoft Entra ID to AWS to provide centralized identity management and enhanced security controls.
 
 AWS organizations that use Microsoft Entra ID for Microsoft 365 or hybrid cloud identity and access protection can quickly and easily deploy Microsoft Entra ID for AWS accounts, often without incurring extra costs. 
 
 Microsoft Entra ID provides several capabilities for direct integration with AWS:
 
-- **Centralized identities:** Combine Microsoft Entra federation with AWS Identity and Access Management (IAM) Identity Center to enforce *never trust, always verify* for AWS access. Microsoft Entra ID enables enhanced security, improved user experience, centralized access control, and SSO across legacy, traditional, and modern authentication solutions.
+- **Centralized identities:** Combine Microsoft Entra ID federation with AWS Identity and Access Management (IAM) Identity Center to enforce *never trust, always verify* for AWS access. Microsoft Entra ID enables enhanced security, improved user experience, centralized access control, and SSO across legacy, traditional, and modern authentication solutions.
 
-- **Life cycle automation:** After you enable SSO, automate user life cycle management by using integrated HR workflows. Map Microsoft Entra ID group memberships to AWS roles so that users automatically receive the appropriate AWS permissions based on their group assignments.
+- **Life cycle automation:** After you enable SSO, automate user life cycle management by using integrated human resources (HR) workflows. Map Microsoft Entra ID group memberships to AWS roles so that users automatically receive the appropriate AWS permissions based on their group assignments.
 
-- **Enforce strong authentication:** Use Microsoft Entra Conditional Access to enforce the Zero Trust principle of verify explicitly for AWS sign-ins. You can require strong authentication by using Microsoft Entra multifactor authentication (MFA) or integrate with solutions from [Microsoft Intelligent Security Association](https://www.microsoft.com/security/business/intelligent-security-association) partners. For example, if you require MFA on every sign-in, Microsoft Entra evaluates each attempt against your policies and either prompts the user for extra authentication or rejects the attempt *before* granting access to AWS. This approach reduces the risk of account takeover. You can also enforce other factors like risk level, network location, and device compliance to ensure that only managed, healthy devices can access your AWS resources.
+- **Enforce strong authentication:** Use Microsoft Entra Conditional Access to enforce the Zero Trust principle of verify explicitly for AWS sign-ins. You can require strong authentication by using Microsoft Entra multifactor authentication (MFA) or integrate with solutions from [Microsoft Intelligent Security Association](https://www.microsoft.com/security/business/intelligent-security-association) partners.
 
-- **Microsoft Entra ID Protection:** Improve protection against identity-based attacks by implementing real-time detection, continuous risk assessment, and remediation of risky sign-ins and unusual user behavior. Combine Microsoft Entra ID Protection with Conditional Access policies to detect whether an account is associated with suspicious activities, like leaked credentials on the dark web, and automatically impose tighter controls or disable it.
+  For example, if you require MFA on every sign-in, Microsoft Entra ID evaluates each attempt against your policies and either prompts the user for extra authentication or rejects the attempt *before* granting access to AWS. This approach reduces the risk of account takeover. You can also enforce other factors like risk level, network location, and device compliance to ensure that only managed, healthy devices can access your AWS resources.
 
-- **Microsoft Entra Privileged Identity Management (PIM):** Enable just-in-time and least-privilege access to govern administrative access to AWS roles. These measures reduce standing access and limit exposure to attacks. Use PIM to assign users to a Microsoft Entra group that corresponds to an AWS admin role rather than directly granting admin permissions. That group membership can be eligible and only active when a particular user needs it. PIM logs and requires approval for activations. You can expand PIM to any delegated permission by controlling access to custom groups that you create for access to AWS roles.
+- **Microsoft Entra ID Protection:** Improve protection against identity-based attacks by implementing real-time detection, continuous risk assessment, and remediation of risky sign-ins and unusual user behavior. Combine ID Protection with Conditional Access policies to detect whether an account is associated with suspicious activities, like leaked credentials on the dark web, and automatically impose tighter controls or disable the account.
 
-- **Identity governance:** Extend Microsoft Entra governance features to AWS. Enable users to request AWS access by using Microsoft Entra ID access packages that have time-limited assignments and approval workflows. Do periodic access reviews to remove excess or standing access to reduce risk. These access reviews also simplify reporting and help demonstrate regulatory compliance.
+- **Microsoft Entra Privileged Identity Management (PIM):** Enable just-in-time and least-privilege access to govern administrative access to AWS roles. These measures reduce standing access and limit exposure to attacks. Use PIM to assign users to a Microsoft Entra group that corresponds to an AWS admin role rather than directly granting admin permissions. You can configure that group membership as *eligible*, which means that it's only active when the user needs it. PIM logs activations and requires approval for them. You can expand PIM to any delegated permission by controlling access to custom groups that you create to grant access to AWS roles.
+
+- **Identity governance:** Extend Microsoft Entra governance features to AWS. Let users request AWS access by using Microsoft Entra ID access packages that have time-limited assignments and approval workflows. Do periodic access reviews to remove excess or standing access to reduce risk. These access reviews also simplify reporting and help demonstrate regulatory compliance.
 
 - **Workload identities:** Use Microsoft Entra workload identity federation for AWS to issue short-lived tokens that AWS trusts for API access. This approach avoids static AWS access keys. It also integrates Microsoft Entra ID with AWS IAM roles, so Azure-based workloads can assume AWS roles. This approach minimizes the risk of leaked credentials because it verifies every access request in real time and governs identities centrally.
 
-  Use Microsoft Entra as the identity plane for AWS to achieve a unified identity security stance across your multicloud environment. Users have one identity, one strong authentication policy, and one centralized location where you can revoke access when they leave. This approach closes the gaps that siloed accounts create. For more information and detailed instructions, see [Microsoft Entra identity and access management for AWS](/azure/architecture/reference-architectures/aws/aws-azure-ad-security).
+  Use Microsoft Entra as the identity plane for AWS to achieve a unified identity security stance across your multicloud environment. Users have one identity, one strong authentication policy, and one centralized location where you can revoke access when they leave. This approach closes the gaps that siloed accounts create. For more information and detailed instructions, see [Microsoft Entra IAM for AWS](/azure/architecture/reference-architectures/aws/aws-azure-ad-security).
 
 ### Microsoft Defender for Cloud Apps
 
 Microsoft Defender for Cloud Apps provides enhanced protection for software as a service (SaaS) applications. It adds a dynamic layer of security on user activities and data in cloud applications. It provides the following features to help you monitor and protect your cloud app data:
 
-- **Fundamental Cloud Access Security Broker functionality** including shadow IT discovery, visibility into cloud app usage, enhanced protection against app-based threats from anywhere in the cloud, and information protection and compliance assessments.
+- **Fundamental cloud access security broker functionality** including shadow IT discovery, visibility into cloud app usage, enhanced protection against app-based threats from anywhere in the cloud, and information protection and compliance assessments.
 
-- **SaaS Security Posture Management features** that enable security teams to improve the organization's security posture.
+- **SaaS security posture management features** that enable security teams to improve the organization's security posture.
 
-- **Advanced threat protection** as part of the Microsoft extended detection and response solution, enables powerful correlation of signal and visibility across the full cyberattack chain of advanced attacks.
+- **Advanced threat protection** as part of the Microsoft extended detection and response solution. This feature correlates signals and visibility across the full cyberattack chain of advanced attacks.
 
-- **App-to-app protection** which extends the core threat scenarios to OAuth-enabled apps that have permissions and privileges to critical data and resources.
+- **App-to-app protection** that extends the core threat scenarios to Open Authorization (OAuth)-enabled apps that have permissions and privileges to critical data and resources.
 
-Connect AWS to Defender for Cloud Apps to help secure your assets and detect potential threats. This setup monitors administrative and sign-in activities and sends alerts about possible brute force attacks, malicious use of privileged user accounts, unusual virtual machine (VM) deletions, and publicly exposed storage buckets. Defender for Cloud Apps helps protect AWS environments from abuse of cloud resources, compromised accounts, insider threats, data leakage, resource misconfiguration, and insufficient access control. It enforces Zero Trust at the session and application level. After a user authenticates to AWS, it continues to monitor and validate their actions.
+Connect AWS to Defender for Cloud Apps to help secure your assets and detect potential threats. This setup monitors administrative and sign-in activities and sends alerts about the following threats:
+
+- Possible brute force attacks
+- Malicious use of privileged user accounts
+- Unusual virtual machine (VM) deletions
+- Publicly exposed storage buckets
+
+Defender for Cloud Apps helps protect AWS environments from abuse of cloud resources, compromised accounts, insider threats, data leakage, resource misconfiguration, and insufficient access control. It enforces Zero Trust at the session and application level. After a user authenticates to AWS, Defender for Cloud Apps continues to monitor and validate their actions.
 
 AWS with Defender for Cloud Apps provides the following benefits:
 
@@ -75,19 +83,21 @@ AWS with Defender for Cloud Apps provides the following benefits:
   
   Each detected anomaly generates an alert in Defender for Cloud Apps. These behavior-based detections catch activities that signature-based detections miss.
   
-- **Policy enforcement and governance:** Define policies that take automated action. You can create policies for specific scenarios, like *Alert and suspend user if they delete more than five Amazon Elastic Compute Cloud (EC2) instances within 10 minutes* or *If any S3 bucket is made public, notify the security team and optionally revert the access control list (ACL).* The platform includes file policies to detect when S3 buckets become publicly available and activity policies for critical changes, like identity and access management (IAM) or network ACL modifications. Many policies are available as templates that you can enable. Defender for Cloud Apps can automatically remediate problems through API calls. These automated actions enforce security in near real-time and often mitigate problems faster than manual intervention. Consider the following example governance actions:
+- **Policy enforcement and governance:** Define policies that take automated action. You can create policies for specific scenarios, like *Alert and suspend user if they delete more than five Amazon Elastic Compute Cloud (EC2) instances within 10 minutes* or *If any S3 bucket becomes public, notify the security team and optionally revert the access control list (ACL).*
 
-  - *Suspend user:* Disable the Microsoft Entra ID user, which in turn blocks access to AWS via federation identity.
+  The platform includes file policies to detect when S3 buckets become publicly available and activity policies for critical changes, like IAM or network ACL modifications. Many policies are available as templates that you can enable. Defender for Cloud Apps can automatically remediate problems through API calls. These automated actions enforce security in near real time and often mitigate problems faster than manual intervention. Consider the following example governance actions:
+
+  - *Suspend user:* Disable the Microsoft Entra ID user, which blocks access to AWS via federation identity.
   
-  - *Require reauthentication:* Sign the user out of AWS and force them to sign in again through Microsoft Entra ID with MFA if the session is deemed risky.
+  - *Require reauthentication:* Sign the user out of AWS and force them to sign in again through Microsoft Entra ID with MFA if Defender for Cloud Apps deems the session risky.
   
-  - *Notify user:* Send a pop-up or email to inform a user that their action violates policy, such as "You have violated policy by downloading 1,000 records from S3." This approach provides a gentle nudge for insiders or flags accidental policy violations.
+  - *Notify user:* Send a pop-up alert or email to inform a user that their action violates policy, such as "You have violated policy by downloading 1,000 records from S3." This approach provides a gentle nudge for insiders or flags accidental policy violations.
   
   - *Make S3 bucket private:* Remove public access from an S3 bucket through the AWS API when a policy triggers.
   
-  - *Remove collaborator:* Automatically remove an external collaborator, for example if someone shares an S3 bucket with an external account.
+  - *Remove collaborator:* Automatically remove an external collaborator, for example, if someone shares an S3 bucket with an external account.
   
-- **Session control (real-time intervention):** Conditional Access App Control routes user traffic through Defender for Cloud Apps and Conditional Access to actively block or monitor specific actions in real time. For example, if a user tries to download files from AWS on an unmanaged device, session control can prevent the download or display a warning message instead. The platform can also apply Microsoft Purview data loss prevention (DLP) policies to prevent data exfiltration, like blocking attempts to copy secret keys or specific patterns through the console.
+- **Session control (real-time intervention):** Conditional Access app control routes user traffic through Defender for Cloud Apps and Conditional Access to actively block or monitor specific actions in real time. For example, if a user tries to download files from AWS on an unmanaged device, session control can prevent the download or display a warning message instead. The platform can also apply Microsoft Purview data loss prevention (DLP) policies to prevent data exfiltration, like blocking attempts to copy secret keys or specific patterns through the console.
 
 For more information about connecting AWS environments to Defender for Cloud Apps, see [Protect your AWS environment](/defender-cloud-apps/protect-aws).
 
@@ -103,7 +113,7 @@ Defender for Cloud provides the following capabilities:
 
 Defender for Cloud native AWS support provides the following benefits:
 
--  **Defender CSPM:** When you connect AWS accounts to Defender for Cloud, it immediately begins assessing your AWS resources against known best practices and benchmarks. It uses the Microsoft Cloud Security Benchmark (MCSB), which is a unified framework that includes controls for AWS. The assessment checks for common security problems, like the following examples:
+-  **Defender CSPM:** When you connect AWS accounts to Defender for Cloud, it immediately begins assessing your AWS resources against known best practices and benchmarks. It uses the Microsoft Cloud Security Benchmark, which is a unified framework that includes controls for AWS. The assessment checks for common security problems, like the following examples:
 
    - Public S3 buckets
    - IAM users without MFA
@@ -112,29 +122,29 @@ Defender for Cloud native AWS support provides the following benefits:
    
    Defender for Cloud reports each finding as a recommendation in the Azure portal. These recommendations contribute to a secure score that provides a quantifiable measure of your AWS security posture and compliance. 
 
-  -  **Foundational CSPM:** Foundational CSPM provides a unified asset inventory, hardening recommendations for your AWS resources, and workflow automation to remediate misconfigurations. It includes visualization and reporting capabilities. These foundational multicloud CSPM capabilities are available at no cost.
+  -  **Foundational CSPM:** Foundational CSPM provides unified asset inventory, hardening recommendations for your AWS resources, and workflow automation to remediate misconfigurations. It includes visualization and reporting capabilities. Defender for Cloud provides these foundational multicloud CSPM capabilities at no cost.
   
-  -  **Defender CSPM:** provides advanced posture management capabilities and agentless workload insights including critical assets.
+  -  **Defender CSPM:** Defender CSPM provides advanced posture management capabilities and agentless workload insights, including critical assets.
   
-    - *Cloud security graph and risk prioritization:* Uses AWS resource metadata, IAM roles, policies, and network to build exploitability context across AWS services, like EC2, S3, IAM, and Virtual Private Cloud (VPC). Correlates the exploitability context with identities and permissions.
+    - *Cloud security graph and risk prioritization:* Uses AWS resource metadata, IAM roles, policies, and networks to build exploitability context across AWS services, like EC2, S3, IAM, and Virtual Private Cloud (VPC). Correlates the exploitability context with identities and permissions.
     
-    - *Attack path analysis (APA):* Detects multi-step attack chains in AWS, such as when an attack progresses from a public EC2 instance through IAM role escalation to ultimately access an S3 bucket. Visualizes attack paths and provides *break-the-path* remediation for AWS-specific misconfigurations.
+    - *Attack path analysis (APA):* Detects multi-step attack chains in AWS, like an attack that progresses from a public EC2 instance through IAM role escalation to S3 bucket access. Visualizes attack paths and provides *break-the-path* remediation for AWS-specific misconfigurations.
     
-    - *Cloud Security Explorer:* Queries AWS posture by using graph-based filters, like *internet-exposed EC2 with attached IAM role granting S3 write*.
+    - *Cloud security explorer:* Queries AWS posture by using graph-based filters, like *internet-exposed EC2 with attached IAM role granting S3 write*.
     
     - *Identity and permission exposure:* Evaluates AWS IAM roles, policies, and effective permissions. Highlights toxic combinations, like overly permissive roles and public exposure.
     
-    - *Data Security Posture Management (DSPM):* Uses built-in classification rules to scan AWS S3 buckets and AWS Amazon Relational Database Service (RDS) databases, like Aurora, PostgreSQL, MySQL, MariaDB, SQL Server, and Oracle SE2.
+    - *Data security posture management (DSPM):* Uses built-in classification rules to scan AWS S3 buckets and AWS Amazon Relational Database Service (RDS) databases, like Aurora, PostgreSQL, MySQL, MariaDB, SQL Server, and Oracle SE2.
     
     - *Multicloud attack path correlation:* Correlates AWS identities and resources with Azure and GCP to identify cross-cloud exploit chains. 
     
-    - *Governance and compliance:* Tools to assess your [security compliance](/azure/defender-for-cloud/review-security-recommendations) with a wide range of benchmarks and regulatory standards. Microsoft provides built-in policies for AWS that cover standards like AWS Foundational Security Best Practices Standard and PCI-DSS. You can also add custom security policies for your organization, industry, or region to track AWS compliance.
+    - *Governance and compliance:* Tools to assess your [security compliance](/azure/defender-for-cloud/review-security-recommendations) with a wide range of benchmarks and regulatory standards. Microsoft provides built-in policies for AWS that cover standards like AWS Foundational Security Best Practices Standard and Payment Card Industry Data Security Standard (PCI-DSS). You can also add custom security policies for your organization, industry, or region to track AWS compliance.
     
 - **CWPPs:** In addition to posture management, Defender for Cloud provides workload protection plans for various AWS workloads:
 
   - **Servers (VMs on EC2):** When you enable Defender for Servers for an AWS account, Defender for Cloud onboards your EC2 instances (Windows or Linux) for advanced threat protection. This process includes an integrated license for Microsoft Defender for Endpoint. Onboarded VMs receive endpoint detection and response (EDR) capabilities, including file integrity monitoring, malware scanning, behavior monitoring, and vulnerability assessment. The vulnerability scanner reports OS and software vulnerabilities to Defender for Cloud. Defender for Endpoint reports endpoint threats, like ransomware behavior or suspicious process activity. Defender for Cloud displays all findings as security alerts. For more information, see [Defender for Servers](/azure/defender-for-cloud/supported-machines-endpoint-solutions-clouds-servers).
   
-  -  **Containers:** Defender for Containers can protect Kubernetes clusters that run on AWS, including Amazon EKS. The protection works by deploying Azure Arc-enabled Kubernetes agents and the Defender extension to the cluster. Defender for Containers provides image vulnerability scanning for container images. It provides runtime threat detection for clusters, which identifies suspicious process activity in containers and crypto-mining operations. The solution monitors Kubernetes policy compliance and the Kubernetes control plane logs for suspicious events. For more information, see [Defender for Containers](/azure/defender-for-cloud/defender-for-containers-aws-overview).
+  -  **Containers:** Microsoft Defender for Containers can protect Kubernetes clusters that run on AWS, including Amazon EKS. The protection works by deploying Azure Arc-enabled Kubernetes agents and the Defender extension to the cluster. Defender for Containers provides image vulnerability scanning for container images. It provides runtime threat detection for clusters, which identifies suspicious process activity in containers and crypto-mining operations. The solution monitors Kubernetes policy compliance and the Kubernetes control plane logs for suspicious events. For more information, see [Defender for Containers](/azure/defender-for-cloud/defender-for-containers-aws-overview).
   
   - **Databases:** Defender for Cloud supports SQL servers that run on AWS EC2 and AWS RDS Custom. It provides capabilities for vulnerability assessment scanning, like checking for misconfigurations or missing patches. It also provides advanced threat protection for SQL, which detects anomalous queries and SQL injection attempts, and surfaces the alerts. For more information, see [Defender for SQL](/azure/defender-for-cloud/defender-for-sql-usage).
   
@@ -142,17 +152,19 @@ Defender for Cloud brings the *secure by design* philosophy to AWS through envir
 
 ### Microsoft Purview
 
-Data is ultimately what attackers seek to steal and what you must protect for compliance. In a multicloud environment, data can reside anywhere, including Azure SQL databases, on-premises files, AWS S3 buckets, or AWS databases. Microsoft Purview provides a unified data governance solution that answers three critical questions: What data exists in AWS, where does the data reside, and how sensitive is the data? This information is crucial for a defense-in-depth approach because it informs the protective measures needed at the data layer, like encryption, DLP, and access controls. Microsoft Purview enables you to enforce Zero Trust principles for data. Microsoft Purview is also essential for regulatory compliance because it ensures that AWS data repositories meet the same compliance standards as Azure or on-premises environments through consistent classification and reporting.
+Data is ultimately what attackers seek to steal and what you must protect for compliance. In a multicloud environment, data can reside anywhere, including Azure SQL databases, on-premises files, AWS S3 buckets, or AWS databases.
+
+Microsoft Purview provides a unified data governance solution that answers three critical questions: What data exists in AWS, where does the data reside, and how sensitive is the data? A defense-in-depth approach needs this information because it informs the protective measures needed at the data layer, like encryption, DLP, and access controls. Microsoft Purview lets you enforce Zero Trust principles for data. Microsoft Purview also supports regulatory compliance because it ensures that AWS data repositories meet the same compliance standards as Azure or on-premises environments through consistent classification and reporting.
 
 - **Multicloud data discovery:** The Microsoft Purview multicloud scanning connectors extend its discovery capabilities to AWS.
 
-  For example, you can register an AWS S3 bucket as a data source in Microsoft Purview and perform a scan. The scanner reads object metadata and content. It uses the Microsoft Purview built-in classification rules, which include over 200 detectors for sensitive information like credit card numbers, Social Security numbers, and API keys. The scanner identifies sensitive information within the objects but doesn't copy the data. It only retrieves metadata and classification results, which Microsoft Purview stores in its Data Map. The scan might report: "Bucket: s3://my-finance-data/ contains three files classified as Privacy/Personal Data, detected UK National Insurance Numbers."
+  For example, you can register an AWS S3 bucket as a data source in Microsoft Purview and perform a scan. The scanner reads object metadata and content. It uses the Microsoft Purview built-in classification rules, which include over 200 detectors for sensitive information like credit card numbers, Social Security numbers, and API keys. The scanner identifies sensitive information within the objects but doesn't copy the data. It only retrieves metadata and classification results. Microsoft Purview stores the results in the Microsoft Purview Data Map. The scan might report: "Bucket: s3://my-finance-data/ contains three files classified as Privacy/Personal Data, detected UK National Insurance numbers."
   
   Microsoft Purview can also scan Amazon RDS databases, like RDS for PostgreSQL or SQL Server. It connects and runs queries to retrieve schemas and sample data for classification.
 
--  **Data catalog and governance:** Microsoft Purview onboards all discovered AWS data assets into the Microsoft Purview Data Catalog alongside your other data assets. Data stewards and compliance officers can use a single portal to search for data. For example, they can search for *customer data* and find results in both Azure Data Lake Storage and AWS buckets. You can uniformly apply business glossary terms and sensitivity labels across all assets. This consistency is crucial for compliance. It demonstrates to auditors that you inventory and label all personal data across clouds.
+-  **Data catalog and governance:** Microsoft Purview onboards all discovered AWS data assets into the Microsoft Purview Data Catalog alongside your other data assets. Data stewards and compliance officers can use a single portal to search for data. For example, they can search for *customer data* and find results in both Azure Data Lake Storage and AWS buckets. You can uniformly apply business glossary terms and sensitivity labels across all assets. This consistency supports compliance and demonstrates to auditors that you inventory and label all personal data across clouds.
 
-- **Risk management:** Understand what sensitive data exists in AWS so that you can implement targeted security measures. For example, if Microsoft Purview finds credit card numbers in an S3 bucket, you can encrypt or move the data. You can also set up a Defender for Cloud Apps policy to monitor access to that bucket more closely. You can run Microsoft Purview scans on a schedule to detect changes. This approach provides continuous Data Security Posture Management (DSPM). It highlights where sensitive data exists in AWS and whether you enable proper controls.
+- **Risk management:** Understand what sensitive data exists in AWS so that you can implement targeted security measures. For example, if Microsoft Purview finds credit card numbers in an S3 bucket, you can encrypt or move the data. You can also set up a Defender for Cloud Apps policy to monitor access to that bucket more closely. You can run Microsoft Purview scans on a schedule to detect changes. This approach provides continuous DSPM and highlights where sensitive data exists in AWS and whether you enable proper controls.
 
 - **Integration with broader security:** Microsoft Purview surfaces the sensitive data identified in Defender for Cloud and Defender for Cloud Apps. This integration provides extra context to help you manage security posture and respond to alerts.
 
