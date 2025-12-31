@@ -83,7 +83,7 @@ Not all workloads benefit from GPU-enabled agent nodes. In some cases, CPUs are 
 
 Many Microsoft customers take advantage of GPU workloads to innovate for their customers. Consider the following examples:
 
-- [Royal Bank of Canada (RBC) accelerates inference at scale by using KAITO and GPUs on AKS](https://ignite.microsoft.com/sessions/6322e0f4-63f1-4e57-b311-d230e1f63995).
+- [Royal Bank of Canada (RBC) accelerates inference at scale by using the AI toolchain operator and GPUs on AKS](https://ignite.microsoft.com/sessions/6322e0f4-63f1-4e57-b311-d230e1f63995).
 - [NBA players improve performance with AI on Azure AI infrastructure](https://customers.microsoft.com/story/1769559716293357869-nba-azure-kubernetes-service-media-and-entertainment-en-united-states).
 - [An AI company called Mr. Turing uses AI and AKS to make company information searchable](https://customers.microsoft.com/story/1696908458386008536-misterturing-azure-kubernetes-service-brazil).
 
@@ -133,24 +133,24 @@ Consider the following best practices:
 
 ### GPU workload deployment for language models
 
-The [Kubernetes AI toolchain operator (KAITO)](/azure/aks/ai-toolchain-operator) is a Kubernetes operator that simplifies how you run open-source language models, like [Falcon](https://huggingface.co/tiiuae) and [Llama2](https://github.com/meta-llama/llama), on your Kubernetes cluster. You can deploy KAITO on your AKS cluster as a managed add-on for [AKS](/azure/aks/intro-kubernetes). KAITO uses [Karpenter](https://karpenter.sh/) to automatically provision and deploy GPU nodes based on a specification in the workspace custom resource definition of your chosen model. KAITO creates the inference server as an endpoint for your language model and reduces onboarding time so that you focus on machine learning operations instead of infrastructure setup and maintenance.
+The [AI toolchain operator](/azure/aks/ai-toolchain-operator) simplifies how you run open-source language models, like [Falcon](https://huggingface.co/tiiuae) and [Llama2](https://github.com/meta-llama/llama), on your Kubernetes cluster. You can deploy the AI toolchain operator on your AKS cluster as a managed add-on for [AKS](/azure/aks/intro-kubernetes). The AI toolchain operator uses [Karpenter](https://karpenter.sh/) to automatically provision and deploy GPU nodes based on a specification in the workspace custom resource definition of your chosen model. The AI toolchain operator creates the inference server as an endpoint for your language model and reduces onboarding time so that you focus on machine learning operations instead of infrastructure setup and maintenance.
 
-To improve AI operations on AKS, KAITO provides the following capabilities:
+To improve AI operations on AKS, the AI toolchain operator provides the following capabilities:
 
-- **Manages container images:** Use container images to manage language models. KAITO provides an HTTP server so that you can use [preset model workspaces](https://github.com/kaito-project/kaito/tree/main/examples/inference) to perform inference, call tools, and use the Model Context Protocol (MCP).
+- **Manages container images:** Use container images to manage language models. The AI toolchain operator provides an HTTP server so that you can use [preset model workspaces](https://github.com/kaito-project/kaito/tree/main/examples/inference) to perform inference, call tools, and use the Model Context Protocol (MCP).
 
-- **Supports bring-your-own (BYO) models:** Use KAITO to bring in-house, pretrained language models by using a [custom deployment template](https://kaito-project.github.io/kaito/docs/custom-model) and HuggingFace Transformers for inference.
+- **Supports bring-your-own (BYO) models:** Use the AI toolchain operator to bring in-house, pretrained language models by using a [custom deployment template](https://kaito-project.github.io/kaito/docs/custom-model) and HuggingFace Transformers for inference.
 
-- **Configures GPU hardware:** KAITO automatically applies preset configurations based on model requirements. You don't need to manually tune deployment parameters to fit GPU hardware or troubleshoot costly GPU out-of-memory (OOM) errors.
+- **Configures GPU hardware:** The AI toolchain operator automatically applies preset configurations based on model requirements. You don't need to manually tune deployment parameters to fit GPU hardware or troubleshoot costly GPU out-of-memory (OOM) errors.
 
-- **Provides built-in inference monitoring:** When you deploy a model by using the default vLLM inference engine, [KAITO surfaces real-time vLLM metrics](/azure/aks/ai-toolchain-operator-monitoring) via Prometheus and Grafana and exposes metrics about inference performance and health in your AKS cluster.
+- **Provides built-in inference monitoring:** When you deploy a model by using the default vLLM inference engine, the [AI toolchain operator surfaces real-time vLLM metrics](/azure/aks/ai-toolchain-operator-monitoring) via Prometheus and Grafana and exposes metrics about inference performance and health in your AKS cluster.
 
-For more information about KAITO, see the following resources:
+For more information about the AI toolchain operator, see the following resources:
 
-- [Explore the KAITO open-source project](https://kaito-project.github.io/kaito/docs/)
-- [Fine-tune your language models by using KAITO](/azure/aks/ai-toolchain-operator-fine-tune)
+- [Explore the AI toolchain operator open-source project](https://kaito-project.github.io/kaito/docs/)
+- [Fine-tune your language models by using the AI toolchain operator](/azure/aks/ai-toolchain-operator-fine-tune)
 - [Deploy a language model that supports tool calling](/azure/aks/ai-toolchain-operator-tool-calling)
-- [Connect to an MCP server by using KAITO](/azure/aks/ai-toolchain-operator-mcp)
+- [Connect to an MCP server by using the AI toolchain operator](/azure/aks/ai-toolchain-operator-mcp)
 
 ## Workload and cluster scaling
 
@@ -160,7 +160,7 @@ Model sharding is a common advanced technique for dividing stages of model train
 
 Alternatively, you can use pretrained, open-source AI and machine learning models for inference. Start with popular models like Llama, Falcon, or Phi as a more cost-effective option than building and training a language model from scratch. For more information, see [Language models on AKS](/azure/aks/concepts-ai-ml-language-models).
 
-When you use pretrained models for inference, resource usage can fluctuate based on the volume of data that you process. When you run live data through your chosen model, traffic can spike depending on the model size and requirements. Maintain low latency throughout the inference process. To use your GPUs effectively for high performance and low latency, conduct distributed inference by using models that KAITO supports. This approach expands your compute options to include lower GPU-count SKUs that have one or two GPUs each, provides high availability across Azure regions, and reduces maintenance costs.
+When you use pretrained models for inference, resource usage can fluctuate based on the volume of data that you process. When you run live data through your chosen model, traffic can spike depending on the model size and requirements. Maintain low latency throughout the inference process. To use your GPUs effectively for high performance and low latency, conduct distributed inference by using models that the AI toolchain operator supports. This approach expands your compute options to include lower GPU-count SKUs that have one or two GPUs each, provides high availability across Azure regions, and reduces maintenance costs.
 
 ## GPU health monitoring
 
@@ -212,8 +212,8 @@ Other contributors:
 
 ## Next steps
 
-- [Bring your own AI models to intelligent apps on AKS by using KAITO](/shows/learn-live/intelligent-apps-on-aks-ep02-bring-your-own-ai-models-to-intelligent-apps-on-aks-with-kaito)
-- [Deploy KAITO on AKS by using Terraform](https://techcommunity.microsoft.com/t5/azure-for-isv-and-startups/deploy-kaito-on-aks-using-terraform/ba-p/4108930)
+- [Bring your own AI models to intelligent apps on AKS by using the AI toolchain operator](/shows/learn-live/intelligent-apps-on-aks-ep02-bring-your-own-ai-models-to-intelligent-apps-on-aks-with-kaito)
+- [Deploy the AI toolchain operator on AKS by using Terraform](https://techcommunity.microsoft.com/t5/azure-for-isv-and-startups/deploy-kaito-on-aks-using-terraform/ba-p/4108930)
 
 ## Related resource
 
