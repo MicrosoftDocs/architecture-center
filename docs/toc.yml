@@ -714,7 +714,7 @@ items:
           - name: Multitenancy with AKS and AGIC
             href: example-scenario/aks-agic/aks-agic.yml
           - name: Use Azure Kubernetes Service to host GPU-based workloads
-            href: reference-architectures/containers/aks-gpu/gpu-aks.yml
+            href: reference-architectures/containers/aks-gpu/gpu-aks.md
       - name: Solution ideas
         items:
         - name: Data streaming with AKS
