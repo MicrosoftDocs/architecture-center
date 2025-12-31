@@ -3,7 +3,7 @@ title: Use Azure Kubernetes Service to Host GPU-Based Workloads
 description: Learn how to use Azure Kubernetes Service to host GPU-based workloads, including machine learning, deep learning, and high-performance computing (HPC) workloads.
 author: sdesai345
 ms.author: sachidesai
-ai usage: ai-assisted
+ai-usage: ai-assisted
 ms.date: 12/17/2025
 ms.update-cycle: 180-days
 ms.topic: concept-article
