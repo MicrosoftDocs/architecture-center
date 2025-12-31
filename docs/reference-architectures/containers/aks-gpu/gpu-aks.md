@@ -39,7 +39,7 @@ Open-source software (OSS)-accelerated SQL query engines and columnar databases 
 
 Popular machine learning and deep learning frameworks like [TensorFlow](https://www.tensorflow.org), [PyTorch](https://pytorch.org), [vLLM](https://docs.vllm.ai), and [Triton server](https://github.com/triton-inference-server/server) benefit from GPUs because they accelerate tasks that train models and run inference. For example, Azure Machine Learning supports high-performance model serving on a managed online endpoint by using the [Triton inference server](/azure/machine-learning/how-to-deploy-with-triton).
 
-Deep learning models use complex neural networks. Parallel processing on GPUs speeds up their computations. GPUs provide highly efficient matrix multiplication and convolution operations, which are fundamental operations in deep learning.
+Deep learning models use complex neural networks. Parallel processing on GPUs accelerates their computations. GPUs provide highly efficient matrix multiplication and convolution operations, which are fundamental operations in deep learning.
 
 You can also use GPUs to accelerate tasks like image classification, object detection, natural language processing, and speech recognition.
 
@@ -71,9 +71,9 @@ Health and life sciences workloads, like genomic analysis and bioinformatics app
 
 Language models like [OpenAI GPT](https://platform.openai.com/docs/models), [Meta Llama](https://www.llama.com), [Falcon](https://falconllm.tii.ae), and [Phi open models](https://azure.microsoft.com/products/phi/) can take advantage of GPU parallel-processing capabilities. Use GPUs to run these models and improve performance.
 
-GPUs accelerate tasks that train, fine-tune, and run inference, which involve complex computations and large amounts of data. GPUs have parallel-processing capabilities that divide the large computational tasks of a given model into smaller subtasks that run concurrently. This process reduces latency and improves performance.
+GPUs accelerate training and inference tasks, which involve complex computations and large amounts of data. GPUs have parallel-processing capabilities that divide the large computational tasks of a given model into smaller subtasks that run concurrently. This process reduces latency and improves performance.
 
-Language models often have complex neural networks with several layers and parameters, which can increase computational demand. GPUs accelerate key operations in language processing, like matrix multiplication and convolutions, which speeds up training and inference.
+Language models often have complex neural networks with several layers and parameters, which can increase computational demand. GPUs accelerate key operations in language processing, like matrix multiplication and convolutions, which reduces the time required for training and inference.
 
 GPUs provide sufficient memory capacity, bandwidth, and processing power to handle language model-based applications that have conversational interfaces and generate text. For example, GPU enhancements provide low-latency responses for users who interact with chatbots and AI assistants.
 
@@ -84,8 +84,8 @@ Not all workloads benefit from GPU-enabled agent nodes. In some cases, CPUs are 
 Many Microsoft customers take advantage of GPU workloads to innovate for their customers. Consider the following examples:
 
 - [Royal Bank of Canada (RBC) accelerates inference at scale by using the AI toolchain operator and GPUs on AKS](https://ignite.microsoft.com/sessions/6322e0f4-63f1-4e57-b311-d230e1f63995).
-- [NBA players improve performance with AI on Azure AI infrastructure](https://customers.microsoft.com/story/1769559716293357869-nba-azure-kubernetes-service-media-and-entertainment-en-united-states).
-- [An AI company called Mr. Turing uses AI and AKS to make company information searchable](https://customers.microsoft.com/story/1696908458386008536-misterturing-azure-kubernetes-service-brazil).
+- [NBA players improve performance with AI on Azure AI infrastructure](https://www.microsoft.com/en/customers/story/1769559716293357869-nba-azure-kubernetes-service-media-and-entertainment-en-united-states?msockid=0495d219989b64dc145fc4a799fd65d1).
+- [An AI company called Mr. Turing uses AI and AKS to make company information searchable](https://www.microsoft.com/en/customers/story/1696908458386008536-misterturing-azure-kubernetes-service-brazil?msockid=0495d219989b64dc145fc4a799fd65d1).
 
 ## GPU workload deployment best practices
 
@@ -110,7 +110,7 @@ AKS provides various options to deploy GPU-enabled Linux and Windows node pools 
 - Use Kubernetes node selectors, node affinity, and taints and tolerations when you schedule workloads on your GPU-enabled node pools.
 
 > [!NOTE]
-> Windows GPU is a preview feature. You need to [register the `WindowsGPUPreview` feature flag](/azure/aks/use-windows-gpu#register-the-windowsgpupreview-feature-flag).
+> Windows GPU is a preview feature. You need to [register the WindowsGPUPreview feature flag](/azure/aks/use-windows-gpu#register-the-windowsgpupreview-feature-flag).
 
 ### NVIDIA GPU Operator
 
@@ -158,13 +158,13 @@ For AI and machine learning scenarios, you must differentiate between training w
 
 Model sharding is a common advanced technique for dividing stages of model training. You can assign GPUs to distinct tasks and maximize their use by enabling [multiple-instance GPU (MIG)](/azure/aks/gpu-multi-instance) on NVIDIA GPU node pools in AKS. GPUs can scale up and scale out HPC workloads, like NV-series or ND-series VMs on Azure. This capability helps maintain high resource usage and reduce user intervention for machine learning training processes that are lengthy and expensive.
 
-Alternatively, you can use pretrained, open-source AI and machine learning models for inference. Start with popular models like Llama, Falcon, or Phi as a more cost-effective option than building and training a language model from scratch. For more information, see [Language models on AKS](/azure/aks/concepts-ai-ml-language-models).
+Alternatively, you can use pretrained, open-source AI and machine learning models for inference. Start with popular models like Llama, Falcon, or Phi as a more cost-effective option than building and training a fully custom language model. For more information, see [Language models on AKS](/azure/aks/concepts-ai-ml-language-models).
 
 When you use pretrained models for inference, resource usage can fluctuate based on the volume of data that you process. When you run live data through your chosen model, traffic can spike depending on the model size and requirements. Maintain low latency throughout the inference process. To use your GPUs effectively for high performance and low latency, conduct distributed inference by using models that the AI toolchain operator supports. This approach expands your compute options to include lower GPU-count SKUs that have one or two GPUs each, provides high availability across Azure regions, and reduces maintenance costs.
 
 ## GPU health monitoring
 
-GPU problems can be difficult to detect and often cause silent errors or degrade performance instead of failing outright. These problems add time to troubleshoot, consume resources unnecessarily, and increase operational costs. [GPU health monitoring on AKS](/azure/aks/node-problem-detector) provides consistent and frequent checks of node events and conditions that the built-in Node Problem Detector (NPD) reports on select GPU VM sizes. NPD surfaces key signals like incorrect GPU count or network connectivity faults directly into Kubernetes node conditions, which helps teams identify and respond to problems. This approach supports automated alerting, node cordoning, and workload rescheduling. It also helps maintain application reliability and performance in compute-intensive environments.
+GPU problems can be difficult to detect and often cause silent errors or degrade performance instead of failing outright. These problems add time to troubleshoot, consume resources unnecessarily, and increase operational costs. [GPU health monitoring on AKS](/azure/aks/node-problem-detector) provides consistent and frequent checks of node events and conditions that the built-in Node Problem Detector (NPD) reports on specific GPU VM sizes. NPD surfaces key signals like incorrect GPU count or network connectivity faults directly into Kubernetes node conditions, which helps teams identify and respond to problems. This approach supports automated alerting, node cordoning, and workload rescheduling. It also helps maintain application reliability and performance in compute-intensive environments.
 
 ## GPU workload cost management
 
@@ -174,7 +174,7 @@ The following scenarios benefit from cost visibility.
 
 ### GPU-enabled VM size cost
 
-Select the right GPU-enabled VM size to optimize the cost to run GPUs. Daily costs can vary depending on the VM size that you choose. A100 GPUs are costly, so avoid them unless your workload requires them. AKS cost analysis shows the daily cost for each of your VMs and breaks down the associated costs of each workload that runs on the GPU-enabled VM. Use this data to evaluate whether you have an appropriate VM size or if you need a more cost-effective option.
+Select the right GPU-enabled VM size to optimize the cost to run GPUs. Daily costs can vary depending on the VM size that you choose. A100 GPUs are costly, so avoid them unless your workload requires them. AKS cost analysis shows the daily cost for each of your VMs and shows the associated costs of each workload that runs on the GPU-enabled VM. Use this data to evaluate whether you have an appropriate VM size or if you need a more cost-effective option.
 
 ### Idle cost
 
@@ -186,11 +186,11 @@ Overprovisioning is when you allocate more resources than necessary for a pod. O
 
 Underuse can occur when your workloads don't use GPUs fully. Consider advanced techniques to share and partition GPUs. Instead of deploying multiple nodes, you can use a single node with partitions to maximize GPU usage. These techniques help you allocate the appropriate amount of GPU acceleration for each workload, which can enhance usage and lower the operational costs of deployment.
 
-Linux GPU workload deployments on AKS support multiple-instance GPUs. Use this feature to partition NVIDIA A100 and H100 GPUs into up to seven independent instances. Each instance has its own memory and stream multiprocessor.
+Linux GPU workload deployments on AKS support multiple-instance GPUs. Use this feature to partition NVIDIA A100 and H100 GPUs into as many as seven independent instances. Each instance has its own memory and stream multiprocessor.
 
 NVIDIA supports other partitioning techniques, like time-slicing and Multi-Process Service (MPS). To manually apply these configurations, use the NVIDIA GPU Operator.
 
-For advanced scenarios, you can improve resource bin packing on AKS nodes and optimize the utilization of GPU resources in your cluster. You can set scheduler configurations by using one or more in-tree Kubernetes scheduling plugins to introduce workload placement strategies that differ from the default AKS scheduler. For more information, see [Scheduler configuration concepts for workload placement in AKS (preview)](/azure/aks/concepts-scheduler-configuration).
+For advanced scenarios, you can improve resource bin packing on AKS nodes and optimize the utilization of GPU resources in your cluster. You can set scheduler configurations by using one or more built-in (*in-tree*) Kubernetes scheduling plugins to introduce workload placement strategies that differ from the default AKS scheduler. For more information, see [Scheduler configuration concepts for workload placement in AKS (preview)](/azure/aks/concepts-scheduler-configuration).
 
 ## Contributors
 
