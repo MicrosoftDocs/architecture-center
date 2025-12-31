@@ -5,61 +5,61 @@ This reference architecture shows an end-to-end stream processing pipeline. The 
 ## Architecture
 
 :::image type="complex" border="false" source="./images/stream-processing-databricks.svg" alt-text="Diagram that shows a reference architecture for stream processing with Azure Databricks." lightbox="./images/stream-processing-databricks.svg":::
-  Diagram that shows a reference architecture for stream processing with Azure Databricks. In the diagram, two data sources produce real-time streams of ride and fare information. Data gets ingested by way of Azure Event Hubs, processed by Azure Databricks, stored in Azure Cosmos DB, and then analyzed by using Microsoft Fabric (querying mirrored operational data in a lakehouse or warehouse) and Azure Log Analytics.
+  Diagram that shows a reference architecture for stream processing with Azure Databricks. In the diagram, two data sources produce real-time streams of ride and fare information. Azure Event Hubs ingests the data. Azure Databricks processes the streams and stores results in Azure Cosmos DB. Microsoft Fabric analyzes mirrored operational data in a lakehouse or warehouse, and Log Analytics supports monitoring and troubleshooting.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/stream-processing-databricks.vsdx) of this architecture.*
 
 ### Data flow
 
-The following data flow corresponds to the previous diagram.
+The following data flow corresponds to the previous diagram:
 
 1. **Ingest**
 
-   Two real‑time operational data streams feed the system: *fare* data and *trip* data. The data sources are devices installed in the taxi cabs. The devices publish events into Azure Event Hubs. Each stream is sent to its own event hub instance, providing independent ingestion paths.
+   Two real‑time operational data streams feed the system: *fare* data and *trip* data. Devices installed in taxi cabs serve as the data sources and publish events to Azure Event Hubs. Each stream goes to its own event hub instance, which provides independent ingestion paths.
 
 1. **Process**
 
    Azure Databricks consumes both Event Hubs streams and runs the following operations:
 
-   - Correlation between fare and trip records
-   - Enrichment using a third dataset, neighborhood lookup data stored in the Azure Databricks file system
+   - Correlates fare records with trip records
+   - Enriches the data by using a third dataset that contains neighborhood lookup data stored in Azure Databricks File System
 
-   The result is a unified, enriched dataset suitable for downstream analytics and storage.
+   This process produces a unified, enriched dataset suitable for downstream analytics and storage.
 
 1. **Store**
 
    The output of the Azure Databricks jobs is a series of records. The processed records are written into Azure Cosmos DB for NoSQL.
 
-1. **Analyze / report**
+1. **Analyze/report**
 
-   Operational data in Cosmos DB is queried without impacting transactional performance using [Mirroring Azure Cosmos DB for NoSQL in Microsoft Fabric](/fabric/database/mirrored-database/azure-cosmos-db), which provides a no‑ETL path for analytics. In this architecture, you can use it for the following purposes:
+   [Fabric mirrors operational data from Azure Cosmos DB for NoSQL](/fabric/database/mirrored-database/azure-cosmos-db) to enable analytical queries without affecting transactional performance. This approach provides a no‑ETL path for analytics. In this architecture, you can use mirroring for the following purposes:
 
-    - Mirror Cosmos DB data (or Delta‑formatted data) into Fabric
+    - Mirror Azure Cosmos DB data (or Delta‑formatted data) into Fabric
     - Keep datasets synchronized with the operational system
-    - Enable analysis through:
-      - Fabric SQL analytics endpoints (Lakehouse/Warehouse)
-      - Spark notebooks
-      - Real‑Time Analytics (KQL) for time‑series and log‑style exploration
+    - Enable analysis through the following tools:
+      - Fabric SQL analytics endpoints for lakehouses and warehouses
+      - Apache Spark notebooks
+      - Real‑time analytics by using Kusto Query Language (KQL) for time‑series and log‑style exploration
 
 1. **Monitor**
 
-   Azure Monitor collects telemetry from the Azure Databricks processing pipeline. Application logs and metrics are stored in a Log Analytics workspace, where you can:
+   Azure Monitor collects telemetry from the Azure Databricks processing pipeline. A Log Analytics workspace stores application logs and metrics. You can do the following actions:
 
    - Query operational logs
    - Visualize metrics
-   - Inspect failures, anomalies, and performance issues
+   - Inspect failures, anomalies, and performance problems
    - Build dashboards
 
 ## Components
 
-- [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security) is an Apache Spark-based analytics platform that's optimized for the Microsoft Azure cloud services platform. In this architecture, Azure Databricks jobs enrich taxi ride and fare data and store the results in Azure Cosmos DB.
+- [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security) is a Spark-based analytics platform optimized for the Azure platform. In this architecture, Azure Databricks jobs enrich taxi ride and fare data and store the results in Azure Cosmos DB.
 
-- [Azure Event Hubs](/azure/well-architected/service-guides/event-hubs) is a managed, distributed ingestion service that can scale to ingest large amounts of events. This architecture uses two event hub instances to receive data from taxis.
+- [Event Hubs](/azure/well-architected/service-guides/event-hubs) is a managed, distributed ingestion service that can scale to ingest large amounts of events. This architecture uses two event hub instances to receive data from taxis.
 
-- [Azure Cosmos DB for NoSQL](/azure/well-architected/service-guides/cosmos-db) is a fully managed, multiple-model database service. In this architecture, it stores the output of the Azure Databricks enrichment jobs. Data from within the database is mirrored for analytical queries using [Mirroring Azure Cosmos DB for NoSQL in Microsoft Fabric](/fabric/database/mirrored-database/azure-cosmos-db).
+- [Azure Cosmos DB for NoSQL](/azure/well-architected/service-guides/cosmos-db) is a managed, multiple-model database service. In this architecture, it stores the output of the Azure Databricks enrichment jobs. [Fabric mirrors Azure Cosmos DB operational data](/fabric/database/mirrored-database/azure-cosmos-db) to enable analytical queries.
 
-- [Azure Log Analytics](/azure/well-architected/service-guides/azure-log-analytics) is a tool within Azure Monitor that helps you query and analyze log data from various sources. In this architecture, all resources have Azure Diagnostics configured to store platform logs in this data store. It's also the data sink for all of the Spark job metrics emitted from the Azure Databricks processing pipelines.
+- [Log Analytics](/azure/well-architected/service-guides/azure-log-analytics) is a tool within Azure Monitor that helps you query and analyze log data from various sources. In this architecture, all resources configure Azure Diagnostics to store platform logs in this workspace. The workspace also serves as the data sink for Spark job metrics emitted from the Azure Databricks processing pipelines.
 
 ## Scenario details
 
@@ -73,7 +73,7 @@ To simulate a data source, this reference architecture uses the [New York City t
 
 The data generator is a .NET Core application that reads the records and sends them to Event Hubs. The generator sends ride data in JSON format and fare data in CSV format.
 
-Event Hubs uses [partitions](/azure/event-hubs/event-hubs-features#partitions) to segment the data. Partitions enable a consumer to read each partition in parallel. When you send data to Event Hubs, you can specify the partition key directly. Otherwise, records are assigned to partitions in round-robin fashion.
+Event Hubs uses [partitions](/azure/event-hubs/event-hubs-features#partitions) to segment the data. Partitions let a consumer read each partition in parallel. When you send data to Event Hubs, you can specify the partition key directly. Otherwise, records are assigned to partitions in round-robin fashion.
 
 In this scenario, ride data and fare data should be assigned the same partition ID for a specific taxi cab. This assignment enables Databricks to apply a degree of parallelism when it correlates the two streams. For example, a record in partition *n* of the ride data matches a record in partition *n* of the fare data.
 
@@ -109,7 +109,7 @@ public abstract class TaxiData
     }
 ```
 
-Use this property to provide an explicit partition key when it sends data to Event Hubs.
+This property provides an explicit partition key when it sends data to Event Hubs.
 
 ```csharp
 using (var client = pool.GetObject())
@@ -127,7 +127,7 @@ The throughput capacity of Event Hubs is measured in [throughput units](/azure/e
 
 In Azure Databricks, a job performs data processing. The job is assigned to a cluster and then runs on it. The job can be custom code written in Java or a Spark [notebook](/azure/databricks/notebooks/).
 
-In this reference architecture, the job is a Java archive that has classes written in Java and Scala. When you specify the Java archive for a Azure Databricks job, the Azure Databricks cluster specifies the class for operation. Here, the `main` method of the `com.microsoft.pnp.TaxiCabReader` class contains the data processing logic.
+In this reference architecture, the job is a Java archive that has classes written in Java and Scala. When you specify the Java archive for an Azure Databricks job, the Azure Databricks cluster specifies the class for operation. Here, the `main` method of the `com.microsoft.pnp.TaxiCabReader` class contains the data processing logic.
 
 #### Read the stream from the two event hub instances
 
@@ -158,7 +158,7 @@ val fareEvents = spark.readStream
 
 #### Enrich the data with the neighborhood information
 
-The ride data includes the latitude and longitude coordinates of the pickup and drop-off locations. These coordinates are useful but not easily consumed for analysis. So, this data is enriched with neighborhood data that gets read from a [shapefile](https://en.wikipedia.org/wiki/Shapefile).
+The ride data includes the latitude and longitude coordinates of the pickup and drop-off locations. These coordinates are useful but not easily consumed for analysis. So the pipeline enriches this data with neighborhood data read from a [shapefile](https://en.wikipedia.org/wiki/Shapefile).
 
 The shapefile format is binary and not easily parsed. But the [GeoTools](https://geotools.org) library provides tools for geospatial data that use the shapefile format. This library is used in the `com.microsoft.pnp.GeoFinder` class to determine the neighborhood name based on the coordinates for pickup and drop-off locations.
 
@@ -250,7 +250,7 @@ maxAvgFarePerNeighborhood
 
 ## Considerations
 
-These considerations implement the pillars of the Microsoft Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Azure Well-Architected Framework](/azure/well-architected/).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
 
 ### Security
 
@@ -275,7 +275,7 @@ databricks secrets put --scope "azure-databricks-job" --key "taxi-ride"
 > [!NOTE]
 > Use an [Azure Key Vault-backed scope](/azure/databricks/security/secrets/#akv-ss) instead of the native Azure Databricks scope.
 
-In code, secrets are accessed by way of the Azure Databricks [secrets utilities](/azure/databricks/dev-tools/databricks-utils).
+Code accesses secrets through Azure Databricks [secrets utilities](/azure/databricks/dev-tools/databricks-utils).
 
 ### Cost Optimization
 
@@ -301,7 +301,7 @@ Azure Databricks provides multiple pricing models.
 
 - **Pay-as-you-go plan**
 
-  You're billed for virtual machines (VMs) provisioned in clusters and Azure Databricks units (DBUs) based on the chosen VM instance. A DBU is a unit of processing capability that bills by usage per second. The DBU consumption depends on the size and type of instance that runs in Azure Databricks. Pricing depends on the chosen workload and tier.
+  You're billed for virtual machines (VMs) provisioned in clusters and Azure Databricks units (DBUs) based on the chosen VM instance. A DBU is a unit of processing capability that Azure bills by usage per second. The DBU consumption depends on the size and type of instance that runs in Azure Databricks. Pricing depends on the chosen workload and tier.
 
 - **Pre-purchase plan**
 
@@ -317,7 +317,7 @@ For write operations, set up enough capacity to support the number of writes nee
 
 ##### Example cost analysis
 
-Suppose you configure a throughput value of 1,000 RU/s on a container. It deploys for 24 hours for 30 days, for a total of 720 hours.
+Suppose you configure a throughput value of 1,000 RU/s on a container and run it continuously for 30 days, which equals 720 hours.
 
 The container is billed at 10 units of 100 RU/s per hour for each hour. Ten units at $0.008 (per 100 RU/s per hour) are charged at $0.08 per hour.
 
@@ -397,11 +397,11 @@ SparkMetric_CL
   In this architecture, there are multiple deployment stages. Consider creating an Azure DevOps pipeline and adding those stages. You can automate the following stages:
 
   - Start an Azure Databricks cluster.
-  - Configure Azure Databricks CLI.
+  - Configure the Azure Databricks CLI.
   - Install Scala tools.
   - Add the Azure Databricks secrets.
 
-  Consider writing automated integration tests to improve the quality and reliability of the Azure Databricks code and its lifecycle.
+  Consider writing automated integration tests to improve the quality and reliability of the Azure Databricks code and its life cycle.
 
 ## Next step
 
