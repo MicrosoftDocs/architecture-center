@@ -14,7 +14,7 @@ ms.subservice: architecture-guide
 As architects and developers design their workload to take full advantage of language model capabilities, AI agent systems become increasingly complex. These systems often exceed the abilities of a single agent that has access to many tools and knowledge sources. Instead, these systems use multi-agent orchestrations to handle complex, collaborative tasks reliably. This guide covers fundamental orchestration patterns for multi-agent architectures and helps you choose the approach that fits your specific requirements.
 
 > [!NOTE]
-> These orchestration patterns can be implemented using workflow orchestrations in the Microsoft Agent Framework. For implementation guidance and code examples, see the [Workflow orchestrations overview](https://learn.microsoft.com/agent-framework/user-guide/workflows/orchestrations/overview).
+> These orchestration patterns can be implemented using workflow orchestrations in the Microsoft Agent Framework. For implementation guidance and code examples, see the [Workflow orchestrations overview](/agent-framework/user-guide/workflows/orchestrations/overview).
 
 ## Overview
 
