@@ -387,7 +387,7 @@ Unless you have requirements to egress through a hub network or security applian
 
 ## Monitoring
 
-You should [Monitor Kubernetes clusters using Azure Monitor and cloud native tools](/azure/azure-monitor/containers/monitor-kubernetes) to observe the health and peformance of AKS clusters and tenant workloads. Azure Monitor also provivdes provides collection of [logs and metrics](/azure/aks/monitor-aks-reference), telemetry analysis, and alerting to proactively detect issues. [Managed Grafana](/azure/managed-grafana/quickstart-managed-grafana-portal) is used to visiualize this data.
+You should [Monitor Kubernetes clusters using Azure Monitor and cloud native tools](/azure/azure-monitor/containers/monitor-kubernetes) to observe the health and performance of AKS clusters and tenant workloads. Azure Monitor also provides provides collection of [logs and metrics](/azure/aks/monitor-aks-reference), telemetry analysis, and alerting to proactively detect issues. [Managed Grafana](/azure/managed-grafana/quickstart-managed-grafana-portal) is used to visualize this data.
 
 ## Costs
 
