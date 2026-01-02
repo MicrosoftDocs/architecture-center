@@ -178,7 +178,7 @@ Microsoft Sentinel is a scalable, cloud-native security information and event ma
 
 For AWS environments, Microsoft Sentinel collects a broad array of AWS security data and stores it in its analytics engine. It runs cloud-scale queries and applies machine learning to detect malicious patterns. Microsoft Sentinel aligns with Zero Trust principles by continuously monitoring and analyzing telemetry under an assume-breach mindset. It automatically triggers response actions to contain incidents rapidly.
 
-- **Unified visibility and analytics:** Microsoft Sentinel supports a range of AWS logs. You can use the Microsoft-published AWS Sentinel Solution (available in Content Hub), which includes predefined analytics rules and workbooks. This solution pulls AWS service logs into Microsoft Sentinel. The connector ingests logs from the following AWS services by pulling them from an Amazon S3 bucket:
+- **Unified visibility and analytics:** Microsoft Sentinel supports a range of AWS logs. You can use the Microsoft-published AWS Sentinel Solution (available in Content Hub), which includes predefined analytics rules and workbooks. This solution pulls AWS service logs into Microsoft Sentinel. The connector ingests logs from the following AWS services by pulling them from an Amazon S3 bucket.
 
   |Service|Data source|
   |-|-|
@@ -313,6 +313,6 @@ Principal author:
 - [AI threat protection](/azure/defender-for-cloud/ai-threat-protection)
 - [Amazon S3 Multicloud Scanning Connector for Microsoft Purview](/purview/register-scan-amazon-s3)
 
-## Related resources
+## Related resource
 
 - [Secure AWS identities](../../reference-architectures/aws/aws-azure-ad-security.yml) 
