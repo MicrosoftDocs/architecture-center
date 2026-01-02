@@ -133,7 +133,7 @@ Consider the following best practices:
 
 ### GPU workload deployment for language models
 
-The [AI toolchain operator](/azure/aks/ai-toolchain-operator) simplifies how you run open-source language models, like [Falcon](https://huggingface.co/tiiuae) and [Llama2](https://github.com/meta-llama/llama), on your Kubernetes cluster. You can deploy the AI toolchain operator on your AKS cluster as a managed feature for [AKS](/azure/aks/intro-kubernetes). The AI toolchain operator uses [Karpenter](https://karpenter.sh/) to automatically provision and deploy GPU nodes based on a specification in the workspace custom resource definition of your chosen model. The AI toolchain operator creates the inference server as an endpoint for your language model and reduces onboarding time so that you focus on machine learning operations instead of infrastructure setup and maintenance.
+The [AI toolchain operator](/azure/aks/ai-toolchain-operator) simplifies how you run open-source language models, like [Falcon](https://huggingface.co/tiiuae), on your Kubernetes cluster. You can deploy the AI toolchain operator on your AKS cluster as a managed feature for [AKS](/azure/aks/intro-kubernetes). The AI toolchain operator uses [Karpenter](https://karpenter.sh/) to automatically provision and deploy GPU nodes based on a specification in the workspace custom resource definition of your chosen model. The AI toolchain operator creates the inference server as an endpoint for your language model and reduces onboarding time so that you focus on machine learning operations instead of infrastructure setup and maintenance.
 
 To improve AI operations on AKS, the AI toolchain operator provides the following capabilities:
 
