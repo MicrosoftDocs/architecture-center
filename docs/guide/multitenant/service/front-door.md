@@ -314,7 +314,7 @@ Adventure Works and its tenants need to decide who issues TLS certificates:
 
 ### Scenario 5: Azure Front Door profile for each stamp
 
-You can deploy an Azure Front Door profile for each stamp. If you have 10 stamps, you deploy 10 instances of Azure Front Door. This approach can be useful if you need to increase reliability by minimizing the blast radius of any misconfigurations, and restrict management access of each stamp's Azure Front Door configuration. It can also be useful if you need to use multiple Azure Front Door profiles to avoid exceeding resource quotas or limits.
+You can deploy an Azure Front Door profile for each stamp. If you have 10 stamps, you deploy 10 instances of Azure Front Door. This approach can be useful if you need to increase reliability by minimizing the effect of any misconfigurations, and restrict management access of each stamp's Azure Front Door configuration. It can also be useful if you need to use multiple Azure Front Door profiles to avoid exceeding resource quotas or limits.
 
 > [!TIP]
 > Azure Front Door is a global resource. Even if you deploy regionally scoped stamps, each Azure Front Door profile is globally distributed. You should consider whether you really need to deploy multiple Azure Front Door profiles and evaluate the specific advantages that it provides.
