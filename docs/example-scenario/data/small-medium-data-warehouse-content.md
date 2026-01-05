@@ -12,7 +12,7 @@ Small or medium-sized businesses might benefit from using this pattern if they h
 ## Simplified architecture
 
 :::image type="complex" source="media/small-medium-data-warehouse/simplified-architecture.svg" alt-text="Diagram that illustrates a simplified small or medium-sized business architecture." lightbox="media/small-medium-data-warehouse/simplified-architecture.svg" border="false":::
-
+Diagram that shows a data flow for small or medium-sized business data warehousing modernization. On the left, a legacy data warehousing solution connects via a data pipeline arrow to a dotted box labeled Store and process. This box contains Azure SQL Database and Managed Instance and connects to a second dotted box labeled Process and present. This box contains Microsoft Fabric and connects to Power BI.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/modern-data-warehouse-small-business.vsdx) of this architecture.*
@@ -29,7 +29,8 @@ Legacy data warehouses for small or medium-sized businesses can contain several 
 
 ## Architecture
 
-:::image type="complex" source="media/small-medium-data-warehouse/small-medium-data-warehouse.svg" alt-text="Diagram that illustrates an expanded architecture that's designed to meet future needs." lightbox="media/small-medium-data-warehouse/small-medium-data-warehouse.svg" border="false":::
+:::image type="complex" source="media/small-medium-data-warehouse/small-medium-data-warehouse.svg" alt-text="Diagram that illustrates an expanded architecture designed to meet future needs." lightbox="media/small-medium-data-warehouse/small-medium-data-warehouse.svg" border="false":::
+Diagram that shows a data flow architecture from left to right with multiple data sources, processing stages, and consumption endpoints. The left side shows three data source categories: stream sources, Dynamics 365, and non-structured data, semi-structured data, and relational databases. Four dotted sections go from left to right. The first section is labeled load and ingest and contains Event Hubs and a Data Factory pipeline. The second section is labeled store and contains Data Lake Storage and SQL Database. The third section is labeled process and manipulate and contains Real-Time Intelligence and OneLake. The fourth section is labeled collaborate and consume and contains the SQL analytics endpoint, Apache Spark pool, and pipelines. The third and fourth section reside in a Fabric environment labeled Fabric capacity, Premium capacity, or Premium Per User. Streaming sources point to Event Hubs (step 3). Non-structured data, semi-structured data, and relational databases point to the Data Factory pipeline. An arrow points from Event Hubs to Real-Time Intelligence. Arrows from Event Hubs, Dynamics 365 (step 2), and the Data Factory pipeline point to Azure Data Lake Storage. An arrow from the Data Factory pipeline points to SQL Database (step 1). Data Lake Storage links to OneLake (step 4). An orange dotted box labeled serverless analysis contains Data Lake Storage, OneLake, and the SQL analytics endpoint (step 5). On the far right, a consume and serve section lists seven endpoints: Power Apps, Dynamics 365, Dynamics CRM, Power BI, Functions apps, Azure Logic Apps, and Web apps. Arrows point from each component in the collaborate and consume section to these endpoints.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/modern-data-warehouse-small-business.vsdx) of this architecture.*
@@ -130,11 +131,11 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 - [Fabric](https://azure.microsoft.com/pricing/details/microsoft-fabric/) pricing depends on the Fabric F capacity model or the Premium Per Person model. Serverless capabilities consume CPU and memory from your purchased dedicated capacity. Your existing reports continue working after modernization using the new data warehouse (Azure SQL Database or Azure SQL Managed Instance) with existing licensing. The pricing sample includes the F2 SKU to represent future BI expansion through self-service data preparation, datamarts, real-time intelligence, and AI-assisted workflows. The F2 SKU with one-year reservation provides a reasonable entry point. If you currently use Power BI Premium or migrated to F64, you might not need extra F capacity.
 
-- [Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/) pricing depends on the tier that you choose, the number of throughput units provisioned, and the ingress traffic received. The example assumes one throughput unit in the Standard tier handling over one million events per month. This is an additional component associated with modernization.
+- [Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/) pricing depends on the selected tier, provisioned throughput units, and ingress traffic volume. The example assumes that one throughput unit in the Standard tier handles over one million events per month. Event Hubs represents an extra modernization cost if you add real-time streaming capabilities to your solution.
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
+*Microsoft maintains this article. The following contributors wrote this article.*
 
 Principal author:
 
@@ -144,20 +145,20 @@ Other contributor:
 
 - [Bhaskar Sharma](https://www.linkedin.com/in/bhaskar-sharma-00991555/) | Senior Program Manager
   
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
-- For training content and labs, see [Data engineer learning paths](/training/roles/data-engineer).
-- [Get started with Fabric](/training/fabric/).
-- [Browse all courses, learning paths, and modules](/training/browse/?products=fabric&resource_type=module).
-- [Create a single database](/azure/azure-sql/database/single-database-create-quickstart).
-- [Create a SQL Managed Instance](/azure/azure-sql/managed-instance/instance-create-quickstart?view=azuresql&tabs=azure-portal).
-- [Create a storage account to use with Data Lake Storage](/azure/storage/blobs/create-data-lake-storage-account).
-- [Create an event hub by using the Azure portal](/azure/event-hubs/event-hubs-create).
+- [Data engineer learning paths](/training/roles/data-engineer)
+- [Get started with Fabric](/training/fabric/)
+- [Browse all courses, learning paths, and modules for Fabric](/training/browse/?products=fabric&resource_type=module)
+- [Create a single database](/azure/azure-sql/database/single-database-create-quickstart)
+- [Create a deployment of SQL Managed Instance](/azure/azure-sql/managed-instance/instance-create-quickstart?view=azuresql&tabs=azure-portal)
+- [Create a storage account to use with Data Lake Storage](/azure/storage/blobs/create-data-lake-storage-account)
+- [Create an event hub by using the Azure portal](/azure/event-hubs/event-hubs-create)
 
 ## Related resources
 
 - [Data lakes](../../data-guide/scenarios/data-lake.md)
 - [Data warehousing and analytics](data-warehouse.yml)
-- [Use Microsoft Fabric to design an enterprise BI solution](../analytics/enterprise-bi-microsoft-fabric.yml)
+- [Use Fabric to design an enterprise BI solution](../analytics/enterprise-bi-microsoft-fabric.yml)
