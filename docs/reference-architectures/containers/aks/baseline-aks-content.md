@@ -411,7 +411,7 @@ In this architecture, the network flow includes the following types of traffic:
 
 - **Management traffic** between the client and the Kubernetes API server.
 
-:::image type="complex" border="false" source="images/traffic-flow.svg" alt-text="Diagram that shows the cluster traffic flow." lightbox="images/traffic-flow.svg:::
+:::image type="complex" border="false" source="images/traffic-flow.svg" alt-text="Diagram that shows the cluster traffic flow." lightbox="images/traffic-flow.svg":::
    The diagram illustrates three distinct traffic patterns within the architecture. The hub virtual network appears on the left with Azure Firewall, Azure Bastion, a VPN or ExpressRoute gateway, and Azure Monitor. The spoke virtual network on the right shows the AKS cluster with Application Gateway at the entry point. A green arrow labeled Ingress shows traffic from the public internet at the top through Application Gateway Web Application Firewall, then down through the internal load balancer to the ingress controller, and finally to workload pods within the cluster. Orange arrows labeled Pod-to-pod indicate internal communication between pods within the cluster boundaries. Red arrows labeled Egress show outbound traffic from the cluster to Azure Firewall in the hub, where firewall rules determine whether to allow or block connections to external destinations. Dashed lines separate the different subnets within both hub and spoke virtual networks. Private endpoints at the bottom of the spoke provide direct connections to Container Registry and Key Vault.
 :::image-end:::
 
