@@ -12,49 +12,61 @@ You can use an implementation of this architecture on [GitHub: AKS baseline refe
 > The reference architecture requires knowledge of Kubernetes and its concepts. If you need a refresher, see the [Intro to Kubernetes](/training/paths/intro-to-kubernetes-on-azure/) and [Develop and deploy applications on Kubernetes](/training/paths/develop-deploy-applications-kubernetes/) training paths.
 
 :::row:::
+
     :::column:::
 
-      #### Networking configuration
-      [Network topology](#network-topology)\
-      [Plan the IP addresses](#plan-the-ip-addresses)\
-      [Deploy ingress resources](#deploy-ingress-resources)
+        #### Networking configuration
+        [Network topology](#network-topology)\
+        [Plan the IP addresses](#plan-the-ip-addresses)\
+        [Deploy ingress resources](#deploy-ingress-resources)
+
     :::column-end:::
+
     :::column:::
 
-      #### Cluster compute
-      [Configure compute for the base cluster](#configure-compute-for-the-base-cluster)\
-      [Container image reference](#container-image-reference)\
-      [Policy management](#policy-management)
+        #### Cluster compute
+        [Compute for the base cluster](#configure-compute-for-the-base-cluster)\
+        [Container image reference](#container-image-reference)\
+        [Policy management](#policy-management)
+
     :::column-end:::
+
     :::column:::
 
-      #### Identity management
-      [Integrate Microsoft Entra ID for the cluster](#integrate-microsoft-entra-id-for-the-cluster)\
-      [Integrate Microsoft Entra ID for the workload](#integrate-microsoft-entra-id-for-the-workload)
+        #### Identity management
+        [Integrate Microsoft Entra ID for the cluster](#integrate-microsoft-entra-id-for-the-cluster)\
+        [Integrate Microsoft Entra ID for the workload](#integrate-microsoft-entra-id-for-the-workload)
+
     :::column-end:::
 :::row-end:::
 
 :::row:::
-   :::column:::
 
-      #### Secure data flow
-      [Secure the network flow](#secure-the-network-flow)\
-      [Add secret management](#add-secret-management)
-    :::column-end:::
-   :::column:::
-
-      #### Business continuity
-      [Scalability](#node-and-pod-scalability)\
-      [Cluster and node availability](#business-continuity-decisions)\
-      [Availability zones](#availability-zones)\
-      [Multiple regions](#multiple-regions)
-    :::column-end:::
     :::column:::
 
-      #### Operations
-      [Cluster and workload CI/CD pipelines](#cluster-and-workload-operations)\
-      [Monitor and collect logs and metrics](#monitor-and-collect-metrics)\
-      [Cost management and reporting](#cost-management)
+        #### Secure data flow
+        [Secure the network flow](#secure-the-network-flow)\
+        [Add secret management](#add-secret-management)
+
+    :::column-end:::
+
+    :::column:::
+
+        #### Business continuity
+        [Scalability](#node-and-pod-scalability)\
+        [Cluster and node availability](#business-continuity-decisions)\
+        [Availability zones](#availability-zones)\
+        [Multiple regions](#multiple-regions)
+
+    :::column-end:::
+
+    :::column:::
+
+        #### Operations
+        [Cluster and workload CI/CD pipelines](#cluster-and-workload-operations)\
+        [Monitor and collect logs and metrics](#monitor-and-collect-metrics)\
+        [Cost management and reporting](#cost-management)
+
     :::column-end:::
 :::row-end:::
 
@@ -1001,4 +1013,4 @@ For more information, see [AKS pricing](https://azure.microsoft.com/pricing/deta
 - [Microservices architecture on AKS](../aks-microservices/aks-microservices.yml)
 - [Use Azure Firewall to help protect an AKS cluster](../../../guide/aks/aks-firewall.yml)
 - [GitOps for AKS](../../../example-scenario/gitops-aks/gitops-blueprint-aks.yml)
-- [Data streaming with AKS](../../../solution-ideas/articles/data-streaming-scenario.yml)
+- [Data streaming by using AKS](../../../solution-ideas/articles/data-streaming-scenario.yml)
