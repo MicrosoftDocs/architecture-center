@@ -14,11 +14,11 @@ This pattern supports small or medium-sized businesses that have the following c
 
 ## Simplified architecture
 
-:::image type="complex" source="media/small-medium-data-warehouse/simplified-architecture.svg" alt-text="Diagram that illustrates a simplified small or medium-sized business architecture." lightbox="media/small-medium-data-warehouse/simplified-architecture.svg" border="false":::
+:::image type="complex" source="media/small-medium-data-warehouse/simplified-architecture.svg" alt-text="Diagram that illustrates a simplified small or medium-sized business architecture." border="false":::
 Diagram that shows a data flow for small or medium-sized business data warehousing modernization. On the left, a legacy data warehousing solution connects via a data pipeline arrow to a dotted box labeled Store and process. This box contains Azure SQL Database and SQL Managed Instance and connects to a second dotted box labeled Process and present. This box contains Fabric and connects to Power BI.
 :::image-end:::
 
-*Download a [Visio file](https://arch-center.azureedge.net/modern-data-warehouse-small-business.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/simplified-architecture.vsdx) of this architecture.*
 
 A conceptual modernization opportunity involves transitioning a legacy data warehousing solution to a combination of Azure SQL Database, Azure SQL Managed Instance, and Fabric. This strategy ensures broad compatibility with traditional SQL Server and SQL client tools like SQL Server Management Studio (SSMS). It also provides rehosting options for existing processes and requires minimal upskilling for the support team. This solution provides an initial step toward comprehensive modernization. As your data warehouse grows and your team gains expertise, you can progress to full SaaS warehousing on Fabric or adopt a lakehouse approach.
 
@@ -32,11 +32,11 @@ Legacy data warehouses for small or medium-sized businesses can contain several 
 
 ## Architecture
 
-:::image type="complex" source="media/small-medium-data-warehouse/small-medium-data-warehouse.svg" alt-text="Diagram that illustrates an expanded architecture designed to meet future needs." border="false":::
+:::image type="complex" source="media/small-medium-data-warehouse/small-medium-data-warehouse.svg" alt-text="Diagram that illustrates an expanded architecture designed to meet future needs." lightbox="media/small-medium-data-warehouse/small-medium-data-warehouse.svg" border="false":::
 Diagram that shows a data flow architecture from left to right with multiple data sources, processing stages, and consumption endpoints. The left side shows three data source categories: stream sources, Dynamics 365, and unstructured data, semi-structured data, and relational databases. Four dotted sections go from left to right. The first section is labeled load and ingest and contains Event Hubs and a Data Factory pipeline. The second section is labeled store and contains Azure Data Lake Storage and SQL Database. The third section is labeled process and manipulate and contains Fabric Real-Time Intelligence and OneLake. The fourth section is labeled collaborate and consume and contains the SQL analytics endpoint, Apache Spark pool, and pipelines. The third and fourth sections reside in a Fabric environment labeled Fabric capacity, Premium capacity, or Premium Per User. Streaming sources point to Event Hubs (step 3). Unstructured data, semi-structured data, and relational databases point to the Data Factory pipeline. An arrow points from Event Hubs to Real-Time Intelligence. Arrows from Event Hubs, Dynamics 365 (step 2), and the Data Factory pipeline point to Data Lake Storage. An arrow from the Data Factory pipeline points to SQL Database (step 1). Data Lake Storage links to OneLake (step 4). An orange dotted box labeled serverless analysis contains Data Lake Storage, OneLake, and the SQL analytics endpoint (step 5). On the far right, a consume and serve section lists seven endpoints: Power Apps, Dynamics 365, Dynamics CRM, Power BI, Functions apps, Azure Logic Apps, and Web apps. Arrows point from each component in the collaborate and consume section to these endpoints.
 :::image-end:::
 
-*Download a [Visio file](https://arch-center.azureedge.net/modern-data-warehouse-small-business.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/small-medium-data-warehouse.vsdx) of this architecture.*
 
 ### Data flow
 
