@@ -146,7 +146,7 @@ With a private cluster, you can use NSGs and other built-in network controls to 
 
 ## Plan the IP addresses
 
-:::image type="complex" border="false" source="images/aks-baseline-network-topology.svg" alt-text="Diagram that shows the network topology of the AKS cluster.":::
+:::image type="complex" border="false" source="images/aks-baseline-network-topology.svg" alt-text="Diagram that shows the network topology of the AKS cluster." lightbox="images/aks-baseline-network-topology.svg":::
    The diagram depicts the same hub-spoke architecture with emphasis on network flows. The hub virtual network on the left contains Azure Firewall, Azure Bastion, a VPN or ExpressRoute gateway, and Azure Monitor. The spoke virtual network on the right contains multiple subnets arranged vertically. Application Gateway with Web Application Firewall appears at the top, followed by the ingress resources subnet with the AKS-managed internal load balancer, then the cluster nodes subnet with system and user node pools, the API server virtual network integration subnet, and private endpoints subnet at the bottom. Virtual network peering connects the two networks horizontally. Arrows illustrate traffic patterns. Inbound traffic flows from the public internet through Application Gateway, to the internal load balancer, through the ingress controller, and finally to workload pods within the cluster. Outbound traffic from the cluster routes through a user-defined route to Azure Firewall in the hub for inspection. Private Link connections from the private endpoints subnet extend to Azure services outside the virtual networks.
 :::image-end:::
 
@@ -244,7 +244,8 @@ When you plan capacity for a user node pool, consider the following recommendati
 Most AKS clusters use Linux as the operating system for their node pools. In this reference implementation, we use [Azure Linux](/azure/aks/use-azure-linux), which is a lightweight, hardened Linux distribution that's tuned for Azure. You can choose another Linux distribution like Ubuntu if you prefer or if Azure Linux doesn't meet your requirements. If you choose a different operating system, ensure that the OS disk is sized appropriately for that image. Some distributions require more space than Azure Linux, so you might need to increase the disk size to avoid deployment or runtime problems.
 
 If your workload is composed of mixed technologies, you can use different operating systems in different node pools. But if you don't need different operating systems, we recommend that you use a single operating system for all workload node pools to reduce operational complexity.
-
+ 
+<a name='integrate-microsoft-entra-id-for-the-cluster'></a>
 ## Integrate Microsoft Entra ID for the cluster
 
 Securing access to and from the cluster is critical. Apply security controls based on how they affect the cluster:
@@ -283,7 +284,7 @@ AKS supports Kubernetes access through Microsoft Entra ID by using Microsoft Ent
 
 #### Associate Kubernetes RBAC with Microsoft Entra ID
 
-Kubernetes supports RBAC through the following API objects::
+Kubernetes supports RBAC through the following API objects:
 
 - A set of permissions that you define by using a `Role` or `ClusterRole` object for cluster-wide permissions.
 
@@ -307,7 +308,7 @@ AKS supports native [Kubernetes user authentication](https://kubernetes.io/docs/
 
 In this reference implementation, local cluster accounts access is explicitly prohibited when the system deploys the cluster.
 
-<a name='integrate-azure-active-directory-for-the-workload'></a>
+<a name='integrate-microsoft-entra-id-for-the-workload'></a>
 
 ## Integrate Microsoft Entra ID for the workload
 
@@ -410,7 +411,7 @@ In this architecture, the network flow includes the following types of traffic:
 
 - **Management traffic** between the client and the Kubernetes API server.
 
-:::image type="complex" border="false" source="images/traffic-flow.svg" alt-text="Diagram that shows the cluster traffic flow.":::
+:::image type="complex" border="false" source="images/traffic-flow.svg" alt-text="Diagram that shows the cluster traffic flow." lightbox="images/traffic-flow.svg:::
    The diagram illustrates three distinct traffic patterns within the architecture. The hub virtual network appears on the left with Azure Firewall, Azure Bastion, a VPN or ExpressRoute gateway, and Azure Monitor. The spoke virtual network on the right shows the AKS cluster with Application Gateway at the entry point. A green arrow labeled Ingress shows traffic from the public internet at the top through Application Gateway Web Application Firewall, then down through the internal load balancer to the ingress controller, and finally to workload pods within the cluster. Orange arrows labeled Pod-to-pod indicate internal communication between pods within the cluster boundaries. Red arrows labeled Egress show outbound traffic from the cluster to Azure Firewall in the hub, where firewall rules determine whether to allow or block connections to external destinations. Dashed lines separate the different subnets within both hub and spoke virtual networks. Private endpoints at the bottom of the spoke provide direct connections to Container Registry and Key Vault.
 :::image-end:::
 
@@ -537,7 +538,8 @@ The implementation also sets extra policies that aren't part of any built-in ini
 Consider creating your own custom initiatives. Combine the policies that are applicable for your workload into a single assignment.
 
 To observe how Azure Policy functions from within your cluster, you can access the pod logs for all pods in the `gatekeeper-system` namespace and the logs for the `azure-policy` and `azure-policy-webhook` pods in the `kube-system` namespace.
-
+ 
+<a name="node-and-pod-scalability"></a>
 ## Node and pod scalability
 
 With increasing demand, Kubernetes can scale out by adding more pods to existing nodes, through horizontal pod autoscaling. When Kubernetes can no longer schedule more pods, the number of nodes must be increased through AKS cluster autoscaling. A complete scaling solution must have ways to scale both pod replicas and the node count in the cluster.
@@ -556,7 +558,7 @@ The [Horizontal Pod Autoscaler (HPA)](https://kubernetes.io/docs/concepts/worklo
 
 In the HPA resource, we recommend that you set the minimum and maximum replica count. The values constrain the autoscaling bounds.
 
- The HPA can scale based on CPU usage, memory usage, and custom metrics. Only CPU usage is provided natively. The `HorizontalPodAutoscaler` definition specifies target values for the metrics. For instance, the spec sets the target CPU usage. While pods are running, the HPA controller uses the Kubernetes Metrics API to check each pod's CPU usage. It compares that value against the target usage and calculates a ratio. It then uses the ratio to determine whether pods are overallocated or underallocated. It relies on the Kubernetes scheduler to assign new pods to nodes or remove pods from nodes.
+  The HPA can scale based on CPU usage, memory usage, and custom metrics. Only CPU usage is provided natively. The `HorizontalPodAutoscaler` definition specifies target values for the metrics. For instance, the spec sets the target CPU usage. While pods are running, the HPA controller uses the Kubernetes Metrics API to check each pod's CPU usage. It compares that value against the target usage and calculates a ratio. It then uses the ratio to determine whether pods are overallocated or underallocated. It relies on the Kubernetes scheduler to assign new pods to nodes or remove pods from nodes.
 
 A race condition might occur, like when the HPA checks before a scaling operation finishes. So, the outcome could be an incorrect ratio calculation. For more information, see [Cooldown of scaling events](/azure/aks/concepts-scale#cooldown-of-scaling-events).
 
@@ -572,6 +574,8 @@ When you enable the autoscaler, set the maximum and minimum node count. The reco
 
 For the system node pool, the recommended minimum value is three.
 
+ 
+<a name="business-continuity-decisions"></a>
 ## Business continuity decisions
 
 To maintain business continuity, define the SLO for the infrastructure and your application. For more information, see [Recommendations for defining reliability targets](/azure/well-architected/reliability/metrics). Review the service-level agreement (SLA) conditions for AKS in the latest [SLA for online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services) article.
@@ -603,6 +607,8 @@ Regular upkeep tasks on your cluster, like timely updates, are crucial for relia
 
   You can specify requests and limits in your deployment manifests. For more information, see [Set pod requests and limits](/azure/aks/developer-best-practices-resource-management#define-pod-resource-requests-and-limits).
 
+ 
+<a name="availability-zones"></a>
 ### Availability zones
 
 To protect against some types of outages, use [availability zones](/azure/aks/availability-zones) if the region supports them. Both the control plane components and the nodes in the node pools are then *zone-redundant*, which means they're spread across multiple zones. If an entire zone is unavailable, a node in another zone within the region is still available. Each node pool maps to a separate virtual machine scale set, which manages node instances and scalability. The AKS service manages scale set operations and configuration. Here are some considerations when you enable multiple zones:
@@ -619,6 +625,8 @@ To protect against some types of outages, use [availability zones](/azure/aks/av
 
 For simplicity in this architecture, AKS is deployed to a single region with node pools that span availability zones one, two, and three. Other resources of the infrastructure, like Azure Firewall and Application Gateway, are also deployed to the same region with multiple zone support. Geo-replication is enabled for Container Registry.
 
+ 
+<a name="multiple-regions"></a>
 ### Multiple regions
 
 When you enable availability zones, it isn't enough coverage in the unlikely event that an entire region fails. To gain higher availability, run multiple AKS clusters in different regions.
@@ -678,6 +686,8 @@ For more information, see [Chaos Studio](/azure/chaos-studio/chaos-studio-overvi
 
 <a id='monitor-and-collect-metrics'></a>
 <a id='monitor-and-collect-logs-and-metrics'></a>
+
+<a name='monitor-and-collect-metrics'></a>
 
 ## Monitor and collect logs and metrics
 
