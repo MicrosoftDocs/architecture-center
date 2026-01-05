@@ -1,6 +1,6 @@
 ---
 title: Architectural Approaches for Messaging in Multitenant Solutions
-description: Learn architectural approaches for messaging in multitenant solutions, including shared systems, sharding, and dedicated messaging.
+description: Learn architectural approaches for messaging in multitenant solutions, including when to deploy shared, sharded, and dedicated messaging components.
 author: johndowns
 ms.author: pnp
 ms.date: 11/24/2025
@@ -70,7 +70,7 @@ From the start, plan how you intend to operate, monitor, and maintain your messa
   - Customize the pricing tier for each tenant based on the features and shared or dedicated isolation level that the tenant requests.
 
   - Create tenant-specific managed identities and Azure role assignments to assign the proper permissions only to the messaging entities that the tenant should access. For example, see [Authenticate a managed identity with Microsoft Entra ID to access Service Bus resources](/azure/service-bus-messaging/service-bus-managed-service-identity).
-- When you host the messaging system that your application uses in a dedicated set of VMs or containers (one for each tenant) define how to deploy, upgrade, monitor, and scale out these systems.
+- If you choose to host the messaging system that your application uses in a dedicated set of VMs or containers (one for each tenant) define how to deploy, upgrade, monitor, and scale out these systems.
 
 ### Cost
 
