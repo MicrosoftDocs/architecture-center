@@ -4,7 +4,7 @@ description: Learn about deployment options for both platform and application la
 author: jtracey93
 ms.author: jatracey
 ms.date: 12/15/2025
-ms.topic: concept-article
+ms.topic: conceptual
 ms.subservice: architecture-guide
 ---
 
@@ -13,7 +13,7 @@ ms.subservice: architecture-guide
 This article describes the options available to help you deploy both a platform landing zone and application landing zones. A platform landing zone provides centralized services that workloads use. Application landing zones are environments deployed for the workloads themselves.
 
 > [!IMPORTANT]
-> For more information about definitions of the platform landing zone and its connected application landing zones, see [What is an Azure landing zone?](/azure/cloud-adoption-framework/ready/landing-zone/#platform-landing-zones-vs-application-landing-zones).
+> For more information about definitions of the platform landing zone and its connected application landing zones, see [Platform landing zone versus application landing zones](/azure/cloud-adoption-framework/ready/landing-zone/#platform-landing-zones-vs-application-landing-zones).
 
 ## Choose a platform landing zone approach
 
@@ -25,15 +25,15 @@ Standard deployment options address typical enterprise Azure usage.
 
 | Azure platform landing zone deployment option | Description | Azure public clouds | Azure sovereign clouds like US Government and 21Vianet |
 | :--- | :--- | :--- | :--- |
-| The Azure portal deployment | The Azure portal-based deployment provides a full implementation of the [Azure landing zone reference architecture](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-architecture) and opinionated configurations for key components, such as management groups and policies. | Supported | Not supported. <br><br> You can deploy individual resources by using the Azure portal. However, this approach doesn't provide a unified, guided experience across resources. |
-| [Bicep deployment](https://azure.github.io/Azure-Landing-Zones/bicep/gettingstarted/) | An Infrastructure as Code (IaC) deployment that uses [Azure verified modules](https://azure.github.io/Azure-Verified-Modules/) that provides a customizable way to deploy a platform landing zone with Bicep. | Supported | Not supported. <br><br> You can use the [Bicep code](https://github.com/Azure/alz-bicep-accelerator/tree/main/templates) as a starting point to build your custom implementation following our [Azure platform landing zone](/azure/cloud-adoption-framework/ready/landing-zone/design-areas) best practices. For more information about what customizations are required to the code, see the [Azure sovereign cloud deployments](#azure-sovereign-cloud-deployments) section. |
-| [Terraform deployment](https://azure.github.io/Azure-Landing-Zones/terraform/gettingstarted/) | An Infrastructure as Code (IaC) deployment that uses [Azure verified modules](https://azure.github.io/Azure-Verified-Modules/) that provides a customizable way to deploy a platform landing zone with Terraform. | Supported | Not supported. <br><br> You can use the [Terraform code](https://github.com/Azure/alz-terraform-accelerator/tree/main/templates/platform_landing_zone) as a starting point to build your custom implementation following our [Azure platform landing zone](/azure/cloud-adoption-framework/ready/landing-zone/design-areas) best practices. For more information about what customizations are required to the code, see the [Azure sovereign cloud deployments](#azure-sovereign-cloud-deployments) section. |
+| The Azure portal deployment | An Azure portal-based deployment that provides a complete implementation of the [Azure landing zone reference architecture](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-architecture) and opinionated configurations for key components, including management groups and policies. | Supported | Not supported. <br><br> You can deploy individual resources by using the Azure portal. But this approach doesn't provide a unified, guided experience across resources. |
+| [Bicep deployment](https://azure.github.io/Azure-Landing-Zones/bicep/gettingstarted/) | An infrastructure as code (IaC) deployment that uses [Azure verified modules](https://azure.github.io/Azure-Verified-Modules/) and provides a customizable way to deploy a platform landing zone by using Bicep. | Supported | Not supported. <br><br> You can use the [Bicep code](https://github.com/Azure/alz-bicep-accelerator/tree/main/templates) as a starting point to build a custom implementation that follows [Azure platform landing zone](/azure/cloud-adoption-framework/ready/landing-zone/design-areas) best practices. For more information about what customizations the code requires, see the [Azure sovereign cloud deployments](#azure-sovereign-cloud-deployments) section. |
+| [Terraform deployment](https://azure.github.io/Azure-Landing-Zones/terraform/gettingstarted/) | An IaC deployment that uses [Azure verified modules](https://azure.github.io/Azure-Verified-Modules/) and provides a customizable way to deploy a platform landing zone by using Terraform. | Supported | Not supported. <br><br> You can use the [Terraform code](https://github.com/Azure/alz-terraform-accelerator/tree/main/templates/platform_landing_zone) as a starting point to build a custom implementation that follows [Azure platform landing zone](/azure/cloud-adoption-framework/ready/landing-zone/design-areas) best practices. For more information about what customizations the code requires, see the [Azure sovereign cloud deployments](#azure-sovereign-cloud-deployments) section. |
 
-You can also review the additional guidance in [implementation options for Azure landing zones](/azure/cloud-adoption-framework/ready/landing-zone/implementation-options) to help you choose the best deployment option for your organization.
+You can also review the [implementation options for Azure landing zones](/azure/cloud-adoption-framework/ready/landing-zone/implementation-options) to help you choose the best deployment option for your organization.
 
 #### Azure sovereign cloud deployments
 
-The three deployment options are supported for Azure public, global, and commercial cloud offerings. If you need to deploy into other Azure clouds, such as Azure Government or Microsoft Azure operated by 21Vianet, the deployment assets need manual configuration changes by your platform team. Only the Bicep and Terraform deployment options can be modified to accommodate these changes. Consider the following cloud-specific limitations and configuration requirements:
+The Azure portal, Bicep, and Terraform deployment options are supported for Azure public, global, and commercial cloud offerings. If you need to deploy into other Azure clouds, such as Azure Infrastructure Services for US Government Clouds or Microsoft Azure operated by 21Vianet, your platform team needs to make maunal configuration changes to the deployment assets. Only the Bicep and Terraform deployment options can be modified to accommodate these changes. Consider the following cloud-specific limitations and configuration requirements:
 
 - **Azure Policy definitions, initiatives, and assignments:** Not all Azure policies are available across all clouds, so you need to remove unsupported policies before deployment.
 
@@ -41,7 +41,7 @@ The three deployment options are supported for Azure public, global, and commerc
 
 - **Resource availability:** Some resources might not exist in some clouds. For example, Azure DDoS Protection plans aren't available in Azure in China. You need to remove these resources before deployment.
 
-The [Azure landing zone architecture](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-architecture) is valid and supported in all Azure clouds. However, the deployment for that architecture isn't provided in an automated solution that works across all clouds. If you want automated deployment support for these clouds, [request the feature](https://github.com/Azure/Enterprise-Scale/issues/new?template=FEATURE_REQUEST.md).
+The [Azure landing zone architecture](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-architecture) is valid and supported in all Azure clouds. But the deployment for that architecture isn't provided in an automated solution that works across all clouds. If you want automated deployment support for these clouds, [request the feature](https://github.com/Azure/Enterprise-Scale/issues/new?template=FEATURE_REQUEST.md).
 
 ### Variants and specializations
 
