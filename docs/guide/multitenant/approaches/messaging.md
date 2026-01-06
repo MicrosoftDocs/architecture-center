@@ -142,11 +142,12 @@ With a horizontally partitioned deployment, you need an automated process to dep
 
 Principal author:
 
-- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
+- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
 
 Other contributors:
 
 - [Daphne Choong](https://www.linkedin.com/in/daphnecys/) | Senior Partner Solution Architect
+- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
 - [Clemens Vasters](https://www.linkedin.com/in/clemensv) | Principal Architect, Messaging Services and Standards
 - [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 
