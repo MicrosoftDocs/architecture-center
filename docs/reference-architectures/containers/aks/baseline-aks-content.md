@@ -12,68 +12,56 @@ You can use an implementation of this architecture on [GitHub: AKS baseline refe
 > The reference architecture requires knowledge of Kubernetes and its concepts. If you need a refresher, see the [Intro to Kubernetes](/training/paths/intro-to-kubernetes-on-azure/) and [Develop and deploy applications on Kubernetes](/training/paths/develop-deploy-applications-kubernetes/) training paths.
 
 :::row:::
-
     :::column:::
 
-        #### Networking configuration
-        [Network topology](#network-topology)\
-        [Plan the IP addresses](#plan-the-ip-addresses)\
-        [Deploy ingress resources](#deploy-ingress-resources)
-
+      #### Networking configuration
+      [Network topology](#network-topology)\
+      [Plan the IP addresses](#plan-the-ip-addresses)\
+      [Deploy ingress resources](#deploy-ingress-resources)
     :::column-end:::
-
     :::column:::
 
-        #### Cluster compute
-        [Compute for the base cluster](#configure-compute-for-the-base-cluster)\
-        [Container image reference](#container-image-reference)\
-        [Policy management](#policy-management)
-
+      #### Cluster compute
+      [Compute for the base cluster](#configure-compute-for-the-base-cluster)\
+      [Container image reference](#container-image-reference)\
+      [Policy management](#policy-management)
     :::column-end:::
-
     :::column:::
 
-        #### Identity management
-        [Integrate Microsoft Entra ID for the cluster](#integrate-microsoft-entra-id-for-the-cluster)\
-        [Integrate Microsoft Entra ID for the workload](#integrate-microsoft-entra-id-for-the-workload)
-
+      #### Identity management
+      [Integrate Microsoft Entra ID for the cluster](#integrate-microsoft-entra-id-for-the-cluster)\
+      [Integrate Microsoft Entra ID for the workload](#integrate-microsoft-entra-id-for-the-workload)
     :::column-end:::
 :::row-end:::
 
 :::row:::
+   :::column:::
 
-    :::column:::
-
-        #### Secure data flow
-        [Secure the network flow](#secure-the-network-flow)\
-        [Add secret management](#add-secret-management)
-
+      #### Secure data flow
+      [Secure the network flow](#secure-the-network-flow)\
+      [Add secret management](#add-secret-management)
     :::column-end:::
+   :::column:::
 
-    :::column:::
-
-        #### Business continuity
-        [Scalability](#node-and-pod-scalability)\
-        [Cluster and node availability](#business-continuity-decisions)\
-        [Availability zones](#availability-zones)\
-        [Multiple regions](#multiple-regions)
-
+      #### Business continuity
+      [Scalability](#node-and-pod-scalability)\
+      [Cluster and node availability](#business-continuity-decisions)\
+      [Availability zones](#availability-zones)
+      [Multiple regions](#multiple-regions)
     :::column-end:::
-
     :::column:::
 
-        #### Operations
-        [Cluster and workload CI/CD pipelines](#cluster-and-workload-operations)\
-        [Monitor and collect logs and metrics](#monitor-and-collect-metrics)\
-        [Cost management and reporting](#cost-management)
-
+      #### Operations
+      [Cluster and workload CI/CD pipelines](#cluster-and-workload-operations)\
+      [Cluster health and metrics](#monitor-and-collect-metrics)\
+      [Cost management and reporting](#cost-management)
     :::column-end:::
 :::row-end:::
 
 ## Architecture
 
 :::image type="complex" border="false" source="images/aks-baseline-architecture.svg" alt-text="Architecture diagram that shows a hub-spoke network topology." lightbox="images/aks-baseline-architecture.svg":::
-   The diagram shows two connected virtual networks. The hub virtual network contains Azure Firewall, Azure Bastion, a VPN or ExpressRoute gateway, and Azure Monitor. Virtual network peering connects hub and spoke through a bidirectional link. The spoke virtual network contains the AKS cluster within multiple subnets. From top to bottom, Application Gateway with Web Application Firewall occupies a dedicated subnet. The ingress resources subnet contains the AKS-managed internal load balancer. The cluster nodes subnet contains the AKS cluster with system and user node pools. The user node pool runs the ingress controller. The API server virtual network integration subnet hosts the API server endpoint. The private endpoints subnet at the bottom connects to Azure Container Registry and Azure Key Vault outside the spoke through Azure Private Link. Arrows show traffic flow. Inbound traffic enters the spoke through Application Gateway, passes to the internal load balancer, then reaches the ingress controller, and finally arrives at workload pods in the cluster. Outbound traffic exits the cluster, crosses the peering connection to the hub, and passes through Azure Firewall for inspection before it reaches external destinations.
+   The diagram shows two connected virtual networks. The hub virtual network contains Azure Firewall, Azure Bastion, and a gateway subnet to on-premises. Virtual network peering connects hub and spoke through a bidirectional link. The spoke virtual network contains the AKS cluster within multiple subnets. From top to bottom, Application Gateway with Web Application Firewall occupies a dedicated subnet. The ingress resources subnet contains the AKS-managed internal load balancer. The cluster nodes subnet contains the AKS cluster with system and user node pools. The user node pool runs the ingress controller. The API server virtual network integration subnet hosts the API server endpoint. The private endpoints subnet at the bottom connects to Azure Container Registry and Azure Key Vault outside the spoke through Azure Private Link. Arrows show traffic flow. Inbound traffic enters the spoke through Application Gateway, passes to the internal load balancer, then reaches the ingress controller, and finally arrives at workload pods in the cluster. Outbound traffic exits the cluster, crosses the peering connection to the hub, and passes through Azure Firewall for inspection before it reaches external destinations.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/aks-baseline-architecture.vsdx) of this architecture.*
@@ -159,7 +147,7 @@ With a private cluster, you can use NSGs and other built-in network controls to 
 ## Plan the IP addresses
 
 :::image type="complex" border="false" source="images/aks-baseline-network-topology.svg" alt-text="Diagram that shows the network topology of the AKS cluster." lightbox="images/aks-baseline-network-topology.svg":::
-   The diagram depicts the same hub-spoke architecture with emphasis on network flows. The hub virtual network on the left contains Azure Firewall, Azure Bastion, a VPN or ExpressRoute gateway, and Azure Monitor. The spoke virtual network on the right contains multiple subnets arranged vertically. Application Gateway with Web Application Firewall appears at the top, followed by the ingress resources subnet with the AKS-managed internal load balancer, then the cluster nodes subnet with system and user node pools, the API server virtual network integration subnet, and private endpoints subnet at the bottom. Virtual network peering connects the two networks horizontally. Arrows illustrate traffic patterns. Inbound traffic flows from the public internet through Application Gateway, to the internal load balancer, through the ingress controller, and finally to workload pods within the cluster. Outbound traffic from the cluster routes through a user-defined route to Azure Firewall in the hub for inspection. Private Link connections from the private endpoints subnet extend to Azure services outside the virtual networks.
+   The diagram shows a hub-spoke network topology for AKS. On the left, the hub virtual network contains Azure Firewall, Azure Bastion, and a VPN or ExpressRoute gateway. On the right, the spoke virtual network contains vertically arranged subnets: Application Gateway with Web Application Firewall at the top, followed by the ingress resources subnet with an AKS-managed internal load balancer, the cluster nodes subnet with system and user node pools, the API server virtual network integration subnet, and a private endpoints subnet at the bottom. Virtual network peering connects the hub and spoke. Arrows indicate inbound traffic from the public internet through Application Gateway, to the internal load balancer, then to the ingress controller and workload pods. Outbound traffic from the cluster is routed through a user-defined route (UDR) to Azure Firewall for inspection. Private Link connections from the private endpoints subnet provide direct access to Azure services like Container Registry and Key Vault, bypassing the public internet.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/aks-baseline_network_topology.vsdx) of this architecture.*
@@ -898,12 +886,12 @@ In this architecture, [GitHub Actions](https://github.com/marketplace?type=actio
 ### Cluster CI/CD
 
 :::image type="complex" border="false" source="images/workload-ci-cd.svg" alt-text="Diagram that shows workload CI/CD." lightbox="images/workload-ci-cd.svg":::
-   The diagram shows the CI/CD workflow from left to right. On the left, an Infrastructure as Code icon represents the declarative configuration stored in source control. A horizontal arrow labeled Deploy points from the infrastructure as code to a central box labeled GitOps. Within this box, three CI/CD platform options appear stacked vertically as Azure Pipelines (top), GitHub Actions (middle), and Jenkins Pipelines (bottom). From the GitOps box, another horizontal arrow labeled Sync points to the right toward an AKS icon. The arrows indicate the automated flow where infrastructure definitions trigger the CI/CD pipeline, which then synchronizes the desired state to the AKS cluster.
+   The diagram shows the CI/CD workflow from left to right. On the left, an Infrastructure as Code icon represents the declarative configuration stored in source control. A horizontal arrow labeled Deploy points from the infrastructure as code to a central box labeled GitOps. This box contains Azure Pipelines, GitHub Actions, and Jenkins Pipelines. From the GitOps box, an arrow labeled Sync points to an AKS icon.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/secure-baseline-aks-workload-ci-cd.vsdx) of this architecture.*
 
-Instead of using an imperative approach like kubectl, use tools that automatically synchronize cluster and repository changes. To manage the workflow, like the release of a new version and validation on that version before deploying to production, consider a GitOps flow.
+Instead of using an imperative approach like kubectl, use tools that automatically sync cluster and repository changes. To manage the workflow, like the release of a new version and validation on that version before deploying to production, consider a GitOps flow.
 
 An essential part of the CI/CD flow is bootstrapping a newly provisioned cluster. A GitOps approach is useful because it lets operators declaratively define the bootstrapping process as part of the IaC strategy and see the configuration reflected in the cluster automatically.
 
@@ -919,7 +907,7 @@ You can also set policies that govern how the changes are deployed.
 The following example diagram shows how to automate cluster configuration with GitOps and Flux.
 
 :::image type="complex" border="false" source="images/gitops-flow.svg" alt-text="Diagram that shows the GitOps flow." lightbox="images/gitops-flow.svg":::
-  The diagram illustrates the GitOps workflow with four numbered steps from left to right. At the far left, a developer icon with a laptop is labeled Step 1. An arrow labeled git push extends from the developer to a Git repository icon in the center-left to show that developers commit and push configuration changes to the source repository. In the center, labeled Step 2, the Git repository connects via an arrow labeled git clone --mirror to a Flux icon inside the AKS cluster boundary. Flux maintains a read-only mirror of the repository. Labeled Step 3, an arrow labeled kubectl apply flows from the Flux icon to the Kubernetes API server icon within the cluster. Flux automatically applies configuration changes to the cluster. At the bottom, labeled Step 4, a red circle with a diagonal line (no entry symbol) connects the developer to the Kubernetes API server with a crossed-out kubectl label.
+  The diagram illustrates the GitOps workflow with four numbered steps from left to right. At the far left, a developer icon with a laptop appears as Step 1, where the user pushes IaC changes to a Git repository. Step 2 shows the Git repository connecting via an arrow labeled `git clone --mirror` to a Flux icon inside the AKS cluster boundary. Step 3 shows an arrow labeled `kubectl apply` that points from from the Flux icon to the Kubernetes API server icon within the cluster. Step 4 displays a red circle with a diagonal line between the developer and the Kubernetes API server with a crossed‑out `kubectl` label.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/secure-baseline-aks-gitops-flow.vsdx) of this architecture.*
