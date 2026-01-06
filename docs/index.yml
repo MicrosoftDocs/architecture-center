@@ -98,7 +98,7 @@ conceptualContent:
     - title: Popular articles
       links:
       - text: Microsoft Foundry chat baseline architecture
-        url: ./ai-ml/architecture/baseline-azure-ai-foundry-chat.yml
+        url: ./ai-ml/architecture/baseline-microsoft-foundry-chat.yml
         itemType: architecture
       - text: Develop and optimize a RAG implementation
         url: /azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide
@@ -125,7 +125,7 @@ conceptualContent:
         itemType: overview
         url: /azure/architecture/ai-ml/
       - text: Microsoft Foundry chat baseline architecture
-        url: ./ai-ml/architecture/baseline-azure-ai-foundry-chat.yml
+        url: ./ai-ml/architecture/baseline-microsoft-foundry-chat.yml
         itemType: architecture
       - text: Build a generative AI gateway
         url: /azure/architecture/ai-ml/guide/azure-openai-gateway-guide
@@ -151,7 +151,7 @@ conceptualContent:
         - text: Choose a data analytics technology
           itemType: quickstart
           url: ./data-guide/technology-choices/analysis-visualizations-reporting.md
-        - text: Analytics end-to-end with Azure Synapse 
+        - text: Analytics end-to-end with Microsoft Fabric 
           itemType: architecture
           url: ./example-scenario/dataplate2e/data-platform-end-to-end.yml
         - text: Enterprise BI with Microsoft Fabric

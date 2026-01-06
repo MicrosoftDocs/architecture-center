@@ -78,17 +78,17 @@ Data plane isolation guarantees that pods and workloads of distinct tenants are 
 
 ### Network isolation
 
-When you run modern, microservices-based applications in Kubernetes, you often want to control which components can communicate with each other. By default, all pods in an AKS cluster can send and receive traffic without restrictions, including other applications that share the same cluster. To improve security, you can define network rules to control the flow of traffic. Network policy is a Kubernetes specification that defines access policies for communication between pods. You can use [network policies][network-policies] to segregate communications between tenant applications that share the same cluster.
+When you run multitenant, microservices-based applications in Kubernetes, you often want to control which components can communicate with each other. By default, all pods in an AKS cluster can send and receive traffic without restrictions, including other applications that share the same cluster. To improve security, you can define network rules to control the flow of traffic. Network policy is a Kubernetes specification that defines access policies for communication between pods. Use [network policies][network-policies] to segregate communications between tenant applications that share the same cluster.
 
 AKS provides three ways to implement network policies:
 
 - Azure has its implementation for network policies, called Azure network policies.
 - [Calico network policies](https://projectcalico.docs.tigera.io/security/calico-network-policy) is an open-source network and network security solution founded by [Tigera](https://www.tigera.io).
-- - [Azure CNI Powered by Cilium](/azure/aks/azure-cni-powered-by-cilium) is an eBPF-based networking solution that provides enhanced network policy performance and advanced capabilities including Layer 7 filtering.
+- [Azure CNI Powered by Cilium](/azure/aks/azure-cni-powered-by-cilium) is an eBPF-based networking solution that provides enhanced network policy performance and advanced capabilities including Layer 7 filtering.
 
-Azure network policies and Calico network policies both use Linux iptables to enforce the specified policies. Network policies are translated into sets of allowed and disallowed IP pairs, which are then programmed as iptables filter rules. In contrast, Azure CNI Powered by Cilium uses eBPF programs loaded into the Linux kernel for policy enforcement, providing improved performance and eliminating the overhead of iptables and kube-proxy. All three network policy options support both the [Azure CNI](/azure/aks/configure-azure-cni) network plugin and [Azure CNI Overlay](/azure/aks/azure-cni-overlay) mode. For more information, see [Secure traffic between pods using network policies in Azure Kubernetes Service](/azure/aks/use-network-policies).
+Azure network policies and Calico network policies both use Linux iptables to enforce the specified policies. Network policies are translated into sets of allowed and disallowed IP pairs, which are then programmed as iptables filter rules. In contrast, Azure CNI Powered by Cilium uses eBPF programs loaded into the Linux kernel for policy enforcement, providing improved performance and eliminating the overhead of iptables and kube-proxy. All three network policy options support both the [Azure CNI](/azure/aks/configure-azure-cni) network plugin and [Azure CNI Overlay](/azure/aks/azure-cni-overlay) mode.
 
-For more information, see [Network isolation](https://kubernetes.io/docs/concepts/security/multi-tenancy/#network-isolation) in the Kubernetes documentation.
+For more information, see [Secure traffic between pods using network policies in Azure Kubernetes Service](/azure/aks/use-network-policies), combined with the multitenant [Network isolation](https://kubernetes.io/docs/concepts/security/multi-tenancy/#network-isolation) topic in the Kubernetes documentation.
 
 ### Service mesh
 
@@ -496,15 +496,23 @@ You can configure Azure Front Door Premium to privately connect to one or more t
 
 When AKS-hosted applications connect to a large number of databases or external services, the cluster might be at risk of source network address translation (SNAT) port exhaustion. [SNAT ports](/azure/load-balancer/load-balancer-outbound-connections#what-are-snat-ports) generate unique identifiers that are used to maintain distinct flows that applications that run on the same set of compute resources initiate. By running several tenant applications on a shared AKS cluster, you might make a high number of outbound calls, which can lead to a SNAT port exhaustion. An AKS cluster can handle outbound connections in three different ways:
 
-- [Azure Load Balancer](/azure/load-balancer/load-balancer-overview): By default, AKS provisions a Standard SKU Load Balancer to be set up and used for egress connections. However, the default setup might not meet the requirements of all scenarios if public IP addresses are disallowed or if extra hops are required for egress. By default, the public load balancer is created with a default public IP address that the [outbound rules](/azure/load-balancer/outbound-rules) use. Outbound rules allow you to explicitly define SNAT for a public standard load balancer. This configuration allows you to use the public IP addresses of your load balancer to provide outbound internet connectivity for your backend instances. When necessary, to avoid [SNAT port exhaustion](/azure/load-balancer/troubleshoot-outbound-connection), you can configure the outbound rules of the public load balancer to use more public IP addresses. For more information, see [Use the front-end IP address of a load balancer for outbound via outbound rules](/azure/load-balancer/load-balancer-outbound-connections#outboundrules).
-- [Azure NAT Gateway](/azure/virtual-network/nat-gateway/nat-overview): You can configure an AKS cluster to use Azure NAT Gateway to route egress traffic from tenant applications. NAT Gateway allows up to 64,512 outbound UDP and TCP traffic flows per public IP address, with a maximum of 16 IP addresses. To avoid the risk of SNAT port exhaustion when you use a NAT Gateway to handle outbound connections from an AKS cluster, you can associate more public IP addresses or a [public IP address prefix](/azure/virtual-network/ip-services/public-ip-address-prefix) to the gateway. For more information, see [Azure NAT Gateway considerations for multitenancy](/azure/architecture/guide/multitenant/service/nat-gateway).
-- [User-defined route (UDR)](/azure/aks/egress-outboundtype): You can customize an AKS cluster's egress route to support custom network scenarios, such as those that disallow public IP addresses and require the cluster to sit behind a network virtual appliance (NVA). When you configure a cluster for [user-defined routing](/azure/aks/egress-outboundtype#outbound-type-of-userdefinedrouting), AKS doesn't automatically configure egress paths. You must complete the egress setup. For example, you route egress traffic through an [Azure Firewall](/azure/aks/limit-egress-traffic#restrict-egress-traffic-using-azure-firewall). You must deploy the AKS cluster into an existing virtual network with a subnet that you previously configured. When you aren't using a standard load balancer architecture, you must establish explicit egress. As such, this architecture requires explicitly sending egress traffic to an appliance, like a firewall, gateway, or proxy. Or, the architecture allows the network address translation (NAT) to be done by a public IP that's assigned to the standard load balancer or appliance.
+- [Azure Load Balancer](/azure/load-balancer/load-balancer-overview): By default, AKS provisions a Standard SKU Load Balancer for egress traffic management. However, the default configuration might not meet the requirements of all scenarios if public IP addresses are disallowed or if extra hops are required for egress. By default, the public load balancer is created with a default public IP address that the [outbound rules](/azure/load-balancer/outbound-rules) use. Outbound rules allow you to explicitly define SNAT for a public standard load balancer. This configuration allows you to use the public IP addresses of your load balancer to provide outbound internet connectivity for your backend instances. To avoid [SNAT port exhaustion](/azure/load-balancer/troubleshoot-outbound-connection), you can configure the outbound rules of the public load balancer to use more public IP addresses.
+
+  For more information, see [Use the front-end IP address of a load balancer for outbound via outbound rules](/azure/load-balancer/load-balancer-outbound-connections#outboundrules).
+
+- [Azure NAT Gateway](/azure/virtual-network/nat-gateway/nat-overview): You can configure an AKS cluster to use Azure NAT Gateway to route egress traffic from tenant applications. NAT Gateway allows up to 64,512 outbound UDP and TCP traffic flows per public IP address, with a maximum of 16 IP addresses. To avoid the risk of SNAT port exhaustion when you use a NAT Gateway to handle outbound connections from an AKS cluster, you can associate more public IP addresses or a [public IP address prefix](/azure/virtual-network/ip-services/public-ip-address-prefix) to the gateway.
+
+  For more information, see [Azure NAT Gateway considerations for multitenancy](/azure/architecture/guide/multitenant/service/nat-gateway).
+
+- [User-defined route (UDR)](/azure/aks/egress-outboundtype): You can customize an AKS cluster's egress route to support custom network scenarios, such as those that disallow public IP addresses and require the cluster to sit behind a network virtual appliance (NVA). When you configure a cluster for [user-defined routing](/azure/aks/egress-outboundtype#outbound-type-of-userdefinedrouting), AKS doesn't automatically configure egress paths. You must configure your egress paths. For example, you can route egress traffic through an [Azure Firewall](/azure/aks/limit-egress-traffic#restrict-egress-traffic-using-azure-firewall).
+
+  You must deploy the AKS cluster into an existing virtual network with a subnet that you previously configured and establish explicit egress. This approach requires you to explicitly send egress traffic to an appliance, like a firewall, gateway, or proxy. Network address translation (NAT) is then done by a public IP that's assigned to the appliance.
+
+Unless you have requirements to egress through a hub network or security appliance, Azure NAT Gateway is the recommended approach to avoid SNAT port exhaustion.
 
 ## Monitoring
 
-You can use [Azure Monitor](/azure/aks/monitor-aks) and [container insights](/azure/azure-monitor/containers/container-insights-overview) to monitor tenant applications that run on a shared AKS cluster and to calculate cost breakdowns on individual namespaces. Use Azure Monitor to monitor the health and performance of AKS. It includes the collection of [logs and metrics](/azure/aks/monitor-aks-reference), telemetry analysis, and visualizations of collected data to identify trends and to configure alerting that proactively notifies you of critical problems. You can enable [container insights](/azure/azure-monitor/containers/container-insights-overview) to expand on this monitoring.
-
-You can also adopt open-source tools, such as [Prometheus](https://prometheus.io) and [Grafana](https://www.prometheus.io/docs/visualization/grafana), which are widely used for Kubernetes monitoring. Or, you can adopt other non-Microsoft tools for monitoring and observability.
+You should [Monitor Kubernetes clusters using Azure Monitor and cloud native tools](/azure/azure-monitor/containers/monitor-kubernetes) to observe the health and performance of AKS clusters and tenant workloads. Azure Monitor also provides provides collection of [logs and metrics](/azure/aks/monitor-aks-reference), telemetry analysis, and alerting to proactively detect issues. [Managed Grafana](/azure/managed-grafana/quickstart-managed-grafana-portal) is used to visualize this data.
 
 ## Costs
 
@@ -531,9 +539,10 @@ When multiple tenants share the same infrastructure, managing data privacy, comp
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal author:
+Principal authors:
 
 - [Sam Cogan](https://www.linkedin.com/in/samcogan82/) | Senior Cloud Solutions Architect
+- [Ben Griffin](https://www.linkedin.com/in/bengriffin1/) | Senior Partner Solution Architect
 
 Other contributors:
 

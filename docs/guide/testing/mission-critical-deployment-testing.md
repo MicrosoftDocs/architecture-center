@@ -34,7 +34,7 @@ You should use threshold values to develop a **[health model for your applicatio
 
 ![Visualization of key system flows using green and red connected circles.](./images/deployment-testing-key-system-flows.png)
 
-Next, use the values to define a **load test** that generates realistic traffic for testing application baseline performance, validating expected scale operations, and so on. Sustained artificial user traffic is needed in pre-production environments, because without usage it's difficult to reveal runtime issues.
+Next, use the values to define a **load test** that generates realistic traffic for testing application baseline performance, and for validating expected scale operations. Sustained artificial user traffic is needed in pre-production environments, because without usage it's difficult to reveal runtime issues.
 
 Load testing ensures that changes made to the application or infrastructure don't cause issues and the system still meets the expected performance and test criteria. A failed test run that doesn't meet the test criteria indicates that you need to adjust the baseline, or that an unexpected error occurred.
 

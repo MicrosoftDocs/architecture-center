@@ -2465,17 +2465,17 @@
     },
     {
       "source_path": "docs/ai-ml/architecture/baseline-openai-e2e-chat.yml",
-      "redirect_url": "/azure/architecture/ai-ml/architecture/baseline-azure-ai-foundry-chat",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-chat",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/ai-ml/architecture/basic-openai-e2e-chat.yml",
-      "redirect_url": "/azure/architecture/ai-ml/architecture/basic-azure-ai-foundry-chat",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/basic-microsoft-foundry-chat",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/ai-ml/architecture/azure-openai-baseline-landing-zone.yml",
-      "redirect_url": "/azure/architecture/ai-ml/architecture/baseline-azure-ai-foundry-landing-zone",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-landing-zone",
       "redirect_document_id": false
     },
     {
@@ -4974,7 +4974,7 @@
     },
     {
       "source_path": "docs/ai-ml/architecture/conversational-bot.yml",
-      "redirect_url": "/azure/architecture/ai-ml/architecture/baseline-azure-ai-foundry-chat",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-chat",
       "redirect_document_id": false
     },
     {
@@ -6294,7 +6294,7 @@
     },
     {
       "source_path": "docs/ai-ml/openai/guide/language-model-pipelines.yml",
-      "redirect_url": "/azure/architecture/ai-ml/architecture/baseline-azure-ai-foundry-chat",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-chat",
       "redirect_document_id": false
     },
     {
@@ -7625,7 +7625,22 @@
     {
       "source_path": "docs/data-guide/big-data/non-relational-data.yml",
       "redirect_url": "/azure/architecture/data-guide/technology-choices/understand-data-store-models",
-      "redirect_document_id": false 
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/ai-ml/architecture/baseline-azure-ai-foundry-chat.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-chat",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/ai-ml/architecture/baseline-azure-ai-foundry-landing-zone.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-landing-zone",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/ai-ml/architecture/basic-azure-ai-foundry-chat.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/basic-microsoft-foundry-chat",
+      "redirect_document_id": true
     },
     {
       "source_path": "docs/guide/technology-choices/data-store-overview.md",
@@ -7635,6 +7650,11 @@
     {
       "source_path": "docs/guide/technology-choices/data-store-decision-tree.md",
       "redirect_url": "/azure/architecture/guide/technology-choices/data-stores-getting-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/mainframe/refactor-mainframe-applications-advanced.yml",
+      "redirect_url": "/azure/architecture/example-scenario/mainframe/general-mainframe-refactor",
       "redirect_document_id": false
     }
   ]
