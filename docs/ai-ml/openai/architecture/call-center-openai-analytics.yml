@@ -10,6 +10,7 @@ metadata:
   ms.subservice: example-scenario
   ms.custom:
     - arb-telco
+    - arb-aiml
 azureCategories:
   - analytics
   - ai-machine-learning

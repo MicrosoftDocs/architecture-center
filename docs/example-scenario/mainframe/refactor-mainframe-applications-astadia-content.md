@@ -205,7 +205,7 @@ Other contributor:
 - [IBM z/OS online transaction processing on Azure](ibm-zos-online-transaction-processing-azure.yml)
 - [Micro Focus Enterprise Server on Azure VMs](micro-focus-server.yml)
 - [Refactor IBM z/OS mainframe coupling facility (CF) to Azure](../../reference-architectures/zos/refactor-zos-coupling-facility.yml)
-- [Refactor mainframe applications with Advanced](refactor-mainframe-applications-advanced.yml)
+- [General mainframe refactor to Azure](general-mainframe-refactor.yml)
 - [Refactor mainframe computer systems that run Adabas & Natural](refactor-adabas-aks.yml)
 - [Rehost mainframe applications to Azure with Raincode compilers](../..//reference-architectures/app-modernization/raincode-reference-architecture.yml)
 - [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame](../../solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml)

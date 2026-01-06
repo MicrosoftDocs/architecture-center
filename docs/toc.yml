@@ -575,8 +575,6 @@ items:
           href: example-scenario/mainframe/refactor-ibm-ztpf-mainframe.yml
         - name: Refactor mainframe apps with Astadia
           href: example-scenario/mainframe/refactor-mainframe-applications-astadia.yml
-        - name: Refactor mainframe apps with Advanced
-          href: example-scenario/mainframe/refactor-mainframe-applications-advanced.yml
         - name: Refactor Adabas & Natural systems
           href: example-scenario/mainframe/refactor-adabas-aks.yml
         - name: Refactor mainframe with Raincode

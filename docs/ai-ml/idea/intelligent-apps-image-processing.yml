@@ -14,6 +14,7 @@ metadata:
   ms.custom:
     - ai-machine-learning
     - arb-telco
+    - arb-aiml
   ai-usage: ai-assisted
 name: Image classification on Azure
 azureCategories:
