@@ -7003,6 +7003,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/landing-zones/bicep/landing-zone-bicep.md",
+      "redirect_url": "https://azure.github.io/Azure-Landing-Zones/bicep/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/example-scenario/banking/banking-system-cloud-transformation.yml",
       "redirect_url": "/industry/financial-services/architecture/banking-system-cloud-transformation-content",
       "redirect_document_id": false

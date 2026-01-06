@@ -4,7 +4,7 @@ metadata:
   description: Subscription vending implementation guidance to standardize the process for automating subscription creation and deploying workloads faster.
   author: jtracey93
   ms.author: jatracey
-  ms.date: 11/18/2024
+  ms.date: 12/15/2025
   ms.topic: concept-article
   ms.subservice: architecture-guide
 azureCategories:
