@@ -423,7 +423,7 @@ Many of these patterns rely on a code-based implementation to address the orches
 
 ### Microsoft Agent Framework
 
-The Microsoft Agent Framework SDK has implementation guidance for [Agent Framework orchestration](/agent-framework/user-guide/workflows/overview).
+The orchestration patterns described on this page are implemented as workflow orchestrations in the Microsoft Agent Framework. For architectural guidance and implementation details, see the [Workflow orchestrations overview](/agent-framework/user-guide/workflows/orchestrations/overview).
 
 - [Sequential orchestration using the Agent Framework](/agent-framework/user-guide/workflows/orchestrations/sequential)
 - [Concurrent orchestration using the Agent Framework](/agent-framework/user-guide/workflows/orchestrations/concurrent)
