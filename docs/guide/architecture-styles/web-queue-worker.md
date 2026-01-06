@@ -29,7 +29,7 @@ The following components are commonly incorporated into this architecture:
 
 The web and worker are both stateless, and session state can be stored in a distributed cache. The worker handles long-running work asynchronously. Messages on the queue can start the worker, or a schedule can run it for batch processing. The worker is optional if the application has no long-running operations.
 
-The front end might include a web API. A single‑page application can consume the web API by making AJAX calls, or a native client application can consume it directly.
+The front end might include a web API. A single‑page application can consume the web API by making asynchronous HTTP requests, or a native client application can consume it directly.
 
 ## When to use this architecture
 
