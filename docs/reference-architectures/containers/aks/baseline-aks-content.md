@@ -47,6 +47,7 @@ You can use an implementation of this architecture on [GitHub: AKS baseline refe
       [Node and pod scalability](#node-and-pod-scalability)\
       [Business continuity decisions](#business-continuity-decisions)\
       [Availability zones](#availability-zones)
+
       [Multiple regions](#multiple-regions)
     :::column-end:::
     :::column:::
@@ -246,6 +247,7 @@ Most AKS clusters use Linux as the operating system for their node pools. In thi
 If your workload is composed of mixed technologies, you can use different operating systems in different node pools. But if you don't need different operating systems, we recommend that you use a single operating system for all workload node pools to reduce operational complexity.
  
 <a name='integrate-microsoft-entra-id-for-the-cluster'></a>
+
 ## Integrate Microsoft Entra ID for the cluster
 
 Securing access to and from the cluster is critical. Apply security controls based on how they affect the cluster:
@@ -369,6 +371,7 @@ Here's an example from this architecture:
 
 Traefik uses the Kubernetes provider to configure routes. The `annotations`, `tls`, and `entrypoints` options indicate that routes are served over HTTPS. The `middlewares` option specifies that only traffic from the Application Gateway subnet is allowed. The responses use gzip encoding if the client accepts. Because Traefik does TLS termination, communication with the back-end services is over HTTP.
 
+  
 ```yaml
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -540,6 +543,7 @@ Consider creating your own custom initiatives. Combine the policies that are app
 To observe how Azure Policy functions from within your cluster, you can access the pod logs for all pods in the `gatekeeper-system` namespace and the logs for the `azure-policy` and `azure-policy-webhook` pods in the `kube-system` namespace.
  
 <a name="node-and-pod-scalability"></a>
+
 ## Node and pod scalability
 
 With increasing demand, Kubernetes can scale out by adding more pods to existing nodes, through horizontal pod autoscaling. When Kubernetes can no longer schedule more pods, the number of nodes must be increased through AKS cluster autoscaling. A complete scaling solution must have ways to scale both pod replicas and the node count in the cluster.
@@ -576,6 +580,7 @@ For the system node pool, the recommended minimum value is three.
 
  
 <a name="business-continuity-decisions"></a>
+
 ## Business continuity decisions
 
 To maintain business continuity, define the SLO for the infrastructure and your application. For more information, see [Recommendations for defining reliability targets](/azure/well-architected/reliability/metrics). Review the service-level agreement (SLA) conditions for AKS in the latest [SLA for online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services) article.
@@ -609,6 +614,7 @@ Regular upkeep tasks on your cluster, like timely updates, are crucial for relia
 
  
 <a name="availability-zones"></a>
+
 ### Availability zones
 
 To protect against some types of outages, use [availability zones](/azure/aks/availability-zones) if the region supports them. Both the control plane components and the nodes in the node pools are then *zone-redundant*, which means they're spread across multiple zones. If an entire zone is unavailable, a node in another zone within the region is still available. Each node pool maps to a separate virtual machine scale set, which manages node instances and scalability. The AKS service manages scale set operations and configuration. Here are some considerations when you enable multiple zones:
@@ -627,6 +633,7 @@ For simplicity in this architecture, AKS is deployed to a single region with nod
 
  
 <a name="multiple-regions"></a>
+
 ### Multiple regions
 
 When you enable availability zones, it isn't enough coverage in the unlikely event that an entire region fails. To gain higher availability, run multiple AKS clusters in different regions.
