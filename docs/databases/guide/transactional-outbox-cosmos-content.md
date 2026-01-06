@@ -326,8 +326,8 @@ As you can see in the preceding code snippets, all objects saved to Azure Cosmos
 - `PartitionKey`.
 - `Type`.
 - `State`. Like `Created`, `Updated` won't be persisted in Azure Cosmos DB.
-- `Etag`. For [optimistic locking](/azure/cosmos-db/sql/database-transactions-optimistic-concurrency#optimistic-concurrency-control).
-- `TTL`. [Time To Live](/azure/cosmos-db/sql/time-to-live) property for automatic cleanup of old documents.
+- `Etag`. For [optimistic locking](/azure/cosmos-db/database-transactions-optimistic-concurrency#optimistic-concurrency-control).
+- `TTL`. [Time To Live](/azure/cosmos-db/time-to-live) property for automatic cleanup of old documents.
 - `Data`. Generic data object.
 
 These properties are defined in a generic interface that's called `IDataObject` and is used by the repositories and the container context:
@@ -407,7 +407,7 @@ You can see that the `Contact` and `ContactNameUpdatedEvent` (type `domainEvent`
 
 To read the stream of events and send them to a message broker, the service uses the [Azure Cosmos DB change feed](https://devblogs.microsoft.com/cosmosdb/change-feed-unsung-hero-of-azure-cosmos-db/).
 
-The change feed is a persistent log of changes in your container. It operates in the background and tracks modifications. Within one logical partition, the order of the changes is guaranteed. The most convenient way to read the change feed is to use an [Azure function with an Azure Cosmos DB trigger](/azure/azure-functions/functions-create-cosmos-db-triggered-function). Another option is to use the [change feed processor library](/azure/cosmos-db/sql/change-feed-processor). It lets you integrate change feed processing in your Web API as a background service (via the `IHostedService` interface). The sample here uses a simple console application that implements the abstract class [BackgroundService](/dotnet/api/microsoft.extensions.hosting.backgroundservice) to host long-running background tasks in .NET Core applications.
+The change feed is a persistent log of changes in your container. It operates in the background and tracks modifications. Within one logical partition, the order of the changes is guaranteed. The most convenient way to read the change feed is to use an [Azure function with an Azure Cosmos DB trigger](/azure/azure-functions/functions-create-cosmos-db-triggered-function). Another option is to use the [change feed processor library](/azure/cosmos-db/change-feed-processor). It lets you integrate change feed processing in your Web API as a background service (via the `IHostedService` interface). The sample here uses a simple console application that implements the abstract class [BackgroundService](/dotnet/api/microsoft.extensions.hosting.backgroundservice) to host long-running background tasks in .NET Core applications.
 
 To receive the changes from the Azure Cosmos DB change feed, you need to instantiate a `ChangeFeedProcessor` object, register a handler method for message processing, and start listening for changes:
 
@@ -571,7 +571,7 @@ Review these articles to learn more:
 
 - [Domain-driven design](/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns)
 - [Azure Service Bus: Message de-duplication](/azure/service-bus-messaging/duplicate-detection)
-- [Change feed processor library](/azure/cosmos-db/sql/change-feed-processor)
+- [Change feed processor library](/azure/cosmos-db/change-feed-processor)
 - [Jimmy Bogard: A better domain events pattern](https://lostechies.com/jimmybogard/2014/05/13/a-better-domain-events-pattern)
 
 ## Related resources
