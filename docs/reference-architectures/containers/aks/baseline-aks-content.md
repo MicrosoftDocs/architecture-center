@@ -44,17 +44,17 @@ You can use an implementation of this architecture on [GitHub: AKS baseline refe
    :::column:::
 
       #### Business continuity
-      [Scalability](#node-and-pod-scalability)\
-      [Cluster and node availability](#business-continuity-decisions)\
+      [Node and pod scalability](#node-and-pod-scalability)\
+      [Business continuity decisions](#business-continuity-decisions)\
       [Availability zones](#availability-zones)
       [Multiple regions](#multiple-regions)
     :::column-end:::
     :::column:::
 
       #### Operations
-      [Cluster and workload CI/CD pipelines](#cluster-and-workload-operations)\
-      [Cluster health and metrics](#monitor-and-collect-metrics)\
-      [Cost management and reporting](#cost-management)
+      [Cluster and workload operations](#cluster-and-workload-operations)\
+      [Monitor and collect logs and metrics](#monitor-and-collect-logs-and-metrics)\
+      [Cost management](#cost-management)
     :::column-end:::
 :::row-end:::
 
