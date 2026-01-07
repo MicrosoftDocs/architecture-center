@@ -12,7 +12,7 @@ items:
   - name: Deployment options
     href: landing-zones/landing-zone-deploy.md
   - name: Subscription vending implementation
-    href: landing-zones/subscription-vending.yml
+    href: landing-zones/subscription-vending.md
 - name: Application architecture fundamentals
   items:
   - name: Introduction
