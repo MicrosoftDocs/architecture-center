@@ -33,19 +33,19 @@ If the business requirements demand a higher composite SLO or zero downtime in c
 
 One approach is to define a secondary path with alternate services, which becomes the primary path when Azure Front Door is unavailable. Don't treat feature parity with Azure Front Door as a strict requirement. Prioritize features that you absolutely need for business continuity purposes, even potentially running in a limited capacity.
 
-Multiple strategies can achieve high availability in web workloads. The following approach provides a straightforward, manual emergency solution that lets you quickly fail over during an outage and restore traffic to Azure Front Door after you confirm service health.
+Multiple strategies can achieve high availability in web workloads. The following approach provides a straightforward, manual emergency solution that lets you quickly fail over during an outage and restore traffic to Azure Front Door after you verify that the service is healthy.
 
 This article describes strategies for global routing. These strategies use Azure Traffic Manager to direct traffic to an alternate router when Azure Front Door isn't available.
 
 ## Approach
 
-This architecture diagram shows a general approach with multiple redundant traffic paths.
+This architecture diagram shows a general approach that has multiple redundant traffic paths.
 
 :::image type="content" source="./media/overview/alternate-traffic-paths.svg" alt-text="Diagram that shows Traffic Manager directing requests to Azure Front Door or to another service, and then to the origin server." border="false":::
 
 This approach introduces several components and provides guidance that helps you improve how you deliver your web applications:
 
-1. [Traffic Manager](/azure/traffic-manager/traffic-manager-overview) directs traffic to Azure Front Door or to your chosen alternative service.
+- [Traffic Manager](/azure/traffic-manager/traffic-manager-overview) directs traffic to Azure Front Door or to your chosen alternative service.
 
     Traffic Manager is a Domain Name System (DNS)-based global load balancer. Your domain's CNAME record points to Traffic Manager, which determines the destination based on how you configure its [routing method](/azure/traffic-manager/traffic-manager-routing-methods). For a mission-critical architecture, we recommend the *weighted* routing method. You can configure this method to send some or all of your traffic to different endpoints. In normal operations, all your traffic typically routes through Azure Front Door.
     
@@ -53,7 +53,7 @@ This approach introduces several components and provides guidance that helps you
 
     You can also use a different global traffic routing system. But Traffic Manager works well for many situations.
 
-1. You have two ingress paths:
+- You have two ingress paths:
 
     - Azure Front Door provides the primary path. In normal operations, it processes and routes all or most of your application traffic.
 
@@ -61,7 +61,7 @@ This approach introduces several components and provides guidance that helps you
 
     The specific service that you select for the secondary router depends on many factors. You might choose to use Azure-native services, or external services. In these articles we provide Azure-native options where possible, to avoid adding additional operational complexity to the solution. If you use external services, you need to use multiple control planes to manage your solution.
 
-1. Your origin application servers need to be ready to accept traffic from either service. Consider how you [secure traffic to your origin](#origin-security), and what responsibilities Azure Front Door and other upstream services provide. Ensure that your application can handle traffic from whichever path your traffic flows through.
+- Your origin application servers need to be ready to accept traffic from either service. Consider how you [secure traffic to your origin](#origin-security), and what responsibilities Azure Front Door and other upstream services provide. Ensure that your application can handle traffic from whichever path your traffic flows through.
 
 ### Tradeoffs
 
