@@ -226,12 +226,15 @@ If your monitoring systems detect that Azure Front Door is unavailable, reconfig
 
 Multiple factors influence the amount of time that the outage affects your traffic, including the following factors:
 
-- The time to live (TTL) on your DNS records
+- DNS record TTL values
 
-- Which monitoring system (Traffic Manager or your own custom monitoring) detects the outage first
-- How frequently you run health checks
-- How many health checks must fail before the system reroutes traffic
-- How long clients and upstream DNS servers cache Traffic Manager DNS responses
+- Outage‑detection source (Traffic Manager or custom monitoring)
+
+- Health-check frequency
+
+- Health-check failure threshold before the system reroutes traffic
+
+- Client and upstream DNS-cache duration for Traffic Manager responses
 
 You also need to determine which of those factors are within your control and whether upstream services beyond your control might affect user experience. For example, even if you use low TTL on your DNS records, upstream DNS caches might still serve stale responses for longer than they should. This behavior might exacerbate the effects of an outage or make it seem like your application is unavailable, even when Traffic Manager has already switched to sending requests to the alternative traffic path.
 
@@ -291,15 +294,12 @@ Principal authors:
 
 ## Next steps
 
-Review the next articles in this series for specific guidance about these scenarios:
-
-> [!div class="nextstepaction"]
-> [Mission-critical global HTTP ingress](mission-critical-global-http-ingress.md)
-
-> [!div class="nextstepaction"]
-> [Mission-critical global content delivery](mission-critical-content-delivery.md)
+- [Architecture best practices for Azure Front Door](/azure/well-architected/service-guides/azure-front-door)
+- [Architecture best practices for Traffic Manager](/azure/well-architected/service-guides/azure-traffic-manager)
 
 ## Related resources
 
-- [Architecture best practices for Azure Front Door](/azure/well-architected/service-guides/azure-front-door)
-- [Architecture best practices for Traffic Manager](/azure/well-architected/service-guides/azure-traffic-manager)
+- [Mission-critical global HTTP ingress](mission-critical-global-http-ingress.md)
+- [Mission-critical global content delivery](mission-critical-content-delivery.md)
+
+
