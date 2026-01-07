@@ -5234,7 +5234,7 @@
 				</v:custProps>
 				<v:userDefs>
 					<v:ud v:nameU="visDescription"
-							v:val="VT4(Use to add a a database, data source, or data storage device to your system diagram.)"/>
+							v:val="VT4(Use to add a database, data source, or data storage device to your system diagram.)"/>
 					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
 				</v:userDefs>
 				<path d="M0 535.41 L0 558.06 A12.7992 3.19981 -180 1 0 25.6 558.06 L25.6 535.41 A12.7992 3.19981 -180 0 0 -0 535.41

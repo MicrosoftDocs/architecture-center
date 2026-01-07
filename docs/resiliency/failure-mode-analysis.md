@@ -14,64 +14,19 @@ Failure mode analysis (FMA) is a process for building reliability into a system 
 
 Here is the general process to conduct an FMA:
 
-1. Identify all of the components in the system. Include external dependencies, such as identity providers, third-party services, and so on.
-2. For each component, identify potential failures that could occur. A single component might have more than one failure mode. For example, you should consider read failures and write failures separately, because the impact and possible mitigation steps will be different.
-3. Rate each failure mode according to its overall risk. Consider these factors:
+1. Identify all of the components in the system. Include external dependencies, such as identity providers and third-party services.
+1. For each component, identify potential failures that could occur. A single component might have more than one failure mode. For example, you should consider read failures and write failures separately, because the impact and possible mitigation steps will be different.
+1. Rate each failure mode according to its overall risk. Consider these factors:
 
    - What is the likelihood of the failure? Is it relatively common? Extremely rare? You don't need exact numbers; the purpose is to help rank the priority.
    - What is the impact on the application, in terms of availability, data loss, monetary cost, and business disruption?
 
-4. For each failure mode, determine how the application will respond and recover. Consider tradeoffs in cost and application complexity.
+1. For each failure mode, determine how the application will respond and recover. Consider tradeoffs in cost and application complexity.
 
 As a starting point for your FMA process, this article contains a catalog of potential failure modes and their mitigation steps. The catalog is organized by technology or Azure service, plus a general category for application-level design. The catalog isn't exhaustive, but covers many of the core Azure services.
 
 > [!NOTE]
 > Failures should be distinguished from errors. A failure is an unexpected event within a system that prevents it from continuing to function normally. For example, a hardware malfunction that causes a network partition is a failure. Usually, failures require intervention or specific design for that class of failures. In contrast, errors are an expected part of normal operations, are dealt with immediately and the system will continue to operate at the same capacity following an error. For example, errors discovered during input validation can be handled through business logic.
-
-## App Service
-
-### App Service app shuts down.
-
-**Detection**. Possible causes:
-
-- Expected shutdown
-
-  - An operator shuts down the application; for example, using the Azure portal.
-  - The app was unloaded because it was idle. (Only if the `Always On` setting is disabled.)
-
-- Unexpected shutdown
-
-  - The app crashes.
-  - An App Service VM instance becomes unavailable.
-
-Application_End logging will catch the app domain shutdown (soft process crash) and is the only way to catch the application domain shutdowns.
-
-**Recovery:**
-
-- If the shutdown was expected, use the application's shutdown event to shut down gracefully. For example, in ASP.NET, use the `Application_End` method.
-- If the application was unloaded while idle, it is automatically restarted on the next request. However, you'll incur the "cold start" cost.
-- To prevent the application from being unloaded while idle, enable the `Always On` setting in the web app. See [Configure web apps in Azure App Service][app-service-configure].
-- To prevent an operator from shutting down the app, set a resource lock with `ReadOnly` level. See [Lock resources with Azure Resource Manager][rm-locks].
-- If the app crashes or an App Service VM becomes unavailable, App Service automatically restarts the app.
-
-**Diagnostics**. Application logs and web server logs. See [Enable diagnostics logging for web apps in Azure App Service][app-service-logging].
-
-### A particular user repeatedly makes bad requests or overloads the system.
-
-**Detection**. Authenticate users and include user ID in application logs.
-
-**Recovery:**
-
-- Use [Azure API Management][api-management] to throttle requests from the user. See [Advanced request throttling with Azure API Management][api-management-throttling]
-- Block the user.
-
-**Diagnostics**. Log all authentication requests.
-
-### A bad update was deployed.
-
-**Detection**. Monitor the application health through the Azure portal (see [Monitor Azure web app performance][app-insights-web-apps]) or implement the [health endpoint monitoring pattern][health-endpoint-monitoring-pattern].
-
-**Recovery:**. Use multiple [deployment slots][app-service-slots] and roll back to the last-known-good deployment. For more information, see [Basic web application][ra-web-apps-basic].
 
 <a name='azure-active-directory'></a>
 
@@ -82,15 +37,15 @@ Application_End logging will catch the app domain shutdown (soft process crash) 
 **Detection**. Possible failure modes include:
 
 1. Microsoft Entra ID isn't available, or can't be reached due to a network problem. Redirection to the authentication endpoint fails, and the OpenID Connect middleware throws an exception.
-2. Microsoft Entra tenant does not exist. Redirection to the authentication endpoint returns an HTTP error code, and the OpenID Connect middleware throws an exception.
-3. User can't authenticate. No detection strategy is necessary; Microsoft Entra ID handles login failures.
+1. Microsoft Entra tenant does not exist. Redirection to the authentication endpoint returns an HTTP error code, and the OpenID Connect middleware throws an exception.
+1. User can't authenticate. No detection strategy is necessary; Microsoft Entra ID handles login failures.
 
 **Recovery:**
 
 1. Catch unhandled exceptions from the middleware.
-2. Handle `AuthenticationFailed` events.
-3. Redirect the user to an error page.
-4. User retries.
+1. Handle `AuthenticationFailed` events.
+1. Redirect the user to an error page.
+1. User retries.
 
 ## Azure AI Search
 
@@ -304,8 +259,8 @@ For more information, see [Overview of Service Bus dead-letter queues][sb-dead-l
 **Recovery:**
 
 1. Retry the operation, to recover from transient failures. The [retry policy][Storage.RetryPolicies] in the client SDK handles this automatically.
-2. Implement the Circuit Breaker pattern to avoid overwhelming storage.
-3. If N retry attempts fail, perform a graceful fallback. For example:
+1. Implement the Circuit Breaker pattern to avoid overwhelming storage.
+1. If N retry attempts fail, perform a graceful fallback. For example:
 
    - Store the data in a local cache, and forward the writes to storage later, when the service becomes available.
    - If the write action was in a transactional scope, compensate the transaction.
@@ -319,8 +274,8 @@ For more information, see [Overview of Service Bus dead-letter queues][sb-dead-l
 **Recovery:**
 
 1. Retry the operation, to recover from transient failures. The [retry policy][Storage.RetryPolicies] in the client SDK handles this automatically.
-2. For RA-GRS storage, if reading from the primary endpoint fails, try reading from the secondary endpoint. The client SDK can handle this automatically. See [Azure Storage replication][storage-replication].
-3. If *N* retry attempts fail, take a fallback action to degrade gracefully. For example, if a product image can't be retrieved from storage, show a generic placeholder image.
+1. For RA-GRS storage, if reading from the primary endpoint fails, try reading from the secondary endpoint. The client SDK can handle this automatically. See [Azure Storage replication][storage-replication].
+1. If *N* retry attempts fail, take a fallback action to degrade gracefully. For example, if a product image can't be retrieved from storage, show a generic placeholder image.
 
 **Diagnostics**. Use [storage metrics][storage-metrics].
 
@@ -358,26 +313,12 @@ For more information, see [Overview of Service Bus dead-letter queues][sb-dead-l
 
 **Diagnostics**. Use [Azure Activity Logs][azure-activity-logs].
 
-## WebJobs
-
-### Continuous job stops running when the SCM host is idle.
-
-**Detection**. Pass a cancellation token to the WebJob function. For more information, see [Graceful shutdown][web-jobs-shutdown].
-
-**Recovery**. Enable the `Always On` setting in the web app. For more information, see [Run Background tasks with WebJobs][web-jobs].
-
 ## Next steps
 
 See [Identify dependencies](/azure/well-architected/reliability/failure-mode-analysis#identify-dependencies) in the Azure Well-Architected Framework. Building failure recovery into the system should be part of the architecture and design phases from the beginning to avoid the risk of failure.
 
 <!-- links -->
 
-[api-management]: /azure/api-management
-[api-management-throttling]: /azure/api-management/api-management-sample-flexible-throttling
-[app-insights-web-apps]: /azure/application-insights/app-insights-azure-web-apps
-[app-service-configure]: /azure/app-service-web/web-sites-configure
-[app-service-logging]: /azure/app-service-web/web-sites-enable-diagnostic-log
-[app-service-slots]: /azure/app-service-web/web-sites-staged-publishing
 [auto-rest-client-retry]: https://github.com/Azure/autorest/tree/main/docs
 [azure-activity-logs]: /azure/monitoring-and-diagnostics/monitoring-overview-activity-logs
 [azure-alerts]: /azure/monitoring-and-diagnostics/insights-alerts-portal
@@ -385,11 +326,9 @@ See [Identify dependencies](/azure/well-architected/reliability/failure-mode-ana
 [cassandra-error-handling]: https://www.datastax.com/dev/blog/cassandra-error-handling-done-right
 [circuit-breaker]: /azure/architecture/patterns/circuit-breaker
 [cosmos-db-multi-region]: /azure/cosmos-db/tutorial-global-distribution-sql-api
-[health-endpoint-monitoring-pattern]: ../patterns/health-endpoint-monitoring.yml
 [lb-monitor]: /azure/load-balancer/load-balancer-monitor-log
 [lb-probe]: /azure/load-balancer/load-balancer-custom-probe-overview#types
 [QuotaExceededException]: /dotnet/api/microsoft.servicebus.messaging.quotaexceededexception
-[ra-web-apps-basic]: ../web-apps/app-service/architectures/basic-web-app.yml
 [rm-locks]: /azure/azure-resource-manager/resource-group-lock-resources/
 [sb-dead-letter-queue]: /azure/service-bus-messaging/service-bus-dead-letter-queues/
 [sb-georeplication-sample]: https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/GeoReplication
@@ -408,5 +347,3 @@ See [Identify dependencies](/azure/well-architected/reliability/failure-mode-ana
 [storage-replication]: /azure/storage/storage-redundancy
 [Storage.RetryPolicies]: /dotnet/api/microsoft.azure.storage.retrypolicies
 [sys.event_log]: /sql/relational-databases/system-catalog-views/sys-event-log-azure-sql-database
-[web-jobs]: /azure/app-service-web/web-sites-create-web-jobs
-[web-jobs-shutdown]: /azure/app-service/webjobs-sdk-how-to#cancellation-tokens

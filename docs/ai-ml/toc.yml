@@ -34,18 +34,18 @@ items:
           href: ../example-scenario/ai/extract-object-text.yml
       - name: Workflow automation
         items:
-        - name: Build a multiple-agent workflow automation solution with Semantic Kernel
+        - name: Build a multiple-agent workflow automation solution by using Semantic Kernel
           href: idea/multiple-agent-workflow-automation.yml
     - name: Design architectures
       items:
       - name: Chat with data
         items:
         - name: Basic Microsoft Foundry chat reference architecture
-          href: architecture/basic-azure-ai-foundry-chat.yml
+          href: architecture/basic-microsoft-foundry-chat.yml
         - name: Baseline Microsoft Foundry chat reference architecture
-          href: architecture/baseline-azure-ai-foundry-chat.yml
+          href: architecture/baseline-microsoft-foundry-chat.yml
         - name: Baseline Microsoft Foundry chat architecture in an Azure landing zone
-          href: architecture/baseline-azure-ai-foundry-landing-zone.yml
+          href: architecture/baseline-microsoft-foundry-landing-zone.yml
       - name: Document processing
         items:
         - name: Automate document classification

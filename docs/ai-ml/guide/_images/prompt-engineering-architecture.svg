@@ -551,15 +551,14 @@
 						class="st34" v:langID="1033">s</tspan>tores</text>		</g>
 		<g id="shape79-166" v:mID="79" v:groupContext="shape" transform="translate(610.691,-149.302)">
 			<title>Sheet.79</title>
-			<desc>Azure OpenAI Service</desc>
+			<desc>Azure OpenAI</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(20000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="36.9113" cy="210.972" width="73.83" height="26.0176"/>
 			<rect x="0" y="197.963" width="73.8226" height="26.0176" class="st31"/>
-			<text x="4" y="207.97" class="st33" v:langID="2052"><v:paragraph/><v:tabList/>Azure OpenAI <tspan x="4" dy="1.2em"
-						class="st34">Service</tspan></text>		</g>
+			<text x="4" y="207.97" class="st33" v:langID="2052"><v:paragraph/><v:tabList/>Azure OpenAI</text>		</g>
 		<g id="shape82-170" v:mID="82" v:groupContext="shape" transform="translate(492.163,-153.071)">
 			<title>Sheet.82</title>
 			<desc>Prompt</desc>
