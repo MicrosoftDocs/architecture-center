@@ -30,7 +30,9 @@ J. The Processor Resource / System Manager (PR/SM) hypervisor performs direct ha
 
 ## Migrated Azure architecture
 
-:::image type="content" source="media/cloudframe-refactor-after.svg" alt-text="Diagram that shows the architecture after migration to Azure." lightbox="media/cloudframe-refactor-after.svg" border="false":::
+:::image type="complex" source="media/cloudframe-refactor-after.svg" alt-text="Diagram that shows the architecture after migration to Azure." lightbox="media/cloudframe-refactor-after.svg":::
+   The diagram shows 
+:::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/cloudframe-refactor-to-azure-architecture.vsdx) of the architectures in this article.*
 

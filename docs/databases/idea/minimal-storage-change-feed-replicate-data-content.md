@@ -2,11 +2,13 @@ This article presents a high-availability solution for a web application dealing
 
 ## Architecture
 
-[ ![Architecture of a resilient system that uses two types of storage to reduce costs.](_images/minimal-storage-change-feed-replicate-data.svg)](_images/minimal-storage-change-feed-replicate-data.svg#lightbox)
+:::image type="complex" source="_images/minimal-storage-change-feed-replicate-data.svg" alt-text="Architecture of a resilient system that uses two types of storage to reduce costs." lightbox="_images/minimal-storage-change-feed-replicate-data.svg" border="false":::
+   Step 1 presents users and Microsoft Entra ID icons, with an arrow from users to Azure Front Door and an arrow from Entra ID to App Service to show authentication and access. Step 2 places Azure DNS and Azure Front Door, with arrows from DNS and users to Front Door, and an arrow from Front Door to App Service to show traffic routing and failover. Step 3 presents App Service, with arrows from App Service to browser clients and RESTful web APIs to show web hosting. Step 4 connects web APIs to Azure Functions, with an arrow to Azure Queue Storage to show delegation of background tasks. Step 5 presents Azure Queue Storage with an arrow to Azure Functions to show task triggering. Step 6 places Azure Managed Redis, with an arrow from Redis to Functions and web apps to show caching. Step 7 presents Azure Cosmos DB, with an arrow from Functions to Cosmos DB to show recent data storage. Step 8 presents Cosmos DB with a change feed arrow to a second Azure Functions icon. Step 9 connects the second Functions icon to Azure Table Storage with an arrow to show replication of changes. Step 10 presents Table Storage to show long-term, low-cost storage. The bottom section presents the Active region, which groups the main data services and their relationships.
+:::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/minimal-storage-change-feed-replicate-data.vsdx) of this architecture.*
 
-## Dataflow
+## Data flow
 
 1. The client authenticates with Microsoft Entra ID and is granted access to web applications hosted on Azure App Service.
 1. Azure Front Door, a firewall and layer-7 load balancer, switches user traffic to the standby region if there's a regional outage.

@@ -5,7 +5,7 @@ Moodle is an open-source learning management system that requires high-throughpu
 For the best user experience, Moodle requires consistent low-latency access to scalable shared storage to meet the demands of office and home workers who use the service. Virtual Machine Scale Sets and Azure NetApp Files capacity pools and volumes can be sized up and down as the demand changes.
 
 :::image type="complex" source="media/azure-netapp-files-moodle-zonal.svg" alt-text="Architecture diagram of Azure NetApp Files for Moodle with cross-zone replication." lightbox="media/azure-netapp-files-moodle-zonal.svg" border="false":::
-    A diagram that illustrates the single-region Azure NetApp Files Moodle deployment. Inside of the same Azure region box, there's a second zone that includes disaster recovery versions of Azure NetApp Files. The Azure Traffic Manager routes students to the application in zone one or zone two.
+  A diagram that illustrates the single-region Azure NetApp Files Moodle deployment. Inside of the same Azure region box, there's a second zone that includes disaster recovery versions of Azure NetApp Files. The Azure Traffic Manager routes students to the application in zone one or zone two.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-netapp-files-moodle-zonal.vsdx) of this architecture.*
