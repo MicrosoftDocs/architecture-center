@@ -80,7 +80,7 @@ Data plane isolation guarantees that pods and workloads of distinct tenants are 
 
 When you run multitenant, microservices-based applications in Kubernetes, you often want to control which components can communicate with each other. By default, all pods in an AKS cluster can send and receive traffic without restrictions, including other applications that share the same cluster. To improve security, you can define network rules to control the flow of traffic. Network policy is a Kubernetes specification that defines access policies for communication between pods. Use [network policies][network-policies] to segregate communications between tenant applications that share the same cluster.
 
-AKS provides three ways to implement network policies:
+AKS provides these ways to implement network policies:
 
 - Azure has its implementation for network policies, called Azure network policies.
 - [Calico network policies](https://projectcalico.docs.tigera.io/security/calico-network-policy) is an open-source network and network security solution founded by [Tigera](https://www.tigera.io).
@@ -98,7 +98,7 @@ AKS offers an [Istio-based service mesh add-on](/azure/aks/istio-about) that pro
 
 **Identity and authentication**: Service mesh provides mutual TLS (mTLS) for automatic encryption of communication between tenant workloads. Each service receives a cryptographic identity, ensuring that only authenticated services can communicate. This authentication method prevents tenant workloads from impersonating services in other tenant namespaces.
 
-**Authorization policies**: You can define fine-grained authorization policies that control which services can communicate with each other based on service identity, namespace, or custom attributes. For example, you can enforce that tenant A's frontend can only call tenant A's backend services, preventing cross-tenant service access.
+**Authorization policies**: Define fine-grained authorization policies that control which services can communicate with each other based on service identity, namespace, or custom attributes. For example, you can enforce that tenant A's frontend can only call tenant A's backend services. This prevents cross-tenant service access.
 
 **Traffic management**: Service mesh enables advanced traffic routing capabilities useful for multitenant deployments, including:
 
@@ -113,11 +113,11 @@ AKS offers an [Istio-based service mesh add-on](/azure/aks/istio-about) that pro
 
 **Important considerations for multitenancy**:
 
-- Service mesh adds additional resource overhead per pod due to sidecar proxies. Plan node sizing and resource quotas accordingly for tenant namespaces.
+- Service mesh adds extra resource overhead per pod due to sidecar proxies. Plan node sizing and resource quotas accordingly for tenant namespaces.
 - Apply Istio authorization policies at the namespace level to enforce tenant isolation boundaries.
 - Use separate Istio ingress gateways per tenant tier (basic, standard, premium) to provide different levels of traffic management and security.
 
-For more information about deploying and configuring the Istio service mesh add-on, see [Deploy Istio-based service mesh add-on for AKS](/azure/aks/istio-deploy-addon).
+For more information, see [deploy Istio-based service mesh add-on for AKS](/azure/aks/istio-deploy-addon).
 
 ### Storage isolation
 
@@ -287,7 +287,7 @@ Workload identity is a **critical security requirement** for multitenant AKS clu
 In a multitenant cluster, workload identity prevents several critical security risks:
 
 - **Credential sharing**: Without workload identity, tenant applications might share service principals or store credentials in secrets, creating opportunities for cross-tenant access.
-- **Privilege escalation**: A compromised tenant workload with access to shared credentials could access other tenants' Azure resources.
+- **Privilege escalation**: A compromised tenant workload with access to shared credentials can access other tenants' Azure resources.
 - **Credential exposure**: Kubernetes secrets containing service principal credentials are vulnerable to accidental exposure or unauthorized access.
 
 Workload identity integrates with Kubernetes-native service accounts. When you create a namespace for a tenant, you create a dedicated Kubernetes service account and annotate it with the client ID of that tenant's Azure managed identity. The AKS cluster uses its OIDC issuer endpoint to federate with Microsoft Entra ID, establishing a trust relationship. When a pod runs using the annotated service account, it automatically receives a short-lived token that can be exchanged for a Microsoft Entra access token, allowing secure access to Azure resources.
@@ -296,7 +296,7 @@ For detailed implementation steps and code examples, see [Use a Microsoft Entra 
 
 **Replacing legacy pod-managed identity:**
 
-Microsoft Entra pod-managed identity (preview) was deprecated in October 2022 and supportin AKS ended in September 2025. Workload identity is the recommended replacement and offers significant advantages:
+Microsoft Entra pod-managed identity (preview) was deprecated in October 2022 and support in AKS ended in September 2025. Workload identity is the recommended replacement and offers significant advantages:
 
 - No additional components or agents required (pod-managed identity required MIC and NMI daemonsets)
 - Better scalability and performance
@@ -332,13 +332,13 @@ There are several benefits to using Azure Dedicated Host with AKS, including:
 
 Azure Dedicated Host can help SaaS providers ensure tenant applications meet regulatory, industry, and governance compliance requirements for securing sensitive information. For more information, see [Add Azure Dedicated Host to an AKS cluster](/azure/aks/use-azure-dedicated-hosts).
 
-### Node Auto-provisioning
+### Node autoprovisioning
 
 Node Auto-provisioning (NAP) is a managed AKS feature that dynamically provisions and manages nodes based on pending pod requirements. NAP is a fully managed implementation of Karpenter on AKS. NAP watches for pods that the Kubernetes scheduler marks as unschedulable and automatically creates appropriately configured nodes to run those workloads. This capability is particularly valuable for multitenant deployments where different tenants have diverse infrastructure requirements.
 
-**Benefits for multitenancy**: Node Auto-provisioning improves multitenant cluster operations by:
+**Benefits for multitenancy**: Node autoprovisioning improves multitenant cluster operations by:
 
-- **Dynamic tenant-specific node types**: Automatically provision the right VM size for each tenant's workload requirements. For example, if Tenant A deploys GPU-intensive workloads while Tenant B runs memory-intensive applications, NAP automatically creates GPU-optimized nodes for Tenant A and memory-optimized nodes for Tenant B without manual intervention.
+- **Dynamic tenant-specific node types**: NAP automatically provisions the appropriate VM size for each tenant's workload requirements. For example, if Tenant A deploys GPU-intensive workloads while Tenant B runs memory-intensive applications, NAP automatically creates GPU-optimized nodes for Tenant A and memory-optimized nodes for Tenant B without manual intervention.
 
 - **Cost optimization**: Tenants only consume compute resources when they have active workloads. NAP scales down or removes nodes when tenant pods are deleted, ensuring you don't pay for idle capacity dedicated to specific tenant requirements.
 
@@ -346,18 +346,18 @@ Node Auto-provisioning (NAP) is a managed AKS feature that dynamically provision
 
 - **Simplified node pool management**: Instead of pre-provisioning multiple node pools for different tenant tiers (basic, standard, premium) with different VM sizes, NAP provisions nodes on-demand based on actual tenant workload requirements.
 
-- **Better resource utilization**: NAP's intelligent bin-packing across dynamically created nodes reduces wasted capacity compared to static node pools, which is especially beneficial when running many small tenant workloads with varying resource profiles.
+- **Better resource utilization**: NAP's intelligent bin-packing across dynamically created nodes reduces wasted capacity compared to static node pools. This is especially beneficial when running many small tenant workloads with varying resource profiles.
 
-**Implementation for multitenant clusters**: Enable Node Auto-provisioning on your AKS cluster and define workload requirements using Kubernetes-native mechanisms:
+**Implementation for multitenant clusters**: Enable Node autoprovisioning on your AKS cluster and define workload requirements using Kubernetes-native mechanisms:
 
 - Use pod resource requests and limits to specify CPU and memory requirements for tenant workloads
 - Apply node selectors or node affinity rules to tenant pods when specific VM families are required
 - Use topology spread constraints to control how tenant pods are distributed across availability zones
 - Apply taints and tolerations to ensure tenant workloads only run on appropriately provisioned nodes
 
-Node Auto-provisioning on AKS is built on the open-source [Karpenter][karpenter] project, providing a managed experience with lifecycle management, upgrades, and Azure-specific optimizations handled by Microsoft. Most users should use Node Auto-provisioning as a managed add-on. For more information, see [Node autoprovisioning](/azure/aks/node-autoprovision).
+Node autoprovisioning on AKS is built on the open-source [Karpenter][karpenter] project, providing a managed experience with lifecycle management, upgrades, and Azure-specific optimizations handled by Microsoft. Most users should use node autoprovisioning as a managed add-on. For more information, see [Node autoprovisioning](/azure/aks/node-autoprovision).
 
-**Advanced scenarios**: If you require advanced customization beyond what Node Auto-provisioning provides, you can self-host Karpenter directly on AKS. This approach provides full control over Karpenter's configuration but requires you to manage the lifecycle and upgrades yourself. For more information, see the [AKS Karpenter provider](https://github.com/Azure/karpenter-provider-azure).
+**Advanced scenarios**: If you require advanced customization beyond what node autoprovisioning provides, you can self-host Karpenter directly on AKS. This approach provides full control over Karpenter's configuration but requires you to manage the lifecycle and upgrades yourself. For more information, see the [AKS Karpenter provider](https://github.com/Azure/karpenter-provider-azure).
 
 [karpenter]: https://karpenter.sh/
 
@@ -394,17 +394,17 @@ The following sections describe networking best practices for multitenant soluti
 
 ### Network topology for multitenant clusters
 
-When designing network topology for multitenant AKS deployments, the choice between Azure CNI standard mode and Azure CNI Overlay significantly impacts your ability to scale tenant workloads and manage IP address space efficiently.
+When you design a network topology for multitenant AKS deployments, your choice between Azure CNI standard mode and Azure CNI Overlay affects how you scale tenant workloads and manage IP address space.
 
-**IP address planning for multitenancy**: Traditional Azure CNI assigns VNet IP addresses to both nodes and pods, which can quickly exhaust available IP space in large multitenant deployments. If you're deploying:
+**IP address planning for multitenancy**: Traditional Azure CNI assigns VNet IP addresses to both nodes and pods. This approach can quickly exhaust available IP space in large multitenant deployments. If you're deploying:
 
 - Multiple dedicated clusters (one per tenant or per tenant tier)
 - Shared clusters with high pod density across many tenant namespaces
 - Multiple environments per tenant (dev, staging, production)
 
-You should strongly consider Azure CNI Overlay to avoid IP address exhaustion. Azure CNI Overlay assigns VNet IPs only to nodes while pods use a separate overlay CIDR, allowing you to deploy significantly more tenant workloads within the same VNet address space.
+Consider using Azure CNI Overlay to avoid IP address exhaustion. Azure CNI Overlay assigns VNet IPs only to nodes while pods use a separate overlay CIDR. This approach allows you to deploy significantly more tenant workloads within the same VNet address space.
 
-**Pod CIDR reusability across tenant clusters**: When implementing an automated single-tenant deployment model (dedicated cluster per tenant), Azure CNI Overlay allows you to use the same pod CIDR (e.g., 10.244.0.0/16) across all tenant clusters without conflict. This dramatically simplifies infrastructure-as-code templates and removes the need to manage unique, non-overlapping pod CIDRs for each tenant's cluster.
+**Pod CIDR reusability across tenant clusters**: When you implement an automated single-tenant deployment model (dedicated cluster per tenant), Azure CNI Overlay allows you to use the same pod CIDR (for example, 10.244.0.0/16) across all tenant clusters without conflict. This feature significantly simplifies infrastructure-as-code templates and removes the need to manage unique, non-overlapping pod CIDRs for each tenant's cluster.
 
 **When to use standard Azure CNI**: Use standard Azure CNI for multitenant scenarios when:
 
@@ -414,12 +414,12 @@ You should strongly consider Azure CNI Overlay to avoid IP address exhaustion. A
 
 **When to use Azure CNI Overlay**: Use Azure CNI Overlay for multitenant scenarios when:
 
-- Deploying multiple AKS clusters in the same VNet (common for per-tenant or per-tier cluster models)
-- Running high pod density in shared clusters with many tenant namespaces
+- You're deploying multiple AKS clusters in the same VNet (common for per-tenant or per-tier cluster models)
+- You're running high pod density in shared clusters with many tenant namespaces
 - IP address space is constrained or you need to reserve VNet IPs for other Azure resources
 - You need to standardize infrastructure templates across many tenant deployments
 
-**Tenant isolation considerations**: Azure CNI Overlay maintains the same tenant isolation capabilities as standard Azure CNI. All three network policy engines (Azure Network Policies, Calico, and Azure CNI Powered by Cilium) work with Azure CNI Overlay, allowing you to enforce namespace-level network isolation between tenants regardless of which topology you choose.
+**Tenant isolation considerations**: Azure CNI Overlay maintains the same tenant isolation capabilities as standard Azure CNI. All three network policy engines (Azure Network Policies, Calico, and Azure CNI Powered by Cilium) work with Azure CNI Overlay. You can enforce namespace-level network isolation between tenants regardless of which topology you choose.
 
 **Outbound traffic patterns**: With Azure CNI Overlay, tenant pod traffic is SNAT'd to the node IP when leaving the cluster. If you need to identify traffic by tenant for external systems or firewall rules, implement tenant-specific egress controls using:
 
@@ -459,11 +459,11 @@ For more information about how you can configure Private Link for an Azure-hoste
 
 A [reverse proxy](https://en.wikipedia.org/wiki/Reverse_proxy) is a load balancer and an [API gateway](/azure/architecture/microservices/design/gateway) that is typically used in front of tenant applications to secure, filter, and dispatch incoming requests. Popular reverse proxies support features such as load balancing, SSL termination, and layer 7 routing. Reverse proxies are typically implemented to help increase security, performance, and reliability. Popular reverse proxies for Kubernetes include the following implementations:
 
-- [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx) is a popular reverse proxy server that supports advanced features, such as load balancing, SSL termination, and layer 7 routing. Note that the Ingres NGINX project is due to retire in March 2026.
+- [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx) is a popular reverse proxy server that supports advanced features, such as load balancing, SSL termination, and layer 7 routing. Note that the Ingress NGINX project is due to retire in March 2026.
 - [Traefik Kubernetes Ingress provider](https://doc.traefik.io/traefik/providers/kubernetes-ingress) is a Kubernetes Ingress controller that can be used to manage access to cluster services by supporting the ingress specification.
 - [HAProxy Kubernetes Ingress Controller](https://www.haproxy.com/documentation/kubernetes/latest) is yet another reverse proxy for Kubernetes, which supports standard features such as TLS termination, URL-path-based routing, and more.
 - [Azure Application Gateway for Containers](/azure/application-gateway/for-containers/overview) is a managed application delivery controller (ADC) as a service that provides Layer 7 load balancing for AKS-hosted applications. It offers advanced routing capabilities, SSL termination, and web application firewall (WAF) features to protect tenant applications from common web vulnerabilities and attacks.
-- [Azure Application Gateway Ingress Controller (AGIC)](/azure/application-gateway/ingress-controller-overview) has been superseded by the [Azure Application Gateway for Containers](/azure/application-gateway/for-containers/overview). New deployments should use Azure Application Gateway for Containers instead of AGIC. Existing AGIC deployments can continue to be used, but you should plan to migrate to Azure Application Gateway for Containers.
+- [Azure Application Gateway Ingress Controller (AGIC)](/azure/application-gateway/ingress-controller-overview) is superseded by the [Azure Application Gateway for Containers](/azure/application-gateway/for-containers/overview). New deployments should use Azure Application Gateway for Containers instead of AGIC. You can use existing AGIC deployments, but you should plan to migrate to Azure Application Gateway for Containers.
 
 When you use an AKS-hosted reverse proxy to help secure and handle incoming requests to multiple tenant applications, consider the following recommendations:
 
