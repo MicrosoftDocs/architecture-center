@@ -86,7 +86,7 @@ AKS provides these ways to implement network policies:
 - [Calico network policies](https://projectcalico.docs.tigera.io/security/calico-network-policy) is an open-source network and network security solution founded by [Tigera](https://www.tigera.io).
 - [Azure CNI Powered by Cilium](/azure/aks/azure-cni-powered-by-cilium) is an eBPF-based networking solution that provides enhanced network policy performance and advanced capabilities including Layer 7 filtering (requires Kubernetes 1.29 or later).
 
-Azure network policies and Calico network policies both use Linux iptables to enforce the specified policies. Network policies are translated into sets of allowed and disallowed IP pairs, which are then programmed as iptables filter rules. In contrast, Azure CNI Powered by Cilium uses eBPF programs loaded into the Linux kernel for policy enforcement, providing improved performance and eliminating the overhead of iptables and kube-proxy. All three network policy options support both the [Azure CNI](/azure/aks/configure-azure-cni) network plugin and [Azure CNI Overlay](/azure/aks/azure-cni-overlay) mode.
+Azure network policies and Calico network policies both use Linux iptables as default to enforce the specified policies. Network policies are translated into sets of allowed and disallowed IP pairs, which are then programmed as iptables filter rules. In contrast, Azure CNI Powered by Cilium uses eBPF programs loaded into the Linux kernel for policy enforcement, providing improved performance and eliminating the overhead of iptables and kube-proxy, it is also possible to enable eBPF support for Calico. All three network policy options support both the [Azure CNI](/azure/aks/configure-azure-cni) network plugin and [Azure CNI Overlay](/azure/aks/azure-cni-overlay) mode.
 
 For more information, see [Secure traffic between pods using network policies in Azure Kubernetes Service](/azure/aks/use-network-policies), combined with the multitenant [Network isolation](https://kubernetes.io/docs/concepts/security/multi-tenancy/#network-isolation) topic in the Kubernetes documentation.
 
@@ -96,7 +96,7 @@ A service mesh provides advanced traffic management, security, and observability
 
 AKS offers an [Istio-based service mesh add-on](/azure/aks/istio-about) that provides managed lifecycle, scaling, and configuration of the Istio control plane. For multitenant scenarios, service mesh capabilities include:
 
-**Identity and authentication**: Service mesh provides mutual TLS (mTLS) for automatic encryption of communication between tenant workloads. Each service receives a cryptographic identity, ensuring that only authenticated services can communicate. This authentication method prevents tenant workloads from impersonating services in other tenant namespaces.
+**Identity and authentication**: Service mesh provides mutual TLS (mTLS) for automatic encryption and authentication of communication between services. Each service receives a cryptographic identity (based on its namespace and service account), which forms the foundation for enforcing tenant boundaries.
 
 **Authorization policies**: Define fine-grained authorization policies that control which services can communicate with each other based on service identity, namespace, or custom attributes. For example, you can enforce that tenant A's frontend can only call tenant A's backend services. This prevents cross-tenant service access.
 
@@ -411,7 +411,7 @@ When you design a network topology for multitenant AKS deployments, your choice 
 - Shared clusters with high pod density across many tenant namespaces
 - Multiple environments per tenant (dev, staging, production)
 
-Consider using Azure CNI Overlay to avoid IP address exhaustion. Azure CNI Overlay assigns VNet IPs only to nodes while pods use a separate overlay CIDR. This approach allows you to deploy significantly more tenant workloads within the same VNet address space.
+Consider using Azure CNI Overlay to significantly reduce the risk of VNet IP address exhaustion. Azure CNI Overlay assigns VNet IPs only to nodes while pods use a separate overlay CIDR. This approach allows you to deploy significantly more tenant workloads within the same VNet address space.
 
 **Pod CIDR reusability across tenant clusters**: When you implement an automated single-tenant deployment model (dedicated cluster per tenant), Azure CNI Overlay allows you to use the same pod CIDR (for example, 10.244.0.0/16) across all tenant clusters without conflict. This feature significantly simplifies infrastructure-as-code templates and removes the need to manage unique, non-overlapping pod CIDRs for each tenant's cluster.
 
