@@ -58,9 +58,9 @@ The goal of collecting data is to receive business approval and define the value
 
 ## Initiate platform automation
 
-The notification and data from the data collection tool should trigger the platform automation. The goal of platform automation is to create a JSON/YAML subscription parameter file, merge the file to the main branch, and deploy it with the IaC modules to create the subscription. The platform team should own and maintain the platform automation. The platform automation in the example implementation consists of the request pipeline, source control, and deployment pipeline (*see figure 2*).
+The notification and data from the data collection tool should trigger the platform automation. The goal of platform automation is to create a JSON/YAML subscription parameter file, merge the file to the main branch, and use the IaC modules to deploy the file to create the subscription. The platform team should own and maintain the platform automation. The platform automation in the example implementation consists of the request pipeline, source control, and deployment pipeline.
 
-**Use JSON or YAML files.** Use structured data files (JSON or YAML) to store the data to create a subscription. Document the structure of the file and make it extensible to support future needs. For example, the following JSON code snippet defines the subscription parameter values for one of the Bicep modules in GitHub.
+**Use JSON or YAML files.** Use structured data files like JSON or YAML to store the data to create a subscription. Document the structure of the file and make it extensible to support future needs. For example, the following JSON code snippet defines the subscription parameter values for one of the Bicep modules in GitHub.
 
 ```json
 {
@@ -81,12 +81,12 @@ The notification and data from the data collection tool should trigger the platf
 }
 ```
 
-*[See entire file](https://github.com/Azure/bicep-registry-modules/tree/main/avm/ptn/lz/sub-vending#example-3-using-only-defaults). For more examples, see [Bicep examples](https://github.com/Azure/bicep-registry-modules/tree/main/avm/ptn/lz/sub-vending#Usage-examples) and [Terraform examples](https://registry.terraform.io/modules/Azure/avm-ptn-alz-sub-vending/azure/latest/examples/complete)*
+*[See the entire file](https://github.com/Azure/bicep-registry-modules/tree/main/avm/ptn/lz/sub-vending#example-3-using-only-defaults). For more examples, see [Bicep examples](https://github.com/Azure/bicep-registry-modules/tree/main/avm/ptn/lz/sub-vending#Usage-examples) and [Terraform examples](https://registry.terraform.io/modules/Azure/avm-ptn-alz-sub-vending/azure/latest/examples/complete)*.
 
-**Use one file per subscription request.** The subscription is the unit of deployment in the subscription vending process, so each subscription request should have one dedicated subscription parameter file.
+**Use one file for each subscription request.** The subscription is the unit of deployment in the subscription vending process, so each subscription request should have one dedicated subscription parameter file.
 
 > [!IMPORTANT]
-> For Terraform implementations, use a dedicated state file per application landing zone subscription to improve plan and apply performance and reduce the blast radius of potential misconfigurations.
+> For Terraform implementations, use a dedicated state file for each application landing zone subscription to improve plan and apply performance and reduce the blast radius of potential misconfigurations.
 
 **Use a pull request system.** The Gitflow process that creates the subscription parameter file should automate the following steps:
 
