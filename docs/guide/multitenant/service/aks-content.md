@@ -84,7 +84,7 @@ AKS provides three ways to implement network policies:
 
 - Azure has its implementation for network policies, called Azure network policies.
 - [Calico network policies](https://projectcalico.docs.tigera.io/security/calico-network-policy) is an open-source network and network security solution founded by [Tigera](https://www.tigera.io).
-- - [Azure CNI Powered by Cilium](/azure/aks/azure-cni-powered-by-cilium) is an eBPF-based networking solution that provides enhanced network policy performance and advanced capabilities including Layer 7 filtering.
+- [Azure CNI Powered by Cilium](/azure/aks/azure-cni-powered-by-cilium) is an eBPF-based networking solution that provides enhanced network policy performance and advanced capabilities including Layer 7 filtering (requires Kubernetes 1.29 or later).
 
 Azure network policies and Calico network policies both use Linux iptables to enforce the specified policies. Network policies are translated into sets of allowed and disallowed IP pairs, which are then programmed as iptables filter rules. In contrast, Azure CNI Powered by Cilium uses eBPF programs loaded into the Linux kernel for policy enforcement, providing improved performance and eliminating the overhead of iptables and kube-proxy. All three network policy options support both the [Azure CNI](/azure/aks/configure-azure-cni) network plugin and [Azure CNI Overlay](/azure/aks/azure-cni-overlay) mode. For more information, see [Secure traffic between pods using network policies in Azure Kubernetes Service](/azure/aks/use-network-policies).
 
@@ -100,12 +100,20 @@ AKS offers an [Istio-based service mesh add-on](/azure/aks/istio-about) that pro
 
 **Authorization policies**: You can define fine-grained authorization policies that control which services can communicate with each other based on service identity, namespace, or custom attributes. For example, you can enforce that tenant A's frontend can only call tenant A's backend services, preventing cross-tenant service access.
 
-**Traffic management**: Service mesh enables advanced traffic routing capabilities useful for multitenant deployments, including:
+**Traffic management**: Service mesh enables advanced traffic routing capabilities that can support multitenant deployments when combined with proper tenant isolation patterns:
 
-- Per-tenant canary deployments and A/B testing without affecting other tenants
+- Canary deployments and A/B testing
 - Traffic splitting to gradually roll out updates to specific tenant namespaces
 - Request routing based on headers or other attributes to direct tenant traffic appropriately
 - Circuit breaking and retry policies to prevent cascading failures across tenant workloads
+
+Service mesh provides the traffic management primitives (routing, splitting, circuit breaking), but does not enforce tenant isolation by itself. To use these capabilities for multi-tenancy, you must implement tenant separation patterns such as:
+
+- Namespace-based tenant isolation
+- Consistent labeling strategies
+- Path-based or host-based routing rules
+- Separate ingress gateways per tenant (where appropriate)
+- Explicit routing policies that target specific tenant namespaces/labels
 
 **Observability**: Service mesh automatically generates metrics, logs, and distributed traces for all service-to-service communication, providing visibility into how tenant applications interact. This observability is essential for troubleshooting issues in multitenant environments and identifying noisy neighbor problems.
 
@@ -115,6 +123,7 @@ AKS offers an [Istio-based service mesh add-on](/azure/aks/istio-about) that pro
 
 - Service mesh adds additional resource overhead per pod due to sidecar proxies. Plan node sizing and resource quotas accordingly for tenant namespaces.
 - Apply Istio authorization policies at the namespace level to enforce tenant isolation boundaries.
+- Service mesh requires explicit default-deny authorization policies to enforce tenant isolation; by default, all traffic is allowed.
 - Use separate Istio ingress gateways per tenant tier (basic, standard, premium) to provide different levels of traffic management and security.
 
 For more information about deploying and configuring the Istio service mesh add-on, see [Deploy Istio-based service mesh add-on for AKS](/azure/aks/istio-deploy-addon).
@@ -334,7 +343,7 @@ Azure Dedicated Host can help SaaS providers ensure tenant applications meet reg
 
 ### Node Auto-provisioning
 
-Node Auto-provisioning (NAP) is a managed AKS feature that dynamically provisions and manages nodes based on pending pod requirements. NAP is a fully managed implementation of Karpenter on AKS. NAP watches for pods that the Kubernetes scheduler marks as unschedulable and automatically creates appropriately configured nodes to run those workloads. This capability is particularly valuable for multitenant deployments where different tenants have diverse infrastructure requirements.
+Node Auto-provisioning (NAP) is a managed AKS feature that dynamically provisions and manages nodes based on pending pod requirements. NAP is a fully managed implementation built on top of the open-source Karpenter project. NAP watches for pods that the Kubernetes scheduler marks as unschedulable and automatically creates appropriately configured nodes to run those workloads. This capability is particularly valuable for multitenant deployments where different tenants have diverse infrastructure requirements.
 
 **Benefits for multitenancy**: Node Auto-provisioning improves multitenant cluster operations by:
 
