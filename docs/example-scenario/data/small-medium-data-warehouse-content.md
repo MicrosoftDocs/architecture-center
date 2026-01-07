@@ -78,7 +78,7 @@ Fabric integrates with consumers of your multisource datasets, including Power B
 
 ### Alternatives
 
-- You can use [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) to replace or complement Event Hubs. Choose your solution based on the source of your streaming data and whether you need cloning and bidirectional communication with the reporting devices.
+- You can use [Azure IoT Hub](/azure/iot-hub/iot-concepts-and-iot-hub) to replace or complement Event Hubs. Choose your solution based on the source of your streaming data and whether you need cloning and bidirectional communication with the reporting devices.
 
 - You can use [Fabric data pipelines](/fabric/data-factory/activity-overview) instead of Data Factory pipelines for data integration. Your decision depends on several factors. For more information, see [Differences between Azure Data Factory and Fabric Data Factory](/fabric/data-factory/compare-fabric-data-factory-and-azure-data-factory).
 
