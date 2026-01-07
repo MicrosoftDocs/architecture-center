@@ -96,7 +96,7 @@ A service mesh provides advanced traffic management, security, and observability
 
 AKS offers an [Istio-based service mesh add-on](/azure/aks/istio-about) that provides managed lifecycle, scaling, and configuration of the Istio control plane. For multitenant scenarios, service mesh capabilities include:
 
-**Identity and authentication**: Service mesh provides mutual TLS (mTLS) for automatic encryption of communication between tenant workloads. Each service receives a cryptographic identity, ensuring that only authenticated services can communicate. This prevents tenant workloads from impersonating services in other tenant namespaces.
+**Identity and authentication**: Service mesh provides mutual TLS (mTLS) for automatic encryption of communication between tenant workloads. Each service receives a cryptographic identity, ensuring that only authenticated services can communicate. This authentication method prevents tenant workloads from impersonating services in other tenant namespaces.
 
 **Authorization policies**: You can define fine-grained authorization policies that control which services can communicate with each other based on service identity, namespace, or custom attributes. For example, you can enforce that tenant A's frontend can only call tenant A's backend services, preventing cross-tenant service access.
 
