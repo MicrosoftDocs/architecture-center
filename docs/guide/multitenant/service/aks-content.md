@@ -413,7 +413,7 @@ When you design a network topology for multitenant AKS deployments, your choice 
 
 Consider using Azure CNI Overlay to significantly reduce the risk of VNet IP address exhaustion. Azure CNI Overlay assigns VNet IPs only to nodes while pods use a separate overlay CIDR. This approach allows you to deploy significantly more tenant workloads within the same VNet address space.
 
-**Pod CIDR reusability across tenant clusters**: When you implement an automated single-tenant deployment model (dedicated cluster per tenant), Azure CNI Overlay allows you to use the same pod CIDR (for example, 10.244.0.0/16) across all tenant clusters without conflict. This feature significantly simplifies infrastructure-as-code templates and removes the need to manage unique, non-overlapping pod CIDRs for each tenant's cluster.
+**Pod CIDR reusability across tenant clusters**: When you implement an automated single-tenant deployment model (dedicated cluster per tenant), Azure CNI Overlay allows you to use the same pod CIDR (for example, 10.244.0.0/16) across all tenant clusters without conflict. This feature significantly simplifies operations by eliminating the need to plan, allocate, and track unique pod CIDRs per tenant. Infrastructure-as-code templates can be fully standardized without per-tenant customization, tenant onboarding is faster with no CIDR coordination required, and the consistent configuration across all clusters simplifies troubleshooting and reduces configuration errors.
 
 **When to use standard Azure CNI**: Use standard Azure CNI for multitenant scenarios when:
 
