@@ -43,7 +43,7 @@ This architecture diagram shows a general approach that has multiple redundant t
 
 :::image type="content" source="./media/overview/alternate-traffic-paths.svg" alt-text="Diagram that shows Traffic Manager directing requests to Azure Front Door or to another service, and then to the origin server." border="false":::
 
-This approach introduces several components and provides guidance that helps you improve how you deliver your web applications:
+This approach introduces several components and provides guidance that makes significant changes associated to the delivery of your web applications:
 
 - [Traffic Manager](/azure/traffic-manager/traffic-manager-overview) directs traffic to Azure Front Door or to your chosen alternative service.
 
@@ -82,7 +82,7 @@ While this mitigation strategy can make the application be available during plat
 
 ## Traffic Manager availability
 
-Traffic Manager is a reliable service with an [industry-leading SLA](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services), but traffic management needs extra measures to provide complete availability. If Traffic Manager is unavailable, your users might not have access to your application, even if Azure Front Door and your alternative service are both available. Plan how your solution can continue to operate under these circumstances.
+Traffic Manager is a reliable service with an [industry-leading SLA](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services), but traffic management needs extra measures to provide uninterrupted availability in all situations. If Traffic Manager is unavailable, your users might not have access to your application, even if Azure Front Door and your alternative service are both available. Plan how your solution can continue to operate under these circumstances.
 
 Traffic Manager returns cacheable DNS responses. If time to live (TTL) on your DNS records allows caching, short outages of Traffic Manager might not be a concern. That is because downstream DNS resolvers might have cached a previous response. You should plan for prolonged outages. You might choose to manually reconfigure your DNS servers to direct users to Azure Front Door if Traffic Manager is unavailable.
 
@@ -129,7 +129,7 @@ Your mission-critical application should use custom domain names to control how 
 
 - **DNS resolvers:** We recommend that you use multiple DNS resolvers to increase overall resiliency.
 
-- **Apex domains:** Use a CNAME to point your domain name to your Traffic Manager domain name. DNS standards don't let you create a CNAME at the apex (or *root*) of a domain. Host your DNS domain on Azure DNS and use [alias records](/azure/dns/tutorial-alias-tm) to point to your Traffic Manager profile.
+- **Apex domains:** When you use Traffic Manager, you use a CNAME to point your domain name to your Traffic Manager profile. DNS standards don't let you create a CNAME at the apex (or *root*) of a domain. Host your DNS domain on Azure DNS and use [alias records](/azure/dns/tutorial-alias-tm) to point to your Traffic Manager profile.
 
 - **CNAME chaining:** Solutions that combine Traffic Manager, Azure Front Door, and other services use a multi-layer DNS CNAME resolution process, also called *CNAME chaining*. For example, when you resolve your own custom domain, you might see five or more CNAME records before an IP address is returned.
 
@@ -174,7 +174,7 @@ Include these questions in your health model design:
 
 #### Health monitoring
 
-Multiple global load balancing solutions let you switch to a secondary platform if an outage occurs. Traffic Manager works well for most scenarios.
+Global load balancing solutions let you switch to a secondary platform if an outage occurs. Traffic Manager works well for most scenarios.
 
 When you use Traffic Manager with Azure Front Door, use your own external or custom monitoring solution to detect when Azure Front Door becomes unavailable and initiate your response processes. Azure Front Door is a globally distributed system that uses anycast networking, so you must run connectivity checks from within the same geographic regions as your clients.
 
