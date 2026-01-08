@@ -101,7 +101,7 @@ The following new and updated articles have recently been published in the Azure
 - [Develop a RAG Solution - Preparation Phase](./ai-ml/guide/rag/rag-preparation-phase.md) ([#c558440e24](https://github.com/MicrosoftDocs/architecture-center/commit/c558440e24))
 - [Advanced Azure Kubernetes Service (AKS) Microservices Architecture](./reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml) ([#713baaa0d6](https://github.com/MicrosoftDocs/architecture-center/commit/713baaa0d6))
 - [Microservices Architecture on Azure Kubernetes Service](./reference-architectures/containers/aks-microservices/aks-microservices.yml) ([#713baaa0d6](https://github.com/MicrosoftDocs/architecture-center/commit/713baaa0d6))
-- [Use Azure Kubernetes Service to host GPU-based workloads](./reference-architectures/containers/aks-gpu/gpu-aks.yml) ([#a8af06a6fc](https://github.com/MicrosoftDocs/architecture-center/commit/a8af06a6fc))
+- [Use Azure Kubernetes Service to host GPU-based workloads](./reference-architectures/containers/aks-gpu/gpu-aks.md) ([#a8af06a6fc](https://github.com/MicrosoftDocs/architecture-center/commit/a8af06a6fc))
 - [AI Architecture Design](./ai-ml/index.md) ([#be8a0ab42a](https://github.com/MicrosoftDocs/architecture-center/commit/be8a0ab42a))
 - [Modernize Mainframe Workloads by Using BMC AMI Cloud](./example-scenario/mainframe/mainframe-modernization-bmc-ami-cloud.yml) ([#fa01dc308a](https://github.com/MicrosoftDocs/architecture-center/commit/fa01dc308a))
 - [Choose a Stream Processing Technology](./data-guide/technology-choices/stream-processing.md) ([#1d28bc6ad8](https://github.com/MicrosoftDocs/architecture-center/commit/1d28bc6ad8))
