@@ -6,7 +6,7 @@ This baseline architecture is based on the [Basic web application architecture](
 ## Architecture
 
 :::image type="complex" source="../_images/baseline-app-service-architecture.svg" lightbox="../_images/baseline-app-service-architecture.svg" alt-text="Diagram that shows a baseline App Service architecture with zonal redundancy and high availability.":::
-    The diagram shows a virtual network with three subnets. One subnet contains Azure Application Gateway with Azure Web Application Firewall. The second subnet contains private endpoints for Azure PaaS services, while the third subnet contains a virtual interface for Azure App Service network integration. The diagram shows App Gateway communicating to Azure App Service via a private endpoint. App Service shows a zonal configuration. The diagram also shows App Service using virtual network integration and private endpoints to communicate to Azure SQL Database, Azure Key Vault and Azure Storage.
+    The diagram shows a virtual network with three subnets. One subnet contains Azure Application Gateway with Azure Web Application Firewall. The second subnet contains private endpoints for Azure PaaS services, while the third subnet contains a virtual interface for Azure App Service network integration. The diagram shows App Gateway communicating to Azure App Service via a private endpoint. App Service shows a zonal configuration. The diagram also shows App Service using virtual network integration and private endpoints to communicate to Azure SQL Database, Azure Key Vault, and Azure Storage.
 :::image-end:::
 *Figure 1: Baseline Azure App Service architecture*
 
@@ -16,7 +16,7 @@ This baseline architecture is based on the [Basic web application architecture](
 
 Many components of this architecture are the same as the [basic web application architecture](./basic-web-app.yml#components). The following list highlights only the changes to the basic architecture.
 
-- [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is a layer-7 HTTP and HTTPS load balancer and web traffic manager. In this architecture, it's the single public entry point that terminates Transport Layer Security (TLS), evaluates Web Application Firewall rules, and forwards approved requests over a private endpoint to App Service instances across availability zones.
+- [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is a layer-7 HTTP and HTTPS load balancer and web traffic manager. In this architecture, the Application Gateway acts as a single public entry point. It is also configured to terminate Transport Layer Security (TLS), evaluate Web Application Firewall rules, and forward approved requests privately to App Service instances across availability zones.
 - [Web Application Firewall](/azure/web-application-firewall/overview) is a cloud-native feature that protects web apps from common exploits, such as SQL injection and cross-site scripting. In this architecture, it runs on Application Gateway to block malicious requests before they reach App Service, which improves security and helps maintain availability.
 - [Key Vault](/azure/key-vault/general/overview) is a service that securely stores and manages secrets, encryption keys, and certificates. In this architecture, it stores the TLS certificate (X.509) that Application Gateway uses and holds application secrets that App Service accesses privately.
 - [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is a service that enables you to create isolated and secure private virtual networks in Azure. In this architecture, the virtual network provides private endpoints, App Service integration, and dedicated subnets for Application Gateway. This setup isolates traffic and enables private endpoint connectivity required for secure communication between App Service and its dependent Azure services.
@@ -25,12 +25,12 @@ Many components of this architecture are the same as the [basic web application 
 
 ## Networking
 
-Network security is at the core of the App Services baseline architecture (*see Figure 2*). From a high level, the network architecture ensures the following capabilities:
+Network security is at the core of the App Services baseline architecture (*see Figure 2*). From a high level, the network architecture enables the following capabilities:
 
 1. A single secure entry point for client traffic
 1. Network traffic is filtered
 1. Data in transit is encrypted end-to-end with TLS
-1. Data exfiltration is minimized by keeping traffic in Azure through the use of Private Link
+1. Data exfiltration is minimized by keeping traffic in Azure by using Private Link
 1. Network resources are logically grouped and isolated from each other through network segmentation
 
 ### Network flows
@@ -59,16 +59,16 @@ The following are descriptions of the inbound flow of internet traffic to the Ap
 
 Application Gateway is a regional resource that meets the requirements of this baseline architecture. Application Gateway is a scalable, regional, layer 7 load balancer that supports features such as web application firewall and TLS offloading. Consider the following points when implementing Application Gateway for ingress to Azure App Services.
 
-- Deploy Application Gateway and configure a [Web Application Firewall policy](/azure/web-application-firewall/ag/policy-overview) with a Microsoft-managed ruleset. Use Prevention mode to mitigate web attacks, that might cause an origin service (App Service in the architecture) to become unavailable.
+- Deploy Application Gateway and configure a [Web Application Firewall policy](/azure/web-application-firewall/ag/policy-overview) with a Microsoft-managed ruleset. Use Prevention mode to mitigate web attacks that might cause an origin service (App Service in the architecture) to become unavailable.
 - Implement [end-to-end TLS encryption](/azure/application-gateway/ssl-overview#end-to-end-tls-encryption).
 - Use [private endpoints to implement inbound private access to your App Service](/azure/app-service/networking/private-endpoint).
-- Consider implementing [autoscaling](/azure/application-gateway/overview-v2) for Application Gateway to readily adjust to dynamic traffic flows. 
+- Consider implementing [autoscaling](/azure/application-gateway/application-gateway-autoscaling-zone-redundant) for Application Gateway to readily adjust to dynamic traffic flows. 
 - Consider using a minimum scale instance count of no less than three and always use all the availability zones your region supports. While Application Gateway is deployed in a highly available fashion, even for a single scale instance, [creating a new instance upon a failure can take up to seven minutes](/azure/application-gateway/application-gateway-autoscaling-zone-redundant#autoscaling-and-high-availability). Deploying multiple instances across Availability Zones help ensure, upon a failure, an instance is running while a new instance is being created.
-- Disable public network access on the App Service to ensure network isolation. In Bicep, this is accomplished by setting `publicNetworkAccess: 'Disabled'` under properties/siteConfig.
+- Disable public network access on the App Service to ensure network isolation. In Bicep, public network access is disabled by setting `publicNetworkAccess: 'Disabled'` under `properties`.
 
 ### Flow from App Services to Azure services
 
-This architecture uses [virtual network integration](/azure/app-service/overview-vnet-integration) for the App Service, specifically to route traffic to private endpoints through the virtual network. The baseline architecture doesn't enable *all traffic routing* to force all outbound traffic through the virtual network, just internal traffic, such as traffic bound for private endpoints.
+This architecture uses [virtual network integration](/azure/app-service/overview-vnet-integration) for the App Service, specifically to route traffic to private endpoints through the virtual network. The baseline architecture doesn't enable *all traffic routing* to force all outbound traffic through the virtual network, only internal traffic such as traffic bound for private endpoints.
 
 Azure services that don't require access from the public internet should have private endpoints enabled and public endpoints disabled. Private endpoints are used throughout this architecture to improve security by allowing your App Service to connect to Private Link services directly from your private virtual network without using public IP addressing.
 
@@ -80,37 +80,35 @@ Consider the following points when implementing virtual network integration and 
 
 - Use the [Azure services DNS zone configuration](/azure/private-link/private-endpoint-dns) guidance for naming private DNS zones.
 - Configure service firewalls to ensure the storage account, key vault, SQL Database, and other Azure services can only be connected to privately.
-  - [Set storage account default network access rule](/azure/storage/common/storage-network-security?tabs=azure-portal#change-the-default-network-access-rule) to deny all traffic.
+  - [Set storage account default network access rule](/azure/storage/common/storage-network-security?tabs=azure-portal#change-the-default-network-access-rule) to deny all traffic originating outside the virtual network.
   - [Enable Key Vault for Private Link](/azure/key-vault/general/network-security#key-vault-firewall-enabled-private-link).
   - [Deny public network access to Azure SQL](/azure/azure-sql/database/connectivity-settings?view=azuresql&tabs=azure-portal#deny-public-network-access).
 
 ### Virtual network segmentation and security
 
-The network in this architecture has separate subnets for the Application Gateway, App Service integration components, and private endpoints. Each subnet has a network security group that limits both inbound and outbound traffic for those subnets to just what is required. The following table shows a simplified view of the NSG rules the baseline adds to each subnet. The table gives the rule name and function.
+The network in this architecture has separate subnets for the Application Gateway, App Service integration components, and private endpoints. Each subnet has a network security group (NSG) that limits both inbound and outbound traffic for those subnets to just what is required. The following table shows a selection of NSG rules that could be added to each subnet. The table gives a description of a rule.
 
-| Subnet   | Inbound | Outbound |
-| -------  | ---- | ---- |
-| snet-AppGateway    | `AppGw.In.Allow.ControlPlane`: Allow inbound control plane access<br><br>`AppGw.In.Allow443.Internet`: Allow inbound internet HTTPS access | `AppGw.Out.Allow.PrivateEndpoints`: Allow outbound access to PrivateEndpointsSubnet<br><br>`AppPlan.Out.Allow.AzureMonitor`: Allow outbound access to Azure Monitor |
-| snet-PrivateEndpoints | Default rules: Allow inbound from virtual network | Default rules: Allow outbound to virtual network |
-| snet-AppService | Default rules: Allow inbound from vnet  | `AppPlan.Out.Allow.PrivateEndpoints`: Allow outbound access to PrivateEndpointsSubnet<br><br>`AppPlan.Out.Allow.AzureMonitor`: Allow outbound access to Azure Monitor |
+| Subnet                 | Inbound | Outbound |
+| :--------------------- | :------ | -------- |
+| GatewaySubnet          | `AppGw.In.Allow.ControlPlane`: Allow inbound control plane access<br><br>`AppGw.In.Allow443.Internet`: Allow inbound internet HTTPS access | `AppGw.Out.Allow.PrivateEndpoints`: Allow outbound access to PrivateEndpointsSubnet<br><br>`AppPlan.Out.Allow.AzureMonitor`: Allow outbound access to Azure Monitor |
+| PrivateEndpointsSubnet | Default rules: Allow inbound from virtual network | Default rules: Allow outbound to virtual network |
+| AppServicesSubnet      | Default rules: Allow inbound from vnet  | `AppPlan.Out.Allow.PrivateEndpoints`: Allow outbound access to PrivateEndpointsSubnet<br><br>`AppPlan.Out.Allow.AzureMonitor`: Allow outbound access to Azure Monitor |
 
 Consider the following points when implementing virtual network segmentation and security.
 
-- Enable [DDoS protection](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa7aca53f-2ed4-4466-a25e-0b45ade68efd) for the virtual network with a subnet that is part of an application gateway with a public IP.
+- Enable [DDoS protection](/azure/ddos-protection/manage-ddos-protection) for the virtual network with a subnet that is part of an application gateway with a public IP.
 - [Add an NSG](/azure/virtual-network/network-security-groups-overview) to every subnet where possible. You should use the strictest rules that enable full solution functionality.
 - Use [application security groups](/azure/virtual-network/tutorial-filter-network-traffic#create-application-security-groups). Application security groups allow you to group NSGs, making rule creation easier for complex environments.
 
 An example of a network schema could be:
 
-| Type            | Name                   | Address Range |
-| --------------- | ---------------------- | ------------- |
+| Type            | Name                   | Address range |
+| :-------------- | :--------------------- | :------------ |
 | Virtual Network | Address Prefix         | 10.0.0.0/16   |
 | Subnet          | GatewaySubnet          | 10.0.1.0/24   |
 | Subnet          | AppServicesSubnet      | 10.0.0.0/24   |
 | Subnet          | PrivateEndpointsSubnet | 10.0.2.0/27   |
-| Subnet          | AgentsSubject          | 10.0.2.32/27  |
-
-Reference [Azure-Samples\app-service-baseline-implementation](https://github.com/Azure-Samples/app-service-baseline-implementation)
+| Subnet          | AgentsSubnet           | 10.0.2.32/27  |
 
 ## Considerations
 
@@ -126,7 +124,7 @@ The architecture also ensures enough instances of Azure services to meet demand.
 
 #### Application Gateway
 
-Deploy Azure Application Gateway v2 in a zone redundant configuration. Consider using a minimum scale instance count of no less than three to avoid the six to seven-minute startup time for an instance of Application Gateway if there is a failure.
+Deploy Azure Application Gateway v2 in a zone redundant configuration. Consider using a minimum scale instance count of no less than three. This minimum avoids the six to seven-minute startup time for an instance of Application Gateway if there's a failure.
 
 #### App Services
 
@@ -202,7 +200,7 @@ Web apps benefit from Azure Policy by enforcing architectural and security decis
 - Microsoft Defender for App Service should be enabled
 - Web Application Firewall should be enabled for Application Gateway
 
-See more built-in policies for key services such as [Application Gateway and networking components](/azure/governance/policy/samples/built-in-policies#network), [App Service](/azure/governance/policy/samples/built-in-policies#app-service), [Key Vault](/azure/governance/policy/samples/built-in-policies#key-vault), and [Monitoring](/azure/governance/policy/samples/built-in-policies#monitoring). It's possible to create custom policies or use community policies (such as from Azure Landing Zones) if built-in policies do not fully cover your needs. Prefer built-in policies when they are available.
+See more built-in policies for key services such as [Application Gateway and networking components](/azure/governance/policy/samples/built-in-policies#network), [App Service](/azure/governance/policy/samples/built-in-policies#app-service), [Key Vault](/azure/governance/policy/samples/built-in-policies#key-vault), and [Monitoring](/azure/governance/policy/samples/built-in-policies#monitoring). It's possible to create custom policies or use community policies (such as from Azure Landing Zones) if built-in policies don't fully cover your needs. Prefer built-in policies when they're available.
 
 #### Identity and Access Management
 
@@ -210,7 +208,7 @@ The App Service baseline configures authentication and authorization for user id
 
 ##### User identities
 
-- Use the [integrated authentication mechanism for App Service ("EasyAuth")](/azure/app-service/overview-authentication-authorization). EasyAuth simplifies the process of integrating identity providers into your web app. It handles authentication outside your web app, so you don't have to make significant code changes.
+- Use the [integrated authentication mechanism for App Service](/azure/app-service/overview-authentication-authorization) ("EasyAuth"). EasyAuth simplifies the process of integrating identity providers into your web app. It handles authentication outside your web app, so you don't have to make significant code changes.
 - Configure the reply URL for the custom domain. You must redirect the web app to `https://<application-gateway-endpoint>/.auth/login/<provider>/callback`. Replace `<application-gateway-endpoint>` with either the public IP address or the custom domain name associated with your application gateway. Replace `<provider>` with the authentication provider you're using, such as "aad" for Microsoft Entra ID. You can use [the Azure Front documentation](/azure/app-service/overview-authentication-authorization#considerations-when-using-azure-front-door) to set up this flow with Application Gateway or [Setting up Application Gateway](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/setting-up-application-gateway-with-an-app-service-that-uses/ba-p/392490).
 
 ##### Workload identities
@@ -279,17 +277,17 @@ Platform monitoring is the collection of data from the Azure services in your ar
 
 - Add a diagnostic setting for every Azure resource. Each Azure service has a different set of logs and metrics you can capture. Use the following table to figure out the metrics and logs you want to collect.
 
-  |Azure resource | Metrics and logs descriptions |
-  | --- | --- |
-  |Application Gateway | [Application Gateway metrics and logs descriptions](/azure/application-gateway/monitor-application-gateway-reference) |
-  |Web Application Firewall | [Web application firewall metrics and logs descriptions](/azure/web-application-firewall/ag/application-gateway-waf-metrics) |
-  |App Service | [App Service metrics and logs descriptions](/azure/app-service/monitor-app-service-reference) |
-  |Azure SQL Database | [Azure SQL Database metrics and logs description](/azure/azure-sql/database/monitoring-sql-database-azure-monitor-reference?view=azuresql) |
-  |CosmosDB | [Azure Cosmos DB metrics and logs descriptions](/azure/cosmos-db/monitor-reference) |
-  | Key Vault | [Key Vault metrics and logs descriptions](/azure/key-vault/general/monitor-key-vault-reference) |
-  |Blob Storage | [Azure Blob Storage metrics and logs descriptions](/azure/storage/blobs/monitor-blob-storage-reference) |
-  | Application Insights | [Application Insights metrics and logs descriptions](/azure/azure-monitor/app/api-custom-events-metrics) |
-  | Public IP address | [Public IP address metrics and logs descriptions](/azure/virtual-network/ip-services/monitor-public-ip) |
+  | Azure resource           | Metrics and logs descriptions |
+  | :----------------------- | :---------------------------- |
+  | Application Gateway      | [Application Gateway metrics and logs descriptions](/azure/application-gateway/monitor-application-gateway-reference) |
+  | Web Application Firewall | [Web application firewall metrics and logs descriptions](/azure/web-application-firewall/ag/application-gateway-waf-metrics) |
+  | App Service              | [App Service metrics and logs descriptions](/azure/app-service/monitor-app-service-reference) |
+  | Azure SQL Database       | [Azure SQL Database metrics and logs description](/azure/azure-sql/database/monitoring-sql-database-azure-monitor-reference?view=azuresql) |
+  | CosmosDB                 | [Azure Cosmos DB metrics and logs descriptions](/azure/cosmos-db/monitor-reference) |
+  | Key Vault                | [Key Vault metrics and logs descriptions](/azure/key-vault/general/monitor-key-vault-reference) |
+  | Blob Storage             | [Azure Blob Storage metrics and logs descriptions](/azure/storage/blobs/monitor-blob-storage-reference) |
+  | Application Insights     | [Application Insights metrics and logs descriptions](/azure/azure-monitor/app/api-custom-events-metrics) |
+  | Public IP address        | [Public IP address metrics and logs descriptions](/azure/virtual-network/ip-services/monitor-public-ip) |
 
 - Understand the cost of collecting metrics and logs. In general, the more metrics and logs you collect, the more it costs. For more information, see [Log Analytics cost calculations and options](/azure/azure-monitor/logs/cost-logs) and [Pricing for Log Analytics workspace](https://azure.microsoft.com/pricing/details/monitor/).
 - Create alerts. You should create alerts for all the Azure resources in the architecture and configure Actions to remediate issues. Pick common and recommended alert rules to start with and modify over time as needed. For more information, see:
@@ -318,7 +316,7 @@ App Service has built-in and integrated monitoring tools that you should enable 
 
 ##### Database
 
-- User database Insights. For Azure SQL databases, you should configure [SQL Insights in Azure Monitor](/azure/azure-sql/database/sql-insights-overview). Database Insights uses dynamic management views to expose the data that you need to monitor health, diagnose problems, and tune performance. For more information, see [Monitoring Azure SQL Database with Azure Monitor.](/azure/azure-sql/database/monitoring-sql-database-azure-monitor?view=azuresql)
+- Enable database monitoring. For Azure SQL databases, it is recommended to use [Database Watcher](/azure/azure-sql/database-watcher-overview). Database watcher is a managed monitoring solution for database services in the Azure SQL family. For more information and other options, see [Monitoring Azure SQL Database with Azure Monitor.](/azure/azure-sql/database/monitoring-sql-database-azure-monitor?view=azuresql)
 - If your architecture includes Cosmos DB, you don't need to enable or configure anything to use [Cosmos DB insights](/azure/cosmos-db/insights-overview).
 
 ### Performance Efficiency
@@ -330,7 +328,7 @@ The following sections discuss scalability for key components in this architectu
 #### Application Gateway
 
 - Implement autoscaling for Application Gateway to scale in or out to meet demand.
-- Set the maximum instance count to a number higher than your expected need. You'll only be charged for the Capacity Units you use.
+- Set the maximum instance count to a number higher than your expected need. You're only charged for the Capacity Units you use.
 - Set a minimum instance count that can handle small spikes in traffic. You can use [average Compute Unit usage](/azure/application-gateway/high-traffic-support#set-your-minimum-instance-count-based-on-your-average-compute-unit-usage) to calculate your minimum instance count.
 - Follow the [guidance on sizing the Application Gateway subnet](/azure/application-gateway/configuration-infrastructure#size-of-the-subnet).
 
@@ -358,12 +356,12 @@ Scaling database resources is a complex topic outside of the scope of this archi
 - Consider [caching](/azure/architecture/best-practices/caching) for the following kinds of data to increase performance and scalability:
   - Semi-static transaction data.
   - Session state.
-  - HTML output. This can be useful in applications that render complex HTML output.
+  - Complex HTML output.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Read Highly available multi-region web application](./multi-region.yml)
+> [Enterprise web app patterns](/azure/architecture/web-apps/guides/enterprise-app-patterns/overview)
 
 ## Related resources
 
