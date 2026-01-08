@@ -33,7 +33,7 @@ You can also review the [implementation options for Azure landing zones](/azure/
 
 #### Azure sovereign cloud deployments
 
-The Azure portal, Bicep, and Terraform deployment options are supported for Azure public, global, and commercial cloud offerings. If you need to deploy into other Azure clouds, such as Azure Infrastructure Services for US Government Clouds or Microsoft Azure operated by 21Vianet, your platform team needs to make manual configuration changes to the deployment assets. Only the Bicep and Terraform deployment options can be modified to accommodate these changes. Consider the following cloud-specific limitations and configuration requirements:
+The Azure portal, Bicep, and Terraform deployment options are supported for Azure public, global, and commercial cloud offerings. If you need to deploy into other Azure clouds, like Azure Infrastructure Services for US Government Clouds or Microsoft Azure operated by 21Vianet, your platform team needs to make manual configuration changes to the deployment assets. Only the Bicep and Terraform deployment options can be modified to accommodate these changes. Consider the following cloud-specific limitations and configuration requirements:
 
 - **Azure Policy definitions, initiatives, and assignments:** Not all Azure policies are available across all clouds, so you need to remove unsupported policies before deployment.
 
@@ -78,7 +78,7 @@ After you deploy the platform landing zone, you need to operate and maintain it.
 
 After the platform landing zone and governance strategy are in place, establish a consistent approach to how you create and operationalize subscriptions for workload owners. [Subscription democratization](/azure/cloud-adoption-framework/ready/landing-zone/design-principles#subscription-democratization) is an Azure landing zones design principle that uses subscriptions as units of management and scale. This approach accelerates application migrations and new application development.
 
-[Subscription vending](/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending) standardizes the process that platform teams use for workload teams to request subscriptions and platform teams to deploy and govern those subscriptions. It lets application teams access Azure in a consistent and governed way, which helps ensure that teams meet all of the requirements.
+[Subscription vending](/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending) standardizes the process that platform teams use for workload teams to request subscriptions and platform teams to deploy and govern those subscriptions. It lets application teams use Azure in a consistent and governed way, which helps ensure that teams meet all of the requirements.
 
 Organizations often have different styles of subscriptions that can be vended into their tenant, commonly called *product lines*. For more information, see [Establish common subscription vending product lines](/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending-product-lines).
 
@@ -97,7 +97,7 @@ Application landing zones are designated areas within one or more subscriptions,
 
 Workload teams communicate their workload's requirements through a formal process that the platform team establishes. The platform team generally deploys an empty subscription that's enrolled with all required governance. Then a workload architect designs a solution that works within the constraints of that application landing zone and takes advantage of shared platform features, like firewalls and cross-premises routing, when practical.
 
-It's possible for an architect to adapt a reference architecture that isn't designed specifically with an application landing zone in mind. But Microsoft Learn also contains application and data platform guidance for workload teams that specifically addresses application landing zone contexts. Make the platform teams aware of the guidance that's available to the workload teams so that the platform team can anticipate the workload types and characteristics that might be in the organization.
+It's possible for an architect to adapt a reference architecture that isn't designed specifically with an application landing zone in mind. But Microsoft Learn also has application and data platform guidance for workload teams that specifically addresses application landing zone contexts. Make the platform teams aware of the guidance that's available to the workload teams so that the platform team can anticipate the workload types and characteristics that might be in the organization.
 
 | Application landing zone architecture | Description |
 | --- | --- |
@@ -109,7 +109,7 @@ It's possible for an architect to adapt a reference architecture that isn't desi
 | [Microsoft Foundry chat workload](../ai-ml/architecture/baseline-microsoft-foundry-landing-zone.yml) | Guidance about how to integrate a typical [Foundry chat architecture](../ai-ml/architecture/baseline-microsoft-foundry-chat.yml) within an application landing zone while using centralized platform landing zone resources for shared services, governance, and cost efficiency. It provides guidance for workload teams about infrastructure and agent deployment and management.|
 | [AKS](/azure/cloud-adoption-framework/scenarios/app-platform/aks/landing-zone-accelerator) | Guidance and related IaC templates that represent the strategic design path and target technical state for an AKS deployment that runs within an application landing zone. |
 | [Azure Red Hat OpenShift](/azure/cloud-adoption-framework/scenarios/app-platform/azure-red-hat-openshift/landing-zone-accelerator) | An open-source collection of Terraform templates that represent an optimal Azure Red Hat OpenShift deployment that includes Azure and Red Hat resources. |
-| [Azure Virtual Desktop](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/enterprise-scale-landing-zone) | Azure Resource Manager, Bicep, and Terraform templates that you should reference when you design Azure Virtual Desktop deployments. These templates include the creation of host pools, networking, storage, monitoring, and add-ons. |
+| [Azure Virtual Desktop](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/enterprise-scale-landing-zone) | Azure Resource Manager, Bicep, and Terraform templates to reference when you design Azure Virtual Desktop deployments. These templates include the creation of host pools, networking, storage, monitoring, and add-ons. |
 | [Azure Virtual Machines](../virtual-machines/baseline-landing-zone.yml) |  An architecture that extends the guidance from the [Virtual Machines baseline architecture](../virtual-machines/baseline.yml) to an application landing zone. It provides guidance about subscription setup, patch compliance, and other organizational governance concerns. |
 | [Azure VMware Solution](/azure/cloud-adoption-framework/scenarios/azure-vmware/enterprise-scale-landing-zone) | Resource Manager, Bicep, and Terraform templates that you can use to help design Azure VMware Solution deployments. These deployments include Azure VMware Solution private cloud, jump box, networking, monitoring, and add-ons. |
 | [Citrix on Azure](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/landing-zone-citrix/citrix-enterprise-scale-landing-zone) | Design guidelines for the Cloud Adoption Framework for Citrix Cloud in an Azure enterprise-scale landing zone that includes many design areas. |
@@ -118,7 +118,7 @@ It's possible for an architect to adapt a reference architecture that isn't desi
 | [Mission-critical workloads](../reference-architectures/containers/aks-mission-critical/mission-critical-intro.yml) | Addresses how to design a mission-critical workload to run within an application landing zone. |
 | [SAP workloads](/azure/cloud-adoption-framework/scenarios/sap/enterprise-scale-landing-zone) | Provides guidance and recommendations for SAP workloads that align with Azure landing zone best practices. Provides recommendations for how to create infrastructure components like compute, networking, storage, monitoring, and the build of SAP systems. |
 
-Workloads often consist of different technologies and classifications. We recommend that you review related reference materials for all the technologies in your workload. For example, it's essential to understand the guidance from Foundry Models chat and API Management to determine whether your generative AI scenario can benefit from incorporating an API gateway.
+Workloads often consist of different technologies and classifications. We recommend that you review related reference materials for all the technologies in your workload. For example, it's essential to understand the guidance from Foundry Models chat and API Management to check whether your generative AI scenario can benefit from incorporating an API gateway.
 
 ## Next step
 
