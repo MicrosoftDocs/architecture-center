@@ -97,11 +97,11 @@ Consider the following points when you implement virtual network integration and
 
 - Configure service firewalls to allow only private connections to storage accounts, key vaults, SQL databases, and other Azure services.
 
-  - [Set storage account default network access rule](/azure/storage/common/storage-network-security?tabs=azure-portal#change-the-default-network-access-rule) to deny all traffic that originates outside the virtual network.
+  - [Set storage account default network access rule](/azure/storage/common/storage-network-security#change-the-default-network-access-rule) to deny all traffic that originates outside the virtual network.
 
   - [Enable Key Vault for Private Link](/azure/key-vault/general/network-security#key-vault-firewall-enabled-private-link).
 
-  - [Deny public network access to Azure SQL](/azure/azure-sql/database/connectivity-settings?view=azuresql&tabs=azure-portal#deny-public-network-access).
+  - [Deny public network access to Azure SQL](/azure/azure-sql/database/connectivity-settings#deny-public-network-access).
 
 ### Virtual network segmentation and security
 
@@ -135,7 +135,7 @@ The following table shows an example network schema.
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
 
-### Reliability  
+### Reliability
 
 Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
@@ -222,7 +222,7 @@ Consider the following recommendations when you configure data-in-transit encryp
 
 #### Governance
 
-Azure Policy helps enforce architectural and security decisions for web apps. It can prevent non-compliant resources from being deployed (deny mode) or flag them for review (audit mode). This approach helps detect configuration drift from your intended architecture, whether the drift occurs through IaC deployments or manual changes in the Azure portal.
+Azure Policy helps enforce architectural and security decisions for web apps. It can prevent noncompliant resources from being deployed (deny mode) or flag them for review (audit mode). This approach helps detect configuration drift from your intended architecture, whether the drift occurs through IaC deployments or manual changes in the Azure portal.
 
 Place all resources in your architecture under Azure Policy governance. Use built-in policies or policy initiatives where possible to enforce essential network topology, service features, security, and monitoring decisions. Consider the following examples:
 
@@ -265,7 +265,7 @@ The App Service baseline architecture configures authentication and authorizatio
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-The deployment for the baseline App Service application follows the [Azure Pipelines architecture guidance](../../solution-ideas/articles/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps.yml). Because this architecture denies public access to App Service and secures the deployment storage account within the virtual network, you can't deploy from outside the virtual network. To address this constraint, the baseline uses self-hosted deployment agents that run within the virtual network. The following deployment guidance focuses on application code deployment, not infrastructure or database changes.
+The deployment for the baseline App Service application follows the [Azure Pipelines architecture guidance](../../solution-ideas/articles/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps.md). Because this architecture denies public access to App Service and secures the deployment storage account within the virtual network, you can't deploy from outside the virtual network. To address this constraint, the baseline uses self-hosted deployment agents that run within the virtual network. The following deployment guidance focuses on application code deployment, not infrastructure or database changes.
 
 :::image type="complex" source="../_images/baseline-app-service-deployments.svg" lightbox="../_images/baseline-app-service-deployments.svg" alt-text="Diagram that shows a baseline App Service deployment architecture." border="false":::
 The diagram shows the baseline architecture with a subnet that contains self-hosted deployment agents. It also adds Azure pipelines with managed agents. The managed agents point to Azure DevOps and the release pipeline (steps 1, 4, and 6). The self-hosted deployment agents point to Azure DevOps and the release pipeline (step 2) and to the storage private endpoint (step 3). The storage private endpoint points to Azure Storage (step 3).
@@ -345,17 +345,17 @@ Platform monitoring collects data from the Azure services in your architecture.
 
 - Add a diagnostic setting for every Azure resource. Each Azure service has a different set of logs and metrics that you can capture. Use the following table to figure out which metrics and logs to collect.
 
-  | Azure resource           | Metrics and logs descriptions |
-  | :----------------------- | :---------------------------- |
-  | Application Gateway      | [Application Gateway metrics and logs descriptions](/azure/application-gateway/monitor-application-gateway-reference) |
+  | Azure resource | Metrics and logs descriptions |
+  | :------------- | :---------------------------- |
+  | Application Gateway | [Application Gateway metrics and logs descriptions](/azure/application-gateway/monitor-application-gateway-reference) |
   | Azure Web Application Firewall | [Web application firewall metrics and logs descriptions](/azure/web-application-firewall/ag/application-gateway-waf-metrics) |
-  | App Service              | [App Service metrics and logs descriptions](/azure/app-service/monitor-app-service-reference) |
-  | SQL Database       | [SQL Database metrics and logs description](/azure/azure-sql/database/monitoring-sql-database-azure-monitor-reference?view=azuresql) |
-  | Azure Cosmos DB                 | [Azure Cosmos DB metrics and logs descriptions](/azure/cosmos-db/monitor-reference) |
-  | Key Vault                | [Key Vault metrics and logs descriptions](/azure/key-vault/general/monitor-key-vault-reference) |
-  | Blob Storage             | [Azure Blob Storage metrics and logs descriptions](/azure/storage/blobs/monitor-blob-storage-reference) |
-  | Application Insights     | [Application Insights metrics and logs descriptions](/azure/azure-monitor/app/api-custom-events-metrics) |
-  | Public IP address        | [Public IP address metrics and logs descriptions](/azure/virtual-network/ip-services/monitor-public-ip) |
+  | App Service | [App Service metrics and logs descriptions](/azure/app-service/monitor-app-service-reference) |
+  | SQL Database | [SQL Database metrics and logs description](/azure/azure-sql/database/monitoring-sql-database-azure-monitor-reference) |
+  | Azure Cosmos DB | [Azure Cosmos DB metrics and logs descriptions](/azure/cosmos-db/monitor-reference) |
+  | Key Vault | [Key Vault metrics and logs descriptions](/azure/key-vault/general/monitor-key-vault-reference) |
+  | Blob Storage | [Azure Blob Storage metrics and logs descriptions](/azure/storage/blobs/monitor-blob-storage-reference) |
+  | Application Insights | [Application Insights metrics and logs descriptions](/azure/azure-monitor/app/api-custom-events-metrics) |
+  | Public IP address | [Public IP address metrics and logs descriptions](/azure/virtual-network/ip-services/monitor-public-ip) |
 
 - Balance observability needs with cost. The more data you collect, the higher the cost. For more information, see [Log Analytics cost calculations and options](/azure/azure-monitor/logs/cost-logs) and [Pricing for Log Analytics workspace](https://azure.microsoft.com/pricing/details/monitor/).
 
@@ -364,8 +364,8 @@ Platform monitoring collects data from the Azure services in your architecture.
   - [Overview of Azure Monitor alerts](/azure/azure-monitor/alerts/alerts-overview)
   - [Application Gateway alerts](/azure/application-gateway/high-traffic-support#alerts-for-application-gateway-v2-sku-standard_v2waf_v2)
   - [App Service alerts](/azure/app-service/monitor-app-service#alerts)
-  - [SQL Database alerts](/azure/app-service/monitor-app-service#alerts)
-  - [Blob Storage alerts](/azure/storage/blobs/monitor-blob-storage?tabs=azure-portal#alerts)
+  - [SQL Database alerts](/azure/azure-sql/database/alerts-insights-configure-portal)
+  - [Blob Storage alerts](/azure/storage/blobs/monitor-blob-storage#alerts)
   - [Key Vault alerts](/azure/key-vault/general/monitor-key-vault#alerts)
 
 ##### Application Gateway
@@ -376,7 +376,7 @@ Application Gateway monitors back-end pool health through [default health probes
 
 App Service provides built-in and integrated monitoring capabilities for improved observability. If your web app already has telemetry and monitoring features, like in-process instrumentation, it continues to work on App Service.
 
-- [Turn on automatic instrumentation.](/azure/azure-monitor/app/codeless-overview) App Service has an instrumentation extension that you can enable with no code changes. You gain application performance monitoring (APM) visibility. For more information, see [Monitor Azure App Service performance](/azure/azure-monitor/app/azure-web-apps).
+- [Turn on automatic instrumentation.](/azure/azure-monitor/app/codeless-overview) App Service has an instrumentation extension that you can enable with no code changes. You gain application performance monitoring (APM) visibility. For more information, see [Monitor App Service performance](/azure/azure-monitor/app/azure-web-apps).
 
 - [Turn on distributed tracing](/azure/azure-monitor/app/distributed-tracing-telemetry-correlation) to track requests across multiple services and dependencies. You can monitor distributed cloud systems via distributed tracing and a performance profiler.
 
@@ -384,13 +384,13 @@ App Service provides built-in and integrated monitoring capabilities for improve
 
 - [Turn on App Service logs](/azure/app-service/troubleshoot-diagnostic-logs) for platform-level diagnostics. App Service provides four log types for troubleshooting: application logs, web server logs, detailed error messages, and failed request tracing.
 
-- Use structured logging. Add a structured logging library to your application code. Update your code to use key-value pairs and turn on application logs in App Service to store them in your your Log Analytics workspace.
+- Use structured logging. Add a structured logging library to your application code. Update your code to use key-value pairs and turn on application logs in App Service to store them in your Log Analytics workspace.
 
 - [Turn on the App Service health check](/azure/app-service/monitor-instances-health-check) feature to maintain availability. Health checks detect unhealthy instances, reroute traffic away from them, and replace them automatically. This feature requires two or more App Service instances.
 
 ##### Database
 
-- Turn on database monitoring for SQL Database. Use [Database Watcher](/azure/azure-sql/database-watcher-overview), which is a managed monitoring solution for database services in the Azure SQL family. For more information, see [Monitor SQL Database by using Azure Monitor](/azure/azure-sql/database/monitoring-sql-database-azure-monitor?view=azuresql).
+- Turn on database monitoring for SQL Database. Use [Database Watcher](/azure/azure-sql/database-watcher-overview), which is a managed monitoring solution for database services in the Azure SQL family. For more information, see [Monitor SQL Database by using Azure Monitor](/azure/azure-sql/database/monitoring-sql-database-azure-monitor).
 
 - Don't enable or configure anything to use [Azure Cosmos DB insights](/azure/cosmos-db/insights-overview) if your architecture includes Azure Cosmos DB.
 
@@ -424,7 +424,7 @@ Performance Efficiency refers to your workload's ability to scale to meet user d
 
 - Consider [App Service Environment](/azure/app-service/environment/overview) to prevent noisy neighbors.
 
-#### SQL Server
+#### SQL Database
 
 Database scaling involves many considerations beyond the scope of this architecture. For more information about scaling SQL Database, see the following resources:
 
@@ -436,7 +436,7 @@ Database scaling involves many considerations beyond the scope of this architect
 
 - Review [subscription limits and quotas](/azure/azure-resource-manager/management/azure-subscription-service-limits) to ensure that services scale to demand.
 
-- Consider [caching](../../best-practices/caching.yml) for the following kinds of data to increase performance and scalability:
+- Consider [caching](../../best-practices/caching.md) for the following kinds of data to increase performance and scalability:
 
   - Semistatic transaction data
   - Session state
@@ -450,6 +450,6 @@ Database scaling involves many considerations beyond the scope of this architect
 
 ## Related resources
 
-- [Enterprise web app patterns](../../web-apps/guides/enterprise-app-patterns/overview.yml)
+- [Enterprise web app patterns](../../web-apps/guides/enterprise-app-patterns/overview.md)
 - [Guide to Private Link in Azure Virtual WAN](../../../networking/guide/private-link-virtual-wan-dns-guide.yml)
 
