@@ -3,7 +3,7 @@ title: Strangler Fig Pattern
 description: Learn how to incrementally migrate a legacy system by gradually replacing specific pieces of functionality with new applications and services.
 author: OvaisMehboob
 ms.author: ovmehboo
-ms.date: 02/13/2025
+ms.date: 01/09/2026
 ms.topic: design-pattern
 ms.subservice: cloud-fundamentals
 ---
