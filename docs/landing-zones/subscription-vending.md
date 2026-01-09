@@ -14,7 +14,7 @@ ai-usage: ai-assisted
 This article provides implementation guidance for subscription vending automation. Subscription vending standardizes the process for requesting, deploying, and governing subscriptions so that application teams can deploy their workloads faster.
 
 :::image type="complex" border="false" source="images/sample-subscription-vending-architecture.png" lightbox="images/sample-subscription-vending-architecture.png" alt-text="Diagram that shows subscription vending organization.":::
-   The architecture diagram shows subscription vending organization with a management group hierarchy at the top and subscription automation workflow at the bottom. At the top, a tenant root group points to a Contoso management group, which branches into three child groups: platform on the left (which has identity and connectivity subscriptions), landing zones in the center (which has SAP, corp, and online subscriptions), and sandbox on the right. Underneath the management group section, a subscriptions layer shows four subscription boxes: identity subscription and connectivity subscription under platform, A1 subscription and A2 subscription under landing zones, and sandbox subscription 1 under sandbox. An arrow points from the connectivity subscription to a section that shows detailed networking components, including a regional hub icon. The A2 subscription expands to show five icons that represent the budget, role assignment, policy assignment, Azure Network Watcher, and Microsoft Defender for Cloud configuration components. These two subscriptions connect via virtual network peering. On the right side, a subscription vending automation workflow shows a linear process. The data collection tool triggers a request pipeline, which commits to source control and triggers a deployment pipeline. The deployment pipeline connects to infrastructure as code (IaC) modules. A JSON/YAML subscription parameter file feeds into the workflow from the data collection tool. Arrows throughout the diagram show the flow from data collection through deployment, with the final arrow from the deployment pipeline pointing back up to the A2 subscription, which indicates the automated creation and configuration of subscriptions.
+   The architecture diagram shows subscription vending organization with a management group hierarchy at the top and subscription automation workflow at the bottom. At the top, a tenant root group points to a Contoso management group, which branches into three child groups: platform on the left (which has identity and connectivity subscriptions), landing zones in the center (which has SAP, corp, and online subscriptions), and sandbox on the right. Underneath the management group section, a subscriptions layer shows four subscription boxes: identity subscription and connectivity subscription under platform, A1 subscription and A2 subscription under landing zones, and sandbox subscription 1 under sandbox. An arrow points from the connectivity subscription to a section that shows detailed networking components, including a regional hub icon. The A2 subscription expands to show five icons that represent the budget, role assignment, policy assignment, Azure Network Watcher, and Microsoft Defender for Cloud configuration components. These two subscriptions connect via virtual network peering. On the right side, a subscription vending automation workflow shows a linear process. The data collection tool triggers a request pipeline, which commits to source control and triggers a deployment pipeline. The deployment pipeline connects to infrastructure as code (IaC) modules. A JSON or YAML subscription parameter file feeds into the workflow from the data collection tool. Arrows throughout the diagram show the flow from data collection through deployment, with the final arrow from the deployment pipeline pointing back up to the A2 subscription, which indicates the automated creation and configuration of subscriptions.
 :::image-end:::
 
 > [!TIP]
@@ -40,7 +40,7 @@ The example implementation follows these steps:
 
 1. The data collection tool gathers subscription request data. 
 1. When the subscription request receives approval, it initiates the platform automation. The platform automation consists of the request pipeline, source control, and deployment pipeline. 
-1. The request pipeline creates a JSON or YAML subscription parameter file with the data from the data collection tool. The request pipeline also creates a new branch, commits the subscription parameter file, and opens a pull request in source control.
+1. The request pipeline creates a JSON, YAML, or TFVARS subscription parameter file with the data from the data collection tool. The request pipeline also creates a new branch, commits the subscription parameter file, and opens a pull request in source control.
 1. The new branch merges with the main branch in source control.
 1. The merge triggers the deployment pipeline to create the subscription with the IaC modules.
 
@@ -48,11 +48,11 @@ The deployment places the subscription in the correct management group based on 
 
 ## Collect data
 
-The goal of collecting data is to receive business approval and define the values of the JSON or YAML subscription parameter file. Use a data collection tool to collect the required data when the application team submits the subscription request. The data collection tool interfaces with other systems in the subscription vending workflow to initiate the platform automation.
+The goal of collecting data is to receive business approval and define the values of the JSON, YAML, or TFVARS subscription parameter file. Use a data collection tool to collect the required data when the application team submits the subscription request. The data collection tool interfaces with other systems in the subscription vending workflow to initiate the platform automation.
 
 **Use a data collection tool.** You can use an IT service management (ITSM) tool to collect the data or build a customer portal by using a low-code or no-code tool like [Power Apps](https://powerapps.microsoft.com/). The data collection tool provides business logic to approve or deny the subscription request.
 
-**Collect the required data.** You need to collect enough data to define the values of the JSON or YAML subscription parameter so that you can automate the deployment. The specific values you collect depend on your needs. Capture the request authorizer, cost center, and networking requirements like internet or on-premises connectivity. It might be helpful to ask the application team for anticipated workload components like the application platform and data requirements, data sensitivity, and number of environments, including development, test, preproduction, and production environments.
+**Collect the required data.** You need to collect enough data to define the values of the subscription parameter files so that you can automate the deployment. The specific values you collect depend on your needs. Capture the request authorizer, cost center, and networking requirements like internet or on-premises connectivity. It might be helpful to ask the application team for anticipated workload components like the application platform and data requirements, data sensitivity, and number of environments, including development, test, preproduction, and production environments.
 
 **Validate data.** We recommend that you validate data during the data collection process. It's harder to address problems later in the platform automation phases.
 
@@ -64,9 +64,9 @@ The goal of collecting data is to receive business approval and define the value
 
 ## Initiate platform automation
 
-The notification and data from the data collection tool triggers the platform automation. The platform automation creates a JSON or YAML subscription parameter file, merges the file to the main branch, and uses the IaC modules to deploy the file to create the subscription. The platform team owns and maintains the platform automation. The platform automation in the preceding example implementation consists of the request pipeline, source control, and the deployment pipeline.
+The notification and data from the data collection tool triggers the platform automation. The platform automation creates a subscription parameter file, merges the file to the main branch, and uses the IaC modules to deploy the file to create the subscription. The platform team owns and maintains the platform automation. The platform automation in the preceding example implementation consists of the request pipeline, source control, and the deployment pipeline.
 
-**Use JSON or YAML files.** Use structured data files like JSON or YAML to store the data to create a subscription. Document the structure of the file and make it extensible to support future needs. For example, the following JSON code snippet defines the subscription parameter values for one of the Bicep modules in GitHub.
+**Use JSON, YAML, or TFVARS files.** Use structured data files like JSON, YAML, or TFVARS to store the data to create a subscription. Document the structure of the file and make it extensible to support future needs. For example, the following JSON code snippet defines the subscription parameter values for one of the Bicep modules in GitHub.
 
 ```json
 {
@@ -97,21 +97,21 @@ The notification and data from the data collection tool triggers the platform au
 **Use a pull request system.** The Gitflow process that creates the subscription parameter file automates the following steps:
 
 1. Create a new branch for each subscription request.
-1. Use the collected data to create a single YAML/JSON/TFVARS subscription parameter file for the new subscription in the branch.
+1. Use the collected data to create a single YAML, JSON, or TFVARS subscription parameter file for the new subscription in the branch.
 1. Create a pull request from your branch into `main`.
 1. Update the data collection tool with a state change and reference to this pull request.
 
 The request pipeline in the preceding example implementation runs these steps. You can also use a code-based solution hosted in Azure if the workflow is complex.
 
-**Validate the subscription parameter or variables file.** The pull request triggers a linting process that validates the request data to ensure that the deployment succeeds. This process validates the subscription parameter file and can also check that the IP address range is still available. You can add a manual review gate for human intervention. Then you can do the final review and make changes to the subscription parameter file. The output is a JSON, YAML, or TFVARS subscription parameter file that has all the data required to create a subscription.
+**Validate the subscription parameter or variables file.** The pull request triggers a linting process that validates the request data to ensure that the deployment succeeds. This process validates the subscription parameter file and can also check that the IP address range is still available. You can add a manual review gate for human intervention. Then you can do the final review and make changes to the subscription parameter file. The output is a subscription parameter file that has all the data required to create a subscription.
 
 **Trigger the deployment pipeline.** When the pull request merges into the `main` branch, the merge triggers the deployment pipeline.
 
 ## Create a subscription
 
-The last task of the subscription vending automation is to create and set up the new subscription. The preceding example implementation uses the deployment pipeline to deploy the IaC module with the JSON or YAML subscription parameter file.
+The last task of the subscription vending automation is to create and set up the new subscription. The preceding example implementation uses the deployment pipeline to deploy the IaC module with the subscription parameter file.
 
-**Use IaC.** Your deployment should use IaC to create the subscription. The platform team creates and maintains these templates to ensure proper governance. Use the subscription vending [Bicep](https://github.com/Azure/bicep-registry-modules/tree/main/avm/ptn/lz/sub-vending) and [Terraform](https://registry.terraform.io/modules/Azure/lz-vending) modules and change them to meet your implementation needs.
+**Use IaC.** Your deployment should use IaC to create the subscription. The platform team creates and maintains these templates to ensure proper governance. Use the subscription vending [Bicep](https://github.com/Azure/bicep-registry-modules/tree/main/avm/ptn/lz/sub-vending) and [Terraform](https://registry.terraform.io/modules/Azure/avm-ptn-alz-sub-vending/azure) modules and change them to meet your implementation needs.
 
 **Use a deployment pipeline.** The deployment pipeline orchestrates the creation and configuration of the new subscription. The pipeline should run the following tasks.
 
