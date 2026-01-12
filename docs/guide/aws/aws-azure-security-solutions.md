@@ -24,7 +24,7 @@ The image shows a three‑column diagram where arrows connect Microsoft Azure se
 
 Microsoft Entra ID is a cloud-based centralized identity and access management solution that can help secure and protect AWS accounts and environments. Microsoft Entra seamless single sign-on (SSO) supports most apps and platforms that follow common web authentication standards, including AWS. AWS accounts that support critical workloads and highly sensitive information need strong identity protection and access control. Microsoft Entra ID explicitly verifies every access request and enforces least-privilege access to AWS resources. Add Microsoft Entra ID to AWS to provide centralized identity management and enhanced security controls.
 
-AWS organizations that use Microsoft Entra ID for Microsoft 365 or hybrid cloud identity and access protection can quickly and easily deploy Microsoft Entra ID for AWS accounts, often without incurring extra costs. 
+AWS organizations that use Microsoft Entra ID for Microsoft 365 or hybrid cloud identity and access protection can quickly and easily deploy Microsoft Entra ID for AWS accounts, often without incurring extra costs.
 
 Microsoft Entra ID provides several capabilities for direct integration with AWS:
 
@@ -44,7 +44,7 @@ Microsoft Entra ID provides several capabilities for direct integration with AWS
 
 - **Workload identities:** Use Microsoft Entra workload identity federation for AWS to issue short-lived tokens that AWS trusts for API access. This approach avoids static AWS access keys. It also integrates Microsoft Entra ID with AWS IAM roles, so Azure-based workloads can assume AWS roles. This approach minimizes the risk of leaked credentials because it verifies every access request in real time and governs identities centrally.
 
-  Use Microsoft Entra as the identity plane for AWS to achieve a unified identity security stance across your multicloud environment. Users have one identity, one strong authentication policy, and one centralized location where you can revoke access when they leave. This approach closes the gaps that siloed accounts create. For more information and detailed instructions, see [Microsoft Entra IAM for AWS](/azure/architecture/reference-architectures/aws/aws-azure-ad-security).
+Use Microsoft Entra as the identity plane for AWS to achieve a unified identity security stance across your multicloud environment. Users have one identity, one strong authentication policy, and one centralized location where you can revoke access when they leave. This approach closes the gaps that siloed accounts create. For more information and detailed instructions, see [Microsoft Entra IAM for AWS](/azure/architecture/reference-architectures/aws/aws-azure-ad-security).
 
 ### Microsoft Defender for Cloud Apps
 
@@ -244,7 +244,7 @@ Microsoft Security Copilot is a generative AI-powered security assistant that wo
 - **Automated remediation and scripting:** Security Copilot generates remediation code in PowerShell, command-line interface (CLI) commands, or Terraform snippets to fix AWS security problems. For example, when you identify a public Amazon S3 bucket that violates policy, Security Copilot can produce an AWS CLI command. The command revokes public access or generates Terraform code to enforce the correct access settings.
 
   > [!NOTE]
-  > AI-generated scripts provide a solid starting point but require review before implementation.
+  > AI-generated scripts provide a starting point but require review before implementation.
 
 - **Natural language threat hunting:** Security Copilot lets you hunt for threats in AWS by using plain language. Instead of writing complex queries, you can prompt Security Copilot with requests like *Identify anomalous AWS Management Console sign-ins outside business hours this week.* This natural language interface makes threat hunting available to more team members, including people without expertise in query languages.
 
