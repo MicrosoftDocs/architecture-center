@@ -2,12 +2,52 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2026-01-05T14:24:25.514Z</updated>
+    <updated>2026-01-12T15:54:19.370Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Use Azure Kubernetes Service to Host GPU-Based Workloads]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-gpu/gpu-aks</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-gpu/gpu-aks"/>
+        <updated>2026-01-07T16:20:31.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use Azure Kubernetes Service to host GPU-based workloads, including machine learning, deep learning, and high-performance computing (HPC) workloads.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Stream Processing with Databricks]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/data/stream-processing-databricks</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/data/stream-processing-databricks"/>
+        <updated>2026-01-06T16:24:47.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to create a four-stage, end-to-end stream processing pipeline in Azure by using Azure Databricks.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Global routing redundancy for mission-critical web applications]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/networking/global-web-applications/overview</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/networking/global-web-applications/overview"/>
+        <updated>2026-01-08T03:27:43.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to develop highly resilient global web applications.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Architectural Approaches for Messaging in Multitenant Solutions]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/messaging</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/messaging"/>
+        <updated>2026-01-06T18:24:00.000Z</updated>
+        <summary type="html"><![CDATA[Learn architectural approaches for messaging in multitenant solutions, including when to deploy shared, sharded, and dedicated messaging components.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Web-Queue-Worker Architecture Style]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/architecture-styles/web-queue-worker</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/architecture-styles/web-queue-worker"/>
+        <updated>2026-01-06T15:29:36.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the Web-Queue-Worker pattern. Discover benefits, challenges, and implementation by using Azure App Service, Azure Functions, and message queues.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Guidance for using Azure Kubernetes Service (AKS) in a multitenant solution]]></title>
         <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/aks</id>
@@ -417,11 +457,11 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Architectural approaches for messaging in multitenant solutions]]></title>
+        <title type="html"><![CDATA[Architectural Approaches for Messaging in Multitenant Solutions]]></title>
         <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/messaging</id>
         <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/messaging"/>
         <updated>2025-11-26T03:18:51.000Z</updated>
-        <summary type="html"><![CDATA[This article describes approaches for messaging in a multitenant solution.]]></summary>
+        <summary type="html"><![CDATA[Learn architectural approaches for messaging in multitenant solutions, including when to deploy shared, sharded, and dedicated messaging components.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -534,14 +574,6 @@
         <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices"/>
         <updated>2025-11-20T17:46:14.000Z</updated>
         <summary type="html"><![CDATA[Learn about the infrastructure and DevOps considerations to deploy and run a microservices architecture on Azure Kubernetes Service (AKS).]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Use Azure Kubernetes Service to host GPU-based workloads]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-gpu/gpu-aks</id>
-        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-gpu/gpu-aks"/>
-        <updated>2025-11-19T17:38:02.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to use Azure Kubernetes Service to host GPU-based workloads, including machine learning, deep learning, and high-performance computing (HPC) workloads.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
