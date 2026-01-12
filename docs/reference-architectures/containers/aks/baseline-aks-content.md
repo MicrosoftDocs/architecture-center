@@ -189,6 +189,8 @@ Azure CNI Overlay assigns each node a /24 address space for its pods. It's impor
 
 Each node supports up to 250 pods, and this limit includes any pods that are temporarily created during upgrades.
 
+For more information, see [the guidance about IP address planning for Azure CNI Overlay](/azure/aks/azure-cni-overlay#ip-address-planning).
+
 ### Other IP address space considerations
 
 For the complete set of networking considerations for this architecture, see [AKS baseline network topology](https://github.com/mspnp/aks-baseline/blob/main/network-team/topology.md). For more information about how to plan IP addressing for an AKS cluster, see [Configure Azure CNI networking in AKS](/azure/aks/configure-azure-cni).
@@ -218,8 +220,6 @@ The cluster might contain the workload and several other images, like the ingres
 
 - Pull images from authorized registries. You can enforce this restriction through Azure Policy. In this reference implementation, the cluster only pulls images from the dedicated Azure Container Registry instance that deploys with the cluster.
 
-<a name='configure-compute-for-the-base-cluster'></a>
-
 ## Configure compute for the base cluster
 
 In AKS, each node pool usually maps to a virtual machine scale set. Nodes are virtual machines (VMs) in each node pool.
@@ -245,12 +245,10 @@ When you plan capacity for a user node pool, consider the following recommendati
 Most AKS clusters use Linux as the operating system for their node pools. In this reference implementation, we use [Azure Linux](/azure/aks/use-azure-linux), which is a lightweight, hardened Linux distribution that's tuned for Azure. You can choose another Linux distribution like Ubuntu if you prefer or if Azure Linux doesn't meet your requirements. If you choose a different operating system, ensure that the OS disk is sized appropriately for that image. Some distributions require more space than Azure Linux, so you might need to increase the disk size to avoid deployment or runtime problems.
 
 If your workload is composed of mixed technologies, you can use different operating systems in different node pools. But if you don't need different operating systems, we recommend that you use a single operating system for all workload node pools to reduce operational complexity.
- 
-<a name='integrate-microsoft-entra-id-for-the-cluster'></a>
 
 ## Integrate Microsoft Entra ID for the cluster
 
-Securing access to and from the cluster is critical. Apply security controls based on how they affect the cluster:
+Securing access to and from the cluster is critical. Use the cluster's perspective to understand the difference between inside-out and outside-in traffic:
 
 - *Inside-out access:* Consider AKS access to Azure components like networking infrastructure, Container Registry, and Key Vault. Authorize only the resources that the cluster should be allowed to access.
 
@@ -310,8 +308,6 @@ AKS supports native [Kubernetes user authentication](https://kubernetes.io/docs/
 
 In this reference implementation, local cluster accounts access is explicitly prohibited when the system deploys the cluster.
 
-<a name='integrate-microsoft-entra-id-for-the-workload'></a>
-
 ## Integrate Microsoft Entra ID for the workload
 
 Similar to having an Azure system-assigned managed identity for the entire cluster, you can assign managed identities at the pod level. A workload identity enables the hosted workload to access resources through Microsoft Entra ID. For example, suppose that the workload stores files in Azure Storage. When it needs to access those files, the pod authenticates itself against the resource as an Azure managed identity.
@@ -329,8 +325,6 @@ In the nonoverlay CNI model, every pod gets an IP address from the subnet addres
 In this reference implementation, we use Azure CNI Overlay. It only allocates IP addresses from the node pool subnet for the nodes and uses an optimized overlay layer for pod IPs. Because Azure CNI Overlay uses fewer virtual network IP addresses than many other approaches, we recommend it for IP address-constrained deployments.
 
 For more information about the models, see [Configure Azure CNI Overlay networking in AKS](/azure/aks/azure-cni-overlay#choosing-a-network-model-to-use) and [Best practices for network connectivity and security in AKS](/azure/aks/operator-best-practices-network#choose-the-appropriate-network-model).
-
-<a name='deploy-ingress-resources'></a>
 
 ## Deploy ingress resources
 
@@ -540,8 +534,6 @@ The implementation also sets extra policies that aren't part of any built-in ini
 Consider creating your own custom initiatives. Combine the policies that are applicable for your workload into a single assignment.
 
 To observe how Azure Policy functions from within your cluster, you can access the pod logs for all pods in the `gatekeeper-system` namespace and the logs for the `azure-policy` and `azure-policy-webhook` pods in the `kube-system` namespace.
- 
-<a name="node-and-pod-scalability"></a>
 
 ## Node and pod scalability
 
@@ -577,9 +569,6 @@ When you enable the autoscaler, set the maximum and minimum node count. The reco
 
 For the system node pool, the recommended minimum value is three.
 
- 
-<a name="business-continuity-decisions"></a>
-
 ## Business continuity decisions
 
 To maintain business continuity, define the SLO for the infrastructure and your application. For more information, see [Recommendations for defining reliability targets](/azure/well-architected/reliability/metrics). Review the service-level agreement (SLA) conditions for AKS in the latest [SLA for online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services) article.
@@ -603,16 +592,13 @@ Regular upkeep tasks on your cluster, like timely updates, are crucial for relia
 - **Set resource quotas on the workload namespaces:** The resource quota on a namespace helps ensure that pod requests and limits are properly set on a deployment. For more information, see [Enforce resource quotas](/azure/aks/operator-best-practices-scheduler#enforce-resource-quotas).
 
   > [!NOTE]
-  > If you set resources quotas at the cluster level, problems can occur if you deploy non-Microsoft workloads that don't have proper requests and limits. When you set quotas at the namespace level, it ensures that they only apply to your workload components.
+  > If you set resources quotas at the cluster level, problems can occur if you deploy external workloads that don't have proper requests and limits. When you set quotas at the namespace level, it ensures that they only apply to your workload components.
 
 - **Set pod requests and limits:** Set requests and limits to enable Kubernetes to efficiently allocate CPU and memory resources to the pods. It gives you higher container density on a node. Requests and limits can also increase your reliability while reducing your costs because of better hardware usage.
 
   To estimate the limits for a workload, test and establish a baseline. Start with equal values for requests and limits. Then gradually tune those values until you establish the threshold that causes instability in the cluster.
 
   You can specify requests and limits in your deployment manifests. For more information, see [Set pod requests and limits](/azure/aks/developer-best-practices-resource-management#define-pod-resource-requests-and-limits).
-
- 
-<a name="availability-zones"></a>
 
 ### Availability zones
 
@@ -629,9 +615,6 @@ To protect against some types of outages, use [availability zones](/azure/aks/av
     For example, suppose your workload uses a database that isn't zone-resilient. If a failure occurs, the AKS node might move to another zone, but the database doesn't move with the node to that zone, so your workload is disrupted.
 
 For simplicity in this architecture, AKS is deployed to a single region with node pools that span three availability zones. Other resources of the infrastructure, like Azure Firewall and Application Gateway, are also deployed to the same region with multiple zone support. Geo-replication is enabled for Container Registry.
-
- 
-<a name="multiple-regions"></a>
 
 ### Multiple regions
 
@@ -692,8 +675,6 @@ For more information, see [Chaos Studio](/azure/chaos-studio/chaos-studio-overvi
 
 <a id='monitor-and-collect-metrics'></a>
 <a id='monitor-and-collect-logs-and-metrics'></a>
-
-<a name='monitor-and-collect-metrics'></a>
 
 ## Monitor and collect logs and metrics
 
