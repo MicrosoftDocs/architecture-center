@@ -88,7 +88,7 @@ Fabric integrates with consumers of your multisource datasets, including Power B
 
 Small or medium-sized businesses that modernize on-premises data warehouses for the cloud can choose between two approaches. You can adopt big data tools for future scalability or use traditional SQL-based solutions for cost efficiency and a predictable transition. A hybrid approach lets you migrate existing data while using modern tools and AI capabilities. You can keep SQL-based data sources running in the cloud and modernize them incrementally.
 
-This article describes strategies for small or medium-sized businesses to modernize legacy data stores and explore big data tools within existing budgets and skill set. These Azure data warehousing solutions integrate with Azure and Microsoft services, including Foundry Tools, Dynamics 365, and Power Platform.
+This article describes how small or medium-sized businesses can modernize legacy data stores and adopt big data tools while staying within existing budgets and skill sets. These Azure data warehousing solutions integrate with Azure and Microsoft services, including Foundry Tools, Dynamics 365, and Power Platform.
 
 ### Potential use cases
 
