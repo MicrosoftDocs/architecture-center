@@ -108,7 +108,7 @@ The following table lists common use scenario requirements and the recommended d
 | Build scalable, managed enterprise-ready apps on open-source PostgreSQL, scale out single-node PostgreSQL with high performance, or migrate PostgreSQL and Oracle workloads to the cloud. | [Azure Database for PostgreSQL](/azure/postgresql/overview) |
 | Deliver high availability and elastic scaling to open-source mobile and web apps by using a managed community MySQL database service, or migrate MySQL workloads to the cloud. | [Azure Database for MySQL](/azure/mysql/overview) |
 | Build applications that have guaranteed low latency and high availability anywhere, at any scale, or migrate Cassandra, Gremlin, and other NoSQL workloads to the cloud. | [Azure Cosmos DB](/azure/cosmos-db/introduction) |
-| Migrate MongoDB workloads to the cloud, or build hybrid and multi-cloud applications with high-capacity vertical and horizontal scaling | [Azure DocumentDB](/azure/documentdb/overview)|
+| Migrate MongoDB workloads to the cloud, or build hybrid and multicloud applications with high-capacity vertical and horizontal scaling | [Azure DocumentDB](/azure/documentdb/overview)|
 | Modernize existing Cassandra data clusters and apps, and gain flexibility by using a managed instance service. | [Azure Managed Instance for Apache Cassandra](/azure/managed-instance-apache-cassandra/introduction) |
 | Deliver fast, scalable applications by using an open-source-compatible in-memory data store. | [Azure Managed Redis](/azure/redis/overview) |
 
