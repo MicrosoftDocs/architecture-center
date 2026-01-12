@@ -295,7 +295,7 @@ Be sure that you include the Microsoft Entra groups for cluster and namespace ac
 
 #### Use Azure RBAC for Kubernetes authorization
 
-We recommend that you use Azure RBAC and Azure role assignments to enforce authorization checks on the cluster. This authorization approach integrates with Microsoft Entra authentication. You can assign roles at various scopes, such as the management group, subscription, or resource group. All clusters under the scope then inherit a consistent set of role assignments with respect to who has permissions to access the objects on the Kubernetes cluster.
+We recommend that you use Azure RBAC and Azure role assignments to enforce authorization checks on the cluster. This authorization approach integrates with Microsoft Entra authentication. You can assign roles at various scopes, like the management group, subscription, or resource group. All clusters under the scope then inherit a consistent set of role assignments with respect to who has permissions to access the objects on the Kubernetes cluster.
 
 We don't recommend using Kubernetes-native RBAC with [ClusterRoleBindings and RoleBindings](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding).
 
@@ -482,7 +482,7 @@ Lower environments might consider relaxing this private cluster recommendation f
 
 ## Add secret management
 
-Store secrets in a managed key store, like Key Vault. The advantage is that a managed key store handles secret rotation. It provides strong encryption and an access audit log. It also keeps core secrets out of the deployment pipeline. In this architecture, a Key Vault firewall is enabled and configured, and Private Link is used to connect to Azure resources, such as for Key Vault to access secrets and certificates.
+Store secrets in a managed key store, like Key Vault. The advantage is that a managed key store handles secret rotation. It provides strong encryption and an access audit log. It also keeps core secrets out of the deployment pipeline. In this architecture, a Key Vault firewall is enabled and configured, and Private Link is used to connect to Azure resources, like for Key Vault to access secrets and certificates.
 
 Key Vault is well integrated with other Azure services. Use the built-in feature of those services to access secrets. For more information about how Application Gateway accesses TLS certificates for the ingress flow, see the [Ingress traffic flow](#ingress-traffic-flow) section.
 
