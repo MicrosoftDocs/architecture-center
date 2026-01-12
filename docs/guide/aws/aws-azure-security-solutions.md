@@ -227,8 +227,6 @@ Automatic attack disruption is an autonomous response capability in Defender XDR
 
 #### Automatic disruption for AWS
 
-:::image type="content" source="media/aws-azure-security-solutions-content/attack-disruption.png" alt-text="Screenshot that shows an incident investigation in the Defender XDR portal." lightbox="media/aws-azure-security-solutions-content/attack-disruption.png":::
-
 Automatic attack disruption reduces dwell time and minimizes business impact. By integrating telemetry from AWS, Proofpoint, and Okta, the feature lets security teams shift from reactive detection to proactive, cross-platform protection. This approach provides unified defense and reduces operational complexity. For more information, see [Automatic attack disruption in Defender XDR](/defender-xdr/automatic-attack-disruption).
 
 ### Microsoft Security Copilot
