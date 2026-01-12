@@ -169,7 +169,7 @@ Deploy Application Gateway in a zone-redundant configuration with a minimum scal
 
 - Deploy SQL Database in the General Purpose, Premium, or Business Critical tier with zone redundancy turned on. These tiers support [zone redundancy](/azure/azure-sql/database/high-availability-sla#general-purpose-service-tier).
 
-- [Configure SQL Database backups](/azure/azure-sql/database/automated-backups-overview#configure-backup-storage-redundancy) to use ZRS or GZRS.
+- [Configure SQL Database backups](/azure/azure-sql/database/automated-backups-overview#backup-storage-redundancy) to use ZRS or GZRS.
 
 ### Security
 
@@ -229,7 +229,7 @@ Consider the following recommendations when you configure data-in-transit encryp
 
 - Place sensitive data in its own database and turn on encryption only for that database. This approach minimizes database encryption latency.
 
-- Understand built-in encryption support. [Azure Storage automatically encrypts](/azure/storage/common/storage-service-encryption) data at rest through server-side encryption (256-bit Advanced Encryption Standard (AES)). Azure Monitor automatically encrypts data at rest through Microsoft-managed keys.
+- Understand built-in encryption support. [Azure Storage automatically encrypts data at rest](/azure/storage/common/storage-service-encryption) through server-side encryption (256-bit Advanced Encryption Standard (AES)). Azure Monitor automatically encrypts data at rest through Microsoft-managed keys.
 
 #### Governance
 
@@ -314,7 +314,7 @@ Apply the following deployment guidance for the baseline architecture:
 
 - Use [IaC](/devops/deliver/what-is-infrastructure-as-code) to automate infrastructure deployments.
 
-- Continuously validate workload performance and resilience by using services like [Azure Load Testing](https://azure.microsoft.com/products/load-testing/) and [Azure Chaos Studio](https://azure.microsoft.com/products/chaos-studio/).
+- Continuously validate workload performance and resilience by using services like [Azure Load Testing](/azure/app-testing/load-testing/overview-what-is-azure-load-testing) and [Azure Chaos Studio](/azure/chaos-studio/chaos-studio-overview).
 
 #### Configuration
 
@@ -358,7 +358,7 @@ Platform monitoring collects data from the Azure services in your architecture.
   | SQL Database | [SQL Database metrics and logs description](/azure/azure-sql/database/monitoring-sql-database-azure-monitor-reference) |
   | Azure Cosmos DB | [Azure Cosmos DB metrics and logs descriptions](/azure/cosmos-db/monitor-reference) |
   | Key Vault | [Key Vault metrics and logs descriptions](/azure/key-vault/general/monitor-key-vault-reference) |
-  | Blob Storage | [Azure Blob Storage metrics and logs descriptions](/azure/storage/blobs/monitor-blob-storage-reference) |
+  | Blob Storage | [Blob Storage metrics and logs descriptions](/azure/storage/blobs/monitor-blob-storage-reference) |
   | Application Insights | [Application Insights metrics and logs descriptions](/azure/azure-monitor/app/api-custom-events-metrics) |
   | Public IP address | [Public IP address metrics and logs descriptions](/azure/virtual-network/ip-services/monitor-public-ip) |
 
@@ -375,7 +375,7 @@ Platform monitoring collects data from the Azure services in your architecture.
 
 ##### Application Gateway
 
-Application Gateway monitors back-end pool health through [default health probes](/azure/application-gateway/application-gateway-probe-overview#default-health-probe). Use Application Gateway access logs to collect information like timestamps, HTTP response codes, and URL paths. For more information, see [Back-end health and diagnostic logs](/azure/application-gateway/application-gateway-diagnostics#diagnostic-logging).
+Application Gateway monitors back-end pool health through [default health probes](/azure/application-gateway/application-gateway-probe-overview#default-health-probe). Use Application Gateway access logs to collect information like timestamps, HTTP response codes, and URL paths. For more information, see [Back-end health and diagnostic logs](/azure/application-gateway/application-gateway-diagnostics).
 
 ##### App Service
 
@@ -450,11 +450,10 @@ Database scaling involves many considerations beyond the scope of this architect
 ## Next steps
 
 - [Scale up an app in App Service](/azure/app-service/manage-scale-up)
-- [Migrate App Service to availability zone support](/azure/reliability/migrate-app-service)
-- [Scaling Application Gateway v2 and Azure Web Application Firewall v2](/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
+- [Scale Application Gateway and Azure Web Application Firewall](/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
 
 ## Related resources
 
-- [Enterprise web app patterns]../../../web-apps/guides/enterprise-app-patterns/overview.md)
+- [Enterprise web app patterns](../../../web-apps/guides/enterprise-app-patterns/overview.md)
 - [Guide to Private Link in Azure Virtual WAN](../../../networking/guide/private-link-virtual-wan-dns-guide.yml)
 
