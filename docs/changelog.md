@@ -189,4 +189,3 @@ The following new and updated articles have recently been published in the Azure
 - [Online Transaction Processing (OLTP)](./data-guide/relational-data/online-transaction-processing.md) ([#78cf66ffc7](https://github.com/MicrosoftDocs/architecture-center/commit/78cf66ffc7))
 - [AI Agent Orchestration Patterns](./ai-ml/guide/ai-agent-design-patterns.md) ([#164a16ed9f](https://github.com/MicrosoftDocs/architecture-center/commit/164a16ed9f))
 - [Use Azure Key Vault in a Multitenant Solution](./guide/multitenant/service/key-vault.md) ([#b48a068ca2](https://github.com/MicrosoftDocs/architecture-center/commit/b48a068ca2))
-
