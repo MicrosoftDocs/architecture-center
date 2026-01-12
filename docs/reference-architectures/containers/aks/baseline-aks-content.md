@@ -47,7 +47,6 @@ You can use an implementation of this architecture on [GitHub: AKS baseline refe
       [Node and pod scalability](#node-and-pod-scalability)\
       [Business continuity decisions](#business-continuity-decisions)\
       [Availability zones](#availability-zones)
-
       [Multiple regions](#multiple-regions)
     :::column-end:::
     :::column:::
