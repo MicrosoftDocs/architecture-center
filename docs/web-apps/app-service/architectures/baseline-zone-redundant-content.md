@@ -219,7 +219,7 @@ Consider the following recommendations when you configure data-in-transit encryp
 
 - Store the private key to the certificate in Key Vault.
 
-- Provide Application Gateway access to the certificate private key. For more information, see [Grant permission by using Azure role-based access control (Azure RBAC)](/azure/key-vault/general/rbac-guide) and [Managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview). Don't use Key Vault access policies to provide access. Access policies only let you grant broad permissions, not specific values.
+- Provide Application Gateway access to the certificate private key. For more information, see [Grant permission by using Azure role-based access control (Azure RBAC)](/azure/key-vault/general/rbac-guide) and [Managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview). Don't use Key Vault access policies to provide access. Access policies let you grant only broad permissions, not specific values.
 
 - [Turn on end-to-end encryption](/azure/application-gateway/ssl-overview#end-to-end-tls-encryption). App Service is the back-end pool for the application gateway. When you configure the back-end setting for the back-end pool, use the HTTPS protocol on back-end port 443.
 
@@ -359,7 +359,7 @@ Platform monitoring collects data from the Azure services in your architecture.
   | Azure Cosmos DB | [Azure Cosmos DB metrics and logs descriptions](/azure/cosmos-db/monitor-reference) |
   | Key Vault | [Key Vault metrics and logs descriptions](/azure/key-vault/general/monitor-key-vault-reference) |
   | Blob Storage | [Blob Storage metrics and logs descriptions](/azure/storage/blobs/monitor-blob-storage-reference) |
-  | Application Insights | [Application Insights metrics and logs descriptions]/azure/azure-monitor/app/classic-api#core-api-for-custom-events-and-metrics) |
+  | Application Insights | [Application Insights metrics and logs descriptions](/azure/azure-monitor/app/classic-api#core-api-for-custom-events-and-metrics) |
   | Public IP address | [Public IP address metrics and logs descriptions](/azure/virtual-network/ip-services/monitor-public-ip) |
 
 - Balance observability needs with cost. The more data you collect, the higher the cost. For more information, see [Log Analytics cost calculations and options](/azure/azure-monitor/logs/cost-logs) and [Pricing for Log Analytics workspace](https://azure.microsoft.com/pricing/details/monitor/).
@@ -407,7 +407,7 @@ Performance Efficiency refers to your workload's ability to scale to meet user d
 
 - Implement autoscaling for Application Gateway to scale in or out to meet demand.
 
-- Set the maximum instance count to a number higher than your expected need. You only pay for the capacity units that you use.
+- Set the maximum instance count to a number higher than your expected need. You pay for only the capacity units that you use.
 
 - Set a minimum instance count that can handle small spikes in traffic. You can use [average compute unit usage](/azure/application-gateway/high-traffic-support#set-your-minimum-instance-count-based-on-your-average-compute-unit-usage) to calculate your minimum instance count.
 
