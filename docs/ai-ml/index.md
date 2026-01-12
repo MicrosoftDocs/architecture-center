@@ -4,7 +4,7 @@ description: Get started with AI. Use high-level architectural types, see Azure 
 author: davihern
 ms.author: davihern
 ms.date: 12/17/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
 ---
@@ -56,9 +56,9 @@ For more information, see [Deep learning overview](https://azure.microsoft.com/r
 
 *Generative AI* trains models to generate original content based on many forms of content, including natural language, computer vision, audio, or image input. By using generative AI, you can describe a desired output in everyday language, and the model can respond by creating appropriate text, image, and code. Examples of generative AI applications include Microsoft 365 Copilot and Microsoft Foundry.
 
-- [Copilot](https://m365.cloud.microsoft/chat/) is primarily a user interface that helps you write code, documents, and other text-based content. It's based on popular models from OpenAI and Anthropic and is integrated into a wide range of Microsoft applications and user experiences.
+- [Copilot](https://m365.cloud.microsoft/chat/) is primarily a user interface (UI) that helps you write code, documents, and other text-based content. It's based on popular models from OpenAI and Anthropic and is integrated into a wide range of Microsoft applications and user experiences.
 
-- [Foundry](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure) is a development platform as a service that provides access to more than 11,000 language models, including OpenAI's gpt-5.2, Sora2, Anthropic's Claude, Phi from Microsoft, and xAI's Grok. You can adapt these models to the following specific tasks:
+- [Foundry](/azure/ai-foundry/what-is-foundry) is a development platform as a service (PaaS) that provides access to a catalog of language models, including OpenAI's GPT-5.2, Sora2, Anthropic's Claude, Phi from Microsoft, and xAI's Grok. You can adapt these models to the following specific tasks:
 
   - Content generation
   - Content summarization
@@ -70,11 +70,11 @@ For more information, see [Deep learning overview](https://azure.microsoft.com/r
 
 ### Language models
 
-*Language models* are a subset of generative AI that focus on natural language processing tasks, like text generation and sentiment analysis. These models represent natural language based on the probability of words or sequences of words occurring in a given context.
+*Language models* are a subset of generative AI that focus on natural language processing tasks, like text generation and sentiment analysis. These models represent natural language based on the probability of words or sequences of words that occur in a given context.
 
-Conventional language models are used in supervised settings for research purposes. These models are trained on well-labeled text datasets for specific tasks. Pretrained language models provide an accessible way to start using AI. They're more widely used in recent years. These models are trained on large-scale text collections from the internet via deep learning neural networks. You can fine-tune them on smaller datasets for specific tasks.
+Conventional language models are used in supervised settings for research purposes. These models are trained on well-labeled text datasets for specific tasks. Pretrained language models provide an easy way to start using AI. They're more widely used in recent years. These models are trained on large-scale text collections from the internet via deep learning neural networks. You can fine-tune them on smaller datasets for specific tasks.
 
-The number of parameters, or weights, determine the size of a language model. Parameters influence how the model processes input data and generates an output. During training, the model adjusts the weights to minimize the difference between its predictions and the actual data. This process is how the model learns parameters. The more parameters a model has, the more complex and expressive it is. But it's also more computationally expensive to train and use.
+The number of parameters, or *weights*, determine the size of a language model. Parameters influence how the model processes input data and generates an output. During training, the model adjusts the weights to minimize the difference between its predictions and the actual data. This process is how the model learns parameters. The more parameters a model has, the more complex and expressive it is. But it's also more computationally expensive to train and use.
 
 Small language models usually have fewer than 10 billion parameters, and large language models have more than 10 billion parameters. For example, the Microsoft Phi-4 model family includes the following versions:
 
@@ -104,9 +104,9 @@ For more information, see [Design and develop a RAG solution](./guide/rag/rag-so
 
 ## Agent-based architecture
 
-Agents are more than just code that calls language models to respond to user prompts. They can autonomously do tasks, make decisions, and interact with other systems. Agents can be designed to handle specific tasks or operate in complex environments, making them suitable for a wide range of applications. Multi‑agent architecture lets you break complex problems into specialized agents that coordinate.
+Agents are more than just code that calls language models to respond to user prompts. They can autonomously do tasks, make decisions, and interact with other systems. You can design agents to handle specific tasks or operate in complex environments, which makes them suitable for many applications. Multi‑agent architecture lets you break complex problems into specialized agents that coordinate to produce a solution.
 
-Tools like [Microsoft Agent Framework](/agent-framework/overview/agent-framework-overview) and [Foundry workflows](/azure/ai-foundry/agents/concepts/workflow) are available to help you build agent-based architectures.
+Tools like [Microsoft Agent Framework](/agent-framework/overview/agent-framework-overview) and [Foundry workflows](/azure/ai-foundry/agents/concepts/workflow) can help you build agent-based architectures.
 
 For information about how to coordinate multiple agents in complex AI scenarios, see [AI agent orchestration patterns](/azure/architecture/ai-ml/guide/ai-agent-design-patterns).
 
@@ -116,7 +116,7 @@ By using [Foundry Tools](https://azure.microsoft.com/products/ai-foundry/tools),
 
 For more information, see the following resources:
 
-- [Choose an Azure AI services technology](../data-guide/technology-choices/ai-services.md)
+- [Choose a Foundry Tools technology](../data-guide/technology-choices/ai-services.md)
 - [Foundry Tools overview](/azure/ai-services/what-are-ai-services)
 - [Choose a natural language processing technology in Azure](../data-guide/technology-choices/natural-language-processing.md)
 
@@ -148,7 +148,7 @@ For more information, see the following resources:
 - [Baseline Foundry chat reference architecture](./architecture/baseline-microsoft-foundry-chat.yml) describes how to build an end-to-end chat architecture by using OpenAI's GPT models in Foundry. It incorporates grounding via enterprise data sources to enrich responses with contextual information.
 
   :::image type="complex" source="./architecture/_images/baseline-microsoft-foundry.svg" border="false" lightbox="./architecture/_images/baseline-microsoft-foundry.svg" alt-text="Diagram that shows a baseline end-to-end chat architecture that uses Foundry.":::
-   The diagram presents a detailed Azure architecture for deploying an AI solution. On the left, a user connects through an application gateway with a web application firewall, which is part of a virtual network. This gateway links to private DNS zones and Azure DDoS Protection protects it. Below the gateway, private endpoints connect to services like Azure App Service, Azure Key Vault, and Azure Storage, which are used for client app deployment. App Service is managed with identity and spans three zones. Application Insights and Azure Monitor provide monitoring, and Microsoft Entra ID handles authentication. To the right, the virtual network has several subnets: App Service integration, private endpoint, Foundry integration, Azure AI agent integration, Azure Bastion, jump box, build agents, and Azure firewall. Each subnet hosts specific endpoints or services, like storage, Foundry, Azure AI Search, Azure Cosmos DB, and knowledge store, all connected via private endpoints. Outbound traffic from the network passes through Azure Firewall to reach internet sources. To the far right, a separate box represents Foundry, which includes an account and a project. Managed identities are used to connect the Foundry Agent Service to the Foundry project, which in turn accesses Azure OpenAI. The diagram uses numbered green circles to indicate the logical flow, showing how user requests traverse the network, interact with different endpoints, and ultimately connect to Azure AI services and storage, with dependencies clearly grouped and labeled.
+   The diagram presents a detailed Azure architecture for deploying an AI solution. On the left, a user connects through an application gateway with a web application firewall, which is part of a virtual network. This gateway links to private DNS zones. Azure DDoS Protection protects the gateway. Below the gateway, private endpoints connect to services like Azure App Service, Azure Key Vault, and Azure Storage, which are used for client app deployment. App Service is managed with identity and spans three zones. Application Insights and Azure Monitor provide monitoring, and Microsoft Entra ID handles authentication. To the right, the virtual network has several subnets: App Service integration, private endpoint, Foundry integration, Azure AI agent integration, Azure Bastion, jump box, build agents, and Azure firewall. Each subnet hosts specific endpoints or services, like storage, Foundry, Azure AI Search, Azure Cosmos DB, and knowledge store, all connected via private endpoints. Outbound traffic from the network passes through Azure Firewall to reach internet sources. To the far right, a separate box represents Foundry, which includes an account and a project. Managed identities are used to connect Foundry Agent Service to the Foundry project, which in turn accesses Azure OpenAI. The diagram uses numbered green circles to indicate the logical flow, which shows how user requests traverse the network, interact with different endpoints, and ultimately connect to Foundry Tools and storage, with dependencies clearly grouped and labeled.
   :::image-end:::
 
 ### Automated machine learning
@@ -174,21 +174,21 @@ For more information, see [MLflow and Machine Learning](/azure/machine-learning/
 
 ### Generative AI tools
 
-- [Foundry](https://azure.microsoft.com/products/ai-foundry) provides a comprehensive platform to help you experiment, develop, and deploy generative AI apps and APIs responsibly. Use the [Foundry portal](https://ai.azure.com?cid=learnDocs) to find Azure AI services, foundation models, a playground, and resources to help you fine-tune, evaluate, and deploy AI models and AI agents.
+- [Foundry](https://azure.microsoft.com/products/ai-foundry) provides a platform to help you experiment, develop, and deploy generative AI apps and APIs responsibly. Use the [Foundry portal](https://ai.azure.com?cid=learnDocs) to find Foundry Tools, foundation models, a playground, and resources to help you fine-tune, evaluate, and deploy AI models and AI agents.
 
   [Foundry Agent Service](/azure/ai-foundry/agents/overview) hosts agents that you define. These agents connect to a foundation model in the AI model catalog and optionally your own custom knowledge stores or APIs. You can define these agents declaratively or Foundry can containerize and host them.
 
-- [Copilot Studio](/microsoft-copilot-studio/) extends Copilot in Microsoft 365. You can use Copilot Studio to build custom copilots for internal and external scenarios. Use a comprehensive authoring canvas to design, test, and publish copilots. You can easily create generative AI-enabled conversations, provide greater control of responses for existing copilots, and accelerate productivity by using automated workflows.
+- [Copilot Studio](/microsoft-copilot-studio/) extends Copilot in Microsoft 365. You can use Copilot Studio to build custom copilots for internal and external scenarios. Use a authoring canvas to design, test, and publish copilots. You can easily create generative AI-enabled conversations, provide greater control of responses for existing copilots, and accelerate productivity by using automated workflows.
 
 ## Data platforms for AI
 
-The following platforms provide comprehensive solutions for data movement, processing, ingestion, transformation, real-time analytics, and reporting.
+The following platforms provide solutions for data movement, processing, ingestion, transformation, real-time analytics, and reporting.
 
 ### Microsoft Fabric
 
-Microsoft Fabric is an end-to-end analytics and data platform for enterprises that require a unified solution. Workload teams can use data within Fabric. The platform covers data movement, processing, ingestion, transformation, real-time event routing, and report building. It provides a comprehensive suite of services, including Fabric Data Engineer, Fabric Data Factory, Fabric Data Science, Fabric Real-Time Intelligence, Fabric Data Warehouse, and Fabric Databases.
+Microsoft Fabric is an end-to-end analytics and data platform for enterprises that require a unified solution. Workload teams can use data within Fabric. The platform covers data movement, processing, ingestion, transformation, real-time event routing, and report building. It provides a suite of services, including Fabric Data Engineer, Fabric Data Factory, Fabric Data Science, Fabric Real-Time Intelligence, Fabric Data Warehouse, and Fabric Databases.
 
-Fabric integrates separate components into a cohesive stack. Instead of relying on different databases or data warehouses, you can centralize data storage with OneLake. AI capabilities are embedded within Fabric, which eliminates the need for manual integration.
+Fabric integrates separate components into a cohesive stack. Instead of relying on different databases or data warehouses, you can centralize data storage by using OneLake. AI capabilities are embedded within Fabric, which eliminates the need for manual integration.
 
 For more information, see the following resources:
 
@@ -212,38 +212,38 @@ You can use Copilot and other generative AI features to transform and analyze da
 
 #### Data agent in Fabric
 
-Data agent in Fabric is a Fabric feature that you can use to build your own conversational Q&A systems by using generative AI. A Fabric data agent makes data insights more accessible and actionable for everyone in your organization. 
+Data agent in Fabric is a feature that you can use to build your own conversational Q&A systems by using generative AI. A Fabric data agent makes data insights easier to use and more actionable for everyone in your organization. 
 
 For more information, see the following resources:
 
 - [Fabric data agent overview](/fabric/data-science/concept-data-agent)
 - [Create data agent](/fabric/data-science/how-to-create-data-agent)
 - [Example of a data agent](/fabric/data-science/data-agent-end-to-end-tutorial)
-- [Difference between a Fabric data agent a copilot](/fabric/data-science/concept-data-agent#difference-between-a-fabric-data-agent-and-a-copilot)
+- [Difference between a Fabric data agent and a copilot](/fabric/data-science/concept-data-agent#difference-between-a-fabric-data-agent-and-a-copilot)
 
 ### Apache Spark-based data platforms for AI
 
 Apache Spark is a parallel processing framework that supports in-memory processing to boost the performance of big data analytic applications. Spark provides basic building blocks for in-memory cluster computing. A Spark job can load and cache data into memory and query it repeatedly, which is faster than disk-based applications, like Hadoop.
 
-#### Apache Spark in Fabric
+#### Spark in Fabric
 
-Fabric Runtime is an Azure-integrated platform based on Apache Spark that you can use to implement and manage data engineering and data science experiences. Fabric Runtime combines key components from internal and open-source sources, which provides a comprehensive solution.
+Fabric Runtime is an Azure-integrated platform based on Spark that you can use to implement and manage data engineering and data science experiences. Fabric Runtime combines key components from internal and open-source sources, which provides a comprehensive solution.
 
 Fabric Runtime has the following key components:
 
-- **Apache Spark** is a powerful open-source distributed computing library that you can use for large-scale data processing and analytics tasks. Apache Spark provides a versatile and high-performance platform for data engineering and data science experiences.
+- **Spark** is an open-source distributed computing library that you can use for large-scale data processing and analytics tasks. Spark provides a versatile platform for data engineering and data science experiences.
 
-- **Delta Lake** is an open-source storage layer that integrates atomicity, consistency, isolation, and durability (ACID) transactions and other data reliability features with Apache Spark. Integrated within Fabric Runtime, Delta Lake enhances data processing capabilities and helps ensure data consistency across multiple concurrent tasks.
+- **Delta Lake** is an open-source storage layer that integrates atomicity, consistency, isolation, and durability (ACID) transactions and other data reliability features with Spark. Integrated within Fabric Runtime, Delta Lake enhances data processing capabilities and helps ensure data consistency across multiple concurrent tasks.
 
 - **Default-level packages for Java, Scala, Python, and R** are packages that support diverse programming languages and environments. These packages are automatically installed and configured, so developers can apply their preferred programming languages for data processing tasks.
 
-Fabric Runtime is built on a robust open-source operating system to help ensure compatibility with different hardware configurations and system requirements.
+Fabric Runtime is built on an open-source operating system that provides compatibility with different hardware configurations and system requirements.
 
-For more information, see [Apache Spark runtimes in Fabric](/fabric/data-engineering/runtime).
+For more information, see [Spark runtimes in Fabric](/fabric/data-engineering/runtime).
 
 #### Azure Databricks Runtime for Machine Learning
 
-[Azure Databricks](https://azure.microsoft.com/products/databricks) is an Apache Spark–based analytics platform that you can set up in a single step. It has streamlined workflows and an interactive workspace for collaboration between data scientists, engineers, and business analysts.
+[Azure Databricks](https://azure.microsoft.com/products/databricks) is a Spark–based analytics platform that includes workflows and an interactive workspace for collaboration between data scientists, engineers, and business analysts.
 
 You can use [Databricks Runtime for Machine Learning](/azure/databricks/machine-learning/databricks-runtime-ml) to start a Databricks cluster that has all the libraries required for distributed training. This feature provides an environment for machine learning and data science. It has multiple popular libraries, including TensorFlow, PyTorch, Keras, and XGBoost. It also supports distributed training via Horovod.
 
@@ -253,20 +253,20 @@ For more information, see the following resources:
 - [Machine learning capabilities in Azure Databricks](/azure/databricks/machine-learning)
 - [Deep learning overview for Azure Databricks](/azure/databricks/machine-learning/train-model/deep-learning)
 
-#### Apache Spark in Azure HDInsight
+#### Spark in Azure HDInsight
 
-[Apache Spark in Azure HDInsight](/azure/hdinsight/spark/apache-spark-overview) is the Microsoft implementation of Apache Spark in the cloud. Spark clusters in HDInsight are compatible with Azure Storage and Azure Data Lake Storage, so you can use HDInsight Spark clusters to process data that you store in Azure.
+[Spark in Azure HDInsight](/azure/hdinsight/spark/apache-spark-overview) is the Microsoft implementation of Spark in the cloud. Spark clusters in HDInsight are compatible with Azure Storage and Azure Data Lake Storage, so you can use HDInsight Spark clusters to process data that you store in Azure.
 
-[SynapseML](https://github.com/microsoft/SynapseML) is the Microsoft machine learning library for Apache Spark. This open-source library adds many deep learning and data science tools, networking capabilities, and production-grade performance to the Spark ecosystem.
+[SynapseML](https://github.com/microsoft/SynapseML) is the Microsoft machine learning library for Spark. This open-source library adds many deep learning and data science tools, networking capabilities, and production-grade performance to the Spark ecosystem.
 
 For more information, see the following resources:
 
 - [SynapseML features and capabilities](./guide/data-science-and-machine-learning.md#synapseml)
 - [HDInsight overview](/azure/hdinsight/hdinsight-overview)
-- [Tutorial: Build an Apache Spark machine learning application in HDInsight](/azure/hdinsight/spark/apache-spark-ipython-notebook-machine-learning)
-- [Apache Spark best practices on HDInsight](/azure/hdinsight/spark/spark-best-practices)
-- [Set up HDInsight Apache Spark cluster settings](/azure/hdinsight/spark/apache-spark-settings)
-- [Create an Apache Spark machine learning pipeline on HDInsight](/azure/hdinsight/spark/apache-spark-creating-ml-pipelines)
+- [Tutorial: Build an Spark machine learning application in HDInsight](/azure/hdinsight/spark/apache-spark-ipython-notebook-machine-learning)
+- [Spark best practices on HDInsight](/azure/hdinsight/spark/spark-best-practices)
+- [Set up HDInsight Spark cluster settings](/azure/hdinsight/spark/apache-spark-settings)
+- [Create an Spark machine learning pipeline on HDInsight](/azure/hdinsight/spark/apache-spark-creating-ml-pipelines)
 
 ## Data storage for AI
 
@@ -276,13 +276,13 @@ You can use the following platforms to efficiently store, use, and analyze large
 
 OneLake in Fabric is a unified and logical data lake that you can tailor to your entire organization. It's the central hub for all analytics data and is included with every Fabric tenant. OneLake in Fabric is built on the foundation of Data Lake Storage.
 
-OneLake in Fabric:
+OneLake in Fabric provides the following benefits:
 
-- Supports structured and unstructured file types.
-- Stores all tabular data in Delta-Parquet format.
-- Provides a single data lake within tenant boundaries that's governed by default.
-- Supports the creation of workspaces within a tenant so that your organization can distribute ownership and access policies.
-- Supports the creation of different data items, like lakehouses and warehouses, where you can use data.
+- Supports structured and unstructured file types
+- Stores all tabular data in Delta-Parquet format
+- Provides a single data lake within tenant boundaries that's governed by default
+- Supports the creation of workspaces within a tenant so that your organization can distribute ownership and access policies
+- Supports the creation of different data items, like lakehouses and warehouses, where you can use data
 
 For more information, see [OneLake, the OneDrive for data](/fabric/onelake/onelake-overview).
 
@@ -305,11 +305,11 @@ You can use the following tools to prepare data for machine learning and AI appl
 
 ### Fabric Data Factory
 
-You can use Fabric Data Factory to ingest, prepare, and transform data from multiple data sources, like databases, data warehouses, lakehouses, and real-time data streams. This service can help you meet your data operations requirements when you design workloads.
+You can use Fabric Data Factory to ingest, prepare, and transform data from multiple data sources, like databases, data warehouses, lakehouses, and real-time data streams. This feature can help you meet your data operations requirements when you design workloads.
 
 Data Factory supports code solutions and no-code or low-code solutions:
 
-- Use [data pipelines](/fabric/data-factory/pipeline-overview) to create workflow capabilities at cloud scale. Use the drag-and-drop interface to build workflows that can refresh your dataflow, move petabyte-size data, and define control-flow pipelines.
+- Use [data pipelines](/fabric/data-factory/pipeline-overview) to create workflow capabilities at cloud scale. Use the select-and-move interface to build workflows that can refresh your dataflow, move petabyte-size data, and define control-flow pipelines.
 
 - Use [dataflows](/fabric/data-factory/dataflows-gen2-overview) as a low-code interface to ingest data from hundreds of data sources and transform it by using over 300 data transformations.
 
@@ -317,11 +317,11 @@ For more information, see [Data Factory end-to-end scenario: Introduction and ar
 
 ### Azure Databricks
 
-You can use the Databricks Data Intelligence Platform to write code to create a machine learning workflow by using feature engineering. *Feature engineering* is the process of transforming raw data into features that you can use to train machine learning models. Databricks Data Intelligence Platform includes key features that support feature engineering:
+You can use the Databricks Data Intelligence Platform to write code to create a machine learning workflow by using feature engineering. *Feature engineering* is the process of transforming raw data into features that you can use to train machine learning models. The Databricks Data Intelligence Platform includes key features that support feature engineering:
 
 - **Data pipelines** ingest raw data, create feature tables, train models, and do batch inference. When you use feature engineering in Unity Catalog to train and log a model, the model is packaged with feature metadata. When you use the model for batch scoring or online inference, it automatically retrieves feature values. The caller doesn't need to know about the values or include logic to look up or join features to score new data.
 
-- **Model and feature serving endpoints** are instantly accessible and provide milliseconds of latency.
+- **Model and feature serving endpoints** are instantly available and provide milliseconds of latency.
 - **Monitoring** helps ensure the performance and accuracy of data and models.
 
 You can also use [Mosaic AI Vector Search](/azure/databricks/generative-ai/vector-search) to store and retrieve embeddings. Embeddings are crucial for applications that require similarity searches, like RAG, recommendation systems, and image recognition.
@@ -330,7 +330,7 @@ For more information, see [Serve data for machine learning and AI](/azure/databr
 
 ## Data connectors for AI
 
-Azure Data Factory and Azure Synapse Analytics pipelines support many data stores and formats via copy, data flow, look up, get metadata, and delete activities. To see the available data store connectors, supported capabilities, including the corresponding configurations, and generic Open Database Connectivity options, see [Azure Data Factory and Azure Synapse Analytics connector overview](/azure/data-factory/connector-overview).
+Azure Data Factory and Azure Synapse Analytics pipelines support many data stores and formats via copy, data flow, look up, get metadata, and delete activities. To see the available data store connectors, supported capabilities and their corresponding configurations, and generic Open Database Connectivity options, see [Azure Data Factory and Azure Synapse Analytics connector overview](/azure/data-factory/connector-overview).
 
 ## Custom AI
 
@@ -338,7 +338,7 @@ Custom AI solutions help you address specific business needs and challenges. The
 
 ### Azure Machine Learning
 
-Azure Machine Learning is a cloud service for accelerating and managing the machine learning project life cycle. Machine learning professionals, data scientists, and engineers can use this service in their day-to-day workflows to train and deploy models and manage machine learning tasks.
+Azure Machine Learning is a cloud service for accelerating and managing the machine learning project life cycle. Machine learning professionals, data scientists, and engineers can use this service in their workflows to train and deploy models and manage machine learning tasks.
 
 Machine Learning provides the following capabilities:
 
@@ -352,7 +352,7 @@ Machine Learning provides the following capabilities:
 
   - [Hyperparameter tune a model](/azure/machine-learning/how-to-tune-hyperparameters)
   - [Upgrade hyperparameter tuning to SDK v2](/azure/machine-learning/migrate-to-v2-execution-hyperdrive)
-  - [Learning path: Tune hyperparameters with Machine Learning](/training/modules/perform-hyperparameter-tuning-azure-machine-learning-pipelines/)
+  - [Learning path: Tune hyperparameters by using Machine Learning](/training/modules/perform-hyperparameter-tuning-azure-machine-learning-pipelines/)
 
 - **Model training:** You can iteratively use an algorithm to create or teach models. After you train the models, you can use them to analyze data and make predictions.
 
@@ -370,13 +370,13 @@ Machine Learning provides the following capabilities:
 
   For more information, see the following resources:
 
-  - [Train models with Machine Learning](/azure/machine-learning/concept-train-machine-learning-model)
+  - [Train models by using Machine Learning](/azure/machine-learning/concept-train-machine-learning-model)
   - [Tutorial: Train a model in Machine Learning](/azure/machine-learning/tutorial-train-model)
   - [Distributed training with Machine Learning](/azure/machine-learning/concept-distributed-training)
 
 - **AutoML:** This process automates the time-consuming, iterative tasks of machine learning model development. It can significantly reduce the time that it takes to produce production-ready machine learning models. AutoML can assist with model selection, hyperparameter tuning, model training, and other tasks, without requiring extensive programming or domain knowledge.
 
-  You can use AutoML when you want Machine Learning to use a specified target metric to train and tune a model. You don't need data science expertise to find problems in an end-to-end machine learning pipeline.
+  You can use AutoML when you want Machine Learning to use a specific target metric to train and tune a model. You don't need data science expertise to find problems in an end-to-end machine learning pipeline.
 
   Machine learning professionals and developers across industries can use AutoML to do the following tasks:
 
@@ -396,7 +396,7 @@ Machine Learning provides the following capabilities:
 
 - **Feature engineering and featurization:** Training data consists of rows and columns. Each row is an observation or record, and the columns of each row are the features that describe each record. Typically, you choose the features that best characterize the patterns in the data to create predictive models.
 
-Although you can use many of the raw data fields to train a model, you might need to create other engineered features that provide information to differentiate patterns in the data more easily. This process is called feature engineering, where you use domain knowledge of the data to create features that help machine learning algorithms learn better.
+Although you can use many of the raw data fields to train a model, you might need to create other engineered features that provide information to differentiate patterns in the data more easily. This process is called *feature engineering*, where you use domain knowledge of the data to create features that help machine learning algorithms learn better.
 
 In Machine Learning, data-scaling and normalization techniques are applied to make feature engineering easier. Collectively, these techniques and feature engineering are called *featurization* in AutoML experiments. For more information, see [Data featurization in AutoML](/azure/machine-learning/concept-automated-ml#feature-engineering).
 
@@ -421,7 +421,7 @@ For more information, see the following resources:
 
 #### Custom speech
 
-[Custom speech](/azure/ai-services/speech-service/custom-speech-overview) is a feature of the Azure Speech service. You can use custom speech to evaluate and improve the accuracy of speech recognition for your applications and products. Use a custom speech model for real-time speech to text, speech translation, and batch transcription.
+[Custom speech](/azure/ai-services/speech-service/custom-speech-overview) is a feature of Azure Speech. You can use custom speech to evaluate and improve the accuracy of speech recognition for your applications and products. Use a custom speech model for real-time speech to text, speech translation, and batch transcription.
 
 By default, speech recognition uses a universal language model as a base model. This model is trained with Microsoft-owned data and reflects commonly used spoken language. The base model is pretrained with dialects and phonetics that represent common domains. When you make a speech recognition request, the most recent base model for your supported language is used by default. The base model works well in most speech recognition scenarios.
 
@@ -431,7 +431,7 @@ If the data follows a pattern, you can use structured text to train a model. You
 
 #### Custom translator
 
-[Custom translator](/azure/ai-services/translator/custom-translator/overview) is a feature of the [Azure Translator](/azure/ai-services/translator/translator-overview) service. Enterprises, app developers, and language service providers can use custom translator to build customized neural machine translation (NMT) systems. The customized translation systems integrate into existing applications, workflows, and websites.
+[Custom translator](/azure/ai-services/translator/custom-translator/overview) is a feature of [Azure Translator](/azure/ai-services/translator/translator-overview). Enterprises, app developers, and language service providers can use custom translator to build customized neural machine translation (NMT) systems. The customized translation systems integrate into existing applications, workflows, and websites.
 
 You can use this feature to build and publish custom translation systems to and from English. Custom translator supports more than three dozen languages that map directly to the languages for NMT. For a complete list of languages, see [Translator language support](/azure/ai-services/translator/language-support).
 
@@ -445,17 +445,17 @@ Custom translator provides the following features.
 |[Collaborate with others](/azure/ai-services/translator/custom-translator/how-to/create-manage-workspace#manage-workspace-settings)     |   Collaborate with your team by sharing your work with different people.     |
 |[Use your custom translation model](/azure/ai-services/translator/custom-translator/how-to/translate-with-custom-model)     |  Use your custom translation model anytime by using your existing applications or programs via Microsoft Translator Text API V3.       |
 
-#### Azure Document Intelligence custom models
+#### Custom models
 
 [Azure Document Intelligence](/azure/ai-services/document-intelligence/overview) uses advanced machine learning technology to identify documents, detect and extract information from forms and documents, and return the extracted data in a structured JSON output. Use Document Intelligence to take advantage of prebuilt or pretrained document analysis models or trained standalone custom models.
 
 [Document Intelligence custom models](/azure/ai-services/document-intelligence/train/custom-model) include custom classification models for scenarios where you need to identify the document type before you invoke the extraction model. You can pair a classification model with a custom extraction model to analyze and extract fields from forms and documents that are specific to your business. Combine standalone custom extraction models to create [composed models](/azure/ai-services/document-intelligence/train/composed-models).
 
-#### Content Understanding custom analyzer
+#### Custom analyzer
 
 [Azure Content Understanding](/azure/ai-services/content-understanding/overview) uses generative AI to process or ingest many types of content, including documents, images, videos, and audio, into a user-defined output format. Content Understanding comes with prebuilt analyzers for common content types and scenarios.
 
-Use [Content Understanding custom analyzer](/azure/ai-services/content-understanding/how-to/customize-analyzer-content-understanding-studio) to create custom analyzers tailored to your specific content processing needs. You can define custom extraction rules and entity recognition patterns to meet your business requirements.
+[Custom analyzer](/azure/ai-services/content-understanding/how-to/customize-analyzer-content-understanding-studio) is a feature of Content Understanding that creates custom analyzers tailored to your specific content processing needs. You can define custom extraction rules and entity recognition patterns to meet your business requirements.
 
 ### Custom AI tools
 
@@ -463,16 +463,16 @@ Prebuilt AI models are useful and increasingly flexible, but the best way to opt
 
 #### Azure Machine Learning studio
 
-[Azure Machine Learning studio](https://ml.azure.com/home) is a cloud service for accelerating and managing the machine learning project life cycle. Machine learning professionals, data scientists, and engineers can use it in their day-to-day workflows to train and deploy models and manage machine learning tasks.
+[Azure Machine Learning studio](https://ml.azure.com/home) is a cloud service for accelerating and managing the machine learning project life cycle. Machine learning professionals, data scientists, and engineers can use it in their workflows to train and deploy models and manage machine learning tasks.
 
 - Build and train Machine Learning models by using any type of compute, including Spark and GPUs for cloud-scale, large AI workloads.
 
-- Run AutoML and use the drag-and-drop UI for low-code Machine Learning.
+- Run AutoML and use the select-and-move UI for low-code Machine Learning.
 - Implement end-to-end Machine Learning tasks and repeatable pipelines.
 - Use the responsible AI dashboard for bias detection and error analysis.
 - Orchestrate and manage prompt engineering and language model flows.
 - Deploy models via REST API endpoints, real-time inference, and batch inference.
-- Use hub workspaces to share compute, quota, security, and connectivity to enterprise resources, while centralizing governance for IT. Set up a hub once, and then create secure workspaces directly from the studio for each project. Use hubs to manage your team's work in the studio and the [Foundry portal](https://ai.azure.com?cid=learnDocs).
+- Use hub workspaces to share compute, quota, security, and connectivity to enterprise resources, while centralizing governance for IT. Set up a hub once, and then create secure workspaces directly from the studio for each project. Use hubs to manage your team's work in the studio and the [Foundry portal](https://ai.azure.com).
 
 #### Foundry
 
@@ -481,12 +481,12 @@ Prebuilt AI models are useful and increasingly flexible, but the best way to opt
 - Build together as one team. Your Foundry account provides enterprise-grade security and a collaborative environment that includes shared resources and connections to pretrained models, data, and compute.
 
 - Organize your work. Your Foundry project helps you save state so that you can iterate from the first idea to the first prototype and first production deployment. Easily invite others to collaborate with you.
-- Use your preferred development platform and frameworks, including GitHub, Visual Studio Code, Microsoft Agent Framework, Semantic Kernel, and AutoGen.
-- Discover and benchmark from over 11,000 models.
+- Use your preferred development platform and frameworks, including GitHub, Visual Studio Code, Agent Framework, Semantic Kernel, and AutoGen.
+- Discover and benchmark models from a broad catalog.
 - Set up models as a service (MaaS) through serverless APIs and hosted fine-tuning.
 - Incorporate multiple models, data sources, and modalities.
 - Build RAG by using your protected enterprise data, without the need for fine-tuning.
-- Orchestrate and manage prompt engineering and language model flows.
+- Orchestrate and manage prompt engineering and large language model flows.
 - Design and safeguard apps and APIs via configurable filters and controls.
 - Evaluate model responses by using built-in and custom evaluation flows.
 - Deploy AI innovations to the Azure-managed infrastructure to provide continuous monitoring and governance across environments.
@@ -496,13 +496,13 @@ Prebuilt AI models are useful and increasingly flexible, but the best way to opt
 
 Foundry Agent Service is a tool that you can use to create AI agents by using a no-code and nondeterministic approach. The agents are exposed as microservices on the Foundry account.
 
-Each agent connects to a foundation model from the Azure AI model catalog. Agents can optionally connect to your own custom private knowledge stores or public data. Agents can also invoke tools to do tasks to call into custom code.
+Each agent connects to a foundation model from the Foundry Models catalog. Agents can optionally connect to your custom private knowledge stores or public data. Agents can also invoke tools to call into custom code and do tasks.
 
 ### Custom AI code languages
 
 The core concept of AI is the use of algorithms to analyze data and generate models to describe, or score, it in useful ways. Developers and data scientists, and sometimes other algorithms, use programming code to write algorithms. Two of the most popular programming languages for AI development are Python and R.
 
-[Python](https://www.python.org/) is a general-purpose, high-level programming language. It has a simple, easy-to-learn syntax that emphasizes readability. It doesn't have a compiling step. Python has a large standard library, and it supports the ability to add modules and packages. This feature encourages modularity and lets you expand capabilities when needed. A large and growing ecosystem of AI and machine learning libraries exist for Python, including many in Azure.
+[Python](https://www.python.org/) is a general-purpose, high-level programming language. It has a simple syntax that emphasizes readability. You don't need to run a compilation step. Python has a large standard library, and it supports the ability to add modules and packages. This feature encourages modularity and lets you expand capabilities when needed. A large and growing ecosystem of AI and machine learning libraries exist for Python, including many in Azure.
 
 For more information, see the following resources:
 
