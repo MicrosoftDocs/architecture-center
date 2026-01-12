@@ -1,4 +1,4 @@
-This baseline architecture builds on the [basic web application architecture](./basic-web-app.yml) and provides detailed guidance for designing a secure, zone-redundant, and highly available web application on Azure. In this architecture, Azure Application Gateway with Azure Web Application Firewall exposes a public endpoint and routes requests to Azure App Service through Azure Private Link. The App Service application uses virtual network integration and Private Link to communicate securely to Azure platform as a service (PaaS) solutions like Azure Key Vault and Azure SQL Database.
+This baseline architecture builds on the [basic web application architecture](./basic-web-app.yml) and provides detailed guidance for designing a secure, zone-redundant, and highly available web app on Azure. In this architecture, Azure Application Gateway with Azure Web Application Firewall exposes a public endpoint and routes requests to Azure App Service through Azure Private Link. The App Service application uses virtual network integration and Private Link to communicate securely to Azure platform as a service (PaaS) solutions like Azure Key Vault and Azure SQL Database.
 
 > [!IMPORTANT]
 > :::image type="icon" source="../../../_images/github.svg"::: An [example implementation](https://github.com/Azure-Samples/app-service-baseline-implementation) demonstrates this baseline App Service implementation on Azure. Use it as a foundation for your production solution.
@@ -13,17 +13,17 @@ The diagram shows a virtual network with three subnets. One subnet contains Appl
 
 ### Components
 
-This architecture shares many components with the [basic web application architecture](./basic-web-app.yml#components). The following list describes only the components that differ from or extend the basic architecture.
+This architecture shares many components with the [basic web app architecture](./basic-web-app.yml#components). The following list describes only the components that differ from or extend the basic architecture:
 
 - [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is a layer-7 HTTP and HTTPS load balancer and web traffic manager. In this architecture, Application Gateway acts as a single public entry point. Application Gateway terminates Transport Layer Security (TLS) and evaluates Azure Web Application Firewall rules. It then forwards approved requests privately to App Service instances across availability zones.
 
-- [Azure Web Application Firewall](/azure/web-application-firewall/overview) is a cloud-native service that protects web apps from common exploits, like SQL injection and cross-site scripting. In this architecture, Azure Web Application Firewall runs on Application Gateway and blocks malicious requests before they reach App Service. This setup improves security and helps maintain availability.
+- [Azure Web Application Firewall](/azure/web-application-firewall/overview) is a cloud-native service that protects web apps from common exploits, like SQL injection and cross-site scripting (XSS). In this architecture, Azure Web Application Firewall runs on Application Gateway and blocks malicious requests before they reach App Service. This setup improves security and helps maintain availability.
 
-- [Key Vault](/azure/key-vault/general/overview) is a service that securely stores and manages secrets, encryption keys, and certificates. In this architecture, it stores the TLS certificate (X.509) that Application Gateway uses and holds application secrets that App Service accesses privately.
+- [Key Vault](/azure/key-vault/general/overview) is a service that securely stores and manages secrets, encryption keys, and certificates. In this architecture, it stores the TLS certificate (X.509) that Application Gateway uses, and holds application secrets that App Service accesses privately.
 
-- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is a service that lets you create isolated and secure private virtual networks in Azure. In this architecture, the virtual network provides private endpoints, App Service integration, and dedicated subnets for Application Gateway. This setup isolates traffic and lets App Service communicate securely with dependent Azure services through private endpoints.
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is a service that provides isolated and secure private virtual networks in Azure. In this architecture, the virtual network provides private endpoints, App Service integration, and dedicated subnets for Application Gateway. This setup isolates traffic and lets App Service communicate securely with dependent Azure services through private endpoints.
 
-- [Private Link](/azure/private-link/private-link-overview) is a networking service that provides secure, private access to Azure services over the Microsoft backbone network to eliminate exposure to the public internet. In this architecture, Private Link enables private inbound connections to App Service and private outbound connections from App Service to services like Key Vault, SQL Database, and Azure Storage.
+- [Private Link](/azure/private-link/private-link-overview) is a networking service that provides private access to Azure services over the Microsoft backbone network to eliminate exposure to the public internet. In this architecture, Private Link enables private inbound connections to App Service and private outbound connections from App Service to services like Key Vault, SQL Database, and Azure Storage.
 
 - [Azure DNS](/azure/dns/dns-overview) is a hosting service for Domain Name System (DNS) domains. It provides name resolution by using Microsoft Azure infrastructure. Private DNS zones map a service's fully qualified domain name (FQDN) to a private endpoint's IP address. In this architecture, private DNS zones map the App Service default domain and other PaaS service domains to their private endpoint addresses so that all traffic stays on the private network.
 
@@ -32,9 +32,13 @@ This architecture shares many components with the [basic web application archite
 Network security is central to the App Service baseline architecture. At a high level, the network architecture provides the following capabilities:
 
 - A single secure entry point for client traffic
+
 - Traffic filtering through Azure Web Application Firewall
+
 - End-to-end TLS encryption for data in transit
+
 - Minimized data exfiltration through Private Link, which keeps traffic within Azure
+
 - Logical grouping and isolation of network resources through network segmentation
 
 ### Network flows
@@ -49,7 +53,7 @@ The following steps describe the inbound flow from the internet to the App Servi
 
 1. The user issues a request to the Application Gateway public IP address.
 
-1. Application Gateway evaluates the Web Application Firewall rules, which protect against attacks like cross-site scripting (XSS) and SQL injection. If a rule detects a violation, Application Gateway returns an error to the requestor and stops processing. Otherwise, Application Gateway routes the request to the back-end pool, which in this case is the App Service default domain.
+1. Application Gateway evaluates the Web Application Firewall rules, which protect against attacks like XSS and SQL injection. If a rule detects a violation, Application Gateway returns an error to the requestor and stops processing. Otherwise, Application Gateway routes the request to the back-end pool, which in this case is the App Service default domain.
 
 1. The private DNS zone `privatelink.azurewebsites.net` links to the virtual network. The DNS zone contains an *A record* that maps the App Service default domain to the private IP address of the App Service private endpoint. Azure DNS uses this record to resolve the default domain to the private endpoint IP address.
 
@@ -59,7 +63,7 @@ The following steps describe the inbound flow from the internet to the App Servi
 
 The following steps describe the outbound flow from App Service to Azure PaaS services:
 
-1. App Service makes a request to the DNS name of the required Azure service, like Key Vault, Azure Storage, SQL Database, or any other Azure service that supports Private Link. The App Service [virtual network integration](/azure/app-service/overview-vnet-integration) feature routes the request through the virtual network.
+1. App Service makes a request to the DNS name of the required Azure service, like Key Vault, Storage, SQL Database, or any other Azure service that supports Private Link. The App Service [virtual network integration](/azure/app-service/overview-vnet-integration) feature routes the request through the virtual network.
 
 1. Similar to step 3 in the inbound flow, the linked private DNS zone contains an *A record* that maps the Azure service's domain to its private endpoint IP address. Azure DNS uses this record to resolve the domain to the service's private endpoint IP address.
 
@@ -69,39 +73,39 @@ The following steps describe the outbound flow from App Service to Azure PaaS se
 
 Application Gateway is a scalable, regional, layer-7 load balancer that supports Azure Web Application Firewall and TLS offloading. When you implement Application Gateway for inbound traffic to App Service, consider the following points:
 
-- Deploy Application Gateway and configure an [Azure Web Application Firewall policy](/azure/web-application-firewall/ag/policy-overview) with a Microsoft-managed ruleset. Use Prevention mode to block web attacks before they reach an origin service like App Service.
+- Deploy Application Gateway and configure an [Azure Web Application Firewall policy](/azure/web-application-firewall/ag/policy-overview) that uses a Microsoft-managed ruleset. Use Prevention mode to block web attacks before they reach an origin service like App Service.
 
 - Implement [end-to-end TLS encryption](/azure/application-gateway/ssl-overview#end-to-end-tls-encryption).
 
-- Use [private endpoints to implement inbound private access to your App Service](/azure/app-service/networking/private-endpoint).
+- Use [private endpoints to implement inbound private access to App Service](/azure/app-service/networking/private-endpoint).
 
 - Consider implementing [autoscaling](/azure/application-gateway/application-gateway-autoscaling-zone-redundant) for Application Gateway to adjust capacity based on traffic demand.
 
 - Consider using at least three instances and deploy across all availability zones that your region supports. Although Application Gateway is highly available, [creating a new instance after a failure can take up to seven minutes](/azure/application-gateway/application-gateway-autoscaling-zone-redundant#autoscaling-and-high-availability), even for a single scale instance. Deploy multiple instances across availability zones to ensure that an instance remains available while a new instance starts.
 
-- Block public network access on App Service to ensure network isolation. In Bicep, set `publicNetworkAccess: 'Disabled'` under `properties`.
+- Block public network access on App Service to ensure network isolation. In Bicep, set `publicNetworkAccess` to `Disabled` under `properties`.
 
 ### Flow from App Service to Azure services
 
-This architecture uses [virtual network integration](/azure/app-service/overview-vnet-integration) to route App Service traffic to private endpoints through the virtual network. The baseline architecture doesn't enable *all traffic routing*, which would force all outbound traffic through the virtual network. Instead, it routes only internal traffic bound for private endpoints.
+This architecture uses [virtual network integration](/azure/app-service/overview-vnet-integration) to route App Service traffic to private endpoints through the virtual network. The baseline architecture doesn't enable all traffic routing, which would force all outbound traffic through the virtual network. Instead, it routes only internal traffic bound for private endpoints.
 
 For Azure services that don't require public internet access, allow private endpoints and block public endpoints. Private endpoints improve security by enabling App Service to connect to Private Link services directly from the private virtual network without public IP addressing.
 
-In this architecture, SQL Database, Azure Storage, and Key Vault all have public endpoints blocked. Their service firewalls permit traffic only from other authorized Azure services. Configure other Azure services with private endpoints, like Azure Cosmos DB and Azure Managed Redis. In this architecture, Azure Monitor doesn't use a private endpoint, but it could.
+In this architecture, SQL Database, Storage, and Key Vault all have public endpoints blocked. Their service firewalls permit traffic only from other authorized Azure services. Configure other Azure services, like Azure Cosmos DB and Azure Managed Redis, with private endpoints. In this architecture, Azure Monitor doesn't use a private endpoint, but it could.
 
 The baseline architecture implements a private DNS zone for each service. Each private DNS zone contains an *A record* that maps the service's FQDN to the private endpoint's IP address. The zones link to the virtual network. Private DNS zone groups automatically create and update DNS records for private endpoints.
 
 Consider the following points when you implement virtual network integration and private endpoints:
 
-- Use the [Azure services DNS zone configuration](/azure/private-link/private-endpoint-dns) guidance for naming private DNS zones.
+- Name private DNS zones based on the [Azure services DNS zone configuration guidance](/azure/private-link/private-endpoint-dns).
 
-- Configure service firewalls to allow only private connections to storage accounts, key vaults, SQL databases, and other Azure services.
+- Configure service firewalls to allow only private connections to storage accounts, key vaults, SQL databases, and other Azure components.
 
-  - [Set storage account default network access rule](/azure/storage/common/storage-network-security#change-the-default-network-access-rule) to deny all traffic that originates outside the virtual network.
+  - [Set the Storage account default network access rule](/azure/storage/common/storage-network-security-set-default-access) to deny all traffic that originates outside the virtual network.
 
   - [Enable Key Vault for Private Link](/azure/key-vault/general/network-security#key-vault-firewall-enabled-private-link).
 
-  - [Deny public network access to Azure SQL](/azure/azure-sql/database/connectivity-settings#deny-public-network-access).
+  - [Deny public network access to SQL Database](/azure/azure-sql/database/connectivity-settings#deny-public-network-access).
 
 ### Virtual network segmentation and security
 
@@ -111,13 +115,13 @@ The network in this architecture has separate subnets for Application Gateway, A
 | :----------------------- | :------ | -------- |
 | `GatewaySubnet`          | `AppGw.In.Allow.ControlPlane`: Allow inbound control plane access. <br><br> `AppGw.In.Allow443.Internet`: Allow inbound internet HTTPS access. | `AppGw.Out.Allow.PrivateEndpoints`: Allow outbound access to `PrivateEndpointsSubnet`. <br><br> `AppPlan.Out.Allow.AzureMonitor`: Allow outbound access to Azure Monitor. |
 | `PrivateEndpointsSubnet` | Default rules: Allow inbound access from virtual network. | Default rules: Allow outbound access to virtual network. |
-| `AppServicesSubnet`      | Default rules: Allow inbound access from virtual network. | `AppPlan.Out.Allow.PrivateEndpoints`: Allow outbound access to `PrivateEndpointsSubnet`. <br><br> `AppPlan.Out.Allow.AzureMonitor`: Allow outbound access to Azure Monitor. |
+| `AppServiceSubnet`      | Default rules: Allow inbound access from virtual network. | `AppPlan.Out.Allow.PrivateEndpoints`: Allow outbound access to `PrivateEndpointsSubnet`. <br><br> `AppPlan.Out.Allow.AzureMonitor`: Allow outbound access to Azure Monitor. |
 
 Consider the following points when you implement virtual network segmentation and security:
 
 - Enable [DDoS protection](/azure/ddos-protection/manage-ddos-protection) for the virtual network that contains an application gateway subnet with a public IP address.
 
-- [Add an NSG](/azure/virtual-network/network-security-groups-overview) to every subnet where possible. Use the strictest rules that enable full solution functionality.
+- Add an [NSG](/azure/virtual-network/network-security-groups-overview) to every subnet where possible. Use the strictest rules that allow full solution functionality.
 
 - Use [application security groups](/azure/virtual-network/tutorial-filter-network-traffic#create-application-security-groups) to group resources logically, which simplifies NSG rule creation in complex environments.
 
@@ -127,7 +131,7 @@ The following table shows an example network schema.
 | :-------------- | :--------------------- | :------------ |
 | Virtual network | Address prefix         | 10.0.0.0/16   |
 | Subnet          | GatewaySubnet          | 10.0.1.0/24   |
-| Subnet          | AppServicesSubnet      | 10.0.0.0/24   |
+| Subnet          | AppServiceSubnet      | 10.0.0.0/24   |
 | Subnet          | PrivateEndpointsSubnet | 10.0.2.0/27   |
 | Subnet          | AgentsSubnet           | 10.0.2.32/27  |
 
@@ -145,17 +149,17 @@ The architecture also ensures sufficient instances of Azure services to meet dem
 
 #### Application Gateway
 
-Deploy Application Gateway in a zone-redundant configuration with a minimum scale instance count of three or more. Multiple instances ensure that service remains available during failures without waiting for the six to seven-minute startup time required to set up a new instance.
+Deploy Application Gateway in a zone-redundant configuration with a minimum scale instance count of three or more. Multiple instances ensure that service remains available during failures without waiting for the six-minute to seven-minute startup time required to set up a new instance.
 
 #### App Service
 
-- Deploy a minimum of two App Service instances with availability zone support. For higher resiliency, deploy at least one instance per availability zone in your region, plus extra instances within each zone for redundancy.
+- Deploy a minimum of two App Service instances that support availability zones. For higher resiliency, deploy at least one instance per availability zone in your region, plus extra instances within each zone for redundancy.
 
 - Implement health check endpoints in your apps and configure the App Service health check feature to reroute requests away from unhealthy instances. For more information, see [Monitor App Service instances by using health check](/azure/app-service/monitor-instances-health-check) and [Health checks in ASP.NET Core](/aspnet/core/host-and-deploy/health-checks).
 
 - Overprovision capacity to handle zone failures.
 
-#### Blob storage
+#### Blob Storage
 
 - Use [zone-redundant storage (ZRS)](/azure/storage/common/storage-redundancy#zone-redundant-storage), which replicates data synchronously across three availability zones in the region. Create Standard ZRS or Standard geo-zone-redundant storage (GZRS) storage accounts to ensure data replication across availability zones.
 
@@ -163,9 +167,9 @@ Deploy Application Gateway in a zone-redundant configuration with a minimum scal
 
 #### SQL Database  
 
-- Deploy SQL Database in the General Purpose, Premium, or Business Critical tier with zone redundancy enabled. These tiers support [zone redundancy](/azure/azure-sql/database/high-availability-sla#general-purpose-service-tier-zone-redundant-availability).
+- Deploy SQL Database in the General Purpose, Premium, or Business Critical tier with zone redundancy turned on. These tiers support [zone redundancy](/azure/azure-sql/database/high-availability-sla#general-purpose-service-tier).
 
-- [Configure SQL Database backups](/azure/azure-sql/database/automated-backups-overview#configure-backup-storage-redundancy-by-using-the-azure-cli) to use ZRS or GZRS.
+- [Configure SQL Database backups](/azure/azure-sql/database/automated-backups-overview#configure-backup-storage-redundancy) to use ZRS or GZRS.
 
 ### Security
 
@@ -176,10 +180,15 @@ The baseline App Service architecture focuses on essential security recommendati
 #### App Service
 
 - Turn off local authentication methods for File Transfer Protocol (FTP) and Source Control Management (SCM) site deployments.
+
 - Turn off remote debugging.
+
 - Use the latest TLS version.
-- [Enable Microsoft Defender for App Service](/azure/defender-for-cloud/enable-enhanced-security).
+
+- Turn on the [Microsoft Defender for App Service plan](/azure/defender-for-cloud/tutorial-enable-app-service-plan).
+
 - Use the latest versions of supported platforms, programming languages, protocols, and frameworks.
+
 - Consider [App Service Environment](/azure/app-service/environment/overview) if you require higher isolation or secure network access.
 
 #### Encryption
@@ -188,11 +197,13 @@ Production web apps must encrypt data in transit by using HTTPS. HTTPS relies on
 
 ##### Data in transit
 
-The baseline architecture encrypts data in transit from the user to the web app in App Service. The following workflow describes how encryption works at a high level.
+The baseline architecture encrypts data in transit from the user to the web app in App Service.
 
 :::image type="complex" source="../_images/baseline-app-service-encryption-flow.svg" lightbox="../_images/baseline-app-service-encryption-flow.svg" alt-text="Diagram that shows a baseline App Service encryption flow." border="false":::
 The diagram indicates the encryption flow steps in the baseline architecture. In step 1, the user points to Application Gateway with Azure Web Application Firewall, which is labeled step 2. Step 3 points to Key Vault, which stores the X.509 certificate. Step 4 represents the encrypted traffic from the application gateway to App Service.
 :::image-end:::
+
+The following workflow describes how encryption works at a high level:
 
 1. The user sends an HTTPS request to the web app.
 
@@ -208,56 +219,52 @@ Consider the following recommendations when you configure data-in-transit encryp
 
 - Store the private key to the certificate in Key Vault.
 
-- Provide Application Gateway access to the certificate private key. For more information, see [Grant permission to applications to access a Key Vault using Azure role-based access control (Azure RBAC)](/azure/key-vault/general/rbac-guide) and [Managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview). Don't use Key Vault access policies to provide access. Access policies only let you grant broad permissions, not specific values.
+- Provide Application Gateway access to the certificate private key. For more information, see [Grant permission by using Azure role-based access control (Azure RBAC)](/azure/key-vault/general/rbac-guide) and [Managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview). Don't use Key Vault access policies to provide access. Access policies only let you grant broad permissions, not specific values.
 
 - [Turn on end-to-end encryption](/azure/application-gateway/ssl-overview#end-to-end-tls-encryption). App Service is the back-end pool for the application gateway. When you configure the back-end setting for the back-end pool, use the HTTPS protocol over the back-end port 443.
 
 ##### Data at rest
 
-- Use [transparent data encryption](/azure/azure-sql/database/transparent-data-encryption-tde-overview#manage-transparent-data-encryption) to encrypt sensitive data in SQL Database. Transparent data encryption encrypts the entire database, backups, and transaction log files and requires no changes to your web application.
+- Use [transparent data encryption](/azure/azure-sql/database/transparent-data-encryption-tde-overview#manage-transparent-data-encryption) to encrypt sensitive data in SQL Database. Transparent data encryption encrypts the entire database, backups, and transaction log files and doesn't require changes to your web app.
 
 - Place sensitive data in its own database and turn on encryption only for that database. This approach minimizes database encryption latency.
 
-- Understand built-in encryption support. [Azure Storage automatically encrypts](/azure/storage/common/storage-service-encryption) data at rest through server-side encryption (256-bit AES). Azure Monitor automatically encrypts data at rest through Microsoft-managed keys.
+- Understand built-in encryption support. [Azure Storage automatically encrypts](/azure/storage/common/storage-service-encryption) data at rest through server-side encryption (256-bit Advanced Encryption Standard (AES)). Azure Monitor automatically encrypts data at rest through Microsoft-managed keys.
 
 #### Governance
 
 Azure Policy helps enforce architectural and security decisions for web apps. It can prevent noncompliant resources from being deployed (deny mode) or flag them for review (audit mode). This approach helps detect configuration drift from your intended architecture, whether the drift occurs through IaC deployments or manual changes in the Azure portal.
 
-Place all resources in your architecture under Azure Policy governance. Use built-in policies or policy initiatives where possible to enforce essential network topology, service features, security, and monitoring decisions. Consider the following examples:
+Place all resources in your architecture under Azure Policy governance. Use built-in policies or policy initiatives where possible to enforce essential network topology, service features, security, and monitoring decisions. Consider the following built-in policies:
 
-- App Service should disable public network access
-- App Service should use virtual network integration
-- App Service should use Private Link to connect to PaaS services
-- App Service should have local authentication methods disabled for FTP and SCM site deployments
-- App Service should have remote debugging turned off
-- App Service apps should use the latest TLS version
-- Defender for App Service should be enabled
-- Azure Web Application Firewall should be enabled for Application Gateway
+- App Service should disable public network access.
+- App Service should use virtual network integration.
+- App Service should use Private Link to connect to PaaS services.
+- App Service should have local authentication methods disabled for FTP and SCM site deployments.
+- App Service should have remote debugging turned off.
+- App Service apps should use the latest TLS version.
+- Defender for App Service should be enabled.
+- Azure Web Application Firewall should be enabled for Application Gateway.
 
-See more built-in policies for key services like [Application Gateway and networking components](/azure/governance/policy/samples/built-in-policies#network), [App Service](/azure/governance/policy/samples/built-in-policies#app-service), [Key Vault](/azure/governance/policy/samples/built-in-policies#key-vault), and [Monitoring](/azure/governance/policy/samples/built-in-policies#monitoring). You can create custom policies or use community policies, like from Azure landing zones, if built-in policies don't meet your needs. Prefer built-in policies when possible.
+See more built-in policies for key services like [Application Gateway and networking components](/azure/governance/policy/samples/built-in-policies#network), [App Service](/azure/governance/policy/samples/built-in-policies#app-service), [Key Vault](/azure/governance/policy/samples/built-in-policies#key-vault), and [monitoring components](/azure/governance/policy/samples/built-in-policies#monitoring). You can create custom policies or use community policies, like [policies from Azure landing zones](https://github.com/Azure/Enterprise-Scale/wiki/ALZ-Policies), if built-in policies don't meet your needs. Prefer built-in policies when possible.
 
 #### Identity and access management
 
-The App Service baseline architecture configures authentication and authorization for user identities (users) and workload identities (Azure resources) and implements the principle of least privilege.
+The App Service baseline architecture configures authentication and authorization for user identities (users) and workload identities (Azure resources). It implements the principle of least privilege.
 
 ##### User identities
 
 - Use the [integrated authentication mechanism for App Service](/azure/app-service/overview-authentication-authorization), also called *EasyAuth*. EasyAuth simplifies identity provider integration with your web app. It handles authentication outside your web app, so you don't have to make significant code changes.
 
-- Configure the reply URL for the custom domain:
+- Configure the reply URL for the custom domain. Set the redirect URL to `https://<application-gateway-endpoint>/.auth/login/<provider>/callback`.
+
+  Replace `<application-gateway-endpoint>` with either the public IP address or custom domain name of your application gateway. Replace `<provider>` with your authentication provider, like `aad` for Microsoft Entra ID.
   
-  - Set the redirect URL to `https://<application-gateway-endpoint>/.auth/login/<provider>/callback`.
-  
-  - Replace `<application-gateway-endpoint>` with either the public IP address or custom domain name of your application gateway.
-  
-  - Replace `<provider>` with your authentication provider, like `aad` for Microsoft Entra ID.
-  
-  For setup instructions, see [Azure Front Door considerations](/azure/app-service/overview-authentication-authorization#considerations-when-using-azure-front-door) or [Set up Application Gateway](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/setting-up-application-gateway-with-an-app-service-that-uses/ba-p/392490).
+  For setup instructions, see [Azure Front Door considerations](/azure/app-service/overview-authentication-authorization#considerations-for-using-azure-front-door) or [Set up Application Gateway](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/setting-up-application-gateway-with-an-app-service-that-uses/ba-p/392490).
 
 ##### Workload identities
 
-- Use managed identity for workload identities. Managed identity eliminates the need for developers to manage authentication credentials.
+- Use managed identities for workload identities. Managed identities eliminate the need for developers to manage authentication credentials.
 
 - Use user-assigned managed identities. System-assigned identities can cause IaC deployments to fail based on race conditions and order of operations. User-assigned managed identities avoid some of these deployment error scenarios. For more information, see [Managed identities](/entra/identity/managed-identities-azure-resources//managed-identity-best-practice-recommendations).
 
@@ -265,33 +272,33 @@ The App Service baseline architecture configures authentication and authorizatio
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-The deployment for the baseline App Service application follows the [Azure Pipelines architecture guidance](../../solution-ideas/articles/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps.md). Because this architecture denies public access to App Service and secures the deployment storage account within the virtual network, you can't deploy from outside the virtual network. To address this constraint, the baseline uses self-hosted deployment agents that run within the virtual network. The following deployment guidance focuses on application code deployment, not infrastructure or database changes.
+The deployment for the baseline App Service application follows the [Azure Pipelines architecture guidance](/azure/devops/pipelines/architectures/devops-pipelines-azure-web-apps-architecture). Because the baseline architecture denies public access to App Service and secures the deployment storage account within the virtual network, you can't deploy from outside the virtual network. To address this constraint, the architecture uses self-hosted deployment agents that run within the virtual network. The following deployment guidance focuses on application code deployment, not infrastructure or database changes.
 
 :::image type="complex" source="../_images/baseline-app-service-deployments.svg" lightbox="../_images/baseline-app-service-deployments.svg" alt-text="Diagram that shows a baseline App Service deployment architecture." border="false":::
-The diagram shows the baseline architecture with a subnet that contains self-hosted deployment agents. It also adds Azure pipelines with managed agents. The managed agents point to Azure DevOps and the release pipeline (steps 1, 4, and 6). The self-hosted deployment agents point to Azure DevOps and the release pipeline (step 2) and to the storage private endpoint (step 3). The storage private endpoint points to Azure Storage (step 3).
+The diagram shows the baseline architecture with a subnet that contains self-hosted deployment agents. It also adds Azure pipelines with managed agents. The managed agents point to Azure DevOps and the release pipeline (steps 1, 4, and 6). The self-hosted deployment agents point to Azure DevOps and the release pipeline (step 2) and to the storage private endpoint (step 3). The storage private endpoint points to Storage (step 3).
 :::image-end:::
 
 #### Deployment flow
 
-1. The release pipeline posts a job request to the job queue for the self-hosted agents. The job instructs the agent to upload the *publish zip file* build artifact to an Azure Storage account.
+1. The release pipeline posts a job request to the job queue for the self-hosted agents. The job instructs the agent to upload the *publish zip file* build artifact to a Storage account.
 
 1. A self-hosted deployment agent polls the queue, picks up the job request, and downloads the job and build artifact.
 
 1. The self-hosted deployment agent uploads the zip file to the storage account through the storage account's private endpoint.
 
-1. The pipeline continues, and a managed agent picks up a subsequent job. The managed agent [makes a CLI call to update the WEBSITE_RUN_FROM_PACKAGE app setting ](/cli/azure/webapp/config/appsettings) to reference the new publish zip file for the staging slot.
+1. The pipeline continues, and a managed agent picks up a subsequent job. The managed agent [makes a command-line interface (CLI) call to update the WEBSITE_RUN_FROM_PACKAGE app setting ](/cli/azure/webapp/config/appsettings) to reference the new publish zip file for the staging slot.
 
    ```bash
    az webapp config appsettings set -g MyResourceGroupName -n MyUniqueApp --slot staging --settings WEBSITE_RUN_FROM_PACKAGE=UriToNewZip
    ```
 
-1. App Service pulls the new publish zip file from storage via the Storage account private endpoint, and restarts the staging instance with the new package because `WEBSITE_RUN_FROM_PACKAGE` was set to a different file name.
+1. App Service pulls the new publish zip file from storage via the Storage account private endpoint. It restarts the staging instance with the new package because `WEBSITE_RUN_FROM_PACKAGE` was set to a different file name.
 
 1. The pipeline resumes and runs smoke tests or waits for manual approval. After successful tests or approval, the pipeline swaps the staging and production slots.
 
 #### Deployment guidance
 
-The following highlights key deployment guidance for the baseline architecture:
+Apply the following deployment guidance for the baseline architecture:
 
 - [Run your deployment directly from a package](/azure/app-service/deploy-run-package) in App Service to avoid deployment conflicts. This approach mounts the ZIP package directly as the read-only wwwroot directory instead of copying files. It eliminates file lock conflicts between deployment and runtime and ensures that only fully deployed apps run.
 
@@ -313,9 +320,7 @@ The following highlights key deployment guidance for the baseline architecture:
 
 Applications require both configuration values and secrets. Use the following guidance for configuration and secrets management:
 
-- Never store secrets like passwords or access keys in source control.
-
-- Store secrets in [Key Vault](/azure/key-vault/general/overview).
+- Never store secrets like passwords or access keys in source control. Store secrets in [Key Vault](/azure/key-vault/general/overview).
 
 - Store application configuration in [App Service configuration](/azure/app-service/configure-common). If you need external configuration or [feature flag support](/azure/azure-app-configuration/concept-feature-management), use [Azure App Configuration](/azure/azure-app-configuration/overview).
 
@@ -327,7 +332,7 @@ Applications require both configuration values and secrets. Use the following gu
 
 #### Monitoring
 
-Monitoring collects and analyzes data from information technology (IT) systems to provide observability. In this architecture, monitoring tracks web app health and security across multiple layers, which is essential for maintaining reliable operations.
+Monitoring collects and analyzes data from information technology (IT) systems to provide observability. In this architecture, monitoring tracks web app health and security across multiple layers, which helps maintain reliable operations.
 
 Monitor three key layers:
 
@@ -374,9 +379,9 @@ Application Gateway monitors back-end pool health through [default health probes
 
 ##### App Service
 
-App Service provides built-in and integrated monitoring capabilities for improved observability. If your web app already has telemetry and monitoring features, like in-process instrumentation, it continues to work on App Service.
+App Service provides built-in and integrated monitoring capabilities for improved observability. If your web app already has telemetry and monitoring features, like in-process instrumentation, those features continue to work on App Service.
 
-- [Turn on automatic instrumentation.](/azure/azure-monitor/app/codeless-overview) App Service has an instrumentation extension that you can enable with no code changes. You gain application performance monitoring (APM) visibility. For more information, see [Monitor App Service performance](/azure/azure-monitor/app/azure-web-apps).
+- [Turn on automatic instrumentation](/azure/azure-monitor/app/codeless-overview) to extend instrumentation without code changes. This feature provides application performance monitoring (APM) visibility. For more information, see [Monitor App Service performance](/azure/azure-monitor/app/azure-web-apps).
 
 - [Turn on distributed tracing](/azure/azure-monitor/app/distributed-tracing-telemetry-correlation) to track requests across multiple services and dependencies. You can monitor distributed cloud systems via distributed tracing and a performance profiler.
 
@@ -420,7 +425,7 @@ Performance Efficiency refers to your workload's ability to scale to meet user d
 
 - Choose the right [App Service plan](/azure/app-service/overview-hosting-plans#manage-an-app-service-plan) that meets your workload requirements.
 
-- [Add Azure Content Delivery Network to App Service](/azure/cdn/cdn-add-to-web-app) to serve static content.
+- [Add Azure Content Delivery Network to App Service](/azure/cdn/cdn-add-to-web-app) to cache and deliver static assets like images and JavaScript files from edge locations closer to your users.
 
 - Consider [App Service Environment](/azure/app-service/environment/overview) to prevent noisy neighbors.
 
@@ -436,7 +441,7 @@ Database scaling involves many considerations beyond the scope of this architect
 
 - Review [subscription limits and quotas](/azure/azure-resource-manager/management/azure-subscription-service-limits) to ensure that services scale to demand.
 
-- Consider [caching](../../best-practices/caching.md) for the following kinds of data to increase performance and scalability:
+- Consider [caching](../../../best-practices/caching.yml) for the following kinds of data to increase performance and scalability:
 
   - Semistatic transaction data
   - Session state
@@ -450,6 +455,6 @@ Database scaling involves many considerations beyond the scope of this architect
 
 ## Related resources
 
-- [Enterprise web app patterns](../../web-apps/guides/enterprise-app-patterns/overview.md)
+- [Enterprise web app patterns]../../../web-apps/guides/enterprise-app-patterns/overview.md)
 - [Guide to Private Link in Azure Virtual WAN](../../../networking/guide/private-link-virtual-wan-dns-guide.yml)
 
