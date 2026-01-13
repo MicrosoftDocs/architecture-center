@@ -172,94 +172,91 @@ For more information, see [Storage isolation](https://kubernetes.io/docs/concept
 
 ### Node isolation
 
-You can configure tenant workloads to run on separate agent nodes to avoid [noisy neighbor problems](/azure/architecture/antipatterns/noisy-neighbor/noisy-neighbor) and reduce the risk of information disclosure. In AKS, you can create a separate cluster, or just a dedicated node pool, for tenants that have strict requirements for isolation, security, regulatory compliance, and performance.
+Configure tenant workloads to run on separate agent nodes to avoid [noisy neighbor problems](/azure/architecture/antipatterns/noisy-neighbor/noisy-neighbor) and reduce the risk of information disclosure. Create a separate cluster or dedicated node pool for tenants that have strict requirements for isolation, security, regulatory compliance, and performance.
 
-You can use [taints](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration), [tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration), [node labels](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node), [node selectors](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node), and [node affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node) to constrain tenants' pods to run only on a particular set of nodes or node pools.
+To restrict tenant pods to specific nodes or node pools, use [taints](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration), [tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration), [node labels](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node), [node selectors](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node), and [node affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node).
 
-In general, AKS provides workload isolation at various levels, including:
+AKS provides workload isolation at various levels:
 
-- At the kernel level, by running tenant workloads in lightweight virtual machines (VMs) on shared agent nodes and by using [Pod Sandboxing](#pod-sandboxing) based on [Kata Containers](https://katacontainers.io/).
+- **Kernel level:** AKS can run tenant workloads in lightweight virtual machines (VMs) on shared agent nodes and by using [pod sandboxing](#pod-sandboxing) based on [Kata Containers](https://katacontainers.io/).
 
-- At the physical level, by hosting tenant applications on dedicated clusters or node pools.
+- **Physical level:** You can host tenant applications on dedicated clusters or node pools.
 
-- At the hardware level, by running tenant workloads on [Azure dedicated hosts](#azure-dedicated-host) that guarantee that agent node VMs run dedicated physical machines. Hardware isolation ensures that no other VMs are placed on the dedicated hosts, which provides an extra layer of isolation for tenant workloads.
+- **Hardware level:** You can run tenant workloads on [Azure dedicated hosts](#azure-dedicated-host) that guarantee that agent node VMs run on dedicated physical machines. This hardware isolation ensures that no other VMs share the dedicated hosts, which provides an extra layer of tenant workload isolation.
 
-You can combine these techniques. For example, you can run per-tenant clusters and node pools in an [Azure Dedicated Host group](#azure-dedicated-host) to achieve workload segregation and physical isolation at the hardware level. You can also create shared or per-tenant node pools that support [Federal Information Process Standard (FIPS)](#federal-information-process-standards-fips), [confidential VMs](#confidential-vms), or [host-based encryption](#host-based-encryption).
+Combine these techniques as needed. For example, run per-tenant clusters and node pools in an [Azure dedicated host group](#azure-dedicated-host) to achieve both workload segregation and physical isolation at the hardware level. You can also create shared or per-tenant node pools that support [Federal Information Process Standard (FIPS)](#federal-information-process-standards-fips), [confidential VMs](#confidential-vms), or [host-based encryption](#host-based-encryption).
 
-Use node isolation to easily associate and charge back the cost of a set of nodes or node pool to a single tenant. It's strictly related to the tenancy model that's adopted by your solution.
-
-For more information, see [Node isolation](https://kubernetes.io/docs/concepts/security/multi-tenancy/#node-isolation) in the Kubernetes documentation.
+Use node isolation to easily associate and charge back the cost of a set of nodes or node pool to a single tenant. Your choice depends on your solution's tenancy model. For more information, see [Node isolation](https://kubernetes.io/docs/concepts/security/multi-tenancy/#node-isolation).
 
 ## Tenancy models
 
-AKS provides more types of node isolation and tenancy models.
+AKS provides different types of node isolation and tenancy models.
 
 ### Automated single-tenant deployments
 
-In an automated single-tenant deployment model, you deploy a dedicated set of resources for each tenant, as illustrated in this example:
+In this model, deploy a dedicated set of resources for each tenant, as shown in the following example.
 
 :::image type="complex" border="false" source="./media/aks/automated-single-tenant-deployments.png" alt-text="Diagram that shows three tenants, each with separate deployments." lightbox="./media/aks/automated-single-tenant-deployments.png":::
 
 :::image-end:::
 
-Each tenant workload runs in a dedicated AKS cluster and accesses a distinct set of Azure resources. Typically, multitenant solutions that you build by using this model make extensive use of [infrastructure as code (IaC)](/devops/deliver/what-is-infrastructure-as-code). For example, [Bicep](/azure/azure-resource-manager/bicep/overview?tabs=bicep), [Azure Resource Manager](/azure/azure-resource-manager/management/overview), [Terraform](/azure/developer/terraform/overview), or the [Azure Resource Manager REST APIs](/rest/api/resources) help initiate and coordinate the on-demand deployment of tenant-dedicated resources. You might use this approach when you need to provision an entirely separate infrastructure for each of your customers. When planning your deployment, consider using the [Deployment stamps pattern](../../../patterns/deployment-stamp.yml).
+Each tenant workload runs in a dedicated AKS cluster and accesses a distinct set of Azure resources. This model typically relies on [infrastructure as code (IaC)](/devops/deliver/what-is-infrastructure-as-code) tools. To automate on-demand deployment of tenant-dedicated resources, use [Bicep](/azure/azure-resource-manager/bicep/overview?tabs=bicep), [Azure Resource Manager](/azure/azure-resource-manager/management/overview), [Terraform](/azure/developer/terraform/overview), or the [Resource Manager REST APIs](/rest/api/resources). Use this approach when you need to provision entirely separate infrastructure for each customer. When you plan your deployment, consider the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml).
 
-**Benefits:**
+This approach provides the following benefits:
 
-- A key benefit of this approach is that the API Server of each tenant AKS cluster is separate. This approach guarantees full isolation across tenants from a security, networking, and resource consumption level. An attacker that manages to get control of a container only has access to the containers and mounted volumes that belong to a single tenant. A full-isolation tenancy model is critical to some customers with a high regulatory compliance overhead.
+- Each tenant AKS cluster has a separate API server, which guarantees full isolation across tenants for security, networking, and resource consumption. An attacker who gains control of a container only accesses the containers and mounted volumes that belong to a single tenant. Use full-isolation tenancy models for customers that have high regulatory compliance requirements.
 
-- Tenants are unlikely to affect each other's system performance, so you avoid [noisy neighbor problems][noisy-neighbor]. This consideration includes the traffic against the API Server. The API server is a shared, critical component in any Kubernetes cluster. Custom controllers, which generate unregulated, high-volume traffic against the API server, can cause cluster instability. This instability leads to request failures, timeouts, and API retry storms. Use the [uptime SLA](/azure/aks/uptime-sla) feature to scale out the control plane of an AKS cluster to meet traffic demand. Still, provisioning a dedicated cluster might be a better solution for those customers with strong requirements in terms of workload isolation.
+- Tenants don't affect each other's system performance, so you avoid [noisy neighbor problems][noisy-neighbor]. This consideration includes traffic against the API server, which is a shared critical component in any Kubernetes cluster. Custom controllers that generate unregulated, high-volume traffic against the API server can cause cluster instability, which leads to request failures, timeouts, and API retry storms. Use the [uptime SLA](/azure/aks/uptime-sla) feature to scale out the control plane of an AKS cluster to meet traffic demand. But provisioning a dedicated cluster might be better for customers that have strong workload isolation requirements.
 
-- You can roll out updates and changes progressively across tenants, which reduces the likelihood of a system-wide outage. Azure costs can be easily charged back to tenants because every resource is used by a single tenant.
+- You can roll out updates and changes progressively across tenants to reduce the likelihood of system-wide outages. Azure costs are easily attributed to individual tenants because every resource is dedicated to a single tenant.
 
-- Using Azure CNI Overlay across all tenant clusters simplifies IP address planning and allows you to reuse the same pod CIDR space across multiple isolated clusters.
+- Using Azure CNI Overlay across all tenant clusters simplifies IP address planning and lets you reuse the same pod CIDR space across multiple isolated clusters.
 
-**Risks:**
+This approach has the following risks:
 
-- Cost efficiency is low because every tenant uses a dedicated set of resources.
+- Cost efficiency is low because every tenant uses dedicated resources.
 
-- Ongoing maintenance is likely to be time-consuming because you need to repeat maintenance activities across multiple AKS clusters, one for each tenant. Consider automating your operational processes and applying changes progressively through your environments. Other cross-deployment operations, like reporting and analytics across your whole estate, might also be helpful. Ensure that you plan how to query and manipulate data across multiple deployments.
+- Ongoing maintenance is time consuming because you must repeat maintenance activities across multiple AKS clusters, one for each. Automate your operational processes and apply changes progressively through your environments. Other cross-deployment operations, like reporting and analytics across your whole estate, might also be helpful. Plan how to query and manipulate data across multiple deployments.
 
 ### Fully multitenant deployments
 
-In a fully multitenant deployment, a single application serves the requests of all the tenants, and all of the Azure resources are shared, including the AKS cluster. In this context, you only have one infrastructure to deploy, monitor, and maintain. All of the tenants use the resource, as illustrated in the following diagram:
+In a fully multitenant deployment, a single application serves the requests of all tenants, and all Azure resources are shared, including the AKS cluster. In this context, you only have one infrastructure to deploy, monitor, and maintain. All tenants use the resource, as shown in the following diagram.
 
-
-:::image type="complex" border="false" source="./media/aks/fully-multitenant-deployments.png" alt-text="A diagram that shows three tenants that all use a single shared deployment." lightbox="./media/aks/fully-multitenant-deployments.png":::
+:::image type="complex" border="false" source="./media/aks/fully-multitenant-deployments.png" alt-text="A diagram that shows three tenants that use a single shared deployment." lightbox="./media/aks/fully-multitenant-deployments.png":::
 
 :::image-end:::
 
-**Benefits**:
+This approach provides the following benefits:
 
-- This model is attractive because of the lower cost of operating a solution with shared components. When you use this tenancy model, you might need to deploy a larger AKS cluster and adopt a higher SKU for any shared data repository. These changes help sustain the traffic that all tenants' resources, such as data repositories, generate.
+- Lower operating costs from shared components. To handle the traffic that all tenants generate, you might need to deploy a larger AKS cluster and use a higher SKU for shared data repositories.
 
-**Risks**:
+This approach has the following risks:
 
-- In this context, a single application handles all the tenants' requests. You should design and implement security measures to prevent tenants from flooding the application with calls. These calls can slow down the entire system and affect all the tenants.
+- A single application handles all tenant requests. Design and implement security measures to prevent tenants from flooding the application with calls. These calls can slow down the entire system and affect all tenants.
 
-- If the traffic profile is highly variable, you should configure the AKS cluster autoscaler to vary the number of pods and agent nodes. Base your configuration on the system resource usage, such as CPU and memory. Alternatively, you can scale out and scale in the number of pods and cluster nodes based on custom metrics. For example, you can use the number of pending requests or the metrics of an external messaging system that uses [Kubernetes-based Event Driven Autoscaler (KEDA)](https://keda.sh).
+- Highly variable traffic requires cluster autoscaling. Configure the AKS cluster autoscaler to adjust the number of pods and agent nodes based on system resource usage like CPU and memory. Alternatively, scale pods and cluster nodes based on custom metrics, like the number of pending requests or metrics from an external messaging system that uses the [Kubernetes-based Event Driven Autoscaler (KEDA)](https://keda.sh).
 
-- Make sure that you separate the data for each tenant and implement safeguards to avoid data leakage between different tenants.
+- Data separation between tenants requires careful implementation. Separate the data for each tenant and implement safeguards to prevent data leakage between tenants.
 
-- Make sure to [track and associate Azure costs](/azure/architecture/guide/multitenant/considerations/measure-consumption) to individual tenants, based on their actual usage. Non-Microsoft solutions, such as [kubecost](https://www.kubecost.com), can help you calculate and break down costs across different teams and tenants.
+- Cost tracking and attribution to individual tenants based on actual usage is complex. [Track and associate Azure costs](/azure/architecture/guide/multitenant/considerations/measure-consumption) to individual tenants. Non-Microsoft solutions, like [kubecost](https://www.kubecost.com), can help you calculate and break down costs across different teams and tenants.
 
-- Maintenance can be more straightforward with a single deployment because you only have to update one set of Azure resources and maintain a single application. However, it can also be riskier because any changes to the infrastructure or application components can affect the entire customer base.
+- Maintenance is simpler with a single deployment because you only update one set of Azure resources and maintain a single application. But any changes to infrastructure or application components can affect the entire customer base.
 
-- You should also consider scale limitations. You're more likely to reach Azure resource scale limits when you have a shared set of resources. To avoid reaching a resource quota limit, you can distribute your tenants across multiple Azure subscriptions.
+- Shared resources are more likely to reach Azure resource scale limits. To avoid reaching resource quota limits, distribute your tenants across multiple Azure subscriptions.
 
 ### Horizontally partitioned deployments
 
-Alternatively, you can consider horizontally partitioning your multitenant Kubernetes application. This approach shares some solution components across all the tenants and deploys dedicated resources for individual tenants. For example, you can build a single multitenant Kubernetes application and then create individual databases, one for each tenant, as shown in this illustration:
+Horizontally partitioning shares some solution components across all the tenants and deploys dedicated resources for individual tenants. For example, you can build a single multitenant Kubernetes application and then create individual databases, one for each tenant, as shown in the following diagram.
 
 :::image type="complex" border="false" source="./media/aks/horizontally-partitioned-deployments.png" alt-text="A diagram that shows three tenants. Each uses a dedicated database and a single, shared Kubernetes application." lightbox="./media/aks/horizontally-partitioned-deployments.png":::
 
 :::image-end:::
 
-**Benefits:**
+This approach provides the following benefits:
 
 - Horizontally partitioned deployments can help you mitigate [noisy neighbor problems](/azure/architecture/antipatterns/noisy-neighbor/noisy-neighbor). Consider this approach if you identify that most of the traffic load on your Kubernetes application is because of specific components, which you can deploy separately, for each tenant. For example, your databases might absorb most of your system's load because the query load is high. If a single tenant sends a large number of requests to your solution, the performance of a database might be negatively affected, but other tenants' databases and shared components, like the application tier, remain unaffected.
 
-**Risks:**
+This approach has the following risks:
 
 - With a horizontally partitioned deployment, you still need to consider the automated deployment and management of your components, especially the components that a single tenant uses.
 
@@ -295,7 +292,7 @@ The following diagram shows a scenario where tenants A and B run on the same nod
 
 This model can also offer different SLAs for different tiers. For example, the basic tier can offer 99.9% uptime, the standard tier can offer 99.95% uptime, and the premium tier can offer 99.99% uptime. You can implement the higher SLA by using services and features that enable higher availability targets.
 
-**Benefits:**
+This approach provides the following benefits:
 
 - Because you're still sharing infrastructure, you can still gain some of the cost benefits of having shared multitenant deployments. You can deploy clusters and node pools that are shared across multiple basic-tier and standard-tier tenant applications, which use a less expensive VM size for agent nodes. This approach guarantees better density and cost savings. For premium-tier customers, you can deploy AKS clusters and node pools with a higher VM size and a maximum number of pod replicas and nodes at a higher price.
 
@@ -303,7 +300,7 @@ This model can also offer different SLAs for different tiers. For example, the b
 
 - You can use [taints](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration), [tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration), [node labels](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node), [node selectors](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node), and [node affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node) to run shared resources. For example, you can have an ingress controller or messaging system on a dedicated node pool that has a specific VM size, autoscaler settings, and availability-zones support.
 
-**Risks:**
+This approach has the following risks:
 
 - You need to design your Kubernetes application to support both multitenant and single-tenant deployments.
 
@@ -515,7 +512,7 @@ In a private AKS cluster, the control plane or API server is only accessible fro
 
 ### Authorized IP address ranges
 
-The second option to improve cluster security and minimize attacks is by using [authorized IP address ranges](/azure/aks/api-server-authorized-ip-ranges). This approach restricts the access to the control plane of a public AKS cluster to a well-known list of IP addresses and Classless Inter-Domain Routing (CIDR) ranges. When you use authorized IP addresses, they're still publicly exposed, but access is limited to a set of ranges. For more information, see [Secure access to the API server using authorized IP address ranges in AKS](/azure/aks/api-server-authorized-ip-ranges).
+The second option to improve cluster security and minimize attacks is by using [authorized IP address ranges](/azure/aks/api-server-authorized-ip-ranges). This approach restricts the access to the control plane of a public AKS cluster to a well-known list of IP addresses and Classless Inter-Domain Routing (CIDR) ranges. When you use authorized IP addresses, they're still publicly exposed, but access is limited to a set of ranges. For more information, see [Secure access to the API server by using authorized IP address ranges in AKS](/azure/aks/api-server-authorized-ip-ranges).
 
 ### Private Link integration
 
@@ -567,7 +564,7 @@ For example, you might want to use an AKS-hosted multitenant application to serv
 
 :::image-end:::
 
-You can configure Azure Front Door to modify the [request origin host header](/azure/frontdoor/front-door-backend-pool#origin-host-header) to match the domain name of the backend application. The original `Host` header sent by the client is propagated through the `X-Forwarded-Host` header, and the code of the multitenant application can use this information to [map the incoming request to the correct tenant](../considerations/map-requests.yml).
+You can configure Azure Front Door to modify the [request origin host header](/azure/frontdoor/front-door-backend-pool#origin-host-header) to match the domain name of the back-end application. The original `Host` header sent by the client is propagated through the `X-Forwarded-Host` header, and the code of the multitenant application can use this information to [map the incoming request to the correct tenant](../considerations/map-requests.yml).
 
 [Azure Web Application Firewall](/azure/web-application-firewall/afds/afds-overview), on Azure Front Door, provides centralized protection for web applications. Azure Web Application Firewall can help you defend AKS-hosted tenant applications that expose a public endpoint on the internet from malicious attacks.
 
@@ -603,7 +600,7 @@ Cost governance is the continuous process of implementing policies to control co
 
 - Dedicated cluster: When a cluster is dedicated to a single tenant, it's easy to charge the costs of Azure resources back to the customer. The total cost of ownership depends on many factors, including the number and size of VMs, the networking costs of network traffic, public IP addresses, load balancers, and the storage services, such as managed disks or Azure files that the tenant solution uses. You can tag an AKS cluster and its resources in the node resource group to facilitate cost charging operations. For more information, see [Add tags to the cluster](/azure/aks/use-tags#add-tags-to-the-cluster).
 
-- Dedicated node pool: You can apply an Azure tag to a new or existing node pool that's dedicated to a single tenant. Tags are applied to each node within the node pool and are persisted through upgrades. Tags are also applied to new nodes that are added to a node pool during scale-out operations. Adding a tag can help with tasks like policy tracking or cost charging. For more information, see [Adding tags to node pools](/azure/aks/use-tags).
+- Dedicated node pool: You can apply an Azure tag to a new or existing node pool that's dedicated to a single tenant. Tags are applied to each node within the node pool and are persisted through upgrades. Tags are also applied to new nodes that are added to a node pool during scale-out operations. Adding a tag can help with tasks like policy tracking or cost charging. For more information, see [Add tags to node pools](/azure/aks/use-tags).
 
 - Other resources: You can use tags to associate costs of dedicated resources to a given tenant. In particular, you can tag public IP addresses, files, and disks by using a Kubernetes manifest. Tags set in this way maintain the Kubernetes values, even if you update them later by using another method. When public IP addresses, files, or disks are removed through Kubernetes, any tags that Kubernetes sets are removed. Tags on resources that Kubernetes doesn't track remain unaffected. For more information, see [Add tags by using Kubernetes](/azure/aks/use-tags#add-tags-by-using-kubernetes).
 
@@ -617,11 +614,11 @@ For more information on the measurement, allocation, and optimization of costs f
 
 When multiple tenants share the same infrastructure, managing data privacy, compliance, and regulatory requirements can become complicated. You need to implement strong security measures and data governance policies. Shared AKS clusters present a higher risk of data breaches, unauthorized access, and noncompliance with data protection regulations. Each tenant might have unique data governance requirements and compliance policies, which make it difficult to ensure the security and privacy of the data.
 
-[Microsoft Defender for Containers][defender-for-containers] is a cloud-native container security solution that provides threat detection and protection capabilities for Kubernetes environments. By using Defender for Containers, you can enhance your data governance and compliance posture when you host multiple tenants in a Kubernetes cluster. Use Defender for Containers to help protect sensitive data, detect and respond to threats by analyzing container behavior and network traffic, and meet regulatory requirements. It provides auditing capabilities, log management, and report generation to demonstrate compliance to regulators and auditors.
+[Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) is a cloud-native container security solution that provides threat detection and protection capabilities for Kubernetes environments. By using Defender for Containers, you can enhance your data governance and compliance posture when you host multiple tenants in a Kubernetes cluster. Use Defender for Containers to help protect sensitive data, detect and respond to threats by analyzing container behavior and network traffic, and meet regulatory requirements. It provides auditing capabilities, log management, and report generation to demonstrate compliance to regulators and auditors.
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
+*Microsoft maintains this article. The following contributors wrote this article.*
 
 Principal authors:
 
@@ -630,11 +627,12 @@ Principal authors:
 
 Other contributors:
 
-- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori/) | Principal Customer Engineer
 - [Bohdan Cherchyk](https://www.linkedin.com/in/cherchyk/) | Senior Customer Engineer
 - [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer - Azure Patterns & Practices
 - [Chad Kittel](https://www.linkedin.com/in/chadkittel/)  | Principal Software Engineer - Azure Patterns & Practices
 - [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv/) | Principal Customer Engineer
+
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Related resource
 
