@@ -1,4 +1,4 @@
-Enterprise chat applications can empower employees through conversational interactions with AI agents. This capability is increasingly powerful thanks to ongoing advancements in language models, such as OpenAI's GPT models and orchestration SDKs like the Microsoft Agent Framework. These chat applications typically consist of the following components:
+Enterprise chat applications can empower employees through conversational interactions with AI agents. This capability is increasingly powerful thanks to ongoing advancements in language models, such as OpenAI's GPT models and orchestration open-source development kits like the Microsoft Foundry SDKs or the Microsoft Agent Framework. These chat applications typically consist of the following components:
 
 - A chat user interface (UI) that's integrated into a larger enterprise application. It provides users with a conversational experience alongside other business functions.
 
@@ -32,7 +32,7 @@ This architecture uses the [Agent Service standard agent setup](/azure/ai-servic
 
 1. An application user interacts with a chat UI. The requests are routed through Azure Application Gateway. Azure Web Application Firewall inspects these requests before it forwards them to the back-end App Service.
 
-1. When the web application receives a user query or instruction, it invokes the purpose-built agent. The web application communicates with the agent via the Azure AI Agent SDK. The web application calls the agent over a private endpoint and authenticates to Foundry by using its managed identity.
+1. When the web application receives a user query or instruction, it invokes the purpose-built agent. The web application communicates with the agent endpoints via the [Microsoft Foundry C# SDK](/azure/ai-foundry/how-to/develop/sdk-overview?view=foundry&preserve-view=true&pivots=programming-language-csharp). The web application calls the agent over a private endpoint and authenticates to Foundry by using its managed identity.
 
 1. The agent processes the user's request based on the instructions in its system prompt. To fulfill the user's intent, the agent has a configured language model, connected tools, and connected knowledge stores.
 
@@ -136,7 +136,7 @@ Vector search is common for retrieval-augmented generation but not always requir
 
 **Current approach:** The reference implementation uses a statically defined agent that's deployed as a microservice within Foundry. The agent's logic and data sources are configured at deployment and remain unchanged until the next application release. This approach works well when agent behavior and data sources are stable and controlled through DevOps processes.
 
-**Alternative approach:** You can dynamically create or modify agents at runtime by using the Azure AI Agent SDK. This approach allows the application to instantiate agents on demand, adjust system prompts, or reconfigure connections based on user context or business logic.
+**Alternative approach:** You can dynamically create or modify agents at runtime by using the Microsoft Foundry SDKs. This approach allows the application to instantiate agents on demand, adjust system prompts, or reconfigure connections based on user context or business logic.
 
 Consider dynamic agents if your workload requires the following capabilities:
 
@@ -578,7 +578,7 @@ To prevent service disruptions, ensure safe and controlled agent deployment by i
 
 - **Define agents as code.** Always store agent definitions, connections, system prompts, and configuration parameters in source control. This practice ensures traceability and reproducibility. Avoid untracked changes through the Foundry portal.
 
-- **Automate agent deployment.** Use your workload's continuous integration and continuous deployment (CI/CD) pipelines. Use the Azure AI Agent SDK to build, test, and deploy agent changes from your network-connected build agents.
+- **Automate agent deployment.** Use your workload's continuous integration and continuous deployment (CI/CD) pipelines. Use the Microsoft Foundry SDKs to build, test, and deploy agent changes from your network-connected build agents.
 
   Prefer agent pipelines that you can deploy independently for small, incremental changes. But make sure that the pipelines provide enough flexibility to deploy them alongside your application code when you require coordinated updates. To support this method, loosely couple your chat UI code and your chat agents so that changes to one component don't require simultaneous changes to the other.
 
