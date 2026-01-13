@@ -66,15 +66,15 @@ For more information, see [Deep learning overview](https://azure.microsoft.com/r
    - Phi (Microsoft)
    - Grok (xAI) 
    
-You can adapt these models to the following specific tasks:
+   You can adapt these models to the following specific tasks:
 
-  - Content generation
-  - Content summarization
-  - Image understanding
-  - Semantic search
-  - Natural language to code translation
-  - Video generation
-  - Speech to speech
+   - Content generation
+   - Content summarization
+   - Image understanding
+   - Semantic search
+   - Natural language to code translation
+   - Video generation
+   - Speech to speech
 
 ### Language models
 
