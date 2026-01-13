@@ -69,7 +69,7 @@ The following steps describe the outbound flow from App Service to Azure PaaS se
 
 1. The virtual network routes the request to the service through the private endpoint.
 
-Outbound traffic that doesn't go to Azure PaaS services leaves through a public IP address that multiple customers share. For example, a web app might call a public API during an HTTP request. To control this type of egress traffic, route it through a network device like Azure Firewall. For more informarion, see [Control outbound traffic by using Azure Firewall](/azure/app-service/network-secure-outbound-traffic-azure-firewall).
+Outbound traffic that doesn't go to Azure PaaS services leaves through a public IP address that multiple customers share. For example, a web app might call a public API during an HTTP request. To control this type of egress traffic, route it through a network device like Azure Firewall. For more information, see [Control outbound traffic by using Azure Firewall](/azure/app-service/network-secure-outbound-traffic-azure-firewall).
 
 ### Application Gateway implementation
 
