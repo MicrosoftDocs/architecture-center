@@ -69,6 +69,8 @@ The following steps describe the outbound flow from App Service to Azure PaaS se
 
 1. The virtual network routes the request to the service through the private endpoint.
 
+Outbound traffic that doesn't go to Azure PaaS services leaves through a public IP address that multiple customers share. For example, a web app might call a public API during an HTTP request. To control this type of egress traffic, route it through a network device like Azure Firewall. For more informarion, see [Control outbound traffic by using Azure Firewall](/azure/app-service/network-secure-outbound-traffic-azure-firewall).
+
 ### Application Gateway implementation
 
 Application Gateway is a scalable, regional, layer-7 load balancer that supports Azure Web Application Firewall and TLS offloading. When you implement Application Gateway for inbound traffic to App Service, consider the following points:
@@ -79,7 +81,7 @@ Application Gateway is a scalable, regional, layer-7 load balancer that supports
 
 - Use [private endpoints to implement inbound private access to App Service](/azure/app-service/overview-private-endpoint).
 
-- Consider implementing [autoscaling](/azure/application-gateway/application-gateway-autoscaling-zone-redundant) for Application Gateway to adjust capacity based on traffic demand.
+- Implement [autoscaling](/azure/application-gateway/application-gateway-autoscaling-zone-redundant) so that Application Gateway adjusts capacity based on traffic demand.
 
 - Consider using at least three instances and deploy across all availability zones that your region supports. Application Gateway is highly available, but [creating a new instance after a failure can take up to seven minutes](/azure/application-gateway/application-gateway-autoscaling-zone-redundant#autoscaling-and-high-availability), even for a single scale instance. Deploy multiple instances across availability zones to ensure that an instance remains available while a new instance starts.
 
@@ -91,7 +93,7 @@ This architecture uses [virtual network integration](/azure/app-service/overview
 
 For Azure services that don't require public internet access, allow private endpoints and block public endpoints. Private endpoints improve security by letting App Service connect to Private Link services directly from the private virtual network without public IP addressing.
 
-In this architecture, SQL Database, Storage, and Key Vault all have public endpoints blocked. Their service firewalls permit traffic only from other authorized Azure services. Configure other Azure services, like Azure Cosmos DB and Azure Managed Redis, with private endpoints. In this architecture, Azure Monitor doesn't use a private endpoint, but it could.
+In this architecture, SQL Database, Storage, and Key Vault all have public endpoints blocked. Their service firewalls permit traffic only from other authorized Azure services. Configure other Azure services, like Azure Cosmos DB and Azure Managed Redis, with private endpoints. In this architecture, Azure Monitor doesn't use a private endpoint, but you can implement one by using an [Azure Monitor Private Link Scope (AMPLS)](/azure/azure-monitor/logs/private-link-security).
 
 The baseline architecture implements a private DNS zone for each service. Each private DNS zone contains an *A record* that maps the service's FQDN to the private endpoint's IP address. The zones link to the virtual network. Private DNS zone groups automatically create and update DNS records for private endpoints.
 
@@ -131,7 +133,7 @@ The following table shows an example network schema.
 | :-------------- | :--------------------- | :------------ |
 | Virtual network | Address prefix         | 10.0.0.0/16   |
 | Subnet          | GatewaySubnet          | 10.0.1.0/24   |
-| Subnet          | AppServiceSubnet      | 10.0.0.0/24   |
+| Subnet          | AppServiceSubnet       | 10.0.0.0/24   |
 | Subnet          | PrivateEndpointsSubnet | 10.0.2.0/27   |
 | Subnet          | AgentsSubnet           | 10.0.2.32/27  |
 
@@ -183,7 +185,7 @@ The baseline App Service architecture focuses on essential security recommendati
 
 - Turn off remote debugging.
 
-- Use the latest TLS version.
+- Use the latest TLS version that all your clients support.
 
 - Turn on the [Microsoft Defender for App Service plan](/azure/defender-for-cloud/tutorial-enable-app-service-plan).
 
