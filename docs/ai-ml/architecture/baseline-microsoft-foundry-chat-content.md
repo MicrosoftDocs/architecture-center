@@ -8,7 +8,7 @@ Enterprise chat applications can empower employees through conversational intera
 
 - An orchestrator or agent that oversees the interactions between data sources, language models, and the end user.
 
-This article provides a baseline architecture to help you build and deploy enterprise chat applications by using [Microsoft Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) and [Azure OpenAI in Foundry Models](/azure/ai-services/openai/concepts/models). This architecture uses a single agent hosted in Foundry Agent Service. The agent receives user messages and then queries data stores to retrieve grounding information for the language model.
+This article provides a baseline architecture to help you build and deploy enterprise chat applications by using [Microsoft Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) and [Azure OpenAI in Foundry Models](/azure/ai-services/openai/concepts/models). This architecture uses a prompt single agent hosted in Foundry Agent Service. The agent receives user messages and then queries data stores to retrieve grounding information for the language model.
 
 The chat UI follows the [baseline Azure App service web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml) guidance about how to deploy a secure, zone-redundant, and highly available web application on App Service. In that architecture, App Service communicates with the Azure platform as a service (PaaS) solution through virtual network integration over private endpoints. In the chat UI architecture, App Service communicates with the agent over a private endpoint. Public access to the Foundry portal and agents is disabled.
 
@@ -149,9 +149,9 @@ Dynamic agent management increases flexibility but also introduces the burden of
 
 Choose the agent approach that aligns with your workload's user experience requirements.
 
-#### Single-agent or multi-agent orchestration
+#### Prompt single-agent or multi-agent orchestration
 
-**Current approach:** This reference architecture uses a single agent that has access to all necessary knowledge sources and tools to handle most user interactions effectively.
+**Current approach:** This reference architecture uses a prompt single agent that has access to all necessary knowledge sources and tools to handle most user interactions effectively.
 
 **Alternative approach:** You can orchestrate multiple specialized agents, where each agent focuses on specific domains, uses different models, or accesses distinct knowledge stores and tools.
 
@@ -165,7 +165,7 @@ Consider a multi-agent approach when your workload exhibits the following charac
 
 - The chat experience serves as a front end to business processes that involve sequential or parallel steps that require different specialists.
 
-Multi-agent approaches introduce coordination complexity and increased latency because of communication between agents. Use a single agent when your use case is well-defined, doesn't require strict access isolation, and can be handled effectively by one model with a reasonable set of tools.
+Multi-agent approaches introduce coordination complexity and increased latency because of communication between agents. Use a prompt single agent when your use case is well-defined, doesn't require strict access isolation, and can be handled effectively by one model with a reasonable set of tools.
 
 For guidance about how to implement multiple coordinated agents, see [AI agent orchestration patterns](../guide/ai-agent-design-patterns.md). This article covers sequential, concurrent, group chat, handoff, and magentic orchestration approaches. You can implement some patterns within Agent Service. Other patterns require self-hosted orchestration by using an SDK such as Semantic Kernel.
 
@@ -469,7 +469,7 @@ The following recommendations explain how to optimize costs for these required s
 
   - Use a locally redundant storage (LRS) tier for the Storage account.
   - Configure AI Search with a single replica instead of the recommended three replicas.
-  
+
 - Regularly delete unused agents and their associated threads by using the SDK or REST APIs. Stale agents and threads continue to consume storage and can increase costs across Azure Cosmos DB, Storage, and AI Search.
 
 - Disable features on dependent resources that your workload doesn't require, such as the following features:
@@ -572,7 +572,7 @@ Your jump boxes and build agent VMs reside in a highly privileged location, whic
 
 #### Agent versioning and life cycle
 
-Treat each agent as an independently deployable unit within your chat workload, unless you specifically design your application to dynamically create and delete agents at runtime. These agents have life cycle management requirements similar to other microservices in your workload. 
+Treat each agent as an independently deployable unit within your chat workload, unless you specifically design your application to dynamically create and delete agents at runtime. These agents have life cycle management requirements similar to other microservices in your workload.
 
 To prevent service disruptions, ensure safe and controlled agent deployment by implementing the following approaches:
 
