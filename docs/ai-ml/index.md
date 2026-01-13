@@ -40,7 +40,7 @@ Choose an algorithm family that best suits your task. Evaluate the different alg
 
 The predictive models are validated against known data, measured by performance metrics for specific business scenarios, and then adjusted as needed. This process of learning and validation is called *training*. Through periodic retraining, machine learning models improve over time.
 
-In your workload design, you might use machine learning if your scenario includes past observations that you can reliably use to predict future situations. These observations can be universal truths, like computer vision that detects one form of animal from another. Or these observations can be specific to your situation, like computer vision that detects a potential assembly mistake on your assembly lines based on past warranty claim data. 
+In your workload design, you might use machine learning if your scenario includes past observations that you can reliably use to predict future situations. These observations can be universal truths, like computer vision that detects one form of animal from another. Or these observations can be specific to your situation, like computer vision that detects a potential assembly mistake on your assembly lines based on past warranty claim data.
 
 For more information, see [Machine learning overview](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-machine-learning-platform/).
 
@@ -58,13 +58,13 @@ For more information, see [Deep learning overview](https://azure.microsoft.com/r
 
 - [Copilot](https://m365.cloud.microsoft/chat/) is primarily a user interface (UI) that helps you write code, documents, and other text-based content. It's based on popular models from OpenAI and Anthropic and is integrated into a wide range of Microsoft applications and user experiences.
 
-- [Foundry](/azure/ai-foundry/what-is-foundry) is a development platform as a service (PaaS) that provides access to a catalog of language models, including the following options:
+- [Foundry](/azure/ai-foundry/what-is-foundry) is a development platform as a service (PaaS) that provides access to agent hosting and a catalog of language models, including the following options:
 
    - GPT-5.2 (OpenAI)
    - Sora2 (OpenAI)
    - Claude (Anthropic)
    - Phi (Microsoft)
-   - Grok (xAI) 
+   - Grok (xAI)
    
    You can adapt these models to the following specific tasks:
 
