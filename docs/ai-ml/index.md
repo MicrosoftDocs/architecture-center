@@ -58,7 +58,15 @@ For more information, see [Deep learning overview](https://azure.microsoft.com/r
 
 - [Copilot](https://m365.cloud.microsoft/chat/) is primarily a user interface (UI) that helps you write code, documents, and other text-based content. It's based on popular models from OpenAI and Anthropic and is integrated into a wide range of Microsoft applications and user experiences.
 
-- [Foundry](/azure/ai-foundry/what-is-foundry) is a development platform as a service (PaaS) that provides access to a catalog of language models, including OpenAI's GPT-5.2, Sora2, Anthropic's Claude, Phi from Microsoft, and xAI's Grok. You can adapt these models to the following specific tasks:
+- [Foundry](/azure/ai-foundry/what-is-foundry) is a development platform as a service (PaaS) that provides access to a catalog of language models, including the following options:
+
+   - GPT-5.2 (OpenAI)
+   - Sora2 (OpenAI)
+   - Claude (Anthropic)
+   - Phi (Microsoft)
+   - Grok (xAI) 
+   
+You can adapt these models to the following specific tasks:
 
   - Content generation
   - Content summarization
@@ -145,7 +153,7 @@ For more information, see the following resources:
 #### AI and Machine learning reference architectures for Azure
 
 - [Baseline Foundry chat reference architecture in an Azure landing zone](./architecture/baseline-microsoft-foundry-landing-zone.yml)
-- [Baseline Foundry chat reference architecture](./architecture/baseline-microsoft-foundry-chat.yml) describes how to build an end-to-end chat architecture by using OpenAI's GPT models in Foundry. It incorporates grounding via enterprise data sources to enrich responses with contextual information.
+- [Baseline Foundry chat reference architecture](./architecture/baseline-microsoft-foundry-chat.yml) describes how to build an end-to-end chat architecture by using the OpenAI GPT models in Foundry. It incorporates grounding via enterprise data sources to enrich responses with contextual information.
 
   :::image type="complex" source="./architecture/_images/baseline-microsoft-foundry.svg" border="false" lightbox="./architecture/_images/baseline-microsoft-foundry.svg" alt-text="Diagram that shows a baseline end-to-end chat architecture that uses Foundry.":::
    The diagram presents a detailed Azure architecture for deploying an AI solution. On the left, a user connects through an application gateway with a web application firewall, which is part of a virtual network. This gateway links to private DNS zones. Azure DDoS Protection protects the gateway. Below the gateway, private endpoints connect to services like Azure App Service, Azure Key Vault, and Azure Storage, which are used for client app deployment. App Service is managed with identity and spans three zones. Application Insights and Azure Monitor provide monitoring, and Microsoft Entra ID handles authentication. To the right, the virtual network has several subnets: App Service integration, private endpoint, Foundry integration, Azure AI agent integration, Azure Bastion, jump box, build agents, and Azure firewall. Each subnet hosts specific endpoints or services, like storage, Foundry, Azure AI Search, Azure Cosmos DB, and knowledge store, all connected via private endpoints. Outbound traffic from the network passes through Azure Firewall to reach internet sources. To the far right, a separate box represents Foundry, which includes an account and a project. Managed identities are used to connect Foundry Agent Service to the Foundry project, which in turn accesses Azure OpenAI. The diagram uses numbered green circles to indicate the logical flow, which shows how user requests traverse the network, interact with different endpoints, and ultimately connect to Foundry Tools and storage, with dependencies clearly grouped and labeled.
@@ -243,7 +251,7 @@ For more information, see [Spark runtimes in Fabric](/fabric/data-engineering/ru
 
 #### Azure Databricks Runtime for Machine Learning
 
-[Azure Databricks](https://azure.microsoft.com/products/databricks) is a Spark–based analytics platform that includes workflows and an interactive workspace for collaboration between data scientists, engineers, and business analysts.
+[Azure Databricks](https://azure.microsoft.com/products/databricks) is a Spark-based analytics platform that includes workflows and an interactive workspace for collaboration between data scientists, engineers, and business analysts.
 
 You can use [Databricks Runtime for Machine Learning](/azure/databricks/machine-learning/databricks-runtime-ml) to start a Databricks cluster that has all the libraries required for distributed training. This feature provides an environment for machine learning and data science. It has multiple popular libraries, including TensorFlow, PyTorch, Keras, and XGBoost. It also supports distributed training via Horovod.
 
