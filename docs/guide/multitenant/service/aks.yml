@@ -2,8 +2,8 @@
 metadata:
   title: Guidance for using Azure Kubernetes Service (AKS) in a multitenant solution
   description: Learn about the features of Azure Kubernetes Service (AKS) that you can use when you work with multitenant systems. See guidance and examples for how to use AKS in a multitenant solution.
-  author: griffinbird
-  ms.author: begriff
+  author: samcogan
+  ms.author: samcogan
   ms.date: 12/22/2025
   ms.topic: concept-article
   ms.subservice: architecture-guide
