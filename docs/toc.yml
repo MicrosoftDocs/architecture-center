@@ -539,8 +539,6 @@ items:
           href: example-scenario/unix-migration/migrate-aix-azure-linux.yml
         - name: Batch transaction processing
           href: example-scenario/mainframe/process-batch-transactions.yml
-        - name: Extend mainframe applications with Verastream
-          href: example-scenario/mainframe/extend-mainframe-applications.yml
         - name: Extend mainframes to digital channels by using standards-based REST APIs
           href: example-scenario/mainframe/extend-mainframes-rest-apis.yml
         - name: General mainframe refactor to Azure
@@ -559,20 +557,12 @@ items:
           href: example-scenario/mainframe/migrate-aix-workloads-to-azure-with-skytap.yml
         - name: Migrate HP-UX workloads
           href: example-scenario/mainframe/hp-ux-stromasys-charon-par.yml
-        - name: Migrate IBM apps with TmaxSoft
-          href: solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml
         - name: Migrate IBM i series to Azure with Skytap
           href: example-scenario/mainframe/migrate-ibm-i-series-to-azure-with-skytap.yml
         - name: Use Azure NetApp Files to deploy IBM Power in Skytap on Azure
           href: example-scenario/mainframe/deploy-ibm-power-workloads.yml
         - name: Refactor mainframe with CloudFrame Renovate
           href: example-scenario/mainframe/cloudframe-renovate-mainframe-refactor.yml
-        - name: Refactor an IBM z/OS mainframe CF
-          href: reference-architectures/zos/refactor-zos-coupling-facility.yml
-        - name: Refactor IBM z/TPF mainframe
-          href: example-scenario/mainframe/refactor-ibm-ztpf-mainframe.yml
-        - name: Refactor mainframe apps with Astadia
-          href: example-scenario/mainframe/refactor-mainframe-applications-astadia.yml
         - name: Refactor Adabas & Natural systems
           href: example-scenario/mainframe/refactor-adabas-aks.yml
         - name: Refactor mainframe with Raincode
@@ -583,10 +573,6 @@ items:
           href: example-scenario/mainframe/rehost-adabas-software-ag.yml
         - name: Rehost IMS workloads by using IMSql
           href: example-scenario/mainframe/imsql-rehost-ims.yml
-        - name: Rehost mainframe with NTT DATA UniKix
-          href: example-scenario/mainframe/rehost-mainframe-ntt-data-unikix.yml
-        - name: Replatform AIX workloads
-          href: example-scenario/mainframe/replatform-aix-workloads.yml
         - name: Solaris emulator on Azure VMs
           href: solution-ideas/articles/solaris-azure.yml
         - name: Unisys ClearPath Forward OS 2200 enterprise server virtualization on Azure
