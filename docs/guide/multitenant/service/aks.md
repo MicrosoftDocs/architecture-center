@@ -184,7 +184,7 @@ AKS provides workload isolation at various levels:
 
 - **Hardware level:** You can run tenant workloads on [Azure dedicated hosts](#azure-dedicated-host) that guarantee that agent node VMs run on dedicated physical machines. This hardware isolation ensures that no other VMs share the dedicated hosts, which provides an extra layer of tenant workload isolation.
 
-Combine these techniques as needed. For example, run per-tenant clusters and node pools in an [Azure dedicated host group](#azure-dedicated-host) to achieve both workload segregation and physical isolation at the hardware level. You can also create shared or per-tenant node pools that support [Federal Information Process Standard (FIPS)](#federal-information-process-standards-fips), [confidential VMs](#confidential-vms), or [host-based encryption](#host-based-encryption).
+Combine these techniques as needed. For example, run per-tenant clusters and node pools in an [Azure dedicated host group](#azure-dedicated-host) to achieve both workload segregation and physical isolation at the hardware level. You can also create shared or per-tenant node pools that support [Federal Information Process Standards (FIPS)](#federal-information-process-standards-fips), [confidential VMs](#confidential-vms), or [host-based encryption](#host-based-encryption).
 
 Use node isolation to easily associate and charge back the cost of a set of nodes or node pool to a single tenant. Your choice depends on your solution's tenancy model. For more information, see [Node isolation](https://kubernetes.io/docs/concepts/security/multi-tenancy/#node-isolation).
 
@@ -210,7 +210,7 @@ This approach provides the following benefits:
 
 - You can roll out updates and changes progressively across tenants to reduce the likelihood of system-wide outages. Azure costs are easily attributed to individual tenants because every resource is dedicated to a single tenant.
 
-- Using Azure CNI Overlay across all tenant clusters simplifies IP address planning and lets you reuse the same pod CIDR space across multiple isolated clusters.
+- Using Azure CNI Overlay across all tenant clusters simplifies IP address planning and lets you reuse the same pod Classless Inter-Domain Routing (CIDR) space across multiple isolated clusters.
 
 This approach has the following risks:
 
@@ -442,26 +442,30 @@ If you require advanced customization beyond what node autoprovisioning provides
 
 ### Confidential VMs
 
-You can use [confidential VMs](/azure/aks/use-cvm) to add one or more node pools to your AKS cluster to address tenants' strict isolation, privacy, and security requirements. [Confidential VMs](https://techcommunity.microsoft.com/t5/azure-confidential-computing/azure-confidential-vms-using-sev-snp-dcasv5-ecasv5-are-now/ba-p/3573747) use a hardware-based [trusted execution environment](https://en.wikipedia.org/wiki/Trusted_execution_environment). [AMD Secure Encrypted Virtualization - Secure Nested Paging (SEV-SNP)](https://www.amd.com/system/files/TechDocs/SEV-SNP-strengthening-vm-isolation-with-integrity-protection-and-more.pdf) confidential VMs deny the hypervisor and other host-management code access to VM memory and state, which adds a layer of defense and in-depth protection against operator access. For more information, see [Use confidential VMs in an AKS cluster](/azure/aks/use-cvm).
+Use [confidential VMs](/azure/aks/use-cvm) to add one or more node pools to your AKS cluster to address tenants' strict isolation, privacy, and security requirements. [Confidential VMs](https://techcommunity.microsoft.com/t5/azure-confidential-computing/azure-confidential-vms-using-sev-snp-dcasv5-ecasv5-are-now/ba-p/3573747) use a hardware-based [trusted execution environment](https://en.wikipedia.org/wiki/Trusted_execution_environment).
 
-### Federal Information Process Standards (FIPS)
+[AMD Secure Encrypted Virtualization - Secure Nested Paging (SEV-SNP)](https://www.amd.com/system/files/TechDocs/SEV-SNP-strengthening-vm-isolation-with-integrity-protection-and-more.pdf) confidential VMs deny the hypervisor and other host-management code access to VM memory and state, which adds a layer of defense and in-depth protection against operator access. For more information, see [Use confidential VMs in an AKS cluster](/azure/aks/use-cvm).
 
-[FIPS 140-3](https://csrc.nist.gov/publications/detail/fips/140/3/final) is a US government standard that defines minimum security requirements for cryptographic modules in information technology products and systems. By enabling [FIPS compliance for AKS node pools](/azure/aks/enable-fips-nodes), you can enhance the isolation, privacy, and security of your tenant workloads. [FIPS](/azure/compliance/offerings/offering-fips-140-2) compliance ensures the use of validated cryptographic modules for encryption, hashing, and other security-related operations. With FIPS-enabled AKS node pools, you can meet regulatory and industry compliance requirements by employing robust cryptographic algorithms and mechanisms. Azure provides documentation on how to enable FIPS for AKS node pools, which enables you to strengthen the security posture of your multitenant AKS environments. For more information, see [Enable FIPS for AKS node pools](/azure/aks/enable-fips-nodes).
+### FIPS
 
-### Bring your own keys (BYOK) with Azure disks
+[FIPS 140-3](https://csrc.nist.gov/publications/detail/fips/140/3/final) is a US government standard that defines minimum security requirements for cryptographic modules in information technology products and systems. [FIPS compliance](/azure/compliance/offerings/offering-fips-140-2) ensures the use of validated cryptographic modules for encryption, hashing, and other security-related operations.
 
-Azure Storage encrypts all data in a storage account at rest, including the OS and data disks of an AKS cluster. By default, data is encrypted with Microsoft-managed keys. For more control over encryption keys, you can supply customer-managed keys to use for encryption at rest of the OS and data disks of your AKS clusters. For more information, see:
+Configure [FIPS for AKS node pools](/azure/aks/enable-fips-nodes) to enhance tenant workload isolation, privacy, and security. FIPS-enabled node pools help meet regulatory and industry compliance requirements by employing robust cryptographic algorithms and mechanisms. Use this approach to strengthen the security posture of your multitenant AKS environments. For more information, see [Enable FIPS for AKS node pools](/azure/aks/enable-fips-nodes).
 
-- [BYOK with Azure disks in AKS](/azure/aks/azure-disk-customer-managed-keys).
+### Bring your own key (BYOK) for Azure disks
+
+Azure Storage encrypts data in a storage account at rest, including the operating system (OS) and data disks of an AKS cluster. By default, Azure encrypts data through Microsoft-managed keys. For more control over encryption keys, supply customer-managed keys for encryption at rest of the OS and data disks of your AKS clusters. For more information, see the following articles:
+
+- [BYOK for Azure managed disks in AKS](/azure/aks/azure-disk-customer-managed-keys).
 - [Server-side encryption of Azure Disk Storage](/azure/virtual-machines/disk-encryption).
 
 ### Host-based encryption
 
-[Host-based encryption](/azure/aks/enable-host-encryption) on AKS further strengthens tenant workload isolation, privacy, and security. When you enable host-based encryption, AKS encrypts data at rest on the underlying host machines, which helps ensure that sensitive tenant information is protected from unauthorized access. Temporary disks and ephemeral OS disks are encrypted at rest with platform-managed keys when you enable end-to-end encryption.
+[Host-based encryption](/azure/aks/enable-host-encryption) on AKS further strengthens tenant workload isolation, privacy, and security by encrypting data at rest on underlying host machines. This feature protects sensitive tenant information from unauthorized access. When you turn on end-to-end encryption, temporary disks and ephemeral OS disks are encrypted with platform-managed keys.
 
-In AKS, OS and data disks use server-side encryption with platform-managed keys by default. The caches for these disks are encrypted at rest with platform-managed keys. You can specify your own [key encryption key](/azure/security/fundamentals/encryption-atrest) to encrypt the [data protection key](/azure/security/fundamentals/encryption-atrest) by using envelope encryption, also known as *wrapping*. The cache for the OS and data disks are also encrypted via the [BYOK](/azure/aks/azure-disk-customer-managed-keys) that you specify.
+In AKS, OS and data disks use server-side encryption with platform-managed keys by default. The disk caches are encrypted at rest through platform-managed keys.  You can specify your own [key encryption key](/azure/security/fundamentals/encryption-atrest) to encrypt the [data protection key](/azure/security/fundamentals/encryption-atrest) by using envelope encryption, also known as *wrapping*. The disk caches are also encrypted via the [BYOK](/azure/aks/azure-disk-customer-managed-keys) that you specify.
 
-Host-based encryption adds a layer of security for multitenant environments. Each tenant's data in the OS and data disk caches is encrypted at rest with either customer-managed or platform-managed keys, depending on the selected disk encryption type. For more information, see:
+Host-based encryption provides an extra security layer for multitenant environments. Each tenant's data in OS and data disk caches is encrypted at rest with either customer-managed or platform-managed keys, depending on the selected disk encryption type. For more information, see the following articles:
 
 - [Host-based encryption on AKS](/azure/aks/enable-host-encryption)
 - [BYOK with Azure disks in AKS](/azure/aks/azure-disk-customer-managed-keys)
@@ -469,122 +473,127 @@ Host-based encryption adds a layer of security for multitenant environments. Eac
 
 ## Networking
 
-The following sections describe networking best practices for multitenant solutions with AKS.
+The following sections describe networking best practices for multitenant AKS solutions.
 
 ### Network topology for multitenant clusters
 
-When you design a network topology for multitenant AKS deployments, your choice between Azure CNI standard mode and Azure CNI Overlay affects how you scale tenant workloads and manage IP address space.
+When you design a network topology for multitenant AKS deployments, your choice between Azure CNI Standard mode and Azure CNI Overlay affects how you scale tenant workloads and manage IP address space.
 
-**IP address planning for multitenancy**: Traditional Azure CNI assigns VNet IP addresses to both nodes and pods. This approach can quickly exhaust available IP space in large multitenant deployments. If you're deploying:
+Traditional Azure CNI assigns virtual network IP addresses to both nodes and pods. This approach can exhaust available IP address space in large multitenant deployments. Azure CNI Overlay assigns virtual network IP addresses only to nodes while pods use a separate overlay CIDR. Azure CNI Overlay reduces the risk of virtual network IP address exhaustion and lets you deploy more tenant workloads within the same virtual network address space.
 
-- Multiple dedicated clusters (one per tenant or per tenant tier)
-- Shared clusters with high pod density across many tenant namespaces
-- Multiple environments per tenant (dev, staging, production)
+Use standard Azure CNI for multitenant scenarios in the following cases:
 
-Consider using Azure CNI Overlay to significantly reduce the risk of VNet IP address exhaustion. Azure CNI Overlay assigns VNet IPs only to nodes while pods use a separate overlay CIDR. This approach allows you to deploy significantly more tenant workloads within the same VNet address space.
+- External systems need direct routable access to pod IP addresses (uncommon for most SaaS multitenancy patterns)
 
-**Pod CIDR reusability across tenant clusters**: When you implement an automated single-tenant deployment model (dedicated cluster per tenant), Azure CNI Overlay allows you to use the same pod CIDR (for example, 10.244.0.0/16) across all tenant clusters without conflict. This feature significantly simplifies operations by eliminating the need to plan, allocate, and track unique pod CIDRs per tenant. Infrastructure-as-code templates can be fully standardized without per-tenant customization, tenant onboarding is faster with no CIDR coordination required, and the consistent configuration across all clusters simplifies troubleshooting and reduces configuration errors.
+- You use advanced AKS features that don't support Overlay mode
 
-**When to use standard Azure CNI**: Use standard Azure CNI for multitenant scenarios when:
+- Your virtual network has sufficient IP address space and you have few tenant clusters
 
-- External systems need direct routable access to pod IPs (uncommon for most SaaS multitenancy patterns)
-- You're using advanced AKS features that don't yet support Overlay mode
-- Your VNet has sufficient IP address space and you have few tenant clusters
+Use Azure CNI Overlay for multitenant scenarios in the following cases:
 
-**When to use Azure CNI Overlay**: Use Azure CNI Overlay for multitenant scenarios when:
+- You deploy multiple dedicated clusters (one per tenant or per tenant tier)
 
-- You're deploying multiple AKS clusters in the same VNet (common for per-tenant or per-tier cluster models)
-- You're running high pod density in shared clusters with many tenant namespaces
-- IP address space is constrained or you need to reserve VNet IPs for other Azure resources
+- You deploy multiple AKS clusters in the same virtual network (common for per-tenant or per-tier cluster models)
+
+- You run high pod density in shared clusters with many tenant namespaces
+
+- You deploy multiple environments per tenant (development, staging, production)
+
+- IP address space is constrained or you need to reserve virtual network IP addresses for other Azure resources
+
 - You need to standardize infrastructure templates across many tenant deployments
 
-**Tenant isolation considerations**: Azure CNI Overlay maintains the same tenant isolation capabilities as standard Azure CNI. All three network policy engines (Azure Network Policies, Calico, and Azure CNI Powered by Cilium) work with Azure CNI Overlay. You can enforce namespace-level network isolation between tenants regardless of which topology you choose.
+When you deploy an automated single-tenant deployment model (dedicated cluster for each tenant), Azure CNI Overlay lets you reuse the same pod CIDR (for example, 10.244.0.0/16) across multiple tenant clusters. This approach eliminates the need to plan, allocate, and track unique pod CIDRs per tenant. You can standardize IaC templates across all tenants. Tenant onboarding is faster because you don't need to coordinate CIDR assignments. This consistent configuration also simplifies troubleshooting and reduces configuration errors.
 
-**Outbound traffic patterns**: With Azure CNI Overlay, tenant pod traffic is SNAT'd to the node IP when leaving the cluster. If you need to identify traffic by tenant for external systems or firewall rules, implement tenant-specific egress controls using:
+Azure CNI Overlay provides the same tenant isolation as Azure CNI Standard. All three network policy engines work with both topologies: Azure network policies, Calico, and Azure CNI Powered by Cilium. You can enforce namespace-level network isolation between tenants with either option.
 
-- Dedicated node pools per tenant with specific node labels
-- Azure NAT Gateway with multiple public IPs assigned to different node pools
-- Azure Firewall with user-defined routes directing tenant traffic through specific rules
+Azure CNI Overlay uses source network address translation (SNAT) to convert tenant pod IP addresses to the node IP address when traffic leaves the cluster. If you need to identify traffic by tenant for external systems or firewall rules, use the following methods to implement tenant-specific egress controls:
 
-For detailed configuration steps, see [Configure Azure CNI Overlay networking in AKS](/azure/aks/azure-cni-overlay).
+- Create dedicated node pools for each tenant and use specific node labels
+
+- Deploy Azure NAT Gateway with multiple public IP addresses and assign different IPs to different node pools
+
+- Configure Azure Firewall with user-defined routes (UDRs) that direct tenant traffic through specific rules.
+
+For more information, see [Configure Azure CNI Overlay networking in AKS](/azure/aks/azure-cni-overlay).
 
 ### Restrict network access to the API server
 
-In Kubernetes, the API server receives requests to perform actions in the cluster, such as creating resources or scaling the number of nodes. When you share an AKS cluster across multiple teams within an organization, protect access to the control plane by using one of the following solutions.
+In Kubernetes, the API server receives requests to do cluster actions, like creating resources or scaling nodes. When you share an AKS cluster across multiple teams, protect control plane access by using one of the following solutions.
 
 ### Private AKS clusters
 
-By using a private AKS cluster, you can make sure the network traffic between your API server and your node pools remains within your virtual network. AKS provides two approaches for implementing private API server access:
+A private AKS cluster keeps network traffic between your API server and node pools within your virtual network. AKS provides two approaches for private API server access:
 
-**API Server VNet Integration** projects the API server endpoint directly into a delegated subnet within your cluster's virtual network. The API server sits behind an Internal Load Balancer, and nodes communicate directly with its private IP address. You can enable or disable public network access without redeploying the cluster.
+- **API Server virtual network integration:** This approach projects the API server endpoint into a delegated subnet in your cluster's virtual network. The API server uses an internal load balancer. Nodes communicate directly with the API server's private IP address. You can enable or disable public network access without redeploying the cluster.
 
-**Private clusters with Private Link** use Azure Private Link to create a private endpoint with no public IP address. The API server is accessible only through the private endpoint, requiring DNS configuration through Private DNS zones.
+- **Private clusters with Private Link:** This approach uses Azure Private Link to create a private endpoint without a public IP address. The API server is accessed only through the private endpoint. You must configure Domain Name System (DNS) through private DNS zones.
 
-In a private AKS cluster, the control plane or API server is only accessible from resources that are either in the same virtual network or through vNet peering, virtual private network or ExpressRoute. For more information, see [Create a private AKS cluster](/azure/aks/private-clusters).
+  A private AKS cluster restricts control plane access to resources in the same virtual network or connected through virtual network peering, virtual private network, or Azure ExpressRoute. For more information, see [Create a private AKS cluster](/azure/aks/private-clusters).
 
 ### Authorized IP address ranges
 
-The second option to improve cluster security and minimize attacks is by using [authorized IP address ranges](/azure/aks/api-server-authorized-ip-ranges). This approach restricts the access to the control plane of a public AKS cluster to a well-known list of IP addresses and Classless Inter-Domain Routing (CIDR) ranges. When you use authorized IP addresses, they're still publicly exposed, but access is limited to a set of ranges. For more information, see [Secure access to the API server by using authorized IP address ranges in AKS](/azure/aks/api-server-authorized-ip-ranges).
+[Authorized IP address ranges](/azure/aks/api-server-authorized-ip-ranges) provide another way to improve cluster security and minimize attacks. This approach restricts control plane access on a public AKS cluster to a specific list of IP addresses and CIDR ranges. The API server remains publicly exposed, but only the specified IP addresses have access. For more information, see [Secure access to the API server by using authorized IP address ranges in AKS](/azure/aks/api-server-authorized-ip-ranges).
 
 ### Private Link integration
 
-[Azure Private Link service](/azure/private-link/private-link-service-overview) is an infrastructure component that allows applications to privately connect to a service via an [Azure private endpoint](/azure/private-link/private-endpoint-overview) that's defined in a virtual network and connected to the front-end IP configuration of an [Azure Load Balancer](/azure/load-balancer/load-balancer-overview) instance. With [Private Link](/azure/private-link/private-link-overview), service providers can securely provide their services to their tenants that can connect from within Azure or on-premises, without data exfiltration risks.
+[Azure Private Link service](/azure/private-link/private-link-service-overview) is an infrastructure component that lets applications connect privately to services through an [Azure private endpoint](/azure/private-link/private-endpoint-overview). The private endpoint is defined in a virtual network and connects to the front-end IP configuration of an [Azure Load Balancer](/azure/load-balancer/load-balancer-overview) instance. [Private Link](/azure/private-link/private-link-overview) lets service providers securely deliver services to tenants who connect from Azure or on-premises without data exfiltration risks.
 
-You can use [Private Link service integration](https://cloud-provider-azure.sigs.k8s.io/topics/pls-integration) to provide tenants with private connectivity to their AKS-hosted workloads in a secure way, without the need to expose any public endpoint on the public internet.
+Use [Private Link service integration](https://cloud-provider-azure.sigs.k8s.io/topics/pls-integration) to give tenants private connectivity to their AKS-hosted workloads without exposing any public endpoints on the internet.
 
-For more information about how you can configure Private Link for an Azure-hosted multitenant solution, see [Multitenancy and Private Link](/azure/architecture/guide/multitenant/service/private-link).
+For more information, see [Multitenancy and Private Link](/azure/architecture/guide/multitenant/service/private-link).
 
 ### Reverse proxies
 
-A [reverse proxy](https://en.wikipedia.org/wiki/Reverse_proxy) is a load balancer and an [API gateway](/azure/architecture/microservices/design/gateway) that is typically used in front of tenant applications to secure, filter, and dispatch incoming requests. Popular reverse proxies support features such as load balancing, SSL termination, and layer 7 routing. Reverse proxies are typically implemented to help increase security, performance, and reliability. Popular reverse proxies for Kubernetes include the following implementations:
+A [reverse proxy](https://en.wikipedia.org/wiki/Reverse_proxy) sits in front of tenant applications to secure, filter, and route incoming requests. It functions as a load balancer and an [API gateway](/azure/architecture/microservices/design/gateway). Reverse proxies support features like load balancing, Secure Sockets Layer (SSL) termination, and layer-7 routing to increase security, performance, and reliability. Popular reverse proxies for Kubernetes include the following implementations:
 
-- [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx) is a popular reverse proxy server that supports advanced features, such as load balancing, SSL termination, and layer 7 routing. Note that the Ingress NGINX project is due to retire in March 2026.
+- [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx) is a reverse proxy server that supports load balancing, SSL termination, and layer-7 routing. The Ingress NGINX project will retire in March 2026.
 
-- [Traefik Kubernetes Ingress provider](https://doc.traefik.io/traefik/providers/kubernetes-ingress) is a Kubernetes Ingress controller that can be used to manage access to cluster services by supporting the ingress specification.
+- [Traefik Kubernetes Ingress provider](https://doc.traefik.io/traefik/providers/kubernetes-ingress) is a Kubernetes Ingress controller that manages access to cluster services by supporting the ingress specification.
 
-- [HAProxy Kubernetes Ingress Controller](https://www.haproxy.com/documentation/kubernetes/latest) is yet another reverse proxy for Kubernetes, which supports standard features such as TLS termination, URL-path-based routing, and more.
+- [HAProxy Kubernetes Ingress Controller](https://www.haproxy.com/documentation/kubernetes/latest) is a reverse proxy for Kubernetes that supports Transport Layer Security (TLS) termination, URL-path-based routing, and other standard features.
 
-- [Azure Application Gateway for Containers](/azure/application-gateway/for-containers/overview) is a managed application delivery controller (ADC) as a service that provides Layer 7 load balancing for AKS-hosted applications. It offers advanced routing capabilities, SSL termination, and web application firewall (WAF) features to protect tenant applications from common web vulnerabilities and attacks.
+- [Application Gateway for Containers](/azure/application-gateway/for-containers/overview) is a managed application delivery controller (ADC) that provides layer-7 load balancing for AKS-hosted applications. It offers advanced routing capabilities, SSL termination, and web application firewall (WAF) features to protect tenant applications from common web vulnerabilities and attacks.
 
-- [Azure Application Gateway Ingress Controller (AGIC)](/azure/application-gateway/ingress-controller-overview) is superseded by the [Azure Application Gateway for Containers](/azure/application-gateway/for-containers/overview). New deployments should use Azure Application Gateway for Containers instead of AGIC. You can use existing AGIC deployments, but you should plan to migrate to Azure Application Gateway for Containers.
+- [Application Gateway Ingress Controller (AGIC)](/azure/application-gateway/ingress-controller-overview) is superseded by [Application Gateway for Containers](/azure/application-gateway/for-containers/overview). Use  Application Gateway for Containers for new deployments. You can use existing AGIC deployments, but you should plan to migrate to Application Gateway for Containers.
 
-When you use an AKS-hosted reverse proxy to help secure and handle incoming requests to multiple tenant applications, consider the following recommendations:
+When you use an AKS-hosted reverse proxy to secure and handle incoming requests to multiple tenant applications, consider the following recommendations:
 
-- Host the reverse proxy on a dedicated node pool that's configured to use a VM size with a high-network bandwidth and [accelerated networking](/azure/virtual-network/accelerated-networking-overview) enabled.
+- Host the reverse proxy on a dedicated node pool configured to use a VM size that has high network bandwidth and [accelerated networking](/azure/virtual-network/accelerated-networking-overview) turned on.
 
-- Configure the node pool that's hosting your reverse proxy for autoscaling.
+- Configure the node pool that hosts your reverse proxy for autoscaling.
 
-- To avoid increased latency and timeouts for tenant applications, define an autoscaling policy so that the number of ingress controller pods can instantly expand and contract to match traffic fluctuations.
+- Define an autoscaling policy so that ingress controller pods can instantly scale to match traffic fluctuations. This approach avoids increased latency and timeouts for tenant applications.
 
-- Consider sharding the incoming traffic to tenant applications, across multiple instances of your ingress controller, to increase the scalability and segregation level.
+- Consider sharding incoming traffic to tenant applications, across multiple ingress controller instances, to increase scalability and segregation.
 
-When you use the [Azure Application Gateway for Containers](/azure/application-gateway/for-containers/overview), consider implementing the following best practices:
+When you use [Application Gateway for Containers](/azure/application-gateway/for-containers/overview), consider implementing the following best practices:
 
-- Deploy separate Application Gateway for Containers instances for different tenant tiers to provide isolation and different service levels. Use the Gateway API's role-oriented model where infrastructure operators manage Gateway resources and tenants manage their HTTPRoute resources in their own namespaces.
+- Deploy separate Application Gateway for Containers instances for different tenant tiers to provide isolation and different service levels. Use the Kubernetes Gateway API role-oriented model, where infrastructure operators manage gateway resources and tenants manage their HTTPRoute resources in their own namespaces.
 
-- Enable cross-namespace routing to allow a shared Gateway to route traffic to backend services across multiple tenant namespaces while maintaining namespace isolation.
+- Configure cross-namespace routing to let a shared gateway route traffic to back-end services across multiple tenant namespaces while maintaining namespace isolation.
 
-- The solution supports elastic autoscaling automatically, eliminating the need to manually configure capacity planning.
+- Use elastic autoscaling, which eliminates the need to manually configure capacity planning.
 
 ### Integration with Azure Front Door
 
-[Azure Front Door](/azure/frontdoor/front-door-overview) is a global layer-7 load balancer and a modern cloud content delivery network (CDN) from Microsoft that provides fast, reliable, and secure access between users and web applications across the globe. Azure Front Door supports features such as request acceleration, SSL termination, response caching, WAF at the edge, URL-based routing, rewrite, and redirections that you can use when you expose AKS-hosted multitenant applications to the public internet.
+[Azure Front Door](/azure/frontdoor/front-door-overview) is a global layer-7 load balancer and cloud content delivery network that provides access between users and web applications. Use Azure Front Door features like request acceleration, SSL termination, response caching, WAF at the edge, URL-based routing, rewrite, and redirections when you expose AKS-hosted multitenant applications to the public internet.
 
-For example, you might want to use an AKS-hosted multitenant application to serve all the customers' requests. In this context, you can use Azure Front Door to manage multiple custom domains, one for each tenant. You can terminate SSL connections on the edge and route all the traffic to the AKS-hosted multitenant application that's configured with a single hostname.
+For example, use Azure Front Door to manage multiple custom domains, one for each tenant, and route all traffic to an AKS-hosted multitenant application configured with a single hostname. You can terminate SSL connections at the edge before you route traffic to the back-end application.
 
 :::image type="complex" border="false" source="./media/aks/front-door-and-aks.png" alt-text="Diagram that demonstrates how Azure Front Door and AKS connect." lightbox="./media/aks/front-door-and-aks.png":::
 
 :::image-end:::
 
-You can configure Azure Front Door to modify the [request origin host header](/azure/frontdoor/front-door-backend-pool#origin-host-header) to match the domain name of the back-end application. The original `Host` header sent by the client is propagated through the `X-Forwarded-Host` header, and the code of the multitenant application can use this information to [map the incoming request to the correct tenant](../considerations/map-requests.yml).
+Configure Azure Front Door to modify the [request origin host header](/azure/frontdoor/front-door-backend-pool#origin-host-header) to match the back-end application's domain name. Azure Front Door propagates the original `Host` header through the `X-Forwarded-Host` header, which the multitenant application code can use to [map the incoming request to the correct tenant](../considerations/map-requests.yml).
 
-[Azure Web Application Firewall](/azure/web-application-firewall/afds/afds-overview), on Azure Front Door, provides centralized protection for web applications. Azure Web Application Firewall can help you defend AKS-hosted tenant applications that expose a public endpoint on the internet from malicious attacks.
+[Azure Web Application Firewall](/azure/web-application-firewall/afds/afds-overview) on Azure Front Door provides centralized protection for web applications. Use Azure Web Application Firewall to defend AKS-hosted tenant applications that expose a public endpoint on the internet from malicious attacks.
 
-You can configure Azure Front Door Premium to privately connect to one or more tenant applications that run on an AKS cluster, via an internal load balancer origin, by using [Private Link](/azure/private-link/private-link-service-overview). For more information, see [Connect Azure Front Door Premium to an internal load balancer origin with Private Link](/azure/frontdoor/standard-premium/how-to-enable-private-link-internal-load-balancer).
+Configure Azure Front Door Premium to privately connect to tenant applications that run on an AKS cluster through an internal load balancer by using [Private Link](/azure/private-link/private-link-service-overview). For more information, see [Connect Azure Front Door Premium to an internal load balancer origin via Private Link](/azure/frontdoor/standard-premium/how-to-enable-private-link-internal-load-balancer).
 
 ### Outbound connections
 
-When AKS-hosted applications connect to a large number of databases or external services, the cluster might be at risk of source network address translation (SNAT) port exhaustion. [SNAT ports](/azure/load-balancer/load-balancer-outbound-connections#what-are-snat-ports) generate unique identifiers that are used to maintain distinct flows that applications that run on the same set of compute resources initiate. By running several tenant applications on a shared AKS cluster, you might make a high number of outbound calls, which can lead to a SNAT port exhaustion. An AKS cluster can handle outbound connections in three different ways:
+When AKS-hosted applications connect to many databases or external services, the cluster risks SNAT port exhaustion. [SNAT ports](/azure/load-balancer/load-balancer-outbound-connections#what-are-snat-ports) generate unique identifiers to maintain distinct traffic flows from applications on the same compute resources. Running multiple tenant applications on a shared AKS cluster can generate many outbound calls, which can cause SNAT port exhaustion. AKS clusters can handle outbound connections in three ways:
 
 - [Azure Load Balancer](/azure/load-balancer/load-balancer-overview): By default, AKS provisions a Standard SKU Load Balancer for egress traffic management. However, the default configuration might not meet the requirements of all scenarios if public IP addresses are disallowed or if extra hops are required for egress. By default, the public load balancer is created with a default public IP address that the [outbound rules](/azure/load-balancer/outbound-rules) use. Outbound rules allow you to explicitly define SNAT for a public standard load balancer. This configuration allows you to use the public IP addresses of your load balancer to provide outbound internet connectivity for your backend instances. To avoid [SNAT port exhaustion](/azure/load-balancer/troubleshoot-outbound-connection), you can configure the outbound rules of the public load balancer to use more public IP addresses.
 
@@ -594,7 +603,7 @@ When AKS-hosted applications connect to a large number of databases or external 
 
   For more information, see [Azure NAT Gateway considerations for multitenancy](/azure/architecture/guide/multitenant/service/nat-gateway).
 
-- [User-defined route (UDR)](/azure/aks/egress-outboundtype): You can customize an AKS cluster's egress route to support custom network scenarios, such as those that disallow public IP addresses and require the cluster to sit behind a network virtual appliance (NVA). When you configure a cluster for [user-defined routing](/azure/aks/egress-outboundtype#outbound-type-of-userdefinedrouting), AKS doesn't automatically configure egress paths. You must configure your egress paths. For example, you can route egress traffic through an [Azure Firewall](/azure/aks/limit-egress-traffic#restrict-egress-traffic-using-azure-firewall).
+- [UDR](/azure/aks/egress-outboundtype): You can customize an AKS cluster's egress route to support custom network scenarios, such as those that disallow public IP addresses and require the cluster to sit behind a network virtual appliance (NVA). When you configure a cluster for [user-defined routing](/azure/aks/egress-outboundtype#outbound-type-of-userdefinedrouting), AKS doesn't automatically configure egress paths. You must configure your egress paths. For example, you can route egress traffic through an [Azure Firewall](/azure/aks/limit-egress-traffic#restrict-egress-traffic-using-azure-firewall).
 
   You must deploy the AKS cluster into an existing virtual network with a subnet that you previously configured and establish explicit egress. This approach requires you to explicitly send egress traffic to an appliance, like a firewall, gateway, or proxy. Network address translation (NAT) is then done by a public IP that's assigned to the appliance.
 
