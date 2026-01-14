@@ -254,83 +254,83 @@ Horizontally partitioning shares some solution components across all the tenants
 
 This approach provides the following benefits:
 
-- Horizontally partitioned deployments can help you mitigate [noisy neighbor problems](/azure/architecture/antipatterns/noisy-neighbor/noisy-neighbor). Consider this approach if you identify that most of the traffic load on your Kubernetes application is because of specific components, which you can deploy separately, for each tenant. For example, your databases might absorb most of your system's load because the query load is high. If a single tenant sends a large number of requests to your solution, the performance of a database might be negatively affected, but other tenants' databases and shared components, like the application tier, remain unaffected.
+- Horizontally partitioned deployments help mitigate [noisy neighbor problems](/azure/architecture/antipatterns/noisy-neighbor/noisy-neighbor). Use this approach when specific components generate most of your Kubernetes application's load and you can deploy the components separately for each tenant. For example, if your databases handle high-query loads, a single tenant that sends excessive requests affects only their own database. Other tenants' databases and shared components, like the application tier, remain unaffected.
 
 This approach has the following risks:
 
-- With a horizontally partitioned deployment, you still need to consider the automated deployment and management of your components, especially the components that a single tenant uses.
+- You must automate deployment and management for components, especially the components that a single tenant uses.
 
 - This model might not provide the required level of isolation for customers that can't share resources with other tenants for internal policy or compliance reasons.
 
 ### Vertically partitioned deployments
 
-You can take advantage of the benefits of the single-tenant and fully multitenant models by using a hybrid model that vertically partitions tenants across multiple AKS clusters or node pools. This approach provides the following advantages over the previous two tenancy models:
+To take advantage of the benefits of single-tenant and fully multitenant models, use a hybrid model that vertically partitions tenants across multiple AKS clusters or node pools. This approach provides the following advantages over the previous two tenancy models:
 
-- You can use a combination of single-tenant and multitenant deployments. For example, you can have most of your customers share an AKS cluster and database on a multitenant infrastructure. You might also deploy single-tenant infrastructures for those customers who require higher performance and isolation.
+- You can use a combination of single-tenant and multitenant deployments. For example, most of your customers can share an AKS cluster and database on a multitenant infrastructure. And you can deploy single-tenant infrastructures for customers who require higher performance and isolation.
 
-- You can deploy tenants to multiple regional AKS clusters, potentially with different configurations. This technique is most effective when you have tenants spread across different geographies.
+- You can deploy tenants to multiple regional AKS clusters that have different configurations. Use this technique when you have tenants spread across different geographies.
 
-You can implement different variations of this tenancy model. For example, you can choose to offer your multitenant solution with different tiers of functionality at a different cost. Your pricing model can provide multiple SKUs that each provides an incremental level of performance and isolation in terms of resource sharing, performance, network, and data segregation. Consider the following tiers:
+You can implement different variations of this tenancy model. For example, offer your multitenant solution with tiered pricing that provides different functionality levels. Each tier can provide an incremental level of performance and isolation for resource sharing, performance, network, and data segregation. Consider the following tiers:
 
-- Basic tier: The tenant requests are served by a single, multitenant Kubernetes application that's shared with other tenants. Data is stored in one or more databases that all Basic-tier tenants share.
+- **Basic tier:** A single, shared multitenant Kubernetes application serves all tenant requests. All Basic-tier tenants share one or more databases.
 
-- Standard tier: Tenant requests are served by a dedicated Kubernetes application that runs in a separate namespace, which provides isolation boundaries in terms of security, networking, and resource consumption. All the tenants' applications, one for each tenant, share the same AKS cluster and node pool with other standard-tier customers.
+- **Standard tier:** Each tenant has a dedicated Kubernetes application that runs in a separate namespace. This approach provides isolation for security, networking, and resource consumption. Each tenant application shares the same AKS cluster and node pool with other Standard-tier tenants.
 
-- Premium tier: The tenant application runs in a dedicated node pool or AKS cluster to guarantee a higher SLA, better performance, and a higher degree of isolation. This tier can provide a flexible cost model based on the number and SKU of the agent nodes that host the tenant application. You can use [Pod Sandboxing](#pod-sandboxing) as an alternative solution to dedicated clusters or node pools to isolate distinct tenant workloads.
+- **Premium tier:** Each tenant application runs in a dedicated node pool or AKS cluster. This approach guarantees a higher SLA, better performance, and stronger isolation. Cost is based on the number and SKU of agent nodes that host the tenant application. To isolate distinct tenant workloads, [pod sandboxing](#pod-sandboxing) provides an alternative to dedicated clusters or node pools.
 
-The following diagram shows a scenario where tenants A and B run on a shared AKS cluster, whereas tenant C runs on a separate AKS cluster.
+The following diagram shows a scenario where tenants A and B run on a shared AKS cluster, and tenant C runs on a separate AKS cluster.
 
 :::image type="complex" border="false" source="./media/aks/vertically-partitioned-aks-clusters.png" alt-text="Diagram that shows three tenants. Tenants A and B share an AKS cluster. Tenant C has a dedicated AKS cluster." lightbox="./media/aks/vertically-partitioned-aks-clusters.png":::
 
 :::image-end:::
 
-The following diagram shows a scenario where tenants A and B run on the same node pool, whereas tenant C runs on a dedicated node pool.
+The following diagram shows a scenario where tenants A and B run on the same node pool, and tenant C runs on a dedicated node pool.
 
 :::image type="complex" border="false" source="./media/aks/vertically-partitioned-node-pools.png" alt-text="Diagram that shows three tenants. Tenants A and B share a node pool. Tenant C has a dedicated node pool." lightbox="./media/aks/vertically-partitioned-node-pools.png":::
 
 :::image-end:::
 
-This model can also offer different SLAs for different tiers. For example, the basic tier can offer 99.9% uptime, the standard tier can offer 99.95% uptime, and the premium tier can offer 99.99% uptime. You can implement the higher SLA by using services and features that enable higher availability targets.
+This model can also provide different SLAs for different tiers. For example, the Basic tier can provide 99.9% uptime, the Standard tier can provide 99.95% uptime, and the Premium tier can provide 99.99% uptime. To implement a higher SLA, use services and features that enable higher availability targets.
 
 This approach provides the following benefits:
 
-- Because you're still sharing infrastructure, you can still gain some of the cost benefits of having shared multitenant deployments. You can deploy clusters and node pools that are shared across multiple basic-tier and standard-tier tenant applications, which use a less expensive VM size for agent nodes. This approach guarantees better density and cost savings. For premium-tier customers, you can deploy AKS clusters and node pools with a higher VM size and a maximum number of pod replicas and nodes at a higher price.
+- Shared infrastructure reduces costs. Deploy shared clusters and node pools for Basic-tier and Standard-tier tenants. This approach uses lower-cost VM sizes for agent nodes and provides better density. For Premium-tier tenants, you can deploy AKS clusters and node pools with a higher VM size and a maximum number of pod replicas and nodes at a higher price.
 
-- You can run system services, such as [CoreDNS](https://kubernetes.io/docs/tasks/administer-cluster/coredns), [Konnectivity](https://kubernetes.io/docs/tasks/extend-kubernetes/setup-konnectivity), or [Azure Application Gateway Ingress Controller](/azure/application-gateway/ingress-controller-overview), in a dedicated system-mode node pool. You can use [taints](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration), [tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration), [node labels](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node), [node selectors](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node), and [node affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node) to run a tenant application on one or more user-mode node pools.
+- Isolate system services on dedicated node pools. Run system services like [CoreDNS](https://kubernetes.io/docs/tasks/administer-cluster/coredns), [Konnectivity](https://kubernetes.io/docs/tasks/extend-kubernetes/setup-konnectivity), or [Azure Application Gateway Ingress Controller](/azure/application-gateway/ingress-controller-overview) on system-mode node pools. To run tenant applications on one or more user-mode node pools, use [taints](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration), [tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration), [node labels](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node), [node selectors](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node), and [node affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node).
 
-- You can use [taints](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration), [tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration), [node labels](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node), [node selectors](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node), and [node affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node) to run shared resources. For example, you can have an ingress controller or messaging system on a dedicated node pool that has a specific VM size, autoscaler settings, and availability-zones support.
+- Dedicate node pools to shared resources. To run shared resources, use [taints](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration), [tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration), [node labels](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node), [node selectors](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node), and [node affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node). For example, you can have an ingress controller or messaging system on a dedicated node pool that has a specific VM size, autoscaler settings, and availability zone support.
 
 This approach has the following risks:
 
-- You need to design your Kubernetes application to support both multitenant and single-tenant deployments.
+- Your Kubernetes application must support both multitenant and single-tenant deployments.
 
-- If you plan to allow migration between infrastructures, you need to consider how you migrate customers from a multitenant deployment to their own single-tenant deployment.
+- Customer migration from shared to dedicated infrastructure requires careful planning.
 
-- You need a consistent strategy and a single pane of glass, or one viewpoint, to monitor and manage more AKS clusters.
+- Managment and monitoring of multiple AKS clusters requires centralized monitoring and a consistent strategy.
 
 ## Autoscaling
 
-To keep up with the traffic demand that tenant applications generate, you can enable the [cluster autoscaler](/azure/aks/cluster-autoscaler) to scale the agent nodes of AKS. Autoscaling helps systems remain responsive in the following circumstances:
+To keep up with the traffic demand that tenant applications generate, turn on the [cluster autoscaler](/azure/aks/cluster-autoscaler) to scale the agent nodes of AKS. Autoscaling helps systems remain responsive in the following circumstances:
 
-- The traffic load increases during specific work hours or periods of the year.
-- Tenant or shared heavy loads are deployed to a cluster.
-- Agent nodes become unavailable because of outages of an availability zone.
+- Traffic load increases during specific work hours or periods.
+- Tenant workloads or heavy shared loads are deployed a cluster.
+- Agent nodes become unavailable because of availability zone outages.
 
-When you enable autoscaling for a node pool, you specify a minimum and a maximum number of nodes based on the expected workload sizes. By configuring a maximum number of nodes, you can ensure enough space for all the tenant pods in the cluster, regardless of the namespace they run in.
+When you turn on autoscaling for a node pool, specify minimum and maximum node counts based on expected workload sizes. The maximum node count ensures sufficient capacity for all tenant pods in the cluster, across all namespaces.
 
-When the traffic increases, cluster autoscaling adds new agent nodes to prevent pods from going into a pending state because of resource shortages like CPU and memory.
+As traffic increases, the cluster autoscaler adds agent new nodes to prevent pods from going into a pending state because of CPU or memory shortages.
 
-When the load diminishes, cluster autoscaling decreases the number of agent nodes in a node pool based on the specified boundaries, which helps reduce your operational costs.
+As load decreases, the cluster autoscaler removes agent nodes in a node pool within the configured boundaries, which reduces operational costs.
 
-You can use pod autoscaling to scale pods automatically based on resource demands. [HorizontalPodAutoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale) automatically scales the number of pod replicas based on CPU or memory utilization or custom metrics. By using [KEDA](https://keda.sh), you can drive the scaling of any container in Kubernetes based on the number of events from external systems, such as [Azure Event Hubs](https://keda.sh/docs/2.7/scalers/azure-event-hub) or [Azure Service Bus](https://keda.sh/docs/2.7/scalers/azure-service-bus), that tenant applications use.
+Pod autoscaling scales pods automatically based on resource demands. [HorizontalPodAutoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale) scales pod replicas based on CPU, memory, or custom metrics. [KEDA](https://keda.sh) scales containers based on events from external systems that tenant applications use, like [Azure Event Hubs](https://keda.sh/docs/2.7/scalers/azure-event-hub) or [Azure Service Bus](https://keda.sh/docs/2.7/scalers/azure-service-bus).
 
-[Vertical Pod Autoscaler (VPA)](/azure/aks/vertical-pod-autoscaler) enables efficient resource management for pods. By adjusting the CPU and memory allocated to pods, VPA helps you reduce the number of nodes required to run tenant applications. Having fewer nodes reduces the total cost of ownership and helps you avoid [noisy neighbor problems](/azure/architecture/antipatterns/noisy-neighbor/noisy-neighbor).
+[Vertical Pod Autoscaler (VPA)](/azure/aks/vertical-pod-autoscaler) adjusts CPU and memory allocated to pods, which reduces the number of nodes required to run tenant applications. Fewer nodes reduce total cost and help avoid [noisy neighbor problems](/azure/architecture/antipatterns/noisy-neighbor/noisy-neighbor).
 
-Assign [Capacity reservation groups](/azure/aks/manage-node-pools#associate-capacity-reservation-groups-to-node-pools) to node pools to provide better resource allocation and isolation for different tenants.
+For better resource allocation and isolation between tenants, assign [capacity reservation groups](/azure/aks/manage-node-pools#associate-capacity-reservation-groups-to-node-pools) to node pools.
 
 ## Maintenance
 
-To reduce the risk of downtime that might affect tenant applications during cluster or node pool upgrades, schedule AKS [planned maintenance](/azure/aks/planned-maintenance) during off-peak hours. Schedule weekly maintenance windows to update the control plane of the AKS clusters that run tenant applications and node pools to minimize workload impact. You can schedule one or more weekly maintenance windows on your cluster by specifying a day or time range on a specific day. All maintenance operations occur during the scheduled windows.
+To reduce downtime risk for tenant applications during cluster or node pool upgrades, schedule AKS [planned maintenance](/azure/aks/planned-maintenance) during off-peak hours. To minimize workload impact, schedule weekly maintenance windows to update the control plane of AKS clusters that run tenant applications and node pools. Specify one or more weekly maintenance windows on your cluster by defining a day or time range. All maintenance operations occur within the scheduled windows.
 
 ## Security
 
@@ -338,95 +338,107 @@ The following sections describe security best practices for multitenant solution
 
 ### Cluster access
 
-When you share an AKS cluster between multiple teams within an organization, you need to implement the [principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) to isolate different tenants from one another. In particular, you need to make sure that users have access only to their Kubernetes namespaces and resources when you use tools such as [kubectl](https://kubernetes.io/docs/reference/kubectl), [Helm](https://helm.sh), [Flux](https://fluxcd.io), or [Argo CD](https://argo-cd.readthedocs.io/en/stable).
+When you share an AKS cluster between multiple teams within an organization, implement the [principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) to isolate different tenants from one another. Give users access only to their Kubernetes namespaces and resources when you use tools like [kubectl](https://kubernetes.io/docs/reference/kubectl), [Helm](https://helm.sh), [Flux](https://fluxcd.io), or [Argo CD](https://argo-cd.readthedocs.io/en/stable).
 
 For more information about authentication and authorization with AKS, see the following articles:
 
 - [Access and identity options for AKS](/azure/aks/concepts-identity)
 - [AKS-managed Microsoft Entra integration](/azure/aks/managed-aad)
-- [Kubernetes role-based access control with Microsoft Entra ID in AKS](/azure/aks/azure-ad-rbac)
+- [Kubernetes RBAC with Microsoft Entra ID in AKS](/azure/aks/azure-ad-rbac)
 
 ### Workload identity
 
-Workload identity is a **critical security requirement** for multitenant AKS clusters. When multiple tenant applications share an AKS cluster, each tenant's workloads must authenticate to Azure resources using separate, isolated identities to prevent cross-tenant access and credential sharing.
+You must implement workload identity as a critical security requirement for multitenant AKS clusters. When multiple tenant applications share an AKS cluster, each tenant's workloads must authenticate to Azure resources by using separate, isolated identities to prevent cross-tenant access and credential sharing.
 
 In a multitenant cluster, workload identity prevents several critical security risks:
 
-- **Credential sharing**: Without workload identity, tenant applications might share service principals or store credentials in secrets, creating opportunities for cross-tenant access.
+- **Credential sharing:** Without workload identity, tenant applications share service principals or store credentials in secrets, which enables cross-tenant access.
 
-- **Privilege escalation**: A compromised tenant workload with access to shared credentials can access other tenants' Azure resources.
+- **Privilege escalation:** A compromised tenant workload can access other tenants' Azure resources through shared credentials.
 
-- **Credential exposure**: Kubernetes secrets containing service principal credentials are vulnerable to accidental exposure or unauthorized access.
+- **Credential exposure:** Service principal credentials in Kubernetes secrets are vulnerable to accidental disclosure or unauthorized access.
 
-Workload identity integrates with Kubernetes-native service accounts. When you create a namespace for a tenant, you create a dedicated Kubernetes service account and annotate it with the client ID of that tenant's Azure managed identity. The AKS cluster uses its OIDC issuer endpoint to federate with Microsoft Entra ID, establishing a trust relationship. When a pod runs using the annotated service account, it automatically receives a short-lived token that can be exchanged for a Microsoft Entra access token, allowing secure access to Azure resources.
+Workload identity integrates with Kubernetes service accounts. When you create a namespace for a tenant, you create a dedicated Kubernetes service account and annotate it with the client ID of that tenant's Azure managed identity. The AKS cluster uses its OIDC issuer endpoint to federate with Microsoft Entra ID, which establishes a trust relationship. Pods that use the annotated service account automatically receive short-lived tokens that exchange for Microsoft Entra access tokens, which enables secure Azure resource access.
 
-For detailed implementation steps and code examples, see [Use a Microsoft Entra Workload ID on AKS](/azure/aks/workload-identity-overview) and [Deploy and configure workload identity on AKS](/azure/aks/workload-identity-deploy-cluster).
+For more information about implementation steps and code examples, see [Use Microsoft Entra Workload ID with AKS](/azure/aks/workload-identity-overview) and [Deploy and configure Workload ID on AKS](/azure/aks/workload-identity-deploy-cluster).
 
-**Replacing legacy pod-managed identity:**
+Microsoft Entra pod-managed identity (preview) was deprecated in October 2022. AKS support ended in September 2025. Migrate to workload identity to get the following advantages:
 
-Microsoft Entra pod-managed identity (preview) was deprecated in October 2022 and support in AKS ended in September 2025. Workload identity is the recommended replacement and offers significant advantages:
-
-- No additional components or agents required (pod-managed identity required MIC and NMI daemonsets)
+- No extra components or agents required (pod-managed identity required Managed Identity Controller (MIC) and Node Managed Identity (NMI) daemonsets)
 - Better scalability and performance
 - Works with standard Kubernetes service accounts
 - Simpler configuration and troubleshooting
 
-If you're currently using pod-managed identity, plan to migrate to workload identity. Both can coexist during migration, but workload identity should be the target architecture for all new deployments.
+Both pod-managed identity and workload identity can coexist during migration. Use workload identity for all new deployments.
 
 ### Pod sandboxing
 
-AKS includes a mechanism called [Pod Sandboxing](/azure/aks/use-pod-sandboxing) that provides an isolation boundary between the container application and the shared kernel and compute resources of the container host, like CPU, memory, and networking. Pod Sandboxing complements other security measures or data protection controls to help tenant workloads secure sensitive information and meet regulatory, industry, or governance compliance requirements, like Payment Card Industry Data Security Standard (PCI DSS), International Organization for Standardization (ISO) 27001, and Health Insurance Portability and Accountability Act (HIPAA).
+AKS [pod sandboxing](/azure/aks/use-pod-sandboxing) provides an isolation boundary between container applications and the shared kernel and compute resources of the container host, like CPU, memory, and networking. Pod sandboxing complements other security measures and data protection controls to help tenant workloads secure sensitive information and meet regulatory, industry, or governance compliance requirements, like Payment Card Industry Data Security Standard (PCI DSS), International Organization for Standardization (ISO) 27001, and Health Insurance Portability and Accountability Act (HIPAA).
 
-By deploying applications on separate clusters or node pools, you can strongly isolate the tenant workloads of different teams or customers. Using multiple clusters and node pools might be suitable for the isolation requirements of many organizations and SaaS solutions, but there are scenarios in which a single cluster with shared VM node pools is more efficient. For example, you might use a single cluster when you run untrusted and trusted pods on the same node or colocate DaemonSets and privileged containers on the same node for faster local communication and functional grouping. [Pod Sandboxing](/azure/aks/use-pod-sandboxing) can help you strongly isolate tenant applications on the same cluster nodes without needing to run these workloads in separate clusters or node pools. Other methods require that you recompile your code or cause other compatibility problems, but Pod Sandboxing in AKS can run any container unmodified inside an enhanced security VM boundary.
+Separate clusters or node pools provide strong isolation for tenant workloads of different teams or customers. This approach works well for many organizations and SaaS solutions. But a single cluster with shared VM node pools is more efficient in some scenarios, like when you run untrusted and trusted pods together or colocate DaemonSets with privileged containers for faster local communication and functional grouping.
 
-Pod Sandboxing on AKS is based on [Kata Containers](https://katacontainers.io/) that run on the [Azure Linux container host for AKS](/azure/aks/use-azure-linux) stack to provide hardware-enforced isolation. Kata Containers on AKS are built on a security-hardened Azure hypervisor. It achieves isolation per pod via a nested, lightweight Kata VM that utilizes resources from a parent VM node. In this model, each Kata pod gets its own kernel in a nested Kata guest VM. Use this model to place many Kata containers in a single guest VM while continuing to run containers in the parent VM. This model provides a strong isolation boundary in a shared AKS cluster.
+Pod sandboxing provides strong tenant application isolation on shared cluster nodes without requiring separate clusters or node pools. Unlike other isolation methods, pod sandboxing runs any container unmodified inside an enhanced security VM boundary without code recompilation or compatibility problems.
 
-Pod Sandboxing on AKS has several constraints to consider. It's only supported on Linux node pools using Azure Linux 3.0 or later with Generation 2 VMs that support nested virtualization. Azure Linux 2.0 support ended on November 30, 2025, with node images to be removed March 31, 2026. Kata containers might not reach the same IOPS performance limits as traditional containers on Azure Files and high-performance local SSDs. Additionally, Microsoft Defender for Containers doesn't support security assessments of Kata runtime pods, and host-network access isn't supported.
+To provide hardware-enforced isolation, pod sandboxing on AKS is based on [Kata Containers](https://katacontainers.io/) that run on the [Azure Linux container host for AKS](/azure/aks/use-azure-linux) stack. Kata Containers run on a security-hardened Azure hypervisor. Each Kata pod runs in a nested, lightweight VM with its own kernel. The Kata VM uses resources from the parent VM node. You can run many Kata containers in a single guest VM while standard containers continue to run in the parent VM. This approach provides a strong isolation boundary in a shared AKS cluster.
 
-For more information, see:
+Consider the following contraints of pod sandboxing on AKS:
 
-- [Pod Sandboxing with AKS](/azure/aks/use-pod-sandboxing)
-- [Support for Kata VM Isolated Containers on AKS for Pod Sandboxing](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/preview-support-for-kata-vm-isolated-containers-on-aks-for-pod/ba-p/3751557)
+- Pod sandboxing is supported only on Linux node pools that use Azure Linux 3.0 or later and Generation 2 VMs that support nested virtualization.
+
+- Azure Linux 2.0 support ended November 30, 2025. Node images will be removed March 31, 2026.
+
+- Kata containers might not reach the same input/output operations per second (IOPS) performance as traditional containers on Azure Files and high-performance local SSDs.
+
+- Microsoft Defender for Containers doesn't support security assessments of Kata runtime pods.
+
+- Host-network access isn't supported.
+
+For more information, see the following articles:
+
+- [Pod sandboxing with AKS](/azure/aks/use-pod-sandboxing)
+- [Support for Kata VM isolated containers on AKS for pod sandboxing](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/preview-support-for-kata-vm-isolated-containers-on-aks-for-pod/ba-p/3751557)
 
 ### Azure Dedicated Host
 
-[Azure Dedicated Host](/azure/virtual-machines/dedicated-hosts) is a service that provides physical servers that are dedicated to a single Azure subscription and provide hardware isolation at the physical-server level. You can provision these dedicated hosts within a region, availability zone, and fault domain, and you can place VMs directly into the provisioned hosts.
+[Azure Dedicated Host](/azure/virtual-machines/dedicated-hosts) provides physical servers dedicated to a single Azure subscription with hardware isolation at the physical-server level. You can provision dedicated hosts within a region, availability zone, and fault domain, and place VMs directly into them.
 
-There are several benefits to using Azure Dedicated Host with AKS, including:  
+Dedicated Host with AKS provides the following benefits:  
 
-- Hardware isolation ensures that no other VMs are placed on the dedicated hosts, which provides an extra layer of isolation for tenant workloads. Dedicated hosts are deployed in the same datacenters and share the same network and underlying storage infrastructure as other non-isolated hosts.
+- **Hardware isolation:** No other VMs run on your dedicated hosts, which provides an extra isolation layer for tenant workloads. You deploy dedicated hosts in the same datacenters as other non-isolated hosts. They share the same network and underlying storage infrastructure.
 
-- Azure Dedicated Host provides control over maintenance events that the Azure platform initiates. You can choose a maintenance window to reduce the impact on services and help ensure the availability and privacy of tenant workloads.
+- **Maintenance control:** You control when Azure platform maintenance occurs. Choose a maintenance window to reduce service impact and ensure availability and privacy of tenant workloads.
 
-Azure Dedicated Host can help SaaS providers ensure tenant applications meet regulatory, industry, and governance compliance requirements for securing sensitive information. For more information, see [Add Azure Dedicated Host to an AKS cluster](/azure/aks/use-azure-dedicated-hosts).
+Dedicated Host helps SaaS providers ensure that tenant applications meet regulatory, industry, and governance compliance requirements for securing sensitive information. For more information, see [Add Dedicated Host to an AKS cluster](/azure/aks/use-azure-dedicated-hosts).
 
 ### Node autoprovisioning
 
-Node Auto-provisioning (NAP) is a managed AKS feature that dynamically provisions and manages nodes based on pending pod requirements. NAP is a fully managed implementation built on top of the open-source Karpenter project. NAP watches for pods that the Kubernetes scheduler marks as unschedulable and automatically creates appropriately configured nodes to run those workloads. This capability is particularly valuable for multitenant deployments where different tenants have diverse infrastructure requirements.
+Node autoprovisioning is a managed AKS feature that dynamically provisions and manages nodes based on pending pod requirements. Node autoprovisioning is built on the open-source Karpenter project. When the Kubernetes scheduler marks pods as unschedulable, node autoprovisioning automatically creates appropriately configured nodes to run those workloads. Use this capability in multitenant deployments where tenants have diverse infrastructure requirements.
 
-**Benefits for multitenancy**: Node autoprovisioning improves multitenant cluster operations by:
+Node autoprovisioning improves multitenant cluster operations in the following ways:
 
-- **Dynamic tenant-specific node types**: NAP automatically provisions the appropriate VM size for each tenant's workload requirements. For example, if Tenant A deploys GPU-intensive workloads while Tenant B runs memory-intensive applications, NAP automatically creates GPU-optimized nodes for Tenant A and memory-optimized nodes for Tenant B without manual intervention.
+- **Dynamic tenant-specific node types:** Node autoprovisioning provisions the appropriate VM size for each tenant's workload requirements. For example, if Tenant A deploys GPU-intensive workloads and Tenant B runs memory-intensive applications, node autoprovisioning creates GPU-optimized nodes for Tenant A and memory-optimized nodes for Tenant B.
 
-- **Cost optimization**: Tenants only consume compute resources when they have active workloads. NAP scales down or removes nodes when tenant pods are deleted, ensuring you don't pay for idle capacity dedicated to specific tenant requirements.
+- **Cost optimization:** Tenants consume compute resources only when they have active workloads. Node autoprovisioning scales down or removes nodes when tenant pods are deleted, so you don't pay for idle capacity.
 
-- **Availability zone placement**: Ensure tenant workloads run in specific availability zones to meet latency requirements or data residency needs. NAP can provision nodes in the appropriate zone based on pod topology constraints.
+- **Availability zone placement:** Node autoprovisioning can provision nodes in specific availability zones to meet tenant latency or data residency requirements based on pod topology constraints.
 
-- **Simplified node pool management**: Instead of pre-provisioning multiple node pools for different tenant tiers (basic, standard, premium) with different VM sizes, NAP provisions nodes on-demand based on actual tenant workload requirements.
+- **Simplified node pool management:** Node autoprovisioning provisions nodes on-demand based on actual tenant workload requirements. You don't need to pre-provision multiple node pools for different tenant tiers that have different VM sizes.
 
-- **Better resource utilization**: NAP's intelligent bin-packing across dynamically created nodes reduces wasted capacity compared to static node pools. This is especially beneficial when running many small tenant workloads with varying resource profiles.
+- **Better resource utilization:** Node autoprovisioning provides intelligent bin-packing across dynamically created nodes. This feature reduces wasted capacity compared to static node pools. Use this approach when you run many small tenant workloads that have varying resource profiles.
 
-**Implementation for multitenant clusters**: Enable Node autoprovisioning on your AKS cluster and define workload requirements using Kubernetes-native mechanisms:
+To enable node autoprovisioning on your AKS cluster and define workload requirements, use the following Kubernetes-native configurations:
 
-- Use pod resource requests and limits to specify CPU and memory requirements for tenant workloads
-- Apply node selectors or node affinity rules to tenant pods when specific VM families are required
-- Use topology spread constraints to control how tenant pods are distributed across availability zones
-- Apply taints and tolerations to ensure tenant workloads only run on appropriately provisioned nodes
+- Use pod resource requests and limits to specify CPU and memory requirements for tenant workloads.
 
-Node autoprovisioning on AKS is built on the open-source [Karpenter](https://karpenter.sh/) project, providing a managed experience with lifecycle management, upgrades, and Azure-specific optimizations handled by Microsoft. Most users should use node autoprovisioning as a managed add-on. For more information, see [Node autoprovisioning](/azure/aks/node-autoprovision).
+- Apply node selectors or node affinity rules to tenant pods when specific VM families are required.
 
-**Advanced scenarios**: If you require advanced customization beyond what node autoprovisioning provides, you can self-host Karpenter directly on AKS. This approach provides full control over Karpenter's configuration but requires you to manage the lifecycle and upgrades yourself. For more information, see the [AKS Karpenter provider](https://github.com/Azure/karpenter-provider-azure).
+- Use topology spread constraints to control pod distribution across availability zones.
 
+- Apply taints and tolerations to restrict workloads to appropriately provisioned nodes.
+
+Node autoprovisioning is built on the open-source [Karpenter](https://karpenter.sh/) project. AKS provides a managed experience with life cycle management, upgrades, and Azure-specific optimizations. Most users should use node autoprovisioning as a managed feature.For more information, see [Node autoprovisioning](/azure/aks/node-autoprovision).
+
+If you require advanced customization beyond what node autoprovisioning provides, you can self-host Karpenter directly on AKS. This approach provides full control over Karpenter configuration but requires you to manage the life cycle and upgrades. For more information, see the [AKS Karpenter provider](https://github.com/Azure/karpenter-provider-azure).
 
 ### Confidential VMs
 
@@ -630,6 +642,7 @@ Other contributors:
 - [Bohdan Cherchyk](https://www.linkedin.com/in/cherchyk/) | Senior Customer Engineer
 - [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer - Azure Patterns & Practices
 - [Chad Kittel](https://www.linkedin.com/in/chadkittel/)  | Principal Software Engineer - Azure Patterns & Practices
+- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori/) | Principal Customer Engineer
 - [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv/) | Principal Customer Engineer
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
