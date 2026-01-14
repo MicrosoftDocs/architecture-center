@@ -45,7 +45,7 @@ This architecture uses the following components.
 
 - [App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed platform for building, deploying, and scaling web apps. In this architecture, App Service serves as the application-hosting platform within each scale unit. It provides the compute infrastructure for mission-critical web applications that have high availability and scalability requirements.
 
-- [Azure Managed Redis](/azure/redis/overview) is a Redis Enterprise–based, fully managed, in-memory data platform. In this architecture, AMR provides low-latency access to auxiliary application state within or alongside each scale unit, such as caching, session data, rate limiting, feature flags, and distributed coordination. It supports clustering, availability zones, optional persistence, and Active Geo-Replication, making it suitable for mission-critical workloads.
+- [Azure Managed Redis](/azure/redis/overview) is a Redis Enterprise–based, fully managed, in-memory data platform. In this architecture, Azure Managed Redis provides low-latency access to auxiliary application state within or alongside each scale unit, such as caching, session data, rate limiting, feature flags, and distributed coordination. It supports clustering, availability zones, optional persistence, and Active Geo-Replication, making it suitable for mission-critical workloads.
 
 - [App Configuration](/azure/azure-app-configuration/overview) is a service that centrally manages application settings and feature flags. In this architecture, App Configuration stores configuration settings for the application within the scale unit. Its capacity directly correlates to the number of requests per second that each scale unit can handle.
 
