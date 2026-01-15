@@ -63,12 +63,12 @@ When you plan to build a multitenant AKS cluster, consider the following [Kubern
 - Pod
 - Container
 
-Also consider the security implications of sharing resources among multiple tenants. For example, scheduling pods from different tenants on the same node reduces the number of machines needed in the cluster. But you might need to prevent certain workloads from sharing nodes. So you might now allow untrusted external code to run on the same node as containers that process sensitive information.
+Also consider the security implications of sharing resources among multiple tenants. For example, scheduling pods from different tenants on the same node reduces the number of machines needed in the cluster. But you might need to prevent certain workloads from sharing nodes. So you might not allow untrusted external code to run on the same node as containers that process sensitive information.
 
 Kubernetes doesn't guarantee perfectly secure isolation between tenants, but it provides features that are sufficient for many use cases. As a best practice, separate each tenant and its Kubernetes resources into dedicated namespaces. Then use [Kubernetes role-based access control (RBAC)](https://kubernetes.io/docs/reference/access-authn-authz/rbac) and [network policies](https://kubernetes.io/docs/concepts/services-networking/network-policies) to enforce tenant isolation. The following diagram shows a typical SaaS provider model that hosts multiple instances of the same application on a single cluster, one for each tenant. Each instance runs in a separate namespace.
 
 :::image type="complex" border="false" source="./media/aks/namespaces.png" alt-text="Diagram that shows a SaaS provider model that hosts multiple instances of the same application on the same cluster." lightbox="./media/aks/namespaces.png":::
-
+The diagram shows three tenant namespaces. Each namespace contains four sections: deployment, service, ingress, and secret. The deployment section contains pods. The service section contains a clusterIP. The ingress section contains annotations, a hostname, a TLS certificate, and rules. The secret section contains a TLS certificate.
 :::image-end:::
 
 AKS provides several ways to design and build multitenant solutions. Each method has trade-offs for infrastructure deployment, network topology, and security. Your choice affects isolation level, implementation effort, operational complexity, and cost. Apply tenant isolation in the control plane, data plane, or both, based on your requirements.
@@ -111,7 +111,7 @@ AKS provides the following ways to implement network policies:
 
 - **[Calico network policies](https://projectcalico.docs.tigera.io/security/calico-network-policy):** An open-source network and network security solution from [Tigera](https://www.tigera.io).
 
-- **[Azure CNI Powered by Cilium](/azure/aks/azure-cni-powered-by-cilium):** An extended Berkeley Packet Filter. (eBPF)-based networking solution that provides enhanced network policy performance and advanced capabilities, including layer-7 filtering. This approach requires Kubernetes 1.29 or later.
+- **[Azure CNI Powered by Cilium](/azure/aks/azure-cni-powered-by-cilium):** An extended Berkeley Packet Filter (eBPF)-based networking solution that provides enhanced network policy performance and advanced capabilities, including layer-7 filtering. This approach requires Kubernetes 1.29 or later.
 
 Azure network policies and Calico network policies both use Linux iptables by default to enforce policies. These implementations translate network policies into sets of allowed and disallowed IP pairs, then program them as iptables filter rules. Azure CNI Powered by Cilium uses eBPF programs loaded into the Linux kernel for policy enforcement, which improves performance and eliminates the overhead of iptables and kube-proxy. You can also set up eBPF support for Calico. All three options support both the [Azure CNI](/azure/aks/configure-azure-cni) network plug-in and [Azure CNI Overlay](/azure/aks/azure-cni-overlay) mode.
 
@@ -184,7 +184,7 @@ AKS provides workload isolation at various levels:
 
 - **Hardware level:** You can run tenant workloads on [Azure dedicated hosts](#azure-dedicated-host) that guarantee that agent node VMs run on dedicated physical machines. This hardware isolation ensures that no other VMs share the dedicated hosts, which provides an extra layer of tenant workload isolation.
 
-Combine these techniques as needed. For example, run per-tenant clusters and node pools in an [Azure dedicated host group](#azure-dedicated-host) to achieve both workload segregation and physical isolation at the hardware level. You can also create shared or per-tenant node pools that support [Federal Information Process Standards (FIPS)](#federal-information-process-standards-fips), [confidential VMs](#confidential-vms), or [host-based encryption](#host-based-encryption).
+Combine these techniques as needed. For example, run per-tenant clusters and node pools in an [Azure dedicated host group](#azure-dedicated-host) to achieve both workload segregation and physical isolation at the hardware level. You can also create shared or per-tenant node pools that support [Federal Information Process Standards (FIPS)](#fips), [confidential VMs](#confidential-vms), or [host-based encryption](#host-based-encryption).
 
 Use node isolation to easily associate and charge back the cost of a set of nodes or node pool to a single tenant. Your choice depends on your solution's tenancy model. For more information, see [Node isolation](https://kubernetes.io/docs/concepts/security/multi-tenancy/#node-isolation).
 
@@ -197,7 +197,7 @@ AKS provides different types of node isolation and tenancy models.
 In this model, deploy a dedicated set of resources for each tenant, as shown in the following example.
 
 :::image type="complex" border="false" source="./media/aks/automated-single-tenant-deployments.png" alt-text="Diagram that shows three tenants, each with separate deployments." lightbox="./media/aks/automated-single-tenant-deployments.png":::
-
+The diagram shows three tenants. Each tenant has its own deployment. Each deployment contains an AKS cluster and a database.
 :::image-end:::
 
 Each tenant workload runs in a dedicated AKS cluster and accesses a distinct set of Azure resources. This model typically relies on [infrastructure as code (IaC)](/devops/deliver/what-is-infrastructure-as-code) tools. To automate on-demand deployment of tenant-dedicated resources, use [Bicep](/azure/azure-resource-manager/bicep/overview?tabs=bicep), [Azure Resource Manager](/azure/azure-resource-manager/management/overview), [Terraform](/azure/developer/terraform/overview), or the [Resource Manager REST APIs](/rest/api/resources). Use this approach when you need to provision entirely separate infrastructure for each customer. When you plan your deployment, consider the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml).
@@ -223,7 +223,7 @@ This approach has the following risks:
 In a fully multitenant deployment, a single application serves the requests of all tenants, and all Azure resources are shared, including the AKS cluster. In this context, you only have one infrastructure to deploy, monitor, and maintain. All tenants use the resource, as shown in the following diagram.
 
 :::image type="complex" border="false" source="./media/aks/fully-multitenant-deployments.png" alt-text="A diagram that shows three tenants that use a single shared deployment." lightbox="./media/aks/fully-multitenant-deployments.png":::
-
+The diagram shows three tenants. All tenants point to shared resources, which include an AKS cluster and a database.
 :::image-end:::
 
 This approach provides the following benefits:
@@ -248,8 +248,8 @@ This approach has the following risks:
 
 Horizontally partitioning shares some solution components across all the tenants and deploys dedicated resources for individual tenants. For example, you can build a single multitenant Kubernetes application and then create individual databases, one for each tenant, as shown in the following diagram.
 
-:::image type="complex" border="false" source="./media/aks/horizontally-partitioned-deployments.png" alt-text="A diagram that shows three tenants. Each uses a dedicated database and a single, shared Kubernetes application." lightbox="./media/aks/horizontally-partitioned-deployments.png":::
-
+:::image type="complex" border="false" source="./media/aks/horizontally-partitioned-deployments.png" alt-text="A diagram that shows three tenants. Each tenant uses a dedicated database and a single, shared Kubernetes application." lightbox="./media/aks/horizontally-partitioned-deployments.png":::
+The diagram shows three tenants. The tenants point to a deployment that includes a shared AKS cluster and three separate databases.
 :::image-end:::
 
 This approach provides the following benefits:
@@ -281,13 +281,13 @@ You can implement different variations of this tenancy model. For example, offer
 The following diagram shows a scenario where tenants A and B run on a shared AKS cluster, and tenant C runs on a separate AKS cluster.
 
 :::image type="complex" border="false" source="./media/aks/vertically-partitioned-aks-clusters.png" alt-text="Diagram that shows three tenants. Tenants A and B share an AKS cluster. Tenant C has a dedicated AKS cluster." lightbox="./media/aks/vertically-partitioned-aks-clusters.png":::
-
+The diagram shows three tenants. Tenant A and B point to deployment 1, which contains an AKS cluster and a database. Tenant C points to deployment 2, which contains an AKS cluster and a database.
 :::image-end:::
 
 The following diagram shows a scenario where tenants A and B run on the same node pool, and tenant C runs on a dedicated node pool.
 
 :::image type="complex" border="false" source="./media/aks/vertically-partitioned-node-pools.png" alt-text="Diagram that shows three tenants. Tenants A and B share a node pool. Tenant C has a dedicated node pool." lightbox="./media/aks/vertically-partitioned-node-pools.png":::
-
+The diagram shows three tenants and a deployment. The deployment contains node pool 1, node pool 2, an AKS cluster, and two databases. Tenant A and B use node pool 1 and a shared database. Tenant C uses node pool 2 and its own dedicated database.
 :::image-end:::
 
 This model can also provide different SLAs for different tiers. For example, the Basic tier can provide 99.9% uptime, the Standard tier can provide 99.95% uptime, and the Premium tier can provide 99.99% uptime. To implement a higher SLA, use services and features that enable higher availability targets.
@@ -582,7 +582,7 @@ When you use [Application Gateway for Containers](/azure/application-gateway/for
 For example, use Azure Front Door to manage multiple custom domains, one for each tenant, and route all traffic to an AKS-hosted multitenant application configured with a single hostname. You can terminate SSL connections at the edge before you route traffic to the back-end application.
 
 :::image type="complex" border="false" source="./media/aks/front-door-and-aks.png" alt-text="Diagram that demonstrates how Azure Front Door and AKS connect." lightbox="./media/aks/front-door-and-aks.png":::
-
+The diagram shows Azure Front Door and AKS. Three hosts point to Azure Front door: invoices.fabrikam.com, payments.worldwideimporters.com, and pay.tailwind.com. Another host called contoso.com points from Azure Front Door to AKS.
 :::image-end:::
 
 Configure Azure Front Door to modify the [request origin host header](/azure/frontdoor/front-door-backend-pool#origin-host-header) to match the back-end application's domain name. Azure Front Door propagates the original `Host` header through the `X-Forwarded-Host` header, which the multitenant application code can use to [map the incoming request to the correct tenant](../considerations/map-requests.yml).
