@@ -62,7 +62,7 @@ Calculating a comprehensive SCI score requires data from multiple sources. Disti
 
 #### Reporting and trend analysis
 
-Azure Carbon Optimization provides monthly carbon emission data for Azure resources. This covers the `E` (Energy) and `M` (Embodied Carbon) components of the [SCI formula](#calculations) in an aggregated form.
+Azure Carbon Optimization provides monthly carbon emission data for Azure resources. This covers the `E` (Energy) and `I` (Carbon Intensity) components of the [SCI formula](#calculations) in an aggregated form. If you are unable to find 'M' (Embodied Carbon), whilst not ideal it can be omitted. As long as the calculation is consistent you will still see the trend over time.
 
 Aggregate data from Microsoft Cost Management and Azure Monitor lets you compare your SCI score to the work accomplished and the monetary cost.
 
@@ -114,7 +114,7 @@ In this equation:
 > [!NOTE]
 > This score is sometimes reduced to `SCI = C per R`, where `C` represents total carbon emissions measured through proxies. The expanded formula above provides greater granularity, allowing you to target specific variables for optimization: reducing energy consumption (`E`), shifting workloads to cleaner times/locations (`I`), or extending hardware lifespan (`M`).
 
-The time window is a critical aspect of this calculation. Carbon intensity (`I`) varies as the energy grid shifts between renewable and fossil fuel sources. Effective runtime carbon-aware decisions require real-time or near-real-time data (hourly or less) from [third-party APIs](#data-sources).
+The time window is a critical aspect of this calculation. Carbon intensity (`I`) varies depending upon a number of factors. These include energy mix, weather changes, demand, and grid operations constraints (dispatchability and curtailment). Effective runtime carbon-aware decisions require real-time or near-real-time data (hourly or less) from [third-party APIs](#data-sources).
 
 Azure Carbon Optimization provides monthly aggregated carbon data for resources. This data is useful for:
 

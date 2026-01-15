@@ -4,7 +4,7 @@ metadata:
   description: Create a sustainability model based on available proxies that scores the carbon impact of an application.
   author: simonthurman
   ms.author: simont
-  ms.date: 12/18/2025
+  ms.date: 01/15/2026
   ms.update-cycle: 1095-days
   ms.topic: example-scenario
   ms.subservice: example-scenario
