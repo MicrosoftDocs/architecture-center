@@ -30,7 +30,7 @@ These individual scale units don't have any dependencies on one another and only
 
 In this scenario, scale units are temporary, which improves rollout processes and provides scalability within and across regions. With this approach, store persistent system-of-record (SOR) data only in the database because the database replicates to the secondary region.
 
-In addition, use Azure Managed Redis within or alongside a scale unit to store auxiliary application state like cache data, session state, rate-limit counters, feature flags, and coordination metadata within the scale unit. Active geo-replication lets Redis data replicate asynchronously across regions to improve resiliency and reduce recovery time objectives (RTO) during regional failover scenarios. This capability typically applies to auxiliary state that must survive regional outages, while entirely rebuildable cache data should remain local to a scale unit.
+Use Azure Managed Redis within or alongside a scale unit to store auxiliary application state like cache data, session state, rate-limit counters, feature flags, and coordination metadata within the scale unit. Active geo-replication lets Redis data replicate asynchronously across regions to improve resiliency and reduce recovery time objectives (RTO) during regional failover scenarios. This capability typically applies to auxiliary state that must survive regional outages, while entirely rebuildable cache data should remain local to a scale unit.
 
 When scale units are replaced or retired, applications must be able to reconnect transparently to the Redis endpoint. Design cached data in one of the following ways:
 
