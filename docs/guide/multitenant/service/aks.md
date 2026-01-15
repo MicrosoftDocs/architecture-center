@@ -162,7 +162,7 @@ For more information, see [Deploy Istio-based service mesh feature for AKS](/azu
 
 Azure provides managed PaaS data repositories like [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview) and [Azure Cosmos DB](/azure/cosmos-db/introduction), plus other storage services that you can use as [persistent volumes](/azure/aks/concepts-storage#volumes) for your workloads. Tenant applications that run on a shared AKS cluster can [share a database or file store](/azure/architecture/guide/multitenant/approaches/storage-data#shared-multitenant-databases-and-file-stores) or use [dedicated data repositories and storage resources](/azure/architecture/guide/multitenant/approaches/storage-data#multitenant-app-with-dedicated-databases-for-each-tenant). For more information, see [Architectural approaches for storage and data in multitenant solutions](/azure/architecture/guide/multitenant/approaches/storage-data).
 
-AKS workloads can use persistent volumes to store data. You can create [persistent volumes](/azure/aks/concepts-storage#volumes) as Kubernetes resources backed by Azure Storage. Manually create and assign data volumes to pods directly, or let AKS automatically create them by using [persistent volume claims](/azure/aks/concepts-storage#persistent-volume-claims). AKS includes built-in storage classes to create persistant volumes that [Azure Disks](/azure/virtual-machines/disks-types), [Azure Files](/azure/storage/files/storage-files-planning), and [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-service-levels) support. For more information, see [Storage options for applications in AKS](/azure/aks/concepts-storage). Avoid using local storage on agent nodes via [emptyDir](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir) and [hostPath](https://kubernetes.io/docs/concepts/storage/volumes/#hostpath) for security and resiliency reasons.
+AKS workloads can use persistent volumes to store data. You can create [persistent volumes](/azure/aks/concepts-storage#volumes) as Kubernetes resources backed by Azure Storage. Manually create and assign data volumes to pods directly, or let AKS automatically create them by using [persistent volume claims](/azure/aks/concepts-storage#persistent-volume-claims). AKS includes built-in storage classes to create persistent volumes that [Azure Disks](/azure/virtual-machines/disks-types), [Azure Files](/azure/storage/files/storage-files-planning), and [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-service-levels) support. For more information, see [Storage options for applications in AKS](/azure/aks/concepts-storage). Avoid using local storage on agent nodes via [emptyDir](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir) and [hostPath](https://kubernetes.io/docs/concepts/storage/volumes/#hostpath) for security and resiliency reasons.
 
 When AKS [built-in storage classes](/azure/aks/azure-disk-csi#dynamically-create-azure-disks-pvs-by-using-the-built-in-storage-classes) don't fit your tenants' needs, create custom [storage classes](https://kubernetes.io/docs/concepts/storage/storage-classes) to address their specific requirements. These requirements include volume size, storage SKU, a service-level agreement (SLA), backup policies, and the pricing tier.
 
@@ -306,14 +306,14 @@ This approach has the following risks:
 
 - Customer migration from shared to dedicated infrastructure requires careful planning.
 
-- Managment and monitoring of multiple AKS clusters requires centralized monitoring and a consistent strategy.
+- Management and monitoring of multiple AKS clusters requires centralized monitoring and a consistent strategy.
 
 ## Autoscaling
 
 To keep up with the traffic demand that tenant applications generate, turn on the [cluster autoscaler](/azure/aks/cluster-autoscaler) to scale the agent nodes of AKS. Autoscaling helps systems remain responsive in the following circumstances:
 
 - Traffic load increases during specific work hours or periods.
-- Tenant workloads or heavy shared loads are deployed a cluster.
+- Tenant workloads or heavy shared loads are deployed to a cluster.
 - Agent nodes become unavailable because of availability zone outages.
 
 When you turn on autoscaling for a node pool, specify minimum and maximum node counts based on expected workload sizes. The maximum node count ensures sufficient capacity for all tenant pods in the cluster, across all namespaces.
@@ -381,7 +381,7 @@ Pod sandboxing provides strong tenant application isolation on shared cluster no
 
 To provide hardware-enforced isolation, pod sandboxing on AKS is based on [Kata Containers](https://katacontainers.io/) that run on the [Azure Linux container host for AKS](/azure/aks/use-azure-linux) stack. Kata Containers run on a security-hardened Azure hypervisor. Each Kata pod runs in a nested, lightweight VM with its own kernel. The Kata VM uses resources from the parent VM node. You can run many Kata containers in a single guest VM while standard containers continue to run in the parent VM. This approach provides a strong isolation boundary in a shared AKS cluster.
 
-Consider the following contraints of pod sandboxing on AKS:
+Consider the following constraints of pod sandboxing on AKS:
 
 - Pod sandboxing is supported only on Linux node pools that use Azure Linux 3.0 or later and Generation 2 VMs that support nested virtualization.
 
@@ -404,7 +404,7 @@ For more information, see the following articles:
 
 Dedicated Host with AKS provides the following benefits:  
 
-- **Hardware isolation:** No other VMs run on your dedicated hosts, which provides an extra isolation layer for tenant workloads. You deploy dedicated hosts in the same datacenters as other non-isolated hosts. They share the same network and underlying storage infrastructure.
+- **Hardware isolation:** No other VMs run on your dedicated hosts, which provides an extra isolation layer for tenant workloads. You deploy dedicated hosts in the same datacenters as other nonisolated hosts. They share the same network and underlying storage infrastructure.
 
 - **Maintenance control:** You control when Azure platform maintenance occurs. Choose a maintenance window to reduce service impact and ensure availability and privacy of tenant workloads.
 
@@ -436,7 +436,7 @@ To enable node autoprovisioning on your AKS cluster and define workload requirem
 
 - Apply taints and tolerations to restrict workloads to appropriately provisioned nodes.
 
-Node autoprovisioning is built on the open-source [Karpenter](https://karpenter.sh/) project. AKS provides a managed experience with life cycle management, upgrades, and Azure-specific optimizations. Most users should use node autoprovisioning as a managed feature.For more information, see [Node autoprovisioning](/azure/aks/node-autoprovision).
+Node autoprovisioning is built on the open-source [Karpenter](https://karpenter.sh/) project. AKS provides a managed experience with life cycle management, upgrades, and Azure-specific optimizations. Most users should use node autoprovisioning as a managed feature. For more information, see [Node autoprovisioning](/azure/aks/node-autoprovision).
 
 If you require advanced customization beyond what node autoprovisioning provides, you can self-host Karpenter directly on AKS. This approach provides full control over Karpenter configuration but requires you to manage the life cycle and upgrades. For more information, see the [AKS Karpenter provider](https://github.com/Azure/karpenter-provider-azure).
 
@@ -463,7 +463,7 @@ Azure Storage encrypts data in a storage account at rest, including the operatin
 
 [Host-based encryption](/azure/aks/enable-host-encryption) on AKS further strengthens tenant workload isolation, privacy, and security by encrypting data at rest on underlying host machines. This feature protects sensitive tenant information from unauthorized access. When you turn on end-to-end encryption, temporary disks and ephemeral OS disks are encrypted with platform-managed keys.
 
-In AKS, OS and data disks use server-side encryption with platform-managed keys by default. The disk caches are encrypted at rest through platform-managed keys.  You can specify your own [key encryption key](/azure/security/fundamentals/encryption-atrest) to encrypt the [data protection key](/azure/security/fundamentals/encryption-atrest) by using envelope encryption, also known as *wrapping*. The disk caches are also encrypted via the [BYOK](/azure/aks/azure-disk-customer-managed-keys) that you specify.
+In AKS, OS and data disks use server-side encryption with platform-managed keys by default. The disk caches are encrypted at rest through platform-managed keys. You can specify your own [key encryption key](/azure/security/fundamentals/encryption-atrest) to encrypt the [data protection key](/azure/security/fundamentals/encryption-atrest) by using envelope encryption, also known as *wrapping*. The disk caches are also encrypted via the [BYOK](/azure/aks/azure-disk-customer-managed-keys) that you specify.
 
 Host-based encryption provides an extra security layer for multitenant environments. Each tenant's data in OS and data disk caches is encrypted at rest with either customer-managed or platform-managed keys, depending on the selected disk encryption type. For more information, see the following articles:
 
@@ -547,7 +547,7 @@ For more information, see [Multitenancy and Private Link](/azure/architecture/gu
 
 A [reverse proxy](https://en.wikipedia.org/wiki/Reverse_proxy) sits in front of tenant applications to secure, filter, and route incoming requests. It functions as a load balancer and an [API gateway](/azure/architecture/microservices/design/gateway). Reverse proxies support features like load balancing, Secure Sockets Layer (SSL) termination, and layer-7 routing to increase security, performance, and reliability. Popular reverse proxies for Kubernetes include the following implementations:
 
-- [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx) is a reverse proxy server that supports load balancing, SSL termination, and layer-7 routing. The Ingress NGINX project will retire in March 2026.
+- [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx) is a reverse proxy server that supports load balancing, SSL termination, and layer-7 routing. The Ingress NGINX project retires in March 2026.
 
 - [Traefik Kubernetes Ingress provider](https://doc.traefik.io/traefik/providers/kubernetes-ingress) is a Kubernetes Ingress controller that manages access to cluster services by supporting the ingress specification.
 
@@ -599,43 +599,42 @@ When AKS-hosted applications connect to many databases or external services, the
 
   For more information, see [Use the front-end IP address of a load balancer for outbound via outbound rules](/azure/load-balancer/load-balancer-outbound-connections#outboundrules).
 
-- [Azure NAT Gateway](/azure/virtual-network/nat-gateway/nat-overview): You can configure an AKS cluster to use Azure NAT Gateway to route egress traffic from tenant applications. NAT Gateway allows up to 64,512 outbound UDP and TCP traffic flows per public IP address, with a maximum of 16 IP addresses. To avoid the risk of SNAT port exhaustion when you use a NAT Gateway to handle outbound connections from an AKS cluster, you can associate more public IP addresses or a [public IP address prefix](/azure/virtual-network/ip-services/public-ip-address-prefix) to the gateway.
+- [Azure NAT Gateway](/azure/virtual-network/nat-gateway/nat-overview): Configure an AKS cluster to use Azure NAT Gateway to route egress traffic from tenant applications. NAT Gateway supports up to 64,512 outbound User Datagram Protocol (UDP) and Transmission Control Protocol (TCP) traffic flows per public IP address, with a maximum of 16 IP addresses. To avoid SNAT port exhaustion when you use a NAT Gateway to handle outbound connections from an AKS cluster, associate more public IP addresses or a [public IP address prefix](/azure/virtual-network/ip-services/public-ip-address-prefix) with the gateway.
 
   For more information, see [Azure NAT Gateway considerations for multitenancy](/azure/architecture/guide/multitenant/service/nat-gateway).
 
-- [UDR](/azure/aks/egress-outboundtype): You can customize an AKS cluster's egress route to support custom network scenarios, such as those that disallow public IP addresses and require the cluster to sit behind a network virtual appliance (NVA). When you configure a cluster for [user-defined routing](/azure/aks/egress-outboundtype#outbound-type-of-userdefinedrouting), AKS doesn't automatically configure egress paths. You must configure your egress paths. For example, you can route egress traffic through an [Azure Firewall](/azure/aks/limit-egress-traffic#restrict-egress-traffic-using-azure-firewall).
+- [UDR](/azure/aks/egress-outboundtype): Customize an AKS cluster's egress route to support custom network scenarios, like scenarios that disallow public IP addresses and require the cluster to sit behind a network virtual appliance (NVA). When you configure a cluster for [user-defined routing](/azure/aks/egress-outboundtype#outbound-type-of-userdefinedrouting), AKS doesn't automatically configure egress paths. You must configure the egress paths. For example, route egress traffic through an [Azure Firewall](/azure/aks/limit-egress-traffic#restrict-egress-traffic-using-azure-firewall).
 
-  You must deploy the AKS cluster into an existing virtual network with a subnet that you previously configured and establish explicit egress. This approach requires you to explicitly send egress traffic to an appliance, like a firewall, gateway, or proxy. Network address translation (NAT) is then done by a public IP that's assigned to the appliance.
+  Deploy the AKS cluster into an existing virtual network that has a preconfigured subnet and establish explicit egress. Send egress traffic to an appliance, like a firewall, gateway, or proxy. The appliance does network address translation (NAT) by using its assigned public IP address.
 
-Unless you have requirements to egress through a hub network or security appliance, Azure NAT Gateway is the recommended approach to avoid SNAT port exhaustion.
+If you don't need to route egress through a hub network or security appliance, use Azure NAT Gateway to avoid SNAT port exhaustion.
 
 ## Monitoring
 
-You should [Monitor Kubernetes clusters using Azure Monitor and cloud native tools](/azure/azure-monitor/containers/monitor-kubernetes) to observe the health and performance of AKS clusters and tenant workloads. Azure Monitor also provides provides collection of [logs and metrics](/azure/aks/monitor-aks-reference), telemetry analysis, and alerting to proactively detect issues. [Managed Grafana](/azure/managed-grafana/quickstart-managed-grafana-portal) is used to visualize this data.
+[Monitor Kubernetes clusters by using Azure Monitor and cloud native tools](/azure/azure-monitor/containers/monitor-kubernetes) to observe the health and performance of AKS clusters and tenant workloads. Azure Monitor collects [logs and metrics](/azure/aks/monitor-aks-reference), telemetry analysis, and alerting to proactively detect problems. Use [Azure Managed Grafana](/azure/managed-grafana/quickstart-managed-grafana-portal) to visualize this data.
 
 ## Costs
 
-Cost governance is the continuous process of implementing policies to control costs. In the Kubernetes context, there are several methods that organizations can use to control and optimize costs. These methods include using native Kubernetes tooling to manage and govern resource usage and consumption and to proactively monitor and optimize the underlying infrastructure. When you calculate per-tenant costs, you should consider the costs associated with any resource that a tenant application uses. The approach you follow to charge fees back to the tenants depends on the tenancy model that your solution adopts. The following list describes tenancy models in more detail:
+Cost governance is the process of continuously implementing policies to control costs. You can use native Kubernetes tooling to manage and govern resource usage and consumption and to proactively monitor and optimize the underlying infrastructure. When you calculate per-tenant costs, consider costs associated with any resource that tenant applications use. How you charge tenants depends on your solution's tenancy model. The following list describes tenancy models in more detail:
 
-- Fully multitenant: When a single multitenant application serves all the tenant requests, it's your responsibility to keep track of resource consumption and the number of requests that each tenant generates. You then charge your customers accordingly.
+- **Fully multitenant:** When a single multitenant application serves all tenant requests, track resource consumption and the number of requests that each tenant generates. Charge your customers accordingly.
 
-- Dedicated cluster: When a cluster is dedicated to a single tenant, it's easy to charge the costs of Azure resources back to the customer. The total cost of ownership depends on many factors, including the number and size of VMs, the networking costs of network traffic, public IP addresses, load balancers, and the storage services, such as managed disks or Azure files that the tenant solution uses. You can tag an AKS cluster and its resources in the node resource group to facilitate cost charging operations. For more information, see [Add tags to the cluster](/azure/aks/use-tags#add-tags-to-the-cluster).
+- **Dedicated cluster:** When a cluster is dedicated to a single tenant, it's easy to charge the costs of Azure resources back to the customer. The total cost of ownership (TCO) depends on many factors, including VM count and size, network traffic costs, public IP addresses, load balancers, and storage services that the tenant solution uses, like managed disks or Azure Files. Tag an AKS cluster and its resources in the node resource group to simplify cost charging. For more information, see [Add tags to the cluster](/azure/aks/use-tags#add-tags-to-the-cluster).
 
-- Dedicated node pool: You can apply an Azure tag to a new or existing node pool that's dedicated to a single tenant. Tags are applied to each node within the node pool and are persisted through upgrades. Tags are also applied to new nodes that are added to a node pool during scale-out operations. Adding a tag can help with tasks like policy tracking or cost charging. For more information, see [Add tags to node pools](/azure/aks/use-tags).
+- **Dedicated node pool:** Apply an Azure tag to a new or existing node pool dedicated to a single tenant. The tag applies to each node in the node pool and persists through upgrades. Tags also apply to new nodes added to a node pool during scale-out operations. Tags help with policy tracking and cost charging. For more information, see [Add tags to node pools](/azure/aks/use-tags).
 
-- Other resources: You can use tags to associate costs of dedicated resources to a given tenant. In particular, you can tag public IP addresses, files, and disks by using a Kubernetes manifest. Tags set in this way maintain the Kubernetes values, even if you update them later by using another method. When public IP addresses, files, or disks are removed through Kubernetes, any tags that Kubernetes sets are removed. Tags on resources that Kubernetes doesn't track remain unaffected. For more information, see [Add tags by using Kubernetes](/azure/aks/use-tags#add-tags-by-using-kubernetes).
+- **Other resources:** Use tags to associate dedicated resource costs with a specific tenant. Tag public IP addresses, files, and disks by using a Kubernetes manifest. These tags preserve their Kubernetes-assigned values even if you update them through other methods. When you remove public IP addresses, files, or disks through Kubernetes, their tags are also removed. Tags on resources that Kubernetes doesn't track remain unaffected. For more information, see [Add tags by using Kubernetes](/azure/aks/use-tags#add-tags-by-using-kubernetes).
 
-The [AKS Cost Analysis addon](/azure/aks/cost-analysis) provides a simple way to deploy a cost allocation tool based on top of the open-source OpenCost project. This addon allows you to view detailed cost allocation scoped to Kubernetes constructs, such as clusters and namespaces, and Azure Compute, Network, and Storage resources.
+The [AKS cost analysis feature](/azure/aks/cost-analysis) provides a simple way to deploy a cost allocation tool based on the open-source OpenCost project. The feature displays detailed cost allocation scoped to Kubernetes constructs like clusters and namespaces and to Azure compute, network, and storage resources.
 
-You can also use open-source tools, such as [KubeCost](https://www.kubecost.com), to monitor and govern the cost of an AKS cluster. You can scope cost allocation to a deployment, service, label, pod, and namespace, which gives you flexibility in how you charge back or show back users of the cluster. For more information, see [Cost governance with Kubecost](/azure/cloud-adoption-framework/scenarios/app-platform/aks/cost-governance-with-kubecost).
-
-For more information on the measurement, allocation, and optimization of costs for a multitenant application, see [Architectural approaches for cost management and allocation in a multitenant solution](/azure/architecture/guide/multitenant/approaches/cost-management-allocation). For general guidance on cost optimization, see the Azure Well-Architected Framework article, [Overview of the Cost Optimization pillar](/azure/architecture/framework/cost/overview).
+Use open-source tools like [KubeCost](https://www.kubecost.com) to monitor and govern costs for an AKS cluster. Scope cost allocation to a deployment, service, label, pod, or namespace to support flexible chargeback or showback to cluster users. For more information, see [Cost governance with Kubecost](/azure/cloud-adoption-framework/scenarios/app-platform/aks/cost-governance-with-kubecost).
+For more information, see [Architectural approaches for cost management and allocation in a multitenant solution](/azure/architecture/guide/multitenant/approaches/cost-management-allocation) and [Overview of the Cost Optimization pillar](/azure/architecture/framework/cost/overview).
 
 ## Governance
 
-When multiple tenants share the same infrastructure, managing data privacy, compliance, and regulatory requirements can become complicated. You need to implement strong security measures and data governance policies. Shared AKS clusters present a higher risk of data breaches, unauthorized access, and noncompliance with data protection regulations. Each tenant might have unique data governance requirements and compliance policies, which make it difficult to ensure the security and privacy of the data.
+When multiple tenants share the same infrastructure, managing data privacy, compliance, and regulatory requirements can become complicated. Implement strong security measures and data governance policies. Shared AKS clusters increase the risk of data breaches, unauthorized access, and noncompliance with data protection regulations. Each tenant might have unique data governance requirements and compliance policies, which makes it difficult to ensure data security and privacy.
 
-[Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) is a cloud-native container security solution that provides threat detection and protection capabilities for Kubernetes environments. By using Defender for Containers, you can enhance your data governance and compliance posture when you host multiple tenants in a Kubernetes cluster. Use Defender for Containers to help protect sensitive data, detect and respond to threats by analyzing container behavior and network traffic, and meet regulatory requirements. It provides auditing capabilities, log management, and report generation to demonstrate compliance to regulators and auditors.
+[Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) is a cloud-native container security solution that provides threat detection and protection for Kubernetes environments. Use Defender for Containers to enhance data governance and compliance when you host multiple tenants in a Kubernetes cluster. Defender for Containers protects sensitive data, detects and responds to threats by analyzing container behavior and network traffic, and helps meet regulatory requirements. It provides auditing, log management, and report generation to demonstrate compliance to regulators and auditors.
 
 ## Contributors
 
