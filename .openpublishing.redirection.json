@@ -7658,6 +7658,41 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/example-scenario/mainframe/replatform-aix-workloads.yml",
+      "redirect_url": "/azure/architecture/example-scenario/mainframe/general-mainframe-refactor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/mainframe/extend-mainframe-applications.yml",
+      "redirect_url": "/azure/architecture/example-scenario/mainframe/general-mainframe-refactor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/mainframe/rehost-mainframe-ntt-data-unikix.yml",
+      "redirect_url": "/azure/architecture/example-scenario/mainframe/mainframe-rehost-architecture-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml",
+      "redirect_url": "https://techcommunity.microsoft.com/blog/azuremigrationblog/migrate-ibm-mainframe-applications-to-azure-with-tmaxsoft-openframe/4396312",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/zos/refactor-zos-coupling-facility.yml",
+      "redirect_url": "/azure/architecture/example-scenario/mainframe/general-mainframe-refactor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/mainframe/refactor-mainframe-applications-astadia.yml",
+      "redirect_url": "/azure/architecture/example-scenario/mainframe/general-mainframe-refactor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/mainframe/refactor-ibm-ztpf-mainframe.yml",
+      "redirect_url": "/azure/architecture/example-scenario/mainframe/general-mainframe-refactor",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/example-scenario/mainframe/refactor-mainframe-applications-advanced.yml",
       "redirect_url": "/azure/architecture/example-scenario/mainframe/general-mainframe-refactor",
       "redirect_document_id": false
