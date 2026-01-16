@@ -2,8 +2,8 @@
 metadata:
   title: Index File Content and Metadata by Using Azure AI Search
   description: Build an Azure AI Search index to search for documents by using file content from Azure Blob Storage and metadata from Azure Table Storage.
-  author: jelledruyts
-  ms.author: jelled
+  author: delynchoong
+  ms.author: delynchoong 
   ms.date: 01/09/2025
   ms.topic: concept-article
   ms.collection: ce-skilling-ai-copilot

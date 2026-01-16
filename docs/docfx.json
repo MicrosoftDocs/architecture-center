@@ -115,10 +115,6 @@
         "example-scenario/**/*.md": [ "Azure", "Azure Architecture Center", "Reference Architectures" ],
         "solution-ideas/**/*.md": [ "Azure", "Azure Architecture Center", "Reference Architectures" ]
       },
-      "ms.custom": {
-        "ai-ml/**/*.md": "arb-aiml",
-        "ai-ml/**/*.yml": "arb-aiml"
-      },
       "ms.update-cycle": {
         "guide/multitenant/considerations/*.md": "1095-days",
         "guide/multitenant/considerations/*.yml": "1095-days",

@@ -205,5 +205,4 @@ Principal author:
 
   - [High-volume batch transaction processing](./process-batch-transactions.yml)
   - [IBM z/OS mainframe migration with Avanade AMT](./avanade-amt-zos-migration.yml)
-  - [Refactor an IBM z/OS mainframe coupling facility to Azure](../../reference-architectures/zos/refactor-zos-coupling-facility.yml)
   - [Replicate and sync mainframe data to Azure](../../reference-architectures/migration/sync-mainframe-data-with-azure.yml)

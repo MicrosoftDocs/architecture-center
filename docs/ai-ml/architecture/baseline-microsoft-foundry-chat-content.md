@@ -368,7 +368,7 @@ The network design includes the following safeguards:
   The diagram resembles the baseline end-to-end chat architecture. It includes the Azure OpenAI architecture and three numbered network flows. The inbound flow and the flow from App Service to Azure PaaS services are copied from the baseline App Service web architecture. The Agent Service flow shows an arrow from the Foundry private endpoint in the private virtual network that points to Agent Service. The second numbered arrow in the Agent Service flow shows calls from the Azure AI agent virtual interface in the private network flowing through private endpoints. The third numbered arrow shows an arrow from the virtual interface to an Azure Firewall box, which indicates that all calls to the internet flow through that firewall.
 :::image-end:::
 
-The [baseline App Service web application architecture](../../web-apps/app-service/architectures/baseline-zone-redundant.yml) outlines the inbound flow from the user to the chat UI and the flow from App Service to [Azure PaaS services](../../web-apps/app-service/architectures/baseline-zone-redundant.yml#app-service-to-azure-paas-services-flow). This section focuses on agent interactions.
+The [baseline App Service web application architecture](../../web-apps/app-service/architectures/baseline-zone-redundant.yml) outlines the inbound flow from the user to the chat UI and the flow from App Service to [Azure PaaS services](../../web-apps/app-service/architectures/baseline-zone-redundant.yml#outbound-flow). This section focuses on agent interactions.
 
 When the chat UI communicates with the agent deployed in Foundry, the following network flows occur:
 

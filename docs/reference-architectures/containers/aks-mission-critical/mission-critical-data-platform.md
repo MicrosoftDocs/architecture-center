@@ -46,7 +46,7 @@ Consider using Azure Cosmos DB for NoSQL for mission-critical workloads. This op
 
   Zone redundancy is also enabled within each replicated region.
 
-  For more information about multi-region writes, see [Configure multi-region writes in your applications that use Azure Cosmos DB](/azure/cosmos-db/sql/how-to-multi-master).
+  For more information about multi-region writes, see [Configure multi-region writes in your applications that use Azure Cosmos DB](/azure/cosmos-db/how-to-multi-master).
 
 - **Conflict management**
 
@@ -54,7 +54,7 @@ Consider using Azure Cosmos DB for NoSQL for mission-critical workloads. This op
 
 - **Query optimization**
 
-  A general query efficiency recommendation for read-heavy containers with a high number of partitions is to add an equality filter with the itemID identified. An in-depth review of query optimization recommendations can be found at [Troubleshoot query issues when you use Azure Cosmos DB](/azure/cosmos-db/sql/troubleshoot-query-performance).
+  A general query efficiency recommendation for read-heavy containers with a high number of partitions is to add an equality filter with the itemID identified. An in-depth review of query optimization recommendations can be found at [Troubleshoot query issues when you use Azure Cosmos DB](/azure/cosmos-db/troubleshoot-query-performance).
 
 - **Backup feature**
 

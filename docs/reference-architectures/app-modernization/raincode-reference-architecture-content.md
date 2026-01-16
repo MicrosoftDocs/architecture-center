@@ -208,8 +208,4 @@ For more information, please contact <legacy2azure@microsoft.com> or check out t
 
 -   [Replicate and sync mainframe data in Azure](../migration/sync-mainframe-data-with-azure.yml)
 
--   [Refactor IBM z/OS mainframe Coupling Facility (CF) to Azure](../zos/refactor-zos-coupling-facility.yml)
-
 -   [IBM z/OS mainframe migration with Avanade AMT](../../example-scenario/mainframe/avanade-amt-zos-migration.yml)
-
--   [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame](../../solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml)

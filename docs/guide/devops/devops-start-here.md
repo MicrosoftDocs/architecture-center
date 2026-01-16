@@ -4,8 +4,8 @@ description: Learn about DevOps and how to implement DevOps solutions on Azure b
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 07/25/2022
-ms.topic: reference-architecture
-ms.subservice: reference-architecture
+ms.topic: concept-article
+ms.subservice: architecture-guide
 ms.custom: arb-devops
 ---
 

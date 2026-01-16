@@ -1,8 +1,8 @@
 ---
 title: Natural Language Processing Technology
 description: Choose a natural language processing service for sentiment analysis, topic and language detection, key phrase extraction, and document categorization.
-author: FreddyAyala
-ms.author: freddyayala
+author: jessica-writes-code
+ms.author: moorejessica
 ms.date: 02/10/2025
 ms.update-cycle: 180-days
 ms.topic: concept-article

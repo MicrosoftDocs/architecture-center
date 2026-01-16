@@ -22,6 +22,6 @@ products:
   - azure-event-hubs
   - azure-log-analytics
   - azure-monitor
-thumbnailUrl: /azure/architecture/browse/thumbs/stream-processing-databricks-thumbnail-new.png
+thumbnailUrl: /azure/architecture/browse/thumbs/stream-processing-databricks.png
 content: |
    [!INCLUDE[](stream-processing-databricks-content.md)]

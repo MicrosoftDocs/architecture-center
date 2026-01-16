@@ -2,8 +2,8 @@
 title: Hybrid architecture design
 description: Get an introductory overview of hybrid cloud technologies and how you can connect an on-premises environment to Azure in a way that works best for your organization.
 author: claytonsiemens77
-ms.subservice: reference-architecture
-ms.topic: reference-architecture
+ms.topic: concept-article
+ms.subservice: architecture-guide
 ms.date: 07/26/2022
 ms.author: pnp
 ms.custom:
@@ -39,8 +39,6 @@ When you adopt a hybrid model, you can choose from multiple solutions to confide
 - [Back up files](/azure/backup/backup-mabs-files-applications-azure-stack)
 - [Monitor performance](hybrid-perf-monitoring.yml)
 - [Enable virtual machine protection in Azure Site Recovery](/azure-stack/operator/protect-virtual-machines)
-
----
 
 ## Additional resources
 

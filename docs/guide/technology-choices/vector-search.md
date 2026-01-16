@@ -4,7 +4,7 @@ description: Learn how to use this information to decide which Azure service for
 author: konabuta
 ms.author: keonabut
 ms.reviewer: saitoyu
-ms.date: 01/10/2025
+ms.date: 10/20/2025
 ms.update-cycle: 180-days
 ms.subservice: architecture-guide
 ms.topic: concept-article

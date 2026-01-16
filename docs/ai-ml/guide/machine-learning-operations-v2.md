@@ -1,8 +1,8 @@
 ---
 title: Machine learning operations
 description: Learn about a single deployable set of repeatable and maintainable patterns for creating machine learning CI/CD and retraining pipelines.
-author: setuc
-ms.author: setuchokshi
+author: delynchoong
+ms.author: delynchoong 
 ms.date: 07/03/2024
 ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot

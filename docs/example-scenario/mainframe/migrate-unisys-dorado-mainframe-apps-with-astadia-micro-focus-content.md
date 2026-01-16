@@ -283,7 +283,6 @@ Principal author:
   - [Unisys mainframe migration to Azure using Avanade AMT][Unisys mainframe migration]
   - [Micro Focus Enterprise Server on Azure VMs][Micro Focus Enterprise Server on Azure VMs]
   - [Modernize mainframe & midrange data][Modernize mainframe & midrange data]
-  - [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame][Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame]
 
 [About Site Recovery]: /azure/site-recovery/site-recovery-overview
 [Astadia]: https://www.astadia.com/
@@ -313,7 +312,6 @@ Principal author:
 [Micro Focus]: https://www.microfocus.com/home
 [Micro Focus Enterprise Server on Azure VMs]: ./micro-focus-server.yml
 [Microsoft Azure Well-Architected Framework]: /azure/architecture/framework/index
-[Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame]: ../../solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml
 [Modernize mainframe & midrange data]: /azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure
 [Network security groups]: /azure/virtual-network/network-security-groups-overview
 [Overview of the performance efficiency pillar]: /azure/architecture/framework/scalability/overview

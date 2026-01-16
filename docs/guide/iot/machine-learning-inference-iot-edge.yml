@@ -2,8 +2,8 @@
 metadata:
   title: Enable machine learning inference on an Azure IoT Edge device
   description: Enable machine learning inference on an IoT Edge device. Scenarios include image classification, object detection, and body, face, and gesture analysis.
-  author: FreddyAyala
-  ms.author: freddyayala 
+  author: delynchoong
+  ms.author: delynchoong 
   ms.date: 10/29/2024
   ms.update-cycle: 180-days
   ms.collection: ce-skilling-ai-copilot
