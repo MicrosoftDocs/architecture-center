@@ -194,84 +194,16 @@ For more information, see [Overview of Service Bus dead-letter queues][sb-dead-l
 
 **Diagnostics**. Whenever the application moves a message to the dead-letter queue, write an event to the application logs.
 
-## Storage
-
-### Writing data to Azure Storage fails
-
-**Detection**. The client receives errors when writing.
-
-**Recovery:**
-
-1. Retry the operation, to recover from transient failures. The [retry policy][Storage.RetryPolicies] in the client SDK handles this automatically.
-1. Implement the Circuit Breaker pattern to avoid overwhelming storage.
-1. If N retry attempts fail, perform a graceful fallback. For example:
-
-   - Store the data in a local cache, and forward the writes to storage later, when the service becomes available.
-   - If the write action was in a transactional scope, compensate the transaction.
-
-**Diagnostics**. Use [storage metrics][storage-metrics].
-
-### Reading data from Azure Storage fails.
-
-**Detection**. The client receives errors when reading.
-
-**Recovery:**
-
-1. Retry the operation, to recover from transient failures. The [retry policy][Storage.RetryPolicies] in the client SDK handles this automatically.
-1. For RA-GRS storage, if reading from the primary endpoint fails, try reading from the secondary endpoint. The client SDK can handle this automatically. See [Azure Storage replication][storage-replication].
-1. If *N* retry attempts fail, take a fallback action to degrade gracefully. For example, if a product image can't be retrieved from storage, show a generic placeholder image.
-
-**Diagnostics**. Use [storage metrics][storage-metrics].
-
-## Virtual machine
-
-### Connection to a backend VM fails.
-
-**Detection**. Network connection errors.
-
-**Recovery:**
-
-- Deploy at least two backend VMs in an availability set, behind a load balancer.
-- If the connection error is transient, sometimes TCP will successfully retry sending the message.
-- Implement a retry policy in the application.
-- For persistent or nontransient errors, implement the [Circuit Breaker][circuit-breaker] pattern.
-- If the calling VM exceeds its network egress limit, the outbound queue will fill up. If the outbound queue is consistently full, consider scaling out.
-
-**Diagnostics**. Log events at service boundaries.
-
-### VM instance becomes unavailable or unhealthy.
-
-**Detection**. Configure a Load Balancer [health probe][lb-probe] that signals whether the VM instance is healthy. The probe should check whether critical functions are responding correctly.
-
-**Recovery**. For each application tier, put multiple VM instances into the same availability set, and place a load balancer in front of the VMs. If the health probe fails, the Load Balancer stops sending new connections to the unhealthy instance.
-
-**Diagnostics**. - Use Load Balancer [log analytics][lb-monitor].
-
-- Configure your monitoring system to monitor all of the health monitoring endpoints.
-
-### Operator accidentally shuts down a VM.
-
-**Detection**. N/A
-
-**Recovery**. Set a resource lock with `ReadOnly` level. See [Lock resources with Azure Resource Manager][rm-locks].
-
-**Diagnostics**. Use [Azure Activity Logs][azure-activity-logs].
-
 ## Next steps
 
 See [Identify dependencies](/azure/well-architected/reliability/failure-mode-analysis#identify-dependencies) in the Azure Well-Architected Framework. Building failure recovery into the system should be part of the architecture and design phases from the beginning to avoid the risk of failure.
 
 <!-- links -->
 
-[azure-activity-logs]: /azure/monitoring-and-diagnostics/monitoring-overview-activity-logs
 [azure-alerts]: /azure/monitoring-and-diagnostics/insights-alerts-portal
 [BrokeredMessage.TimeToLive]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 [cassandra-error-handling]: https://www.datastax.com/dev/blog/cassandra-error-handling-done-right
-[circuit-breaker]: /azure/architecture/patterns/circuit-breaker
-[lb-monitor]: /azure/load-balancer/load-balancer-monitor-log
-[lb-probe]: /azure/load-balancer/load-balancer-custom-probe-overview#types
 [QuotaExceededException]: /dotnet/api/microsoft.servicebus.messaging.quotaexceededexception
-[rm-locks]: /azure/azure-resource-manager/resource-group-lock-resources/
 [sb-dead-letter-queue]: /azure/service-bus-messaging/service-bus-dead-letter-queues/
 [sb-georeplication-sample]: https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/GeoReplication
 [sb-messagingexception-class]: /dotnet/api/microsoft.servicebus.messaging.messagingexception
@@ -284,6 +216,4 @@ See [Identify dependencies](/azure/well-architected/reliability/failure-mode-ana
 [sql-db-limits]: /azure/sql-database/sql-database-resource-limits
 [sql-db-replication]: /azure/sql-database/sql-database-geo-replication-overview
 [storage-metrics]: /azure/storage/common/monitor-storage
-[storage-replication]: /azure/storage/storage-redundancy
-[Storage.RetryPolicies]: /dotnet/api/microsoft.azure.storage.retrypolicies
 [sys.event_log]: /sql/relational-databases/system-catalog-views/sys-event-log-azure-sql-database
