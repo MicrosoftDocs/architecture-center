@@ -59,7 +59,7 @@ This architecture builds on the [basic Foundry chat reference architecture](./ba
 
   The [standard agent setup](/azure/ai-services/agents/concepts/standard-agent-setup) ensures network isolation and provides control over data storage. You supply dedicated Azure resources for agent state, chat history, and file storage, which Agent Service manages exclusively. Other application components in the workload shouldn't use these required resources.
 
-  - [Azure Cosmos DB for NoSQL](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, document database service. In this architecture, it hosts the workload's memory database, called `enterprise_memory`, within your subscription. This database stores the agent's operational state, including chat threads and agent definitions. This design ensures that chat history and agent configuration are isolated, auditable, and managed according to data governance requirements. Agent Service manages the database, its collections, and its data.
+  - [Azure Cosmos DB for NoSQL](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, document database service. In this architecture, it hosts the workload's memory database, called `enterprise_memory`, within your subscription. This database stores the agent's operational state, including chat conversations and agent definitions. This design ensures that chat history and agent configuration are isolated, auditable, and managed according to data governance requirements. Agent Service manages the database, its collections, and its data.
 
   - [Azure Storage](/azure/well-architected/service-guides/azure-blob-storage) is a cloud storage service for unstructured data. In this architecture, it provides dedicated storage for files uploaded during chat sessions. Hosting this account in your subscription provides granular access control, auditing capabilities, and compliance with data residency or retention policies. Agent Service manages the containers and data life cycle within those containers.
 
@@ -87,7 +87,7 @@ This architecture includes multiple components that you can substitute with othe
 
 #### Chat orchestration
 
-**Current approach:** This architecture uses [Agent Service](/azure/ai-services/agents/overview) to orchestrate chat flows, including fetching grounding data from knowledge stores and invoking Azure OpenAI models. Agent Service provides codeless, nondeterministic orchestration. It handles chat requests, thread management, tool invocation, content safety, and integration with identity, networking, and observability. It provides a native memory database solution.
+**Current approach:** This architecture uses [Agent Service](/azure/ai-services/agents/overview) to orchestrate chat flows, including fetching grounding data from knowledge stores and invoking Azure OpenAI models. Agent Service provides codeless, nondeterministic orchestration. It handles chat requests, conversation management, tool invocation, content safety, and integration with identity, networking, and observability. It provides a native memory database solution.
 
 **Alternative approach:** You can self-host the orchestration layer by using frameworks such as [Microsoft Agent Framework](/agent-framework/overview/agent-framework-overview), [Semantic Kernel](/semantic-kernel/overview/), or [LangChain](/azure/ai-foundry/how-to/develop/langchain). Use these frameworks to implement deterministic, code-driven chat flows and custom orchestration logic.
 
@@ -272,13 +272,13 @@ This baseline architecture lacks multi-region capabilities, so regional outages 
 
 #### Disaster recovery
 
-Chat architectures contain stateful components, so DR planning is essential. These workloads typically require a memory store for active or paused chat sessions. They also require storage for supplemental data, such as documents or images, added to chat threads. The agent orchestration layer might also maintain state that's specific to conversation flows. In this architecture, Agent Service uses Azure Cosmos DB, Storage, and AI Search to persist operational and transactional state. The life cycle and coupling of this state across components determines your DR strategy and recovery operations.
+Chat architectures contain stateful components, so DR planning is essential. These workloads typically require a memory store for active or paused chat sessions. They also require storage for supplemental data, such as documents or images, added to chat conversations. The agent orchestration layer might also maintain state that's specific to conversation flows. In this architecture, Agent Service uses Azure Cosmos DB, Storage, and AI Search to persist operational and transactional state. The life cycle and coupling of this state across components determines your DR strategy and recovery operations.
 
 For Agent Service, ensure that you can recover all dependencies to a consistent point in time. This approach helps maintain transactional integrity across the three external dependencies.
 
 The following recommendations are key excerpts from the [Agent Service disaster recovery](/azure/ai-foundry/how-to/agent-service-disaster-recovery?view=foundry) guide:
 
-- **Azure Cosmos DB:** Enable [continuous backup](/azure/cosmos-db/online-backup-and-restore) for the `enterprise_memory` database. This setup provides point-in-time restore (PITR) with a seven-day RPO, which includes agent definitions and chat threads. Test your restore process regularly to confirm that it meets your RTO and that the restored data remains available to the agent service. Always restore to the same account and database.
+- **Azure Cosmos DB:** Enable [continuous backup](/azure/cosmos-db/online-backup-and-restore) for the `enterprise_memory` database. This setup provides point-in-time restore (PITR) with a seven-day RPO, which includes agent definitions and chat conversations. Test your restore process regularly to confirm that it meets your RTO and that the restored data remains available to the agent service. Always restore to the same account and database.
 
 - **AI Search:** AI Search lacks built-in restore capabilities and doesn't support direct index manipulation. If data loss or corruption occurs, you must contact Microsoft support for assistance with index restoration. This limitation can significantly affect your RTO. If your chat UI doesn't support file uploads and you don't have agents that use static files as knowledge, you might not need a DR plan for AI Search.
 
@@ -286,7 +286,7 @@ The following recommendations are key excerpts from the [Agent Service disaster 
 
 - **Storage:** If you have a geo-redundant storage account, use [customer-managed failover](/azure/storage/common/storage-disaster-recovery-guidance#customer-managed-unplanned-failover) for blob containers that Agent Service uses. This setup allows you to initiate failover during a regional outage. If you use only zone-redundant storage, contact Microsoft support to restore data. This process might extend your RTO. As with AI Search, if your chat UI doesn't support file uploads and you don't have agents that use static files as knowledge, you might not need a DR plan for blob containers.
 
-- **Transactional consistency:** If the state store in your workload references Azure AI agent identifiers, such as thread IDs or agent IDs, coordinate recovery across all relevant data stores. Restoring only a subset of dependencies can result in orphaned or inconsistent data. Design your DR processes to maintain referential integrity between your workload and the agent service's state.
+- **Transactional consistency:** If the state store in your workload references Azure AI agent identifiers, such as conversation IDs or agent IDs, coordinate recovery across all relevant data stores. Restoring only a subset of dependencies can result in orphaned or inconsistent data. Design your DR processes to maintain referential integrity between your workload and the agent service's state.
 
 - **Agent definitions and configuration:** Define agents *as code*. Store agent definitions, connections, system prompts, and parameters in source control. This practice enables you to redeploy agents from a known good configuration if you lose the orchestration layer. Avoid making untracked changes to agent configuration through the Foundry portal or data plane APIs. This approach ensures that your deployed agents remain reproducible.
 
@@ -333,7 +333,7 @@ If you use customer-managed keys (CMK) for encryption, you can host both the CMK
 
 When you onboard employees to Foundry projects, assign the minimum permissions required for their role. Use Microsoft Entra ID groups and Azure role-based access control (Azure RBAC) to enforce separation of duties. For example, distinguish agent developers from data scientists who handle fine-tuning tasks. However, be aware of the limitations and risks.
 
-The Foundry portal runs many actions by using the service's identity rather than the employee's identity. As a result, employees that have limited Azure RBAC roles might have visibility into sensitive data, such as chat threads, agent definitions, and configuration. This Foundry portal design can inadvertently bypass your desired access constraints and expose more information than intended.
+The Foundry portal runs many actions by using the service's identity rather than the employee's identity. As a result, employees that have limited Azure RBAC roles might have visibility into sensitive data, such as chat conversations, agent definitions, and configuration. This Foundry portal design can inadvertently bypass your desired access constraints and expose more information than intended.
 
 To mitigate the risk of unauthorized access, restrict portal usage in production environments to employees that have a clear operational need. For most employees, disable or block access to the Foundry portal in production. Instead, use automated deployment pipelines and infrastructure as code (IaC) to manage agent and project configuration.
 
@@ -470,7 +470,7 @@ The following recommendations explain how to optimize costs for these required s
   - Use a locally redundant storage (LRS) tier for the Storage account.
   - Configure AI Search with a single replica instead of the recommended three replicas.
 
-- Regularly delete unused agents and their associated threads by using the SDK or REST APIs. Stale agents and threads continue to consume storage and can increase costs across Azure Cosmos DB, Storage, and AI Search.
+- Regularly delete unused agents and their associated conversations by using the SDK or REST APIs. Stale agents and conversations continue to consume storage and can increase costs across Azure Cosmos DB, Storage, and AI Search.
 
 - Disable features on dependent resources that your workload doesn't require, such as the following features:
 
@@ -537,7 +537,7 @@ This architecture should have the following Cloud Workload Protection plans enab
 | :--- | :------ |
 | Defender for Servers | Capabilities such as vulnerability assessments and file integrity monitoring helps prevent your highly privileged jump boxes and build agents role from becoming a threat vector. |
 | Defender for App Service | Provides security monitoring of logs, host machines, and management interfaces for your chat interface components. |
-| Defender for Azure Cosmos DB | Provides database interaction monitoring for the database containing the chat threads, looking for signs of potential abuse or irregular access of your users' chat data and agent definitions. |
+| Defender for Azure Cosmos DB | Provides database interaction monitoring for the database containing the chat conversations, looking for signs of potential abuse or irregular access of your users' chat data and agent definitions. |
 | Defender for AI services | Provides alerts based on your workload's requests and responses to your agents; alerting on attempts at jailbreaking or data leakage. If your organization uses Microsoft Purview, this plan also enables the licensed integration with [Microsoft Purview DSPM for AI](/azure/defender-for-cloud/ai-onboarding#enable-data-security-for-azure-ai-with-microsoft-purview). |
 
 If your organization hosts a security information and event management (SIEM) solution or uses Microsoft Purview, ensure that any customer data, such as prompts and responses, that's replicated into their data stores resides in a region that doesn't violate any data sovereignty restrictions your workload requires.
