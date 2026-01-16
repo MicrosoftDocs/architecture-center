@@ -124,7 +124,7 @@ A PAC configures several Enterprise Server instances in a scale-out architecture
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
