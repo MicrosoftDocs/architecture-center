@@ -167,7 +167,7 @@ Consider a multi-agent approach when your workload exhibits the following charac
 
 Multi-agent approaches introduce coordination complexity and increased latency because of communication between agents. Use a prompt single agent when your use case is well-defined, doesn't require strict access isolation, and can be handled effectively by one model with a reasonable set of tools.
 
-For guidance about how to implement multiple coordinated agents, see [AI agent orchestration patterns](../guide/ai-agent-design-patterns.md). This article covers sequential, concurrent, group chat, handoff, and magentic orchestration approaches. You can implement some patterns within Agent Service. Other patterns require self-hosted orchestration by using an SDK such as Semantic Kernel.
+For guidance about how to implement multiple coordinated agents, see [AI agent orchestration patterns](../guide/ai-agent-design-patterns.md). This article covers sequential, concurrent, group chat, handoff, and magentic orchestration approaches. You can implement some patterns within Agent Service. Other patterns require self-hosted orchestration by using an SDK such as Microsoft Agent Framework.
 
 ## Considerations
 
