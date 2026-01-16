@@ -13,15 +13,15 @@ ms.custom:
 
 # Use Azure Kubernetes Service (AKS) in a multitenant solution
 
-[Azure Kubernetes Service (AKS)](/azure/aks/what-is-aks) simplifies deploying a managed Kubernetes cluster in Azure by offloading the operational overhead to the Azure cloud platform. Because AKS is a hosted Kubernetes service, Azure handles critical tasks like health monitoring and maintenance and the control plane.
+[Azure Kubernetes Service (AKS)](/azure/aks/what-is-aks) makes it simple to deploy a managed Kubernetes cluster in Azure because it offloads operational overhead to the Azure cloud platform. As a hosted Kubernetes service, AKS handles critical tasks like health monitoring, maintenance, and control plane management.
 
-You can share AKS clusters across multiple tenants in different ways. You might run diverse applications in the same cluster, or you might run multiple instances of the same application—one instance for each customer—in a shared cluster. Both scenarios are examples of *multitenancy*. Kubernetes doesn't have a built-in concept of users or tenants, but it provides features that help you manage different tenancy requirements.
+You can share AKS clusters across multiple tenants in different ways. You can run diverse applications in the same cluster, or you can run multiple instances of the same application—one instance for each customer—in a shared cluster. Both scenarios are examples of *multitenancy*. Kubernetes doesn't have a built-in concept of users or tenants, but it provides features that help you manage different tenancy requirements.
 
-This article describes features of AKS that help you build multitenant systems. For more information, see [Best practices for Kubernetes multitenancy](https://kubernetes.io/docs/concepts/security/multi-tenancy).
+This article describes AKS features that help you build multitenant systems. For more information, see [Best practices for Kubernetes multitenancy](https://kubernetes.io/docs/concepts/security/multi-tenancy).
 
 ## Multitenancy types
 
-To determine how to share an AKS cluster across multiple tenants, first evaluate the available patterns and tools. In general, multitenancy in Kubernetes clusters falls into two main categories, but many variations exist. [Two common use cases for multitenancy](https://kubernetes.io/docs/concepts/security/multi-tenancy/#use-cases) include multiple teams and multiple customers.
+To determine how to share an AKS cluster across multiple tenants, first evaluate the available patterns and tools. Multitenancy in Kubernetes clusters falls into two main categories, but many variations exist. [Two common use cases for multitenancy](https://kubernetes.io/docs/concepts/security/multi-tenancy/#use-cases) include multiple teams and multiple customers.
 
 ### Multiple teams
 
@@ -30,22 +30,24 @@ A common form of multitenancy involves sharing a cluster between multiple teams 
 In this scenario, team members access Kubernetes resources in one of the following ways:
 
 - Directly through tools like [kubectl](https://kubernetes.io/docs/reference/kubectl)
+
 - Indirectly through GitOps controllers like [Flux](https://fluxcd.io) and [Argo CD](https://argo-cd.readthedocs.io/en/stable)
+
 - Through other release automation tools
 
-For more information about this scenario, see [Multiple teams](https://kubernetes.io/docs/concepts/security/multi-tenancy/#multiple-teams).
+For more information, see [Multiple teams](https://kubernetes.io/docs/concepts/security/multi-tenancy/#multiple-teams).
 
 ### Multiple customers
 
-Another common form of multitenancy involves software as a service (SaaS) vendors or a service provider that runs multiple instances of a workload for their customers, and each instance serves a separate tenant. Customers access only their application, not the AKS cluster, and typically don't know that their application runs on Kubernetes. Cost optimization is a critical concern in this model. Service providers use Kubernetes policies like [resource quotas](https://kubernetes.io/docs/concepts/policy/resource-quotas) and [network policies](https://kubernetes.io/docs/concepts/services-networking/network-policies) to ensure strong isolation between tenant workloads.
+Another common form of multitenancy involves software as a service (SaaS) vendors or a service provider that runs multiple instances of a workload for their customers. Each instance serves a separate tenant. Customers access only their application, not the AKS cluster, and typically don't know that their application runs on Kubernetes. Cost optimization is a critical concern in this model. To ensure strong isolation between tenant workloads, service providers use Kubernetes policies like [resource quotas](https://kubernetes.io/docs/concepts/policy/resource-quotas) and [network policies](https://kubernetes.io/docs/concepts/services-networking/network-policies).
 
-For more information about this scenario, see [Multiple customers](https://kubernetes.io/docs/concepts/security/multi-tenancy/#multiple-customers).
+For more information, see [Multiple customers](https://kubernetes.io/docs/concepts/security/multi-tenancy/#multiple-customers).
 
 ## Isolation models
 
 According to [Kubernetes documentation](https://kubernetes.io/docs/concepts/security/multi-tenancy/#isolation), multiple users and workloads, also known as *tenants*, share a multitenant Kubernetes cluster. This definition includes Kubernetes clusters that different teams or divisions within an organization share, and clusters that host multiple customer instances of a SaaS application.
 
-Cluster multitenancy provides an alternative to managing many single-tenant dedicated clusters. Operators must isolate tenants from each other to minimize the damage that a compromised or malicious tenant can do to the cluster and to other tenants.
+Cluster multitenancy provides an alternative to managing many single-tenant dedicated clusters. Operators must isolate tenants from each other to limit the damage that a compromised or malicious tenant can inflict on the cluster or other tenants.
 
 When multiple users or teams share a cluster that has a fixed number of nodes, one team might consume more than its fair share of resources. To prevent this problem, administrators can use [resource quotas](https://kubernetes.io/docs/concepts/policy/resource-quotas).
 
@@ -65,7 +67,7 @@ When you plan to build a multitenant AKS cluster, consider the following [Kubern
 
 Also consider the security implications of sharing resources among multiple tenants. For example, scheduling pods from different tenants on the same node reduces the number of machines needed in the cluster. But you might need to prevent certain workloads from sharing nodes. So you might not allow untrusted external code to run on the same node as containers that process sensitive information.
 
-Kubernetes doesn't guarantee perfectly secure isolation between tenants, but it provides features that are sufficient for many use cases. As a best practice, separate each tenant and its Kubernetes resources into dedicated namespaces. Then use [Kubernetes role-based access control (RBAC)](https://kubernetes.io/docs/reference/access-authn-authz/rbac) and [network policies](https://kubernetes.io/docs/concepts/services-networking/network-policies) to enforce tenant isolation. The following diagram shows a typical SaaS provider model that hosts multiple instances of the same application on a single cluster, one for each tenant. Each instance runs in a separate namespace.
+Kubernetes doesn't guarantee perfectly secure isolation between tenants, but it provides features that are sufficient for many use cases. As a best practice, separate each tenant and its Kubernetes resources into dedicated namespaces. Use [Kubernetes role-based access control (RBAC)](https://kubernetes.io/docs/reference/access-authn-authz/rbac) and [network policies](https://kubernetes.io/docs/concepts/services-networking/network-policies) to enforce tenant isolation. The following diagram shows a typical SaaS provider model that hosts multiple instances of the same application on a single cluster, one for each tenant. Each instance runs in a separate namespace.
 
 :::image type="complex" border="false" source="./media/aks/namespaces.png" alt-text="Diagram that shows a SaaS provider model that hosts multiple instances of the same application on the same cluster." lightbox="./media/aks/namespaces.png":::
 The diagram shows three tenant namespaces. Each namespace contains four sections: deployment, service, ingress, and secret. The deployment section contains pods. The service section contains a clusterIP. The ingress section contains annotations, a hostname, a TLS certificate, and rules. The secret section contains a TLS certificate.
@@ -75,7 +77,7 @@ AKS provides several ways to design and build multitenant solutions. Each method
 
 ## Control plane isolation
 
-Control plane isolation prevents tenants from accessing or affecting each other's resources, like pods and services. Tenants also don't affect the performance of other tenants' applications. For more information, see [Control plane isolation](https://kubernetes.io/docs/concepts/security/multi-tenancy/#control-plane-isolation). To implement control plane isolation, segregate each tenant's workload and its Kubernetes resources into a separate namespace.
+Control plane isolation prevents tenants from accessing or affecting each other's resources, like pods and services. Tenants also don't affect the performance of other tenants' applications. To implement control plane isolation, segregate each tenant's workload and its Kubernetes resources into a separate namespace. For more information, see [Control plane isolation](https://kubernetes.io/docs/concepts/security/multi-tenancy/#control-plane-isolation).
 
 According to the [Kubernetes documentation](https://kubernetes.io/docs/concepts/security/multi-tenancy/#namespaces), a [namespace](https://kubernetes.io/docs/reference/glossary/?fundamental=true#term-namespace) is an abstraction that supports isolation of resource groups within a single cluster. Use namespaces to isolate tenant workloads that share a Kubernetes cluster.
 
@@ -103,7 +105,7 @@ Data plane isolation ensures that tenant pods and workloads remain separate from
 
 ### Network isolation
 
-When you run multitenant, microservices-based applications in Kubernetes, you often want to control which components can communicate with each other. By default, all pods in an AKS cluster can send and receive traffic without restrictions, including communication with other applications on the same cluster. To improve security, define network rules to control traffic flow. In Kubernetes, network policy defines access policies for communication between pods. Use [network policies](https://kubernetes.io/docs/concepts/services-networking/network-policies) to segregate communications between tenant applications on the same cluster.
+When you run multitenant, microservices-based applications in Kubernetes, you want to control which components can communicate with each other. By default, all pods in an AKS cluster can send and receive traffic without restrictions, including communication with other applications on the same cluster. To improve security, define network rules to control traffic flow. In Kubernetes, network policy defines access policies for communication between pods. Use [network policies](https://kubernetes.io/docs/concepts/services-networking/network-policies) to segregate communications between tenant applications on the same cluster.
 
 AKS provides the following ways to implement network policies:
 
@@ -123,30 +125,37 @@ Service meshes provide advanced traffic management, security, and observability 
 
 AKS includes an [Istio-based service mesh feature](/azure/aks/istio-about) that manages the Istio control plane's life cycle, scaling, and configuration. Service meshes provide several key capabilities for multitenant scenarios:
 
-**Identity and authentication:** Service meshes provide mutual TLS (mTLS) to automatically encrypt and authenticate communication between services. Each service receives a cryptographic identity based on its namespace and service account, which provides the foundation for enforcing tenant boundaries.
+- **Identity and authentication:** Service meshes provide mutual TLS (mTLS) to automatically encrypt and authenticate communication between services. Each service receives a cryptographic identity based on its namespace and service account, which provides the foundation for enforcing tenant boundaries.
 
-**Authorization policies:** You can define fine-grained authorization policies that control which services communicate with each other based on service identity, namespace, or custom attributes. For example, enforce that tenant A's front end only calls tenant A's back end services to prevent cross-tenant service access.
+- **Authorization policies:** You can define fine-grained authorization policies that control which services communicate with each other based on service identity, namespace, or custom attributes. For example, enforce that tenant A's front end only calls tenant A's back end services to prevent cross-tenant service access.
 
-**Traffic management:** Service meshes provide advanced traffic routing capabilities that support multitenant deployments when combined with proper tenant isolation patterns:
+- **Traffic management:** Service meshes provide advanced traffic routing capabilities that support multitenant deployments:
 
-- Canary deployments and A/B testing
-- Traffic splitting to gradually roll out updates to specific tenant namespaces
-- Request routing based on headers or other attributes to direct tenant traffic
-- Circuit breaking and retry policies to prevent cascading failures across tenant workloads
+  - Canary deployments and A/B testing
 
-Service meshes provide traffic management features like routing, splitting, and circuit breaking, but they don't automatically enforce tenant isolation. You must combine these features with tenant separation patterns:
+  - Traffic splitting to gradually roll out updates to specific tenant namespaces
 
-- Isolate tenants in separate namespaces
-- Apply consistent labeling strategies
-- Configure path-based or host-based routing rules
-- Deploy separate ingress gateways per tenant when needed
-- Create explicit routing policies that target specific tenant namespaces or labels
+  - Request routing based on headers or other attributes to direct tenant traffic
 
-**Observability:** Service meshes automatically generate metrics, logs, and distributed traces for all service-to-service communication. This visibility helps you troubleshoot multitenant problems and identify noisy neighbor problems.
+  - Circuit breaking and retry policies to prevent cascading failures across tenant workloads
 
-**Layer-7 security policies:** Service meshes enforce policies based on HTTP methods, paths, and headers, unlike network policies that operate only on IP addresses and ports. For example, restrict tenant services to perform only GET requests to specific API endpoints.
+  To enforce tenant isolation, you must combine these features with tenant separation patterns:
 
-**Multitenancy considerations:**
+  - Isolate tenants in separate namespaces.
+
+  - Apply consistent labeling strategies.
+
+  - Configure path-based or host-based routing rules.
+
+  - Deploy separate ingress gateways per tenant when needed.
+
+  - Create explicit routing policies that target specific tenant namespaces or labels.
+
+- **Observability:** Service meshes automatically generate metrics, logs, and distributed traces for all service-to-service communication. This visibility helps you troubleshoot multitenant problems and identify noisy neighbor problems.
+
+- **Layer-7 security policies:** Service meshes enforce policies based on HTTP methods, paths, and headers, unlike network policies that operate only on IP addresses and ports. For example, restrict tenant services to perform only GET requests to specific API endpoints.
+
+When you implement service meshes in multitenant environments, consider the following factors:
 
 - Service meshes add resource overhead for each pod because of sidecar proxies. Plan node sizing and resource quotas for tenant namespaces accordingly.
 
@@ -156,13 +165,13 @@ Service meshes provide traffic management features like routing, splitting, and 
 
 - Use separate Istio ingress gateways per tenant tier (basic, standard, premium) to provide different levels of traffic management and security.
 
-For more information, see [Deploy Istio-based service mesh feature for AKS](/azure/aks/istio-deploy-addon).
+For more information, see [Deploy the Istio-based service mesh feature for AKS](/azure/aks/istio-deploy-addon).
 
 ### Storage isolation
 
 Azure provides managed PaaS data repositories like [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview) and [Azure Cosmos DB](/azure/cosmos-db/introduction), plus other storage services that you can use as [persistent volumes](/azure/aks/concepts-storage#volumes) for your workloads. Tenant applications that run on a shared AKS cluster can [share a database or file store](/azure/architecture/guide/multitenant/approaches/storage-data#shared-multitenant-databases-and-file-stores) or use [dedicated data repositories and storage resources](/azure/architecture/guide/multitenant/approaches/storage-data#multitenant-app-with-dedicated-databases-for-each-tenant). For more information, see [Architectural approaches for storage and data in multitenant solutions](/azure/architecture/guide/multitenant/approaches/storage-data).
 
-AKS workloads can use persistent volumes to store data. You can create [persistent volumes](/azure/aks/concepts-storage#volumes) as Kubernetes resources backed by Azure Storage. Manually create and assign data volumes to pods directly, or let AKS automatically create them by using [persistent volume claims](/azure/aks/concepts-storage#persistent-volume-claims). AKS includes built-in storage classes to create persistent volumes that [Azure Disks](/azure/virtual-machines/disks-types), [Azure Files](/azure/storage/files/storage-files-planning), and [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-service-levels) support. For more information, see [Storage options for applications in AKS](/azure/aks/concepts-storage). Avoid using local storage on agent nodes via [emptyDir](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir) and [hostPath](https://kubernetes.io/docs/concepts/storage/volumes/#hostpath) for security and resiliency reasons.
+AKS workloads can use persistent volumes to store data. You can create [persistent volumes](/azure/aks/concepts-storage#volumes) as Kubernetes resources backed by Azure Storage. Manually create and assign data volumes to pods directly, or let AKS automatically create them by using [persistent volume claims](/azure/aks/concepts-storage#persistent-volume-claims). AKS includes built-in storage classes to create persistent volumes that [Azure managed disks](/azure/virtual-machines/disks-types), [Azure Files](/azure/storage/files/storage-files-planning), and [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-service-levels) support. For more information, see [Storage options for applications in AKS](/azure/aks/concepts-storage). Avoid using local storage on agent nodes via [emptyDir](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir) and [hostPath](https://kubernetes.io/docs/concepts/storage/volumes/#hostpath) for security and resiliency reasons.
 
 When AKS [built-in storage classes](/azure/aks/azure-disk-csi#dynamically-create-azure-disks-pvs-by-using-the-built-in-storage-classes) don't fit your tenants' needs, create custom [storage classes](https://kubernetes.io/docs/concepts/storage/storage-classes) to address their specific requirements. These requirements include volume size, storage SKU, a service-level agreement (SLA), backup policies, and the pricing tier.
 
@@ -174,7 +183,7 @@ For more information, see [Storage isolation](https://kubernetes.io/docs/concept
 
 Configure tenant workloads to run on separate agent nodes to avoid [noisy neighbor problems](/azure/architecture/antipatterns/noisy-neighbor/noisy-neighbor) and reduce the risk of information disclosure. Create a separate cluster or dedicated node pool for tenants that have strict requirements for isolation, security, regulatory compliance, and performance.
 
-To restrict tenant pods to specific nodes or node pools, use [taints](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration), [tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration), [node labels](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node), [node selectors](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node), and [node affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node).
+To restrict tenant pods to specific nodes or node pools, use [taints and tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration), [node labels](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#built-in-node-labels), [node selectors](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector), and [node affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#node-affinity).
 
 AKS provides workload isolation at various levels:
 
@@ -200,13 +209,13 @@ In this model, deploy a dedicated set of resources for each tenant, as shown in 
 The diagram shows three tenants. Each tenant has its own deployment. Each deployment contains an AKS cluster and a database.
 :::image-end:::
 
-Each tenant workload runs in a dedicated AKS cluster and accesses a distinct set of Azure resources. This model typically relies on [infrastructure as code (IaC)](/devops/deliver/what-is-infrastructure-as-code) tools. To automate on-demand deployment of tenant-dedicated resources, use [Bicep](/azure/azure-resource-manager/bicep/overview?tabs=bicep), [Azure Resource Manager](/azure/azure-resource-manager/management/overview), [Terraform](/azure/developer/terraform/overview), or the [Resource Manager REST APIs](/rest/api/resources). Use this approach when you need to provision entirely separate infrastructure for each customer. When you plan your deployment, consider the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml).
+Each tenant workload runs in a dedicated AKS cluster and accesses a distinct set of Azure resources. This model typically relies on [infrastructure as code (IaC)](/devops/deliver/what-is-infrastructure-as-code) tools. To automate on-demand deployment of tenant-dedicated resources, use [Bicep](/azure/azure-resource-manager/bicep/overview), [Azure Resource Manager](/azure/azure-resource-manager/management/overview), [Terraform](/azure/developer/terraform/overview), or [Resource Manager REST APIs](/rest/api/resources). Use this approach when you need to provision separate infrastructure for each customer. When you plan your deployment, consider the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml).
 
 This approach provides the following benefits:
 
-- Each tenant AKS cluster has a separate API server, which guarantees full isolation across tenants for security, networking, and resource consumption. An attacker who gains control of a container only accesses the containers and mounted volumes that belong to a single tenant. Use full-isolation tenancy models for customers that have high regulatory compliance requirements.
+- Each tenant AKS cluster has a separate API server, which guarantees isolation across tenants for security, networking, and resource consumption. An attacker who gains control of a container only accesses the containers and mounted volumes that belong to a single tenant. Use full-isolation tenancy models for customers that have high regulatory compliance requirements.
 
-- Tenants don't affect each other's system performance, so you avoid [noisy neighbor problems][noisy-neighbor]. This consideration includes traffic against the API server, which is a shared critical component in any Kubernetes cluster. Custom controllers that generate unregulated, high-volume traffic against the API server can cause cluster instability, which leads to request failures, timeouts, and API retry storms. Use the [uptime SLA](/azure/aks/uptime-sla) feature to scale out the control plane of an AKS cluster to meet traffic demand. But provisioning a dedicated cluster might be better for customers that have strong workload isolation requirements.
+- Tenants don't affect each other's system performance, so this approach prevents [noisy neighbor problems][noisy-neighbor]. This consideration includes traffic against the API server, which is a shared critical component in any Kubernetes cluster. Custom controllers that generate unregulated, high-volume traffic against the API server can cause cluster instability, which leads to request failures, timeouts, and API retry storms. Use the [uptime SLA](/azure/aks/uptime-sla) feature to scale out the control plane of an AKS cluster to meet traffic demand. But provisioning a dedicated cluster might be better for customers that have strong workload isolation requirements.
 
 - You can roll out updates and changes progressively across tenants to reduce the likelihood of system-wide outages. Azure costs are easily attributed to individual tenants because every resource is dedicated to a single tenant.
 
@@ -214,9 +223,9 @@ This approach provides the following benefits:
 
 This approach has the following risks:
 
-- Cost efficiency is low because every tenant uses dedicated resources.
+- Every tenant uses dedicated resources, which can increase cost.
 
-- Ongoing maintenance is time consuming because you must repeat maintenance activities across multiple AKS clusters, one for each. Automate your operational processes and apply changes progressively through your environments. Other cross-deployment operations, like reporting and analytics across your whole estate, might also be helpful. Plan how to query and manipulate data across multiple deployments.
+- Ongoing maintenance is time consuming because you must repeat maintenance activities across multiple AKS clusters, with one cluster for each tenant. To manage this complexity, automate your operational processes and apply changes progressively through your environments. Plan how to query and manipulate data across multiple deployments for operations like reporting and analytics across your whole estate.
 
 ### Fully multitenant deployments
 
@@ -246,7 +255,7 @@ This approach has the following risks:
 
 ### Horizontally partitioned deployments
 
-Horizontally partitioning shares some solution components across all the tenants and deploys dedicated resources for individual tenants. For example, you can build a single multitenant Kubernetes application and then create individual databases, one for each tenant, as shown in the following diagram.
+Horizontal partitioning shares some solution components across all tenants and deploys dedicated resources for individual tenants. For example, build a single multitenant Kubernetes application and then create individual databases, one for each tenant, as shown in the following diagram.
 
 :::image type="complex" border="false" source="./media/aks/horizontally-partitioned-deployments.png" alt-text="A diagram that shows three tenants. Each tenant uses a dedicated database and a single, shared Kubernetes application." lightbox="./media/aks/horizontally-partitioned-deployments.png":::
 The diagram shows three tenants. The tenants point to a deployment that includes a shared AKS cluster and three separate databases.
@@ -290,15 +299,15 @@ The following diagram shows a scenario where tenants A and B run on the same nod
 The diagram shows three tenants and a deployment. The deployment contains node pool 1, node pool 2, an AKS cluster, and two databases. Tenant A and B use node pool 1 and a shared database. Tenant C uses node pool 2 and its own dedicated database.
 :::image-end:::
 
-This model can also provide different SLAs for different tiers. For example, the Basic tier can provide 99.9% uptime, the Standard tier can provide 99.95% uptime, and the Premium tier can provide 99.99% uptime. To implement a higher SLA, use services and features that enable higher availability targets.
+This model can also provide different SLAs for different tiers. For example, the Basic tier can provide 99.90% uptime, the Standard tier can provide 99.95% uptime, and the Premium tier can provide 99.99% uptime. To implement a higher SLA, use services and features that enable higher availability targets.
 
 This approach provides the following benefits:
 
 - Shared infrastructure reduces costs. Deploy shared clusters and node pools for Basic-tier and Standard-tier tenants. This approach uses lower-cost VM sizes for agent nodes and provides better density. For Premium-tier tenants, you can deploy AKS clusters and node pools with a higher VM size and a maximum number of pod replicas and nodes at a higher price.
 
-- Isolate system services on dedicated node pools. Run system services like [CoreDNS](https://kubernetes.io/docs/tasks/administer-cluster/coredns), [Konnectivity](https://kubernetes.io/docs/tasks/extend-kubernetes/setup-konnectivity), or [Azure Application Gateway Ingress Controller](/azure/application-gateway/ingress-controller-overview) on system-mode node pools. To run tenant applications on one or more user-mode node pools, use [taints](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration), [tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration), [node labels](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node), [node selectors](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node), and [node affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node).
+- Isolate system services on dedicated node pools. Run system services like [CoreDNS](https://kubernetes.io/docs/tasks/administer-cluster/coredns), [Konnectivity](https://kubernetes.io/docs/tasks/extend-kubernetes/setup-konnectivity), or [Azure Application Gateway Ingress Controller (AGIC)](/azure/application-gateway/ingress-controller-overview) on system-mode node pools. To run tenant applications on one or more user-mode node pools, use [taints and tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration), [node labels](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#built-in-node-labels), [node selectors](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector), and [node affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#node-affinity).
 
-- Dedicate node pools to shared resources. To run shared resources, use [taints](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration), [tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration), [node labels](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node), [node selectors](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node), and [node affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node). For example, you can have an ingress controller or messaging system on a dedicated node pool that has a specific VM size, autoscaler settings, and availability zone support.
+- Dedicate node pools to shared resources. To run shared resources, use [taints and tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration), [node labels](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#built-in-node-labels), [node selectors](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector), and [node affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#node-affinity). For example, you can have an ingress controller or messaging system on a dedicated node pool that has a specific VM size, autoscaler settings, and availability zone support.
 
 This approach has the following risks:
 
@@ -313,12 +322,14 @@ This approach has the following risks:
 To keep up with the traffic demand that tenant applications generate, turn on the [cluster autoscaler](/azure/aks/cluster-autoscaler) to scale the agent nodes of AKS. Autoscaling helps systems remain responsive in the following circumstances:
 
 - Traffic load increases during specific work hours or periods.
+
 - Tenant workloads or heavy shared loads are deployed to a cluster.
+
 - Agent nodes become unavailable because of availability zone outages.
 
 When you turn on autoscaling for a node pool, specify minimum and maximum node counts based on expected workload sizes. The maximum node count ensures sufficient capacity for all tenant pods in the cluster, across all namespaces.
 
-As traffic increases, the cluster autoscaler adds agent new nodes to prevent pods from going into a pending state because of CPU or memory shortages.
+As traffic increases, the cluster autoscaler adds new agent nodes to prevent pods from going into a pending state because of CPU or memory shortages.
 
 As load decreases, the cluster autoscaler removes agent nodes in a node pool within the configured boundaries, which reduces operational costs.
 
@@ -334,7 +345,7 @@ To reduce downtime risk for tenant applications during cluster or node pool upgr
 
 ## Security
 
-The following sections describe security best practices for multitenant solutions with AKS.
+The following sections describe security best practices for multitenant AKS solutions.
 
 ### Cluster access
 
@@ -362,11 +373,14 @@ Workload identity integrates with Kubernetes service accounts. When you create a
 
 For more information about implementation steps and code examples, see [Use Microsoft Entra Workload ID with AKS](/azure/aks/workload-identity-overview) and [Deploy and configure Workload ID on AKS](/azure/aks/workload-identity-deploy-cluster).
 
-Microsoft Entra pod-managed identity (preview) was deprecated in October 2022. AKS support ended in September 2025. Migrate to workload identity to get the following advantages:
+Microsoft Entra pod-managed identity was deprecated in October 2022. AKS support ended in September 2025. Migrate to workload identity to get the following advantages:
 
 - No extra components or agents required (pod-managed identity required Managed Identity Controller (MIC) and Node Managed Identity (NMI) daemonsets)
+
 - Better scalability and performance
-- Works with standard Kubernetes service accounts
+
+- Supports standard Kubernetes service accounts
+
 - Simpler configuration and troubleshooting
 
 Both pod-managed identity and workload identity can coexist during migration. Use workload identity for all new deployments.
@@ -379,7 +393,7 @@ Separate clusters or node pools provide strong isolation for tenant workloads of
 
 Pod sandboxing provides strong tenant application isolation on shared cluster nodes without requiring separate clusters or node pools. Unlike other isolation methods, pod sandboxing runs any container unmodified inside an enhanced security VM boundary without code recompilation or compatibility problems.
 
-To provide hardware-enforced isolation, pod sandboxing on AKS is based on [Kata Containers](https://katacontainers.io/) that run on the [Azure Linux container host for AKS](/azure/aks/use-azure-linux) stack. Kata Containers run on a security-hardened Azure hypervisor. Each Kata pod runs in a nested, lightweight VM with its own kernel. The Kata VM uses resources from the parent VM node. You can run many Kata containers in a single guest VM while standard containers continue to run in the parent VM. This approach provides a strong isolation boundary in a shared AKS cluster.
+To provide hardware-enforced isolation, pod sandboxing on AKS is based on [Kata containers](https://katacontainers.io/) that run on the [Azure Linux container host for AKS](/azure/aks/use-azure-linux) stack. Kata containers run on a security-hardened Azure hypervisor. Each Kata pod runs in a nested, lightweight VM with its own kernel. The Kata VM uses resources from the parent VM node. You can run many Kata containers in a single guest VM while standard containers continue to run in the parent VM. This approach provides a strong isolation boundary in a shared AKS cluster.
 
 Consider the following constraints of pod sandboxing on AKS:
 
@@ -387,7 +401,7 @@ Consider the following constraints of pod sandboxing on AKS:
 
 - Azure Linux 2.0 support ended November 30, 2025. Node images will be removed March 31, 2026.
 
-- Kata containers might not reach the same input/output operations per second (IOPS) performance as traditional containers on Azure Files and high-performance local SSDs.
+- Kata containers might not reach the same input/output operations per second (IOPS) performance as traditional containers on Azure Files and high-performance local solid-state drives (SSDs).
 
 - Microsoft Defender for Containers doesn't support security assessments of Kata runtime pods.
 
@@ -412,7 +426,7 @@ Dedicated Host helps SaaS providers ensure that tenant applications meet regulat
 
 ### Node autoprovisioning
 
-Node autoprovisioning is a managed AKS feature that dynamically provisions and manages nodes based on pending pod requirements. Node autoprovisioning is built on the open-source Karpenter project. When the Kubernetes scheduler marks pods as unschedulable, node autoprovisioning automatically creates appropriately configured nodes to run those workloads. Use this capability in multitenant deployments where tenants have diverse infrastructure requirements.
+Node autoprovisioning is a managed AKS feature that dynamically provisions and manages nodes based on pending pod requirements. When the Kubernetes scheduler marks pods as unschedulable, node autoprovisioning automatically creates appropriately configured nodes to run those workloads. Use this capability in multitenant deployments where tenants have diverse infrastructure requirements.
 
 Node autoprovisioning improves multitenant cluster operations in the following ways:
 
@@ -438,19 +452,19 @@ To enable node autoprovisioning on your AKS cluster and define workload requirem
 
 Node autoprovisioning is built on the open-source [Karpenter](https://karpenter.sh/) project. AKS provides a managed experience with life cycle management, upgrades, and Azure-specific optimizations. Most users should use node autoprovisioning as a managed feature. For more information, see [Node autoprovisioning](/azure/aks/node-autoprovision).
 
-If you require advanced customization beyond what node autoprovisioning provides, you can self-host Karpenter directly on AKS. This approach provides full control over Karpenter configuration but requires you to manage the life cycle and upgrades. For more information, see the [AKS Karpenter provider](https://github.com/Azure/karpenter-provider-azure).
+If you require advanced customization beyond what node autoprovisioning provides, you can self-host Karpenter directly on AKS. This approach provides full control over Karpenter configuration but requires you to manage the life cycle and upgrades. For more information, see [AKS Karpenter provider](https://github.com/Azure/karpenter-provider-azure).
 
 ### Confidential VMs
 
 Use [confidential VMs](/azure/aks/use-cvm) to add one or more node pools to your AKS cluster to address tenants' strict isolation, privacy, and security requirements. [Confidential VMs](https://techcommunity.microsoft.com/t5/azure-confidential-computing/azure-confidential-vms-using-sev-snp-dcasv5-ecasv5-are-now/ba-p/3573747) use a hardware-based [trusted execution environment](https://en.wikipedia.org/wiki/Trusted_execution_environment).
 
-[AMD Secure Encrypted Virtualization - Secure Nested Paging (SEV-SNP)](https://www.amd.com/system/files/TechDocs/SEV-SNP-strengthening-vm-isolation-with-integrity-protection-and-more.pdf) confidential VMs deny the hypervisor and other host-management code access to VM memory and state, which adds a layer of defense and in-depth protection against operator access. For more information, see [Use confidential VMs in an AKS cluster](/azure/aks/use-cvm).
+[AMD Secure Encrypted Virtualization-Secure Nested Paging (SEV-SNP)](https://www.amd.com/system/files/TechDocs/SEV-SNP-strengthening-vm-isolation-with-integrity-protection-and-more.pdf) confidential VMs deny the hypervisor and other host-management code access to VM memory and state, which adds a layer of defense and in-depth protection against operator access. For more information, see [Use confidential VMs in an AKS cluster](/azure/aks/use-cvm).
 
 ### FIPS
 
-[FIPS 140-3](https://csrc.nist.gov/publications/detail/fips/140/3/final) is a US government standard that defines minimum security requirements for cryptographic modules in information technology products and systems. [FIPS compliance](/azure/compliance/offerings/offering-fips-140-2) ensures the use of validated cryptographic modules for encryption, hashing, and other security-related operations.
+[FIPS 140-3](https://csrc.nist.gov/publications/detail/fips/140/3/final) is a US government standard that defines minimum security requirements for cryptographic modules in information technology (IT) products and systems. [FIPS compliance](/azure/compliance/offerings/offering-fips-140-2) ensures the use of validated cryptographic modules for encryption, hashing, and other security-related operations.
 
-Configure [FIPS for AKS node pools](/azure/aks/enable-fips-nodes) to enhance tenant workload isolation, privacy, and security. FIPS-enabled node pools help meet regulatory and industry compliance requirements by employing robust cryptographic algorithms and mechanisms. Use this approach to strengthen the security posture of your multitenant AKS environments. For more information, see [Enable FIPS for AKS node pools](/azure/aks/enable-fips-nodes).
+Configure [FIPS for AKS node pools](/azure/aks/enable-fips-nodes) to enhance tenant workload isolation, privacy, and security. FIPS-enabled node pools help meet regulatory and industry compliance requirements by employing robust cryptographic algorithms and mechanisms. Use this approach to strengthen the security posture of your multitenant AKS environments.
 
 ### Bring your own key (BYOK) for Azure disks
 
@@ -477,43 +491,43 @@ The following sections describe networking best practices for multitenant AKS so
 
 ### Network topology for multitenant clusters
 
-When you design a network topology for multitenant AKS deployments, your choice between Azure CNI Standard mode and Azure CNI Overlay affects how you scale tenant workloads and manage IP address space.
+When you design a network topology for multitenant AKS deployments, your choice between Azure CNI Standard and Azure CNI Overlay affects how you scale tenant workloads and manage IP address space.
 
-Traditional Azure CNI assigns virtual network IP addresses to both nodes and pods. This approach can exhaust available IP address space in large multitenant deployments. Azure CNI Overlay assigns virtual network IP addresses only to nodes while pods use a separate overlay CIDR. Azure CNI Overlay reduces the risk of virtual network IP address exhaustion and lets you deploy more tenant workloads within the same virtual network address space.
+Traditional Azure CNI assigns virtual network IP addresses to both nodes and pods. This approach can exhaust available IP address space in large multitenant deployments. Azure CNI Overlay assigns virtual network IP addresses only to nodes, while pods use a separate overlay CIDR. Azure CNI Overlay reduces the risk of virtual network IP address exhaustion and lets you deploy more tenant workloads within the same virtual network address space.
 
-Use standard Azure CNI for multitenant scenarios in the following cases:
+Use Azure CNI Standard for multitenant scenarios in the following cases:
 
-- External systems need direct routable access to pod IP addresses (uncommon for most SaaS multitenancy patterns)
+- External systems need direct routable access to pod IP addresses (uncommon for most SaaS multitenancy patterns).
 
-- You use advanced AKS features that don't support Overlay mode
+- You use advanced AKS features that don't support Overlay mode.
 
-- Your virtual network has sufficient IP address space and you have few tenant clusters
+- Your virtual network has sufficient IP address space and you have few tenant clusters.
 
 Use Azure CNI Overlay for multitenant scenarios in the following cases:
 
-- You deploy multiple dedicated clusters (one per tenant or per tenant tier)
+- You deploy multiple dedicated clusters (one per tenant or per tenant tier).
 
-- You deploy multiple AKS clusters in the same virtual network (common for per-tenant or per-tier cluster models)
+- You deploy multiple AKS clusters in the same virtual network (common for per-tenant or per-tier cluster models).
 
-- You run high pod density in shared clusters with many tenant namespaces
+- You run high pod density in shared clusters with many tenant namespaces.
 
-- You deploy multiple environments per tenant (development, staging, production)
+- You deploy multiple environments per tenant (development, staging, production).
 
-- IP address space is constrained or you need to reserve virtual network IP addresses for other Azure resources
+- IP address space is constrained or you need to reserve virtual network IP addresses for other Azure resources.
 
-- You need to standardize infrastructure templates across many tenant deployments
+- You need to standardize infrastructure templates across many tenant deployments.
 
 When you deploy an automated single-tenant deployment model (dedicated cluster for each tenant), Azure CNI Overlay lets you reuse the same pod CIDR (for example, 10.244.0.0/16) across multiple tenant clusters. This approach eliminates the need to plan, allocate, and track unique pod CIDRs per tenant. You can standardize IaC templates across all tenants. Tenant onboarding is faster because you don't need to coordinate CIDR assignments. This consistent configuration also simplifies troubleshooting and reduces configuration errors.
 
-Azure CNI Overlay provides the same tenant isolation as Azure CNI Standard. All three network policy engines work with both topologies: Azure network policies, Calico, and Azure CNI Powered by Cilium. You can enforce namespace-level network isolation between tenants with either option.
+Azure CNI Overlay provides the same tenant isolation as Azure CNI Standard. Both topologies support all three network policy engines: Azure network policies, Calico, and Azure CNI Powered by Cilium. You can enforce namespace-level network isolation between tenants with either option.
 
 Azure CNI Overlay uses source network address translation (SNAT) to convert tenant pod IP addresses to the node IP address when traffic leaves the cluster. If you need to identify traffic by tenant for external systems or firewall rules, use the following methods to implement tenant-specific egress controls:
 
-- Create dedicated node pools for each tenant and use specific node labels
+- Create dedicated node pools for each tenant and use specific node labels.
 
-- Deploy Azure NAT Gateway with multiple public IP addresses and assign different IPs to different node pools
+- Deploy Azure NAT Gateway that uses multiple public IP addresses and assign different IPs to different node pools.
 
-- Configure Azure Firewall with user-defined routes (UDRs) that direct tenant traffic through specific rules.
+- Configure Azure Firewall by using user-defined routes (UDRs) that direct tenant traffic through specific rules.
 
 For more information, see [Configure Azure CNI Overlay networking in AKS](/azure/aks/azure-cni-overlay).
 
@@ -525,19 +539,19 @@ In Kubernetes, the API server receives requests to do cluster actions, like crea
 
 A private AKS cluster keeps network traffic between your API server and node pools within your virtual network. AKS provides two approaches for private API server access:
 
-- **API Server virtual network integration:** This approach projects the API server endpoint into a delegated subnet in your cluster's virtual network. The API server uses an internal load balancer. Nodes communicate directly with the API server's private IP address. You can enable or disable public network access without redeploying the cluster.
+- **API Server virtual network integration:** This approach projects the API server endpoint into a delegated subnet in your cluster's virtual network. The API server uses an internal load balancer. Nodes communicate directly with the API server's private IP address. You can allow or block public network access without redeploying the cluster.
 
-- **Private clusters with Private Link:** This approach uses Azure Private Link to create a private endpoint without a public IP address. The API server is accessed only through the private endpoint. You must configure Domain Name System (DNS) through private DNS zones.
+- **Private clusters with Azure Private Link:** This approach uses Private Link to create a private endpoint without a public IP address. The API server is accessed only through the private endpoint. You must configure Domain Name System (DNS) through private DNS zones.
 
   A private AKS cluster restricts control plane access to resources in the same virtual network or connected through virtual network peering, virtual private network, or Azure ExpressRoute. For more information, see [Create a private AKS cluster](/azure/aks/private-clusters).
 
 ### Authorized IP address ranges
 
-[Authorized IP address ranges](/azure/aks/api-server-authorized-ip-ranges) provide another way to improve cluster security and minimize attacks. This approach restricts control plane access on a public AKS cluster to a specific list of IP addresses and CIDR ranges. The API server remains publicly exposed, but only the specified IP addresses have access. For more information, see [Secure access to the API server by using authorized IP address ranges in AKS](/azure/aks/api-server-authorized-ip-ranges).
+[Authorized IP address ranges](/azure/aks/api-server-authorized-ip-ranges) improve cluster security and minimize attacks. This approach restricts control plane access on a public AKS cluster to a specific list of IP addresses and CIDR ranges. The API server remains publicly exposed, but only the specified IP addresses have access. For more information, see [Secure access to the API server by using authorized IP address ranges in AKS](/azure/aks/api-server-authorized-ip-ranges).
 
 ### Private Link integration
 
-[Azure Private Link service](/azure/private-link/private-link-service-overview) is an infrastructure component that lets applications connect privately to services through an [Azure private endpoint](/azure/private-link/private-endpoint-overview). The private endpoint is defined in a virtual network and connects to the front-end IP configuration of an [Azure Load Balancer](/azure/load-balancer/load-balancer-overview) instance. [Private Link](/azure/private-link/private-link-overview) lets service providers securely deliver services to tenants who connect from Azure or on-premises without data exfiltration risks.
+[Private Link service](/azure/private-link/private-link-service-overview) is an infrastructure component that lets applications connect privately to services through an [Azure private endpoint](/azure/private-link/private-endpoint-overview). The private endpoint is defined in a virtual network and connects to the front-end IP configuration of an [Azure Load Balancer](/azure/load-balancer/load-balancer-overview) instance. [Private Link](/azure/private-link/private-link-overview) lets service providers securely deliver services to tenants who connect from Azure or on-premises without data exfiltration risks.
 
 Use [Private Link service integration](https://cloud-provider-azure.sigs.k8s.io/topics/pls-integration) to give tenants private connectivity to their AKS-hosted workloads without exposing any public endpoints on the internet.
 
@@ -553,9 +567,9 @@ A [reverse proxy](https://en.wikipedia.org/wiki/Reverse_proxy) sits in front of 
 
 - [HAProxy Kubernetes Ingress Controller](https://www.haproxy.com/documentation/kubernetes/latest) is a reverse proxy for Kubernetes that supports Transport Layer Security (TLS) termination, URL-path-based routing, and other standard features.
 
-- [Application Gateway for Containers](/azure/application-gateway/for-containers/overview) is a managed application delivery controller (ADC) that provides layer-7 load balancing for AKS-hosted applications. It offers advanced routing capabilities, SSL termination, and web application firewall (WAF) features to protect tenant applications from common web vulnerabilities and attacks.
+- [Application Gateway for Containers](/azure/application-gateway/for-containers/overview) is a managed application delivery controller (ADC) that provides layer-7 load balancing for AKS-hosted applications. It provides advanced routing capabilities, SSL termination, and web application firewall (WAF) features to protect tenant applications from common web vulnerabilities and attacks.
 
-- [Application Gateway Ingress Controller (AGIC)](/azure/application-gateway/ingress-controller-overview) is superseded by [Application Gateway for Containers](/azure/application-gateway/for-containers/overview). Use  Application Gateway for Containers for new deployments. You can use existing AGIC deployments, but you should plan to migrate to Application Gateway for Containers.
+- [Application Gateway for Containers](/azure/application-gateway/for-containers/overview) supersedes [AGIC](/azure/application-gateway/ingress-controller-overview). Use Application Gateway for Containers for new deployments. You can use existing AGIC deployments, but you should plan to migrate to Application Gateway for Containers.
 
 When you use an AKS-hosted reverse proxy to secure and handle incoming requests to multiple tenant applications, consider the following recommendations:
 
@@ -567,7 +581,7 @@ When you use an AKS-hosted reverse proxy to secure and handle incoming requests 
 
 - Consider sharding incoming traffic to tenant applications, across multiple ingress controller instances, to increase scalability and segregation.
 
-When you use [Application Gateway for Containers](/azure/application-gateway/for-containers/overview), consider implementing the following best practices:
+When you use [Application Gateway for Containers](/azure/application-gateway/for-containers/overview), consider the following best practices:
 
 - Deploy separate Application Gateway for Containers instances for different tenant tiers to provide isolation and different service levels. Use the Kubernetes Gateway API role-oriented model, where infrastructure operators manage gateway resources and tenants manage their HTTPRoute resources in their own namespaces.
 
@@ -595,15 +609,15 @@ Configure Azure Front Door Premium to privately connect to tenant applications t
 
 When AKS-hosted applications connect to many databases or external services, the cluster risks SNAT port exhaustion. [SNAT ports](/azure/load-balancer/load-balancer-outbound-connections#what-are-snat-ports) generate unique identifiers to maintain distinct traffic flows from applications on the same compute resources. Running multiple tenant applications on a shared AKS cluster can generate many outbound calls, which can cause SNAT port exhaustion. AKS clusters can handle outbound connections in three ways:
 
-- [Azure Load Balancer](/azure/load-balancer/load-balancer-overview): By default, AKS provisions a Standard SKU Load Balancer for egress traffic management. However, the default configuration might not meet the requirements of all scenarios if public IP addresses are disallowed or if extra hops are required for egress. By default, the public load balancer is created with a default public IP address that the [outbound rules](/azure/load-balancer/outbound-rules) use. Outbound rules allow you to explicitly define SNAT for a public standard load balancer. This configuration allows you to use the public IP addresses of your load balancer to provide outbound internet connectivity for your backend instances. To avoid [SNAT port exhaustion](/azure/load-balancer/troubleshoot-outbound-connection), you can configure the outbound rules of the public load balancer to use more public IP addresses.
+- **[Azure Load Balancer](/azure/load-balancer/load-balancer-overview):** AKS provisions a Standard SKU load balancer for egress traffic management by default. But the default configuration might not meet all scenario requirements if public IP addresses are disallowed or if extra hops are required for egress. The public load balancer is created with a default public IP address that [outbound rules](/azure/load-balancer/outbound-rules) use. You can use outbound rules to explicitly define SNAT for a public standard load balancer. This configuration lets you use the public IP addresses of your load balancer to provide outbound internet connectivity for your back-end instances. To avoid [SNAT port exhaustion](/azure/load-balancer/troubleshoot-outbound-connection), configure the outbound rules of the public load balancer to use more public IP addresses.
 
   For more information, see [Use the front-end IP address of a load balancer for outbound via outbound rules](/azure/load-balancer/load-balancer-outbound-connections#outboundrules).
 
-- [Azure NAT Gateway](/azure/virtual-network/nat-gateway/nat-overview): Configure an AKS cluster to use Azure NAT Gateway to route egress traffic from tenant applications. NAT Gateway supports up to 64,512 outbound User Datagram Protocol (UDP) and Transmission Control Protocol (TCP) traffic flows per public IP address, with a maximum of 16 IP addresses. To avoid SNAT port exhaustion when you use a NAT Gateway to handle outbound connections from an AKS cluster, associate more public IP addresses or a [public IP address prefix](/azure/virtual-network/ip-services/public-ip-address-prefix) with the gateway.
+- **[Azure NAT Gateway](/azure/virtual-network/nat-gateway/nat-overview):** Configure an AKS cluster to use Azure NAT Gateway to route egress traffic from tenant applications. Azure NAT Gateway supports up to 64,512 outbound User Datagram Protocol (UDP) and Transmission Control Protocol (TCP) traffic flows per public IP address, with a maximum of 16 IP addresses. To avoid SNAT port exhaustion when you use Azure NAT Gateway to handle outbound connections from an AKS cluster, associate more public IP addresses or a [public IP address prefix](/azure/virtual-network/ip-services/public-ip-address-prefix) with the gateway.
 
   For more information, see [Azure NAT Gateway considerations for multitenancy](/azure/architecture/guide/multitenant/service/nat-gateway).
 
-- [UDR](/azure/aks/egress-outboundtype): Customize an AKS cluster's egress route to support custom network scenarios, like scenarios that disallow public IP addresses and require the cluster to sit behind a network virtual appliance (NVA). When you configure a cluster for [user-defined routing](/azure/aks/egress-outboundtype#outbound-type-of-userdefinedrouting), AKS doesn't automatically configure egress paths. You must configure the egress paths. For example, route egress traffic through an [Azure Firewall](/azure/aks/limit-egress-traffic#restrict-egress-traffic-using-azure-firewall).
+- **[UDR](/azure/aks/egress-outboundtype):** Customize an AKS cluster's egress route to support custom network scenarios, like scenarios that disallow public IP addresses and require the cluster to sit behind a network virtual appliance (NVA). When you configure a cluster for [UDR](/azure/aks/egress-outboundtype#outbound-type-of-userdefinedrouting), AKS doesn't automatically configure egress paths. You must configure the egress paths. For example, route egress traffic through an [Azure firewall](/azure/aks/limit-egress-traffic#restrict-egress-traffic-using-azure-firewall).
 
   Deploy the AKS cluster into an existing virtual network that has a preconfigured subnet and establish explicit egress. Send egress traffic to an appliance, like a firewall, gateway, or proxy. The appliance does network address translation (NAT) by using its assigned public IP address.
 
@@ -611,11 +625,11 @@ If you don't need to route egress through a hub network or security appliance, u
 
 ## Monitoring
 
-[Monitor Kubernetes clusters by using Azure Monitor and cloud native tools](/azure/azure-monitor/containers/monitor-kubernetes) to observe the health and performance of AKS clusters and tenant workloads. Azure Monitor collects [logs and metrics](/azure/aks/monitor-aks-reference), telemetry analysis, and alerting to proactively detect problems. Use [Azure Managed Grafana](/azure/managed-grafana/quickstart-managed-grafana-portal) to visualize this data.
+[Monitor Kubernetes clusters by using Azure Monitor and cloud-native tools](/azure/azure-monitor/containers/monitor-kubernetes) to observe the health and performance of AKS clusters and tenant workloads. Azure Monitor collects [logs and metrics](/azure/aks/monitor-aks-reference), telemetry analysis, and alerting to proactively detect problems. Use [Azure Managed Grafana](/azure/managed-grafana/quickstart-managed-grafana-portal) to visualize this data.
 
 ## Costs
 
-Cost governance is the process of continuously implementing policies to control costs. You can use native Kubernetes tooling to manage and govern resource usage and consumption and to proactively monitor and optimize the underlying infrastructure. When you calculate per-tenant costs, consider costs associated with any resource that tenant applications use. How you charge tenants depends on your solution's tenancy model. The following list describes tenancy models in more detail:
+Cost governance is the process of continuously implementing policies to control costs. You can use native Kubernetes tooling to manage and govern resource usage and consumption and to proactively monitor and optimize the underlying infrastructure. When you calculate per-tenant costs, consider costs associated with any resource that tenant applications use. How you charge tenants depends on your solution's tenancy model. The following list describes tenancy model costs in more detail:
 
 - **Fully multitenant:** When a single multitenant application serves all tenant requests, track resource consumption and the number of requests that each tenant generates. Charge your customers accordingly.
 
@@ -625,16 +639,21 @@ Cost governance is the process of continuously implementing policies to control 
 
 - **Other resources:** Use tags to associate dedicated resource costs with a specific tenant. Tag public IP addresses, files, and disks by using a Kubernetes manifest. These tags preserve their Kubernetes-assigned values even if you update them through other methods. When you remove public IP addresses, files, or disks through Kubernetes, their tags are also removed. Tags on resources that Kubernetes doesn't track remain unaffected. For more information, see [Add tags by using Kubernetes](/azure/aks/use-tags#add-tags-by-using-kubernetes).
 
-The [AKS cost analysis feature](/azure/aks/cost-analysis) provides a simple way to deploy a cost allocation tool based on the open-source OpenCost project. The feature displays detailed cost allocation scoped to Kubernetes constructs like clusters and namespaces and to Azure compute, network, and storage resources.
+The [AKS cost analysis feature](/azure/aks/cost-analysis) provides a way to deploy a cost allocation tool based on the open-source OpenCost project. The feature displays detailed cost allocation scoped to Kubernetes constructs like clusters and namespaces and to Azure compute, network, and storage resources.
 
-Use open-source tools like [KubeCost](https://www.kubecost.com) to monitor and govern costs for an AKS cluster. Scope cost allocation to a deployment, service, label, pod, or namespace to support flexible chargeback or showback to cluster users. For more information, see [Cost governance with Kubecost](/azure/cloud-adoption-framework/scenarios/app-platform/aks/cost-governance-with-kubecost).
-For more information, see [Architectural approaches for cost management and allocation in a multitenant solution](/azure/architecture/guide/multitenant/approaches/cost-management-allocation) and [Overview of the Cost Optimization pillar](/azure/architecture/framework/cost/overview).
+Use open-source tools like [KubeCost](https://www.kubecost.com) to monitor and govern costs for an AKS cluster. Scope cost allocation to a deployment, service, label, pod, or namespace to support flexible chargeback or showback to cluster users.
+
+For more information, see the following articles:
+
+- [Cost governance with Kubecost](/azure/cloud-adoption-framework/scenarios/app-platform/aks/cost-governance-with-kubecost)
+- [Architectural approaches for cost management and allocation in a multitenant solution](/azure/architecture/guide/multitenant/approaches/cost-management-allocation)
+- [Overview of the Cost Optimization pillar](/azure/architecture/framework/cost/overview)
 
 ## Governance
 
 When multiple tenants share the same infrastructure, managing data privacy, compliance, and regulatory requirements can become complicated. Implement strong security measures and data governance policies. Shared AKS clusters increase the risk of data breaches, unauthorized access, and noncompliance with data protection regulations. Each tenant might have unique data governance requirements and compliance policies, which makes it difficult to ensure data security and privacy.
 
-[Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) is a cloud-native container security solution that provides threat detection and protection for Kubernetes environments. Use Defender for Containers to enhance data governance and compliance when you host multiple tenants in a Kubernetes cluster. Defender for Containers protects sensitive data, detects and responds to threats by analyzing container behavior and network traffic, and helps meet regulatory requirements. It provides auditing, log management, and report generation to demonstrate compliance to regulators and auditors.
+[Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) is a cloud-native container security solution that provides threat detection and protection for Kubernetes environments. Use this service to enhance data governance and compliance when you host multiple tenants in a Kubernetes cluster. Defender for Containers protects sensitive data, detects and responds to threats by analyzing container behavior and network traffic, and helps meet regulatory requirements. It provides auditing, log management, and report generation to demonstrate compliance to regulators and auditors.
 
 ## Contributors
 
