@@ -247,7 +247,7 @@ This approach has the following risks:
 
 - Data separation between tenants requires careful implementation. Separate the data for each tenant and implement safeguards to prevent data leakage between tenants.
 
-- Cost tracking and attribution to individual tenants based on actual usage is complex. [Track and associate Azure costs](/azure/architecture/guide/multitenant/considerations/measure-consumption) to individual tenants. Non-Microsoft solutions, like [kubecost](https://www.kubecost.com), can help you calculate and break down costs across different teams and tenants.
+- Cost tracking and attribution to individual tenants based on actual usage is complex. [Track and associate Azure costs](/azure/architecture/guide/multitenant/considerations/measure-consumption) to individual tenants. Non-Microsoft solutions, like [Kubecost](https://www.kubecost.com), can help you calculate and break down costs across different teams and tenants.
 
 - Maintenance is simpler with a single deployment because you only update one set of Azure resources and maintain a single application. But any changes to infrastructure or application components can affect the entire customer base.
 
@@ -337,7 +337,7 @@ Pod autoscaling scales pods automatically based on resource demands. [Horizontal
 
 [Vertical Pod Autoscaler (VPA)](/azure/aks/vertical-pod-autoscaler) adjusts CPU and memory allocated to pods, which reduces the number of nodes required to run tenant applications. Fewer nodes reduce total cost and help avoid [noisy neighbor problems](/azure/architecture/antipatterns/noisy-neighbor/noisy-neighbor).
 
-For better resource allocation and isolation between tenants, assign [capacity reservation groups](/azure/aks/manage-node-pools#associate-capacity-reservation-groups-to-node-pools) to node pools.
+For better resource allocation and isolation between tenants, assign [capacity reservation groups](/azure/aks/use-capacity-reservation-groups) to node pools.
 
 ## Maintenance
 
@@ -547,7 +547,7 @@ A private AKS cluster keeps network traffic between your API server and node poo
 
 ### Authorized IP address ranges
 
-[Authorized IP address ranges](/azure/aks/api-server-authorized-ip-ranges) improve cluster security and minimize attacks. This approach restricts control plane access on a public AKS cluster to a specific list of IP addresses and CIDR ranges. The API server remains publicly exposed, but only the specified IP addresses have access. For more information, see [Secure access to the API server by using authorized IP address ranges in AKS](/azure/aks/api-server-authorized-ip-ranges).
+[Authorized IP address ranges](/azure/aks/api-server-authorized-ip-ranges) improve cluster security and minimize attacks. This approach restricts control plane access on a public AKS cluster to a specific list of IP addresses and CIDR ranges. The API server remains publicly exposed, but only the specified IP addresses have access.
 
 ### Private Link integration
 
@@ -633,11 +633,11 @@ Cost governance is the process of continuously implementing policies to control 
 
 - **Fully multitenant:** When a single multitenant application serves all tenant requests, track resource consumption and the number of requests that each tenant generates. Charge your customers accordingly.
 
-- **Dedicated cluster:** When a cluster is dedicated to a single tenant, it's easy to charge the costs of Azure resources back to the customer. The total cost of ownership (TCO) depends on many factors, including VM count and size, network traffic costs, public IP addresses, load balancers, and storage services that the tenant solution uses, like managed disks or Azure Files. Tag an AKS cluster and its resources in the node resource group to simplify cost charging. For more information, see [Add tags to the cluster](/azure/aks/use-tags#add-tags-to-the-cluster).
+- **Dedicated cluster:** When a cluster is dedicated to a single tenant, it's easy to charge the costs of Azure resources back to the customer. The total cost of ownership (TCO) depends on many factors, including VM count and size, network traffic costs, public IP addresses, load balancers, and storage services that the tenant solution uses, like managed disks or Azure Files. Tag an AKS cluster and its resources in the node resource group to simplify cost charging. For more information, see [Add tags to the cluster](/azure/aks/use-tags).
 
-- **Dedicated node pool:** Apply an Azure tag to a new or existing node pool dedicated to a single tenant. The tag applies to each node in the node pool and persists through upgrades. Tags also apply to new nodes added to a node pool during scale-out operations. Tags help with policy tracking and cost charging. For more information, see [Add tags to node pools](/azure/aks/use-tags).
+- **Dedicated node pool:** Apply an Azure tag to a new or existing node pool dedicated to a single tenant. The tag applies to each node in the node pool and persists through upgrades. Tags also apply to new nodes added to a node pool during scale-out operations. Tags help with policy tracking and cost charging. For more information, see [Add tags to node pools](/azure/aks/use-tags#add-tags-to-node-pools).
 
-- **Other resources:** Use tags to associate dedicated resource costs with a specific tenant. Tag public IP addresses, files, and disks by using a Kubernetes manifest. These tags preserve their Kubernetes-assigned values even if you update them through other methods. When you remove public IP addresses, files, or disks through Kubernetes, their tags are also removed. Tags on resources that Kubernetes doesn't track remain unaffected. For more information, see [Add tags by using Kubernetes](/azure/aks/use-tags#add-tags-by-using-kubernetes).
+- **Other resources:** Use tags to associate dedicated resource costs with a specific tenant. Tag public IP addresses, files, and disks by using a Kubernetes manifest. These tags preserve their Kubernetes-assigned values even if you update them through other methods. When you remove public IP addresses, files, or disks through Kubernetes, their tags are also removed. Tags on resources that Kubernetes doesn't track remain unaffected. For more information, see [Add tags by using Kubernetes](/azure/aks/use-tags#add-tags-using-kubernetes).
 
 The [AKS cost analysis feature](/azure/aks/cost-analysis) provides a way to deploy a cost allocation tool based on the open-source OpenCost project. The feature displays detailed cost allocation scoped to Kubernetes constructs like clusters and namespaces and to Azure compute, network, and storage resources.
 
