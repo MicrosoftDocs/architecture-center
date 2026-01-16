@@ -2,19 +2,27 @@ The success of your cloud solution depends on its reliability. Reliability is th
 
 For more information on SRE strategies, see [AZ-400: Develop a Site Reliability Engineering (SRE) strategy](/training/paths/az-400-develop-sre-strategy).
 
-## Potential use cases
-
-The concepts in this article apply to:
-
-- API-based cloud services.
-- Public-facing web applications.
-- IoT-based or event-based workloads.
-
 ## Architecture
 
 :::image type="content" source="media/scalable-apps-performance-modeling-site-reliability.png" alt-text="The architecture shows microservices in a Kubernetes cluster. They receive requests passed on by Azure Front Door, and access data using various storage services." lightbox="media/scalable-apps-performance-modeling-site-reliability.png" :::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/US-1881435-scalable-apps-performance-modeling-site-reliability.pptx) of this architecture.*
+
+### Dataflow
+
+The following dataflow corresponds to the previous diagram:
+
+1. Client applications such as web apps, mobile apps, and service applications send requests to the unified endpoint `https://api.contoso.com`.
+1. Azure Front Door receives all incoming requests and provides global load balancing, SSL termination, and web application firewall protection.
+1. Front Door routes requests to Azure API Management, which applies policies for access control, rate limiting, caching, and request transformation.
+1. API Management forwards requests to the Application Gateway Ingress Controller (AGIC), which load balances traffic across the AKS cluster.
+1. The appropriate microservice in AKS processes the request. Microservices include Product, Profile, Orders and Payment, and Content services.
+1. Microservices access backend data stores as needed:
+   - Azure Cosmos DB for globally distributed, low-latency data.
+   - Azure SQL for relational data.
+   - Azure Storage and Azure Data Lake Storage for unstructured content and files.
+1. Microsoft Entra ID authenticates and authorizes users and service principals throughout the request flow.
+1. The response traverses back through the same path to the client application.
 
 This architecture represents a scalable API platform. The solution comprises multiple microservices that use various databases and storage services.
 
@@ -46,6 +54,20 @@ For the compute plane, consider:
   > [!NOTE]
   > Azure Spring Apps is scheduled for retirement in 2028. For new Java workloads, consider [AKS](https://learn.microsoft.com/azure/aks/) or [Azure Container Apps](https://learn.microsoft.com/azure/container-apps/overview) as alternatives.
 
+## Scenario details
+
+This example scenario covers high-level marketplace and e-commerce use cases, helping organizations build scalable API platforms using site reliability engineering (SRE) principles. SRE is a standard approach for designing digital services to ensure reliability, measured through service level objectives (SLOs) and service level indicators (SLIs).
+
+### Potential use cases
+
+The concepts in this article apply to:
+
+- API-based cloud services.
+- Public-facing web applications.
+- IoT-based or event-based workloads.
+- E-commerce platforms with product browsing, registration, and order management.
+- Content delivery applications serving news articles and media.
+
 ## Appropriate reliability
 
 The required reliability depends on the business context. SRE practices help you achieve the appropriate level of reliability.
@@ -68,18 +90,87 @@ This article shows how to ensure reliability by conducting scale and performance
 
 ## Considerations
 
-Refer to the [Reliability](/azure/architecture/framework/resiliency) and [Performance Efficiency](/azure/architecture/framework/scalability) pillars of the [Azure Well-Architected Framework](/azure/well-architected/) for guidance.
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
 
-Apply scalability and performance modeling techniques to fine-tune architecture and design. The process is:
+> [!NOTE]
+> Azure Monitor, including Application Insights, provides application performance management (APM), telemetry, and metrics analysis. Azure Monitor supports OpenTelemetry and integrates with Azure Managed Grafana for distributed tracing and visualization.
+
+### Reliability
+
+Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
+
+This architecture incorporates several reliability patterns:
+
+- **Zone redundancy**: Azure Front Door, Application Gateway v2, and AKS support availability zone deployment for high availability within a region.
+- **Autoscaling**: AKS cluster autoscaler, API Management autoscaling, and Azure Cosmos DB autoscale throughput help the system handle load variations without manual intervention.
+- **Health monitoring**: Use Azure Monitor and Application Insights to track SLIs and SLOs, enabling proactive identification of reliability issues.
+- **Resilience testing**: Use [Azure Chaos Studio](/azure/chaos-studio/chaos-studio-overview) to validate fault tolerance and recovery procedures.
+
+### Security
+
+Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
+
+This architecture addresses security through multiple layers:
+
+- **Identity and access management**: Microsoft Entra ID provides centralized identity management for users and service principals.
+- **Network security**: Azure Front Door provides web application firewall (WAF) protection against common web exploits. API Management enforces access policies and rate limiting.
+- **Data protection**: Use managed identities for service-to-service authentication. Enable encryption at rest for all data stores.
+- **API security**: API Management provides OAuth 2.0 validation, certificate authentication, and IP filtering capabilities.
+
+### Cost Optimization
+
+Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+
+Cost drivers in this architecture include:
+
+- **Compute**: AKS node pools and their VM sizes significantly affect costs. Start with standard-sized VMs and adjust based on monitoring data.
+- **API Management**: Costs vary by tier. The Standard and Premium tiers support autoscaling but at higher base costs.
+- **Data services**: Azure Cosmos DB costs depend on provisioned throughput and storage. Use autoscale throughput to optimize for variable workloads.
+- **Networking**: Azure Front Door and Application Gateway incur costs based on traffic volume and features enabled.
+
+To optimize costs:
+
+- Use Azure Advisor recommendations for Reserved Instances and Azure Savings Plans.
+- Right-size AKS node pools based on actual utilization.
+- Configure autoscaling thresholds to balance performance and cost.
+- Use Azure Cosmos DB autoscale to avoid over-provisioning.
+
+Use the [Azure Pricing Calculator](https://azure.com/e/fe330064f12845cf82272f0e803b77e1) to estimate costs for this architecture. A typical medium-scale deployment includes:
+
+| Component | SKU | Estimated monthly cost factor |
+| --- | --- | --- |
+| Azure Front Door | Premium | Traffic-based |
+| API Management | Standard | Instance-based |
+| AKS | Standard | Node count × VM size |
+| Azure Cosmos DB | Autoscale | RU/s + storage |
+| Application Gateway | WAF_v2 | Capacity units |
+
+### Operational Excellence
+
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
+
+Establish a performance governance process to manage performance from inception to retirement:
+
+- **Performance objectives**: Define aspirational SLOs based on business requirements.
+- **Performance modeling**: Identify business-critical workflows and model expected performance.
+- **Instrumentation**: Use Azure Monitor and Application Insights for APM, telemetry, and metrics analysis. Azure Monitor supports OpenTelemetry and integrates with Azure Managed Grafana for distributed tracing and visualization.
+- **Performance testing**: Conduct load and stress testing using tools such as K6, Karate, and JMeter. Integrate automated tests into continuous deployment pipelines.
+- **Continuous monitoring**: Set up alerts based on SLI thresholds and track SLO compliance.
+- **Ring-based deployment**: Use progressive rollout strategies to minimize the impact of changes.
+
+Track performance objectives as granular user stories in your backlog to ensure governance activities are prioritized alongside feature work.
+
+### Performance Efficiency
+
+Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+
+Apply scalability and performance modeling techniques to fine-tune architecture and design:
 
 - Identify scalability requirements.
 - Model expected load.
 - Define SLIs and SLOs for user scenarios.
 
-> [!NOTE]
-> Azure Monitor, including Application Insights, provides application performance management (APM), telemetry, and metrics analysis. Azure Monitor supports OpenTelemetry and integrates with Azure Managed Grafana for distributed tracing and visualization.
-
-### Capture scalability requirements
+#### Capture scalability requirements
 
 Assume these peak load metrics:
 
@@ -100,20 +191,20 @@ API scale requirements under normal peak load:
 
 During special events, scale requirements may reach 10 times normal peak load.
 
-### Define SLI metrics to calculate SLOs
+#### Define SLI metrics to calculate SLOs
 
 SLI metrics indicate the degree to which a service provides a satisfactory experience, expressed as the ratio of good events to total events.
 
 Example SLI metrics:
 
-| Metric        | Description                                              |
-|---------------|---------------------------------------------------------|
-| Availability  | Whether the request was serviced by the API             |
-| Latency       | Time for the API to process the request and reply       |
-| Throughput    | Number of requests handled                              |
-| Success Rate  | Number of requests handled successfully                 |
-| Error Rate    | Number of errors for handled requests                   |
-| Freshness     | Number of times the user received the latest data       |
+| Metric | Description |
+| --- | --- |
+| Availability | Whether the request was serviced by the API |
+| Latency | Time for the API to process the request and reply |
+| Throughput | Number of requests handled |
+| Success Rate | Number of requests handled successfully |
+| Error Rate | Number of errors for handled requests |
+| Freshness | Number of times the user received the latest data |
 
 Examples:
 
@@ -122,36 +213,15 @@ Examples:
 
 After defining SLIs, determine what telemetry to capture. For HTTP services, use status codes. Azure Monitor and Application Insights provide diagnostic and monitoring support.
 
-### Use percentile distributions
+#### Use percentile distributions
 
 Calculate some SLIs using percentile distributions to exclude outliers. For example, if 95th percentile latency is within the threshold, the SLO is considered met.
 
-### Choose proper measurement periods
+#### Choose proper measurement periods
 
 Define SLO measurement periods to capture activity, not idleness. The window can range from five minutes to 24 hours.
 
-### Establish a performance governance process
-
-Performance must be managed from inception to retirement. Elements of performance governance:
-
-:::image type="content" source="media/scalable-apps-performance-modeling-site-reliability-lifecycle.png" alt-text="Diagram that shows the seven elements of performance governance, as described in the following section." :::
-
-- **Performance Objectives:** Define aspirational SLOs.
-- **Performance Modeling:** Identify business-critical workflows and model performance.
-- **Design Guidelines:** Prepare and communicate performance design guidelines.
-- **Implement Guidelines:** Instrument components and conduct design reviews.
-- **Performance Testing:** Conduct load and stress testing.
-- **Bottleneck Analysis:** Identify and remove performance bottlenecks.
-- **Continuous Monitoring:** Use Azure Monitor and alerting.
-- **Performance Governance:** Track compliance and review after each release.
-
-Repeat these steps throughout development.
-
-### Track performance objectives and expectations in your backlog
-
-Track performance objectives as granular user stories to ensure governance activities are prioritized.
-
-### Establish aspirational SLOs for the target solution
+#### Establish aspirational SLOs for the target solution
 
 Sample aspirational SLOs:
 
@@ -163,7 +233,7 @@ Sample aspirational SLOs:
 
 Tailor SLOs to your application requirements.
 
-### Measure initial SLOs based on log data
+#### Measure initial SLOs based on log data
 
 Assume a week of data:
 
@@ -181,7 +251,7 @@ Initial SLIs:
 
 Compare log data to SLO targets to assess compliance.
 
-### Guidance for technical risk mitigation
+#### Guidance for technical risk mitigation
 
 Recommended practices:
 
@@ -199,13 +269,19 @@ Recommended practices:
   - Use error budgets for experimentation.
   - Use [Azure Chaos Studio](/azure/chaos-studio/chaos-studio-overview) for resilience testing.
 
-## Pricing
+## Contributors
 
-Reliability, performance efficiency, and cost optimization are interrelated. Azure services in this architecture support autoscaling to accommodate changing loads.
+*Microsoft maintains this article. The following contributors wrote this article.*
 
-For AKS, start with standard-sized VMs for node pools. Monitor and adjust resources as needed. Use Azure Savings Plans and Reserved Instance recommendations in [Azure Advisor](/azure/advisor/advisor-overview) for cost optimization.
+Principal author:
 
-Cost optimization is a pillar of the [Microsoft Azure Well-Architected Framework](/azure/well-architected/). To estimate costs, use the [Pricing calculator](https://azure.microsoft.com/pricing/calculator).
+- [Subhajit Chatterjee](https://www.linkedin.com/in/subhajit-chatterjee-b9b53b44) | Principal Software Engineer
+
+Other contributors:
+
+- [Dawid Obrocki](https://www.linkedin.com/in/obrocki) | Senior Software Engineer
+
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
@@ -231,10 +307,3 @@ Cost optimization is a pillar of the [Microsoft Azure Well-Architected Framework
 - [AZ-400: Develop a Site Reliability Engineering (SRE) strategy](/training/paths/az-400-develop-sre-strategy)
 - [Baseline web application with zone redundancy](../../web-apps/app-service/architectures/baseline-zone-redundant.yml)
 
-## Contributors
-
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
-
-Principal author:
-
-- [Subhajit Chatterjee](https://www.linkedin.com/in/subhajit-chatterjee-b9b53b44) | Principal Software Engineer
