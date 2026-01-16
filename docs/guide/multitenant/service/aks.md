@@ -215,7 +215,7 @@ This approach provides the following benefits:
 
 - Each tenant AKS cluster has a separate API server, which guarantees isolation across tenants for security, networking, and resource consumption. An attacker who gains control of a container only accesses the containers and mounted volumes that belong to a single tenant. Use full-isolation tenancy models for customers that have high regulatory compliance requirements.
 
-- Tenants don't affect each other's system performance, so this approach prevents [noisy neighbor problems][noisy-neighbor]. This consideration includes traffic against the API server, which is a shared critical component in any Kubernetes cluster. Custom controllers that generate unregulated, high-volume traffic against the API server can cause cluster instability, which leads to request failures, timeouts, and API retry storms. Use the [uptime SLA](/azure/aks/uptime-sla) feature to scale out the control plane of an AKS cluster to meet traffic demand. But provisioning a dedicated cluster might be better for customers that have strong workload isolation requirements.
+- Tenants don't affect each other's system performance, so this approach prevents [noisy neighbor problems](/azure/architecture/antipatterns/noisy-neighbor/noisy-neighbor). This consideration includes traffic against the API server, which is a shared critical component in any Kubernetes cluster. Custom controllers that generate unregulated, high-volume traffic against the API server can cause cluster instability, which leads to request failures, timeouts, and API retry storms. Use the [uptime SLA](/azure/aks/uptime-sla) feature to scale out the control plane of an AKS cluster to meet traffic demand. But provisioning a dedicated cluster might be better for customers that have strong workload isolation requirements.
 
 - You can roll out updates and changes progressively across tenants to reduce the likelihood of system-wide outages. Azure costs are easily attributed to individual tenants because every resource is dedicated to a single tenant.
 
@@ -567,12 +567,9 @@ A [reverse proxy](https://en.wikipedia.org/wiki/Reverse_proxy) sits in front of 
 
 - [HAProxy Kubernetes Ingress Controller](https://www.haproxy.com/documentation/kubernetes/latest) is a reverse proxy for Kubernetes that supports Transport Layer Security (TLS) termination, URL-path-based routing, and other standard features.
 
-- [Application Gateway for Containers](/azure/application-gateway/for-containers/overview) is a managed application delivery controller (ADC) that provides layer-7 load balancing for AKS-hosted applications. It provides advanced routing capabilities, SSL termination, and web application firewall (WAF) features to protect tenant applications from common web vulnerabilities and attacks.
-
-- [Application Gateway for Containers](/azure/application-gateway/for-containers/overview) supersedes [AGIC](/azure/application-gateway/ingress-controller-overview). Use Application Gateway for Containers for new deployments. You can use existing AGIC deployments, but you should plan to migrate to Application Gateway for Containers.
+- [Application Gateway for Containers](/azure/application-gateway/for-containers/overview) is a managed application delivery controller (ADC) that provides layer-7 load balancing for AKS-hosted applications. It provides advanced routing capabilities, SSL termination, and web application firewall (WAF) features to protect tenant applications from common web vulnerabilities and attacks. Application Gateway for Containers supersedes [AGIC](/azure/application-gateway/ingress-controller-overview). Use Application Gateway for Containers for new deployments. You can use existing AGIC deployments, but you should plan to migrate to Application Gateway for Containers.
 
 When you use an AKS-hosted reverse proxy to secure and handle incoming requests to multiple tenant applications, consider the following recommendations:
-
 - Host the reverse proxy on a dedicated node pool configured to use a VM size that has high network bandwidth and [accelerated networking](/azure/virtual-network/accelerated-networking-overview) turned on.
 
 - Configure the node pool that hosts your reverse proxy for autoscaling.
