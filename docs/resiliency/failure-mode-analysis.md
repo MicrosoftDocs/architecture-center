@@ -47,32 +47,6 @@ As a starting point for your FMA process, this article contains a catalog of pot
 1. Redirect the user to an error page.
 1. User retries.
 
-## Azure AI Search
-
-### Writing data to Azure AI Search fails.
-
-**Detection**. Catch `Microsoft.Rest.Azure.CloudException` errors.
-
-**Recovery:**
-
-The [Search .NET SDK][search-sdk] automatically retries after transient failures. Any exceptions thrown by the client SDK should be treated as nontransient errors.
-
-The default retry policy uses exponential back-off. To use a different retry policy, call `SetRetryPolicy` on the `SearchIndexClient` or `SearchServiceClient` class. For more information, see [Automatic Retries][auto-rest-client-retry].
-
-**Diagnostics**. Use [Search Traffic Analytics][search-analytics].
-
-### Reading data from Azure AI Search fails.
-
-**Detection**. Catch `Microsoft.Rest.Azure.CloudException` errors.
-
-**Recovery:**
-
-The [Search .NET SDK][search-sdk]  automatically retries after transient failures. Any exceptions thrown by the client SDK should be treated as nontransient errors.
-
-The default retry policy uses exponential back-off. To use a different retry policy, call `SetRetryPolicy` on the `SearchIndexClient` or `SearchServiceClient` class. For more information, see [Automatic Retries][auto-rest-client-retry].
-
-**Diagnostics**. Use [Search Traffic Analytics][search-analytics].
-
 ## Cassandra
 
 ### Reading or writing to a node fails.
@@ -289,7 +263,6 @@ See [Identify dependencies](/azure/well-architected/reliability/failure-mode-ana
 
 <!-- links -->
 
-[auto-rest-client-retry]: https://github.com/Azure/autorest/tree/main/docs
 [azure-activity-logs]: /azure/monitoring-and-diagnostics/monitoring-overview-activity-logs
 [azure-alerts]: /azure/monitoring-and-diagnostics/insights-alerts-portal
 [BrokeredMessage.TimeToLive]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
@@ -305,8 +278,6 @@ See [Identify dependencies](/azure/well-architected/reliability/failure-mode-ana
 [sb-messaging-exceptions]: /azure/service-bus-messaging/service-bus-messaging-exceptions
 [sb-partition]: /azure/service-bus-messaging/service-bus-partitioning
 [sb-poison-message]: /azure/app-service/webjobs-sdk-how-to#automatic-triggers
-[search-sdk]:  /dotnet/api/overview/azure/search?view=azure-dotnet&preserve-view=true
-[search-analytics]: /azure/search/search-traffic-analytics
 [sql-db-audit]: /azure/sql-database/sql-database-auditing-get-started
 [sql-db-errors]: /azure/sql-database/sql-database-develop-error-messages/#resource-governance-errors
 [sql-db-failover]: /azure/sql-database/sql-database-geo-replication-failover-portal
