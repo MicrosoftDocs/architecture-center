@@ -158,4 +158,3 @@ For more information, contact **legacy2azure@microsoft.com**.
 
 - [Mainframe and midrange data replication to Azure using Qlik](mainframe-midrange-data-replication-azure-qlik.yml)
 - [Mainframe modernization by using BMC AMI Cloud](mainframe-modernization-bmc-ami-cloud.yml)
-- [Rehost mainframe applications by using NTT DATA UniKix](rehost-mainframe-ntt-data-unikix.yml)
