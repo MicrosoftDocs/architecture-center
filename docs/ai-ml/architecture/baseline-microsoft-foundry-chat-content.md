@@ -552,7 +552,7 @@ When planning your experimentation, testing, and production environments, establ
 
 #### Agent compute
 
-Microsoft fully manages the serverless compute platform for Azure AI Agent REST APIs and the orchestration implementation logic. A [self-hosted orchestration](#alternatives) provides more control over runtime characteristics and capacity, but you must directly manage the day-2 operations for that platform. Evaluate the constraints and responsibilities of your approach to understand which day-2 operations you must implement to support your orchestration layer.
+Microsoft fully manages the serverless compute platform for Azure AI Foundry Agent REST APIs and the orchestration implementation logic. A [self-hosted orchestration](#alternatives) provides more control over runtime characteristics and capacity, but you must directly manage the day-2 operations for that platform. Evaluate the constraints and responsibilities of your approach to understand which day-2 operations you must implement to support your orchestration layer.
 
 In both approaches, you must manage state storage, such as chat history and agent configuration for durability, backup, and recovery.
 
@@ -586,7 +586,9 @@ To prevent service disruptions, ensure safe and controlled agent deployment by i
 
   Agents defined in Agent Service behave nondeterministically, so you must determine how to measure and maintain your desired quality level. Create and run a test suite that checks for ideal responses to realistic user questions and scenarios.
 
-- **Version and track agents.** Assign clear version identifiers to each agent. Maintain records of which agent versions are active, along with their dependencies such as models, data sources, and tools. Prefer deploying new agent versions alongside existing ones to enable progressive rollout, rollback, and controlled migration of users or sessions.
+- **Version and track agents.** Assign clear version identifiers to each agent. Maintain records of which agent versions are active, along with their dependencies such as models, data sources, and tools. Prefer deploying new agent versions alongside existing ones to enable progressive rollout, rollback, and controlled migration of users or sessions. [Foundry can help on roll outs](/azure/ai-foundry/agents/how-to/publish-agent?view=foundry#update-a-published-agent-application) by allowing multiple versions of an agent to be published and available for use.
+
+- **Publish and share agents.** In Microsoft Foundry publishing promotes an agent from a development asset into a managed [Azure Agent Application resource](/azure/ai-foundry/agents/how-to/publish-agent?view=foundry) with a dedicated endpoint, independent identity, and governance capabilities. A deployment is created under the application that references your agent version and registers it in the Entra Agent Registry for discovery and governance.
 
 - **Plan for failback.** Foundry doesn't provide built-in support for blue-green or canary deployments of agents. If you require these deployment patterns, implement a routing layer, such as an API gateway or custom router, in front of the agent API. This routing layer allows you to shift traffic incrementally between agent versions, monitor the effect, and perform a full switchover when ready.
 
