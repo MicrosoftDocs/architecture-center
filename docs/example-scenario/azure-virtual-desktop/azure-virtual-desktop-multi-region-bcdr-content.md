@@ -437,6 +437,5 @@ Other contributors:
 
 - [Design reliable Azure applications](/azure/well-architected/resiliency/app-design)
 - [Azure files accessed on-premises and secured by AD DS](../hybrid/azure-files-on-premises-authentication.yml)
-- [Virtual Desktop for the enterprise](azure-virtual-desktop.yml)
 - [Enterprise file shares with disaster recovery](../file-storage/enterprise-file-shares-disaster-recovery.yml)
 - [FSLogix configuration examples](/fslogix/concepts-configuration-examples)

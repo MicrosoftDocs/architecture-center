@@ -1034,8 +1034,6 @@ items:
         href: example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr.yml
     - name: Architectures
       items:
-      - name: Azure Virtual Desktop for the enterprise
-        href: example-scenario/azure-virtual-desktop/azure-virtual-desktop.yml
       - name: Esri ArcGIS on Azure Virtual Desktop
         href: example-scenario/data/esri-arcgis-azure-virtual-desktop.yml
   - name: Web applications

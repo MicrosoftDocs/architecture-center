@@ -181,7 +181,6 @@ Principal authors:
 - [Configure highly available ArcGIS Enterprise](https://enterprise.arcgis.com/en/portal/latest/administer/windows/configure-highly-available-system.htm)
 - [Esri GIS mapping software, location intelligence, and spatial analytics](https://www.esri.com/home)
 
-## Related resources
+## Related resource
 
-- [Azure Virtual Desktop for the enterprise](../azure-virtual-desktop/azure-virtual-desktop.yml)
 - [FSLogix configuration examples](/fslogix/concepts-configuration-examples)
