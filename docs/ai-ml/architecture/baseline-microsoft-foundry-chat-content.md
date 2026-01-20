@@ -8,7 +8,7 @@ Enterprise chat applications can empower employees through conversational intera
 
 - An orchestrator or agent that oversees the interactions between data sources, language models, and the end user.
 
-This article provides a baseline architecture to help you build and deploy enterprise chat applications by using [Microsoft Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) and [Azure OpenAI in Foundry Models](/azure/ai-services/openai/concepts/models). This architecture uses a prompt single agent hosted in Foundry Agent Service. The agent receives user messages and then queries data stores to retrieve grounding information for the language model.
+This article provides a baseline architecture to help you build and deploy enterprise chat applications by using [Microsoft Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) and [Azure OpenAI in Foundry Models](/azure/ai-services/openai/concepts/models). This architecture uses a single, prompt-based agent hosted in Foundry Agent Service. The agent receives user messages and then queries data stores to retrieve grounding information for the language model.
 
 The chat UI follows the [baseline Azure App service web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml) guidance about how to deploy a secure, zone-redundant, and highly available web application on App Service. In that architecture, App Service communicates with the Azure platform as a service (PaaS) solution through virtual network integration over private endpoints. In the chat UI architecture, App Service communicates with the agent over a private endpoint. Public access to the Foundry portal and agents is disabled.
 
@@ -18,7 +18,7 @@ The chat UI follows the [baseline Azure App service web application](../../web-a
 This architecture uses the [Agent Service standard agent setup](/azure/ai-services/agents/concepts/standard-agent-setup) to enable enterprise-grade security, compliance, and control. In this configuration, you bring your own network for network isolation and your own Azure resources to store chat and agent state. All communication between application components and Azure services occurs over private endpoints, which ensures that data traffic remains within your workload's virtual network. Outbound traffic from the agents strictly routes through Azure Firewall, which enforces egress rules.
 
 > [!TIP]
-> :::image type="icon" source="../../_images/github.svg"::: The [Agent Service reference implementation](https://github.com/Azure-Samples/microsoft-foundry-baseline) showcases a baseline end-to-end chat implementation on Azure. It serves as a foundation to develop custom solutions as you move toward production. The chat UI application in this reference implementation is derived from the basic chat UI app. This design choice is intentional and focuses on helping users quickly understand how to communicate with agent endpoints in a clear and straightforward way. To avoid unnecessary complexity, the sample keeps the interaction surface minimal, while [other repositories](https://github.com/azure-ai-foundry/foundry-agent-webapp) explore more advanced scenarios and patterns in greater depth.
+> :::image type="icon" source="../../_images/github.svg"::: The [Agent Service reference implementation](https://github.com/Azure-Samples/microsoft-foundry-baseline) showcases a baseline end-to-end chat implementation on Azure. It serves as a foundation to develop custom solutions as you move toward production.
 
 ## Architecture
 
@@ -149,9 +149,9 @@ Dynamic agent management increases flexibility but also introduces the burden of
 
 Choose the agent approach that aligns with your workload's user experience requirements.
 
-#### Prompt single-agent or multi-agent orchestration
+#### Single-agent or multi-agent orchestration
 
-**Current approach:** This reference architecture uses a prompt single agent that has access to all necessary knowledge sources and tools to handle most user interactions effectively.
+**Current approach:** This reference architecture uses a single agent that has access to all necessary knowledge sources and tools to handle most user interactions effectively.
 
 **Alternative approach:** You can orchestrate multiple specialized agents, where each agent focuses on specific domains, uses different models, or accesses distinct knowledge stores and tools.
 
@@ -165,7 +165,7 @@ Consider a multi-agent approach when your workload exhibits the following charac
 
 - The chat experience serves as a front end to business processes that involve sequential or parallel steps that require different specialists.
 
-Multi-agent approaches introduce coordination complexity and increased latency because of communication between agents. Use a prompt single agent when your use case is well-defined, doesn't require strict access isolation, and can be handled effectively by one model with a reasonable set of tools.
+Multi-agent approaches introduce coordination complexity and increased latency because of communication between agents. Use a single agent when your use case is well-defined, doesn't require strict access isolation, and can be handled effectively by one model with a reasonable set of tools.
 
 For guidance about how to implement multiple coordinated agents, see [AI agent orchestration patterns](../guide/ai-agent-design-patterns.md). This article covers sequential, concurrent, group chat, handoff, and magentic orchestration approaches. You can implement some patterns within Agent Service. Other patterns require self-hosted orchestration by using an SDK such as Microsoft Agent Framework.
 
@@ -635,6 +635,8 @@ Azure AI agents run on a serverless compute back end that doesn't support custom
 ## Deploy this scenario
 
 To deploy and run this reference implementation, follow the deployment guide in the [Agent Service chat baseline reference implementation](https://github.com/Azure-Samples/microsoft-foundry-baseline).
+
+The chat UI application in this reference implementation is simplistic and focuses on helping users quickly understand how to communicate with agent endpoints. For examples of advanced chat UI experiences you can use with this architecture, see the [Microsoft Foundry GitHub repository](https://github.com/azure-ai-foundry/foundry-agent-webapp).
 
 ## Contributors
 
