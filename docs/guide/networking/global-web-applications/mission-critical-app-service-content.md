@@ -28,7 +28,7 @@ The red box represents a scale unit with services that scale together. To effect
 
 These individual scale units don't have any dependencies on one another and only communicate with shared services outside of the individual scale unit. You can use these scale units in a [blue-green deployment](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-deploy-test#deployment-zero-downtime-updates) by rolling out new scale units, validating that they function correctly, and gradually moving production traffic onto them.
 
-In this scenario, scale units are temporary, which improves rollout processes and provides scalability within and across regions. When you take this approach, store persistent system-of-record (SOR) data only in the database because the database replicates to the secondary region.
+In this scenario, scale units are temporary, which improves rollout processes and provides scalability within and across regions. When you take this approach, store persistent system-of-record data only in the database because the database replicates to the secondary region.
 
 Use Azure Managed Redis within or alongside a scale unit to store auxiliary application state like cache data, session state, rate-limit counters, feature flags, and coordination metadata within the scale unit. Active geo-replication lets Redis data replicate asynchronously across regions to improve resiliency and reduce recovery time objectives (RTOs) during regional failover scenarios. This capability typically applies to auxiliary state that must survive regional outages, while entirely rebuildable cache data remains local to a scale unit.
 
@@ -85,9 +85,9 @@ Multiple databases are common in complex architectures, such as microservices ar
 
 ### Caching platform
 
-In write-heavy workloads or workloads that require very low write latency, writing directly to the relational database in the request path can create a scalability or latency bottleneck. In these scenarios, introduce Azure Managed Redis as an application-tier data platform to accelerate write throughput and protect the SOR database.
+In write-heavy workloads or workloads that require very low write latency, writing directly to the relational database in the request path can create a scalability or latency bottleneck. In these scenarios, introduce Azure Managed Redis as an application-tier data platform to accelerate write throughput and protect the system-of-record database.
 
-When you take this approach, Azure Managed Redis serves as the initial write target for selected data domains, while data persists asynchronously to Azure SQL by using a *write-behind* or *write-back* pattern. This design lets the application absorb bursts of writes that have low latency while maintaining Azure SQL as the authoritative SOR. Typical use cases include session updates, counters, rate limiting, state transitions, telemetry aggregation, and other data that can tolerate eventual consistency.
+When you take this approach, Azure Managed Redis serves as the initial write target for selected data domains, while data persists asynchronously to Azure SQL by using a *write-behind* or *write-back* pattern. This design lets the application absorb bursts of writes that have low latency while maintaining Azure SQL as the authoritative system-of-record. Typical use cases include session updates, counters, rate limiting, state transitions, telemetry aggregation, and other data that can tolerate eventual consistency.
 
 Azure Managed Redis also supports active geo-replication, which lets Redis-backed data replicate asynchronously across regions. When applied selectively, active geo-replication lets specific categories of application state participate in active-active application designs, even when the primary relational database remains active-passive. This capability can significantly reduce RTOs during regional failover scenarios.
 
