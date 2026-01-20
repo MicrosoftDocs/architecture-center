@@ -72,32 +72,32 @@
 		.st57 {fill:#9cebff;stroke:none;stroke-linecap:butt;stroke-width:33.9998}
 		.st58 {fill:url(#grad0-279);stroke:none;stroke-linecap:butt;stroke-width:33.9998}
 		.st59 {fill:none;stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.749995}
-		.st60 {fill:#000000;font-family:Segoe UI;font-size:0.75em}
-		.st61 {fill:none;stroke:none;stroke-linecap:butt;stroke-width:2.24999}
-		.st62 {fill:url(#grad0-311);stroke:none;stroke-linecap:butt;stroke-width:19.125}
-		.st63 {fill:#0078d4;stroke:none;stroke-linecap:butt;stroke-width:19.125}
-		.st64 {fill:#ffffff;fill-opacity:0.5;stroke:none;stroke-linecap:butt;stroke-width:19.125}
-		.st65 {fill:#ffffff;fill-opacity:0.25;stroke:none;stroke-linecap:butt;stroke-width:19.125}
-		.st66 {fill:url(#grad0-327);stroke:none;stroke-linecap:butt;stroke-width:19.125}
-		.st67 {fill:none;stroke:#000000;stroke-dasharray:0.749995,1.49999;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.749995}
-		.st68 {stroke:#000000;stroke-dasharray:0.5,1;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.5}
-		.st69 {fill:url(#grad0-349);stroke:none;stroke-linecap:butt;stroke-width:34}
-		.st70 {fill:#ffffff;stroke:none;stroke-linecap:butt;stroke-width:34}
-		.st71 {fill:#0078d4}
-		.st72 {stroke:none;stroke-linecap:butt;stroke-width:34}
-		.st73 {fill:url(#grad0-362);stroke:none;stroke-linecap:butt;stroke-width:34}
-		.st74 {fill:#f2f2f2;fill-opacity:0.55;stroke:none;stroke-linecap:butt;stroke-width:34}
-		.st75 {fill:none;stroke:none;stroke-linecap:butt;stroke-width:34}
-		.st76 {fill:#f2f2f2;stroke:none;stroke-linecap:butt;stroke-width:34}
-		.st77 {fill:#76bc2d;stroke:none;stroke-linecap:butt;stroke-width:33.9998}
-		.st78 {fill:#5e9624;stroke:none;stroke-linecap:butt;stroke-width:33.9998}
-		.st79 {fill:url(#grad0-494);stroke:none;stroke-linecap:butt;stroke-width:33.9998}
-		.st80 {fill:#005ba1;stroke:none;stroke-linecap:butt;stroke-width:33.9998}
-		.st81 {fill:#0078d4;stroke:none;stroke-linecap:butt;stroke-width:33.9998}
-		.st82 {fill:#000000;font-family:Segoe UI;font-size:0.833336em}
-		.st83 {fill:none;stroke:#7f7f7f;stroke-dasharray:0.749995,1.49999;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.749995}
+		.st60 {fill:#000000;font-family:Segoe UI;font-size:0.75em;font-weight:bold}
+		.st61 {font-size:1em;font-weight:normal}
+		.st62 {fill:none;stroke:none;stroke-linecap:butt;stroke-width:2.24999}
+		.st63 {fill:url(#grad0-311);stroke:none;stroke-linecap:butt;stroke-width:19.125}
+		.st64 {fill:#0078d4;stroke:none;stroke-linecap:butt;stroke-width:19.125}
+		.st65 {fill:#ffffff;fill-opacity:0.5;stroke:none;stroke-linecap:butt;stroke-width:19.125}
+		.st66 {fill:#ffffff;fill-opacity:0.25;stroke:none;stroke-linecap:butt;stroke-width:19.125}
+		.st67 {fill:url(#grad0-327);stroke:none;stroke-linecap:butt;stroke-width:19.125}
+		.st68 {fill:none;stroke:#000000;stroke-dasharray:0.749995,1.49999;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.749995}
+		.st69 {stroke:#000000;stroke-dasharray:0.5,1;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.5}
+		.st70 {fill:url(#grad0-349);stroke:none;stroke-linecap:butt;stroke-width:34}
+		.st71 {fill:#ffffff;stroke:none;stroke-linecap:butt;stroke-width:34}
+		.st72 {fill:#0078d4}
+		.st73 {stroke:none;stroke-linecap:butt;stroke-width:34}
+		.st74 {fill:url(#grad0-362);stroke:none;stroke-linecap:butt;stroke-width:34}
+		.st75 {fill:#f2f2f2;fill-opacity:0.55;stroke:none;stroke-linecap:butt;stroke-width:34}
+		.st76 {fill:none;stroke:none;stroke-linecap:butt;stroke-width:34}
+		.st77 {fill:#f2f2f2;stroke:none;stroke-linecap:butt;stroke-width:34}
+		.st78 {fill:#76bc2d;stroke:none;stroke-linecap:butt;stroke-width:33.9998}
+		.st79 {fill:#5e9624;stroke:none;stroke-linecap:butt;stroke-width:33.9998}
+		.st80 {fill:url(#grad0-494);stroke:none;stroke-linecap:butt;stroke-width:33.9998}
+		.st81 {fill:#005ba1;stroke:none;stroke-linecap:butt;stroke-width:33.9998}
+		.st82 {fill:#0078d4;stroke:none;stroke-linecap:butt;stroke-width:33.9998}
+		.st83 {fill:#000000;font-family:Segoe UI;font-size:0.833336em}
 		.st84 {fill:#000000;font-family:Segoe UI;font-size:0.833336em;font-weight:bold}
-		.st85 {font-size:1em;font-weight:normal}
+		.st85 {fill:none;stroke:#7f7f7f;stroke-dasharray:0.749995,1.49999;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.749995}
 		.st86 {fill:#0075f3;stroke:none;stroke-linecap:butt;stroke-width:0.482701}
 		.st87 {fill:url(#grad0-775);stroke:none;stroke-linecap:butt;stroke-width:33.9998}
 		.st88 {fill:#e8e8e8;stroke:none;stroke-linecap:butt;stroke-width:33.9998}
@@ -1343,9 +1343,9 @@
 			<v:textBlock v:margins="rect(3.99997,3.99997,3.99997,3.99997)" v:verticalAlign="0"/>
 			<v:textRect cx="56.25" cy="843.304" width="112.51" height="57.1369"/>
 			<rect x="0" y="814.738" width="112.5" height="57.1369" class="st59"/>
-			<text x="12.87" y="826.83" class="st60" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Managed Redis<v:newlineChar/><tspan
-						x="4.55" dy="1.2em" class="st41">for session state and scale </tspan><tspan x="15.78" dy="1.2em"
-						class="st41">out repository (SOR)</tspan></text>		</g>
+			<text x="10.2" y="826.83" class="st60" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Managed Redis<v:newlineChar/><tspan
+						x="4.55" dy="1.2em" class="st61">for session state and scale </tspan><tspan x="15.78" dy="1.2em"
+						class="st61">out repository (SOR)</tspan></text>		</g>
 		<g id="shape2158-285" v:mID="2158" v:groupContext="shape" transform="translate(363.729,-187.776)">
 			<title>Sheet.2158</title>
 			<desc>Azure Load Balancer</desc>
@@ -1402,7 +1402,7 @@
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(397000):26"/>
 			</v:userDefs>
-			<rect v:rectContext="foreign" x="0" y="826.434" width="45.4407" height="45.4407" class="st61"/>
+			<rect v:rectContext="foreign" x="0" y="826.434" width="45.4407" height="45.4407" class="st62"/>
 			<switch>
 				<foreignObject x="0" y="826.431" width="45.4407" height="45.4407"
 						requiredExtensions="http://schemas.microsoft.com/visio/2003/SVGExtensions/">
@@ -1453,7 +1453,7 @@
 					</g>
 				</svg>
 			</switch>
-			<rect v:rectContext="foreign" x="0" y="826.434" width="45.4407" height="45.4407" class="st61"/>
+			<rect v:rectContext="foreign" x="0" y="826.434" width="45.4407" height="45.4407" class="st62"/>
 		</g>
 		<g id="shape2276-304" v:mID="2276" v:groupContext="shape" transform="translate(562.5,-600.419)">
 			<title>Sheet.2276</title>
@@ -1473,42 +1473,42 @@
 			<g id="shape2278-308" v:mID="2278" v:groupContext="shape">
 				<title>Sheet.2278</title>
 				<path d="M12.81 835.36 L24.3 835.36 L12.39 870.65 A1.79869 1.79869 0 0 1 10.69 871.87 L1.7 871.87 A1.79896 1.79896
-							 0 0 1 0 869.5 L11.11 836.58 A1.79869 1.79869 0 0 1 12.81 835.36 Z" class="st62"/>
+							 0 0 1 0 869.5 L11.11 836.58 A1.79869 1.79869 0 0 1 12.81 835.36 Z" class="st63"/>
 			</g>
 			<g id="shape2279-312" v:mID="2279" v:groupContext="shape" transform="translate(9.79238,-0.000534569)">
 				<title>Sheet.2279</title>
 				<path d="M18.89 858.35 L0.78 858.35 a0.836868 0.836868 -180 0 0 -0.571053 1.44841 L12.62 871.39 A1.79936 1.79936
-							 -180 0 0 13.85 871.87 L24.11 871.87 L18.89 858.35 Z" class="st63"/>
+							 -180 0 0 13.85 871.87 L24.11 871.87 L18.89 858.35 Z" class="st64"/>
 			</g>
 			<g id="group2280-314" transform="translate(13.8769,-1.13687E-13)" v:mID="2280" v:groupContext="group">
 				<title>Sheet.2280</title>
 				<g id="shape2281-315" v:mID="2281" v:groupContext="shape" transform="translate(7.90667,0)">
 					<title>Sheet.2281</title>
 					<path d="M3.67 871.87 L12.11 871.87 L6.88 858.35 L0 858.35 L3.98 870.14 A1.81914 1.81914 0 0 1 3.67 871.87 Z"
-							class="st64"/>
+							class="st65"/>
 				</g>
 				<g id="shape2282-317" v:mID="2282" v:groupContext="shape" transform="translate(0,-21.2927)">
 					<title>Sheet.2282</title>
-					<path d="M5.29 871.87 L10.43 856.65 L0 856.65 A1.8186 1.8186 0 0 1 0.35 857.26 L5.29 871.87 Z" class="st64"/>
+					<path d="M5.29 871.87 L10.43 856.65 L0 856.65 A1.8186 1.8186 0 0 1 0.35 857.26 L5.29 871.87 Z" class="st65"/>
 				</g>
 			</g>
 			<g id="group2283-319" transform="translate(13.226,-0.000133642)" v:mID="2283" v:groupContext="group">
 				<title>Sheet.2283</title>
 				<g id="shape2284-320" v:mID="2284" v:groupContext="shape" transform="translate(-1.03917E-13,-20.2902)">
 					<title>Sheet.2284</title>
-					<path d="M0 855.65 L5.6 871.87 L6.38 869.57 L1.69 855.65 L0 855.65 Z" class="st65"/>
+					<path d="M0 855.65 L5.6 871.87 L6.38 869.57 L1.69 855.65 L0 855.65 Z" class="st66"/>
 				</g>
 				<g id="shape2285-322" v:mID="2285" v:groupContext="shape" transform="translate(7.84266,-1.13687E-13)">
 					<title>Sheet.2285</title>
 					<path d="M2.77 871.87 L12.83 871.87 L5.19 871.87 A2.48387 2.48387 -180 0 0 5.34 869.92 L1.43 858.35 L0 858.35
-								 L4.06 870.36 A1.15093 1.15093 0 0 1 2.97 871.87 L2.77 871.87 Z" class="st65"/>
+								 L4.06 870.36 A1.15093 1.15093 0 0 1 2.97 871.87 L2.77 871.87 Z" class="st66"/>
 				</g>
 			</g>
 			<g id="shape2286-324" v:mID="2286" v:groupContext="shape" transform="translate(12.949,-1.13687E-13)">
 				<title>Sheet.2286</title>
 				<path d="M14.5 836.58 A1.79882 1.79882 -180 0 0 12.8 835.36 L0 835.36 A1.82555 1.82555 0 0 1 1.73 836.6 L12.82 869.47
 							 A1.82555 1.82555 0 0 1 11.09 871.87 L23.91 871.87 A1.79896 1.79896 -180 0 0 25.62 869.5 L14.5 836.58
-							 Z" class="st66"/>
+							 Z" class="st67"/>
 			</g>
 		</g>
 		<g id="shape2287-328" v:mID="2287" v:groupContext="shape" transform="translate(141.75,-427.5)">
@@ -1516,7 +1516,7 @@
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(400000):26"/>
 			</v:userDefs>
-			<path d="M0 871.87 L141.71 871.87 L141.71 796.5 L0 796.5 L0 871.87 Z" class="st67"/>
+			<path d="M0 871.87 L141.71 871.87 L141.71 796.5 L0 796.5 L0 871.87 Z" class="st68"/>
 		</g>
 		<g id="shape2288-330" v:mID="2288" v:groupContext="shape" transform="translate(144.798,-479.052)">
 			<title>Sheet.2288</title>
@@ -1553,14 +1553,14 @@
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(404000):26"/>
 			</v:userDefs>
-			<path d="M0 871.87 L140.21 871.87" class="st68"/>
+			<path d="M0 871.87 L140.21 871.87" class="st69"/>
 		</g>
 		<g id="shape2292-342" v:mID="2292" v:groupContext="shape" transform="translate(141.75,-451.224)">
 			<title>Sheet.2292</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(405000):26"/>
 			</v:userDefs>
-			<path d="M0 871.87 L141.71 871.87" class="st68"/>
+			<path d="M0 871.87 L141.71 871.87" class="st69"/>
 		</g>
 		<g id="group2293-345" transform="translate(562.5,-750.288)" v:mID="2293" v:groupContext="group">
 			<v:userDefs>
@@ -1571,7 +1571,7 @@
 				<title>Sheet.2294</title>
 				<path d="M0 870.33 A1.54367 1.54367 -180 0 0 1.54 871.87 L31.99 871.87 A1.54367 1.54367 -180 0 0 33.53 870.33 L33.53
 							 839.88 A1.54367 1.54367 -180 0 0 31.99 838.34 L1.54 838.34 A1.54367 1.54367 -180 0 0 0 839.88 L0 870.33
-							 Z" class="st69"/>
+							 Z" class="st70"/>
 			</g>
 			<g id="shape2295-350" v:mID="2295" v:groupContext="shape" transform="translate(21.5633,-19.6136)">
 				<title>Sheet.2295</title>
@@ -1579,7 +1579,7 @@
 							 -180 0 0 -0.47906 -0.186301 L12.67 865.81 L12.67 865.97 a0.292759 0.292759 0 0 1 -0.399217 0 L2.87 856.68
 							 a0.292759 0.292759 -180 0 0 -0.399217 0 L0.08 859.07 a0.292759 0.292759 -180 0 0 -3.747E-15 0.399217
 							 L9.37 868.73 a0.292759 0.292759 0 0 1 1.77636E-15 0.399217 L9.21 869.27 L7.1 871.4 a0.266145 0.266145
-							 -180 0 0 0.186301 0.47906 Z" class="st70"/>
+							 -180 0 0 0.186301 0.47906 Z" class="st71"/>
 			</g>
 			<g id="shape2296-352" v:mID="2296" v:groupContext="shape" transform="translate(10.1444,-19.6136)">
 				<title>Sheet.2296</title>
@@ -1587,7 +1587,7 @@
 							 0.47906 -0.186301 L2.58 865.81 L2.74 865.97 a0.266145 0.266145 -180 0 0 0.372602 0 L12.35 856.68 a0.292759
 							 0.292759 0 0 1 0.399217 0 L15.12 859.07 a0.23953 0.23953 0 0 1 -2.84217E-14 0.399217 L5.86 868.73 a0.292759
 							 0.292759 -180 0 0 -1.77636E-15 0.399217 L5.99 869.27 L8.12 871.4 a0.292759 0.292759 0 0 1 -0.212916
-							 0.47906 Z" class="st70"/>
+							 0.47906 Z" class="st71"/>
 			</g>
 			<g id="shape2297-354" v:mID="2297" v:groupContext="shape" transform="translate(17.8094,-7.23917)">
 				<title>Sheet.2297</title>
@@ -1595,46 +1595,46 @@
 							 -0.47906 L7.88 865.99 a0.292759 0.292759 0 0 1 -0.292759 -0.266145 L7.59 852.74 a0.266145 0.266145 -180
 							 0 0 -0.266145 -0.292759 L3.94 852.45 a0.266145 0.266145 -180 0 0 -0.266145 0.292759 L3.67 865.86 a0.292759
 							 0.292759 0 0 1 -0.292759 0.266145 L0.19 866.13 a0.266145 0.266145 -180 0 0 -0.186301 0.345988 Z"
-						class="st70"/>
+						class="st71"/>
 			</g>
 			<g id="shape2298-356" v:mID="2298" v:groupContext="shape" transform="translate(17.6851,-26.9859)">
 				<title>Sheet.2298</title>
 				<path d="M10.5 871.82 A7.34559 7.34559 0 1 1 1.51 860.22 A7.34559 7.34559 0 0 1 10.42 871.87 L10.5 871.82 Z"
-						class="st71"/>
-				<path d="M10.5 871.82 A7.34559 7.34559 0 1 1 1.51 860.22 A7.34559 7.34559 0 0 1 10.42 871.87" class="st72"/>
+						class="st72"/>
+				<path d="M10.5 871.82 A7.34559 7.34559 0 1 1 1.51 860.22 A7.34559 7.34559 0 0 1 10.42 871.87" class="st73"/>
 			</g>
 			<g id="shape2299-359" v:mID="2299" v:groupContext="shape" transform="translate(17.3836,-30.7385)">
 				<title>Sheet.2299</title>
-				<ellipse cx="2.34207" cy="869.533" rx="2.34207" ry="2.34207" class="st73"/>
+				<ellipse cx="2.34207" cy="869.533" rx="2.34207" ry="2.34207" class="st74"/>
 			</g>
 			<g id="shape2300-363" v:mID="2300" v:groupContext="shape" transform="translate(17.3836,-27.6778)">
 				<title>Sheet.2300</title>
 				<path d="M0 870.52 A5.32289 5.32289 -180 0 0 0.53 871.32 C0.69 871.53 0.85 871.69 1.01 871.87 A16.3945 16.3945 0
-							 0 1 1.94 868.89 A2.26223 2.26223 0 0 1 0.72 868.26 A14.9573 14.9573 -180 0 0 -0 870.52 Z" class="st74"/>
+							 0 1 1.94 868.89 A2.26223 2.26223 0 0 1 0.72 868.26 A14.9573 14.9573 -180 0 0 -0 870.52 Z" class="st75"/>
 			</g>
 			<g id="shape2301-365" v:mID="2301" v:groupContext="shape" transform="translate(17.4102,-34.6508)">
 				<title>Sheet.2301</title>
 				<path d="M1.54 871.24 A11.2047 11.2047 0 0 1 0.93 868.57 A8.70293 8.70293 -180 0 0 0 869.85 A12.1096 12.1096 -180
-							 0 0 0.48 871.87 A2.15577 2.15577 0 0 1 1.54 871.24 Z" class="st74"/>
+							 0 0 0.48 871.87 A2.15577 2.15577 0 0 1 1.54 871.24 Z" class="st75"/>
 			</g>
 			<g id="shape2302-367" v:mID="2302" v:groupContext="shape" transform="translate(20.1781,-28.5827)">
 				<title>Sheet.2302</title>
 				<path d="M1.28 868.97 A2.36869 2.36869 0 0 1 0 869.69 A8.54324 8.54324 -180 0 0 1.25 870.78 A9.55459 9.55459 -180
 							 0 0 3.01 871.87 C3.01 871.87 3.01 871.87 3.01 871.66 A1.54364 1.54364 0 0 1 3.54 870.57 A9.2086 9.2086
-							 0 0 1 1.28 868.97 Z" class="st74"/>
+							 0 0 1 1.28 868.97 Z" class="st75"/>
 			</g>
 			<g id="shape2303-369" v:mID="2303" v:groupContext="shape" transform="translate(25.7937,-27.598)">
 				<title>Sheet.2303</title>
 				<path d="M2.79 870.86 A9.95381 9.95381 0 0 1 0.43 870.6 A1.49041 1.49041 0 0 1 -0 871.66 A10.6458 10.6458 -180 0
-							 0 2.93 871.87 A5.74872 5.74872 -180 0 0 3.91 870.73 L2.79 870.86 Z" class="st74"/>
+							 0 2.93 871.87 A5.74872 5.74872 -180 0 0 3.91 870.73 L2.79 870.86 Z" class="st75"/>
 			</g>
 			<g id="shape2304-371" v:mID="2304" v:groupContext="shape" transform="translate(23.1855,-27.2786)">
 				<title>Sheet.2304</title>
-				<ellipse cx="1.51702" cy="870.358" rx="1.51702" ry="1.51702" class="st75"/>
+				<ellipse cx="1.51702" cy="870.358" rx="1.51702" ry="1.51702" class="st76"/>
 			</g>
 			<g id="shape2305-373" v:mID="2305" v:groupContext="shape" transform="translate(26.5655,-30.9514)">
 				<title>Sheet.2305</title>
-				<ellipse cx="1.62348" cy="870.252" rx="1.62348" ry="1.62348" class="st76"/>
+				<ellipse cx="1.62348" cy="870.252" rx="1.62348" ry="1.62348" class="st77"/>
 			</g>
 			<g id="shape2306-375" v:mID="2306" v:groupContext="shape" transform="translate(20.5773,-33.0007)">
 				<title>Sheet.2306</title>
@@ -1642,21 +1642,21 @@
 							 0 0 3.51 867.16 A7.74481 7.74481 -180 0 0 2.71 867.62 A14.5049 14.5049 0 0 1 0.98 865.19 A7.10606 7.10606
 							 -180 0 0 0.03 865.57 A16.2348 16.2348 -180 0 0 1.81 868.23 A10.7789 10.7789 -180 0 0 -0 869.72 A2.36869
 							 2.36869 0 0 1 1.14 870.52 A9.23522 9.23522 0 0 1 2.82 869.21 A27.2798 27.2798 -180 0 0 5.99 871.87 A1.51702
-							 1.51702 0 0 1 6.52 871.02 A20.7859 20.7859 0 0 1 3.73 868.71 Z" class="st74"/>
+							 1.51702 0 0 1 6.52 871.02 A20.7859 20.7859 0 0 1 3.73 868.71 Z" class="st75"/>
 			</g>
 			<g id="shape2307-377" v:mID="2307" v:groupContext="shape" transform="translate(29.3335,-30.286)">
 				<title>Sheet.2307</title>
 				<path d="M1.3 870.46 L1.04 870.46 L0.83 870.46 L0.53 870.3 A1.38395 1.38395 0 0 1 -0 871.1 L0.32 871.29 A1.09119
 							 1.09119 -180 0 0 0.61 871.48 L1.36 871.87 A6.30763 6.30763 -180 0 0 1.6 870.92 L1.3 870.46 Z"
-						class="st74"/>
+						class="st75"/>
 			</g>
 			<g id="shape2308-379" v:mID="2308" v:groupContext="shape" transform="translate(17.3836,-30.7385)">
 				<title>Sheet.2308</title>
-				<ellipse cx="2.34207" cy="869.533" rx="2.34207" ry="2.34207" class="st76"/>
+				<ellipse cx="2.34207" cy="869.533" rx="2.34207" ry="2.34207" class="st77"/>
 			</g>
 			<g id="shape2309-381" v:mID="2309" v:groupContext="shape" transform="translate(23.1855,-27.2786)">
 				<title>Sheet.2309</title>
-				<ellipse cx="1.51702" cy="870.358" rx="1.51702" ry="1.51702" class="st76"/>
+				<ellipse cx="1.51702" cy="870.358" rx="1.51702" ry="1.51702" class="st77"/>
 			</g>
 		</g>
 		<g id="group2325-383" transform="translate(814.5,-774)" v:mID="2325" v:groupContext="group">
@@ -1933,31 +1933,31 @@
 				<title>Sheet.2079</title>
 				<g id="shape2080-487" v:mID="2080" v:groupContext="shape" transform="translate(-2.03837E-13,-4.48195)">
 					<title>Sheet.2080</title>
-					<ellipse cx="19.9746" cy="863.672" rx="19.9746" ry="8.20292" class="st77"/>
+					<ellipse cx="19.9746" cy="863.672" rx="19.9746" ry="8.20292" class="st78"/>
 				</g>
 				<g id="shape2081-489" v:mID="2081" v:groupContext="shape" transform="translate(13.8491,-10.9531)">
 					<title>Sheet.2081</title>
-					<ellipse cx="6.63158" cy="870.064" rx="6.63158" ry="1.81103" class="st78"/>
+					<ellipse cx="6.63158" cy="870.064" rx="6.63158" ry="1.81103" class="st79"/>
 				</g>
 				<g id="shape2082-491" v:mID="2082" v:groupContext="shape" transform="translate(-2.03837E-13,-22.6721)">
 					<title>Sheet.2082</title>
-					<ellipse cx="19.9746" cy="863.672" rx="19.9746" ry="8.20292" class="st79"/>
+					<ellipse cx="19.9746" cy="863.672" rx="19.9746" ry="8.20292" class="st80"/>
 				</g>
 				<g id="shape2083-495" v:mID="2083" v:groupContext="shape" transform="translate(13.8491,-29.17)">
 					<title>Sheet.2083</title>
-					<ellipse cx="6.63158" cy="870.064" rx="6.63158" ry="1.81103" class="st80"/>
+					<ellipse cx="6.63158" cy="870.064" rx="6.63158" ry="1.81103" class="st81"/>
 				</g>
 				<g id="shape2084-497" v:mID="2084" v:groupContext="shape">
 					<title>Sheet.2084</title>
 					<path d="M20.09 867.23 C31.13 867.23 40.06 863.56 40.06 859.04 L40.06 863.88 C39.69 868.27 30.89 871.87 20.09
 								 871.87 C9.28 871.87 0.11 868.19 0.11 863.67 L0.11 859.04 C0 863.56 8.95 867.23 20.09 867.23 Z"
-							class="st78"/>
+							class="st79"/>
 				</g>
 				<g id="shape2085-499" v:mID="2085" v:groupContext="shape" transform="translate(0,-18.2168)">
 					<title>Sheet.2085</title>
 					<path d="M20.09 867.23 C31.13 867.23 40.06 863.56 40.06 859.04 L40.06 863.88 C39.69 868.27 30.89 871.87 20.09
 								 871.87 C9.28 871.87 0.11 868.19 0.11 863.67 L0.11 859.04 C0 863.56 8.95 867.23 20.09 867.23 Z"
-							class="st81"/>
+							class="st82"/>
 				</g>
 			</g>
 		</g>
@@ -1970,7 +1970,7 @@
 			<v:textBlock v:margins="rect(3.99997,3.99997,3.99997,3.99997)"/>
 			<v:textRect cx="88.9775" cy="861.647" width="177.96" height="20.4483"/>
 			<rect x="0" y="851.427" width="177.955" height="20.4483" class="st28"/>
-			<text x="4" y="864.65" class="st82" v:langID="1033"><v:paragraph/><v:tabList/>Application subnet (Virtual network 1)</text>		</g>
+			<text x="4" y="864.65" class="st83" v:langID="1033"><v:paragraph/><v:tabList/>Application subnet (Virtual network 1)</text>		</g>
 		<g id="group2394-504" transform="translate(426.746,-300.417)" v:mID="2394" v:groupContext="group">
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(416000):26"/>
@@ -2088,7 +2088,7 @@
 			<v:textBlock v:margins="rect(3.99997,3.99997,3.99997,3.99997)" v:verticalAlign="0"/>
 			<v:textRect cx="38.5166" cy="861.647" width="77.04" height="20.4483"/>
 			<rect x="0" y="851.427" width="77.0333" height="20.4483" class="st28"/>
-			<text x="4" y="864.42" class="st82" v:langID="1033"><v:paragraph/><v:tabList/>Azure VM <tspan x="4" dy="1.2em"
+			<text x="4" y="864.42" class="st84" v:langID="1033"><v:paragraph/><v:tabList/>Azure VM <tspan x="4" dy="1.2em"
 						class="st41">ESCWA Host</tspan></text>		</g>
 		<g id="shape2439-551" v:mID="2439" v:groupContext="shape" transform="translate(612,-69.5517)">
 			<title>Sheet.2439</title>
@@ -2099,7 +2099,7 @@
 			<v:textBlock v:margins="rect(3.99997,3.99997,3.99997,3.99997)" v:verticalAlign="0"/>
 			<v:textRect cx="38.5166" cy="861.647" width="77.04" height="20.4483"/>
 			<rect x="0" y="851.427" width="77.0333" height="20.4483" class="st28"/>
-			<text x="4" y="864.42" class="st82" v:langID="1033"><v:paragraph/><v:tabList/>RDG host 1</text>		</g>
+			<text x="4" y="864.42" class="st84" v:langID="1033"><v:paragraph/><v:tabList/>RDG host 1</text>		</g>
 		<g id="shape2440-554" v:mID="2440" v:groupContext="shape" transform="translate(740.517,-69.5517)">
 			<title>Sheet.2440</title>
 			<desc>Transaction Server Windows Server 2019 VM (Active - Node 1)</desc>
@@ -2109,7 +2109,7 @@
 			<v:textBlock v:margins="rect(3.99997,3.99997,3.99997,3.99997)" v:verticalAlign="0"/>
 			<v:textRect cx="38.5166" cy="861.647" width="77.04" height="20.4483"/>
 			<rect x="0" y="851.427" width="77.0333" height="20.4483" class="st28"/>
-			<text x="4" y="864.42" class="st82" v:langID="1033"><v:paragraph/><v:tabList/>RDG host 2</text>		</g>
+			<text x="4" y="864.42" class="st84" v:langID="1033"><v:paragraph/><v:tabList/>RDG host 2</text>		</g>
 		<g id="shape2441-557" v:mID="2441" v:groupContext="shape" transform="translate(671.733,-133.776)">
 			<title>Sheet.2441</title>
 			<desc>Transaction Server Windows Server 2019 VM (Active - Node 1)</desc>
@@ -2119,7 +2119,7 @@
 			<v:textBlock v:margins="rect(3.99997,3.99997,3.99997,3.99997)" v:verticalAlign="0"/>
 			<v:textRect cx="46.6333" cy="861.647" width="93.27" height="20.4483"/>
 			<rect x="0" y="851.427" width="93.2666" height="20.4483" class="st28"/>
-			<text x="4" y="865.32" class="st29" v:langID="1033"><v:paragraph/><v:tabList/>Availability set</text>		</g>
+			<text x="4" y="865.32" class="st52" v:langID="1033"><v:paragraph/><v:tabList/>Availability set</text>		</g>
 		<g id="shape2448-560" v:mID="2448" v:groupContext="shape" transform="translate(864,-740.052)">
 			<title>Sheet.2448</title>
 			<desc>On-premises user</desc>
@@ -2182,7 +2182,7 @@
 			<v:textBlock v:margins="rect(3.99997,3.99997,3.99997,3.99997)"/>
 			<v:textRect cx="88.9775" cy="861.647" width="177.96" height="20.4483"/>
 			<rect x="0" y="851.427" width="177.955" height="20.4483" class="st28"/>
-			<text x="4" y="864.65" class="st82" v:langID="1033"><v:paragraph/><v:tabList/>Application subnet (Virtual network 2)</text>		</g>
+			<text x="4" y="864.65" class="st83" v:langID="1033"><v:paragraph/><v:tabList/>Application subnet (Virtual network 2)</text>		</g>
 		<g id="shape2457-581" v:mID="2457" v:groupContext="shape" transform="translate(1048.5,-686.25)">
 			<title>Sheet.2457</title>
 			<desc>Azure Load Balancer</desc>
@@ -2202,7 +2202,7 @@
 			<v:textBlock v:margins="rect(3.99997,3.99997,3.99997,3.99997)"/>
 			<v:textRect cx="71.4887" cy="861.647" width="142.98" height="20.4483"/>
 			<rect x="0" y="851.427" width="142.977" height="20.4483" class="st28"/>
-			<text x="4" y="858.65" class="st82" v:langID="1033"><v:paragraph/><v:tabList/>Active Directory subnet <tspan x="4"
+			<text x="4" y="858.65" class="st83" v:langID="1033"><v:paragraph/><v:tabList/>Active Directory subnet <tspan x="4"
 						dy="1.2em" class="st41">(Virtual network 1)</tspan></text>		</g>
 		<g id="group2481-588" transform="translate(353.978,-396)" v:mID="2481" v:groupContext="group">
 			<v:userDefs>
@@ -2273,7 +2273,7 @@
 				<v:userDefs>
 					<v:ud v:nameU="visNavOrder" v:val="VT0(262000):26"/>
 				</v:userDefs>
-				<path d="M0 871.87 L150.75 871.87 L150.75 787.78 L0 787.78 L0 871.87 Z" class="st83"/>
+				<path d="M0 871.87 L150.75 871.87 L150.75 787.78 L0 787.78 L0 871.87 Z" class="st85"/>
 			</g>
 			<g id="shape2039-615" v:mID="2039" v:groupContext="shape" transform="translate(13.8415,-108)">
 				<title>Sheet.2039</title>
@@ -2285,10 +2285,10 @@
 				<v:textRect cx="82.1805" cy="843.304" width="164.37" height="57.1369"/>
 				<rect x="0" y="814.738" width="164.361" height="57.1369" class="st59"/>
 				<text x="4" y="816.3" class="st84" v:langID="1033"><v:paragraph/><v:tabList/>Enterprise Server<v:newlineChar/><tspan
-							x="4" dy="1.2em" class="st85">Online and Batch<v:newlineChar/></tspan><tspan x="4" dy="1.2em"
-							class="st85">COBOL/PL1<v:newlineChar/></tspan><tspan x="4" dy="1.2em" class="st85">CICS/IMS<v:newlineChar/></tspan><tspan
-							x="4" dy="1.2em" class="st85">JES/REXX/IDCAMS<v:newlineChar/></tspan><tspan x="4" dy="1.2em"
-							class="st85">IBGENER/IKJEF101</tspan></text>			</g>
+							x="4" dy="1.2em" class="st61">Online and Batch<v:newlineChar/></tspan><tspan x="4" dy="1.2em"
+							class="st61">COBOL/PL1<v:newlineChar/></tspan><tspan x="4" dy="1.2em" class="st61">CICS/IMS<v:newlineChar/></tspan><tspan
+							x="4" dy="1.2em" class="st61">JES/REXX/IDCAMS<v:newlineChar/></tspan><tspan x="4" dy="1.2em"
+							class="st61">IBGENER/IKJEF101</tspan></text>			</g>
 			<g id="shape2099-623" v:mID="2099" v:groupContext="shape" transform="translate(15.022,-54.3559)">
 				<title>Sheet.2099</title>
 				<desc>Avanade AMT Presentation Server</desc>
@@ -2305,7 +2305,7 @@
 				<v:userDefs>
 					<v:ud v:nameU="visNavOrder" v:val="VT0(314000):26"/>
 				</v:userDefs>
-				<path d="M0 871.87 L150.75 871.87 L150.75 831.37 L0 831.37 L0 871.87 Z" class="st83"/>
+				<path d="M0 871.87 L150.75 871.87 L150.75 831.37 L0 831.37 L0 871.87 Z" class="st85"/>
 			</g>
 			<g id="shape2377-629" v:mID="2377" v:groupContext="shape" transform="translate(15.022,-13.5)">
 				<title>Sheet.2377</title>
@@ -2317,7 +2317,7 @@
 				<v:textRect cx="58.5" cy="854.051" width="117.01" height="35.6441"/>
 				<rect x="0" y="836.231" width="117" height="35.6441" class="st59"/>
 				<text x="4" y="849.23" class="st84" v:langID="1033"><v:paragraph/><v:tabList/>Micro Focus Host <tspan x="4"
-							dy="1.2em" class="st85">Compatibility for SQL </tspan><tspan x="4" dy="1.2em" class="st85">Server (HCOSS)</tspan></text>			</g>
+							dy="1.2em" class="st61">Compatibility for SQL </tspan><tspan x="4" dy="1.2em" class="st61">Server (HCOSS)</tspan></text>			</g>
 			<g id="group2378-634" transform="translate(12.772,-176.552)" v:mID="2378" v:groupContext="group">
 				<v:userDefs>
 					<v:ud v:nameU="visNavOrder" v:val="VT0(414000):26"/>
@@ -2412,7 +2412,7 @@
 				<v:userDefs>
 					<v:ud v:nameU="visNavOrder" v:val="VT0(417000):26"/>
 				</v:userDefs>
-				<path d="M0 871.87 L150.75 871.87 L150.75 826.87 L0 826.87 L0 871.87 Z" class="st83"/>
+				<path d="M0 871.87 L150.75 871.87 L150.75 826.87 L0 826.87 L0 871.87 Z" class="st85"/>
 			</g>
 		</g>
 		<g id="shape2468-664" v:mID="2468" v:groupContext="shape" transform="translate(855.761,-549.88)">
@@ -2424,10 +2424,10 @@
 			<v:textBlock v:margins="rect(3.99997,3.99997,3.99997,3.99997)" v:verticalAlign="0"/>
 			<v:textRect cx="29.25" cy="843.304" width="58.51" height="57.1369"/>
 			<rect x="0" y="814.738" width="58.5" height="57.1369" class="st59"/>
-			<text x="8.26" y="827.73" class="st82" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>Microsoft<tspan
-						class="st41" v:langID="1033"> </tspan><tspan x="11.71" dy="1.2em" class="st41">Entra ID<v:newlineChar/></tspan><tspan
-						x="12.35" dy="1.2em" class="st41" v:langID="1033">primary </tspan><tspan x="12.48" dy="1.2em" class="st41"
-						v:langID="1033">domain </tspan><tspan x="8.04" dy="1.2em" class="st41" v:langID="1033">controller</tspan></text>		</g>
+			<text x="6.48" y="827.73" class="st84" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>Microsoft<tspan
+						class="st41" v:langID="1033"> </tspan><tspan x="10.29" dy="1.2em" class="st41">Entra ID<v:newlineChar/></tspan><tspan
+						x="12.35" dy="1.2em" class="st61" v:langID="1033">primary </tspan><tspan x="12.48" dy="1.2em" class="st61"
+						v:langID="1033">domain </tspan><tspan x="8.04" dy="1.2em" class="st61" v:langID="1033">controller</tspan></text>		</g>
 		<g id="shape2479-672" v:mID="2479" v:groupContext="shape" transform="translate(925.511,-549.88)">
 			<title>Sheet.2479</title>
 			<desc>Avanade AMT Presentation Server</desc>
@@ -2437,10 +2437,10 @@
 			<v:textBlock v:margins="rect(3.99997,3.99997,3.99997,3.99997)" v:verticalAlign="0"/>
 			<v:textRect cx="29.25" cy="843.304" width="58.51" height="57.1369"/>
 			<rect x="0" y="814.738" width="58.5" height="57.1369" class="st59"/>
-			<text x="8.26" y="827.73" class="st82" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>Microsoft<tspan
-						class="st41" v:langID="1033"> </tspan><tspan x="11.71" dy="1.2em" class="st41">Entra ID</tspan><tspan
-						class="st41" v:langID="1033"> </tspan><tspan x="13.2" dy="1.2em" class="st41" v:langID="1033">backup </tspan><tspan
-						x="12.48" dy="1.2em" class="st41" v:langID="1033">domain </tspan><tspan x="8.04" dy="1.2em" class="st41"
+			<text x="6.48" y="827.73" class="st84" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>Microsoft<tspan
+						class="st41" v:langID="1033"> </tspan><tspan x="10.29" dy="1.2em" class="st41">Entra ID</tspan><tspan
+						class="st41" v:langID="1033"> </tspan><tspan x="13.2" dy="1.2em" class="st61" v:langID="1033">backup </tspan><tspan
+						x="12.48" dy="1.2em" class="st61" v:langID="1033">domain </tspan><tspan x="8.04" dy="1.2em" class="st61"
 						v:langID="1033">controller</tspan></text>		</g>
 		<g id="group2516-681" transform="translate(634.5,-396)" v:mID="2516" v:groupContext="group">
 			<v:userDefs>
@@ -2511,7 +2511,7 @@
 				<v:userDefs>
 					<v:ud v:nameU="visNavOrder" v:val="VT0(262000):26"/>
 				</v:userDefs>
-				<path d="M0 871.87 L150.75 871.87 L150.75 787.78 L0 787.78 L0 871.87 Z" class="st83"/>
+				<path d="M0 871.87 L150.75 871.87 L150.75 787.78 L0 787.78 L0 871.87 Z" class="st85"/>
 			</g>
 			<g id="shape2529-708" v:mID="2529" v:groupContext="shape" transform="translate(13.8415,-108)">
 				<title>Sheet.2529</title>
@@ -2523,10 +2523,10 @@
 				<v:textRect cx="82.1805" cy="843.304" width="164.37" height="57.1369"/>
 				<rect x="0" y="814.738" width="164.361" height="57.1369" class="st59"/>
 				<text x="4" y="816.3" class="st84" v:langID="1033"><v:paragraph/><v:tabList/>Enterprise Server<v:newlineChar/><tspan
-							x="4" dy="1.2em" class="st85">Online and Batch<v:newlineChar/></tspan><tspan x="4" dy="1.2em"
-							class="st85">COBOL/PL1<v:newlineChar/></tspan><tspan x="4" dy="1.2em" class="st85">CICS/IMS<v:newlineChar/></tspan><tspan
-							x="4" dy="1.2em" class="st85">JES/REXX/IDCAMS<v:newlineChar/></tspan><tspan x="4" dy="1.2em"
-							class="st85">IBGENER/IKJEF101</tspan></text>			</g>
+							x="4" dy="1.2em" class="st61">Online and Batch<v:newlineChar/></tspan><tspan x="4" dy="1.2em"
+							class="st61">COBOL/PL1<v:newlineChar/></tspan><tspan x="4" dy="1.2em" class="st61">CICS/IMS<v:newlineChar/></tspan><tspan
+							x="4" dy="1.2em" class="st61">JES/REXX/IDCAMS<v:newlineChar/></tspan><tspan x="4" dy="1.2em"
+							class="st61">IBGENER/IKJEF101</tspan></text>			</g>
 			<g id="shape2530-716" v:mID="2530" v:groupContext="shape" transform="translate(15.022,-54.3559)">
 				<title>Sheet.2530</title>
 				<desc>Avanade AMT Presentation Server</desc>
@@ -2543,7 +2543,7 @@
 				<v:userDefs>
 					<v:ud v:nameU="visNavOrder" v:val="VT0(314000):26"/>
 				</v:userDefs>
-				<path d="M0 871.87 L150.75 871.87 L150.75 831.37 L0 831.37 L0 871.87 Z" class="st83"/>
+				<path d="M0 871.87 L150.75 871.87 L150.75 831.37 L0 831.37 L0 871.87 Z" class="st85"/>
 			</g>
 			<g id="shape2532-722" v:mID="2532" v:groupContext="shape" transform="translate(15.022,-13.5)">
 				<title>Sheet.2532</title>
@@ -2555,7 +2555,7 @@
 				<v:textRect cx="58.5" cy="854.051" width="117.01" height="35.6441"/>
 				<rect x="0" y="836.231" width="117" height="35.6441" class="st59"/>
 				<text x="4" y="849.23" class="st84" v:langID="1033"><v:paragraph/><v:tabList/>Micro Focus Host <tspan x="4"
-							dy="1.2em" class="st85">Compatibility for SQL </tspan><tspan x="4" dy="1.2em" class="st85">Server (HCOSS)</tspan></text>			</g>
+							dy="1.2em" class="st61">Compatibility for SQL </tspan><tspan x="4" dy="1.2em" class="st61">Server (HCOSS)</tspan></text>			</g>
 			<g id="group2533-727" transform="translate(12.772,-176.552)" v:mID="2533" v:groupContext="group">
 				<v:userDefs>
 					<v:ud v:nameU="visNavOrder" v:val="VT0(414000):26"/>
@@ -2650,7 +2650,7 @@
 				<v:userDefs>
 					<v:ud v:nameU="visNavOrder" v:val="VT0(417000):26"/>
 				</v:userDefs>
-				<path d="M0 871.87 L150.75 871.87 L150.75 826.87 L0 826.87 L0 871.87 Z" class="st83"/>
+				<path d="M0 871.87 L150.75 871.87 L150.75 826.87 L0 826.87 L0 871.87 Z" class="st85"/>
 			</g>
 		</g>
 		<g id="shape2552-757" v:mID="2552" v:groupContext="shape" transform="translate(893.68,-648.96)">
@@ -2672,7 +2672,7 @@
 			<v:textBlock v:margins="rect(3.99997,3.99997,3.99997,3.99997)"/>
 			<v:textRect cx="88.9775" cy="861.647" width="177.96" height="20.4483"/>
 			<rect x="0" y="851.427" width="177.955" height="20.4483" class="st28"/>
-			<text x="4" y="864.65" class="st82" v:langID="1033"><v:paragraph/><v:tabList/>Database subnet (Virtual network 2)</text>		</g>
+			<text x="4" y="864.65" class="st83" v:langID="1033"><v:paragraph/><v:tabList/>Database subnet (Virtual network 2)</text>		</g>
 		<g id="shape2554-763" v:mID="2554" v:groupContext="shape" transform="translate(1059.87,-144)">
 			<title>Sheet.2554</title>
 			<desc>Azure Load Balancer</desc>
@@ -2698,7 +2698,7 @@
 				<v:textBlock v:margins="rect(3.99997,3.99997,3.99997,3.99997)" v:verticalAlign="0"/>
 				<v:textRect cx="38.5166" cy="861.647" width="77.04" height="20.4483"/>
 				<rect x="0" y="851.427" width="77.0333" height="20.4483" class="st28"/>
-				<text x="4" y="864.42" class="st82" v:langID="1033"><v:paragraph/><v:tabList/>Database 1</text>			</g>
+				<text x="4" y="864.42" class="st84" v:langID="1033"><v:paragraph/><v:tabList/>Database 1</text>			</g>
 			<g id="group2395-771" transform="translate(83.7619,-7.91673)" v:mID="2395" v:groupContext="group">
 				<v:userDefs>
 					<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(2000):26"/>
@@ -2794,7 +2794,7 @@
 				<v:userDefs>
 					<v:ud v:nameU="visNavOrder" v:val="VT0(448000):26"/>
 				</v:userDefs>
-				<path d="M0 871.87 L152.02 871.87 L152.02 804.37 L0 804.37 L0 871.87 Z" class="st83"/>
+				<path d="M0 871.87 L152.02 871.87 L152.02 804.37 L0 804.37 L0 871.87 Z" class="st85"/>
 			</g>
 		</g>
 		<g id="shape2557-801" v:mID="2557" v:groupContext="shape" transform="translate(315,-27)">
@@ -2854,7 +2854,7 @@
 							 862.96 L14.85 864.17 a0.104071 0.104071 -180 0 0 0.104071 0.104071 L17.62 864.28 C17.62 864.28 17.74
 							 864.28 17.74 864.38 L17.74 865.66 a0.121416 0.121416 0 0 1 -0.121416 0.104071 L14.95 865.77 a0.104071
 							 0.104071 -180 0 0 -0.104071 0.104071 L14.85 867.09 a0.104071 0.104071 0 0 1 -0.173451 0.0867257 L12.61
-							 865.09 L12.61 864.95 L14.67 862.87 C14.67 862.87 14.85 862.85 14.85 862.96 Z" class="st70"/>
+							 865.09 L12.61 864.95 L14.67 862.87 C14.67 862.87 14.85 862.85 14.85 862.96 Z" class="st71"/>
 			</g>
 		</g>
 		<g id="shape2559-817" v:mID="2559" v:groupContext="shape" transform="translate(331.875,156.375) rotate(-90)">
@@ -2933,7 +2933,7 @@
 				<v:userDefs>
 					<v:ud v:nameU="visNavOrder" v:val="VT0(262000):26"/>
 				</v:userDefs>
-				<path d="M0 871.87 L150.75 871.87 L150.75 787.78 L0 787.78 L0 871.87 Z" class="st83"/>
+				<path d="M0 871.87 L150.75 871.87 L150.75 787.78 L0 787.78 L0 871.87 Z" class="st85"/>
 			</g>
 			<g id="shape2573-849" v:mID="2573" v:groupContext="shape" transform="translate(13.8415,-108)">
 				<title>Sheet.2573</title>
@@ -2945,10 +2945,10 @@
 				<v:textRect cx="82.1805" cy="843.304" width="164.37" height="57.1369"/>
 				<rect x="0" y="814.738" width="164.361" height="57.1369" class="st59"/>
 				<text x="4" y="816.3" class="st84" v:langID="1033"><v:paragraph/><v:tabList/>Enterprise Server<v:newlineChar/><tspan
-							x="4" dy="1.2em" class="st85">Online and Batch<v:newlineChar/></tspan><tspan x="4" dy="1.2em"
-							class="st85">COBOL/PL1<v:newlineChar/></tspan><tspan x="4" dy="1.2em" class="st85">CICS/IMS<v:newlineChar/></tspan><tspan
-							x="4" dy="1.2em" class="st85">JES/REXX/IDCAMS<v:newlineChar/></tspan><tspan x="4" dy="1.2em"
-							class="st85">IBGENER/IKJEF101</tspan></text>			</g>
+							x="4" dy="1.2em" class="st61">Online and Batch<v:newlineChar/></tspan><tspan x="4" dy="1.2em"
+							class="st61">COBOL/PL1<v:newlineChar/></tspan><tspan x="4" dy="1.2em" class="st61">CICS/IMS<v:newlineChar/></tspan><tspan
+							x="4" dy="1.2em" class="st61">JES/REXX/IDCAMS<v:newlineChar/></tspan><tspan x="4" dy="1.2em"
+							class="st61">IBGENER/IKJEF101</tspan></text>			</g>
 			<g id="shape2574-857" v:mID="2574" v:groupContext="shape" transform="translate(15.022,-54.3559)">
 				<title>Sheet.2574</title>
 				<desc>Avanade AMT Presentation Server</desc>
@@ -2965,7 +2965,7 @@
 				<v:userDefs>
 					<v:ud v:nameU="visNavOrder" v:val="VT0(314000):26"/>
 				</v:userDefs>
-				<path d="M0 871.87 L150.75 871.87 L150.75 831.37 L0 831.37 L0 871.87 Z" class="st83"/>
+				<path d="M0 871.87 L150.75 871.87 L150.75 831.37 L0 831.37 L0 871.87 Z" class="st85"/>
 			</g>
 			<g id="shape2576-863" v:mID="2576" v:groupContext="shape" transform="translate(15.022,-13.5)">
 				<title>Sheet.2576</title>
@@ -3072,7 +3072,7 @@
 				<v:userDefs>
 					<v:ud v:nameU="visNavOrder" v:val="VT0(417000):26"/>
 				</v:userDefs>
-				<path d="M0 871.87 L150.75 871.87 L150.75 826.87 L0 826.87 L0 871.87 Z" class="st83"/>
+				<path d="M0 871.87 L150.75 871.87 L150.75 826.87 L0 826.87 L0 871.87 Z" class="st85"/>
 			</g>
 		</g>
 		<g id="shape2594-898" v:mID="2594" v:groupContext="shape" transform="translate(1046.25,-27)">
@@ -3124,7 +3124,7 @@
 				<v:textBlock v:margins="rect(3.99997,3.99997,3.99997,3.99997)" v:verticalAlign="0"/>
 				<v:textRect cx="49.1339" cy="861.647" width="98.27" height="20.4483"/>
 				<rect x="0" y="851.427" width="98.2677" height="20.4483" class="st28"/>
-				<text x="4" y="864.42" class="st82" v:langID="1033"><v:paragraph/><v:tabList/>Database (Replica)</text>			</g>
+				<text x="4" y="864.42" class="st84" v:langID="1033"><v:paragraph/><v:tabList/>Database (Replica)</text>			</g>
 			<g id="group2615-912" transform="translate(83.7619,-7.91673)" v:mID="2615" v:groupContext="group">
 				<v:userDefs>
 					<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(2000):26"/>
@@ -3220,7 +3220,7 @@
 				<v:userDefs>
 					<v:ud v:nameU="visNavOrder" v:val="VT0(448000):26"/>
 				</v:userDefs>
-				<path d="M0 871.87 L152.02 871.87 L152.02 804.37 L0 804.37 L0 871.87 Z" class="st83"/>
+				<path d="M0 871.87 L152.02 871.87 L152.02 804.37 L0 804.37 L0 871.87 Z" class="st85"/>
 			</g>
 		</g>
 		<g id="group2626-937" transform="translate(1077.75,-211.496)" v:mID="2626" v:groupContext="group">
@@ -3237,7 +3237,7 @@
 				<v:textBlock v:margins="rect(3.99997,3.99997,3.99997,3.99997)" v:verticalAlign="0"/>
 				<v:textRect cx="49.1339" cy="861.647" width="98.27" height="20.4483"/>
 				<rect x="0" y="851.427" width="98.2677" height="20.4483" class="st28"/>
-				<text x="4" y="864.42" class="st82" v:langID="1033"><v:paragraph/><v:tabList/>Database (Replica)</text>			</g>
+				<text x="4" y="864.42" class="st84" v:langID="1033"><v:paragraph/><v:tabList/>Database (Replica)</text>			</g>
 			<g id="group2628-941" transform="translate(83.7619,-7.91673)" v:mID="2628" v:groupContext="group">
 				<v:userDefs>
 					<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(2000):26"/>
@@ -3333,7 +3333,7 @@
 				<v:userDefs>
 					<v:ud v:nameU="visNavOrder" v:val="VT0(448000):26"/>
 				</v:userDefs>
-				<path d="M0 871.87 L152.02 871.87 L152.02 804.37 L0 804.37 L0 871.87 Z" class="st83"/>
+				<path d="M0 871.87 L152.02 871.87 L152.02 804.37 L0 804.37 L0 871.87 Z" class="st85"/>
 			</g>
 		</g>
 		<g id="shape2639-966" v:mID="2639" v:groupContext="shape" transform="translate(1053,-189)">
@@ -3415,7 +3415,7 @@
 			<v:textRect cx="38.5166" cy="861.647" width="77.04" height="20.4483"/>
 			<rect x="0" y="851.427" width="77.0333" height="20.4483" class="st28"/>
 			<text x="4" y="864.42" class="st84" v:langID="1033"><v:paragraph/><v:tabList/>Azure VM <tspan x="4" dy="1.2em"
-						class="st41">ESCWA host </tspan><tspan x="4" dy="1.2em" class="st85">(Replica)</tspan></text>		</g>
+						class="st41">ESCWA host </tspan><tspan x="4" dy="1.2em" class="st61">(Replica)</tspan></text>		</g>
 		<g id="shape2654-997" v:mID="2654" v:groupContext="shape" transform="translate(535.5,-571.5)">
 			<title>Sheet.2654</title>
 			<desc>Azure Load Balancer</desc>
