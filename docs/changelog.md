@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: claytonsiemens77
-ms.date: 01/12/2026
+ms.date: 01/20/2026
 ms.topic: whats-new
 ms.author: pnp
 ---
@@ -22,11 +22,19 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
+- [Microsoft Security Solutions for AWS](./guide/aws/aws-azure-security-solutions.md)
+- [Subscription Vending Implementation Guidance](./landing-zones/subscription-vending.md)
 - [Use Azure Kubernetes Service to Host GPU-Based Workloads](./reference-architectures/containers/aks-gpu/gpu-aks.md)
 
 ### Updated articles
 
+- [Microsoft Entra security for AWS](./reference-architectures/aws/aws-azure-ad-security.yml) ([#742545cb7f](https://github.com/MicrosoftDocs/architecture-center/commit/742545cb7f))
+- [Baseline Architecture for an AKS Cluster](./reference-architectures/containers/aks/baseline-aks.yml) ([#193a089673](https://github.com/MicrosoftDocs/architecture-center/commit/193a089673))
+- [Deploy Azure Landing Zones](./landing-zones/landing-zone-deploy.md) ([#cf63de10f0](https://github.com/MicrosoftDocs/architecture-center/commit/cf63de10f0))
 - [Stream Processing with Databricks](./reference-architectures/data/stream-processing-databricks.yml) ([#30efdf0892](https://github.com/MicrosoftDocs/architecture-center/commit/30efdf0892))
+- [AI Architecture Design](./ai-ml/index.md) ([#5a16064af7](https://github.com/MicrosoftDocs/architecture-center/commit/5a16064af7))
+- [Baseline Highly Available Zone-Redundant App Services Web Application](./web-apps/app-service/architectures/baseline-zone-redundant.yml) ([#2b8460a1f5](https://github.com/MicrosoftDocs/architecture-center/commit/2b8460a1f5))
+- [Modern Data Warehouses for Small or Medium-Sized Businesses](./example-scenario/data/small-medium-data-warehouse.yml) ([#69a9025819](https://github.com/MicrosoftDocs/architecture-center/commit/69a9025819))
 - [Global routing redundancy for mission-critical web applications](./guide/networking/global-web-applications/overview.md) ([#56b194ee8c](https://github.com/MicrosoftDocs/architecture-center/commit/56b194ee8c))
 - [Architectural Approaches for Messaging in Multitenant Solutions](./guide/multitenant/approaches/messaging.md) ([#147d0594c0](https://github.com/MicrosoftDocs/architecture-center/commit/147d0594c0))
 - [Web-Queue-Worker Architecture Style](./guide/architecture-styles/web-queue-worker.md) ([#d6757ae581](https://github.com/MicrosoftDocs/architecture-center/commit/d6757ae581))
@@ -71,7 +79,7 @@ The following new and updated articles have recently been published in the Azure
 - [Monitoring and diagnostics guidance](./best-practices/monitoring.yml) ([#9c5f9272f6](https://github.com/MicrosoftDocs/architecture-center/commit/9c5f9272f6))
 - [Google Cloud to Azure services comparison](./gcp-professional/services.md) ([#9c5f9272f6](https://github.com/MicrosoftDocs/architecture-center/commit/9c5f9272f6))
 - [Caching guidance](./best-practices/caching.yml) ([#3b90d9d820](https://github.com/MicrosoftDocs/architecture-center/commit/3b90d9d820))
-- [Baseline architecture for an AKS cluster](./reference-architectures/containers/aks/baseline-aks.yml) ([#daf47085b8](https://github.com/MicrosoftDocs/architecture-center/commit/daf47085b8))
+- [Baseline Architecture for an AKS Cluster](./reference-architectures/containers/aks/baseline-aks.yml) ([#daf47085b8](https://github.com/MicrosoftDocs/architecture-center/commit/daf47085b8))
 - [Enterprise Deployment that uses App Service Environment](./web-apps/app-service-environment/architectures/app-service-environment-standard-deployment.yml) ([#5ba01ed0ea](https://github.com/MicrosoftDocs/architecture-center/commit/5ba01ed0ea))
 - [Migrate Cloud Workloads Across Security Tenants](./solution-ideas/articles/migrate-cloud-workloads-across-security-tenants.yml) ([#c87b907cf0](https://github.com/MicrosoftDocs/architecture-center/commit/c87b907cf0))
 
@@ -155,7 +163,7 @@ The following new and updated articles have recently been published in the Azure
 - [Data partitioning guidance](./best-practices/data-partitioning.yml) ([#e3b010f846](https://github.com/MicrosoftDocs/architecture-center/commit/e3b010f846))
 - [Data partitioning strategies](./best-practices/data-partitioning-strategies.yml) ([#e3b010f846](https://github.com/MicrosoftDocs/architecture-center/commit/e3b010f846))
 - [Monitoring and diagnostics guidance](./best-practices/monitoring.yml) ([#e3b010f846](https://github.com/MicrosoftDocs/architecture-center/commit/e3b010f846))
-- [Baseline architecture for an AKS cluster](./reference-architectures/containers/aks/baseline-aks.yml) ([#aa3d8316fd](https://github.com/MicrosoftDocs/architecture-center/commit/aa3d8316fd))
+- [Baseline Architecture for an AKS Cluster](./reference-architectures/containers/aks/baseline-aks.yml) ([#aa3d8316fd](https://github.com/MicrosoftDocs/architecture-center/commit/aa3d8316fd))
 - [Azure Virtual Machines baseline architecture](./virtual-machines/baseline.yml) ([#393206c28f](https://github.com/MicrosoftDocs/architecture-center/commit/393206c28f))
 - [Multitenancy and Azure OpenAI](./guide/multitenant/service/openai.md) ([#0fcbbd784c](https://github.com/MicrosoftDocs/architecture-center/commit/0fcbbd784c))
 - [Minimal storage – change feed to replicate data](./databases/idea/minimal-storage-change-feed-replicate-data.yml) ([#22cf380a96](https://github.com/MicrosoftDocs/architecture-center/commit/22cf380a96))
@@ -187,5 +195,8 @@ The following new and updated articles have recently been published in the Azure
 - [Use AI Enrichment With Image and Text Processing](./solution-ideas/articles/ai-search-skillsets.yml) ([#50db6c881f](https://github.com/MicrosoftDocs/architecture-center/commit/50db6c881f))
 - [Build a Multiple-Agent Workflow Automation Solution by using Microsoft Agent Framework](./ai-ml/idea/multiple-agent-workflow-automation.yml) ([#2b218fd4f3](https://github.com/MicrosoftDocs/architecture-center/commit/2b218fd4f3))
 - [Online Transaction Processing (OLTP)](./data-guide/relational-data/online-transaction-processing.md) ([#78cf66ffc7](https://github.com/MicrosoftDocs/architecture-center/commit/78cf66ffc7))
-- [AI Agent Orchestration Patterns](./ai-ml/guide/ai-agent-design-patterns.md) ([#164a16ed9f](https://github.com/MicrosoftDocs/architecture-center/commit/164a16ed9f))
-- [Use Azure Key Vault in a Multitenant Solution](./guide/multitenant/service/key-vault.md) ([#b48a068ca2](https://github.com/MicrosoftDocs/architecture-center/commit/b48a068ca2))
+
+
+## Azure updates
+
+To learn about product updates to Azure, GitHub, and Microsoft developer tools, follow the updates published in the [Microsoft Developer Changelog](https://developer.microsoft.com/changelog). You'll learn about new service previews, general availability announcements, and feature deprecations. Being aware of what's coming and what is being retired helps you make durable architectural choices for your workload.

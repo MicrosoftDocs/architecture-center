@@ -2,12 +2,28 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2026-01-12T15:54:19.370Z</updated>
+    <updated>2026-01-20T19:03:34.721Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Microsoft Security Solutions for AWS]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/aws/aws-azure-security-solutions</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/aws/aws-azure-security-solutions"/>
+        <updated>2026-01-14T18:25:20.000Z</updated>
+        <summary type="html"><![CDATA[Learn how Microsoft security solutions can help secure and protect Amazon Web Services (AWS) account access and environments.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Subscription Vending Implementation Guidance]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/landing-zones/subscription-vending</id>
+        <link href="https://learn.microsoft.com/azure/architecture/landing-zones/subscription-vending"/>
+        <updated>2026-01-12T16:30:32.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to implement subscription vending to standardize the process for automatic subscription creation and deploy workloads faster.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Use Azure Kubernetes Service to Host GPU-Based Workloads]]></title>
         <id>https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-gpu/gpu-aks</id>
@@ -17,11 +33,59 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
+        <title type="html"><![CDATA[Microsoft Entra security for AWS]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/aws/aws-azure-ad-security</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/aws/aws-azure-ad-security"/>
+        <updated>2026-01-14T18:25:20.000Z</updated>
+        <summary type="html"><![CDATA[Learn how Microsoft Entra ID can help secure and protect Amazon Web Services (AWS) identity management and account access. Discover Microsoft security solutions.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Baseline Architecture for an AKS Cluster]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks/baseline-aks</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks/baseline-aks"/>
+        <updated>2026-01-12T21:02:36.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the reference architecture for the recommended baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy Azure Landing Zones]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/landing-zones/landing-zone-deploy</id>
+        <link href="https://learn.microsoft.com/azure/architecture/landing-zones/landing-zone-deploy"/>
+        <updated>2026-01-12T16:30:32.000Z</updated>
+        <summary type="html"><![CDATA[Learn about deployment options for both platform and application landing zones in Azure to help ensure governance at scale.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Stream Processing with Databricks]]></title>
         <id>https://learn.microsoft.com/azure/architecture/reference-architectures/data/stream-processing-databricks</id>
         <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/data/stream-processing-databricks"/>
         <updated>2026-01-06T16:24:47.000Z</updated>
         <summary type="html"><![CDATA[Learn how to create a four-stage, end-to-end stream processing pipeline in Azure by using Azure Databricks.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[AI Architecture Design]]></title>
+        <id>https://learn.microsoft.com/azure/architecture//ai-ml</id>
+        <link href="https://learn.microsoft.com/azure/architecture//ai-ml"/>
+        <updated>2026-01-13T18:02:36.000Z</updated>
+        <summary type="html"><![CDATA[Get started with AI. Use high-level architectural types, see Azure AI platform offerings, and find customer success stories.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Baseline Highly Available Zone-Redundant App Services Web Application]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant</id>
+        <link href="https://learn.microsoft.com/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant"/>
+        <updated>2026-01-13T17:02:26.000Z</updated>
+        <summary type="html"><![CDATA[Learn about a baseline reference architecture for a network secured, highly available, and zone-redundant Azure App Service web application.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Modern Data Warehouses for Small or Medium-Sized Businesses]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/data/small-medium-data-warehouse</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/data/small-medium-data-warehouse"/>
+        <updated>2026-01-13T16:30:30.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use Microsoft Fabric, Azure SQL Database, Azure SQL Managed Instance, and Azure Data Lake Storage to modernize legacy and on-premises data.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -337,7 +401,7 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Baseline architecture for an AKS cluster]]></title>
+        <title type="html"><![CDATA[Baseline Architecture for an AKS Cluster]]></title>
         <id>https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks/baseline-aks</id>
         <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks/baseline-aks"/>
         <updated>2025-12-05T04:52:42.000Z</updated>
@@ -881,7 +945,7 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Baseline architecture for an AKS cluster]]></title>
+        <title type="html"><![CDATA[Baseline Architecture for an AKS Cluster]]></title>
         <id>https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks/baseline-aks</id>
         <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks/baseline-aks"/>
         <updated>2025-10-29T09:50:13.000Z</updated>
@@ -1134,22 +1198,6 @@
         <link href="https://learn.microsoft.com/azure/architecture/data-guide/relational-data/online-transaction-processing"/>
         <updated>2025-10-02T02:14:23.000Z</updated>
         <summary type="html"><![CDATA[Learn about atomicity, consistency, and other features of online transaction processing (OLTP), which manages transactional data while supporting querying.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[AI Agent Orchestration Patterns]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/ai-agent-design-patterns</id>
-        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/ai-agent-design-patterns"/>
-        <updated>2025-10-01T17:57:02.000Z</updated>
-        <summary type="html"><![CDATA[Learn about fundamental orchestration patterns for AI agent architectures, including sequential, concurrent, group chat, handoff, and magentic patterns.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Use Azure Key Vault in a Multitenant Solution]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/key-vault</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/key-vault"/>
-        <updated>2025-10-01T17:47:38.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to use Azure Key Vault in multitenant solutions, including isolation models, tenant-specific vaults, shared vaults, and multitenancy features.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
 </feed>
