@@ -160,6 +160,6 @@ Other contributors:
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
-## Related resource
+## Next step
 
 Learn how to [Map requests to tenants in a multitenant solution](map-requests.yml).

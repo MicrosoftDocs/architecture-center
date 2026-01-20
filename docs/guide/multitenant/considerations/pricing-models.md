@@ -288,6 +288,6 @@ Other contributors:
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
-## Next steps
+## Next step
 
 Learn about how to [design a control plane](./control-planes.md) for a multitenant solution.

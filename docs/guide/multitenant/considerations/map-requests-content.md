@@ -147,6 +147,6 @@ Other contributors:
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
-## Next steps
+## Next step
 
 Learn about [identity in a multitenant application](./identity.md).
