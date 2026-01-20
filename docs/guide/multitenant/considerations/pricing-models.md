@@ -290,4 +290,4 @@ Other contributors:
 
 ## Next steps
 
-Consider how you [measure consumption](measure-consumption.md) by tenants in your solution.
+Learn about how to [design a control plane](./control-planes.md) for a multitenant solution.

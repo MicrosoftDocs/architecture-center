@@ -162,4 +162,4 @@ Other contributors:
 
 ## Related resource
 
-- [Map requests to tenants in a multitenant solution](map-requests.yml)
+Learn how to [Map requests to tenants in a multitenant solution](map-requests.yml).

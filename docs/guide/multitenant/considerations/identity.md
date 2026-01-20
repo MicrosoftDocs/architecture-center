@@ -253,3 +253,7 @@ Other contributors:
 ## Related resource
 
 - [Architectural approaches for identity in multitenant solutions](../approaches/identity.md)
+
+## Next step
+
+Learn about [considerations when you work with domain names in a multitenant application](domain-names.md).
