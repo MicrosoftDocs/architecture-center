@@ -147,6 +147,6 @@ Other contributors:
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
-## Next steps
+## Next step
 
-Learn about [considerations when you work with domain names in a multitenant application](domain-names.md).
+Learn about [identity in a multitenant application](./identity.md).
