@@ -15,7 +15,7 @@ ms.custom:
 
 # Multitenancy and Azure OpenAI
 
-[Azure OpenAI](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure) provides access to OpenAI language models. This article describes key features of Azure OpenAI that support multitenant solutions. Review the recommended resources to help you plan your approach and use Azure OpenAI.
+[Azure OpenAI](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure) provides access to OpenAI language models. This article describes key features of Azure OpenAI that support multitenant solutions and helps you plan your deployment approach.
 
 ## Isolation models
 
@@ -26,7 +26,7 @@ When you have a multitenant system that uses Azure OpenAI, determine the level o
 - Whether your tenants require models that you fine-tune by using their own data
 - Whether your tenants require different model versions or model life cycles
 
-The following table summarizes deployment approaches when you use Azure OpenAI in a multitenant system.
+The following table summarizes Azure OpenAI deployment approaches in a multitenant system.
 
 | Considerations | Dedicated Azure OpenAI instance | Shared Azure OpenAI instance, dedicated model deployment for each tenant | Shared Azure OpenAI instance, shared model deployment | Tenant-provided Azure OpenAI instance |
 |-|-|-|-|-|
@@ -80,13 +80,13 @@ A shared model deployment reduces your operational burden. You manage fewer depl
 
 If tenants have requirements that you can't meet with a shared deployment, create a dedicated model deployment. This model provides the following capabilities:
 
-- **Quota and cost management:** Dedicated deployments let you allocate TPM quotas per tenant and track token usage for precise cost allocation. If you use [provisioned throughput units (PTUs)](/azure/ai-foundry/openai/concepts/provisioned-throughput), you can assign PTUs to specific customers and use different billing models for other customers.
+- **Quota and cost management:** You can allocate TPM quotas per tenant and track token usage for precise cost allocation. If you use [provisioned throughput units (PTUs)](/azure/ai-foundry/openai/concepts/provisioned-throughput), you can assign them to specific customers and use different billing models for other customers.
 
-- **Content filtering policies:** Some tenants might need a custom content filtering policy, like a block list of disallowed words. You configure the content filtering policy at the model deployment level.
+- **Content filtering policies:** Some tenants might need a custom content filtering policy, like a block list of disallowed words. Configure the content filtering policy at the model deployment level.
 
 - **Model types and versions:** Different tenants might require different models, model versions, or independent model life cycle management.
 
-- **Tenant-specific fine-tuning:** Each fine-tuned model requires its own deployment. But fine-tuning isn't required for most use cases. You can usually ground your model by using the [Azure OpenAI on your data feature](#azure-openai-on-your-data) or another retrieval-augmented generation (RAG) approach.
+- **Tenant-specific fine-tuning:** Each fine-tuned model requires its own deployment. But fine-tuning isn't required for most use cases. You can usually ground your model by using the [Azure OpenAI on your data feature](#azure-openai-on-your-data-feature) or another retrieval-augmented generation (RAG) approach.
 
 - **Data residency:** This approach supports distinct data residency requirements. For example, you might provide a regional model deployment for a tenant that has strict data residency needs and use a global model deployment for other tenants.
 
@@ -108,7 +108,7 @@ To access an Azure OpenAI instance in your tenant's subscription, the tenant mus
 
 1. The tenant registers the multitenant Microsoft Entra application in its own Microsoft Entra tenant.
 
-1. The tenant grants the multitenant Microsoft Entra application the appropriate level of access to the Azure OpenAI resource. For example, the tenant might assign the application to the *Azure AI Services User* role by using role-based access control (RBAC).
+1. The tenant grants the multitenant Microsoft Entra application the appropriate level of access to the Azure OpenAI resource. For example, the tenant might assign the application to the *Azure OpenAI User* role by using role-based access control (RBAC).
 
 1. The tenant provides the resource ID of the Azure OpenAI resource that it creates.
 
@@ -134,7 +134,7 @@ The [Responses API](/azure/ai-foundry/openai/how-to/responses) is a stateful API
 
 The Responses API makes tenant data isolation between tenants challenging because you can't attach tenant identifiers to all tools and capabilities.
 
-If you use the Responses API in a multitenant solution, consider tenant isolation in all stored data and operations that you control. The API stores conversation history by using response IDs that link requests to previous context. Store response IDs with tenant-scoped keys in your application so that requests can only reference response IDs associated with the same tenant.
+If you use the Responses API in a multitenant solution, consider tenant isolation for all stored data and operations that you control. The API stores conversation history by using response IDs that link requests to previous context. Store response IDs with tenant-scoped keys in your application so that requests can only reference response IDs associated with the same tenant.
 
 The Responses API supports function calling and built-in tools. For function calling, your application code handles the function invocation, so ensure that your function calls are multitenant-aware. Include the tenant ID in calls to downstream APIs or functions. For built-in tools like Code Interpreter and remote Model Context Protocol (MCP) server calls, the model infrastructure runs these operations. You can't reliably inject tenant context into built-in tool invocations, so use dedicated containers or separate tool configurations for each tenant.
 
@@ -144,7 +144,7 @@ The Responses API supports a background mode for long-running operations. Store 
 
 ### Assistants API
 
-The [Assistants API](/azure/ai-foundry/openai/concepts/assistants) extends Azure OpenAI with capabilities for creating AI assistants. The API can call tools and other APIs, search files to ground model responses, manage persistent conversation threads, and generate and run code in a sandboxed environment. To support these capabilities, the Assistants API stores data.
+The [Assistants API](/azure/ai-foundry/openai/concepts/assistants) extends Azure OpenAI with capabilities to create AI assistants. The API can call tools and other APIs, search files to ground model responses, manage persistent conversation threads, and generate and run code in a sandboxed environment. To support these capabilities, the Assistants API stores data.
 
 In a multitenant solution, you can dedicate assistants to individual tenants or share assistants across tenants. Consider tenant isolation in all stored data, especially for shared assistants. For example, store conversational threads separately for each tenant.
 
@@ -152,21 +152,21 @@ The Assistants API supports function invocation, which sends your application in
 
 ### Azure OpenAI on your data feature
 
-The [Azure OpenAI on your data](/azure/ai-foundry/openai/concepts/use-your-data) feature lets the large language model directly query your knowledge sources, like indexes and databases, when generating responses.
+The [Azure OpenAI on your data feature](/azure/ai-foundry/openai/concepts/use-your-data) lets the large language model directly query your knowledge sources, like indexes and databases, to ground its responses. When you make a request, you can specify the data sources to query.
 
-When you make a request, you can specify the data sources to query. In a multitenant solution, ensure that your data sources are multitenancy-aware and that you can specify tenant filters on your requests. Propagate the tenant ID to the data source appropriately. For example, if you query Azure AI Search with data for multiple tenants in a single index, specify a filter to return only the current tenant's ID. If you create an index for each tenant, specify the correct index for the current tenant.
+In a multitenant solution, ensure that your data sources are multitenancy-aware and that you can specify tenant filters on your requests. Propagate the tenant ID to the data source appropriately. For example, if you query Azure AI Search with data for multiple tenants in a single index, specify a filter to return only the current tenant's ID. If you create an index for each tenant, specify the correct index for the current tenant.
 
 ### Batch deployments
 
 [Batch deployments](/azure/ai-foundry/openai/how-to/batch) process grouped requests asynchronously by using a separate [batch quota](/azure/ai-foundry/openai/quotas-limits#batch-quota). Batch requests have a 24-hour target turnaround and cost less than standard deployments. Unlike standard deployments, batch quotas limit enqueued tokens rather than TPM.
 
-Use batch deployments when you don't need immediate responses and processing large volumes of requests can't disrupt real-time responses. For example, a sentiment analysis system can use a batch deployment to avoid throttling the standard deployment quota that it needs to conduct real-time interactions in other applications. This approach also reduces processing costs.
+Use batch deployments when you don't need immediate responses and want to process large volumes of requests without disrupting real-time workloads. For example, a sentiment analysis system can use a batch deployment to avoid throttling the standard deployment quota that it needs to conduct real-time interactions in other applications. This approach also reduces processing costs.
 
 In a multitenant solution, you can share batch deployments among tenants or create separate deployments for each tenant.
 
 - **Separate batch deployments for each tenant:** Assign token quotas to each tenant-specific batch deployment to prevent any single tenant from monopolizing resources. This approach also lets you track token usage per tenant for cost allocation.
 
-- **Shared batch deployment:** A shared batch deployment can process requests from multiple tenants in combined or separate batch jobs. If you combine requests into a single batch job, ensure that you can map responses back to the correct tenant. Separate batch jobs by tenant so that you can cancel or delete jobs independently. You can't cancel or delete individual requests within a batch.
+- **Shared batch deployment:** A shared batch deployment can process requests from multiple tenants in combined or separate batch jobs. If you combine requests into a single batch job, ensure that you can map responses back to the correct tenant. You manage batch jobs at the job level, so separate batch jobs by tenant. Then you can cancel or delete jobs independently. You can't cancel or delete individual requests within a batch.
 
 Carefully manage batch deployments to balance cost efficiency and resource allocation while maintaining tenant isolation and operational flexibility.
 
