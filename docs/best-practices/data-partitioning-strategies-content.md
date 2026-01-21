@@ -216,58 +216,70 @@ You have limited control over how AI Search partitions data for each instance of
 
 This approach is most suitable when there's a significant regional variation in the data that's being searched.
 
-## Partitioning Azure Cache for Redis
+## Partitioning Azure Managed Redis
 
-Azure Cache for Redis provides a shared caching service in the cloud that's based on the Redis key-value data store. As its name implies, Azure Cache for Redis is intended as a caching solution. Use it only for holding transient data and not as a permanent data store. Applications that use Azure Cache for Redis should be able to continue functioning if the cache is unavailable. Azure Cache for Redis supports primary/secondary replication to provide high availability, but currently limits the maximum cache size to 53 GB. If you need more space than this, you must create additional caches. For more information, see [Azure Cache for Redis].
+Azure Managed Redis is a fully managed, enterprise-grade data platform built on Redis Enterprise. While it continues to excel at classic caching scenarios, it provides a high-performance, multi-model, in-memory environment capable of accelerating both traditional application patterns and modern AI-driven architectures, such as AI agents.
 
-Partitioning a Redis data store involves splitting the data across instances of the Redis service. Each instance constitutes a single partition. Azure Cache for Redis abstracts the Redis services behind a façade and doesn't expose them directly. The simplest way to implement partitioning is to create multiple Azure Cache for Redis instances and spread the data across them.
+Azure Managed Redis supports built-in high availability and horizontal scaling through Redis clustering, which distributes data across multiple nodes. Capacity and performance can be adjusted by scaling the service tier and SKU, removing the need to manually provision multiple caches to increase overall storage or throughput. For more information, see [Azure Managed Redis].
 
-You can associate each data item with an identifier (a partition key) that specifies which cache stores the data item. The client application logic can then use this identifier to route requests to the appropriate partition. This scheme is very simple, but if the partitioning scheme changes (for example, if additional Azure Cache for Redis instances are created), client applications might need to be reconfigured.
+Partitioning a Redis data store involves splitting data across multiple nodes. Azure Managed Redis uses native Redis Cluster partitioning to automatically distribute keys across nodes based on hash slots. This approach abstracts the underlying nodes from application logic and removes the need for application-level partition management in most scenarios. For more information about clustering models and client connectivity options in Azure Managed Redis, see the [Azure Managed Redis clustering documentation](azure/redis/architecture#clustering)
+.
 
-Native Redis (not Azure Cache for Redis) supports server-side partitioning based on Redis clustering. In this approach, you can divide the data evenly across servers by using a hashing mechanism. Each Redis server stores metadata that describes the range of hash keys that the partition holds, and also contains information about which hash keys are located in the partitions on other servers.
+Client applications connect to the cluster using standard Redis client libraries through Redis endpoints. Requests are automatically routed to the appropriate node within the cluster. If a request initially reaches a node that does not own the requested key, it is forwarded internally to the node that holds the corresponding hash slot. Request routing and cluster topology management are handled by the Redis service and supporting client libraries.
 
-Client applications simply send requests to any of the participating Redis servers (probably the closest one). The Redis server examines the client request. If it can be resolved locally, it performs the requested operation. Otherwise it forwards the request on to the appropriate server.
+Redis clustering is transparent to application logic. Nodes can be added or removed and data can be automatically rebalanced without requiring application reconfiguration.
 
-This model is implemented by using Redis clustering, and is described in more detail on the [Redis cluster tutorial] page on the Redis website. Redis clustering is transparent to client applications. Additional Redis servers can be added to the cluster (and the data can be repartitioned) without requiring that you reconfigure the clients.
+Operations that involve multiple keys, such as transactions or batch operations, must ensure that all participating keys are located in the same partition. Application developers should design key-naming strategies accordingly to support these access patterns.
 
 > [!IMPORTANT]
-> Azure Cache for Redis currently supports Redis clustering in Premium tier only.
+> Azure Managed Redis provides built-in Redis clustering as part of the service. Applications should generally rely on native Redis Cluster partitioning rather than implementing client-side partitioning logic.
 
-The page [Partitioning: how to split data among multiple Redis instances] on the Redis website provides more information about implementing partitioning with Redis. The remainder of this section assumes that you are implementing client-side or proxy-assisted partitioning.
+The remainder of this section focuses on data modeling and key design considerations when working with partitioned Redis data stores.
 
-Consider the following points when deciding how to partition data with Azure Cache for Redis:
+Consider the following points when deciding how to structure and partition data with Azure Managed Redis:
 
-- Azure Cache for Redis isn't intended to act as a permanent data store, so whatever partitioning scheme you implement, your application code must be able to retrieve data from a location that's not the cache.
+- Azure Managed Redis is not intended to act as a permanent system of record. Applications must be able to retrieve data from a durable data store if data is unavailable or evicted from Redis.
 
-- Data that is frequently accessed together should be kept in the same partition. Redis is a powerful key-value store that provides several highly optimized mechanisms for structuring data. It includes the following mechanisms:
+  Data stored in Azure Managed Redis can be populated using different patterns depending on application requirements. In addition to cache-aside approaches—where data is loaded into Redis on demand—applications may use ingestion-based patterns, where data is proactively written to Redis from external systems. This can be implemented using event-driven or batch ingestion mechanisms, such as Redis Data Integration (RDI) or Azure Functions, to synchronize data from durable data stores into Redis.
 
-  - Simple strings (binary data up to 512 MB in length)
+- Data that is frequently accessed together should be modeled so that it can be stored and accessed together. Redis provides a broad set of optimized data structures to support different access patterns, including but not limited to:
+
+  - Simple key-value entries intended for relatively small, bounded values
   - Aggregate types such as lists (which can act as queues and stacks)
-  - Sets (ordered and unordered)
-  - Hashes (which can group related fields together, such as the items that represent the fields in an object)
+  - Sets and sorted sets, which support unordered collections and ranked data
+  - Hashes, which can group related fields together under a single key
+  - Bitmaps for efficient representation of flags and boolean states
+  - Probabilistic data structures, such as Bloom filters and HyperLogLog, for space-efficient membership and cardinality estimation
+  - Document-oriented structures for storing and querying JSON data
+  - Time-series structures optimized for timestamped measurements
+  - Indexing and search capabilities for querying structured and semi-structured data
 
-- The aggregate types enable you to associate many related values with the same key. A Redis key identifies a list, set, or hash rather than the data items that it contains. These types are all available with Azure Cache for Redis and are described by the [Data types] page on the Redis website. For example, in part of an e-commerce system that tracks the orders that are placed by customers, the details of each customer can be stored in a Redis hash that is keyed by using the customer ID. Each hash can hold a collection of order IDs for the customer. A separate Redis set can hold the orders, again structured as hashes, and keyed by using the order ID. Figure 8 shows this structure. Redis doesn't implement any form of referential integrity, so it's the developer's responsibility to maintain the relationships between customers and orders.
+- Aggregate and structured data types enable you to associate many related values with a single key. A Redis key identifies a list, set, sorted set, hash, or document rather than the individual data items that it contains. These data structures are available in Azure Managed Redis and are described in the [Data types] documentation. For example, in an e-commerce system that tracks customer orders, the details for each customer can be stored in a Redis hash keyed by customer ID. Each hash can hold a collection of order IDs associated with that customer. A separate Redis set can store the orders themselves, structured as hashes and keyed by order ID. Figure 8 shows this structure. Redis does not enforce referential integrity, so it is the application’s responsibility to maintain relationships between customers and orders.
 
 ![Suggested structure in Redis storage for recording customer orders and their details](./images/data-partitioning/redis-customers-and-orders.png)
 
 *Figure 8. Suggested structure in Redis storage for recording customer orders and their details.*
 
 > [!NOTE]
-> In Redis, all keys are binary data values (like Redis strings) and can contain up to 512 MB of data. In theory, a key can contain almost any information. However, we recommend adopting a consistent naming convention for keys that is descriptive of the type of data and that identifies the entity, but isn't excessively long. A common approach is to use keys of the form "entity_type:ID". For example, you can use "customer:99" to indicate the key for a customer with the ID 99.
+> In Redis, keys and values are binary-safe and can, in theory, store values up to hundreds of megabytes in size. However, best practices recommend keeping values relatively small and bounded to minimize latency, reduce replication and rebalancing costs, and improve overall efficiency. Keys should follow a consistent naming convention that is descriptive, stable, and not excessively long. A common approach is to use keys of the form "entity_type:ID". For example, "customer:99" can represent the key for a customer with ID 99.
 
-- You can implement vertical partitioning by storing related information in different aggregations in the same database. For example, in an e-commerce application, you can store commonly accessed information about products in one Redis hash and less frequently used detailed information in another. Both hashes can use the same product ID as part of the key. For example, you can use "product: *nn*" (where *nn* is the product ID) for the product information and "product_details: *nn*" for the detailed data. This strategy can help reduce the volume of data that most queries are likely to retrieve.
+- You can implement vertical partitioning by storing related information in separate data structures under different keys within the same Redis database. For example, in an e-commerce application, commonly accessed product information can be stored in one Redis hash, while less frequently accessed or more detailed product data is stored in another. Both structures can use the same product identifier as part of the key, such as "product:nn" for frequently accessed data and "product:details:nn" for detailed information. This approach helps reduce the amount of data retrieved by most queries and improves access efficiency.
 
-- You can repartition a Redis data store, but keep in mind that it's a complex and time-consuming task. Redis clustering can repartition data automatically, but this capability isn't available with Azure Cache for Redis. Therefore, when you design your partitioning scheme, try to leave sufficient free space in each partition to allow for expected data growth over time. However, remember that Azure Cache for Redis is intended to cache data temporarily, and that data held in the cache can have a limited lifetime specified as a time-to-live (TTL) value. For relatively volatile data, the TTL can be short, but for static data the TTL can be a lot longer. Avoid storing large amounts of long-lived data in the cache if the volume of this data is likely to fill the cache. You can specify an eviction policy that causes Azure Cache for Redis to remove data if space is at a premium.
+- Azure Managed Redis uses built-in Redis clustering to distribute data across nodes and to rebalance data automatically as the cluster scales. Applications do not need to manage repartitioning explicitly. Instead, partition-aware design should focus on key structure, access patterns, and data lifecycle.
+
+- Redis has traditionally been accessed by exact key lookups. While careful key design remains important, Azure Managed Redis also provides indexing and search capabilities that enable applications to query data based on attributes, ranges, or text content. These capabilities can help avoid application-side key iteration or complex secondary-key management. Search and indexing should be applied selectively, based on access patterns and query requirements, rather than as a replacement for efficient key-based access.
+
+- Azure Managed Redis supports assigning a time-to-live (TTL) value to keys to control data lifecycle. TTLs can be used to manage freshness, enforce retention policies, or support cache and derived-data scenarios. Eviction policies can be configured to determine how Redis behaves when memory pressure occurs. Applications should be designed to tolerate evictions and reload or regenerate data when necessary.
 
   > [!NOTE]
-  > When you use Azure Cache for Redis, you specify the maximum size of the cache (from 250 MB to 53 GB) by selecting the appropriate pricing tier. However, after an Azure Cache for Redis has been created, you cannot increase (or decrease) its size.
+  > With Azure Managed Redis, capacity and performance are determined by the selected service tier and SKU, and can be adjusted over time as workload requirements change. Applications should be designed to scale independently of specific node sizes or fixed capacity limits.
 
-- Redis batches and transactions cannot span multiple connections, so all data that is affected by a batch or transaction should be held in the same database (shard).
+- Redis batches and transactions cannot span multiple partitions. Any data affected by a batch or transaction must be located within the same partition. When designing keys and access patterns, ensure that related keys that participate in transactional or batched operations are co-located.
 
   > [!NOTE]
-  > A sequence of operations in a Redis transaction isn't necessarily atomic. The commands that compose a transaction are verified and queued before they run. If an error occurs during this phase, the entire queue is discarded. However, after the transaction has been successfully submitted, the queued commands run in sequence. If any command fails, only that command stops running. All previous and subsequent commands in the queue are performed. For more information, go to the [Transactions] page on the Redis website.
+  > A sequence of operations in a Redis transaction is not necessarily atomic in the traditional database sense. The commands that compose a transaction are validated and queued before execution. If an error occurs during this phase, the entire queue is discarded. Once the transaction is successfully submitted, the queued commands execute sequentially. If a command fails during execution, only that command fails; previous and subsequent commands in the queue are still executed. For more information, see the [Redis transactions](https://redis.io/docs/latest/develop/using-commands/transactions/) documentation.
 
-- Redis supports a limited number of atomic operations. The only operations of this type that support multiple keys and values are MGET and MSET operations. MGET operations return a collection of values for a specified list of keys, and MSET operations store a collection of values for a specified list of keys. If you need to use these operations, the key-value pairs that are referenced by the MSET and MGET commands must be stored within the same database.
+- Redis supports a limited set of atomic operations across multiple keys. The primary multi-key atomic operations are MGET and MSET, which retrieve or store values for a specified set of keys. When using these operations in a clustered deployment, all referenced keys must be located in the same partition. Key design should account for this constraint to ensure correctness and performance.
 
 ## Partitioning Azure Service Fabric
 
@@ -296,14 +308,14 @@ For considerations about trade-offs between availability and consistency, see [A
 [Availability and consistency in Event Hubs]: /azure/event-hubs/event-hubs-availability-and-consistency
 [azure-limits]: /azure/azure-subscription-service-limits
 [Azure Content Delivery Network]: /azure/cdn/cdn-overview
-[Azure Cache for Redis]: https://azure.microsoft.com/services/cache
+[Azure Managed Redis]: https://azure.microsoft.com/en-us/products/managed-redis
 [Azure Storage Table Design Guide]: /azure/storage/storage-table-design-guide
 [Building a Polyglot Solution]: /previous-versions/msp-n-p/dn313279(v=pandp.10)
 [cosmos-db-ru]: /azure/cosmos-db/request-units
 [Data Access for Highly Scalable Solutions: Using SQL, NoSQL, and Polyglot Persistence]: /previous-versions/msp-n-p/dn271399(v=pandp.10)
 [Data consistency primer]: /previous-versions/msp-n-p/dn589800(v=pandp.10)
 [Data Partitioning Guidance]: /previous-versions/msp-n-p/dn589795(v=pandp.10)
-[Data Types]: https://redis.io/topics/data-types
+[Data Types]: https://redis.io/docs/latest/develop/data-types/
 [cosmos-db-sql-api]: /azure/cosmos-db/sql-api-introduction
 [Elastic Database features overview]: /azure/sql-database/sql-database-elastic-scale-introduction
 [event-hubs]: /azure/event-hubs
