@@ -58,7 +58,7 @@ This architecture showcases a solution that is rehosted on Microsoft Azure.
 
 3. The use of application compute clusters depends on whether the application supports virtual machines (VMs) in a compute cluster, or the application runs in a container that you deploy in a container compute cluster like Kubernetes. Most mainframe partner software for applications written in legacy languages prefers to use VMs. Some mainframe systems partner software can also support deployment in containers.  
 
-4. Application servers receive the input in the compute clusters and share application state and data using Azure Redis Cache or remote direct memory access (RDMA). The application servers host various COBOL or PL/1 application programs. A transaction system manager is an emulator on Azure that can handle customer information control systems (CICS) and information management systems (IMS) workloads. A batch system emulator on Azure does the role of job control language (JCL).  
+4. Application servers receive the input in the compute clusters and share application state and data using Azure Managed Redis or remote direct memory access (RDMA). The application servers host various COBOL or PL/1 application programs. A transaction system manager is an emulator on Azure that can handle customer information control systems (CICS) and information management systems (IMS) workloads. A batch system emulator on Azure does the role of job control language (JCL).  
 
 5. You can use Azure services or other partner software hosted in VMs for system, utilities, and data management.
 

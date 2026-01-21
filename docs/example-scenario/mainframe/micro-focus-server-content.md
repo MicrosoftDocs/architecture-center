@@ -28,7 +28,7 @@ This sample solution is a prescriptive, well-architected example of a Micro Focu
 
    - Distributed instances are more resistant to hardware or network issues.
    - Several instances working together perform better, maximize throughput, and provide for future horizontal scaling.
-   - The instances share synchronized user and system data, using a data store called a Scale-Out Repository (SOR). The data store uses Azure Cache for Redis to improve performance and scalability.
+   - The instances share synchronized user and system data, using a data store called a Scale-Out Repository (SOR). The data store uses Azure Managed Redis to improve performance and scalability.
 
 1. For HA, Azure Site Recovery replicates a Production VM and keeps it synced in the failover region. Since the two VMs in the Production region are clones, only one needs to participate in Site Recovery.
 
@@ -50,7 +50,7 @@ This sample solution is a prescriptive, well-architected example of a Micro Focu
 
   A [virtual network interface card (NIC)](/azure/virtual-network/virtual-network-network-interface) is a networking component that lets an Azure VM communicate with internet, Azure, and on-premises resources over a virtual network. In this architecture, you can add NICs to Azure VMs to give child VMs their own dedicated network interface devices and IP addresses.
 
-- [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is a fully managed in-memory data store that improves performance and scalability for applications that use back-end data stores heavily. Azure Cache for Redis keeps frequently accessed data, like session state and scale-out repository (SOR), in-server memory for fast access and throughput. In this architecture, Azure Cache for Redis serves as the SOR data store for sharing synchronized user and system data across Enterprise Server instances in the performance availability cluster.
+- [Azure Managed Redis](/azure/redis/overview) is a managed in-memory data store that improves performance and scalability for applications that use back-end data stores heavily. Azure Managed Redis keeps frequently accessed data, like session state and scale-out repository (SOR), in-server memory for fast access and throughput. In this architecture, Azure Managed Redis serves as the SOR data store for sharing synchronized user and system data across Enterprise Server instances in the performance availability cluster.
 
 - [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) is a service that extends on-premises networks into the Azure cloud over a private connection that a connectivity provider facilitates. In this architecture, ExpressRoute provides secure, high-performance connectivity between on-premises Enterprise Server users and Azure resources.
 
@@ -118,18 +118,18 @@ Performance Efficiency is the ability of your workload to scale to meet the dema
 
 - The PAC enables horizontal scaling according to application load.
 
-- Azure Cache for Redis and Azure Storage accounts maintain critical component operations. These features provide high performance for data reads and writes, hot storage access, and long-term data storage.
+- Azure Managed Redis and Azure Storage accounts maintain critical component operations. These features provide high performance for data reads and writes, hot storage access, and long-term data storage.
 
 A PAC configures several Enterprise Server instances in a scale-out architecture using [availability sets](/azure/virtual-machines/availability#availability-sets). The PAC supports future horizontal scaling.
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
- - [Jonathon Frost](https://www.linkedin.com/in/jjfrost/) | Principal Software Engineer
- 
+- [Jonathon Frost](https://www.linkedin.com/in/jjfrost/) | Principal Software Engineer
+
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
