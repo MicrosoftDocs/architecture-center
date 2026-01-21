@@ -363,7 +363,7 @@ You must implement workload identity as a critical security requirement for mult
 
 In a multitenant cluster, workload identity prevents several critical security risks:
 
-- **Credential sharing:** Without workload identity, tenant applications share service principals or store credentials in secrets, which enables cross-tenant access.
+- **Credential sharing:** Without workload identity, tenant applications share service principals or store credentials in secrets, which increases the risk of cross-tenant access.
 
 - **Privilege escalation:** A compromised tenant workload can access other tenants' Azure resources through shared credentials.
 
@@ -563,11 +563,11 @@ A [reverse proxy](https://en.wikipedia.org/wiki/Reverse_proxy) sits in front of 
 
 - [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx) is a reverse proxy server that supports load balancing, SSL termination, and layer-7 routing. The Ingress NGINX project retires in March 2026.
 
-- [Traefik Kubernetes Ingress provider](https://doc.traefik.io/traefik/providers/kubernetes-ingress) is a Kubernetes Ingress controller that manages access to cluster services by supporting the ingress specification.
+- [Traefik Kubernetes Ingress provider](https://doc.traefik.io/traefik/reference/install-configuration/providers/kubernetes/kubernetes-ingress) is a Kubernetes Ingress controller that manages access to cluster services by supporting the ingress specification.
 
 - [HAProxy Kubernetes Ingress Controller](https://www.haproxy.com/documentation/kubernetes-ingress) is a reverse proxy for Kubernetes that supports Transport Layer Security (TLS) termination, URL-path-based routing, and other standard features.
 
-- [Application Gateway for Containers](/azure/application-gateway/for-containers/overview) is a managed application delivery controller (ADC) that provides layer-7 load balancing for AKS-hosted applications. It provides advanced routing capabilities, SSL termination, and web application firewall (WAF) features to protect tenant applications from common web vulnerabilities and attacks. Application Gateway for Containers supersedes [AGIC](/azure/application-gateway/ingress-controller-overview). Use Application Gateway for Containers for new deployments. You can use existing AGIC deployments, but you should plan to migrate to Application Gateway for Containers.
+- [Application Gateway for Containers](/azure/application-gateway/for-containers/overview) is a managed application delivery controller (ADC) that provides layer-7 load balancing for AKS-hosted applications. It provides advanced routing capabilities, SSL termination, and web application firewall (WAF) features to protect tenant applications from common web vulnerabilities and attacks. Application Gateway for Containers replaces [AGIC](/azure/application-gateway/ingress-controller-overview). Use Application Gateway for Containers for new deployments. You can use existing AGIC deployments, but you should plan to migrate to Application Gateway for Containers.
 
 When you use an AKS-hosted reverse proxy to secure and handle incoming requests to multiple tenant applications, consider the following recommendations:
 - Host the reverse proxy on a dedicated node pool configured to use a VM size that has high network bandwidth and [accelerated networking](/azure/virtual-network/accelerated-networking-overview) turned on.
@@ -644,7 +644,7 @@ For more information, see the following articles:
 
 - [Cost governance with Kubecost](/azure/cloud-adoption-framework/scenarios/app-platform/aks/cost-governance-with-kubecost)
 - [Architectural approaches for cost management and allocation in a multitenant solution](/azure/architecture/guide/multitenant/approaches/cost-management-allocation)
-- [Overview of the Cost Optimization pillar](/azure/architecture/framework/cost/overview)
+- [Overview of the Cost Optimization pillar](/azure/well-architected/cost-optimization)
 
 ## Governance
 
