@@ -470,8 +470,8 @@ Configure [FIPS for AKS node pools](/azure/aks/enable-fips-nodes) to enhance ten
 
 Azure Storage encrypts data in a storage account at rest, including the operating system (OS) and data disks of an AKS cluster. By default, Azure encrypts data through Microsoft-managed keys. For more control over encryption keys, supply customer-managed keys for encryption at rest of the OS and data disks of your AKS clusters. For more information, see the following articles:
 
-- [BYOK for Azure managed disks in AKS](/azure/aks/azure-disk-customer-managed-keys).
-- [Server-side encryption of Azure Disk Storage](/azure/virtual-machines/disk-encryption).
+- [BYOK for Azure managed disks in AKS](/azure/aks/azure-disk-customer-managed-keys)
+- [Server-side encryption of Azure Disk Storage](/azure/virtual-machines/disk-encryption)
 
 ### Host-based encryption
 
