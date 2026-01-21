@@ -1,4 +1,4 @@
-Enterprise chat applications can empower employees through conversational interactions with AI agents. This capability is increasingly powerful thanks to ongoing advancements in language models, such as OpenAI's GPT models and orchestration open-source development kits like the Microsoft Foundry SDKs or the Microsoft Agent Framework. These chat applications typically consist of the following components:
+Enterprise chat applications can empower employees through conversational interactions with AI agents. This capability is increasingly powerful thanks to ongoing advancements in language models, such as OpenAI's GPT models and open-source development kits like the Microsoft Foundry SDKs or the Microsoft Agent Framework. These chat applications typically consist of the following components:
 
 - A chat user interface (UI) that's integrated into a larger enterprise application. It provides users with a conversational experience alongside other business functions.
 
@@ -87,19 +87,22 @@ This architecture includes multiple components that you can substitute with othe
 
 #### Chat orchestration
 
-**Current approach:** This architecture uses [Agent Service](/azure/ai-services/agents/overview) to orchestrate chat flows, including fetching grounding data from knowledge stores and invoking Azure OpenAI models. Agent Service provides codeless, nondeterministic orchestration. It handles chat requests, conversation management, tool invocation, content safety, and integration with identity, networking, and observability. It provides a native memory database solution.
+**Current approach:** This architecture uses [Agent Service](/azure/ai-services/agents/overview) to orchestrate prompt-based agent execution flows, including fetching grounding data from knowledge stores, invoking AI models, and enforcing consistent response behavior based on the agent’s system-level instructions and conversational history. Agent Service provides codeless, nondeterministic orchestration for conversational AI workloads. It manages chat requests, conversation state, tool invocation, content safety, and integration with identity, networking, and observability. The service supports persistence of conversational context and agent state through a predefined data model deployed into a database within your subscription.
 
-**Alternative approach:** You can self-host the orchestration layer by using frameworks such as [Microsoft Agent Framework](/agent-framework/overview/agent-framework-overview), [Semantic Kernel](/semantic-kernel/overview/), or [LangChain](/azure/ai-foundry/how-to/develop/langchain). Use these frameworks to implement deterministic, code-driven chat flows and custom orchestration logic.
+**Alternative approach:** You can host agents and implement custom execution logic using frameworks such as the [Microsoft Agent Framework](/agent-framework/overview/agent-framework-overview), [Semantic Kernel](/semantic-kernel/overview/), [LangChain](/azure/ai-foundry/how-to/develop/langchain), or custom code that adheres to the Foundry protocol. In this alternative, Foundry Agent Service continues to manage conversation orchestration and state, while your agent code augments or extends the execution behavior within those protocol boundaries. Use Hosted agents to deploy and run containerized, deterministic, code-driven agent execution on Foundry Agent Service, where infrastructure, and core orchestration capabilities are fully managed by the platform.
 
-Consider this alternative if your workload requires the following capabilities:
+Hosted agents should be considered as an alternative to prompt-based agents when one or more of the following capabilities are required:
 
-- The use of a model other than those [models supported by the Agent Service](/azure/ai-foundry/agents/concepts/model-region-support)
+- Requirements to use models outside those [supported by the Agent Service](/azure/ai-foundry/agents/concepts/model-region-support), or to integrate with tools not currently exposed by the service
 
-- Fine-grained, deterministic control over the orchestration sequence, tool invocation, or prompt engineering
+- Fine-grained, deterministic control over the agent execution path, including explicit orchestration patterns, external systems or tools invocations, prompt engineering, connection with multiple agents, or human-in-the-loop intervention
 
-- Integration with custom business logic or external systems that Agent Service doesn't natively support
-- Advanced client request routing for experimentation or safe deployment practices
-- A custom memory database solution that differs from the native Agent Service solution
+- Reuse existing codebases or libraries that already handle complex business processes
+- Requirements to audit, inspect, or certify agent code for security, compliance, or regulatory purposes
+- Advanced client request routing for experimentation
+- Safe deployment practices needs to be implemented on top the standard Hosted agents lifecycle
+- Fine-tuned agent runtime configuration, including CPU and memory allocation, as well as autoscaling settings
+- Augment the native Agent Service conversation state with additional memory stored in a separated database
 
 Self-hosted orchestration increases operational complexity and requires you to manage compute, scaling, and security.
 
