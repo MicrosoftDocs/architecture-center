@@ -299,7 +299,7 @@ The following diagram shows a scenario where tenants A and B run on the same nod
 The diagram shows three tenants and a deployment. The deployment contains node pool 1, node pool 2, an AKS cluster, and two databases. Tenant A and B use node pool 1 and a shared database. Tenant C uses node pool 2 and its own dedicated database.
 :::image-end:::
 
-This model can also provide different SLAs for different tiers. For example, the Basic tier can provide 99.90% uptime, the Standard tier can provide 99.95% uptime, and the Premium tier can provide 99.99% uptime. To implement a higher SLA, use services and features that enable higher availability targets.
+This model can also provide different SLAs for different tiers. For example, the Basic tier can provide 99.90% uptime, the Standard tier can provide 99.95% uptime, and the Premium tier can provide 99.99% uptime. As the application owner, you define and own these SLAs. To implement a higher SLA, use services and features that enable higher availability targets.
 
 This approach provides the following benefits:
 
