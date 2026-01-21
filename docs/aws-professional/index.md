@@ -178,3 +178,8 @@ The preceding list doesn't include all services. The following tables describe s
 
 > [!div class="nextstepaction"]
 > [Azure and AWS accounts and subscriptions](./accounts.md)
+
+## Additional resources
+
+- [AWS to Azure migration center](https://azure.microsoft.com/solutions/migration/aws-migration/)
+- [AWS vs. Azure: A comparison of cloud computing services](https://azure.microsoft.com)
