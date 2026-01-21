@@ -89,50 +89,6 @@ Consider using Azure Service Bus Messaging queues, which provides a [dead-letter
 
 **Diagnostics**. Use application logging.
 
-## SQL Database
-
-### Cannot connect to the database in the primary region.
-
-**Detection**. Connection fails.
-
-**Recovery:**
-
-- **Enable zone redundancy.** By enabling zone redundancy, Azure SQL Database automatically replicates your writes across multiple Azure availability zones within supported regions. For more information, see [Zone-redundant availability](/azure/azure-sql/database/high-availability-sla#zone-redundant-availability).
-
-- **Enable geo-replication.** If you're designing a multi-region solution, consider enabling SQL Database active geo-replication.
-  
-  Prerequisite: The database must be configured for active geo-replication. See [SQL Database Active Geo-Replication][sql-db-replication].
-
-  - For queries, read from a secondary replica.
-  - For inserts and updates, manually fail over to a secondary replica. See [Initiate a planned or unplanned failover for Azure SQL Database][sql-db-failover].
-
-  The replica uses a different connection string, so you'll need to update the connection string in your application.
-
-### Client runs out of connections in the connection pool.
-
-**Detection**. Catch `System.InvalidOperationException` errors.
-
-**Recovery:**
-
-- Retry the operation.
-- As a mitigation plan, isolate the connection pools for each use case, so that one use case can't dominate all the connections.
-- Increase the maximum connection pools.
-
-**Diagnostics**. Application logs.
-
-### Database connection limit is reached.
-
-**Detection**. Azure SQL Database limits the number of concurrent workers, logins, and sessions. The limits depend on the service tier. For more information, see [Azure SQL Database resource limits][sql-db-limits].
-
-To detect these errors, catch `System.Data.SqlClient.SqlException` and check the value of `SqlException.Number` for the SQL error code. For a list of relevant error codes, see [SQL error codes for SQL Database client applications: Database connection error and other issues][sql-db-errors].
-
-**Recovery**. These errors are considered transient, so retrying might resolve the issue. If you consistently hit these errors, consider scaling the database.
-
-**Diagnostics**. - The [sys.event_log][sys.event_log] query returns successful database connections, connection failures, and deadlocks.
-
-- Create an [alert rule][azure-alerts] for failed connections.
-- Enable [SQL Database auditing][sql-db-audit] and check for failed logins.
-
 ## Service Bus Messaging
 
 ### Reading a message from a Service Bus queue fails.
@@ -200,7 +156,6 @@ See [Identify dependencies](/azure/well-architected/reliability/failure-mode-ana
 
 <!-- links -->
 
-[azure-alerts]: /azure/monitoring-and-diagnostics/insights-alerts-portal
 [BrokeredMessage.TimeToLive]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 [cassandra-error-handling]: https://www.datastax.com/dev/blog/cassandra-error-handling-done-right
 [QuotaExceededException]: /dotnet/api/microsoft.servicebus.messaging.quotaexceededexception
@@ -210,10 +165,4 @@ See [Identify dependencies](/azure/well-architected/reliability/failure-mode-ana
 [sb-messaging-exceptions]: /azure/service-bus-messaging/service-bus-messaging-exceptions
 [sb-partition]: /azure/service-bus-messaging/service-bus-partitioning
 [sb-poison-message]: /azure/app-service/webjobs-sdk-how-to#automatic-triggers
-[sql-db-audit]: /azure/sql-database/sql-database-auditing-get-started
-[sql-db-errors]: /azure/sql-database/sql-database-develop-error-messages/#resource-governance-errors
-[sql-db-failover]: /azure/sql-database/sql-database-geo-replication-failover-portal
-[sql-db-limits]: /azure/sql-database/sql-database-resource-limits
-[sql-db-replication]: /azure/sql-database/sql-database-geo-replication-overview
 [storage-metrics]: /azure/storage/common/monitor-storage
-[sys.event_log]: /sql/relational-databases/system-catalog-views/sys-event-log-azure-sql-database
