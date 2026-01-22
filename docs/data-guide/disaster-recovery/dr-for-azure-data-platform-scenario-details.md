@@ -113,7 +113,7 @@ The following sections present a breakdown of Contoso activity necessary across 
         - Availability Zone failure: N/A
         - Azure regional failure: N/A
     - Notes:
-        - DevOps Services is [built upon the Azure backbone](/azure/devops/organizations/security/data-protection?view=azure-devops#built-on-azure) and uses [Azure blob storage with geo-replication](/azure/devops/organizations/security/data-protection?view=azure-devops#data-redundancy) to ensure reliability.
+        - DevOps Services is [built upon the Azure backbone](/azure/devops/organizations/security/data-protection#built-on-azure) and uses [Azure blob storage with geo-replication](/azure/devops/organizations/security/data-protection#data-redundancy) to ensure reliability.
 
 ### Area: Data Platform components
 

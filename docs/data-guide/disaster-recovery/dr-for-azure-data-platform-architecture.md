@@ -119,7 +119,7 @@ The workflow reads from left to right and shows the flow of data.
 - **Platform:** Fabric provides an end-to-end, unified software as a service (SaaS) analytics platform with centralized data storage in OneLake and embedded AI capabilities. Microsoft Entra ID manages identity and access control. [Workspace monitoring](/fabric/fundamentals/workspace-monitoring-overview) and cost management deliver operational visibility and optimization. Azure DevOps and GitHub support development and deployment workflows for CI/CD, and Azure Policy enforces consistent governance across resources. Fabric also supports bring your own key (BYOK) through Key Vault, which lets you manage and control encryption keys for securing data at rest.
 
 > [!NOTE]
-> For many customers, the conceptual level of the Data Platform reference architecture that's used aligns, but the physical implementation might vary. For example, ELT (extract, load, transform) processes might be performed through [Azure Data Factory](/azure/data-factory/), and data modeling by [Azure SQL server](/azure/azure-sql/?view=azuresql). To address this concern, the following [Stateful vs stateless components](#stateful-vs-stateless-components) section provides guidance.
+> For many customers, the conceptual level of the Data Platform reference architecture that's used aligns, but the physical implementation might vary. For example, ELT (extract, load, transform) processes might be performed through [Azure Data Factory](/azure/data-factory/), and data modeling by [Azure SQL server](/azure/azure-sql/). To address this concern, the following [Stateful vs stateless components](#stateful-vs-stateless-components) section provides guidance.
 
 For the Data Platform, Contoso has selected the lowest recommended production service tiers for all components and has chosen to adopt a "Redeploy on disaster" DR strategy based upon an operating cost-minimization approach.
 
@@ -139,7 +139,7 @@ The following tables present a breakdown of each Azure service and component use
     - Contoso SKU selection: Premium P1
     - DR uplift options: Microsoft Entra reliability is part of its software as a service (SaaS) offering.
     - Notes:
-        - [Advancing service resilience in Microsoft Entra ID](https://azure.microsoft.com/en-us/blog/advancing-service-resilience-in-azure-active-directory-with-its-backup-authentication-service/)
+        - [Advancing service resilience in Microsoft Entra ID](https://azure.microsoft.com/blog/advancing-service-resilience-in-azure-active-directory-with-its-backup-authentication-service/)
 
 - **Azure Key Vault**
     - Component recovery responsibility: Microsoft
@@ -151,7 +151,7 @@ The following tables present a breakdown of each Azure service and component use
     - Component recovery responsibility: Microsoft
     - Workload/configuration recovery responsibility: Microsoft
     - Contoso SKU selection: DevOps Services
-    - DR uplift options: DevOps [service and data reliability](/azure/devops/organizations/security/data-protection?view=azure-devops#data-availability) is part of its SaaS offering.
+    - DR uplift options: DevOps [service and data reliability](/azure/devops/organizations/security/data-protection#data-availability) is part of its SaaS offering.
     - Notes:
         - DevOps Server as the on-premises offering remains the customer's responsibility for disaster recovery.
         - If non-Microsoft services (like SonarCloud, JFrog Artifactory, and Jenkins build servers) are used, they remain the customer's responsibility for recovery from a disaster.
@@ -333,7 +333,7 @@ The following tables present a breakdown of each Azure service and component use
     - Notes:
         - Power BI resides in the Office365 tenancy, not that of Azure.
         - [Power BI uses Azure Availability Zones](/power-bi/enterprise/service-admin-failover#what-does--high-availability--mean-for-power-bi-) to protect Power BI reports, applications and data from datacenter failures.
-        - In the case of regional failure, Power BI will [failover to a new region](/power-bi/enterprise/service-admin-failover#what-is-a-power-bi-failover-), usually in the same geographical location, as noted in the [Microsoft Trust Center](https://www.microsoft.com/en-us/trust-center/product-overview?rtc=1).
+        - In the case of regional failure, Power BI will [failover to a new region](/power-bi/enterprise/service-admin-failover#what-is-a-power-bi-failover-), usually in the same geographical location, as noted in the [Microsoft Trust Center](https://www.microsoft.com/trust-center/product-overview?rtc=1).
 
 - **Azure Cosmos DB**
     - Component recovery responsibility: Microsoft
