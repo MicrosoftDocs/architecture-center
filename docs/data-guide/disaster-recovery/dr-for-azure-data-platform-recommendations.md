@@ -1,6 +1,20 @@
+---
+title: DR for Azure Data Platform - Recommendations
+description: Learn recommendations for implementing a disaster recovery strategy for an Azure data platform, including recovery objectives and operational considerations.
+author: lponnam75
+ms.author: lsuryadevara
+ms.date: 12/18/2025
+ms.topic: concept-article
+ms.subservice: architecture-guide
+---
+
+# Disaster recovery recommendations for an Azure data platform
+
+This article is the fourth in a series about disaster recovery (DR) for an Azure data platform. It provides recommendations and lessons learned for implementing a DR strategy, including guidance about how to define recovery objectives, test DR procedures, and address operational considerations.
+
 ## Lessons learned
 
-- Ensure that all the parties involved understand the difference between high availability (HA) and disaster recovery (DR). Confusing these concepts can result in mismatched solutions.
+- Ensure that all the parties involved understand the difference between high availability (HA) and DR. Confusing these concepts can result in mismatched solutions.
 
 - To define the recovery point objectives (RPOs) and recovery time objectives (RTOs), discuss with business stakeholders their expectations regarding the following factors:
 
@@ -189,6 +203,6 @@ For this outage scenario, the relative impact on the four high-level DR strategi
 
 ## Related resources
 
-- [DR for Azure Data Platform - Overview](dr-for-azure-data-platform-overview.yml)
-- [DR for Azure Data Platform - Architecture](dr-for-azure-data-platform-architecture.yml)
-- [DR for Azure Data Platform - Scenario details](dr-for-azure-data-platform-scenario-details.yml)
+- [DR for Azure Data Platform - Overview](dr-for-azure-data-platform-overview.md)
+- [DR for Azure Data Platform - Architecture](dr-for-azure-data-platform-architecture.md)
+- [DR for Azure Data Platform - Scenario details](dr-for-azure-data-platform-scenario-details.md)

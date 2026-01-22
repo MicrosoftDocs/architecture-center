@@ -1,7 +1,21 @@
+---
+title: DR for an Azure Data Platform - Scenario Details
+description: Learn about disaster recovery impact and activities for each Azure data platform component across datacenter, availability zone, and regional failure scenarios.
+author: lponnam75
+ms.author: lsuryadevara
+ms.date: 12/18/2025
+ms.topic: concept-article
+ms.subservice: architecture-guide
+---
+
+# Disaster recovery scenario details for an Azure data platform
+
+This article is the third in a series about disaster recovery (DR) for an Azure data platform. It describes the DR impact and required activities for each component in the data platform across different failure scenarios, including Azure datacenter failures, availability zone failures, and regional failures.
+
 ## Data service topology
 
 At a high-level the data service topology for Contoso's data platform can be illustrated as:
-![Diagram of the high-level Contoso data service topology.](../images/dr-for-azure-data-contoso-service-topology.png) This logical diagram abstracts the key functions of the Contoso data ecosystem into a simplified, high-level view. This abstracted view supports the sections covering the scenario deployments, in line with the disaster recovery (DR) strategy selection and the segregation of responsibilities in a service recovery process.
+![Diagram of the high-level Contoso data service topology.](../images/dr-for-azure-data-contoso-service-topology.png) This logical diagram abstracts the key functions of the Contoso data ecosystem into a simplified, high-level view. This abstracted view supports the sections covering the scenario deployments, in line with the DR strategy selection and the segregation of responsibilities in a service recovery process.
 
 ## DR impact vs customer activity
 The following sections present a breakdown of Contoso activity necessary across DR events of varying impacts.
@@ -255,9 +269,9 @@ The following sections present a breakdown of Contoso activity necessary across 
 
 ## Next steps
 
-Now that you've learned about the scenario details, you can learn about [recommendations related to this scenario](../disaster-recovery/dr-for-azure-data-platform-recommendations.yml).
+Now that you've learned about the scenario details, you can learn about [recommendations related to this scenario](../disaster-recovery/dr-for-azure-data-platform-recommendations.md).
 
 ## Related resources
 
-- [DR for Azure Data Platform - Overview](dr-for-azure-data-platform-overview.yml)
-- [DR for Azure Data Platform - Architecture](dr-for-azure-data-platform-architecture.yml)
+- [DR for Azure Data Platform - Overview](dr-for-azure-data-platform-overview.md)
+- [DR for Azure Data Platform - Architecture](dr-for-azure-data-platform-architecture.md)

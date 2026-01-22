@@ -1,3 +1,17 @@
+---
+title: DR for an Azure Data Platform - Architecture
+description: Learn how to structure an Azure data platform architecture with disaster recovery capabilities by using enterprise landing zones and analytics components.
+author: lponnam75
+ms.author: lsuryadevara
+ms.date: 12/18/2025
+ms.topic: concept-article
+ms.subservice: architecture-guide
+---
+
+# Disaster recovery architecture for an Azure data platform
+
+This article is the second in a series that provides guidance about disaster recovery (DR) for an Azure data platform. It presents a reference architecture that shows how to structure an Azure data platform with DR capabilities. Use this architecture as a foundation to plan your own DR implementation.
+
 ## Use case definition
 To support this worked example, the fictitious firm "Contoso" is used with an Azure Data Platform based upon Microsoft Reference Architectures.
 
@@ -92,7 +106,7 @@ The workflow reads from left to right and shows the flow of data.
 
   - [External data sharing](/fabric/governance/external-data-sharing-overview) in Fabric enables a provider tenant to securely share OneLake data with a consumer tenant. This capability supports cross-tenant access and collaboration without moving data. In the previous diagram, a provider tenant is the organization that shares data externally, and a consumer tenant is the organization that accesses and uses that shared data.
 
-  - Disaster recovery (DR) for external data sharing ensures that shared data remains available and consistent during outages or failures. Key aspects include the following components:
+  - DR for external data sharing ensures that shared data remains available and consistent during outages or failures. Key aspects include the following components:
 
     - Geo-redundancy: OneLake data resides in geo-replicated regions, so shared datasets remain available if the primary region experiences downtime.
 
@@ -107,7 +121,7 @@ The workflow reads from left to right and shows the flow of data.
 > [!NOTE]
 > For many customers, the conceptual level of the Data Platform reference architecture that's used aligns, but the physical implementation might vary. For example, ELT (extract, load, transform) processes might be performed through [Azure Data Factory](/azure/data-factory/), and data modeling by [Azure SQL server](/azure/azure-sql/?view=azuresql). To address this concern, the following [Stateful vs stateless components](#stateful-vs-stateless-components) section provides guidance.
 
-For the Data Platform, Contoso has selected the lowest recommended production service tiers for all components and has chosen to adopt a "Redeploy on disaster" disaster recovery (DR) strategy based upon an operating cost-minimization approach.
+For the Data Platform, Contoso has selected the lowest recommended production service tiers for all components and has chosen to adopt a "Redeploy on disaster" DR strategy based upon an operating cost-minimization approach.
 
 The following sections provide a baseline understanding of the DR process and levers available to customers to uplift this posture.
 
@@ -495,10 +509,10 @@ This section contains high availability (HA) and DR guidance for other key Azure
 
 ## Next steps
 
-Now that you've learned about the scenario's architecture, you can learn about the [scenario details](../disaster-recovery/dr-for-azure-data-platform-scenario-details.yml).
+Now that you've learned about the scenario's architecture, you can learn about the [scenario details](../disaster-recovery/dr-for-azure-data-platform-scenario-details.md).
 
 ## Related resources
 
-- [DR for Azure Data Platform - Overview](dr-for-azure-data-platform-overview.yml)
-- [DR for Azure Data Platform - Scenario details](dr-for-azure-data-platform-scenario-details.yml)
-- [DR for Azure Data Platform - Recommendations](dr-for-azure-data-platform-recommendations.yml)
+- [DR for Azure Data Platform - Overview](dr-for-azure-data-platform-overview.md)
+- [DR for Azure Data Platform - Scenario details](dr-for-azure-data-platform-scenario-details.md)
+- [DR for Azure Data Platform - Recommendations](dr-for-azure-data-platform-recommendations.md)
