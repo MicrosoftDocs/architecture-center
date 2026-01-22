@@ -1,5 +1,5 @@
 ---
-title: Mission-critical global content delivery
+title: Mission-Critical Global Content Delivery
 description: Learn how to develop highly resilient global HTTP applications when your focus is on content delivery and caching.
 author: johndowns
 ms.author: pnp
@@ -34,11 +34,9 @@ The following diagram shows how traffic flows between the CDNs:
 
 :::image type="content" source="./media/mission-critical-content-delivery/front-door-alternative-cdn.svg" alt-text="Diagram of Traffic Manager routing between Azure Front Door and another CDN." border="false":::
 
-- **Traffic Manager using weighted routing mode** has two [endpoints](/azure/traffic-manager/traffic-manager-endpoint-types) and is configured to [always serve traffic](/azure/traffic-manager/traffic-manager-monitoring#always-serve).
+- **Traffic Manager** uses weighted routing mode, has two [endpoints](/azure/traffic-manager/traffic-manager-endpoint-types), and is configured to [always serve traffic](/azure/traffic-manager/traffic-manager-monitoring#always-serve).
 
-    In normal operations, Traffic Manager sends 100% of your requests through Azure Front Door.
-    
-    If Azure Front Door is unavailable, you disable the Azure Front Door endpoint, and Traffic Manager sends the requests through the alternative CDN instead.
+  During normal operations, Traffic Manager sends all requests through Azure Front Door. If Azure Front Door becomes unavailable, turn off the Azure Front Door endpoint. Traffic Manager then sends all requests through the alternative CDN.
 
 - **Azure Front Door** processes and routes most of your application traffic. Azure Front Door routes traffic to the appropriate origin application server, and it provides the primary path to your application. If Azure Front Door is unavailable, traffic is automatically redirected through the secondary path.
 
@@ -64,21 +62,21 @@ Carefully consider the features of Azure Front Door that you use, and whether yo
 
 #### Cache fill
 
-For many situations, it makes sense to use an active-passive routing approach. During normal operations, all traffic is routed to Azure Front Door and bypasses the alternative CDN. You can achieve this by enabling the Traffic Manager endpoint for Azure Front Door and disabling the endpoint for your alternative CDN.
+For many situations, an active-passive routing approach makes sense. During normal operations, all traffic routes to Azure Front Door and bypasses the alternative CDN. To achieve this configuration, turn on the Traffic Manager endpoint for Azure Front Door and turn off the endpoint for your alternative CDN.
 
-However, if you're running multiple CDNs in active-passive mode, during a failover, CDN configured in passive mode needs to perform a *cache fill* from your origin during a failover.
+But if you run multiple CDNs in active-passive mode, the passive CDN must perform a *cache fill* from your origin when failover occurs.
 
-Test the failover between Azure Front Door and your alternative CDN to detect anomalies or performance problems. If your solution is at risk from performance problems during cache fills, consider these approaches to reduce the risk:
+Test failover between Azure Front Door and your alternative CDN to detect anomalies or performance problems. To reduce cache fill risks, consider the following approaches:
 
-- **Scale out or scale** up your origins to cope with higher traffic levels, especially during a cache fill.
+- **Scale out or scale up your origins** to handle higher traffic levels, especially during a cache fill.
 
-- **Prefill both CDNs.** You can serve a percentage of your most popular content through the passive CDN even before a failover event occurs. We recommend using the [weighted traffic routing mode](/azure/traffic-manager/traffic-manager-routing-methods#weighted-traffic-routing-method), which can be configured to always send a small portion of your traffic to the alternative CDN so that it's ready to serve production traffic at all times.
+- **Prefill both CDNs** by serving a percentage of your most popular content through the passive CDN before a failover event occurs. Configure [weighted traffic routing mode](/azure/traffic-manager/traffic-manager-routing-methods#weighted-traffic-routing-method) to send a small portion of traffic to the alternative CDN so that it's ready to serve production traffic at all times.
 
 #### Subdomains
 
-Sometimes you might combine both application-level routing and content delivery. For example, you might have static assets that benefit from caching, while your primary web application might not use caching.
+You might combine application-level routing and content delivery. For example, static assets might benefit from caching, while your primary web application might not use caching.
 
-In this scenario, consider putting your content assets on a dedicated subdomain, so that you can reconfigure them independently of application server routing.
+In this scenario, consider putting your content assets on a dedicated subdomain so that you can reconfigure them independently of application server routing.
 
 ## Tradeoffs
 
