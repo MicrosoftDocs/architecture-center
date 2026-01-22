@@ -6,7 +6,7 @@ Enterprise chat applications can empower employees through conversational intera
 
 - Language models that reason over the domain-specific data to produce relevant responses.
 
-- An orchestrator or agent that oversees the interactions between data sources, language models, and the end user.
+- A persisted orchestration definition or long-lived agent that oversees the interactions between data sources, language models, and the end user.
 
 This article provides a baseline architecture to help you build and deploy enterprise chat applications by using [Microsoft Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) and [Azure OpenAI in Foundry Models](/azure/ai-services/openai/concepts/models). This architecture uses a single, prompt-based agent hosted in Foundry Agent Service. The agent receives user messages and then queries data stores to retrieve grounding information for the language model.
 
