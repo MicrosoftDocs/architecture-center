@@ -180,7 +180,8 @@ Principal authors:
 - [Best practices for tuning ArcGIS Enterprise](https://enterprise.arcgis.com/en/server/latest/administer/windows/tuning-your-arcgis-server-site.htm)
 - [Configure highly available ArcGIS Enterprise](https://enterprise.arcgis.com/en/portal/latest/administer/windows/configure-highly-available-system.htm)
 - [Esri GIS mapping software, location intelligence, and spatial analytics](https://www.esri.com/home)
+- [FSLogix configuration examples](/fslogix/concepts-configuration-examples)
 
 ## Related resource
 
-- [FSLogix configuration examples](/fslogix/concepts-configuration-examples)
+- [Azure Virtual Desktop landing zone design guide](../../landing-zones/azure-virtual-desktop/design-guide.md)
