@@ -92,13 +92,13 @@ If tenants have requirements that you can't meet with a shared deployment, creat
 
 Each model deployment has a unique URL, but all Azure OpenAI deployments share the same underlying model infrastructure.
 
-Azure OpenAI doesn't enforce access control for each model deployment. Your application must enforce which tenants can access which model deployments.
+Azure OpenAI doesn't enforce access control for each model deployment. Your application must enforce the tenant-to-deployment access rules.
 
 ### Tenant-provided Azure OpenAI resource
 
 Your tenants can create Azure OpenAI instances in their own Azure subscriptions and grant your application access. Consider this approach for the following scenarios:
 
-- Tenants have specific quotas and permissions from Microsoft, including access to certain models, defined content filtering policies, or provisioned throughput usage.
+- Tenants have specific quotas and permissions from Microsoft, including access to specific models, defined content filtering policies, or provisioned throughput usage.
 
 - Tenants have a fine-tuned model that they need to use from your solution.
 
@@ -162,7 +162,7 @@ In a multitenant solution, ensure that your data sources are multitenancy-aware 
 
 Use batch deployments when you don't need immediate responses and want to process large volumes of requests without disrupting real-time workloads. For example, a sentiment analysis system can use a batch deployment to avoid throttling the standard deployment quota that it needs to conduct real-time interactions in other applications. This approach also reduces processing costs.
 
-In a multitenant solution, you can share batch deployments among tenants or create separate deployments for each tenant.
+In a multitenant solution, you can share batch deployments among tenants or create separate deployments for each tenant:
 
 - **Separate batch deployments for each tenant:** Assign token quotas to each tenant-specific batch deployment to prevent any single tenant from monopolizing resources. This approach also lets you track token usage per tenant for cost allocation.
 
