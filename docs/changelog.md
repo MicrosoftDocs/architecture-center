@@ -38,7 +38,7 @@ The following new and updated articles have recently been published in the Azure
 - [Global routing redundancy for mission-critical web applications](./guide/networking/global-web-applications/overview.md) ([#56b194ee8c](https://github.com/MicrosoftDocs/architecture-center/commit/56b194ee8c))
 - [Architectural Approaches for Messaging in Multitenant Solutions](./guide/multitenant/approaches/messaging.md) ([#147d0594c0](https://github.com/MicrosoftDocs/architecture-center/commit/147d0594c0))
 - [Web-Queue-Worker Architecture Style](./guide/architecture-styles/web-queue-worker.md) ([#d6757ae581](https://github.com/MicrosoftDocs/architecture-center/commit/d6757ae581))
-- [Guidance for using Azure Kubernetes Service (AKS) in a multitenant solution](./guide/multitenant/service/aks.yml) ([#4d3d838723](https://github.com/MicrosoftDocs/architecture-center/commit/4d3d838723))
+- [Guidance for using Azure Kubernetes Service (AKS) in a multitenant solution](./guide/multitenant/service/aks.md) ([#4d3d838723](https://github.com/MicrosoftDocs/architecture-center/commit/4d3d838723))
 
 ## December 2025
 
