@@ -8,7 +8,7 @@ Enterprise chat applications can empower employees through conversational intera
 
 - A persisted orchestration definition or long-lived agent that oversees the interactions between data sources, language models, and the end user.
 
-This article provides a baseline architecture to help you build and deploy enterprise chat applications by using [Microsoft Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) and [Azure OpenAI in Foundry Models](/azure/ai-services/openai/concepts/models). This architecture uses a single, prompt-based agent hosted in Foundry Agent Service. The agent receives user messages and then queries data stores to retrieve grounding information for the language model.
+This article provides a baseline architecture to help you build and deploy enterprise chat applications by using [Microsoft Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) and [Azure OpenAI in Foundry Models](/azure/ai-services/openai/concepts/models). This architecture uses a single, prompt-based agent persisted in Foundry Agent Service. The agent receives user messages and then queries data stores to retrieve grounding information for the language model.
 
 The chat UI follows the [baseline Azure App service web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml) guidance about how to deploy a secure, zone-redundant, and highly available web application on App Service. In that architecture, App Service communicates with the Azure platform as a service (PaaS) solution through virtual network integration over private endpoints. In the chat UI architecture, App Service communicates with the agent over a private endpoint. Public access to the Foundry portal and agents is disabled.
 
@@ -50,10 +50,10 @@ This architecture uses the [Agent Service standard agent setup](/azure/ai-servic
 
 This architecture builds on the [basic Foundry chat reference architecture](./basic-microsoft-foundry-chat.yml#components). This architecture introduces more Azure services to address enterprise requirements for reliability, security, and operational control. Each of the following components plays a specific role in a production enterprise chat solution:
 
-- [Agent Service](/azure/ai-services/agents/overview) is a cloud-native runtime environment that enables intelligent agents to operate securely and autonomously. In this architecture, Agent Service provides the orchestration layer for chat interactions. It hosts and manages agents that do the following tasks:
+- [Agent Service](/azure/ai-services/agents/overview) is a cloud-native runtime environment that enables intelligent agents to operate securely and autonomously. In this architecture, Agent Service provides a fully managed runtime for a prompt-based agent, and platform integration. It hosts and manages agents that do the following tasks:
 
   - Process user requests
-  - Coordinate calls to tools and other agents
+  - Orchestrate calls to tools and other agents
   - Enforce content safety
   - Integrate with enterprise identity, networking, and observability
 
