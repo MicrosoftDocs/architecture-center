@@ -373,18 +373,6 @@ Workload identity integrates with Kubernetes service accounts. When you create a
 
 For more information about implementation steps and code examples, see [Use Microsoft Entra Workload ID with AKS](/azure/aks/workload-identity-overview) and [Deploy and configure Workload ID on AKS](/azure/aks/workload-identity-deploy-cluster).
 
-Microsoft Entra pod-managed identity was deprecated in October 2022. AKS support ended in September 2025. Migrate to workload identity to get the following advantages:
-
-- No extra components or agents required (pod-managed identity required Managed Identity Controller (MIC) and Node Managed Identity (NMI) daemonsets)
-
-- Better scalability and performance
-
-- Supports standard Kubernetes service accounts
-
-- Simpler configuration and troubleshooting
-
-Both pod-managed identity and workload identity can coexist during migration. Use workload identity for all new deployments.
-
 ### Pod sandboxing
 
 AKS [pod sandboxing](/azure/aks/use-pod-sandboxing) provides an isolation boundary between container applications and the shared kernel and compute resources of the container host, like CPU, memory, and networking. Pod sandboxing complements other security measures and data protection controls to help tenant workloads secure sensitive information and meet regulatory, industry, or governance compliance requirements, like Payment Card Industry Data Security Standard (PCI DSS), International Organization for Standardization (ISO) 27001, and Health Insurance Portability and Accountability Act (HIPAA).
