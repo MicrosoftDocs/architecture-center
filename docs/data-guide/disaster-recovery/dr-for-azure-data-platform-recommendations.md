@@ -1,5 +1,5 @@
 ---
-title: DR for Azure Data Platform - Recommendations
+title: DR for an Azure Data Platform - Recommendations
 description: Learn recommendations for implementing a disaster recovery strategy for an Azure data platform, including recovery objectives and operational considerations.
 author: lponnam75
 ms.author: lsuryadevara
