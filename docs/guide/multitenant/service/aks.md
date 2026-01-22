@@ -219,11 +219,11 @@ This approach provides the following benefits:
 
 - You can roll out updates and changes progressively across tenants to reduce the likelihood of system-wide outages. Azure costs are easily attributed to individual tenants because every resource is dedicated to a single tenant.
 
-- Using Azure CNI Overlay across all tenant clusters simplifies IP address planning and lets you reuse the same pod Classless Inter-Domain Routing (CIDR) space across multiple isolated clusters.
+- Using Azure CNI Overlay across all tenant clusters simplifies IP address planning and lets you reuse the same pod CIDR space across multiple isolated clusters.
 
 This approach has the following risks:
 
-- Every tenant uses dedicated resources, which can increase cost.
+- Every tenant uses dedicated resources, which increases cost.
 
 - Ongoing maintenance is time consuming because you must repeat maintenance activities across multiple AKS clusters, with one cluster for each tenant. To manage this complexity, automate your operational processes and apply changes progressively through your environments. Plan how to query and manipulate data across multiple deployments for operations like reporting and analytics across your entire estate.
 
@@ -279,7 +279,7 @@ To take advantage of the benefits of single-tenant and fully multitenant models,
 
 - You can deploy tenants to multiple regional AKS clusters that have different configurations. Use this technique when you have tenants spread across different geographies.
 
-You can implement different variations of this tenancy model. For example, you can offer your multitenant solution with tiered pricing that provides different functionality levels. Each tier can provide an incremental level of performance and isolation for resource sharing, performance, network, and data segregation. Consider the following tiers:
+You can implement different variations of this tenancy model. For example, you can offer your multitenant solution with tiered pricing that provides different functionality levels. Each tier can provide an incremental level of performance and isolation for resource sharing, performance, network, and data segregation. Consider the following example tiers:
 
 - **Basic tier:** A single, shared multitenant Kubernetes application serves all tenant requests. All Basic-tier tenants share one or more databases.
 
@@ -359,7 +359,7 @@ For more information about authentication and authorization with AKS, see the fo
 
 ### Workload identity
 
-You must implement workload identity as a critical security requirement for multitenant AKS clusters. When multiple tenant applications share an AKS cluster, each tenant's workloads must authenticate to Azure resources by using separate, isolated identities to prevent cross-tenant access and credential sharing.
+Workload identity is a critical security requirement for multitenant AKS clusters. When multiple tenant applications share an AKS cluster, each tenant's workloads must authenticate to Azure resources by using separate, isolated identities to prevent cross-tenant access and credential sharing.
 
 In a multitenant cluster, workload identity prevents several critical security risks:
 
@@ -398,8 +398,6 @@ To provide hardware-enforced isolation, pod sandboxing on AKS is based on [Kata 
 Consider the following constraints of pod sandboxing on AKS:
 
 - Pod sandboxing is supported only on Linux node pools that use Azure Linux 3.0 or later and Generation 2 VMs that support nested virtualization.
-
-- Azure Linux 2.0 support ended November 30, 2025. Node images will be removed March 31, 2026.
 
 - Kata containers might not reach the same input/output operations per second (IOPS) performance as traditional containers on Azure Files and high-performance local solid-state drives (SSDs).
 
