@@ -16,7 +16,7 @@ For guidelines and recommendations about how to deploy highly available and resi
 
 The following architecture shows a high-level overview of the Azure Virtual Desktop for Azure Local solution.
 
-:::image type="content" source="images/azure-local-workload-virtual-desktop-light.svg" alt-text="Diagram that shows a reference architecture to deploy Azure Virtual Desktop on Azure Local." lightbox="images/azure-local-workload-virtual-desktop.svg" border="false":::
+:::image type="content" source="images/azure-local-workload-virtual-desktop-light.svg" alt-text="Diagram that shows a reference architecture to deploy Azure Virtual Desktop on Azure Local." lightbox="images/azure-local-workload-virtual-desktop-light.svg" border="false":::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/virtual-desktop-azure-local.pptx) of this architecture.*
 
@@ -203,7 +203,7 @@ Implement this guidance to help maintain availability during disruptions. Adopt 
 
 - **Implement monitoring and alerting:** You must configure health monitoring for Azure Local and Azure Virtual Desktop VMs. Configure Azure Monitor to track metrics, such as CPU, memory, and storage usage, and to send alerts when thresholds are breached. Use health monitoring to proactively mitigate any potential problem before it affects users. Improperly monitored systems can directly affect reliability. For more information, see [Recommendations for designing and creating a monitoring system](/azure/well-architected/operational-excellence/observability).
 
-- **Test failover and disaster recovery regularly:** Test failover and [disaster recovery](/azure-stack/hci/manage/disaster-recovery-overview) plans to help ensure effective and up-to-date recovery processes. Test these procedures to help identify gaps and minimize downtime if a failover occurs. Simulate various failure scenarios, such as power outages, hardware failures, and network problems, to validate your failover strategies. For more information, see [Recommendations for designing a disaster recovery strategy](/azure/well-architected/reliability/disaster-recovery).
+- **Test failover and disaster recovery regularly:** Test failover and [disaster recovery](/azure/azure-local/manage/disaster-recovery-overview) plans to help ensure effective and up-to-date recovery processes. Test these procedures to help identify gaps and minimize downtime if a failover occurs. Simulate various failure scenarios, such as power outages, hardware failures, and network problems, to validate your failover strategies. For more information, see [Recommendations for designing a disaster recovery strategy](/azure/well-architected/reliability/disaster-recovery).
 
 ### Security
 
