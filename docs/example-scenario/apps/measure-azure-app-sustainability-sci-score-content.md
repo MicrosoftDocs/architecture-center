@@ -109,13 +109,13 @@ By incorporating these variables into a score that reflects the number of users,
 
 Cost is another consideration associated with application performance. A direct correlation often exists between performance efficiency, cost, and carbon savings. This correlation suggests the following outcomes:
 
-- When performance is higher but costs are the same, you have optimized the app and reduced carbon emissions.
+- Higher performance at the same cost indicates that the app is optimized and carbon emissions are reduced.
 
-- When costs are reduced but performance is the same, you have optimized the app and reduced carbon emissions.
+- Lower cost at the same performance indicates that the app is optimized and carbon emissions are reduced.
 
-- When both performance and costs increase, you haven't optimized the app, and you have increased carbon emissions.
+- Higher performance and higher cost indicates that the app isn't optimized and carbon emissions have increased.
 
-- When costs increase but performance is reduced or the same, you haven't optimized the app and have increased carbon emissions (or the energy cost is higher, which is also a cause for higher carbon emissions).
+- Higher cost with reduced or unchanged performance indicates that the app isn't optimized and carbon emissions have increased (or that energy costs are higher, which also contributes to increased emissions).
 
 The correlation between SCI score, cost, and performance is unique to each application. Gathering data for these variables let you create a correlation algorithm to forecast variations and make informed architectural decisions and drive desirable usage patterns.
 
