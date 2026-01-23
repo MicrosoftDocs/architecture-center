@@ -3,7 +3,7 @@ title: Guidance for Using Azure Database for PostgreSQL in a Multitenant Solutio
 description: Learn about the Azure Database for PostgreSQL features that are useful when you work with multitenant systems. Explore guidance and examples.
 author: PlagueHO
 ms.author: dascottr
-ms.date: 23/01/2026
+ms.date: 01/23/2026
 ms.update-cycle: 180-days
 ms.topic: concept-article
 ms.subservice: architecture-guide
