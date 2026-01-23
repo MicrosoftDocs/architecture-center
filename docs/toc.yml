@@ -92,7 +92,7 @@ items:
     - name: Build for the needs of business
       href: guide/design-principles/build-for-business.md
     - name: Failure mode analysis for services
-      href: resiliency/failure-mode-analysis.md
+      href: well-architected/reliability/failure-mode-analysis.md
   - name: Technology choices
     items:
     - name: Overview
