@@ -7685,6 +7685,11 @@
     {
       "source_path": "docs/example-scenario/mainframe/refactor-mainframe-applications-astadia.yml",
       "redirect_url": "/azure/architecture/example-scenario/mainframe/general-mainframe-refactor",
+      "redirect_document_id": false      
+    },
+    {
+      "source_path": "docs/example-scenario/azure-virtual-desktop/azure-virtual-desktop.yml",
+      "redirect_url": "/azure/architecture/landing-zones/azure-virtual-desktop/design-guide?tabs=baseline",
       "redirect_document_id": false
     },
     {

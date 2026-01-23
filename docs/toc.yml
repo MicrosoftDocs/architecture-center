@@ -458,13 +458,13 @@ items:
       - name: Disaster recovery for Azure data platform
         items:
         - name: Overview
-          href: data-guide/disaster-recovery/dr-for-azure-data-platform-overview.yml
+          href: data-guide/disaster-recovery/dr-for-azure-data-platform-overview.md
         - name: Architecture
-          href: data-guide/disaster-recovery/dr-for-azure-data-platform-architecture.yml
+          href: data-guide/disaster-recovery/dr-for-azure-data-platform-architecture.md
         - name: Scenario details
-          href: data-guide/disaster-recovery/dr-for-azure-data-platform-scenario-details.yml
+          href: data-guide/disaster-recovery/dr-for-azure-data-platform-scenario-details.md
         - name: Recommendations
-          href: data-guide/disaster-recovery/dr-for-azure-data-platform-recommendations.yml
+          href: data-guide/disaster-recovery/dr-for-azure-data-platform-recommendations.md
     - name: Architectures
       items:
       - name: Analytics end to end
@@ -1034,8 +1034,6 @@ items:
         href: example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr.yml
     - name: Architectures
       items:
-      - name: Azure Virtual Desktop for the enterprise
-        href: example-scenario/azure-virtual-desktop/azure-virtual-desktop.yml
       - name: Esri ArcGIS on Azure Virtual Desktop
         href: example-scenario/data/esri-arcgis-azure-virtual-desktop.yml
   - name: Web applications
