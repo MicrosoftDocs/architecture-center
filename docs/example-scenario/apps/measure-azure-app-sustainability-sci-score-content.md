@@ -47,15 +47,15 @@ The solution described in this article can help you measure sustainability metri
 
 You can replace the Azure services in this architecture with similar services. To increase density and utilization of existing resources, run calculations with minimal infrastructure impact by using services or tools already deployed in your environment:
 
-- Substitute Power BI dashboards with [Azure Monitor workbooks](/azure/azure-monitor/visualize/workbooks-overview) or [Azure Managed Grafana](https://azure.microsoft.com/services/managed-grafana/).
+- Substitute Power BI dashboards with [Azure Monitor workbooks](/azure/azure-monitor/visualize/workbooks-overview) or [Azure Managed Grafana](https://azure.microsoft.com/products/managed-grafana/).
 
 - Substitute Application Insights with another APM tool, like Elasticsearch APM or OpenAPM.
 
-- Retain tabular or unstructured proxy data in any system of record, like [Azure Database for MySQL](/azure/mysql/flexible-server/overview) or [Azure Cosmos DB for NoSQL](/azure/cosmos-db/nosql/overview).
+- Retain tabular or unstructured proxy data in any system of record, like [Azure Database for MySQL](/azure/mysql/flexible-server/overview) or [Azure Cosmos DB for NoSQL](/azure/cosmos-db/overview).
 
-- If you have existing [Functions](/azure/azure-functions/functions-overview) or Logic Apps deployments, run the calculations from there.
+- Run the calculations from existing [Functions](/azure/azure-functions/functions-overview) or Logic Apps deployments if you have those services deployed.
 
-- If you distribute application resources across multiple resource groups, use tags to correlate cost data and calculate carbon emissions.
+- Use tags to correlate cost data and calculate carbon emissions if you distribute application resources across multiple resource groups.
 
 ## Scenario details
 
@@ -72,7 +72,7 @@ A dedicated architecture for gathering Azure carbon optimization data benefits y
 - An application can span multiple infrastructure boundaries. A separate architecture provides centralized monitoring of carbon impact across all environments to ensure comprehensive sustainability insights.
 
 > [!NOTE]
-> Greenhouse gases don't consist only of carbon dioxide, and they don't all affect the environment equally. For example, one ton of methane has the [same heating effect](https://wikipedia.org/wiki/Global_warming_potential) as 80 tons of carbon dioxide. In this article, we normalize everything to the CO2-equivalent measure. All references to carbon refer to the CO2-equivalent.
+> Greenhouse gases don't consist only of carbon dioxide, and they don't all affect the environment equally. For example, one ton of methane has the [same heating effect](https://en.wikipedia.org/wiki/Global_warming_potential) as 80 tons of carbon dioxide. In this article, we normalize everything to the CO2-equivalent measure. All references to carbon refer to the CO2-equivalent.
 
 ### Data sources
 
@@ -88,7 +88,7 @@ Aggregate data from Microsoft Cost Management and Azure Monitor lets you compare
 
 These sources provide real-time data needed for *carbon-aware* applications that react to changing grid conditions:
 
-- [WattTime](https://docs.watttime.org/) and [Electricity Maps](https://app.electricitymaps.com/) are non-Microsoft APIs that provide real-time carbon intensity (`I`) data for the local power grid. Because Azure doesn't publish real-time datacenter carbon intensity, the local grid intensity serves as the standard proxy.
+- [WattTime](https://docs.watttime.org) and [Electricity Maps](https://app.electricitymaps.com/map/live/fifteen_minutes) are non-Microsoft APIs that provide real-time carbon intensity (`I`) data for the local power grid. Because Azure doesn't publish real-time datacenter carbon intensity, the local grid intensity serves as the standard proxy.
 
 - Application Insights collects real-time performance and scale metrics to calculate the functional unit (`R`) and estimate energy consumption (`E`):
 
@@ -96,7 +96,7 @@ These sources provide real-time data needed for *carbon-aware* applications that
   - CPU and memory usage
   - Response time
 
-For a tutorial about how to set up Application Insights to get the required metrics, see [Application Insights for ASP.NET Core applications](/azure/azure-monitor/app/tutorial-asp-net-core).
+For a tutorial about how to set up Application Insights to get the required metrics, see [Application Insights for ASP.NET Core applications](/previous-versions/azure/azure-monitor/app/tutorial-asp-net-core).
 
 Consider adding other variables to the equation, like the following examples:
 
@@ -121,7 +121,7 @@ The correlation between SCI score, cost, and performance is unique to each appli
 
 ### Calculations
 
-The [SCI score](https://grnsft.org/sci) is calculated by using the following formula, which represents the rate of carbon emissions per one unit:
+The [SCI score](https://sci.greensoftware.foundation) is calculated by using the following formula, which represents the rate of carbon emissions per one unit:
 
 ```text
 SCI = ((E * I) + M) per R
@@ -149,7 +149,7 @@ Azure carbon optimization provides monthly aggregated carbon data for resources.
 
 ### Data storage
 
-Store gathered carbon and proxy information in a solution that connects to dashboards or reports. This setup lets you visualize the carbon score over time for informed decision-making. To improve sustainability and align with Azure Well-Architected Framework best practices, use a minimum viable system. For more information, see [Data and storage design considerations for sustainable workloads on Azure](/azure/architecture/framework/sustainability/sustainability-storage) and [Application platform considerations for sustainable workloads on Azure](/azure/well-architected/sustainability/sustainability-application-platform#evaluate-moving-to-paas-and-serverless-workloads). This architecture uses Azure Data Lake Storage.
+Store gathered carbon and proxy information in a solution that connects to dashboards or reports. This setup lets you visualize the carbon score over time for informed decision-making. To improve sustainability and align with Azure Well-Architected Framework best practices, use a minimum viable system. For more information, see [Data and storage design considerations for sustainable workloads on Azure](/azure/well-architected/sustainability/sustainability-storage) and [Application platform considerations for sustainable workloads on Azure](/azure/well-architected/sustainability/sustainability-application-platform#evaluate-moving-to-paas-and-serverless-workloads). This architecture uses Azure Data Lake Storage.
 
 ### Data correlations
 
@@ -159,7 +159,7 @@ For more information, see [Select algorithms for Azure Machine Learning](/azure/
 
 ### Data display
 
-You can display data and calculations in various ways, which include customized [Azure Monitor dashboards](/azure/azure-monitor/app/tutorial-app-dashboards) and [Power BI dashboards](/power-bi/create-reports/service-dashboard-create).
+You can display data and calculations in various ways, which include customized [Azure Monitor dashboards](/azure/azure-monitor/app/overview-dashboard) and [Power BI dashboards](/power-bi/create-reports/service-dashboard-create).
 
 ### SCI score and real‑time measurement triggers
 
@@ -199,13 +199,13 @@ Security provides assurances against deliberate attacks and the misuse of your v
 
 Use Azure Virtual Network private endpoints to restrict access to Azure service resources to your virtual network.
 
-For general guidance about how to design secure solutions, see [Azure security documentation](/azure/security).
+For general guidance about how to design secure solutions, see [Azure security documentation](/azure/security/).
 
 ### Cost Optimization
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-You can deploy this architecture by using alternative Azure services. The architecture keeps components to a minimum to save on cost and carbon emissions. We recommend that you use equivalent services already in your deployment. Microsoft provides the [Emissions Impact Dashboard](https://appsource.microsoft.com/product/power-bi/coi-sustainability.emissions_impact_dashboard), Azure carbon optimization, and Cost Management reports at no extra cost. For pricing information, see the following articles:
+You can deploy this architecture by using alternative Azure services. The architecture keeps components to a minimum to save on cost and carbon emissions. We recommend that you use equivalent services already in your deployment. Microsoft provides the [Emissions Impact Dashboard](https://marketplace.microsoft.com/product/power-bi/coi-sustainability.emissions_impact_dashboardd), Azure carbon optimization, and Cost Management reports at no extra cost. For pricing information, see the following articles:
 
 - [Application Insights pricing](https://azure.microsoft.com/pricing/details/monitor/)
 - [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/)
