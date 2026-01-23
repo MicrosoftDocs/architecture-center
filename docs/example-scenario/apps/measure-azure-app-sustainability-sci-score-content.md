@@ -113,7 +113,7 @@ Cost is another consideration associated with application performance. A direct 
 
 - Lower cost at the same performance indicates that the app is optimized and carbon emissions are reduced.
 
-- Higher performance and higher cost indicates that the app isn't optimized and carbon emissions have increased.
+- Higher performance combined with higher cost indicates that the app isn't optimized and carbon emissions have increased.
 
 - Higher cost with reduced or unchanged performance indicates that the app isn't optimized and carbon emissions have increased (or that energy costs are higher, which also contributes to increased emissions).
 
