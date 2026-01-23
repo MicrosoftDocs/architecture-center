@@ -205,7 +205,7 @@ For general guidance about how to design secure solutions, see [Azure security d
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-You can deploy this architecture by using alternative Azure services. The architecture keeps components to a minimum to save on cost and carbon emissions. We recommend that you use equivalent services already in your deployment. Microsoft provides the [Emissions Impact Dashboard](https://marketplace.microsoft.com/product/power-bi/coi-sustainability.emissions_impact_dashboardd), Azure carbon optimization, and Cost Management reports at no extra cost. For pricing information, see the following articles:
+You can deploy this architecture by using alternative Azure services. The architecture keeps components to a minimum to save on cost and carbon emissions. We recommend that you use equivalent services already in your deployment. Microsoft provides the [Emissions Impact Dashboard](https://marketplace.microsoft.com/product/power-bi/coi-sustainability.emissions_impact_dashboard), Azure carbon optimization, and Cost Management reports at no extra cost. For pricing information, see the following articles:
 
 - [Application Insights pricing](https://azure.microsoft.com/pricing/details/monitor/)
 - [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/)
