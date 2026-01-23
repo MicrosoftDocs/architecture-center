@@ -2,7 +2,7 @@
 metadata:
   title: Multi-region load balancing
   description: Learn how to build an Azure system that serves web and non-web workloads with resilient multi-tier applications in multiple Azure regions.
-  author: stephen-sumner
+  author: claytonsiemens77
   ms.author: pnp
   ms.date: 09/12/2022
   ms.reviewer: ssumner
