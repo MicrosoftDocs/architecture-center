@@ -5,8 +5,8 @@ The solution described in this article can help you measure sustainability metri
 
 ## Architecture
 
-:::image type="complex" border="false" source="media/measure-app-sci-score.png" alt-text="Diagram of a sustainability model that scores the carbon impact of an application." lightbox="media/measure-app-sci-score.png":::
-   <Long description that ends with a period.>
+:::image type="complex" border="false" source="media/measure-app-sci-score.svg" alt-text="Diagram of a sustainability model that scores the carbon impact of an application." lightbox="media/measure-app-sci-score.svg":::
+   The diagram shows a five-step architecture flow with data sources from both Microsoft and non-Microsoft services. In step 1, application data sources connect to Azure carbon optimization and Microsoft Cloud for Sustainability APIs to gather emissions data. Application Insights collects proxy metrics, application cost data, and behavior patterns from the monitored application. A separate section shows non-Microsoft data sources and SDKs, including WattTime API, Electricity Maps, and Carbon Aware SDK, which provide real-time carbon intensity data. In step 2, Azure Data Lake Storage receives all data points from step 1 and stores the collected emissions data and operational metrics. In step 3, Azure Functions and Azure Logic Apps process the stored data to calculate the Software Carbon Intensity score and related workload utilization metrics. In step 4, the application receives the calculated SCI score from step 3 and real-time carbon intensity data from the non-Microsoft sources to support carbon-aware decisions and demand shaping through demand-shaping scripts. In step 5, Power BI connects to the data lake to visualize the SCI score, trends over time, and correlations with performance and cost metrics in dashboards for stakeholders.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/measure-app-sci-score.vsdx) of this architecture.*
@@ -15,15 +15,15 @@ The solution described in this article can help you measure sustainability metri
 
 1. Configure the application data sources that you use to calculate your SCI score, along with operational data like cost and performance. The data can be the emissions measurements from the [Azure carbon optimization service APIs](/rest/api/carbon/carbon-service), proxy measurements from non-Microsoft sources, or a combination of both.
 
-1. All data points, like [exported emissions data](/azure/carbon-optimization/export-data), get collected and stored in your data lake.
+1. Your data lake collects and stores all data points, like [exported emissions data](/azure/carbon-optimization/export-data).
 
-1. Use event handlers like Azure Functions or Azure Logic Apps to calculate the SCI score and related workload utilization metrics. For example, an output might be the amount of carbon emitted in grams per unit, where *unit* refers to the application scaling factor, or an approximation of it that's based on proxies.
+1. Use event handlers like Azure Functions or Azure Logic Apps to calculate the SCI score and related workload utilization metrics. For example, an output might be the amount of carbon emitted in grams per unit, where *unit* refers to the application scaling factor, or an approximation of it based on proxies.
 
-1. If your workload is carbon-aware, it can use this data to trigger demand-shaping or initiate a predefined eco mode. Carbon-aware applications often use real-time data signals, like forecasts from [WattTime](https://docs.watttime.org).
+1. If your workload is carbon-aware, it can use this data to trigger demand shaping or initiate a predefined eco mode. Carbon-aware applications often use real-time data signals, like forecasts from [WattTime](https://docs.watttime.org).
 
 1. Use Power BI to report and visualize the score and its variation over time and utilization. You can track the SCI score and compare performance and cost relative to the SCI score.
 
-   Dashboards show how performance and utilization relate to the score. For example, reduced performance with a stable SCI score indicates a higher carbon cost for less work accomplished. This insight should drive remediation to restore the system to an optimized state.
+   Dashboards show how performance and utilization relate to the score. For example, reduced performance with a stable SCI score indicates a higher carbon cost for less work accomplished. This insight should drive you to remediate and restore the system to an optimized state.
 
 ### Components
 
@@ -31,7 +31,7 @@ The solution described in this article can help you measure sustainability metri
 
 - The [Microsoft Cloud for Sustainability API](/industry/sustainability/overview) is a sustainability and emissions data service. It provides the underlying data for carbon optimization and retrieves information about subscription emissions. In this architecture, the API supplies foundational emissions data that complements Azure carbon optimization.
 
-- [Application Insights](/azure/well-architected/service-guides/application-insights) is a feature of Azure Monitor that provides application performance management (APM). It helps you understand app usage to make data-driven decisions for improving efficiency. In this architecture, it's a key data source for workload utilization and performance. This data helps measure efficiency as a function of work accomplished relative to the carbon cost.
+- [Application Insights](/azure/well-architected/service-guides/application-insights) is a feature of Azure Monitor that provides application performance management (APM). It helps you understand app usage to make data-driven decisions for improving efficiency. In this architecture, it provides a key data source for workload utilization and performance. This data helps measure efficiency as a function of work accomplished relative to the carbon cost.
 
 - [Azure Data Lake](/azure/storage/blobs/data-lake-storage-introduction) is a centralized repository that ingests and stores large volumes of data in its original form for processing and analytics. In this architecture, it stores raw snapshot data for calculating and reporting workload efficiency.
 
@@ -59,20 +59,20 @@ You can replace the Azure services in this architecture with similar services. T
 
 ## Scenario details
 
-This architecture gathers carbon optimization data from Azure and other sources to provide a comprehensive view of an application's environmental impact. Data comes from Azure carbon optimization. Where data isn't available, use a proxy for the carbon metrics. After data consolidation, SCI calculations assess carbon footprint. Results are stored in a data lake for long-term retention, which enables BI analysis, historical reporting, and comparison to baselines. This approach ensures centralized tracking of carbon impact across diverse infrastructure and supports strategic sustainability efforts.
+This architecture gathers carbon optimization data from Azure and other sources to provide a comprehensive view of an application's environmental impact. Azure carbon optimization provides data. Where data isn't available, use a proxy for the carbon metrics. After you consolidate data, SCI calculations assess carbon footprint. Store results in a data lake for long-term retention, which enables BI analysis, historical reporting, and comparison to baselines. This approach ensures centralized tracking of carbon impact across diverse infrastructure and supports strategic sustainability efforts.
 
 The system gathers carbon emissions information from available APIs and calculates it, when possible, by using a proxy.
 
 :::image type="content" source="media/carbon-optimization-blade.png" alt-text="Screenshot of the Carbon optimization blade in the Azure portal that shows emission details, trends, and resource group emissions data." lightbox="media/carbon-optimization-blade.png" border="false":::
 
-A dedicated architecture for gathering Azure carbon optimization data is beneficial for two reasons:
+A dedicated architecture for gathering Azure carbon optimization data benefits you in two ways:
 
-- Azure carbon optimization data is stored for 12 months. A dedicated system ensures retention of historical information for long-term tracking.
+- Azure carbon optimization stores data for 12 months. A dedicated system ensures retention of historical information for long-term tracking.
 
 - An application can span multiple infrastructure boundaries. A separate architecture provides centralized monitoring of carbon impact across all environments to ensure comprehensive sustainability insights.
 
 > [!NOTE]
-> Greenhouse gases aren't made up of only carbon dioxide, and they don't all affect the environment equally. For example, one ton of methane has the [same heating effect](https://wikipedia.org/wiki/Global_warming_potential) as 80 tons of carbon dioxide. In this article, everything is normalized to the CO2-equivalent measure. All references to carbon refer to the CO2-equivalent.
+> Greenhouse gases don't consist only of carbon dioxide, and they don't all affect the environment equally. For example, one ton of methane has the [same heating effect](https://wikipedia.org/wiki/Global_warming_potential) as 80 tons of carbon dioxide. In this article, we normalize everything to the CO2-equivalent measure. All references to carbon refer to the CO2-equivalent.
 
 ### Data sources
 
@@ -117,7 +117,7 @@ Cost is another consideration associated with application performance. A direct 
 
 - Higher cost with reduced or unchanged performance indicates that the app isn't optimized and carbon emissions have increased (or that energy costs are higher, which also contributes to increased emissions).
 
-The correlation between SCI score, cost, and performance is unique to each application. Gathering data for these variables let you create a correlation algorithm to forecast variations and make informed architectural decisions and drive desirable usage patterns.
+The correlation between SCI score, cost, and performance is unique to each application. When you gather data for these variables, you can create a correlation algorithm to forecast variations and make informed architectural decisions and drive desirable usage patterns.
 
 ### Calculations
 
@@ -140,12 +140,12 @@ This equation uses the following variables:
 > [!NOTE]
 > This score is sometimes simplified to `SCI = C per R`, where `C` represents total carbon emissions measured through proxies. The expanded formula provides greater granularity and lets you target specific variables for optimization. This granularity reduces energy consumption (`E`), shifts workloads to cleaner times or locations (`I`), or extends hardware lifespan (`M`).
 
-The time window is a critical part of this calculation. Carbon intensity (`I`) varies based on several factors. These factors include energy mix, weather changes, demand, and grid-operations constraints (dispatchability and curtailment). Effective runtime carbon-aware decisions require real‑time or near-real-time data (hourly or less) from [non-Microsoft APIs](#data-sources).
+The time window is a critical part of this calculation. Carbon intensity (`I`) varies based on several factors. These factors include energy mix, weather changes, demand, and grid-operations constraints (dispatchability and curtailment). You need real‑time or near-real-time data (hourly or less) from [non-Microsoft APIs](#data-sources) to make effective runtime carbon-aware decisions.
 
-Azure carbon optimization provides monthly aggregated carbon data for resources. This data is useful for the following use cases:
+Azure carbon optimization provides monthly aggregated carbon data for resources. You can use this data for the following scenarios:
 
-- Tracking long-term trends and validating the impact of design changes.
-- Establishing a starting baseline for your sustainability journey.
+- Track long-term trends and validate the impact of design changes.
+- Establish a starting baseline for your sustainability journey.
 
 ### Data storage
 
@@ -173,7 +173,7 @@ A carbon-aware workload reacts to unfavorable real-time conditions. You typicall
 
 - Sudden unavailability of edge infrastructure because of resource overconsumption or supply chain problems
 
-Based on these triggers, you can take actions like shifting job processing times or moving workloads to cleaner energy grids. Consider the following actions:
+You can take actions like shifting job processing times or moving workloads to cleaner energy grids based on these triggers. Consider the following actions:
 
 - Apply [graceful degradation](/azure/well-architected/reliability/self-preservation#implement-a-graceful-degradation-mode) of application services and features.
 
@@ -181,13 +181,13 @@ Based on these triggers, you can take actions like shifting job processing times
 
 - Provide a *go green* button that switches to a low‑impact interface that uses fewer graphics and provides limited features in exchange for a commitment to reduced carbon emissions.
 
-  Involving users creates an opportunity to drive cultural change:
+  When you involve users, you create an opportunity to drive cultural change. The following actions help achieve this goal:
 
   - Specify the impact of the choice by stating how it affects carbon savings or your carbon score. For example, the eco version might save *x amount* of carbon or bring your carbon score to *y amount*.
 
   - Understand user behavior and modify the eco version to reflect their choices.
 
-  As you optimize the full version for emissions, you can eventually merge the two versions. **Windows Update** is an example of runtime optimization. It uses a carbon-aware API to schedule updates. Instead of immediately downloading updates, it waits for a window when the local grid's carbon intensity (`I`) is low. This approach effectively reduces the carbon footprint of the update process without increasing total energy consumption.
+  When you optimize the full version for emissions, you can eventually merge the two versions. **Windows Update** is an example of runtime optimization. It uses a carbon-aware API to schedule updates. Instead of immediately downloading updates, it waits for a window when the local grid's carbon intensity (`I`) is low. This approach effectively reduces the carbon footprint of the update process without increasing total energy consumption.
 
 ## Considerations
 
@@ -205,7 +205,7 @@ For general guidance about how to design secure solutions, see [Azure security d
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-You can deploy this architecture by using alternative Azure services. The architecture keeps components to a minimum to save on cost and carbon emissions. We recommend that you use equivalent services already in your deployment. The [Emissions Impact Dashboard](https://appsource.microsoft.com/product/power-bi/coi-sustainability.emissions_impact_dashboard), Azure carbon optimization, and Cost Management reports are free. For pricing information, see the following articles:
+You can deploy this architecture by using alternative Azure services. The architecture keeps components to a minimum to save on cost and carbon emissions. We recommend that you use equivalent services already in your deployment. Microsoft provides the [Emissions Impact Dashboard](https://appsource.microsoft.com/product/power-bi/coi-sustainability.emissions_impact_dashboard), Azure carbon optimization, and Cost Management reports at no extra cost. For pricing information, see the following articles:
 
 - [Application Insights pricing](https://azure.microsoft.com/pricing/details/monitor/)
 - [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/)
@@ -218,7 +218,7 @@ Performance Efficiency refers to your workload's ability to scale to meet user d
 
 The primary purpose of this architecture is to provide a sustainability score via a process that has a minimal impact on cost and carbon. Most components are platform as a service (PaaS) and serverless Azure services that scale independently based on use and traffic.
 
-In this scenario, the dashboard and storage interface aren't intended for high-volume usage and consultation. If you plan to provide it to a large number of users, you might consider one of the following options:
+We don't intend the dashboard and storage interface in this scenario for high-volume usage and consultation. If you plan to provide it to a large number of users, you might consider one of the following options:
 
 - Decouple the extracted data by transforming and storing it in a different system.
 
