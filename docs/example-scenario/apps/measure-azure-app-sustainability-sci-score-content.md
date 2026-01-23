@@ -13,13 +13,13 @@ The solution described in this article can help you measure sustainability metri
 
 ### Data flow
 
-1. Configure the application data sources that you use to calculate your SCI score, along with operational data like cost and performance. The data can be the emissions measurements from the [Azure carbon optimization service APIs](/rest/api/carbon/carbon-service), proxy measurements from non-Microsoft sources, or a combination of them both.
+1. Configure the application data sources that you use to calculate your SCI score, along with operational data like cost and performance. The data can be the emissions measurements from the [Azure carbon optimization service APIs](/rest/api/carbon/carbon-service), proxy measurements from non-Microsoft sources, or a combination of both.
 
 1. All data points, like [exported emissions data](/azure/carbon-optimization/export-data), get collected and stored in your data lake.
 
 1. Use event handlers like Azure Functions or Azure Logic Apps to calculate the SCI score and related workload utilization metrics. For example, an output might be the amount of carbon emitted in grams per unit, where *unit* refers to the application scaling factor, or an approximation of it that's based on proxies.
 
-1. If your workload is carbon-aware, it can use this data to trigger demand shaping or initiate a predefined eco mode. Carbon-aware applications often use real-time data signals, like forecasts from [WattTime](https://docs.watttime.org).
+1. If your workload is carbon-aware, it can use this data to trigger demand-shaping or initiate a predefined eco mode. Carbon-aware applications often use real-time data signals, like forecasts from [WattTime](https://docs.watttime.org).
 
 1. Use Power BI to report and visualize the score and its variation over time and utilization. You can track the SCI score and compare performance and cost relative to the SCI score.
 
@@ -37,7 +37,7 @@ The solution described in this article can help you measure sustainability metri
 
 - [Logic Apps](/azure/logic-apps/logic-apps-overview) is a workflow automation and integration service that you can use to create and run automated workflows with minimal code. In this architecture, the visual designer and prebuilt operations create workflows that integrate and manage proxy sources, data storage, and efficiency calculation systems.
 
-- [Functions](/azure/well-architected/service-guides/azure-functions) is a serverless compute service for running event-driven code. It lets you run small units of code. It automatically scales resources based on demand, and you pay only for the time that your code runs. In this architecture, it does sustainability calculations and stores them in the data lake.
+- [Functions](/azure/well-architected/service-guides/azure-functions) is a serverless compute service for running event-driven code. It lets you run small units of code, automatically scales resources based on demand, and charges only for the time your code runs. In this architecture, it does sustainability calculations and stores them in the data lake.
 
 - [Azure Automation](/azure/automation/overview) is a process automation and configuration management service that provides process automation via runbooks. In this architecture, runbooks implement complex logic with PowerShell code to improve application efficiency.
 
@@ -72,7 +72,7 @@ A dedicated architecture for gathering Azure carbon optimization data is benefic
 - An application can span multiple infrastructure boundaries. A separate architecture provides centralized monitoring of carbon impact across all environments to ensure comprehensive sustainability insights.
 
 > [!NOTE]
-> Greenhouse gases aren't made up of only carbon dioxide, and they don't all have the same impact on the environment. For example, one ton of methane has the [same heating effect](https://wikipedia.org/wiki/Global_warming_potential) as 80 tons of carbon dioxide. In this article, everything is normalized to the CO2-equivalent measure. All references to carbon refer to the CO2-equivalent.
+> Greenhouse gases aren't made up of only carbon dioxide, and they don't all affect the environment equally. For example, one ton of methane has the [same heating effect](https://wikipedia.org/wiki/Global_warming_potential) as 80 tons of carbon dioxide. In this article, everything is normalized to the CO2-equivalent measure. All references to carbon refer to the CO2-equivalent.
 
 ### Data sources
 
@@ -102,8 +102,8 @@ Consider adding other variables to the equation, like the following examples:
 
 - Edge services and infrastructure carbon emissions
 - Proxies based on end-user device profiles
-- Connection times, as electricity production and demand vary over time.
-- Other application metrics that indicate performance changes.
+- Connection times (because electricity production and demand vary over time)
+- Other application metrics that indicate performance changes
 
 By incorporating these variables into a score that reflects the number of users, you create an approximate carbon score. This score serves as your benchmark for sustainability improvements.
 
@@ -205,7 +205,7 @@ For general guidance about how to design secure solutions, see [Azure security d
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-You can deploy this architecture by using alternative Azure services. The architecture keeps components to a minimum to save on cost and carbon emissions. The [Emissions Impact Dashboard](https://appsource.microsoft.com/product/power-bi/coi-sustainability.emissions_impact_dashboard), Azure carbon optimization, and Cost Management reports are free. We recommend that you use equivalent services already in your deployment. For pricing information, see the following articles:
+You can deploy this architecture by using alternative Azure services. The architecture keeps components to a minimum to save on cost and carbon emissions. We recommend that you use equivalent services already in your deployment. The [Emissions Impact Dashboard](https://appsource.microsoft.com/product/power-bi/coi-sustainability.emissions_impact_dashboard), Azure carbon optimization, and Cost Management reports are free. For pricing information, see the following articles:
 
 - [Application Insights pricing](https://azure.microsoft.com/pricing/details/monitor/)
 - [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/)
