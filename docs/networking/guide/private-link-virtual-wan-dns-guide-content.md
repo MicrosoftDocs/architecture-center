@@ -29,9 +29,13 @@ This topology has the following characteristics:
 
 ### Multi-region routing
 
-[Virtual WAN hub routing intent and routing policies](https://learn.microsoft.com/azure/virtual-wan/how-to-routing-policies#all-virtual-wan-hubs-are-secured-deployed-with-azure-firewall-nva-or-saas-solution) enable you to configure secured traffic routing, including inter-hub connectivity, through Azure Firewall or other security solutions deployed in the hub. These capabilities are generally available (GA) and enable secured inter-hub traffic flows.
+[Virtual WAN hub routing intent and routing policies](/azure/virtual-wan/how-to-routing-policies#all-virtual-wan-hubs-are-secured-deployed-with-azure-firewall-nva-or-saas-solution) let you control how traffic flows between hubs and whether that traffic is inspected by Azure Firewall or another security solution. These capabilities are generally available and support secured routing across hubs.
 
-For this series, internal secured traffic doesn't traverse multiple hubs. Traffic that traverses multiple hubs uses a parallel topology where private traffic doesn't pass through a secured virtual hub. This scenario is outside the scope of this series.
+By default, in a multi-hub Virtual WAN deployment, **inter-hub private traffic does not pass through Azure Firewall**. Instead, Azure uses its built‑in Virtual WAN–managed hub‑to‑hub connectivity, which runs in parallel to the secured traffic paths inside each hub. This means that private traffic moving between hubs is **not automatically inspected**.
+
+If you need Azure Firewall to inspect inter‑hub private traffic, you can enable this behavior by configuring a [**Private Traffic routing policy**](/azure/virtual-wan/about-virtual-hub-routing) and turning on **inter-hub inspection**. This forces private traffic between hubs to be forwarded through Azure Firewall for inspection.
+
+This configuration is more advanced and is **outside the scope of this series**.
 
 ### Adding spoke networks
 
