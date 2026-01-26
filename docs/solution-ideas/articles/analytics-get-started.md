@@ -8,6 +8,8 @@ ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
 
+# Analytics architecture design
+
 With the exponential growth in data, organizations rely on the limitless compute, storage, and analytical power of Azure to scale, stream, predict, and see their data. Analytics solutions turn volumes of data into useful business intelligence (BI), such as reports and visualizations, and inventive artificial intelligence (AI), such as forecasts based on machine learning.
 
 Whether your organization is just starting to evaluate cloud-based analytics tools or is looking to expand your current implementation, Azure provides many options. The workflow starts with learning about common approaches and aligning processes and roles around a cloud mindset.
