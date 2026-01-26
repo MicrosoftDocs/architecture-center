@@ -94,7 +94,7 @@ When the gateway runs on Azure API Management or another Azure service, assign i
 
 The gateway should honor Azure OpenAI throttling behavior and Retry-After headers. The gateway should honor Azure OpenAI throttling behavior and Retry-After headers. Azure API Management provides built-in circuit breaker capabilities that can automatically respect Retry-After values returned by Azure OpenAI for HTTP 429 responses. 
 
-Azure API Management also offers an llm-token-limit policy that allows enforcing. token-per-minute quotas per client or subscription at the gateway level. Using these built-in policies can reduce the need for custom retry, throttling, and protection logic in gateway code while helping prevent backend throttling.
+Azure API Management also offers an llm-token-limit policy that allows enforcing token-per-minute quotas per client or subscription at the gateway level. Using these built-in policies can reduce the need for custom retry, throttling, and protection logic in gateway code while helping prevent backend throttling.
 
 ### Topology details for multiple instances in a single region and single subscription
 
@@ -172,7 +172,7 @@ When multiple subscriptions are used to distribute Azure OpenAI standard quota, 
 
 ### Global and Data Zone deployments
 
-Azure OpenAI supports Global and Data Zone deployments. With Global deployments, request processing might occur in any Azure region where capacity is available,while data at rest remains within the deployment’s region. Data Zone deployments restrict processing to a defined geographic zone, such as EU-only regions. If your workload requires strict data residency with no cross-border processing, a single global gateway that routes traffic across regions isn’t appropriate.In such cases, deploy separate gateways per region or geography to ensure compliance with regulatory requirements.
+Azure OpenAI supports Global and Data Zone deployments. With Global deployments, request processing might occur in any Azure region where capacity is available,while data at rest remains within the deployment’s region. Data Zone deployments restrict processing to a defined geographic zone, such as EU-only regions. If your workload requires strict data residency with no cross-border processing, a single global gateway that routes traffic across regions isn’t appropriate. In such cases, deploy separate gateways per region or geography to ensure compliance with regulatory requirements.
 
 ### Topology details for multiple Azure OpenAI instances in a single region across multiple subscriptions
 
