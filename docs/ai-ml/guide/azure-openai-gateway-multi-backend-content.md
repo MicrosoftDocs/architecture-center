@@ -1,4 +1,4 @@
-Workload architectures that involve Azure OpenAI in Foundry Models can be as simple as one or more client applications directly consuming a single Azure OpenAI model deployment directly, but not all workloads can be designed with such simplicity. More complex scenarios include topologies with multiple clients, multiple Azure OpenAI deployments, or multiple Azure OpenAI instances. In those situations, introducing a gateway in front of Azure OpenAI can be beneficial to the workload's design as a programmable routing mechanism.
+Workload architectures that involve Azure OpenAI Service (part of Microsoft’s Foundry platform for foundation models) can be as simple as one or more client applications directly consuming a single Azure OpenAI model deployment directly, but not all workloads can be designed with such simplicity. More complex scenarios include topologies with multiple clients, multiple Azure OpenAI deployments, or multiple Azure OpenAI instances. In those situations, introducing a gateway in front of Azure OpenAI can be beneficial to the workload's design as a programmable routing mechanism.
 
 Multiple Azure OpenAI instances or model deployments solve specific requirements in a workload architecture. They can be classified in four key topologies.
 
@@ -76,11 +76,25 @@ If controlling your clients' configuration is as easy as or easier than controll
 
 Also, some workload scenarios could benefit from migrating from a multiple model deployment approach to a multiple Azure OpenAI instance deployment approach. For example, consider multiple Azure OpenAI instances if you have multiple clients that should be using different Azure RBAC or access keys to access their model. Using multiple deployments in a single Azure OpenAI instance and handling logical identity segmentation at the gateway level is possible, but might be excessive when a physical Azure RBAC segmentation approach is available by using distinct Azure OpenAI instances.
 
+### Chat-based workloads and stateful interactions
+Some workloads use chat-based interactions through Azure OpenAI’s Chat Completions and Assistants APIs, which introduce stateful behavior across multiple requests. In these cases, a gateway might need to maintain session affinity (sometimes referred to as “stickiness”) so that all requests that belong to an active conversation are routed to the same backend deployment while the conversation is in progress.
+
+### Provisioned capacity and Priority Processing
+
+Azure OpenAI supports Provisioned Throughput Units (PTUs), which represent reserved model capacity for predictable throughput. Some workloads might combine provisioned capacity with standard capacity to absorb bursts. Azure OpenAI also offers Priority Processing (Preview) for latency-sensitive traffic. Priority Processing can reduce request latency within a single deployment, but it does not increase overall quota and shouldn’t be considered a replacement for multi-backend or multi-instance designs that address high availability, resilience, or multi-tenant isolation.
+
 ## Multiple Azure OpenAI instances in a single region and single subscription
 
 :::image type="complex" source="_images/multiple-instances-single-region-before.svg" alt-text="Architecture diagram of a scenario with clients connecting to more than one Azure OpenAI instance in a single region." lightbox="_images/multiple-instances-single-region-before.svg":::
    A diagram showing two clients labeled A and B directly interfacing three Azure OpenAI instances, each with one model all labeled gpt-4. All Azure OpenAI instances are in a resource group named rg-aoai-eastus. Client A has a solid arrow connecting it to gpt-4 in a Client A instance that says provisioned. Client A has a dashed arrow connecting it to gpt-4 in a Client A instance that says standard spillover. Client B has a solid arrow connecting it to gpt-4 in a Client B instance that says provisioned.
 :::image-end:::
+
+To authenticate the gateway itself to Azure OpenAI, use a managed identity. 
+When the gateway runs on Azure API Management or another Azure service, assign it a managed identity and grant that identity the appropriate Azure RBAC role on each Azure OpenAI instance it needs to access. This approach avoids passing client API keys to backend services, enables least-privilege access, and simplifies credential management and rotation.
+
+The gateway should honor Azure OpenAI throttling behavior and Retry-After headers. The gateway should honor Azure OpenAI throttling behavior and Retry-After headers. Azure API Management provides built-in circuit breaker capabilities that can automatically respect Retry-After values returned by Azure OpenAI for HTTP 429 responses. 
+
+Azure API Management also offers an llm-token-limit policy that allows enforcing. token-per-minute quotas per client or subscription at the gateway level. Using these built-in policies can reduce the need for custom retry, throttling, and protection logic in gateway code while helping prevent backend throttling.
 
 ### Topology details for multiple instances in a single region and single subscription
 
@@ -146,11 +160,19 @@ If you have a few clients in the area where you control the code, and the client
 
 If you're using a gateway specifically to address capacity constraints, evaluate if data zone based capacity features are sufficient for your workload.
 
+
+
+
 ## Multiple Azure OpenAI instances in a single region across multiple subscriptions
 
 :::image type="complex" source="_images/multiple-subscriptions-before.svg" alt-text="Architecture diagram of a scenario one client connecting to two Azure OpenAI instances, one per region." lightbox="_images/multiple-subscriptions-before.svg":::
    A diagram showing a client with a solid arrow pointing to a gpt-35-turbo (standard) deployment in an Azure OpenAI instance labeled Primary. This primary instance is in a box labeled Workload subscription A. The client also has a dashed arrow pointing to a gpt-35-turbo (standard) deployment in an Azure OpenAI instance labeled Secondary. This secondary instance is in a box labeled Workload subscription B. In both subscriptions, the resource group containing the Azure OpenAI instances is called rg-aoai-eastus.
 :::image-end:::
+When multiple subscriptions are used to distribute Azure OpenAI standard quota, a gateway can abstract subscription boundaries from clients while routing traffic based on availability or capacity. Keep in mind that standard Azure OpenAI quotas remain scoped to the subscription, so capacity doesn’t aggregate automatically unless separate subscriptions are used.
+
+### Global and Data Zone deployments
+
+Azure OpenAI supports Global and Data Zone deployments. With Global deployments, request processing might occur in any Azure region where capacity is available,while data at rest remains within the deployment’s region. Data Zone deployments restrict processing to a defined geographic zone, such as EU-only regions. If your workload requires strict data residency with no cross-border processing, a single global gateway that routes traffic across regions isn’t appropriate.In such cases, deploy separate gateways per region or geography to ensure compliance with regulatory requirements.
 
 ### Topology details for multiple Azure OpenAI instances in a single region across multiple subscriptions
 
@@ -370,6 +392,17 @@ Whether you use API Management or build a custom solution, as mentioned in the [
 | Custom code          | [Smart load balancing for Azure OpenAI using Azure Container Apps](https://github.com/Azure-Samples/openai-aca-lb)<br/><br/>This GitHub repo contains sample C# code and instructions to build the container and deploy into your subscription. |
 
 The Cloud Adoption Framework for Azure also contains guidance on implementing an [Azure API Management landing zone](/azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator) for generative AI scenarios, including this multi-backend scenario. If your workload exists in an application landing zone, be sure to refer to this guidance for implementation considerations and recommendations.
+
+## Multi-backend routing for other models
+
+The gateway pattern isn’t limited to Azure OpenAI instances. A gateway can unify access to different AI backends, such as Azure OpenAI, self-hosted models, or third-party AI services that expose OpenAI-compatible APIs.
+This approach allows a single, consistent API surface for client applications while enabling flexible routing based on use case, cost, or performance characteristics.
+
+## Azure API Management enhancements for AI gateways
+
+Azure API Management has specialized capabilities for generative AI workloads. These include token-based rate limiting, semantic response caching, built-in backend load balancing and circuit breaking, and simplified onboarding of OpenAI-compatible endpoints.
+
+Using these built-in capabilities can significantly reduce the amount of custom gateway logic required and improve the reliability and governability of solutions that route traffic to multiple Azure OpenAI deployments or other AI backends.
 
 ## Next steps
 
