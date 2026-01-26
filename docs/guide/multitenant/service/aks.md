@@ -644,15 +644,15 @@ When multiple tenants share the same infrastructure, managing data privacy, comp
 
 Principal authors:
 
-- [Sam Cogan](https://www.linkedin.com/in/samcogan82/) | Senior Cloud Solutions Architect
-- [Ben Griffin](https://www.linkedin.com/in/bengriffin1/) | Senior Partner Solution Architect
+- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori/)
 
 Other contributors:
 
 - [Bohdan Cherchyk](https://www.linkedin.com/in/cherchyk/) | Senior Customer Engineer
+- [Sam Cogan](https://www.linkedin.com/in/samcogan82/) | Senior Cloud Solutions Architect
 - [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer - Azure Patterns & Practices
+- [Ben Griffin](https://www.linkedin.com/in/bengriffin1/) | Senior Partner Solution Architect
 - [Chad Kittel](https://www.linkedin.com/in/chadkittel/)  | Principal Software Engineer - Azure Patterns & Practices
-- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori/) | Principal Customer Engineer
 - [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv/) | Principal Customer Engineer
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
