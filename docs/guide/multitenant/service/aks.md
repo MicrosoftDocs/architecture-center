@@ -644,7 +644,7 @@ When multiple tenants share the same infrastructure, managing data privacy, comp
 
 Principal authors:
 
-- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori/) | Principal Customer Engineer
+- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori/)
 
 Other contributors:
 
