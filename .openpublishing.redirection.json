@@ -7696,6 +7696,11 @@
       "source_path": "docs/example-scenario/mainframe/refactor-mainframe-applications-advanced.yml",
       "redirect_url": "/azure/architecture/example-scenario/mainframe/general-mainframe-refactor",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/analytics-start-here.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/analytics-get-started",
+      "redirect_document_id": false
     }
   ]
 }
