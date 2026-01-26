@@ -143,7 +143,7 @@ conceptualContent:
       links:
         - text: Analytics architecture design
           itemType: overview
-          url: ./solution-ideas/articles/analytics-start-here.yml
+          url: ./solution-ideas/articles/analytics-get-started..md
         - text: Choose a data analytics technology
           itemType: quickstart
           url: ./data-guide/technology-choices/analysis-visualizations-reporting.md
