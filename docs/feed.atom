@@ -2,12 +2,20 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2026-01-20T19:03:34.721Z</updated>
+    <updated>2026-01-26T15:54:04.871Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Use Azure Kubernetes Service (AKS) in a Multitenant Solution]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/aks</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/aks"/>
+        <updated>2026-01-22T16:56:42.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the features of Azure Kubernetes Service (AKS) that you can use when you work with multitenant systems. See guidance and examples for how to use AKS in a multitenant solution.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Microsoft Security Solutions for AWS]]></title>
         <id>https://learn.microsoft.com/azure/architecture/guide/aws/aws-azure-security-solutions</id>
@@ -65,6 +73,30 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
+        <title type="html"><![CDATA[Guidance for Using Azure Database for PostgreSQL in a Multitenant Solution]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/postgresql</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/postgresql"/>
+        <updated>2026-01-23T15:33:26.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the Azure Database for PostgreSQL features that are useful when you work with multitenant systems. Explore guidance and examples.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Micro Focus Enterprise Server on Azure VMs]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/micro-focus-server</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/micro-focus-server"/>
+        <updated>2026-01-21T16:59:18.000Z</updated>
+        <summary type="html"><![CDATA[Optimize, modernize, and streamline IBM z/OS mainframe applications by using Micro Focus Enterprise Server 6.0 on Azure VMs.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Mission-Critical Baseline with App Service]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/networking/global-web-applications/mission-critical-app-service</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/networking/global-web-applications/mission-critical-app-service"/>
+        <updated>2026-01-20T23:33:24.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to deploy mission-critical web applications by using the Web Apps feature of Azure App Service and the reliable web app pattern.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[AI Architecture Design]]></title>
         <id>https://learn.microsoft.com/azure/architecture//ai-ml</id>
         <link href="https://learn.microsoft.com/azure/architecture//ai-ml"/>
@@ -113,14 +145,6 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Guidance for using Azure Kubernetes Service (AKS) in a multitenant solution]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/aks</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/aks"/>
-        <updated>2026-01-02T20:41:51.000Z</updated>
-        <summary type="html"><![CDATA[Learn about the features of Azure Kubernetes Service (AKS) that you can use when you work with multitenant systems. See guidance and examples for how to use AKS in a multitenant solution.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Automate Document Classification in Azure]]></title>
         <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/automate-document-classification-durable-functions</id>
         <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/automate-document-classification-durable-functions"/>
@@ -166,22 +190,6 @@
         <link href="https://learn.microsoft.com/azure/architecture//ai-ml"/>
         <updated>2025-12-18T18:19:53.000Z</updated>
         <summary type="html"><![CDATA[Get started with AI. Use high-level architectural types, see Azure AI platform offerings, and find customer success stories.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[DR for Azure Data Platform - Architecture]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-architecture</id>
-        <link href="https://learn.microsoft.com/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-architecture"/>
-        <updated>2025-12-17T16:45:01.000Z</updated>
-        <summary type="html"><![CDATA[Second article in a series covering disaster recovery for an Azure data platform]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[DR for Azure Data Platform - Scenario details]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-scenario-details</id>
-        <link href="https://learn.microsoft.com/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-scenario-details"/>
-        <updated>2025-12-17T16:45:01.000Z</updated>
-        <summary type="html"><![CDATA[Third article in a series covering disaster recovery for an Azure data platform]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -761,14 +769,6 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[DR for Azure Data Platform - Architecture]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-architecture</id>
-        <link href="https://learn.microsoft.com/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-architecture"/>
-        <updated>2025-11-05T18:05:18.000Z</updated>
-        <summary type="html"><![CDATA[Second article in a series covering disaster recovery for an Azure data platform]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Transactional Outbox pattern with Azure Cosmos DB]]></title>
         <id>https://learn.microsoft.com/azure/architecture/databases/guide/transactional-outbox-cosmos</id>
         <link href="https://learn.microsoft.com/azure/architecture/databases/guide/transactional-outbox-cosmos"/>
@@ -1198,6 +1198,22 @@
         <link href="https://learn.microsoft.com/azure/architecture/data-guide/relational-data/online-transaction-processing"/>
         <updated>2025-10-02T02:14:23.000Z</updated>
         <summary type="html"><![CDATA[Learn about atomicity, consistency, and other features of online transaction processing (OLTP), which manages transactional data while supporting querying.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[AI Agent Orchestration Patterns]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/ai-agent-design-patterns</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/ai-agent-design-patterns"/>
+        <updated>2025-10-01T17:57:02.000Z</updated>
+        <summary type="html"><![CDATA[Learn about fundamental orchestration patterns for AI agent architectures, including sequential, concurrent, group chat, handoff, and magentic patterns.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Use Azure Key Vault in a Multitenant Solution]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/key-vault</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/key-vault"/>
+        <updated>2025-10-01T17:47:38.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use Azure Key Vault in multitenant solutions, including isolation models, tenant-specific vaults, shared vaults, and multitenancy features.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
 </feed>
