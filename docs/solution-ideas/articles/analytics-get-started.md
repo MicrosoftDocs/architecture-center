@@ -6,6 +6,7 @@ ms.author: anaharris
 ms.date: 01/26/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
+ai-usage: ai-assisted
 ---
 
 # Analytics architecture design
