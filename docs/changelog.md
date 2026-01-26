@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: claytonsiemens77
-ms.date: 01/20/2026
+ms.date: 01/26/2026
 ms.topic: whats-new
 ms.author: pnp
 ---
@@ -22,6 +22,7 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
+- [Use Azure Kubernetes Service (AKS) in a Multitenant Solution](./guide/multitenant/service/aks.md)
 - [Microsoft Security Solutions for AWS](./guide/aws/aws-azure-security-solutions.md)
 - [Subscription Vending Implementation Guidance](./landing-zones/subscription-vending.md)
 - [Use Azure Kubernetes Service to Host GPU-Based Workloads](./reference-architectures/containers/aks-gpu/gpu-aks.md)
@@ -32,13 +33,15 @@ The following new and updated articles have recently been published in the Azure
 - [Baseline Architecture for an AKS Cluster](./reference-architectures/containers/aks/baseline-aks.yml) ([#193a089673](https://github.com/MicrosoftDocs/architecture-center/commit/193a089673))
 - [Deploy Azure Landing Zones](./landing-zones/landing-zone-deploy.md) ([#cf63de10f0](https://github.com/MicrosoftDocs/architecture-center/commit/cf63de10f0))
 - [Stream Processing with Databricks](./reference-architectures/data/stream-processing-databricks.yml) ([#30efdf0892](https://github.com/MicrosoftDocs/architecture-center/commit/30efdf0892))
+- [Guidance for Using Azure Database for PostgreSQL in a Multitenant Solution](./guide/multitenant/service/postgresql.md) ([#36889f673c](https://github.com/MicrosoftDocs/architecture-center/commit/36889f673c))
+- [Micro Focus Enterprise Server on Azure VMs](./example-scenario/mainframe/micro-focus-server.yml) ([#af1669497e](https://github.com/MicrosoftDocs/architecture-center/commit/af1669497e))
+- [Mission-Critical Baseline with App Service](./guide/networking/global-web-applications/mission-critical-app-service.yml) ([#716fa977a5](https://github.com/MicrosoftDocs/architecture-center/commit/716fa977a5))
 - [AI Architecture Design](./ai-ml/index.md) ([#5a16064af7](https://github.com/MicrosoftDocs/architecture-center/commit/5a16064af7))
 - [Baseline Highly Available Zone-Redundant App Services Web Application](./web-apps/app-service/architectures/baseline-zone-redundant.yml) ([#2b8460a1f5](https://github.com/MicrosoftDocs/architecture-center/commit/2b8460a1f5))
 - [Modern Data Warehouses for Small or Medium-Sized Businesses](./example-scenario/data/small-medium-data-warehouse.yml) ([#69a9025819](https://github.com/MicrosoftDocs/architecture-center/commit/69a9025819))
 - [Global routing redundancy for mission-critical web applications](./guide/networking/global-web-applications/overview.md) ([#56b194ee8c](https://github.com/MicrosoftDocs/architecture-center/commit/56b194ee8c))
 - [Architectural Approaches for Messaging in Multitenant Solutions](./guide/multitenant/approaches/messaging.md) ([#147d0594c0](https://github.com/MicrosoftDocs/architecture-center/commit/147d0594c0))
 - [Web-Queue-Worker Architecture Style](./guide/architecture-styles/web-queue-worker.md) ([#d6757ae581](https://github.com/MicrosoftDocs/architecture-center/commit/d6757ae581))
-- [Guidance for using Azure Kubernetes Service (AKS) in a multitenant solution](./guide/multitenant/service/aks.md) ([#4d3d838723](https://github.com/MicrosoftDocs/architecture-center/commit/4d3d838723))
 
 ## December 2025
 
@@ -50,8 +53,6 @@ The following new and updated articles have recently been published in the Azure
 - [Extract and Map Information from Unstructured Content](./ai-ml/idea/multi-modal-content-processing.yml) ([#d587a699fc](https://github.com/MicrosoftDocs/architecture-center/commit/d587a699fc))
 - [Build a Multiple-Agent Workflow Automation Solution by using Microsoft Agent Framework](./ai-ml/idea/multiple-agent-workflow-automation.yml) ([#d587a699fc](https://github.com/MicrosoftDocs/architecture-center/commit/d587a699fc))
 - [AI Architecture Design](./ai-ml/index.md) ([#d587a699fc](https://github.com/MicrosoftDocs/architecture-center/commit/d587a699fc))
-- [DR for Azure Data Platform - Architecture](./data-guide/disaster-recovery/dr-for-azure-data-platform-architecture.md) ([#2baf78b811](https://github.com/MicrosoftDocs/architecture-center/commit/2baf78b811))
-- [DR for Azure Data Platform - Scenario details](./data-guide/disaster-recovery/dr-for-azure-data-platform-scenario-details.md) ([#2baf78b811](https://github.com/MicrosoftDocs/architecture-center/commit/2baf78b811))
 - [Deploy Microservices to Azure Container Apps](./example-scenario/serverless/microservices-with-container-apps.yml) ([#7521d30186](https://github.com/MicrosoftDocs/architecture-center/commit/7521d30186))
 - [Choose an Azure Service for Vector Search](./guide/technology-choices/vector-search.md) ([#7521d30186](https://github.com/MicrosoftDocs/architecture-center/commit/7521d30186))
 - [Failure mode analysis](./resiliency/failure-mode-analysis.md) ([#d22e122007](https://github.com/MicrosoftDocs/architecture-center/commit/d22e122007))
@@ -132,7 +133,6 @@ The following new and updated articles have recently been published in the Azure
 - [Data partitioning strategies](./best-practices/data-partitioning-strategies.yml) ([#27371ebc0f](https://github.com/MicrosoftDocs/architecture-center/commit/27371ebc0f))
 - [Monitoring and diagnostics guidance](./best-practices/monitoring.yml) ([#27371ebc0f](https://github.com/MicrosoftDocs/architecture-center/commit/27371ebc0f))
 - [Transient fault handling](./best-practices/transient-faults.md) ([#27371ebc0f](https://github.com/MicrosoftDocs/architecture-center/commit/27371ebc0f))
-- [DR for Azure Data Platform - Architecture](./data-guide/disaster-recovery/dr-for-azure-data-platform-architecture.md) ([#27371ebc0f](https://github.com/MicrosoftDocs/architecture-center/commit/27371ebc0f))
 - [Transactional Outbox pattern with Azure Cosmos DB](./databases/guide/transactional-outbox-cosmos.yml) ([#27371ebc0f](https://github.com/MicrosoftDocs/architecture-center/commit/27371ebc0f))
 - [Migrate a web app by using Azure API Management](./example-scenario/apps/apim-api-scenario.yml) ([#27371ebc0f](https://github.com/MicrosoftDocs/architecture-center/commit/27371ebc0f))
 - [Analytics End-to-End with Microsoft Fabric](./example-scenario/dataplate2e/data-platform-end-to-end.yml) ([#27371ebc0f](https://github.com/MicrosoftDocs/architecture-center/commit/27371ebc0f))
@@ -195,6 +195,8 @@ The following new and updated articles have recently been published in the Azure
 - [Use AI Enrichment With Image and Text Processing](./solution-ideas/articles/ai-search-skillsets.yml) ([#50db6c881f](https://github.com/MicrosoftDocs/architecture-center/commit/50db6c881f))
 - [Build a Multiple-Agent Workflow Automation Solution by using Microsoft Agent Framework](./ai-ml/idea/multiple-agent-workflow-automation.yml) ([#2b218fd4f3](https://github.com/MicrosoftDocs/architecture-center/commit/2b218fd4f3))
 - [Online Transaction Processing (OLTP)](./data-guide/relational-data/online-transaction-processing.md) ([#78cf66ffc7](https://github.com/MicrosoftDocs/architecture-center/commit/78cf66ffc7))
+- [AI Agent Orchestration Patterns](./ai-ml/guide/ai-agent-design-patterns.md) ([#164a16ed9f](https://github.com/MicrosoftDocs/architecture-center/commit/164a16ed9f))
+- [Use Azure Key Vault in a Multitenant Solution](./guide/multitenant/service/key-vault.md) ([#b48a068ca2](https://github.com/MicrosoftDocs/architecture-center/commit/b48a068ca2))
 
 
 ## Azure updates
