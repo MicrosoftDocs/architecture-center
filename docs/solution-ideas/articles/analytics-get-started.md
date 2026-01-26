@@ -39,35 +39,23 @@ If you're new to analytics on Azure, the best place to learn more is with [Micro
 Here are some resources to get you started:
 
 - [Browse Azure data topics](/training/browse/?products=azure&filter-products=data&terms=data)
-- [Explore Azure database and analytics services](/training/modules/azure-database-fundamentals/)
-- [Learning path: Azure Data Fundamentals](/training/paths/azure-data-fundamentals-explore-core-data-concepts/)
-- [Learning path: Implement a data analytics solution with Azure Databricks](/training/paths/data-engineer-azure-databricks/)
-- [Learning path: Get started with Microsoft Fabric](/training/paths/get-started-fabric/)
+- [Introduction to Microsoft Azure Data core data concepts](/training/paths/azure-data-fundamentals-explore-core-data-concepts/)
+- [Implement a data analytics solution with Azure Databricks](/training/paths/data-engineer-azure-databricks/)
+- [Get started with Microsoft Fabric](/training/paths/get-started-fabric/)
 
 
 ### Learning paths by role
 
-- **Data analyst**: [Data analytics with Microsoft Fabric](/training/paths/get-started-with-data-analytics-for-business-intelligence/)
-- **Data engineer**: [Build data analytics solutions using Azure Databricks](/training/paths/data-engineer-azure-databricks/)
-- **Data scientist**: [Perform data science with Azure Databricks](/training/paths/perform-data-science-azure-databricks/)
+- **Data analyst**: [Get started with Microsoft data analytics](/training/paths/data-analytics-microsoft)
+- **Data engineer**: [Implement a Data Analytics Solution with Azure Databricks](/training/paths/data-engineer-azure-databricks/)
+- **Data scientist**: [Build machine learning solutions using Azure Databricks](/training/paths/perform-data-science-azure-databricks/)
 
 ## Organizational readiness
 
-If your organization is new to the cloud, the [Cloud Adoption Framework](/azure/cloud-adoption-framework/) can help you get started. This collection of documentation and best practices offers proven guidance from Microsoft designed to accelerate your cloud adoption journey.
-
-Specific guidance for analytics includes:
-
-- [Innovation tools to democratize data in Azure](/azure/cloud-adoption-framework/innovate/best-practices/data)
-- [Data management and analytics scenario](/azure/cloud-adoption-framework/scenarios/data-management/)
-- [Analytics workloads for the cloud](/azure/cloud-adoption-framework/scenarios/data-management/architectures/)
+If your organization is new to the cloud, the [Cloud Adoption Framework](/azure/cloud-adoption-framework/) can help you get started. This collection of documentation and best practices offers proven guidance from Microsoft designed to accelerate your cloud adoption journey. For more information on clouds-scale analytics, see [Cloud-scale analytics](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics).
 
 To help assure the quality of your analytics solution on Azure, we recommend following the [Azure Well-Architected Framework](/azure/well-architected/). It provides prescriptive guidance for organizations seeking architectural excellence and discusses how to design, provision, and monitor cost-optimized Azure solutions.
 
-For analytics-specific guidance:
-
-- [Azure Well-Architected Framework for data workloads](/azure/well-architected/service-guides/)
-- [Reliability design principles](/azure/well-architected/reliability/principles)
-- [Security design principles for data workloads](/azure/well-architected/security/principles)
 
 ## Path to production
 
@@ -123,8 +111,7 @@ Get the latest updates on [Azure products and features](https://azure.microsoft.
 
 Stay current with these key analytics services:
 
-- [What's new in Microsoft Fabric](/fabric/release-plan/)
-- [What's new in Azure Synapse Analytics](/azure/synapse-analytics/whats-new)
+- [What's new in Microsoft Fabric](/fabric/fundamentals/whats-new?)
 - [Azure Databricks release notes](/azure/databricks/release-notes/)
 - [What's new in Azure Data Explorer](/azure/data-explorer/whats-new)
 - [What's new in Power BI](/power-bi/fundamentals/desktop-latest-update)
@@ -140,7 +127,7 @@ The vast majority of organizations need a hybrid approach to analytics because t
 Key hybrid analytics scenarios:
 
 - **Mainframe modernization**: [Modernize mainframe and midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure) - Integrate legacy data sources with modern analytics platforms.
-- **On-premises integration**: [Hybrid data integration](../../databases/guide/hybrid-on-premises-and-cloud.md) - Connect on-premises databases to cloud analytics.
+- **On-premises integration**: [Unified hybrid and multicloud operations](../../databases/guide/hybrid-on-premises-and-cloud.md) - Connect on-premises databases to cloud analytics.
 - **Edge analytics**: Process data at the edge and aggregate insights in the cloud.
 
 ### Real-time analytics
@@ -157,11 +144,7 @@ Here are some additional sample implementations of analytics on Azure to conside
 
 - [IoT analytics with Azure Data Explorer](./iot-azure-data-explorer.yml) - Real-time analytics for IoT and telemetry data at scale.
 
-- [Modern analytics architecture with Azure Databricks](./azure-databricks-modern-analytics-architecture.yml) - Enterprise-grade analytics using Apache Spark.
-
-- [Enterprise BI with Azure Synapse](../../example-scenario/data/enterprise-bi-synapse.yml) - Build enterprise business intelligence solutions.
-
-- [Automated enterprise BI](../../reference-architectures/data/enterprise-bi-adf.yml) - Automate data pipelines for enterprise analytics.
+- [Create a modern analytics architecture by using Azure Databricks](./azure-databricks-modern-analytics-architecture.yml) - Enterprise-grade analytics using Apache Spark.
 
 - [Browse more analytics examples in the Azure Architecture Center](../../browse/index.yml?azure_categories=analytics)
 

@@ -96,4 +96,4 @@ Principal author:
 
 ## Related resource
 
-- [Analytics architecture design](analytics-get-started..md)
+- [Analytics architecture design](analytics-get-started.md)

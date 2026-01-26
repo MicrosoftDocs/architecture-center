@@ -124,4 +124,4 @@ Other contributors:
 
 ## Related resource
 
-- [Analytics architecture design](../../solution-ideas/articles/analytics-get-started..md)
+- [Analytics architecture design](../../solution-ideas/articles/analytics-get-started.md)
