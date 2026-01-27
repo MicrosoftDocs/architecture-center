@@ -7678,6 +7678,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/resiliency/failure-mode-analysis.md",
+      "redirect_url": "/azure/well-architected/reliability/failure-mode-analysis",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/reference-architectures/zos/refactor-zos-coupling-facility.yml",
       "redirect_url": "/azure/architecture/example-scenario/mainframe/general-mainframe-refactor",
       "redirect_document_id": false
