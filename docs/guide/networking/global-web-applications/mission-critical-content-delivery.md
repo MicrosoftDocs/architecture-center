@@ -36,7 +36,9 @@ The following diagram shows how traffic flows between the CDNs:
 
 - **Traffic Manager** uses weighted routing mode, has two [endpoints](/azure/traffic-manager/traffic-manager-endpoint-types), and is configured to [always serve traffic](/azure/traffic-manager/traffic-manager-monitoring#always-serve).
 
-  During normal operations, Traffic Manager sends all requests through Azure Front Door. If Azure Front Door becomes unavailable, turn off the Azure Front Door endpoint. Traffic Manager then sends all requests through the alternative CDN.
+  During normal operations, Traffic Manager sends all requests through Azure Front Door.
+  
+  If Azure Front Door becomes unavailable, turn off the Azure Front Door endpoint. Traffic Manager then sends all requests through the alternative CDN.
 
 - **Azure Front Door** processes and routes most of your application traffic. Azure Front Door routes traffic to the appropriate origin application server, and it provides the primary path to your application. If Azure Front Door is unavailable, traffic is automatically redirected through the secondary path.
 
