@@ -91,8 +91,6 @@ items:
       href: guide/design-principles/design-for-evolution.md
     - name: Build for the needs of business
       href: guide/design-principles/build-for-business.md
-    - name: Failure mode analysis for services
-      href: resiliency/failure-mode-analysis.md
   - name: Technology choices
     items:
     - name: Overview
@@ -543,8 +541,6 @@ items:
           href: example-scenario/mainframe/extend-mainframes-rest-apis.yml
         - name: General mainframe refactor to Azure
           href: example-scenario/mainframe/general-mainframe-refactor.yml
-        - name: Migrate IBM System i to Azure by using Infinite i
-          href: example-scenario/mainframe/ibm-system-i-azure-infinite-i.yml
         - name: IBM z/OS migration with Avanade AMT
           href: example-scenario/mainframe/avanade-amt-zos-migration.yml
         - name: IBM z/OS online transaction processing
