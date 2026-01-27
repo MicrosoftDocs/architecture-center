@@ -66,7 +66,7 @@ For many situations, an active-passive routing approach makes sense. During norm
 
 But if you run multiple content delivery networks in active-passive mode, the passive one must perform a *cache fill* from your origin when failover occurs.
 
-Test failover between Azure Front Door and your alternative content delivery network to detect anomalies or performance problems. To reduce cache fill risks, consider the following approaches:
+Test failover between Azure Front Door and your alternative content delivery network to detect anomalies or performance problems. If your solution is at risk from performance problems during cache fills, consider these approaches to reduce the risk:
 
 - **Scale out or scale up your origins** to handle higher traffic levels, especially during a cache fill.
 
