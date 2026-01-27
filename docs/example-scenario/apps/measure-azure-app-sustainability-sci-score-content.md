@@ -6,7 +6,7 @@ The solution described in this article can help you measure sustainability metri
 ## Architecture
 
 :::image type="complex" border="false" source="media/measure-app-sci-score.svg" alt-text="Diagram of a sustainability model that scores the carbon impact of an application." lightbox="media/measure-app-sci-score.svg":::
-   The diagram shows a five-step architecture flow with data sources from both Microsoft and non-Microsoft services. In step 1, application data sources connect to Azure carbon optimization and Microsoft Cloud for Sustainability APIs to gather emissions data. Application Insights collects proxy metrics, application cost data, and behavior patterns from the monitored application. A separate section shows non-Microsoft data sources and SDKs, including WattTime API, Electricity Maps, and Carbon Aware SDK, which provide real-time carbon intensity data. In step 2, Azure Data Lake Storage receives all data points from step 1 and stores the collected emissions data and operational metrics. In step 3, Azure Functions and Azure Logic Apps process the stored data to calculate the Software Carbon Intensity score and related workload utilization metrics. In step 4, the application receives the calculated SCI score from step 3 and real-time carbon intensity data from the non-Microsoft sources to support carbon-aware decisions and demand shaping through demand-shaping scripts. In step 5, Power BI connects to the data lake to visualize the SCI score, trends over time, and correlations with performance and cost metrics in dashboards for stakeholders.
+   The diagram shows a five-step architecture flow with data sources from both Microsoft and non-Microsoft services. In step 1, application data sources connect to Azure carbon optimization and Microsoft Cloud for Sustainability APIs to gather emissions data. Application Insights collects proxy metrics, application cost data, and behavior patterns from the monitored application. A separate section shows non-Microsoft data sources and SDKs, including WattTime API, Electricity Maps, and Carbon Aware SDK, which provide real-time carbon intensity data. In step 2, Azure Data Lake Storage receives all data points from step 1 and stores the collected emissions data and operational metrics. In step 3, Azure Functions and Azure Logic Apps process the stored data to calculate the SCI score and related workload utilization metrics. In step 4, the application receives the calculated SCI score from step 3 and real-time carbon intensity data from the non-Microsoft sources to support carbon-aware decisions and demand shaping through demand-shaping scripts. In step 5, Power BI connects to the data lake to visualize the SCI score, trends over time, and correlations with performance and cost metrics in dashboards for stakeholders.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/measure-app-sci-score.vsdx) of this architecture.*
@@ -27,25 +27,25 @@ The solution described in this article can help you measure sustainability metri
 
 ### Components
 
-- [Carbon optimization in Azure](/azure/carbon-optimization/overview) is a service for measuring and visualizing Azure workload emissions. It provides APIs and visualizations of carbon emission measurements of Azure workloads at the resource-group or resource level. In this architecture, it's the primary source of emissions data for the Azure hardware that the workload consumes.
+- [Carbon optimization in Azure](/azure/carbon-optimization/overview) is a service for measuring and visualizing Azure workload emissions. It provides APIs and visualizations of carbon emission measurements of Azure workloads at the resource-group or resource level. In this architecture, it's the primary source of emissions data for the Azure hardware that the workload uses.
 
 - The [Microsoft Cloud for Sustainability API](/industry/sustainability/overview) is a sustainability and emissions data service. It provides the underlying data for carbon optimization and retrieves information about subscription emissions. In this architecture, the API supplies foundational emissions data that complements Azure carbon optimization.
 
 - [Application Insights](/azure/well-architected/service-guides/application-insights) is a feature of Azure Monitor that provides application performance management (APM). It helps you understand app usage to make data-driven decisions for improving efficiency. In this architecture, it provides a key data source for workload utilization and performance. This data helps measure efficiency as a function of work accomplished relative to the carbon cost.
 
-- [Azure Data Lake](/azure/storage/blobs/data-lake-storage-introduction) is a centralized repository that ingests and stores large volumes of data in its original form for processing and analytics. In this architecture, it stores raw snapshot data for calculating and reporting workload efficiency.
+- [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a centralized repository that ingests and stores large volumes of data in its original form for processing and analytics. In this architecture, it stores raw snapshot data for calculating and reporting workload efficiency.
 
 - [Logic Apps](/azure/logic-apps/logic-apps-overview) is a workflow automation and integration service that you can use to create and run automated workflows with minimal code. In this architecture, the visual designer and prebuilt operations create workflows that integrate and manage proxy sources, data storage, and efficiency calculation systems.
 
-- [Functions](/azure/well-architected/service-guides/azure-functions) is a serverless compute service for running event-driven code. It lets you run small units of code, automatically scales resources based on demand, and charges only for the time your code runs. In this architecture, it does sustainability calculations and stores them in the data lake.
+- [Functions](/azure/well-architected/service-guides/azure-functions) is a serverless compute service for running event-driven code. It runs small units of code, automatically scales resources based on demand, and charges only for the time that your code runs. In this architecture, it does sustainability calculations and stores them in the data lake.
 
-- [Azure Automation](/azure/automation/overview) is a process automation and configuration management service that provides process automation via runbooks. In this architecture, runbooks implement complex logic with PowerShell code to improve application efficiency.
+- [Azure Automation](/azure/automation/overview) is a process automation and configuration management service that provides process automation via runbooks. In this architecture, runbooks implement complex logic by using PowerShell code to improve application efficiency.
 
 - [Power BI](/power-bi/fundamentals/power-bi-overview) is a business analytics and visualization platform. It turns data into analytics and reports for real-time insights. In this architecture, it provides dashboards for stakeholders to evaluate sustainability goals.
 
 ### Alternatives
 
-You can replace the Azure services in this architecture with similar services. To increase density and utilization of existing resources, run calculations with minimal infrastructure impact by using services or tools already deployed in your environment:
+You can replace the Azure services in this architecture with similar services. To increase density and utilization of existing resources, run calculations that minimally affect infrastructure by using services or tools already deployed in your environment:
 
 - Substitute Power BI dashboards with [Azure Monitor workbooks](/azure/azure-monitor/visualize/workbooks-overview) or [Azure Managed Grafana](https://azure.microsoft.com/products/managed-grafana/).
 
@@ -101,7 +101,7 @@ For a tutorial about how to set up Application Insights to get the required metr
 Consider adding other variables to the equation, like the following examples:
 
 - Edge services and infrastructure carbon emissions
-- Proxies based on end-user device profiles
+- Proxies based on user device profiles
 - Connection times (because electricity production and demand vary over time)
 - Other application metrics that indicate performance changes
 
@@ -121,7 +121,7 @@ The correlation between SCI score, cost, and performance is unique to each appli
 
 ### Calculations
 
-The [SCI score](https://sci.greensoftware.foundation) is calculated by using the following formula, which represents the rate of carbon emissions per one unit:
+Calculate the [SCI score](https://sci.greensoftware.foundation) by using the following formula, which represents the rate of carbon emissions per one unit:
 
 ```text
 SCI = ((E * I) + M) per R
@@ -140,7 +140,7 @@ This equation uses the following variables:
 > [!NOTE]
 > This score is sometimes simplified to `SCI = C per R`, where `C` represents total carbon emissions measured through proxies. The expanded formula provides greater granularity and lets you target specific variables for optimization. This granularity reduces energy consumption (`E`), shifts workloads to cleaner times or locations (`I`), or extends hardware lifespan (`M`).
 
-The time window is a critical part of this calculation. Carbon intensity (`I`) varies based on several factors. These factors include energy mix, weather changes, demand, and grid-operations constraints (dispatchability and curtailment). You need real‑time or near-real-time data (hourly or less) from [non-Microsoft APIs](#data-sources) to make effective runtime carbon-aware decisions.
+The time window is a critical part of this calculation. Carbon intensity (`I`) varies based on several factors. These factors include energy mix, weather changes, demand, and grid-operations constraints like dispatchability and curtailment. You need real‑time or near-real-time data (hourly or less) from [non-Microsoft APIs](#data-sources) to make effective runtime carbon-aware decisions.
 
 Azure carbon optimization provides monthly aggregated carbon data for resources. You can use this data for the following scenarios:
 
@@ -149,11 +149,11 @@ Azure carbon optimization provides monthly aggregated carbon data for resources.
 
 ### Data storage
 
-Store gathered carbon and proxy information in a solution that connects to dashboards or reports. This setup lets you visualize the carbon score over time for informed decision-making. To improve sustainability and align with Azure Well-Architected Framework best practices, use a minimum viable system. For more information, see [Data and storage design considerations for sustainable workloads on Azure](/azure/well-architected/sustainability/sustainability-storage) and [Application platform considerations for sustainable workloads on Azure](/azure/well-architected/sustainability/sustainability-application-platform#evaluate-moving-to-paas-and-serverless-workloads). This architecture uses Azure Data Lake Storage.
+Store gathered carbon and proxy information in a solution that connects to dashboards or reports. This setup lets you visualize the carbon score over time for informed decision-making. To improve sustainability and align with Azure Well-Architected Framework best practices, use a minimum viable system. For more information, see [Data and storage design considerations for sustainable workloads on Azure](/azure/well-architected/sustainability/sustainability-storage) and [Application platform considerations for sustainable workloads on Azure](/azure/well-architected/sustainability/sustainability-application-platform#evaluate-moving-to-paas-and-serverless-workloads). This architecture uses Data Lake Storage.
 
 ### Data correlations
 
-Gather data on carbon, performance, and cost of your application to get valuable information. Use this data to create a correlation algorithm specific to your application for cost, performance, and carbon optimization planning.
+Gather data about carbon, performance, and cost of your application to get valuable information. Use this data to create a correlation algorithm specific to your application for cost, performance, and carbon optimization planning.
 
 For more information, see [Select algorithms for Azure Machine Learning](/azure/machine-learning/how-to-select-algorithms).
 
@@ -216,7 +216,7 @@ You can deploy this architecture by using alternative Azure services. The archit
 
 Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-The primary purpose of this architecture is to provide a sustainability score via a process that has a minimal impact on cost and carbon. Most components are platform as a service (PaaS) and serverless Azure services that scale independently based on use and traffic.
+The primary purpose of this architecture is to provide a sustainability score via a process that minimally affects cost and carbon. Most components are platform as a service (PaaS) and serverless Azure services that scale independently based on use and traffic.
 
 We don't intend the dashboard and storage interface in this scenario for high-volume usage and consultation. If you plan to provide it to a large number of users, you might consider one of the following options:
 
