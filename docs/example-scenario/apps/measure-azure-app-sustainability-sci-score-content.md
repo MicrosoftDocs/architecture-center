@@ -1,7 +1,7 @@
 The solution described in this article can help you measure sustainability metrics for a workload hosted on Azure. The model uses application data and proxies to score and track an application's carbon impact and efficiency over time. We recommend that you align your measurements to the Software Carbon Intensity (SCI) score, which is formalized in ISO/IEC 21031:2024. It provides a baseline for measuring changes in an application's carbon output.
 
 > [!IMPORTANT]
-> This article focuses on **measuring** the carbon impact of an existing application by using the SCI score. For more information about **designing** sustainable applications from scratch, see [Sustainable workloads](/azure/well-architected/sustainability/sustainability-get-started).
+> This article focuses on *measuring* the carbon impact of an existing application by using the SCI score. For more information about *designing* sustainable applications from scratch, see [Sustainable workloads](/azure/well-architected/sustainability/sustainability-get-started).
 
 ## Architecture
 
@@ -129,13 +129,13 @@ SCI = ((E * I) + M) per R
 
 This equation uses the following variables:
 
-- `E` is the **energy** that a software system consumes. It's measured in kilowatt-hours (kWh).
+- `E` is the *energy* that a software system consumes. It's measured in kilowatt-hours (kWh).
 
-- `I` is the **carbon intensity** of the energy source. It's measured in grams of carbon dioxide equivalent per kilowatt-hour (gCO2e/kWh). This value varies by location and time of day.
+- `I` is the *carbon intensity* of the energy source. It's measured in grams of carbon dioxide equivalent per kilowatt-hour (gCO2e/kWh). This value varies by location and time of day.
 
-- `M` is the **embodied carbon** of the hardware. It represents the carbon that manufacturers, transporters, and disposers emit during the manufacturing, transportation, and disposal of the hardware. The software allocates this static value based on its usage share and lifespan.
+- `M` is the *embodied carbon* of the hardware. It represents the carbon that manufacturers, transporters, and disposers emit during the manufacturing, transportation, and disposal of the hardware. The software allocates this static value based on its usage share and lifespan.
 
-- `R` is the **functional unit** (or scaling factor) for the application. This value normalizes the score to a unit of work, like per user, per API call, or per job.
+- `R` is the *functional unit* (or scaling factor) for the application. This value normalizes the score to a unit of work, like per user, per API call, or per job.
 
 > [!NOTE]
 > This score is sometimes simplified to `SCI = C per R`, where `C` represents total carbon emissions measured through proxies. The expanded formula provides greater granularity and lets you target specific variables for optimization. This granularity reduces energy consumption (`E`), shifts workloads to cleaner times or locations (`I`), or extends hardware lifespan (`M`).
@@ -163,9 +163,9 @@ You can display data and calculations in various ways, which include customized 
 
 ### SCI score and real‑time measurement triggers
 
-Ideally, you should design your workload to be sustainable by following the [Design principles of a sustainable workload](/azure/well-architected/sustainability/sustainability-design-principles). Upfront workload design focuses on ways to minimize **energy (`E`)** and **embodied carbon (`M`)**. Strategies include ways to write efficient code, choose the right architecture, and maximize hardware density. Make these decisions before the workload runs or add them as backlog items to improve an existing workload.
+Ideally, you should design your workload to be sustainable by following the [Design principles of a sustainable workload](/azure/well-architected/sustainability/sustainability-design-principles). Upfront workload design focuses on ways to minimize *energy (`E`)* and *embodied carbon (`M`)*. Strategies include ways to write efficient code, choose the right architecture, and maximize hardware density. Make these decisions before the workload runs or add them as backlog items to improve an existing workload.
 
-A carbon-aware workload reacts to unfavorable real-time conditions. You typically base runtime triggers on attempts to optimize the **carbon intensity (`I`)** component. Examples include the following scenarios:
+A carbon-aware workload reacts to unfavorable real-time conditions. You typically base runtime triggers on attempts to optimize the *carbon intensity (`I`)* component. Examples include the following scenarios:
 
 - High energy production and demand, which makes energy expensive
 
@@ -187,7 +187,7 @@ You can take actions like shifting job processing times or moving workloads to c
 
   - Understand user behavior and modify the eco version to reflect their choices.
 
-  When you optimize the full version for emissions, you can eventually merge the two versions. **Windows Update** is an example of runtime optimization. It uses a carbon-aware API to schedule updates. Instead of immediately downloading updates, it waits for a window when the local grid's carbon intensity (`I`) is low. This approach effectively reduces the carbon footprint of the update process without increasing total energy consumption.
+  When you optimize the full version for emissions, you can eventually merge the two versions. *Windows Update* is an example of runtime optimization. It uses a carbon-aware API to schedule updates. Instead of immediately downloading updates, it waits for a window when the local grid's carbon intensity (`I`) is low. This approach effectively reduces the carbon footprint of the update process without increasing total energy consumption.
 
 ## Considerations
 
