@@ -179,7 +179,7 @@ You can take actions like shifting job processing times or moving workloads to c
 
   For example, enable an eco mode version of your application. Eco mode is a simpler, smaller, more sustainable version that has minimal features. Revert to this version during carbon emission spikes, or incentivize users to choose it.
 
-- Provide a *go green* button that switches to a low‑impact interface that uses fewer graphics and provides limited features in exchange for a commitment to reduced carbon emissions.
+- Provide a *go green* button that switches to a low-impact interface that uses fewer graphics and provides limited features in exchange for a commitment to reduced carbon emissions.
 
   When you involve users, you create an opportunity to drive cultural change. The following actions help achieve this goal:
 
