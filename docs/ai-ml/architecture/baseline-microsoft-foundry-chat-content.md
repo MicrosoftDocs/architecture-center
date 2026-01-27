@@ -23,7 +23,7 @@ This architecture uses the [Foundry Agent Service standard agent setup](/azure/a
 ## Architecture
 
 :::image type="complex" source="_images/baseline-microsoft-foundry.svg" border="false" lightbox="_images/baseline-microsoft-foundry.svg" alt-text="Diagram that shows a baseline end-to-end chat architecture that uses Foundry.":::
-   The diagram presents a detailed Azure architecture for deploying an AI solution. On the left, a user connects through Azure Application Gateway with a web application firewall, which is part of a virtual network. This gateway is linked to private DNS zones and protected by Azure DDoS Protection. Under the gateway, private endpoints connect to services like App Service, Azure Key Vault, and Azure Storage, which are used for client app deployment. App Service is managed with identity and spans three zones. Application Insights and Azure Monitor provide monitoring, and Microsoft Entra ID handles authentication. To the right, the virtual network contains several subnets: App Service integration, private endpoint, Foundry integration, Azure AI agent integration, Azure Bastion, jump box, build agents, and Azure firewall. Each subnet hosts specific endpoints or services, like storage, Foundry, Azure AI Search, Azure Cosmos DB, and knowledge store, all connected via private endpoints. Outbound traffic from the network passes through Azure Firewall to reach internet sources. To the far right, a separate box represents Foundry, which includes an account and a project. Managed identities connect Foundry Agent Service to the Foundry project, which in turn accesses an Azure OpenAI model. The diagram uses numbered green circles to indicate the logical flow. It shows how user requests traverse the network, interact with various endpoints, and ultimately connect to Foundry and storage services, with dependencies clearly grouped and labeled.
+   The diagram presents a detailed Azure architecture for deploying an AI solution. On the left, a user connects through Azure Application Gateway with a web application firewall, which is part of a virtual network. This gateway is linked to private DNS zones and protected by Azure DDoS Protection. Under the gateway, private endpoints connect to services like App Service, Azure Key Vault, and Azure Storage, which are used for client app deployment. App Service is managed with identity and spans three zones. Application Insights and Azure Monitor provide monitoring, and Microsoft Entra ID handles authentication. To the right, the virtual network contains several subnets: App Service integration, private endpoint, Foundry integration, Azure AI agent integration, Azure Bastion, jump box, build agents, and Azure Firewall. Each subnet hosts specific endpoints or services, like storage, Foundry, Azure AI Search, Azure Cosmos DB, and knowledge store, all connected via private endpoints. Outbound traffic from the network passes through Azure Firewall to reach internet sources. To the far right, a separate box represents Foundry, which includes an account and a project. Managed identities connect Foundry Agent Service to the Foundry project, which in turn accesses an Azure OpenAI model. The diagram uses numbered green circles to indicate the logical flow. It shows how user requests traverse the network, interact with various endpoints, and ultimately connect to Foundry and storage services, with dependencies clearly grouped and labeled.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/baseline-microsoft-foundry.vsdx) of this architecture.*
@@ -245,7 +245,7 @@ Monitor [SNAT port usage and firewall health](/azure/firewall/monitor-firewall#a
 
 #### Isolate Foundry Agent Service dependencies from similar workload components
 
-To maximize reliability and minimize the blast radius of failures, strictly isolate the Foundry Agent Service dependencies from other workload components that use the same Azure services. Specifically, don't share AI Search, Azure Cosmos DB, or Storage resources between the agent service and other application components. Instead, provision dedicated instances for the agent service's required dependencies.
+To maximize reliability and minimize the blast radius of failures, strictly isolate the Foundry Agent Service dependencies from other workload components that use the same Azure services. Specifically, don't share AI Search, Azure Cosmos DB, or Storage resources between the agent service and other application components. Instead, deploy dedicated instances for the agent service's required dependencies.
 
 This separation provides two key benefits:
 
@@ -253,7 +253,7 @@ This separation provides two key benefits:
 
 - It lets you apply targeted operational processes, like backup, restore, and failover. These processes are tuned to the specific availability and recovery requirements of the workload flow that uses those resources.
 
-For example, if your chat UI application needs to store transactional state in Azure Cosmos DB, provision a separate Azure Cosmos DB account and database for that purpose, rather than reusing the account or database that Foundry Agent Service manages. Even if cost or operational simplicity motivates resource sharing, the risk of a reliability event affecting unrelated workload features outweighs the potential savings in most enterprise scenarios.
+For example, if your chat UI application needs to store transactional state in Azure Cosmos DB, set up a separate Azure Cosmos DB account and database for that purpose, rather than reusing the account or database that Foundry Agent Service manages. Even if cost or operational simplicity motivates resource sharing, the risk of a reliability event affecting unrelated workload features outweighs the potential savings in most enterprise scenarios.
 
 > [!IMPORTANT]
 > If you colocate workload-specific data with the agent's dependencies for cost or operational reasons, never interact directly with the system-managed data, like collections, containers, or indexes, that Foundry Agent Service creates. These internal implementation details are undocumented and subject to change without notice. Direct access can break the agent service or result in data loss. Always use the Foundry Agent Service data plane APIs for data manipulation, like fulfilling right to be forgotten (RTBF) requests. Treat the underlying data as off limits and monitor only.
@@ -282,7 +282,7 @@ This baseline architecture lacks multiregion capabilities, so regional outages a
 
 #### Disaster recovery
 
-Chat architectures contain stateful components, so you must create DR plans. These workloads typically require a memory store for active or paused chat sessions. They also require storage for supplemental data, like documents or images, added to chat conversations. The agent orchestration layer might also maintain state that's specific to conversation flows. In this architecture, Foundry Agent Service uses Azure Cosmos DB, Storage, and AI Search to persist operational and transactional state. The life cycle and coupling of this state across components determines your DR strategy and recovery operations.
+Chat architectures contain stateful components, so you must plan for DR. These workloads typically require a memory store for active or paused chat sessions. They also require storage for supplemental data, like documents or images, added to chat conversations. The agent orchestration layer might also maintain state that's specific to conversation flows. In this architecture, Foundry Agent Service uses Azure Cosmos DB, Storage, and AI Search to persist operational and transactional state. The life cycle and coupling of this state across components determines your DR strategy and recovery operations.
 
 For Foundry Agent Service, ensure that you can recover all dependencies to a consistent point in time. This approach helps maintain transactional integrity across the three external dependencies.
 
@@ -475,7 +475,7 @@ This [Azure pricing estimate](https://azure.com/e/9ed058e3b57b4386b7ac1bd3f782a3
 
 #### Foundry Agent Service
 
-When you use the standard deployment, you must provision and manage the service's dependencies in your own Azure subscription.
+When you use the standard deployment, you must set up and manage the service's dependencies in your own Azure subscription.
 
 The following recommendations explain how to optimize costs for these required services:
 
@@ -509,9 +509,9 @@ To control costs and maintain predictable behavior, apply the following strategi
 
 - Design and refine the system prompt to instruct the agent to minimize unnecessary or redundant external calls. The system prompt should guide the agent to use only the most relevant connections for each request.
 
-- Use Foundry telemetry to monitor which external APIs, knowledge stores, or tools the agent accesses, how frequently it accesses them, and the associated costs. Regularly review this telemetry to identify unexpected usage patterns or cost spikes, and adjust your system prompt as needed.
+- Use Foundry metrics and logs to monitor which external APIs, knowledge stores, or tools the agent accesses, how frequently it accesses them, and the associated costs. Regularly review this data to identify unexpected usage patterns or cost spikes, and adjust your system prompt as needed.
 
-- Be aware that nondeterministic invocation can make cost forecasting difficult, especially when you integrate with metered APIs. If you require predictable costs, consider self-hosting the orchestrator by using deterministic code.
+- Be aware that nondeterministic invocation can make cost forecasting difficult, especially when you integrate with usage-based APIs. If you require predictable costs, consider self-hosting the orchestrator by using deterministic code.
 
 #### Azure OpenAI models
 
@@ -533,7 +533,7 @@ To control consumption model costs in this architecture, use a combination of th
 
 - **Choose the right model for the agent.** Select the least expensive model that meets your agent's requirements. Avoid using higher cost models unless they're essential. For example, the reference implementation uses GPT-4o instead of a more expensive model and achieves sufficient results.
 
-- **Monitor and manage usage.** Use [Microsoft Cost Management](/azure/ai-services/openai/how-to/manage-costs) and model telemetry to track token usage, set budgets, and create alerts for anomalies. Regularly review usage patterns and adjust quotas or client access as needed. For more information, see [Plan and manage costs for Foundry](/azure/ai-foundry/how-to/costs-plan-manage).
+- **Monitor and manage usage.** Use [Microsoft Cost Management](/azure/ai-services/openai/how-to/manage-costs) and model-usage metrics to track token usage, set budgets, and create alerts for anomalies. Regularly review usage patterns and adjust quotas or client access as needed. For more information, see [Plan and manage costs for Foundry](/azure/ai-foundry/how-to/costs-plan-manage).
 
 - **Use the right deployment type.** Use pay-as-you-go pricing for unpredictable workloads, and switch to provisioned throughput when usage is stable and predictable. Combine both options when you establish a reliable baseline.
 
@@ -558,7 +558,7 @@ Use the following Cloud Workload Protection plans to cover the related resources
 |Microsoft Defender for Azure Cosmos DB | Monitors database interactions for signs of potential misuse or unauthorized access to chat data and agent definitions. |
 | Microsoft Defender for AI services | Alerts on jailbreaking attempts or data leakage based on agent requests and responses. If your organization uses Microsoft Purview, this plan also provides integration with [Microsoft Purview Data Security Posture Management for AI (DSPM for AI)](/azure/defender-for-cloud/ai-onboarding#enable-data-security-for-azure-ai-with-microsoft-purview). |
 
-If your organization uses a security information and event management (SIEM) solution or Microsoft Purview, ensure that any customer data replicated to those their data stores, like prompts and responses, resides in a region that meets your workload's data sovereignty requirements.
+If your organization uses a security information and event management (SIEM) solution or Microsoft Purview, ensure that any customer data replicated to those data stores, like prompts and responses, resides in a region that meets your workload's data sovereignty requirements.
 
 ### Operational Excellence
 
@@ -608,7 +608,7 @@ To prevent service disruptions, ensure safe and controlled agent deployment by i
 
 - **Publish and share agents.** After you author and validate agents in production Foundry instances, publish them to expose a dedicated endpoint that has its own identity and governance controls. Publishing creates a managed [Azure agent application resource](/azure/ai-foundry/agents/how-to/publish-agent) that lets external clients access the agent without granting access to the production Foundry project itself.
 
-  Before publishing, any user that has the Azure AI User RBAC role on the Foundry project can interact with all contained agents, and conversation context and state is shared across users. After publishing, an application deployment is created. It runs a specific agent version and enforces user-level data isolation by scoping interactions and associated data to the calling identity. You can start, stop, and update the deployment to reference a new agent version. The application endpoint remains stable across version updates, which avoids downstream client configuration changes.
+  Before you publish, any user that has the Azure AI User RBAC role on the Foundry project can interact with all contained agents, and conversation context and state is shared across users. After you publish, an application deployment is created. It runs a specific agent version and enforces user-level data isolation by scoping interactions and associated data to the calling identity. You can start, stop, and update the deployment to reference a new agent version. The application endpoint remains stable across version updates, which avoids downstream client configuration changes.
 
 - **Plan for failback.** Foundry doesn't provide built-in support for blue-green or canary deployments of agents. If you require these deployment patterns, implement a routing layer, like an API gateway or custom router, in front of the agent API. This routing layer lets you shift traffic incrementally between agent versions, monitor the effect, and perform a full switchover when ready.
 
@@ -632,7 +632,7 @@ If index server-tuning alone doesn't resolve all bottlenecks, consider the follo
 
 #### Performance efficiency in model deployments
 
-- Determine whether your application needs [provisioned throughput](/azure/ai-services/openai/concepts/provisioned-throughput) or can use the shared (consumption) model. Provisioned throughput provides reserved capacity and predictable latency, which supports production workloads that have strict service-level objectives(SLOs). The consumption model provides best-effort service and might suffer from noisy neighbor effects.
+- Determine whether your application needs [provisioned throughput](/azure/ai-services/openai/concepts/provisioned-throughput) or can use the shared (consumption) model. Provisioned throughput provides reserved capacity and predictable latency, which supports production workloads that have strict service-level objectives (SLOs). The consumption model provides best-effort service and might suffer from noisy neighbor effects.
 
 - Monitor [provision-managed usage](/azure/ai-services/openai/how-to/monitoring) to avoid overprovisioning or underprovisioning.
 
@@ -646,7 +646,7 @@ Azure AI agents run on a serverless compute back end that doesn't support custom
 
 - Minimize the number of knowledge stores and tools connected to your chat agent. Each extra connection potentially increases the total runtime for an agent call because the agent might invoke all configured resources for each request.
 
-- Use Azure Monitor and Application Insights to track agent invocation times, tool and knowledge store latencies, and error rates. Regularly review this telemetry to identify slow knowledge or tool connections.
+- Use Azure Monitor and Application Insights to track agent invocation times, tool and knowledge store latencies, and error rates. Regularly review these metrics to identify slow knowledge or tool connections.
 
 - Design system prompts that guide the agent to use connections efficiently. For example, instruct the agent to query external knowledge stores only when needed, or to avoid redundant tool invocations.
 
