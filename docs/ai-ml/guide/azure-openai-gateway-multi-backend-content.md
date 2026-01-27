@@ -160,9 +160,6 @@ If you have a few clients in the area where you control the code, and the client
 
 If you're using a gateway specifically to address capacity constraints, evaluate if data zone based capacity features are sufficient for your workload.
 
-
-
-
 ## Multiple Azure OpenAI instances in a single region across multiple subscriptions
 
 :::image type="complex" source="_images/multiple-subscriptions-before.svg" alt-text="Architecture diagram of a scenario one client connecting to two Azure OpenAI instances, one per region." lightbox="_images/multiple-subscriptions-before.svg":::
@@ -172,7 +169,7 @@ When multiple subscriptions are used to distribute Azure OpenAI standard quota, 
 
 ### Global and Data Zone deployments
 
-Azure OpenAI supports Global and Data Zone deployments. With Global deployments, request processing might occur in any Azure region where capacity is available,while data at rest remains within the deployment’s region. Data Zone deployments restrict processing to a defined geographic zone, such as EU-only regions. If your workload requires strict data residency with no cross-border processing, a single global gateway that routes traffic across regions isn’t appropriate. In such cases, deploy separate gateways per region or geography to ensure compliance with regulatory requirements.
+Azure OpenAI supports Global and Data Zone deployments. With Global deployments, request processing might occur in any Azure region where capacity is available, while data at rest remains within the deployment's region. Data Zone deployments restrict processing to a defined geographic zone, such as EU-only regions. If your workload requires strict data residency with no cross-border processing, a single global gateway that routes traffic across regions isn't appropriate. In such cases, deploy separate gateways per region or geography to ensure compliance with regulatory requirements.
 
 ### Topology details for multiple Azure OpenAI instances in a single region across multiple subscriptions
 
