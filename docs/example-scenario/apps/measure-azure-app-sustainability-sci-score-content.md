@@ -63,7 +63,7 @@ This architecture gathers carbon optimization data from Azure and other sources 
 
 The system gathers carbon emissions information from available APIs and calculates it, when possible, by using a proxy.
 
-:::image type="content" source="media/carbon-optimization-blade.png" alt-text="Screenshot of the Carbon optimization blade in the Azure portal that shows emission details, trends, and resource group emissions data." lightbox="media/carbon-optimization-blade.png" border="false":::
+:::image type="content" source="media/carbon-optimization-blade.png" alt-text="Screenshot of the Carbon optimization page in the Azure portal that shows emission details, trends, and resource group emissions data." lightbox="media/carbon-optimization-blade.png" border="false":::
 
 A dedicated architecture for gathering Azure carbon optimization data benefits you in two ways:
 
