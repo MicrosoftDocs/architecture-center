@@ -125,7 +125,7 @@ Cost drivers in this architecture include:
 
 - **Compute**: AKS node pools and their VM sizes significantly affect costs. Start with standard-sized VMs and adjust based on monitoring data.
 - **API Management**: Costs vary by tier. The Standard and Premium tiers support autoscaling but at higher base costs.
-- **Data services**: Azure Cosmos DB costs depend on provisioned throughput and storage. Use autoscale throughput to optimize for variable workloads.
+- **Data services**: Azure Cosmos DB costs depend on provisioned throughput and storage. Use autoscale throughput to optimize for fluctuating workloads.
 - **Networking**: Azure Front Door and Application Gateway incur costs based on traffic volume and features enabled.
 
 To optimize costs:
