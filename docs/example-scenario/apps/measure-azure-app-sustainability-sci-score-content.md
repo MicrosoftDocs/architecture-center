@@ -96,7 +96,7 @@ These sources provide real-time data needed for *carbon-aware* applications that
   - CPU and memory usage
   - Response time
 
-For a tutorial about how to set up Application Insights to get the required metrics, see [Application Insights for ASP.NET Core applications](/previous-versions/azure/azure-monitor/app/tutorial-asp-net-core).
+For a tutorial about how to set up Application Insights to get the required metrics, see [Application Insights for ASP.NET Core applications](/azure/azure-monitor/app/opentelemetry-enable).
 
 Consider adding other variables to the equation, like the following examples:
 
