@@ -3,7 +3,7 @@ title: Web-Queue-Worker Architecture Style
 description: Learn about the Web-Queue-Worker pattern. Discover benefits, challenges, and implementation by using Azure App Service, Azure Functions, and message queues.
 author: claytonsiemens77
 ms.author: pnp
-ms.date: 01/30/2026
+ms.date: 01/29/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-web
@@ -11,7 +11,7 @@ ms.custom: arb-web
 
 # Web-Queue-Worker architecture style
 
-The core components of this architecture are a **web front end** that handles client requests and a **worker** that does resource-intensive tasks, long-running workflows, or batch jobs. The web front end communicates with the worker through a **message queue**.
+This architecture has two core components. A *web front end* handles client requests, and a *worker* does resource-intensive tasks, long-running workflows, or batch jobs. The web front end communicates with the worker through a *message queue*.
 
 :::image type="complex" source="./images/web-queue-worker-logical.svg" alt-text="A logical diagram that shows the Web-Queue-Worker architecture." lightbox="./images/web-queue-worker-logical.svg" border="false":::
 On the left, a client connects to an identity provider and a web front end. The web front end connects to a remote service, a database, and a queue. The database points back to the web front end and goes through a cache. The queue connects to a worker, which points to the database. The database points back to the worker and goes through the cache. On the right, static content connects to a content delivery network, which connects to the client.
@@ -29,13 +29,13 @@ This architecture typically uses the following components:
 
 - An identity provider for authentication
 
-The web front end and worker are both stateless. You can store session state in a distributed cache. The worker handles long-running work asynchronously. Messages on the queue can start the worker, or a schedule can run it for batch processing. The worker is optional if the application has no long-running operations.
+The web front end and worker are both stateless. You can store session state in a distributed cache. The worker handles long-running work asynchronously. You can trigger the worker by using queue messages or run it on a schedule for batch processing. The worker is optional if the application has no long-running operations.
 
 The front end might include a web API. A single-page application can consume the web API by making asynchronous HTTP requests, or a native client application can consume it directly.
 
 ## When to use this architecture
 
-You typically implement the Web-Queue-Worker architecture by using managed compute services like [Azure App Service](/azure/app-service/overview), [Azure Kubernetes Service (AKS)](/azure/aks/what-is-aks), or [Azure Container Apps](/azure/container-apps/).
+To implement the Web-Queue-Worker architecture, you typically use managed compute services like [Azure App Service](/azure/app-service/overview), [Azure Kubernetes Service (AKS)](/azure/aks/what-is-aks), or [Azure Container Apps](/azure/container-apps/).
 
 Consider this architecture for the following use cases:
 
@@ -63,7 +63,7 @@ Consider this architecture for the following use cases:
 
 - Shared data schemas or code modules between the front end and worker can create hidden dependencies.
 
-- The web front end can fail after it writes to the database but before it sends a message to the queue. This failure causes consistency problems because the worker never processes its part of the logic. To address this problem, use techniques like the [Transactional Outbox pattern](../../best-practices/transactional-outbox-cosmos.yml), which routes outgoing messages through a separate queue first. The [NServiceBus Transactional Session](https://docs.particular.net/nservicebus/transactional-session/) library supports this approach.
+- The web front end can fail after it writes to the database but before it sends a message to the queue. This failure causes consistency problems because the worker never processes its part of the logic. To address this problem, use techniques like the [Transactional Outbox pattern](../../databases/guide/transactional-outbox-cosmos.yml), which routes outgoing messages through a separate queue first. The [NServiceBus Transactional Session](https://docs.particular.net/nservicebus/transactional-session/) library supports this approach.
 
 ## Best practices
 
