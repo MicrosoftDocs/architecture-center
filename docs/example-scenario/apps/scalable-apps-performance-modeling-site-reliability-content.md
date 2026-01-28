@@ -37,7 +37,7 @@ Client applications such as web apps, mobile apps, and service applications cons
 
 ### Components
 
-- [Azure Front Door](/azure/well-architected/service-guides/azure-front-door) provides a secured, unified point of entry for all requests. See [Routing architecture overview](/azure/frontdoor/front-door-routing-architecture).
+- [Azure Front Door](/azure/well-architected/service-guides/azure-front-door) provides a secure, unified point of entry for all requests. See [Routing architecture overview](/azure/frontdoor/front-door-routing-architecture).
 - [Azure API Management](/azure/well-architected/service-guides/api-management/operational-excellence) provides a governance layer for published APIs. Use policies for access restrictions, caching, and data transformation. API Management supports autoscaling in Standard and Premium tiers.
 - [Azure Kubernetes Service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed Kubernetes service. Azure manages the control plane; you manage the agent nodes. All microservices are deployed in AKS. AKS supports confidential computing node pools and ARM64 workloads.
 - [Azure Container Apps](/azure/container-apps/overview) is an alternative for microservices and event-driven workloads, supporting serverless containers and KEDA-based autoscaling.
