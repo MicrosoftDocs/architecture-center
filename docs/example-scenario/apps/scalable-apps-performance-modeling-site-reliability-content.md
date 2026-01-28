@@ -84,7 +84,7 @@ For more information, see [Define SLI metrics to calculate SLOs](#define-sli-met
 
 Performance refers to the responsiveness of a system. Scalability is the ability to handle increased load without hurting performance.
 
-Design applications so that resources scale automatically to meet load. This includes compute, storage, and messaging infrastructure.
+Design applications so that resources scale automatically to meet load. This design includes compute, storage, and messaging infrastructure.
 
 This article shows how to ensure reliability by conducting scale and performance modeling, and using the results to define monitors, SLIs, and SLOs.
 
