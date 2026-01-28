@@ -56,7 +56,7 @@ For the compute plane, consider:
 
 ## Scenario details
 
-This example scenario covers high-level marketplace and e-commerce use cases, helping organizations build scalable API platforms using site reliability engineering (SRE) principles. SRE is a standard approach for designing digital services to ensure reliability, measured through service level objectives (SLOs) and service level indicators (SLIs).
+This example scenario covers high-level marketplace and e-commerce use cases. It helps organizations build scalable API platforms using site reliability engineering (SRE) principles. SRE is a standard approach for designing digital services to ensure reliability, measured through service level objectives (SLOs) and service level indicators (SLIs).
 
 ### Potential use cases
 
