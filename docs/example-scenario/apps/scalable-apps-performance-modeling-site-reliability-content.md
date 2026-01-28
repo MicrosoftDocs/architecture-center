@@ -154,7 +154,7 @@ Create an end‑to‑end performance governance process to manage performance th
 - **Performance objectives**: Define aspirational SLOs based on business requirements.
 - **Performance modeling**: Identify business-critical workflows and model expected performance.
 - **Instrumentation**: Use Azure Monitor and Application Insights for APM, telemetry, and metrics analysis. Azure Monitor supports OpenTelemetry and integrates with Azure Managed Grafana for distributed tracing and visualization.
-- **Performance testing**: Conduct load and stress testing using tools such as K6, Karate, and JMeter. Integrate automated tests into continuous deployment pipelines.
+- **Performance testing**: Conduct load and stress testing by using tools such as K6, Karate, and JMeter. Integrate automated tests into continuous deployment pipelines.
 - **Continuous monitoring**: Set up alerts based on SLI thresholds and track SLO compliance.
 - **Ring-based deployment**: Use progressive rollout strategies to minimize the impact of changes.
 
