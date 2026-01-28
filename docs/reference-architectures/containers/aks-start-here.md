@@ -14,7 +14,7 @@ ms.custom: arb-containers
 
 Kubernetes is an open-source system that automates deployment, scaling, and management of containerized applications. We recommend [Azure Kubernetes Service (AKS)](/azure/aks/) to deploy a managed Kubernetes cluster in Azure.
 
-Organizations are at various points in their adoption of Kubernetes on Azure. Your organization's journey will likely follow a path similar to other technologies that you've adopted. You learn the fundamentals, align your organization around roles and responsibilities, and deploy production-ready workloads. From there, you iterate and grow your solution as customer and business demands change.
+Organizations adopt Kubernetes on Azure at different rates. Your organization's journey will likely follow a path similar to how you adopt other technologies. You learn the fundamentals, align your organization around roles and responsibilities, and deploy production-ready workloads. From there, you iterate and grow your solution as customer and business demands change.
 
 :::image type="complex" alt-text="Diagram that shows the AKS adoption journey." source="images/aks-journey.svg" lightbox="images/aks-journey.svg" border="false":::
 On the left, a continuous cycle connects three elements: AKS product roadmap, AKS best practices, and organizational readiness. On the right, a workflow begins with an introductory workshop, which leads to the AKS baseline cluster. From the baseline cluster, the path branches into workloads and infrastructures. It shows four options: microservices, regulatory, high availability workload, and your workload. All workload paths converge at day 2 operations.
@@ -29,27 +29,25 @@ If you're new to Kubernetes or AKS, start with Microsoft Learn. This free online
 
 ## Path to production
 
-After you understand the benefits and trade-offs of Kubernetes, evaluate whether AKS is the right Azure compute platform for your workload and establish organizational policies for this technology. When you're ready to deploy production-ready clusters, start with the **Microsoft AKS baseline cluster**.
+After you understand the benefits and trade-offs of Kubernetes, evaluate whether AKS is the right Azure compute platform for your workload and establish organizational policies for this technology. When you're ready to deploy production-ready clusters, start with the **Microsoft AKS baseline cluster** and modify it to meet your workload's specific needs.
 
 > [!div class="nextstepaction"]
 > [Microsoft AKS baseline cluster](./aks/baseline-aks.yml)
 
-Start your design from the baseline implementation and modify it to meet your workload's specific needs.
-
 ## Suite of baseline implementations
 
-The following baseline implementations show how to set up components of the AKS baseline cluster for various scenarios.
+The following baseline implementations describe how to set up components of the AKS baseline cluster for various scenarios.
 
 ### Microservices
 
-When you run microservices in the baseline cluster, you need to set up network policies and pod autoscaling and implement distributed tracing for observability.
+When you run microservices in the baseline cluster, you must set up network policies and pod autoscaling and implement distributed tracing for observability.
 
 > [!div class="nextstepaction"]
 > [Microservices architecture that uses the baseline implementation](./aks-microservices/aks-microservices-advanced.yml)
 
-### High security compliance
+### High-security compliance
 
-For regulated environments, enhance the baseline implementation by using stronger security controls and restricted cluster interactions. The following example demonstrates a cluster designed to run financially regulated workloads.
+For regulated environments, enhance the baseline implementation by using stronger security controls and restricted cluster interactions. The following example demonstrates a cluster that runs a financially regulated workload.
 
 > [!div class="nextstepaction"]
 > [Baseline cluster for a regulated use case](/azure/aks/pci-intro)
@@ -68,7 +66,7 @@ The [Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/overvie
 > [!div class="nextstepaction"]
 > [AKS landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/aks/landing-zone-accelerator)
 
-As part of ongoing operations, periodically check your cluster against recommended best practices. Start by aligning your cluster with the [AKS baseline cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks).
+As part of ongoing operations, periodically check your cluster to ensure that it aligns with recommended best practices. Start by aligning your cluster with the [AKS baseline cluster](../../reference-architectures/containers/aks/baseline-aks.yml).
 
 For more information, see [Best practices for cluster operations](/azure/aks/best-practices) and [Best practices for AKS workloads](/azure/aks/best-practices#developer-best-practices).
 
