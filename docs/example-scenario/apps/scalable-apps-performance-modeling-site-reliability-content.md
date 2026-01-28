@@ -149,7 +149,7 @@ Use the [Azure Pricing Calculator](https://azure.com/e/fe330064f12845cf82272f0e8
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-Establish a performance governance process to manage performance from inception to retirement:
+Create an end‑to‑end performance governance process to manage performance throughout the service lifecycle.
 
 - **Performance objectives**: Define aspirational SLOs based on business requirements.
 - **Performance modeling**: Identify business-critical workflows and model expected performance.
