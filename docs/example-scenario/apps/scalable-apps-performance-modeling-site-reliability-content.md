@@ -1,6 +1,6 @@
-The success of your cloud solution depends on its reliability. Reliability is the probability that the system functions as expected, under specified conditions, within a specified time. Site reliability engineering (SRE) is a set of principles and practices for creating scalable and highly reliable software systems. SRE is a standard approach for designing digital services to ensure reliability.
+The success of your cloud solution depends on its reliability. Reliability is the probability that the system functions as expected, under specified conditions, within a specified time. Site reliability engineering (SRE) is a set of principles and practices for creating scalable and highly reliable software systems. SRE is a standard approach for designing digital services to support reliability goals in your workload.
 
-For more information on SRE strategies, see [AZ-400: Develop a Site Reliability Engineering (SRE) strategy](/training/paths/az-400-develop-sre-strategy).
+For more information on SRE strategies, see [Develop a Site Reliability Engineering (SRE) strategy](/training/paths/az-400-develop-sre-strategy).
 
 ## Architecture
 
