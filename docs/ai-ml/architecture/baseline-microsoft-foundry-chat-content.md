@@ -181,7 +181,7 @@ For more information about how to implement multiple coordinated agents, see [AI
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
 
 Apply this architecture and the [AI workloads on Azure design guidance](/azure/well-architected/ai/get-started) during the design phase of your workload.
 
