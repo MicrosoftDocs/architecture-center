@@ -117,7 +117,7 @@ This architecture addresses security through multiple layers:
 - **Data protection**: Use managed identities for service-to-service authentication. Enable encryption at rest for all data stores.
 - **API security**: API Management provides OAuth 2.0 validation, certificate authentication, and IP filtering capabilities.
 
-### Cost Optimization
+### Cost optimization
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
