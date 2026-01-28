@@ -201,7 +201,7 @@ In this architecture, Foundry hosts the Foundry Agent Service capability. The ag
 
 To achieve zonal redundancy for the orchestration layer, follow these recommendations:
 
-- Turn on [zone redundancy in your Azure Cosmos DB for NoSQL](/azure/reliability/reliability-cosmos-db-nosql#availability-zone-support) account. This configuration ensures synchronous data replication across multiple zones, which reduces the risk of data loss or downtime from a single-zone failure.
+- Use [zone redundancy in your Azure Cosmos DB for NoSQL](/azure/reliability/reliability-cosmos-db-nosql#availability-zone-support) account. This configuration ensures synchronous data replication across multiple zones, which reduces the risk of data loss or downtime from a single-zone failure.
 
   Also consider [global distribution](/azure/cosmos-db/distribute-data-globally) to mitigate regional outages within Azure Cosmos DB.
 
@@ -286,7 +286,7 @@ Chat architectures contain stateful components, so you must plan for DR. These w
 
 For Foundry Agent Service, ensure that you can recover all dependencies to a consistent point in time. This approach helps maintain transactional integrity across the three external dependencies.
 
-The following recommendations summarize guidance from the [Foundry Agent Service DR guide](/azure/ai-foundry/how-to/agent-service-disaster-recovery):
+The following recommendations summarize guidance from the [Foundry Agent Service DR guide](/azure/ai-foundry/how-to/agent-service-disaster-recovery?view=foundry&preserve-view=true):
 
 - **Azure Cosmos DB:** Turn on [continuous backup](/azure/cosmos-db/online-backup-and-restore) for the `enterprise_memory` database. This setup provides point-in-time restore (PITR) with a seven-day RPO, which includes agent definitions and chat conversations. Test your restore process regularly to confirm that it meets your RTO and that the restored data remains available to the agent service. Always restore to the same account and database.
 
@@ -459,7 +459,7 @@ To align with your workload's security baseline, use Azure Policy and network po
 
 Consider implementing the following types of security policies to strengthen your architecture:
 
-- Turn off key-based or other local authentication methods in services like Foundry and Key Vault.
+- Turn off key-based or other local authentication methods in services like Foundry tools and Key Vault.
 
 - Require explicit configuration of network access rules, private endpoints, and NSGs.
 
@@ -570,7 +570,7 @@ When you plan your experimentation, testing, and production environments, establ
 
 #### Agent compute
 
-Microsoft manages the serverless compute platform for Foundry Agent Service REST APIs and the orchestration implementation logic. A [self-hosted orchestration](#alternatives) provides more control over runtime characteristics and capacity, but you must directly manage the day-2 operations for that platform. Evaluate the constraints and responsibilities of your approach to understand which day-2 operations support your orchestration layer.
+Microsoft manages the serverless compute platform for Foundry Agent Service REST APIs and the orchestration implementation logic. A [self-hosted orchestration](#alternatives) provides more control over runtime characteristics and capacity, but you must directly manage the day-2 operations for that platform. Evaluate the constraints and responsibilities of your approach to understand which day-2 operations you must implement to support your orchestration layer.
 
 In both approaches, you must manage state storage, like chat history and agent configuration for durability, backup, and recovery.
 
@@ -578,7 +578,7 @@ In both approaches, you must manage state storage, like chat history and agent c
 
 Similar to the basic architecture, this architecture sends diagnostics data from all services to your workload's Log Analytics workspace. The configuration captures all available log categories for each service, except App Service. In production, you might not need every log category. For example, the chat UI application on App Service might only require `AppServiceHTTPLogs`, `AppServiceConsoleLogs`, `AppServiceAppLogs`, `AppServicePlatformLogs`, and `AppServiceAuthenticationLogs`. Tune log streams to match your operational needs.
 
-Evaluate custom alerts, like custom alerts in the Azure Monitor baseline alerts, for the resources in this architecture. Consider the following alerts:
+Evaluate custom alerts, like those from the Azure Monitor baseline alerts, for the resources in this architecture. Consider the following alerts:
 
 - [AI Search alerts](https://azure.github.io/azure-monitor-baseline-alerts/services/Search/searchServices/)
 - [AI services alerts](https://azure.github.io/azure-monitor-baseline-alerts/services/CognitiveServices/accounts/)
