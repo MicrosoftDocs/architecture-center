@@ -237,7 +237,7 @@ To determine the optimal number of replicas and partitions for your workload, us
 
 #### Reliability in Azure Firewall
 
-Azure Firewall is a critical egress control point in this architecture but represents a single point of failure for all outbound traffic. To mitigate this risk, deploy Azure Firewall [across all availability zones](/azure/firewall/basic-features#built-in-high-availability) in your region. This configuration helps maintain outbound connectivity if a zone becomes unavailable.
+Azure Firewall is a critical egress control point in this architecture but represents a single point of failure for all outbound traffic. To mitigate this risk, deploy Azure Firewall [across all availability zones](/azure/firewall/features-by-sku#built-in-high-availability-and-availability-zones) in your region. This configuration helps maintain outbound connectivity if a zone becomes unavailable.
 
 If your workload requires a high volume of concurrent outbound connections, configure Azure Firewall with multiple public IP addresses. This approach distributes Source Network Address Translation (SNAT) connections across [multiple IP address prefixes](/azure/virtual-network/ip-services/public-ip-address-prefix), which reduces the risk of SNAT port exhaustion. [SNAT exhaustion](/azure/firewall/firewall-best-practices#recommendations) can cause intermittent or total loss of outbound connectivity for agents and other workload components, which can result in feature downtime or degraded performance.
 
