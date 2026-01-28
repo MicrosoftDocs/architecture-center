@@ -189,7 +189,7 @@ API scale requirements under normal peak load:
 - Orders and payment microservice: ~100 RPS
 - Content microservice: ~50 RPS
 
-During special events, scale requirements may reach 10 times normal peak load.
+During special events, scale requirements can reach 10 times normal peak load.
 
 #### Define SLI metrics to calculate SLOs
 
