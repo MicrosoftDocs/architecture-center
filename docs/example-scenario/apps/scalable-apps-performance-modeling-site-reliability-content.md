@@ -29,7 +29,7 @@ This architecture represents a scalable API platform. The solution comprises mul
 The example scenario covers high-level marketplace and e-commerce use cases, including:
 
 - Product browsing.
-- Registration and login.
+- Registration and sign in.
 - Viewing content such as news articles.
 - Order and subscription management.
 
