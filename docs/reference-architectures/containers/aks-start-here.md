@@ -84,8 +84,6 @@ Kubernetes and AKS evolve rapidly. Review the roadmap to make informed architect
 > [!div class="nextstepaction"]
 > [AKS product roadmap](https://github.com/orgs/Azure/projects/685)
 
----
-
 ## Other resources
 
 The typical AKS journey ranges from learning about AKS to growing your existing clusters to meet new product and customer demands. The following resources provide reference material for specific situations along the way.
