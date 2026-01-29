@@ -2,8 +2,8 @@
 metadata:
   title: Enable real-time sync of MongoDB Atlas data changes to Azure Synapse Analytics
   description: Learn how to keep Azure Synapse Analytics data pools synchronized with operational data changes in MongoDB Atlas.
-  author: ssabat
-  ms.author: Rodrigo Rodríguez
+  author: Rodrigo Rodríguez
+  ms.author: rodrigr
   ms.date: 01/29/2026
   ms.topic: example-scenario
   ms.subservice: example-scenario
