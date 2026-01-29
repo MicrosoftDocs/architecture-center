@@ -104,7 +104,7 @@ This architecture incorporates several reliability patterns:
 - **Zone redundancy**: Azure Front Door, Application Gateway v2, and AKS support availability zone deployment for high availability within a region.
 - **Autoscaling**: AKS cluster autoscaler, API Management autoscaling, and Azure Cosmos DB autoscale throughput help the system handle load variations without manual intervention.
 - **Health monitoring**: Use Azure Monitor and Application Insights to track SLIs and SLOs, enabling proactive identification of reliability issues.
-- **Resilience testing**: Use [Azure Chaos Studio](/azure/chaos-studio/chaos-studio-overview) to validate fault tolerance and recovery procedures.
+- **Resiliency and recovery testing**: Use [Azure Chaos Studio](/azure/chaos-studio/chaos-studio-overview) to validate fault tolerance and recovery procedures.
 
 ### Security
 
