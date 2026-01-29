@@ -20,7 +20,7 @@ Fabric automatically:
 
 The following diagram shows how the reference mirroring application deployed in Azure App Service streams MongoDB Atlas change events into Fabric.
 
-:::image type="content" source="media/MongoDBMirroring.png" alt-text="Architecture diagram for Fabric Open Mirroring integration with MongoDB Atlas." border="false" lightbox="media/MongoDBMirroring.png":::
+:::image type="content" source="media/mongodb-mirroring.png" alt-text="Architecture diagram for Fabric Open Mirroring integration with MongoDB Atlas." border="false" lightbox="media/mongodb-mirroring.png":::
 
 ## Dataflow
 
@@ -46,7 +46,7 @@ The following diagram shows how the reference mirroring application deployed in 
 - [PowerBI](/power-bi/fundamentals/power-bi-overview). Consumes the mirrored Delta tables through Direct Lake, enabling high-performance real-time dashboards and analytics over MongoDB transactional data with no data movement.
 
 The following diagram depicts the mirroring integration architecture:
-:::image type="content" source="media/MongoDBMirroringIntegratedArch.png" alt-text="Diagram that shows the Fabric MongoDB Mirroring integrated architecture." border="false" lightbox="media/MongoDBMirroringIntegratedArch.png":::
+:::image type="content" source="media/mongodb-mirroring-integrated-arch.png" alt-text="Diagram that shows the Fabric MongoDB Mirroring integrated architecture." border="false" lightbox="media/mongodb-mirroring-integrated-arch.png":::
 
 ---
 
