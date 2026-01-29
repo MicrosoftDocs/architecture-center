@@ -323,8 +323,7 @@ Consider the following performance recommendations:
 - Use node selectors, node affinity, or inter-pod affinity to control the scheduling of pods on nodes. Use inter-pod [affinity and anti-affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity) settings to colocate pods that have chatty communications, to place pods on different nodes, and to avoid running multiple instances of the same kind of pod on the same node.
 
 ## Deploy this scenario
-
- The following diagram shows a demo application that you can find in the AKS multitenant with Application Gateway For Containers. 
+The following diagram shows a demo application that you can find in the AKS multitenant with Application Gateway For Containers. 
 
 :::image type="content" border="false" source="./media/aks-agic-sample.svg" alt-text="Diagram that shows the deployment of this AGC with AKS architecture." lightbox="./media/aks-agic-sample.svg":::
 
