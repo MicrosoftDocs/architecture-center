@@ -354,7 +354,7 @@ The ingress controller is a critical component of the cluster. Consider the foll
 >
 > Traefik is an open-source option for a Kubernetes cluster and is in this architecture for illustrative purposes. It shows non-Microsoft product integration with Azure services. For example, the implementation shows how to integrate Traefik with Microsoft Entra Workload ID and Key Vault.
 >
-> You can also use [Application Gateway Ingress Controller](/azure/application-gateway/ingress-controller-overview), which integrates well with AKS. Application Gateway provides benefits beyond its role as an ingress controller. It serves as the virtual network entry point for your cluster and can observe traffic entering the cluster. Use Application Gateway if your application requires a web application firewall. It also enables TLS termination.
+> You can also use [Application Gateway for Containers](/azure/application-gateway/for-containers/overview), which integrates well with AKS. Application Gateway provides benefits beyond its role as an ingress controller. It serves as the virtual network entry point for your cluster and can observe traffic entering the cluster. Use Application Gateway if your application requires a web application firewall. It also enables TLS termination.
 
 ### Router settings
 

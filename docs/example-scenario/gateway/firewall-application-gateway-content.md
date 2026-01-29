@@ -395,7 +395,7 @@ For more information, see the [design guide to integrate API Management and Appl
 
 ### AKS
 
-For workloads that run on an AKS cluster, you can deploy Application Gateway independently of the cluster. Or you can integrate it with the AKS cluster by using the [Application Gateway Ingress Controller][agic_overview]. When you configure specific objects at the Kubernetes levels, such as services and ingresses, Application Gateway automatically adapts without needing extra manual steps.
+For workloads that run on an AKS cluster, you can deploy Application Gateway independently of the cluster. Or you can integrate it with the AKS cluster by using [Application Gateway for Containers][agc_overview]. When you configure specific objects at the Kubernetes levels, such as services and ingresses, Application Gateway automatically adapts without needing extra manual steps.
 
 Azure Firewall plays an important role in AKS cluster security. It provides the required functionality to filter egress traffic from the AKS cluster based on FQDN, not only the IP address. For more information, see [Limit network traffic with Azure Firewall in AKS][aks-egress].
 
@@ -454,7 +454,7 @@ Explore related architectures:
 
 [afd-overview]: /azure/frontdoor/front-door-overview  
 [afd-vs-appgw]: /azure/frontdoor/front-door-faq#what-is-the-difference-between-azure-front-door-and-azure-application-gateway  
-[agic_overview]: /azure/application-gateway/ingress-controller-overview  
+[agc_overview]: /azure/application-gateway/for-containers/overview  
 [aks-egress]: /azure/aks/limit-egress-traffic  
 [aks-secure-baseline]: /azure/architecture/reference-architectures/containers/aks/secure-baseline-aks  
 [api-management]: https://azure.microsoft.com/services/api-management/  

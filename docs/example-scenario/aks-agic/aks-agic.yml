@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
-  title: Use the Application Gateway Ingress Controller with a Multitenant Azure Kubernetes Service Cluster
-  description: Learn how to use the Application Gateway Ingress Controller (AGIC) with your AKS cluster to expose microservice-based applications to the internet.
+  title: Use Application Gateway for Containers with a Multitenant Azure Kubernetes Service Cluster
+  description: Learn how to use Application Gateway for Containers (AGC) with your AKS cluster to expose microservice-based applications to the internet.
   author: francisnazareth
   ms.author: fnazaret
   ms.date: 01/27/2026
@@ -14,13 +14,16 @@ metadata:
     - arb-saas
     - arb-containers
     - arb-web
-name: Use the Application Gateway Ingress Controller with a multitenant Azure Kubernetes Service cluster
+name: Use Application Gateway for Containers with a multitenant Azure Kubernetes Service cluster
 azureCategories:
   - containers
   - networking
-summary: Learn how to use the Application Gateway Ingress Controller (AGIC) with your AKS cluster to expose microservice-based applications to the internet.
+summary: Learn how to use Application Gateway for Containers (AGC) with your AKS cluster to expose microservice-based applications to the internet.
 products:
   - azure-application-gateway
+  - azure-front-door
+  - azure-private-link
+  - azure-web-application-firewall
   - azure-key-vault
   - azure-container-registry
   - azure-kubernetes-service

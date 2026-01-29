@@ -1,10 +1,10 @@
 This solution uses [Azure Web Application Firewall (WAF)](/azure/web-application-firewall/ag/ag-overview) to help provide centralized protection for web applications that you deploy on a multitenant Azure Kubernetes Service (AKS) cluster. WAF helps safeguard against common exploits and vulnerabilities.
 
-You can use a [WAF policy](/azure/web-application-firewall/ag/create-waf-policy-ag) on Azure Application Gateway to help protect web applications from malicious attacks, like SQL injection and cross-site scripting. This method helps protect web applications that run on an [AKS cluster](/azure/aks/intro-kubernetes) and are exposed via the [Application Gateway Ingress Controller (AGIC)](/azure/application-gateway/ingress-controller-overview). The WAF policy on Application Gateway is preconfigured with the Open Worldwide Application Security Project (OWASP) Core Rule Set (CRS) and supports other OWASP CRS versions. You can also create custom rules.
+You can use a [WAF policy](/azure/web-application-firewall/ag/create-waf-policy-ag) on Azure Application Gateway to protect web applications from malicious attacks, such as SQL injection and cross-site scripting. This approach protects web applications that run on an [AKS cluster](/azure/aks/intro-kubernetes) and are exposed through [Application Gateway for Containers (AGC)](/azure/application-gateway/for-containers/overview). The WAF policy on Application Gateway is preconfigured with the Open Worldwide Application Security Project (OWASP) Core Rule Set (CRS) and supports other OWASP CRS versions. You can also create custom rules.
 
 ## Architecture
 
-:::image type="content" border="false" source="./media/aks-agic.svg" alt-text="Diagram that shows the Application Gateway Ingress Controller solution." lightbox="./media/aks-agic.svg":::
+:::image type="content" border="false" source="./media/aks-agic.svg" alt-text="Diagram that shows the Application Gateway for Containers solution." lightbox="./media/aks-agic.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/aks-agic-multitenant.vsdx) of this architecture.*
 
@@ -26,19 +26,19 @@ You can use a [WAF policy](/azure/web-application-firewall/ag/create-waf-policy-
   - [Microsoft Entra Workload ID](/azure/aks/workload-identity-overview)
   - [Azure network policies](/azure/aks/use-network-policies)
   - [Azure Monitor container insights add-on](/azure/azure-monitor/containers/container-insights-enable-new-cluster)
-  - [AGIC add-on](https://azure.github.io/application-gateway-kubernetes-ingress/)
+  - [Application Gateway for Containers AKS Add-On Support](/azure/application-gateway/for-containers/overview) (Preview)
   - [Dynamic allocation of IP addresses and enhanced subnet support](/azure/aks/configure-azure-cni#dynamic-allocation-of-ips-and-enhanced-subnet-support-preview)
 
 - The AKS cluster has the following node pools:
 
-  - The **system node pool** hosts only critical system pods and services. The worker nodes have node taint that prevents application pods from being scheduled on this node pool.
+  - The **system node pool** hosts only critical system pods and services. The worker nodes have node taints that prevent application pods from being scheduled on this node pool.
   - The **user node pool** hosts user workloads and artifacts.
 
 - A VM is deployed in the same virtual network that hosts the AKS cluster. When you deploy AKS as a private cluster, system administrators can use this VM to manage the cluster via the [Kubernetes command-line tool](https://kubernetes.io/docs/tasks/tools/). The boot diagnostics logs of the VM are stored in an Azure Storage account.
 
-- An Azure Bastion host provides secure Secure Shell (SSH) connectivity to the jump box VM, directly in the Azure portal via Secure Sockets Layer (SSL). This solution uses Azure Container Registry to build, store, and manage container images and artifacts, such as Helm charts.
+- Azure Bastion provides Secure Shell (SSH) connectivity to the jumpbox VM directly in the Azure portal over Secure Sockets Layer (SSL). This solution uses Azure Container Registry to build, store, and manage container images and artifacts, such as Helm charts.
 
-- The architecture includes an application gateway that the ingress controller uses. The application gateway is deployed to a dedicated subnet and exposed to the public internet via a public IP address that all tenant workloads share. A WAF policy helps protect tenant workloads from malicious attacks.
+- The architecture includes an application gateway that Application Gateway for Containers uses. The application gateway is deployed in a dedicated subnet and exposed to the public internet through a public IP address that all tenant workloads share. A WAF policy protects tenant workloads from malicious attacks.
 
   The WAF policy is associated with the application gateway at the root level and at the HTTP listener level. The policy is configured in prevention mode and uses [OWASP 3.1](https://owasp.org/www-project-application-security-verification-standard) to block intrusions and attacks that rules detect. The attacker receives a *403 unauthorized access* exception, and the connection is closed. Prevention mode records these attacks in the WAF logs.
 
@@ -94,38 +94,34 @@ You can use a [WAF policy](/azure/web-application-firewall/ag/create-waf-policy-
 
 ### Alternatives
 
-When you expose workloads that you host in an AKS cluster, you have several solutions to consider. Instead of using the AGIC, you can use [Application Gateway for Containers](/azure/application-gateway/for-containers/overview) or [managed NGINX ingress with the application routing add-on](/azure/aks/app-routing). These alternatives provide different capabilities to help manage and secure traffic to your AKS cluster.
+When you expose workloads hosted in an AKS cluster, you have several solutions to consider. [Application Gateway for Containers (AGC)](/azure/application-gateway/for-containers/overview) is the successor to AGIC and provides enhanced capabilities. You can also use [managed NGINX ingress with the application routing add-on](/azure/aks/app-routing) as an alternative. These solutions provide different capabilities for managing and securing traffic to your AKS cluster.
 
-This architecture installs the [AGIC](https://azure.github.io/application-gateway-kubernetes-ingress) via the [AGIC add-on for AKS](/azure/application-gateway/tutorial-ingress-controller-add-on-new). You can also [install the AGIC via a Helm chart](/azure/application-gateway/ingress-controller-install-existing#install-ingress-controller-as-a-helm-chart). When you create a new setup, you can use one line in the Azure CLI to deploy a new application gateway and a new AKS cluster. This method enables AGIC as an add-on. The add-on is a fully managed service, which provides added benefits, such as automatic updates and increased support. It's also considered a first-class add-on, which provides better integration with AKS. Microsoft supports both deployment methods for the AGIC.
+This architecture uses [Application Gateway for Containers](/azure/application-gateway/for-containers/overview). You can deploy AGC through the [Application Gateway for Containers add-on for AKS](/azure/application-gateway/for-containers) (Preview). You can also [install AGC using Helm](/azure/application-gateway/for-containers/quickstart-deploy-application-gateway-for-containers-alb-controller?tabs=install-helm-windows). When you create a new setup, you can use Azure CLI commands to deploy Application Gateway for Containers with your AKS cluster. The AGC Application Load Balancer (ALB) can be either bring-your-own (BYO) or a managed ALB controller. The managed ALB controller is a fully managed service that provides benefits such as automatic updates, increased support, and better integration with AKS.
 
-The AGIC add-on is deployed as a pod in your AKS cluster. But there are a few differences between the Helm deployment version and the add-on version of the AGIC. The following list includes the differences between the two versions:
+Application Gateway for Containers deploys as a controller in your AKS cluster and provides enhanced capabilities. Application Gateway for Containers supports both Kubernetes Ingress API and Gateway API. Key benefits of AGC include:
 
-- You can't modify Helm deployment values on the AKS add-on:
+- **Better Performance**: Improved latency and throughput compared to AGIC.
+- **Simplified Management**: Streamlined configuration and deployment process.
+- **Modern Architecture**: Built on the latest ingress patterns and supports Gateway API specifications.
+- **Multiple Backend Support**: Can manage traffic to multiple backend pools efficiently.
 
-  - The `usePrivateIp` property is set to `false` by default. You can't overwrite this value via the `use-private-ip` annotation.
-  - The add-on doesn't support the `shared` configuration option.
+A single instance of Application Gateway for Containers can ingest events from multiple Kubernetes namespaces. If the AKS administrator uses Application Gateway for Containers as an ingress, all namespaces use the same instance of Application Gateway for Containers. A single installation of AGC monitors accessible namespaces and configures the application gateway that it's associated with. For more information, see [Application Gateway for Containers namespace management](/azure/application-gateway/for-containers/how-to-multiple-namespaces).
 
-- The Helm-deployed AGIC supports `ProhibitedTargets`, which means that the AGIC can configure the application gateway specifically for AKS clusters without affecting other existing back ends.
-- The AGIC add-on is a managed service, so it automatically updates to the latest version. If you deploy the AGIC via Helm, you must manually update the AGIC.
-- You can only deploy one AGIC add-on for each AKS cluster. Each AGIC add-on can only target one Application Gateway instance. For deployments that require more than one AGIC for each cluster, or multiple AGICs that target one Application Gateway instance, you can use the Helm-deployed AGIC.
+To enable multiple-namespace support with Application Gateway for Containers, configure the controller during deployment:
 
-A single instance of the AGIC can ingest events from multiple Kubernetes namespaces. If the AKS administrator uses the application gateway as an ingress, all namespaces use the same instance of Application Gateway. A single installation of the AGIC monitors accessible namespaces and configures the application gateway that it's associated with. For more information, see [Enable multiple-namespace support in an AKS cluster with the AGIC](/azure/application-gateway/ingress-controller-multiple-namespace-support).
+1. Use the Application Gateway for Containers configuration to specify which namespaces to monitor:
 
-To enable multiple-namespace support, do the following steps:
+  - To monitor all namespaces, use the appropriate configuration parameter during controller installation.
+  - To monitor specific namespaces, specify them in the controller configuration.
+  - For dedicated namespace monitoring, configure the controller to watch only specified namespaces.
 
-1. Modify the [helm-config.yaml](/azure/application-gateway/ingress-controller-multiple-namespace-support#sample-helm-configuration-file) file in one of the following ways:
+2. Apply the configuration changes using the Application Gateway for Containers deployment commands.
 
-  - Delete the `watchNamespace` key entirely from the [helm-config.yaml](/azure/application-gateway/ingress-controller-multiple-namespace-support#sample-helm-config-file) file to let the AGIC observe all the namespaces.
-  - Set `watchNamespace` to an empty string to let the AGIC observe all namespaces.
-  - Add multiple namespaces separated by a comma, such as `watchNamespace: default,secondNamespace`, to let the AGIC observe these namespaces exclusively.
+After you deploy Application Gateway for Containers with multiple namespace support, the controller performs the following actions:
 
-2. Apply Helm template changes with this script: `helm install -f helm-config.yaml application-gateway-kubernetes-ingress/ingress-azure`.
-
-After you deploy the AGIC with the ability to observe multiple namespaces, the AGIC does the following actions:
-
-1. Lists ingress resources from all the accessible namespaces
-1. Filters ingress resources that are annotated with `kubernetes.io/ingress.class: azure/application-gateway`
-1. Composes the combined [Application Gateway configuration](https://github.com/Azure/azure-sdk-for-go/blob/37f3f4162dfce955ef5225ead57216cf8c1b2c70/services/network/mgmt/2016-06-01/network/models.go#L1710-L1744)
+1. Lists ingress resources from all accessible namespaces
+1. Filters ingress resources that are compatible with Application Gateway for Containers
+1. Composes the combined Application Gateway configuration
 1. Applies the configuration to the associated application gateway via [Azure Resource Manager](/azure/azure-resource-manager/management/overview)
 
 ## Scenario details
@@ -138,25 +134,25 @@ Kubernetes can't guarantee perfectly secure isolation between tenants, but it do
 
 :::image type="content" border="false" source="./media/aks-agic-multitenancy.svg" alt-text="Diagram that shows a multitenancy example." lightbox="./media/aks-agic-multitenancy.svg":::
 
-The [AGIC](/azure/application-gateway/ingress-controller-overview) is a Kubernetes application, so [AKS](/azure/aks/intro-kubernetes) customers can use an [application gateway](/azure/application-gateway/overview) to expose their containerized applications to the internet. The AGIC monitors the Kubernetes cluster that it's hosted on and continuously updates an application gateway so that the selected services are exposed to the internet. The AGIC runs in its own pod on the customer's AKS instance. The AGIC monitors a subset of Kubernetes resources for changes. The state of the AKS cluster is translated to Application Gateway-specific configuration and applied to [Resource Manager](/azure/azure-resource-manager/management/overview). This architecture describes proven practices to deploy a public or private [AKS cluster](/azure/aks/intro-kubernetes) via an [application gateway](/azure/application-gateway/overview) and an [AGIC](/azure/application-gateway/ingress-controller-overview) add-on.
+Application Gateway for Containers (AGC) is a controller that manages Application Gateway instances to provide load balancing and ingress capabilities for AKS clusters. [AKS](/azure/aks/intro-kubernetes) customers can use [Application Gateway](/azure/application-gateway/overview) with AGC to expose their containerized applications to the internet. AGC monitors the Kubernetes cluster that it's hosted on and continuously updates an application gateway so that selected services are exposed to the internet. AGC runs in its own pod on the customer's AKS instance and monitors Kubernetes resources for changes. The state of the AKS cluster is translated to Application Gateway-specific configuration and applied to [Resource Manager](/azure/azure-resource-manager/management/overview). This architecture describes proven practices to deploy a public or private [AKS cluster](/azure/aks/intro-kubernetes) via an [Application Gateway](/azure/application-gateway/overview) and Application Gateway for Containers.
 
-A single instance of the [AGIC](/azure/application-gateway/ingress-controller-multiple-namespace-support) can ingest events from and observe multiple namespaces. If the AKS administrator uses Application Gateway as an ingress, all namespaces use the same instance of Application Gateway. A single installation of AGIC monitors accessible namespaces and configures the application gateway that it's associated with.
+A single instance of [Application Gateway for Containers](/azure/application-gateway/for-containers/overview) can ingest events from and observe multiple namespaces. If the AKS administrator uses Application Gateway for Containers as an ingress, all namespaces use the same instance of Application Gateway for Containers. A single installation of Application Gateway for Containers monitors accessible namespaces and configures the application gateway that it's associated with.
 
 ### Potential use cases
 
-Use the [AGIC](/azure/application-gateway/ingress-controller-overview) to expose and protect internet-facing workloads that run on an [AKS cluster](/azure/aks/intro-kubernetes) in a multitenant environment.
+Use Application Gateway for Containers (AGC) to expose and protect internet-facing workloads that run on an [AKS cluster](/azure/aks/intro-kubernetes) in a multitenant environment.
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+These considerations implement the pillars of the Azure Well-Architected Framework, which provides guiding tenets for improving workload quality. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
-Some of these considerations don't fully pertain to multitenancy in AKS, but they're essential requirements of this solution. These considerations include security, performance, availability, reliability, storage, scheduler, service mesh, and monitoring guidance.
+While some considerations don't directly relate to multitenancy in AKS, they're essential requirements for this solution. These considerations include security, performance, availability, reliability, storage, scheduler, service mesh, and monitoring guidance.
 
 ### Reliability
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-These availability and reliability considerations don't fully pertain to multitenancy in AKS, but they're essential requirements of this solution. Consider the following ways to optimize availability for your AKS cluster and workloads.
+Consider the following ways to optimize availability for your AKS cluster and workloads.
 
 #### Containers
 
@@ -202,7 +198,7 @@ These availability and reliability considerations don't fully pertain to multite
 
 #### Service mesh
 
-- Consider using an open-source service mesh, like [Istio](https://istio.io), [Linkerd](https://linkerd.io), or [Consul](https://www.consul.io), in your AKS cluster. A service mesh uses mutual TLS to help improve observability, reliability, and security for your microservices. You can also implement traffic-splitting strategies, such blue/green deployments and canary deployments. A service mesh is a dedicated infrastructure layer that helps make service-to-service communication more safe, fast, and reliable. For more information, see [Istio service mesh AKS add-on](/azure/aks/istio-about).
+- Consider using an open-source service mesh, like [Istio](https://istio.io), [Linkerd](https://linkerd.io), or [Consul](https://www.consul.io), in your AKS cluster. A service mesh uses mutual TLS to help improve observability, reliability, and security for your microservices. You can also implement traffic-splitting strategies like blue/green deployments and canary deployments. A service mesh is a dedicated infrastructure layer that helps make service-to-service communication more safe, fast, and reliable. For more information, see [Istio service mesh AKS add-on](/azure/aks/istio-about).
 
 - Consider adopting [Dapr](https://dapr.io) to build resilient microservice-based applications, whether they're stateless and stateful. You can use any programming language and developer framework.
 
@@ -210,37 +206,41 @@ These availability and reliability considerations don't fully pertain to multite
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-The security considerations don't fully pertain to multitenancy in AKS, but they're essential requirements of this solution.
-
 #### Multitenancy
 
 - Design AKS clusters for multitenancy. Kubernetes provides features that you can use to logically isolate teams and workloads in the same cluster. Provide the least number of privileges to the resources that each team needs. A [namespace](/azure/aks/concepts-clusters-workloads#namespaces) in Kubernetes creates a logical isolation boundary.
 
-- Use logical isolation to separate teams and projects. Minimize the number of physical AKS clusters that you deploy to isolate teams or applications. The logical separation of clusters usually provides a higher pod density than physically isolated clusters.
-- Use dedicated node pools, or dedicated AKS clusters, whenever you need to implement a strict physical isolation. For example, you can dedicate a pool of worker nodes or an entire cluster to a team or a tenant in a multitenant environment.
+- Use logical isolation to separate teams and projects. Minimize the number of physical AKS clusters that you deploy for isolating teams or applications. Logical cluster separation usually provides higher pod density than physically isolated clusters.
+- Use dedicated node pools or dedicated AKS clusters when you need strict physical isolation. For example, you can dedicate a pool of worker nodes or an entire cluster to a team or tenant in a multitenant environment.
 
-   Use a combination of [taints and tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/) to control the deployment of pods to a specific node pool. You can only taint a node in AKS at the time of node pool creation. Alternatively, you can use [labels and nodePool selectors](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/) to deploy the workload to specific node pools only.
+   Use a combination of [taints and tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/) to control pod deployment to specific node pools. You can only taint a node in AKS during node pool creation. Alternatively, you can use [labels and nodePool selectors](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/) to deploy workloads to specific node pools only.
 
 #### Network security
 
 - Create a [private endpoint](/azure/private-link/private-endpoint-overview) for any PaaS service that your AKS workloads use, such as Key Vault, Azure Service Bus, or Azure SQL Database. A private endpoint helps ensure that the traffic between the applications and these services isn't exposed to the public internet. For more information, see [What is Private Link](/azure/private-link/private-link-overview).
 
-- Configure your Kubernetes ingress resource to expose workloads via HTTPS. Use a separate subdomain and digital certificate for each tenant. The [AGIC](/azure/application-gateway/ingress-controller-overview) automatically configures the [Application Gateway](/azure/application-gateway/overview) listener for SSL termination.
+- Configure your Kubernetes ingress resource to expose workloads via HTTPS. Use a separate subdomain and digital certificate for each tenant. Application Gateway for Containers automatically configures the [Application Gateway](/azure/application-gateway/overview) listener for [SSL termination for Application Gateway For Containers](/azure/application-gateway/for-containers/how-to-ssl-offloading-gateway-api?utm_source=chatgpt.com&tabs=alb-managed)
+
 - Configure [Application Gateway](/azure/application-gateway/overview) to use a [WAF policy](/azure/application-gateway/waf-overview) to help protect public-facing workloads that run on AKS from malicious attacks.
+
 - Use Azure CNI networking in AKS to integrate with existing virtual networks or on-premises networks. This network model also allows greater separation of resources and controls in an enterprise environment.
+
 - Use network policies to segregate and secure intra-service communications by controlling which components can communicate with each other. By default, all pods in a Kubernetes cluster can send and receive traffic without limitations. To improve security, you can use Azure network policies or Calico network policies to define rules that control the traffic flow between various microservices. For more information, see [Network policy](/azure/aks/use-network-policies).
-- Don't expose remote connectivity to your AKS nodes. Create a bastion host, or jumpbox, in a management virtual network. Use the bastion host to securely route traffic into your AKS cluster to remote management tasks.
+
+- Don't expose remote connectivity to your AKS nodes. Create a bastion host or jumpbox in a management virtual network. Use the bastion host to securely route traffic into your AKS cluster for remote management tasks.
+
 - Consider using [authorized IP address ranges](/azure/aks/api-server-authorized-ip-ranges) in AKS to create a [private AKS cluster](/azure/aks/private-clusters) in your production environment. If you can't use a private AKS cluster, at least secure access to the API server.
+
 - Combine [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) with application-design best practices to provide enhanced DDoS mitigation features and extra defense against DDoS attacks. Enable [DDoS Protection](/azure/ddos-protection/ddos-protection-overview) on perimeter virtual networks.
 
 #### Authentication and authorization
 
 - Deploy AKS clusters with Microsoft Entra integration. For more information, see [AKS-managed Microsoft Entra integration](/azure/aks/managed-aad). Microsoft Entra ID centralizes the identity management component.
 
-- Use Kubernetes RBAC to define the permissions that users or groups have to resources in the cluster. Use [roles](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole) or [ClusterRoles](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole) and [bindings](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) to scope users or groups to the least number of permissions needed. [Integrate Kubernetes RBAC with Microsoft Entra ID](/azure/aks/azure-ad-rbac) so that any change in user status or group membership automatically updates the access to cluster resources. For more information, see [Kubernetes RBAC](/azure/aks/operator-best-practices-identity#use-kubernetes-role-based-access-control-kubernetes-rbac).
-- Use Azure RBAC to define the minimum required permissions that users or groups have to AKS resources in one or more subscriptions. For more information, see [Use Azure RBAC for Kubernetes Authorization](/azure/aks/manage-azure-rbac).
+- Use Kubernetes RBAC to define permissions that users or groups have for cluster resources. Use [roles](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole) or [ClusterRoles](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole) and [bindings](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) to grant users or groups the minimum permissions needed. [Integrate Kubernetes RBAC with Microsoft Entra ID](/azure/aks/azure-ad-rbac) so that changes in user status or group membership automatically update access to cluster resources. For more information, see [Kubernetes RBAC](/azure/aks/operator-best-practices-identity#use-kubernetes-role-based-access-control-kubernetes-rbac).
+- Use Azure RBAC to define the minimum required permissions that users or groups have for AKS resources in one or more subscriptions. For more information, see [Use Azure RBAC for Kubernetes Authorization](/azure/aks/manage-azure-rbac).
 - Use [Microsoft Entra Workload ID](/azure/aks/workload-identity-overview) to assign a managed identity to individual microservices for Azure resource access. The microservice can then access managed resources, such as Key Vault, SQL Database, Service Bus, and Azure Cosmos DB. The microservice doesn't need to store and retrieve connection strings or credentials from Kubernetes secrets.
-- Use the [Secrets Store CSI Driver for Key Vault](/azure/key-vault/general/key-vault-integrate-kubernetes) to access secrets, such as credentials and connections string, from Key Vault rather than from Kubernetes secrets.
+- Use the [Secrets Store CSI Driver for Key Vault](/azure/key-vault/general/key-vault-integrate-kubernetes) to access secrets, such as credentials and connection strings, from Key Vault rather than from Kubernetes secrets.
 - Combine the [Dapr secret store](https://docs.dapr.io/developing-applications/building-blocks/secrets/secrets-overview/) building block with the [Key Vault store and managed identities on Kubernetes](https://docs.dapr.io/developing-applications/integrations/azure/azure-authentication/authenticating-azure/) to retrieve secrets, such as credentials and connection strings, from Key Vault.
 
 #### Workload and cluster
@@ -291,7 +291,7 @@ Operational Excellence covers the operations processes that deploy an applicatio
 - As an alternative, you can use the traffic-management capabilities that a service mesh provides. For more information, see [Istio traffic management](https://istio.io/latest/docs/concepts/traffic-management/).
 
 - Use Container Registry or another registry store, like Docker Hub, to catalog and serve the private Docker images that you deploy to the cluster. AKS can use its Microsoft Entra identity to authenticate with Container Registry.
-- If you need to change settings on Application Gateway, make the change by using the exposed configuration on the ingress controller or other Kubernetes objects, such as using supported annotations. After you link an application gateway to the AGIC, the ingress controller synchronizes and controls nearly all configurations of that gateway. If you directly configure Application Gateway imperatively or through infrastructure as code, the ingress controller eventually overwrites those changes.
+- If you need to change settings on Application Gateway, make the change by using the exposed configuration on Application Gateway for Containers or other Kubernetes objects, such as using supported annotations. After you [migrate from AGIC to Application Gateway For Containers](/azure/application-gateway/for-containers/how-to-ssl-offloading-gateway-api?utm_source=chatgpt.com&tabs=alb-managed), the controller synchronizes and controls nearly all configurations of that gateway. If you directly configure Application Gateway imperatively or through infrastructure as code, the controller eventually overwrites those changes.
 
 #### Monitoring
 
@@ -301,14 +301,14 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 ### Performance Efficiency
 
-Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+Performance Efficiency is the ability of your workload to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-The performance considerations don't fully pertain to multitenancy in  AKS, but they're essential requirements of this solution:
+Consider the following performance recommendations:
 
-- For low-latency workloads, consider deploying a dedicated node pool in a proximity placement group. When you deploy your application in Azure, VM instances that are spread across regions or availability zones create network latency, which might affect the overall performance of your application. A proximity placement group is a logical grouping that you can use to make sure Azure compute resources are physically located close to each other. Some use cases, such as gaming, engineering simulations, and high-frequency trading, require low latency and tasks that complete quickly. For high-performance computing scenarios such as these, consider using [proximity placement groups](/azure/virtual-machines/co-location#proximity-placement-groups) for your cluster's node pools.
+- For low-latency workloads, consider deploying a dedicated node pool in a proximity placement group. When you deploy your application in Azure, VM instances spread across regions or availability zones can create network latency that might affect your application's overall performance. A proximity placement group is a logical grouping that ensures Azure compute resources are physically located close to each other. Use cases such as gaming, engineering simulations, and high-frequency trading require low latency and fast task completion. For high-performance computing scenarios like these, consider using [proximity placement groups](/azure/virtual-machines/co-location#proximity-placement-groups) for your cluster's node pools.
 
 - Always use smaller container images because you can create faster builds. Smaller images are also less vulnerable to attack vectors because of a reduced attack surface.
-- Use Kubernetes autoscaling to dynamically scale out the number of worker nodes in an AKS cluster when traffic increases. With the [Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale) and a cluster autoscaler, node and pod volumes get adjusted dynamically in real time to match the traffic condition and to avoid downtimes that capacity problems cause. For more information, see [Use the cluster autoscaler in AKS](/azure/aks/cluster-autoscaler).
+- Use Kubernetes autoscaling to dynamically scale the number of worker nodes in an AKS cluster when traffic increases. With the [Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale) and cluster autoscaler, node and pod volumes adjust dynamically in real time to match traffic conditions and avoid downtimes caused by capacity problems. For more information, see [Use the cluster autoscaler in AKS](/azure/aks/cluster-autoscaler).
 
 #### Scheduler
 
@@ -324,9 +324,9 @@ The performance considerations don't fully pertain to multitenancy in  AKS, but 
 
 ## Deploy this scenario
 
-The source code for this scenario is available on [GitHub](https://github.com/Azure-Samples/aks-agic). The following diagram shows a demo application that you can find in the [AKS multitenant AGIC GitHub repository](https://github.com/Azure-Samples/aks-multi-tenant-agic).
+ The following diagram shows a demo application that you can find in the AKS multitenant with Application Gateway For Containers. 
 
-:::image type="content" border="false" source="./media/aks-agic-sample.svg" alt-text="Diagram that shows the deployment of this AGIC with AKS architecture." lightbox="./media/aks-agic-sample.svg":::
+:::image type="content" border="false" source="./media/aks-agic-sample.svg" alt-text="Diagram that shows the deployment of this AGC with AKS architecture." lightbox="./media/aks-agic-sample.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/aks-agic-multitenant.vsdx) of this architecture.*
 
@@ -346,7 +346,8 @@ Principal author:
 - [Best practices for basic scheduler features in AKS](/azure/aks/operator-best-practices-scheduler)
 - [Create a private AKS cluster](https://github.com/azure-samples/private-aks-cluster)
 - [Create WAF policies for Application Gateway](/azure/web-application-firewall/ag/create-waf-policy-ag#migrate-to-waf-policy)
-- [Difference between a Helm deployment and the AKS add-on](/azure/application-gateway/ingress-controller-overview#difference-between-helm-deployment-and-aks-add-on)
+- [Application Gateway for Containers documentation](/azure/application-gateway/for-containers/overview)
+- [Deploy Application Gateway for Containers](/azure/application-gateway/for-containers/quickstart-deploy-application-gateway-for-containers-alb-controller)
 - [How an application gateway works](/azure/application-gateway/how-application-gateway-works)
 
 ## Related resources
