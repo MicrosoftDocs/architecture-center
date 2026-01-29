@@ -215,7 +215,7 @@ After defining SLIs, determine what telemetry to capture. For HTTP services, use
 
 #### Use percentile distributions
 
-Calculate some SLIs using percentile distributions to exclude outliers. For example, if 95th percentile latency is within the threshold, the SLO is considered met.
+Calculate some SLIs using percentile distributions to exclude outliers. For example, if the 95th percentile latency is within the threshold, the SLO is considered met.
 
 #### Choose proper measurement periods
 
