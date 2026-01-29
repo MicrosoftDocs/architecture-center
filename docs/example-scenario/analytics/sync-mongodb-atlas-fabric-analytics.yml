@@ -2,7 +2,7 @@
 metadata:
   title: Enable real-time sync of MongoDB Atlas data changes to Fabric Analytics
   description: Learn how to keep Azure Synapse Analytics data pools synchronized with operational data changes in MongoDB Atlas.
-  author: Rodrigo Rodríguez
+  author: rod2k24
   ms.author: rodrigr
   ms.date: 01/29/2026
   ms.topic: example-scenario
