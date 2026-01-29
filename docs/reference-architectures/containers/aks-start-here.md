@@ -99,7 +99,7 @@ The following example solutions use AKS as their foundation:
 
 ### Azure Arc-enabled Kubernetes
 
-AKS provides a managed Kubernetes experience on Azure. But you might prefer to manage some workloads on your own Kubernetes clusters by using [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/). Supported clusters include Red Hat OpenShift, Red Hat Rancher Kubernetes Engine (RKE), and Canonical Charmed Kubernetes.
+AKS provides a managed Kubernetes experience on Azure. But you might prefer to manage some workloads on your own Kubernetes clusters by using [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/). Supported clusters include Red Hat OpenShift, SUSE Rancher Kubernetes Engine (RKE), and Canonical Charmed Kubernetes.
 
 You can also use Azure Arc management with [Kubernetes Cluster API Provider Azure](https://capz.sigs.k8s.io/) clusters to benefit from Azure Resource Manager representation and cluster extensions like Azure Monitor container insights and Azure Policy. Azure Arc-enabled Kubernetes also supports [AKS on Azure Local](/azure/aks/aksarc/aks-overview) and Kubernetes clusters that run on other cloud providers.
 
