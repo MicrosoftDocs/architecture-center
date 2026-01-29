@@ -1,5 +1,5 @@
 ---
-title: Azure Kubernetes Service (AKS) - planning
+title: Azure Kubernetes Service (AKS) - Planning
 description: Learn how to plan, design, and operate Azure Kubernetes Service (AKS) clusters, from foundational concepts to production-ready baseline implementations.
 author: francisnazareth
 ms.author: fnazaret
