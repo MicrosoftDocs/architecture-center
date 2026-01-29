@@ -189,7 +189,7 @@ You can take actions like shifting job processing times or moving workloads to c
 
   When you optimize the full version for emissions, you can eventually merge the two versions.
 
-> [!EXAMPLE]
+> [!TIP]
 > *Windows Update* is an example of runtime optimization. It uses a carbon-aware API to schedule updates. Instead of immediately downloading updates, it waits for a window when the local grid's carbon intensity (`I`) is low. This approach effectively reduces the carbon footprint of the update process without increasing total energy consumption.
 
 ## Considerations
