@@ -97,7 +97,7 @@ Articles use one of three patterns:
 
 ### TOC hierarchy
 
-The repository has **7 TOC files**:
+The repository uses the following TOC files:
 
 - `docs/toc.yml` - Main navigation for the entire site
 - `docs/ai-ml/toc.yml` - AI + Machine Learning workload navigation
@@ -155,7 +155,7 @@ thumbnailUrl: /azure/architecture/browse/thumbs/article-name.png
 
 - All thumbnails are centralized in `docs/browse/thumbs/` directory
 - Thumbnails power the Browse experience gallery at <https://learn.microsoft.com/azure/architecture/browse>
-- Thumbnails are separate from article images in local `_images/` folders
+- Thumbnails are separate from article images stored in article-specific image folders (for example `_images/`, `images/`, or `media/` directories alongside the article)
 - Typically the thumbnail is a PNG export of the main article diagram (which is often SVG)
 - When updating diagrams, both the article image and browse thumbnail may need updates
 
