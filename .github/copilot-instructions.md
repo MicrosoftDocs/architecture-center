@@ -111,7 +111,7 @@ The repository uses the following TOC files:
 
 - The **main TOC** references some workload sub-TOCs by pointing to their index pages (e.g., `href: ai-ml/index.md`)
 - When users navigate to these sections, they switch to the **sub-TOC** for specialized navigation
-- Sub-TOCs follow a consistent **"Explore → Design → Apply"** pattern across workloads
+- Most sub-TOCs follow a common **"Explore ideas | Design architectures | Apply guidance"** pattern
 - TOCs can reference content from **anywhere in the repository** using relative paths (e.g., `../example-scenario/`)
 - The same article can appear in multiple places in the TOC (or not appear at all)
 
