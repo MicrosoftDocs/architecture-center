@@ -93,11 +93,7 @@ You can use the following methods to calculate the relevance of responses:
 - [MLflow relevance calculation](https://mlflow.org/docs/latest/llms/llm-evaluate/index.html#metrics-with-llm-as-the-judge)
 
 > [!NOTE]
-<<<<<<< HEAD
-> You can use the [Microsoft Foundry portal](https://ai.azure.com?cid=learnDocs) to run the calculations or use the guidance in this article to calculate relevance yourself.
-=======
 > You can use the [Foundry portal](https://ai.azure.com?cid=learnDocs) to perform the calculations or use the guidance in this article to calculate relevance yourself.
->>>>>>> 7180f236fb2d157e555df5cf623656e068c27c3e
 
 #### Evaluate relevance
 

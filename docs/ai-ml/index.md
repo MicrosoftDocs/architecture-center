@@ -18,11 +18,7 @@ AI is a technology that machines use to imitate intelligent human behavior. Mach
 - Verbally interact in natural ways.
 - Make predictions and generate new data.
 
-<<<<<<< HEAD
-You can incorporate AI into applications to do tasks or make decisions that traditional logic or processing can't handle effectively. As an architect that designs solutions, it's important to understand the AI and machine learning landscape and how you can integrate Azure solutions into your workload design.
-=======
 You can incorporate AI into applications to do functions or make decisions that traditional logic or processing can't handle effectively. As an architect who designs solutions, you need to learn about the AI and machine learning landscape and how you can integrate Azure solutions into your workload design.
->>>>>>> 7180f236fb2d157e555df5cf623656e068c27c3e
 
 ## Get started
 
@@ -30,11 +26,7 @@ Azure Architecture Center provides example architectures, architecture guides, a
 
 ## AI concepts
 
-<<<<<<< HEAD
-AI concepts encompass a wide range of technologies and methodologies that enable machines to do tasks that typically require human intelligence. The following sections provide an overview of key AI concepts.
-=======
 AI concepts encompass a wide range of technologies and methodologies that machines use to do tasks that typically require human intelligence. The following sections provide an overview of key AI concepts.
->>>>>>> 7180f236fb2d157e555df5cf623656e068c27c3e
 
 ### Algorithms
 
@@ -228,11 +220,7 @@ You can use Copilot and other generative AI features to transform and analyze da
 
 #### Data agent in Fabric
 
-<<<<<<< HEAD
-You can use the Fabric AI skill feature to configure a generative AI system to generate queries that answer questions about your data. After you configure an AI skill, you can share it with your colleagues, who can then ask their questions in plain language. Based on their questions, the AI generates queries on the data that answers those questions.
-=======
 Data agent in Fabric is a feature that you can use to build your own conversational Q&A systems by using generative AI. A Fabric data agent makes data insights easier to use and more actionable for everyone in your organization. 
->>>>>>> 7180f236fb2d157e555df5cf623656e068c27c3e
 
 For more information, see the following resources:
 
@@ -516,23 +504,13 @@ Prebuilt AI models are useful and increasingly flexible, but the best way to opt
 
 Foundry Agent Service is a tool that you can use to create AI agents by using a no-code and nondeterministic approach. The agents are exposed as microservices on the Foundry account.
 
-<<<<<<< HEAD
-Azure AI Agent Service is a tool that lets you create AI agents by using a no-code and nondeterminisitic approach. The agents are exposed as microservices on the Foundry account.
-
-Each agent connects to a foundation model from the Azure AI model catalog. Agents can optionally connect to your own custom private knowledge stores or public data. Likewise, agents can invoke tools to do tasks to call into custom code.
-=======
 Each agent connects to a foundation model from the Foundry Models catalog. Agents can optionally connect to your custom private knowledge stores or public data. Agents can also invoke tools to call into custom code and do tasks.
->>>>>>> 7180f236fb2d157e555df5cf623656e068c27c3e
 
 ### Custom AI code languages
 
 The core concept of AI is the use of algorithms to analyze data and generate models to describe, or score, it in useful ways. Developers and data scientists, and sometimes other algorithms, use programming code to write algorithms. Two of the most popular programming languages for AI development are Python and R.
 
-<<<<<<< HEAD
-[Python](https://www.python.org/) is a general-purpose, high-level programming language. Its syntax is straightforward and designed for readability. There's no compiling step. Python has a large standard library, and it supports the ability to add modules and packages. This feature encourages modularity and lets you expand capabilities when needed. There's a large and growing ecosystem of AI and machine learning libraries for Python, including many in Azure.
-=======
 [Python](https://www.python.org/) is a general-purpose, high-level programming language. It has a simple syntax that emphasizes readability. You don't need to run a compilation step. Python has a large standard library, and it supports the ability to add modules and packages. This feature encourages modularity and lets you expand capabilities when needed. A large and growing ecosystem of AI and machine learning libraries exist for Python, including many in Azure.
->>>>>>> 7180f236fb2d157e555df5cf623656e068c27c3e
 
 For more information, see the following resources:
 
