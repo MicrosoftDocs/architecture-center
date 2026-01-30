@@ -11,10 +11,8 @@ items:
   items:
   - name: Deployment options
     href: landing-zones/landing-zone-deploy.md
-  - name: Bicep platform landing zone implementation
-    href: landing-zones/bicep/landing-zone-bicep.md
   - name: Subscription vending implementation
-    href: landing-zones/subscription-vending.yml
+    href: landing-zones/subscription-vending.md
 - name: Application architecture fundamentals
   items:
   - name: Introduction
@@ -93,8 +91,6 @@ items:
       href: guide/design-principles/design-for-evolution.md
     - name: Build for the needs of business
       href: guide/design-principles/build-for-business.md
-    - name: Failure mode analysis for services
-      href: resiliency/failure-mode-analysis.md
   - name: Technology choices
     items:
     - name: Overview
@@ -336,7 +332,7 @@ items:
       - name: Security for AWS
         items:
         - name: Microsoft security for AWS
-          href: guide/aws/aws-azure-security-solutions.yml
+          href: guide/aws/aws-azure-security-solutions.md
   - name: Azure for Google Cloud professionals
     items:
     - name: Overview
@@ -460,13 +456,13 @@ items:
       - name: Disaster recovery for Azure data platform
         items:
         - name: Overview
-          href: data-guide/disaster-recovery/dr-for-azure-data-platform-overview.yml
+          href: data-guide/disaster-recovery/dr-for-azure-data-platform-overview.md
         - name: Architecture
-          href: data-guide/disaster-recovery/dr-for-azure-data-platform-architecture.yml
+          href: data-guide/disaster-recovery/dr-for-azure-data-platform-architecture.md
         - name: Scenario details
-          href: data-guide/disaster-recovery/dr-for-azure-data-platform-scenario-details.yml
+          href: data-guide/disaster-recovery/dr-for-azure-data-platform-scenario-details.md
         - name: Recommendations
-          href: data-guide/disaster-recovery/dr-for-azure-data-platform-recommendations.yml
+          href: data-guide/disaster-recovery/dr-for-azure-data-platform-recommendations.md
     - name: Architectures
       items:
       - name: Analytics end to end
@@ -541,14 +537,10 @@ items:
           href: example-scenario/unix-migration/migrate-aix-azure-linux.yml
         - name: Batch transaction processing
           href: example-scenario/mainframe/process-batch-transactions.yml
-        - name: Extend mainframe applications with Verastream
-          href: example-scenario/mainframe/extend-mainframe-applications.yml
         - name: Extend mainframes to digital channels by using standards-based REST APIs
           href: example-scenario/mainframe/extend-mainframes-rest-apis.yml
         - name: General mainframe refactor to Azure
           href: example-scenario/mainframe/general-mainframe-refactor.yml
-        - name: Migrate IBM System i to Azure by using Infinite i
-          href: example-scenario/mainframe/ibm-system-i-azure-infinite-i.yml
         - name: IBM z/OS migration with Avanade AMT
           href: example-scenario/mainframe/avanade-amt-zos-migration.yml
         - name: IBM z/OS online transaction processing
@@ -561,22 +553,12 @@ items:
           href: example-scenario/mainframe/migrate-aix-workloads-to-azure-with-skytap.yml
         - name: Migrate HP-UX workloads
           href: example-scenario/mainframe/hp-ux-stromasys-charon-par.yml
-        - name: Migrate IBM apps with TmaxSoft
-          href: solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml
         - name: Migrate IBM i series to Azure with Skytap
           href: example-scenario/mainframe/migrate-ibm-i-series-to-azure-with-skytap.yml
         - name: Use Azure NetApp Files to deploy IBM Power in Skytap on Azure
           href: example-scenario/mainframe/deploy-ibm-power-workloads.yml
         - name: Refactor mainframe with CloudFrame Renovate
           href: example-scenario/mainframe/cloudframe-renovate-mainframe-refactor.yml
-        - name: Refactor an IBM z/OS mainframe CF
-          href: reference-architectures/zos/refactor-zos-coupling-facility.yml
-        - name: Refactor IBM z/TPF mainframe
-          href: example-scenario/mainframe/refactor-ibm-ztpf-mainframe.yml
-        - name: Refactor mainframe apps with Astadia
-          href: example-scenario/mainframe/refactor-mainframe-applications-astadia.yml
-        - name: Refactor mainframe apps with Advanced
-          href: example-scenario/mainframe/refactor-mainframe-applications-advanced.yml
         - name: Refactor Adabas & Natural systems
           href: example-scenario/mainframe/refactor-adabas-aks.yml
         - name: Refactor mainframe with Raincode
@@ -587,10 +569,6 @@ items:
           href: example-scenario/mainframe/rehost-adabas-software-ag.yml
         - name: Rehost IMS workloads by using IMSql
           href: example-scenario/mainframe/imsql-rehost-ims.yml
-        - name: Rehost mainframe with NTT DATA UniKix
-          href: example-scenario/mainframe/rehost-mainframe-ntt-data-unikix.yml
-        - name: Replatform AIX workloads
-          href: example-scenario/mainframe/replatform-aix-workloads.yml
         - name: Solaris emulator on Azure VMs
           href: solution-ideas/articles/solaris-azure.yml
         - name: Unisys ClearPath Forward OS 2200 enterprise server virtualization on Azure
@@ -714,7 +692,7 @@ items:
           - name: Multitenancy with AKS and AGIC
             href: example-scenario/aks-agic/aks-agic.yml
           - name: Use Azure Kubernetes Service to host GPU-based workloads
-            href: reference-architectures/containers/aks-gpu/gpu-aks.yml
+            href: reference-architectures/containers/aks-gpu/gpu-aks.md
       - name: Solution ideas
         items:
         - name: Data streaming with AKS
@@ -1052,8 +1030,6 @@ items:
         href: example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr.yml
     - name: Architectures
       items:
-      - name: Azure Virtual Desktop for the enterprise
-        href: example-scenario/azure-virtual-desktop/azure-virtual-desktop.yml
       - name: Esri ArcGIS on Azure Virtual Desktop
         href: example-scenario/data/esri-arcgis-azure-virtual-desktop.yml
   - name: Web applications

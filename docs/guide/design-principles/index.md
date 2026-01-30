@@ -41,7 +41,7 @@ To make your application more scalable, resilient, and manageable, follow these 
 
 - [Build for the needs of business](build-for-business.md). Make design decisions based on business requirements. Define clear objectives like recovery time objectives (RTOs), document service-level agreements (SLAs) and service-level objectives (SLOs), model applications around business domains, and plan for growth while balancing functional and nonfunctional requirements.
 
-- [Perform failure mode analysis for services](../../resiliency/failure-mode-analysis.md). Systematically identify potential failure points in your system and plan recovery strategies. To build reliability from the beginning, conduct failure mode analysis (FMA) during architecture and design phases. Rate each failure mode by risk and impact, then determine appropriate response and recovery mechanisms.
+- [Perform failure mode analysis for services](/azure/well-architected/reliability/failure-mode-analysis). Systematically identify potential failure points in your system and plan recovery strategies. To build reliability from the beginning, conduct failure mode analysis (FMA) during architecture and design phases. Rate each failure mode by risk and impact, then determine appropriate response and recovery mechanisms.
 
 ## Apply these principles
 
