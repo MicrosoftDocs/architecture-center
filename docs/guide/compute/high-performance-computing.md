@@ -39,8 +39,8 @@ One of the primary differences between an on-premises HPC system and one in the 
 
 The following articles provide more detail about this dynamic scaling capability.
 
-- [Big Compute Architecture Style](../guide/architecture-styles/big-compute.md)
-- [Autoscaling best practices](../best-practices/auto-scaling.md)
+- [Big Compute Architecture Style](../architecture-styles/big-compute.md)
+- [Autoscaling best practices](../../best-practices/auto-scaling.md)
 
 ## Implementation checklist
 
@@ -110,7 +110,7 @@ Building an HPC system from scratch on Azure offers a significant amount of flex
 
 If you have an existing on-premises HPC system that you'd like to connect to Azure, there are several resources to help get you started.
 
-First, review the [Options for connecting an on-premises network to Azure](../reference-architectures/hybrid-networking/index.yml) article in the documentation.  From there, you can find additional information on these connectivity options:
+First, review the [Options for connecting an on-premises network to Azure](../../reference-architectures/hybrid-networking/index.yml) article in the documentation.  From there, you can find additional information on these connectivity options:
 
 <ul class="columns is-multiline has-margin-left-none has-margin-bottom-none has-padding-top-medium">
     <li class="column is-one-third has-padding-top-small-mobile has-padding-bottom-small">
@@ -243,7 +243,7 @@ In addition to the network configurations available in the [Cloud Bursting](#hyb
             href="/azure/architecture/reference-architectures/hybrid-networking/hub-spoke">
             <article class="card has-outline-hover is-relative is-fullheight">
                     <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
-                        <img role="presentation" alt="Diagram showing how to implement a hub-spoke network topology in Azure." src="../networking/architecture/_images/hub-spoke.png">
+                        <img role="presentation" alt="Diagram showing how to implement a hub-spoke network topology in Azure." src="../../networking/architecture/_images/hub-spoke.png">
                     </figure>
                 <div class="card-content has-text-overflow-ellipsis">
                     <div class="has-padding-bottom-none">
@@ -332,4 +332,4 @@ These tutorials will provide you with details on running applications on Microso
 
 ## Related resources
 
-- [Big compute architecture style](../guide/architecture-styles/big-compute.md)
+- [Big compute architecture style](../architecture-styles/big-compute.md)
