@@ -101,13 +101,13 @@ On the left, a client connects to a web app and to a content delivery network. T
 
 - For storage, choose the technologies that best fit your application's needs. This approach, known as *polyglot persistence*, combines multiple storage technologies in one system to meet different requirements. The previous diagram demonstrates this approach by using [Azure SQL Database](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview) and [Azure Cosmos DB](/azure/cosmos-db/introduction).
 
-For more information, see [Baseline highly available zone-redundant web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml) and [Build message-driven business applications with NServiceBus and Service Bus](/azure/service-bus-messaging/build-message-driven-apps-nservicebus).
+For more information, see [Baseline highly available zone-redundant web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml) and [Build message-driven business applications by using NServiceBus and Service Bus](/azure/service-bus-messaging/build-message-driven-apps-nservicebus).
 
 ### Other considerations
 
 - Not every transaction must go through the queue and worker to storage. The web front end can handle simple read and write operations directly. Reserve workers for resource-intensive tasks or long-running workflows. If your application has no such tasks, you might not need a worker.
 
-- Use the built-in autoscale feature of your compute platform to scale out instances. For predictable load patterns, use schedule-based autoscaling. For unpredictable loads, use metrics-based autoscaling.
+- Use the built-in autoscale feature of your compute platform to scale out instances. If the load follows predictable patterns, use schedule-based autoscaling. If the load is unpredictable, use metrics-based autoscaling.
 
 - Consider placing the web app and Functions app in separate App Service plans so that they can scale independently.
 
