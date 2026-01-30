@@ -32,6 +32,38 @@ These are some of the key analytics services available on Azure:
 
 *Download a [Visio file](https://arch-center.azureedge.net/analytics-get-started-diagram.vsdx) of this architecture.*
 
+
+The diagram above demonstrates a typical basic/baseline analytics implementation. Refer to the [architectures](architectures) provided in this section to find real-world solutions that you can build in Azure.
+
+## Explore analytics architectures and guides
+
+The articles in this section include fully developed architectures that you can deploy in Azure and expand to production-grade solutions and guides. These can help you make important decisions about how you use analytics technologies in Azure. You can also review solution ideas, which give you a taste of what is possible as you plan your analytics POC development.
+
+### Architectures
+
+- [Analytics end-to-end with Microsoft Fabric](../../example-scenario/dataplate2e/data-platform-end-to-end.yml) - Build a modern analytics platform using Microsoft Fabric's integrated capabilities to handle common data challenges.
+- [Data warehousing and analytics](../../example-scenario/data/data-warehouse.yml) - Integrate large amounts of data from multiple sources into a unified analytics platform.
+- [Stream processing with Azure Databricks](../../reference-architectures/data/stream-processing-databricks.yml) - Create an end-to-end stream processing pipeline using Azure Databricks.
+- [Stream processing with Azure Stream Analytics](../../reference-architectures/data/stream-processing-stream-analytics.yml) - Build a stream processing pipeline that ingests data, correlates records, and calculates rolling averages.
+- [Greenfield lakehouse on Microsoft Fabric](../../example-scenario/data/greenfield-lakehouse-fabric.yml) - Create a robust, scalable data platform using the lakehouse design paradigm on Microsoft Fabric.
+- [Near real-time lakehouse data processing](../../example-scenario/data/real-time-lakehouse-data-processing.yml) - Use Azure Synapse Analytics and Azure Data Lake Storage for near real-time data lakehouse processing.
+
+### Solution ideas
+
+- [IoT analytics with Azure Data Explorer](./iot-azure-data-explorer.yml) - Analyze IoT telemetry data in near real-time at scale.
+- [Modern analytics architecture with Azure Databricks](./azure-databricks-modern-analytics-architecture.yml) - Collect, process, analyze, and visualize data using a modern data architecture.
+- [ETL pipelines with Azure Databricks and Delta Lake](./ingest-etl-stream-with-adb.yml) - Create ETL pipelines for batch and streaming data to simplify data lake ingestion.
+- [Data streaming with AKS](./data-streaming-scenario.yml) - Ingest and process real-time data streams with millions of data points collected via sensors.
+- [Modern data platform for SMBs](./small-medium-modern-data-platform.yml) - Build a modern data platform architecture for small and medium businesses using Microsoft Fabric and Azure Databricks.
+
+### Guides
+
+- [Choose an analytical data store](../../data-guide/technology-choices/analytical-data-stores.md) - Guidance on selecting the right data storage solution for your analytics workload.
+- [Choose a data analytics technology](../../data-guide/technology-choices/analysis-visualizations-reporting.md) - Compare options for data analysis and visualization in Azure.
+- [Choose a batch processing technology](../../data-guide/technology-choices/batch-processing.md) - Evaluate batch processing technologies for big data workloads.
+- [Choose a stream processing technology](../../data-guide/technology-choices/stream-processing.md) - Select the right stream processing technology for real-time analytics.
+- [Choose a data pipeline orchestration technology](../../data-guide/technology-choices/pipeline-orchestration-data-movement.md) - Compare pipeline orchestration and data movement options.
+
 ## Learn about analytics on Azure
 
 If you're new to analytics on Azure, the best place to learn more is with [Microsoft Learn](/training/?WT.mc_id=learnaka), a free, online training platform. You'll find videos, tutorials, and hands-on learning for specific products and services, plus learning paths based on your job role, such as developer or data analyst.
