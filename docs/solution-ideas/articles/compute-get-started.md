@@ -182,7 +182,7 @@ Managing compute costs on Azure requires understanding your usage patterns and s
 - [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) - Save up to 72% on VMs, App Service, AKS, and other compute services with 1-year or 3-year commitments.
 - [Azure Spot VMs](/azure/virtual-machines/spot-vms) - Access unused Azure capacity at significant discounts for interruptible workloads.
 - [Azure Savings Plan for Compute](/azure/cost-management-billing/savings-plan/savings-plan-compute-overview) - Flexible pricing for compute across VMs, App Service, Container Instances, and Functions Premium.
-- [Azure Hybrid Benefit](/azure/azure-hybrid-benefit/) - Use existing Windows Server, SQL Server, and Linux subscription licenses on Azure.
+- [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) - Use existing Windows Server, SQL Server, and Linux subscription licenses on Azure.
 - [Right-size resources](/azure/advisor/advisor-cost-recommendations) - Use Azure Advisor recommendations to identify underutilized VMs, App Service plans, and other resources.
 
 ## Stay current with compute
