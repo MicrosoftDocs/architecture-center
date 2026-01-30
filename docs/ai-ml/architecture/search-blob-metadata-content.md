@@ -94,7 +94,7 @@ Cost Optimization is about reducing unnecessary expenses and improving operation
 
 For information about the costs of running this scenario, see this preconfigured [estimate in the Azure pricing calculator](https://azure.com/e/375d2b930db14fbe90537421331f41de). All the services described here are configured in this estimate. The estimate is for a workload that has a total document size of 20 GB in Blob Storage and 1 GB of metadata in Table Storage. Two search units are used to satisfy the SLA for read purposes, as described in the [Reliability](#reliability) section of this article. To see how the pricing would change for your particular use case, change the appropriate variables to match your expected usage.
 
-If you review the estimate, you can see that the cost of blob and table storage is relatively low. Most of the cost is incurred by Azure AI Search, because it runs the actual indexing and compute for running search queries.
+If you review the estimate, you can see that the cost of blob and table storage is relatively low. Most of the cost is incurred by Azure AI Search because it runs the actual indexing and compute for running search queries.
 
 ## Deploy this scenario
 

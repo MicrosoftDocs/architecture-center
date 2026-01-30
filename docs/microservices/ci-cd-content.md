@@ -26,7 +26,7 @@ Here are some goals of a robust CI/CD process for a microservices architecture:
 
 In a traditional monolithic application, there's a single build pipeline whose output is the application executable. All development work feeds into this pipeline. If a high-priority bug is found, a fix must be integrated, tested, and published, which can delay the release of new features. You can mitigate these problems by having well-factored modules and using feature branches to minimize the impact of code changes. But as the application grows more complex, and more features are added, the release process for a monolith tends to become more brittle and likely to break.
 
-Following the microservices philosophy, there should never be a long release train where every team has to get in line. The team that builds service "A" can release an update on demand, without waiting for changes in service "B" to be merged, tested, and deployed.
+Following the microservices philosophy, there should never be a long release train where every team has to get in line. The team that builds service "A" can release an update when they choose, without waiting for changes in service "B" to be merged, tested, and deployed.
 
 ![Diagram of a CI/CD monolith](./images/cicd-monolith.png)
 

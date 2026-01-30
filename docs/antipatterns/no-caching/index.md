@@ -51,7 +51,7 @@ public class PersonRepository : IPersonRepository
 
 This antipattern typically occurs because:
 
-- Not using a cache is easier to implement and works adequately under low loads. Caching complicates the code.
+- Not using a cache is simpler to implement and works adequately under low loads. Caching complicates the code.
 - The benefits and drawbacks of using a cache aren't clearly understood.
 - There is concern about the overhead of maintaining the accuracy and freshness of cached data.
 - An application was migrated from an on-premises system, where network latency was not an issue, and the system ran on expensive high-performance hardware, so caching wasn't considered in the original design.

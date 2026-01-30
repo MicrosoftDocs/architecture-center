@@ -227,7 +227,7 @@ Symptoms of chatty I/O include high latency and low throughput. End users are li
 
 You can do the following steps to help identify the causes of any problems:
 
-1. Conduct process monitoring of the production system to identify operations with poor response times.
+1. Monitor the production system to identify operations with poor response times.
 2. Run load testing of each operation identified in the previous step.
 3. During the load tests, gather telemetry data about the data access requests made by each operation.
 4. Gather detailed statistics for each request sent to a data store.

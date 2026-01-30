@@ -16,7 +16,7 @@ Offloading processing to a database server can cause it to spend a significant p
 
 ## Problem description
 
-Many database systems can run code. Examples include stored procedures and triggers. Often, it's more efficient to carry out this processing close to the data, rather than transmitting the data to a client application for processing. However, overusing these features can hurt performance, for several reasons:
+Many database systems can run code. Examples include stored procedures and triggers. Often, it's more efficient to process the data close to where it's stored, rather than transmitting the data to a client application for processing. However, overusing these features can hurt performance, for several reasons:
 
 - The database server might spend too much time processing, rather than accepting new client requests and fetching data.
 - A database is usually a shared resource, so it can become a bottleneck during periods of high use.
@@ -208,7 +208,7 @@ using (var command = new SqlCommand(...))
 
 ## Considerations
 
-- Many database systems are highly optimized to run specific types of data processing, like calculating aggregate values over large datasets. Don't move those types of processing out of the database.
+- Many database systems are highly optimized to handle specific types of data processing, like calculating aggregate values over large datasets. Don't move those types of processing out of the database.
 
 - Do not relocate processing if doing so causes the database to transfer far more data over the network. See the [Extraneous Fetching antipattern][ExtraneousFetching].
 

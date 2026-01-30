@@ -50,7 +50,7 @@ You can use Karpenter to define node pools that have constraints on node provisi
 
 Before the launch of Karpenter, Amazon EKS users relied primarily on [Amazon EC2 auto scaling groups](https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroup.html) and the [Kubernetes cluster autoscaler](https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler) to dynamically adjust the compute capacity of their clusters. You don't need to create dozens of node groups to achieve the flexibility and diversity that Karpenter provides. Unlike the Kubernetes cluster autoscaler, Karpenter is less dependent on Kubernetes versions and doesn't require transitions between AWS and Kubernetes APIs.
 
-Karpenter consolidates instance orchestration responsibilities within a single system to make it more stable and cluster-aware while reducing complexity. Karpenter helps overcome challenges of the cluster autoscaler by providing simplified ways to:
+Karpenter consolidates instance orchestration responsibilities within a single system, which is simpler, more stable, and more cluster-aware. Karpenter helps overcome challenges of the cluster autoscaler by providing simplified ways to:
 
 - Configure nodes based on workload requirements.
 

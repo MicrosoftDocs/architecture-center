@@ -226,7 +226,7 @@ It's often challenging for the subject matter experts (SMEs) for a particular do
     CONTEXT:
     ```
 
-1. **Verify the output.** Verify that the questions are pertinent to the use case and that the answers address the question. A SME should do this verification.
+1. **Verify the output.** Verify that the questions are pertinent to the use case and that the answers address the question. A SME should review and validate the output.
 
 ### Unaddressed queries
 

@@ -382,7 +382,7 @@ Use reranking to run one or more queries, aggregate the results, and rank those 
 
 - Vector and keyword searches aren't always accurate. You want to increase the count of documents that you return from your search, which can include valid results that might otherwise be ignored, and use reranking to evaluate the results.
 
-You can use a language model or cross encoder to apply reranking. Some platforms, like AI Search, have proprietary methods to rerank results. You can evaluate these options for your data to determine what works best for your scenario. The following sections provide details about these methods.
+You can use a language model or cross‑encoder to rerank results. Some platforms, like AI Search, have proprietary methods to rerank results. You can evaluate these options for your data to determine what works best for your scenario. The following sections provide details about these methods.
 
 #### Language model reranking
 
