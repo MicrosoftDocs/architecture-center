@@ -96,10 +96,6 @@ If your organization is new to the cloud, the [Cloud Adoption Framework](/azure/
 
 To help assure the quality of your compute solution on Azure, we recommend following the [Azure Well-Architected Framework](/azure/well-architected/). It provides prescriptive guidance for organizations seeking architectural excellence and discusses how to design, provision, and monitor cost-optimized Azure solutions.
 
-- [Reliability pillar - Compute](/azure/well-architected/reliability/identify-flows)
-- [Cost Optimization pillar - Compute](/azure/well-architected/cost-optimization/optimize-scaling-costs)
-- [Performance Efficiency pillar - Compute](/azure/well-architected/performance-efficiency/scale-partition)
-
 ## Implementation checklist
 
 As you're looking to implement your own compute solution on Azure, ensure you've reviewed the following topics:
@@ -107,7 +103,6 @@ As you're looking to implement your own compute solution on Azure, ensure you've
 > [!div class="checklist"]
 >
 > - Choose the appropriate [compute service](#choose-your-compute-service) based on your requirements
-> - Know which [VM sizes and families](#virtual-machine-sizing) are right for your workload
 > - Identify the right [scaling strategy](#scaling) that meets your needs
 > - Decide how you're going to [manage](#management-and-operations) all your resources
 > - Optimize your [application](#application-optimization) for the cloud
