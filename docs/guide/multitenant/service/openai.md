@@ -32,7 +32,7 @@ The following table summarizes Azure OpenAI deployment approaches in a multitena
 |-|-|-|-|-|
 | Data isolation | High | Medium | Low | High |
 | Performance isolation | High | High | Low to medium, depending on the token-per-minute (TPM) usage for each tenant | High |
-| Deployment complexity | Low to medium, depending on the number of tenants | Medium, you manage deployment names and quotas | Low | Not applicable, managed by customer |
+| Deployment complexity | Low to medium, depending on the number of tenants | Medium, you manage deployment names and quotas | Low | Not applicable, customer-managed |
 | Operational complexity | Low | Medium | High | Low for the provider, medium to high for the tenant |
 | Example scenario | Single tenant deployments that require network isolation from other tenants | Tenants that have specific model life cycle or fine-tuning requirements | Large multitenant solutions that have a shared application tier | Tenants that have specific compliance or fine-tuning requirements |
 
@@ -92,19 +92,19 @@ If tenants have requirements that you can't meet with a shared deployment, creat
 
 Each model deployment has a unique URL, but all Azure OpenAI deployments share the same underlying model infrastructure.
 
-Azure OpenAI doesn't enforce access control for each model deployment. Your application must enforce which tenants can access which model deployments.
+Azure OpenAI doesn't enforce access control for each model deployment. Your application must enforce the tenant-to-deployment access rules.
 
 ### Tenant-provided Azure OpenAI resource
 
 Your tenants can create Azure OpenAI instances in their own Azure subscriptions and grant your application access. Consider this approach for the following scenarios:
 
-- Tenants have specific quotas and permissions from Microsoft, including access to certain models, defined content filtering policies, or provisioned throughput usage.
+- Tenants have specific quotas and permissions from Microsoft, including access to specific models, defined content filtering policies, or provisioned throughput usage.
 
 - Tenants have a fine-tuned model that they need to use from your solution.
 
 - Tenants require a component in their environment to process and send data through their customer-managed Azure OpenAI instance for processing.
 
-To access an Azure OpenAI instance in your tenant's subscription, the tenant must provide your application with access. Your application must authenticate through its Microsoft Entra instance. One approach is to publish a [multitenant Microsoft Entra application](/entra/identity-platform/single-and-multi-tenant-apps). The following workflow outlines this approach:
+To access an Azure OpenAI instance in your tenant's subscription, the tenant must grant your application access. Your application must authenticate through its Microsoft Entra instance. One approach is to publish a [multitenant Microsoft Entra application](/entra/identity-platform/single-and-multi-tenant-apps). The following workflow outlines this approach:
 
 1. The tenant registers the multitenant Microsoft Entra application in its own Microsoft Entra tenant.
 
@@ -154,7 +154,7 @@ The Assistants API supports function invocation, which sends your application in
 
 The [Azure OpenAI on your data feature](/azure/ai-foundry/openai/concepts/use-your-data) lets the large language model directly query your knowledge sources, like indexes and databases, to ground its responses. When you make a request, you can specify the data sources to query.
 
-In a multitenant solution, ensure that your data sources are multitenancy-aware and that you can specify tenant filters on your requests. Propagate the tenant ID to the data source appropriately. For example, if you query Azure AI Search with data for multiple tenants in a single index, specify a filter to return only the current tenant's ID. If you create an index for each tenant, specify the correct index for the current tenant.
+In a multitenant solution, ensure that your data sources are multitenancy-aware and that you can specify tenant filters on your requests. Propagate the tenant ID to the data source appropriately. For example, if you query Azure AI Search that stores data for multiple tenants in a single index, specify a filter to return only the current tenant's ID. If you create an index for each tenant, specify the correct index for the current tenant.
 
 ### Batch deployments
 
@@ -162,7 +162,7 @@ In a multitenant solution, ensure that your data sources are multitenancy-aware 
 
 Use batch deployments when you don't need immediate responses and want to process large volumes of requests without disrupting real-time workloads. For example, a sentiment analysis system can use a batch deployment to avoid throttling the standard deployment quota that it needs to conduct real-time interactions in other applications. This approach also reduces processing costs.
 
-In a multitenant solution, you can share batch deployments among tenants or create separate deployments for each tenant.
+In a multitenant solution, you can share batch deployments among tenants or create separate deployments for each tenant:
 
 - **Separate batch deployments for each tenant:** Assign token quotas to each tenant-specific batch deployment to prevent any single tenant from monopolizing resources. This approach also lets you track token usage per tenant for cost allocation.
 
@@ -192,4 +192,4 @@ Other contributors:
 
 - [Architectural approaches for the deployment and configuration of multitenant solutions](../approaches/deployment-configuration.md)
 - [Architectural approaches for cost management and allocation in a multitenant solution](../../multitenant/approaches/cost-management-allocation.md)
-- [Checklist for architecting and building multitenant solutions on Azure](../../multitenant/checklist.md)
+- [Multitenancy checklist on Azure](../../multitenant/checklist.md)
