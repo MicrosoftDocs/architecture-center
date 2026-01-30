@@ -76,7 +76,6 @@ Here are some resources to get you started:
 
 - [Browse Azure data topics](/training/browse/?products=azure&filter-products=data&terms=data)
 - [Introduction to Microsoft Azure Data core data concepts](/training/paths/azure-data-fundamentals-explore-core-data-concepts/)
-- [Implement a data analytics solution with Azure Databricks](/training/paths/data-engineer-azure-databricks/)
 - [Get started with Microsoft Fabric](/training/paths/get-started-fabric/)
 
 
@@ -168,8 +167,6 @@ Real-time analytics enables organizations to act on data as it arrives:
 ### Example solutions
 
 Here are some additional sample implementations of analytics on Azure to consider:
-
-- [IoT analytics with Azure Data Explorer](./iot-azure-data-explorer.yml) - Real-time analytics for IoT and telemetry data at scale.
 
 - [Create a modern analytics architecture by using Azure Databricks](./azure-databricks-modern-analytics-architecture.yml) - Enterprise-grade analytics using Apache Spark.
 
