@@ -35,7 +35,7 @@ A service can throttle based on different metrics over time, such as:
 
 Regardless of the metric used for throttling, your rate limiting implementation will involve controlling the number and/or size of operations sent to the service over a specific time period, optimizing your use of the service while not exceeding its throttling capacity.
 
-In scenarios where your APIs can handle requests faster than throttled ingestion services allow, you must control how quickly you use the service. Treating throttling only as a data-rate mismatch and buffering ingestion requests until the service recovers creates risk. If your application crashes in this scenario, any buffered data might be lost.
+In scenarios where your APIs can handle requests faster than throttled ingestion services allow, you must manage how quickly you use the service. Treating throttling only as a data-rate mismatch and buffering ingestion requests until the service recovers creates risk. If your application crashes in this scenario, any buffered data might be lost.
 
 To avoid this risk, consider sending your records to a durable messaging system that *can* handle your full ingestion rate. (Services such as Azure Event Hubs can handle millions of operations per second). You can then use one or more job processors to read the records from the messaging system at a controlled rate that is within the throttled service's limits. Submitting records to the messaging system can save internal memory by allowing you to dequeue only the records that can be processed during a given time interval.
 
