@@ -99,7 +99,7 @@ Articles use one of three patterns:
 
 The repository has **7 TOC files**:
 
-- `docs/toc.yml` (1,040 lines) - Main navigation for the entire site
+- `docs/toc.yml` - Main navigation for the entire site
 - `docs/ai-ml/toc.yml` - AI + Machine Learning workload navigation
 - `docs/databases/toc.yml` - Databases workload navigation
 - `docs/networking/toc.yml` - Networking workload navigation
