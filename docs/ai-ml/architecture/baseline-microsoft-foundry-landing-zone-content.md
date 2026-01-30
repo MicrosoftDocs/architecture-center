@@ -47,8 +47,8 @@ The following resources remain mostly unchanged from the [baseline architecture]
 - **[Foundry resource](/azure/ai-foundry/what-is-azure-ai-foundry)** and **[projects](/azure/ai-foundry/how-to/create-projects)** is an application platform for AI developers and data scientists to build, evaluate, and deploy AI models and host agents. In this architecture, the Foundry resource enables the workload team to host generative AI models as a service (MaaS), implement content safety, and establish workload-specific connections to knowledge sources and tools.
 
   If your organization's AI Center of Excellence restricts access to AI model deployments, the workload team might not host models in their own Foundry resource. Instead, they might need to use [centralized AI resources](/azure/cloud-adoption-framework/scenarios/ai/plan) such as an AI hub. In this scenario, all model consumption usually flows through an AI gateway that your AI platform team provides.
-  
-  This article assumes that generative AI models in this scenario are workload-owned resources. If they're not, the model host or an [AI gateway](/azure/api-management/genai-gateway-capabilities) becomes a workload dependency. The platform team must maintain reliable network connectivity from your virtual network to their virtual network or a private endpoint must be established.
+
+  This article assumes that generative AI models in this scenario are workload owned and hosted resources. If they're not, the model host or an [AI gateway](/azure/api-management/genai-gateway-capabilities) becomes a workload dependency. The platform team must maintain reliable network connectivity from your virtual network to their virtual network or a private endpoint must be established.
 
 - **[Agent Service](/azure/ai-services/agents/overview)** is a cloud-native runtime environment that enables intelligent agents to operate securely and autonomously. In this architecture, Agent Service provides the orchestration layer for chat interactions. It hosts and manages the chat agent that processes user requests. This architecture supports both declarative and containerized agents.
 
