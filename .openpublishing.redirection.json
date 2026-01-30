@@ -7711,6 +7711,11 @@
       "source_path": "docs/example-scenario/mainframe/refactor-mainframe-applications-advanced.yml",
       "redirect_url": "/azure/architecture/example-scenario/mainframe/general-mainframe-refactor",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/topics/high-performance-computing.md",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
+      "redirect_document_id": false
     }
   ]
 }
