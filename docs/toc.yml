@@ -494,7 +494,7 @@ items:
   - name: Compute
     items:
     - name: Get started
-      href: compute-get-started.md
+      href: solution-ideas/articles/compute-get-started.md
     - name: Guides
       items:
       - name: Choose a compute service

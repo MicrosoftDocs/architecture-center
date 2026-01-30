@@ -26,13 +26,7 @@ These are some of the key compute services available on Azure:
 
 ## Architecture
 
-:::image type="complex" border="false" source="../media/compute-get-started-diagram.svg" alt-text="Diagram that shows the compute solution journey on Azure." lightbox="../media/compute-get-started-diagram.svg":::
-   Diagram showing the solution journey for compute on Azure. The journey starts with learning and organizational readiness, then moves to choosing appropriate Azure compute services based on workload requirements, followed by implementation best practices and production deployment.
-:::image-end:::
-
-*Download a [Visio file](https://arch-center.azureedge.net/compute-get-started-diagram.vsdx) of this architecture.*
-
-The diagram demonstrates a typical approach to implementing compute solutions on Azure. Refer to the [architectures](#explore-compute-architectures-and-guides) provided in this section to find real-world solutions that you can build in Azure.
+The typical approach to implementing compute solutions on Azure starts with learning and organizational readiness, then moves to choosing appropriate Azure compute services based on workload requirements, followed by implementation best practices and production deployment. Refer to the [architectures](#explore-compute-architectures-and-guides) provided in this section to find real-world solutions that you can build in Azure.
 
 ## Explore compute architectures and guides
 
@@ -56,8 +50,8 @@ The articles in this section include fully developed architectures that you can 
 
 - [Choose an Azure compute service](../../guide/technology-choices/compute-decision-tree.md) - Decision tree for selecting the right compute option.
 - [Compute services comparison](../../guide/technology-choices/compute-decision-tree.yml) - Compare Azure compute services side by side.
-- [Virtual machines in Azure](../../guide/virtual-machines/overview.md) - Overview of VM options and scenarios.
-- [Containers on Azure](../../guide/containers/overview.md) - Guidance for container-based workloads.
+- [Virtual machines in Azure](../../virtual-machines/baseline.yml) - Baseline architecture for VM workloads.
+- [Containers on Azure](../../guide/choose-azure-container-service.md) - Guidance for choosing container services.
 
 ## Learn about compute on Azure
 
@@ -65,7 +59,7 @@ If you're new to compute on Azure, the best place to learn more is with [Microso
 
 Here are some resources to get you started:
 
-- [Azure fundamentals: Describe Azure compute and networking services](/training/paths/azure-fundamentals-describe-azure-compute-networking-services/)
+- [Azure fundamentals: Describe Azure compute and networking services](/training/modules/describe-azure-compute-networking-services/)
 - [Deploy and run a containerized web app with Azure App Service](/training/modules/deploy-run-container-app-service/)
 - [Introduction to Azure Kubernetes Service](/training/modules/intro-to-azure-kubernetes-service/)
 - [Create serverless applications](/training/paths/create-serverless-applications/)
@@ -84,8 +78,8 @@ If your organization is new to the cloud, the [Cloud Adoption Framework](/azure/
 To help assure the quality of your compute solution on Azure, we recommend following the [Azure Well-Architected Framework](/azure/well-architected/). It provides prescriptive guidance for organizations seeking architectural excellence and discusses how to design, provision, and monitor cost-optimized Azure solutions.
 
 - [Reliability pillar - Compute](/azure/well-architected/reliability/identify-flows)
-- [Cost Optimization pillar - Compute](/azure/well-architected/cost-optimization/optimize-compute)
-- [Performance Efficiency pillar - Compute](/azure/well-architected/performance-efficiency/optimize-compute)
+- [Cost Optimization pillar - Compute](/azure/well-architected/cost-optimization/optimize-scaling-costs)
+- [Performance Efficiency pillar - Compute](/azure/well-architected/performance-efficiency/scale-partition)
 
 ## Implementation checklist
 
@@ -164,8 +158,8 @@ Following best practices helps ensure your compute solution on Azure is reliable
 
 - [Autoscaling best practices](../../best-practices/auto-scaling.md) - Learn about dynamic scaling to right-size your infrastructure.
 - [Background jobs guidance](../../best-practices/background-jobs.md) - Implement background processing for long-running tasks.
-- [Caching guidance](../../best-practices/caching.md) - Improve performance and reduce load on backend systems.
-- [Content delivery network guidance](../../best-practices/cdn.md) - Distribute content closer to users for better performance.
+- [Caching guidance](../../best-practices/caching.yml) - Improve performance and reduce load on backend systems.
+- [Content delivery network guidance](../../best-practices/cdn.yml) - Distribute content closer to users for better performance.
 
 ### Cost optimization
 
@@ -185,7 +179,7 @@ Get the latest updates on [Azure products and features](https://azure.microsoft.
 To stay current with key compute services, see:
 
 - [What's new in Azure Virtual Machines](/azure/virtual-machines/whats-new)
-- [AKS release notes](/azure/aks/release-notes)
+- [AKS release notes](/azure/aks/release-tracker)
 - [Azure App Service announcements](https://azure.github.io/AppService/feed.xml)
 - [Azure Functions updates](/azure/azure-functions/functions-versions)
 
@@ -198,7 +192,7 @@ Compute is a broad category and covers a range of solutions. The following resou
 Many organizations need a hybrid approach to compute because they have workloads running both on-premises and in the cloud. Azure provides services to extend your datacenter to the cloud and run Azure services on-premises:
 
 - [Azure Arc](/azure/azure-arc/overview) - Extend Azure management and services to any infrastructure.
-- [Azure Stack HCI](/azure/azure-stack/hci/overview) - Run Azure services on-premises with a hyperconverged infrastructure solution.
+- [Azure Local](/azure/azure-local/overview) - Run Azure services on-premises with a hyperconverged infrastructure solution.
 - [Hybrid network architecture](../../reference-architectures/hybrid-networking/index.yml) - Connect on-premises networks to Azure.
 
 Key hybrid compute scenarios:
@@ -218,9 +212,9 @@ High-performance computing (HPC) uses large clusters of computers to solve compl
 
 Container-based architectures are increasingly popular for building scalable, portable applications:
 
-- [Containers on Azure](../../guide/containers/overview.md) - Guidance for container workloads.
+- [Choose an Azure container service](../../guide/choose-azure-container-service.md) - Guidance for container workloads.
 - [AKS baseline architecture](../../reference-architectures/containers/aks/baseline-aks.yml) - Production-ready Kubernetes deployment.
-- [Microservices architecture](../../guide/architecture-styles/microservices.yml) - Design patterns for microservices.
+- [Microservices architecture](../../guide/architecture-styles/microservices.md) - Design patterns for microservices.
 
 ### Example solutions
 
@@ -242,12 +236,12 @@ These articles can help you ramp up quickly by comparing Azure compute options t
 ## Next steps
 
 - [Choose an Azure compute service](../../guide/technology-choices/compute-decision-tree.md)
-- [Azure fundamentals: Describe Azure compute and networking services](/training/paths/azure-fundamentals-describe-azure-compute-networking-services/)
+- [Azure fundamentals: Describe Azure compute and networking services](/training/modules/describe-azure-compute-networking-services/)
 - [Architect compute infrastructure in Azure](/training/paths/architect-compute-infrastructure/)
 
 ## Related resources
 
 - [Compute decision tree](../../guide/technology-choices/compute-decision-tree.md)
-- [Virtual machines in Azure](../../guide/virtual-machines/overview.md)
-- [Containers on Azure](../../guide/containers/overview.md)
+- [Virtual machines in Azure](../../virtual-machines/baseline.yml)
+- [Containers on Azure](../../guide/choose-azure-container-service.md)
 - [Autoscaling best practices](../../best-practices/auto-scaling.md)
