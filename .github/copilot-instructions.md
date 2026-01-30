@@ -25,7 +25,7 @@ The data in the repo helps professional cloud architects and software engineers 
 ## Repository structure
 
 - This is the **private repository** (`-pr` suffix) for internal Microsoft authoring.
-- A corresponding **public repository** exists at <https://github.com/MicrosoftLearn/architecture-center>.
+- A corresponding **public repository** exists at <https://github.com/MicrosoftDocs/architecture-center>.
 - The `main` branch is for development; the `live` branch reflects published content.
 
 ## Your behavior
@@ -147,14 +147,14 @@ These content types do not directly map to the file system. Their destinations a
 
 ## Thumbnail images and Browse experience
 
-Articles with YAML metadata may include a **`thumbnailUrl`** field:
+Articles with YAML metadata must include a **`thumbnailUrl`** field:
 
 ```yaml
 thumbnailUrl: /azure/architecture/browse/thumbs/article-name.png
 ```
 
 - All thumbnails are centralized in `docs/browse/thumbs/` directory
-- Thumbnails power the Browse experience gallery at `learn.microsoft.com/azure/architecture/browse`
+- Thumbnails power the Browse experience gallery at <https://learn.microsoft.com/azure/architecture/browse>
 - Thumbnails are separate from article images in local `_images/` folders
 - Typically the thumbnail is a PNG export of the main article diagram (which is often SVG)
 - When updating diagrams, both the article image and browse thumbnail may need updates
