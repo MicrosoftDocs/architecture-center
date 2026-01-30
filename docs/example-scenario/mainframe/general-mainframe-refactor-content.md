@@ -101,7 +101,7 @@ This example features the following Azure components. Several of these component
 - [Private Link](/azure/private-link/private-link-overview) is a service that provides private connectivity from a virtual network to Azure services. In this architecture, Private Link simplifies network architecture and secures the connection between Azure endpoints by eliminating exposure to the public internet.
 
 <<<<<<< HEAD
-- [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is a fully managed service that adds a quick-caching layer to application architecture to handle large volumes at high speed. This architecture component scales performance efficiently and cost-effectively.
+- [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is a fully managed service that adds a quick-caching layer to application architecture to handle large volumes at high speed. This architecture component scales performance simply and cost-effectively.
 =======
 - [Azure Managed Redis](/azure/redis/overview) is a fully managed service that adds a caching layer to application architecture to handle large volumes at high speed. This architecture component scales performance simply and cost-effectively.
 >>>>>>> f9d88134ad6cdaa13a45e853f530feda934766ce

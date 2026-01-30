@@ -22,7 +22,7 @@ Consider the following points when deciding how to implement this pattern:
 
 - Storage accounts are often geo-replicated by default to provide resiliency against events that might affect a datacenter. This means that the IP address might change, but the URL will remain the same.
 
-- When some content is located in a storage account and other content is in a hosted compute instance, it becomes more challenging to deploy and update the application. You might have to perform separate deployments, and version the application and content to manage it more easily&mdash;especially when the static content includes script files or UI components. However, if you need to update only static resources, you can upload them to the storage account without redeploying the application package.
+- When some content is located in a storage account and other content is in a hosted compute instance, it becomes more challenging to deploy and update the application. You might need to deploy the application and its content separately, and version them to manage updates more effectively, especially when the static content includes script files or UI components. But if only static resources need to be updated, you can upload them to the storage account without redeploying the application package.
 
 - Storage services might not support the use of custom domain names. In this case it's necessary to specify the full URL of the resources in links because they'll be in a different domain from the dynamically generated content containing the links.
 

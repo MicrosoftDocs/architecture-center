@@ -30,7 +30,7 @@ Scalability is measured by the ratio of throughput gain to resource increase. Id
 
 **Offload naturally asynchronous tasks.** Tasks like sending emails, actions where the user doesn't need an immediate response, and integration with other systems are all good places to make use of [asynchronous messaging patterns](/dotnet/architecture/microservices/architect-microservice-container-applications/asynchronous-message-based-communication).
 
-**Offload resource-intensive tasks.** Tasks that require intensive CPU or I/O resources should be moved to [background jobs][background-jobs] when possible, to minimize the load on the front end that handles user requests.
+**Offload resource-intensive tasks.** Tasks that require high CPU or I/O resources should be moved to [background jobs][background-jobs] when possible, to minimize the load on the front end that handles user requests.
 
 **Autoscale based on live usage metrics and use built-in autoscaling features**. Many Azure compute services have built-in support for autoscaling. If the application has a predictable, regular workload, scale out on a schedule. For example, scale out during business hours. Otherwise, if the workload isn't predictable, use performance metrics such as CPU or request queue length to trigger autoscaling. Observe applications and their communications to identify bottlenecks and to derive more accurate decisions. For autoscaling best practices, see [Autoscaling][autoscaling].
 
