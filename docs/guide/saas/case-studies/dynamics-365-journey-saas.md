@@ -1,4 +1,3 @@
-
 ---
 title: "The journey to SaaS: Dynamics 365"
 description: Learn from a first-hand account about the journey and decisions that made Microsoft Dynamics 365 a successful SaaS product.
