@@ -19,8 +19,7 @@ Data can be processed in batches or in real-time, on-premises or in the cloud, b
 
 These are some of the key analytics services available on Azure:
 
-- [Microsoft Fabric](/fabric/). A unified analytics platform that brings together data engineering, data integration, data warehousing, data science, real-time analytics, and business intelligence.
-- [Azure Synapse Analytics](/azure/synapse-analytics/). An integrated analytics service that combines data integration, enterprise data warehousing, and big data analytics.
+- [Choose an analytical data store on Azure](../../data-guide/technology-choices/analytical-data-stores.md). Guidance on selecting the right data storage solution based on your workload requirements.
 - [Azure Databricks](/azure/databricks/). An Apache Spark-based analytics platform optimized for the Azure cloud services platform.
 - [Azure Data Explorer](/azure/data-explorer/). A data analytics service optimized for real-time analysis on large volumes of streaming data.
 - [Power BI](/power-bi/). A suite of business analytics tools that deliver insights throughout your organization.
