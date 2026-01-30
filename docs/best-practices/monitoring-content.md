@@ -390,7 +390,7 @@ You should log all exceptions and warnings, and ensure that you retain a full tr
 Many applications use libraries and frameworks to perform common tasks such as accessing a data store or communicating over a network. These frameworks might be configurable to provide their own trace messages and raw diagnostic information, such as transaction rates and data transmission successes and failures.
 
 > [!NOTE]
-> Many modern frameworks automatically publish performance and trace events. Capturing this information involves providing a way to retrieve and store it so that it can be processed and analyzed.
+> Many modern frameworks automatically publish performance and trace events. Provide a method to retrieve and store the information so that the system can process and analyze the data.
 
 The operating system where the application is running can be a source of low-level system-wide information, such as performance counters that indicate I/O rates, memory utilization, and CPU usage. Operating system errors (such as the failure to open a file correctly) might also be reported.
 

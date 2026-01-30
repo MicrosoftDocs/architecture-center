@@ -739,7 +739,7 @@ On Azure, consider using [Azure API Management](/azure/api-management) to publis
 1. Create a product. A product is the unit of publication; you add the web APIs that you previously connected to the management service to the product. When the product is published, the web APIs become available to developers.
 
     > [!NOTE]
-    > Before you publish a product, you can also define user-groups that can access the product and add users to these groups. This gives you control over the developers and applications that can use the web API. If a web API requires approval, a developer must send a request to the product administrator before they can access it. The administrator can grant or deny access to the developer. Existing developers can also be blocked if circumstances change.
+    > Before you publish a product, you can define user-groups that can access the product and add users to these groups. This gives you control over the developers and applications that can use the web API. If a web API requires approval, a developer must send a request to the product administrator before they can access it. The administrator can grant or deny access to the developer. Existing developers can also be blocked if circumstances change.
 
 1. Configure policies for each web API. Policies govern aspects such as whether cross-domain calls should be allowed, how to authenticate clients, whether to convert between XML and JSON data formats transparently, whether to restrict calls from a given IP range, usage quotas, and whether to limit the call rate. Policies can be applied globally across the entire product, for a single web API in a product, or for individual operations in a web API.
 
