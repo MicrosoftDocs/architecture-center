@@ -64,7 +64,7 @@ For resilient solutions, deploy multiple baseline cluster instances across regio
 The [Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/overview) provides guidance for each phase of the cloud adoption life cycle. It includes tools, programs, and content to simplify Kubernetes adoption and related cloud-native practices at scale.
 
 > [!div class="nextstepaction"]
-> [AKS landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/aks/landing-zone-accelerator)
+> [AKS landing zone guidance](/azure/cloud-adoption-framework/scenarios/app-platform/aks/landing-zone-accelerator)
 
 As part of ongoing operations, periodically check your cluster to ensure that it aligns with recommended best practices. Start by aligning your cluster with the [AKS baseline cluster](../../reference-architectures/containers/aks/baseline-aks.yml).
 
