@@ -23,6 +23,7 @@ These are some of the key analytics services available on Azure:
 - [Azure Databricks](/azure/databricks/). An Apache Spark-based analytics platform optimized for the Azure cloud services platform.
 - [Azure Data Explorer](/azure/data-explorer/). A data analytics service optimized for real-time analysis on large volumes of streaming data.
 - [Power BI](/power-bi/). A suite of business analytics tools that deliver insights throughout your organization.
+- [Microsoft Fabric](/fabric/). A unified analytics platform that brings together data engineering, data integration, data warehousing, data science, real-time analytics, and business intelligence.
 
 ## Architecture
 
@@ -46,7 +47,6 @@ The articles in this section include fully developed architectures that you can 
 - [Stream processing with Azure Databricks](../../reference-architectures/data/stream-processing-databricks.yml) - Create an end-to-end stream processing pipeline using Azure Databricks.
 - [Stream processing with Azure Stream Analytics](../../reference-architectures/data/stream-processing-stream-analytics.yml) - Build a stream processing pipeline that ingests data, correlates records, and calculates rolling averages.
 - [Greenfield lakehouse on Microsoft Fabric](../../example-scenario/data/greenfield-lakehouse-fabric.yml) - Create a robust, scalable data platform using the lakehouse design paradigm on Microsoft Fabric.
-- [Near real-time lakehouse data processing](../../example-scenario/data/real-time-lakehouse-data-processing.yml) - Use Azure Synapse Analytics and Azure Data Lake Storage for near real-time data lakehouse processing.
 
 ### Solution ideas
 
