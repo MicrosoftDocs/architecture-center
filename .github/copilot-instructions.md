@@ -69,7 +69,7 @@ Articles use one of three patterns:
 - `article-name.yml` - Contains ALL metadata
 - `article-name-content.md` - Contains ONLY content body (no frontmatter)
 - The YAML file uses `[!INCLUDE[](article-name-content.md)]` to pull in content at build time
-- Used for: patterns, reference architectures, structured articles with rich metadata
+- It should be used for: solution ideas, example workloads, and reference architectures only.
 
 **Pattern 2: Pure Markdown with frontmatter** (traditional)
 
