@@ -64,23 +64,23 @@ If you're asked to create data that goes into the Markdown files in this repo. U
 
 Articles use one of three patterns:
 
-**Pattern 1: YAML + Markdown pair** (most common for structured content)
+**Pattern 1: YAML + Markdown pair**
 
 - `article-name.yml` - Contains ALL metadata
 - `article-name-content.md` - Contains ONLY content body (no frontmatter)
 - The YAML file uses `[!INCLUDE[](article-name-content.md)]` to pull in content at build time
-- It should be used for: solution ideas, example workloads, and reference architectures only.
+- Used for: solution ideas, example workloads, and reference architectures
 
-**Pattern 2: Pure Markdown with frontmatter** (traditional)
+**Pattern 2: Pure Markdown with frontmatter**
 
 - `article-name.md` - Contains frontmatter metadata + content in one file
 - Metadata is between `---` delimiters at the top
-- Used for: guides, best practices, some patterns
+- Used for: guides, best practices, and architectural patterns
 
-**Pattern 3: Pure YAML** (navigation and landing pages)
+**Pattern 3: Pure YAML**
 
 - `article-name.yml` - Self-contained YAML, often with inline Markdown
-- Used for: `toc.yml` files, `index.yml` landing pages
+- Used for: navigation files (`toc.yml`, `index.yml`)
 
 The same folder can mix all three patterns. Always check which pattern an article uses before editing.
 
