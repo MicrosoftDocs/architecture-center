@@ -46,7 +46,7 @@ Consider using Azure Cosmos DB for NoSQL for mission-critical workloads. This op
 
   Zone redundancy is also enabled within each replicated region.
 
-  For more information about multi-region writes, see [Configure multi-region writes in your applications that use Azure Cosmos DB](/azure/cosmos-db/sql/how-to-multi-master).
+  For more information about multi-region writes, see [Configure multi-region writes in your applications that use Azure Cosmos DB](/azure/cosmos-db/how-to-multi-master).
 
 - **Conflict management**
 
@@ -54,14 +54,14 @@ Consider using Azure Cosmos DB for NoSQL for mission-critical workloads. This op
 
 - **Query optimization**
 
-  A general query efficiency recommendation for read-heavy containers with a high number of partitions is to add an equality filter with the itemID identified. An in-depth review of query optimization recommendations can be found at [Troubleshoot query issues when using Azure Cosmos DB](/azure/cosmos-db/sql/troubleshoot-query-performance).
+  A general query efficiency recommendation for read-heavy containers with a high number of partitions is to add an equality filter with the itemID identified. An in-depth review of query optimization recommendations can be found at [Troubleshoot query issues when you use Azure Cosmos DB](/azure/cosmos-db/troubleshoot-query-performance).
 
 - **Backup feature**
 
   It's recommended that you use the native backup feature of Azure Cosmos DB for data protection. [Azure Cosmos DB backup feature](/azure/cosmos-db/online-backup-and-restore) supports online backups and on-demand data restore.
 
 > [!NOTE]
-> Most workloads aren't purely OLTP. There's an increasing demand for real-time reporting, such as running reports against the operational system. This is also referred to as HTAP (Hybrid Transactional and Analytical Processing). Azure Cosmos DB supports this capability via [Azure Synapse Link for Azure Cosmos DB](/azure/cosmos-db/synapse-link-use-cases).
+> Most workloads aren't purely OLTP. There's an increasing demand for real-time reporting, such as running reports against the operational system. This is also referred to as HTAP (Hybrid Transactional and Analytical Processing). Azure Cosmos DB supports this capability via [Mirroring in Fabric for Cosmos DB](/fabric/mirroring/azure-cosmos-db).
 
 ### Data model for the workload
 
@@ -132,12 +132,12 @@ The messaging system must be able to handle the required throughput (as in MB pe
 - For Azure Service Bus, the NFRs should specify any advanced Service Bus features such as sessions and de-duping messages. These features will affect the throughput of Service Bus.
 - The throughput of Service Bus with the required features should be calculated through testing as MB/second per Messaging Unit (MU). For more information about this topic, see [Service Bus premium and standard messaging tiers](/azure/service-bus-messaging/service-bus-premium-messaging).
 - The throughput of Azure Event Hubs should be calculated through testing as MB/second per throughput unit (TU) for the standard tier or processing unit (PU) for premium tier. For more information about this topic, see [Scaling with Event Hubs](/azure/event-hubs/event-hubs-scalability).
-- The above calculations can be used to validate that the messaging service can handle the required load per stamp, and the required number of scale units required to meet that load.
+- The preceding calculations can be used to validate that the messaging service can handle the required load per stamp, and the required number of scale units required to meet that load.
 - The operations section will discuss auto-scaling.
 
 ### Every message must be processed
 
-Azure Service Bus premium tier is the recommended solution for high-value messages for which processing must be guaranteed. The following details describe this requirement when you use Azure Service Bus premium:
+Azure Service Bus premium tier is the recommended solution for high-value messages for which processing must be guaranteed. The following are details regarding this requirement when you use Azure Service Bus premium:
 
 - To ensure that messages are properly transferred to and accepted by the broker, message producers should use one of the supported Service Bus API clients. Supported APIs will only return successfully from a send operation if the message was persisted on the queue/topic.
 - To ensure messages on the bus are processed, you should use [PeekLock receive mode](/azure/service-bus-messaging/message-transfers-locks-settlement#peeklock). This mode enables at-least once processing. The following steps outline the process:
@@ -160,7 +160,7 @@ One common technique of making message handling idempotent is to check a persist
 - There might be situations where the processing of the message includes database operations, specifically the insertion of new records with database-generated identifiers. New messages can be emitted to the broker, which contain those identifiers. Because there aren't distributed transactions that encompass both the database and the message broker, complications can occur if the process that runs the code fails. Consider the following examples:
   - The code emitting the messages might run before the database transaction is committed, which is how many developers work using the [Unit of Work pattern](https://www.programmingwithwolfgang.com/repository-and-unit-of-work-pattern). Those messages can *escape*, if the failure occurs between calling the broker and asking that the database transaction be committed. As the transaction rolls back, those database-generated IDs are also undone, which leaves them available to other code that might be running at the same time. This can cause recipients of the *escaped* messages to process the wrong database entries, which hurts the overall consistency and correctness of your system.
   - If developers put the code that emits the message *after* the database transaction completes, the process can still fail between these operations (transaction committed - message sent). When that happens, the message will go through processing again, but this time the idempotence guard clause will see that it has already been processed (based on the data stored in the database). The clause will skip the message emitting code, believing that everything was done successfully last time. Downstream systems, which were expecting to receive notifications about the completed process, don't receive anything. This situation again results in an overall state of inconsistency.
-- The solution to the above problems involves using the [Transactional Outbox pattern](/azure/architecture/databases/guide/transactional-outbox-cosmos), where the outgoing messages are stored *off to the side*, in the same transactional store as the business data. The messages are then transmitted to the message broker, when the initial message has been successfully processed.
+- The solution to the previously described problems involves using the [Transactional Outbox pattern](/azure/architecture/databases/guide/transactional-outbox-cosmos), where the outgoing messages are stored *off to the side*, in the same transactional store as the business data. The messages are then transmitted to the message broker, when the initial message has been successfully processed.
 - Since many developers are unfamiliar with these problems or their solutions, in order to guarantee that these techniques are applied consistently in a mission-critical system, we suggest you have the functionality of the outbox and the interaction with the message broker wrapped in some kind of library. All code processing and sending transactionally significant messages should make use of that library, rather than interacting with the message broker directly.
   - Libraries that implement this functionality in .NET include [NServiceBus](https://docs.particular.net/nservicebus/outbox) and [MassTransit](https://masstransit-project.com/advanced/transactional-outbox.html).
 
@@ -177,7 +177,7 @@ The message broker must be available for producers to send messages and consumer
 
 ### Monitoring
 
-The messaging system acts as a buffer between message producers and consumers. There are key indicator types that you should monitor in a mission-critical system that provide valuable insights described below:
+The messaging system acts as a buffer between message producers and consumers. You can gain valuable insights by monitoring key indicator types in a mission-critical system:
 
 - **Throttling** - Throttling indicates that the system doesn't have the required resources to process the request. Both Service Bus and Event Hubs support monitoring throttled requests. You should alert on this indicator.
 - **Queue depth** - A queue depth that is growing can indicate that message processors aren't working or there aren't enough processors to handle the current load. Queue depth can be used to inform auto-scaling logic of handlers.

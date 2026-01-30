@@ -70,7 +70,7 @@ With IoT Edge, the edge configuration controller can be implemented as a module,
 
 The benefits of this variation are:
 
-- The workload itself doesn’t have to be aware of the configuration system. This capability is a requirement if the source code of the workload isn't editable—for example, when using a module from the [Azure IoT Edge Marketplace](https://marketplace.microsoft.com/marketplace/apps?subcategories=iot-edge-modules&category=internet-of-things).
+- The workload itself doesn’t have to be aware of the configuration system. This capability is a requirement if the source code of the workload isn't editable, like when you use a module from the [Azure IoT Edge Marketplace](https://marketplace.microsoft.com/marketplace/apps?subcategories=iot-edge-modules&category=internet-of-things).
 - It's possible to change the configuration of multiple workloads at the same time by coordinating the changes via the cloud configuration controller.
 - Additional validation can be implemented as part of the push pipeline—for example, to validate existence of endpoints at the edge before pushing the configuration to the workload.
 

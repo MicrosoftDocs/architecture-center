@@ -147,7 +147,7 @@ Service Bus assigns a message to a fragment as follows:
 
 - If the *SessionId* and *PartitionKey* properties for a message aren't specified, but duplicate detection is enabled, the *MessageId* property is used. All messages with the same *MessageId* are directed to the same fragment.
 
-- If messages do not include a *SessionId, PartitionKey,* or *MessageId* property, then Service Bus assigns messages to fragments sequentially. If a fragment is unavailable, Service Bus will move on to the next. This means that a temporary fault in the messaging infrastructure doesn't cause the message-send operation to fail.
+- If messages do not include a *SessionId, PartitionKey,* or *MessageId* property, then Service Bus assigns messages to fragments sequentially. If a fragment is unavailable, Service Bus continues to the next fragment. This means that a temporary fault in the messaging infrastructure doesn't cause the message-send operation to fail.
 
 Consider the following points when deciding if or how to partition a Service Bus message queue or topic:
 

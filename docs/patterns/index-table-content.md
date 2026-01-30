@@ -85,7 +85,7 @@ Azure storage tables provide a highly scalable key/value data store for applicat
 
 Azure storage tables also support sharding. The sharding key includes two elements, a partition key and a row key. Items that have the same partition key are stored in the same partition (shard), and the items are stored in row key order within a shard. Table storage is optimized for performing queries that fetch data falling within a contiguous range of row key values within a partition. If you're building cloud applications that store information in Azure tables, you should structure your data with this feature in mind.
 
-For example, consider an application that stores information about movies. The application frequently queries movies by genre (action, documentary, historical, comedy, drama, and so on). You could create an Azure table with partitions for each genre by using the genre as the partition key, and specifying the movie name as the row key, as shown in the next figure.
+For example, consider an application that stores information about movies. The application frequently queries movies by genre (such as action, documentary, historical, comedy, and drama). You could create an Azure table with partitions for each genre by using the genre as the partition key, and specifying the movie name as the row key, as shown in the next figure.
 
 ![Figure 7 - Movie data stored in an Azure table](./_images/index-table-figure-7.png)
 

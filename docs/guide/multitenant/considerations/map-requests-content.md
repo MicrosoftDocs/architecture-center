@@ -34,7 +34,7 @@ If you don't use tenant-specific domain names, you might still be able to use as
 > [!IMPORTANT]
 > Custom HTTP request headers aren't useful where HTTP GET requests are issued from a web browser, or where the requests are handled by some types of web proxy. You should only use custom HTTP headers for GET operations when you're building an API, or if you control the client that issues the request and there's no web proxy included in the request processing chain that might modify or strip the headers.
 
-When using this approach, you should consider the following questions:
+When you use this approach, you should consider the following questions:
 
 - Will users know how to access the service? For example, if you use a query string to identify tenants, will a central landing page need to direct users to the correct tenant's page by adding the query string?
 - Do you have a central entry point, like a landing page or login page, that all tenants use? If you do, how will users select the tenant that they need to access?
@@ -147,6 +147,6 @@ Other contributors:
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
-## Next steps
+## Next step
 
-Learn about [considerations when you work with domain names in a multitenant application](domain-names.md).
+Learn about [identity in a multitenant application](./identity.md).

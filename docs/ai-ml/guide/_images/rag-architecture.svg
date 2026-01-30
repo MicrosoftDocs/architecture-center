@@ -286,12 +286,11 @@
 								x="0" dy="1.2em" class="st10">application</tspan></text>				</g>
 				<g id="shape247-106" v:mID="247" v:groupContext="shape" transform="translate(696.06,-103.707)">
 					<title>Sheet.247</title>
-					<desc>Azure OpenAI Service</desc>
+					<desc>Azure OpenAI</desc>
 					<v:textBlock v:margins="rect(0,0,0,0)"/>
 					<v:textRect cx="34.91" cy="291.379" width="69.82" height="23.5083"/>
 					<rect x="0" y="279.625" width="69.8199" height="23.5083" class="st6"/>
-					<text x="0" y="288.38" class="st9" v:langID="2052"><v:paragraph/><v:tabList/>Azure OpenAI <v:newlineChar/><tspan
-								x="0" dy="1.2em" class="st10">Service</tspan></text>				</g>
+					<text x="0" y="294.38" class="st9" v:langID="2052"><v:paragraph/><v:tabList/>Azure OpenAI</text>				</g>
 				<g id="shape248-110" v:mID="248" v:groupContext="shape" transform="translate(503.97,-137.85)">
 					<title>Sheet.248</title>
 					<desc>Orchestrator</desc>

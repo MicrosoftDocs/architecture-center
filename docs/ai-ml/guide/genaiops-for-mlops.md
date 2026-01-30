@@ -44,7 +44,7 @@ An orchestrator typically manages the workflow that generates these prompts. It 
 The following diagram shows an architecture for prompt engineering.
 
 :::image type="complex" source="_images/prompt-engineering-architecture.svg" lightbox="_images/prompt-engineering-architecture.svg" alt-text="Diagram that shows an architecture for prompt engineering." border="false":::
-   The diagram illustrates a flow. An intelligent application collects input from a user. The intelligent application and a headless intelligent application send the input to an orchestrator. The orchestrator calls the data stores. Then the orchestrator sends a prompt to Azure OpenAI.
+   The diagram illustrates a flow. An intelligent application collects input from a user. The intelligent application and a headless intelligent application send the input to an orchestrator. The orchestrator calls the data stores. Then the orchestrator sends a prompt to Azure OpenAI in Foundry Models.
 :::image-end:::
 
 This category of technical patterns can address many use cases:
@@ -63,7 +63,7 @@ A typical RAG implementation is to break up your source data into chunks and sto
 The following diagram illustrates a RAG architecture that includes data from documents.
 
 :::image type="complex" source="_images/rag-architecture.svg" lightbox="_images/rag-architecture.svg" alt-text="Diagram that shows a RAG architecture." border="false":::
-   The diagram illustrates two flows. The first flow starts with a user and then flows to an intelligent application. From there, the flow leads to an orchestrator. From the orchestrator, the flow leads to Azure OpenAI and to Azure AI Search, which is the last item in the second flow. The second flow starts with documents and then flows to four stages: chunk documents, enrich chunks, embed chunks, and index chunks. From there, the flow leads to the same Azure AI Search instance that connects to the first flow.
+   The diagram illustrates two flows. The first flow starts with a user and then flows to an intelligent application. From there, the flow leads to an orchestrator. From the orchestrator, the flow leads to Azure OpenAI in Foundry Models and to Azure AI Search, which is the last item in the second flow. The second flow starts with documents and then flows to four stages: chunk documents, enrich chunks, embed chunks, and index chunks. From there, the flow leads to the same Azure AI Search instance that connects to the first flow.
 :::image-end:::
 
 ## Extend MLOps for generative AI technical patterns
@@ -158,13 +158,13 @@ Some generative AI solutions include deploying custom-trained models or fine-tun
 
 #### Fine-tuning
 
-Use your existing MLOps investments, with some possible adjustments, to deploy generative AI models and fine-tune foundation models. For example, to fine-tune a large language model in Azure OpenAI, ensure that your training and validation datasets are in JSONL format, and upload the data via a REST API. Also create a fine-tuning job. To deploy a trained small language model, take advantage of your existing MLOps investments.
+Use your existing MLOps investments, with some possible adjustments, to deploy generative AI models and fine-tune foundation models. For example, to fine-tune a large language model in Azure OpenAI in Foundry Models, ensure that your training and validation datasets are in JSONL format, and upload the data via a REST API. Also create a fine-tuning job. To deploy a trained small language model, take advantage of your existing MLOps investments.
 
 #### RAG and prompting
 
-For RAG and prompting, consider orchestration logic, modifications to data stores such as indexes and schemas, and adjustments to data pipeline logic. Orchestration logic is typically encapsulated in a framework like the Microsoft Agent Framework SDK. You can deploy the orchestrator to different compute resources, including resources where you currently deploy custom models. Also, agent orchestrators can be low-code solutions, such as the Foundry Agent Service. For more information about how to deploy a chat agent, see [Baseline Microsoft Foundry chat reference architecture](../architecture/baseline-azure-ai-foundry-chat.yml).
+For RAG and prompting, consider orchestration logic, modifications to data stores such as indexes and schemas, and adjustments to data pipeline logic. Orchestration logic is typically encapsulated in a framework like the Microsoft Agent Framework SDK. You can deploy the orchestrator to different compute resources, including resources where you currently deploy custom models. Also, agent orchestrators can be low-code solutions, such as Foundry Agent Service. For more information about how to deploy a chat agent, see [Baseline Foundry chat reference architecture](../architecture/baseline-microsoft-foundry-chat.yml).
 
-Deployments of changes to database resources, like changes to data models or indexes, are new tasks that need to be handled in GenAIOps. A common practice when working with large language models is to [use a gateway in front of the large language model](azure-openai-gateway-guide.yml).
+Deployments of changes to database resources, like changes to data models or indexes, are new tasks that need to be handled in GenAIOps. A common practice when you work with large language models is to [use a gateway in front of the large language model](azure-openai-gateway-guide.yml).
 
 Many generative AI architectures that consume platform-hosted language models, like those served from Azure OpenAI, include a [gateway like Azure API Management](azure-openai-gateway-guide.yml#implementation-options). The gateway use cases include load balancing, authentication, and monitoring. The gateway can play a role in deployment of newly trained or fine-tuned models, which allows you to progressively roll out new models. The use of a gateway, along with model versioning, enables you to minimize risk when you deploy changes and to roll back to previous versions when problems occur.
 
@@ -245,5 +245,5 @@ As you start to extend your MLOps investments to include generative AI, it's imp
 ## Related resources
 
 - [Design and develop a RAG solution](rag/rag-solution-design-and-evaluation-guide.md)
-- [Baseline Microsoft Foundry chat reference architecture](../architecture/baseline-azure-ai-foundry-chat.yml)
+- [Baseline Foundry chat reference architecture](../architecture/baseline-microsoft-foundry-chat.yml)
 - [MLOps](machine-learning-operations-v2.md)

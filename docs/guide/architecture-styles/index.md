@@ -32,7 +32,7 @@ This section gives a quick tour of the architecture styles that we identified, a
 
 **[N-tier][n-tier]** is a traditional architecture for enterprise applications that divides an application into logical layers and physical tiers. Each layer has a specific responsibility, and layers manage dependencies by only calling into layers under them. Typical layers include presentation, business logic, and data access.
 
-N-tier architectures are well-suited for migrating existing applications that already use a layered architecture. This approach requires minimal changes when moving to Azure and supports mixed environments with both on-premises and cloud components. But the horizontal layering can make it difficult to introduce changes without affecting multiple parts of the application, which limits agility for frequent updates.
+N-tier architectures are well-suited for migrating existing applications that already use a layered architecture. This approach requires minimal changes when you move to Azure and supports mixed environments with both on-premises and cloud components. But the horizontal layering can make it difficult to introduce changes without affecting multiple parts of the application, which limits agility for frequent updates.
 
 ### Web-Queue-Worker
 

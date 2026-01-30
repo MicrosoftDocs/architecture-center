@@ -23,14 +23,14 @@ The scope of the model update in your generative AI solution can vary drasticall
 
 | Scope of change | Benefits of updating the model | Example |
 | :--- | :--- | :--- |
-| Minor version update | Delivers improved performance and refined capabilities, usually without requiring significant changes to your existing implementation | Moving from GPT-4o v2024-08-06 to GPT-4o v2024-11-20 |
-| Intermediate version update | Provides substantial performance improvements, new capabilities, and enhanced reliability while maintaining most backward compatibility and requiring only moderate implementation adjustments | Moving from GPT-3 to GPT-3.5 |
-| Major version update | Delivers transformational improvements in reasoning, capabilities, context size, and performance that justify the significant implementation changes and adjustment of prompts | Moving from GPT-3 to GPT-4 |
-| Variant update | Provides specialized optimizations, such as increased processing speed and reduced latency, while maintaining the core architecture and usually ensuring backward compatibility with the base model | Moving from GPT-4 to GPT-4-Turbo |
-| Generational version update | Delivers significant improvements in reasoning, multimodal capabilities, and performance that fundamentally expand the model's utility while potentially requiring complete reimagining of implementation strategies | Moving from GPT-4 to GPT-4o |
-| General model change | Provides access to specialized capabilities, different price-performance ratios, and potentially better alignment with specific use cases | Moving from GPT-4 to DeepSeek |
-| Specialized model change | Provides domain-specific optimization, enhanced performance for particular tasks, and potentially lower costs compared to using general-purpose models for specialized applications | Moving from GPT-4 to Prizedata |
-| Deployment option change | Provides greater control over infrastructure, customization options, and potential cost savings while allowing for specialized optimization and enhanced data privacy at the expense of increased management responsibility | Moving from LLaMa-1 hosted as a managed online endpoint in Microsoft Foundry to self-hosting LLaMa-1 on a virtual machine |
+| Minor version update | Delivers improved performance and refined capabilities, usually without requiring significant changes to your existing implementation | The move from GPT-4o v2024-08-06 to GPT-4o v2024-11-20 |
+| Intermediate version update | Provides substantial performance improvements, new capabilities, and enhanced reliability while maintaining most backward compatibility and requiring only moderate implementation adjustments | The move from GPT-3 to GPT-3.5 |
+| Major version update | Delivers transformational improvements in reasoning, capabilities, context size, and performance that justify the significant implementation changes and adjustment of prompts | The move from GPT-3 to GPT-4 |
+| Variant update | Provides specialized optimizations, such as increased processing speed and reduced latency, while maintaining the core architecture and usually ensuring backward compatibility with the base model | The move from GPT-4 to GPT-4-Turbo |
+| Generational version update | Delivers significant improvements in reasoning, multimodal capabilities, and performance that fundamentally expand the model's utility while potentially requiring complete reimagining of implementation strategies | The move from GPT-4 to GPT-4o |
+| General model change | Provides access to specialized capabilities, different price-performance ratios, and potentially better alignment with specific use cases | The move from GPT-4 to DeepSeek |
+| Specialized model change | Provides domain-specific optimization, enhanced performance for particular tasks, and potentially lower costs compared to using general-purpose models for specialized applications | The move from GPT-4 to Prizedata |
+| Deployment option change | Provides greater control over infrastructure, customization options, and potential cost savings while allowing for specialized optimization and enhanced data privacy at the expense of increased management responsibility | The move from LLaMa-1 hosted as a managed online endpoint in Microsoft Foundry to self-hosting LLaMa-1 on a virtual machine |
 
 As illustrated in the table, the benefits of moving to a new model are typically a combination of the following factors:
 
@@ -148,7 +148,7 @@ Because of the layers of indirection involved, your architecture must be designe
 
 #### Router
 
-The following diagram illustrates an architecture that uses a router to route requests to multiple deployments. Another [example of this architecture includes Microsoft Foundry](/azure/architecture/ai-ml/architecture/baseline-azure-ai-foundry-chat#architecture) and uses a managed online endpoint as the router. And the different versions of the orchestrator are deployed to managed compute.
+The following diagram illustrates an architecture that uses a router to route requests to multiple deployments. Another [example of this architecture includes Foundry](/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-chat#architecture) and uses a managed online endpoint as the router. And the different versions of the orchestrator are deployed to managed compute.
 
 :::image type="complex" source="_images/model-lifecycle-single-layer-abstraction.svg" border="false" alt-text="Diagram of a chat scenario that uses a router to route between deployments." lightbox="_images/model-lifecycle-single-layer-abstraction.svg":::
 A diagram shows a user connecting to an intelligent application, which connects to a router (labeled 1). The router connects to two deployments in an Orchestrator (labeled 2). Each deployment contains a configuration, prompt (labeled 3), and orchestration logic (labeled 4). Each deployment connects to a specific model (labeled 5). Deployment 1 connects to model-x-v1, while Deployment 2 connects to model-x-v1.1. The orchestrator also connects to an API or agent, which connects to a knowledge database.
@@ -230,6 +230,6 @@ Your architecture should support updates to new or different models and any nece
 
 ## Related resources
 
-- [Baseline Microsoft Foundry chat reference architecture](../architecture/baseline-azure-ai-foundry-chat.yml)
+- [Baseline Foundry chat reference architecture](../architecture/baseline-microsoft-foundry-chat.yml)
 - [MLOps](machine-learning-operations-v2.md)
 - [GenAIOps for MLOps practitioners](genaiops-for-mlops.md)

@@ -1,5 +1,5 @@
 ---
-title: Mission-critical global HTTP ingress
+title: Mission-Critical Global HTTP Ingress
 description: Learn how to develop highly resilient global HTTP applications when your focus is on HTTP ingress.
 author: johndowns
 ms.author: pnp
@@ -14,7 +14,7 @@ ms.custom: guide
 
 Mission-critical applications need to maintain a high level of uptime, even when network components are unavailable or degraded. When you design web traffic ingress, routing, and security, you can consider combining multiple Azure services to achieve a higher level of availability and to avoid having a single point of failure.
 
-Microsoft offers an [industry-leading service level agreement (SLA) for Azure Front Door](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services). Even if a provider offers a 100% uptime SLA, that doesn't guarantee zero downtime. SLAs typically provide service credits in the event of an outage. For this reason, even Microsoft's competitors recommend using multiple ingress paths for mission-critical workloads.
+As mentioned in the previous article in this series, Azure Front Door is designed to provide the utmost resiliency and availability not only for our external customers, but also for multiple properties across Microsoft. While Microsoft offers an [industry-leading service level agreement (SLA) for Azure Front Door](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services), if you have a mission-critical application that demands even higher SLA, you will need to implement additional ingress traffic paths.
 
 If you decide to adopt this approach, you'll need to implement separate network path to your application servers, and each path needs to be configured and tested separately. You must carefully consider the full implications of this approach.  
 
@@ -38,9 +38,9 @@ The solution includes the following components:
 
 - **Traffic Manager using weighted routing mode** has two [endpoints](/azure/traffic-manager/traffic-manager-endpoint-types) and is configured to [always serve traffic](/azure/traffic-manager/traffic-manager-monitoring#always-serve).
 
-  In normal operations, Traffic Manager sends 100% of the incoming requests through Azure Front Door.
+  During normal operations, Traffic Manager sends all incoming requests through Azure Front Door. 
   
-  If Azure Front Door is unavailable, you disable the Azure Front Door endpoint. A second Traffic Manager profile determines where to direct the request. The second profile is described in the following section.
+  If Azure Front Door becomes unavailable, turn off the Azure Front Door endpoint. A second Traffic Manager profile determines where to direct the request. The following section describes this configuration.
 
 - **Azure Front Door** processes and routes most of your application traffic. Azure Front Door routes traffic to the appropriate origin application server, and it provides the primary path to your application. Azure Front Door's WAF protects your application against common security threats. If Azure Front Door is unavailable, traffic is automatically redirected through the secondary path.
 
@@ -56,9 +56,9 @@ The following sections describe some important considerations for this type of a
 
 #### Traffic Manager configuration
 
-This approach uses [nested Traffic Manager profiles](/azure/traffic-manager/traffic-manager-nested-profiles) to achieve both weighted and performance-based routing together for your application's alternative traffic path. In a simple scenario with an origin in a single region, you might only need a single Traffic Manager profile configured to use weighted routing.
+This approach uses [nested Traffic Manager profiles](/azure/traffic-manager/traffic-manager-nested-profiles) to combine weighted routing with performance-based routing for your application's alternative traffic path. In a simple scenario with an origin in a single region, you might configure only one Traffic Manager profile to use weighted routing.
 
-By using weighted routing on the first Traffic Manager profile, you can easily divert some production traffic to your alternative traffic path if you need to test it.
+Weighted routing on the first profile also lets you divert some production traffic to the alternative path for testing.
 
 #### Regional distribution
 
@@ -82,7 +82,7 @@ If you use Private Link to connect to your origins, consider deploying a private
 
 When you deploy Application Gateway, dedicated compute resources are deployed automatically to support the Application Gateway instance's operation. If large amounts of traffic arrive at your Application Gateway unexpectedly, you might observe performance or reliability issues.
 
-To mitigate this risk, consider how you [scale your Application Gateway instance](/azure/application-gateway/application-gateway-autoscaling-zone-redundant). We recommend using autoscaling. Alternatively, you can manually scale it to handle the amount of traffic that you might receive after failing over.
+To mitigate this risk, configure [autoscaling for your Application Gateway instance](/azure/application-gateway/application-gateway-autoscaling-zone-redundant). If you can't use autoscaling, manually scale the instance to handle the expected failover traffic volume.
 
 #### Caching
 

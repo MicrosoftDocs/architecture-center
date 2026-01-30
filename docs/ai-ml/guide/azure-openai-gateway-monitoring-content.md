@@ -1,4 +1,4 @@
-Monitoring workloads that include Azure OpenAI Service can be as simple as enabling diagnostics for Azure OpenAI and using preconfigured dashboards. However, this strategy doesn't satisfy several common, more complex, organizational monitoring requirements for generative AI workloads, such as:
+Monitoring workloads that include Azure OpenAI in Foundry Models can be as simple as enabling diagnostics for Azure OpenAI and using preconfigured dashboards. However, this strategy doesn't satisfy several common, more complex, organizational monitoring requirements for generative AI workloads, such as:
 
 - [Tracking usage by client and model to manage quotas and implement chargeback solutions](#track-model-usage).
 

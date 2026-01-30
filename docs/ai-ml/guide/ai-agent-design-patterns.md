@@ -261,7 +261,7 @@ A telecommunications customer relationship management (CRM) solution uses handof
    The image includes five key sections. The Triage support agent section includes a model and general knowledge section, input, and a result. The Technical infrastructure agent section includes a result and a model, infrastructure knowledge, and tools section. The Financial resolution agent section includes a model, billing account knowledge, and billing API access section, and a result. The Account access agent section includes a result and a model and customer knowledge section. The Customer support employee section includes a result. Curved arrows flow from agent to agent and to the Customer support employee.
 :::image-end:::
 
-In this system, the *triage support agent* interprets the request and tries to handle common problems directly. When it reaches its limits, it hands network problems to a *technical infrastructure agent*, billing disputes to a *financial resolution agent*, and so on. Further handoffs occur within those agents when the current agent recognizes its own capability limits and knows another agent can better support the scenario.
+In this system, the *triage support agent* interprets the request and tries to handle common problems directly. When it reaches its limits, it hands off problems to other agents. For example, it hands off network problems to a *technical infrastructure agent* and hands off billing disputes to a *financial resolution agent*. Further handoffs occur within those agents when the current agent recognizes its own capability limits and knows another agent can better support the scenario.
 
 Each agent is capable of completing the conversation if it determines that customer success has been achieved or that no other agent can further benefit the customer. Some agents are also designed to hand off the user experience to a human support agent when the problem is important to solve but no AI agent currently has the capabilities to address it.
 
@@ -423,7 +423,7 @@ Many of these patterns rely on a code-based implementation to address the orches
 
 ### Microsoft Agent Framework
 
-The Microsoft Agent Framework SDK has implementation guidance for [Agent Framework orchestration](/agent-framework/user-guide/workflows/overview).
+The orchestration patterns described on this page are implemented as workflow orchestrations in the Microsoft Agent Framework. For architectural guidance and implementation details, see the [Workflow orchestrations overview](/agent-framework/user-guide/workflows/orchestrations/overview).
 
 - [Sequential orchestration using the Agent Framework](/agent-framework/user-guide/workflows/orchestrations/sequential)
 - [Concurrent orchestration using the Agent Framework](/agent-framework/user-guide/workflows/orchestrations/concurrent)
@@ -446,9 +446,9 @@ For hands-on implementation, explore [Semantic Kernel multi-agent orchestration 
 
 You can also find many of these patterns in [AutoGen](https://microsoft.github.io/autogen/stable/user-guide/core-user-guide/design-patterns/intro.html), such as [Magentic-One](https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/magentic-one.html).
 
-## Implementations in Microsoft Foundry Agent Service
+## Implementations in Foundry Agent Service
 
-You can also use the [Microsoft Foundry Agent Service](/azure/ai-foundry/agents/overview) to chain agents together in relatively simple workflows by using its [connected agents](/azure/ai-foundry/agents/how-to/connected-agents) functionality. The workflows that you implement by using this service are primarily nondeterministic, which limits which patterns can be fully implemented in this no-code environment.
+You can also use [Foundry Agent Service](/azure/ai-foundry/agents/overview) to chain agents together in relatively simple workflows by using its [connected agents](/azure/ai-foundry/agents/how-to/connected-agents) functionality. The workflows that you implement by using this service are primarily nondeterministic, which limits which patterns can be fully implemented in this no-code environment.
 
 ## Contributors
 
