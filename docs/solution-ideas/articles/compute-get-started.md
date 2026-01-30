@@ -119,16 +119,15 @@ Selecting the right compute service is one of the most important decisions in yo
 
 Use the [compute decision tree](../../guide/technology-choices/compute-decision-tree.md) to help guide your selection.
 
-### Virtual machine sizing
+### Right-size your compute resources
 
-Azure offers a wide range of VM sizes optimized for different workloads:
+Each compute service has its own sizing model. Understanding these options helps you balance performance and cost:
 
-- [General purpose](/azure/virtual-machines/sizes-general) - Balanced CPU-to-memory ratio for testing, development, and small to medium databases.
-- [Compute optimized](/azure/virtual-machines/sizes-compute) - High CPU-to-memory ratio for medium traffic web servers and batch processes.
-- [Memory optimized](/azure/virtual-machines/sizes-memory) - High memory-to-CPU ratio for relational databases and in-memory analytics.
-- [Storage optimized](/azure/virtual-machines/sizes-storage) - High disk throughput and I/O for big data and SQL databases.
-- [GPU enabled](/azure/virtual-machines/sizes-gpu) - Specialized VMs for graphics rendering and deep learning.
-- [High performance compute](/azure/virtual-machines/sizes-hpc) - Fastest and most powerful CPU VMs with optional RDMA network interfaces.
+- **Virtual machines**: Choose from [VM sizes](/azure/virtual-machines/sizes/overview) optimized for general purpose, compute-intensive, memory-intensive, storage-intensive, GPU, or HPC workloads.
+- **App Service**: Select an [App Service plan](/azure/app-service/overview-hosting-plans) tier (Free, Shared, Basic, Standard, Premium, Isolated) based on your scaling, networking, and feature requirements.
+- **Azure Kubernetes Service**: Configure [node pools](/azure/aks/use-multiple-node-pools) with appropriate VM sizes for your containerized workloads, and use the cluster autoscaler to adjust capacity.
+- **Azure Functions**: Choose between [Consumption, Premium, and Dedicated plans](/azure/azure-functions/functions-scale) based on execution duration, scaling needs, and network requirements.
+- **Azure Container Apps**: Use [workload profiles](/azure/container-apps/workload-profiles-overview) to match container resources to your application requirements.
 
 ### Scaling
 
@@ -161,9 +160,10 @@ Optimize your applications to take full advantage of cloud compute:
 
 Secure your compute resources using defense in depth:
 
-- [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) - Unified security management and threat protection.
+- [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) - Unified security management and threat protection for VMs, containers, and App Service.
+- [Managed identities](/entra/identity/managed-identities-azure-resources/overview) - Eliminate the need to manage credentials in your code. Supported across VMs, App Service, Functions, AKS, and Container Apps.
+- [Private endpoints](/azure/private-link/private-endpoint-overview) - Secure network access to App Service, Functions, and other PaaS compute services.
 - [Azure Bastion](/azure/bastion/bastion-overview) - Secure RDP and SSH connectivity to VMs without public IP addresses.
-- [Managed identities](/azure/active-directory/managed-identities-azure-resources/overview) - Eliminate the need to manage credentials in your code.
 - [Azure confidential computing](/azure/confidential-computing/overview) - Protect data in use with hardware-based trusted execution environments.
 
 ## Best practices
@@ -179,10 +179,11 @@ Following best practices helps ensure your compute solution on Azure is reliable
 
 Managing compute costs on Azure requires understanding your usage patterns and selecting the right pricing models:
 
-- [Azure Reserved VM Instances](/azure/cost-management-billing/reservations/save-compute-costs-reservations) - Save up to 72% compared to pay-as-you-go pricing with 1-year or 3-year commitments.
+- [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) - Save up to 72% on VMs, App Service, AKS, and other compute services with 1-year or 3-year commitments.
 - [Azure Spot VMs](/azure/virtual-machines/spot-vms) - Access unused Azure capacity at significant discounts for interruptible workloads.
-- [Azure Hybrid Benefit](/azure/virtual-machines/windows/hybrid-use-benefit-licensing) - Use existing Windows Server and SQL Server licenses on Azure.
-- [Right-size VMs](/azure/advisor/advisor-cost-recommendations) - Use Azure Advisor recommendations to identify underutilized resources.
+- [Azure Savings Plan for Compute](/azure/cost-management-billing/savings-plan/savings-plan-compute-overview) - Flexible pricing for compute across VMs, App Service, Container Instances, and Functions Premium.
+- [Azure Hybrid Benefit](/azure/azure-hybrid-benefit/) - Use existing Windows Server, SQL Server, and Linux subscription licenses on Azure.
+- [Right-size resources](/azure/advisor/advisor-cost-recommendations) - Use Azure Advisor recommendations to identify underutilized VMs, App Service plans, and other resources.
 
 ## Stay current with compute
 
