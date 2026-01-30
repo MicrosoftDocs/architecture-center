@@ -3,7 +3,7 @@ title: Web-Queue-Worker Architecture Style
 description: Learn about the Web-Queue-Worker pattern. Discover benefits, challenges, and implementation by using Azure App Service, Azure Functions, and message queues.
 author: claytonsiemens77
 ms.author: pnp
-ms.date: 01/29/2026
+ms.date: 01/06/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-web
