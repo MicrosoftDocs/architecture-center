@@ -147,7 +147,7 @@ These content types do not directly map to the file system. Their destinations a
 
 ## Thumbnail images and Browse experience
 
-Articles with YAML metadata must include a **`thumbnailUrl`** field:
+Articles using Pattern 1 (YAML + Markdown pair) must include a **`thumbnailUrl`** field in the YAML metadata:
 
 ```yaml
 thumbnailUrl: /azure/architecture/browse/thumbs/article-name.png
