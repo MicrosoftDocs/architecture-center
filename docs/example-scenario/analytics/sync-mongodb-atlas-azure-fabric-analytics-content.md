@@ -56,7 +56,7 @@ Fabric supports additional patterns for integrating MongoDB Atlas. These alterna
 
 ## Real-Time Intelligence (Eventstream + Eventhouse)
 
-Fabric Real-Time Intelligence (RTI) provides a native, code-free ingestion path using the [**MongoDB CDC connector**](fabric/real-time-intelligence/eventstreams/add-mongodb-cdc-source-eventstream) for Eventstream. The connector streams change events from MongoDB Atlas directly into Fabric.
+Fabric Real-Time Intelligence (RTI) provides a native, code-free ingestion path using the [**MongoDB CDC connector**](/fabric/real-time-intelligence/event-streams/add-mongodb-cdc-source-eventstream) for Eventstream. The connector streams change events from MongoDB Atlas directly into Fabric.
 
 Eventstream routes CDC events to:
 
