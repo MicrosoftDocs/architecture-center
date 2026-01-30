@@ -82,18 +82,18 @@ Articles use one of three patterns:
 - `article-name.yml` - Self-contained YAML, often with inline Markdown
 - Used for: `toc.yml` files, `index.yml` landing pages
 
-**Important:** The same folder can mix all three patterns. Always check which pattern an article uses before editing.
+The same folder can mix all three patterns. Always check which pattern an article uses before editing.
 
 ### Metadata location
 
 - Pattern 1: Edit metadata in `.yml` file, content in `-content.md` file
 - Pattern 2: Edit metadata (frontmatter) and content in same `.md` file
 - Pattern 3: Everything in `.yml` file
-- **Never update metadata unless requested**
+- Never update metadata unless requested
 
 ## Table of Contents (TOC) system
 
-**CRITICAL:** The TOC system defines how users navigate content, and it's completely decoupled from the directory structure.
+The TOC system defines how users navigate content, and it's completely decoupled from the directory structure.
 
 ### TOC hierarchy
 
