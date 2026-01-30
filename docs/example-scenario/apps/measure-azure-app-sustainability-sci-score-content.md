@@ -173,12 +173,7 @@ A carbon-aware workload reacts to unfavorable real-time conditions. You typicall
 
 - Sudden unavailability of edge infrastructure because of resource overconsumption or supply chain problems
 
-<<<<<<< HEAD
-- Apply a graceful degradation of the app's services and features, as described in the [Well-Architected Framework documentation](/azure/well-architected/reliability/self-preservation#application-design-guidance-and-patterns-1).
-- Create an eco-mode version of your application. Eco mode is a simpler, smaller, cheaper, more sustainable version of the application that offers minimal features. You can revert to this version during carbon emission spikes. You can also train your users to use an eco version by choice. You can provide a "green button" that enables people to use a leaner interface, fewer graphics, and limited features in exchange for reduced carbon emissions.
-=======
 You can take actions like shifting job processing times or moving workloads to cleaner energy grids based on these triggers. Consider the following actions:
->>>>>>> f9d88134ad6cdaa13a45e853f530feda934766ce
 
 - Apply [graceful degradation](/azure/well-architected/reliability/self-preservation#implement-a-graceful-degradation-mode) of application services and features.
 
