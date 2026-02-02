@@ -269,7 +269,7 @@ Depending on the nature of the application, there might be statutory or other le
 
 ### Requirements for auditing
 
-An analyst must be able to trace the sequence of business operations that users carry out so that you can reconstruct users' actions. This record might be necessary simply for documentation purposes, or as part of a forensic investigation.
+An analyst must be able to trace the sequence of business operations that users carry out so that you can reconstruct users' actions. This record might be necessary for straightforward documentation purposes, or as part of a forensic investigation.
 
 Audit information is highly sensitive. It likely includes data that identifies the users of the system, together with the tasks that they're performing. For this reason, audit information most likely takes the form of reports that are available only to trusted analysts rather than as an interactive system that supports drill-down of graphical operations. An analyst should be able to generate a range of reports. For example, reports might list all users' activities occurring during a specified time frame, detail the chronology of activity for a single user, or list the sequence of operations performed against one or more resources.
 
@@ -390,7 +390,7 @@ You should log all exceptions and warnings, and ensure that you retain a full tr
 Many applications use libraries and frameworks to perform common tasks such as accessing a data store or communicating over a network. These frameworks might be configurable to provide their own trace messages and raw diagnostic information, such as transaction rates and data transmission successes and failures.
 
 > [!NOTE]
-> Many modern frameworks automatically publish performance and trace events. Capturing this information requires a method to retrieve and store the events so the system can process and analyze them.
+> Many modern frameworks automatically publish performance and trace events. Capturing this information involves providing a way to retrieve and store the events so that they can be processed and analyzed.
 
 The operating system where the application is running can be a source of low-level system-wide information, such as performance counters that indicate I/O rates, memory utilization, and CPU usage. Operating system errors (such as the failure to open a file correctly) might also be reported.
 

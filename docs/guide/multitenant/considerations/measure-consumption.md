@@ -33,7 +33,7 @@ Modern applications (built for the cloud) are usually made up of many different 
 
 Often, it's easier to use a single indicative measurement to represent consumption in the solution. For example, if a multitenant solution shares a single relational database, then the data stored by a tenant might be a good indicative consumption metric.
 
-Even if you use the volume of data stored by a tenant as an indicative consumption measure, it might not be a true representation of consumption for every tenant. If a tenant generates far more read activity or reporting than write activity, that tenant uses much more compute from the solution than the storage requirements indicate.
+Even if you use the volume of data stored by a tenant as an indicative consumption measure, it might not be a true representation of consumption for every tenant. If a tenant generates far more read activity than write activity, such as by using heavily using reporting capabilities, then that tenant might use much more compute from the solution than the storage requirements indicate.
 
 > [!TIP]
 > Occasionally you should measure and review the actual consumption across your tenants, to create a baseline model. This model helps you to determine whether the assumptions you're making about your indicative metrics are correct.
