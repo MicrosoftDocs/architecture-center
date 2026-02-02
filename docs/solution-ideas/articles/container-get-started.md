@@ -86,7 +86,7 @@ Here are some resources to get you started:
 
 - **Solutions architect**: [Architect compute infrastructure in Azure](/training/paths/architect-compute-infrastructure/)
 - **Developer**: [Deploy containers by using Azure Kubernetes Service](/training/paths/deploy-manage-containers-azure-kubernetes-service/)
-- **DevOps engineer**: [Build and deploy applications with Azure Kubernetes Service](/training/paths/build-applications-with-azure-devops/)
+- **DevOps engineer**: [Develop and deploy applications on Kubernetes](/training/paths/develop-deploy-applications-kubernetes/)
 
 ## Organizational readiness
 
