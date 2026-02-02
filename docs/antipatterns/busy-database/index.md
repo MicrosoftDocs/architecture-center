@@ -218,13 +218,13 @@ using (var command = new SqlCommand(...))
 
 Symptoms of a busy database include a disproportionate decline in throughput and response times in operations that access the database.
 
-You can do the following steps to help identify this problem:
+You can perform the following steps to help identify this problem:
 
 1. Use performance monitoring to identify how much time the production system spends performing database activity.
 
 2. Examine the work performed by the database during these periods.
 
-3. If you suspect that specific operations might cause too much database activity, load test in a controlled environment. Each test should run a mixture of the suspect operations with a variable user load. Examine the telemetry from the load tests to observe how the database is used.
+3. If you suspect that specific operations might cause too much database activity, run load testing in a controlled environment. Each test should run a mixture of the suspect operations with a variable user load. Examine the telemetry from the load tests to observe how the database is used.
 
 4. If the database activity reveals significant processing but little data traffic, review the source code to determine whether the processing can better be performed elsewhere.
 

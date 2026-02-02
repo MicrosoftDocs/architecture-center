@@ -147,7 +147,7 @@ When considering how an API gateway benefits your architecture, use the [Design 
 
 - The gateway service can introduce a throughput bottleneck. Ensure the gateway has adequate performance to handle full concurrent load and can easily scale in line with your growth expectations. Ensure elasticity in the solution so that the gateway can reduce supply, or scale down, when demand is low, such as with business day usage.
 
-- The gateway service has processing that it must run for each request and introduces added latency for each API invocation. Optimize your routing logic to keep requests fast and reliable.
+- The gateway service must run processes for each request, and it introduces added latency for each API invocation. Optimize your routing logic to keep requests fast and reliable.
 
 - In most cases, the gateway should be geographically near both the users and the Azure OpenAI instances to reduce latency. While network latency is usually a small percentage of time in overall API calls to language models, it might be a competitive factor for your workload.
 

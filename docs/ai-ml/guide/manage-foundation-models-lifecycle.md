@@ -122,7 +122,7 @@ Implement automated pipelines to test and evaluate the differing aspects of your
 You should implement pipelines for the following reasons:
 
 - To help you in your iterative development and experimentation (inner loop)
-- To carry out safe deployment and operationalization of your generative AI solution (outer loop)
+- To safely deploy and operationalize your generative AI solution (outer loop)
 
 When possible, use the same baseline data that you use with the production application to test the changes to your generative AI application. This approach might not be possible if the updated application uses new model features that require a change to the data.
 

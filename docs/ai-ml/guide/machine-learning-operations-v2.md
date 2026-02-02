@@ -276,7 +276,7 @@ To support appropriate segmentation in a machine learning workload, consider the
 
 ##### Data scientist and machine learning engineer
 
-Data scientists and machine learning engineers carry out various machine learning and data science activities across the software development life cycle of a project. Their duties include exploratory data analysis and data preprocessing. Data scientists and machine learning engineers are responsible for training, evaluating, and deploying models. These roles' responsibilities also include break-fix activities for machine learning models, packages, and data. These duties are out of scope for the platform's technical support team.
+Data scientists and machine learning engineers do various machine learning and data science activities across the software development life cycle of a project. Their duties include exploratory data analysis and data preprocessing. Data scientists and machine learning engineers are responsible for training, evaluating, and deploying models. These roles' responsibilities also include break-fix activities for machine learning models, packages, and data. These duties are out of scope for the platform's technical support team.
 
 **Type:** Person<br>
 **Project specific:** Yes

@@ -77,7 +77,7 @@ You can do the following steps to help identify the cause:
 
 1. Instrument the system to record the key performance statistics. Capture timing information for each operation. And capture the points where the application reads and writes data.
 
-2. Monitor the system for a few days in a production environment to get a real-world view of how the system is used. If you can't do this process, run scripted load tests with a realistic volume of virtual users that carry out a typical series of operations.
+2. Monitor the system for a few days in a production environment to get a real-world view of how the system is used. If you can't do this process, run scripted load tests with a realistic volume of virtual users that perform a typical series of operations.
 3. Use the telemetry data to identify periods of poor performance.
 4. Identify which data stores were accessed during those periods.
 5. Identify data storage resources that might experience contention.
