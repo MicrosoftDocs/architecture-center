@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-Workload architectures that involve Azure OpenAI Service might consist of one or more client applications directly consuming a single Azure OpenAI model deployment, but not all workloads can be designed in this way. More complex scenarios include topologies with multiple clients, multiple Azure OpenAI deployments, or multiple Azure OpenAI instances. In those situations, introducing a gateway in front of Azure OpenAI can be beneficial to the workload's design as a programmable routing mechanism.
-=======
 Workload architectures that involve Azure OpenAI in Foundry Models can be as simple as one or more client applications directly consuming a single Azure OpenAI model deployment directly, but not all workloads can be designed with such simplicity. More complex scenarios include topologies with multiple clients, multiple Azure OpenAI deployments, or multiple Azure OpenAI instances. In those situations, introducing a gateway in front of Azure OpenAI can be beneficial to the workload's design as a programmable routing mechanism.
->>>>>>> 7180f236fb2d157e555df5cf623656e068c27c3e
 
 Multiple Azure OpenAI instances or model deployments solve specific requirements in a workload architecture. They can be classified in four key topologies.
 

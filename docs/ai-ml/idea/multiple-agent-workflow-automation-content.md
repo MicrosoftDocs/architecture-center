@@ -22,11 +22,7 @@ The following workflow corresponds to the previous diagram:
 
 1. The Azure App Service website receives the user request from the front end and calls an API hosted in Container Apps. The API processes the incoming task and determines which specialized AI agents to use. The API separates the task into component parts for multiple-agent coordination.
 
-<<<<<<< HEAD
-1. The Container Apps API connects to an Azure AI Foundry-hosted GPT-4o model. Multiple specialized AI agents are orchestrated to handle different aspects of the task. Agents collaborate to plan, carry out, and validate the tasks to be done.
-=======
 1. The Container Apps API connects to a Microsoft Foundry-hosted GPT-4o model. The API orchestrates multiple specialized AI agents to handle different aspects of the task. Agents collaborate to plan, perform, and validate the required tasks.
->>>>>>> 7180f236fb2d157e555df5cf623656e068c27c3e
 
 1. Azure Cosmos DB stores all data related to current and past plans and solutions. It maintains historical task data and patterns for learning and optimization purposes. It also persists agent decisions and outcomes for future reference.
 
@@ -154,11 +150,7 @@ To deploy an implementation of this architecture, follow the [steps in the GitHu
 
 ### Code modernization implementation
 
-<<<<<<< HEAD
-For specific implementation of the multi-agent workflows that carry out SQL query modernization, see [Modernize your code implementation](https://github.com/microsoft/Modernize-your-code-solution-accelerator). It demonstrates how multiple AI agents coordinate to translate SQL queries between different database dialects. It also generates documentation and validation reports throughout the process.
-=======
 For specific implementation of the multiple-agent workflows that perform SQL query modernization, see [Modernize your code implementation](https://github.com/microsoft/Modernize-your-code-solution-accelerator). This implementation demonstrates how multiple AI agents coordinate to translate SQL queries between different database dialects. It also generates documentation and validation reports throughout the process.
->>>>>>> 7180f236fb2d157e555df5cf623656e068c27c3e
 
 ## Contributors
 

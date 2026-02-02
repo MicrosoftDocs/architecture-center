@@ -23,11 +23,7 @@ This article describes how to extract insights from customer conversations at a 
 
    1. Pass the raw data to the Azure AI Language service to [detect and redact personal data](/azure/ai-services/language-service/personally-identifiable-information/how-to-call-for-conversations) in the transcript.
 
-<<<<<<< HEAD
-   1. Send the redacted data to the Azure OpenAI service to conduct various post call analytics like understand the intent and sentiment of the call, extract entities, or [summarize the conversation](/azure/ai-services/openai/quickstart#try-text-summarization) to evaluate the effectiveness of the call.
-=======
    1. Send the redacted data to Azure OpenAI to perform various post call analytics like understand the intent and sentiment of the call, extract entities, or [summarize the conversation](/azure/ai-services/openai/quickstart#try-text-summarization) to evaluate the effectiveness of the call.
->>>>>>> 7180f236fb2d157e555df5cf623656e068c27c3e
 
    1. Store the processed output in Azure Storage for visualization or consumption by downstream applications for further processing.
 
@@ -56,11 +52,7 @@ Depending on your scenario, you can add the following workflows.
 
 ## Scenario details
 
-<<<<<<< HEAD
-This solution uses Azure AI Speech to Text to convert call-center audio into written text. Azure AI Language redacts sensitive information in the conversation transcription. Azure OpenAI extracts insights from customer conversation to improve call center efficiency and customer satisfaction. Use this solution to process transcribed text, recognize and remove sensitive information, and run analytics on the extractions like reason for the call, resolution provided or not, sentiment of the call, listing product /service offering based on the number of queries/customer complaints, and so on. Scale the services and the pipeline to accommodate any volume of recorded data.
-=======
 This solution uses Azure AI Speech to Text to convert call-center audio into written text. Azure AI Language redacts sensitive information in the conversation transcription. Azure OpenAI extracts insights from customer conversation to improve call center efficiency and customer satisfaction. Use this solution to process transcribed text, recognize and remove sensitive information, and perform analytics on the extractions like reason for the call, resolution provided or not, sentiment of the call, and listing product /service offering based on the number of queries/customer complaints. Scale the services and the pipeline to accommodate any volume of recorded data.
->>>>>>> 7180f236fb2d157e555df5cf623656e068c27c3e
 
 ### Potential use cases
 

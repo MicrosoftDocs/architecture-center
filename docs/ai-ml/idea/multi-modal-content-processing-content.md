@@ -49,11 +49,7 @@ The following workflow corresponds to the previous diagram:
 
 - [Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) is a managed AI service that provides access to advanced language models for natural language processing and generation. In this architecture, Foundry provides the foundation for deploying and managing AI models used in the content processing pipeline. It also serves as the gateway to the connected AI services, like Content Understanding.
 
-<<<<<<< HEAD
-  - [Azure OpenAI in Foundry Models](/azure/ai-foundry/openai/overview) is a component of Azure AI Foundry that provides language models, including GPT-4o and GPT-4o mini. In this architecture, the models are hosted as a service in Azure AI Foundry. These models carry out schema-based data transformation, map extracted content to structured formats, and calculate confidence scores for extraction accuracy.
-=======
   - [Azure OpenAI](/azure/ai-foundry/openai/overview) is a component of Foundry that provides language models, including GPT-4o and GPT-4o mini. In this architecture, Foundry hosts the models as a service. These models perform schema-based data transformation, map extracted content to structured formats, and calculate confidence scores for extraction accuracy.
->>>>>>> 7180f236fb2d157e555df5cf623656e068c27c3e
 
   - [Content Understanding](/azure/ai-services/content-understanding/overview) is a multimodal AI service that analyzes various kinds of media content, like audio, video, text, and images. It transforms the content into structured, searchable data. In this architecture, Content Understanding performs advanced OCR and content extraction from multimodal documents.
 

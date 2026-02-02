@@ -586,11 +586,7 @@ Evaluate custom alerts, like those from the Azure Monitor baseline alerts, for t
 
 Monitor the usage of tokens against your model deployments. In this architecture, Foundry tracks [token usage](/azure/ai-foundry/how-to/monitor-quality-safety) through its integration with Application Insights.
 
-<<<<<<< HEAD:docs/ai-ml/architecture/baseline-azure-ai-foundry-chat-content.md
-Your jump boxes and build agent VMs reside in a highly privileged location, which provides those VMs a network line of sight to the data plane of all components in your architecture. Ensure that those VMs emit enough logs to understand when they're used, who uses them, and what actions they take.
-=======
 Your jump boxes and build agent VMs reside in a highly privileged location, which provides those VMs direct network access to the data plane of all components in your architecture. Ensure that those VMs emit enough logs to show when users access them, who accesses them, and what users do on them.
->>>>>>> 7180f236fb2d157e555df5cf623656e068c27c3e:docs/ai-ml/architecture/baseline-microsoft-foundry-chat-content.md
 
 #### Agent versioning and life cycle
 
@@ -610,15 +606,11 @@ To prevent service disruptions, ensure safe and controlled agent deployment by i
 
 - **Version and track agents.** Assign clear version identifiers to each agent. Maintain records of which agent versions are active, along with their dependencies like models, data sources, and tools. Deploy new agent versions alongside existing versions to support progressive rollout, rollback, and controlled migration of users or sessions. [Foundry supports multiple published agent versions](/azure/ai-foundry/agents/how-to/publish-agent#update-a-published-agent-application) to help manage rollouts.
 
-<<<<<<< HEAD:docs/ai-ml/architecture/baseline-azure-ai-foundry-chat-content.md
-- **Plan for failback.** Microsoft Foundry doesn't provide built-in support for blue-green or canary deployments of agents. If you require these deployment patterns, implement a routing layer, such as an API gateway or custom router, in front of the agent API. This routing layer allows you to shift traffic incrementally between agent versions, monitor the effect, and fully switch over when ready.
-=======
 - **Publish and share agents.** After you author and validate agents in production Foundry instances, publish them to expose a dedicated endpoint that has its own identity and governance controls. Publishing creates a managed [Azure agent application resource](/azure/ai-foundry/agents/how-to/publish-agent) that lets external clients access the agent without granting access to the production Foundry project itself.
 
   Before you publish, any user that has the Azure AI User RBAC role on the Foundry project can interact with all contained agents, and conversation context and state is shared across users. After you publish, an application deployment is created. It runs a specific agent version and enforces user-level data isolation by scoping interactions and associated data to the calling identity. You can start, stop, and update the deployment to reference a new agent version. The application endpoint remains stable across version updates, which avoids downstream client configuration changes.
 
 - **Plan for failback.** Foundry doesn't provide built-in support for blue-green or canary deployments of agents. If you require these deployment patterns, implement a routing layer, like an API gateway or custom router, in front of the agent API. This routing layer lets you shift traffic incrementally between agent versions, monitor the effect, and perform a full switchover when ready.
->>>>>>> 7180f236fb2d157e555df5cf623656e068c27c3e:docs/ai-ml/architecture/baseline-microsoft-foundry-chat-content.md
 
 - **Coordinate agent removal.** When you remove agents, coordinate the process with your application's state management and user experience requirements. Handle active chat sessions appropriately. Depending on your workload's functional requirements, you can migrate sessions, pin users to the old agent version, or require users to start new sessions.
 
