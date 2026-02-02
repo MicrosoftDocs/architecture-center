@@ -62,7 +62,7 @@ When you choose a general embedding model, start with the [Hugging Face leaderbo
 
 For domain-specific content, determine whether you can use a domain-specific model. For example, your data might be in the biomedical domain, so you might use the [BioGPT model](https://github.com/microsoft/BioGPT). This language model is pretrained on a large collection of biomedical literature. You can use it for biomedical text mining and generation. If domain-specific models are available, evaluate how these models work with your data.
 
-If you don't have a domain-specific model, or the domain-specific model doesn't run well, you can fine-tune a general embedding model with your domain-specific vocabulary.
+If you don't have a domain-specific model, or the domain-specific model doesn't perform well, you can fine-tune a general embedding model with your domain-specific vocabulary.
 
 > [!IMPORTANT]
 > For any model that you choose, you need to verify that the license suits your needs and the model provides the necessary language support.

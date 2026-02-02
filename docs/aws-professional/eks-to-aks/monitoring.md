@@ -105,7 +105,7 @@ You can deploy Prometheus independently as a self-managed solution within AKS cl
 
 [Azure Managed Grafana](/azure/managed-grafana/overview) is a data visualization platform that's built on top of [Grafana](https://grafana.com/). It's a fully managed Azure service that Microsoft operates and supports. Azure Managed Grafana has predefined Grafana dashboards to monitor Kubernetes and full-stack troubleshooting.
 
-Azure Managed Grafana is designed for the Azure environment, integrates with many Azure services, and provides simple integration features. You can also deploy Grafana independently as a self-managed solution. For more information, see [Monitor your Azure services in Grafana](/azure/azure-monitor/visualize/grafana-plugin).
+Azure Managed Grafana is optimized for the Azure environment, integrates with many Azure services, and provides simple integration features. You can also deploy Grafana independently as a self-managed solution. For more information, see [Monitor your Azure services in Grafana](/azure/azure-monitor/visualize/grafana-plugin).
 
 ### AKS monitoring costs
 

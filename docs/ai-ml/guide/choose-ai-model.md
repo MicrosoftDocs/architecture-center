@@ -125,7 +125,7 @@ In many cases, you need to do some fine-tuning to train your model on your datas
 
 ## Plan for model changes
 
-Selecting a model isn't a one-time activity. In your proof of concept (POC) or prototype phase, you might choose a frontier model to expedite the build-out. When you move to production, a more specialized model or even a small language model might be a better fit. As your workload evolves, the model that you initially chose might not behave as expected, or your planned features might not align well with that model. To keep up with market advances, you might also need to regularly replace your model with newer releases. For more information about model life cycle considerations, see [Design to support foundation model life cycles](/azure/architecture/ai-ml/guide/manage-foundation-models-lifecycle).
+Selecting a model isn't a one-time activity. In your proof of concept (POC) or prototype phase, you might choose a frontier model to expedite the build-out. When you move to production, a more specialized model or even a small language model might be a better fit. As your workload evolves, the model that you initially chose might not perform as expected, or your planned features might not align well with that model. To keep up with market advances, you might also need to regularly replace your model with newer releases. For more information about model life cycle considerations, see [Design to support foundation model life cycles](/azure/architecture/ai-ml/guide/manage-foundation-models-lifecycle).
 
 To future-proof your architecture, consider the following derisking approaches:
 

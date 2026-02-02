@@ -145,7 +145,7 @@ The next image shows data captured using thread profiling, over the same period 
 
 ### Performing load testing
 
-Use load testing to simulate the typical operations that users might run. This can help to identify which parts of a system suffer from resource exhaustion under varying loads. Run these tests in a controlled environment rather than the production system. The following graph shows the throughput of requests handled by the `NewHttpClientInstancePerRequest` controller as the user load increases to 100 concurrent users.
+Use load testing to simulate the typical operations that users might do. This can help to identify which parts of a system suffer from resource exhaustion under varying loads. Run these tests in a controlled environment rather than the production system. The following graph shows the throughput of requests handled by the `NewHttpClientInstancePerRequest` controller as the user load increases to 100 concurrent users.
 
 ![Throughput of the sample application creating a new instance of an HttpClient object for each request][throughput-new-HTTPClient-instance]
 
