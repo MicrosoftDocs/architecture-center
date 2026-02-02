@@ -482,7 +482,7 @@ Monitor model performance to detect model problems and performance degradation e
 
 ##### Prediction drift
 
-Prediction drift tracks changes in the distribution of a model's prediction outputs by comparing it to validation, test-labeled, or recent production data. To compare, data drift refactoring requires recent production datasets and outputs.
+Prediction drift tracks changes in the distribution of a model's prediction outputs by comparing it to validation, test-labeled, or recent production data. Data-drift refactoring requires recent production datasets and outputs to support this comparison.
 
 **Environment:** Production<br>
 **Azure facilitation:** Machine Learning – [Model monitoring](/azure/machine-learning/concept-model-monitoring#enabling-model-monitoring)

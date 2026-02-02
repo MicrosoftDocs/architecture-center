@@ -16,7 +16,7 @@ Offloading processing to a database server can cause it to spend a significant p
 
 ## Problem description
 
-Many database systems can run code. Examples include stored procedures and triggers. Often, it's more efficient to process the data close to where it's stored, rather than transmitting the data to a client application for processing. But overusing these features can hurt performance, for several reasons:
+Many database systems can run code. Examples include stored procedures and triggers. Often, it's more efficient to process the data close to where it's stored, rather than transmitting the data to a client application for processing. But overusing these features can affect performance, for several reasons:
 
 - The database server might spend too much time processing, rather than accepting new client requests and fetching data.
 - A database is usually a shared resource, so it can become a bottleneck during periods of high use.
