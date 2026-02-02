@@ -62,7 +62,7 @@ The following list outlines critical reliability features that this architecture
 
 - This architecture doesn't enable autoscaling for the client UI. To avoid capacity issues, overprovision compute during learning. Implement autoscale before production.
 
-- This architecture deploys Foundry Agent Service as a fully managed Microsoft-hosted solution. Microsoft hosts dependent services (Cosmos DB, Storage, AI Search) on your behalf. Your subscription doesn't show these resources. You don't control their reliability characteristics. For guidance on bringing your own dependencies, see the [baseline architecture](baseline-azure-ai-foundry-chat.yml).
+- This architecture deploys Agent Service as a fully Microsoft-hosted solution. Microsoft hosts dependent services (Cosmos DB, Storage, AI Search) on your behalf. Your subscription doesn't show these resources. You don't control their reliability characteristics. For guidance on bringing your own dependencies, see the [baseline architecture](baseline-microsoft-foundry-chat.yml).
 
   > [!NOTE]
   > The AI Search instance in the components section and diagram is different from the instance that's a dependency of Agent Service. The instance in the components section stores your grounding data. The dependency does real-time chunking of files that are uploaded within a chat session or as part of an agent's definition.

@@ -94,7 +94,7 @@ When you evaluate your DevOps capability for a microservices architecture, consi
 
    - Implementing continuous integration.
 
-   - Implementing continuous delivery where code changes are automatically built, tested, and prepared for release to production. This approach helps ensure that software can be confidently released at any point and with manual approval.
+   - Implementing continuous delivery where code changes are automatically built, tested, and prepared for release to production. This approach helps ensure that software can be confidently released at any time and with manual approval.
 
    - Implementing continuous deployment that extends continuous delivery by automatically deploying code changes to production after it passes all automated tests, without manual intervention.
 
