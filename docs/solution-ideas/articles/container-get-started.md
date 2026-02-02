@@ -80,7 +80,7 @@ Here are some resources to get you started:
 - [Deploy a containerized application on Azure Kubernetes Service](/training/modules/aks-deploy-container-app/)
 - [Introduction to Docker containers](/training/modules/intro-to-docker-containers/)
 - [Deploy and run a containerized web app with Azure App Service](/training/modules/deploy-run-container-app-service/)
-- [Introduction to Azure Container Apps](/training/modules/introduction-to-azure-container-apps/)
+- [Implement Azure Container Apps](/training/modules/implement-azure-container-apps/)
 
 ### Learning paths by role
 
@@ -228,7 +228,6 @@ To stay current with key container services, see:
 
 - [AKS release notes](/azure/aks/release-tracker)
 - [What's new in Azure Container Apps](/azure/container-apps/whats-new)
-- [Azure Container Registry updates](/azure/container-registry/container-registry-release-notes)
 
 ## Additional resources
 
@@ -251,8 +250,8 @@ Key hybrid container scenarios:
 
 Container platforms are commonly used to host microservices architectures:
 
-- [Microservices architecture style](../../guide/architecture-styles/microservices.yml) - Design principles for microservices.
-- [Design a microservices architecture](../../microservices/design/index.yml) - Step-by-step guidance for microservices design.
+- [Microservices architecture style](../../guide/architecture-styles/microservices.md) - Design principles for microservices.
+- [Design a microservices architecture](../../microservices/design/index.md) - Step-by-step guidance for microservices design.
 - [Microservices with AKS](../../reference-architectures/containers/aks-microservices/aks-microservices.yml) - Reference architecture for microservices on AKS.
 
 ### Example solutions
