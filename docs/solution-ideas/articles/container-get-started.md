@@ -28,6 +28,8 @@ The articles in this section include fully developed architectures that you can 
 
 - [Choose an Azure container service](../../guide/choose-azure-container-service.md) - Decision tree for selecting the right container platform.
 - [Azure container service considerations](../../guide/container-service-general-considerations.md) - Detailed considerations for container service selection.
+- [Microservices architecture style](../../guide/architecture-styles/microservices.md) - Design principles for microservices.
+- [Design a microservices architecture](../../microservices/design/index.md) - Step-by-step guidance for microservices design.
 
 ### AKS
 
@@ -86,7 +88,10 @@ Here are some resources to get you started:
 
 - **Solutions architect**: [Architect compute infrastructure in Azure](/training/paths/architect-compute-infrastructure/)
 - **Developer**: [Deploy containers by using Azure Kubernetes Service](/training/paths/deploy-manage-containers-azure-kubernetes-service/)
+- **Developer**: [Implement containerized solutions](/training/paths/az-204-implement-iaas-solutions/)
 - **DevOps engineer**: [Develop and deploy applications on Kubernetes](/training/paths/develop-deploy-applications-kubernetes/)
+
+
 
 ## Organizational readiness
 
@@ -246,19 +251,12 @@ Key hybrid container scenarios:
 - [Hybrid architecture design](../../hybrid/hybrid-start-here.md) - Overview of hybrid solutions on Azure.
 - [AKS on Azure Local baseline architecture](../../example-scenario/hybrid/aks-baseline.yml) - Production-ready AKS on Azure Local deployment.
 
-### Microservices
-
-Container platforms are commonly used to host microservices architectures:
-
-- [Microservices architecture style](../../guide/architecture-styles/microservices.md) - Design principles for microservices.
-- [Design a microservices architecture](../../microservices/design/index.md) - Step-by-step guidance for microservices design.
-- [Microservices with AKS](../../reference-architectures/containers/aks-microservices/aks-microservices.yml) - Reference architecture for microservices on AKS.
-
 ### Example solutions
 
 Here are some additional sample implementations of containers on Azure to consider:
 
 - [AKS baseline cluster](../../reference-architectures/containers/aks/baseline-aks.yml) - Start with the production-ready AKS baseline.
+- [Microservices with Container Apps](../../example-scenario/serverless/microservices-with-container-apps.yml) - Serverless microservices on Container Apps.
 - [Browse more container examples in the Azure Architecture Center](../../browse/index.yml?azure_categories=containers)
 
 ## AWS or Google Cloud professionals

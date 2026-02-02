@@ -617,6 +617,12 @@ items:
           href: guide/choose-azure-container-service.md
         - name: Considerations
           href: guide/container-service-general-considerations.md
+      - name: Microservices design
+        items:
+        - name: Microservices architecture style
+          href: guide/architecture-styles/microservices.md
+        - name: Design a microservices architecture
+          href: microservices/design/index.md
     - name: Kubernetes-based hosting
       items:
       - name: Get started
