@@ -108,7 +108,7 @@ If one of your customers has a problem because of an update, you need to ensure 
 
 Consider how you deploy updates to your infrastructure. Your update strategy depends heavily on the [tenancy model](tenancy-models.md) that you use. Three common approaches for deploying updates are deployment stamps, feature flags, and deployment rings. You can use these approaches independently, or you can combine them together to meet more complex requirements.
 
-In all cases, ensure that you have sufficient reporting and visibility. You need to know what version of infrastructure, software, or feature each tenant uses, what they're eligible to migrate to, and any time-related data tied to those states. Tracking this information is often one of the responsibilities of a [control plane](./control-planes.md).
+In all cases, ensure that you have sufficient reporting and visibility. You need to know which version of infrastructure, software, or feature each tenant uses, what they're eligible to migrate to, and the time-based data associated with those states. Tracking this information is often one of the responsibilities of a [control plane](./control-planes.md).
 
 ### Deployment Stamps pattern
 

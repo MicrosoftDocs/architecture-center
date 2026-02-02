@@ -72,7 +72,7 @@ The following workflow corresponds to the previous diagram:
 
 1. A preconfigured logic app monitors the ingestion to check when the indexing is complete.
 
-1. The logic app uses the Video Indexer API to perform natural language searches and detect objects, features, or attributes in images.
+1. The logic app uses the Video Indexer API to run natural language searches and detect objects, features, or attributes in images.
 
 1. Results are received in JSON format. The logic app parses the results and creates key-value pairs. You can store the results in SQL database in Fabric.
 
