@@ -66,7 +66,7 @@ The following dataflow corresponds to the previous diagram:
 
   - [Export labeled data](/azure/machine-learning/how-to-use-labeled-dataset#export-data-labels) as [COCO](https://cocodataset.org) or Machine Learning datasets. You can use these datasets to train and deploy models in Machine Learning notebooks.
 
-- [Azure OpenAI](/azure/ai-foundry/openai/overview) provides powerful [language models and multimodal models](/azure/ai-services/openai/concepts/models) as REST APIs that you can use to complete various tasks. In this architecture, Azure OpenAI models handle advanced language tasks such as [fine-tuning models](/azure/ai-services/openai/concepts/models#fine-tuning-models) to improve how the model works with data that's missing or underrepresented when the base model is first trained. You can also use foundation models from multiple providers to complete these tasks.
+- [Azure OpenAI](/azure/ai-foundry/openai/overview) provides powerful [language models and multimodal models](/azure/ai-services/openai/concepts/models) as REST APIs that you can use to complete various tasks. In this architecture, Azure OpenAI models handle advanced language tasks like [fine-tuning models](/azure/ai-services/openai/concepts/models#fine-tuning-models) to improve how the model works with data that's missing or underrepresented when the base model is first trained. You can also use foundation models from multiple providers to complete these tasks.
 
 ### Alternatives
 
@@ -162,7 +162,7 @@ The major costs for this solution include:
 
     To help optimize costs, choose the right node type, cluster size, and number of nodes. Machine Learning provides options for training, such as setting the minimum number of compute cluster nodes to zero and defining the idle time before scaling down. For more information, see [Manage and optimize Machine Learning costs](/azure/machine-learning/how-to-manage-optimize-cost).
 
-- Data orchestration duration and activities. For Azure Data Factory, the charges for copy activities on the Azure integration runtime are based on the number of data integration units used and the time taken to do the activities. Added orchestration activity runs are also charged, based on their number.
+- Data orchestration duration and activities. For Azure Data Factory, the charges for copy activities on the Azure integration runtime are based on the number of data integration units used and the time taken to complete the activities. Added orchestration activity runs are also charged, based on their number.
 
   Azure Logic Apps pricing plans depend on the resources that you create and use. The following articles can help you choose the right plan for specific use cases:
 

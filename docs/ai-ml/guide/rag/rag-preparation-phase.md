@@ -11,7 +11,7 @@ ms.subservice: architecture-guide
 
 # RAG preparation phase
 
-The first phase of retrieval-augmented generation (RAG) development and experimentation is the preparation phase. During this phase, you define the business domain for your solution. After you define the domain, you gather documents and multimedia content, do content analysis, and gather sample questions that are pertinent to the domain. You do these steps in parallel because they're interrelated. For example, content analysis helps you determine which test documents, media files, and test queries you should gather. The questions that you ask must be answerable by content in the documents and multimedia, and the content must answer the relevant questions.
+The first phase of retrieval-augmented generation (RAG) development and experimentation is the preparation phase. During this phase, you define the business domain for your solution. After you define the domain, you gather documents and multimedia content, analyze the content, and gather sample questions that are pertinent to the domain. You do these steps in parallel because they're interrelated. For example, content analysis helps you determine which test documents, media files, and test queries you should gather. The questions that you ask must be answerable by content in the documents and multimedia, and the content must answer the relevant questions.
 
 This article is part of a series. Read the [introduction](./rag-solution-design-and-evaluation-guide.md).
 
@@ -171,7 +171,7 @@ Consider the following areas when you evaluate potential representative test con
 
 - **Physical content quality:** The content needs to be in usable shape. Scanned images might not let you extract usable information, poor-quality audio recordings might not transcribe accurately, and low-resolution videos might not provide clear visual information.
 
-- **Content quality:** The content must be high quality. Documents shouldn't contain misspellings or grammatical errors, audio should be clear and audible, and videos should have sufficient resolution and lighting. Language models and other AI services don't do well if you provide them with poor-quality content.
+- **Content quality:** The content must be high quality. Documents shouldn't contain misspellings or grammatical errors, audio should be clear and audible, and videos should have sufficient resolution and lighting. Language models and other AI services don't produce good results if you provide them with poor-quality content.
 
 To successfully gather test content, you should be *qualitatively confident* that the test content completely and accurately represents your specific domain across all media types.
 

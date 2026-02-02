@@ -55,7 +55,7 @@ Search platforms generally support full-text and vector searches. Some platforms
 [Vector searches](/azure/search/vector-search-how-to-query) compare the similarity between the vectorized query (prompt) and vector fields. For more information, see [Choose an Azure service for vector searches](../../../guide/technology-choices/vector-search.md).
 
 > [!IMPORTANT]
-> Before you embed the query, you should run the same [cleaning operations](./rag-enrichment-phase.md#clean-your-data) that you performed on chunks. For example, if you lowercased every word in your embedded chunk, you should lowercase every word in the query before embedding.
+> Before you embed the query, run the same [cleaning operations](./rag-enrichment-phase.md#clean-your-data) that you performed on chunks. For example, if you lowercased every word in your embedded chunk, lowercase every word in the query before embedding.
 
 > [!NOTE]
 > You can run a vector search against multiple vector fields in the same query. In AI Search, this practice is considered a hybrid search. For more information, see [Hybrid search](#hybrid-search).

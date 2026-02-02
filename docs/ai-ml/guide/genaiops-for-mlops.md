@@ -58,7 +58,7 @@ This category of technical patterns can address many use cases:
 
 RAG is an architectural pattern that enhances language models by incorporating domain-specific data into the prompt. This grounding data enables the model to reason over information specific to your company, customers, or domain. In a RAG solution, an orchestration layer queries your data sources and injects the most relevant results into the prompt. The orchestrator then sends this enriched prompt to the language model, typically exposed via an API endpoint for use in intelligent applications.
 
-A typical RAG implementation is to break up your source data into chunks and store them in a vector store along with metadata. Vector stores, such as Azure AI Search, allow you to run both textual and vector similarity searches to return contextually relevant results. RAG solutions can also [use other data stores](/azure/architecture/guide/technology-choices/vector-search) to return grounding data.
+A typical RAG implementation is to break up your source data into chunks and store them in a vector store along with metadata. Vector stores, like Azure AI Search, let you run both textual and vector similarity searches to return contextually relevant results. RAG solutions can also [use other data stores](/azure/architecture/guide/technology-choices/vector-search) to return grounding data.
 
 The following diagram illustrates a RAG architecture that includes data from documents.
 
@@ -86,7 +86,7 @@ Both MLOps and GenAIOps apply the fundamentals of data operations (DataOps) to c
 
 #### Training and fine-tuning
 
-This technical pattern should maximize the existing DataOps investments from your MLOps implementation. Reproducibility and data versioning allow you to experiment with different feature engineering data, compare the performance of the different models, and reproduce results.
+This technical pattern should maximize the existing DataOps investments from your MLOps implementation. Reproducibility and data versioning let you experiment with different feature engineering data, compare the performance of the different models, and reproduce results.
 
 #### RAG and prompt engineering
 

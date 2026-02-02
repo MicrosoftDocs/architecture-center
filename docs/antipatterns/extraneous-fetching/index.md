@@ -42,7 +42,7 @@ public async Task<IHttpActionResult> GetAllFieldsAsync()
 }
 ```
 
-In the next example, the application retrieves data to run an aggregation that could be done by the database instead. The application calculates total sales by getting every record for all orders sold, and then computing the sum over those records.
+In the next example, the application retrieves data and runs an aggregation that the database can handle instead. The application calculates total sales by getting every record for all orders sold and then computing the sum over those records.
 
 ```csharp
 public async Task<IHttpActionResult> AggregateOnClientAsync()

@@ -475,14 +475,14 @@ Monitor model performance to detect model problems and performance degradation e
 
 ##### Data drift
 
-[Data drift](/azure/machine-learning/how-to-monitor-datasets) tracks changes in the distribution of a model's input data by comparing it to the model's training data or recent past production data. These changes are a result of changes in market dynamics, feature transformation changes, or upstream data changes. Such changes can degrade model performance, so it's important to monitor for drift to ensure timely remediation. To make a comparison, data drift refactoring requires recent production datasets and outputs.
+[Data drift](/azure/machine-learning/how-to-monitor-datasets) tracks changes in the distribution of a model's input data by comparing it to the model's training data or recent past production data. These changes are a result of changes in market dynamics, feature transformation changes, or upstream data changes. Such changes can degrade model performance, so it's important to monitor for drift to ensure timely remediation. To compare results, data drift refactoring requires recent production datasets and outputs.
 
 **Environment:** Production<br>
 **Azure facilitation:** Machine Learning – [Model monitoring](/azure/machine-learning/concept-model-monitoring#enabling-model-monitoring)
 
 ##### Prediction drift
 
-Prediction drift tracks changes in the distribution of a model's prediction outputs by comparing it to validation, test-labeled, or recent production data. To make a comparison, data drift refactoring requires recent production datasets and outputs.
+Prediction drift tracks changes in the distribution of a model's prediction outputs by comparing it to validation, test-labeled, or recent production data. To compare, data drift refactoring requires recent production datasets and outputs.
 
 **Environment:** Production<br>
 **Azure facilitation:** Machine Learning – [Model monitoring](/azure/machine-learning/concept-model-monitoring#enabling-model-monitoring)

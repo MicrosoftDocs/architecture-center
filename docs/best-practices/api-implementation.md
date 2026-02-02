@@ -337,7 +337,7 @@ Content-Length: ...
 > [!TIP]
 > For security reasons, don't allow sensitive data or data returned over an authenticated (HTTPS) connection to be cached.
 
-A client application can issue a subsequent GET request to retrieve the same resource at any point, and if the resource has changed (it has a different ETag) the cached version should be discarded and the new version added to the cache. If a resource is large and requires a significant amount of bandwidth to transmit back to the client, repeated requests to fetch the same data can become inefficient. To combat this, the HTTP protocol defines the following process for optimizing GET requests that you should support in a web API:
+A client application can issue a subsequent GET request to retrieve the same resource at any time, and if the resource has changed (it has a different ETag) the cached version should be discarded and the new version added to the cache. If a resource is large and requires a significant amount of bandwidth to transmit back to the client, repeated requests to fetch the same data can become inefficient. To combat this, the HTTP protocol defines the following process for optimizing GET requests that you should support in a web API:
 
 - The client constructs a GET request containing the ETag for the currently cached version of the resource referenced in an If-None-Match HTTP header:
 
