@@ -30,11 +30,7 @@ The architecture described in this article supports all the scopes listed previo
 
 - SD-WAN devices are deployed as Network Virtual Appliances (NVAs) in each Azure region's hub and spoke network and configured as SD-WAN hubs that terminate tunnels from on-premises sites.
 - SD-WAN devices in Azure are configured to establish tunnels with each other, thus creating a fully meshed hub-to-hub overlay that can efficiently transport traffic among Azure regions, and relay traffic between geographically distant on-premises sites, on top of the Microsoft backbone.
-<<<<<<< HEAD
-- SD-WAN devices are deployed in all on-premises sites covered by the SD-WAN solution and configured to establish tunnels to the SD-WAN NVAs in the closest Azure regions. Different sites can use different transport services as an underlay network for the tunnels, such as public internet, ExpressRoute connectivity, and so on.
-=======
 - SD-WAN devices are deployed in all on-premises sites covered by the SD-WAN solution and configured to establish tunnels to the SD-WAN NVAs in the closest Azure regions. Different sites can use different transport services as an underlay for the tunnels, such as public internet and ExpressRoute connectivity.
->>>>>>> 7180f236fb2d157e555df5cf623656e068c27c3e
 - Traffic from a site to any destination, whether in Azure or in another on-premises site, is routed to the SD-WAN NVAs in the closest Azure region. Then it routes through the hub-to-hub overlay.
 
 SD-WAN products can use proprietary protocols and features to detect, once dynamically established, direct tunnels between two sites can provide better performance than relaying traffic via SD-WAN NVAs in Azure.
