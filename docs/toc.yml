@@ -608,7 +608,7 @@ items:
   - name: Containers
     items:
     - name: Get started
-      href: solution-ideas/articles/containers-get-started.md
+      href: solution-ideas/articles/container-get-started.md
     - name: Guides
       items:
       - name: Choose a container host
