@@ -17,30 +17,14 @@ ms.custom: arb-aiml
 
 This article covers Foundry Tools that provide targeted language processing capabilities such as natural language processing (NLP), text analytics, language understanding, translation, and document data extraction, including: 
 
-- [Azure OpenAI in Foundry Models](#azure-openai-in-foundry-models) provides REST API access to OpenAI's powerful language models for tasks like content generation, summarization, image analysis, semantic search, and natural language to code translation.
-
 - [Azure Language](#azure-language) is a cloud-based service that provides NLP features for understanding and analyzing text, including named entity recognition, sentiment analysis, language detection, summarization, and question answering.
 
 - [Azure Translator](#azure-translator) is a machine translation service. It can perform [real-time text translation](/azure/ai-services/translator/text-translation-overview), batch and single file [document translation](/azure/ai-services/translator/document-translation/overview), and [custom translations](/azure/ai-services/translator/custom-translator/overview) that you can use to incorporate specialized terminology or industry-specific language for your scenario. Azure Translator [supports multiple languages](/azure/ai-services/translator/language-support).
 
 - [Azure AI Document Intelligence](#document-intelligence) is a service that can convert images directly into electronic forms. You can specify expected fields and then search images that you provide to capture those fields without human intervention. Document Intelligence hosts many prebuilt models and also allows you to build custom models of your own.
 
-### Azure OpenAI in Foundry Models
-
-[Azure OpenAI in Foundry Models](/azure/ai-services/openai/overview) provides REST API access to OpenAI's powerful language models. These models include O3-Mini, O1, O1-Mini, GPT-4o, GPT-4o Mini, GPT-4 Turbo with Vision, GPT-4, GPT-3.5-Turbo, and the Embeddings model series. These models are highly adaptable, which allows you to tailor them for tasks like content generation, summarization, image analysis, and semantic search. They also support natural language to code translation, which makes them versatile for various applications.
-
-#### Capabilities
-
-The following table provides a list of capabilities available in Azure OpenAI.
-
-| Capability | Description |
-| :----------| :-------------|
-| [Text generation and completion](/azure/ai-services/openai/concepts/prompt-engineering) | Generates humanlike text based on prompts, automatically completes sentences or paragraphs, summarizes long documents into concise summaries, and answers questions based on context. |
-| [Chat](/azure/ai-services/openai/chatgpt-quickstart) | Build chatbots and virtual assistants, maintain context in multiple-turn conversations, and personalize responses based on user interaction. |
-| [Assistants](/azure/ai-services/openai/concepts/assistants) | Create a copilot-like experience that maintains a consistent personality across user interactions. Enable the use of multiple tools simultaneously, such as code implementation and knowledge search. |
-| [Embeddings](/azure/ai-services/openai/concepts/understand-embeddings) | Convert text into numerical vectors where similar meanings are positioned close together in vector space. This process enables powerful similarity search in services such as Azure AI Search, Azure Cosmos DB, Azure SQL Database, and Azure Database for PostgreSQL. |
-| [Content filtering](/azure/ai-services/openai/concepts/content-filter) | Screens both user inputs and AI outputs for harmful content in categories such as hate, sexual content, violence, and self-harm, with support for multiple languages. It also monitors usage patterns to help ensure compliance. |
-| [LLM customization](/azure/ai-services/openai/concepts/customizing-llms) | Provides model adaptation techniques, including prompt engineering for quick adjustments, RAG for incorporating external information, and fine-tuning to train the model on specialized tasks. You can combine these methods to optimize performance for specific use cases. |
+> [!NOTE]
+> You can also use foundation models directly from [Microsoft Foundry Models](/azure/ai-foundry/concepts/foundry-models-overview) for language tasks like content generation, summarization, and translation. For quickstarts and tutorials, see [Get started with the chat playground](/azure/ai-foundry/quickstarts/get-started-playground) and [Build a custom chat app using the SDK](/azure/ai-foundry/quickstarts/get-started-code).
 
 ### Azure Language
 
