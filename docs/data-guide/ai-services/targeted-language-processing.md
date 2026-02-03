@@ -15,34 +15,15 @@ ms.custom: arb-aiml
 
 [Foundry Tools](/azure/ai-services/what-are-ai-services) help developers and organizations rapidly create intelligent, cutting-edge, market-ready, and responsible applications with out-of-the-box and prebuilt and customizable APIs and models.
 
-This article covers Foundry Tools that provide targeted language processing capabilities such as natural language processing (NLP), text analytics, language understanding, translation, and document data extraction. Microsoft Azure AI Language is one of the broadest categories in Foundry Tools. You can use the APIs in your workload to incorporate language features like named entity recognition (NER), sentiment analysis, language detection, and text summarization.
+This article covers Foundry Tools that provide targeted language processing capabilities such as natural language processing (NLP), text analytics, language understanding, translation, and document data extraction, including: 
 
-## Services
+- [Azure OpenAI in Foundry Models](#azure-openai-in-foundry-models) provides REST API access to OpenAI's powerful language models for tasks like content generation, summarization, image analysis, semantic search, and natural language to code translation.
 
-The following services provide targeted language processing capabilities for Foundry Tools:
-
-- [Azure Language](#azure-language) is a cloud-based service that provides Natural Language Processing (NLP) features for understanding and analyzing text. 
-
-  **Use Azure Language to:**
-   - Build intelligent applications using the web-based Microsoft Foundry, REST APIs, and client libraries.
-   - Work with structured or unstructured documents for the wide array of language-related tasks described in this article.
-
-  **Don't use** Azure Language if you need to search documents with chat, check them for content safety, or translate them.
+- [Azure Language](#azure-language) is a cloud-based service that provides NLP features for understanding and analyzing text, including named entity recognition, sentiment analysis, language detection, summarization, and question answering.
 
 - [Azure Translator](#azure-translator) is a machine translation service. It can perform [real-time text translation](/azure/ai-services/translator/text-translation-overview), batch and single file [document translation](/azure/ai-services/translator/document-translation/overview), and [custom translations](/azure/ai-services/translator/custom-translator/overview) that you can use to incorporate specialized terminology or industry-specific language for your scenario. Azure Translator [supports multiple languages](/azure/ai-services/translator/language-support).
 
-  **Use Azure Translator to:**
-   - Perform translation specifically. You can use other general purpose foundation language models to perform translation. But using Azure Translator for its specialized purpose can be more effective and cost effective because of its targeted translation models.
-  
-  **Don't use** Azure Translator if you need to engage with chat, analyze content for sentiment, or moderate content. For sentiment analysis, use Azure Language instead. For content moderation, use Microsoft Azure AI Content Safety.
-
 - [Azure AI Document Intelligence](#document-intelligence) is a service that can convert images directly into electronic forms. You can specify expected fields and then search images that you provide to capture those fields without human intervention. Document Intelligence hosts many prebuilt models and also allows you to build custom models of your own.
-
-  - **Use** Document Intelligence when you know exactly which fields you need to extract from scanned documents to fill electronic forms appropriately.
-
-  - **Use** Document Intelligence to identify key structures, like headers, footers, and chapter breaks, in varied collections of documents to further programmatically interact with the document, such as in a retrieval augmented generation (RAG) implementation.
-
-  - **Don't use** Document Intelligence as a real-time search API.
 
 ### Azure OpenAI in Foundry Models
 
@@ -65,6 +46,11 @@ The following table provides a list of capabilities available in Azure OpenAI.
 
 [Azure Language](/azure/ai-services/language-service/overview) provides specialized tools that enable seamless integration between AI agents and language processing services through standardized protocols.
 
+| Use Azure Language to | Don't use Azure Language to |
+| :----------| :-------------|
+| Build intelligent applications using the web-based Microsoft Foundry, REST APIs, and client libraries. | Search documents with chat. |
+| Work with structured or unstructured documents for the wide array of language-related tasks described in this article. | Check documents for content safety. |
+| | Translate documents. For translation, use Azure Translator instead. |
 
 #### Available Azure Language tools
 
@@ -133,6 +119,12 @@ The following table provides a list of possible use cases for Language.
 
 [Azure Translator](/azure/ai-services/translator/overview) is a cloud-based neural machine translation service that's part of Foundry Tools. Azure Translator powers many Microsoft products and services used by thousands of businesses worldwide for language translation and other language-related operations.
 
+| Use Azure Translator to | Don't use Azure Translator to |
+| :----------| :-------------|
+| Perform translation specifically. Azure Translator is more effective and cost effective than general purpose foundation language models because of its targeted translation models. | Engage with chat. |
+| | Analyze content for sentiment. For sentiment analysis, use Azure Language instead. |
+| | Moderate content. For content moderation, use Microsoft Azure AI Content Safety. |
+
 #### Features and development options
 
 The following table provides a list of features available in Azure Translator.
@@ -160,6 +152,11 @@ The following table provides a list of possible use cases for Azure Translator.
 ### Document Intelligence
 
 [Azure Document Intelligence](/azure/ai-services/document-intelligence/overview) is a cloud-based Foundry Tools service that you can use to build intelligent document processing solutions. Use Document Intelligence to automate document processing in applications and workflows, enhance data-driven strategies, and enrich document search capabilities.
+
+| Use Document Intelligence to | Don't use Document Intelligence to |
+| :----------| :-------------|
+| Extract specific fields from scanned documents to fill electronic forms appropriately. | Perform real-time search. |
+| Identify key structures, like headers, footers, and chapter breaks, in varied collections of documents to further programmatically interact with the document, such as in a RAG implementation. | |
 
 #### Document analysis models
 
