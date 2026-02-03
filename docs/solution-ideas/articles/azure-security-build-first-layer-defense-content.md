@@ -1,32 +1,57 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-You can use various Azure services to create a complete IT infrastructure for your organization. Azure also provides security services that help you protect that infrastructure. By using Azure security solutions, you can enhance your environment's security posture, mitigate vulnerabilities, and reduce breach risk via a well-architected solution based on Microsoft best practices.
+This article is the second in a series of four that explains how to design a layered security architecture using Microsoft Security solutions.
 
-Although some security services incur associated costs, many are available at no additional charge. Free services include network security groups (NSGs), storage encryption, TLS/SSL, shared access signature tokens, and more. This article focuses on these cost-free services.
+In the first article, we mapped ransomware threats across a hybrid enterprise environment using the MITRE ATT&CK framework. That exercise demonstrated how attackers typically gain initial access, escalate privileges, move laterally, and ultimately impact identities, infrastructure, applications, and data.
 
-This article is the third in a series of five. To review the previous two articles in this series, including the introduction and a review of how you can map threats against an IT environment, see the following article:
+This second article builds directly on that foundation and focuses on the first layer of defense: pre-breach security.
+Pre-breach controls are designed to reduce attack surface, eliminate common misconfigurations, and block attackers before an intrusion begins. These controls align closely with Microsoft’s Zero Trust principles, where no resource is implicitly trusted and access is continuously verified.
 
-- [Map threats to your IT environment](./map-threats-it-environment.yml)
+The goal of this article is to show how foundational Azure security services can be combined to disrupt common ransomware entry points identified in the threat map from Article 1.
+
+## Why pre-breach controls matter
+
+Ransomware attacks rarely start with sophisticated exploits. In most real-world incidents, attackers succeed because of:
+- Exposed services
+- Weak identity controls
+- Excessive privileges
+- Flat networks
+- Unencrypted data paths
+
+The controls described in this article are not advanced detection or response tools. Instead, they form the baseline security posture that makes ransomware campaigns significantly harder to execute.
+
+When these controls are missing or misconfigured, attackers often succeed before detection tools even have a chance to alert.
+
 
 ## Potential use cases
 
-This article organizes Azure security services by Azure resource so you can focus on specific threats that target resources like virtual machines (VMs), operating systems, Azure networks, or applications, in addition to attacks that can compromise users and passwords. The following diagram can help you identify the Azure security services that help protect resources and user identities against these types of threats.
+This article organizes Azure security services by resource type so you can directly map them to ransomware techniques identified earlier, such as:
+- Initial access through exposed services
+- Credential theft and brute force attacks
+- Lateral movement across networks
+- Unauthorized access to data stores
+The architecture diagram highlights how these services protect identities, networks, compute, applications, and data before an attacker establishes persistence.
+
 
 ## Architecture
 
-:::image type="content" alt-text="A diagram of on-premises resources, services from Microsoft 365 and Azure, and 16 types of threats as classified by the MITRE ATTACK matrix." source="../media/azure-security-build-first-layer-defense-architecture.png" lightbox="../media/azure-security-build-first-layer-defense-architecture.png":::
+((diagram goes here))
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-monitor-integrate-security-components.vsdm) of this architecture.*
 
 *©2021 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation.*
 
-The Azure security layer in this diagram is based on Azure Security Benchmark (ASB) v3, which is a set of security rules that are implemented through Azure policies. ASB is based on a combination of rules from [CIS Center for Internet Security](https://www.cisecurity.org) and [National Institute of Standards and Technology](https://www.nist.gov). For more information about ASB, see [Overview of the Azure Security Benchmark v3](/security/benchmark/azure/overview).
+The Azure security layer shown in this diagram aligns with the Azure Security Benchmark (ASB) v3, which defines Microsoft’s recommended security controls across identity, networking, compute, data, and governance.
+Today, these controls are primarily implemented and monitored through:
+- Azure Policy
+- Microsoft Defender for Cloud
+- Built-in platform security defaults
+The diagram does not attempt to include every available service. Instead, it focuses on commonly deployed, high-impact controls that directly mitigate ransomware attack paths.
 
-The diagram doesn't include every Azure security service available, but it does highlight the services that are used most commonly. All the security services shown in the architectural diagram can be combined and configured to work together with your IT environment and your organization's specific security needs.
 
 ### Workflow
 
-This section describes the components and services that appear in the diagram. Many of those are labeled with their ASB control codes, in addition to their abbreviated labels. The control codes correspond to the control domains that are listed in [Controls](/security/benchmark/azure/overview#controls). 
+This section describes the services shown in the diagram and how they contribute to pre-breach protection. The control codes correspond to the control domains that are listed in [Controls](/security/benchmark/azure/overview#controls). 
 
 1. **Azure Security Benchmark**
 
@@ -143,20 +168,14 @@ Other contributors:
 
 ## Next steps
 
-Microsoft has more documentation that can help you secure your IT environment, and the following articles can be particularly helpful:
+In this article, we focused on preventing attacks before they start by applying foundational Azure security controls.
 
-- [Security in the Microsoft Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/secure). The Cloud Adoption Framework provides security guidance for your cloud journey by clarifying the processes, best practices, models, and experience.
-- [Microsoft Azure Well-Architected Framework](/azure/well-architected/). The Azure Well-Architected Framework is a set of guiding tenets that you can use to improve the quality of a workload. The framework is based on five pillars: reliability, security, cost optimization, operational excellence, and performance efficiency.
-- [Microsoft Security Best Practices](/security/compass/compass). Microsoft Security Best Practices (formerly known as the *Azure Security Compass* or *Microsoft Security Compass*) is a collection of best practices that provide clear, actionable guidance for security-related decisions.
-- [Microsoft Cybersecurity Reference Architectures (MCRA)](/security/cybersecurity-reference-architecture/mcra). MCRA is a compilation of various Microsoft security reference architectures.
-
-In the following resources, you can find more information about the services, technologies, and terminologies that are mentioned in this article:
-
-- [What are public, private, and hybrid clouds?](https://azure.microsoft.com/overview/what-are-private-public-hybrid-clouds)
-- [Overview of the Azure Security Benchmark (v3)](/security/benchmark/azure/overview)
-- [Embrace proactive security with Zero Trust](/security/zero-trust/)
-- [Microsoft 365](/microsoft-365) subscription information
-- [Microsoft Defender XDR](/microsoft-365/security/defender/microsoft-365-defender)
+In the next article, we will assume that some attacks will still succeed and focus on:
+Part 3: Detecting and responding to threats using Microsoft Defender XDR
+This next layer introduces:
+- Advanced threat detection
+- Behavioral analytics
+- Incident response and investigation
 
 ## Related resources
 
