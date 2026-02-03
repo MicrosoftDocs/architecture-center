@@ -18,7 +18,15 @@ Understanding your workload requirements is essential for choosing the right com
 
 ## Architecture
 
-The typical approach to implementing compute solutions on Azure starts with learning and organizational readiness, then moves to choosing appropriate Azure compute services based on workload requirements, followed by implementation best practices and production deployment. Refer to the [architectures](#explore-compute-architectures-and-guides) provided in this section to find real-world solutions that you can build in Azure.
+
+:::image type="complex" border="false" source="../media/compute-get-started-diagram.svg" alt-text="Diagram that shows the compute solution journey on Azure." lightbox="../media/compute-get-started-diagram.svg":::
+   Diagram showing typical approach to implementing compute solutions on Azure starts with learning and organizational readiness, then moves to choosing appropriate Azure compute services based on workload requirements, followed by implementation best practices and production deployment.
+:::image-end:::
+
+*Download a [Visio file](https://arch-center.azureedge.net/compute-get-started-diagram.vsdx) of this architecture.*
+
+
+The diagram above demonstrates a typical basic/baseline analytics implementation. Refer to the [architectures](#architectures) provided in this section to find real-world solutions that you can build in Azure.
 
 ## Explore compute architectures and guides
 
