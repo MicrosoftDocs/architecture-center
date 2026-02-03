@@ -27,7 +27,7 @@ Data can be processed in batches or in real-time, on-premises or in the cloud, b
 *Download a [Visio file](https://arch-center.azureedge.net/analytics-get-started-diagram.vsdx) of this architecture.*
 
 
-The diagram above demonstrates a typical basic/baseline analytics implementation. Refer to the [architectures](architectures) provided in this section to find real-world solutions that you can build in Azure.
+The diagram above demonstrates a typical basic/baseline analytics implementation. Refer to the [architectures](#architectures) provided in this section to find real-world solutions that you can build in Azure.
 
 ## Explore analytics architectures and guides
 
@@ -65,10 +65,10 @@ The articles in this section include fully developed architectures that you can 
 
 #### Disaster recovery for Azure data platform
 
-- [Overview](../../data-guide/disaster-recovery/dr-for-azure-data-platform-overview.yml) - Overview of disaster recovery strategies for Azure data platforms.
-- [Architecture](../../data-guide/disaster-recovery/dr-for-azure-data-platform-architecture.yml) - Architecture patterns for disaster recovery in Azure data platforms.
-- [Scenario details](../../data-guide/disaster-recovery/dr-for-azure-data-platform-scenario-details.yml) - Detailed scenarios for implementing disaster recovery.
-- [Recommendations](../../data-guide/disaster-recovery/dr-for-azure-data-platform-recommendations.yml) - Best practice recommendations for disaster recovery.
+- [Overview](../../data-guide/disaster-recovery/dr-for-azure-data-platform-overview.md) - Overview of disaster recovery strategies for Azure data platforms.
+- [Architecture](../../data-guide/disaster-recovery/dr-for-azure-data-platform-architecture.md) - Architecture patterns for disaster recovery in Azure data platforms.
+- [Scenario details](../../data-guide/disaster-recovery/dr-for-azure-data-platform-scenario-details.md) - Detailed scenarios for implementing disaster recovery.
+- [Recommendations](../../data-guide/disaster-recovery/dr-for-azure-data-platform-recommendations.md) - Best practice recommendations for disaster recovery.
 
 ## Learn about analytics on Azure
 
