@@ -35,7 +35,7 @@ The architecture diagram highlights how these services protect identities, netwo
 
 ## Architecture
 
-((diagram goes here))
+((diagram goes here. See the Visio file in the [PR description](https://github.com/MicrosoftDocs/architecture-center-pr/pull/15188#issue-3892365595).))
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-monitor-integrate-security-components.vsdm) of this architecture.*
 
