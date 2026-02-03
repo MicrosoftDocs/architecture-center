@@ -97,7 +97,10 @@ Here are some resources to get you started:
 
 If your organization is new to the cloud, the [Cloud Adoption Framework](/azure/cloud-adoption-framework/) can help you get started. This collection of documentation and best practices offers proven guidance from Microsoft designed to accelerate your cloud adoption journey.
 
-To help assure the quality of your container solution on Azure, we recommend following the [Azure Well-Architected Framework](/azure/well-architected/). It provides prescriptive guidance for organizations seeking architectural excellence and discusses how to design, provision, and monitor cost-optimized Azure solutions.
+To help assure the quality of your container solution on Azure, we recommend following the [Azure Well-Architected Framework](/azure/well-architected/). It provides prescriptive guidance for organizations seeking architectural excellence and discusses how to design, provision, and monitor cost-optimized Azure solutions. The Well-Architected Framework offers guides specifically tailored to certain Azure services. For container services, you can find the following guides:
+
+- [Azure Container Apps](/azure/well-architected/service-guides/azure-container-apps)
+- [Azure Kubernetes Service](/azure/well-architected/service-guides/azure-kubernetes-service)
 
 ## Implementation checklist
 
