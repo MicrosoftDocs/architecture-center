@@ -102,7 +102,16 @@ Here are some resources to get you started:
 
 If your organization is new to the cloud, the [Cloud Adoption Framework](/azure/cloud-adoption-framework/) can help you get started. This collection of documentation and best practices offers proven guidance from Microsoft designed to accelerate your cloud adoption journey.
 
-To help assure the quality of your compute solution on Azure, we recommend following the [Azure Well-Architected Framework](/azure/well-architected/). It provides prescriptive guidance for organizations seeking architectural excellence and discusses how to design, provision, and monitor cost-optimized Azure solutions.
+To help assure the quality of your compute solution on Azure, we recommend following the [Azure Well-Architected Framework (WAF)](/azure/well-architected/). WAF provides prescriptive guidance for organizations seeking architectural excellence and discusses how to design, provision, and monitor cost-optimized Azure solutions.
+
+For compute-specific guidance, see the Azure Well-Architected Framework service guides for:
+
+- [Azure Virtual Machines and scale sets](/azure/well-architected/service-guides/virtual-machines)
+- [Azure App Service (Web Apps)](/azure/well-architected/service-guides/app-service-web-apps)
+- [Azure Functions](/azure/well-architected/service-guides/azure-functions)
+- [Azure Kubernetes Service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service)
+- [Azure Container Apps](/azure/well-architected/service-guides/azure-container-apps)
+- [Azure Service Fabric](/azure/well-architected/service-guides/azure-service-fabric)
 
 
 ## Best practices
