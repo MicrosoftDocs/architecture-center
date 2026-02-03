@@ -23,7 +23,7 @@ This article covers Foundry Tools that provide targeted language processing capa
 
 - [Azure AI Document Intelligence](#document-intelligence) is a service that can convert images directly into electronic forms. You can specify expected fields and then search images that you provide to capture those fields without human intervention. Document Intelligence hosts many prebuilt models and also allows you to build custom models of your own.
 
-- [Microsoft Foundry language Models](#foundry-models) You can also use foundation models directly from [Microsoft Foundry Models](/azure/ai-foundry/concepts/foundry-models-overview) for language tasks like content generation, summarization, and translation. For quickstarts and tutorials, see [Get started with the chat playground](/azure/ai-foundry/quickstarts/get-started-playground) and [Build a custom chat app using the SDK](/azure/ai-foundry/quickstarts/get-started-code).
+- [Microsoft Foundry language Models](#foundry-language-models) can be used directly through model APIs to perform language tasks such as content generation, summarization, and translation. 
 
 ### Azure Language
 
