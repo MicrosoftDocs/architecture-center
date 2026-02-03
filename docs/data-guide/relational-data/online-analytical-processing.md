@@ -33,7 +33,7 @@ This diagram shows a flow from the client application, to the OLTP system, to th
 
 ## Semantic modeling
 
-A semantic data model is a conceptual model that describes the meaning of the data elements that it contains. Organizations often have their own terms for items, and sometimes those terms have synonyms. Organizations might also have different meanings for the same term. For example, an inventory database might track a piece of equipment by using an asset ID and a serial number. But a sales database might refer to the serial number as the asset ID. There's no simple way to relate these values without a model that describes the relationship.
+A semantic data model is a conceptual model that describes the meaning of the data elements that it contains. Organizations often have their own terms for items, and sometimes those terms have synonyms. Organizations might also have different meanings for the same term. For example, an inventory database might track a piece of equipment by using an asset ID and a serial number. But a sales database might refer to the serial number as the asset ID. There's no straightforward way to relate these values without a model that describes the relationship.
 
 Semantic modeling provides a level of abstraction over the database schema so that users don't need to know the underlying data structures. End users can easily query data without performing aggregates and joins over the underlying schema. Columns are often renamed to more user-friendly names to make the context and meaning of the data more obvious.
 

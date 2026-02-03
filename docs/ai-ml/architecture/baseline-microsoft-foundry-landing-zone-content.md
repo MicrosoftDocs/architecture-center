@@ -191,7 +191,7 @@ This architecture doesn't use Azure Firewall to inspect incoming traffic, but so
 
 In the baseline architecture, all components use Azure DNS directly for DNS resolution.
 
-*Change from the baseline:* In this architecture, typically one or more DNS servers in the hub perform DNS resolution. When the virtual network is created, the DNS properties on the virtual network should already be set accordingly. The workload team doesn't need to understand the implementation details of the DNS service.
+*Change from the baseline:* In this architecture, typically one or more DNS servers in the hub handle DNS resolution. When the virtual network is created, the DNS properties on the virtual network should already be set accordingly. The workload team doesn't need to understand the implementation details of the DNS service.
 
 This architecture configures the workload components with DNS in the following ways.
 

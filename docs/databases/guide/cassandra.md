@@ -130,7 +130,7 @@ For a multiregion deployment, use Azure Global VNet-peering to connect the virtu
 
 It's important to measure the baseline roundtrip latency between regions. Network latency between regions can be 10-100 times higher than latency within a region. Expect a lag between data appearing in the second region when you use LOCAL_QUORUM write consistency, or significantly decreased performance of writes when you use EACH_QUORUM.
 
-When you run Apache Cassandra at scale, and specifically in a multi-DC environment, [node repair](https://cassandra.apache.org/doc/4.0/cassandra/operating/repair.html) becomes challenging. Tools such as [Reaper](https://cassandra-reaper.io) can help to coordinate repairs at scale (for example, across all the nodes in a datacenter, one datacenter at a time, to limit the load on the whole cluster). However, node repair for large clusters isn't yet a fully solved problem and applies in all environments, whether on-premises or in the cloud.
+When you run Apache Cassandra at scale, and specifically in a multi-DC environment, [node repair](https://cassandra.apache.org/doc/4.0/cassandra/operating/repair.html) becomes challenging. Tools such as [Reaper](https://cassandra-reaper.io) can help to coordinate repairs at scale (for example, across all the nodes in a datacenter, one datacenter at a time, to limit the load on the whole cluster). However, node repair for large clusters remains an unsolved challenge and applies across all environments, whether on-premises or in the cloud.
 
 When nodes are added to a secondary region, performance doesn't scale linearly, because some bandwidth and CPU/disk resources are spent on receiving and sending replication traffic across regions.
 
