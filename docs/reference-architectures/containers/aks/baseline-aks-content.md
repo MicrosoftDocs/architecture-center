@@ -469,16 +469,18 @@ As part of running the cluster, the Kubernetes API server receives traffic from 
 
 For more information, see [Define API server-authorized IP ranges](/azure/aks/api-server-authorized-ip-ranges).
 
-We recommend that you deploy your AKS cluster as a private cluster. All control plane and node pool traffic remain on your private network and isn't exposed to the public internet. This reference implementation sets up a private cluster by using API server virtual network integration.
+We recommend that you deploy your AKS cluster as a private cluster. All control plane and node pool traffic remain on your private network and isn't exposed to the public internet. This reference implementation sets up a private cluster by using API server virtual network integration. Lower environments might consider relaxing this private cluster recommendation for convenience. But production AKS clusters should always be deployed as private clusters for a secure deployment baseline.
 
-Private traffic to a private AKS cluster might originate from the spoke virtual network, from peered networks, or from private endpoints in remote networks. Although the AKS nodes naturally live in the spoke, clients doing administrative tasks require a dedicated network path to reach the AKS API server privately. You can establish this connectivity in the following ways:
+Private traffic to a private AKS cluster might originate from the spoke virtual network, from peered networks, or from private endpoints in remote networks. Although the AKS nodes naturally live in the spoke, operators doing administrative tasks require a dedicated network path to reach the AKS API server privately. You can establish this connectivity in the following ways:
 
-- Use Azure Bastion to open a tunnel directly to the AKS API server.
-- Provision a jump-box VM, and connect to it through Azure Bastion.
+- **Tunnelling:** Use Azure Bastion to [open a tunnel directly to the cluster's API server](/azure/bastion/bastion-connect-to-aks-private-cluster).
+- **Jump-box:** Provision a jump-box VM, and use Azure Bastion to connect to it through SSH or RDP. From there, the operator makes requests against the cluster's API server through its private IP address.
 
-In the reference implementation, we use Azure Bastion to tunnel to the AKS API server when performing cluster management operations.
+In the reference implementation, we use Azure Bastion to tunnel to the AKS API server when performing cluster management operations. In general, this approach is simpler to manage, less costly than deploying and managing a jump-box VM, and less complex to coordinate among multiple operators. However, you might choose to use a jump-box VM if you have any of these requirements:
 
-Lower environments might consider relaxing this private cluster recommendation for convenience. But production AKS clusters should always be deployed as private clusters for a secure deployment baseline.
+- **Operators use insecure devices.** A jump-box VM can provide stronger security hardening if your client devices aren't trusted.
+- **Operators connect through unstable networks.** A jump-box VM can provide a more stable connection to the cluster, especially for long-running or batch management operations.
+- **Operators use advanced diagnostic tooling.** Some types of diagnostic tooling, like packet capture, might not work well with tunnelling approahces.
 
 ## Add secret management
 
