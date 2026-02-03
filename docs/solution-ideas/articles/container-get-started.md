@@ -177,13 +177,6 @@ Key hybrid container scenarios:
 - [Hybrid architecture design](../../hybrid/hybrid-start-here.md) - Overview of hybrid solutions on Azure.
 - [AKS on Azure Local baseline architecture](../../example-scenario/hybrid/aks-baseline.yml) - Production-ready AKS on Azure Local deployment.
 
-### Example solutions
-
-Here are some additional sample implementations of containers on Azure to consider:
-
-- [AKS baseline cluster](../../reference-architectures/containers/aks/baseline-aks.yml) - Start with the production-ready AKS baseline.
-- [Microservices with Container Apps](../../example-scenario/serverless/microservices-with-container-apps.yml) - Serverless microservices on Container Apps.
-- [Browse more container examples in the Azure Architecture Center](../../browse/index.yml?azure_categories=containers)
 
 ## AWS or Google Cloud professionals
 
