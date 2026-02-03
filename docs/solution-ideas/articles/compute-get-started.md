@@ -104,75 +104,6 @@ If your organization is new to the cloud, the [Cloud Adoption Framework](/azure/
 
 To help assure the quality of your compute solution on Azure, we recommend following the [Azure Well-Architected Framework](/azure/well-architected/). It provides prescriptive guidance for organizations seeking architectural excellence and discusses how to design, provision, and monitor cost-optimized Azure solutions.
 
-## Implementation checklist
-
-As you're looking to implement your own compute solution on Azure, ensure you've reviewed the following topics:
-
-> [!div class="checklist"]
->
-> - Choose the appropriate [compute service](#choose-your-compute-service) based on your requirements
-> - Identify the right [scaling strategy](#scaling) that meets your needs
-> - Decide how you're going to [manage](#management-and-operations) all your resources
-> - Optimize your [application](#application-optimization) for the cloud
-> - [Secure](#security) your compute infrastructure
-
-### Choose your compute service
-
-Selecting the right compute service is one of the most important decisions in your architecture. Consider these factors:
-
-- **Level of control**: VMs provide full OS control, while PaaS and serverless options abstract infrastructure management.
-- **Scaling requirements**: Serverless and container platforms offer automatic scaling, while VMs require more manual configuration.
-- **Cost model**: Pay-per-use (serverless) vs. reserved capacity (VMs) affects total cost of ownership.
-- **Development model**: Some services support specific languages or frameworks better than others.
-
-Use the [compute decision tree](../../guide/technology-choices/compute-decision-tree.md) to help guide your selection.
-
-### Right-size your compute resources
-
-Each compute service has its own sizing model. Understanding these options helps you balance performance and cost:
-
-- **Virtual machines**: Choose from [VM sizes](/azure/virtual-machines/sizes/overview) optimized for general purpose, compute-intensive, memory-intensive, storage-intensive, GPU, or HPC workloads.
-- **App Service**: Select an [App Service plan](/azure/app-service/overview-hosting-plans) tier (Free, Shared, Basic, Standard, Premium, Isolated) based on your scaling, networking, and feature requirements.
-- **Azure Kubernetes Service**: Configure [node pools](/azure/aks/use-multiple-node-pools) with appropriate VM sizes for your containerized workloads, and use the cluster autoscaler to adjust capacity.
-- **Azure Functions**: Choose between [Consumption, Premium, and Dedicated plans](/azure/azure-functions/functions-scale) based on execution duration, scaling needs, and network requirements.
-- **Azure Container Apps**: Use [workload profiles](/azure/container-apps/workload-profiles-overview) to match container resources to your application requirements.
-
-### Scaling
-
-Scaling strategies depend on your chosen compute service:
-
-- **Virtual Machine Scale Sets**: Automatically increase or decrease VM instances based on demand or a schedule. Learn about [autoscaling best practices](../../best-practices/auto-scaling.md).
-- **Azure Kubernetes Service**: Use the [Horizontal Pod Autoscaler](/azure/aks/concepts-scale) and [cluster autoscaler](/azure/aks/cluster-autoscaler) to scale containerized workloads.
-- **App Service**: Configure [autoscale rules](/azure/app-service/manage-scale-up) based on metrics or schedules.
-- **Azure Functions**: Serverless functions scale automatically based on the number of incoming events.
-
-### Management and operations
-
-Effective management and operations are essential for maintaining healthy compute resources:
-
-- [Azure Monitor](/azure/azure-monitor/overview) - Collect, analyze, and act on telemetry from your Azure and on-premises environments.
-- [Azure Automation](/azure/automation/overview) - Automate frequent, time-consuming, and error-prone management tasks.
-- [Azure Update Manager](/azure/update-manager/overview) - Manage and govern updates for Windows and Linux machines.
-- [Azure Policy](/azure/governance/policy/overview) - Enforce organizational standards and assess compliance at scale.
-
-### Application optimization
-
-Optimize your applications to take full advantage of cloud compute:
-
-- **Use managed services when possible**: Managed services reduce operational overhead and provide built-in high availability.
-- **Design for horizontal scaling**: Build stateless applications that can scale out across multiple instances.
-- **Implement caching**: Use [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) to reduce database load and improve response times.
-- **Optimize cold start**: For serverless applications, minimize dependencies and use premium plans for latency-sensitive workloads.
-
-### Security
-
-Secure your compute resources using defense in depth:
-
-- [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) - Unified security management and threat protection for VMs, containers, and App Service.
-- [Managed identities](/entra/identity/managed-identities-azure-resources/overview) - Eliminate the need to manage credentials in your code. Supported across VMs, App Service, Functions, AKS, and Container Apps.
-- [Private endpoints](/azure/private-link/private-endpoint-overview) - Secure network access to App Service, Functions, and other PaaS compute services.
-- [Azure Bastion](/azure/bastion/bastion-overview) - Secure RDP and SSH connectivity to VMs without public IP addresses.
-- [Azure confidential computing](/azure/confidential-computing/overview) - Protect data in use with hardware-based trusted execution environments.
 
 ## Best practices
 
@@ -239,12 +170,6 @@ Container-based architectures are increasingly popular for building scalable, po
 - [AKS baseline architecture](../../reference-architectures/containers/aks/baseline-aks.yml) - Production-ready Kubernetes deployment.
 - [Microservices architecture](../../guide/architecture-styles/microservices.md) - Design patterns for microservices.
 
-### Example solutions
-
-Here are some additional sample implementations of compute on Azure to consider:
-
-- [Multi-region N-tier application](../../reference-architectures/n-tier/multi-region-sql-server.yml) - Deploy a highly available multi-tier application across regions.
-- [Browse more compute examples in the Azure Architecture Center](../../browse/index.yml?azure_categories=compute)
 
 ## AWS or Google Cloud professionals
 
