@@ -180,7 +180,7 @@ Prebuilt models add intelligent document processing to your apps and flows witho
 | [Contract](/azure/ai-services/document-intelligence/prebuilt/contract) | Extract agreement and party details from contracts of various formats including scanned documents and digital PDFs. |
 | [Credit card](/azure/ai-services/document-intelligence/prebuilt/credit-card) | Extract key fields from credit and debit cards such as card number, issuing bank, and expiration date. |
 | [Bank statement](/azure/ai-services/document-intelligence/prebuilt/bank-statement) | Extract account information and transaction details from bank statements. Use for tax processing, accounting management, and loan documentation processing. |
-| [Check](/azure/ai-services/document-intelligence/prebuilt/check) | Extract relevant information from checks. Use for credit management and automated lender management. |
+| [Bank Check](/azure/ai-services/document-intelligence/prebuilt/bank-check) | Extract relevant information from checks. Use for credit management and automated lender management. |
 | [Pay stub](/azure/ai-services/document-intelligence/prebuilt/pay-stub) | Extract pay stub details. Use for employee payroll detail verification and fraud detection. |
 | [Marriage certificate](/azure/ai-services/document-intelligence/prebuilt/marriage-certificate) | Extract certified marriage information from US marriage certificates. |
 | [US mortgage documents](/azure/ai-services/document-intelligence/prebuilt/mortgage-documents) | Extract loan application details from 1003, 1004, 1005, 1008 forms and closing disclosures. Use for Fannie Mae and Freddie Mac documentation requirements. |
