@@ -26,7 +26,7 @@ Understanding your workload requirements is essential for choosing the right com
 *Download a [Visio file](https://arch-center.azureedge.net/compute-get-started-diagram.vsdx) of this architecture.*
 
 
-The diagram above demonstrates a typical basic/baseline analytics implementation. Refer to the [architectures](#architectures) provided in this section to find real-world solutions that you can build in Azure.
+The diagram above demonstrates a typical basic/baseline compute implementation. Refer to the [architectures](#architectures) provided in this section to find real-world solutions that you can build in Azure.
 
 ## Explore compute architectures and guides
 
