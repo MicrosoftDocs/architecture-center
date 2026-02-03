@@ -23,8 +23,7 @@ This article covers Foundry Tools that provide targeted language processing capa
 
 - [Azure AI Document Intelligence](#document-intelligence) is a service that can convert images directly into electronic forms. You can specify expected fields and then search images that you provide to capture those fields without human intervention. Document Intelligence hosts many prebuilt models and also allows you to build custom models of your own.
 
-> [!NOTE]
-> You can also use foundation models directly from [Microsoft Foundry Models](/azure/ai-foundry/concepts/foundry-models-overview) for language tasks like content generation, summarization, and translation. For quickstarts and tutorials, see [Get started with the chat playground](/azure/ai-foundry/quickstarts/get-started-playground) and [Build a custom chat app using the SDK](/azure/ai-foundry/quickstarts/get-started-code).
+- [Microsoft Foundry language Models](#foundry-models) You can also use foundation models directly from [Microsoft Foundry Models](/azure/ai-foundry/concepts/foundry-models-overview) for language tasks like content generation, summarization, and translation. For quickstarts and tutorials, see [Get started with the chat playground](/azure/ai-foundry/quickstarts/get-started-playground) and [Build a custom chat app using the SDK](/azure/ai-foundry/quickstarts/get-started-code).
 
 ### Azure Language
 
@@ -32,9 +31,9 @@ This article covers Foundry Tools that provide targeted language processing capa
 
 | Use Azure Language to | Don't use Azure Language to |
 | :----------| :-------------|
-| Build intelligent applications using the web-based Microsoft Foundry, REST APIs, and client libraries. | Search documents with chat. |
-| Work with structured or unstructured documents for the wide array of language-related tasks described in this article. | Check documents for content safety. |
-| | Translate documents. For translation, use Azure Translator instead. |
+| Build intelligent applications using the web-based Microsoft Foundry, REST APIs, and client libraries. | Search documents with chat. Use [Azure AI Search](/azure/search/search-what-is-azure-search) instead. |
+| Work with structured or unstructured documents for the wide array of language-related tasks described in this article. | Check documents for content safety. Use [Azure AI Content Safety](/azure/ai-services/content-safety/overview) instead. |
+| | Translate documents. For translation, use [Azure Translator](#azure-translator) instead. |
 
 #### Available Azure Language tools
 
@@ -106,8 +105,8 @@ The following table provides a list of possible use cases for Language.
 | Use Azure Translator to | Don't use Azure Translator to |
 | :----------| :-------------|
 | Perform translation specifically. Azure Translator is more effective and cost effective than general purpose foundation language models because of its targeted translation models. | Engage with chat. |
-| | Analyze content for sentiment. For sentiment analysis, use Azure Language instead. |
-| | Moderate content. For content moderation, use Microsoft Azure AI Content Safety. |
+| | Analyze content for sentiment. For sentiment analysis, use [Azure Language](/azure/ai-services/language-service/overview) instead. |
+| | Moderate content. For content moderation, use [Microsoft Azure AI Content Safety](/azure/ai-services/content-safety/overview) instead. |
 
 #### Features and development options
 
@@ -194,6 +193,44 @@ Document Intelligence supports optional features that you can enable or disable 
 - Key-value pairs
 
 For more information about model scenarios, see [Which model should I choose?](/azure/ai-services/document-intelligence/choose-model-feature)
+
+### Foundry language models
+
+[Microsoft Foundry Models](/azure/ai-foundry/concepts/foundry-models-overview) provide access to a catalog of foundation models from Microsoft, OpenAI, and other leading providers. These models can perform general-purpose language tasks such as content generation, summarization, translation, and conversational interactions.
+
+| Use Foundry Models to | Consider specialized services when |
+| :----------| :-------------|
+| Generate creative content, drafts, or variations of text. | You need consistent, repeatable NLP tasks like named entity recognition or sentiment analysis at scale. [Azure Language](#azure-language) provides optimized, cost-effective APIs for these specific tasks. |
+| Summarize long documents or conversations. | You need to translate large volumes of documents while preserving formatting. [Azure Translator](#azure-translator) is optimized for translation quality and document structure preservation. |
+| Build conversational AI experiences and chatbots. | You need to extract structured data from forms and invoices with high accuracy. [Document Intelligence](#document-intelligence) provides prebuilt models trained specifically for document types. |
+| Answer general questions based on provided context. | |
+| Perform ad-hoc language tasks with flexible prompting. | |
+
+#### Available models
+
+Foundry Models include models from multiple providers:
+
+| Model family | Description |
+| :----------| :-------------|
+| GPT-4o and GPT-4o mini | OpenAI multimodal models that can process both text and images, with enhanced accuracy and responsiveness for English text and coding tasks. |
+| GPT-4.1 series | OpenAI text and image processing models with large context windows (up to 1 million tokens) for handling extensive documents. |
+| o-series (o3, o4-mini) | OpenAI reasoning models designed for advanced problem-solving tasks that require increased focus and capability in areas like science, coding, and math. |
+| Phi-4 family | Microsoft's small language models (SLMs) optimized for complex reasoning. Phi-4 (14B parameters) excels in low-latency scenarios, while Phi-4-reasoning and Phi-4-mini-reasoning provide specialized reasoning capabilities for multi-step problem solving with smaller resource requirements. Supports over 40 languages. |
+| DeepSeek | Open-weight models including DeepSeek-R1 for reasoning tasks and DeepSeek-V3 series for general-purpose language understanding. Known for strong performance on coding and mathematical reasoning benchmarks. |
+| Grok | xAI models including Grok-3, Grok-4, and specialized variants for reasoning and coding tasks. Available in fast-reasoning and non-reasoning configurations. |
+| Llama | Meta's open models including Llama-3.3-70B-Instruct and Llama-4-Maverick for general-purpose language tasks. |
+| Mistral | European AI models including Mistral-Large-3 and mistral-document-ai for document processing scenarios. |
+| Embeddings models | Models from multiple providers that convert text into numerical vector form to facilitate text similarity and semantic search. |
+
+For a complete list of available models and regional availability, see [Foundry Models sold directly by Azure](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure).
+
+#### Getting started
+
+To start using Foundry Models for language tasks:
+
+- **No-code approach**: Use the [chat playground](/azure/ai-foundry/quickstarts/get-started-playground) in Microsoft Foundry portal to deploy models and test prompts interactively.
+- **Code-based approach**: Use the [Microsoft Foundry SDK](/azure/ai-foundry/quickstarts/get-started-code) to integrate models into your applications with Python, C#, TypeScript, or Java.
+
 
 
 ## Related resources
