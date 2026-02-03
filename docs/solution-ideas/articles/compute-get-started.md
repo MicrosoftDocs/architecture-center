@@ -19,7 +19,7 @@ Understanding your workload requirements is essential for choosing the right com
 ## Architecture
 
 
-:::image type="complex" border="false" source="../media/compute-get-started-diagram.svg" alt-text="Diagram that shows the compute solution journey on Azure." lightbox="../media/compute-get-started-diagram.svg":::
+:::image type="complex" border="false" source="../media/compute-get-started-diagram.png" alt-text="Diagram that shows the compute solution journey on Azure." lightbox="../media/compute-get-started-diagram.svg":::
    Diagram showing typical approach to implementing compute solutions on Azure starts with learning and organizational readiness, then moves to choosing appropriate Azure compute services based on workload requirements, followed by implementation best practices and production deployment.
 :::image-end:::
 
