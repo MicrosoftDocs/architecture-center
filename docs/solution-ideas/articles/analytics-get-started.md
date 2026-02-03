@@ -94,6 +94,9 @@ If your organization is new to the cloud, the [Cloud Adoption Framework](/azure/
 To help assure the quality of your analytics solution on Azure, we recommend following the [Azure Well-Architected Framework](/azure/well-architected/). It provides prescriptive guidance for organizations seeking architectural excellence and discusses how to design, provision, and monitor cost-optimized Azure solutions.
 
 
+For data workload guidance aligned to the Well-Architected Framework pillars, see [Azure Well-Architected Framework for data workloads](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/well-architected-framework).
+
+
 ## Path to production
 
 Knowing how to [store your data](../../data-guide/technology-choices/analytical-data-stores.md) is one of the first decisions you need to make in your journey to analytics on Azure. Then you can choose the best [data analytics technology](../../data-guide/technology-choices/analysis-visualizations-reporting.md) for your scenario.
