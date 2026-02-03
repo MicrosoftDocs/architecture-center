@@ -3,7 +3,7 @@ title: Compute architecture design
 description: Get an overview of Azure compute technologies, guidance offerings, solution ideas, and reference architectures.
 author: anaharris-ms
 ms.author: anaharris
-ms.date: 01/30/2026
+ms.date: 02/03/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ai-usage: ai-assisted
