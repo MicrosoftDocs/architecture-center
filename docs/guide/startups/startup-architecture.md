@@ -44,8 +44,6 @@ During the exploration phase, you need to optimize for speed, cost, and optional
 
 It's important to balance cost, speed, and optionality. Too much focus on cost limits speed and optionality. Too much focus on speed can lead to increased costs and fewer options. Designing for too many options builds complexity, which increases costs and reduces speed.
 
-Consider using our [suggested first technology stack](../../example-scenario/startups/core-startup-stack.yml). This architecture uses PaaS services for ease of implementation, can be started with a minimal scale, and uses container and open source technologies that can easily be deployed on different technology stacks as you mature.
-
 ## Expand
 
 Once your startup finds product market fit and subsequent growth through exploration, you shift gears to expansion. You focus on removing any blockages to your product's and company's continued growth. From a technical perspective, you solve infrastructure scale challenges and increase development velocity. The goals are to meet your new customers' needs and advance your product roadmap.
@@ -75,10 +73,6 @@ Once a product achieves product and market fit, many demands drive its architect
 Changes you make to handle growth and add maturity are different from extending architecture. These changes aren't functional requirements, but relate to unlocking scale. Increased scale can come from net new customers, increased usage from existing customers, and customers with higher regulatory requirements.
 
 Resist the temptation to optimize prematurely. Make sure to take growth and maturation steps that can help you continue iterating and improving your product.
-
-## Next steps
-
-- See and deploy an example [Core startup stack architecture](/azure/architecture/example-scenario/startups/core-startup-stack).
 
 ## Related resources
 
