@@ -18,7 +18,14 @@ Choosing the right container platform depends on your workload requirements, ope
 
 ## Architecture
 
-The typical approach to implementing container solutions on Azure starts with learning and organizational readiness, then moves to choosing the appropriate container platform based on workload requirements, followed by implementation best practices and production deployment. Refer to the [architectures](#explore-container-architectures-and-guides) provided in this section to find real-world solutions that you can build in Azure.
+
+:::image type="complex" border="false" source="../../reference-architectures/containers/aks/images/aks-baseline-architecture.svg" alt-text="Diagram that shows the container solution journey on Azure." lightbox="../../reference-architectures/containers/aks/images/aks-baseline-architecture.svg":::
+   Diagram showing typical approach to implementing container solutions on Azure starts with learning and organizational readiness, then moves to choosing the appropriate container platform based on workload requirements, followed by implementation best practices and production deployment.
+:::image-end:::
+
+*Download a [Visio file](https://arch-center.azureedge.net/aks-baseline-architecture.vsdx) of this architecture.*
+Refer to the [architectures](#explore-container-architectures-and-guides) provided in this section to find real-world solutions that you can build in Azure.
+
 
 ## Explore container architectures and guides
 
