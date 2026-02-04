@@ -135,9 +135,9 @@ Symptoms of a busy front end include high latency when resource-intensive tasks 
 
 Examine the event logs for the web server, which are likely to contain more detailed information about the causes and circumstances of the errors.
 
-You can perform the following steps to help identify this problem:
+You can do the following steps to help identify this problem:
 
-1. Perform process monitoring of the production system, to identify points when response times slow down.
+1. Monitor the production system to identify points where response times slow down.
 2. Examine the telemetry data captured at these points to determine the mix of operations being performed and the resources being used.
 3. Find any correlations between poor response times and the volumes and combinations of operations that were happening at those times.
 4. Load test each suspected operation to identify which operations are consuming resources and starving other operations.
@@ -165,7 +165,7 @@ At this point, it appears the `Post` method in the `WorkInFrontEnd` controller i
 
 ### Perform load testing
 
-The next step is to perform tests in a controlled environment. For example, run a series of load tests that include and then omit each request in turn to see the effects.
+The next step is to run tests in a controlled environment. For example, run a series of load tests that include and then omit each request in turn to see the effects.
 
 The following graph shows the results of a load test performed against an identical deployment of the cloud service used in the previous tests. The test used a constant load of 500 users performing the `Get` operation in the `UserProfile` controller, along with a step load of users performing the `Post` operation in the `WorkInFrontEnd` controller.
 

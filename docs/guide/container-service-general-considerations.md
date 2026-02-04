@@ -591,7 +591,7 @@ Azure has availability zones in every country or region in which it operates a d
 |---|---|---|---|
 | Availability zone support | Full | Full | Full |
 
-For example, an application or infrastructure that's configured to run a single instance becomes unavailable if a problem occurs in the availability zone where the hardware is hosted. To fully use availability zone support, you should deploy workloads that have a minimum configuration of three instances of the container, spread across zones.
+For example, an application or infrastructure that's configured to run a single instance becomes unavailable if a problem occurs in the availability zone where the hardware is hosted. To take full advantage of availability zone support, deploy workloads that have at least three container instances distributed across zones.
 
 ### Health checks and self-healing
 

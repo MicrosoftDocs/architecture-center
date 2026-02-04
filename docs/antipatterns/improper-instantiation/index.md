@@ -118,7 +118,7 @@ Symptoms of this problem include a drop in throughput or an increased error rate
 - Increased memory use and garbage collection.
 - An increase in network, disk, or database activity.
 
-You can perform the following steps to help identify this problem:
+You can do the following steps to help identify this problem:
 
 1. Performing process monitoring of the production system, to identify points when response times slow down or the system fails due to lack of resources.
 2. Examine the telemetry data captured at these points to determine which operations might be creating and destroying resource-consuming objects.
@@ -145,7 +145,7 @@ The next image shows data captured using thread profiling, over the same period 
 
 ### Performing load testing
 
-Use load testing to simulate the typical operations that users might perform. This can help to identify which parts of a system suffer from resource exhaustion under varying loads. Perform these tests in a controlled environment rather than the production system. The following graph shows the throughput of requests handled by the `NewHttpClientInstancePerRequest` controller as the user load increases to 100 concurrent users.
+Use load testing to simulate the typical operations that users might do. This can help to identify which parts of a system suffer from resource exhaustion under varying loads. Run these tests in a controlled environment rather than the production system. The following graph shows the throughput of requests handled by the `NewHttpClientInstancePerRequest` controller as the user load increases to 100 concurrent users.
 
 ![Throughput of the sample application creating a new instance of an HttpClient object for each request][throughput-new-HTTPClient-instance]
 

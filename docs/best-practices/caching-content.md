@@ -188,7 +188,7 @@ Azure Cache for Redis is compatible with many of the various APIs that are used 
 
 ### Features of Redis
 
-Redis is more than a simple cache server. It provides a distributed in-memory database with an extensive command set that supports many common scenarios. These are described later in this document, in the section Using Redis caching. This section summarizes some of the key features that Redis provides.
+Redis is more than a basic cache server. It provides a distributed in-memory database with an extensive command set that supports many common scenarios. These are described later in this document, in the section Using Redis caching. This section summarizes some of the key features that Redis provides.
 
 ### Redis as an in-memory database
 

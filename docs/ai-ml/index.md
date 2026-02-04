@@ -525,7 +525,7 @@ For more information, see the following resources:
 
 [R](https://www.r-project.org/) is a language and environment for statistical computing and graphics. You can use it for everything from mapping broad social and marketing trends online to developing financial and climate models.
 
-Microsoft fully embraces the R programming language and provides many options for R developers to run their code in Azure.
+Microsoft supports the R programming language and provides multiple options for R developers to run their code in Azure.
 
 For more information, see [Use R interactively on Machine Learning](/azure/machine-learning/how-to-r-interactive-development).
 

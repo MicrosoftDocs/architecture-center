@@ -23,8 +23,8 @@ You need access to the Azure Update Evaluator markdown report. Don't proceed unt
 ### Step 1: Article analysis process
 
 1. Scan all `.md` files in #codebase looking for articles that might have been affected by the updates. To optimize your search use relevant keywords in the article content:
-   - Service names (e.g., "ExpressRoute", "Azure Monitor")
-   - Theme keywords (e.g., "maintenance", "security", "cost optimization")
+   - Service names (like "ExpressRoute", "Azure Monitor")
+   - Theme keywords (like "maintenance", "security", "cost optimization")
    - Related concepts from the update description
 2. Create a mapping table of the updates to potentially relevant articles in #codebase
 
@@ -32,7 +32,7 @@ You need access to the Azure Update Evaluator markdown report. Don't proceed unt
 
 **Extract rich content from evaluator report for each update:**
 
-1. Business use cases (e.g., "multinational enterprise scheduling maintenance during 2-4 AM")
+1. Business use cases (like "multinational enterprise scheduling maintenance during 2-4 AM")
 2. Detailed problem statements each update addresses
 3. Architectural perspectives with specific tradeoffs
 4. Product context and technical specifics

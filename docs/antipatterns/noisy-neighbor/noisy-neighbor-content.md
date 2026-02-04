@@ -14,7 +14,7 @@ It's likely that the tenant whose request arrives first takes precedence. Then t
 
 The noisy neighbor problem also occurs when each individual tenant consumes only a small portion of the system's capacity. However, the combined resource usage of many tenants can result in a peak in overall usage:
 
-:::image type="complex" source="_images/noisy-neighbor-multiple.png" alt-text="Diagram that shows three tenants, each that use less than max throughput. Together, they fully consume the total system resources." lightbox="_images/noisy-neighbor-multiple.png" border="false":::
+:::image type="complex" source="_images/noisy-neighbor-multiple.png" alt-text="Diagram that shows three tenants, each that use less than max throughput. Together, they consume all available system resources." lightbox="_images/noisy-neighbor-multiple.png" border="false":::
    The image shows three line graphs that represent the resource usage for three tenants: Tenant A, Tenant B, and Tenant C. These graphs show the total system capacity over time. Another line graph shows the total system capacity and resource usage of all three tenants.
 :::image-end:::
 

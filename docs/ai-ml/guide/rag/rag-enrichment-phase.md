@@ -13,7 +13,7 @@ ms.subservice: architecture-guide
 
 After you break your documents into a collection of chunks, the next step is to enrich each chunk by cleaning it and augmenting it with metadata. Cleaning the chunks enables you to achieve better matches for semantic queries in a vector search. Adding metadata enables you to support searches of the chunks that go beyond semantic searches. Both cleaning and augmenting involve extending the schema for the chunk.
 
-This article discusses various ways to augment your chunks, including some common cleaning operations that you can perform on chunks to improve vector comparisons. It also describes some common metadata fields that you can add to your chunks to augment your search index.
+This article discusses various ways to augment your chunks, including some common cleaning operations that you can apply to chunks to improve vector comparisons. It also describes some common metadata fields that you can add to your chunks to augment your search index.
 
 > [!NOTE]
 > This article focuses only on vector-based retrieval-augmented generation (RAG) solutions. Strategies related to graph-based, agentic, tag-augmented generation (TAG), and other RAG solutions aren't in scope.
