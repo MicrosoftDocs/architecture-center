@@ -442,7 +442,7 @@ items:
   - name: Analytics
     items:
     - name: Get started
-      href: solution-ideas/articles/analytics-start-here.yml
+      href: solution-ideas/articles/analytics-get-started.md
     - name: Guides
       items:
       - name: Technology choices
@@ -691,7 +691,7 @@ items:
             href: example-scenario/aks-front-door/aks-front-door.yml
           - name: Multitenancy with AKS and AGIC
             href: example-scenario/aks-agic/aks-agic.yml
-          - name: Use Azure Kubernetes Service to host GPU-based workloads
+          - name: Use Azure Kubernetes Service toAI host GPU-based workloads
             href: reference-architectures/containers/aks-gpu/gpu-aks.md
       - name: Solution ideas
         items:
