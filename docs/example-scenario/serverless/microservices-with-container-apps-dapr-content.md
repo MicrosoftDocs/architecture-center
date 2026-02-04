@@ -43,7 +43,7 @@ The following dataflow corresponds to the previous diagram:
 | Accounting service | Internal | Publish-subscribe: Service Bus | Service Bus topic length, HTTP |
 | Receipt service | Internal | Publish-subscribe: Service Bus <br> Binding: Azure Blob Storage | Service Bus topic length |
 | Loyalty service | Internal | Publish-subscribe: Service Bus <br> State: Azure Cosmos DB | Service Bus topic length |
-| Makeline service | Internal | Publish-subscribe: Service Bus <br> State: Azure Cache for Redis | Service Bus topic length, HTTP |
+| Makeline service | Internal | Publish-subscribe: Service Bus <br> State: Azure Managed Redis | Service Bus topic length, HTTP |
 | Virtual worker | None | Service-to-service invocation <br> Binding: Cron | N/A |
 
 > [!NOTE]
@@ -55,7 +55,7 @@ The following dataflow corresponds to the previous diagram:
 
 - [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is a cloud-based solution for storing massive amounts of unstructured data like text or binary files. In this architecture, a receipt service uses Blob Storage via a Dapr output binding to store the order receipts.
 
-- [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is a distributed, in-memory, scalable managed Redis cache. In this architecture, it's used as a Dapr state store component for the Makeline service to store data on the orders that are being processed.
+- [Azure Managed Redis](/azure/redis/overview) provides an in-memory data store based on Redis Enterprise software. In this architecture, it's used as a Dapr state store component for the Makeline service to store data on the orders that are being processed.
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a NoSQL, multiple-model managed database service. In this architecture, it's used as a Dapr state store component for the loyalty service to store customers' loyalty data.
 
@@ -73,7 +73,7 @@ The following dataflow corresponds to the previous diagram:
 
 In this architecture, you deploy a Traefik proxy to enable path-based routing for the Vue.js API. There are many alternative open-source proxies that you can use for this purpose. Two other common projects are [NGINX](https://www.nginx.com) and [HAProxy](https://www.haproxy.com).
 
-All Azure infrastructure, except for SQL Database, uses Dapr components for interoperability. One benefit of Dapr is that you can swap all these components by changing the container apps deployment configuration. In this scenario, Service Bus, Azure Cosmos DB, Azure Cache for Redis, and Blob Storage showcase some of the more than 70 available Dapr components. A list of alternative [publish-subscribe brokers](https://docs.dapr.io/reference/components-reference/supported-pubsub), [state stores](https://docs.dapr.io/reference/components-reference/supported-state-stores), and [output bindings](https://docs.dapr.io/reference/components-reference/supported-bindings) are available in the Dapr docs.
+All Azure infrastructure, except for SQL Database, uses Dapr components for interoperability. One benefit of Dapr is that you can swap all these components by changing the container apps deployment configuration. In this scenario, Service Bus, Azure Cosmos DB, Azure Managed Redis, and Blob Storage showcase some of the more than 70 available Dapr components. A list of alternative [publish-subscribe brokers](https://docs.dapr.io/reference/components-reference/supported-pubsub), [state stores](https://docs.dapr.io/reference/components-reference/supported-state-stores), and [output bindings](https://docs.dapr.io/reference/components-reference/supported-bindings) are available in the Dapr docs.
 
 ## Scenario details
 
@@ -83,7 +83,7 @@ Microservices are a widely adopted architectural style. They provide benefits su
 
 This architecture uses Container Apps integration with a managed version of the [Dapr](https://dapr.io/). Dapr is an open-source project that helps developers overcome the inherent challenges in distributed applications, like state management and service invocation. 
 
-Container Apps also provides a managed version of [KEDA](https://keda.sh/). KEDA lets your containers scale automatically based on incoming events from external services like Service Bus and Azure Cache for Redis.
+Container Apps also provides a managed version of [KEDA](https://keda.sh/). KEDA lets your containers scale automatically based on incoming events from external services like Service Bus and Azure Managed Redis.
 
 You can also enable HTTPS ingress in Container Apps without creating more Azure networking resources. You can use [Envoy proxy](https://www.envoyproxy.io/), which also allows traffic splitting scenarios.
 
