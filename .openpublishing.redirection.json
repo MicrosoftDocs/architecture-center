@@ -6817,6 +6817,12 @@
       "redirect_url": "/azure/architecture/example-scenario/analytics/sync-mongodb-atlas-fabric-analytics",
       "redirect_document_id": false
     },
+    
+    {
+      "source_path": "docs/databases/architecture/azure-synapse-analytics-integrate-mongodb-atlas.yml",
+      "redirect_url": "/azure/architecture/example-scenario/analytics/sync-mongodb-atlas-fabric-analytics",
+      "redirect_document_id": false
+    },
     {
       "source_path": "docs/solution-ideas/articles/next-order-forecasting.yml",
       "redirect_url": "/azure/architecture/ai-ml/idea/next-order-forecasting",
