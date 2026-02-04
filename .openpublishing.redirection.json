@@ -6809,7 +6809,7 @@
     },
     {
       "source_path": "docs/example-scenario/analytics/azure-synapse-analytics-integrate-mongodb-atlas.yml",
-      "redirect_url": "/azure/architecture/databases/architecture/azure-synapse-analytics-integrate-mongodb-atlas",
+      "redirect_url": "/azure/architecture/example-scenario/analytics/sync-mongodb-atlas-fabric-analytics",
       "redirect_document_id": true
     },
     {
