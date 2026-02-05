@@ -1,3 +1,14 @@
+---
+title: Asynchronous Request-Reply pattern
+description: Allow decoupling of backend processing from a frontend host, where backend processing needs to be asynchronous, but the frontend still needs a clear response.
+author: v-federicoar
+ms.author: v-federicoar
+ms.date: 05/02/2026
+ms.topic: design-pattern
+ms.subservice: cloud-fundamentals
+---
+# Asynchronous Request-Reply pattern
+
 Decouple backend processing from a frontend host, where backend processing needs to be asynchronous, but the frontend still needs a clear response.
 
 ## Context and problem
@@ -49,7 +60,7 @@ The following diagram shows a typical flow:
 3. At some point, the work is complete and the status endpoint returns 302 (Found) redirecting to the resource.
 4. The client fetches the resource at the specified URL.
 
-## Issues and considerations
+## Problems and considerations
 
 - There are multiple ways to implement this pattern over HTTP and not all upstream services have the same semantics. For example, most services won't return an HTTP 202 response back from a GET method when a remote process hasn't finished. Following pure REST semantics, they should return HTTP 404 (Not Found). This response makes sense when you consider the result of the call isn't present yet.
 
@@ -78,7 +89,7 @@ The following diagram shows a typical flow:
 
 ## When to use this pattern
 
-Use this pattern for:
+Use this pattern when:
 
 - Client-side code, such as browser applications, where it's difficult to provide call-back endpoints, or the use of long-running connections adds too much additional complexity.
 
@@ -124,34 +135,31 @@ The `AsyncProcessingWorkAcceptor` function implements an endpoint that accepts w
 - The HTTP response includes a location header pointing to a status endpoint. The request ID is part of the URL path.
 
 ```csharp
-public static class AsyncProcessingWorkAcceptor
-{
-    [FunctionName("AsyncProcessingWorkAcceptor")]
-    public static async Task<IActionResult> Run(
-        [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = null)] CustomerPOCO customer,
-        [ServiceBus("outqueue", Connection = "ServiceBusConnectionAppSetting")] IAsyncCollector<ServiceBusMessage> OutMessages,
-        ILogger log)
+    public class AsyncProcessingWorkAcceptor(ServiceBusClient _serviceBusClient)
     {
-        if (String.IsNullOrEmpty(customer.id) || string.IsNullOrEmpty(customer.customername))
+        [Function("AsyncProcessingWorkAcceptor")]
+        public async Task<IActionResult> RunAsync([HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = null)] HttpRequest req, [FromBody] CustomerPOCO customer)
         {
-            return new BadRequestResult();
+            if (string.IsNullOrEmpty(customer.id) || string.IsNullOrEmpty(customer.customername))
+            {
+                return new BadRequestResult();
+            }
+
+            var reqid = Guid.NewGuid().ToString();
+
+            var rqs = $"http://{Environment.GetEnvironmentVariable("WEBSITE_HOSTNAME")}/api/RequestStatus/{reqid}";
+
+            var messagePayload = JsonConvert.SerializeObject(customer);
+            var message = new ServiceBusMessage(messagePayload);
+            message.ApplicationProperties.Add("RequestGUID", reqid);
+            message.ApplicationProperties.Add("RequestSubmittedAt", DateTime.Now);
+            message.ApplicationProperties.Add("RequestStatusURL", rqs);
+            var sender = _serviceBusClient.CreateSender("outqueue");
+
+            await sender.SendMessageAsync(message);
+            return new AcceptedResult(rqs, $"Request Accepted for Processing{Environment.NewLine}ProxyStatus: {rqs}");
         }
-
-        string reqid = Guid.NewGuid().ToString();
-
-        string rqs = $"https://{Environment.GetEnvironmentVariable("WEBSITE_HOSTNAME")}/api/RequestStatus/{reqid}";
-
-        var messagePayload = JsonConvert.SerializeObject(customer);
-        var message = new ServiceBusMessage(messagePayload);
-        message.ApplicationProperties.Add("RequestGUID", reqid);
-        message.ApplicationProperties.Add("RequestSubmittedAt", DateTime.Now);
-        message.ApplicationProperties.Add("RequestStatusURL", rqs);
-
-        await OutMessages.AddAsync(message);
-
-        return new AcceptedResult(rqs, $"Request Accepted for Processing{Environment.NewLine}ProxyStatus: {rqs}");
     }
-}
 ```
 
 ### AsyncProcessingBackgroundWorker function
@@ -159,140 +167,177 @@ public static class AsyncProcessingWorkAcceptor
 The `AsyncProcessingBackgroundWorker` function picks up the operation from the queue, does some work based on the message payload, and writes the result to a storage account.
 
 ```csharp
-public static class AsyncProcessingBackgroundWorker
-{
-    [FunctionName("AsyncProcessingBackgroundWorker")]
-    public static async Task RunAsync(
-        [ServiceBusTrigger("outqueue", Connection = "ServiceBusConnectionAppSetting")] BinaryData customer,
-        IDictionary<string, object> applicationProperties,
-        [Blob("data", FileAccess.ReadWrite, Connection = "StorageConnectionAppSetting")] BlobContainerClient inputContainer,
-        ILogger log)
+    public class AsyncProcessingBackgroundWorker(BlobContainerClient _blobContainerClient)
     {
-        // Perform an actual action against the blob data source for the async readers to be able to check against.
-        // This is where your actual service worker processing will be performed
+        [Function(nameof(AsyncProcessingBackgroundWorker))]
+        public async Task Run([ServiceBusTrigger("outqueue", Connection = "ServiceBusConnection")] ServiceBusReceivedMessage message)
+        {
+            var requestGuid = message.ApplicationProperties["RequestGUID"].ToString();
+            string blobName = $"{requestGuid}.blobdata";
 
-        var id = applicationProperties["RequestGUID"] as string;
+            await _blobContainerClient.CreateIfNotExistsAsync();
 
-        BlobClient blob = inputContainer.GetBlobClient($"{id}.blobdata");
+            var blobClient = _blobContainerClient.GetBlobClient(blobName);
+            using (MemoryStream memoryStream = new MemoryStream())
+            using (StreamWriter writer = new StreamWriter(memoryStream))
+            {
+                writer.Write(message.Body.ToString());
+                writer.Flush();
+                memoryStream.Position = 0;
 
-        // Now write the results to blob storage.
-        await blob.UploadAsync(customer);
+                await blobClient.UploadAsync(memoryStream, overwrite: true);
+            }
+        }
     }
-}
 ```
 
 ### AsyncOperationStatusChecker function
 
 The `AsyncOperationStatusChecker` function implements the status endpoint. This function first checks whether the request was completed
 
-- If the request was completed, the function either returns a valet-key to the response, or redirects the call immediately to the valet-key URL.
+- If the request was completed, the function either returns a [valet-key](./valet-key.yml) to the response, or redirects the call immediately to the valet-key URL.
 - If the request is still pending, then we should return a [200 code, including the current state](/azure/architecture/best-practices/api-design#asynchronous-operations).
 
 ```csharp
-public static class AsyncOperationStatusChecker
-{
-    [FunctionName("AsyncOperationStatusChecker")]
-    public static async Task<IActionResult> Run(
-        [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "RequestStatus/{thisGUID}")] HttpRequest req,
-        [Blob("data/{thisGuid}.blobdata", FileAccess.Read, Connection = "StorageConnectionAppSetting")] BlockBlobClient inputBlob, string thisGUID,
-        ILogger log)
-    {
-
-        OnCompleteEnum OnComplete = Enum.Parse<OnCompleteEnum>(req.Query["OnComplete"].FirstOrDefault() ?? "Redirect");
-        OnPendingEnum OnPending = Enum.Parse<OnPendingEnum>(req.Query["OnPending"].FirstOrDefault() ?? "OK");
-
-        log.LogInformation($"C# HTTP trigger function processed a request for status on {thisGUID} - OnComplete {OnComplete} - OnPending {OnPending}");
-
-        // Check to see if the blob is present
-        if (await inputBlob.ExistsAsync())
+    public class AsyncOperationStatusChecker(ILogger<AsyncOperationStatusChecker> _logger)
+    {  
+        [Function("AsyncOperationStatusChecker")]
+        public async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "RequestStatus/{thisGUID}")] HttpRequest req,
+             [BlobInput("data/{thisGUID}.blobdata", Connection = "DataStorage")] BlockBlobClient inputBlob, string thisGUID)
         {
-            // If it's present, depending on the value of the optional "OnComplete" parameter choose what to do.
-            return await OnCompleted(OnComplete, inputBlob, thisGUID);
-        }
-        else
-        {
-            // If it's NOT present, then we need to back off. Depending on the value of the optional "OnPending" parameter, choose what to do.
-            string rqs = $"https://{Environment.GetEnvironmentVariable("WEBSITE_HOSTNAME")}/api/RequestStatus/{thisGUID}";
+            OnCompleteEnum OnComplete = Enum.Parse<OnCompleteEnum>(req.Query["OnComplete"].FirstOrDefault() ?? "Redirect");
+            OnPendingEnum OnPending = Enum.Parse<OnPendingEnum>(req.Query["OnPending"].FirstOrDefault() ?? "OK");
 
-            switch (OnPending)
+            _logger.LogInformation($"C# HTTP trigger function processed a request for status on {thisGUID} - OnComplete {OnComplete} - OnPending {OnPending}");
+
+            // ** Check to see if the blob is present **
+            if (await inputBlob.ExistsAsync())
             {
-                case OnPendingEnum.OK:
+                // ** If it's present, depending on the value of the optional "OnComplete" parameter choose what to do. **
+                return await OnCompleted(OnComplete, inputBlob, thisGUID);
+            }
+            else
+            {
+                // ** If it's NOT present, then we need to back off, so depending on the value of the optional "OnPending" parameter choose what to do. **
+                string rqs = $"http://{Environment.GetEnvironmentVariable("WEBSITE_HOSTNAME")}/api/RequestStatus/{thisGUID}";
+
+                switch (OnPending)
+                {
+                    case OnPendingEnum.OK:
+                        {
+                            // Return an HTTP 200 status code with the 
+                            return new OkObjectResult(new { status = "In progress", Location = rqs });
+                        }
+
+                    case OnPendingEnum.Synchronous:
+                        {
+                            // Back off and retry. Time out if the backoff period hits one minute
+                            int backoff = 250;
+
+                            while (!await inputBlob.ExistsAsync() && backoff < 64000)
+                            {
+                                _logger.LogInformation($"Synchronous mode {thisGUID}.blob - retrying in {backoff} ms");
+                                backoff = backoff * 2;
+                                await Task.Delay(backoff);
+                            }
+
+                            if (await inputBlob.ExistsAsync())
+                            {
+                                _logger.LogInformation($"Synchronous Redirect mode {thisGUID}.blob - completed after {backoff} ms");
+                                return await OnCompleted(OnComplete, inputBlob, thisGUID);
+                            }
+                            else
+                            {
+                                _logger.LogInformation($"Synchronous mode {thisGUID}.blob - NOT FOUND after timeout {backoff} ms");
+                                return new NotFoundResult();
+                            }
+                        }
+
+                    default:
+                        {
+                            throw new InvalidOperationException($"Unexpected value: {OnPending}");
+                        }
+                }
+            }
+        }
+        private async Task<IActionResult> OnCompleted(OnCompleteEnum OnComplete, BlockBlobClient inputBlob, string thisGUID)
+        {
+            switch (OnComplete)
+            {
+                case OnCompleteEnum.Redirect:
+
                     {
-                        // Return an HTTP 200 status code.
-                        return new OkObjectResult(new { status = "In progress", Location = rqs });
+                        // The typical way to generate a SAS token in code requires the storage account key.
+                        //If you need to use “Managed Identity” to control access to your storage accounts in code, which is something highly recommend wherever possible as this is a security best practice.
+                        // In this scenario, you won't have a storage account key, so you'll need to find another way to generate the shared access signatures.
+                        // To do that, we need to use an approach called user delegation SAS . By using a user delegation SAS, we can sign the signature with the Microsoft Entra ID credentials instead of the storage account key.
+                        BlobServiceClient blobServiceClient = inputBlob.GetParentBlobContainerClient().GetParentBlobServiceClient();
+                        var userDelegationKey = await blobServiceClient.GetUserDelegationKeyAsync(DateTimeOffset.UtcNow, DateTimeOffset.UtcNow.AddDays(7));
+                        // Redirect to the SAS URI to blob storage
+                        return new RedirectResult(inputBlob.GenerateSASURI(userDelegationKey));
                     }
 
-                case OnPendingEnum.Synchronous:
+                case OnCompleteEnum.Stream:
                     {
-                        // Back off and retry. Time out if the backoff period hits one minute.
-                        int backoff = 250;
-
-                        while (!await inputBlob.ExistsAsync() && backoff < 64000)
-                        {
-                            log.LogInformation($"Synchronous mode {thisGUID}.blob - retrying in {backoff} ms");
-                            backoff = backoff * 2;
-                            await Task.Delay(backoff);
-                        }
-
-                        if (await inputBlob.ExistsAsync())
-                        {
-                            log.LogInformation($"Synchronous Redirect mode {thisGUID}.blob - completed after {backoff} ms");
-                            return await OnCompleted(OnComplete, inputBlob, thisGUID);
-                        }
-                        else
-                        {
-                            log.LogInformation($"Synchronous mode {thisGUID}.blob - NOT FOUND after timeout {backoff} ms");
-                            return new NotFoundResult();
-                        }
+                        // Download the file and return it directly to the caller.
+                        // For larger files, use a stream to minimize RAM usage.
+                        return new OkObjectResult(await inputBlob.DownloadContentAsync());
                     }
 
                 default:
                     {
-                        throw new InvalidOperationException($"Unexpected value: {OnPending}");
+                        throw new InvalidOperationException($"Unexpected value: {OnComplete}");
                     }
             }
         }
     }
 
-    private static async Task<IActionResult> OnCompleted(OnCompleteEnum OnComplete, BlockBlobClient inputBlob, string thisGUID)
+    public enum OnCompleteEnum
     {
-        switch (OnComplete)
+
+        Redirect,
+        Stream
+    }
+
+    public enum OnPendingEnum
+    {
+
+        OK,
+        Synchronous
+    }
+```
+
+The following `CloudBlockBlobExtensions` class provides an extension method that the status checker uses to generate a user delegation Shared Access Signature (SAS) URI for the result blob.
+
+```csharp
+    public static class CloudBlockBlobExtensions
+    {
+        public static string GenerateSASURI(this BlockBlobClient inputBlob, UserDelegationKey userDelegationKey)
         {
-            case OnCompleteEnum.Redirect:
-                {
-                    // Redirect to the SAS URI to blob storage
+            BlobServiceClient blobServiceClient = inputBlob.GetParentBlobContainerClient().GetParentBlobServiceClient();
 
-                    return new RedirectResult(inputBlob.GenerateSASURI());
-                }
+            BlobSasBuilder blobSasBuilder = new BlobSasBuilder()
+            {
+                BlobContainerName = inputBlob.BlobContainerName,
+                BlobName = inputBlob.Name,
+                Resource = "b",
+                StartsOn = DateTimeOffset.UtcNow,
+                ExpiresOn = DateTimeOffset.UtcNow.AddMinutes(10)
+            };
+            blobSasBuilder.SetPermissions(BlobSasPermissions.Read);
 
-            case OnCompleteEnum.Stream:
-                {
-                    // Download the file and return it directly to the caller.
-                    // For larger files, use a stream to minimize RAM usage.
-                    return new OkObjectResult(await inputBlob.DownloadContentAsync());
-                }
+            var blobUriBuilder = new BlobUriBuilder(inputBlob.Uri)
+            {
+                Sas = blobSasBuilder.ToSasQueryParameters(userDelegationKey, blobServiceClient.AccountName)
+            };
 
-            default:
-                {
-                    throw new InvalidOperationException($"Unexpected value: {OnComplete}");
-                }
+            //Generate the shared access signature on the blob, setting the constraints directly on the signature.
+            Uri sasUri = blobUriBuilder.ToUri();
+
+            //Return the URI string for the container, including the SAS token.
+            return sasUri.ToString();
         }
     }
-}
-
-public enum OnCompleteEnum
-{
-
-    Redirect,
-    Stream
-}
-
-public enum OnPendingEnum
-{
-
-    OK,
-    Synchronous
-}
 ```
 
 ## Next steps
@@ -301,7 +346,9 @@ The following information might be relevant when implementing this pattern:
 
 - [Azure Logic Apps - Perform long-running tasks with the polling action pattern](/azure/logic-apps/logic-apps-create-api-app#perform-long-running-tasks-with-the-polling-action-pattern).
 - For general best practices when designing a web API, see [Web API design](../best-practices/api-design.md).
+- [Durable Functions](/azure/azure-functions/durable/durable-functions-overview?tabs=isolated-process%2Cnodejs-v3%2Cv1-model&pivots=csharp#async-http) provides built-in support for this pattern, simplifying or even removing the code you need to write to interact with long-running function executions.
 
 ## Related resources
 
 - [Backends for Frontends pattern](./backends-for-frontends.md)
+- [Valet Key pattern](./valet-key.yml)
