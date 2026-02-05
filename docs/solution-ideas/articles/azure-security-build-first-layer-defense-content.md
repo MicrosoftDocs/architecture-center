@@ -5,13 +5,15 @@ This article is the second in a series of four that explains how to design a lay
 In the first article, we mapped ransomware threats across a hybrid enterprise environment using the MITRE ATT&CK framework. That exercise demonstrated how attackers typically gain initial access, escalate privileges, move laterally, and ultimately impact identities, infrastructure, applications, and data.
 
 This second article builds directly on that foundation and focuses on the first layer of defense: pre-breach security.
+
+
+## Scenario Details
+
 Pre-breach controls are designed to reduce attack surface, eliminate common misconfigurations, and block attackers before an intrusion begins. These controls align closely with Microsoft’s Zero Trust principles, where no resource is implicitly trusted and access is continuously verified.
 
 The goal of this article is to show how foundational Azure security services can be combined to disrupt common ransomware entry points identified in the threat map from Article 1.
 
-## Why pre-breach controls matter
-
-Ransomware attacks rarely start with sophisticated exploits. In most real-world incidents, attackers succeed because of:
+As introduced in Article 1, Ransomware attacks rarely start with sophisticated exploits. In most real-world incidents, attackers succeed because of:
 - Exposed services
 - Weak identity controls
 - Excessive privileges
@@ -20,8 +22,7 @@ Ransomware attacks rarely start with sophisticated exploits. In most real-world 
 
 The controls described in this article are not advanced detection or response tools. Instead, they form the baseline security posture that makes ransomware campaigns significantly harder to execute.
 
-When these controls are missing or misconfigured, attackers often succeed before detection tools even have a chance to alert.
-
+When these controls are missing or misconfigured, attackers often succeed before detection tools even have a chance to alert. 
 
 ## Potential use cases
 
@@ -30,8 +31,8 @@ This article organizes Azure security services by resource type so you can direc
 - Credential theft and brute force attacks
 - Lateral movement across networks
 - Unauthorized access to data stores
-The architecture diagram highlights how these services protect identities, networks, compute, applications, and data before an attacker establishes persistence.
-
+  
+The architecture diagram below highlights how these services protect identities, networks, compute, applications, and data before an attacker establishes persistence.
 
 ## Architecture
 
