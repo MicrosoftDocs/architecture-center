@@ -6,34 +6,6 @@ In the first article, we mapped ransomware threats across a hybrid enterprise en
 
 This second article builds directly on that foundation and focuses on the first layer of defense: pre-breach security.
 
-
-## Scenario Details
-
-Pre-breach controls are designed to reduce attack surface, eliminate common misconfigurations, and block attackers before an intrusion begins. These controls align closely with Microsoft’s Zero Trust principles, where no resource is implicitly trusted and access is continuously verified.
-
-The goal of this article is to show how foundational Azure security services can be combined to disrupt common ransomware entry points identified in the threat map from Article 1.
-
-As introduced in Article 1, Ransomware attacks rarely start with sophisticated exploits. In most real-world incidents, attackers succeed because of:
-- Exposed services
-- Weak identity controls
-- Excessive privileges
-- Flat networks
-- Unencrypted data paths
-
-The controls described in this article are not advanced detection or response tools. Instead, they form the baseline security posture that makes ransomware campaigns significantly harder to execute.
-
-When these controls are missing or misconfigured, attackers often succeed before detection tools even have a chance to alert. 
-
-## Potential use cases
-
-This article organizes Azure security services by resource type so you can directly map them to ransomware techniques identified earlier, such as:
-- Initial access through exposed services
-- Credential theft and brute force attacks
-- Lateral movement across networks
-- Unauthorized access to data stores
-  
-The architecture diagram below highlights how these services protect identities, networks, compute, applications, and data before an attacker establishes persistence.
-
 ## Architecture
 
 ((diagram goes here. See the Visio file in the [PR description](https://github.com/MicrosoftDocs/architecture-center-pr/pull/15188#issue-3892365595).))
@@ -152,6 +124,33 @@ This section describes the services shown in the diagram and how they contribute
 - [SQL Database](/azure/well-architected/service-guides/azure-sql-database) is a managed relational database service that automates patching, backups, and monitoring. In this architecture, it provides secure and compliant data storage via features like transparent data encryption, auditing, and vulnerability assessments.
 
 - [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview) is a unified SaaS analytics platform that brings together data engineering, data warehousing, real-time analytics, and business intelligence. In this architecture, you can adopt Fabric for analytics workloads that need governed workspaces, OneLake encryption at rest, item-level role-based access, and centralized activity logging while operational data remains in services such as Azure SQL Database.
+
+## Scenario details
+
+Pre-breach controls are designed to reduce attack surface, eliminate common misconfigurations, and block attackers before an intrusion begins. These controls align closely with Microsoft’s Zero Trust principles, where no resource is implicitly trusted and access is continuously verified.
+
+The goal of this article is to show how foundational Azure security services can be combined to disrupt common ransomware entry points identified in the threat map from Article 1.
+
+As introduced in Article 1, Ransomware attacks rarely start with sophisticated exploits. In most real-world incidents, attackers succeed because of:
+- Exposed services
+- Weak identity controls
+- Excessive privileges
+- Flat networks
+- Unencrypted data paths
+
+The controls described in this article are not advanced detection or response tools. Instead, they form the baseline security posture that makes ransomware campaigns significantly harder to execute.
+
+When these controls are missing or misconfigured, attackers often succeed before detection tools even have a chance to alert. 
+
+### Potential use cases
+
+This article organizes Azure security services by resource type so you can directly map them to ransomware techniques identified earlier, such as:
+- Initial access through exposed services
+- Credential theft and brute force attacks
+- Lateral movement across networks
+- Unauthorized access to data stores
+  
+The architecture diagram below highlights how these services protect identities, networks, compute, applications, and data before an attacker establishes persistence.
 
 ## Contributors
 
