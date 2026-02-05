@@ -442,7 +442,7 @@ items:
   - name: Analytics
     items:
     - name: Get started
-      href: solution-ideas/articles/analytics-start-here.yml
+      href: solution-ideas/articles/analytics-get-started.md
     - name: Guides
       items:
       - name: Technology choices
@@ -607,12 +607,22 @@ items:
           href: solution-ideas/articles/sap-workload-automation-suse.yml
   - name: Containers
     items:
-    - name: Choose a container host
+    - name: Get started
+      href: solution-ideas/articles/container-get-started.md
+    - name: Guides
       items:
-      - name: Overview
-        href: guide/choose-azure-container-service.md
-      - name: Considerations
-        href: guide/container-service-general-considerations.md
+      - name: Choose a container host
+        items:
+        - name: Overview
+          href: guide/choose-azure-container-service.md
+        - name: Considerations
+          href: guide/container-service-general-considerations.md
+      - name: Microservices design
+        items:
+        - name: Microservices architecture style
+          href: guide/architecture-styles/microservices.md
+        - name: Design a microservices architecture
+          href: microservices/design/index.md
     - name: Kubernetes-based hosting
       items:
       - name: Get started
@@ -691,7 +701,7 @@ items:
             href: example-scenario/aks-front-door/aks-front-door.yml
           - name: Multitenancy with AKS and AGIC
             href: example-scenario/aks-agic/aks-agic.yml
-          - name: Use Azure Kubernetes Service to host GPU-based workloads
+          - name: Use Azure Kubernetes Service toAI host GPU-based workloads
             href: reference-architectures/containers/aks-gpu/gpu-aks.md
       - name: Solution ideas
         items:
