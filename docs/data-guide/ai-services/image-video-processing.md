@@ -167,9 +167,9 @@ The following features analyze both audio and video content:
 
 For more information, see [Video Indexer documentation](/azure/azure-video-indexer/video-indexer-overview).
 
-#### Use cases
+#### Use cases for Cloud-based Video Indexer
 
-**Cloud-based Video Indexer:**
+The following table provides a list of possible use cases for Cloud-based Video Indexer.
 
 | Use case | Description |
 | :----------| :-------------|
@@ -180,7 +180,9 @@ For more information, see [Video Indexer documentation](/azure/azure-video-index
 | Content moderation | Use textual and visual content moderation models to keep your users safe from inappropriate content and validate that the content that you publish matches your organization's values. |
 | Recommendations | Improve user engagement by highlighting the relevant video moments to users. By tagging each video with extra metadata, you can recommend the most relevant videos and highlight the parts that match user needs. |
 
-**Video Indexer enabled by Azure Arc:**
+#### Use cases for Video Indexer enabled by Azure Arc
+
+The following table provides a list of possible use cases for Video Indexer enabled by Azure Arc.
 
 | Use case | Description |
 | :----------| :-------------|
