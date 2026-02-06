@@ -721,6 +721,24 @@ items:
       href: solution-ideas/articles/database-get-started.md
     - name: Guides
       items:
+      - name: Prepare to choose a data store in Azure
+        href: guide/technology-choices/data-stores-getting-started.md
+      - name: Understand data store models
+        href: data-guide/technology-choices/understand-data-store-models.md
+      - name: Selecting a specialized data store model
+        items:
+        - name: Big data storage
+          href: data-guide/technology-choices/data-storage.md
+        - name: Search data store
+          href: data-guide/technology-choices/search-options.md
+        - name: Vector search
+          href: guide/technology-choices/vector-search.md
+      - name: Data movement
+        items:
+        - name: Pipeline orchestration
+          href: data-guide/technology-choices/pipeline-orchestration-data-movement.md
+        - name: Data transfer options
+          href: data-guide/scenarios/data-transfer.md
       - name: NoSQL
         items:
         - name: Use the Transactional Outbox pattern
