@@ -18,85 +18,116 @@ Selecting the right database depends on your data model, consistency requirement
 
 ## Architecture
 
-![Diagram that contrasts relational database management system (RDBMS) and big data solutions.](_images/data-service-classifications.png)
+:::image type="complex" border="false" source="../media/data-service-classifications.pngg" alt-text="Diagram that shows the analytics solution journey on Azure." lightbox="../media/data-service-classifications.png":::
+   Diagram that contrasts relational database management system (RDBMS) and big data solutions. 
+:::image-end:::
 
 *Apache®, Apache Cassandra®, and the Hadoop logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
+
+*Download a [Visio file](https://arch-center.azureedge.net/database-get-started-diagram.vsdx) of this architecture.*
 
 Azure database solutions include traditional relational database management systems (RDBMS and OLTP), big data and analytics workloads (including OLAP), and NoSQL workloads. Refer to the [architectures](#explore-database-architectures-and-guides) provided in this section to find real-world solutions that you can build in Azure.
 
 
 ## Explore database architectures and guides
 
-The articles in this section include fully developed architectures that you can deploy in Azure and expand to production-grade solutions and guides. These can help you make important decisions about how you use database technologies in Azure. You can also review solution ideas, which give you a taste of what is possible as you plan your database implementation.
+The articles in this section include solution ideas, fully developed architectures, and guidance that address database scenarios on Azure. Solution ideas demonstrate implementation patterns and possibilities to consider. Architectures can be deployed and expanded to production-grade solutions. Guides help you make important decisions about how you use database technologies in Azure.
 
-###  Guides
 
-- [Choose a data store](../../guide/technology-choices/data-stores-getting-started.md) - Decision tree and guidance for selecting the right data store.
-- [Understand data store models](../data-guide/technology-choices/understand-data-store-models.md) - Learn about the different data store models and their use cases.
-- [Choose an analytical data store](../data-guide/technology-choices/analytical-data-stores.md) - Guidance on selecting the right analytical data store.
-- [OLTP solutions](../data-guide/relational-data/online-transaction-processing.md) - Design patterns for online transaction processing.
-- [OLAP solutions](../data-guide/relational-data/online-analytical-processing.md) - Design patterns for online analytical processing.
-- [ETL guide](../data-guide/relational-data/etl.yml) - Best practices for extract, transform, and load processes.
-- [Data lakes](../data-guide/scenarios/data-lake.md) - Design and implement data lake architectures.
-- [Big data architectures](guide/big-data-architectures.md) - Patterns for handling large-scale data processing.
+### Guides
 
-### Relational databases
+#### Technology choices
 
-Azure provides managed relational database services for SQL Server, PostgreSQL, MySQL, and MariaDB workloads:
+There are many options for database technologies in Azure. These articles help you choose the best technologies for your needs:
 
-#### Architectures
+- [Choose a data store](../../guide/technology-choices/data-stores-getting-started.md)
+- [Choose an analytical data store in Azure](../data-guide/technology-choices/analytical-data-stores.md)
+- [Choose a data analytics technology in Azure](../data-guide/technology-choices/analysis-visualizations-reporting.md)
+- [Choose a batch processing technology in Azure](../data-guide/technology-choices/batch-processing.md)
+- [Choose a big data storage technology in Azure](../data-guide/technology-choices/data-storage.md)
+- [Choose a data pipeline orchestration technology in Azure](../data-guide/technology-choices/pipeline-orchestration-data-movement.md)
+- [Choose a search data store in Azure](../data-guide/technology-choices/search-options.md)
+- [Choose a stream processing technology in Azure](../data-guide/technology-choices/stream-processing.md)
 
-- [DataOps for modern data warehouse](architecture/dataops-mdw.yml) - Implement DataOps practices for data warehousing.
-- [Greenfield lakehouse on Microsoft Fabric](../example-scenario/data/greenfield-lakehouse-fabric.yml) - Build a modern lakehouse architecture from scratch.
-- [Data warehousing and analytics](../example-scenario/data/data-warehouse.yml) - Integrate data from multiple sources into a unified analytics platform.
 
-#### Solution ideas
+#### NoSQL
 
-- [Migrate an Oracle database to Azure](idea/topic-migrate-oracle-azure.yml) - Options for migrating Oracle workloads to Azure.
-- [Migrate an Oracle database to an Azure virtual machine](idea/migrate-oracle-azure-iaas.yml) - Run Oracle databases on Azure IaaS.
-- [Migrate an Oracle database to OD@A Exadata Database Service](idea/migrate-oracle-odaa-exadata.yml) - Use Oracle Database@Azure for Exadata workloads.
-- [Cross-region resiliency for SQL TDE with Azure Key Vault Managed HSM](../solution-ideas/articles/secure-sql-managed-instance-managed-hardware-security-module.yml) - Implement cross-region encryption key management.
+- [Use the Transactional Outbox pattern](../../databases/guide/transactional-outbox-cosmos.yml)
+- [Run Apache Cassandra](../../databases/guide/cassandra.md)
 
-### NoSQL databases
+#### Data processing
 
-Azure Cosmos DB and other NoSQL solutions provide flexible schemas and horizontal scalability for modern applications:
+- [OLAP solutions](../../data-guide/relational-data/online-analytical-processing.md)
+- [OLTP solutions](../../data-guide/relational-data/online-transaction-processing.md)
+- [ETL guide](../../data-guide/relational-data/etl.yml)
+- [Data lakes](../../data-guide/scenarios/data-lake.md)
+- [Big data architectures](../../databases/guide/big-data-architectures.md)
 
-#### Architectures
+#### Governance
 
-- [Deploy MongoDB Atlas on Azure](architecture/mongodb-atlas-baseline.md) - Production-ready MongoDB deployment on Azure.
-- [Analyze MongoDB Atlas data](architecture/azure-synapse-analytics-integrate-mongodb-atlas.yml) - Integrate MongoDB data with Azure Synapse Analytics.
+- [Data obfuscation with Delphix](../../databases/guide/data-obfuscation-with-delphix-in-azure-data-factory.yml)
+- [Data scrambling for SAP with Delphix](../../databases/guide/data-scrambling-for-sap-using-delphix-and-azure-data-factory.yml)
+- [Collection structure for a federated Purview catalog](../../guide/data/collection-structure-federated-catalog.md)
 
-#### Guides
+### Architectures
 
-- [Use the Transactional Outbox pattern](guide/transactional-outbox-cosmos.yml) - Implement reliable messaging with Azure Cosmos DB.
-- [Run Apache Cassandra](guide/cassandra.md) - Deploy and manage Cassandra clusters on Azure.
-- [Nonrelational data and NoSQL](../data-guide/big-data/non-relational-data.yml) - Understand NoSQL data patterns and use cases.
+#### Data warehouse
 
-#### Solution ideas
+- [DataOps for modern data warehouse](../../databases/architecture/dataops-mdw.yml)
+- [Greenfield lakehouse on Microsoft Fabric](../../example-scenario/data/greenfield-lakehouse-fabric.yml)
 
-- [Minimal storage – change feed replication](idea/minimal-storage-change-feed-replicate-data.yml) - Replicate data using Azure Cosmos DB change feed.
+#### Azure Data Factory reference architectures
 
-### Azure Data Factory architectures
+- [Medallion lakehouse with Azure Data Factory](../../databases/architecture/azure-data-factory-on-azure-landing-zones-index.yml)
+- [Azure Data Factory baseline architecture](../../databases/architecture/azure-data-factory-on-azure-landing-zones-baseline.yml)
+- [Azure Data Factory enterprise hardened architecture](../../databases/architecture/azure-data-factory-enterprise-hardened.yml)
+- [Azure Data Factory mission critical architecture](../../databases/architecture/azure-data-factory-mission-critical.yml)
 
-Azure Data Factory provides cloud-scale data integration and orchestration:
+#### NoSQL
 
-- [Medallion lakehouse with Azure Data Factory](architecture/azure-data-factory-on-azure-landing-zones-index.yml) - Implement a medallion architecture for data lakes.
-- [Azure Data Factory baseline architecture](architecture/azure-data-factory-on-azure-landing-zones-baseline.yml) - Production-ready baseline for Data Factory deployments.
-- [Azure Data Factory enterprise hardened architecture](architecture/azure-data-factory-enterprise-hardened.yml) - Enhanced security and compliance configurations.
-- [Azure Data Factory mission critical architecture](architecture/azure-data-factory-mission-critical.yml) - High availability patterns for critical workloads.
+- [Deploy MongoDB Atlas on Azure](../../databases/architecture/mongodb-atlas-baseline.md)
+- [Analyze MongoDB Atlas data](../../databases/architecture/azure-synapse-analytics-integrate-mongodb-atlas.yml)
 
-### Data governance
+#### Mainframe
 
-- [Data obfuscation with Delphix](guide/data-obfuscation-with-delphix-in-azure-data-factory.yml) - Mask sensitive data in development environments.
-- [Data scrambling for SAP with Delphix](guide/data-scrambling-for-sap-using-delphix-and-azure-data-factory.yml) - Protect SAP data during testing.
-- [Collection structure for a federated Purview catalog](../guide/data/collection-structure-federated-catalog.md) - Organize data governance across the enterprise.
+- [Replicate and sync mainframe data](../../reference-architectures/migration/sync-mainframe-data-with-azure.yml)
+- [Mainframe data replication with Connect](../../example-scenario/mainframe/mainframe-replication-precisely-connect.yml)
+- [Mainframe data replication with Qlik](../../example-scenario/mainframe/mainframe-midrange-data-replication-azure-qlik.yml)
+- [Mainframe data replication with RDRS](../../example-scenario/mainframe/mainframe-data-replication-azure-rdrs.yml)
+- [Migrate mainframe data tier to Azure with mLogica LIBER*IRIS](../../example-scenario/mainframe/mainframe-data-replication-azure-data-platform.yml)
+- [Modernize mainframe midrange data](../../example-scenario/mainframe/modernize-mainframe-data-to-azure.yml)
+- [Re-engineer mainframe batch apps](../../example-scenario/mainframe/reengineer-mainframe-batch-apps-azure.yml)
+- [Rehost IMS DC and IMS DB](../../example-scenario/mainframe/rehost-ims-raincode-imsql.yml)
+- [Implement SMA OpCon in Azure](../../example-scenario/integration/sma-opcon-azure.yml)
+
+#### Relational
+
+- [Oracle Database with Azure NetApp Files](../../example-scenario/file-storage/oracle-azure-netapp-files.yml)
+- [SAP deployment using an Oracle database](../../example-scenario/apps/sap-production.yml)
+
+#### Big data
+
+- [Microsoft Fabric deployment patterns](../../analytics/architecture/fabric-deployment-patterns.yml)
+
+### Solution ideas
+
+#### Relational
+
+- [Migrate an Oracle database to Azure](../../databases/idea/topic-migrate-oracle-azure.yml)
+- [Migrate an Oracle database to an Azure virtual machine](../../databases/idea/migrate-oracle-azure-iaas.yml)
+- [Migrate an Oracle database to OD@A Exadata Database Service](../../databases/idea/migrate-oracle-odaa-exadata.yml)
+- [Cross-region resiliency for SQL TDE with Azure Key Vault Managed HSM](../../solution-ideas/articles/secure-sql-managed-instance-managed-hardware-security-module.yml)
+
+#### NoSQL
+
+- [Minimal storage – change feed replication](../../databases/idea/minimal-storage-change-feed-replicate-data.yml)
 
 
 ## Learn about databases on Azure
 
-If you're new to databases on Azure, the best place to learn more is with [Microsoft Learn](/training/?WT.mc_id=learnaka), a free, online training platform. You'll find videos, tutorials, and hands-on learning for specific products and services, plus learning paths based on your job role, such as developer or data analyst.
+[Microsoft Learn](/training/?WT.mc_id=learnaka) provides free online training resources for Azure database technologies. The platform offers videos, tutorials, and hands-on labs for specific products and services, along with learning paths organized by job role.
 
-Here are some resources to get you started:
+The following resources provide foundational knowledge for database implementations on Azure:
 
 - [Explore Azure database and analytics services](/training/modules/azure-database-fundamentals/)
 - [Choose a data storage approach in Azure](/training/modules/choose-storage-approach-in-azure/)
@@ -115,7 +146,7 @@ Here are some resources to get you started:
 
 ## Organizational readiness
 
-If your organization is new to the cloud, the [Cloud Adoption Framework](/azure/cloud-adoption-framework/) can help you get started. This collection of documentation and best practices offers proven guidance from Microsoft designed to accelerate your cloud adoption journey. For more information on cloud-scale analytics and data management, see [Cloud-scale analytics](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics).
+Organizations that are beginning their cloud adoption can use the [Cloud Adoption Framework](/azure/cloud-adoption-framework/) for proven guidance designed to accelerate cloud adoption. For cloud-scale analytics and data management guidance, see [Cloud-scale analytics](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics).
 
 To help assure the quality of your database solution on Azure, we recommend following the [Azure Well-Architected Framework (WAF)](/azure/well-architected/). WAF provides prescriptive guidance for organizations seeking architectural excellence and discusses how to design, provision, and monitor cost-optimized Azure solutions.
 
@@ -127,7 +158,7 @@ For database-specific guidance, see the Azure Well-Architected Framework service
 
 ## Path to production
 
-Knowing how to [choose a data store](../../guide/technology-choices/data-stores-getting-started.md) is one of the first decisions you need to make in your database journey on Azure. Understanding the different [data store models](../data-guide/technology-choices/understand-data-store-models.md) helps you select the right technology for your workload.
+[Choosing a data store](../../guide/technology-choices/data-stores-getting-started.md) is a foundational decision when implementing databases on Azure. Understanding the different [data store models](../data-guide/technology-choices/understand-data-store-models.md) enables you to select the appropriate technology for your workload requirements.
 
 Key decision points include:
 
@@ -139,7 +170,7 @@ Key decision points include:
 
 - **Managed vs. self-managed**: Decide between fully managed PaaS services, managed instances, or IaaS deployments based on operational requirements.
 
-To view different architecture styles for database solutions, see [architectures](#explore-database-architectures-and-guides).
+To view different architecture styles for database solutions, see [architectures](#architectures).
 
 
 ## Best practices
@@ -154,19 +185,6 @@ Review these best practices when designing your database solutions:
 | [Continuous backup with point-in-time restore in Azure Cosmos DB](/azure/cosmos-db/continuous-backup-restore-introduction) | Learn about Azure Cosmos DB point-in-time restore feature. |
 | [Achieve high availability with Azure Cosmos DB](/azure/cosmos-db/high-availability) | Azure Cosmos DB provides multiple features and configuration options to achieve high availability. |
 | [High availability for Azure SQL Database and SQL Managed Instance](/azure/azure-sql/database/high-availability-sla) | The database shouldn't be a single point of failure in your architecture. |
-
-### Technology choices
-
-There are many options for database technologies in Azure. These articles help you choose the best technologies for your needs:
-
-- [Choose a data store](../../guide/technology-choices/data-stores-getting-started.md)
-- [Choose an analytical data store in Azure](../data-guide/technology-choices/analytical-data-stores.md)
-- [Choose a data analytics technology in Azure](../data-guide/technology-choices/analysis-visualizations-reporting.md)
-- [Choose a batch processing technology in Azure](../data-guide/technology-choices/batch-processing.md)
-- [Choose a big data storage technology in Azure](../data-guide/technology-choices/data-storage.md)
-- [Choose a data pipeline orchestration technology in Azure](../data-guide/technology-choices/pipeline-orchestration-data-movement.md)
-- [Choose a search data store in Azure](../data-guide/technology-choices/search-options.md)
-- [Choose a stream processing technology in Azure](../data-guide/technology-choices/stream-processing.md)
 
 
 ## Stay current with databases

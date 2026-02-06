@@ -29,7 +29,7 @@ Refer to the [architectures](#explore-container-architectures-and-guides) provid
 
 ## Explore container architectures and guides
 
-The articles in this section include fully developed architectures that you can deploy in Azure and expand to production-grade solutions and guides. These can help you make important decisions about how you use container technologies in Azure. You can also review solution ideas, which give you a taste of what is possible as you plan your container implementation.
+The articles in this section include fully developed architectures that you can deploy in Azure and expand to production-grade solutions and guides. These can help you make important decisions about how you use container technologies in Azure. Solution ideas demonstrate implementation patterns and possibilities to consider as you plan your container implementation.
 
 ### Guides
 
@@ -80,9 +80,9 @@ Azure Container Apps and Azure Container Instances provide serverless container 
 
 ## Learn about containers on Azure
 
-If you're new to containers on Azure, the best place to learn more is with [Microsoft Learn](/training/?WT.mc_id=learnaka), a free, online training platform. You'll find videos, tutorials, and hands-on learning for specific products and services, plus learning paths based on your job role, such as developer or solutions architect.
+[Microsoft Learn](/training/?WT.mc_id=learnaka) provides free online training resources for Azure container technologies. The platform offers videos, tutorials, and hands-on labs for specific products and services, along with learning paths organized by job role.
 
-Here are some resources to get you started:
+The following resources provide foundational knowledge for container implementations on Azure:
 
 - [Introduction to Kubernetes on Azure](/training/paths/intro-to-kubernetes-on-azure/)
 - [Introduction to Azure Kubernetes Service](/training/modules/intro-to-azure-kubernetes-service/)
@@ -112,7 +112,7 @@ For container-specific guidance, see the Azure Well-Architected Framework servic
 
 ## Operations guide
 
-Getting your workload deployed on Azure is a great milestone, and this is when [day-2 operations](https://dzone.com/articles/defining-day-2-operations) become critical.
+Deploying your workload on Azure is a significant milestone, and this is when [day-2 operations](https://dzone.com/articles/defining-day-2-operations) become critical.
 
 ### AKS operations
 
