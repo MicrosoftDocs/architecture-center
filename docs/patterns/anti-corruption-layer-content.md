@@ -1,9 +1,9 @@
 ---
 title: Anti-corruption layer pattern
 description: Use an anti-corruption layer to isolate a modern workload from legacy or external systems that have different semantics, integration models, or data representations.
-author: v-federicoar
-ms.author: v-federicoar
-ms.date: 02/06/2026
+author: claytonsiemens77
+ms.author: pnp
+ms.date: 06/02/2026
 ms.topic: design-pattern
 ms.subservice: cloud-fundamentals
 ---
