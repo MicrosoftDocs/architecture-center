@@ -1,3 +1,15 @@
+---
+title: Anti-corruption layer pattern
+description: Use an anti-corruption layer to isolate a modern workload from legacy or external systems that have different semantics, integration models, or data representations.
+author: v-federicoar
+ms.author: v-federicoar
+ms.date: 02/06/2026
+ms.topic: design-pattern
+ms.subservice: cloud-fundamentals
+---
+
+# Anti-corruption layer pattern
+
 Implement a façade or adapter layer between different subsystems that don't share the same semantics. This layer translates requests that one subsystem makes to the other subsystem. Use this pattern to ensure that an application's design isn't limited by dependencies on outside subsystems. This pattern was first described by Eric Evans in *Domain-Driven Design*.
 
 ## Context and problem
@@ -18,7 +30,9 @@ Isolate the different subsystems by placing an anti-corruption layer between the
 
 The diagram above shows an application with two subsystems. Subsystem A calls to subsystem B through an anti-corruption layer. Communication between subsystem A and the anti-corruption layer always uses the data model and architecture of subsystem A. Calls from the anti-corruption layer to subsystem B conform to that subsystem's data model or methods. The anti-corruption layer contains all of the logic necessary to translate between the two systems. The layer can be implemented as a component within the application or as an independent service.
 
-## Issues and considerations
+## Problems and considerations
+
+Consider the following points as you decide how to implement this pattern:
 
 - The anti-corruption layer might add latency to calls made between the two systems.
 - The anti-corruption layer adds an additional service that must be managed and maintained.
@@ -29,6 +43,8 @@ The diagram above shows an application with two subsystems. Subsystem A calls to
 - Consider whether the anti-corruption layer needs to handle all communication between different subsystems, or just a subset of features.
 - If the anti-corruption layer is part of an application migration strategy, consider whether it will be permanent, or will be retired after all legacy functionality has been migrated.
 - This pattern is illustrated with distinct subsystems above, but can apply to other service architectures as well, such as when integrating legacy code together in a monolithic architecture.
+- Treat the anti-corruption layer as a security and trust boundary, ensuring validation and sanitization of all interactions.
+- Plan for observability, including correlation IDs and structured logging, to diagnose translation failures.
 
 ## When to use this pattern
 
@@ -37,7 +53,9 @@ Use this pattern when:
 - A migration is planned to happen over multiple stages, but integration between new and legacy systems needs to be maintained.
 - Two or more subsystems have different semantics, but still need to communicate.
 
-This pattern might not be suitable if there are no significant semantic differences between new and legacy systems.
+This pattern might not be suitable when:
+
+- There are no significant semantic differences between new and legacy systems.
 
 ## Workload design
 
@@ -48,6 +66,10 @@ An architect should evaluate how the Anti-corruption Layer pattern can be used i
 | [Operational Excellence](/azure/well-architected/operational-excellence/checklist) helps deliver **workload quality** through **standardized processes** and team cohesion. | This pattern helps ensure that new component design remains uninfluenced by legacy implementations that might have different data models or business rules when you integrate with these legacy systems and it can reduce technical debt in new components while still supporting existing components.<br/><br/> - [OE:04 Tools and processes](/azure/well-architected/operational-excellence/tools-processes) |
 
 As with any design decision, consider any tradeoffs against the goals of the other pillars that might be introduced with this pattern.
+
+## Next steps
+
+- Explore cloud design patterns that help manage distributed transactions and maintain data consistency, such as the [Compensating Transaction pattern](./compensating-transaction.yml) and [Saga distributed transactions pattern](./saga.yml)
 
 ## Related resources
 

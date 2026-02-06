@@ -350,7 +350,7 @@ items:
   - name: Ambassador
     href: patterns/ambassador.yml
   - name: Anti-Corruption Layer
-    href: patterns/anti-corruption-layer.yml
+    href: patterns/anti-corruption-layer.md
   - name: Asynchronous Request-Reply
     href: patterns/async-request-reply.yml
   - name: Backends for Frontends
