@@ -41,13 +41,13 @@ The articles in this section include solution ideas, fully developed architectur
 There are many options for database technologies in Azure. These articles help you choose the best technologies for your needs:
 
 - [Choose a data store](../../guide/technology-choices/data-stores-getting-started.md)
-- [Choose an analytical data store in Azure](../data-guide/technology-choices/analytical-data-stores.md)
-- [Choose a data analytics technology in Azure](../data-guide/technology-choices/analysis-visualizations-reporting.md)
-- [Choose a batch processing technology in Azure](../data-guide/technology-choices/batch-processing.md)
-- [Choose a big data storage technology in Azure](../data-guide/technology-choices/data-storage.md)
-- [Choose a data pipeline orchestration technology in Azure](../data-guide/technology-choices/pipeline-orchestration-data-movement.md)
-- [Choose a search data store in Azure](../data-guide/technology-choices/search-options.md)
-- [Choose a stream processing technology in Azure](../data-guide/technology-choices/stream-processing.md)
+- [Choose an analytical data store in Azure](../../data-guide/technology-choices/analytical-data-stores.md)
+- [Choose a data analytics technology in Azure](../../data-guide/technology-choices/analysis-visualizations-reporting.md)
+- [Choose a batch processing technology in Azure](../../data-guide/technology-choices/batch-processing.md)
+- [Choose a big data storage technology in Azure](../../data-guide/technology-choices/data-storage.md)
+- [Choose a data pipeline orchestration technology in Azure](../../data-guide/technology-choices/pipeline-orchestration-data-movement.md)
+- [Choose a search data store in Azure](../../data-guide/technology-choices/search-options.md)
+- [Choose a stream processing technology in Azure](../../data-guide/technology-choices/stream-processing.md)
 
 
 #### NoSQL
@@ -141,7 +141,6 @@ The following resources provide foundational knowledge for database implementati
 - **Data engineer**: [Azure Data Fundamentals: Explore relational data in Azure](/training/paths/azure-data-fundamentals-explore-relational-data/)
 - **Database administrator**: [Azure SQL fundamentals](/training/paths/azure-sql-fundamentals/)
 - **Developer**: [Work with Azure Cosmos DB](/training/paths/work-with-nosql-data-in-azure-cosmos-db/)
-- **Solutions architect**: [Design a data platform solution](/training/paths/design-data-platform-solutions/)
 
 
 ## Organizational readiness
@@ -152,13 +151,13 @@ To help assure the quality of your database solution on Azure, we recommend foll
 
 For database-specific guidance, see the Azure Well-Architected Framework service guides for:
 
-- [Azure Cosmos DB](/azure/well-architected/service-guides/azure-cosmos-db)
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db)
 - [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database)
 
 
 ## Path to production
 
-[Choosing a data store](../../guide/technology-choices/data-stores-getting-started.md) is a foundational decision when implementing databases on Azure. Understanding the different [data store models](../data-guide/technology-choices/understand-data-store-models.md) enables you to select the appropriate technology for your workload requirements.
+[Choosing a data store](../../guide/technology-choices/data-stores-getting-started.md) is a foundational decision when implementing databases on Azure. Understanding the different [data store models](../../data-guide/technology-choices/understand-data-store-models.md) enables you to select the appropriate technology for your workload requirements.
 
 Key decision points include:
 
@@ -196,7 +195,6 @@ Get the latest updates on [Azure products and features](https://azure.microsoft.
 To stay current with key database services, see:
 
 - [What's new in Azure SQL Database](/azure/azure-sql/database/doc-changes-updates-release-notes-whats-new)
-- [What's new in Azure Cosmos DB](/azure/cosmos-db/whats-new)
 - [What's new in Azure Database for PostgreSQL](/azure/postgresql/flexible-server/release-notes)
 - [What's new in Azure Database for MySQL](/azure/mysql/flexible-server/whats-new)
 
@@ -209,7 +207,6 @@ Databases is a broad category and covers a range of solutions. The following res
 
 Many organizations need a hybrid approach to databases because they have workloads running both on-premises and in the cloud. Azure provides services to extend your database platforms across environments:
 
-- [Azure Arc-enabled SQL Server](/azure/azure-arc/sql-server/overview) - Extend Azure services to SQL Server instances running anywhere.
 - [Azure Arc-enabled PostgreSQL](/azure/azure-arc/data/what-is-azure-arc-enabled-postgres-hyperscale) - Run Azure-managed PostgreSQL on your infrastructure.
 - [Unified hybrid and multicloud operations](guide/hybrid-on-premises-and-cloud.md) - Connect on-premises databases to cloud services.
 
