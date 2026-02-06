@@ -4,7 +4,7 @@ description: Understand governance options for a Kubernetes cluster, and compare
 author: francisnazareth
 ms.author: fnazaret
 ms.date: 01/28/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.collection: 
  - migration

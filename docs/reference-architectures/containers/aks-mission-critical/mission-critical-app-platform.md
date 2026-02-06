@@ -4,7 +4,7 @@ description: Reference architecture for a workload that is accessed over a publi
 author: msimecek
 ms.author: msimecek
 ms.date: 09/24/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
   - arb-containers
@@ -54,7 +54,7 @@ There are other foundational resources in this design, such as Microsoft Entra I
 
 ### Global load balancer
 
-Azure Front Door is used as the *only entry point* for user traffic. Azure guarantees that Azure Front Door will deliver the requested content without error 99.99% of the time. For more details, see [Front Door service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-standard-and-premium-tier-service-limits). If Front Door becomes unavailable, the end user will see the system as being down.
+Azure Front Door is used as the *only entry point* for user traffic. Azure guarantees that Azure Front Door will deliver the requested content without error 99.99% of the time. For more information, see [Front Door service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-standard-and-premium-tier-service-limits). If Front Door becomes unavailable, the end user will see the system as being down.
 
 The Front Door instance sends traffic to the configured backend services, such as the compute cluster that hosts the API and the frontend SPA. **Backend misconfigurations in Front Door can lead to outages**. To avoid outages due to misconfigurations, you should extensively test your Front Door settings.
 
@@ -62,7 +62,7 @@ Another common error can come from **misconfigured or missing TLS certificates**
 
 Front Door offers many additional capabilities besides global traffic routing. An important capability is the Web Application Firewall (WAF), because Front Door is able to inspect traffic which is passing through. When configured in the *Prevention* mode, it will block suspicious traffic before even reaching any of the backends.
 
-For information about Front Door capabilities, see [Frequently asked questions for Azure Front Door](/azure/frontdoor/front-door-faq).
+For more information about Front Door capabilities, see [Frequently asked questions for Azure Front Door](/azure/frontdoor/front-door-faq).
 
 > For other considerations about global distribution of traffic, see [Mission-critical guidance in Well-architected Framework: Global routing](/azure/architecture/framework/mission-critical/mission-critical-networking-connectivity#global-traffic-routing).
 
@@ -76,7 +76,7 @@ Failures can also occur if images are deleted inadvertently, new compute nodes w
 
 It’s recommended that you use the Premium SKU to enable geo replication. The zone redundancy feature ensures resiliency and high availability within a specific region. In case of a regional outage, replicas in other regions are still available for data plane operations. With this SKU you can restrict access to images through private endpoints.
 
-For more details, see [Best practices for Azure Container Registry](/azure/container-registry/container-registry-best-practices).
+For more information, see [Best practices for Azure Container Registry](/azure/container-registry/container-registry-best-practices).
 
 ### Database
 
@@ -99,9 +99,9 @@ Taking hard dependency on foundational services is inevitable because many Azure
 - Azure Front Door uses Azure DNS to reach the backend and other global services.
 - Azure Container Registry uses Azure DNS to fail over requests to another region.
 
-In both cases, both Azure services will be impacted if Azure DNS is unavailable. Name resolution for user requests from Front Door will fail; Docker images won't be pulled from the registry. Using an external DNS service as backup won't mitigate the risk because many Azure services don't allow such configuration and rely on internal DNS. Expect full outage.
+In both cases, both Azure services will be affected if Azure DNS is unavailable. Name resolution for user requests from Front Door will fail; Docker images won't be pulled from the registry. Using an external DNS service as backup won't mitigate the risk because many Azure services don't allow such configuration and rely on internal DNS. Expect full outage.
 
-Similarly, Microsoft Entra ID is used for control plane operations such as creating new AKS nodes, pulling images from Container Registry, or accessing Key Vault on pod startup. If Microsoft Entra ID is unavailable, existing components shouldn't be affected, but overall performance may be degraded. New pods or AKS nodes won't be functional. So, in case scale-out operations are required during this time, expect decreased user experience.
+Similarly, Microsoft Entra ID is used for control plane operations such as creating new AKS nodes, pulling images from Container Registry, or accessing Key Vault on pod startup. If Microsoft Entra ID is unavailable, existing components shouldn't be affected, but overall performance might be degraded. New pods or AKS nodes won't be functional. So, in case scale-out operations are required during this time, expect decreased user experience.
 
 ## Regional deployment stamp resources
 
@@ -138,7 +138,7 @@ Here are some scaling and availability considerations when choosing Azure servic
 
 - **Review the Azure subscription scale limits and quotas** to support the capacity and cost model set by the business requirements. Also check the limits of individual services in consideration. Because units are typically deployed together, factor in the subscription resource limits that are required for canary deployments. For more information, see [Azure service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
-- **Choose services that support availability zones** to build redundancy. This might limit your technology choices. See [Availability Zones](/azure/reliability/availability-zones-overview) for details.
+- **Choose services that support availability zones** to build redundancy. This might limit your technology choices. For more information, see [Availability zones](/azure/reliability/availability-zones-overview).
 
 > For other considerations about the size of a unit, and combination of resources, see [Mission-critical guidance in Well-architected Framework: Scale-unit architecture](/azure/architecture/framework/mission-critical/mission-critical-application-design#scale-unit-architecture).
 
@@ -148,11 +148,11 @@ To containerize the workload, each stamp needs to run a compute cluster. In this
 
 The lifetime of the AKS cluster is bound to the ephemeral nature of the stamp. **The cluster is stateless** and doesn't have persistent volumes. It uses ephemeral OS disks instead of managed disks because they aren't expected to receive application or system-level maintenance.
 
-To increase reliability, the cluster is configured to **use all three availability zones** in a given region. Additionally, to enable AKS Uptime SLA with guaranteed 99.95% SLA availability of the AKS control plane, the cluster should use either **Standard**, or **Premium** tier. See [AKS pricing tiers](/azure/aks/free-standard-pricing-tiers) to learn more.
+To increase reliability, the cluster is configured to **use all available availability zones** in a given region. Additionally, to enable AKS Uptime SLA with guaranteed 99.95% SLA availability of the AKS control plane, the cluster should use either **Standard**, or **Premium** tier. See [AKS pricing tiers](/azure/aks/free-standard-pricing-tiers) to learn more.
 
 Other factors such as scale limits, compute capacity, subscription quota can also impact reliability. If there isn't enough capacity or limits are reached, scale out and scale up operations will fail but existing compute is expected to function.
 
-The cluster has autoscaling enabled to let node pools **automatically scale out if needed**, which improves reliability. When using multiple node pools, all node pools should be autoscaled.
+The cluster has autoscaling enabled to let node pools **automatically scale out if needed**, which improves reliability. When you use multiple node pools, all node pools should be autoscaled.
 
 At the pod level, the Horizontal Pod Autoscaler (HPA) scales pods based on configured CPU, memory, or custom metrics. Load test the components of the workload to establish a baseline for the autoscaler and HPA values.
 
@@ -168,7 +168,7 @@ Durably persisting observability data is critical for mission-critical workloads
 
 Azure Key Vault is used to store global secrets such as connection strings to the database and stamp secrets such as the Event Hubs connection string.
 
-This architecture uses a [Secrets Store CSI driver](/azure/aks/csi-secrets-store-driver) in the compute cluster to get secrets from Key Vault. Secrets are needed when new pods are spawned. If Key Vault is unavailable, new pods might not get started. As a result, there might be disruption; scale out operations can be impacted, updates can fail, new deployments can't be executed.
+This architecture uses a [Secrets Store CSI driver](/azure/aks/csi-secrets-store-driver) in the compute cluster to get secrets from Key Vault. Secrets are needed when new pods are spawned. If Key Vault is unavailable, new pods might not get started. As a result, there might be disruption; scale-out operations can be affected, updates can fail, new deployments can't be executed.
 
 Key Vault has a limit on the number of operations. Due to the automatic update of secrets, the limit can be reached if there are many pods. You can **choose to decrease the frequency of updates** to avoid this situation.
 
@@ -178,7 +178,7 @@ For other considerations on secret management, see [Mission-critical guidance in
 
 The only stateful service in the stamp is the message broker, Azure Event Hubs, which stores requests for a short period. The broker serves the **need for buffering and reliable messaging**. The processed requests are persisted in the global database.
 
-In this architecture, Standard SKU is used and zone redundancy is enabled for high availability.
+This architecture uses the Standard SKU and enables zone redundancy for high availability.
 
 Event Hubs health is verified by the HealthService component running on the compute cluster. It performs periodic checks against various resources. This is useful in detecting unhealthy conditions. For example, if messages can't be sent to the event hub, the stamp  would be unusable for any write operations. HealthService should automatically detect this condition and report unhealthy state to Front Door, which will take the stamp out of rotation.
 
@@ -193,7 +193,7 @@ For more information, see [Messaging services for mission-critical workloads](./
 
 In this architecture two storage accounts are provisioned. Both accounts are deployed in zone-redundant mode (ZRS).
 
-One account is used for Event Hubs checkpointing. If this account isn't responsive, the stamp won't be able to process messages from Event Hubs and might even impact other services in the stamp. This condition is periodically checked by the HealthService, which is one of the application components running in the compute cluster.
+One account is used for Event Hubs checkpointing. If this account isn't responsive, the stamp won't be able to process messages from Event Hubs and might even affect other services in the stamp. This condition is periodically checked by the HealthService, which is one of the application components running in the compute cluster.
 
 The other is used to host the UI single-page application. If serving of the static web site has any issues, Front Door will detect the issue and won't send traffic to this storage account. During this time, Front Door can use cached content.
 

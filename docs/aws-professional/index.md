@@ -4,7 +4,7 @@ description: Learn about the basics of the Microsoft Azure platform, accounts, a
 author: splitfinity81
 ms.author: yubaijna
 ms.date: 02/07/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.collection: 
  - migration
@@ -110,9 +110,9 @@ The preceding list doesn't include all services. The following tables describe s
 | AWS service | Azure service | Description |
 | :---------- | :------------ | :---------- |
 | [AWS IAM Identity Center](https://aws.amazon.com/iam/identity-center/)<br/><br/>[AWS Identity and Access Management (IAM)](https://aws.amazon.com/iam) | [Microsoft Entra ID](https://www.microsoft.com/security/business/identity-access/microsoft-entra-id) | Use these services to more securely control access to services and resources and improve data security and protection. Create and manage users and groups, and use permissions to allow and deny access to resources. |
-| [AWS Identity and Access Management (IAM)](https://aws.amazon.com/iam) | [Azure role-based access control (RBAC)](/azure/role-based-access-control/overview) | Azure RBAC helps you manage who can access Azure resources, which resources they can access, and what they can do with those resources. |
+| [AWS Identity and Access Management (IAM)](https://aws.amazon.com/iam) | [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) | Azure RBAC helps you manage who can access Azure resources, which resources they can access, and what they can do with those resources. |
 | [AWS Organizations](https://aws.amazon.com/organizations) | [Azure management groups](https://azure.microsoft.com/get-started/azure-portal/management-groups/) | These services provide security policy and role management when you work with multiple accounts. |
-| [Multi-Factor Authentication (MFA) for IAM](https://aws.amazon.com/iam/features/mfa) | [Microsoft Entra ID](https://www.microsoft.com/en-us/security/business/identity-access/microsoft-entra-id) | Help safeguard access to data and applications while providing a simple sign-in process to users. |
+| [Multi-Factor Authentication (MFA) for IAM](https://aws.amazon.com/iam/features/mfa) | [Microsoft Entra ID](https://www.microsoft.com/en-us/security/business/identity-access/microsoft-entra-id) | Help safeguard access to data and applications while providing a straightforward sign-in process to users. |
 | [AWS Directory Service](https://aws.amazon.com/directoryservice) | [Microsoft Entra Domain Services](/entra/identity/domain-services/overview) | Domain Services provides managed domain services, such as domain join, group policy, LDAP, and Kerberos/NTLM authentication, which are fully compatible with Windows Server Active Directory. |
 | [Amazon Cognito](https://aws.amazon.com/cognito) | [Microsoft identity platform](/entra/identity-platform/v2-overview) and [Microsoft Entra External ID](/entra/external-id/external-identities-overview) | External ID is a highly available, global identity management service for consumer-facing applications in which you need to support "bring your own identity" scenarios, such as identities from Google or Meta. |
 
@@ -173,6 +173,8 @@ The preceding list doesn't include all services. The following tables describe s
 | Quantum computing | [Amazon Braket](https://aws.amazon.com/braket) | [Azure Quantum](/azure/quantum/overview-azure-quantum) | Developers, researchers, and businesses can use these managed quantum computing services to run quantum computing programs.|
 | Data sharing | [AWS Data Exchange](https://aws.amazon.com/data-exchange/) | [Azure Data Share](https://azure.microsoft.com/products/data-share/) | Securely share data with other organizations.|
 | Contact center | [Amazon Connect](https://aws.amazon.com/connect/) | [Dynamics 365 Contact Center](/dynamics365/contact-center/implement/overview-contact-center) | Connect with customers by using these AI-powered cloud contact center capabilities.|
+
+Microsoft maintains a development template library that curates prescriptive patterns and guidance for replicating or migrating applications from AWS to Azure. Click [here](https://marketing.partner.microsoft.com/marketplace-rewards/quick-start-development-toolkit/content-library/2-replicate-your-app-from-aws-to-azure) to learn more.
 
 ## Next step
 

@@ -4,10 +4,9 @@ description: Learn about fundamental orchestration patterns for AI agent archite
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 07/08/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
-ms.custom: arb-aiml
 ---
 
 # AI agent orchestration patterns
@@ -186,7 +185,7 @@ Consider group chat orchestration when your scenario can be solved through spont
 
 Avoid this pattern in the following scenarios:
 
-- Simple task delegation or linear pipeline processing is sufficient.
+- Basic task delegation or linear pipeline processing is sufficient.
 
 - Real-time processing requirements make discussion overhead unacceptable.
 
@@ -246,7 +245,7 @@ Avoid this pattern in the following scenarios:
 
 - The appropriate agents and their order are always known upfront.
 
-- Task routing is simple and deterministically rule-based, not based on dynamic context window or dynamic interpretation.
+- Task routing is deterministic and rule-based, not based on dynamic context window or dynamic interpretation.
 
 - Suboptimal routing decisions might lead to a poor or frustrating user experience.
 
@@ -262,7 +261,7 @@ A telecommunications customer relationship management (CRM) solution uses handof
    The image includes five key sections. The Triage support agent section includes a model and general knowledge section, input, and a result. The Technical infrastructure agent section includes a result and a model, infrastructure knowledge, and tools section. The Financial resolution agent section includes a model, billing account knowledge, and billing API access section, and a result. The Account access agent section includes a result and a model and customer knowledge section. The Customer support employee section includes a result. Curved arrows flow from agent to agent and to the Customer support employee.
 :::image-end:::
 
-In this system, the *triage support agent* interprets the request and tries to handle common problems directly. When it reaches its limits, it hands network problems to a *technical infrastructure agent*, billing disputes to a *financial resolution agent*, and so on. Further handoffs occur within those agents when the current agent recognizes its own capability limits and knows another agent can better support the scenario.
+In this system, the *triage support agent* interprets the request and tries to handle common problems directly. When it reaches its limits, it hands off problems to other agents. For example, it hands off network problems to a *technical infrastructure agent* and hands off billing disputes to a *financial resolution agent*. Further handoffs occur within those agents when the current agent recognizes its own capability limits and knows another agent can better support the scenario.
 
 Each agent is capable of completing the conversation if it determines that customer success has been achieved or that no other agent can further benefit the customer. Some agents are also designed to hand off the user experience to a human support agent when the problem is important to solve but no AI agent currently has the capabilities to address it.
 
@@ -276,7 +275,7 @@ The magentic orchestration pattern is designed for open-ended and complex proble
    The image shows a Manager agent section. It includes the input and a model. An arrow labeled Invoke agents points from the Manager agent to Agent 2. An arrow labeled Evaluate goal loop points to the Task complete section. An arrow labeled Yes points to the Results section, and an arrow labeled No points back to the Manager agent. An arrow points from the Manager agent to the Task and progress ledger section. A line connects the Task and progress ledger section to the Human participant section. A line that has three arrows points to Agent 1, Agent 2, an unlabeled section, and Agent n. A line connects Agent 1 to a section that reads Model and knowledge. A line connects Agent 2 to a section that reads Model, knowledge, and tools. A line connects Agent n to Model and tools. An arrow points from the section that reads Model, knowledge, and tools to External systems and from the Model and tools section to External systems.
 :::image-end:::
 
-The manager agent communicates directly with specialized agents to gather information as it builds and refines the task ledger. It iterates, backtracks, and delegates as many times as needed to build a complete plan that it can successfully carry out. The manager agent frequently evaluates whether the original request is fully satisfied or stalled. It updates the ledger to adjust the plan. 
+The manager agent communicates directly with specialized agents to gather information as it builds and refines the task ledger. It iterates, backtracks, and delegates as many times as needed to build a complete plan that it can successfully carry out. The manager agent regularly checks whether the original request is satisfied or stalled and updates the ledger to adjust the plan.
 
 In some ways, this orchestration pattern is an extension of the [group chat](#group-chat-orchestration) pattern. The magentic orchestration pattern focuses on an agent that builds a plan of approach, while other agents use tools to make changes in external systems instead of only using their knowledge stores to reach an outcome.
 
@@ -394,7 +393,7 @@ Distributing your AI system across multiple agents requires monitoring and testi
 
 Avoid these common mistakes when you implement agent orchestration patterns:
 
-- Creating unnecessary coordination complexity by using a complex pattern when simple sequential or concurrent orchestration would suffice.
+- Creating unnecessary coordination complexity by using a complex pattern when basic sequential or concurrent orchestration would suffice.
 
 - Adding agents that don't provide meaningful specialization.
 
@@ -424,7 +423,7 @@ Many of these patterns rely on a code-based implementation to address the orches
 
 ### Microsoft Agent Framework
 
-The Microsoft Agent Framework SDK has implementation guidance for [Agent Framework orchestration](/agent-framework/user-guide/workflows/overview).
+The orchestration patterns described on this page are implemented as workflow orchestrations in the Microsoft Agent Framework. For architectural guidance and implementation details, see the [Workflow orchestrations overview](/agent-framework/user-guide/workflows/orchestrations/overview).
 
 - [Sequential orchestration using the Agent Framework](/agent-framework/user-guide/workflows/orchestrations/sequential)
 - [Concurrent orchestration using the Agent Framework](/agent-framework/user-guide/workflows/orchestrations/concurrent)
@@ -447,9 +446,9 @@ For hands-on implementation, explore [Semantic Kernel multi-agent orchestration 
 
 You can also find many of these patterns in [AutoGen](https://microsoft.github.io/autogen/stable/user-guide/core-user-guide/design-patterns/intro.html), such as [Magentic-One](https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/magentic-one.html).
 
-## Implementations in Azure AI Foundry Agent Service
+## Implementations in Foundry Agent Service
 
-You can also use the [Azure AI Foundry Agent Service](/azure/ai-foundry/agents/overview) to chain agents together in relatively simple workflows by using its [connected agents](/azure/ai-foundry/agents/how-to/connected-agents) functionality. The workflows that you implement by using this service are primarily nondeterministic, which limits which patterns can be fully implemented in this no-code environment.
+You can also use [Foundry Agent Service](/azure/ai-foundry/agents/overview) to chain agents together in relatively simple workflows by using its [connected agents](/azure/ai-foundry/agents/how-to/connected-agents) functionality. The workflows that you implement by using this service are primarily nondeterministic, which limits which patterns can be fully implemented in this no-code environment.
 
 ## Contributors
 

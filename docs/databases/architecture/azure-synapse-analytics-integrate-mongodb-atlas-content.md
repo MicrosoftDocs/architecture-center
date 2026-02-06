@@ -32,7 +32,7 @@ The solution presents two options for triggering the pipelines that capture the 
 
 ### Components
 
-- [App Service](/azure/well-architected/service-guides/app-service-web-apps) is a managed platform for building, deploying, and scaling web apps, mobile apps, and REST APIs. In this architecture, it hosts ASP.NET web apps that subscribe to MongoDB Atlas change streams, detect data changes, and write updated documents to Data Lake Storage. The Event Grid version also publishes events to Event Grid to trigger downstream pipelines. The code for the [Event Grid version](https://github.com/Azure/SynapseRTSEventGrid) and the [Storage version](https://github.com/Azure/SynapseRTSStorage) is available on GitHub.
+- [App Service](/azure/well-architected/service-guides/app-service-web-apps) is a managed platform for building, deploying, and scaling web apps, mobile apps, and REST APIs. In this architecture, it hosts ASP.NET web apps that subscribe to MongoDB Atlas change streams, detect data changes, and write updated documents to Data Lake Storage. The Event Grid version also publishes events to Event Grid to trigger downstream pipelines.
 
 - [Azure Synapse Analytics](/azure/synapse-analytics) is an integrated analytics service that combines big data and data warehousing. In this architecture, it serves as the central platform for ingesting, processing, and analyzing both batch and real-time data from MongoDB Atlas.
 
@@ -73,7 +73,7 @@ The source connector provides a convenient way to run Azure Synapse Analytics on
 
 You can use the data that you retrieve from MongoDB Enterprise Advanced or MongoDB Atlas in the following scenarios:
 
-- To retrieve all data from a particular date from MongoDB in a batch. You then load the data into Data Lake Storage. From there, you use a serverless SQL pool or Spark pool for analysis, or you copy the data into a dedicated SQL pool. After you retrieve this batch, you can apply changes to the data as they occur, as described in [Dataflow](#dataflow). A [Storage-CopyPipeline_mdb_synapse_ded_pool_RTS sample pipeline](https://github.com/Azure/RealTimeSync_Synapse-MongoDB/blob/main/Storage-CopyPipeline_mdb_synapse_ded_pool_RTS.zip) is available as part of this solution. You can export the pipeline from GitHub for this one-time load purpose.
+- To retrieve all data from a particular date from MongoDB in a batch. You then load the data into Data Lake Storage. From there, you use a serverless SQL pool or Spark pool for analysis, or you copy the data into a dedicated SQL pool. After you retrieve this batch, you can apply changes to the data as they occur, as described in [Dataflow](#dataflow).
 
 - To produce insights at a particular frequency, for instance, for a daily or hourly report. For this scenario, you schedule a pipeline to retrieve data on a regular basis before you run the analytics pipelines. You can use a MongoDB query to apply filter criteria and only retrieve a certain subset of data.
 
@@ -197,10 +197,6 @@ When there's a high volume of changes, running thousands of pipelines in Azure S
 
 For more information on improving the performance and scalability of Azure Synapse Analytics pipeline copy activity, see [Copy activity performance and scalability guide](/azure/data-factory/copy-activity-performance).
 
-## Deploy this scenario
-
-For information about implementing this solution, see [Real-Time Sync Solution for MongoDB Atlas Integration with Synapse](https://github.com/Azure/RealTimeSync_Synapse-MongoDB).
-
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
@@ -224,14 +220,14 @@ Other contributors:
 
 For more information about the solution, contact [partners@mongodb.com](mailto:partners@mongodb.com).
 
-For information about MongoDB, see these resources:
+For more information about MongoDB, see these resources:
 
 - [MongoDB](https://www.mongodb.com)
 - [MongoDB Atlas](https://www.mongodb.com/atlas/database)
 - [MongoDB horizontal use cases](https://www.mongodb.com/use-cases)
 - [MongoDB industry-specific use cases](https://www.mongodb.com/industries)
 
-For information about Azure solution components, see these resources:
+For more information about Azure solution components, see these resources:
 
 - [What is Azure Synapse Analytics?](/azure/synapse-analytics/overview-what-is)
 - [Azure Synapse Analytics use cases](https://azure.microsoft.com/services/synapse-analytics/#use-cases)
@@ -244,5 +240,5 @@ For information about Azure solution components, see these resources:
 
 ## Related resources
 
-- [Enterprise business intelligence](../../example-scenario/analytics/enterprise-bi-synapse.yml)
+- [Use Microsoft Fabric to design an enterprise BI solution](../../example-scenario/analytics/enterprise-bi-microsoft-fabric.yml)
 - [Databases architecture design](../../databases/index.yml)

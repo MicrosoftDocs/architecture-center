@@ -4,7 +4,7 @@ description: Learn about steps to take to troubleshoot network problems in Azure
 author: francisnazareth
 ms.author: fnazaret
 ms.date: 04/15/2022
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
   - e2e-aks
@@ -178,7 +178,7 @@ These are some other potential causes of service problems:
 - A CNI plugin error or network route error is occurring.
 - kube-proxy isn't running or iptables rules aren't configured correctly.
 - Network Policies is dropping traffic. For information on applying and testing Network Policies, see [Azure Kubernetes Network Policies overview](/azure/virtual-network/kubernetes-network-policies).
-  - If you're using Calico as your network plugin, you can capture network policy traffic as well. For information on configuring that, see the [Calico site](https://projectcalico.docs.tigera.io/security/calico-network-policy#generate-logs-for-specific-traffic).
+  - If you're using Calico as your network plugin, you can capture network policy traffic as well. For more information about configuration, see the [Calico site](https://projectcalico.docs.tigera.io/security/calico-network-policy#generate-logs-for-specific-traffic).
 
 ## Nodes can't reach the API server
 
@@ -198,7 +198,7 @@ KUBE_TOKEN=$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)
 curl -sSk -H "Authorization: Bearer $KUBE_TOKEN" https://$KUBERNETES_SERVICE_HOST:$KUBERNETES_SERVICE_PORT/api/v1/namespaces/default/pods
 ```
 
-Healthy output will look similar to the following.
+Healthy output will look similar to the following example:
 
 ```output
 { 
@@ -268,7 +268,6 @@ Principal author:
 
 Other contributors:
 
-- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
 - [Ayobami Ayodeji](https://www.linkedin.com/in/ayobamiayodeji) | Senior Program Manager
 - [Bahram Rushenas](https://www.linkedin.com/in/bahram-rushenas-306b9b3) | Architect
 

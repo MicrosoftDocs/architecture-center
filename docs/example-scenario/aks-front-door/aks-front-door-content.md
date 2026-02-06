@@ -48,7 +48,7 @@ The following workflow corresponds to the previous diagram:
 
    - A Kubernetes [ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) object to expose the web application via the NGINX ingress controller.
 
-   - A [SecretProviderClass](https://learn.microsoft.com/azure/aks/aksarc/secrets-store-csi-driver) custom resource that retrieves the TLS certificate from the specified key vault by using the user-defined managed identity of the [Key Vault provider for Secrets Store CSI Driver](/azure/aks/csi-secrets-store-driver). This component creates a Kubernetes secret that contains the TLS certificate that the ingress object references.
+   - A [SecretProviderClass](/azure/aks/aksarc/secrets-store-csi-driver) custom resource that retrieves the TLS certificate from the specified key vault by using the user-defined managed identity of the [Key Vault provider for Secrets Store CSI Driver](/azure/aks/csi-secrets-store-driver). This component creates a Kubernetes secret that contains the TLS certificate that the ingress object references.
 
 1. An Azure Front Door [secret resource](/azure/templates/microsoft.cdn/profiles/secrets) is used to manage and store the TLS certificate that's in the key vault. This certificate is used by the [custom domain](/azure/templates/microsoft.cdn/profiles/customdomains) that's associated with the Azure Front Door endpoint. The Azure Front Door profile uses a user-assigned managed identity with the *Key Vault Administrator* role assignment to retrieve the TLS certificate from Key Vault.
 
@@ -83,7 +83,7 @@ The following steps describe the message flow for a request that an external cli
 
   - A *user node pool* that hosts user workloads and artifacts in a dedicated subnet.
 
-- The deployment requires [role-based access control (RBAC) role assignments](/azure/role-based-access-control/role-assignments), which include:
+- The deployment requires [Azure role-based access control (Azure RBAC) role assignments](/azure/role-based-access-control/role-assignments), which include:
 
   - A *Grafana Admin* role assignment on Azure Managed Grafana for the Microsoft Entra user whose `objectID` is defined in the `userId` parameter. The *Grafana Admin* role grants full control over the instance. This control includes managing role assignments and viewing, editing, and configuring data sources. For more information, see [How to share access to Azure Managed Grafana](/azure/managed-grafana/how-to-share-grafana-workspace).
 
@@ -213,7 +213,7 @@ These recommendations are essential for single-tenant AKS solutions and aren't s
 
 - Use the Standard or Premium tier for your production AKS clusters. These tiers include the [uptime service-level agreement (SLA) feature](/azure/aks/uptime-sla), which guarantees 99.95% availability of the Kubernetes API server endpoint for clusters that use [availability zones](/azure/aks/availability-zones) and 99.9% availability for clusters that don't use availability zones. For more information, see [Free, Standard, and Premium pricing tiers for AKS cluster management](/azure/aks/free-standard-pricing-tiers).
 
-- Enable [zone redundancy](/azure/reliability/availability-zones-overview) if you use Container Registry to store container images and Oracle Cloud Infrastructure (OCI) artifacts. Container Registry supports optional zone redundancy and [geo-replication](/azure/container-registry/container-registry-geo-replication). Zone redundancy provides resiliency and high availability to a registry or replication resource (replica) in a specific region. Geo-replication replicates registry data across one or more Azure regions to provide availability and reduce latency for regional operations.
+- Enable [zone redundancy](/azure/reliability/availability-zones-overview) if you use Container Registry to store container images and Open Container Initiative (OCI) artifacts. Container Registry supports optional zone redundancy and [geo-replication](/azure/container-registry/container-registry-geo-replication). Zone redundancy provides resiliency and high availability to a registry or replication resource (replica) in a specific region. Geo-replication replicates registry data across one or more Azure regions to provide availability and reduce latency for regional operations.
 
 #### Disaster recovery and business continuity
 
@@ -352,7 +352,6 @@ Principal author:
 - [Best practices for network connectivity and security in AKS](/azure/aks/operator-best-practices-network)
 - [Best practices for storage and backups in AKS](/azure/aks/operator-best-practices-storage)
 - [Best practices for Azure Front Door](/azure/frontdoor/best-practices)
-- [Create a private AKS cluster](https://github.com/azure-samples/private-aks-cluster)
 - [Origins and origin groups in Azure Front Door](/azure/frontdoor/origin)
 - [Routing architecture overview](/azure/frontdoor/front-door-routing-architecture)
 - [Secure your origin with Private Link in Azure Front Door Premium](/azure/frontdoor/private-link)
@@ -367,5 +366,5 @@ Principal author:
 - [AKS day-2 operations guide](../../operator-guides/aks/day-2-operations-guide.md)
 - [AKS solution journey](../../reference-architectures/containers/aks-start-here.md)
 - [Baseline architecture for an AKS cluster](../../reference-architectures/containers/aks/baseline-aks.yml)
-- [Best practices for multitenancy and cluster isolation](../../guide/multitenant/service/aks.yml)
+- [Best practices for multitenancy and cluster isolation](../../guide/multitenant/service/aks.md)
 - [Microservices architecture on AKS](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)

@@ -37,7 +37,7 @@ The scenario consists of the following components and capabilities:
 - [Windows Admin Center][]
 - [An Azure subscription][]
 - [Azure Arc][2]
-- [Azure role-based access control (RBAC)][]
+- [Azure role-based access control (Azure RBAC)][]
 - [Azure Monitor][3]
 - [Microsoft Defender for Cloud][4]
 
@@ -71,7 +71,7 @@ A virtual IP pool is a set of IP addresses that are mandatory for any AKS on Azu
 
 ### Kubernetes node VM IP pool
 
-Kubernetes nodes are deployed as virtual machines in an AKS on Azure Local deployment. Ensure that you plan the number of IP addresses according to the total number of Kubernetes nodes and include at least three more IP addresses that are used during the upgrade process. For static IP address configuration, you need to specify the Kubernetes node VM IP pool range, this isn't necessary for DHCP allocation. Plan additional IP addresses for:
+Kubernetes nodes are deployed as virtual machines in an AKS on Azure Local deployment. Ensure that you plan the number of IP addresses according to the total number of Kubernetes nodes and include at least three more IP addresses that are used during the upgrade process. For static IP address configuration, you need to specify the Kubernetes node VM IP pool range. This specification isn't necessary for DHCP allocation. Plan additional IP addresses for:
 
 - The KVA VM also uses more IP address for Kubernetes from the Kubernetes node VM IP pool. Plan to add IP addresses during the update process, because the KVA VM uses the same virtual IP for the API service but requires a separate IP from the Kubernetes node VM IP pool.
 - Control Plane VMs consume one IP from the Kubernetes node VM IP pool for the API server service. These virtual machines also host the Azure ARC agent that's connecting to the Azure portal for management purposes.
@@ -79,7 +79,7 @@ Kubernetes nodes are deployed as virtual machines in an AKS on Azure Local deplo
 
 ### Microsoft on-premises cloud service
 
-Plan IP address range for Microsoft on-premises cloud (MOC), that enables management stack so the VMs on Azure Local are managed in the cloud. The IP address allocation for the MOC service is on the underlying physical network, and the IP addresses configured for the Azure Local cluster nodes are in your data center. You can configure IP addresses for the physical nodes of your Azure Local in one of the following:
+Plan IP address range for Microsoft on-premises cloud (MOC), that enables management stack so the VMs on Azure Local are managed in the cloud. The IP address allocation for the MOC service is on the underlying physical network, and the IP addresses configured for the Azure Local cluster nodes are in your data center. You can configure IP addresses for the physical nodes of your Azure Local by using one of the following methods:
 
 - Azure Local cluster nodes with a DHCP-based IP address allocation mode. MOC service gets an IP address from the DHCP service presented on the physical network.
 - Azure Local cluster nodes with a static IP allocation model. The IP address for the MOC cloud service must be explicitly specified as an IP range in Classless Inter-Domain Routing (CIDR) format and it must be in the same subnet as the IP addresses of Azure Local cluster nodes.
@@ -140,14 +140,14 @@ network connectivity. The following Kubernetes services are available:
 - **Cluster IP**: This service creates an internal IP address for internal-only applications.
 - **NodePort**: This service creates port mapping on the underlying node, which makes the application directly accessible with the node IP address and port.
 - **LoadBalance**r: You can expose Kubernetes services externally using load-balancer rules or an ingress controller.
-- **ExternalName**:. This service uses a specific DNS entry for the Kubernetes application.
+- **ExternalName**: This service uses a specific DNS entry for the Kubernetes application.
 
 ### Kubernetes networks
 
 In AKS on Azure Local, the cluster can be deployed using one of the following network models:
 
 - [Project Calico networking][]. This is a default networking model for AKS on Azure Local and is based on an open-source networking that provides network security for containers, virtual machines, and native host-based workloads. Calico network policy can be applied on any kind of endpoint such as pods, containers, VMs, or host interfaces. Each policy consists of rules that control ingress and egress traffic by using actions that can, either allow, deny, log, or pass the traffic between source and destination endpoints. Calico can use either Linux extended Berkeley Packet Filter (eBPF) or Linux kernel networking pipeline for traffic delivery. Calico is also supported on Windows using Host Networking Service (HNS) for creating network namespaces per container endpoint. In the Kubernetes network model, every pod gets its own IP address that's shared between containers within that pod. Pods communicate on the network using pod IP addresses and the isolation is defined using network policies. Calico is using CNI (Container Network Interface) plugins for adding or deleting pods to and from the Kubernetes pod network and CNI IPAM (IP Address Management) plugins for allocating and releasing IP addresses.
-- [Flannel overlay networking.][] Flannel creates a virtual network layer that overlays the host network. Overlay networking uses encapsulation of the network packets over the existing physical network. Flannel simplifies IP Address Management (IPAM), supports IP re-use between different applications and namespaces, and provides logical separation of container networks from the underlay network used by the Kubernetes nodes. Network isolation is achieved using Virtual eXtensible Local Area Network (VXLAN), an encapsulation protocol that provides data center connectivity using tunneling to stretch Layer 2 connections over an underlying Layer 3 network. Flannel is supported both by Linux containers using *DaemonSet* and Windows containers using Flannel CNI plugin.
+- [Flannel overlay networking.][] Flannel creates a virtual network layer that overlays the host network. Overlay networking uses encapsulation of the network packets over the existing physical network. Flannel simplifies IP Address Management (IPAM), supports IP address re-use across applications and namespaces, and lets Kubernetes nodes use an underlay network that's separate from container networks. You can achieve network isolation by using Virtual eXtensible Local Area Network (VXLAN), which is an encapsulation protocol that provides datacenter connectivity by using tunneling to stretch Layer 2 connections over an underlying Layer 3 network. Flannel is supported both by Linux containers that use a *DaemonSet* and by Windows containers that use the Flannel CNI plugin.
 
 ### Azure Local networking design
 
@@ -227,11 +227,10 @@ The following recommendations apply for most scenarios. Follow the recommendatio
 
 ### Network recommendations
 
-The major concern in the networking design for the AKS on Azure Local is selecting a network model that provides enough IP addresses for
-your Kubernetes cluster, and its services and applications.
+The major concern in the networking design for the AKS on Azure Local is selecting a network model that provides enough IP addresses for your Kubernetes cluster, and its services and applications.
 
 - Consider implementing static IP addresses to allow AKS on Azure Local to control the IP address assignment.
-- Dimension properly the IP address ranges so you have enough free IP addresses for a Kubernetes node pool and for a virtual IP pool. Ensure that your virtual IP pool is large enough so that whenever you're upgrading you can use rolling upgrades, which require more IP addresses. You can plan the following:
+- Dimension properly the IP address ranges so you have enough free IP addresses for a Kubernetes node pool and for a virtual IP pool. Ensure that your virtual IP pool is large enough so that whenever you're upgrading you can use rolling upgrades, which require more IP addresses. You can plan the following items:
   - Addressing/hostnames for Proxy settings
   - IP addresses for the target cluster control plane
   - IP addresses for the Azure ARC
@@ -293,7 +292,7 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 - Use the [Azure pricing calculator][] to estimate costs for the services used in the architecture. Other best practices are described in the [cost optimization][] section in [Microsoft Azure Well-Architected Framework.][]
 - Consider implementing hyper-threading on your physical computer, to optimize the cost, because the AKS on Azure Local billing unit is a virtual core.
 - Azure Arc control plane functionality is provided at no extra cost. This includes support for resource organization through Azure management groups and tags, and access control through Azure RBAC. Azure services used in conjunction to Azure Arc–enabled servers incur costs according to their usage.
-- For cost-effectiveness, you can use as few as two cluster nodes with only four disks and 64 gigabytes (GB) of memory per node. To further minimize costs, you can use switchless interconnects between nodes, thereby eliminating the need for redundant switch devices.
+- For cost-effectiveness, you can use as few as two cluster nodes with only four disks and 64 gigabytes (GB) of memory per node. To further minimize costs, you can use switchless interconnects between nodes, which eliminates the need for redundant switch devices.
 
 ### Operational Excellence
 
@@ -355,7 +354,7 @@ Other contributors:
 [Windows Admin Center]: /windows-server/manage/windows-admin-center/overview
 [An Azure subscription]: /azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-subscriptions
 [2]: /azure/azure-arc
-[Azure role-based access control (RBAC)]: /azure/role-based-access-control/overview
+[Azure role-based access control (Azure RBAC)]: /azure/role-based-access-control/overview
 [3]: /azure/azure-monitor/overview
 [4]: /azure/defender-for-cloud/defender-for-cloud-introduction
 [ingress controller]: /azure/aks/hybrid/create-ingress-controller

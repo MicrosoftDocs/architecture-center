@@ -59,13 +59,13 @@ The following dataflow corresponds to the previous diagram:
    
    b. Data conversion is accomplished by developing custom programs by using the host file component of Host Integration Server or by using the built-in connector for IBM host files in Azure Logic Apps.
 
-      The Spark Notebook converter is developed by using open-source Spark frameworks. It's compatible with Spark environments such as Microsoft Fabric, Azure Synapse Analytics, and Azure Databricks.
+      The Spark Notebook converter is developed by using open-source Spark frameworks. It's compatible with Spark environments such as Microsoft Fabric and Azure Databricks.
 
    c. Relational database data is migrated.
 
       IBM mainframe and midrange systems store data in relational databases like:
 
-      - [Db2 for z/OS](https://www.ibm.com/analytics/db2/zos).
+      - [Db2 for z/OS](https://www.ibm.com/products/db2-for-zos).
       - [Db2 for Linux UNIX and Windows](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.kc.doc/welcome.html).
       - [Db2 for IBM i](https://www.ibm.com/support/pages/db2-ibm-i).
      
@@ -146,8 +146,6 @@ This architecture outlines various Azure-native migration tools that you use dep
 
 - [Host Integration Server](/host-integration-server/what-is-his) technologies and tools can integrate existing IBM host systems, programs, messages, and data with Azure applications. The host file client component provides flexibility for data that's converted from EBCDIC to ASCII. For example, you can generate data in JSON or XML format from the data that's converted. In this architecture, Host Integration Server converts EBCDIC-encoded mainframe data to ASCII format for Azure consumption.
 
-- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) combines data integration, enterprise data warehousing, and big data analytics. This architecture uses the Azure Synapse Analytics conversion solution. It's based on Apache Spark and is a good candidate for large mainframe-dataset workload conversion. It supports a wide range of mainframe data structures and targets and requires minimal coding effort. In this architecture, Azure Synapse Analytics provides enterprise data warehousing and big data analytics capabilities for modernized mainframe data.
-
 - [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview) is an enterprise-ready, end-to-end analytics platform. It unifies data movement, data processing, ingestion, transformation, real-time event routing, and report building. It supports these capabilities by using the following integrated services:
 
    - Fabric Data Engineer
@@ -218,7 +216,7 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 - SQL Server Migration Assistant is a free, supported tool that simplifies database migration from Db2 to SQL Server, SQL Database, and SQL Managed Instance. SQL Server Migration Assistant automates all aspects of migration, including migration assessment analysis, schema and SQL statement conversion, and data migration.
 
-- The Azure Synapse Analytics Spark-based solution is built from open-source libraries. It eliminates the financial burden of licensing conversion tools.
+- The Microsoft Fabric Lakehouse-based solution is built on open-source technologies (Delta Lake, Apache Spark). This approach eliminates the financial burden of licensing conversion tools and provides a unified SaaS experience for analytics.
 
 - Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the cost of implementing this solution.
 
@@ -245,6 +243,7 @@ Principal author:
 Other contributors:
 
 - [Nithish Aruldoss](https://www.linkedin.com/in/nithish-aruldoss-b4035b2b) | Engineering Architect
+- [Rodrigo Rodríguez](https://www.linkedin.com/in/rod2k10/) | Senior Cloud Solution Architect, AI & Quantum
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
@@ -259,6 +258,6 @@ See the following articles:
 - [Mainframe workloads supported on Azure](/azure/virtual-machines/workloads/mainframe-rehosting/partner-workloads)
 - [Move mainframe compute to Azure](/azure/virtual-machines/workloads/mainframe-rehosting/concepts/mainframe-compute-azure)
 
-## Related resources
+## Related resource
 
-- [Analytics end to end with Azure Synapse Analytics](../../example-scenario/dataplate2e/data-platform-end-to-end.yml)
+- [Analytics end to end with Microsoft Fabric](../../example-scenario/dataplate2e/data-platform-end-to-end.yml)

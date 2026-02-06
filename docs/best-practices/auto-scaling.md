@@ -53,7 +53,7 @@ These compute options all use the [Azure Monitor autoscale feature][monitoring] 
 
 - **Azure Functions** differs from the previous compute options because you don't need to configure any autoscale rules. Instead, Azure Functions automatically allocates compute power when your code runs. Azure Functions scales out as necessary to handle load. For more information, see [Choose the correct hosting plan for Azure Functions][functions-scale].
 
-A custom autoscaling solution can sometimes be useful. For example, you could use Azure Diagnostics and application-based metrics, along with custom code to monitor and export the application metrics. Then you could define custom rules based on these metrics, and use Azure Resource Manager REST APIs to trigger autoscaling. However, a custom solution isn't simple to implement and should be considered only if none of the previous approaches can fulfill your requirements.
+A custom autoscaling solution can sometimes be useful. For example, you could use Azure Diagnostics and application-based metrics, along with custom code to monitor and export the application metrics. Then you could define custom rules based on these metrics, and use Azure Resource Manager REST APIs to trigger autoscaling. But a custom solution might require significant effort, so consider it only if none of the previous approaches meet your requirements.
 
 Use the built-in autoscaling features of the platform if they meet your requirements. If not, carefully consider whether you need more complex scaling features. Examples of other requirements might include more granularity of control, different ways to detect trigger events for scaling, scaling across subscriptions, and scaling other types of resources.
 
@@ -65,7 +65,7 @@ Consider the following examples:
 
 - Scale out to 10 instances on weekdays, and scale in to four instances on Saturday and Sunday.
 
-- Scale out by one instance if average CPU usage is above 70%, and scale in by one instance if CPU usage falls below 50%.
+- Scale out by one instance if average CPU usage is higher than 70%, and scale in by one instance if CPU usage falls below 50%.
 - Scale out by one instance if the number of messages in a queue exceeds a certain threshold.
 
 Scale up the resource when load increases to ensure availability. At times of low usage, scale down so you can optimize cost. Always use a scale-out and scale-in rule combination. Otherwise, the autoscaling takes place only in one direction until it reaches the threshold (maximum or minimum instance counts) set in the profile.
@@ -76,7 +76,7 @@ For a list of built-in metrics, see [Azure Monitor autoscaling common metrics][a
 
 You can configure autoscaling by using PowerShell, the Azure CLI, an Azure Resource Manager template, or the Azure portal. For more detailed control, use the [Resource Manager REST API](/rest/api/resources/). The [Azure Monitoring Management Library](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring) and the [Microsoft Insights Library](https://www.nuget.org/packages/Microsoft.Azure.Insights) (in preview) are SDKs that allow collecting metrics from different resources and perform autoscaling by making use of the REST APIs. For resources where Resource Manager support isn't available, or if you use Azure Cloud Services, the Service Management REST API can be used for autoscaling. In all other cases, use Resource Manager.
 
-Consider the following points when using autoscaling:
+Consider the following points when you use autoscaling:
 
 - Consider whether you can predict the load on the application accurately enough to use scheduled autoscaling, adding and removing instances to meet anticipated peaks in demand. If you can't, use reactive autoscaling based on runtime metrics to handle unpredictable changes in demand. Typically, you can combine these approaches.
 
@@ -114,7 +114,7 @@ Consider the following points when using autoscaling:
 
 ## Application design considerations
 
-Autoscaling isn't an instant solution. Simply adding resources to a system or running more instances of a process doesn't guarantee that the performance of the system improves. Consider the following points when designing an autoscaling strategy:
+Autoscaling isn't an instant solution. Adding resources to a system or running more instances of a process doesn't guarantee improved performance. Consider the following points when you design an autoscaling strategy:
 
 - The system must be designed to be horizontally scalable. Avoid making assumptions about instance affinity. Don't design solutions that require that the code is always running in a specific instance of a process. When scaling a cloud service or website horizontally, don't assume that a series of requests from the same source are always routed to the same instance. For the same reason, design services to be stateless to avoid requiring a series of requests from an application to always be routed to the same instance of a service. When designing a service that reads messages from a queue and processes them, don't make any assumptions about which instance of the service handles a specific message. Autoscaling could start more instances of a service as the queue length grows. The [Competing Consumers pattern](../patterns/competing-consumers.yml) describes how to handle this scenario.
 
@@ -126,13 +126,13 @@ Autoscaling isn't an instant solution. Simply adding resources to a system or ru
 
 ### Other scaling criteria
 
-- Consider the length of the queue over which UI and background compute instances communicate. Use it as a criterion for your autoscaling strategy. This criteria can indicate an imbalance or difference between the current load and the processing capacity of the background task. There's a slightly more complex but better attribute to base scaling decisions on. Use the time between when a message was sent and when its processing was complete, known as the *critical time*. If this critical time value is below a meaningful business threshold, then it's unnecessary to scale, even if the queue length is long.
+- Consider the length of the queue over which UI and background compute instances communicate. Use it as a criterion for your autoscaling strategy. This criteria can indicate an imbalance or difference between the current load and the processing capacity of the background task. There's a slightly more complex but better attribute to base scaling decisions on. Use the time between when a message was sent and when its processing was complete, known as the *critical time*. If this critical time value is within an acceptable business range, then it's unnecessary to scale, even if the queue length is long.
   - For example, there could be 50,000 messages in a queue. But the critical time of the oldest message is 500 ms, and that endpoint is dealing with integration with a partner web service for sending out emails. Business stakeholders might not consider this scenario as urgent enough to justify the cost of scaling out.
 
   - On the other hand, there could be 500 messages in a queue, with the same 500-ms critical time. But the endpoint is part of the critical path in a real-time online game, where business stakeholders defined a 100-ms or less response time. In that case, scaling out makes sense.
   - In order to make use of critical time in autoscaling decisions, it's helpful to have a library automatically add the relevant information to the headers of messages during transmission and processing. One such library that provides this functionality is [NServiceBus](https://docs.particular.net/monitoring/metrics/definitions#metrics-captured-critical-time).
 
-- If you base your autoscaling strategy on counters that measure business processes, ensure that you fully understand the relationship between the results from these types of counters and the actual compute capacity requirements. Examples of counters include the number of orders placed every hour or the average runtime of a complex transaction. It might be necessary to scale more than one component or compute unit in response to changes in business process counters.
+- If you base your autoscaling strategy on counters that measure business processes, ensure that you understand the relationship between the results from these types of counters and the actual compute capacity requirements. Examples of counters include the number of orders placed every hour or the average runtime of a complex transaction. It might be necessary to scale more than one component or compute unit in response to changes in business process counters.
 
 - To prevent a system from attempting to scale out excessively, consider limiting the maximum number of instances that can be automatically added. This approach also avoids the costs associated with running many thousands of instances. Most autoscaling mechanisms allow you to specify the minimum and maximum number of instances for a rule. In addition, consider gracefully degrading the functionality that the system provides if you deploy the maximum number of instances and the system is still overloaded.
 

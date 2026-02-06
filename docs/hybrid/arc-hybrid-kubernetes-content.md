@@ -84,7 +84,7 @@ Azure Arc-enabled Kubernetes consists of a few agents (or *operators*) that run 
 
 - The `deployment.apps/clusterconnect-agent` is a reverse proxy agent that enables the cluster connect feature to provide access to the API server of the cluster. It's an optional component that's deployed only if the cluster connect feature is enabled on the cluster.
 
-- The `deployment.apps/guard` is an authentication and authorization webhook server that's used for Microsoft Entra role-based access control (RBAC). It's an optional component that's deployed only if Azure RBAC is enabled on the cluster.
+- The `deployment.apps/guard` is an authentication and authorization webhook server that's used for Microsoft Entra role-based access control (RBAC). It's an optional component that's deployed only if Azure role-based access control (Azure RBAC) is enabled on the cluster.
 
 - The `deployment.apps/extension-events-collector` collects logs related to extensions lifecycle management. It aggregates these logs into events that correspond to each operation, such as Create, Upgrade, and Delete.  
 

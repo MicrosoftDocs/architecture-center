@@ -5,7 +5,7 @@ ms.author: pnp
 author: claytonsiemens77
 ms.date: 06/05/2017
 ms.topic: design-pattern
-ms.subservice: design-pattern
+ms.subservice: cloud-fundamentals
 ---
 
 <!-- cSpell:ignore DTUs -->
@@ -73,7 +73,7 @@ public class PolyController : ApiController
 
 The system can slow down dramatically and eventually fail when the system runs out of resources such as database connections.
 
-You can perform the following steps to help identify the cause:
+You can do the following steps to help identify the cause:
 
 1. Instrument the system to record the key performance statistics. Capture timing information for each operation. And capture the points where the application reads and writes data.
 

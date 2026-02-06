@@ -4,7 +4,7 @@ description: Learn how to design self-healing Azure applications that detect, re
 author: ckittel
 ms.author: pnp
 ms.date: 07/28/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
 

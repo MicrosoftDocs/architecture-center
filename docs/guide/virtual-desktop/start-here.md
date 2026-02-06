@@ -4,7 +4,7 @@ description: Get an overview of Azure virtual desktop technologies, guidance off
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 08/29/2022
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
 
@@ -27,7 +27,7 @@ If you're new to virtual desktops on Azure, the best way to learn more is [Micro
 
 ## Path to production
 
-Cloud Adoption Framework for Azure provides an end-to-end scenario to guide you through your virtual desktop migration or deployment. Start with [Migrate or deploy Azure Virtual Desktop instances to Azure](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop), and check out the other articles below that one in the table of contents.
+Cloud Adoption Framework for Azure provides an end-to-end scenario to guide you through your virtual desktop migration or deployment. Start with [Migrate or deploy Azure Virtual Desktop instances to Azure](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop), and check out the other articles under it in the table of contents.
 
 These are two more key Cloud Adoption Framework articles:
 
@@ -56,7 +56,7 @@ The following sections, organized by category, provide links to example scenario
 
 ### Azure Virtual Desktop for the enterprise
 
-- [Azure Virtual Desktop for the enterprise](../../example-scenario/azure-virtual-desktop/azure-virtual-desktop.yml)
+- [Azure Virtual Desktop landing zone design guide](../../landing-zones/azure-virtual-desktop/design-guide.md)
 
 ### FSLogix
 

@@ -4,7 +4,7 @@ description: Guide on performing automated continuous validation in production-l
 author: heoelri
 ms.author: msimecek
 ms.date: 01/30/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: mission-critical
 ---
@@ -21,7 +21,7 @@ Continuous validation depends on each workload and on architectural characterist
 
 ## 1 – Define tests based on expected thresholds
 
-Continuous testing is a complex process that requires proper preparation. What will be tested and the expected outcomes must be clear.
+Continuous testing is a complex process that requires proper preparation. What is tested and the expected outcomes must be clear.
 
 In [PE:06 - Recommendations for performance testing](/azure/well-architected/performance-efficiency/performance-test) and [RE:08 - Recommendations for designing a reliability testing strategy](/azure/well-architected/reliability/testing-strategy), the Azure Well-Architected Framework recommends that you start by **identifying key scenarios, dependencies, expected usage, availability, performance, and scalability targets**.
 
@@ -34,7 +34,7 @@ You should use threshold values to develop a **[health model for your applicatio
 
 ![Visualization of key system flows using green and red connected circles.](./images/deployment-testing-key-system-flows.png)
 
-Next, use the values to define a **load test** that generates realistic traffic for testing application baseline performance, validating expected scale operations, and so on. Sustained artificial user traffic is needed in pre-production environments, because without usage it's difficult to reveal runtime issues.
+Next, use the values to define a **load test** that generates realistic traffic for testing application baseline performance, and for validating expected scale operations. Sustained artificial user traffic is needed in pre-production environments, because without usage it's difficult to reveal runtime issues.
 
 Load testing ensures that changes made to the application or infrastructure don't cause issues and the system still meets the expected performance and test criteria. A failed test run that doesn't meet the test criteria indicates that you need to adjust the baseline, or that an unexpected error occurred.
 
@@ -63,12 +63,12 @@ One option is to execute the load test directly from within the end-to-end (e2e)
 
 ![Run pipeline screen with the load testing checkbox ticked.](./images/deployment-testing-pipeline-start.png)
 
-The pipeline will automatically run a load test, with or without chaos experiments (depending on the selection) in parallel:
+The pipeline automatically runs a load test, with or without chaos experiments (depending on the selection) in parallel:
 
 ![Azure DevOps pipeline run with chaos and load testing.](./images/deployment-testing-pipeline-run.png)
 
 > [!NOTE]
-> Running chaos experiments during a load test can result in higher latency, higher response times and temporarily increased error rates. You'll notice higher numbers until a scale-out operation completes or a failover has completed, when compared to a run without chaos experiments.
+> Running chaos experiments during a load test can result in higher latency, higher response times and temporarily increased error rates. Expect higher response times and latency until a scale-out operation completes or a failover has completed, when compared to a run without chaos experiments.
 
 ![Chart showing increased response time during chaos experiment.](./images/deployment-testing-response-time.png)
 

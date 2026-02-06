@@ -19,7 +19,7 @@ While the app is ambitious, it doesn't yet need a complex, microservice-driven a
 
 ![Diagram that shows the core startup stack architecture Contoso used to deploy their application.](images/startup-stack-architecture.png)
 
-*Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/Startup%20Stack%20Architecture.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/Startup%20Stack%20Architecture.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -29,7 +29,7 @@ In this core startup stack architecture:
 
 - [Azure Database for PostgreSQL](/azure/postgresql/overview) is an Azure database service for a leading open-source relational database management system (RDBMS). You can concentrate on developing your application rather than managing database servers.
 
-  Azure also has managed database services for [SQL](/azure/azure-sql/database/sql-database-paas-overview), [MySQL](/azure/mysql/overview), [MongoDB](https://www.mongodb.com/mongodb-on-azure), [Apache Cassandra](/azure/managed-instance-apache-cassandra/), [Gremlin](/azure/cosmos-db/gremlin/introduction), and [Redis](/azure/redis/overview).
+  Azure also has managed database services for [SQL](/azure/azure-sql/database/sql-database-paas-overview), [MySQL](/azure/mysql/overview), [MongoDB](https://www.mongodb.com/mongodb-on-azure), [Apache Cassandra](/azure/managed-instance-apache-cassandra/), and [Redis](/azure/redis/overview).
 
   In addition to managed offerings, the Azure Marketplace includes databases used in startup architectures as well, such as [CockroachDB](https://azuremarketplace.microsoft.com/marketplace/apps/cockroachlabs1586448087626.cockroachdb-azure), [Neon Serverless Postgres](https://azuremarketplace.microsoft.com/marketplace/apps/neon1722366567200.neon_serverless_postgres_azure_prod), and [SQLite](https://azuremarketplace.microsoft.com/marketplace/apps/cloud-infrastructure-services.sqlite-ubuntu).
 
@@ -71,7 +71,7 @@ If something goes wrong with your app, you want to spend as little time as possi
 
 ### CI/CD
 
-The lack of repeatable and rapid deployments is one of the worst impediments to speed when you're iterating on a product. A well-configured CI/CD pipeline streamlines the code deployment process on your app server. Quick and easy deployments mean that you see the results of your labor quickly. Frequent integration avoids divergent code bases that lead to merge conflicts.  The concepts and techniques are the same for most projects you build by using a [Dockerfile](https://docs.docker.com/engine/reference/builder).
+The lack of repeatable and rapid deployments is one of the worst impediments to speed when you're iterating on a product. A well-configured CI/CD pipeline streamlines the code deployment process on your app server. Quick and easy deployments mean that you see the results of your labor quickly. Frequent integration avoids divergent code bases that lead to merge conflicts. The concepts and techniques are the same for most projects you build by using a [Dockerfile](https://docs.docker.com/engine/reference/builder).
 
 ## Contributors
 

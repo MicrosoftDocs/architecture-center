@@ -1,14 +1,13 @@
 ### YamlMime:Architecture
 metadata:
-  title: Implement Advanced Monitoring for Azure OpenAI Through a Gateway
-  description: Learn how to implement advanced monitoring scenarios for Azure OpenAI Service, like chargeback and auditing, via accessing the Azure OpenAI Service through a gateway.
+  title: Implement Advanced Monitoring for Azure OpenAI in Foundry Models Through a Gateway
+  description: Learn how to implement advanced monitoring scenarios for Azure OpenAI in Foundry Models, like chargeback and auditing, via accessing Azure OpenAI through a gateway.
   author: jakeatmsft
   ms.author: jacwang
   ms.date: 3/28/2025
-  ms.topic: conceptual
+  ms.topic: concept-article
   ms.collection: ce-skilling-ai-copilot
   ms.subservice: architecture-guide
-  ms.custom: arb-aiml
 azureCategories:
   - ai-machine-learning
   - management-and-governance
@@ -18,8 +17,8 @@ products:
   - azure-api-management
   - entra-id
   - azure-monitor
-name: Implement advanced monitoring for Azure OpenAI through a gateway
-summary: Learn how to implement advanced monitoring scenarios for Azure OpenAI Service, like chargeback and auditing, via accessing the Azure OpenAI Service through a gateway.
+name: Implement advanced monitoring for Azure OpenAI in Foundry Models through a gateway
+summary: Learn how to implement advanced monitoring scenarios for Azure OpenAI in Foundry Models, like chargeback and auditing, via accessing Azure OpenAI through a gateway.
 thumbnailUrl: /azure/architecture/browse/thumbs/tracking-multiple-models-inputs-outputs-bus.png
 content: |
   [!INCLUDE[](azure-openai-gateway-monitoring-content.md)]

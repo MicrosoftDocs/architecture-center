@@ -4,7 +4,7 @@ description: Explore Azure Service Bus isolation models, authentication, and fea
 author: PlagueHO
 ms.author: dascottr
 ms.date: 05/02/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-saas
 ---

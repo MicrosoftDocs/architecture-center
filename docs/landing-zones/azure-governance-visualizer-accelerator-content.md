@@ -2,7 +2,7 @@ This article describes how to deploy the Azure Governance Visualizer. Organizati
 
 - Management group hierarchy.
 - Policy information, such as custom policy definitions, orphaned custom policy definitions, and policy assignments.
-- Role-based access control (RBAC) information, such as custom role definitions, orphaned custom role definitions, and role assignments.
+- Azure role-based access control (Azure RBAC) information, such as custom role definitions, orphaned custom role definitions, and role assignments.
 - Azure security and best practice analysis.
 - Microsoft Entra ID insights.
 
@@ -36,11 +36,11 @@ This flow explains how a user can use the tool:
 
 The automation presented in this scenario consists of the following components:
 
-- [Microsoft Entra ID](/entra/fundamentals/whatis) is an enterprise identity service that provides single sign-on, multifactor authentication, and other identity services to protect against cybersecurity threats. In this architecture, its used to provide secure authentication and authorization to the Azure Governance Visualizer's web app to a specific Entra ID group.
+- [Microsoft Entra ID](/entra/fundamentals/whatis) is an enterprise identity service that provides single sign-on, multifactor authentication, and other identity services to protect against cybersecurity threats. In this architecture, it's used to provide secure authentication and authorization to the Azure Governance Visualizer's web app to a specific Entra ID group.
 
-- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed platform for creating and deploying cloud applications. It lets you define a set of compute resources for a web app to run, deploy web apps, and configure deployment slots. In this architecture, its used to host the output of the Azure Governance Visualizer to provide secure and smooth access across the organization.
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed platform for creating and deploying cloud applications. It lets you define a set of compute resources for a web app to run, deploy web apps, and configure deployment slots. In this architecture, it's used to host the output of the Azure Governance Visualizer to provide secure and smooth access across the organization.
 
-- [GitHub](https://docs.github.com/) is a popular SaaS offering from Microsoft that is frequently used by developers to build, ship, and maintain their software projects. In this architecture, its used to host the infrastructure-as-code for the solution and the GitHub actions used to deploy and maintain it.
+- [GitHub](https://docs.github.com/) is a popular SaaS offering from Microsoft that is frequently used by developers to build, ship, and maintain their software projects. In this architecture, it's used to host the infrastructure-as-code for the solution and the GitHub actions used to deploy and maintain it.
 
 - [GitHub Actions](/azure/developer/github/github-actions) is a continuous integration and continuous delivery (CI/CD) platform that allows you to automate your build, test, and deployment pipeline. In this architecture, it provides continuous integration and continuous deployment capabilities to deploy and update the Azure Governance Visualizer.
 
@@ -50,7 +50,7 @@ The Azure Governance Visualizer is a PowerShell script, which can be run directl
 
 ## Scenario details
 
-Azure Governance Visualizer is a PowerShell-based script that iterates your Azure Tenant´s Management Group hierarchy down to subscription level. It captures most relevant Azure governance capabilities, such as Azure Policy, RBAC, Microsoft Entra ID, and Blueprints. From the collected data, Azure Governance Visualizer visualizes all of this information in an easy to navigate HTML report.
+Azure Governance Visualizer is a PowerShell-based script that iterates your Azure Tenant´s Management Group hierarchy down to subscription level. It captures most relevant Azure governance capabilities, such as Azure Policy, Azure RBAC, Microsoft Entra ID, and Blueprints. From the collected data, Azure Governance Visualizer visualizes all of this information in an easy to navigate HTML report.
 
 ## Considerations
 
@@ -123,5 +123,4 @@ Principal authors:
 
 ## Related resources
 
-- [Azure landing zones - Bicep modules design considerations](../landing-zones/bicep/landing-zone-bicep.md)
 - [Azure landing zone overview](/azure/cloud-adoption-framework/ready/landing-zone/)

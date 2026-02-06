@@ -101,12 +101,12 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 - Determine the Azure regions in which to deploy your Azure Arc-enabled SQL managed instance and data controllers. Take into account your security and compliance requirements and any data sovereignty requirements. Be aware of [the types of data that are collected from your resources](/azure/azure-arc/data/privacy-data-collection-and-reporting) in directly connected mode and in indirectly connected mode, and plan accordingly based on the data residency requirements of your organization.
 - Your Azure Arc-enabled SQL managed instance can reside in hybrid or multicloud Kubernetes clusters. Review the security and governance considerations for your cloud provider and Kubernetes distribution.
-- Taking into account your organization's separation of duties and least-privileged access requirements, define cluster administration, operations, database administration, and developer roles for your organization. A mapping of each team to actions and responsibilities determines Azure role-based access control (RBAC) roles or the Kubernetes `ClusterRoleBinding` and `RoleBinding`, depending on the connectivity mode you use.
+- Taking into account your workload's separation of duties and least-privileged access requirements, define cluster administration, operations, database administration, and developer roles for your workload. A mapping of each role to actions and responsibilities determines Azure role-based access control (Azure RBAC) roles or the Kubernetes `ClusterRoleBinding` and `RoleBinding`, depending on the authentication mode you use.
 - Determine the authentication model to use in your Azure Arc-enabled SQL managed instance: Microsoft Entra authentication or SQL authentication. Review the [identity and access management design area](/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-data-service-sql-managed-instance/eslz-arc-data-service-sql-managed-instance-identity-access-management) for considerations and recommendations that can help you choose the right model.
 - Review the [security capabilities](/azure/azure-arc/data/managed-instance-features#RDBMSS) that are available in Azure Arc-enabled SQL Managed Instance for your data workloads.
-- Consider the need for keeping your Azure Arc-enabled SQL managed instance up to date with the latest versions, whether they're deployed in directly connected mode or in indirectly connected mode. For guidance, see the [upgradeability disciplines critical design area](/azure/Cloud-Adoption-framework/scenarios/hybrid/arc-enabled-data-service-sql-managed-instance/eslz-arc-data-service-sql-managed-instance-upgradeability-disciplines).
+- Consider the need for keeping your Azure Arc-enabled SQL managed instance up to date with the latest versions, whether they're deployed in directly connected mode or in indirectly connected mode. For more information, see the [upgradeability disciplines critical design area](/azure/Cloud-Adoption-framework/scenarios/hybrid/arc-enabled-data-service-sql-managed-instance/eslz-arc-data-service-sql-managed-instance-upgradeability-disciplines).
 - Review the design considerations in the Azure Arc-enabled Kubernetes [governance and security disciplines design area](/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-kubernetes/eslz-arc-kubernetes-governance-disciplines).
-- See the [security and governance disciplines](/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-data-service-sql-managed-instance/eslz-arc-data-service-sql-managed-instance-governance-disciplines#design-considerations) for a comprehensive overview of the security features in Azure Arc-enabled SQL Managed Instance.
+- For an overview of the security features in Azure Arc-enabled SQL Managed Instance, see the [security and governance disciplines](/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-data-service-sql-managed-instance/eslz-arc-data-service-sql-managed-instance-governance-disciplines#design-considerations).
 
 ### Cost Optimization
 
@@ -150,10 +150,6 @@ To get started, go to Jumpstart ArcBox for DataOps:
 Principal author:
 
 - [Seif Bassem](https://www.linkedin.com/in/seif-bassem) | Senior Cloud Solution Architect
-
-Other contributor:
-
-- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

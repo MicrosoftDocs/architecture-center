@@ -58,7 +58,7 @@ Hub-spoke network topologies typically include many of the following architectur
 
 - [Azure ExpressRoute gateway](/azure/expressroute/expressroute-about-virtual-network-gateways) exchanges IP routes and routes network traffic between your on-premises network and your Azure virtual network.  In this architecture, ExpressRoute would be the alternative option to a VPN Gateway to connect some or all of the spokes to a remote network. Spokes would not deploy their own ExpressRoute, and instead those spokes would use the centralized solution offered by the hub. Like with a VPN Gateway, you need to establish routing configuration to manage this connectivity.
 
-- [Azure Monitor](/azure/azure-monitor/overview) can collect, analyze, and act on telemetry data from cross-premises environments, including Azure and on-premises. Azure Monitor helps you maximize the performance and availability of your applications and proactively identify problems in seconds. In this architecture, Azure Monitor is the log and metric sink for the hub resources and for network metrics. Azure Monitor might be used as a logging sink for resources in spoke networks as well, but that's a decision for the various connected workloads and is not mandated by this architecture.
+- [Azure Monitor](/azure/azure-monitor/overview) can collect, analyze, and act on telemetry data from cross-premises environments, including Azure and on-premises. Azure Monitor helps you maximize the performance and availability of your applications and proactively identify problems in seconds. In this architecture, Azure Monitor is the log and metric sink for the hub resources and for network metrics. Azure Monitor might be used as a logging sink for resources in spoke networks as well, but that's a decision for the various connected workloads and isn't mandated by this architecture.
 
 ### Alternatives
 
@@ -104,7 +104,7 @@ When you peer virtual networks in different subscriptions, you can associate the
 
 #### Azure landing zones
 
-The [Azure landing zone architecture](/azure/cloud-adoption-framework/ready/landing-zone/) is based on the hub-spoke topology. In that architecture, the hub's shared resources and network is managed by a centralized platform team, while spokes share a co-ownership model with the platform team and the workload team that is using the spoke network. All hubs reside in a "Connectivity" subscription for centralized management, while spoke virtual networks exist across many individual workload subscriptions, called application landing zone subscriptions.
+The [Azure landing zone architecture](/azure/cloud-adoption-framework/ready/landing-zone/) is based on the hub-spoke topology. In that architecture, a centralized platform team manages the hub's shared resources and network, while spokes share a co-ownership model with the platform team and the workload team that uses the spoke network. All hubs reside in a "Connectivity" subscription for centralized management, while spoke virtual networks exist across many individual workload subscriptions, called application landing zone subscriptions.
 
 ### Virtual network subnets
 
@@ -163,7 +163,7 @@ There are two main ways to allow spoke virtual networks to communicate with each
 - Communication by using virtual network peering or Virtual Network Manager direct connectivity between spokes. This approach doesn't cause a hop between the two spokes and is recommended for minimizing latency.
 - Private Link could be used to selectively expose individual resources to other virtual networks. For example, exposing an internal load balancer to a different virtual network, without needing to form or maintain peering or routing relationships.
 
-For more information on spoke-to-spoke networking patterns, see [Spoke-to-spoke networking](/azure/architecture/networking/spoke-to-spoke-networking).
+For more information about spoke-to-spoke networking patterns, see [Virtual network connectivity options and spoke-to-spoke communication](../../reference-architectures/hybrid-networking/virtual-network-peering.yml).
 
 #### Communication through an NVA
 
@@ -249,7 +249,7 @@ Use [Azure Network Watcher](/azure/network-watcher/network-watcher-monitoring-ov
 
 If you're using ExpressRoute, use [ExpressRoute Traffic Collector](/azure/expressroute/traffic-collector) where you can analyze flow logs for the network flows sent over your ExpressRoute circuits. ExpressRoute Traffic Collector gives you visibility into traffic flowing over Microsoft enterprise edge routers.
 
-Use FQDN-based rules in Azure Firewall for protocols other than HTTP(s) or when configuring SQL Server. Using FQDNs lowers the management burden over managing individual IP addresses.
+Use FQDN-based rules in Azure Firewall for protocols other than HTTP(S) or when you configure SQL Server. Using FQDNs reduces the management burden compared to managing individual IP addresses.
 
 [Plan for IP addressing](/azure/cloud-adoption-framework/ready/azure-best-practices/plan-for-ip-addressing) based on your peering requirements, and make sure the address space doesn't overlap across cross-premises locations and Azure locations.
 
@@ -286,7 +286,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 For workloads that communicate from on-premises to virtual machines in an Azure virtual network that require low latency and high bandwidth, consider using [ExpressRoute FastPath](/azure/expressroute/about-fastpath). FastPath allows you to send traffic directly to virtual machines in your virtual network from on-premises, bypassing the ExpressRoute virtual network gateway, increasing performance.
 
-For spoke-to-spoke communications that require low-latency, consider configuring [spoke-to-spoke networking](/azure/architecture/networking/guide/spoke-to-spoke-networking).
+For spoke-to-spoke communications that require low-latency, consider configuring [spoke-to-spoke networking](../../reference-architectures/hybrid-networking/virtual-network-peering.yml#spoke-to-spoke-communication-patterns).
 
 Choose the appropriate [gateway SKU](/azure/vpn-gateway/about-gateway-skus) that meet your requirements, such as number of point-to-site or site-to-site connections, required packets-per-second, bandwidth requirements, and TCP flows.
 
@@ -326,9 +326,9 @@ Other contributors:
 
 ### Advanced scenarios
 
-Your architecture may differ from this simple hub-spoke architecture. The following is a list of guidance for some advanced scenarios:
+Your architecture might differ from this simple hub-spoke architecture. The following list describes guidance for advanced scenarios:
 
-- **Add more regions and fully-mesh the hubs to each other** - [Spoke-to-spoke networking](/azure/architecture/networking/guide/spoke-to-spoke-networking) for multi-region connectivity patterns and [Multi-region networking with Azure Route Server](/azure/route-server/multiregion)
+- **Add more regions and fully-mesh the hubs to each other** - [Spoke-to-spoke networking](../../reference-architectures/hybrid-networking/virtual-network-peering.yml#spoke-to-spoke-communication-patterns) for multi-region connectivity patterns and [Multi-region networking with Azure Route Server](/azure/route-server/multiregion)
 
 - **Replace Azure Firewall with a custom network virtual appliance (NVA)** - [Deploy highly available NVAs](/azure/architecture/networking/guide/network-virtual-appliance-high-availability)
 
@@ -344,5 +344,5 @@ Explore the following related architectures:
 
 - [Firewall and Application Gateway for virtual networks](../../example-scenario/gateway/firewall-application-gateway.yml)
 - [Troubleshoot a hybrid VPN connection](../../reference-architectures/hybrid-networking/troubleshoot-vpn.yml)
-- [Spoke-to-spoke networking](../guide/spoke-to-spoke-networking.md)
+- [Spoke-to-spoke networking](../../reference-architectures/hybrid-networking/virtual-network-peering.yml#spoke-to-spoke-communication-patterns)
 - [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../../reference-architectures/containers/aks/baseline-aks.yml)

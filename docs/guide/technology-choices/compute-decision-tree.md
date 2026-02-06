@@ -1,11 +1,11 @@
 ---
 title: Choose an Azure Compute Service
 description: Use this chart and other information to decide which compute service, or hosting model for computing resources, best suits your application.
-author: stephen-sumner
+author: claytonsiemens77
 ms.author: pnp
 ms.date: 02/04/2025
 ms.reviewer: ssumner
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
 - arb-web
@@ -51,7 +51,7 @@ If you're not familiar with the Azure service that you select in the previous se
 
 - [Azure Container Instances](/azure/container-instances/container-instances-overview) is a service for running a single container or group of containers in Azure. Container Instances doesn't provide full container orchestration, but you can implement containers without having to provision virtual machines (VMs) or adopt a higher-level service.
 
-- [Azure Functions](/azure/azure-functions/functions-overview) is a service that provides managed functions that run based on a variety of trigger types for event-driven applications.
+- [Azure Functions](/azure/azure-functions/functions-overview) is a service that provides managed functions that run based on various trigger types for event-driven applications.
 
 - [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) is a managed Kubernetes service for running containerized applications.
 
@@ -278,4 +278,4 @@ Along with the previous comparison tables, do a more detailed evaluation of the 
 [microservices]: ../architecture-styles/microservices.md
 [n-tier]: ../architecture-styles/n-tier.md
 [uptime-sla]: /azure/aks/uptime-sla
-[w-q-w]: ../architecture-styles/web-queue-worker.yml
+[w-q-w]: ../architecture-styles/web-queue-worker.md

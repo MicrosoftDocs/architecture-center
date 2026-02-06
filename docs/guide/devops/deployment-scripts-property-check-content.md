@@ -6,7 +6,7 @@ This article uses an Azure Virtual WAN scenario to illustrate the technique. The
 > - [`azResourceStateCheck.bicep`](https://github.com/Azure/CAE-Bits/blob/main/infra/samples/deployment-scripts-property-check/modules/azResourceStateCheck.bicep)
 > - [Invoke-AzResourceStateCheck.ps1](https://github.com/Azure/CAE-Bits/blob/main/infra/samples/deployment-scripts-property-check/scripts/Invoke-AzResourceStateCheck.ps1)
 
-You can adapt the files for your deployment. The azResourceStateCheck.bicep module is parameterized for ease of reuse. Be sure to note how the **dependsOn** property is used in orchestration.bicep to make the vwanvhcs.bicep module deployment depend on the azResourceStateCheck.bicep nodule deployment.
+You can adapt the files for your deployment. The azResourceStateCheck.bicep module is parameterized for ease of reuse. Be sure to note how the **dependsOn** property is used in orchestration.bicep to make the vwanvhcs.bicep module deployment depend on the azResourceStateCheck.bicep module deployment.
 
 ## Architecture
 
@@ -28,7 +28,7 @@ You can adapt the files for your deployment. The azResourceStateCheck.bicep modu
 
    The virtual WAN and spoke virtual networks are deployed in parallel, which means that Bicep regards them as independent of one another. Dependencies determine the order of deployment in Bicep. A resource is deployed before any resource that depends on it. For more information about resource dependencies in Bicep, including explicit and implicit dependencies, see [Resource dependencies in Bicep](/azure/azure-resource-manager/bicep/resource-dependencies).
 1. The orchestration.bicep file deploys the [vwanhub.bicep](https://github.com/Azure/CAE-Bits/blob/main/infra/samples/deployment-scripts-property-check/modules/vwanhub.bicep) module, which deploys the virtual WAN hub at resource group scope. The hub depends implicitly on the virtual WAN, so deployment of the hub is guaranteed to occur only after deployment of the virtual WAN completes.
-1. The orchestration.bicep file deploys the [azResourceStateCheck.bicep](https://github.com/Azure/CAE-Bits/blob/main/infra/samples/deployment-scripts-property-check/modules/azResourceStateCheck.bicep) module, which creates a user-assigned managed identity and assigns the Azure role-based access control (RBAC) Reader role on the resource group.
+1. The orchestration.bicep file deploys the [azResourceStateCheck.bicep](https://github.com/Azure/CAE-Bits/blob/main/infra/samples/deployment-scripts-property-check/modules/azResourceStateCheck.bicep) module, which creates a user-assigned managed identity and assigns the Azure role-based access control (Azure RBAC) Reader role on the resource group.
 1. The azResourceStateCheck.bicep module deploys the [deployment script resource](/azure/templates/microsoft.resources/deploymentscripts?pivots=deployment-language-bicep).
 1. The deployment script resource uses the user-assigned managed identity to authenticate itself against Resource Manager. It then runs the deployment script, [Invoke-AzResourceStateCheck.ps1](https://github.com/Azure/CAE-Bits/blob/main/infra/samples/deployment-scripts-property-check/scripts/Invoke-AzResourceStateCheck.ps1), which is a PowerShell script. For more information about deployment scripts, see [Use deployment scripts in Bicep](/azure/azure-resource-manager/bicep/deployment-script-bicep).
 
@@ -53,7 +53,7 @@ The following excerpt from orchestration.bicep shows the use of **dependsOn**:
 
 <!--
 
-The following is not currently supported in the architecture-center-pr repo:
+The following isn't currently supported in the architecture-center-pr repo:
 
 :::code language="bicep" source="~/azure-cae-bits/infra/samples/deployment-scripts-property-check/orchestration.bicep" range="57-68,98-134" highlight="110,125-127":::
 
@@ -133,7 +133,7 @@ The Invoke-AzResourceStateCheck.ps1 script is as follows:
 
 <!--
 
-The following is not currently supported in the architecture-center-pr repo:
+The following isn't currently supported in the architecture-center-pr repo:
 
 :::code language="powershell" source="~/azure-cae-bits/infra/samples/deployment-scripts-property-check/scripts/Invoke-AzResourceStateCheck.ps1" :::
 

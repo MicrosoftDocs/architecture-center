@@ -1,4 +1,4 @@
-The most demanding Oracle Database workloads require very high I/O capacity. They also need low-latency access to storage. This document describes a scalable, high-bandwidth, low-latency solution for running Oracle Database workloads on Azure virtual machines (VMs) with shared file access via the network file system (NFS) protocol. The architecture uses Azure NetApp Files, a first-party Azure shared file-storage service.
+The most demanding Oracle Database workloads require substantial I/O capacity. They also need low-latency access to storage. This document describes a scalable, high-bandwidth, low-latency solution for running Oracle Database workloads on Azure virtual machines (VMs) with shared file access via the network file system (NFS) protocol. The architecture uses Azure NetApp Files, a first-party Azure shared file-storage service.
 
 ## Benefits 
 
@@ -42,7 +42,7 @@ Deploy multiple data volumes for consolidating multiple smaller Oracle instances
 
 Create an Azure NetApp Files capacity pool of the desired capacity and service level. Check the [Quickstart for setting up Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes).
 
-If you're migrating existing Oracle databases from on-premises to Azure, you can utilize AWR reports to obtain current throughput statistics which you need for sizing the Azure NetApp Files capacity pool and volumes. Recommendations for pool and volumes sizing can be obtained by processing [AWR reports through the Atroposs service](https://app.atroposs.com/#/awr-module). Contact your Oracle on Azure specialist for details on how to use the service.
+If you're migrating existing Oracle databases from on-premises to Azure, you can utilize AWR reports to obtain current throughput statistics which you need for sizing the Azure NetApp Files capacity pool and volumes. Recommendations for pool and volumes sizing can be obtained by processing [AWR reports through the Atroposs service](https://app.atroposs.com/#/awr-module). For more information about how to use the service, contact your Oracle on Azure specialist.
 
 Available throughput for the volumes in a capacity pool is defined by the size and [service level (Standard, Premium, or Ultra)](/azure/azure-netapp-files/azure-netapp-files-service-levels) of the selected capacity pool. Auto QoS capacity pools assign throughput to volumes directly related to the volume size. You can also assign throughput to volumes independently of their size, for which you can configure your capacity pool to use [manual QoS](/azure/azure-netapp-files/manage-manual-qos-capacity-pool).
 
@@ -98,7 +98,7 @@ ODG on Azure Virtual Machines functions like ODG in on-premises systems. But thi
 You can only choose one of these options. An Azure VM can't participate in availability sets and zones at the same time. Each option has advantages:
 
 - Availability zones provide better availability than availability sets. See [SLA for Virtual Machines][SLA for Virtual Machines] for a comparison.
-- You can place VMs that are in the same availability set in a [proximity placement group][Proximity placement groups]. This configuration minimizes the network latency between the VMs by guaranteeing that they're close to each other. In contrast, VMs that you place in different availability zones have greater network latency between them. It then takes longer to synchronize data between the primary and secondary replicas. As a result, the primary replica may experience delays. There's also an increased chance of data loss during unplanned failovers.
+- You can place VMs that are in the same availability set in a [proximity placement group][Proximity placement groups]. This configuration minimizes the network latency between the VMs by guaranteeing that they're close to each other. In contrast, VMs that you place in different availability zones have greater network latency between them. It then takes longer to synchronize data between the primary and secondary replicas. As a result, the primary replica might experience delays. There's also an increased chance of data loss during unplanned failovers.
 
 After you choose a solution, test it under load. Ensure that it meets SLAs for performance and availability.
 

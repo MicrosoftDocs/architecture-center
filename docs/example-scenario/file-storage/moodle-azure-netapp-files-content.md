@@ -5,7 +5,7 @@ Moodle is an open-source learning management system that requires high-throughpu
 For the best user experience, Moodle requires consistent low-latency access to scalable shared storage to meet the demands of office and home workers who use the service. Virtual Machine Scale Sets and Azure NetApp Files capacity pools and volumes can be sized up and down as the demand changes.
 
 :::image type="complex" source="media/azure-netapp-files-moodle-zonal.svg" alt-text="Architecture diagram of Azure NetApp Files for Moodle with cross-zone replication." lightbox="media/azure-netapp-files-moodle-zonal.svg" border="false":::
-    A diagram that illustrates the single-region Azure NetApp Files Moodle deployment. Inside of the same Azure region box, there's a second zone that includes disaster recovery versions of Azure NetApp Files. The Azure Traffic Manager routes students to the application in zone one or zone two.
+  A diagram that illustrates the single-region Azure NetApp Files Moodle deployment. Inside of the same Azure region box, there's a second zone that includes disaster recovery versions of Azure NetApp Files. The Azure Traffic Manager routes students to the application in zone one or zone two.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-netapp-files-moodle-zonal.vsdx) of this architecture.*
@@ -30,11 +30,11 @@ Students access the Moodle application data through an Azure Application Gateway
 
 ### Components
 
-- [Moodle](https://www.moodlecloud.com/) is a free, open-source learning management system. In this architecture, Moodle serves as the core application that delivers educational content and tracks student progress. 
+- [Moodle](https://www.moodlecloud.com/) is a free, open-source learning management system. In this architecture, Moodle serves as the core application that delivers educational content and tracks student progress.
 
 - [Azure Database for MySQL Flexible Server](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) is a managed relational database service. In this architecture, it stores Moodle's structured data, including course content, user profiles, and student progress.
 
-- [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is a secure, in-memory data store and messaging broker. In this architecture, it improves Moodle performance by caching user sessions, managing locks, and reducing load on the database.
+- [Azure Managed Redis](/azure/redis/overview) is a secure, in-memory data store and messaging broker. In this architecture, it improves Moodle performance by caching user sessions, managing locks, and reducing load on the database.
 
 - [Azure Virtual Machine Scale Sets](/azure/well-architected/service-guides/virtual-machines) is an Azure compute service that you can use to deploy and manage a group of identical, load-balanced virtual machines. In this architecture, it hosts the Moodle application and automatically scales the number of VMs up or down based on demand.
 
@@ -81,7 +81,7 @@ Azure NetApp Files provides high availability for your stored data. For the Azur
 
 Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-For all deployment options, you need to provide a valid Secure Shell (SSH) protocol 2 (SSH-2) RSA public–private key pair. The length should be at least 2,048 bits. Azure doesn't support other key formats such as ED25519 and ECDSA. Azure NetApp Files supports both customer-managed and platform-managed keys. These solutions provide unrestricted access to stored data, meet compliance requirements, and enhance data security. For information and best practices about Azure NetApp Files security, see [Security FAQs for Azure NetApp Files](/azure/azure-netapp-files/faq-security).
+For all deployment options, you need to provide a valid Secure Shell (SSH) protocol 2 (SSH-2) RSA public–private key pair. The length should be at least 2,048 bits. Azure doesn't support other key formats such as ED25519 and ECDSA. Azure NetApp Files supports both customer-managed and platform-managed keys. These solutions provide unrestricted access to stored data, meet compliance requirements, and enhance data security. For more information and best practices for Azure NetApp Files security, see [Security FAQs for Azure NetApp Files](/azure/azure-netapp-files/faq-security).
 
 ### Cost Optimization
 
@@ -127,11 +127,10 @@ Principal author:
 
 - [Moodle Cloud option](https://www.moodlecloud.com/)
 - [Azure Moodle directions on GitHub](https://github.com/Azure/Moodle)
-- [Moodle docs: Redis cache store](https://docs.moodle.org/311/en/Redis_cache_store#:~:text=Before%20Redis%20is%20available%20as%20a%20cache%20store%2C,as%20an%20application%20or%20session%20level%20cache%20store.)
+- [Moodle docs: Redis cache store](https://docs.moodle.org/501/en/Redis_cache_store)
 - [Azure NetApp Files for NFS storage with Moodle](https://techcommunity.microsoft.com/t5/azure-architecture-blog/azure-netapp-files-for-nfs-storage-with-moodle/ba-p/2300630)
 - [Solution architectures using Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-solution-architectures)
 - [Automatic scaling with Virtual Machine Scale Sets flexible orchestration mode](https://azure.microsoft.com/updates/automatic-scaling-for-vms-with-azure-virtual-machine-scale-sets-flexible-orchestration-mode/)
-
 
 [Fault Tolerance, High Availability, and Resiliency in Azure NetApp Files]: https://anfcommunity.com/2020/11/05/fault-tolerance-high-availability-and-resiliency-in-azure-netapp-files/
 [Overview of autoscale with Azure virtual machine scale sets]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview

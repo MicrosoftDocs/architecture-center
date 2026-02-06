@@ -23,7 +23,7 @@ Antipatterns are common design flaws that can break your software or application
 
 ## Examples of extraneous fetching antipattern
 
-This antipattern can occur if the application tries to minimize I/O requests by retrieving all of the data that it *might* need. This is often a result of overcompensating for the [Chatty I/O][chatty-io] antipattern. For example, an application might fetch the details for every product in a database. But the user may need just a subset of the details (some may not be relevant to customers), and probably doesn't need to see *all* of the products at once. Even if the user is browsing the entire catalog, it would make sense to paginate the results&mdash;showing 20 at a time, for example.
+This antipattern can occur if the application tries to minimize I/O requests by retrieving all of the data that it *might* need. This is often a result of overcompensating for the [Chatty I/O][chatty-io] antipattern. For example, an application might fetch the details for every product in a database. But the user might need just a subset of the details (some might not be relevant to customers), and probably doesn't need to see *all* of the products at once. Even if the user is browsing the entire catalog, it would make sense to paginate the results&mdash;showing 20 at a time, for example.
 
 Another source of this problem is following poor programming or design practices. For example, the following code uses Entity Framework to fetch the complete details for every product. Then it filters the results to return only a subset of the fields, discarding the rest.
 
@@ -42,7 +42,7 @@ public async Task<IHttpActionResult> GetAllFieldsAsync()
 }
 ```
 
-In the next example, the application retrieves data to perform an aggregation that could be done by the database instead. The application calculates total sales by getting every record for all orders sold, and then computing the sum over those records.
+In the next example, the application retrieves data and runs an aggregation that the database can handle instead. The application calculates total sales by getting every record for all orders sold and then computing the sum over those records.
 
 ```csharp
 public async Task<IHttpActionResult> AggregateOnClientAsync()
@@ -71,11 +71,11 @@ List<Product> products = query.ToList();
 
 The application is trying to find products with a `SellStartDate` more than a week old. In most cases, LINQ to Entities would translate a `where` clause to a SQL statement that is executed by the database. In this case, however, LINQ to Entities cannot map the `AddDays` method to SQL. Instead, every row from the `Product` table is returned, and the results are filtered in memory.
 
-The call to `AsEnumerable` is a hint that there is a problem. This method converts the results to an `IEnumerable` interface. Although `IEnumerable` supports filtering, the filtering is done on the *client* side, not the database. By default, LINQ to Entities uses `IQueryable`, which passes the responsibility for filtering to the data source.
+The call to `AsEnumerable` is a hint that there's a problem. This method converts the results to an `IEnumerable` interface. Although `IEnumerable` supports filtering, the filtering is done on the *client* side, not the database. By default, LINQ to Entities uses `IQueryable`, which passes the responsibility for filtering to the data source.
 
 ## How to fix extraneous fetching antipattern
 
-Avoid fetching large volumes of data that may quickly become outdated or might be discarded, and only fetch the data needed for the operation being performed.
+Avoid fetching large volumes of data that might quickly become outdated or might be discarded, and only fetch the data needed for the operation being performed.
 
 Instead of getting every column from a table and then filtering them, select the columns that you need from the database.
 
@@ -93,7 +93,7 @@ public async Task<IHttpActionResult> GetRequiredFieldsAsync()
 }
 ```
 
-Similarly, perform aggregation in the database and not in application memory.
+Similarly, run an aggregation in the database and not in application memory.
 
 ```csharp
 public async Task<IHttpActionResult> AggregateOnDatabaseAsync()
@@ -107,7 +107,7 @@ public async Task<IHttpActionResult> AggregateOnDatabaseAsync()
 }
 ```
 
-When using Entity Framework, ensure that LINQ queries are resolved using the `IQueryable` interface and not `IEnumerable`. You may need to adjust the query to use only functions that can be mapped to the data source. The earlier example can be refactored to remove the `AddDays` method from the query, allowing filtering to be done by the database.
+When you use Entity Framework, ensure that LINQ queries are resolved using the `IQueryable` interface and not `IEnumerable`. You might need to adjust the query to use only functions that can be mapped to the data source. The earlier example can be refactored to remove the `AddDays` method from the query, allowing filtering to be done by the database.
 
 ```csharp
 DateTime dateSince = DateTime.Now.AddDays(-7); // AddDays has been factored out.
@@ -120,7 +120,7 @@ List<Product> products = query.ToList();
 
 ## Considerations
 
-- In some cases, you can improve performance by partitioning data horizontally. If different operations access different attributes of the data, horizontal partitioning may reduce contention. Often, most operations are run against a small subset of the data, so spreading this load may improve performance. See [Data partitioning][data-partitioning].
+- In some cases, you can improve performance by partitioning data horizontally. If different operations access different attributes of the data, horizontal partitioning might reduce contention. Often, most operations are run against a small subset of the data, so spreading this load might improve performance. See [Data partitioning][data-partitioning].
 
 - For operations that have to support unbounded queries, implement pagination and only fetch a limited number of entities at a time. For example, if a customer is browsing a product catalog, you can show one page of results at a time.
 
@@ -130,9 +130,9 @@ List<Product> products = query.ToList();
 
 - If you see that requests are retrieving a large number of fields, examine the source code to determine whether all of these fields are necessary. Sometimes these requests are the result of poorly designed `SELECT *` query.
 
-- Similarly, requests that retrieve a large number of entities may be sign that the application is not filtering data correctly. Verify that all of these entities are needed. Use database-side filtering if possible, for example, by using `WHERE` clauses in SQL.
+- Similarly, requests that retrieve a large number of entities might be sign that the application isn't filtering data correctly. Verify that all of these entities are needed. Use database-side filtering if possible, for example, by using `WHERE` clauses in SQL.
 
-- Offloading processing to the database is not always the best option. Only use this strategy when the database is designed or optimized to do so. Most database systems are highly optimized for certain functions, but are not designed to act as general-purpose application engines. For more information, see the [Busy Database antipattern][BusyDatabase].
+- Offloading processing to the database isn't always the best option. Only use this strategy when the database is designed or optimized to do so. Most database systems are highly optimized for certain functions, but aren't designed to act as general-purpose application engines. For more information, see the [Busy Database antipattern][BusyDatabase].
 
 ## How to detect extraneous fetching antipattern
 
@@ -140,14 +140,14 @@ Symptoms of extraneous fetching include high latency and low throughput. If the 
 
 The symptoms of this antipattern and some of the telemetry obtained might be very similar to those of the [Monolithic Persistence antipattern][MonolithicPersistence].
 
-You can perform the following steps to help identify the cause:
+You can do the following steps to help identify the cause:
 
 1. Identify slow workloads or transactions by performing load-testing, process monitoring, or other methods of capturing instrumentation data.
 2. Observe any behavioral patterns exhibited by the system. Are there particular limits in terms of transactions per second or volume of users?
 3. Correlate the instances of slow workloads with behavioral patterns.
 4. Identify the data stores being used. For each data source, run lower-level telemetry to observe the behavior of operations.
 5. Identify any slow-running queries that reference these data sources.
-6. Perform a resource-specific analysis of the slow-running queries and ascertain how the data is used and consumed.
+6. Analyze the resource-specific behavior of the slow-running queries and determine what uses the data.
 
 Look for any of these symptoms:
 
@@ -176,22 +176,22 @@ Any correlation between regular periods of high usage and slowing performance ca
 
 Load test the same functionality using step-based user loads, to find the point where performance drops significantly or fails completely. If that point falls within the bounds of your expected real-world usage, examine how the functionality is implemented.
 
-A slow operation is not necessarily a problem, if it is not being performed when the system is under stress, is not time critical, and does not negatively affect the performance of other important operations. For example, generating monthly operational statistics might be a long-running operation, but it can probably be performed as a batch process and run as a low-priority job. On the other hand, customers querying the product catalog is a critical business operation. Focus on the telemetry generated by these critical operations to see how the performance varies during periods of high usage.
+A slow operation isn't necessarily a problem if it isn't being performed when the system is under stress, isn't time critical, and doesn't negatively affect the performance of other important operations. For example, generating monthly operational statistics might be a long-running operation, but it can probably be performed as a batch process and run as a low-priority job. On the other hand, customers querying the product catalog is a critical business operation. Focus on the telemetry generated by these critical operations to see how the performance varies during periods of high usage.
 
 ### Identify data sources in slow workloads
 
 If you suspect that a service is performing poorly because of the way it retrieves data, investigate how the application interacts with the repositories it uses. Monitor the live system to see which sources are accessed during periods of poor performance.
 
-For each data source, instrument the system to capture the following:
+For each data source, instrument the system to capture the following information:
 
 - The frequency that each data store is accessed.
 - The volume of data entering and exiting the data store.
 - The timing of these operations, especially the latency of requests.
 - The nature and rate of any errors that occur while accessing each data store under typical load.
 
-Compare this information against the volume of data being returned by the application to the client. Track the ratio of the volume of data returned by the data store against the volume of data returned to the client. If there is any large disparity, investigate to determine whether the application is fetching data that it doesn't need.
+Compare this information against the volume of data being returned by the application to the client. Track the ratio of the volume of data returned by the data store against the volume of data returned to the client. If there's any large disparity, investigate to determine whether the application is fetching data that it doesn't need.
 
-You may be able to capture this data by observing the live system and tracing the lifecycle of each user request, or you can model a series of synthetic workloads and run them against a test system.
+You might be able to capture this data by observing the live system and tracing the lifecycle of each user request, or you can model a series of synthetic workloads and run them against a test system.
 
 The following graphs show telemetry captured using [New Relic APM][new-relic] during a load test of the `GetAllFieldsAsync` method. Note the difference between the volumes of data received from the database and the corresponding HTTP responses.
 

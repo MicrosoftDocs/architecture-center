@@ -17,7 +17,7 @@ Have a process that validates the software for security before introducing it in
 
 > The process of quarantining is a security measure, which consists of a series of checkpoints that are employed before an artifact is consumed. Those security checkpoints make sure that an artifact transitions from an untrusted status to a trusted status.
 
-It's important to note that the quarantine process doesn't change the composition of the artifact. The process is independent of the software development cycle and is invoked by consumers, as needed. As a consumer of the artifact, block the use of artifacts until they've passed quarantine.
+The quarantine process doesn't change the artifact's composition. The process is independent of the software development cycle and is invoked by consumers, as needed. As a consumer of the artifact, block the use of artifacts until they've passed quarantine.
 
 Here's a typical quarantine workflow:
 
@@ -29,7 +29,7 @@ Here's a typical quarantine workflow:
 
 3. A custom verification process is performed as part of quarantine, which includes verifying the input constraints and checking the attributes, source, and type against established standards.
 
-    Some of these security checks can be vulnerability scanning, malware detection, and so on, on each submitted artifact.
+    Some of these security checks can be vulnerability scanning, malware detection, and other checks that run on each submitted artifact.
 
     The actual checks depend on the type of artifact. Evaluating an OS image is different from evaluating a NuGet package, for example.
 
@@ -47,7 +47,7 @@ Here's a typical quarantine workflow:
 
 - Create segmentation between resources that stores trusted and untrusted artifacts. Use identity and network controls to restrict access to the authorized users.
 
-- Have a reliable way to invoking the quarantine process. Make sure the artifact isn't consumed inadvertently until marked as trusted. The signaling should be automated. For example, tasks related to notifying the responsible parties when an artifact is ingested into the developer environment, committing changes to a GitHub repository, adding an image to a private registry, and so on.  
+- Have a reliable way to invoking the quarantine process. Make sure the artifact isn't consumed inadvertently until marked as trusted. The signaling should be automated. For example, tasks related to notifying the responsible parties when an artifact is ingested into the developer environment, committing changes to a GitHub repository, and adding an image to a private registry.
 
 - An alternative to implementing a Quarantine pattern is to outsource it. There are quarantine practitioners who specialize in public asset validation as their business model. Evaluate both the financial and operational costs of implementing the pattern versus outsourcing the responsibility. If your security requirements need more control, implementing your own process is recommended.
 

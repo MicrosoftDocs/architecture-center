@@ -32,7 +32,7 @@ Extract, load, transform (ELT) differs from ETL solely in where the transformati
 
 Typical use cases for ELT fall within the big data realm. For example, you might start by extracting source data to flat files in scalable storage, such as a Hadoop Distributed File System (HDFS), Azure blob storage, or Azure Data Lake Storage Gen2. Technologies such as Spark, Hive, or PolyBase, can then be used to query the source data. The key point with ELT is that the data store used to perform the transformation is the same data store where the data is ultimately consumed. This data store reads directly from the scalable storage, instead of loading the data into its own separate storage. This approach skips data copy steps present in ETL, which often can be time consuming for large data sets. Some workloads materialize transformed tables or views to improve query performance or enforce governance rules; ELT doesn't always imply purely virtualized transformations.
 
-The final phase of the ELT pipeline typically transforms the source data into a format that's more efficient for the types of queries that need to be supported. For example, the data may be partitioned by commonly filtered keys. ELT might also use optimized storage formats like Parquet, which is a columnar storage format that organizes data by column to enable compression, [predicate pushdown](/sql/relational-databases/indexes/columnstore-indexes-query-performance), and efficient analytic scans.
+The final phase of the ELT pipeline typically transforms the source data into a format that's more efficient for the types of queries that need to be supported. For example, the data might be partitioned by commonly filtered keys. ELT might also use optimized storage formats like Parquet, which is a columnar storage format that organizes data by column to enable compression, [predicate pushdown](/sql/relational-databases/indexes/columnstore-indexes-query-performance), and efficient analytic scans.
 
 Relevant Microsoft service:
 
@@ -58,7 +58,7 @@ Choose ELT when:
 
 ## Data flow and control flow
 
-In the context of data pipelines, the control flow ensures the orderly processing of a set of tasks. To enforce the correct processing order of these tasks, precedence constraints are used. You can think of these constraints as connectors in a workflow diagram, as shown in the image below. Each task has an outcome, such as success, failure, or completion. Any subsequent task doesn't initiate processing until its predecessor has completed with one of these outcomes.
+In the context of data pipelines, the control flow ensures the orderly processing of a set of tasks. To enforce the correct processing order of these tasks, precedence constraints are used. You can think of these constraints as connectors in a workflow diagram, as shown in the following image. Each task has an outcome, such as success, failure, or completion. Any subsequent task doesn't initiate processing until its predecessor has completed with one of these outcomes.
 
 Control flows execute data flows as a task. In a data flow task, data is extracted from a source, transformed, or loaded into a data store. The output of one data flow task can be the input to the next data flow task, and data flows can run in parallel. Unlike control flows, you can't add constraints between tasks in a data flow. You can, however, add a data viewer to observe the data as it is processed by each task.
 

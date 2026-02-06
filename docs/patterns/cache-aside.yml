@@ -6,12 +6,12 @@ metadata:
   author: claytonsiemens77
   ms.date: 09/11/2025
   ms.topic: design-pattern
-  ms.subservice: design-pattern
+  ms.subservice: cloud-fundamentals
   ms.custom: arb-web
 azureCategories:
   - web
 products:
-  - azure-cache-redis
+  - azure-managed-redis
 name: Cache-Aside pattern
 summary: Learn how to load data on demand into a cache, which can improve performance and maintain consistency between cached data and the underlying data store.
 thumbnailUrl: /azure/architecture/browse/thumbs/cache-aside-diagram.png

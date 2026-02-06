@@ -22,11 +22,17 @@ The data in the repo helps professional cloud architects and software engineers 
 - This data is novel, not replicating content already addressed elsewhere in the Azure Architecture Center or on other Microsoft Learn sites.
 - This data is truthful, even while being opinionated.
 
+## Repository structure
+
+- This is the **private repository** (`-pr` suffix) for internal Microsoft authoring.
+- A corresponding **public repository** exists at <https://github.com/MicrosoftDocs/architecture-center>.
+- The `main` branch is for development; the `live` branch reflects published content.
+
 ## Your behavior
 
 - If I tell you that you are wrong, think about whether or not you think that's true and respond with facts.
 - Avoid apologizing or making conciliatory statements.
-- It is not necessary to agree with the user with statements such as "You're right" or "Yes".
+- It is not necessary to agree with the user with statements such as "You're right" or "Yes."
 - Avoid hyperbole and excitement, stick to the task at hand and complete it pragmatically.
 - Never use content that would violate copyrights.
 - When you use facts from existing content on Microsoft Learn, especially the Well-Architected Framework and the Cloud Adoption Framework, you'll link to those sources.
@@ -46,11 +52,84 @@ If you're asked to create data that goes into the Markdown files in this repo. U
 
 ## Folder and file structure
 
-- The root folder for the data used in articles is [docs/](docs/).
-- The nested folder structure under the docs/ folder is set, don't add additional folders.
-- Some articles are split into a YAML and Markdown file combination, you'll know those by the following pattern: article-title.yml + article-title-content.md. The YAML file contains the article's metadata, and the Markdown file has the actual content of the article.
-- Other articles are just Markdown, such as article-title.md, and do not have a companion YAML file. These articles have their metadata at the beginning, adhering to the Frontmatter syntax.
-- Data files have metadata, this will either be in the YAML file for in the Markdown file. You won't update metadata unless requested.
+### Directory organization reality
+
+- The root folder for articles is `docs/`.
+- **The directory structure maps directly to published URLs** - moving files breaks links, so the structure is effectively immutable.
+- The directory structure is **organically grown and inconsistent** - it attempts multiple organizational pivots (content type, technology, audience) but doesn't apply them consistently.
+- Don't create new folders or move files without understanding the URL impact and redirect requirements.
+- **The directory structure does NOT determine how content is navigated** - see "Table of Contents system" below.
+
+### Three file patterns for articles
+
+Articles use one of three patterns:
+
+**Pattern 1: YAML + Markdown pair**
+
+- `article-name.yml` - Contains ALL metadata
+- `article-name-content.md` - Contains ONLY content body (no frontmatter)
+- The YAML file uses `[!INCLUDE[](article-name-content.md)]` to pull in content at build time
+- Used for: solution ideas, example workloads, and reference architectures
+
+**Pattern 2: Pure Markdown with frontmatter**
+
+- `article-name.md` - Contains frontmatter metadata + content in one file
+- Metadata is between `---` delimiters at the top
+- Used for: guides, best practices, and architectural patterns
+
+**Pattern 3: Pure YAML**
+
+- `article-name.yml` - Self-contained YAML, often with inline Markdown
+- Used for: navigation files (`toc.yml`, `index.yml`)
+
+The same folder can mix all three patterns. Always check which pattern an article uses before editing.
+
+### Metadata location
+
+- Pattern 1: Edit metadata in `.yml` file, content in `-content.md` file
+- Pattern 2: Edit metadata (frontmatter) and content in same `.md` file
+- Pattern 3: Everything in `.yml` file
+- Never update metadata unless requested
+
+## Table of Contents (TOC) system
+
+The TOC system defines how users navigate content, and it's completely decoupled from the directory structure.
+
+### TOC hierarchy
+
+The repository uses the following TOC files:
+
+- `docs/toc.yml` - Main navigation for the entire site
+- `docs/ai-ml/toc.yml` - AI + Machine Learning workload navigation
+- `docs/databases/toc.yml` - Databases workload navigation
+- `docs/networking/toc.yml` - Networking workload navigation
+- `docs/web-apps/toc.yml` - Web applications workload navigation
+- `docs/guide/saas-multitenant-solution-architecture/toc.yml` - SaaS/Multitenancy guidance
+- `docs/_bread/toc.yml` - Breadcrumb navigation metadata
+
+### How TOCs work
+
+- The **main TOC** references some workload sub-TOCs by pointing to their index pages (e.g., `href: ai-ml/index.md`)
+- When users navigate to these sections, they switch to the **sub-TOC** for specialized navigation
+- Most sub-TOCs follow a common **"Explore ideas | Design architectures | Apply guidance"** pattern
+- TOCs can reference content from **anywhere in the repository** using relative paths (e.g., `../example-scenario/`)
+- The same article can appear in multiple places in the TOC (or not appear at all)
+
+### Navigation vs. URL disconnect
+
+**Users experience both realities simultaneously:**
+
+- **Navigation (TOC):** Logical, task-oriented structure (what users click through)
+- **URLs (directories):** Physical file paths (what users see in the address bar)
+
+Example: Users navigate "Containers > Guides > GitOps" but the URL shows `.../example-scenario/gitops-aks/...`
+
+**When working with content:**
+
+- Check **both main and sub-TOCs** to see where content appears in navigation
+- Don't infer content organization from folder location - check the TOC
+- Content can be in `guide/` folder but appear under a workload section in the TOC
+- Metadata (`ms.topic`) determines content type, not folder or TOC placement
 
 ## Content types
 
@@ -65,6 +144,20 @@ The Azure Architecture Center contains various content types that address needs 
 - **Architecture guides**: A deep dive into a specific architectural or operational concern, not necessarily any end-to-end scenario. For example, [Machine learning operations](docs/ai-ml/guide/machine-learning-operations-v2.md).
 
 These content types do not directly map to the file system. Their destinations are instead marked with metadata in the file. While there might be some patterns of usage, the filesystem is largely disorganized in relationship to the content types.
+
+## Thumbnail images and Browse experience
+
+Articles using Pattern 1 (YAML + Markdown pair) must include a **`thumbnailUrl`** field in the YAML metadata:
+
+```yaml
+thumbnailUrl: /azure/architecture/browse/thumbs/article-name.png
+```
+
+- All thumbnails are centralized in `docs/browse/thumbs/` directory
+- Thumbnails power the Browse experience gallery at <https://learn.microsoft.com/azure/architecture/browse>
+- Thumbnails are separate from article images stored in article-specific image folders (for example `_images/`, `images/`, or `media/` directories alongside the article)
+- Typically the thumbnail is a PNG export of the main article diagram (which is often SVG)
+- When updating diagrams, both the article image and browse thumbnail may need updates
 
 ## Multi-agent usage
 
@@ -90,7 +183,7 @@ The following items must be addressed during a freshness update (when explicitly
 - Links are not broken, they lead to the article they are supposed to lead to without redirection.
 - Update the content to include the best guidance possible. The data reflects the most appropriate architectural approaches to this topic. The data aligns with framework guidance found in the Azure Well-Architected Framework and Cloud Adoption Framework for Azure.
 
-  This task is the most critical task in the freshness pass list. Bring your subject matter expertise so that the article provides the best customer experience and impact. Ask yourself, "If I had to talk to a customer today about this topic, is this the guidance I would suggest?" If not, then you must update the article accordingly.
+  This task is the most critical task in the freshness pass list. Bring your subject matter expertise so that the article provides the best customer experience. Ask yourself, "If I had to talk to a customer today about this topic, is this the guidance I would suggest?" If not, then you must update the article accordingly.
 
 - The data discloses or identifies previously undisclosed solution shortcomings.
 - The data aligns with the template for the content type.

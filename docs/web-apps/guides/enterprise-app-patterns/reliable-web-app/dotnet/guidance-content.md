@@ -60,7 +60,7 @@ For example, before it was moved to the cloud, Relecloud's ticketing web app was
     - *Reduced management overhead.* SQL Database provides a managed SQL database instance.
     - *Migration support.* It supports database migration from on-premises SQL Server.
     - *Consistency with on-premises configurations.* It supports the existing stored procedures, functions, and views.
-    - *Resiliency.* It supports backups and point-in-time restore.
+    - *Recoverability.* Supports backups and point-in-time restore so the database can be restored to a previous consistent state after a disruption.
     - *Expertise and minimal rework.* SQL Database enables Relecloud to take advantage of existing expertise and requires minimal work to adopt.
 
 - *Application performance monitoring:* Use [Application Insights](/azure/azure-monitor/app/app-insights-overview) to analyze telemetry for your application. Relecloud chose to use Application Insights for the following reasons:
@@ -71,13 +71,13 @@ For example, before it was moved to the cloud, Relecloud's ticketing web app was
     - *Monitoring.* It collects information about how users are using the app and enables you to easily track custom events.
     - *Visibility gap.* The on-premises solution didn't have an application performance monitoring solution. Application Insights provides easy integration with the application platform and code.
 
-- *Cache:* Choose whether to add a cache to your web app architecture. [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is the primary Azure cache solution. It's a managed in-memory data store that's based on Redis software. Relecloud's web app load is heavily skewed toward viewing concerts and venue details. Relecloud added Azure Cache for Redis for the following reasons:
+- *Cache:* Choose whether to add a cache to your web app architecture. [Azure Managed Redis](/azure/redis/overview) is the primary Azure cache solution. It's a managed in-memory data store that's based on Redis software. Relecloud's web app load is heavily skewed toward viewing concerts and venue details. Relecloud added Azure Managed Redis for the following reasons:
 
-    - *Reduced management overhead.* It's a fully managed service.
-    - *Speed and volume.* It has high-data throughput and low latency reads for commonly accessed, slow-changing data.
-    - *Diverse supportability.* It's a unified cache location for all instances of the web app to use.
-    - *External data store.* The on-premises application servers performed VM-local caching. This setup didn't offload highly frequented data, and it couldn't invalidate data.
-    - *Nonsticky sessions.* Externalizing session state supports nonsticky sessions.
+  - *Reduced management overhead.* It's a fully managed service.
+  - *Speed and volume.* It has high-data throughput and low latency reads for commonly accessed, slow-changing data.
+  - *Diverse supportability.* It's a unified cache location for all instances of the web app to use.
+  - *External data store.* The on-premises application servers performed VM-local caching. This setup didn't offload highly frequented data, and it couldn't invalidate data.
+  - *Nonsticky sessions.* Externalizing session state supports nonsticky sessions.
 
 - *Load balancer:* Web applications that use PaaS solutions should use Azure Front Door, Azure Application Gateway, or both, depending on web app architecture and requirements. Use the [load balancer decision tree](/azure/architecture/guide/technology-choices/load-balancing-overview) to pick the right load balancer. Relecloud needed a layer-7 load balancer that could route traffic across multiple regions. The company needed a multi-region web app to meet the SLO of 99.9%. Relecloud chose [Azure Front Door](/azure/frontdoor/front-door-overview) for the following reasons:
 
@@ -104,7 +104,7 @@ For example, before it was moved to the cloud, Relecloud's ticketing web app was
     - *Git pipeline support.* The source of truth for configuration data needed to be a Git repository. The pipeline needed to update the data in the central configuration store.
     - *Managed identity support.* It supports managed identities to simplify and help secure the connection to the configuration store.
 
-- *Secrets manager:* Use [Azure Key Vault](/azure/key-vault/general/overview) if you have secrets to manage in Azure. You can incorporate Key Vault in .NET apps by using the [ConfigurationBuilder object](/azure/azure-app-configuration/quickstart-dotnet-core-app). Relecloud's on-premises web app stored secrets in code configuration files, but a better security practice is to store secrets in a location that supports RBAC and audit controls. Although [managed identities](/entra/architecture/service-accounts-managed-identities) are the preferred solution for connecting to Azure resources, Relecloud had application secrets they needed to manage. Relecloud used Key Vault for the following reasons:
+- *Secrets manager:* Use [Azure Key Vault](/azure/key-vault/general/overview) if you have secrets to manage in Azure. You can incorporate Key Vault in .NET apps by using the [ConfigurationBuilder object](/azure/azure-app-configuration/quickstart-dotnet-core-app). Relecloud's on-premises web app stored secrets in code configuration files, but a better security practice is to store secrets in a location that supports Azure role-based access control (Azure RBAC) and audit controls. Although [managed identities](/entra/architecture/service-accounts-managed-identities) are the preferred solution for connecting to Azure resources, Relecloud had application secrets they needed to manage. Relecloud used Key Vault for the following reasons:
 
     - *Encryption.* It supports encryption at rest and in transit.
     - *Managed identity support.* The application services can use managed identities to access the secret store.
@@ -198,10 +198,10 @@ private static IAsyncPolicy<HttpResponseMessage> GetCircuitBreakerPolicy()
 
 [!INCLUDE [Cache-aside pattern intro](../includes/cache-aside.md)]
 
-- *Configure the application to use a cache.* Production apps should use a distributed Redis cache. This cache improves performance by reducing database queries. It also enables nonsticky sessions so that the load balancer can evenly distribute traffic. The reference implementation uses a distributed Redis cache. The [`AddAzureCacheForRedis` method](/dotnet/api/microsoft.extensions.dependencyinjection.memorycacheservicecollectionextensions.adddistributedmemorycache) configures the application to use Azure Cache for Redis:
+- *Configure the application to use a cache.* Production apps should use a distributed Redis cache. This cache improves performance by reducing database queries. It also enables nonsticky sessions so that the load balancer can evenly distribute traffic. The reference implementation uses a distributed Redis cache. The [`AddRedisCache` method](/dotnet/api/microsoft.extensions.dependencyinjection.memorycacheservicecollectionextensions.adddistributedmemorycache) configures the application to use Azure Managed Redis:
 
     ```csharp
-    private void AddAzureCacheForRedis(IServiceCollection services)
+    private void AddRedisCache(IServiceCollection services)
     {
         if (!string.IsNullOrWhiteSpace(Configuration["App:RedisCache:ConnectionString"]))
         {
@@ -286,7 +286,7 @@ private static IAsyncPolicy<HttpResponseMessage> GetCircuitBreakerPolicy()
 
 - *Use platform features.* Minimize the need for custom authentication code by using platform capabilities to authenticate users and access data. For example, [App Service](/azure/app-service/overview-authentication-authorization) provides built-in authentication support, so you can sign in users and access data while writing minimal or no code in your web app.
 
-- *Enforce authorization in the application.* Use RBAC to assign least privileges to [application roles](/entra/identity-platform/custom-rbac-for-developers). Define specific roles for different user actions to avoid overlap and ensure clarity. Map users to the appropriate roles and ensure they have access to only necessary resources and actions.
+- *Enforce authorization in the application.* Use Azure RBAC to assign least privileges to [application roles](/entra/identity-platform/custom-rbac-for-developers). Define specific roles for different user actions to avoid overlap and ensure clarity. Map users to the appropriate roles and ensure they have access to only necessary resources and actions.
 
 [!INCLUDE [User authN and authZ bullet points](../includes/authn-authz-notes.md)]
 
@@ -315,13 +315,7 @@ The reference implementation uses the `Authentication` argument in the SQL datab
 
 [!INCLUDE [Right size environments intro](../includes/right-size.md)]
 
-For example, the reference implementation uses Bicep parameters to deploy more expensive tiers (SKUs) to the production environment:
-    
-```bicep
-    var redisCacheSkuName = isProd ? 'Standard' : 'Basic'
-    var redisCacheFamilyName = isProd ? 'C' : 'C'
-    var redisCacheCapacity = isProd ? 1 : 0
-```
+For example, the reference implementation uses Bicep parameters to deploy more expensive tiers (SKUs) to the production environment.
 
 ### Implement autoscaling
 
@@ -374,6 +368,7 @@ The reference implementation guides developers through a simulated migration fro
 Relecloud determined that their on-premises infrastructure wasn't a cost-effective solution for meeting these goals. They decided that migrating their web application to Azure was the most cost effective way to achieve their immediate and future goals. The following architecture represents the end state of Relecloud's Reliable Web App pattern implementation.
 
 [![Diagram showing the architecture of the reference implementation.](../../../_images/reliable-web-app-dotnet.svg)](../../../_images/reliable-web-app-dotnet.svg)
+
 *Figure 4. Architecture of the reference implementation. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-dotnet-1.1.vsdx) of this architecture.*
 
 >[!div class="nextstepaction"]

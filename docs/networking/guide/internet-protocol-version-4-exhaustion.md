@@ -4,7 +4,7 @@ description: Minimize private address space consumption when you build large net
 author: fguerri
 ms.author: fguerri
 ms.date: 04/30/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
 
@@ -19,7 +19,7 @@ In the cloud, large networks are easy to build. Some common architectural patter
 
 This article describes two methods to minimize IPv4 address space consumption when you build large networks in Azure. The methods rely on network topologies that reuse the same IPv4 address blocks in multiple virtual networks or landing zones.
 
-- **Method 1:** Use [IPv4 subnet peering](/azure/virtual-network/how-to-configure-subnet-peering) to exclude one or more subnets from the peering between the landing zone's spoke virtual network and the hub virtual network. You can assign the same nonroutale IP address ranges to subnets excluded from the peering relationship across all landing zones. These IP address ranges can't overlap with other routable IP address ranges.
+- **Method 1:** Use [IPv4 subnet peering](/azure/virtual-network/how-to-configure-subnet-peering) to exclude one or more subnets from the peering between the landing zone's spoke virtual network and the hub virtual network. You can assign the same nonroutable IP address ranges to subnets excluded from the peering relationship across all landing zones. These IP address ranges can't overlap with other routable IP address ranges.
 
 - **Method 2:** Deploy applications in isolated virtual networks that aren't connected to the landing zones' virtual networks. Associate their endpoints with Azure Private Link services. In the landing zones' spoke virtual networks, create private endpoints associated with the Private Link services. The isolated virtual networks can use any IPv4 address space, even if it overlaps with the corporate network's routable address space.
 
@@ -46,7 +46,7 @@ However, resources don't always need reachability from the entire corporate netw
 
 - An address space that's unique across the entire corporate network. Only resources that must be reachable from outside their landing zone use this address space. This article refers to this address space as the landing zone's *routable address space*.
 
-- An internal address space for resources that only need to communicate with other resources inside their own landing zone. This address space doesn't require direct reachability from the corporate network. This article refers to this address space as the landing zone's *nonroutale address space*.
+- An internal address space for resources that only need to communicate with other resources inside their own landing zone. This address space doesn't require direct reachability from the corporate network. This article refers to this address space as the landing zone's *nonroutable address space*.
 
 In the following sections, *front-end component* refers to an application component that must be reachable from the entire corporate network. *Back-end component* refers to an application component that doesn't expose endpoints in the corporate network and only needs to be reachable within its own landing zone. 
 
@@ -54,32 +54,32 @@ In the following sections, *front-end component* refers to an application compon
 
 You can use [IPv4 subnet peering](/azure/virtual-network/how-to-configure-subnet-peering) to restrict a peering relationship between two virtual networks to specific subnets. Only subnets included in the peering configuration can route traffic to each other. Subnets excluded from the peering configuration remain invisible and unreachable from the peer virtual network.
 
-In a hub-and-spoke topology, if you exclude one or more subnets in each spoke from the peering configuration, those subnets remain invisible and unreachable from the hub and from any remote network connected to the hub via other peerings, ExpressRoute connections, or VPN connections. Therefore, you can assign the same address range to all subnets excluded from the peering configuration across all spoke virtual networks. That range must be defined as *nonroutale* and can't be used anywhere else in the corporate network.
+In a hub-and-spoke topology, if you exclude one or more subnets in each spoke from the peering configuration, those subnets remain invisible and unreachable from the hub and from any remote network connected to the hub via other peerings, ExpressRoute connections, or VPN connections. Therefore, you can assign the same address range to all subnets excluded from the peering configuration across all spoke virtual networks. That range must be defined as *nonroutable* and can't be used anywhere else in the corporate network.
 
 The following diagram includes these components:
 
-- The range `10.57.0.0/16` serves as the nonroutale address space.
+- The range `10.57.0.0/16` serves as the nonroutable address space.
 
 - The hub virtual network and each landing zone spoke virtual network use unique routable IP address ranges (`10.0.0.0/24`, `10.1.0.0/24`, and `10.2.0.0/24`).
 
-- Each landing zone spoke virtual network also contains one or more nonroutale subnets within the nonroutale range `10.57.0.0/16`. The address space of an Azure virtual network can include multiple IP address ranges.
-- These subnets are excluded from the peering relationship with the hub. Therefore, nonroutale subnets in different landing zone spokes can have the same or overlapping address ranges within `10.57.0.0/16`.
+- Each landing zone spoke virtual network also contains one or more nonroutable subnets within the nonroutable range `10.57.0.0/16`. The address space of an Azure virtual network can include multiple IP address ranges.
+- These subnets are excluded from the peering relationship with the hub. Therefore, nonroutable subnets in different landing zone spokes can have the same or overlapping address ranges within `10.57.0.0/16`.
 
-:::image type="complex" source="./images/exhaustion-hub-spoke-subnet-peering.svg" alt-text="Diagram that shows how to use subnet peering for landing zones that have routable and nonroutale address spaces." border="false" lightbox="./images/exhaustion-hub-spoke-subnet-peering.svg":::
+:::image type="complex" source="./images/exhaustion-hub-spoke-subnet-peering.svg" alt-text="Diagram that shows how to use subnet peering for landing zones that have routable and nonroutable address spaces." border="false" lightbox="./images/exhaustion-hub-spoke-subnet-peering.svg":::
 This diagram contains a hub and two landing zone spokes in separate landing zones. The hub contains three routable subnets. Each landing zone spoke contains two routable subnets and two nonroutable subnets. The hub is connected to each landing zone via subnet peering. Only the routable subnets in the hub and spokes are included in the peering.
 :::image-end:::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/ipv4-exhaustion-hub-spoke-subnet-peering.pptx) of this architecture.*
 
-This approach preserves full connectivity within a landing zone's spoke virtual network. All resources in the same spoke virtual network can connect with each other, regardless of whether they reside in routable or nonroutale subnets. However, only resources in routable subnets can connect to resources outside their own landing zone.
+This approach preserves full connectivity within a landing zone's spoke virtual network. All resources in the same spoke virtual network can connect with each other, regardless of whether they reside in routable or nonroutable subnets. However, only resources in routable subnets can connect to resources outside their own landing zone.
 
 ### Deploy applications to landing zones
 
-When you use subnet peering to build landing zones with nonroutale subnets, you can apply different patterns to distribute an application's front-end and back-end components across routable and nonroutale subnets. The following considerations apply to both newly built applications and applications migrated from traditional landing zones that use a single, fully routable address space. 
+When you use subnet peering to build landing zones with nonroutable subnets, you can apply different patterns to distribute an application's front-end and back-end components across routable and nonroutable subnets. The following considerations apply to both newly built applications and applications migrated from traditional landing zones that use a single, fully routable address space. 
 
 - **Applications exposed via Layer-7 application delivery controllers:** These application delivery controllers include Azure Application Gateway or non-Microsoft network virtual appliances (NVAs). Only the application delivery controller's endpoint must be reachable from clients outside the landing zone. Therefore, the application delivery controller is the only front-end component that must reside in a routable subnet.
 
-- **Applications exposed via an Azure load balancer:** If the application uses an internal Azure load balancer, the virtual machines in the load balancer's back-end pool must reside in a routable subnet. You can deploy all other components to nonroutale subnets.
+- **Applications exposed via an Azure load balancer:** If the application uses an internal Azure load balancer, the virtual machines in the load balancer's back-end pool must reside in a routable subnet. You can deploy all other components to nonroutable subnets.
 
 The following diagram shows these patterns:
 
@@ -87,7 +87,7 @@ The following diagram shows these patterns:
 
 - Landing zone B hosts a three-layer application exposed through an internal Azure load balancer.
 
-:::image type="complex" source="./images/exhaustion-deploying-apps.svg" alt-text="Diagram that shows how to deploy applications in landing zones that have routable and nonroutale address spaces." border="false" lightbox="./images/exhaustion-deploying-apps.svg":::
+:::image type="complex" source="./images/exhaustion-deploying-apps.svg" alt-text="Diagram that shows how to deploy applications in landing zones that have routable and nonroutable address spaces." border="false" lightbox="./images/exhaustion-deploying-apps.svg":::
 This diagram contains a hub and two landing zone spokes in separate landing zones. The hub contains three routable subnets. The landing zone A spoke contains an application delivery controller in a routable subnet and an HTTP front end, business logic, and data tier in separate nonroutable subnets. The landing zone B spoke contains a TCP/IP front end in a routable subnet and business logic and a data tier in separate nonroutable subnets. The hub is connected to the routable subnets in each spoke via subnet peering.
 :::image-end:::
 
@@ -97,7 +97,7 @@ This diagram contains a hub and two landing zone spokes in separate landing zone
 
 An application's back-end components don't need to receive inbound connections from the corporate network. But they might need to initiate connections to endpoints outside their landing zone. Typical examples include Domain Name System (DNS) resolution, interaction with Active Directory Domain Services (AD DS) domain controllers, and access to applications in other landing zones or shared services such as log management or backup systems. 
 
-When resources in nonroutale subnets need to initiate connections to endpoints outside their landing zone, those connections must use source NAT (SNAT) behind a routable IP address. Therefore, you must deploy a NAT-capable NVA in a routable subnet in each landing zone. The following diagram shows this configuration.
+When resources in nonroutable subnets need to initiate connections to endpoints outside their landing zone, those connections must use source NAT (SNAT) behind a routable IP address. Therefore, you must deploy a NAT-capable NVA in a routable subnet in each landing zone. The following diagram shows this configuration.
 
 :::image type="complex" source="./images/exhaustion-network-virtual-appliance.svg" alt-text="Diagram that shows how the custom route table forwards traffic to the SNAT device." border="false" lightbox="./images/exhaustion-network-virtual-appliance.svg":::
 This diagram contains a hub and two landing zone spokes in separate landing zones. The hub contains three routable subnets. The landing zone A spoke contains an application delivery controller and NAT in separate routable subnets. It also contains an HTTP front end, business logic, and data tier in separate nonroutable subnets. The application delivery controller points to three components in the HTTP front end subnet. The connection from a component goes through the firewall in the hub via SNAT. The landing zone B spoke contains a TCP/IP front end and NAT in separate routable subnets. It also contains business logic and a data tier in separate nonroutable subnets. The connection from a component in the business logic subnet goes through the firewall in the hub via SNAT. The hub is connected to each landing zone spoke.
@@ -105,13 +105,13 @@ This diagram contains a hub and two landing zone spokes in separate landing zone
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/ipv4-exhaustion-snat-nva.pptx) of this architecture.*
 
-**Nonroutable subnets** must use a custom route table that forwards all traffic destined outside of the landing zone to the NAT-capable NVA. In the previous diagram, the `10.57.0.0/16` range is nonroutale, while other ranges within `10.0.0.0/8` are routable. The custom route table for each nonroutale subnet must contain the following user-defined route (UDR).
+**Nonroutable subnets** must use a custom route table that forwards all traffic destined outside of the landing zone to the NAT-capable NVA. In the previous diagram, the `10.57.0.0/16` range is nonroutable, while other ranges within `10.0.0.0/8` are routable. The custom route table for each nonroutable subnet must contain the following user-defined route (UDR).
 
 | Destination | Next hop type | Next hop IP address |
 | ----------- | ----------------------- | ------------------------------------ |
 | 10.0.0.0/8  | VirtualNetworkAppliance | \<Spoke NAT-capable NVA IP address\> |
 
-The virtual network's system route table already includes a system route for destinations in the nonroutale `10.57.0.0/16` range. You don't need to define UDRs for traffic within that range.
+The virtual network's system route table already includes a system route for destinations in the nonroutable `10.57.0.0/16` range. You don't need to define UDRs for traffic within that range.
 
 **Routable subnets**, including the subnet that hosts the NAT-capable NVA, must use a custom route table that forwards traffic outside the landing zone, typically to NVAs in the hub virtual network. These NVAs route traffic among spokes. These hub NVAs don't perform NAT operations. In the previous diagram, the custom route table for each routable subnet must contain the following UDRs.
 
@@ -129,7 +129,7 @@ You can use either Azure Firewall or non-Microsoft NVAs as NAT-capable devices. 
 
 #### Implement SNAT via Azure Firewall
 
-When you need to prioritize low complexity and minimal management, Azure Firewall provides the best solution to implement SNAT for connections that originate from nonroutale subnets. Azure Firewall provides the following benefits:
+When you need to prioritize low complexity and minimal management, Azure Firewall provides the best solution to implement SNAT for connections that originate from nonroutable subnets. Azure Firewall provides the following benefits:
 
 - Fully managed lifecycle
 - Built-in high availability
@@ -140,11 +140,11 @@ When you use Azure Firewall, consider the following factors:
 - Deploy Azure Firewall in its own reserved subnet named **AzureFirewallSubnet**, which must use a routable address space.
 
 - Some Azure Firewall SKUs or configurations might require a second reserved subnet for firewall management. The management subnet doesn't require a routable address space.
-- Azure Firewall has three different SKUs. SNAT isn't resource-intensive, so start with the Basic SKU. For landing zones that generate large volumes of outbound traffic from nonroutale subnets, consider the Standard SKU.
+- Azure Firewall has three different SKUs. SNAT isn't resource-intensive, so start with the Basic SKU. For landing zones that generate large volumes of outbound traffic from nonroutable subnets, consider the Standard SKU.
 - Configure Azure Firewall with the **Perform SNAT** option set to **Always**. Each instance uses its nonprivileged ports for SNAT. To configure Azure Firewall to implement SNAT on all received connections, follow the [SNAT configuration steps](/azure/firewall/snat-private-range#configure-snat-private-ip-address-ranges---azure-portal).
-- Associate all nonroutale subnets with a custom route table that forwards all traffic destined outside the landing zone to the firewall's private IP address.
+- Associate all nonroutable subnets with a custom route table that forwards all traffic destined outside the landing zone to the firewall's private IP address.
 
-The following diagram shows a hub-and-spoke network where each spoke uses Azure Firewall to provide SNAT for connections from nonroutale subnets.
+The following diagram shows a hub-and-spoke network where each spoke uses Azure Firewall to provide SNAT for connections from nonroutable subnets.
 
 :::image type="complex" source="./images/exhaustion-azure-firewall.svg" alt-text="Diagram that shows the SNAT implementation that uses Azure Firewall." border="false" lightbox="./images/exhaustion-azure-firewall.svg":::
 This diagram contains a hub and two landing zone spokes in separate landing zones. The hub contains three routable subnets. The landing zone A spoke contains an application delivery controller and firewall in separate routable subnets. It also contains an HTTP front end, business logic, and data tier in separate nonroutable subnets. The application delivery controller points to three components in the HTTP front end subnet. The connection from a component goes through the firewall in the hub via SNAT. The landing zone B spoke contains a TCP/IP front end and firewall in separate routable subnets. It also contains business logic and a data tier in separate nonroutable subnets. The connection from a component in the business logic subnet goes through the firewall in the hub via SNAT. The hub is connected to each landing zone spoke.
@@ -165,7 +165,7 @@ When you use non-Microsoft NVAs, consider the following factors:
 
 - Deploy a cluster that has at least two NVAs to ensure high availability.
 
-- Use a Standard SKU Azure load balancer to distribute connections from the nonroutale spoke virtual network to the NVAs. All connections must use SNAT regardless of the destination port, so you should use [high-availability load-balancing rules](/azure/load-balancer/manage-rules-how-to#high-availability-ports), also known as *any-port load-balancing rules*. 
+- Use a Standard SKU Azure load balancer to distribute connections from the nonroutable spoke virtual network to the NVAs. All connections must use SNAT regardless of the destination port, so you should use [high-availability load-balancing rules](/azure/load-balancer/manage-rules-how-to#high-availability-ports), also known as *any-port load-balancing rules*. 
 - Choose between single-arm and dual-arm configurations for NAT-capable NVAs. Single-arm configurations are simpler and generally recommended.
 
 The following diagram shows now to implement SNAT in a hub-and-spoke network topology by using non-Microsoft NVAs.
@@ -178,11 +178,11 @@ This diagram contains a hub and two landing zone spokes in separate landing zone
 
 ### Use Method 1 with Azure Virtual WAN
 
-Azure Virtual WAN doesn't support subnet peering. So you can't create landing zone virtual networks that have nonroutale subnets in Virtual WAN–based hub-and-spoke networks. However, you can still apply the fundamental principle of Method 1 by using two peered virtual networks for each landing zone.
+Azure Virtual WAN doesn't support subnet peering. So you can't create landing zone virtual networks that have nonroutable subnets in Virtual WAN–based hub-and-spoke networks. However, you can still apply the fundamental principle of Method 1 by using two peered virtual networks for each landing zone.
 
 - Assign a routable address space to the first virtual network and connect it to the Virtual WAN hub.
 
-- Assign a nonroutale address space to the second virtual network and peer it with the routable virtual network.
+- Assign a nonroutable address space to the second virtual network and peer it with the routable virtual network.
 
 The following diagram shows the resulting topology.
 
@@ -192,17 +192,17 @@ This diagram contains a Virtual WAN hub and two landing zones. Landing zone A co
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/ipv4-exhaustion-virtual-wan.pptx) of this architecture.*
 
-This approach doesn't limit connectivity within a landing zone. The two virtual networks in the landing zone are directly peered, so all resources can connect with each other, regardless of whether they reside in a routable or nonroutale virtual network. However, only resources in the routable virtual network can connect to resources outside the landing zone.
+This approach doesn't limit connectivity within a landing zone. The two virtual networks in the landing zone are directly peered, so all resources can connect with each other, regardless of whether they reside in a routable or nonroutable virtual network. However, only resources in the routable virtual network can connect to resources outside the landing zone.
 
 From a routing perspective, there's no difference between the following configurations:
 
-- Routable and nonroutale subnets in the same virtual network (described in the previous section for traditional hub-and-spoke networks)
+- Routable and nonroutable subnets in the same virtual network (described in the previous section for traditional hub-and-spoke networks)
 
 - Directly peered virtual networks (described in this section for hub-and-spoke networks based on Virtual WAN)
 
 As a result, in Virtual WAN-based networks, the following guidance applies:
 
-- You can distribute application components across routable and nonroutale subnets by using the same considerations described in earlier sections.
+- You can distribute application components across routable and nonroutable subnets by using the same considerations described in earlier sections.
 
 - You can manage outbound dependencies with NAT-capable NVAs in routable subnets.
 

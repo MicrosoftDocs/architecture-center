@@ -1,13 +1,12 @@
 ---
 title: Develop a RAG Solution—Information-Retrieval Phase
-description: Learn about how to configure a search index, the types of searches that you can perform, how to break queries into subqueries, and why and how to rerank queries.
+description: Learn about how to configure a search index, the types of searches that you can run, how to break queries into subqueries, and why and how to rerank queries.
 author: claytonsiemens77
 ms.author: pnp
-ms.date: 01/09/2025
-ms.topic: conceptual
+ms.date: 10/10/2025
+ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
-ms.custom: arb-aiml
 ---
 
 # Information retrieval
@@ -27,7 +26,7 @@ Consider the following [vector search configurations](/azure/search/vector-searc
 
 - **Vector search algorithm:** The [vector search algorithm](/azure/search/vector-search-ranking) searches for relative matches. AI Search has a brute-force algorithm option, called exhaustive k-nearest neighbors (KNN), that scans the entire vector space. It also has a more performant algorithm option, called Hierarchical Navigable Small World (HNSW), that performs an [approximate nearest neighbor (ANN)](/azure/search/vector-search-overview#approximate-nearest-neighbors) search.
 
-- **Similarity metric:** The algorithm uses a [similarity metric](/azure/search/vector-search-ranking#similarity-metrics-used-to-measure-nearness) to calculate nearness. The types of metrics in AI Search include cosine, dot product, and Euclidean. If you use Azure OpenAI Service embedding models, choose cosine.
+- **Similarity metric:** The algorithm uses a [similarity metric](/azure/search/vector-search-ranking#similarity-metrics-used-to-measure-nearness) to calculate nearness. The types of metrics in AI Search include cosine, dot product, and Euclidean. If you use embedding models in Azure OpenAI in Foundry Models, choose cosine.
 - **The `efConstruction` parameter:** This parameter is used during the construction of an HNSW index. It determines the number of nearest neighbors that are connected to a vector during indexing. A larger `efConstruction` value results in a better-quality index than a smaller number. But a larger value requires more time, storage, and compute. For a large number of chunks, set the `efConstruction` value higher. For a low number of chunks, set the value lower. To determine the optimal value, experiment with your data and expected queries.
 - **The `efSearch` parameter:** This parameter is used during query time to set the number of nearest neighbors, or similar chunks, that the search uses.
 - **The `m` parameter:** This parameter is the bidirectional link count. The range is 4 to 10. Lower numbers return less noise in the results.
@@ -38,7 +37,7 @@ In AI Search, the vector configurations are encapsulated in a `vectorSearch` con
 
 When you run queries from your prompt orchestrator against your search store, consider the following factors:
 
-- The type of search that you want to perform, such as vector, keyword, or hybrid
+- The type of search that you want to run, like vector, keyword, or hybrid
 
 - Whether you want to query against one or more columns
 - Whether you want to manually run multiple queries, such as a keyword query and a vector search
@@ -56,10 +55,10 @@ Search platforms generally support full-text and vector searches. Some platforms
 [Vector searches](/azure/search/vector-search-how-to-query) compare the similarity between the vectorized query (prompt) and vector fields. For more information, see [Choose an Azure service for vector searches](../../../guide/technology-choices/vector-search.md).
 
 > [!IMPORTANT]
-> Before you embed the query, you should perform the same [cleaning operations](./rag-enrichment-phase.md#cleaning-data) that you performed on chunks. For example, if you lowercased every word in your embedded chunk, you should lowercase every word in the query before embedding.
+> Before you embed the query, run the same [cleaning operations](./rag-enrichment-phase.md#clean-your-data) that you performed on chunks. For example, if you lowercased every word in your embedded chunk, lowercase every word in the query before embedding.
 
 > [!NOTE]
-> You can perform a vector search against multiple vector fields in the same query. In AI Search, this practice is considered a hybrid search. For more information, see [Hybrid search](#hybrid-search).
+> You can run a vector search against multiple vector fields in the same query. In AI Search, this practice is considered a hybrid search. For more information, see [Hybrid search](#hybrid-search).
 
 The following sample code performs a vector search against the contentVector field. 
 
@@ -88,7 +87,7 @@ The code that embeds the query preprocesses the query first. That preprocess sho
 
 [Full-text searches](/azure/search/search-lucene-query-architecture) match plain text that's stored in an index. It's common practice to extract keywords from a query and use those extracted keywords in a full-text search against one or more indexed columns. You can configure full-text searches to return matches if any terms or all terms match.
 
-Experiment to determine which fields to run full-text searches against. As described in the [enrichment phase article](./rag-enrichment-phase.md#augmenting-chunks), you should use keyword and entity metadata fields for full-text searches in scenarios where content has similar semantic meaning but entities or keywords differ. Other common fields to consider for full-text search include title, summary, and chunk text.
+Experiment to determine which fields to run full-text searches against. As described in the [enrichment phase article](./rag-enrichment-phase.md#augment-your-chunks), you should use keyword and entity metadata fields for full-text searches in scenarios where content has similar semantic meaning but entities or keywords differ. Other common fields to consider for full-text search include title, summary, and chunk text.
 
 The following sample code performs a full-text search against the title, content, and summary fields.
 
@@ -137,7 +136,7 @@ results = client.search(
 
 You can run multiple queries, such as a vector search and a keyword full-text search, manually. You aggregate the results, [rerank](#use-reranking) the results manually, and return the top results. Consider the following use cases for manual multiple queries:
 
-- You use a search platform that doesn't support hybrid searches. You use manual multiple queries to perform your own hybrid search.
+- You use a search platform that doesn't support hybrid searches. You use manual multiple queries to run your own hybrid search.
 
 - You want to run full-text searches against different queries. For example, you might extract keywords from the query and run a full-text search against your keywords metadata field. You might then extract entities and run a query against the entities metadata field.
 - You want to control the reranking process.
@@ -149,7 +148,7 @@ Query translation is an optional step in the information retrieval phase of a RA
 
 #### Query augmentation
 
-Query augmentation is a translation step that makes the query simpler and more usable and enhances the context. You should consider augmentation if your query is small or vague. For example, consider the query "Compare the earnings of Microsoft." That query doesn't include time frames or time units to compare and only specifies earnings. Consider an augmented version of the query, such as "Compare the earnings and revenue of Microsoft in the current year versus last year by quarter." The new query is clear and specific.
+Query augmentation is a translation step that simplifies the query, improves usability, and enhances context. You should consider augmentation if your query is small or vague. For example, consider the query "Compare the earnings of Microsoft." That query doesn't include time frames or time units to compare and only specifies earnings. Consider an augmented version of the query, such as "Compare the earnings and revenue of Microsoft in the current year versus last year by quarter." The new query is clear and specific.
 
 When you augment a query, you maintain the original query but add more context. Don't remove or alter the original query, and don't change the nature of the query.
 
@@ -220,7 +219,7 @@ Decomposition is the process of breaking down a complex query into multiple smal
 
 You should determine whether the query requires multiple searches before you run any searches. If you require multiple subqueries, you can run [manual multiple queries](#manual-multiple-queries) for all the queries. Use a language model to determine whether multiple subqueries are recommended.
 
-The following prompt categorizes a query as simple or complex. For more information, see [RAG experiment accelerator GitHub repository](https://github.com/microsoft/rag-experiment-accelerator/blob/development/rag_experiment_accelerator/llm/prompt/prompt.py).
+The following prompt categorizes a query as *simple* or *complex*. For more information, see [RAG experiment accelerator GitHub repository](https://github.com/microsoft/rag-experiment-accelerator/blob/development/rag_experiment_accelerator/llm/prompt/prompt.py).
 
 ```text
 Consider the given question to analyze and determine whether it falls into one of these categories:
@@ -332,7 +331,7 @@ query: {original_query}
 
 #### The HyDE technique
 
-[HyDE](https://medium.com/towards-data-science/how-to-use-hyde-for-better-llm-rag-retrieval-a0aa5d0e23e8) is an alternate information-retrieval technique for RAG solutions. Rather than converting a query into embeddings and using those embeddings to find the closest matches in a vector database, HyDE uses a language model to generate answers from the query. These answers are converted into embeddings, which are used to find the closest matches. This process enables HyDE to perform answer-to-answer embedding-similarity searches.
+[HyDE](https://medium.com/towards-data-science/how-to-use-hyde-for-better-llm-rag-retrieval-a0aa5d0e23e8) is an alternate information-retrieval technique for RAG solutions. Rather than converting a query into embeddings and using those embeddings to find the closest matches in a vector database, HyDE uses a language model to generate answers from the query. These answers are converted into embeddings, which are used to find the closest matches. This process enables HyDE to run answer-to-answer embedding-similarity searches.
 
 ### Combine query translations into a pipeline
 
@@ -350,7 +349,6 @@ The pipeline has the following steps:
 1. Each decomposed query performs three substeps. After all the decomposed queries go through the substeps, the output includes the original query, the augmented query, the decomposed queries, and an accumulated context. The accumulated context includes the aggregation of the top *N* results from all the decomposed queries that go through the substeps. The substeps include the following tasks:
 
     1. The optional query rewriter rewrites the decomposed query.
-    
     1. The search index processes the rewritten query or the original query. It runs the query by using search types, such as vector, full text, hybrid, or manual multiple. The search index can also use advanced query capabilities, such as HyDE.
     1. The results are reranked. The top *N* reranked results are added to the accumulated context.
 1. The original query, along with the accumulated context, goes through the same three substeps as each decomposed query. But only one query goes through the steps, and the caller receives the top *N* results.
@@ -384,7 +382,7 @@ Use reranking to run one or more queries, aggregate the results, and rank those 
 
 - Vector and keyword searches aren't always accurate. You want to increase the count of documents that you return from your search, which can include valid results that might otherwise be ignored, and use reranking to evaluate the results.
 
-You can use a language model or cross encoder to perform reranking. Some platforms, like AI Search, have proprietary methods to rerank results. You can evaluate these options for your data to determine what works best for your scenario. The following sections provide details about these methods.
+You can use a language model or cross‑encoder to rerank results. Some platforms, like AI Search, have proprietary methods to rerank results. You can evaluate these options for your data to determine what works best for your scenario. The following sections provide details about these methods.
 
 #### Language model reranking
 
@@ -471,7 +469,7 @@ To evaluate your search solution, you can use the following well-established ret
 - **Recall at K:** The percentage of relevant items in the top *K* out of the total possible relative items. This metric focuses on search results coverage.
 - **Mean Reciprocal Rank (MRR):** The average of the reciprocal ranks of the first relevant answer in your ranked search results. This metric focuses on where the first relevant result occurs in the search results.
 
-You should test positive and negative examples. For the positive examples, you want the metrics to be as close to 1 as possible. For the negative examples, where your data shouldn't be able to address the queries, you want the metrics to be as close to 0 as possible. You should test all your test queries. Average the positive query results and the negative query results to understand how your search results perform in aggregate.
+You should test positive and negative examples. For the positive examples, you want the metrics to be as close to 1 as possible. For the negative examples, where your data shouldn't be able to address the queries, you want the metrics to be as close to 0 as possible. You should test all your test queries. Average the positive query results and the negative query results to understand how your search results behave in aggregate.
 
 ## Next step
 

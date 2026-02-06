@@ -4,7 +4,7 @@ description: This article outlines Azure SQL Database features for designing a m
 author: johndowns
 ms.author: pnp
 ms.date: 03/18/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-saas
 ---

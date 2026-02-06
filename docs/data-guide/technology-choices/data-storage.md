@@ -4,7 +4,7 @@ description: Compare big data storage technology options in Azure, including key
 author: nabilshams
 ms.author: nasiddi
 ms.date: 10/04/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
 
@@ -58,7 +58,7 @@ There are various Azure Storage services you can use to store data. The most fle
 
 Azure Storage is a good choice for big data and analytics solutions, because of its flexibility, high availability, and low cost. It provides hot, cool, and archive storage tiers for different use cases. For more information, see [Azure Blob Storage: Hot, cool, and archive storage tiers](/azure/storage/blobs/access-tiers-overview).
 
-Azure Blob storage can be accessed from Hadoop (available through HDInsight). HDInsight can use a blob container in Azure Storage as the default file system for the cluster. Through a Hadoop Distributed File System (HDFS) interface provided by a WASB driver, the full set of components in HDInsight can operate directly on structured or unstructured data stored as blobs. Azure Blob storage can also be accessed via Azure Synapse Analytics using its PolyBase feature.
+Azure Blob storage can be accessed from Hadoop (available through HDInsight). HDInsight can use a blob container in Azure Storage as the default file system for the cluster. Through a Hadoop Distributed File System (HDFS) interface provided by a WASB driver, the full set of components in HDInsight can operate directly on structured or unstructured data stored as blobs. Azure Blob storage can also be accessed via a Microsoft Fabric [Blob Storage shortcut](/fabric/onelake/create-blob-shortcut).
 
 Other features that make Azure Storage a good choice are:
 
@@ -69,7 +69,7 @@ Other features that make Azure Storage a good choice are:
 
 ## Data Lake Storage Gen2
 
-[Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction) is a single, centralized repository where you can store all your data, both structured and unstructured. A data lake enables your organization to quickly and more easily store, access, and analyze a wide variety of data in a single location. With a data lake, you don't need to conform your data to fit an existing structure. Instead, you can store your data in its raw or native format, usually as files or as binary large objects (blobs).
+[Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction) is a single, centralized repository where you can store all your data, both structured and unstructured. A data lake enables your organization to quickly and more easily store, access, and analyze a wide range of data in a single location. With a data lake, you don't need to conform your data to fit an existing structure. Instead, you can store your data in its raw or native format, usually as files or as binary large objects (blobs).
 
 Data Lake Storage Gen2 converges the capabilities of Azure Data Lake Storage Gen1 with Azure Blob Storage. For example, Data Lake Storage Gen2 provides file system semantics, file-level security, and scale. Because these capabilities are built on Blob storage, you also get low-cost, tiered storage, with high availability/disaster recovery capabilities.
 
@@ -91,13 +91,13 @@ Azure Cosmos DB features:
 
 [Apache HBase](https://hbase.apache.org) is an open-source, NoSQL database that is built on Hadoop and modeled after Google BigTable. HBase provides random access and strong consistency for large amounts of unstructured and semi-structured data in a schemaless database organized by column families.
 
-Data is stored in the rows of a table, and data within a row is grouped by column family. HBase is schemaless in the sense that neither the columns nor the type of data stored in them need to be defined before using them. The open-source code scales linearly to handle petabytes of data on thousands of nodes. It can rely on data redundancy, batch processing, and other features that are provided by distributed applications in the Hadoop ecosystem.
+Data is stored in the rows of a table, and data within a row is grouped by column family. HBase is schemaless in the sense that you don't need to define the columns and the type of data stored in them before you use them. The open-source code scales linearly to handle petabytes of data on thousands of nodes. It can rely on data redundancy, batch processing, and other features that are provided by distributed applications in the Hadoop ecosystem.
 
 The [HDInsight implementation](/azure/hdinsight/hbase/apache-hbase-overview) uses the scale-out architecture of HBase to provide automatic sharding of tables, strong consistency for reads and writes, and automatic failover. Performance is enhanced by in-memory caching for reads and high-throughput streaming for writes. In most cases, you want to [create the HBase cluster inside a virtual network](/azure/hdinsight/hbase/apache-hbase-provision-vnet) so other HDInsight clusters and applications can directly access the tables.
 
 ## Azure Data Explorer
 
-[Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/) is a fast and highly scalable data exploration service for log and telemetry data. It helps you handle the many data streams emitted by modern software so you can collect, store, and analyze data. Azure Data Explorer is ideal for analyzing large volumes of diverse data from any data source, such as websites, applications, IoT devices, and more. This data is used for diagnostics, monitoring, reporting, machine learning, and additional analytics capabilities. Azure Data Explorer makes it simple to ingest this data and enables you to do complex unplanned queries on the data in seconds.
+[Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/) is a fast and highly scalable data exploration service for log and telemetry data. It helps you handle the many data streams emitted by modern software so you can collect, store, and analyze data. Azure Data Explorer is ideal for analyzing large volumes of diverse data from any data source, such as websites, applications, IoT devices, and more. This data is used for diagnostics, monitoring, reporting, machine learning, and additional analytics capabilities. Azure Data Explorer makes it straightforward to ingest this data and enables you to do complex unplanned queries on the data in seconds.
 
 Azure Data Explorer can be linearly [scaled out](/azure/data-explorer/manage-cluster-horizontal-scaling) for increasing ingestion and query processing throughput. An Azure Data Explorer cluster can be [deployed to a Virtual Network](/azure/data-explorer/vnet-deployment) for enabling private networks.
 
@@ -136,10 +136,10 @@ The following tables summarize the key differences in capabilities.
 
 | Capability | Data Lake Storage Gen2 | Azure Blob Storage containers |
 | --- | --- | --- |
-| Purpose | Optimized storage for big data analytics workloads |General purpose object store for a wide variety of storage scenarios |
+| Purpose | Optimized storage for big data analytics workloads |General purpose object store for a wide range of storage scenarios |
 | Use cases | Batch, streaming analytics, and machine learning data such as log files, IoT data, click streams, large datasets | Any type of text or binary data, such as application back end, backup data, media storage for streaming, and general purpose data |
 | Structure | Hierarchical file system | Object store with flat namespace |
-| Authentication | Based on [Microsoft Entra identities](/entra/identity-platform/authentication-vs-authorization) | Based on shared secrets [Account Access Keys](/azure/storage/common/storage-account-keys-manage) and [Shared Access Signature Keys](/azure/storage/common/storage-dotnet-shared-access-signature-part-1), and [Azure role-based access control (Azure RBAC)](/azure/security/security-storage-overview) |
+| Authentication | Based on [Microsoft Entra identities](/entra/identity-platform/authentication-vs-authorization) | Based on shared secrets [Account Access Keys](/azure/storage/common/storage-account-keys-manage) and [Shared Access Signature Keys](/azure/storage/common/storage-dotnet-shared-access-signature-part-1), and [Azure RBAC](/azure/security/security-storage-overview) |
 | Authentication protocol | Open Authorization (OAuth) 2.0. Calls must contain a valid JWT (JSON web token) issued by Microsoft Entra ID | Hash-based Message Authentication Code (HMAC). Calls must contain a Base64-encoded SHA-256 hash over a part of the HTTP request. |
 | Authorization | Portable Operating System Interface (POSIX) access control lists (ACLs). ACLs based on Microsoft Entra identities can be set file and folder level. | For account-level authorization use [Account Access Keys](/azure/storage/common/storage-account-keys-manage). For account, container, or blob authorization use [Shared Access Signature Keys](/azure/storage/common/storage-dotnet-shared-access-signature-part-1). |
 | Auditing | Available.  |Available |

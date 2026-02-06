@@ -4,7 +4,7 @@ description: This article covers identity management strategies for multitenant 
 author: johndowns
 ms.author: pnp
 ms.date: 05/16/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-saas
 ---

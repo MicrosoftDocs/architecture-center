@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-You can use a various Azure services to create a complete IT infrastructure for your organization. Azure also provides security services that can help you protect your infrastructure. By using Azure security solutions, you can enhance your IT environment's security posture, mitigate vulnerabilities, and protect against breaches via a well-architected solution that's based on Microsoft best practices.
+You can use various Azure services to create a complete IT infrastructure for your organization. Azure also provides security services that help you protect that infrastructure. By using Azure security solutions, you can enhance your environment's security posture, mitigate vulnerabilities, and reduce breach risk via a well-architected solution based on Microsoft best practices.
 
 Although some security services incur associated costs, many are available at no additional charge. Free services include network security groups (NSGs), storage encryption, TLS/SSL, shared access signature tokens, and more. This article focuses on these cost-free services.
 
@@ -61,7 +61,7 @@ This section describes the components and services that appear in the diagram. M
     | **DDOS** | DDoS protection implemented on the virtual network to help you mitigate different types of DDoS attacks. | [Azure DDoS Network Protection overview](/azure/ddos-protection/ddos-protection-overview) |
     | **TLS/SSL** | TLS/SSL deliver encryption in transit for most Azure services that exchange information, such as Azure Storage and Web Apps. | [Configure end-to-end TLS by using Application Gateway with PowerShell](/azure/application-gateway/application-gateway-end-to-end-ssl-powershell) |
     | **Private Link** | Service that allows you to create a private network for an Azure service that initially is exposed to the internet. | [What is Azure Private Link?](/azure/private-link/private-link-overview) |
-    | **Private endpoint** | Creates a network interface and attaches it to the Azure service. Private Endpoint is part of Private Link. This configuration lets the service, by using a private endpoint, be part of your virtual network. | [What is a private endpoint?](/azure/private-link/private-endpoint-overview) |
+    | **Private endpoint** | Creates a network interface and attaches it to the Azure service. Private Endpoint is part of Private Link. This configuration lets the service become part of your virtual network through a private endpoint. | [What is a private endpoint?](/azure/private-link/private-endpoint-overview) |
 
 1. **Infrastructure and endpoints**
 
@@ -89,9 +89,9 @@ This section describes the components and services that appear in the diagram. M
     | **Private endpoint** | Create a network interface and attach it to your storage account to configure it inside a private network on Azure. | [Use private endpoints for Azure Storage](/azure/storage/common/storage-private-endpoints) |
     | **Storage firewall** | Firewall that allows you to set a range of IP addresses that can access your storage account. | [Configure Azure Storage firewalls and virtual networks](/azure/storage/common/storage-network-security?tabs=azure-portal) |
     | **Encryption**<br/>(Azure Storage) | Protects your storage account with encryption at rest. | [Azure Storage encryption for data at rest](/azure/storage/common/storage-service-encryption) |
-    | **SQL audit** | Tracks database events and writes them to an audit log in your Azure storage account. | [Auditing for Azure SQL Database and Azure Synapse Analytics](/azure/azure-sql/database/auditing-overview) |
+    | **SQL audit** | Tracks database events and writes them to an audit log in your Azure storage account. For analytics scenarios that use Microsoft Fabric warehouses or lakehouses, use Fabric workspace activity logs and Microsoft Purview (when enabled) to monitor access and classification. | [Auditing for Azure SQL Database](/azure/azure-sql/database/auditing-overview)<br/><br/>[Microsoft Purview overview](/azure/purview/overview) |
     | **Vulnerability assessment** | Service that helps you discover, track, and remediate potential database vulnerabilities. | [SQL vulnerability assessment helps you identify database vulnerabilities](/azure/azure-sql/database/sql-vulnerability-assessment?tabs=azure-powershell) |
-    | **Encryption**<br/>(Azure SQL) | Transparent data encryption (TDE) helps protect Azure SQL database services by encrypting data at rest. | [Transparent data encryption for SQL Database, SQL Managed Instance, and Azure Synapse Analytics](/azure/azure-sql/database/transparent-data-encryption-tde-overview?tabs=azure-portal) |
+    | **Encryption**<br/>(Azure SQL) | Transparent data encryption (TDE) encrypts data at rest for Azure SQL Database services. Microsoft Fabric data stored in OneLake is encrypted at rest by default with platform-managed encryption, aligned with Fabric security fundamentals. | [Transparent data encryption for SQL Database and SQL Managed Instance](/azure/azure-sql/database/transparent-data-encryption-tde-overview?tabs=azure-portal)<br/><br/>[Security in Microsoft Fabric](/fabric/security/security-overview) |
 
 1. **Identity**
 
@@ -125,6 +125,7 @@ This section describes the components and services that appear in the diagram. M
 
 - [SQL Database](/azure/well-architected/service-guides/azure-sql-database) is a managed relational database service that automates patching, backups, and monitoring. In this architecture, it provides secure and compliant data storage via features like transparent data encryption, auditing, and vulnerability assessments.
 
+- [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview) is a unified SaaS analytics platform that brings together data engineering, data warehousing, real-time analytics, and business intelligence. In this architecture, you can adopt Fabric for analytics workloads that need governed workspaces, OneLake encryption at rest, item-level role-based access, and centralized activity logging while operational data remains in services such as Azure SQL Database.
 
 ## Contributors
 
@@ -136,8 +137,9 @@ Principal author:
 
 Other contributors:
 
-- [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
-- [Andrew Nathan](https://www.linkedin.com/in/andrew-nathan) | Senior Customer Engineering Manager
+- [Gary Moore](https://www.linkedin.com/in/gwmoore/) | Programmer/Writer
+- [Andrew Nathan](https://www.linkedin.com/in/andrew-nathan/) | Senior Customer Engineering Manager
+- [Filipe Moreira](https://www.linkedin.com/in/filipefumaux/) | Cloud Solution Architect
 
 ## Next steps
 
@@ -158,7 +160,7 @@ In the following resources, you can find more information about the services, te
 
 ## Related resources
 
-For more details about this reference architecture, see the other articles in this series:
+For more information about this reference architecture, see the other articles in this series:
 
 - Part 1: [Map threats to your IT environment](./map-threats-it-environment.yml)
 - Part 3: [Build the second layer of defense with Microsoft Defender XDR Security services](./microsoft-365-defender-build-second-layer-defense.yml)

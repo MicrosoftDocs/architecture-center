@@ -28,7 +28,7 @@ Consider the following points when deciding how to implement this pattern:
 - The gatekeeper must run in a limited privilege mode, which typically requires running the gatekeeper and the trusted host in separate hosted services or virtual machines.
 - The gatekeeper shouldn't perform any processing related to the application or services or access any data. Its function is purely to validate and sanitize requests. The trusted hosts might need to perform additional request validation, but the gatekeeper should perform the core validation.
 - Use a secure communication channel (HTTPS, SSL, or TLS) between the gatekeeper and the trusted hosts or tasks where possible. However, some hosting environments don't support HTTPS on internal endpoints.
-- Adding the extra layer to implement the gatekeeper pattern will likely impact performance due to the additional processing and network communication required.
+- Adding the extra layer to implement the gatekeeper pattern will likely affect performance due to the additional processing and network communication required.
 - The gatekeeper instance could be a single point of failure. To minimize the impact of a failure, consider deploying redundant instances and using an autoscaling mechanism to ensure capacity to maintain availability.
 
 ## When to use this pattern

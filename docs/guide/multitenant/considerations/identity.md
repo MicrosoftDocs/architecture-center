@@ -3,8 +3,8 @@ title: Architectural Considerations for Identity in a Multitenant Solution
 description: Learn about multitenant identity architecture with authentication, authorization, SSO, federation, and tenant isolation strategies for secure solutions.
 author: plagueho
 ms.author: dascottr
-ms.date: 05/30/2025
-ms.topic: conceptual
+ms.date: 12/16/2025
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-saas
 ---
@@ -207,11 +207,19 @@ These models are distinct, and the approach that you select affects your impleme
 
 In some solutions, you might use [per-user licensing](pricing-models.md#per-user-pricing) as part of your commercial pricing model. In this scenario, you provide different tiers of user licenses that have different capabilities. For example, users with one license might be permitted to use a subset of the features of the application. The capabilities that specific users are allowed to access, based on their licenses, is sometimes called an *entitlement*.
 
-The application code or a dedicated entitlements system typically tracks and enforces entitlements instead of the identity system. This process is similar to authorization but occurs outside the identity management layer.
+We recommend that you track and enforce entitlements within your application code or a dedicated entitlements system, rather than relying on the identity system. This process is similar to authorization but occurs outside the identity management layer.
+
+There are several reasons for this separation:
+
+- **Complexity of licensing models:** Licensing rules are often complex and specific to the business model. For example, licenses might be per-seat, time-based (daily or monthly assignment), limit concurrent usage, or have specific reassignment rules. Identity providers are generally designed for user authentication and basic authorization, not for complex commercial licensing logic.
+
+- **Independence:** Relying on identity provider features for license management can lock your solution into that provider or its constraints. If you support customers who use different identity providers, you would need to build a custom solution for them anyway.
+
+A common pattern is to manage licenses within the application's database or a dedicated service. When a user signs in, the identity provider retrieves their entitlements and injects them into the authorization token as custom claims that can be checked by the application components at run time.
 
 ## Identity scale and authentication volume
 
-As multitenant solutions grow, the number of users and sign-in requests that the solution needs to process increases. Consider the following factors:
+As multitenant solutions grow, the number of users and sign-in requests that the solution needs to process increases. Evaluate these scalability considerations:
 
 - Assess whether the user directory scales to support the required number of users.
 
@@ -245,3 +253,7 @@ Other contributors:
 ## Related resource
 
 - [Architectural approaches for identity in multitenant solutions](../approaches/identity.md)
+
+## Next step
+
+Learn about [considerations when you work with domain names in a multitenant application](domain-names.md).

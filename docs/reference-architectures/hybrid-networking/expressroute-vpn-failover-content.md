@@ -168,7 +168,7 @@ By default, BGP sessions use an idle timeout value of 60 seconds. If a session t
 
 You can configure high availability for your Azure connection in different ways, depending on the type of provider you use and the number of ExpressRoute circuits and virtual network gateway connections you're willing to configure. Here's a summary of your availability options:
 
-- If you use a layer 2 connection, deploy redundant routers in your on-premises network in an active-active configuration. Connect the primary circuit to one router and the secondary circuit to the other. This configuration provides a highly available connection at both ends. This configuration is necessary if you require the ExpressRoute service-level agreement (SLA). See [SLA for Azure ExpressRoute][sla-for-expressroute] for details.
+- If you use a layer 2 connection, deploy redundant routers in your on-premises network in an active-active configuration. Connect the primary circuit to one router and the secondary circuit to the other. This configuration provides a highly available connection at both ends. This configuration is necessary if you require the ExpressRoute service-level agreement (SLA). For more information, see [SLA for Azure ExpressRoute][sla-for-expressroute].
 
     The following diagram shows a configuration with redundant on-premises routers connected to the primary and secondary circuits. Each circuit handles the traffic for private peering. (Each peering is designated a pair of /30 address spaces, as described in the previous section.)
 
@@ -204,7 +204,7 @@ If you must expose management endpoints for VMs to an external network, use NSGs
 > [!NOTE]
 > Azure VMs deployed through the Azure portal can include a public IP address that provides sign-in access. However, it's a best practice to prohibit this access.
 
-By default, traffic traversing an ExpressRoute connection is not encrypted. You can optionally configure encryption to be either Point-to-point encryption by MACsec or end-to-end encryption by IPsec; MACsec only available for ExpressRoute Direct. For more information, see [About encryption for Azure ExpressRoute](/azure/expressroute/expressroute-about-encryption#end-to-end-encryption-by-ipsec-faq).
+By default, traffic traversing an ExpressRoute connection isn't encrypted. You can optionally configure encryption to be either Point-to-point encryption by MACsec or end-to-end encryption by IPsec; MACsec only available for ExpressRoute Direct. For more information, see [About encryption for Azure ExpressRoute](/azure/expressroute/expressroute-about-encryption#end-to-end-encryption-by-ipsec-faq).
 
 To ensure your data hasn't been tampered with during transit, you can configure an MD5 hash on the ExpressRoute circuit during the [configuration of private peering or Microsoft peering](/azure/expressroute/expressroute-howto-routing-portal-resource-manager#prerequisites) to secure messages between the cross-premises route and the MSEE routers.
 
@@ -250,7 +250,7 @@ For site-to-site VPN DevOps considerations, see the [Configure a Hybrid Network 
 
 Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-ExpressRoute circuits provide a high-bandwidth path between networks. Generally, the higher the bandwidth, the higher the cost. 
+ExpressRoute circuits provide a high-bandwidth path between networks. Generally, the higher the bandwidth, the higher the cost.
 
 > [!NOTE]
 > Use the [Azure Connectivity Toolkit](/azure/expressroute/expressroute-troubleshooting-network-performance#azurect---the-azure-connectivity-toolkit) to ensure the ExpressRoute gateway meets workload requirements.
@@ -265,7 +265,7 @@ The ExpressRoute Premium add-on provides:
 - An increased number of virtual network links per ExpressRoute circuit.
 - Global connectivity for services.
 
-See [ExpressRoute pricing][expressroute-pricing] for details.
+For more information, see [ExpressRoute pricing][expressroute-pricing].
 
 Although some providers allow you to change your bandwidth, be sure to choose an initial bandwidth that surpasses your needs and provides room for growth. If you need to increase bandwidth in the future, you have two options:
 
@@ -373,7 +373,7 @@ Microsoft Learn modules:
 - [Hybrid architecture design](../../hybrid/hybrid-start-here.md)
 - [Azure hybrid options](../../guide/technology-choices/hybrid-considerations.yml)
 - [Hub-spoke network topology in Azure](../../networking/architecture/hub-spoke.yml)
-- [Spoke-to-spoke networking](../../networking/guide/spoke-to-spoke-networking.md)
+- [Virtual network connectivity options and spoke-to-spoke communication](../../reference-architectures/hybrid-networking/virtual-network-peering.yml)
 - [Connect an on-premises network to Azure](index.yml)
 - [Implement a secure hybrid network](../dmz/secure-vnet-dmz.yml)
 - [Architecture best practices for Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute)
@@ -384,15 +384,9 @@ Microsoft Learn modules:
 [connect-to-an-Azure-vnet]: /microsoft-365/enterprise/connect-an-on-premises-network-to-a-microsoft-azure-virtual-network?view=o365-worldwide
 [configure-expressroute]: ./expressroute-vpn-failover.yml
 [configure-vpn]: /azure/expressroute/expressroute-howto-coexist-resource-manager
-[guidance-expressroute]: ./expressroute-vpn-failover.yml
 [guidance-vpn]: /azure/expressroute/use-s2s-vpn-as-backup-for-expressroute-privatepeering
-[best-practices-security]: /azure/best-practices-network-security
 [configure-expressroute-routing]: /azure/expressroute/expressroute-howto-routing-arm
 [sla-for-expressroute]: https://azure.microsoft.com/support/legal/sla/expressroute
-[devops-monitoring]: /azure/architecture/framework/devops/checklist
 [expressroute-introduction]: /azure/expressroute/expressroute-introduction
 [expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute/
-[AAF-devops]: /azure/architecture/framework/devops/overview
-[azurect]: https://github.com/Azure/NetworkMonitoring/tree/main/AzureCT
 [highly-available-network-architecture]: ./expressroute-vpn-failover.yml
-[visio-download]: https://arch-center.azureedge.net/hybrid-networking-expressroute.vsdx

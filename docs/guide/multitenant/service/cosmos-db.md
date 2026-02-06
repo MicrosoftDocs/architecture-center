@@ -1,10 +1,10 @@
 ---
 title: Multitenancy and Azure Cosmos DB
 description: Learn about features of Azure Cosmos DB that you can use with multitenant systems. Find other resources about how to use Azure Cosmos DB in a multitenant solution.
-author: tarabhatiamsft
-ms.author: tarabhatia
+author: deborahc
+ms.author: dech
 ms.date: 11/16/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-saas
 ---
@@ -89,7 +89,7 @@ If you isolate your tenants by database account, each tenant has its own through
 
 #### Azure Cosmos DB features for multitenancy
 
-- **Security features:** This model provides increased data access security isolation via [Azure RBAC](/azure/cosmos-db/role-based-access-control). This model also provides database encryption security isolation at the tenant level through [customer-managed keys](/azure/cosmos-db/how-to-setup-customer-managed-keys).
+- **Security features:** This model provides increased data access security isolation via [Azure role-based access control (RBAC)](/azure/cosmos-db/role-based-access-control). This model also provides database encryption security isolation at the tenant level through [customer-managed keys](/azure/cosmos-db/how-to-setup-customer-managed-keys).
  
 - **Custom configuration:** You can configure the location of the database account according to the tenant's requirements. You can also tune the configuration of Azure Cosmos DB features, such as geo-replication and customer-managed encryption keys, to suit each tenant's requirements. 
 

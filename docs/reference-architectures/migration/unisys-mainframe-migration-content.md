@@ -149,7 +149,7 @@ Performance Efficiency is the ability of your workload to meet the demands place
 
 - Avanade AMT has proven single-application scalability that's equivalent to at least 28,000 million instructions per second (MIPS).
 
-- Use Virtual Machine Scale Sets so each set of servers can scale out to provide more throughput. For information, see [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview).
+- Use Virtual Machine Scale Sets so each set of servers can scale out to provide more throughput. For more information, see [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview).
 
 - SQL Database has hyperscale or business-critical tiers for high input/output operations per second (IOPS) and high uptime SLAs. For pricing information, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/azure-sql-database/single/).
 

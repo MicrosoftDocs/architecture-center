@@ -24,7 +24,7 @@ In this scenario, users need to use the version of Outlook client that supports 
 1. As soon as the domain is federated, Microsoft Entra ID redirects the request to on-premises AD FS.
 1. The user enters credentials on an AD FS sign-in page.
 1. AD FS redirects the session back to Microsoft Entra ID.
-1. Microsoft Entra ID applies an Azure Conditional Access policy with a multifactor authentication requirement for mobile apps and desktop clients. See the [deployment section](#set-up-a-conditional-access-policy) of this article for information about setting up that policy.
+1. Microsoft Entra ID applies an Azure Conditional Access policy with a multifactor authentication requirement for mobile apps and desktop clients. For more information about setting up that policy, see the [deployment section](#set-up-a-conditional-access-policy) of this article.
 1. The Conditional Access policy calls Microsoft Entra multifactor authentication. The user gets a request to complete multifactor authentication.
 1. The user completes multifactor authentication.
 1. Microsoft Entra ID issues access and refresh tokens and returns them to the client.
@@ -235,7 +235,7 @@ After you create the authentication policy, you can first assign it to a pilot g
 
 ## Scenario details
 
-Enterprise messaging infrastructure (EMI) is a key service for organizations. Moving from older, less secure methods of authentication and authorization to modern authentication is a critical challenge in a world where remote work is common. Implementing multifactor authentication requirements for messaging service access is one of the most effective ways to meet that challenge.
+Enterprise messaging infrastructure (EMI) is a key service for organizations. The move from older, less secure methods of authentication and authorization to modern authentication is a critical challenge in a world where remote work is common. Implementing multifactor authentication requirements for messaging service access is one of the most effective ways to meet that challenge.
 
 This article describes four architectures to enhance your security in an Outlook desktop-client access scenario by using Microsoft Entra multifactor authentication.
 

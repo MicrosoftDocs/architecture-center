@@ -48,7 +48,7 @@ Premium file shares are deployed to FileStorage storage accounts and are stored 
 
 ### Always require encryption when accessing SMB Azure file shares
 
-Always use encryption in transit when accessing data in SMB Azure file shares. Encryption in transit is enabled by default. Azure Files will only allow the connection if it's made with a protocol that uses encryption, such as SMB 3.0. Clients that don't support SMB 3.0 will be unable to mount the Azure file share if encryption in transit is required.
+Always use encryption in transit when accessing data in SMB Azure file shares. Encryption in transit is enabled by default. Azure Files only allows the connection if it's made with a protocol that uses encryption, such as SMB 3.0. Clients that don't support SMB 3.0 are unable to mount the Azure file share if encryption in transit is required.
 
 ### Use VPN if port that SMB uses (port 445) is blocked
 
@@ -100,7 +100,7 @@ For more information, see [Azure Files scalability and performance targets][Azur
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-- Use AD DS authentication over SMB for accessing Azure file shares. This setup provides the same single sign-on (SSO) experience when accessing Azure file shares as accessing on-premises file shares. For more information, see [How it works][Azure-files-How-it-works] and feature [enablement steps][Azure-files-Enablement-steps]. Your client needs to be domain joined to AD DS, because the authentication is still done by the AD DS domain controller. Also, you need to assign both share level and file/directory level permissions to get access to the data. [Share level permission assignment][Azure-files-share-permissions] goes through Azure RBAC model. [File/directory level permission][Azure-files-file-level-permissions] is managed as Windows ACLs.
+- Use AD DS authentication over SMB for accessing Azure file shares. This setup provides the same single sign-on (SSO) experience when accessing Azure file shares as accessing on-premises file shares. For more information, see [How it works][Azure-files-How-it-works] and feature [enablement steps][Azure-files-Enablement-steps]. Your client needs to be domain joined to AD DS, because the authentication is still done by the AD DS domain controller. Also, you need to assign both share level and file/directory level permissions to get access to the data. [Share level permission assignment][Azure-files-share-permissions] goes through Azure role-based access control (Azure RBAC) model. [File/directory level permission][Azure-files-file-level-permissions] is managed as Windows ACLs.
 
   > [!NOTE]
   > Access to Azure file shares is always authenticated. Azure file shares don't support anonymous access. Besides identity-based authentication over SMB, users can authenticate to Azure file share also by using storage access key and Shared Access Signature.
@@ -115,8 +115,8 @@ Cost Optimization is about looking at ways to reduce unnecessary expenses and im
 
 - Azure Files has two storage tiers and two pricing models:
   - **Standard storage**: Uses HDD-based storage. There's no minimum file share size, and you pay only for used storage space. Also, you pay for file operations, such as enumerating a directory or reading a file.
-  - **Premium storage**: Uses SSD-based storage. The minimum size for a premium file share is 100 gibibytes, and you pay per provisioned storage space. When using premium storage, all file operations are free.
-- Extra costs are associated with file share snapshots and outbound data transfers. (When you transfer data from Azure file shares, inbound data transfer is free.) Data transfer costs depend on the amount of transferred data and the stock keeping unit (SKU) of your virtual network gateway, if you use one. For more information about costs, see [Azure Files Pricing][Azure-Files-Pricing] and [Azure Pricing calculator][Azure-Pricing-calculator]. The actual cost varies by Azure region and your individual contract. Contact a Microsoft sales representative for additional information on pricing.
+  - **Premium storage**: Uses SSD-based storage. The minimum size for a premium file share is 100 gibibytes, and you pay per provisioned storage space. When you use premium storage, all file operations are free.
+- Extra costs are associated with file share snapshots and outbound data transfers. (When you transfer data from Azure file shares, inbound data transfer is free.) Data transfer costs depend on the amount of transferred data and the stock keeping unit (SKU) of your virtual network gateway, if you use one. For more information about costs, see [Azure Files Pricing][Azure-Files-Pricing] and [Azure Pricing calculator][Azure-Pricing-calculator]. The actual cost varies by Azure region and your individual contract. For more information about pricing, contact a Microsoft sales representative.
 
 ## Next steps
 
@@ -131,7 +131,6 @@ Explore related architectures:
 
 - [Azure enterprise cloud file share](./azure-files-private.yml)
 - [Hybrid file services](./hybrid-file-services.yml)
-- [Azure Virtual Desktop for the enterprise](../example-scenario/azure-virtual-desktop/azure-virtual-desktop.yml)
 
 [architectural-diagram]: ./images/azure-file-share.svg
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-file-share.vsdx

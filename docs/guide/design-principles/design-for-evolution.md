@@ -4,7 +4,7 @@ description: Use these recommendations to implement evolutionary design, which i
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 08/30/2018
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
 
@@ -12,19 +12,19 @@ ms.subservice: architecture-guide
 
 ## An evolutionary design is key for continuous innovation
 
-All successful applications change over time, whether to fix bugs, add new features, bring in new technologies, or make existing systems more scalable and resilient. If all the parts of an application are tightly coupled, it becomes very hard to introduce changes into the system. A change in one part of the application may break another part, or cause changes to ripple through the entire codebase.
+All successful applications change over time, whether to fix bugs, add new features, bring in new technologies, or make existing systems more scalable and resilient. If all the parts of an application are tightly coupled, it becomes very hard to introduce changes into the system. A change in one part of the application might break another part, or cause changes to ripple through the entire codebase.
 
-This problem is not limited to monolithic applications. An application can be decomposed into services, but still exhibit the sort of tight coupling that leaves the system rigid and brittle. But when services are designed to evolve, teams can innovate and continuously deliver new features.
+This problem isn't limited to monolithic applications. An application can be decomposed into services, but still exhibit the sort of tight coupling that leaves the system rigid and brittle. But when services are designed to evolve, teams can innovate and continuously deliver new features.
 
 Microservices are becoming a popular way to achieve an evolutionary design, because they address many of the considerations listed here.
 
 ## Recommendations
 
-**Enforce high cohesion and loose coupling**. A service is *cohesive* if it provides functionality that logically belongs together. Services are *loosely coupled* if you can change one service without changing the other. High cohesion generally means that changes in one function will require changes in other related functions, where all the related functions reside in one service. If you find that updating a service requires coordinated updates to other services, it may be a sign that your services are not cohesive. One of the goals of domain-driven design (DDD) is to identify those boundaries.
+**Enforce high cohesion and loose coupling**. A service is *cohesive* if it provides functionality that logically belongs together. Services are *loosely coupled* if you can change one service without changing the other. High cohesion generally means that changes in one function will require changes in other related functions, where all the related functions reside in one service. If you find that updating a service requires coordinated updates to other services, it might be a sign that your services aren't cohesive. One of the goals of domain-driven design (DDD) is to identify those boundaries.
 
 **Encapsulate domain knowledge**. When a client consumes a service, the responsibility for enforcing the business rules of the domain should not fall on the client. Instead, the service should encapsulate all of the domain knowledge that falls under its responsibility. Otherwise, every client has to enforce the business rules, and you end up with domain knowledge spread across different parts of the application.
 
-**Use asynchronous messaging**. Asynchronous messaging is a way to decouple the message producer from the consumer. The producer does not depend on the consumer responding to the message or taking any particular action. With a pub/sub architecture, the producer may not even know who is consuming the message. New services can easily consume the messages without any modifications to the producer.
+**Use asynchronous messaging**. Asynchronous messaging is a way to decouple the message producer from the consumer. The producer doesn't depend on the consumer responding to the message or taking any particular action. With a pub/sub architecture, the producer might not even know who is consuming the message. New services can easily consume the messages without any modifications to the producer.
 
 **Don't build domain knowledge into a gateway**. Gateways can be useful in a microservices architecture, for things like request routing, protocol translation, load balancing, or authentication. However, the gateway should be restricted to this sort of infrastructure functionality. It should not implement any domain knowledge, to avoid becoming a heavy dependency.
 
@@ -32,7 +32,7 @@ Microservices are becoming a popular way to achieve an evolutionary design, beca
 
 **Design and test against service contracts**. When services expose well-defined APIs, you can develop and test against those APIs. That way, you can develop and test an individual service without spinning up all of its dependent services. (Of course, you would still perform integration and load testing against the real services.)
 
-**Use fitness functions**. Fitness functions measure the outcome to see whether it's closer or further away from an optimal solution. Fitness functions help to protect architectural characteristics as change occurs over time. Fitness function is any mechanism that provides an objective integrity assessment of architecture characteristics. The assessment may include a variety of mechanisms such as metrics, unit tests, chaos engineering, and so on. For example, the architect may identify page load time as an important characteristic. Subsequently, the workload should have a fitness function to test page load time and run the test as part of continuous integration.
+**Use fitness functions**. Fitness functions measure the outcome to see whether it's closer or further away from an optimal solution. Fitness functions help to protect architectural characteristics as change occurs over time. Fitness function is any mechanism that provides an objective integrity assessment of architecture characteristics. The assessment might include various mechanisms like metrics, unit tests, and chaos engineering. For example, the architect might identify page load time as an important characteristic. Subsequently, the workload should have a fitness function to test page load time and run the test as part of continuous integration.
 
 **Abstract infrastructure away from domain logic**. Don't let domain logic get mixed up with infrastructure-related functionality, such as messaging or persistence. Otherwise, changes in the domain logic will require updates to the infrastructure layers and vice versa.
 

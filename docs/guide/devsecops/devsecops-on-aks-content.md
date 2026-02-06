@@ -24,7 +24,7 @@ As a prerequisite to this article, we recommend you review [Build and deploy app
 > [!NOTE]
 > While this article references AKS and GitHub, these recommendations apply to any container orchestration or CI/CD platform. While the implementation details might vary, most of the concepts and practices mentioned in each stage are still relevant and applicable.
 
-1. [Microsoft Entra ID](/entra/fundamentals/whatis) is configured as the identity provider for GitHub. Configure multi-factor authentication (MFA) to help provide extra authentication security.
+1. [Microsoft Entra ID](/entra/fundamentals/whatis) is configured as the identity provider for GitHub. Configure multifactor authentication (MFA) to help provide extra authentication security.
 1. Developers use [Visual Studio Code](https://code.visualstudio.com) or [Visual Studio](https://visualstudio.microsoft.com/vs/) with security extensions enabled to proactively analyze their code for security vulnerabilities.
 1. Developers commit application code to a corporate owned and governed GitHub Enterprise repository.
 1. GitHub Enterprise integrates automatic security and dependency scanning through [GitHub Advanced Security](https://docs.github.com/enterprise-cloud@latest/get-started/learning-about-github/about-github-advanced-security).
@@ -76,7 +76,7 @@ Security controls are implemented in each phase of the software development life
 
 ### Plan phase
 
-The plan phase usually has the least amount of automation, but it has important security implications that significantly impact later DevOps lifecycle stages. This phase involves collaboration between security, development, and operations teams. Including security stakeholders in this phase of designing and planning ensures security requirements and security issues are appropriately accounted for or mitigated.
+The plan phase usually has the least amount of automation, but it has important security implications that significantly affect later DevOps lifecycle stages. This phase involves collaboration between security, development, and operations teams. Including security stakeholders in this phase of designing and planning ensures security requirements and security issues are appropriately accounted for or mitigated.
 
 #### Best Practice – Design a more secure application platform
 
@@ -84,7 +84,7 @@ Building a more secure AKS-hosted platform is an important step to help ensure s
 
 #### Best Practice – Build threat modeling into your process
 
-- Threat modeling is usually a manual activity that involves security and development teams. It's used to model and find threats within a system so vulnerabilities can be addressed prior to any code development or changes to a system. Threat modeling can occur at different times, triggered by events such as a significant software change, solution architectural change, or security incidents.
+- Threat modeling is usually a manual activity that involves security and development teams. It's used to model and find threats within a system so that vulnerabilities can be addressed before any code development or changes to a system. Threat modeling can occur at different times, triggered by events such as a significant software change, solution architectural change, or security incidents.
 - We recommend you use the [STRIDE threat model](/azure/security/develop/threat-modeling-tool-threats#stride-model). This methodology starts with a data-flow diagram and uses the STRIDE mnemonic (Spoofing, Tampering, Info Disclosure, Repudiation, Denial of Service, and Elevation of Privilege) threat categories to empower teams to identify, mitigate, and validate risk. It also includes a [modeling tool](https://www.microsoft.com/securityengineering/sdl/threatmodeling) to notate and visualize system components, data flows, and security boundaries. Building threat modeling into your SDLC processes introduces new processes and more work to maintain updated threat models. But it helps ensure security is in place early, which helps reduce the potential cost of dealing with security issues found in later SDLC stages.
 
 #### Best Practice – Apply Azure Well Architect Framework (WAF)
@@ -176,7 +176,7 @@ During the build phase, developers work with the site reliability engineers and 
 
 - Azure Key Vault stores a signing key that can be used by [notation](/azure/container-registry/container-registry-tutorial-sign-build-push) with the notation Key Vault plugin (azure-kv) to [sign](/azure/container-registry/container-registry-tutorial-sign-build-push) and verify container images and other artifacts. Container Registry lets you attach these signatures by using the Azure CLI commands.
 - The signed containers let users make sure that deployments are built from a trusted entity and verify an artifact hasn't been tampered with since its creation. The signed artifact ensures integrity and authenticity before the user pulls an artifact into any environment, which helps avoid attacks.
-  - [Ratify](https://github.com/deislabs/ratify/blob/main/README.md) lets Kubernetes clusters verify artifact security metadata prior to deployment and admit for deployment only those that comply with an admission policy that you create.
+  - [Ratify](https://github.com/deislabs/ratify/blob/main/README.md) lets Kubernetes clusters verify artifact security metadata before deployment and admit for deployment only those that comply with an admission policy that you create.
 
 ### Deploy phase
 
@@ -247,7 +247,7 @@ During this phase, operation monitoring and security monitoring tasks are perfor
 
 #### Best Practice – Enable centralized log monitoring and use SIEM products to monitor for real time security threats
 
-- Connect AKS diagnostics logs to Microsoft Sentinel for centralized security monitoring based on patterns and rules. Sentinel enables this access seamlessly via [data connectors](/azure/sentinel/data-connectors-reference#azure-kubernetes-service-aks).
+- Connect AKS diagnostics logs to Microsoft Sentinel for centralized security monitoring based on patterns and rules. Microsoft Sentinel enables this access by way of [data connectors](/azure/sentinel/data-connectors-reference#azure-kubernetes-service-aks).
 
 #### Best Practice – Enable audit logging to monitor activity on your production clusters
 

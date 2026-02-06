@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Greenfield lakehouse on Microsoft Fabric
+  title: Greenfield Lakehouse on Microsoft Fabric
   description: Learn about a greenfield solution for creating a robust, scalable data platform by using the lakehouse design paradigm on Microsoft Fabric.
   author: callard1
   ms.author: callard

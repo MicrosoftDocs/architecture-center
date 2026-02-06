@@ -4,7 +4,7 @@ metadata:
   description: Learn about a scalable, secure AKS microservices architecture that builds on recommended AKS microservices baseline architectures and implementations.
   author: francisnazareth
   ms.author: fnazaret
-  ms.date: 06/14/2025
+  ms.date: 10/01/2025
   ms.topic: reference-architecture
   ai-usage: ai-assisted
   ms.category:

@@ -4,7 +4,7 @@ metadata:
   description: Learn how to monitor an Azure Functions topology that uses Event Hubs.
   author: dbarkol
   ms.author: dabarkol
-  ms.topic: conceptual
+  ms.topic: concept-article
   ms.date: 07/03/2024
   ms.subservice: architecture-guide
 azureCategories:

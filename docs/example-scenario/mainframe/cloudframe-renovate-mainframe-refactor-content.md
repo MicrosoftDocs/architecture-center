@@ -36,13 +36,13 @@ J. The Processor Resource / System Manager (PR/SM) hypervisor performs direct ha
 
 ### Workflow
 
-1. Data is typically input either via Azure ExpressRoute from remote clients or from other applications currently running Azure. In either case, TCP/IP is the primary means of connection to the system. TLS port 443 provides user access to web-based applications. You can use the web application presentation layer virtually unchanged to minimize the need for training. Or you can update the web application presentation layer with modern UX frameworks as needed. You can use Azure VM bastion hosts to provide admin access to the VMs. Doing so improves security by minimizing open ports.
+1. Data is typically input either via Azure ExpressRoute from remote clients or from other applications currently running Azure. In either case, TCP/IP is the primary means of connection to the system. TLS port 443 provides user access to web-based applications. You can use the web application presentation layer with minimal changes to reduce the need for training. Or you can update the web application presentation layer with modern UX frameworks as needed. You can use Azure VM bastion hosts to provide admin access to the VMs. Doing so improves security by minimizing open ports.
 
 2. In Azure, Azure load balancers manage access to the application compute clusters to provide high availability. This approach enables scale-out of compute resources to process the input work. Layer 7 (application layer) and Layer 4 (transport layer) load balancers are available. The type used depends on the application architecture and API payloads at the entry point of the compute cluster.
 
 3. You can deploy to a VM in a compute cluster or in a pod that can be deployed in a Kubernetes cluster. Java Business Services and applications created via Renovate run equally well on Azure VMs and Azure Kubernetes containers. For a more detailed analysis  of compute options, see [this Azure compute service decision tree](../../guide/technology-choices/compute-decision-tree.md).
 
-4. Application servers receive the input in the compute clusters and share application state and data by using Azure Cache for Redis or Remote Direct Memory Access (RDMA).
+4. Application servers receive the input in the compute clusters and share application state and data by using Azure Managed Redis or Remote Direct Memory Access (RDMA).
 
 5. Business services and applications in the application clusters allow for multiple connections to persistent data sources. These data sources can include PaaS services like Azure SQL Database and Azure Cosmos DB, databases on VMs, such as Oracle or Db2, and big data repositories like Azure Databricks and Azure Data Lake. Application data services can also connect to streaming data services like Kafka and Azure Stream Analytics.
 
@@ -58,11 +58,11 @@ J. The Processor Resource / System Manager (PR/SM) hypervisor performs direct ha
 
 ### Components
 
-- [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is a distributed, managed cache that helps you build scalable and responsive applications by providing fast access to your data. In this architecture, Azure Cache for Redis enables application servers in the compute clusters to share application state and data.
+- [Azure Managed Redis](/azure/redis/overview) is a distributed, managed cache that helps you build scalable and responsive applications by providing fast access to your data. In this architecture, Azure Managed Redis enables application servers in the compute clusters to share application state and data.
 
 - [Azure Kubernetes Service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed Kubernetes service that simplifies the deployment, management, and scaling of containerized applications by using Kubernetes. In this architecture, AKS provides a container orchestration platform where Java applications created via Renovate can be deployed in pods as an alternative to VMs. It provides benefits such as improved resource utilization, faster deployment times, and enhanced scalability.
 
-- [Azure managed disks](/azure/virtual-machines/managed-disks-overview) are block-level storage volumes that are managed by Azure and used with Azure VMs. In this architecture, Azure managed disks provide high-performance storage for the data services layer and we recommend either a Premium SSD or Ultra Disks type.
+- [Azure managed disks](/azure/virtual-machines/managed-disks-overview) are block-level storage volumes that Azure manages and you use with Azure VMs. In this architecture, Azure managed disks provide high-performance storage for the data services layer and we recommend either a Premium SSD or Ultra Disks type.
 
 - [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is a compute service that provides on-demand, scalable computing resources with the flexibility of virtualization without having to buy and maintain physical hardware. In this architecture, Virtual Machines hosts the Java Business Services and applications created via Renovate in compute clusters and provides the primary execution environment for the migrated mainframe workloads.
 
@@ -129,7 +129,6 @@ Principal author:
 
 Other contributors:
 
-- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
 - [Bhaskar Bandam](https://www.linkedin.com/in/bhaskar-bandam-75202a9) | Senior TPM
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*

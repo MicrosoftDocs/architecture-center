@@ -90,7 +90,7 @@ The following workflow corresponds to the preceding diagram:
 
     - The approach is managed through infrastructure as code (IaC) [infrastructure as code (IaC)](/azure/well-architected/operational-excellence/infrastructure-as-code-design), which provides a baseline of enterprise monitoring, audit, and security controls. The platform [tagging strategy](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging) is extended to support the domain extension.
 
-    - Each domain has its own set of role-based access control (RBAC) roles that cover the [control planes and data planes](/azure/azure-resource-manager/management/control-plane-and-data-plane). Control plane roles are primarily used within domain logical containers. In contrast, data plane roles apply across the platform, which ensures consistent, unified, and low-complexity control.
+    - Each domain has its own set of Azure role-based access control (Azure RBAC) roles that cover the [control planes and data planes](/azure/azure-resource-manager/management/control-plane-and-data-plane). Control plane roles are primarily used within domain logical containers. In contrast, data plane roles apply across the platform, which ensures consistent, unified, and low-complexity control.
 
 5. Within a domain subscription, the available components can be configured based on skill sets, priorities, and use cases.
 
@@ -100,11 +100,11 @@ The following workflow corresponds to the preceding diagram:
 
 ### Network design
 
-:::image type="complex" source="./_images/azure-data-factory-hardened-network.png" alt-text="Diagram that shows a hardened network design for an Azure Data Factory workload." border="false" lightbox="_images/azure-data-factory-baseline-network.png":::
-    Diagram that shows an example of the workflow for a system that uses the Valet Key pattern. Boxes on the left show on-premises infrastructure and user connectivity. A box on the upper right shows the ingress infrastructure in the connectivity hub subscription. Below that are the main components of the design all using private endpoints. Next to the main infrastructure is a box with monitoring infrastructure in the shared services subscription.
+:::image type="complex" source="./_images/azure-data-factory-hardened-network.svg" alt-text="Diagram that shows a hardened network design for an Azure Data Factory workload." border="false" lightbox="_images/azure-data-factory-hardened-network.svg":::
+    Diagram that shows an example of the workflow for a system that uses the Valet Key pattern. Boxes on the far left show on-premises infrastructure and user connectivity. A box in the upper right shows the ingress infrastructure in the connectivity hub subscription. Underneath that ingress infrastructure box are the main components of the design that all use private endpoints. Next to the main infrastructure is a box with monitoring infrastructure in the shared services subscription.
 :::image-end:::
 
-*Download a [Visio file](https://arch-center.azureedge.net/azure-data-factory-hardened.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/azure-data-factory-baseline-network.vsdx) of this architecture.*
 
 - Use a next generation firewall like [Azure Firewall](/azure/firewall/overview) to secure network connectivity between your on-premises infrastructure and your Azure virtual network.
 
@@ -169,7 +169,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 Compared to the baseline architecture, this architecture:
 
-- Creates domain-specific data RBAC roles when domain-specific data is ingested into the platform with data classification higher than enterprise. For more information, see [Govern overview](/azure/cloud-adoption-framework/govern/policy-compliance/data-classification#classifications-microsoft-uses). The roles are then reused across all solution components that use this data. You can reuse these domain data roles for any new domain data onboarded to the platform. This approach delivers consistent and unified controls for the access to data.
+- Creates domain-specific data Azure RBAC roles when domain-specific data is ingested into the platform with data classification higher than enterprise. For more information, see [Govern overview](/azure/cloud-adoption-framework/govern/policy-compliance/data-classification#classifications-microsoft-uses). The roles are then reused across all solution components that use this data. You can reuse these domain data roles for any new domain data onboarded to the platform. This approach delivers consistent and unified controls for the access to data.
 
 - Considers the higher data sensitivity requirements for the platform, [Microsoft Entra Privileged Identity Management (PIM)](/entra/id-governance/privileged-identity-management/pim-resource-roles-assign-roles) for all key operational support roles.
 

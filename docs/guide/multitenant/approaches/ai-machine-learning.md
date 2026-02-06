@@ -5,7 +5,7 @@ author: PlagueHO
 ms.author: dascottr
 ms.date: 07/28/2025
 ms.update-cycle: 180-days
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.collection: ce-skilling-ai-copilot
 ms.custom: arb-saas
@@ -93,11 +93,11 @@ Consider profiling your solution's performance. For example, [Azure Machine Lear
 
 When you build a solution to use AI and machine learning, you can use prebuilt components or build custom components. You must make two key decisions. First, select the *platform or service* to use for AI and machine learning. Second, decide whether to use pretrained models or build your own custom models.
 
-**Platforms:** There are many Azure services that you can use for your AI and machine learning workloads. For example, Azure AI Foundry provides APIs to perform inference against prebuilt models, and Microsoft manages the underlying resources. Azure AI Foundry enables you to quickly deploy a new solution, but it limits control over training and inference processes and might not suit every type of workload. In contrast, Machine Learning is a platform that enables you to build, train, and use your own machine learning models. Machine Learning provides control and flexibility, but it increases the complexity of your design and implementation. Review the [machine learning products and technologies from Microsoft](../../../ai-ml/guide/data-science-and-machine-learning.md) to make an informed decision when you select an approach.
+**Platforms:** There are many Azure services that you can use for your AI and machine learning workloads. For example, Microsoft Foundry provides APIs to perform inference against prebuilt models, and Microsoft manages the underlying resources. Foundry enables you to quickly deploy a new solution, but it limits control over training and inference processes and might not suit every type of workload. In contrast, Machine Learning is a platform that enables you to build, train, and use your own machine learning models. Machine Learning provides control and flexibility, but it increases the complexity of your design and implementation. Review the [machine learning products and technologies from Microsoft](../../../ai-ml/guide/data-science-and-machine-learning.md) to make an informed decision when you select an approach.
 
-**Models:** Even when you don't use a full model that a service like Azure AI Foundry provides, you can still use a pretrained model to accelerate your development. If a pretrained model doesn't precisely suit your needs, consider extending a pretrained model by applying a technique known as *fine-tuning* or *transfer learning*. Fine-tuning enables you to extend an existing model and apply it to a different domain. For example, if you build a multitenant music recommendation service, you might consider starting from a pretrained model of music recommendations and use fine-tuning to train the model for a specific user's music preferences.
+**Models:** Even when you don't use a full model that a service like Foundry provides, you can still use a pretrained model to accelerate your development. If a pretrained model doesn't precisely suit your needs, consider extending a pretrained model by applying a technique known as *fine-tuning* or *transfer learning*. Fine-tuning enables you to extend an existing model and apply it to a different domain. For example, if you build a multitenant music recommendation service, you might consider starting from a pretrained model of music recommendations and use fine-tuning to train the model for a specific user's music preferences.
 
-By using a prebuilt machine learning platform like Azure AI Foundry or a pretrained model, you can significantly reduce your initial research and development costs. The use of prebuilt platforms might save you many months of research and avoid the need to recruit highly qualified data scientists to train, design, and optimize models.
+By using a prebuilt machine learning platform like Foundry or a pretrained model, you can significantly reduce your initial research and development costs. The use of prebuilt platforms might save you many months of research and avoid the need to recruit highly qualified data scientists to train, design, and optimize models.
 
 ### Cost optimization
 
@@ -129,15 +129,15 @@ Azure provides a set of services to enable AI and machine learning workloads. Th
 
 It's a good practice to try to use prebuilt AI and machine learning services when you can. For example, your organization might be starting to explore AI and machine learning and want to quickly integrate with a useful service. Or you might have basic requirements that don't require custom machine learning model training and development. Prebuilt machine learning services enable you to use inference without building and training your own models.
 
-Azure has several services that provide AI and machine learning technology across a range of domains. These domains include language understanding, speech recognition, knowledge, document and form recognition, and computer vision. Azure delivers prebuilt AI and machine learning services through a unified AI application service called [Azure AI Foundry](https://azure.microsoft.com/products/ai-foundry). This service gives users access to various models, including [Azure OpenAI in Foundry Models](https://azure.microsoft.com/products/ai-services/openai-service), formerly known as Azure OpenAI Service. Azure also provides a set of standalone AI services, including [Azure AI Search](/azure/search/search-what-is-azure-search) and [Azure AI Document Intelligence](https://azure.microsoft.com/products/ai-services/ai-document-intelligence). Each service provides a simple interface for integration and a collection of pretrained and tested models. As managed services, they provide service-level agreements and require little configuration or ongoing management. You don't need to develop or test your own models to use these services.
+Azure has several services that provide AI and machine learning technology across a range of domains. These domains include language understanding, speech recognition, knowledge, document and form recognition, and computer vision. Azure delivers prebuilt AI and machine learning services through [Foundry](https://azure.microsoft.com/products/ai-foundry), which is a unified AI application service. This service gives users access to various models, including [Azure OpenAI in Foundry Models](https://azure.microsoft.com/products/ai-services/openai-service). Azure also provides a set of standalone AI services, including [Azure AI Search](/azure/search/search-what-is-azure-search) and [Azure AI Document Intelligence](https://azure.microsoft.com/products/ai-services/ai-document-intelligence). Each service provides a simple interface for integration and a collection of pretrained and tested models. As managed services, they provide service-level agreements and require little configuration or ongoing management. You don't need to develop or test your own models to use these services.
 
 Many managed machine learning services don't require model training or data, so there's usually no tenant data isolation concerns. However, some managed AI and machine learning services do provide a model customization capability:
 
 - [Azure custom voice](/azure/ai-services/speech-service/custom-neural-voice)
-- [Azure AI Custom Vision](/azure/ai-services/custom-vision-service/overview)
+- [Automated ML (AutoML) in Azure Machine Learning](/azure/machine-learning/concept-automated-ml)
 - [Face API](/azure/ai-services/computer-vision/how-to/add-faces)
 - [Document Intelligence custom models](/azure/ai-services/document-intelligence/concept-custom)
-- [OpenAI models that support customization and fine-tuning](/azure/ai-services/openai/how-to/fine-tuning)
+- [Azure OpenAI models that support customization and fine-tuning](/azure/ai-services/openai/how-to/fine-tuning)
 
 When you work with these services, it's important to consider the [isolation requirements](#tenant-isolation) for your tenants' data.
 
@@ -161,7 +161,7 @@ When you work in a multitenant solution, it's important to consider the [isolati
 
 When you use open-source models, you might need to retrain these models by using transfer learning or tuning. Consider how to manage different models and training data for each tenant, along with the versions of each model.
 
-The following diagram illustrates an example architecture that uses Machine Learning. The example uses the [tenant-specific models](#tenant-specific-models) isolation approach.
+The following diagram illustrates an example architecture that uses Machine Learning. Alternatively, you can leverage Microsoft Fabric Data Science experience, which provides capabilities such as experiments, model management, and endpoint deployment. The example uses the [tenant-specific models](#tenant-specific-models) isolation approach.
 
 :::image type="complex" border="false" source="media/ai-ml/approach-azure-machine-learning.svg" alt-text="Diagram that shows an architecture that uses Machine Learning." lightbox="media/ai-ml/approach-azure-machine-learning.svg":::
    The diagram shows a large box on the left labeled Azure Machine Learning workspace. Inside this box are three sections labeled Projects, Experiments, and Data plane. Three arrows extend from the Data plane section to three separate boxes labeled Tenant A model, Tenant B model, and Tenant C model. Each tenant model box connects via an arrow that points from a central box labeled Azure Machine Learning compute. An arrow points from a box labeled Shared API that contains an icon with interlinked green and blue chains to the Azure Machine Learning compute box. Three arrows extend from three groups of user icons labeled Tenant A users, Tenant B users, and Tenant C users and point to the Shared API box. Microsoft Azure logo appears in the bottom left corner.
@@ -169,13 +169,13 @@ The following diagram illustrates an example architecture that uses Machine Lear
 
 ### Integrated AI and machine learning solutions
 
-Azure provides several powerful analytics platforms that can be used for various purposes. These platforms include [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is), [Azure Databricks](/azure/databricks/scenarios/ml/), and [Apache Spark](/azure/synapse-analytics/spark/apache-spark-machine-learning-training).
+Azure provides several powerful analytics platforms that can be used for various purposes. These platforms include [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview), [Azure Databricks](/azure/databricks/scenarios/ml/), and [Apache Spark](/fabric/data-science/).
 
-You can consider using these platforms for AI and machine learning when you need to scale your machine learning capabilities to a very large number of tenants and require large-scale compute and orchestration. You might also consider using these platforms when you need a broad analytics solution for other parts of your system, such as data analytics and integration with reporting through Power BI. You can deploy a single platform that supports all of your analytics and AI and machine learning needs. When you implement data platforms in a multitenant solution, review [Architectural approaches for storage and data in multitenant solutions](storage-data.md).
+You can consider using these platforms for AI and machine learning when you need to scale your capabilities to support a high volume of tenants and require large-scale compute and orchestration. You might also consider using these platforms when you need a broad analytics solution for other parts of your system, such as data analytics and integration with reporting through Power BI. You can deploy a single platform that supports all of your analytics and AI and machine learning needs. When you implement data platforms in a multitenant solution, review [Architectural approaches for storage and data in multitenant solutions](storage-data.md).
 
 ## Machine learning operational model
 
-When you adopt AI and machine learning, including generative AI practices, it's a good practice to continually improve and assess your organizational capabilities in managing them. The introduction of MLOps and GenAIOps objectively provides a framework to continually expand capabilities of your AI and machine learning practices in your organization. For more information, see [MLOps maturity model](../../../ai-ml/guide/mlops-maturity-model.yml) and [GenAIOps maturity model](/azure/machine-learning/prompt-flow/concept-llmops-maturity).
+When you adopt AI and machine learning, including generative AI practices, it's a good practice to continually improve and assess your organizational capabilities in managing them. The introduction of MLOps and GenAIOps objectively provides a framework to continually expand capabilities of your AI and machine learning practices in your organization. For more information, see [MLOps maturity model](../../../ai-ml/guide/mlops-maturity-model.md) and [GenAIOps maturity model](/azure/machine-learning/prompt-flow/concept-llmops-maturity).
 
 ## Antipatterns to avoid
 
@@ -198,6 +198,7 @@ Other contributors:
 - [Vic Perdana](https://www.linkedin.com/in/vperdana/) | ISV Partner Solution Architect
 - [Daniel Scott-Raynsford](https://www.linkedin.com/in/dscottraynsford/) | Partner Solution Architect
 - [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv/) | Principal Customer Engineer, FastTrack for Azure
+- [Rodrigo Rodríguez](https://www.linkedin.com/in/rod2k10/) | Senior Cloud Solution Architect, AI & Quantum
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 

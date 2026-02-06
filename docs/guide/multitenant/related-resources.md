@@ -4,7 +4,7 @@ description: This article provides a set of links and resources for architects a
 author: johndowns
 ms.author: pnp
 ms.date: 04/17/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
   - arb-saas

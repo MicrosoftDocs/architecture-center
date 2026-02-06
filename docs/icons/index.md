@@ -4,8 +4,9 @@ description: Download official Azure icons, Azure logo files, and Azure architec
 ms.author: pnp
 author: claytonsiemens77
 ms.reviewer: chkittel
-ms.date: 08/18/2025
+ms.date: 11/07/2025
 ms.subservice: architecture-guide
+ms.topic: concept-article
 ---
 
 # Download Azure icons to use in architecture diagrams and documentation
@@ -30,7 +31,9 @@ To learn more about communicating design intent, see [Architecture design diagra
 
 ## Example architecture diagrams
 
-![Diagram that uses Azure icons to show real-time analytics on big data architecture.](./images/real-time-analytics.png)
+:::image type="complex" source="./images/baseline-app-service-architecture.svg" lightbox="./images/baseline-app-service-architecture.svg" alt-text="Diagram that shows a baseline App Service architecture with zonal redundancy and high availability.":::
+    The diagram shows a virtual network with three subnets. One subnet contains Azure Application Gateway with Azure Web Application Firewall. The second subnet contains private endpoints for Azure PaaS services, while the third subnet contains a virtual interface for Azure App Service network integration. The diagram shows App Gateway communicating to Azure App Service via a private endpoint. App Service shows a zonal configuration. The diagram also shows App Service using virtual network integration and private endpoints to communicate to Azure SQL Database, Azure Key Vault, and Azure Storage.
+:::image-end:::
 
 [Browse all Azure architectures](../browse/index.yml) to view other examples.
 
@@ -38,26 +41,26 @@ To learn more about communicating design intent, see [Architecture design diagra
 
 |Month|Change description|
 |--------------|--------------|
-|August 2025|Added ten new icons, including Azure Service Groups, Microsoft Planetary Computer Pro, and Prometheus along with a few icons used in Azure portal hub experiences.|
+|November 2025|Added 13 new icons, including Azure Kubernetes Service (AKS) Network Policy, Azure Local, Azure Linux, and Azure PubSub.|
+|August 2025|Added 10 new icons, including Azure Service Groups, Microsoft Planetary Computer Pro, and Prometheus along with a few icons used in Azure portal hub experiences.|
 |March 2025|Added six new icons, including SQL Database Fleet manager and Microsoft Engage Center (Services Hub) along with a few non-service icons.|
-|November 2024|Added 10 new icons such as Azure AI Foundry, Azure landing zone, Azure VPN client, and Azure Managed Redis.|
+|November 2024|Added 10 new icons such as Microsoft Foundry, Azure landing zone, Azure VPN client, and Azure Managed Redis.|
 |July 2024|Rebranded more Microsoft Entra ID icons. Added new icons such as AI Content Safety, AKS Automatic, Application Gateway for Containers, and Azure Monitor Pipeline.|
-|February 2024|Over 40 new icons for various services and components such as AI (including Azure OpenAI), Azure Operator, Microsoft Entra ID, and Azure networking.|
 
 ## Icon terms
 
-Microsoft permits the use of these icons in architectural diagrams, training materials, or documentation. You may copy, distribute, and display the icons only for the permitted use unless granted explicit permission by Microsoft. Microsoft reserves all other rights.
+Microsoft permits the use of these icons in architectural diagrams, training materials, or documentation. You can copy, distribute, and display the icons only for the permitted use unless granted explicit permission by Microsoft. Microsoft reserves all other rights.
 
 <div id="consent-checkbox">
 I agree to the above terms.
 </div>
 
- > [!div class="button"]
- > [Download SVG icons](https://arch-center.azureedge.net/icons/Azure_Public_Service_Icons_V22.zip)
+> [!div class="button"]
+> [Download SVG icons](https://arch-center.azureedge.net/icons/Azure_Public_Service_Icons_V23.zip)
 
 ## Use in Microsoft Visio
 
-The icons are not provided in Visio stencil format. The icons are provided as general purpose SVG files. You can drag and drop these icons into many diagraming and drawing tools, including Visio. There are no plans to provide these icons as Visio stencils.
+The icons aren't provided in Visio stencil format. The icons are provided as general purpose SVG files. You can drag and drop these icons into many diagraming and drawing tools, including Visio. There are no plans to provide these icons as Visio stencils.
 
 ## More icon sets from Microsoft
 

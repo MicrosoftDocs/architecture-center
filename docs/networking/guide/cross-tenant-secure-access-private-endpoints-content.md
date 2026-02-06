@@ -155,7 +155,7 @@ Other contributor:
 
 ## Next steps
 
-- [Azure RBAC permissions for Azure Private Link](/azure/private-link/rbac-permissions)
+- [Azure role-based access control (Azure RBAC) permissions for Azure Private Link](/azure/private-link/rbac-permissions)
 - [Restrict your storage account to a virtual network (for Functions))](/azure/azure-functions/configure-networking-how-to#restrict-your-storage-account-to-a-virtual-network)
 - [Microsoft Azure Well-Architected Framework - Security](/azure/architecture/framework/security)
 - [Set up Azure App Service access restrictions](/azure/app-service/app-service-ip-restrictions)

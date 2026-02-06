@@ -159,7 +159,7 @@ The following foundation services require extension to support this solution:
 
 ### Network design
 
-:::image type="content" source="_images/azure-data-factory-baseline-network.png" alt-text="Diagram that shows a medallion architecture network design." border="false" lightbox="_images/azure-data-factory-baseline-network.png":::
+:::image type="content" source="_images/azure-data-factory-hardened-network.svg" alt-text="Diagram that shows a medallion architecture network design." border="false" lightbox="_images/azure-data-factory-hardened-network.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-data-factory-baseline-network.vsdx) of this architecture.*
 
@@ -179,17 +179,11 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 - When you create a new Azure Databricks workspace, the default redundancy for the managed storage account (Azure Databricks File system or Databricks File system root) is set as geo-redundant storage (GRS). You can change the redundancy to locally redundant storage (LRS) if geo-redundancy isn't needed.
 
-- As a general rule, data warehouses that are less than one TB perform better on Azure SQL Database than on Synapse. Synapse starts to show performance gains when the data warehouse is more than 1 to 5 TB. This performance difference is the main factor for selecting [Azure SQL rather than Synapse](https://learn.microsoft.com/answers/questions/976202/azure-sql-server-vs-synapse-dedicated-sql-pool).
-
 ## Alternatives
 
 [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview) has Data Factory, Azure Databricks, and Power BI built-in as a single solution. Because Fabric is a relatively new service, there might be some functionality that isn't currently available to match that of the services that are used in this scenario. There might also be a learning curve for operators.
 
-[Azure Synapse Analytics](/azure/synapse-analytics/) is an alternative for the storage processing layer. This service isn't a good match for the scenario described in this article because Azure Databricks is a mature, functional match and has skilling available in the market.
-
 The following services are alternatives for the storage modeling layer:
-
-- [Azure Synapse Analytics](/azure/synapse-analytics/): This service isn't a good match for the scenario described in this article because of data volumes and functional overlap with Azure Databricks.
 
 - [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/): This service isn't a good match for the scenario described in this article because of the lack of migration requirement and higher operating expenses.
 
@@ -244,7 +238,7 @@ Cost Optimization is about looking at ways to reduce unnecessary expenses and im
 
 To address cost optimization, this architecture:
 
-- Strongly links component SKU selection to the requirements, which avoids the *build it and they'll come* antipattern. This solution schedules in regular reviews of metrics to enable [rightsizing](https://azure.microsoft.com/blog/rightsize-to-maximize-your-cloud-investment-with-microsoft-azure/) and use of [Microsoft Copilot in Azure](/azure/copilot/analyze-cost-management).
+- Strongly links component SKU selection to the requirements, which avoids the *build it and they'll come* antipattern. This solution schedules in regular reviews of metrics to enable [rightsizing](https://azure.microsoft.com/blog/rightsize-to-maximize-your-cloud-investment-with-microsoft-azure/) and use of [Azure Copilot](/azure/copilot/analyze-cost-management).
 
 - Implements practical operating expense saving benefits as part of a broader [financial operations framework](/azure/cost-management-billing/finops/overview-finops), such as:
 
@@ -344,8 +338,6 @@ Understand that data solution performance typically degrades over time. Establis
 ## Deploy this scenario
 
 To deploy this architecture, follow the step-by-step instructions in the [GitHub sample](https://github.com/azure-samples/data-factory-to-databricks).
-
-To deploy a SHIR on an Azure VM, use the [quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vms-with-selfhost-integration-runtime).
 
 ## Next steps
 

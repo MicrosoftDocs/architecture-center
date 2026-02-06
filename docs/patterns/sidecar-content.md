@@ -35,7 +35,7 @@ The sidecar pattern is often used with containers and referred to as a sidecar c
 - Consider the deployment and packaging format you will use to deploy services, processes, or containers. Containers are particularly well suited to the sidecar pattern.
 - When designing a sidecar service, carefully decide on the interprocess communication mechanism. Try to use language- or framework-agnostic technologies unless performance requirements make that impractical.
 - Before putting functionality into a sidecar, consider whether it would work better as a separate service or a more traditional daemon.
-- Also consider whether the functionality could be implemented as a library or using a traditional extension mechanism. Language-specific libraries may have a deeper level of integration and less network overhead.
+- Also consider whether the functionality could be implemented as a library or using a traditional extension mechanism. Language-specific libraries might have a deeper level of integration and less network overhead.
 
 ## When to use this pattern
 
@@ -45,13 +45,13 @@ Use this pattern when:
 - A component is owned by a remote team or a different organization.
 - A component or feature must be co-located on the same host as the application.
 - You need a service that shares the overall lifecycle of your main application, but can be independently updated.
-- You need fine-grained control over resource limits for a particular resource or component. For example, you may want to restrict the amount of memory a specific component uses. You can deploy the component as a sidecar and manage memory usage independently of the main application.
+- You need fine-grained control over resource limits for a particular resource or component. For example, you might want to restrict the amount of memory a specific component uses. You can deploy the component as a sidecar and manage memory usage independently of the main application.
 
-This pattern may not be suitable:
+This pattern might not be suitable:
 
-- When interprocess communication needs to be optimized. Communication between a parent application and sidecar services includes some overhead, notably latency in the calls. This may not be an acceptable trade-off for chatty interfaces.
-- For small applications where the resource cost of deploying a sidecar service for each instance is not worth the advantage of isolation.
-- When the service needs to scale differently than or independently from the main applications. If so, it may be better to deploy the feature as a separate service.
+- When interprocess communication needs to be optimized. Communication between a parent application and sidecar services includes some overhead, notably latency in the calls. This might not be an acceptable trade-off for chatty interfaces.
+- For small applications where the resource cost of deploying a sidecar service for each instance isn't worth the advantage of isolation.
+- When the service needs to scale differently than or independently from the main applications. If so, it might be better to deploy the feature as a separate service.
 
 ## Workload design
 

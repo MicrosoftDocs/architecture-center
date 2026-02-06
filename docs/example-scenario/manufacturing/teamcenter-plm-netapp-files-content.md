@@ -65,7 +65,7 @@ We recommend that you use availability zone volume placement to ensure that the 
 
 You should use cross-zone replication when you require data redundancy and HA across multiple availability zones and don't want to use or require application-level replication. If you use cross-zone replication, any changes made in one availability zone are automatically replicated to volumes in other zones. This replication ensures data consistency and enables failover to a secondary zone if there's a zone-level failure. It enhances data protection, DR, and overall system resilience for Teamcenter Root FSC file data.
 
-**Configure Azure NetApp Files snapshots.** Snapshots provide a point-in-time backup of data, enabling quick recovery if there's data loss or corruption. You can schedule snapshots to occur automatically regularly or create them manually when you need to. You can create as many as 255 snapshots per volume with Azure NetApp Files.
+**Configure Azure NetApp Files snapshots.** Snapshots provide a point-in-time backup of data, enabling quick recovery if there's data loss or corruption. You can schedule snapshots to occur automatically and regularly, or you can create them manually when you need them. You can create as many as 255 snapshots per volume with Azure NetApp Files.
 
 You can set up Azure NetApp Files snapshots via scheduled policies or manually in the Azure portal or by using Azure SDKs or APIs. Your application consistency requirements can help you determine which method to use:
 
@@ -149,7 +149,7 @@ Azure NetApp Files provides a [cost-effective storage solution with a pay-as-you
 
 Azure NetApp Files also optimizes costs for [Oracle](https://techcommunity.microsoft.com/blog/azurearchitectureblog/run-your-most-demanding-oracle-workloads-in-azure-without-sacrificing-performanc/3264545) and [SQL Server](/azure/azure-netapp-files/solutions-benefits-azure-netapp-files-sql-server) database applications by allowing you to run storage-I/O intensive databases on smaller Azure VM SKUs within a series. You should use [Azure constrained vCPU SKUs](/azure/virtual-machines/constrained-vcpu) when you can save on compute and software license costs.
 
-**Consider using Azure NetApp Files storage with cool access.** Most cold data is associated with unstructured data. It can account for more than 50% of the total storage capacity in many storage environments. Infrequently accessed data associated with productivity software, completed projects, and old datasets are an inefficient use of a high-performance storage. Using Azure [NetApp Files storage with cool access](/azure/azure-netapp-files/cool-access-introduction), you can configure inactive data to move from Azure NetApp Files Standard, Premium, or Ultra service-level storage (the hot tier) to an Azure storage account (the cool tier). In doing so, data blocks that haven't been accessed for some time will be kept and stored in the cool tier, resulting in cost savings. You can use the [Azure NetApp Files storage with cool access cost savings estimator](https://azure.github.io/azure-netapp-files/effective-calc/) to interactively estimate cost savings based on changeable input parameters.
+**Consider using Azure NetApp Files storage with cool access.** Most cold data is associated with unstructured data. It can account for more than 50% of the total storage capacity in many storage environments. Infrequently accessed data associated with productivity software, completed projects, and old datasets are an inefficient use of a high-performance storage. Using Azure [NetApp Files storage with cool access](/azure/azure-netapp-files/cool-access-introduction), you can configure inactive data to move from Azure NetApp Files Standard, Premium, or Ultra service-level storage (the hot tier) to an Azure storage account (the cool tier). In doing so, data blocks that haven't been accessed for some time are kept and stored in the cool tier, resulting in cost savings. You can use the [Azure NetApp Files storage with cool access cost savings estimator](https://azure.github.io/azure-netapp-files/effective-calc/) to interactively estimate cost savings based on changeable input parameters.
 
 **Consider purchasing Azure NetApp Files reserved capacity.** You can save money on the storage costs for Azure NetApp Files with reservations. Azure NetApp Files reservations offer a discount on capacity for storage costs when you commit to a reservation for one or three years, optimizing your total cost of ownership (TCO). A reservation provides a fixed amount of storage capacity for the term of the reservation.
 
@@ -225,7 +225,6 @@ Principal authors:
 
 Other contributors:
 
-- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414/) | Technical Writer
 - [Sunita Phanse](https://www.linkedin.com/in/sunita-phanse-176969/) | Senior Technical Program Manager
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*

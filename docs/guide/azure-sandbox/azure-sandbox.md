@@ -4,7 +4,7 @@ description: Accelerate your Azure project by using a fully functional sandbox e
 author: doherty100
 ms.author: rdoherty
 ms.date: 08/24/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-devops
 ---
@@ -125,7 +125,7 @@ For example, you can use the following capabilities and configurations that the 
 
   - Visual Studio Code preinstalled with Remote-SSH into a Linux jump box
 
-  - Storage Explorer, AzCopy, and Azure Data Studio preinstalled
+  - Storage Explorer and AzCopy preinstalled
 
   - SQL Server Management Studio preinstalled
 

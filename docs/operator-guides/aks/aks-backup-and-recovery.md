@@ -4,7 +4,7 @@ description: Learn how to back up and recover your AKS clusters and their worklo
 author: AdamSharif-MSFT
 ms.author: jotavar
 ms.date: 01/20/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
   - e2e-aks
@@ -88,7 +88,7 @@ See [About AKS Backup using Azure Backup](/azure/backup/azure-kubernetes-service
 
 When Kasten is deployed as a Kubernetes operator within the cluster, it provides a comprehensive backup solution. It offers a management dashboard for centralized control and visibility. With Kasten, users can benefit from incremental and application-aware backups, enabling efficient data protection. Additionally, Kasten offers disaster recovery capabilities. These capabilities include automated failover and failback, and features for data migration and ensuring security.
 
-For further details on Kasten's feature set, see the [Kasten K10 documentation](https://docs.kasten.io/latest/index.html). To learn how to effectively use Kasten with AKS clusters, see [Installing K10 on Azure](https://docs.kasten.io/latest/install/azure/azure.html).
+For more information about Kasten's feature set, see the [Kasten K10 documentation](https://docs.kasten.io/latest/index.html). For more information about how to effectively use Kasten with AKS clusters, see [Installing K10 on Azure](https://docs.kasten.io/latest/install/azure/azure.html).
 
 ### Velero
 
@@ -96,7 +96,7 @@ Velero is a widely used open-source backup and recovery tool for Kubernetes. It 
 
 Velero runs as a deployment in the cluster and provides a comprehensive set of features for application backup, recovery, and data migration. While dashboards aren't available out-of-the-box, they can be added through external integrations.
 
- For more information on its feature set and to learn how to integrate it with AKS clusters, see the [Velero documentation](https://velero.io/docs).
+ For more information about its feature set and how to integrate it with AKS clusters, see the [Velero documentation](https://velero.io/docs).
 
 ## Installing and Configuring AKS Backup
 

@@ -10,7 +10,7 @@ This article provides an overview of the measure and control process loop archit
 
 A measure and control loop has the following characteristics:
 - Runs close to the device or embedded inside the device.
-- Has a cycle time depending on IoT scenario, which may be a few milliseconds in a time-sensitive networking environment.
+- Has a cycle time depending on IoT scenario, which might be a few milliseconds in a time-sensitive networking environment.
 - Takes input measurements depending on setpoint configuration, last known sensor measurements, and a small time series history of each measurement.
 - Accepts commands from monitor and manage loops to adjust setpoint configuration, and imperative commands to control actuators.
 - Implements actuator commands to maintain the device state around the setpoint configuration.
@@ -31,7 +31,7 @@ An IoT *thing* (device) is composed of sensors, actuators, and a controller. All
 
 ## Scenario details
 
-An Internet-of-Things *measure and control loop* keeps an IoT device within the tolerable range of setpoint configuration, through a real-time, closed-loop control process. The device may be part of a larger physical system controlled by software that contains one or more networked devices.
+An Internet-of-Things *measure and control loop* keeps an IoT device within the tolerable range of setpoint configuration, through a real-time, closed-loop control process. The device might be part of a larger physical system controlled by software that contains one or more networked devices.
 
 An IoT device that is prone to disturbances from external events requires a closed-loop control process to keep it near its desired setpoint configuration. The measure and control loop *control logic* observes the device through *sensor* metrics and takes corrective measures through *actuator* actions.
 
@@ -43,7 +43,7 @@ This solution is ideal for the energy and environment industries. Examples of me
 - Smoke sensors: Trigger sprinklers upon sensing smoke from multiple sensors.
 - Power transformer: Shut down a transformer under a predicted severe thunderstorm.
 - Gas pipeline monitor: Open a valve to compensate for a pressure drop.
-- Home thermostat: Increase the heater gas flow upon sensing the room temperature falling below the setpoint.
+- Home thermostat: Increase the heater gas flow upon sensing the room temperature falling beneath the setpoint.
 - Wind turbine: Apply brakes to slow down a rotor when it is about to reach the warning RPM threshold.
 - Solar panels: Adjust solar panel angle as the sun moves over the horizon to maximize the power generated.
 

@@ -28,7 +28,7 @@ The company has data sources on many different platforms:
 Data is loaded from these different data sources using several Azure components:
 
 - [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a scalable data storage service for structured and unstructured data. In this architecture, it stages source data before Azure Synapse Analytics loads the data. It serves as the initial landing zone for raw data.
-- [Azure Data Factory](/azure/data-factory/introduction) is a cloud-based data integration service. In this architecture, it orchestrates the transformation of staged data into a common structure in Azure Synapse Anayltics. Azure Data Factory [uses PolyBase when it loads data into Azure Synapse Analytics](/azure/data-factory/connector-azure-sql-data-warehouse#use-polybase-to-load-data-into-azure-sql-data-warehouse) to maximize throughput.
+- [Azure Data Factory](/azure/data-factory/introduction) is a cloud-based data integration service. In this architecture, it orchestrates the transformation of staged data into a common structure in Azure Synapse Analytics. Azure Data Factory [uses PolyBase when it loads data into Azure Synapse Analytics](/azure/data-factory/connector-azure-sql-data-warehouse#use-polybase-to-load-data-into-azure-sql-data-warehouse) to maximize throughput.
 - [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) is a distributed analytics system that combines big data and data warehousing. In this architecture. it stores and analyzes large datasets by using massive parallel processing (MPP). It serves as the core analytical engine. Azure Synapse Analytics can use [PolyBase](/sql/relational-databases/polybase/polybase-guide) to rapidly load data from Data Lake Storage.
 - [Analysis Services](/azure/analysis-services/analysis-services-overview) is a fully managed platform for building semantic data models. In this architecture, it provides a tabular semantic model that simplifies data analysis and improves query performance. It can be configured to refresh after each data load into Azure Synapse Analytics to ensure up-to-date insights.
 - [Power BI](/power-bi/fundamentals/power-bi-overview) is a suite of business analytics tools to analyze data and share insights. In this architecture, Power BI enables business analysts to explore and visualize data. It connects to Analysis Services for semantic querying or directly to Azure Synapse Analytics for raw data access.
@@ -36,10 +36,10 @@ Data is loaded from these different data sources using several Azure components:
 
 ### Alternatives
 
-- The example pipeline includes several different kinds of data sources. This architecture can handle a wide variety of relational and non-relational data sources.
+- The example pipeline includes several different kinds of data sources. This architecture can handle a wide range of relational and non-relational data sources.
 - Data Factory orchestrates the workflows for your data pipeline. If you want to load data only one time or on demand, you could use tools like SQL Server bulk copy (bcp) and AzCopy to copy data into Azure Data Lake Storage. You can then load the data directly into Azure Synapse using PolyBase.
-- If you have very large datasets, consider using [Data Lake Storage](/azure/storage/data-lake-storage/introduction), which provides limitless storage for analytics data.
-- Azure Synapse is not a good fit for OLTP workloads or data sets smaller than 250 GB. For those cases you should use Azure SQL Database or SQL Server.
+- If you have large-scale datasets, consider using [Data Lake Storage](/azure/storage/data-lake-storage/introduction), which provides limitless storage for analytics data.
+- Azure Synapse isn't a good fit for OLTP workloads or data sets smaller than 250 GB. For those cases you should use Azure SQL Database or SQL Server.
 - For comparisons of other alternatives, see:
 
   - [Choosing a data pipeline orchestration technology in Azure](../../data-guide/technology-choices/pipeline-orchestration-data-movement.md)
@@ -51,7 +51,7 @@ Data is loaded from these different data sources using several Azure components:
 
 This example demonstrates a sales and marketing company that creates incentive programs. These programs reward customers, suppliers, salespeople, and employees. Data is fundamental to these programs, and the company wants to improve the insights gained through data analytics using Azure.
 
-The company needs a modern approach to analysis data, so that decisions are made using the right data at the right time. The company's goals include:
+The company needs a modern approach to analyze data, so that decisions are made using the right data at the right time. The company's goals include:
 
 - Combining different kinds of data sources into a cloud-scale platform.
 - Transforming source data into a common taxonomy and structure, to make the data consistent and easily compared.

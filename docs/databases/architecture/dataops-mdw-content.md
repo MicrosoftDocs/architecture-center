@@ -144,7 +144,7 @@ For a detailed list of all resources, see the [Deployed Resources](https://githu
 
 ### Continuous integration and continuous delivery (CI/CD)
 
-The diagram below demonstrates the CI/CD process and sequence for the build and release pipelines.
+The following diagram demonstrates the CI/CD process and sequence for the build and release pipelines.
 
 :::image type="content" source="_images/ci-cd-process-diagram-new.svg" lightbox="_images/ci-cd-process-diagram-new.svg" alt-text="Diagram that shows the process and sequence for build and release." border="false":::
 
@@ -170,7 +170,7 @@ The diagram below demonstrates the CI/CD process and sequence for the build and 
 
     On Approval, the release pipeline continues with the third stage, deploying changes to the prod environment.
 
-For more information, read the [Build and Release Pipeline](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/databricks/parking_sensors#build-and-release-pipeline) section of the README.
+For more information, see the [Build and Release Pipeline](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/databricks/parking_sensors#build-and-release-pipeline) section of the README.
 
 ### Testing
 

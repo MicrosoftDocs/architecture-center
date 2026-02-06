@@ -4,7 +4,7 @@ description: Learn about the advantages of using data lake storage repositories,
 author: PRASADA1207
 ms.author: prasada
 ms.date: 08/13/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
 
@@ -27,11 +27,11 @@ Common data lake use cases include:
 
 ## Advantages of a data lake
 
-- **Retains raw data for future use**: A data lake is designed to retain data in its raw format, ensuring long-term availability for future use. This capability is particularly valuable in a big data environment, where the potential insights from the data may not be known in advance. Data can also be archived as needed without losing its raw state.
+- **Retains raw data for future use**: A data lake is designed to retain data in its raw format, ensuring long-term availability for future use. This capability is particularly valuable in a big data environment, where the potential insights from the data might not be known in advance. Data can also be archived as needed without losing its raw state.
 - **Self-service exploration**: Analysts and data scientists can query data directly, encouraging experimentation and discovery.
 - **Flexible data support**: Unlike warehouses that require structured formats, lakes can natively handle structured, semi-structured, and unstructured data.
 - **Scalable and performant**: In distributed architectures, data lakes enable parallel ingestion and distributed execution at scale, frequently outperforming traditional ETL pipelines in high-volume workloads. The performance benefits stem from:
-  - Parallelism: Distributed compute engines (e.g., Spark) partition data and execute transformations across multiple nodes concurrently, while traditional ETL frameworks often rely on sequential or limited multi-threaded execution.
+  - Parallelism: Distributed compute engines (like Spark) partition data and execute transformations across multiple nodes concurrently, while traditional ETL frameworks often rely on sequential or limited multi-threaded execution.
   - Scalability: Distributed systems scale horizontally by elastically adding compute and storage nodes, whereas traditional ETL pipelines typically depend on vertical scaling of a single host, which quickly hits resource limits.
 - **Foundation for hybrid architectures**: Data lakes often coexist with warehouses in a lakehouse approach, combining raw storage with structured query performance.
 
@@ -44,7 +44,7 @@ Additionally, mature solutions incorporate metadata management, security, and go
 
 ## When you should use a data lake
 
-We recommend using a data lake for exploratory analytics, advanced data science, and machine learning workloads. Because lakes retain data in its raw state and support schema-on-read, they allow teams to experiment with diverse data types and uncover insights that traditional warehouses may not capture.
+We recommend using a data lake for exploratory analytics, advanced data science, and machine learning workloads. Because lakes retain data in its raw state and support schema-on-read, they allow teams to experiment with diverse data types and uncover insights that traditional warehouses might not capture.
 
 ### Data lake as a source for data warehouses
 
@@ -62,7 +62,7 @@ The following table compares data lakes and data warehouses.
 | **Data type**               | Raw, unstructured, semi-structured, and structured                           | Structured and highly organized                                                |
 | **Query performance**       | Slower, especially for complex queries; depends on data format and tools     | Fast and optimized for analytical queries                                      |
 | **Latency**                 | Higher latency due to on-the-fly processing                                  | Low latency with pre-processed, structured data                                |
-| **Data transformation stage**         | Transformation happens at query time, impacting overall processing time               | Transformation happens during the ETL or ELT process              |
+| **Data transformation stage**         | Transformation happens at query time, affecting overall processing time               | Transformation happens during the ETL or ELT process              |
 | **Scalability**             | Highly scalable and cost-effective for large volumes of diverse data         | Scalable but more expensive, especially at large scale                         |
 | **Cost**                    | Lower storage costs; compute costs vary based on usage                       | Higher storage and compute costs due to performance optimizations              |
 | **Use case fit**            | Best for big data, machine learning, and exploratory analytics. In medallion architectures, the Gold layer is leveraged for reporting purposes               | Ideal for business intelligence, reporting, and structured data analysis       |

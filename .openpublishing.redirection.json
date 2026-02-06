@@ -2465,17 +2465,17 @@
     },
     {
       "source_path": "docs/ai-ml/architecture/baseline-openai-e2e-chat.yml",
-      "redirect_url": "/azure/architecture/ai-ml/architecture/baseline-azure-ai-foundry-chat",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-chat",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/ai-ml/architecture/basic-openai-e2e-chat.yml",
-      "redirect_url": "/azure/architecture/ai-ml/architecture/basic-azure-ai-foundry-chat",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/basic-microsoft-foundry-chat",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/ai-ml/architecture/azure-openai-baseline-landing-zone.yml",
-      "redirect_url": "/azure/architecture/ai-ml/architecture/baseline-azure-ai-foundry-landing-zone",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-landing-zone",
       "redirect_document_id": false
     },
     {
@@ -3229,6 +3229,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/reference-architectures/hybrid-networking/vnet-peering.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/hybrid-networking/virtual-network-peering",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/example-scenario/infrastructure/multi-tier-app-disaster-recovery-experiment.yml",
       "redirect_url": "/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery",
       "redirect_document_id": false
@@ -3919,6 +3924,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/example-scenario/analytics/enterprise-bi-synapse.yml",
+      "redirect_url": "/azure/architecture/example-scenario/analytics/enterprise-bi-microsoft-fabric",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/example-scenario/data/search-blob-metadata.yml",
       "redirect_url": "/azure/architecture/ai-ml/architecture/search-blob-metadata",
       "redirect_document_id": true
@@ -4347,6 +4357,11 @@
       "source_path": "docs/example-scenario/ai/data-scrambling-for-sap-using-delphix-and-azure-data-factory.yml",
       "redirect_url": "/azure/architecture/databases/guide/data-scrambling-for-sap-using-delphix-and-azure-data-factory",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/networking/guide/spoke-to-spoke-networking.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/hybrid-networking/virtual-network-peering",
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/example-scenario/data/extend-reporting-capabilities.yml",
@@ -4959,7 +4974,7 @@
     },
     {
       "source_path": "docs/ai-ml/architecture/conversational-bot.yml",
-      "redirect_url": "/azure/architecture/ai-ml/architecture/baseline-azure-ai-foundry-chat",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-chat",
       "redirect_document_id": false
     },
     {
@@ -6279,7 +6294,7 @@
     },
     {
       "source_path": "docs/ai-ml/openai/guide/language-model-pipelines.yml",
-      "redirect_url": "/azure/architecture/ai-ml/architecture/baseline-azure-ai-foundry-chat",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-chat",
       "redirect_document_id": false
     },
     {
@@ -6988,6 +7003,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/landing-zones/bicep/landing-zone-bicep.md",
+      "redirect_url": "https://azure.github.io/Azure-Landing-Zones/bicep/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/example-scenario/banking/banking-system-cloud-transformation.yml",
       "redirect_url": "/industry/financial-services/architecture/banking-system-cloud-transformation-content",
       "redirect_document_id": false
@@ -7145,6 +7165,11 @@
     {
       "source_path": "docs/guide/hadoop/overview.md",
       "redirect_url": "/azure/hdinsight/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/dfs-failover-cluster-vms.yml",
+      "redirect_url": "/azure/storage/files/files-manage-namespaces",
       "redirect_document_id": false
     },
     {
@@ -7483,6 +7508,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/example-scenario/analytics/secure-data-lakehouse-synapse.yml",
+      "redirect_url": "/fabric/onelake/security/get-started-security",
+      "redirect_document_id": false
+    },
+    {  
       "source_path": "docs/ai-ml/guide/network-security-mlops.yml",
       "redirect_url": "/azure/machine-learning/how-to-secure-workspace-vnet",
       "redirect_document_id": false
@@ -7558,6 +7588,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/example-scenario/analytics/pipelines-disaster-recovery.yml",
+      "redirect_url": "/azure/data-factory/secure-your-azure-data-factory#backup-and-recovery",
+      "redirect_document_id": false
+    },
+    {      
       "source_path": "docs/reference-architectures/containers/aks-pci/aks-pci-monitor.yml",
       "redirect_url": "/azure/aks/pci-monitor",
       "redirect_document_id": false
@@ -7590,6 +7625,96 @@
     {
       "source_path": "docs/guide/technology-choices/data-store-considerations.md",
       "redirect_url": "/azure/architecture/guide/technology-choices/data-stores-getting-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-guide/big-data/non-relational-data.yml",
+      "redirect_url": "/azure/architecture/data-guide/technology-choices/understand-data-store-models",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/ai-ml/architecture/baseline-azure-ai-foundry-chat.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-chat",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/ai-ml/architecture/baseline-azure-ai-foundry-landing-zone.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-landing-zone",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/ai-ml/architecture/basic-azure-ai-foundry-chat.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/basic-microsoft-foundry-chat",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/guide/technology-choices/data-store-overview.md",
+      "redirect_url": "/azure/architecture/data-guide/technology-choices/understand-data-store-models",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/technology-choices/data-store-decision-tree.md",
+      "redirect_url": "/azure/architecture/guide/technology-choices/data-stores-getting-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/mainframe/replatform-aix-workloads.yml",
+      "redirect_url": "/azure/architecture/example-scenario/mainframe/general-mainframe-refactor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/mainframe/extend-mainframe-applications.yml",
+      "redirect_url": "/azure/architecture/example-scenario/mainframe/general-mainframe-refactor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/mainframe/rehost-mainframe-ntt-data-unikix.yml",
+      "redirect_url": "/azure/architecture/example-scenario/mainframe/mainframe-rehost-architecture-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml",
+      "redirect_url": "https://techcommunity.microsoft.com/blog/azuremigrationblog/migrate-ibm-mainframe-applications-to-azure-with-tmaxsoft-openframe/4396312",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/resiliency/failure-mode-analysis.md",
+      "redirect_url": "/azure/well-architected/reliability/failure-mode-analysis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/zos/refactor-zos-coupling-facility.yml",
+      "redirect_url": "/azure/architecture/example-scenario/mainframe/general-mainframe-refactor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/mainframe/refactor-mainframe-applications-astadia.yml",
+      "redirect_url": "/azure/architecture/example-scenario/mainframe/general-mainframe-refactor",
+      "redirect_document_id": false      
+    },
+    {
+      "source_path": "docs/example-scenario/azure-virtual-desktop/azure-virtual-desktop.yml",
+      "redirect_url": "/azure/architecture/landing-zones/azure-virtual-desktop/design-guide?tabs=baseline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/mainframe/refactor-ibm-ztpf-mainframe.yml",
+      "redirect_url": "/azure/architecture/example-scenario/mainframe/general-mainframe-refactor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/mainframe/ibm-system-i-azure-infinite-i.yml",
+      "redirect_url": "/azure/architecture/example-scenario/mainframe/general-mainframe-refactor",
+      "redirect_document_id": false      
+    },
+    {
+      "source_path": "docs/example-scenario/mainframe/refactor-mainframe-applications-advanced.yml",
+      "redirect_url": "/azure/architecture/example-scenario/mainframe/general-mainframe-refactor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/analytics-start-here.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/analytics-get-started",
       "redirect_document_id": false
     }
   ]

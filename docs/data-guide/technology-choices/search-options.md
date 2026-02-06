@@ -5,13 +5,13 @@ author: josearper
 ms.author: joaria
 ms.custom: arb-data
 ms.date: 07/25/2022
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
 
 # Choose a search data store in Azure
 
-This article compares technology choices for search data stores in Azure. A search data store is used to create and store specialized indexes for performing searches on free-form text. The text that is indexed may reside in a separate data store, such as blob storage. An application submits a query to the search data store, and the result is a list of matching documents. For more information about this scenario, see [Processing free-form text for search](../scenarios/search.yml).
+This article compares technology choices for search data stores in Azure. A search data store is used to create and store specialized indexes for performing searches on free-form text. The text that is indexed might reside in a separate data store, such as blob storage. An application submits a query to the search data store, and the result is a list of matching documents. For more information about this scenario, see [Processing free-form text for search](../scenarios/search.yml).
 
 ## What are your options when choosing a search data store?
 
@@ -35,7 +35,7 @@ For search scenarios, begin choosing the appropriate search data store for your 
 
 - Do you need to index data in common document formats such as PDF, Word, PowerPoint, and Excel? If yes, choose an option that provides document indexers.
 
-- Does your database have specific security needs? If yes, consider the security features listed below.
+- Does your database have specific security needs? If yes, consider the following security features.
 
 ## Capability matrix
 
@@ -48,14 +48,14 @@ The following tables summarize the key differences in capabilities.
 | Is managed service | Yes | No | Yes |
 | REST API | Yes | Yes | No |
 | Programmability | .NET, Java, Python, JavaScript | Java | T-SQL |
-| Document indexers for common file types (PDF, DOCX, TXT, and so on) | Yes | No | No |
+| Document indexers for common file types (for example, PDF, DOCX, and TXT) | Yes | No | No |
 
 ### Manageability capabilities
 
 | Capability | AI Search | Elasticsearch | SQL Database |
 | --- | --- | --- | --- |
 | Updateable schema | Yes | Yes | Yes |
-| Supports scale out  | Yes | Yes | No |
+| Supports scale-out  | Yes | Yes | No |
 
 ### Analytic workload capabilities
 

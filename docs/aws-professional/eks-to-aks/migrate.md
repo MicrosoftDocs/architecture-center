@@ -1,10 +1,10 @@
 ---
 title: Migrate from Amazon Elastic Kubernetes Service to Azure Kubernetes Service
 description: Learn how to migrate stateless and stateful workloads from Amazon Elastic Kubernetes Service (EKS) to Azure Kubernetes Service (AKS).
-author: ketan-chawda-msft
-ms.author: kechaw
+author: swgriffith
+ms.author: stgriffi
 ms.date: 01/28/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
   - arb-containers
@@ -106,7 +106,7 @@ When you migrate your Kubernetes manifests, you must adapt the configuration to 
 
    1. Review your existing Kubernetes manifest files for AWS-specific configurations, such as VPC and IAM roles.
 
-   1. Review the EKS IAM roles that are associated with nodes, service accounts, and other resources. Map the roles with equivalent Azure AKS role-based access control (RBAC) roles. For more information, see [Kubernetes workload identity and access](workload-identity.md).
+   1. Review the EKS IAM roles that are associated with nodes, service accounts, and other resources. Map the roles with equivalent Azure AKS role-based access control (Azure RBAC) roles. For more information, see [Kubernetes workload identity and access](workload-identity.md).
    1. Modify the manifest files to replace AWS-specific settings with Azure-specific settings, like annotations.
 
 1. **Apply manifests to AKS:**
@@ -152,7 +152,6 @@ Other contributors:
 
 ## Next steps
 
-- [Migration guide: Azure samples](https://github.com/Azure-Samples/eks-aks-migration-guide)
 - [Back up and restore workload clusters by using Velero in AKS hybrid](/azure/aks/hybrid/backup-workload-cluster)
 - [Migrate to AKS](/azure/aks/aks-migration)
 

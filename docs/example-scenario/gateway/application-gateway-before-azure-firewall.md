@@ -4,7 +4,7 @@ description: Protect web apps by implementing Zero Trust security in virtual net
 author: erjosito
 ms.author: jomore
 ms.date: 06/16/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.category:
    - networking
@@ -15,7 +15,7 @@ ms.custom: arb-web
 
 This article describes how to implement Zero Trust security for web apps to enable inspection and end-to-end encryption. The Zero Trust model includes many other concepts, such as continuous identity verification and minimizing the size of the implicit trust areas. 
 
-This article focuses on the encryption and inspection component of a Zero Trust architecture for inbound traffic from the public internet. For information about other aspects of deploying your application securely, such as authentication and authorization, see the [Zero Trust documentation][Zero Trust documentation]. The example in this article uses a multilayered approach. In a multilayered approach, network security makes up one of the layers of the Zero Trust model. In this layer, network appliances inspect packets to ensure that only legitimate traffic reaches applications.
+This article focuses on the encryption and inspection component of a Zero Trust architecture for inbound traffic from the public internet. For more information about other aspects of deploying your application securely, such as authentication and authorization, see the [Zero Trust documentation][Zero Trust documentation]. The example in this article uses a multilayered approach. In a multilayered approach, network security makes up one of the layers of the Zero Trust model. In this layer, network appliances inspect packets to ensure that only legitimate traffic reaches applications.
 
 Typically, different types of network appliances inspect different aspects of network packets:
 
@@ -106,7 +106,7 @@ Application Gateway and Azure Firewall Premium handle certificates differently f
 
 - Application Gateway is a *reverse web proxy*. It protects web servers from malicious clients by intercepting HTTP and HTTPS requests. You declare each protected server that's in the back-end pool of Application Gateway with its IP address or fully qualified domain name. Legitimate clients should be able to access each application. So you configure Application Gateway with a digital certificate that a public CA signs. Use a CA that any TLS client accepts.
 
-- Azure Firewall Premium is a *forward web proxy* or, simply, a web proxy. It protects clients from malicious web servers by intercepting TLS calls from the protected clients. When a protected client makes an HTTP request, the forward web proxy impersonates the target web server by generating digital certificates and presenting them to the client. Azure Firewall Premium uses a private CA, which signs the dynamically generated certificates. You configure the protected clients to trust that private CA. In this architecture, Azure Firewall Premium protects requests from Application Gateway to the web server. Application Gateway trusts the private CA that Azure Firewall Premium uses.
+- Azure Firewall Premium is a *forward web proxy.* That is, it acts as a web proxy, protecting clients from malicious web servers by intercepting TLS calls from the protected clients. When a protected client makes an HTTP request, the forward web proxy impersonates the target web server by generating digital certificates and presenting them to the client. Azure Firewall Premium uses a private CA, which signs the dynamically generated certificates. You configure the protected clients to trust that private CA. In this architecture, Azure Firewall Premium protects requests from Application Gateway to the web server. Application Gateway trusts the private CA that Azure Firewall Premium uses.
 
 ## Routing and traffic forwarding
 

@@ -162,7 +162,7 @@ Reliability ensures your application can meet the commitments you make to your c
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 - This reference architecture uses ExpressRoute for a private and efficient connection to Azure from the on-premises environment. However, you can also create a [site to site VPN](/azure/vpn-gateway/tutorial-site-to-site-portal).
-- You can authenticate Azure resources by using Microsoft Entra ID. You can manage permissions with role-based access control (RBAC).
+- You can authenticate Azure resources by using Microsoft Entra ID. You can manage permissions with Azure role-based access control (Azure RBAC).
 - Database services in Azure support various security options like Data Encryption at Rest.
 - For more information on designing secure solutions, see [Azure security documentation](/azure/security).
 

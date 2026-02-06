@@ -4,7 +4,7 @@ description: Learn about the considerations to keep in mind when you move to a m
 author: ovaismehboob 
 ms.author: ovmehboo
 ms.date: 06/16/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.reviewer: nasiddi
 ms.subservice: architecture-guide
 ms.custom: fcp
@@ -407,7 +407,7 @@ Consider the following factors:
 
 - Whether the service requires authentication and authorization and whether you implement [Zero Trust architecture principles](/azure/security/fundamentals/zero-trust)
 
-- Whether you have a comprehensive secrets management strategy that includes key rotation, life cycle management, and auditing, beyond simply storing secrets in a key vault
+- Whether you have a comprehensive secrets management strategy that includes key rotation, life cycle management, and auditing, beyond storing secrets in a key vault
 
 - Whether you use an API gateway to validate tokens and incoming requests
 

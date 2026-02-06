@@ -36,7 +36,7 @@ This diagram shows the legacy architecture migrated to Azure. A rehost approach 
 
 ### Workflow
 
-1. Data is input, typically via either Azure ExpressRoute from remote clients or via other applications currently running in Azure. In either case, TCP/IP connections provide the primary means of connection to the system. User access for web-based applications is provided over TLS port 443. You can use the legacy web-application presentation layer virtually unchanged to minimize user retraining. Alternatively, you can update the web-application presentation layer with modern UX frameworks. To improve security by minimizing open ports, you can use Azure Bastion hosts for admin access to the VMs.
+1. Data is input, typically via either Azure ExpressRoute from remote clients or via other applications currently running in Azure. In either case, TCP/IP connections provide the primary means of connection to the system. User access for web-based applications is provided over TLS port 443. You can use the legacy web-application presentation layer with minimal changes to reduce user retraining. Alternatively, you can update the web-application presentation layer with modern UX frameworks. To improve security by minimizing open ports, you can use Azure Bastion hosts for admin access to the VMs.
 1. Azure Application Gateway is used to access the application compute clusters. It provides Layer 7 load balancing services. It can also make routing decisions based on additional attributes in an HTTP request, like a URI path or host headers. For example, you can route traffic based on the incoming URL. In this case, you route traffic to the correct Software AG component (ApplinX or EntireX). 
 1. For application compute clusters, you can use one VM for the Adabas & Natural software. We recommend that you use separate VMs for the application and database for more than 200 MIPS. This example uses two VMs. You can deploy a distributed architecture (Adabas & Natural running on multiple VMs) to provide scalable Natural applications with higher availability and higher consistency for Adabas storage. 
 1. ApplinX provides web connectivity and integration into system applications. No changes to the applications are required. 
@@ -48,18 +48,18 @@ This diagram shows the legacy architecture migrated to Azure. A rehost approach 
 
 ### Components  
 
-- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines). Virtual Machines is one of several types of on-demand, scalable computing resources that Azure offers. An Azure virtual machine (VM) provides the flexibility of virtualization without the need to buy and maintain physical hardware.  
+- [Azure Virtual Machines (VMs)](/azure/well-architected/service-guides/virtual-machines). Virtual Machines is one of several types of on-demand, scalable computing resources that Azure offers. An Azure virtual machine (VM) provides the flexibility of virtualization without the need to buy and maintain physical hardware.  
 - [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network).  Virtual Network is the fundamental building block for your private network on Azure. Virtual Network enables many types of Azure resources, like VMs, to communicate with each other, the internet, and on-premises networks via a highly secure connection. A virtual network is like a traditional network that you might operate in your own datacenter, but it provides the benefits of the Azure infrastructure, like scalability, availability, and isolation.  
 - [Azure Application Gateway](/azure/well-architected/service-guides/azure-application-gateway). Application Gateway provides a customizable Layer 7 load-balancing solution.
 - [Virtual network interfaces](/azure/virtual-network/virtual-network-network-interface). A network interface enables a VM to communicate with internet, Azure, and on-premises resources. You can add network interface cards to a VM to provide child VMs with their own dedicated network interface device and IP address.  
-- [Azure managed disks](/azure/virtual-machines/managed-disks-overview). Azure managed disks are block-level storage volumes that are managed by Azure and used with Azure Virtual Machines. Ultra disks, premium solid-state drives (SSD), standard SSDs, and standard hard disk drives (HDD) are available. For this architecture, we recommend either premium SSDs or ultra disk SSDs.  
+- [Azure managed disks](/azure/virtual-machines/managed-disks-overview). Azure managed disks are block-level storage volumes that Azure manages on its VMs. Ultra disks, premium solid-state drives (SSD), standard SSDs, and standard hard disk drives (HDD) are available. For this architecture, we recommend either premium SSDs or ultra disk SSDs.  
 - [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute). You can use ExpressRoute to extend your on-premises networks into the Azure cloud via a private connection that's facilitated by a connectivity provider. By using ExpressRoute, you can establish connections to Microsoft cloud services like Azure and Office 365.
 
 ## Scenario details
 
 For decades, Software AG Adabas has been the adaptable database system behind many large mission-critical business applications. Now you can bring the convenience of cloud computing to these applications without giving up your Adabas database, the Natural programming language, or even your green screen, unless you want to.  
 
-Most organizations are pragmatic in their approach to digital transformation. They want to reuse what they can and make cost-effective choices about the rest. That's why the rehost approach to cloud migration is so popular. You simply move your workload as is, if possible, to Azure virtual machines (VMs), a type of infrastructure as a service (IaaS). VMs run in Azure datacenters that are managed by Microsoft, so you benefit from the efficiency, scalability, and performance of a distributed platform without the overhead of hardware management. 
+Most organizations are pragmatic in their approach to digital transformation. They want to reuse what they can and make cost-effective choices about the rest. That's why the rehost approach to cloud migration is so popular. You move your workload as is, if possible, to Azure virtual machines (VMs). These machines are a type of infrastructure as a service (IaaS). VMs run in Azure datacenters that Microsoft manages, so you benefit from the efficiency, scalability, and performance of a distributed platform without the overhead of hardware management.
 
 This architecture presents the rehost option. It provides a high-level look at what's possible, whether you keep the green screen or go modern. 
 
@@ -87,7 +87,7 @@ Cost Optimization is about looking at ways to reduce unnecessary expenses and im
 
 Azure helps you avoid unnecessary costs by identifying the correct number of resources, analyzing spending over time, and scaling to meet business needs without overspending. 
 
-Azure also provides cost optimization by running on VMs. You can turn off the VMs when they're not being used and script a schedule for known usage patterns. For more information about cost optimization for [VM instances](/azure/architecture/framework/cost/optimize-vm), see the [Azure Well-Architected Framework](/azure/well-architected/). 
+Azure also provides cost optimization by running on VMs. You can turn off the VMs when they're not being used and script a schedule for known usage patterns. For more information about cost optimization for [VM instances](/azure/architecture/framework/cost/optimize-vm), see [Azure Well-Architected Framework](/azure/well-architected/). 
 
 The VMs in this architecture use either premium SSDs or ultra disk SSDs. For more information about disk options and pricing, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks). 
 
@@ -113,7 +113,6 @@ Principal author:
 
 Other contributors:
 
-- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
 - [Bhaskar Bandam](https://www.linkedin.com/in/bhaskar-bandam-75202a9) | Senior Program Manager
 
 ## Next steps  

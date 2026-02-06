@@ -2,7 +2,7 @@ Consolidate multiple tasks or operations into a single computational unit. This 
 
 ## Context and problem
 
-A cloud application often implements a variety of operations. In some solutions it makes sense to follow the design principle of separation of concerns initially, and divide these operations into separate computational units that are hosted and deployed individually (for example, as separate App Service web apps or separate Virtual Machines). However, although this strategy can help simplify the logical design of the solution, deploying a large number of computational units as part of the same application can increase runtime hosting costs and make management of the system more complex.
+A cloud application often implements different types of operations. In some solutions it makes sense to follow the design principle of separation of concerns initially, and divide these operations into separate computational units that are hosted and deployed individually (for example, as separate App Service web apps or separate Virtual Machines). However, although this strategy can help simplify the logical design of the solution, deploying a large number of computational units as part of the same application can increase runtime hosting costs and make management of the system more complex.
 
 As an example, the figure shows the simplified structure of a cloud-hosted solution that is implemented using more than one computational unit. Each computational unit runs in its own virtual environment. Each function has been implemented as a separate task (labeled Task A through Task E) running in its own computational unit.
 
@@ -23,9 +23,9 @@ As a counter example to show how scalability can be used to determine which oper
 - Task 1 polls for infrequent, time-insensitive messages sent to a queue.
 - Task 2 handles high-volume bursts of network traffic.
 
-The second task requires elasticity that can involve starting and stopping a large number of instances of the computational unit. Applying the same scaling to the first task would simply result in more tasks listening for infrequent messages on the same queue, and is a waste of resources.
+The second task requires elasticity that can involve starting and stopping a large number of instances of the computational unit. Applying the same scaling to the first task results in more tasks listening for infrequent messages on the same queue, and is a waste of resources.
 
-In many cloud environments it's possible to specify the resources available to a computational unit in terms of the number of CPU cores, memory, disk space, and so on. Generally, the more resources specified, the greater the cost. To save money, it's important to maximize the work an expensive computational unit performs, and not let it become inactive for an extended period.
+In many cloud environments, it's possible to specify the resources available to a computational unit in terms of resources, such as the number of CPU cores, memory, and disk space. Generally, the more resources specified, the greater the cost. To save money, it's important to maximize the work an expensive computational unit performs, and not let it become inactive for an extended period.
 
 If there are tasks that require a great deal of CPU power in short bursts, consider consolidating these into a single computational unit that provides the necessary power. However, it's important to balance this need to keep expensive resources busy against the contention that could occur if they are over stressed. Long-running, compute-intensive tasks shouldn't share the same computational unit, for example.
 

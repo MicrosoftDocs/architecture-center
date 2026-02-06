@@ -24,7 +24,7 @@ The following diagram presents a high-level architecture for deploying ArcGIS co
 
 - Web GIS users can also take advantage of this solution by accessing ArcGIS Enterprise administrative interfaces either in the browser in the Azure Virtual Desktop RDP session or via their local browser (if ArcGIS is published as public facing). The Azure application gateway routes the traffic to the correct endpoint for the ArcGIS server roles. As with ArcGIS Pro, the latency between the browsers and the back end are minimized.
 - You can deploy the enterprise geodatabase in Azure SQL Managed Instance. ArcGIS Pro users can then create, manage, and edit the geodatabase from an RDP session. During the creation of the Azure Virtual Desktop image, administrators can include the ODBC drivers so users don't have to install them on the Azure Virtual Desktop VMs.
-- Azure NetApp Files supports fast access to the ArcGIS Server configuration store and directories. You can use Azure Files and Azure Storage, but Azure NetApp Files costs less for large deployments. Additionally, you can use Azure NetApp Files to store Portal for ArcGIS items and raster images, lidar data, and so on.
+- Azure NetApp Files supports fast access to the ArcGIS Server configuration store and directories. You can use Azure Files and Azure Storage, but Azure NetApp Files costs less for large deployments. Also, you can use Azure NetApp Files to store data such as Portal for ArcGIS items and raster images, and lidar data.
 
 ### Components
 
@@ -41,7 +41,7 @@ The following diagram presents a high-level architecture for deploying ArcGIS co
 - [Azure Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is an application delivery controller-as-a-service offering that provides layer-7 load balancing, security, and web application firewall functionality. In this architecture, it distributes incoming requests to ArcGIS Server roles, which ensures efficient traffic routing and protection against common web vulnerabilities.
 - [FSLogix](/fslogix/overview-what-is-fslogix) is a profile container solution that improves the user experience in virtual desktop environments. In this architecture, it enables fast logins and persistent user profiles for Azure Virtual Desktop users. It also allows users to roam between remote computing session hosts and optimize file input/output (I/O) between the host or client and the remote profile store.
 
-  For information about FSLogix Profile Container, Azure Files, and Azure NetApp Files best practices, see [FSLogix configuration examples](/fslogix/concepts-configuration-examples).
+  For more information about FSLogix Profile Container, Azure Files, and Azure NetApp Files best practices, see [FSLogix configuration examples](/fslogix/concepts-configuration-examples).
 - [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is a private cloud-based network that you can use to build your own secure network infrastructure in Azure. It enables secure communication between Azure resources through private IP addresses. In this architecture, Virtual Network connects all components, such as virtual desktops, databases, and storage, within a secure and isolated network.
 - [ArcGIS Pro](https://www.esri.com/arcgis/products/arcgis-pro/overview) is Esri's professional desktop GIS application for spatial analysis, mapping, and data editing. In this architecture, it runs on GPU-enabled Azure Virtual Desktop VMs, which allows users to perform advanced 2D and 3D geospatial tasks and publish services. It runs best on Azure high-performance computing VMs, like the NV-Series. You can scale the use of ArcGIS by using Azure Virtual Desktop.
 - [ArcGIS Enterprise](https://enterprise.arcgis.com/en/get-started/latest/windows/what-is-arcgis-enterprise-.htm) is a comprehensive GIS platform for managing and sharing spatial data and services. In this architecture, you can add ArcGIS Enterprise to extend capabilities for hosting maps, apps, and spatial analytics across the organization. It works with ArcGIS Pro or ArcGIS Desktop (not included here because ArcGIS Pro replaces it).
@@ -160,10 +160,6 @@ Principal authors:
 - [Matt Hallenborg](https://www.linkedin.com/in/matt-hallenborg) | (Senior Cloud Solution Architect)
 - [Ron Vincent](https://www.linkedin.com/in/ron-vincent-8958145) | (Senior Program Manager)
 
-Other contributor:
-
-- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | (Technical Writer)
-
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
@@ -184,8 +180,8 @@ Other contributor:
 - [Best practices for tuning ArcGIS Enterprise](https://enterprise.arcgis.com/en/server/latest/administer/windows/tuning-your-arcgis-server-site.htm)
 - [Configure highly available ArcGIS Enterprise](https://enterprise.arcgis.com/en/portal/latest/administer/windows/configure-highly-available-system.htm)
 - [Esri GIS mapping software, location intelligence, and spatial analytics](https://www.esri.com/home)
-
-## Related resources
-
-- [Azure Virtual Desktop for the enterprise](../azure-virtual-desktop/azure-virtual-desktop.yml)
 - [FSLogix configuration examples](/fslogix/concepts-configuration-examples)
+
+## Related resource
+
+- [Azure Virtual Desktop landing zone design guide](../../landing-zones/azure-virtual-desktop/design-guide.md)

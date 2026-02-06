@@ -1,4 +1,4 @@
-Whenever a request arrives into your application, you need to determine the *tenant context*, which is the tenant that is making the request. When you have tenant-specific infrastructure that may even be hosted in different geographic regions, you need to match the incoming request to a tenant. Then, you must forward the request to the physical infrastructure that hosts that tenant's resources, as illustrated below:
+Whenever a request arrives into your application, you need to determine the *tenant context*, which is the tenant that is making the request. When you have tenant-specific infrastructure that might be hosted in different geographic regions, you need to match the incoming request to a tenant. Then, you must forward the request to the physical infrastructure that hosts that tenant's resources, as illustrated in the following diagram:
 
 ![Diagram showing mapping a request from tenants to deployments.](media/map-requests/map-logical-physical.png)
 
@@ -34,7 +34,7 @@ If you don't use tenant-specific domain names, you might still be able to use as
 > [!IMPORTANT]
 > Custom HTTP request headers aren't useful where HTTP GET requests are issued from a web browser, or where the requests are handled by some types of web proxy. You should only use custom HTTP headers for GET operations when you're building an API, or if you control the client that issues the request and there's no web proxy included in the request processing chain that might modify or strip the headers.
 
-When using this approach, you should consider the following questions:
+When you use this approach, you should consider the following questions:
 
 - Will users know how to access the service? For example, if you use a query string to identify tenants, will a central landing page need to direct users to the correct tenant's page by adding the query string?
 - Do you have a central entry point, like a landing page or login page, that all tenants use? If you do, how will users select the tenant that they need to access?
@@ -74,9 +74,9 @@ Consider the following questions:
 
 ### Client certificates
 
-Client certificate authentication, sometimes called mutual TLS (mTLS), is commonly used for service-to-service communication, and for unattended devices or kiosks used by unauthenticated users. Client certificates provide a secure way to authenticate clients. Similarly to tokens and claims, client certificates provide *attributes* that can be used to determine the tenant. For example, the *subject* of the certificate may contain the email address of the user, which can be used to look up the tenant.
+Client certificate authentication, sometimes called mutual TLS (mTLS), is commonly used for service-to-service communication, and for unattended devices or kiosks used by unauthenticated users. Client certificates provide a secure way to authenticate clients. Similarly to tokens and claims, client certificates provide *attributes* that can be used to determine the tenant. For example, the *subject* of the certificate might contain the email address of the user, which can be used to look up the tenant.
 
-When planning to use client certificates for tenant mapping consider the following:
+When planning to use client certificates for tenant mapping, consider the following factors:
 
 - How will you safely issue and renew the client certificates that are trusted by your service? Client certificates can be complex to work with, since they require special infrastructure to manage and issue certificates. If handled improperly, these complexities can *reduce* your security instead of increasing it.
 - Will client certificates be used only for initial login requests, or attached to all requests to your service?
@@ -101,9 +101,9 @@ The following common reverse proxies are used in Azure:
 It is important that your application validates that any requests that it receives are authorized for the tenant. For example, if your application uses a custom domain name to map requests to the tenant, then your application must still check that each request received by the application is authorized for that tenant. Even though the request includes a domain name or other tenant identifier, it doesn't mean you should automatically grant access. When you use OAuth 2.0, you perform the validation by inspecting the *audience* and *scope* claims.
 
 > [!NOTE]
-> This is part of the *assume Zero Trust* security design principle in the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/security/security-principles).
+> This is part of the *assume breach* security design principle in the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/security/security-principles).
 
-When implementing request validation, you should consider the following:
+When implementing request validation, consider the following factors:
 
 - How will you authorize all the requests to your application? You need to authorize requests, regardless of the approach you use to map them to physical infrastructure.
 - Use trusted, widely used and well maintained authentication and authorization frameworks and middleware, instead of implementing all of the validation logic yourself. For example, don't build token signature validation logic or client certificate cryptography libraries. Instead, use features of your application platform (or known trusted packages) that have been validated and tested.
@@ -126,7 +126,7 @@ Consider the following questions:
 
 ## Tenant migration
 
-Tenants often need to be moved to new infrastructure as part of the [tenant lifecycle](tenant-life-cycle.md). When a tenant is moved to a new deployment, the HTTP endpoints they access might change. When this happens, consider that your tenant mapping process needs to change. You may need to consider the following factors:
+Tenants often need to be moved to new infrastructure as part of the [tenant lifecycle](tenant-life-cycle.md). When a tenant is moved to a new deployment, the HTTP endpoints they access might change. When this happens, consider that your tenant mapping process needs to change. You might need to consider the following factors:
 
 - If your application uses domain names for mapping requests, then it might also require a DNS change at the time of the migration. The DNS change might take time to propagate to clients, depending on the time-to-live (TTL) of the DNS entries in your DNS service.
 - If your migration changes the addresses of any endpoints during the migration process, then consider temporarily redirecting requests for the tenant to a maintenance page that automatically refreshes.
@@ -147,6 +147,6 @@ Other contributors:
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
-## Next steps
+## Next step
 
-Learn about [considerations when you work with domain names in a multitenant application](domain-names.md).
+Learn about [identity in a multitenant application](./identity.md).

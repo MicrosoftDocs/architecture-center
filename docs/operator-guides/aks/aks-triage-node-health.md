@@ -4,7 +4,7 @@ description: Learn about the triage step in which you examine the health of Azur
 author: francisnazareth
 ms.author: fnazaret
 ms.date: 01/20/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
   - e2e-aks

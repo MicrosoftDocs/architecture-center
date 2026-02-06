@@ -4,7 +4,7 @@ description: Learn about sample architectures, solutions, and guides that can he
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 07/25/2022
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: fcp
 ---
@@ -46,7 +46,7 @@ Consider these technologies and solutions as you plan and implement your deploym
 
 - [Azure Private Link in a hub-and-spoke network](../networking/guide/private-link-hub-spoke-network.md)
 - [Recommendations for using availability zones and regions](/azure/well-architected/reliability/regions-availability-zones)
-- [Choose between virtual network peering and VPN gateways](../reference-architectures/hybrid-networking/vnet-peering.yml)
+- [Virtual network connectivity options and spoke-to-spoke communication](../reference-architectures/hybrid-networking/virtual-network-peering.yml)
 - [Use Azure ExpressRoute with Microsoft Power Platform](/power-platform/guidance/expressroute/overview?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 
 ## Best practices

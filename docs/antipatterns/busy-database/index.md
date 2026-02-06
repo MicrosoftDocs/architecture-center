@@ -16,16 +16,16 @@ Offloading processing to a database server can cause it to spend a significant p
 
 ## Problem description
 
-Many database systems can run code. Examples include stored procedures and triggers. Often, it's more efficient to perform this processing close to the data, rather than transmitting the data to a client application for processing. However, overusing these features can hurt performance, for several reasons:
+Many database systems can run code. Examples include stored procedures and triggers. Often, it's more efficient to process the data close to where it's stored, rather than transmitting the data to a client application for processing. But overusing these features can affect performance, for several reasons:
 
-- The database server may spend too much time processing, rather than accepting new client requests and fetching data.
+- The database server might spend too much time processing, rather than accepting new client requests and fetching data.
 - A database is usually a shared resource, so it can become a bottleneck during periods of high use.
-- Runtime costs may be excessive if the data store is metered. That's particularly true of managed database services. For example, Azure SQL Database charges for [Database Transaction Units (DTUs)][dtu].
-- Databases have finite capacity to scale up, and it's not trivial to scale a database horizontally. Therefore, it may be better to move processing into a compute resource, such as a VM or App Service app, that can easily scale out.
+- Runtime costs might be excessive if the data store is metered. That's particularly true of managed database services. For example, Azure SQL Database charges for [Database Transaction Units (DTUs)][dtu].
+- Databases have finite capacity to scale up, and it's not trivial to scale a database horizontally. Therefore, it might be better to move processing into a compute resource, such as a VM or App Service app, that can easily scale out.
 
 This antipattern typically occurs because:
 
-- The database is viewed as a service rather than a repository. An application might use the database server to format data (for example, converting to XML), manipulate string data, or perform complex calculations.
+- The database is viewed as a service rather than a repository. An application might use the database server to format data (for example, converting to XML), manipulate string data, or do complex calculations.
 - Developers try to write queries whose results can be displayed directly to users. For example, a query might combine fields or format dates, times, and currency according to locale.
 - Developers are trying to correct the [Extraneous Fetching][ExtraneousFetching] antipattern by pushing computations to the database.
 - Stored procedures are used to encapsulate business logic, perhaps because they are considered easier to maintain and update.
@@ -84,13 +84,13 @@ ORDER BY soh.[TotalDue] DESC
 FOR XML PATH ('Order'), ROOT('Orders')
 ```
 
-Clearly, this is complex query. As we'll see later, it turns out to use significant processing resources on the database server.
+Clearly, this is a complex query. As we'll see later, it turns out to use significant processing resources on the database server.
 
 ## How to fix the problem
 
 Move processing from the database server into other application tiers. Ideally, you should limit the database to performing data access operations, using only the capabilities that the database is optimized for, such as aggregation in a relational database management system (RDBMS).
 
-For example, the previous Transact-SQL code can be replaced with a statement that simply retrieves the data to be processed.
+For example, the previous Transact-SQL code can be replaced with a statement that retrieves the data to be processed.
 
 ```sql
 SELECT
@@ -208,11 +208,11 @@ using (var command = new SqlCommand(...))
 
 ## Considerations
 
-- Many database systems are highly optimized to perform certain types of data processing, such as calculating aggregate values over large datasets. Don't move those types of processing out of the database.
+- Many database systems are highly optimized to handle specific types of data processing, like calculating aggregate values over large datasets. Don't move those types of processing out of the database.
 
 - Do not relocate processing if doing so causes the database to transfer far more data over the network. See the [Extraneous Fetching antipattern][ExtraneousFetching].
 
-- If you move processing to an application tier, that tier may need to scale out to handle the additional work.
+- If you move processing to an application tier, that tier might need to scale out to handle the additional work.
 
 ## How to detect the problem
 
@@ -224,7 +224,7 @@ You can perform the following steps to help identify this problem:
 
 2. Examine the work performed by the database during these periods.
 
-3. If you suspect that particular operations might cause too much database activity, perform load testing in a controlled environment. Each test should run a mixture of the suspect operations with a variable user load. Examine the telemetry from the load tests to observe how the database is used.
+3. If you suspect that specific operations might cause too much database activity, run load testing in a controlled environment. Each test should run a mixture of the suspect operations with a variable user load. Examine the telemetry from the load tests to observe how the database is used.
 
 4. If the database activity reveals significant processing but little data traffic, review the source code to determine whether the processing can better be performed elsewhere.
 
@@ -250,7 +250,7 @@ The next graph shows CPU utilization and DTUs as a percentage of service quota. 
 
 It could be that the tasks performed by the database are genuine data access operations, rather than processing, so it is important to understand the SQL statements being run while the database is busy. Monitor the system to capture the SQL traffic and correlate the SQL operations with application requests.
 
-If the database operations are purely data access operations, without a lot of processing, then the problem might be [Extraneous Fetching][ExtraneousFetching].
+If the database operations are purely data access operations, without extensive processing, then the problem might be [Extraneous Fetching][ExtraneousFetching].
 
 ### Implement the solution and verify the result
 

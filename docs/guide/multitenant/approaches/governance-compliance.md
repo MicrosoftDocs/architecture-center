@@ -4,7 +4,7 @@ description: Learn about governance and compliance approaches for multitenant so
 author: johndowns
 ms.author: pnp
 ms.date: 06/25/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-saas
 ---
@@ -75,7 +75,7 @@ It's important that you understand whether you need to meet any compliance stand
 >
 > Microsoft ensures that our services meet a specific set of compliance standards and provides tools like [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) that help to verify your resources are configured according to those standards.
 >
-> However, ultimately it's your responsibility to fully understand the compliance requirements that apply to your solution and how to configure your Azure resources according to those standards. For more information, see [Azure compliance offerings](/azure/compliance/offerings).
+> It's your responsibility to understand the compliance requirements that apply to your solution and how to configure your Azure resources according to those standards. For more information, see [Azure compliance offerings](/azure/compliance/offerings).
 >
 > This article doesn't provide specific guidance about how to become compliant with any particular standards. Instead, it provides some general guidance about how to consider compliance and governance in a multitenant solution.
 

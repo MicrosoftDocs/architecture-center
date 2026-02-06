@@ -56,7 +56,7 @@ When you've decided on an approach, implementation comes next. For deployment re
 
   - [Microsoft Entra feature deployment guide][Azure Active Directory feature deployment guide]
   - [Microsoft Entra deployment plans][Azure Active Directory deployment plans]
-  - [Azure Active Directory B2C deployment plans][Azure Active Directory B2C deployment plans]
+  - [Microsoft Entra External ID deployment plans][Microsoft Entra External ID deployment plans]
 
 - To learn how to use Microsoft Entra ID to secure a single-page application, see the tutorials at [Register a Single-page application with the Microsoft identity platform][Register a Single-page application with the Microsoft identity platform].
 
@@ -118,7 +118,7 @@ The following resources provide practical recommendations and information for sp
 - [Microsoft Entra identity management and access management for AWS][Azure Active Directory identity management and access management for AWS]
 - [Google Cloud to Azure services comparison—Security and identity][Google Cloud to Azure services comparison—Security and identity]
 
-[Azure Active Directory B2C deployment plans]: /entra/architecture/b2c-deployment-plans?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
+[Microsoft Entra External ID deployment plans]: /entra/architecture/deployment-external-intro?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [Azure Active Directory deployment plans]: /entra/architecture/deployment-plans?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [Azure Active Directory feature deployment guide]: /entra/fundamentals/concept-secure-remote-workers?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [Azure Active Directory identity management and access management for AWS]: ../reference-architectures/aws/aws-azure-ad-security.yml

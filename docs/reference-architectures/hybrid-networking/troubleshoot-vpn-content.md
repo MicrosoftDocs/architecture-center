@@ -1,4 +1,3 @@
-
 <!-- cSpell:ignore RRAS Russinovich sysinternals psping profx -->
 
 This article gives some tips for troubleshooting a VPN gateway connection between an on-premises network and Azure. For general information on troubleshooting common VPN-related errors, see [Troubleshooting common VPN related errors][troubleshooting-vpn-errors].
@@ -79,7 +78,7 @@ You can also obtain event log information about attempts to connect through the 
 Get-EventLog -LogName Application -Source RasClient | Format-List -Property *
 ```
 
-In the event of a failure to connect, this log will contain errors that look similar to the following:
+In the event of a failure to connect, this log will contain errors that look similar to the following example:
 
 ```console
 EventID            : 20227
@@ -103,13 +102,13 @@ Container          :
 
 ## Verify connectivity
 
-**Verify connectivity and routing across the VPN gateway.** The VPN appliance may not be correctly routing traffic through the Azure VPN Gateway. Use a tool such as [PsPing][psping] to verify connectivity and routing across the VPN gateway. For example, to test connectivity from an on-premises machine to a web server located on the VNet, run the following command (replacing `<<web-server-address>>` with the address of the web server):
+**Verify connectivity and routing across the VPN gateway.** The VPN appliance might not be correctly routing traffic through the Azure VPN Gateway. Use a tool such as [PsPing][psping] to verify connectivity and routing across the VPN gateway. For example, to test connectivity from an on-premises machine to a web server located on the VNet, run the following command (replacing `<<web-server-address>>` with the address of the web server):
 
 ```console
 PsPing -t <<web-server-address>>:80
 ```
 
-If the on-premises machine can route traffic to the web server, you should see output similar to the following:
+If the on-premises machine can route traffic to the web server, you should see output similar to the following example:
 
 ```console
 D:\PSTools> psping -t 10.20.0.5:80
@@ -155,9 +154,9 @@ Connecting to 10.20.1.6:80:
 
 ## Check for problems with the Azure VPN gateway
 
-The following recommendations are useful for determining if there is a problem with the Azure VPN gateway:
+The following recommendations are useful for determining if there's a problem with the Azure VPN gateway:
 
-**Examine Azure VPN gateway diagnostic logs for potential issues.** For more information, ee [Step-by-Step: Capturing Azure Resource Manager VNet Gateway Diagnostic Logs][gateway-diagnostic-logs].
+**Examine Azure VPN gateway diagnostic logs for potential issues.** For more information, see [Step-by-Step: Capturing Azure Resource Manager VNet Gateway Diagnostic Logs][gateway-diagnostic-logs].
 
 **Verify that the Azure VPN gateway and on-premises VPN appliance are configured with the same shared authentication key.** You can view the shared key stored by the Azure VPN gateway using the following Azure CLI command:
 
@@ -167,7 +166,7 @@ azure network vpn-connection shared-key show <<resource-group>> <<vpn-connection
 
 Use the command appropriate for your on-premises VPN appliance to show the shared key configured for that appliance.
 
-Verify that the *GatewaySubnet* subnet holding the Azure VPN gateway is not associated with an NSG.
+Verify that the *GatewaySubnet* subnet holding the Azure VPN gateway isn't associated with an NSG.
 
 You can view the subnet details using the following Azure CLI command:
 
@@ -175,7 +174,7 @@ You can view the subnet details using the following Azure CLI command:
 azure network vnet subnet show -g <<resource-group>> -e <<vnet-name>> -n GatewaySubnet
 ```
 
-Ensure there is no data field named *Network Security Group ID*. The following example shows the results for an instance of the *GatewaySubnet* that has an assigned NSG (*VPN-Gateway-Group*). This can prevent the gateway from working correctly if there are any rules defined for this NSG.
+Ensure there's no data field named *Network Security Group ID*. The following example shows the results for an instance of the *GatewaySubnet* that has an assigned NSG (*VPN-Gateway-Group*). This can prevent the gateway from working correctly if there are any rules defined for this NSG.
 
 ```console
 C:\>azure network vnet subnet show -g profx-prod-rg -e profx-vnet -n GatewaySubnet
@@ -242,11 +241,11 @@ ProvisioningState          : Succeeded
 
 ## Miscellaneous issues
 
-The following recommendations are useful for determining if there is an issue with Host VM configuration, network bandwidth utilization, or application performance:
+The following recommendations are useful for determining if there's an issue with Host VM configuration, network bandwidth utilization, or application performance:
 
 - **Verify firewall configuration.** Verify that the firewall in the guest operating system running on the Azure VMs in the subnet is configured correctly to allow permitted traffic from the on-premises IP ranges.
 
-- **Verify that the volume of traffic is not close to the limit of the bandwidth available to the Azure VPN gateway.** How to verify this depends on the VPN appliance running on-premises. For example, if you are using RRAS on Windows Server, you can use Performance Monitor to track the volume of data being received and transmitted over the VPN connection. Using the *RAS Total* object, select the *Bytes Received/Sec* and *Bytes Transmitted/Sec* counters:
+- **Verify that the volume of traffic isn't close to the limit of the bandwidth available to the Azure VPN gateway.** How to verify this depends on the VPN appliance running on-premises. For example, if you are using RRAS on Windows Server, you can use Performance Monitor to track the volume of data being received and transmitted over the VPN connection. Using the *RAS Total* object, select the *Bytes Received/Sec* and *Bytes Transmitted/Sec* counters:
 
   ![Performance counters for monitoring VPN network traffic](../_images/guidance-hybrid-network-vpn/RRAS-perf-counters.png)
 
@@ -254,7 +253,7 @@ The following recommendations are useful for determining if there is an issue wi
 
   ![Example VPN network performance graph](../_images/guidance-hybrid-network-vpn/RRAS-perf-graph.png)
 
-- **Verify that you have deployed the right number and size of VMs for your application load.** Determine if any of the virtual machines in the Azure VNet are running slowly. If so, they may be overloaded, there may be too few to handle the load, or the load-balancers may not be configured correctly. To determine this, [capture and analyze diagnostic information][azure-vm-diagnostics]. You can examine the results using the Azure portal, but many third-party tools are also available that can provide detailed insights into the performance data.
+- **Verify that you have deployed the right number and size of VMs for your application load.** Determine if any of the virtual machines in the Azure VNet are running slowly. If so, they might be overloaded, there might be too few to handle the load, or the load-balancers might not be configured correctly. To determine this, [capture and analyze diagnostic information][azure-vm-diagnostics]. You can examine the results using the Azure portal, but many third-party tools are also available that can provide detailed insights into the performance data.
 
   You can use Azure DDoS Protection to help protect against malicious resource exhaustion. [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
 

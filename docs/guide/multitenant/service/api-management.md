@@ -4,7 +4,7 @@ description: Learn about Azure API Management features for multitenant solutions
 author: johndowns
 ms.author: pnp
 ms.date: 08/10/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
  - arb-saas
@@ -51,7 +51,7 @@ In scenarios where your tenants share a common back-end application, the API Man
 
 ### Instance for each tenant
 
-In some scenarios, you might deploy an instance of API Management for each tenant. We recommend this approach only if you have a small number of tenants or if you have strict compliance requirements that restrict you from sharing any infrastructure between tenants. For example, if you deploy a dedicated virtual network for each tenant, then you probably also need to deploy a dedicated API Management instance for each tenant.
+In some scenarios, you might deploy an instance of API Management for each tenant. We recommend this approach only if you have few tenants or if you have strict compliance requirements that restrict you from sharing any infrastructure between tenants. For example, if you deploy a dedicated virtual network for each tenant, then you probably also need to deploy a dedicated API Management instance for each tenant.
 
 > [!TIP]
 > If your only reason for deploying multiple instances is to support users across different geographic regions, you might want to consider whether the [multiregion deployment](#multiregion-deployments) feature in API Management meets your requirements.
@@ -80,7 +80,7 @@ Alternatively, you can identify the tenant by using other methods. The following
 
 - **Look up tenant identifiers dynamically.** You can communicate with an external database or service while the request is being processed. By taking this approach, you can create custom tenant mapping logic to map a logical tenant identifier to a specific URL or to obtain more information about a tenant. To apply this approach, use the [send-request](/azure/api-management/send-request-policy) policy.
 
-   This approach is likely to increase the latency of your requests. To mitigate this effect, it's a good idea to use caching to reduce the number of calls to the external API. You can use the [cache-store-value](/azure/api-management/cache-store-value-policy) and [cache-lookup-value](/azure/api-management/cache-lookup-value-policy) policies to implement a caching approach. Be sure to invalidate your cache with each added, removed, or moved tenant that impacts back-end lookup.
+   This approach is likely to increase the latency of your requests. To mitigate this effect, it's a good idea to use caching to reduce the number of calls to the external API. You can use the [cache-store-value](/azure/api-management/cache-store-value-policy) and [cache-lookup-value](/azure/api-management/cache-lookup-value-policy) policies to implement a caching approach. Be sure to invalidate your cache with each added, removed, or moved tenant that affects back-end lookup.
 
 ### Named values
 

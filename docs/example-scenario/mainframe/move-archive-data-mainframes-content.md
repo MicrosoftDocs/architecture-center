@@ -90,7 +90,7 @@ Some third-party solutions are available on [Azure Marketplace](https://azuremar
 
 ### Azure storage
 
-Azure has a variety of options for different application and technical requirements, like frequent versus infrequent access, and structured versus unstructured data. You can set up various storage lifecycle configurations in Azure storage. You can define the rules to manage the lifecycle. For an overview, see [Configure a lifecycle management policy](/azure/storage/blobs/lifecycle-management-policy-configure).
+Azure has various options for different application and technical requirements, like frequent versus infrequent access, and structured versus unstructured data. You can set up various storage lifecycle configurations in Azure storage. You can define the rules to manage the lifecycle. For an overview, see [Configure a lifecycle management policy](/azure/storage/blobs/lifecycle-management-policy-configure).
 
 ### Data recall
 
@@ -106,7 +106,6 @@ Principal author:
 
 Other contributors:
 
-- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
 - [Ashish Khandelwal](https://www.linkedin.com/in/ashish-khandelwal-839a851a3) | Senior Engineering Architect Manager
 - [Ramanath Nayak](https://www.linkedin.com/in/ramanath-nayak-584a2685) | Engineering Architect
 

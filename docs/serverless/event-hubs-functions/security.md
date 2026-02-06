@@ -3,7 +3,7 @@ title: Secure Azure Functions with Event Hubs
 description: Learn how to securely develop and deploy efficient and scalable code that runs on Azure Functions and responds to Event Hubs events.
 author: dbarkol
 ms.author: dabarkol
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 07/03/2024
 ms.subservice: architecture-guide
 ---
@@ -16,13 +16,13 @@ When configuring access to resources in Azure, you should apply fine-grained con
 
 Authorizing access to Azure Event Hubs resources can be done using the following security constructs:
 
-- **Microsoft Entra ID:** Microsoft Entra ID provides role-based access control (RBAC) for granular control over a client's access to Event Hubs resources. Based on roles and permissions granted, Microsoft Entra ID will authorize requests using an OAuth 2.0 access token.
+- **Microsoft Entra ID:** Microsoft Entra ID provides Azure role-based access control (Azure RBAC) for granular control over a client's access to Event Hubs resources. Based on roles and permissions granted, Microsoft Entra ID will authorize requests using an OAuth 2.0 access token.
 
 - **Shared access signature:** A shared access signature (SAS) offers the ability to protect Event Hubs resources based on authorization rules. You define authorization policies by selecting one or more [policy rules](/azure/event-hubs/authorize-access-shared-access-signature#shared-access-authorization-policies), such as the ability to send messages, listen to messages, and manage the entities in the namespace.
 
 ### Shared access signature considerations
 
-When using a shared access signature with Azure Functions and Event Hubs, the following considerations should be reviewed:
+When you use a shared access signature with Azure Functions and Event Hubs, the following considerations should be reviewed:
 
 - **Avoid the Manage right:** In addition to being able to manage the entities in an Event Hubs namespace, the Manage right includes both Send and Listen rights. Ideally, a function app should only be granted a combination of the Send and Listen rights, based on the actions they perform.
 
@@ -44,11 +44,11 @@ By default, Event Hubs namespaces are accessible from the internet, so long as t
 - [Allow access from specific virtual networks (service endpoints)](/azure/event-hubs/event-hubs-service-endpoints)
 - [Allow access via private endpoints](/azure/event-hubs/private-link-service)
 
-In all cases, it's important to note that at least one IP firewall rule or virtual network rule for the namespace is specified. Otherwise, if no IP address or virtual network rule is specified, the namespace is accessible over the public internet (using the access key).
+In all cases, at least one IP firewall rule or virtual network rule for the namespace is specified. Otherwise, if no IP address or virtual network rule is specified, the namespace is accessible over the public internet (using the access key).
 
 Azure Functions can be configured to consume events from or publish events to event hubs, which are set up with either service endpoints or private endpoints. Regional virtual network integration is needed for your function app to connect to an event hub using a service endpoint or a private endpoint.
 
-When you integrate Functions with a virtual network and enable `vnetRouteAllEnabled`, all outbound traffic from the function app is forced through the virtual network. This is particularly important for scenarios where you want to secure your function app by ensuring all traffic, including traffic to Azure services, goes through your virtual network for inspection and control. If you want to fully lock down your function app, you also need to [restrict your storage account](/azure/azure-functions/configure-networking-how-to#restrict-your-storage-account-to-a-virtual-network).
+When you integrate Functions with a virtual network and enable `vnetRouteAllEnabled`, all outbound traffic from the function app is forced through the virtual network. This configuration is especially important for scenarios where you want to secure your function app by ensuring that all traffic, including traffic to Azure services, goes through your virtual network for inspection and control. If you want to fully lock down your function app, you also need to [restrict your storage account](/azure/azure-functions/configure-networking-how-to#restrict-your-storage-account-to-a-virtual-network).
 
 To trigger (consume) events in a virtual network environment, the function app needs to be hosted in a Premium plan, a Dedicated (App Service) plan, or an App Service Environment (ASE).
 

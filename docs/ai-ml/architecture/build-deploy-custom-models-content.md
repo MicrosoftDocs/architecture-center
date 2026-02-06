@@ -3,7 +3,7 @@ This article describes Azure solutions for building, training, deploying, and us
 ## Architecture
 
 :::image type="complex" border="false" source="_images/build-deploy-custom-models.svg" alt-text="Diagram that shows several alternatives for a custom document processing model build and deployment process." lightbox="_images/build-deploy-custom-models.svg":::
-   This diagram shows several alternatives for a custom document processing model build and deployment process. This dataflow begins with orchestrators, such as Azure Logic Apps, Azure Functions, or Azure Data Factory. These orchestrators ingest messages, email attachments, and files from sources like email servers, FTP servers, or web applications. The data is then stored in Azure Blob Storage or Azure Data Lake Storage and organized by attributes such as file extensions or customer details. Next, it's used to train custom models with tools like Document Intelligence Studio for extracting key-value pairs or classifying documents, Language Studio for custom text classification and named entity recognition (NER), Azure Machine Learning for advanced workflows with frameworks like PyTorch or TensorFlow, or Azure OpenAI Service for fine-tuning models for tasks like summarization or Q&A. Lastly, the trained models are deployed for inferencing by using SDKs, REST APIs, managed endpoints, or Azure Kubernetes Service, with support for real-time and batch inferencing.
+   This diagram shows several alternatives for a custom document processing model build and deployment process. This dataflow begins with orchestrators, such as Azure Logic Apps, Azure Functions, or Azure Data Factory. These orchestrators ingest messages, email attachments, and files from sources like email servers, FTP servers, or web applications. The data is then stored in Azure Blob Storage or Azure Data Lake Storage and organized by attributes such as file extensions or customer details. Next, it's used to train custom models with tools like Document Intelligence Studio for extracting key-value pairs or classifying documents, Language Studio for custom text classification and named entity recognition (NER), Azure Machine Learning for advanced workflows with frameworks like PyTorch or TensorFlow, or Azure OpenAI in Foundry Models for fine-tuning models for tasks like summarization or Q&A. Lastly, the trained models are deployed for inferencing by using SDKs, REST APIs, managed endpoints, or Azure Kubernetes Service, with support for real-time and batch inferencing.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/build-deploy-custom-models.vsdx) of this architecture.*
@@ -28,7 +28,7 @@ The following dataflow corresponds to the previous diagram:
 
    - [Azure Machine Learning studio](https://ml.azure.com/): For labeling data for text classification or entity extraction to use with open-source frameworks like PyTorch or TensorFlow, use [Machine Learning studio](/azure/machine-learning/how-to-train-with-ui), the [Python SDK, Azure CLI, or the REST API](/azure/machine-learning/how-to-train-model). Machine Learning studio provides a [model catalog](/azure/machine-learning/concept-model-catalog) of foundation models. These foundation models have fine-tuning capabilities for various tasks like text classification, question answering, and summarization. To fine-tune foundation models, use the [Machine Learning studio UI](/azure/machine-learning/how-to-use-foundation-models) or [code](https://github.com/Azure/azureml-examples/tree/main/sdk/python/foundation-models/system/finetune).
 
-   - [Azure OpenAI Service](/azure/ai-services/openai/concepts/fine-tuning-considerations): To [fine-tune Azure OpenAI models](/azure/ai-services/openai/how-to/fine-tuning) on your own data or domain for various tasks like text summarization and question answering, use [Azure AI Foundry portal](/azure/ai-services/openai/how-to/fine-tuning?branch=main&tabs=azure-openai%2Cpython-new&pivots=programming-language-studio), [Python SDK](/azure/ai-services/openai/how-to/fine-tuning?tabs=azure-openai%2Cpython-new&pivots=programming-language-python), or [REST API](/azure/ai-services/openai/how-to/fine-tuning?tabs=azure-openai%2Cpython-new&pivots=rest-api).
+   - [Azure OpenAI in Foundry Models](/azure/ai-services/openai/concepts/fine-tuning-considerations): To [fine-tune Azure OpenAI models](/azure/ai-services/openai/how-to/fine-tuning) on your own data or domain for various tasks like text summarization and question answering, use the [Microsoft Foundry portal](/azure/ai-services/openai/how-to/fine-tuning?branch=main&tabs=azure-openai%2Cpython-new&pivots=programming-language-studio), [Python SDK](/azure/ai-services/openai/how-to/fine-tuning?tabs=azure-openai%2Cpython-new&pivots=programming-language-python), or [REST API](/azure/ai-services/openai/how-to/fine-tuning?tabs=azure-openai%2Cpython-new&pivots=rest-api).
 
 1. To deploy the custom models and use them for inferencing:
 
@@ -38,7 +38,7 @@ The following dataflow corresponds to the previous diagram:
 
    - Machine Learning deploys custom models to online or batch [Machine Learning managed endpoints](/azure/machine-learning/concept-endpoints). You can also use the Machine Learning SDK to [deploy to Azure Kubernetes Service (AKS)](/azure/machine-learning/how-to-deploy-azure-kubernetes-service) as a web service. Fine-tuned foundation models can be deployed from the model catalog via managed compute or a [serverless API](/azure/machine-learning/how-to-deploy-models-serverless). Models deployed through managed compute can be inferenced by using managed endpoints, which include online endpoints for real-time inferencing and batch endpoints for batch inferencing.
 
-   - Azure AI Foundry provides multiple options to [deploy fine-tuned Azure OpenAI models](/azure/ai-foundry/openai/how-to/fine-tuning-deploy). You can deploy these models by using the Python SDK or REST API. You can also deploy fine-tuned foundation models from providers like Meta or Llama as [serverless APIs](/azure/ai-foundry/how-to/fine-tune-serverless) or by using [managed compute](/azure/ai-foundry/how-to/fine-tune-managed-compute).
+   - Foundry provides multiple options to [deploy fine-tuned Azure OpenAI models](/azure/ai-foundry/openai/how-to/fine-tuning-deploy). You can deploy these models by using the Python SDK or REST API. You can also deploy fine-tuned foundation models from providers like Meta or Llama as [serverless APIs](/azure/ai-foundry/how-to/fine-tune-serverless) or by using [managed compute](/azure/ai-foundry/how-to/fine-tune-managed-compute).
 
 ### Components
 
@@ -66,7 +66,7 @@ The following dataflow corresponds to the previous diagram:
 
   - [Export labeled data](/azure/machine-learning/how-to-use-labeled-dataset#export-data-labels) as [COCO](https://cocodataset.org) or Machine Learning datasets. You can use these datasets to train and deploy models in Machine Learning notebooks.
 
-- [Azure OpenAI](/azure/ai-foundry/openai/overview) provides powerful [language models and multimodal models](/azure/ai-services/openai/concepts/models) as REST APIs that you can use to perform various tasks. In this architecture, Azure OpenAI models perform advanced language tasks such as [fine-tuning models](/azure/ai-services/openai/concepts/models#fine-tuning-models) to improve the model performance on data that's missing or underrepresented when the base model is originally trained. You can also use foundation models from multiple providers to perform these tasks.
+- [Azure OpenAI](/azure/ai-foundry/openai/overview) provides powerful [language models and multimodal models](/azure/ai-services/openai/concepts/models) as REST APIs that you can use to complete various tasks. In this architecture, Azure OpenAI models handle advanced language tasks like [fine-tuning models](/azure/ai-services/openai/concepts/models#fine-tuning-models) to improve performance on data that's missing or underrepresented during the base model's original training. You can also use foundation models from multiple providers to complete these tasks.
 
 ### Alternatives
 
@@ -76,13 +76,13 @@ You can add more workflows to this scenario based on specific use cases.
 
 - You can use the prebuilt model in Language for [document and conversation summarization](/azure/ai-services/language-service/summarization/overview).
 
-- Use preprocessing code to perform text processing steps. These steps include cleaning, stop words removal, lemmatization, stemming, and text summarization on extracted data according to document processing requirements. You can expose the code as REST APIs for automation. Manually complete or automate these steps by integrating with the [Azure Logic Apps](/azure/logic-apps/logic-apps-custom-api-host-deploy-call) or [Azure Functions](/samples/azure-samples/flask-app-on-azure-functions/azure-functions-python-create-flask-app) ingestion process.
+- Use preprocessing code to run text processing steps. These steps include cleaning, stop words removal, lemmatization, stemming, and text summarization on extracted data according to document processing requirements. You can expose the code as REST APIs for automation. Manually complete or automate these steps by integrating with the [Azure Logic Apps](/azure/logic-apps/logic-apps-custom-api-host-deploy-call) or [Azure Functions](/samples/azure-samples/flask-app-on-azure-functions/azure-functions-python-create-flask-app) ingestion process.
 
-- You can use [Azure AI Foundry portal](/azure/ai-foundry/what-is-ai-foundry) to [fine-tune](/azure/ai-foundry/concepts/fine-tuning-overview) and deploy foundation models, and build generative AI applications.
+- You can use the [Foundry portal](/azure/ai-foundry/what-is-azure-ai-foundry) to [fine-tune](/azure/ai-foundry/concepts/fine-tuning-overview) and deploy foundation models, and build generative AI applications.
 
-  Azure AI Foundry provides two compute options for models as a platform (MaaP) hosting, [serverless compute and managed compute](/azure/ai-foundry/concepts/fine-tuning-overview#serverless-or-managed-compute). [Specific models and regions](/azure/ai-foundry/how-to/deploy-models-serverless-availability) support deployment through serverless API, which provides models as a service (MaaS).
+  Foundry provides two compute options for models as a platform (MaaP) hosting, [serverless compute and managed compute](/azure/ai-foundry/concepts/fine-tuning-overview#serverless-or-managed-compute). [Specific models and regions](/azure/ai-foundry/how-to/deploy-models-serverless-availability) support deployment through serverless API, which provides models as a service (MaaS).
 
-  Machine Learning and Azure AI Foundry share capabilities, so [evaluate both platforms](/ai/ai-studio-experiences-overview) and choose the best one for your scenario.
+  Machine Learning and Foundry share capabilities, so [evaluate both platforms](/ai/ai-studio-experiences-overview) and choose the best one for your scenario.
 
 - You can use [Azure AI Content Understanding](/azure/ai-services/content-understanding/overview) to create a [custom analyzer](/azure/ai-services/content-understanding/quickstart/use-rest-api?tabs=document) by defining a field schema for extracting structured data from the document.
 
@@ -140,7 +140,7 @@ Reliability helps ensure that your application can meet the commitments that you
 
 - Back up and recover your custom [text classification models](/azure/ai-services/language-service/custom-text-classification/fail-over) and [NER models](/azure/ai-services/language-service/custom-named-entity-recognition/fail-over) in Language.
 
-- Machine Learning depends on constituent services like Blob Storage, compute services, and AKS. To provide resiliency for Machine Learning, configure each of these services to be resilient. For more information, see [Failover for business continuity and disaster recovery (BCDR)](/azure/machine-learning/how-to-high-availability-machine-learning).
+- Machine Learning depends on constituent services like Blob Storage, compute services, and AKS. To provide reliability for Machine Learning, configure each of these services to be reliable. For more information on designing for recovery, see [Failover for business continuity and disaster recovery (BCDR)](/azure/machine-learning/how-to-high-availability-machine-learning).
 
 - For Azure OpenAI, help ensure continuous availability by provisioning two or more Azure OpenAI resources in different regions. This approach allows failover to another region if there's a problem. For more information, see [BCDR with Azure OpenAI](/azure/ai-services/openai/how-to/business-continuity-disaster-recovery).
 
@@ -162,7 +162,7 @@ The major costs for this solution include:
 
     To help optimize costs, choose the right node type, cluster size, and number of nodes. Machine Learning provides options for training, such as setting the minimum number of compute cluster nodes to zero and defining the idle time before scaling down. For more information, see [Manage and optimize Machine Learning costs](/azure/machine-learning/how-to-manage-optimize-cost).
 
-- Data orchestration duration and activities. For Azure Data Factory, the charges for copy activities on the Azure integration runtime are based on the number of data integration units used and the time taken to perform the activities. Added orchestration activity runs are also charged, based on their number.
+- Data orchestration duration and activities. For Azure Data Factory, the charges for copy activities on the Azure integration runtime are based on the number of data integration units used and the time taken to complete the activities. Added orchestration activity runs are also charged, based on their number.
 
   Azure Logic Apps pricing plans depend on the resources that you create and use. The following articles can help you choose the right plan for specific use cases:
 

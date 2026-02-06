@@ -4,7 +4,7 @@ description: Use this guide to decide which Azure storage service best suits you
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 10/11/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: fcp
 ---

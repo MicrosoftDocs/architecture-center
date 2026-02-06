@@ -4,7 +4,7 @@ description: Learn how to use the features of Azure Resource Manager when you wo
 author: johndowns
 ms.author: pnp
 ms.date: 06/11/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
   - devx-track-arm-template

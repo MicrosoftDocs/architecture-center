@@ -1,7 +1,7 @@
 Instead of storing just the current state of the data in a relational database, store the full series of actions taken on an object in an append-only store. The store acts as the system of record and can be used to materialize the domain objects. This approach can improve performance, scalability, and auditability in complex systems.
 
 > [!IMPORTANT]
-> Event sourcing is a complex pattern that permeates through the entire architecture and introduces trade-offs to achieve increased performance, scalability, and auditability. Once your system becomes an event sourcing system, all future design decisions are constrained by the fact that this is an event sourcing system. There is a high cost to migrate to or from an event sourcing system. This pattern is best suited for systems where performance and scalability are top requirements. The complexity that event sourcing adds to a system is not justified for most systems.
+> Event sourcing is a complex pattern that permeates through the entire architecture and introduces trade-offs to achieve increased performance, scalability, and auditability. Once your system becomes an event sourcing system, all future design decisions are constrained by the fact that this is an event sourcing system. There is a high cost to migrate to or from an event sourcing system. This pattern is best suited for systems where performance and scalability are top requirements. The complexity that event sourcing adds to a system isn't justified for most systems.
 
 ## Context and problem
 
@@ -23,7 +23,7 @@ The events are persisted in an event store that acts as the system of record (th
 
 At any point, it's possible for applications to read the history of events. You can then use the events to materialize the current state of an entity by playing back and consuming all the events that are related to that entity. This process can occur on demand to materialize a domain object when handling a request.
 
-Because it is relatively expensive to read and replay events, applications typically implement [materialized views](./materialized-view.yml), read-only projections of the event store that are optimized for querying. For example, a system can maintain a materialized view of all customer orders that's used to populate the UI. As the application adds new orders, adds or removes items on the order, or adds shipping information, events are raised and a handler updates the materialized view.
+Because it's relatively expensive to read and replay events, applications typically implement [materialized views](./materialized-view.yml), read-only projections of the event store that are optimized for querying. For example, a system can maintain a materialized view of all customer orders that's used to populate the UI. As the application adds new orders, adds or removes items on the order, or adds shipping information, events are raised and a handler updates the materialized view.
 
 The figure shows an overview of the pattern, including some typical implementations with the pattern, including the use of a queue, a read-only store, integrating events with external applications and systems, and replaying events to create projections of the current state of specific entities.
 
@@ -35,7 +35,7 @@ The following describes a typical workflow for this pattern:
 
 1. The presentation layer calls an object responsible for reading from a read-only store. The data returned is used to populate the UI.
 1. The presentation layer calls command handlers to perform actions like create a cart, or add an item to the cart.
-1. The command handler calls the event store to get the historical events for the entity. For example, it may retrieve all cart events. Those events are played back in the object to materialize the current state of the entity, prior to any action taking place.
+1. The command handler calls the event store to get the historical events for the entity. For example, it might retrieve all cart events. Those events are played back in the object to materialize the current state of the entity, before any action occurs.
 1. The business logic is run and events are raised. In most implementations, the events are pushed to a queue or topic to decouple the event producers and event consumers.
 1. Event handlers listen for events they are interested in and perform the appropriate action for that handler. Some typical event handler actions are:
     1. Writing the events to the event store
@@ -48,7 +48,7 @@ The Event Sourcing pattern provides the following advantages:
 
 - Events are immutable and can be stored using an append-only operation. The user interface, workflow, or process that initiated an event can continue, and tasks that handle the events can run in the background. This process, combined with the fact that there's no contention during the processing of transactions, can vastly improve performance and scalability for applications, especially for the presentation layer.
 
-- Events are simple objects that describe some action that occurred, together with any associated data that's required to describe the action represented by the event. Events don't directly update a data store. They're simply recorded for handling at the appropriate time. Using events can simplify implementation and management.
+- Events are simple objects that describe some action that occurred, together with any associated data that's required to describe the action represented by the event. Events don't directly update a data store. They're recorded for handling at the appropriate time. Using events can simplify implementation and management.
 
 - Events typically have meaning for a domain expert, whereas object-relational impedance mismatch can make complex database tables hard to understand. Tables are artificial constructs that represent the current state of the system, not the events that occurred.
 
@@ -67,7 +67,7 @@ Consider the following points when deciding how to implement this pattern:
 - **Eventual consistency** - The system will only be eventually consistent when creating materialized views or generating projections of data by replaying events. There's some delay between an application adding events to the event store as the result of handling a request, the events being published, and the consumers of the events handling them. During this period, new events that describe further changes to entities might have arrived at the event store. Your customers must be okay with the fact that data is eventually consistent and the system should be designed to account for eventual consistency in these scenarios.
 
   > [!NOTE]
-  > See the [Data Consistency Primer](/previous-versions/msp-n-p/dn589800(v=pandp.10)) for information about eventual consistency.
+  > For more information about eventual consistency, see the [Data Consistency Primer](/previous-versions/msp-n-p/dn589800(v=pandp.10)).
 
 - **Versioning events** - The event store is the permanent source of information, and so the event data should never be updated. The only way to update an entity or undo a change is to add a compensating event to the event store. If the schema (rather than the data) of the persisted events needs to change, perhaps during a migration, it can be difficult to combine existing events in the store with the new version. Your application will need to support changes to events structures. This can be done in several ways.
 
@@ -130,7 +130,7 @@ As with any design decision, consider any tradeoffs against the goals of the oth
 
 A conference management system needs to track the number of completed bookings for a conference. This way it can check whether there are seats still available, when a potential attendee tries to make a booking. The system could store the total number of bookings for a conference in at least two ways:
 
-- The system could store the information about the total number of bookings as a separate entity in a database that holds booking information. As bookings are made or canceled, the system could increment or decrement this number as appropriate. This approach is simple in theory, but can cause scalability issues if a large number of attendees are attempting to book seats during a short period of time. For example, in the last day or so prior to the booking period closing.
+- The system could store the information about the total number of bookings as a separate entity in a database that holds booking information. As bookings are made or canceled, the system could increment or decrement this number as appropriate. This approach is simple in theory, but it can cause scalability problems if a large number of attendees attempt to book seats during a short period of time. For example, this surge often occurs in the final day before the booking period closes.
 
 - The system could store information about bookings and cancellations as events held in an event store. It could then calculate the number of seats available by replaying these events. This approach can be more scalable due to the immutability of events. The system only needs to be able to read data from the event store, or append data to the event store. Event information about bookings and cancellations is never modified.
 

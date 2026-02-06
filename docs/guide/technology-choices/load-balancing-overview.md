@@ -3,10 +3,9 @@ title: Load Balancing Options
 description: Learn about Azure load balancing services and considerations to select one for distributing traffic across multiple computing resources.
 author: claytonsiemens77
 ms.author: pnp
-ms.date: 07/10/2025
-ms.topic: conceptual
+ms.date: 11/12/2025
+ms.topic: concept-article
 ms.subservice: architecture-guide
-ms.custom: copilot-scenario-highlight
 ---
 
 # Load balancing options
@@ -26,7 +25,9 @@ The following main load balancing services and service with load balancing capab
   > [!IMPORTANT]
   > API Management isn't a traditional, general-purpose load balancer. It's designed specifically for HTTP APIs, and its load balancing capabilities are optional within its broader API management functionality. API Management is included in this article for completeness because it provides load balancing capabilities for specific API hosting topologies. However, its primary purpose is API gateway functionality rather than load balancing.
 
-- [Application Gateway](/azure/application-gateway/overview) is a web traffic load balancer. It provides application delivery controller functionality as a managed service. It also provides various Layer-7 load balancing capabilities and web application firewall functionality. Use Application Gateway to transition traffic from public network space to your web servers hosted in private network space within a region.
+- [Application Gateway](/azure/application-gateway/overview) is a proxy load balancer. It provides application delivery controller functionality as a managed service. It offers various Layer-7 load balancing, routing, TLS offloading and web application firewall functionalities. As a terminating load balancer, it also offers [Layer-4 load balancing](/azure/application-gateway/tcp-tls-proxy-overview) for TCP and TLS protocols. Use Application Gateway to transition traffic from public network space to your web servers hosted in private network space within a region.
+
+- [Application Gateway for Containers](/azure/application-gateway/for-containers/overview) is an application layer (layer 7) load balancing and dynamic traffic management product for workloads running in a Kubernetes cluster.
 
 - [Azure Front Door](/azure/frontdoor/front-door-overview) is an application delivery network that provides global load balancing and site acceleration for web applications. It provides Layer-7 capabilities for your application such as Secure Sockets Layer (SSL) offload, path-based routing, fast failover, and caching to improve performance and high availability.
 
@@ -35,7 +36,7 @@ The following main load balancing services and service with load balancing capab
 - [Traffic Manager](/azure/traffic-manager/traffic-manager-overview) is a Domain Name System (DNS)-based traffic load balancer that enables you to distribute traffic optimally to services across global Azure regions, while providing high availability and responsiveness. Because Traffic Manager is a DNS-based load balancing service, it load balances only at the domain level. For that reason, it can't fail over as quickly as Azure Front Door. DNS caching and systems that ignore DNS time-to-live (TTL) values often cause this delay.
 
 > [!NOTE]
-> Clustering technologies, such as Azure Container Apps or Azure Kubernetes Service (AKS), contain load balancing constructs. These constructs operate mostly within the scope of their own cluster boundary. They route traffic to available application instances based on readiness and health probes. This article doesn't cover those load balancing options.
+> Clustering technologies, such as Azure Container Apps or Azure Kubernetes Service (AKS), contain load balancing constructs. These constructs operate mostly within the scope of their own cluster boundary. They route traffic to available application instances based on readiness and health probes. This article doesn't cover all of these load balancing options.
 
 ## Service categorizations
 
@@ -58,7 +59,8 @@ The following table summarizes the Azure load balancing services.
 | Service             | Global or regional | Recommended traffic |
 | :--- | :--- | :---  |
 | API Management      | Regional or global | HTTP(S) APIs only   |
-| Application Gateway | Regional           | HTTP(S)             |
+| Application Gateway | Regional           | HTTP(S), TCP, & TLS |
+| Application Gateway for Containers | Regional           | HTTP(S) |
 | Azure Front Door    | Global             | HTTP(S)             |
 | Load Balancer       | Regional or global | Non-HTTP(S)         |
 | Traffic Manager     | Global             | Non-HTTP(S)         |
@@ -83,12 +85,12 @@ Consider the following factors when you select a load balancing solution:
 The following flow chart helps you choose a load balancing solution for your application. The flow chart guides you through a set of key decision criteria to reach a recommendation.
 
 > [!TIP]
-> You can use Microsoft Copilot in Azure to help guide you through this decision, similar to the flow chart described here. For more information, see [Work with Azure Load Balancer using Microsoft Copilot in Azure](/azure/copilot/work-load-balancer).
+> You can use Azure Copilot to help guide you through this decision, similar to the flow chart described here. For more information, see [Work with Azure Load Balancer using Microsoft Azure Copilot](/azure/copilot/work-load-balancer).
 
 Every application has unique requirements not captured in simple decision trees. Treat this flow chart or Copilot recommendation as a starting point. Then perform a more detailed evaluation.
 
-:::image type="complex" border="false" source="./images/load-balancing-decision-tree.png" alt-text="Diagram that shows a decision tree for load balancing in Azure." lightbox="./images/load-balancing-decision-tree.png":::
-   The image shows a branched flowchart in which each path leads to a load balancing solution. The first path starts at Web application (HTTP/HTTPs), points to Internet facing application via the No arrow, then to Load Balancer via another No arrow. The second path starts at Web application (HTTP/HTTPs), points to Internet facing application via the No arrow, points to Global/deployed in multiple regions via the Yes arrow, and then to Load Balancer via the No arrow. The third path starts at Web application (HTTP/HTTPs), points to Internet facing application via the No arrow, points to Global/deployed in multiple regions via the Yes arrow, then to Traffic Manager and Load Balancer via the Yes arrow. The fourth path starts at Web application (HTTP/HTTPs), points to Internet facing application via the Yes arrow, to Hosting only APIs via the No arrow, to API Management via the Yes arrow. The fifth path starts at Web application (HTTP/HTTPs), points to Internet facing application via the Yes arrow, to Hosting only APIs via the No arrow, to Application Gateway via the No arrow. The sixth path starts at Web application (HTTP/HTTPs), points to Internet facing application via the Yes arrow, to Global/Deployed multiple regions via the Yes arrow, to Do you require SSL offload or application-layer processing per request, to Azure Front Door and Application Gateway via the Yes arrow. The seventh path starts at Web application (HTTP/HTTPs), points to Internet facing application via the Yes arrow, to Global/Deployed multiple regions via the Yes arrow, to Do you require SSL offload or application-layer processing per request, to Azure Front Door and API Management via the Only APIs arrow. The eighth path starts at Web application (HTTP/HTTPs), points to Internet facing application via the Yes arrow, to Global/Deployed multiple regions via the Yes arrow, to Do you require SSL offload or application-layer processing per request, to Hosting - PaaS, IaaS, AKS via the No arrow, to Azure Front Door via the PaaS arrow. The ninth path starts at Web application (HTTP/HTTPs), points to Internet facing application via the Yes arrow, to Global/Deployed multiple regions via the Yes arrow, to Do you require SSL offload or application-layer processing per request, to Hosting - PaaS, IaaS, AKS via the No arrow, to Azure Front Door and Application Gateway ingress controller via the AKS arrow. The tenth path starts at Web application (HTTP/HTTPs), points to Internet facing application via the Yes arrow, to Global/Deployed multiple regions via the Yes arrow, to Do you require SSL offload or application-layer processing per request, to Hosting - PaaS, IaaS, AKS via the No arrow, to Azure Front Door and Load Balancer via the IaaS VMs arrow. The eleventh path starts at Web application (HTTP/HTTPs), points to Internet facing application via the Yes arrow, to Global/Deployed multiple regions via the Yes arrow, to Do you require performance acceleration via the No arrow, to Application Gateway via the No arrow. The twelfth path starts at Web application (HTTP/HTTPs), points to Internet facing application via the Yes arrow, to Global/Deployed multiple regions via the Yes arrow, to Do you require performance acceleration via the No arrow, to Do you require SSL offload or application-layer processing per request via the Yes arrow, to Azure Front Door and Application Gateway via the Yes arrow. The thirteenth path starts at Web application (HTTP/HTTPs), points to Internet facing application via the Yes arrow, to Global/Deployed multiple regions via the Yes arrow, to Do you require performance acceleration via the No arrow, to Do you require SSL offload or application-layer processing per request via the Yes arrow, to Azure Front Door and API Management via the Only APIs arrow. The fourteenth path starts at Web application (HTTP/HTTPs), points to Internet facing application via the Yes arrow, to Global/Deployed multiple regions via the Yes arrow, to Do you require performance acceleration via the No arrow, to Application Gateway via the No arrow. The fifteenth path starts at Web application (HTTP/HTTPs), points to Internet facing application via the Yes arrow, to Global/Deployed multiple regions via the Yes arrow, to Do you require performance acceleration via the No arrow, to Application Gateway and API Management via the Only APIs arrow.
+:::image type="complex" border="false" source="./images/load-balancing-decision-tree.png" alt-text="Diagram that shows a decision tree for load balancing in Azure." lightbox="./images/load-balancing-decision-tree-large.png":::
+   The image shows a branched flowchart where each path leads to a load balancing or application delivery solution. Path one starts at Web application (HTTP/HTTPS), goes to Internet-facing application via the No arrow, then to Load Balancer. Path two starts at Web application (HTTP/HTTPS), goes to Internet-facing application via the Yes arrow, then to Global/deployed in multiple regions via the No arrow, and ends at Application Gateway. Path three starts at Web application (HTTP/HTTPS), goes to Internet-facing application via Yes, then to Global/deployed in multiple regions via Yes, then to Do you require performance acceleration via Yes, and ends at Azure Front Door. Path four starts at Web application (HTTP/HTTPS), goes to Internet-facing application via Yes, then to Global/deployed in multiple regions via Yes, then to Do you require performance acceleration via No, then to Do you require SSL offload or application-layer processing per request via Yes, and ends at Azure Front Door and Application Gateway. Path five starts at Web application (HTTP/HTTPS), goes to Internet-facing application via Yes, then to Global/deployed in multiple regions via Yes, then to Do you require performance acceleration via No, then to Do you require SSL offload or application-layer processing per request via Yes, and ends at Azure Front Door and API Management for API-only hosting. Path six starts at Web application (HTTP/HTTPS), goes to Internet-facing application via Yes, then to Global/deployed in multiple regions via Yes, then to Do you require performance acceleration via No, then to Do you require SSL offload or application-layer processing per request via No, then to Hosting type, and ends at Azure Front Door for PaaS, Azure Front Door and Load Balancer for IaaS VMs, or Azure Front Door and Application Gateway ingress controller for AKS. Each path concludes with one or more Azure services—Load Balancer, Application Gateway, Azure Front Door, or API Management—selected based on application scope, global reach, performance needs, SSL requirements, and hosting environment.
 :::image-end:::
 
 When your workload includes several services that require load balancing, assess each service individually. An effective setup often uses more than one type of load balancing solution. You might incorporate these solutions at different places in your workload's architecture to serve unique functions or roles.
@@ -99,6 +101,8 @@ When your workload includes several services that require load balancing, assess
   - Makes a routing decision for Layer-7 data, such as a URL path
   - Supports the inspection of the communication payload, such as an HTTP request body
   - Handles Transport Layer Security (TLS) functionality
+
+- **Non-HTTP(S) application** refers to an application that needs Layer 4 (TCP or UDP protocols) or Transport Layer Security (TLS protocol) support. Both Azure Load Balancer and Azure Application Gateway provide capabilities to handle such traffic. However, their features and behaviors differ, as described in this [comparison article](/azure/application-gateway/tcp-tls-proxy-overview#comparing-azure-load-balancer-with-azure-application-gateway).
 
 - **Internet-facing application** refers to an application that's publicly accessible from the internet. As a best practice, application owners apply restrictive access policies or protect the application by setting up offerings like web application firewall and distributed denial-of-service protection.
 
@@ -113,7 +117,7 @@ When your workload includes several services that require load balancing, assess
 
 - **Platform as a service (PaaS)** provides a managed hosting environment where you can deploy your application without needing to manage VMs or networking resources. In this case, PaaS refers to services that provide integrated load balancing within a region. For more information, see [Choose a compute service for scalability](./compute-decision-tree.md#scalability).
 
-- **AKS** enables you to deploy and manage containerized applications. AKS provides serverless Kubernetes, an integrated continuous integration and continuous delivery (CI/CD) experience, and enterprise-grade security and governance. For more information, see [AKS architecture design](../../reference-architectures/containers/aks-start-here.md).
+- **AKS** enables you to deploy and manage containerized applications. AKS provides serverless Kubernetes, an integrated continuous integration and continuous delivery (CI/CD) experience, and enterprise-grade security and governance. These AKS workloads are referred to as AKS backends. For more information, see [AKS architecture design](../../reference-architectures/containers/aks-start-here.md).
 
 - **Infrastructure as a service (IaaS)** is a computing option where you provision the VMs that you need, along with associated network and storage components. IaaS applications require internal load balancing within a virtual network by using Load Balancer.
 
@@ -121,7 +125,11 @@ When your workload includes several services that require load balancing, assess
 
 - **Only APIs** refers to the need to load balance HTTP(S) APIs that aren't web applications. In this case, if your workload already uses API Management for its gateway capabilities, you can consider its optional load balancing feature to direct traffic across API back ends that aren't already load balanced through another mechanism. If your workload doesn't use API Management, don't use it solely for load balancing.
 
-- **Performance acceleration** refers to features that accelerate web access. Performance acceleration can be achieved by using content delivery networks or optimized point-of-presence ingress for accelerated client onboarding into the destination network. Azure Front Door supports both [content delivery networks](/azure/frontdoor/front-door-caching) and [Anycast traffic acceleration](/azure/frontdoor/front-door-traffic-acceleration). You can gain the benefits of both features with or without Application Gateway in the architecture.
+- **Content delivery network (CDN)** refers to a feature that accelerates webpage loading times through its geographically distributed network of servers. CDN enables performance acceleration or optimized point-of-presence ingress for accelerated client onboarding into the destination network. Azure Front Door supports both [content delivery networks](/azure/frontdoor/front-door-caching) and [Anycast traffic acceleration](/azure/frontdoor/front-door-traffic-acceleration). You can gain the benefits of both features with or without Application Gateway in the architecture.
+
+- **Passthrough load balancer** is a load balancer where a client directly establishes a connection with a backend server that is selected by the load balancer's distribution algorithm.
+
+- **Terminating load balancer** is where a client establishes a connection with the load balancer (proxy) and a separate connection is initiated from load balancer to the backend server.
 
 ### Other considerations
 

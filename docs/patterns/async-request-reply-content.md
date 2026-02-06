@@ -2,7 +2,7 @@ Decouple backend processing from a frontend host, where backend processing needs
 
 ## Context and problem
 
-In modern application development, it's normal for client applications &mdash; often code running in a web-client (browser) &mdash; to depend on remote APIs to provide business logic and compose functionality. These APIs may be directly related to the application or may be shared services provided by a third party. Commonly these API calls take place over the HTTP(S) protocol and follow REST semantics.
+In modern application development, it's normal for client applications &mdash; often code running in a web-client (browser) &mdash; to depend on remote APIs to provide business logic and compose functionality. These APIs might be directly related to the application or might be shared services provided by a third party. Commonly these API calls take place over the HTTP(S) protocol and follow REST semantics.
 
 In most cases, APIs for a client application are designed to respond quickly, on the order of 100 ms or less. Many factors can affect the response latency, including:
 
@@ -17,7 +17,7 @@ In most cases, APIs for a client application are designed to respond quickly, on
 
 Any of these factors can add latency to the response. Some can be mitigated by scaling out the backend. Others, such as network infrastructure, are largely out of the control of the application developer. Most APIs can respond quickly enough for responses to arrive back over the same connection. Application code can make a synchronous API call in a non-blocking way, giving the appearance of asynchronous processing, which is recommended for I/O-bound operations.
 
-In some scenarios, however, the work done by backend may be long-running, on the order of seconds, or might be a background process that is executed in minutes or even hours. In that case, it isn't feasible to wait for the work to complete before responding to the request. This situation is a potential problem for any synchronous request-reply pattern.
+In some scenarios, however, the work done by backend might be long-running, on the order of seconds, or might be a background process that is executed in minutes or even hours. In that case, it isn't feasible to wait for the work to complete before responding to the request. This situation is a potential problem for any synchronous request-reply pattern.
 
 Some architectures solve this problem by using a message broker to separate the request and response stages. This separation is often achieved by use of the [Queue-Based Load Leveling pattern](./queue-based-load-leveling.yml). This separation can allow the client process and the backend API to scale independently. But this separation also brings additional complexity when the client requires success notification, as this step needs to become asynchronous.
 
@@ -51,7 +51,7 @@ The following diagram shows a typical flow:
 
 ## Issues and considerations
 
-- There are a number of possible ways to implement this pattern over HTTP and not all upstream services have the same semantics. For example, most services won't return an HTTP 202 response back from a GET method when a remote process hasn't finished. Following pure REST semantics, they should return HTTP 404 (Not Found). This response makes sense when you consider the result of the call isn't present yet.
+- There are multiple ways to implement this pattern over HTTP and not all upstream services have the same semantics. For example, most services won't return an HTTP 202 response back from a GET method when a remote process hasn't finished. Following pure REST semantics, they should return HTTP 404 (Not Found). This response makes sense when you consider the result of the call isn't present yet.
 
 - An HTTP 202 response should indicate the location and frequency that the client should poll for the response. It should have the following additional headers:
 
@@ -62,7 +62,7 @@ The following diagram shows a typical flow:
 
     Expected client behavior must be considered when designing this response. While a client under your control can be coded to respect these response values explicitly, clients that are not authored by you or use a no or low-code approach (such as Azure Logic Apps) are free to have their own HTTP 202 logic handling.
 
-- You may need to use a processing proxy or façade to manipulate the response headers or payload depending on the underlying services used.
+- You might need to use a processing proxy or façade to manipulate the response headers or payload depending on the underlying services used.
 
 - If the status endpoint redirects on completion, either [HTTP 302](https://tools.ietf.org/html/rfc7231#section-6.4.3) or [HTTP 303](https://tools.ietf.org/html/rfc7231#section-6.4.4) are appropriate return codes, depending on the exact semantics you support.
 
@@ -297,7 +297,7 @@ public enum OnPendingEnum
 
 ## Next steps
 
-The following information may be relevant when implementing this pattern:
+The following information might be relevant when implementing this pattern:
 
 - [Azure Logic Apps - Perform long-running tasks with the polling action pattern](/azure/logic-apps/logic-apps-create-api-app#perform-long-running-tasks-with-the-polling-action-pattern).
 - For general best practices when designing a web API, see [Web API design](../best-practices/api-design.md).

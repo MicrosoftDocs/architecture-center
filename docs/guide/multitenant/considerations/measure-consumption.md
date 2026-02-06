@@ -4,7 +4,7 @@ description: This article describes the considerations for measuring the consump
 author: PlagueHO
 ms.author: dascottr
 ms.date: 11/12/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-saas
 ---
@@ -33,7 +33,7 @@ Modern applications (built for the cloud) are usually made up of many different 
 
 Often, it's easier to use a single indicative measurement to represent consumption in the solution. For example, if a multitenant solution shares a single relational database, then the data stored by a tenant might be a good indicative consumption metric.
 
-Even if you use the volume of data stored by a tenant as an indicative consumption measure, it might not be a true representation of consumption for every tenant. If a particular tenant does a lot more reads or runs more reporting from the solution, but doesn't write a lot of data, then that tenant could use a lot more compute than the storage requirements would indicate.
+Even if you use the volume of data stored by a tenant as an indicative consumption measure, it might not be a true representation of consumption for every tenant. If a particular tenant generates far more read activity than write activity or heavily uses reporting capabilities, then that tenant might use much more compute from the solution than the storage requirements indicate.
 
 > [!TIP]
 > Occasionally you should measure and review the actual consumption across your tenants, to create a baseline model. This model helps you to determine whether the assumptions you're making about your indicative metrics are correct.
@@ -46,16 +46,16 @@ This method is usually easy and cost effective to implement, as there's usually 
 
 ## Per-request metrics
 
-In solutions that are primarily API-based, it might make sense to use a consumption metric that's based around the number of API requests being made to the solution. This can often be quite simple to implement, but it does require you to use APIs as the primary interface to the system. There will be an increased operational cost of implementing a per-request metric, especially for high volume services, because of the need to record the request utilization (for audit and billing purposes).
+In solutions that are primarily API-based, it might make sense to use a consumption metric that's based around the number of API requests being made to the solution. This can often be quite simple to implement, but it does require you to use APIs as the primary interface to the system. There is an increased operational cost of implementing a per-request metric, especially for high volume services, because of the need to record the request utilization (for audit and billing purposes).
 
-User-facing solutions that consist of a single-page application (SPA), or a mobile application that uses the APIs, may not be a good fit for the per-request metric. This is because there's little understanding by the end user of the relationship between the use of the application and the consumption of APIs. Your application might be chatty (it makes many API requests) or chunky (it makes too few API requests), and the user wouldn't notice a difference. However, if you only need an approximate idea of each tenant's consumption, it might still be a reasonable choice.
+User-facing solutions that consist of a single-page application (SPA), or a mobile application that uses the APIs, might not be a good fit for the per-request metric. This is because there's little understanding by the end user of the relationship between the use of the application and the consumption of APIs. Your application might be chatty (it makes many API requests) or chunky (it makes too few API requests), and the user wouldn't notice a difference. However, if you only need an approximate idea of each tenant's consumption, it might still be a reasonable choice.
 
 > [!WARNING]
-> Make sure you store request metrics in a reliable data store that's designed for this purpose. For example, although Azure Application Insights can track requests and can even track tenant IDs (by using [properties](/azure/azure-monitor/app/api-custom-events-metrics#properties)), Application Insights is not designed to store every piece of telemetry. It removes data, as part of its [sampling behavior](/azure/azure-monitor/app/sampling). For billing and metering purposes, choose a data store that will give you a high level of accuracy.
+> Make sure you store request metrics in a reliable data store that's designed for this purpose. For example, although Azure Application Insights can track requests and can even track tenant IDs (by using [properties](/azure/azure-monitor/app/api-custom-events-metrics#properties)), Application Insights isn't designed to store every piece of telemetry. It removes data, as part of its [sampling behavior](/azure/azure-monitor/app/sampling). For billing and metering purposes, choose a data store that gives you a high level of accuracy.
 
 ## Estimate consumption
 
-When measuring the consumption for a tenant, it may be easier to provide an estimate of the consumption for the tenant, rather than trying to calculate the exact amount of consumption. For example, for a multitenant solution that serves many thousands of tenants in a single deployment, it's reasonable to approximate that the cost of serving the tenant is just a percentage of the cost of the Azure resources.
+When measuring the consumption for a tenant, it might be easier to provide an estimate of the consumption for the tenant, rather than trying to calculate the exact amount of consumption. For example, for a multitenant solution that serves many thousands of tenants in a single deployment, it's reasonable to approximate that the cost of serving the tenant is just a percentage of the cost of the Azure resources.
 
 You might consider estimating the COGS for a tenant, in the following cases:
 
@@ -97,4 +97,4 @@ Other contributors:
 
 ## Next steps
 
-Consider the [update deployment model you'll use](updates.md).
+Consider the [update deployment model to use](updates.md).

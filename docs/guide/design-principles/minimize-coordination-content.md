@@ -2,7 +2,7 @@
 
 ## Minimize coordination to achieve scalability
 
-Most cloud applications consist of multiple application services &mdash; web front ends, databases, business processes, reporting and analysis, and so on. To achieve scalability and reliability, each of those services should run on multiple instances.
+Most cloud applications consist of multiple application services, like web front ends, databases, business processes, and reporting and analysis. To achieve scalability and reliability, each of those services should run on multiple instances.
 
 Uncoordinated systems, where work can be handled independently without the need to pass messages between machines, are generally simpler to scale. Coordination is usually not a binary state, but a spectrum. Coordination occurs at different layers, such as data or compute.
 
@@ -36,13 +36,13 @@ These two patterns complement each other. If the write-only store in CQRS uses e
 
 **Partition data and state.** Avoid putting all of your data into one data schema that is shared across many application services. A microservices architecture enforces this principle by making each service responsible for its own data store. Within a single database, partitioning the data into shards can improve concurrency, because a service writing to one shard does not affect a service writing to a different shard. Even though partitioning adds some degree of coordination, you can use partitioning to increase parallelism for better scalability. Partition monolithic state into smaller chunks so the data can be managed independently.
 
-**Design idempotent operations.** When possible, design operations to be idempotent. That way, they can be handled using at-least-once semantics. For example, you can put work items on a queue. If a worker crashes in the middle of an operation, another worker simply picks up the work item. If the worker needs to update data as well as emit other messages as a part of its logic, the [idempotent message processing pattern][idempotent] should be used.
+**Design idempotent operations.** When possible, design operations to be idempotent. That way, they can be handled using at-least-once semantics. For example, you can put work items on a queue. If a worker crashes in the middle of an operation, another worker takes over the work item. If the worker needs to update data and emit other messages as a part of its logic, the [idempotent message processing pattern][idempotent] should be used.
 
 **Use optimistic concurrency when possible.** Pessimistic concurrency control uses database locks to prevent conflicts. This can cause poor performance and reduce availability. With optimistic concurrency control, each transaction modifies a copy or snapshot of the data. When the transaction is committed, the database engine validates the transaction and rejects any transactions that would affect database consistency.
 
 Azure SQL Database and SQL Server support optimistic concurrency through [snapshot isolation][sql-snapshot-isolation]. Some Azure storage services support optimistic concurrency through the use of Etags, including [Azure Cosmos DB][cosmos-db-faq] and [Azure Storage][storage-concurrency].
 
-**Consider MapReduce or other parallel, distributed algorithms.** Depending on the data and type of work to be performed, you may be able to split the work into independent tasks that can be performed by multiple nodes working in parallel. See [Big compute architecture style][big-compute].
+**Consider MapReduce or other parallel, distributed algorithms.** Depending on the data and type of work to be performed, you might be able to split the work into independent tasks that can be performed by multiple nodes working in parallel. See [Big compute architecture style][big-compute].
 
 **Use leader election for coordination.** In cases where you need to coordinate operations, make sure the coordinator does not become a single point of failure in the application. Using the [Leader Election pattern][leader-election], one instance is the leader at any time, and acts as the coordinator. If the leader fails, a new instance is elected to be the leader.
 

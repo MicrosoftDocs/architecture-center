@@ -4,7 +4,7 @@ description: This article describes the considerations that you need to give to 
 author: johndowns
 ms.author: pnp
 ms.date: 06/13/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
  - arb-saas

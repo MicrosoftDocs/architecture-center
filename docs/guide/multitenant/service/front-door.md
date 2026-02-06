@@ -1,10 +1,10 @@
 ---
 title: Use Azure Front Door in a Multitenant Solution
 description: Learn about the key features of Azure Front Door that enhance reliability, scalability, and security when working in multitenant solutions.
-author: rajnemani
-ms.author: ranema
+author: PlagueHO
+ms.author: dascottr
 ms.date: 05/15/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
   - arb-saas
@@ -51,7 +51,7 @@ Wildcard domains simplify the configuration of Domain Name System (DNS) records 
 
 Azure Front Door supports creating custom domains that use wildcards. You can then configure a route for requests that arrive on the wildcard domain. When you onboard a new tenant, you don't need to reconfigure your DNS servers, issue new TLS certificates, or update your Azure Front Door profile's configuration.
 
-Wildcard domains work well if you send all your traffic to a single origin group. But if you have separate stamps of your solution, a single-level wildcard domain isn't sufficient. You either need to use multiple-level stem domains or supply extra configuration. For example, you might override the routes for each tenant's subdomain. For more information, see [Considerations when using domain names in a multitenant solution](../considerations/domain-names.md).
+Wildcard domains work well if you send all your traffic to a single origin group. But if you have separate stamps of your solution, a single-level wildcard domain isn't sufficient. You either need to use multiple-level stem domains or supply extra configuration. For example, you might override the routes for each tenant's subdomain. For more information, see [Considerations when you use domain names in a multitenant solution](../considerations/domain-names.md).
 
 Azure Front Door doesn't issue managed TLS certificates for [wildcard domains](/azure/frontdoor/front-door-wildcard-domain), so you need to purchase and supply your own certificate.
 
@@ -314,7 +314,7 @@ Adventure Works and its tenants need to decide who issues TLS certificates:
 
 ### Scenario 5: Azure Front Door profile for each stamp
 
-You can deploy an Azure Front Door profile for each stamp. If you have 10 stamps, you deploy 10 instances of Azure Front Door. This approach can be useful if you need to restrict management access of each stamp's Azure Front Door configuration. It can also be useful if you need to use multiple Azure Front Door profiles to avoid exceeding resource quotas or limits.
+You can deploy an Azure Front Door profile for each stamp. If you have 10 stamps, you deploy 10 instances of Azure Front Door. This approach can be useful if you need to increase reliability by minimizing the effect of any misconfigurations, or to restrict management access of each stamp's Azure Front Door configuration. It can also be useful if you need to use multiple Azure Front Door profiles to avoid exceeding resource quotas or limits.
 
 > [!TIP]
 > Azure Front Door is a global resource. Even if you deploy regionally scoped stamps, each Azure Front Door profile is globally distributed. You should consider whether you really need to deploy multiple Azure Front Door profiles and evaluate the specific advantages that it provides.
@@ -323,9 +323,11 @@ If you have a stamp that serves multiple tenants, you need to consider how you r
 
 #### Benefits
 
-- If you extend your configuration across multiple profiles, you're less likely to reach the Azure Front Door resource limits. For example, if you need to support high numbers of custom domains, you can divide the domains among multiple Azure Front Door profiles and stay within the limits of each profile.
+- This approach can increase the overall reliability of your solution because any misconfigurations are isolated to a single stamp's profile.
 
-- This approach enables you to scope your Azure Front Door resource management permissions. You can use Azure role-based access control to grant administrators access to a single stamp's profile.
+- You can tightly scope your Azure Front Door resource management permissions. You can use Azure role-based access control to grant administrators access to a single stamp's profile.
+
+- If you extend your configuration across multiple profiles, you're less likely to reach the Azure Front Door resource limits. For example, if you need to support high numbers of custom domains, you can divide the domains among multiple Azure Front Door profiles and stay within the limits of each profile.
 
 #### Drawbacks
 
@@ -346,7 +348,6 @@ Principal authors:
 
 Other contributors:
 
-- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
 - [Fernando Antivero](https://www.linkedin.com/in/fernandoantivero/) | Fullstack Developer & Cloud Platform Engineer
 - [Duong Au](https://www.linkedin.com/in/duong-au-32427b46/) | Senior Content Developer, C+E Skilling Content R&D
 - [Harikrishnan M B (Hari)](https://www.linkedin.com/in/harikrishnanmb/) | Product Manager 2, Azure Networking
@@ -365,3 +366,4 @@ Other contributors:
 - [Architect multitenant solutions on Azure](overview.md)
 - [Checklist for architecting and building multitenant solutions on Azure](../checklist.md)
 - [Tenancy models to consider for a multitenant solution](../considerations/tenancy-models.md)
+

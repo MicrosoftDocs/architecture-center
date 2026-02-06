@@ -4,7 +4,7 @@ description: Learn about the responsibilities of control planes in multitenant s
 author: johndowns
 ms.author: pnp
 ms.date: 06/12/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
  - arb-saas
@@ -239,7 +239,7 @@ Other contributors:
 
 ## Next step
 
-- [Well-Architected Framework](/azure/well-architected/)
+Consider how you [measure consumption](measure-consumption.md) by tenants in your solution.
 
 ## Related resources
 

@@ -58,7 +58,7 @@ This architecture showcases a solution that is rehosted on Microsoft Azure.
 
 3. The use of application compute clusters depends on whether the application supports virtual machines (VMs) in a compute cluster, or the application runs in a container that you deploy in a container compute cluster like Kubernetes. Most mainframe partner software for applications written in legacy languages prefers to use VMs. Some mainframe systems partner software can also support deployment in containers.  
 
-4. Application servers receive the input in the compute clusters and share application state and data using Azure Redis Cache or remote direct memory access (RDMA). The application servers host various COBOL or PL/1 application programs. A transaction system manager is an emulator on Azure that can handle customer information control systems (CICS) and information management systems (IMS) workloads. A batch system emulator on Azure does the role of job control language (JCL).  
+4. Application servers receive the input in the compute clusters and share application state and data using Azure Managed Redis or remote direct memory access (RDMA). The application servers host various COBOL or PL/1 application programs. A transaction system manager is an emulator on Azure that can handle customer information control systems (CICS) and information management systems (IMS) workloads. A batch system emulator on Azure does the role of job control language (JCL).  
 
 5. You can use Azure services or other partner software hosted in VMs for system, utilities, and data management.
 
@@ -78,7 +78,7 @@ This architecture showcases a solution that is rehosted on Microsoft Azure.
 
 - [Azure Virtual Network Interface Cards](/azure/virtual-network/virtual-network-network-interface): A network interface enables an Azure VM to communicate with internet, Azure, and on-premises resources. As shown in this architecture, you can add more network interface cards to the same Azure VM. This way, the Solaris child-VMs have their own dedicated network interface device and IP address.
 
-- [Azure Disk Storage](/azure/well-architected/service-guides/azure-disk-storage): Managed disks are block-level storage volumes that are managed by Azure and used with Azure VMs. The available types of disks are Azure Ultra Disk Storage, Azure Premium SSD, and Azure Standard SSD. For this architecture, we recommend either Premium SSD or Ultra Disk Storage.
+- [Azure Disk Storage](/azure/well-architected/service-guides/azure-disk-storage): Managed disks are block-level storage volumes that Azure manages and you use with Azure VMs. The available types of disks are Azure Ultra Disk Storage, Azure Premium SSD, and Azure Standard SSD. For this architecture, we recommend either Premium SSD or Ultra Disk Storage.
 
 - [Azure Files](/azure/well-architected/service-guides/azure-files): Azure Files offers fully managed file shares in the cloud that are accessible via the industry standard Server Message Block (SMB) protocol. You can mount Azure file shares concurrently by cloud or on-premises deployments of Windows, Linux, and macOS.
 
@@ -158,4 +158,3 @@ For more information, contact **legacy2azure@microsoft.com**.
 
 - [Mainframe and midrange data replication to Azure using Qlik](mainframe-midrange-data-replication-azure-qlik.yml)
 - [Mainframe modernization by using BMC AMI Cloud](mainframe-modernization-bmc-ami-cloud.yml)
-- [Rehost mainframe applications by using NTT DATA UniKix](rehost-mainframe-ntt-data-unikix.yml)

@@ -57,7 +57,7 @@ public async Task<IHttpActionResult> GetProductsInSubCategoryAsync(int subcatego
 }
 ```
 
-This example shows the problem explicitly, but sometimes an O/RM can mask the problem, if it implicitly fetches child records one at a time. This is known as the "N+1 problem".
+This example shows the problem explicitly, but sometimes an O/RM can mask the problem, if it implicitly fetches child records one at a time. This is known as the *N+1 problem*.
 
 ### Implementing a single logical operation as a series of HTTP requests
 
@@ -217,7 +217,7 @@ await SaveCustomerListToFileAsync(customers);
 
 - When writing data, avoid locking resources for longer than necessary, to reduce the chances of contention during a lengthy operation. If a write operation spans multiple data stores, files, or services, then adopt an eventually consistent approach. See [Data Consistency guidance][data-consistency-guidance].
 
-- If you buffer data in memory before writing it, the data is vulnerable if the process crashes. If the data rate typically has bursts or is relatively sparse, it may be safer to buffer the data in an external durable queue such as [Event Hubs](https://azure.microsoft.com/services/event-hubs).
+- If you buffer data in memory before writing it, the data is vulnerable if the process crashes. If the data rate typically has bursts or is relatively sparse, it might be safer to buffer the data in an external durable queue such as [Event Hubs](https://azure.microsoft.com/services/event-hubs).
 
 - Consider caching data that you retrieve from a service or a database. This can help to reduce the volume of I/O by avoiding repeated requests for the same data. For more information, see [Caching best practices][caching-guidance].
 
@@ -225,10 +225,10 @@ await SaveCustomerListToFileAsync(customers);
 
 Symptoms of chatty I/O include high latency and low throughput. End users are likely to report extended response times or failures caused by services timing out, due to increased contention for I/O resources.
 
-You can perform the following steps to help identify the causes of any problems:
+You can do the following steps to help identify the causes of any problems:
 
-1. Perform process monitoring of the production system to identify operations with poor response times.
-2. Perform load testing of each operation identified in the previous step.
+1. Monitor the production system to identify operations with poor response times.
+2. Run load testing of each operation identified in the previous step.
 3. During the load tests, gather telemetry data about the data access requests made by each operation.
 4. Gather detailed statistics for each request sent to a data store.
 5. Profile the application in the test environment to establish where possible I/O bottlenecks might be occurring.
@@ -246,7 +246,7 @@ The following sections apply these steps to the example shown earlier that queri
 
 ### Load test the application
 
-This graph shows the results of load testing. Median response time is measured in tens of seconds per request. The graph shows very high latency. With a load of 1000 users, a user might have to wait for nearly a minute to see the results of a query.
+This graph shows the results of load testing. Median response time is measured in tens of seconds per request. The graph shows high latency. With a load of 1,000 users, a user might have to wait for nearly a minute to see the results of a query.
 
 ![Key indicators load-test results for the chatty I/O sample application][key-indicators-chatty-io]
 
@@ -286,7 +286,7 @@ Rewriting the call to Entity Framework produced the following results.
 
 ![Key indicators load test results for the chunky API in the chatty I/O sample application][key-indicators-chunky-io]
 
-This load test was performed on the same deployment, using the same load profile. This time the graph shows much lower latency. The average request time at 1000 users is between 5 and 6 seconds, down from nearly a minute.
+This load test was performed on the same deployment, using the same load profile. This time the graph shows much lower latency. The average request time at 1,000 users is between 5 and 6 seconds, down from nearly a minute.
 
 This time the system supported an average of 3,970 requests per minute, compared to 410 for the earlier test.
 

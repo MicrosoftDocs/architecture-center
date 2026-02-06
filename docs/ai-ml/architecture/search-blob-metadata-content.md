@@ -29,7 +29,7 @@ This article uses an example workload to demonstrate how to create a single [sea
 
 This scenario uses [indexers in Azure AI Search](/azure/search/search-indexer-overview) to automatically discover new content in supported data sources, like blob and table storage, and then add it to the search index. Alternatively, you can use the APIs provided by Azure AI Search to [push data to the search index](/azure/search/search-what-is-data-import#pushing-data-to-an-index). If you do, however, you need to write code to push the data into the search index and also to parse and extract text from the binary documents that you want to search. The [Blob Storage indexer supports many document formats](/azure/search/search-howto-indexing-azure-blob-storage#supported-document-formats), which significantly simplifies the text extraction and indexing process.
 
-Also, if you use indexers, you can optionally [enrich the data as part of an indexing pipeline](/azure/search/cognitive-search-concept-intro). For example, you can use Azure AI services to perform [optical character recognition (OCR)](/azure/search/cognitive-search-skill-ocr) or [visual analysis](/azure/search/cognitive-search-skill-image-analysis) of the images in documents, [detect the language](/azure/search/cognitive-search-skill-language-detection) of documents, or [translate](/azure/search/cognitive-search-skill-text-translation) documents. You can also define your own [custom skills](/azure/search/cognitive-search-create-custom-skill-example) to enrich the data in ways that are relevant to your business scenario.
+Also, if you use indexers, you can optionally [enrich the data as part of an indexing pipeline](/azure/search/cognitive-search-concept-intro). For example, you can use Azure AI services to run [optical character recognition (OCR)](/azure/search/cognitive-search-skill-ocr) or [visual analysis](/azure/search/cognitive-search-skill-image-analysis) of the images in documents, [detect the language](/azure/search/cognitive-search-skill-language-detection) of documents, or [translate](/azure/search/cognitive-search-skill-text-translation) documents. You can also define your own [custom skills](/azure/search/cognitive-search-create-custom-skill-example) to enrich the data in ways that are relevant to your business scenario.
 
 This architecture uses blob and table storage because they're cost-effective and efficient. This design also enables combined storage of the documents and metadata in a single storage account. Alternative supported data sources for the documents themselves include [Azure Data Lake Storage](/azure/search/search-howto-index-azure-data-lake-storage) and [Azure Files](/azure/search/search-file-storage-integration). Document metadata can be stored in any other supported data source that holds structured data, like [Azure SQL Database](/azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers) and [Azure Cosmos DB](/azure/search/search-howto-index-cosmosdb).
 
@@ -51,7 +51,7 @@ To overcome this storage limitation, you can place additional metadata in anothe
 
 ### Using multiple data sources for a single search index
 
-To ensure that both indexers point to the same document in the search index, the [document key in the search index](/azure/search/search-what-is-an-index#field-attributes) is set to a unique identifier of the file. This unique identifier is then used to refer to the file in both data sources. The blob indexer uses the `metadata_storage_path` as the [document key, by default](/azure/search/search-howto-indexing-azure-blob-storage#add-search-fields-to-an-index). The `metadata_storage_path` property stores the full URL of the file in Blob Storage, for example, `https://contoso.blob.core.windows.net/files/paper/Resilience in Azure.pdf`. The indexer performs Base64 encoding on the value to ensure that there are no invalid characters in the document key. The result is a unique document key, like `aHR0cHM6...mUucGRm0`.
+To ensure that both indexers point to the same document in the search index, the [document key in the search index](/azure/search/search-what-is-an-index#field-attributes) is set to a unique identifier of the file. This unique identifier is then used to refer to the file in both data sources. The blob indexer uses the `metadata_storage_path` as the [document key, by default](/azure/search/search-howto-indexing-azure-blob-storage#add-search-fields-to-an-index). The `metadata_storage_path` property stores the full URL of the file in Blob Storage, for example, `https://contoso.blob.core.windows.net/files/paper/Resilience in Azure.pdf`. The indexer runs Base64 encoding on the value to ensure that there are no invalid characters in the document key. The result is a unique document key, like `aHR0cHM6...mUucGRm0`.
 
 If you add the `metadata_storage_path` as a column in Table Storage, you know exactly which blob the metadata in the other columns belongs to, so you can use any `PartitionKey` and `RowKey` value in the table. For example, you could use the blob container name as the `PartitionKey` and the Base64-encoded full URL of the blob as the `RowKey`, ensuring that there are no [invalid characters in these keys](/rest/api/storageservices/understanding-the-table-service-data-model#characters-disallowed-in-key-fields) either.
 
@@ -94,7 +94,7 @@ Cost Optimization is about reducing unnecessary expenses and improving operation
 
 For information about the costs of running this scenario, see this preconfigured [estimate in the Azure pricing calculator](https://azure.com/e/375d2b930db14fbe90537421331f41de). All the services described here are configured in this estimate. The estimate is for a workload that has a total document size of 20 GB in Blob Storage and 1 GB of metadata in Table Storage. Two search units are used to satisfy the SLA for read purposes, as described in the [Reliability](#reliability) section of this article. To see how the pricing would change for your particular use case, change the appropriate variables to match your expected usage.
 
-If you review the estimate, you can see that the cost of blob and table storage is relatively low. Most of the cost is incurred by Azure AI Search, because it performs the actual indexing and compute for running search queries.
+If you review the estimate, you can see that the cost of blob and table storage is relatively low. Azure AI Search incurs most of the cost because it handles the indexing and the compute required to run search queries.
 
 ## Deploy this scenario
 
@@ -113,10 +113,6 @@ To deploy this example workload, see [Indexing file contents and metadata in Azu
 Principal author:
 
 - [Jelle Druyts](https://www.linkedin.com/in/jelle-druyts-0b76823) | Principal Customer Experience Engineer
-
-Other contributor:
-
-- [Mick Alberts](https://www.linkedin.com/in/jelle-druyts-0b76823) | Technical Writer
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

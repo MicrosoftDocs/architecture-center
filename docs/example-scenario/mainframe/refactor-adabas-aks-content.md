@@ -36,7 +36,7 @@ This diagram shows how you can migrate the legacy architecture to Azure by using
 
 ### Workflow
 
-1. **Input.** Input typically occurs either via Azure ExpressRoute from remote clients or via other applications currently running Azure. In either case, TCP/IP connections are the primary means of connection to the system. TLS port 443 provides access to web-based applications. You can leave the web-based applications presentation layer virtually unchanged to minimize user retraining. Alternatively, you can update this layer with modern UX frameworks per your requirements. For admin access to the VMs, you can use Azure Bastion hosts to maximize security by minimizing open ports.
+1. **Input.** Input typically occurs either via Azure ExpressRoute from remote clients or via other applications currently running Azure. In either case, TCP/IP connections are the primary means of connection to the system. TLS port 443 provides access to web-based applications. You can keep the web-based applications presentation layer with minimal changes to reduce user retraining. Alternatively, you can update this layer with modern UX frameworks per your requirements. For admin access to the VMs, you can use Azure Bastion hosts to maximize security by minimizing open ports.
 
 1. **Access in Azure.** In Azure, access to the application compute clusters is provided via an Azure load balancer. This approach allows scale-out compute resources to process the input work. You can use either level 7 (application level) or level 4 (network protocol level) load balancers. However, the type of load balancer that you use depends on how the application input reaches the entry point of the compute cluster. We recommend that you use Azure Application Gateway with web application firewall capabilities for layer 7 traffic.
 
@@ -58,7 +58,7 @@ This diagram shows how you can migrate the legacy architecture to Azure by using
 
 - [AKS](/azure/well-architected/service-guides/azure-kubernetes-service) is a fully managed Kubernetes service for deploying and managing containerized applications. AKS provides serverless Kubernetes, integrated continuous integration and continuous delivery (CI/CD), and enterprise-grade security and governance. In this scenario, Adabas & Natural containers are deployed in AKS.
 
-- [Azure managed disks](/azure/virtual-machines/managed-disks-overview) are block-level storage volumes that are managed by Azure and used with Azure Virtual Machines. Various types are available: ultra disks, premium SSD, standard SSD, and standard HDD. SSD disks are used in this architecture. In this scenario, all operating system volumes are stored in Azure managed disks.
+- [Azure managed disks](/azure/virtual-machines/managed-disks-overview) are block-level storage volumes that Azure manages and you use with Azure Virtual Machines (VMs). Various types are available: ultra disks, premium SSD, standard SSD, and standard HDD. SSD disks are used in this architecture. In this scenario, all operating system volumes are stored in Azure managed disks.
 
 - [Azure NetApp Files](/azure/well-architected/service-guides/azure-netapp-files) provides enterprise-grade Azure file shares powered by NetApp. Azure NetApp Files makes it easy to migrate and run complex, file-based applications without changing code. In this scenario, all persistent data, like database files, protection logs, application data, and backup files, use Azure NetApp Files.
 
@@ -158,7 +158,7 @@ Here are some additional resources:
 - [Azure Kubernetes Service](/azure/aks/intro-kubernetes)
 - [Azure NetApp Files documentation](/azure/azure-netapp-files)
 - [Mainframe rehosting on Azure virtual machines](/azure/virtual-machines/workloads/mainframe-rehosting/overview)
-- [Move mainframe compute to Azure Virtual Machines](/azure/virtual-machines/workloads/mainframe-rehosting/concepts/mainframe-compute-azure)
+- [Move mainframe compute to Azure VMs](/azure/virtual-machines/workloads/mainframe-rehosting/concepts/mainframe-compute-azure)
 
 ## Related resources
 

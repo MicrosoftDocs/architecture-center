@@ -5,7 +5,7 @@ ms.author: pnp
 author: claytonsiemens77
 ms.date: 02/05/2025
 ms.topic: design-pattern
-ms.subservice: design-pattern
+ms.subservice: cloud-fundamentals
 ---
 
 # Circuit Breaker pattern
@@ -98,7 +98,7 @@ Consider the following factors when you implement this pattern:
   > [!NOTE]
   > A service can return HTTP 429 (too many requests) if it's throttling the client or HTTP 503 (service unavailable) if the service isn't available. The response can include other information, such as the anticipated duration of the delay.
 
-- **Failed request replay:** In the **Open** state, rather than simply failing quickly, a circuit breaker can also record the details of each request to a journal and arrange for these requests to be replayed when the remote resource or service becomes available.
+- **Failed request replay:** In the **Open** state, rather than failing immediately, a circuit breaker can record the details of each request in a journal and arrange for these requests to be replayed when the remote resource or service becomes available.
 
 - **Inappropriate time-outs on external services:** A circuit breaker might not fully protect applications from failures in external services that have long time-out periods. If the time-out is too long, a thread that runs a circuit breaker might be blocked for an extended period before the circuit breaker indicates that the operation failed. During this time, many other application instances might also try to invoke the service through the circuit breaker and tie up numerous threads before they all fail.
 

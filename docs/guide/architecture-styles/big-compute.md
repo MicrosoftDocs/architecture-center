@@ -4,7 +4,7 @@ description: Understand the benefits, challenges, and best practices of the Big 
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 07/26/2022
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: fcp
 ---

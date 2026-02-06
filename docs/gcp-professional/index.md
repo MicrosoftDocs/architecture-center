@@ -1,10 +1,10 @@
 ---
 title: Azure for Google Cloud professionals
 description: Learn the basics of Microsoft Azure accounts, platform, and services, and key similarities and differences between the Google Cloud and Azure platforms.
-author: ZacharyRiffle
+author: JediRiff
 ms.author: zriffle
 ms.date: 07/11/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: cloud-fundamentals
 ms.collection: 
  - migration
@@ -13,7 +13,10 @@ ms.collection:
 
 # Azure for Google Cloud Professionals
 
-This article helps Google Cloud experts understand the basics of Microsoft Azure accounts, platform, and services. It also covers key similarities and differences between the Google Cloud and Azure platforms. (Note that Google Cloud was previously called Google Cloud Platform (GCP).)
+This article helps Google Cloud experts understand the basics of Microsoft Azure accounts, platform, and services. It also covers key similarities and differences between the Google Cloud and Azure platforms. 
+
+> [!NOTE]
+> Google Cloud was previously known as *Google Cloud Platform (GCP)*.
 
 You'll learn:
 
@@ -27,7 +30,7 @@ Azure and Google Cloud built their capabilities independently over time so that 
 
 Like Google Cloud, Microsoft Azure is built around a core set of compute, storage, database, and networking services. In many cases, both platforms offer a basic equivalence between the products and services they offer. Both Google Cloud and Azure allow you to build highly available solutions based on Linux or Windows hosts. So, if you're used to development using Linux and OSS technology, both platforms can do the job.
 
-While the capabilities of both platforms are similar, the resources that provide those capabilities are often organized differently. Exact one-to-one relationships between the services required to build a solution are not always clear. In other cases, a particular service might be offered on one platform, but not the other.
+While the capabilities of both platforms are similar, the resources that provide those capabilities are often organized differently. Exact one-to-one relationships between the services required to build a solution aren't always clear. In other cases, a particular service might be offered on one platform, but not the other.
 
 ## Managing accounts and subscription
 
@@ -42,23 +45,23 @@ Azure levels of management scope
 - **Resource groups:** A resource group is a logical container into which Azure resources like web apps, databases, and storage accounts are deployed and managed.
 - **Resources:** Resources are instances of services that you create, like virtual machines, storage, or SQL databases.
 
-Azure services can be purchased using several pricing options, depending on your organization's size and needs. See the [pricing overview](https://azure.microsoft.com/pricing) page for details.
+Azure services can be purchased using several pricing options, depending on your organization's size and needs. For more information, see the [pricing overview](https://azure.microsoft.com/pricing) page.
 
 [Azure subscriptions](/azure/virtual-machines/linux/infrastructure-example) are a grouping of resources with an assigned owner responsible for billing and permissions management.
 
 A Google Cloud *project* is conceptually similar to the Azure subscription, in terms of billing, quotas, and limits. However, from a functional perspective, a Google Cloud project is more like a resource group in Azure. It's a logical unit that cloud resources are deployed to.
 
-Note that unlike in Google Cloud, there is no maximum number of Azure subscriptions. Each Azure subscription is linked to a single Microsoft Entra tenant (an *account*, in Google Cloud terms). A Microsoft Entra tenant can contain an unlimited number of subscriptions, whereas Google Cloud has a default limit of 30 projects per account.
+Unlike in Google Cloud, there's no maximum number of Azure subscriptions. Each Azure subscription is linked to a single Microsoft Entra tenant (an *account*, in Google Cloud terms). A Microsoft Entra tenant can contain an unlimited number of subscriptions, whereas Google Cloud has a default limit of 30 projects per account.
 
 Subscriptions are assigned three types of administrator accounts:
 
 - **Account Administrator**. The subscription owner and the account billed for the resources used in the subscription. The account administrator can only be changed by transferring ownership of the subscription.
-- **Service Administrator**. This account has rights to create and manage resources in the subscription but is not responsible for billing. By default, the account administrator and service administrator are assigned to the same account. The account administrator can assign a separate user to the service administrator account for managing the technical and operational aspects of a subscription. Only one service administrator is assigned per subscription.
+- **Service Administrator**. This account has rights to create and manage resources in the subscription but isn't responsible for billing. By default, the account administrator and service administrator are assigned to the same account. The account administrator can assign a separate user to the service administrator account for managing the technical and operational aspects of a subscription. Only one service administrator is assigned per subscription.
 - **Co-administrator**. There can be multiple co-administrator accounts assigned to a subscription. Co-administrators cannot change the service administrator, but otherwise have full control over subscription resources and users.
 
 For fine-grained access management to Azure resources, you can use Azure role-based access control ([Azure RBAC](/azure/role-based-access-control/rbac-and-directory-admin-roles)), which includes over 70 built-in roles. You can also create your own custom roles.
 
-Below the subscription level user roles and individual permissions can also be assigned to specific resources. In Azure, all user accounts are associated with either a Microsoft Account or Organizational Account (an account managed through Microsoft Entra ID).
+Beneath the subscription level, you can assign user roles and individual permissions to specific resources. In Azure, all user accounts are associated with either a Microsoft Account or Organizational Account (an account managed through Microsoft Entra ID).
 
 Subscriptions have default service quotas and limits. For a full list of these limits, see [Azure subscription and service limits, quotas, and constraints](/azure/azure-subscription-service-limits). These limits can be increased up to the maximum by [filing a support request in the management portal](/archive/blogs/girishp/increasing-core-quota-limits-in-azure).
 
@@ -100,7 +103,7 @@ In addition, many third-party management tools like [Hashicorp's Terraform](http
 
 ## Regions and Availability Zones
 
-Failures can vary in the scope of their impact. Some hardware failures, such as a failed disk, may affect a single host machine. A failed network switch could affect a whole server rack. Less common are failures that disrupt a whole datacenter, such as loss of power in a datacenter. In rare situations, an entire region could become unavailable.
+Failures can vary in the scope of their impact. Some hardware failures, such as a failed disk, might affect a single host machine. A failed network switch could affect a whole server rack. Less common are failures that disrupt a whole datacenter, such as loss of power in a datacenter. In rare situations, an entire region could become unavailable.
 
 One of the main ways to make an application resilient is through redundancy. However, you need to plan for this redundancy when you design the application. Also, the level of redundancy that you need depends on your business requirements. Not every application needs redundancy across regions to guard against a regional outage. In general, a tradeoff exists between greater redundancy and reliability versus higher cost and complexity.
 
@@ -141,7 +144,7 @@ For more information, see - [Recommendations for using availability zones and re
 
 To protect an application against a regional outage, you can deploy the application across multiple regions, using [Azure Traffic Manager](/azure/traffic-manager) to distribute internet traffic to the different regions. Each Azure region is paired with another region. Together, these form a [regional pair](/azure/best-practices-availability-paired-regions). With the exception of Brazil South, regional pairs are located within the same geography in order to meet data residency requirements for tax and law enforcement jurisdiction purposes.
 
-Unlike Availability Zones, which are physically separate datacenters but may be in relatively nearby geographic areas, paired regions are typically separated by at least 300 miles. This design ensures that large-scale disasters only affect one of the regions in the pair. Neighboring pairs can be set to sync database and storage service data, and are configured so that platform updates are rolled out to only one region in the pair at a time.
+Unlike Availability Zones, which are physically separate datacenters but might be in relatively nearby geographic areas, paired regions are typically separated by at least 300 miles. This design ensures that large-scale disasters only affect one of the regions in the pair. Neighboring pairs can be set to sync database and storage service data, and are configured so that platform updates are rolled out to only one region in the pair at a time.
 
 Azure [geo-redundant storage](/azure/storage/common/storage-redundancy-grs) is automatically backed up to the appropriate paired region. For all other resources, creating a fully redundant solution using paired regions means creating a full copy of your solution in both regions.
 
@@ -161,7 +164,7 @@ Region Pairs in Azure
 
 For a listing of how services map between platforms, see [Google Cloud to Azure services](./services.md) comparison.
 
-Not all Azure products and services are available in all regions. Consult the [Products by Region](https://azure.microsoft.com/global-infrastructure/services) page for details. You can find the uptime guarantees and downtime credit policies for each Azure product or service on the [Service Level Agreements](https://azure.microsoft.com/support/legal/sla) page.
+Not all Azure products and services are available in all regions. For more information, see [Products by region](https://azure.microsoft.com/global-infrastructure/services). You can find the uptime guarantees and downtime credit policies for each Azure product or service on the [Service Level Agreements](https://azure.microsoft.com/support/legal/sla) page.
 
 ## Next steps
 

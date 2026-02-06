@@ -1,4 +1,4 @@
-This article describes how to extract insights from customer conversations at a call center by using Azure AI services and Azure OpenAI Service. Use these services to improve your customer interactions and satisfaction by analyzing call intent and sentiment, extracting key entities, and summarizing call content.
+This article describes how to extract insights from customer conversations at a call center by using Azure AI services and Azure OpenAI in Foundry Models. Use these services to improve your customer interactions and satisfaction by analyzing call intent and sentiment, extracting key entities, and summarizing call content.
 
 ## Architecture
 
@@ -23,7 +23,7 @@ This article describes how to extract insights from customer conversations at a 
 
    1. Pass the raw data to the Azure AI Language service to [detect and redact personal data](/azure/ai-services/language-service/personally-identifiable-information/how-to-call-for-conversations) in the transcript.
 
-   1. Send the redacted data to the Azure OpenAI service to perform various post call analytics like understand the intent and sentiment of the call, extract entities, or [summarize the conversation](/azure/ai-services/openai/quickstart#try-text-summarization) to evaluate the effectiveness of the call.
+   1. Send the redacted data to Azure OpenAI to perform various post call analytics like understand the intent and sentiment of the call, extract entities, or [summarize the conversation](/azure/ai-services/openai/quickstart#try-text-summarization) to evaluate the effectiveness of the call.
 
    1. Store the processed output in Azure Storage for visualization or consumption by downstream applications for further processing.
 
@@ -37,7 +37,7 @@ This article describes how to extract insights from customer conversations at a 
 
 - [Azure AI Speech](/azure/ai-services/speech-service/overview) is an AI-based API that provides speech capabilities like speech-to-text, text-to-speech, speech translation, and speaker recognition. This architecture uses the Azure AI Speech batch transcription functionality.
 
-- [Azure AI Language](/azure/ai-services/language-service/overview) consolidates the Azure natural-language processing services. For information about prebuilt and customizable options, see [Azure AI Language available features](/azure/ai-services/language-service/overview#available-features).
+- [Azure AI Language](/azure/ai-services/language-service/overview) consolidates the Azure natural-language processing services. For more information about prebuilt and customizable options, see [Azure AI Language available features](/azure/ai-services/language-service/overview#available-features).
 
 - [Language Studio](/azure/ai-services/language-service/language-studio) provides a UI for exploring and analyzing AI services for language features. Language Studio provides options for building, tagging, training, and deploying custom models.
 
@@ -52,7 +52,7 @@ Depending on your scenario, you can add the following workflows.
 
 ## Scenario details
 
-This solution uses Azure AI Speech to Text to convert call-center audio into written text. Azure AI Language redacts sensitive information in the conversation transcription. Azure OpenAI extracts insights from customer conversation to improve call center efficiency and customer satisfaction. Use this solution to process transcribed text, recognize and remove sensitive information, and perform analytics on the extractions like reason for the call, resolution provided or not, sentiment of the call, listing product /service offering based on the number of queries/customer complaints, and so on. Scale the services and the pipeline to accommodate any volume of recorded data.
+This solution uses Azure AI Speech to Text to convert call-center audio into written text. Azure AI Language redacts sensitive information in the conversation transcription. Azure OpenAI extracts insights from customer conversation to improve call center efficiency and customer satisfaction. Use this solution to process transcribed text, recognize and remove sensitive information, and perform analytics on the extractions like reason for the call, resolution provided or not, sentiment of the call, and listing product /service offering based on the number of queries/customer complaints. Scale the services and the pipeline to accommodate any volume of recorded data.
 
 ### Potential use cases
 

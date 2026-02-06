@@ -4,7 +4,7 @@ description: Review storage technology differences between Azure and AWS. Compar
 author: splitfinity81
 ms.author: yubaijna
 ms.date: 11/13/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: cloud-fundamentals
 ms.collection: 
  - migration
@@ -50,7 +50,7 @@ With Azure Blob Storage, a layered approach is used. The Azure Storage firewall 
 
 In Amazon S3, it's common to use [pre-signed URLs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-presigned-url.html) to give time-limited permission access. In Azure Blob storage, you can achieve a similar result by using a [shared access signature](/azure/storage/common/storage-sas-overview).
 
-## Regional redunandacy and replication for object storage
+## Regional redundancy and replication for object storage
 
 Organizations often want to protect their storage objects by using redundant copies. In both AWS and Azure, data is replicated in a particular region. On Azure, you control how data is replicated by using locally redundant storage (LRS) or zone-redundant storage (ZRS). If you use LRS, copies are stored in the same datacenter for cost or compliance reasons. ZRS is similar to AWS replication: it replicates data across availability zones within a region.
 
@@ -65,7 +65,7 @@ Both platforms provide different types of disks to meet particular performance n
 | gp2/gp3 |  Standard SSD | Web servers and lightly used application servers or dev/test environments | Yes |
 | gp2 |  Premium SSD | Production and performance-sensitive workloads | Yes |
 | gp3 |  Premium SSD v2 | Performance-sensitive workloads or workloads that require high IOPS and low latency | No |
-| io2 |  Ultra Disk Storage | IO-intensive workloads, performance-demanding databases, and very high transaction workloads that demand high throughput and IOPS | No |
+| io2 |  Ultra Disk Storage | IO-intensive workloads, performance-demanding databases, and high-transaction workloads that require high throughput and IOPS | No |
 
 On Azure, you can configure many VM types for host caching. When host caching is enabled, cache storage is made available to the VM and can be configured for read-only or read/write mode. For some workloads, the cache can improve storage performance.
 
@@ -88,7 +88,7 @@ On Azure, you can configure many VM types for host caching. When host caching is
 
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
-| [Elastic File System](https://aws.amazon.com/efs/) | [Files](https://azure.microsoft.com/services/storage/files/) | Provides a simple interface for creating and configuring file systems quickly and sharing common files. Supports NFS protocol for connectivity. |
+| [Elastic File System](https://aws.amazon.com/efs/) | [Files](https://azure.microsoft.com/services/storage/files/) | Provides a basic interface for creating and configuring file systems quickly and sharing common files. Supports NFS protocol for connectivity. |
 | [Amazon FSx for Windows File Server](https://aws.amazon.com/fsx/windows/) | [Files](https://azure.microsoft.com/services/storage/files/) | Provides a managed SMB file share that can work with Active Directory for access control. Azure Files can also natively integrate with Microsoft Entra ID. |
 | [Amazon FSx for Lustre](https://aws.amazon.com/fsx/lustre/) | [Azure Managed Lustre](https://azure.microsoft.com/products/managed-lustre/) | Provides a managed Lustre file system that integrates with object storage. Primary use cases include HPC, machine learning, and analytics. |
 | [Amazon FSx for NetApp ONTAP](https://aws.amazon.com/fsx/netapp-ontap/) | [Azure NetApp Files](https://azure.microsoft.com/products/netapp/) | Provides managed NetApp capabilities in the cloud. Includes dual-protocol high-performance file storage. |

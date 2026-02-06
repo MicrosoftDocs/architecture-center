@@ -7,7 +7,7 @@ This solution migrates Unisys Dorado mainframe systems to Azure with Astadia and
 This diagram shows the components that Unisys Sperry OS 1100/2200 mainframe systems typically contain:
 
 :::image type="complex" source="./media/migrate-unisys-dorado-mainframe-apps-original-architecture.svg" alt-text="Architecture diagram showing the components that make up a Unisys Dorado mainframe system. Examples include users, middleware, servers, and data storage." lightbox="./media/migrate-unisys-dorado-mainframe-apps-original-architecture.svg" border="false":::
-   The main part of the diagram is a box that contains several smaller boxes. Those boxes represent communications standards, application servers, data storage, middleware, monitoring components, an operating system, and a printer system. Above the box, icons represent users. Arrows connect the users with the communications box. Below the box, icons represent printers. Arrows connect the printers with the printer system box. Letter labels link parts of the diagram with the description in the document.
+   The main part of the diagram is a box that contains several smaller boxes. Those boxes represent communications standards, application servers, data storage, middleware, monitoring components, an operating system, and a printer system. Above the box, icons represent users. Arrows connect the users with the communications box. Underneath the box, icons represent printers. Arrows connect the printers with the printer system box. Letter labels link parts of the diagram with the description in the document.
 :::image-end:::
 
 *Download a [Visio file][Visio version of Sperry architecture diagram] of this architecture.*
@@ -270,7 +270,7 @@ Principal author:
 
 ## Next steps
 
-- Contact [legacy2azure@microsoft.com][Email address for information on migrating legacy systems to Azure] for more information.
+- For more information, contact [legacy2azure@microsoft.com][Email address for information on migrating legacy systems to Azure].
 - See the [Azure Friday tech talk with Astadia on mainframe modernization][Azure is the new mainframe].
 
 ## Related resources
@@ -283,7 +283,6 @@ Principal author:
   - [Unisys mainframe migration to Azure using Avanade AMT][Unisys mainframe migration]
   - [Micro Focus Enterprise Server on Azure VMs][Micro Focus Enterprise Server on Azure VMs]
   - [Modernize mainframe & midrange data][Modernize mainframe & midrange data]
-  - [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame][Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame]
 
 [About Site Recovery]: /azure/site-recovery/site-recovery-overview
 [Astadia]: https://www.astadia.com/
@@ -313,7 +312,6 @@ Principal author:
 [Micro Focus]: https://www.microfocus.com/home
 [Micro Focus Enterprise Server on Azure VMs]: ./micro-focus-server.yml
 [Microsoft Azure Well-Architected Framework]: /azure/architecture/framework/index
-[Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame]: ../../solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml
 [Modernize mainframe & midrange data]: /azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure
 [Network security groups]: /azure/virtual-network/network-security-groups-overview
 [Overview of the performance efficiency pillar]: /azure/architecture/framework/scalability/overview

@@ -65,7 +65,7 @@ TIC 3.0 moves TIC from on-premises data collection to a cloud-based approach tha
 
 Routing application traffic through a firewall and logging that traffic is the core functionality demonstrated in the solutions presented here. The firewall can be Azure Firewall, Azure Front Door with Web Application Firewall, Application Gateway with Web Application Firewall, or a third-party NVA. The firewall helps to secure the cloud perimeter and saves logs of each transaction. Independently of the firewall layer, the log collection and delivery solution requires a Log Analytics workspace, a registered application, and an event hub. The Log Analytics workspace sends logs to the event hub.  
 
-CLAW is a CISA managed service. In late 2022, CISA released TALON. TALON is a CISA managed service that uses Azure native capabilities. An instance of TALON runs in each Azure region. TALON connects to event hubs that are managed by government agencies to pull agency firewall and  Microsoft Entra logs into CISA CLAW.
+CLAW is a CISA managed service. In late 2022, CISA released TALON. TALON is a CISA managed service that uses Azure native capabilities. An instance of TALON runs in each Azure region. TALON connects to event hubs that government agencies manage for pulling agency firewall and Microsoft Entra logs into CISA CLAW.
 
 For more information on CLAW, TIC 3.0, and MTIPS, see:
 
@@ -219,10 +219,6 @@ You need to manually perform the following tasks after deployment. You can't com
 Principal author:
 
  * [Paul Lizer](https://www.linkedin.com/in/paullizer) | Senior Cloud Solution Architect
-
-Other contributor:
-
-* [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414/) | Technical Writer
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

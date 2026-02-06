@@ -16,7 +16,7 @@ keywords:
 
 # Improper Instantiation antipattern
 
-Sometimes new instances of a class are continually created, when it is meant to be created once and then shared. This behavior can hurt performance, and is called an *improper instantiation antipattern*. An antipattern is a common response to a recurring problem that is usually ineffective and may even be counter-productive.
+Sometimes new instances of a class are continually created, when it's meant to be created once and then shared. This behavior can hurt performance and is called an *improper instantiation antipattern*. An antipattern is a common response to a recurring problem that is usually ineffective and might be counter-productive.
 
 ## Problem description
 
@@ -25,9 +25,9 @@ Many libraries provide abstractions of external resources. Internally, these cla
 - `System.Net.Http.HttpClient`. Communicates with a web service using HTTP.
 - `Microsoft.ServiceBus.Messaging.QueueClient`. Posts and receives messages to a Service Bus queue.
 - `Microsoft.Azure.Documents.Client.DocumentClient`. Connects to an Azure Cosmos DB instance.
-- `StackExchange.Redis.ConnectionMultiplexer`. Connects to Redis, including Azure Cache for Redis.
+- `StackExchange.Redis.ConnectionMultiplexer`. Connects to Redis, including Azure Managed Redis.
 
-These classes are intended to be instantiated once and reused throughout the lifetime of an application. However, it's a common misunderstanding that these classes should be acquired only as necessary and released quickly. (The ones listed here happen to be .NET libraries, but the pattern is not unique to .NET.) The following ASP.NET example creates an instance of `HttpClient` to communicate with a remote service.
+These classes are intended to be instantiated once and reused throughout the lifetime of an application. However, it's a common misunderstanding that these classes should be acquired only as necessary and released quickly. (The ones listed here happen to be .NET libraries, but the pattern isn't unique to .NET.) The following ASP.NET example creates an instance of `HttpClient` to communicate with a remote service.
 
 ```csharp
 public class NewHttpClientInstancePerRequestController : ApiController
@@ -45,9 +45,9 @@ public class NewHttpClientInstancePerRequestController : ApiController
 }
 ```
 
-In a web application, this technique is not scalable. A new `HttpClient` object is created for each user request. Under heavy load, the web server may exhaust the number of available sockets, resulting in `SocketException` errors.
+In a web application, this technique isn't scalable. A new `HttpClient` object is created for each user request. Under heavy load, the web server might exhaust the number of available sockets, resulting in `SocketException` errors.
 
-This problem is not restricted to the `HttpClient` class. Other classes that wrap resources or are expensive to create might cause similar issues. The following example creates an instance of the `ExpensiveToCreateService` class. Here the issue is not necessarily socket exhaustion, but simply how long it takes to create each instance. Continually creating and destroying instances of this class might adversely affect the scalability of the system.
+This problem isn't restricted to the `HttpClient` class. Other classes that wrap resources or are expensive to create might cause similar problems. The following example creates an instance of the `ExpensiveToCreateService` class. In this case, the problem isn't necessarily socket exhaustion, but rather how long it takes to create each instance. Continually creating and destroying instances of this class might adversely affect the scalability of the system.
 
 ```csharp
 public class NewServiceInstancePerRequestController : ApiController
@@ -98,27 +98,27 @@ public class SingleHttpClientInstanceController : ApiController
 
 ## Considerations
 
-- The key element of this antipattern is repeatedly creating and destroying instances of a *shareable* object. If a class is not shareable (not thread-safe), then this antipattern does not apply.
+- The key element of this antipattern is repeatedly creating and destroying instances of a *shareable* object. If a class isn't shareable (not thread-safe), then this antipattern doesn't apply.
 
 - The type of shared resource might dictate whether you should use a singleton or create a pool. The `HttpClient` class is designed to be shared rather than pooled. Other objects might support pooling, enabling the system to spread the workload across multiple instances.
 
-- Objects that you share across multiple requests *must* be thread-safe. The `HttpClient` class is designed to be used in this manner, but other classes might not support concurrent requests, so check the available documentation.
+- Objects that you share across multiple requests *must* be thread-safe. The `HttpClient` class is built for this usage pattern, but other classes might not support concurrent requests, so check the available documentation.
 
 - Be careful about setting properties on shared objects, as this can lead to race conditions. For example, setting `DefaultRequestHeaders` on the `HttpClient` class before each request can create a race condition. Set such properties once (for example, during startup), and create separate instances if you need to configure different settings.
 
-- Some resource types are scarce and should not be held onto. Database connections are an example. Holding an open database connection that is not required may prevent other concurrent users from gaining access to the database.
+- Some resource types are scarce and should not be held onto. Database connections are an example. Holding an open database connection that isn't required might prevent other concurrent users from gaining access to the database.
 
 - In the .NET Framework, many objects that establish connections to external resources are created by using static factory methods of other classes that manage these connections. These objects are intended to be saved and reused, rather than disposed and re-created. For example, in Azure Service Bus, the `QueueClient` object is created through a `MessagingFactory` object. Internally, the `MessagingFactory` manages connections. For more information, see [Best Practices for performance improvements using Service Bus Messaging][service-bus-messaging].
 
 ## How to detect improper instantiation antipattern
 
-Symptoms of this problem include a drop in throughput or an increased error rate, along with one or more of the following:
+Symptoms of this problem include a drop in throughput or an increased error rate, along with one or more of the following changes:
 
-- An increase in exceptions that indicate exhaustion of resources such as sockets, database connections, file handles, and so on.
+- An increase in exceptions that indicate exhaustion of resources such as sockets, database connections, and file handles.
 - Increased memory use and garbage collection.
 - An increase in network, disk, or database activity.
 
-You can perform the following steps to help identify this problem:
+You can do the following steps to help identify this problem:
 
 1. Performing process monitoring of the production system, to identify points when response times slow down or the system fails due to lack of resources.
 2. Examine the telemetry data captured at these points to determine which operations might be creating and destroying resource-consuming objects.
@@ -145,7 +145,7 @@ The next image shows data captured using thread profiling, over the same period 
 
 ### Performing load testing
 
-Use load testing to simulate the typical operations that users might perform. This can help to identify which parts of a system suffer from resource exhaustion under varying loads. Perform these tests in a controlled environment rather than the production system. The following graph shows the throughput of requests handled by the `NewHttpClientInstancePerRequest` controller as the user load increases to 100 concurrent users.
+Use load testing to simulate the typical operations that users might do. This can help to identify which parts of a system suffer from resource exhaustion under varying loads. Run these tests in a controlled environment rather than the production system. The following graph shows the throughput of requests handled by the `NewHttpClientInstancePerRequest` controller as the user load increases to 100 concurrent users.
 
 ![Throughput of the sample application creating a new instance of an HttpClient object for each request][throughput-new-HTTPClient-instance]
 
@@ -157,7 +157,7 @@ The next graph shows a similar test for a controller that creates the custom `Ex
 
 ![Throughput of the sample application creating a new instance of the ExpensiveToCreateService for each request][throughput-new-ExpensiveToCreateService-instance]
 
-This time, the controller does not generate any exceptions, but throughput still reaches a plateau, while the average response time increases by a factor of 20. (The graph uses a logarithmic scale for response time and throughput.) Telemetry showed that creating new instances of the `ExpensiveToCreateService` was the main cause of the problem.
+This time, the controller doesn't generate any exceptions, but throughput still reaches a plateau, while the average response time increases by a factor of 20. (The graph uses a logarithmic scale for response time and throughput.) Telemetry showed that creating new instances of the `ExpensiveToCreateService` was the main cause of the problem.
 
 ### Implement the solution and verify the result
 

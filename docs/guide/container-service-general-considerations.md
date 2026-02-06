@@ -4,7 +4,7 @@ description: Get a quick overview of common feature-level considerations that ca
 author: r-kayongo
 ms.author: rkayongo
 ms.date: 06/20/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-containers
 ---
@@ -225,7 +225,7 @@ Advanced Container Networking Services (ACNS) equips AKS with advanced networkin
 
 - **Container network security:**
 
-  For clusters that use Azure Container Networking Interface powered by Cilium, ACNS provides fully qualified domain name (FQDN) filtering. Instead of managing static, IP address-based security policies, you can define policies based on domain names. This dynamic approach simplifies policy management and also aligns with modern, Zero Trust security models. This approach makes it easier for you to enforce robust security without constant manual updates.
+  For clusters that use Azure Container Networking Interface powered by Cilium, ACNS provides fully qualified domain name (FQDN) filtering. Instead of managing static, IP address-based security policies, you can define policies based on domain names. This dynamic approach simplifies policy management and also aligns with modern, zero trust security models. This approach makes it easier for you to enforce robust security without constant manual updates.
 
 For more information, see the following resources:
 
@@ -305,7 +305,7 @@ AKS provides the most flexibility of the three options considered in this articl
 
 You're responsible for securing identity-based access to the API. Kubernetes provides its own authentication and authorization management system. This system needs to be secured with access controls.
 
-To take advantage of a single plane of glass for identity and access management on Azure, it's a best practice to [disable Kubernetes-specific local accounts](/azure/aks/manage-local-accounts-managed-azure-ad) and instead [implement AKS-managed Microsoft Entra integration](/azure/aks/enable-authentication-microsoft-entra-id) together with [Azure role-based access control for Kubernetes](/azure/aks/manage-azure-rbac). If you implement this best practice, administrators don't need to perform identity and access management on multiple platforms.
+To take advantage of a single plane of glass for identity and access management on Azure, it's a best practice to [disable Kubernetes-specific local accounts](/azure/aks/manage-local-accounts-managed-azure-ad) and instead [implement AKS-managed Microsoft Entra integration](/azure/aks/enable-authentication-microsoft-entra-id) together with [Azure role-based access control (Azure RBAC) for Kubernetes](/azure/aks/manage-azure-rbac). If you implement this best practice, administrators don't need to perform identity and access management on multiple platforms.
 
 | Kubernetes API access | Container Apps | AKS |
 |---|---|---|
@@ -323,7 +323,7 @@ There are consequences to implementing network-restricted access to the Kubernet
 |---|---|---|
 | Kubernetes API network security | Not configurable in PaaS | Configurable by using a public or private IP address |
 
-ACNS enhances data plane security in AKS. For clusters that use Azure Container Networking Interface powered by Cilium, ACNS introduces container network security through FQDN filtering. Instead of managing static, IP address-based security policies, you can define dynamic policies based on FQDNs. This approach simplifies policy management, reduces administrative overhead, and supports a Zero Trust model by ensuring that only traffic to trusted domains is allowed.
+ACNS enhances data plane security in AKS. For clusters that use Azure Container Networking Interface powered by Cilium, ACNS introduces container network security through FQDN filtering. Instead of managing static, IP address-based security policies, you can define dynamic policies based on FQDNs. This approach simplifies policy management, reduces administrative overhead, and supports a zero trust model by ensuring that only traffic to trusted domains is allowed.
 
 > [!NOTE]
 > ACNS security features require Kubernetes version 1.29 or later and are available only on clusters that use the Cilium data plane.
@@ -522,7 +522,7 @@ Instrumentation within application code is the responsibility of application dev
 
 ### Logs and metrics
 
-All Azure container services provide application and platform log and metric functionality. Application logs are console logs that your workload generates. Platform logs capture events that occur at the platform level, outside the scope of your application, like scaling and deployments. Metrics are numerical values that describe some aspect of a system at a point in time. Metrics allow you to monitor and alert on system performance and health.
+All Azure container services provide application and platform log and metric functionality. Application logs are console logs that your workload generates. Platform logs capture events that occur at the platform level, outside the scope of your application, like scaling and deployments. Metrics are numerical values that describe some aspect of a system at a point in time. Metrics help you monitor and alert on system performance and health.
 
 Azure Monitor is the key logging and metrics service in Azure that integrates with these services. Azure Monitor uses [resource logs](/azure/azure-monitor/essentials/resource-logs) to separate logs from different sources into categories and collects metrics to provide insights into resource performance. One way to determine which logs and metrics are available from each Azure service is to review the resource log categories and available metrics for each of the services.
 
@@ -591,7 +591,7 @@ Azure has availability zones in every country or region in which it operates a d
 |---|---|---|---|
 | Availability zone support | Full | Full | Full |
 
-For example, an application or infrastructure that's configured to run a single instance becomes unavailable if a problem occurs in the availability zone where the hardware is hosted. To fully use availability zone support, you should deploy workloads that have a minimum configuration of three instances of the container, spread across zones.
+For example, an application or infrastructure that's configured to run a single instance becomes unavailable if a problem occurs in the availability zone where the hardware is hosted. To take full advantage of availability zone support, deploy workloads that have at least three container instances distributed across zones.
 
 ### Health checks and self-healing
 
@@ -681,7 +681,7 @@ When you compare Azure container services, a clear theme emerges. AKS exposes th
 
 The amount of operational overhead and complexity varies widely for AKS workloads. Some teams significantly reduce overhead by using Microsoft-managed add-ons, extensions, and automatic-upgrade features. Other teams prefer full cluster control to take advantage of Kubernetes' full extensibility and the CNCF ecosystem. For example, while Microsoft provides Flux as a managed GitOps extension, many teams choose to set up and operate ArgoCD on their own.
 
-Workload teams that don't require CNCF applications, have less operations experience, or prefer to focus on application features might prefer a PaaS offering. We recommend that they first consider Container Apps.
+Workload teams that don't require CNCF applications, have less experience in operations, or prefer to focus on application features might prefer a PaaS offering. We recommend that they first consider Container Apps.
 
 Container Apps and Web App for Containers are both PaaS offerings that provide similar levels of Microsoft-managed infrastructure. However, Container Apps is closer to Kubernetes and provides extra cloud-native capabilities for service discovery, event-driven autoscaling, and [Dapr](https://dapr.io/) integration. Teams that don't need these features and are familiar with App Service networking and deployment models might prefer Web App for Containers.
 

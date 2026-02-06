@@ -1,16 +1,16 @@
 ### YamlMime:Architecture
 metadata:
-  title: Extract and analyze call center data by using Azure OpenAI Service, Speech services, and Language services
-  description: Learn how to extract insights from customer conversations at a call center by using Azure AI services and Azure OpenAI Service.
+  title: Extract and Analyze Call Center Data by Using Azure OpenAI in Foundry Models, Speech Services, and Language Services
+  description: Learn how to extract insights from customer conversations at a call center by using Azure AI services and Azure OpenAI in Foundry Models.
   author: DixitArora-MSFT
   ms.author: dixitaro
   ms.date: 09/16/2025
-  ms.topic: conceptual
+  ms.topic: concept-article
   ms.collection: ce-skilling-ai-copilot
   ms.subservice: example-scenario
   ms.custom:
-    - arb-aiml
     - arb-telco
+    - arb-aiml
 azureCategories:
   - analytics
   - ai-machine-learning
@@ -20,7 +20,7 @@ products:
   - ai-services
   - power-bi
 name: Extract and analyze call center data
-summary: Learn how to extract insights from customer conversations at a call center by using Azure AI services and Azure OpenAI Service.
+summary: Learn how to extract insights from customer conversations at a call center by using Azure AI services and Azure OpenAI in Foundry Models.
 thumbnailUrl: /azure/architecture/browse/thumbs/call-center-analytics.png
 content: |
    [!INCLUDE[](call-center-openai-analytics-content.md)]

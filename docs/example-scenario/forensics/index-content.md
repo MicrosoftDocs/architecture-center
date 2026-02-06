@@ -13,7 +13,7 @@ This scenario uses a hub-and-spoke network topology, which is shown in the follo
   This diagram shows the chain of custody architecture where production virtual machines reside in a spoke Azure virtual network. These machines have their disks encrypted by using Azure Disk Encryption, with BitLocker encryption keys stored in a production Azure Key Vault. A separate, secure Azure SOC subscription that's accessible only by the security operations center (SOC) team contains an Azure Storage account that holds disk snapshots in immutable blob storage. It also includes a dedicated Azure Key Vault that stores the hash values of the snapshots and copies of the VMs' encryption keys. When a request is made to capture digital evidence, a SOC team member logs in to the SOC subscription and uses an Azure Automation hybrid runbook worker VM to run the Copy-VmDigitalEvidence runbook. The runbook uses a system-assigned managed identity to access the target VM's resources and generates snapshots of its operating system and data disks. It transfers these snapshots to both the immutable blob storage and a temporary file share, computes their hash values, and stores the hash values and the VM's encryption key in the SOC key vault. Finally, it removes all temporary copies except for the immutable snapshot.
 :::image-end:::
 
-*Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/chain-of-custody.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/chain-of-custody.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -75,7 +75,7 @@ To isolate the virtual network that the VM uses, avoid connecting the virtual ne
 
 The hybrid runbook worker uses the [Automation system-assigned managed identity](/azure/automation/enable-managed-identity-for-automation) to access the target VM's resources and the other Azure services that the solution requires.
 
-The minimum role-based access control (RBAC) permissions required for a system-assigned managed identity are divided into two categories:
+The minimum Azure role-based access control (Azure RBAC) permissions required for a system-assigned managed identity are divided into two categories:
 
 - Access permissions to the SOC Azure architecture that contains the solution core components
 - Access permissions to the target architecture that contains the target VM resources
@@ -89,7 +89,7 @@ Access to the target architecture includes the following roles:
 
 - **Contributor** on the target VM's resource group, which provides snapshot rights on VM disks
 
-- **Key Vault Secrets Officer** on the target VM's key vault that's used to store the BEK, only if RBAC is used to control the Key Vault access
+- **Key Vault Secrets Officer** on the target VM's key vault that's used to store the BEK, only if Azure RBAC is used to control the Key Vault access
 
 - Access policy to **Get Secret** on the target VM's key vault that's used to store the BEK, only if the access policy is used to control the Key Vault access
 
@@ -167,7 +167,7 @@ It's Cohasset's opinion that Azure Storage, with the immutable storage feature o
 
 #### Least privilege
 
-When the roles of the SOC team are assigned, only two individuals in the team, known as SOC team custodians, should have rights to modify the [RBAC](/azure/role-based-access-control/overview) configuration of the subscription and its data. Grant other individuals only bare minimum access rights to data subsets that they need to perform their work.
+When the roles of the SOC team are assigned, only two individuals in the team, known as SOC team custodians, should have rights to modify the [Azure RBAC](/azure/role-based-access-control/overview) configuration of the subscription and its data. Grant other individuals only bare minimum access rights to data subsets that they need to perform their work.
 
 #### Least access
 

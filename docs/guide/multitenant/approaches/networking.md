@@ -5,7 +5,7 @@ author: johndowns
 ms.author: pnp
 ms.date: 07/17/2025
 ms.update-cycle: 1095-days
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-saas
 ---
@@ -58,7 +58,7 @@ Consider whether your tenants need to access your services through the internet 
 
 To secure your service for internet-based (public) access, use firewall rules, IP address allowlisting and denylisting, shared secrets and keys, and identity-based controls.
 
-To enable tenants to connect to your service by using private IP addresses, consider using [Azure Private Link service](#private-link-service) or [cross-tenant virtual network peering](/azure/virtual-network/create-peering-different-subscriptions). For some limited scenarios, you might also consider using Azure ExpressRoute or Azure VPN Gateway to enable private access to your solution. Typically, this approach only makes sense when you have a small number of tenants and when you deploy dedicated virtual networks for each tenant.
+To enable tenants to connect to your service by using private IP addresses, consider using [Azure Private Link service](#private-link-service) or [cross-tenant virtual network peering](/azure/virtual-network/create-peering-different-subscriptions). For some limited scenarios, you might also consider using Azure ExpressRoute or Azure VPN Gateway to enable private access to your solution. Typically, this approach only makes sense when you have few tenants and when you deploy dedicated virtual networks for each tenant.
 
 ### Access to tenants' endpoints
 
@@ -175,7 +175,7 @@ If your solution requires virtual networks, consider how you configure [network 
 
 ### Relying only on network-layer security controls
 
-In modern solutions, you should combine network-layer security with other security controls. Don't rely only on firewalls or network segmentation. This approach is sometimes called *Zero Trust networking*. Use identity-based controls to verify the client, caller, or user at every layer of your solution. Consider using services that enable you to add extra layers of protection. Your options depend on the Azure services that you use. In AKS, consider using a service mesh for mutual TLS authentication and apply [network policies](/azure/aks/use-network-policies) to control east-west traffic. In App Service, consider using the [built-in support for authentication and authorization](/azure/app-service/overview-authentication-authorization) and [access restrictions](/azure/app-service/app-service-ip-restrictions).
+In modern solutions, you should combine network-layer security with other security controls. Don't rely only on firewalls or network segmentation. This approach is sometimes called *zero trust networking*. Use identity-based controls to verify the client, caller, or user at every layer of your solution. Consider using services that enable you to add extra layers of protection. Your options depend on the Azure services that you use. In AKS, consider using a service mesh for mutual TLS authentication and apply [network policies](/azure/aks/use-network-policies) to control east-west traffic. In App Service, consider using the [built-in support for authentication and authorization](/azure/app-service/overview-authentication-authorization) and [access restrictions](/azure/app-service/app-service-ip-restrictions).
 
 ### Rewriting host headers without testing
 

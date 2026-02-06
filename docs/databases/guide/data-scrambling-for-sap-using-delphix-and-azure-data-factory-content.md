@@ -10,6 +10,9 @@ The diagram shows a left-to-right data processing workflow that uses Microsoft A
 
 *Download a [Visio file](https://arch-center.azureedge.net/data-scrambling-for-sap-using-delphix-and-azure-data-factory-architecture.vsdx) of this architecture.*
 
+> [!NOTE]
+> This solution is specific to Azure Data Factory and Azure Synapse Analytics Pipelines. **Data Masking with Delphix** and **Sensitive Data Discovery with Delphix** pipeline templates are not yet available for Microsoft Fabric Data Factory. Contact your Perforce Delphix account representative about [Microsoft Fabric support](https://www.perforce.com/solutions/microsoft-compliance).
+
 ### Dataflow
 
 The following dataflow corresponds to the previous diagram:
@@ -42,7 +45,7 @@ The following dataflow corresponds to the previous diagram:
 
 ## How do Delphix CC and Data Factory solve automating compliant data?
 
-The movement of secure data is a challenge for all organizations. Delphix makes achieving consistent data compliance easy, while Data Factory enables connecting and moving data. Together, Delphix CC and Data Factory combine industry-leading compliance and automation offerings to simplify the delivery of on-demand, compliant data.
+The movement of secure data is a challenge for all organizations. Delphix simplifies achieving consistent data compliance, while Data Factory enables data integration and movement. Together, Delphix CC and Data Factory combine industry-leading compliance and automation offerings to simplify the delivery of on-demand, compliant data.
 
 This solution uses Data Factory data source connectors to create an ETL pipeline that allows a user to automate the following steps:
 
@@ -88,7 +91,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-Delphix CC irreversibly masks data values with realistic data that remains fully functional, which enables the development of higher-quality code. Among the set of algorithms available to transform data to user specifications, Delphix CC has a patented algorithm. The algorithm intentionally produces data collisions and allows you to salt data with specific values needed for potential validation routines on the masked dataset. From a Zero Trust perspective, operators don't need access to the actual data in order to mask it. The entire delivery of masked data from point A to point B can be automated via APIs.
+Delphix CC irreversibly masks data values with realistic data that remains fully functional, which enables the development of higher-quality code. Among the set of algorithms available to transform data to user specifications, Delphix CC has a patented algorithm. The algorithm intentionally produces data collisions and allows you to salt data with specific values needed for potential validation routines on the masked dataset. From a zero trust perspective, operators don't need access to the actual data in order to mask it. The entire delivery of masked data from point A to point B can be automated via APIs.
 
 ## Cost Optimization
 

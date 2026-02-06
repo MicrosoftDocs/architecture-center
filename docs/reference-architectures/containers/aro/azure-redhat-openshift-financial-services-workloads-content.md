@@ -52,7 +52,7 @@ Non-Microsoft alternatives are available. For example, you can host your contain
 
 FSI and other regulated industry Azure Red Hat OpenShift customers often have stringent requirements for their environments. This architecture outlines criteria and guidelines that financial institutions can use to design solutions that meet their unique requirements when they use Azure Red Hat OpenShift in a hybrid cloud environment.
 
-This scenario focuses on security measures. For example, you can enable private connectivity from on-premises environments, implement controls on private link usage, establish private registries, ensure network segregation, and deploy encryption for data at rest and data in transit. Identity and access management and RBAC both ensure secure user administration within Azure Red Hat OpenShift clusters.
+This scenario focuses on security measures. For example, you can enable private connectivity from on-premises environments, implement controls on private link usage, establish private registries, ensure network segregation, and deploy encryption for data at rest and data in transit. Identity and access management and Azure RBAC both ensure secure user administration within Azure Red Hat OpenShift clusters.
 
 To add resilience, you can distribute resources across availability zones for fault tolerance. Compliance obligations involve non-Microsoft risk assessments, regulatory adherence, and disaster recovery (DR) protocols. To improve observability, you can add logging, monitoring, and backup mechanisms to uphold operational efficiency and regulatory compliance. The guidelines in this article provide a framework that you can use to deploy and manage Azure Red Hat OpenShift solutions that are tailored to the needs of the FSI.
 
@@ -70,7 +70,7 @@ Reliability helps ensure that your application can meet the commitments that you
 
 Resilience is essential for Azure Red Hat OpenShift to maintain the uninterrupted operation of mission-critical applications. Implement the following reliability best practices:
 
-- **Availability zones:** Distribute control plane and worker nodes across three availability zones within an Azure region. This setup ensures that the control plane cluster maintains quorum and mitigates potential failures across entire availability zones. Implement this distribution as a standard practice.
+- **Availability zones:** Distribute control plane and worker nodes across all available availability zones within an Azure region. This setup ensures that the control plane cluster maintains quorum and mitigates potential failures across entire availability zones. Implement this distribution as a standard practice.
 
 - **Multi-region deployments:** Deploy Azure Red Hat OpenShift clusters in multiple regions to protect against region-wide failures. Use Azure Front Door Premium for global load balancing and traffic routing to these clusters, with health probes and automatic failover capabilities for improved resilience. Choose Azure services that support geo-redundancy and match each secondary location to the location where you deploy the OpenShift cluster.
 
@@ -156,9 +156,9 @@ Security is paramount in the financial industry. To protect sensitive data and e
   
   - Create a separate service principal with scoped Azure RBAC roles for your Azure Red Hat OpenShift landing zone. For more information, see [Prerequisites checklist to deploy an Azure Red Hat OpenShift cluster](https://cloud.redhat.com/experts/aro/prereq-list/).
 
-- **RBAC:** Implement RBAC in Azure Red Hat OpenShift to provide granular authorization of user actions and access levels.
+- **RBAC:** Implement Azure RBAC in Azure Red Hat OpenShift to provide granular authorization of user actions and access levels.
 
-  - Use RBAC in FSI scenarios to ensure least-privilege access to the cloud environment. For more information, see [Use RBAC to define and apply permissions](https://docs.redhat.com/en/documentation/openshift_container_platform/4.17/html/authentication_and_authorization/using-rbac).
+  - Use cluster RBAC in FSI scenarios to implement least-privilege access to the platform. For more information, see [Use RBAC to define and apply permissions](https://docs.redhat.com/en/documentation/openshift_container_platform/4.17/html/authentication_and_authorization/using-rbac).
 
   - Use role bindings between OpenShift and Microsoft Entra ID for distinct groups like Site Reliability Engineering, SecOps, DevOps, and developers. For more information, see [Configure Azure Red Hat OpenShift to use Microsoft Entra ID](https://cloud.redhat.com/experts/idp/azuread-aro/).
 

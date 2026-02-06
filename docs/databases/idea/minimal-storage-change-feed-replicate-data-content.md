@@ -6,14 +6,14 @@ This article presents a high-availability solution for a web application dealing
 
 *Download a [Visio file](https://arch-center.azureedge.net/minimal-storage-change-feed-replicate-data.vsdx) of this architecture.*
 
-## Dataflow
+## Data flow
 
 1. The client authenticates with Microsoft Entra ID and is granted access to web applications hosted on Azure App Service.
 1. Azure Front Door, a firewall and layer-7 load balancer, switches user traffic to the standby region if there's a regional outage.
 1. App Service hosts websites and RESTful web APIs. Browser clients run Asynchronous JavaScript and XML (AJAX) applications that use the APIs.
 1. Web APIs delegate responsibility to code hosted by Functions to handle background tasks. The tasks are queued in Azure Queue Storage queues.
 1. The queued messages trigger the functions, which perform the background tasks.
-1. Azure Cache for Redis caches database data for the functions. By using the cache, the solution offloads database activity and speeds up the function apps and web apps.
+1. Azure Managed Redis caches database data for the functions. By using the cache, the solution offloads database reads for slowly changing data and speeds up the function apps and web apps.
 1. Azure Cosmos DB holds recently generated data.
 1. Azure Cosmos DB issues a change feed that can be used to replicate changes.
 1. A function app reads the change feed and replicates the changes to Azure Table Storage tables. Another function app periodically removes expired data from Azure Cosmos DB.
@@ -29,7 +29,7 @@ This article presents a high-availability solution for a web application dealing
 - [Azure Storage](/azure/storage/common/storage-introduction) is a set of massively scalable and secure cloud services for data, apps, and workloads. It includes [Azure Files](/azure/well-architected/service-guides/azure-files), which serves as an effective tool to migrate mainframe workloads.
   - [Queue Storage](/azure/storage/queues/storage-queues-introduction) provides simple, cost-effective, durable message queueing for large workloads. This architecture uses Queue Storage for task messaging.
   - [Table Storage](/azure/storage/tables/table-storage-overview) is a NoSQL key-value store for rapid development that uses massive semi-structured datasets. The tables are schemaless and adapt readily as needs change. Access is fast and cost-effective for many types of applications, and typically costs less than other types of keyed storage. This architecture uses Table Storage to store a synchronized and restructured copy of the data in Azure Cosmos DB.
-- [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is a fully managed in-memory caching service and message broker for sharing data and state among compute resources. It includes both the open-source Redis and a commercial product from Redis Labs as managed services. You can improve the performance of high-throughput online transaction processing (OLTP) applications by designing them to scale and to make use of an in-memory data store such as Azure Cache for Redis. In this architecture, Azure Cache for Redis accelerates access to frequently used data, which improves performance for both function apps and web apps.
+- [Azure Managed Redis](/azure/redis/overview) is a fully managed in-memory caching service and message broker for sharing data and state among compute resources. You can improve the performance of high-throughput online transaction processing (OLTP) applications by designing them to scale and to make use of an in-memory data store such as Azure Managed Redis. In this architecture, Azure Managed Redis accelerates access to frequently used data, which improves performance for both function apps and web apps.
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, multi-model database that enables your solutions to elastically and independently scale throughput and storage across any number of geographic regions. It provides throughput, latency, availability, and consistency guarantees with comprehensive service-level agreements (SLAs). In this architecture, Azure Cosmos DB stores recent data and emits a change feed used to replicate updates to Table Storage.
 
 ### Alternatives
@@ -45,7 +45,7 @@ This article presents a high-availability solution for a web application dealing
 
 This solution uses Azure Cosmos DB to store the large volume of data that the web application uses. Web apps that handle massive amounts of data benefit from the ability of Azure Cosmos DB to elastically and independently scale throughput and storage.
 
-Another key solution component is the Azure Cosmos DB change feed. When changes are made to the database, the change feed stream is sent to an event-driven Functions trigger. A function then runs and replicates the changes to Table Storage tables, which provide a low-cost storage solution.
+Another key solution component is the Azure Cosmos DB change feed. When changes are made to the database, the change feed stream is sent to an event-driven Functions trigger. A function then runs and replicates the changes to Table Storage tables, which provide a low-cost storage solution. You can also orchestrate broader downstream data movement by using Azure Data Factory pipelines or Microsoft Fabric Data Factory to land data in analytics zones.
 
 The web app needs the data for only a limited amount of time. The solution takes advantage of that fact to further reduce costs. Specifically, another function periodically runs and deletes expired data from Azure Cosmos DB. Besides being triggered, functions can also be scheduled to run at set times.
 
@@ -82,11 +82,15 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Principal author:
 
-- [Nabil Siddiqui](https://www.linkedin.com/in/nabilshams) | Cloud Solution Architect - Digital and Application Innovation
+- [Nabil Siddiqui](https://www.linkedin.com/in/nabilshams/) | Cloud Solution Architect - Digital and Application Innovation
+
+Other contributors:
+
+- [Filipe Moreira](https://www.linkedin.com/in/filipefumaux/) | Cloud Solution Architect
 
 ## Next steps
 
-- [Web-Queue-Worker architecture style](../../guide/architecture-styles/web-queue-worker.yml)
+- [Web-Queue-Worker architecture style](../../guide/architecture-styles/web-queue-worker.md)
 - [Design a geographically distributed application](/training/modules/design-a-geographically-distributed-application)
 - [Distribute your data globally with Azure Cosmos DB](/training/modules/distribute-data-globally-with-cosmos-db)
 - [Choose the appropriate API for Azure Cosmos DB](/training/modules/choose-api-for-cosmos-db)
@@ -98,7 +102,8 @@ Principal author:
 - [Change feed design patterns in Azure Cosmos DB](/azure/cosmos-db/change-feed-design-patterns)
 - [Serverless event-based architectures with Azure Cosmos DB and Azure Functions](/azure/cosmos-db/change-feed-functions)
 - [Introduction to Azure Data Factory](/training/modules/intro-to-azure-data-factory)
-- [Orchestrate data movement and transformation in Azure Data Factory or Azure Synapse Pipeline](/training/modules/orchestrate-data-movement-transformation-azure-data-factory)
+- [Orchestrate data movement and transformation in Azure Data Factory](/training/modules/orchestrate-data-movement-transformation-azure-data-factory)
+- [Data integration with Data Factory in Microsoft Fabric](/fabric/data-factory/)
 
 ## Related resources
 

@@ -3,8 +3,13 @@ title: Online Transaction Processing (OLTP)
 description: Learn about atomicity, consistency, and other features of online transaction processing (OLTP), which manages transactional data while supporting querying.
 author: hz4dkr
 ms.author: callard
+<<<<<<< HEAD
 ms.date: 02/06/2026
 ms.topic: conceptual
+=======
+ms.date: 07/23/2025
+ms.topic: concept-article
+>>>>>>> d1996853910eaa68c0ef5c760d9aa55b3e8e265c
 ms.subservice: architecture-guide
 ms.custom: arb-data
 ---
@@ -108,7 +113,7 @@ Principal authors:
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 ## Next steps
 
-- [Azure Cosmos DB transactional batch operations](/azure/cosmos-db/nosql/transactional-batch)
+- [Azure Cosmos DB transactional batch operations](/azure/cosmos-db/transactional-batch)
 - [Consistency levels in Azure Cosmos DB](/azure/cosmos-db/consistency-levels)
 - [Introduction to Memory-Optimized Tables](/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables)
 - [In-Memory OLTP overview and usage scenarios](/sql/relational-databases/in-memory-oltp/overview-and-usage-scenarios)

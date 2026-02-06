@@ -224,10 +224,6 @@ Principal authors:
 - [Nithish Aruldoss](https://www.linkedin.com/in/nithish-aruldoss-b4035b2b) | Engineering Architect
 - [Amethyst Solomon](https://www.linkedin.com/in/amethyst-solomon) | Senior Engineering Architect
 
-Other contributors:
-
-- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
-
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps

@@ -24,7 +24,7 @@ It's also possible to configure a key that has other dependencies, such as the s
 
 The key can also be invalidated by the application. This is a useful approach if the client notifies the server that the data transfer operation is complete. The server can then invalidate that key to prevent further access.
 
-Using this pattern can simplify managing access to resources because there's no requirement to create and authenticate a user, grant permissions, and then remove the user again, or worse leave that permission as a standing permission. It also makes it easy to limit the location, the permission, and the validity period&mdash;all by simply generating a key at runtime. The important factors are to limit the validity period, and especially the location of the resource, as tightly as possible so that the recipient can only use it for the intended purpose.
+Using this pattern can simplify managing access to resources because there's no requirement to create and authenticate a user, grant permissions, and then remove the user again, or worse leave that permission as a standing permission. It also lets you limit the location, the permission, and the validity period by generating a key at runtime. The important factors are to limit the validity period, and especially the location of the resource, as tightly as possible so that the recipient can only use it for the intended purpose.
 
 ## Issues and considerations
 
@@ -60,7 +60,7 @@ Other issues to be aware of when implementing this pattern are:
 
 - Keys should only be handed out to authenticated clients with proper authorization.
 
-- The generation of access tokens is privileged action, so the valet key service must be secured with strict access policies. The service may allow access to sensitive systems by third parties, making the security of this service of particular importance.
+- The generation of access tokens is privileged action, so the valet key service must be secured with strict access policies. The service might allow access to sensitive systems by third parties, making the security of this service of particular importance.
 
 ## When to use this pattern
 
@@ -78,7 +78,7 @@ This pattern is useful for the following situations:
 
 This pattern might not be useful in the following situations:
 
-- If clients can already uniquely authenticate to your backend service, with RBAC for example, do not use this pattern.
+- If clients can already uniquely authenticate to your backend service, with Azure role-based access control (Azure RBAC) for example, don't use this pattern.
 
 - If the application must perform some task on the data before it's stored or before it's sent to the client. For example, if the application needs to perform validation, log access success, or execute a transformation on the data. However, some data stores and clients are able to negotiate and carry out simple transformations such as compression and decompression (for example, a web browser can usually handle gzip formats).
 
@@ -159,7 +159,7 @@ private async Task<StorageEntitySas> GetSharedAccessReferenceForUploadAsync(Blob
                                                                             DateTimeOffset.UtcNow.AddMinutes(3),
                                                                             cancellationToken);
 
-  // Limit the scope of this SaS token to the following:
+  // Limit the scope of this SaS token to the following parameters:
   var blobSasBuilder = new BlobSasBuilder
   {
       BlobContainerName = blobContainerClient.Name,     // - Specific container

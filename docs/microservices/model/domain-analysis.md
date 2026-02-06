@@ -4,7 +4,7 @@ description: This article shows a domain-driven approach to designing microservi
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 02/25/2019
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
 
@@ -16,7 +16,7 @@ This article uses a drone delivery service as a running example. For more inform
 
 ## Introduction
 
-Microservices should be designed around business capabilities, not horizontal layers such as data access or messaging. In addition, they should have loose coupling and high functional cohesion. Microservices are *loosely coupled* if you can change one service without requiring other services to be updated at the same time. A microservice is *cohesive* if it has a single, well-defined purpose, such as managing user accounts or tracking delivery history. A service should encapsulate domain knowledge and abstract that knowledge from clients. For example, a client should be able to schedule a drone without knowing the details of the scheduling algorithm or how the drone fleet is managed. Architecture characteristics have to be defined for each microservice to match its domain concerns, rather than being defined for the entire system. For example, a customer-facing microservice may need to have performance, availability, fault tolerance, security, testability, and agility. A backend microservice may need to have only fault tolerance and security. If microservices have synchronous communications with each other, the dependency between them often produces the need to share the same architecture characteristics.
+Microservices should be designed around business capabilities, not horizontal layers such as data access or messaging. In addition, they should have loose coupling and high functional cohesion. Microservices are *loosely coupled* if you can change one service without requiring other services to be updated at the same time. A microservice is *cohesive* if it has a single, well-defined purpose, such as managing user accounts or tracking delivery history. A service should encapsulate domain knowledge and abstract that knowledge from clients. For example, a client should be able to schedule a drone without knowing the details of the scheduling algorithm or how the drone fleet is managed. Architecture characteristics have to be defined for each microservice to match its domain concerns, rather than being defined for the entire system. For example, a customer-facing microservice might need to have performance, availability, fault tolerance, security, testability, and agility. A backend microservice might need to have only fault tolerance and security. If microservices have synchronous communications with each other, the dependency between them often produces the need to share the same architecture characteristics.
 
 Domain-driven design (DDD) provides a framework that can get you most of the way to a set of well-designed microservices. DDD has two distinct phases, strategic and tactical. In strategic DDD, you define the large-scale structure of the system. Strategic DDD helps to ensure that your architecture remains focused on business capabilities. Tactical DDD provides a set of design patterns that you can use to create the domain model. These patterns include entities, aggregates, and domain services. These tactical patterns help you to design microservices that are both loosely coupled and cohesive.
 
@@ -34,7 +34,7 @@ In this article and the next, we'll walk through the following steps, applying t
 
 4. Use the results from the previous step to identify the microservices in your application.
 
-In this article, we cover the first three steps, which are primarily concerned with DDD. In the next article, we'll identify the microservices. However, it's important to remember that DDD is an iterative, ongoing process. Service boundaries aren't fixed in stone. As an application evolves, you may decide to break apart a service into several smaller services.
+In this article, we cover the first three steps, which are primarily concerned with DDD. In the next article, we'll identify the microservices. However, it's important to remember that DDD is an iterative, ongoing process. Service boundaries aren't fixed in stone. As an application evolves, you might decide to break apart a service into several smaller services.
 
 > [!NOTE]
 > This article doesn't show a complete and comprehensive domain analysis. We deliberately kept the example brief, to illustrate the main points. For more background on DDD, we recommend Eric Evans' *Domain-Driven Design*, the book that first introduced the term. Another good reference is *Implementing Domain-Driven Design* by Vaughn Vernon.
@@ -67,11 +67,11 @@ After some initial domain analysis, the Fabrikam team came up with a rough sketc
 - **Drone management** is also core to the business. Functionality that is closely related to drone management includes **drone repair** and using **predictive analysis** to predict when drones need servicing and maintenance.
 - **ETA analysis** provides time estimates for pickup and delivery.
 - **Third-party transportation** will enable the application to schedule alternative transportation methods if a package cannot be shipped entirely by drone.
-- **Drone sharing** is a possible extension of the core business. The company may have excess drone capacity during certain hours, and could rent out drones that would otherwise be idle. This feature will not be in the initial release.
+- **Drone sharing** is a possible extension of the core business. The company might have excess drone capacity during certain hours, and could rent out drones that would otherwise be idle. This feature will not be in the initial release.
 - **Video surveillance** is another area that the company might expand into later.
 - **User accounts**, **Invoicing**, and **Call center** are subdomains that support the core business.
 
-Notice that at this point in the process, we haven't made any decisions about implementation or technologies. Some of the subsystems may involve external software systems or third-party services. Even so, the application needs to interact with these systems and services, so it's important to include them in the domain model.
+Notice that at this point in the process, we haven't made any decisions about implementation or technologies. Some of the subsystems might involve external software systems or third-party services. Even so, the application needs to interact with these systems and services, so it's important to include them in the domain model.
 
 > [!NOTE]
 > When an application depends on an external system, there's a risk that the external system's data schema or API can leak into the application. This kind of leakage can compromise the architectural design. It's especially common with legacy systems that don't follow modern best practices and might use convoluted data schemas or outdated APIs. In these cases, it's important to establish a well-defined boundary between the external system and the application. Consider using the [Strangler Fig pattern](../../patterns/strangler-fig.md) or the [Anti-Corruption Layer pattern](../../patterns/anti-corruption-layer.yml) to enforce this boundary.
@@ -80,7 +80,7 @@ Notice that at this point in the process, we haven't made any decisions about im
 
 The domain model will include representations of real things in the world &mdash; users, drones, packages, and so forth. But that doesn't mean that every part of the system needs to use the same representations for the same things.
 
-For example, subsystems that handle drone repair and predictive analysis will need to represent many physical characteristics of drones, such as their maintenance history, mileage, age, model number, performance characteristics, and so on. But when it's time to schedule a delivery, we don't care about those things. The scheduling subsystem only needs to know whether a drone is available, and the ETA for pickup and delivery.
+For example, subsystems that handle drone repair and predictive analysis will need to represent many physical characteristics of drones, such as their maintenance history, mileage, age, model number, and performance characteristics. But when it's time to schedule a delivery, we don't care about those things. The scheduling subsystem only needs to know whether a drone is available, and the ETA for pickup and delivery.
 
 If we tried to create a single model for both of these subsystems, it would be unnecessarily complex. It would also become harder for the model to evolve over time, because any changes will need to satisfy multiple teams working on separate subsystems. Therefore, it's often better to design separate models that represent the same real-world entity (in this case, a drone) in two different contexts. Each model contains only the features and attributes that are relevant within its particular context.
 
@@ -92,7 +92,7 @@ The DDD concept of *bounded contexts* comes into play here. A bounded context de
 
 Bounded contexts are not necessarily isolated from one another. In this diagram, the solid lines connecting the bounded contexts represent places where two bounded contexts interact. For example, Shipping depends on User Accounts to get information about customers, and on Drone Management to schedule drones from the fleet.
 
-In the book *Domain Driven Design*, Eric Evans describes several patterns for maintaining the integrity of a domain model when it interacts with another bounded context. One of the main principles of microservices is that services communicate through well-defined APIs. This approach corresponds to two patterns that Evans calls Open Host Service and Published Language. The idea of Open Host Service is that a subsystem defines a formal protocol (API) for other subsystems to communicate with it. Published Language extends this idea by publishing the API in a form that other teams can use to write clients. In the article [Designing APIs for microservices](../design/api-design.yml), we discuss using [OpenAPI Specification](https://spec.openapis.org/oas/latest.html) (formerly known as Swagger) to define language-agnostic interface descriptions for REST APIs, expressed in JSON or YAML format.
+In the book *Domain Driven Design*, Eric Evans describes several patterns for maintaining the integrity of a domain model when it interacts with another bounded context. One of the main principles of microservices is that services communicate through well-defined APIs. This approach corresponds to two patterns that Evans calls Open Host Service and Published Language. The idea of Open Host Service is that a subsystem defines a formal protocol (API) for other subsystems to communicate with it. Published Language extends this idea by publishing the API in a form that other teams can use to write clients. In the article [Designing APIs for microservices](../design/api-design.md), we discuss using [OpenAPI Specification](https://spec.openapis.org/oas/latest.html) (formerly known as Swagger) to define language-agnostic interface descriptions for REST APIs, expressed in JSON or YAML format.
 
 For the rest of this journey, we will focus on the Shipping bounded context.
 

@@ -4,9 +4,9 @@ Offload shared or specialized service functionality to a gateway proxy. This pat
 
 Some features are commonly used across multiple services, and these features require configuration, management, and maintenance. A shared or specialized service that is distributed with every application deployment increases the administrative overhead and increases the likelihood of deployment error. Any updates to a shared feature must be deployed across all services that share that feature.
 
-Properly handling security issues (token validation, encryption, SSL certificate management) and other complex tasks can require team members to have highly specialized skills. For example, a certificate needed by an application must be configured and deployed on all application instances. With each new deployment, the certificate must be managed to ensure that it does not expire. Any common certificate that is due to expire must be updated, tested, and verified on every application deployment.
+Properly handling security issues (token validation, encryption, SSL certificate management) and other complex tasks can require team members to have highly specialized skills. For example, a certificate needed by an application must be configured and deployed on all application instances. With each new deployment, the certificate must be managed to ensure that it doesn't expire. Any common certificate that is due to expire must be updated, tested, and verified on every application deployment.
 
-Other common services such as authentication, authorization, logging, monitoring, or [throttling](./throttling.yml) can be difficult to implement and manage across a large number of deployments. It may be better to consolidate this type of functionality, in order to reduce overhead and the chance of errors.
+Other common services such as authentication, authorization, logging, monitoring, or [throttling](./throttling.yml) can be difficult to implement and manage across a large number of deployments. It might be better to consolidate this type of functionality, in order to reduce overhead and the chance of errors.
 
 ## Solution
 
@@ -22,12 +22,12 @@ Benefits of this pattern include:
 
 - Allow dedicated teams to implement features that require specialized expertise, such as security. This allows your core team to focus on the application functionality, leaving these specialized but cross-cutting concerns to the relevant experts.
 
-- Provide some consistency for request and response logging and monitoring. Even if a service is not correctly instrumented, the gateway can be configured to ensure a minimum level of monitoring and logging.
+- Provide some consistency for request and response logging and monitoring. Even if a service isn't correctly instrumented, the gateway can be configured to ensure a minimum level of monitoring and logging.
 
 ## Issues and considerations
 
 - Ensure the gateway is highly available and resilient to failure. Avoid single points of failure by running multiple instances of your gateway.
-- Ensure the gateway is designed for the capacity and scaling requirements of your application and endpoints. Make sure the gateway does not become a bottleneck for the application and is sufficiently scalable.
+- Ensure the gateway is designed for the capacity and scaling requirements of your application and endpoints. Make sure the gateway doesn't become a bottleneck for the application and is sufficiently scalable.
 - Only offload features that are used by the entire application, such as security or data transfer.
 - Business logic should never be offloaded to the gateway.
 - If you need to track transactions, consider generating correlation IDs for logging purposes.
@@ -37,10 +37,10 @@ Benefits of this pattern include:
 Use this pattern when:
 
 - An application deployment has a shared concern such as SSL certificates or encryption.
-- A feature that is common across application deployments that may have different resource requirements, such as memory resources, storage capacity or network connections.
+- A feature that is common across application deployments that might have different resource requirements, such as memory resources, storage capacity or network connections.
 - You wish to move the responsibility for issues such as network security, throttling, or other network boundary concerns to a more specialized team.
 
-This pattern may not be suitable if it introduces coupling across services.
+This pattern might not be suitable if it introduces coupling across services.
 
 ## Workload design
 

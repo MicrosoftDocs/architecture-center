@@ -228,7 +228,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-Within the Key Vault system, certificates are more securely stored as encrypted secrets and protected by Azure role-based access control (RBAC).
+Within the Key Vault system, certificates are more securely stored as encrypted secrets and protected by Azure role-based access control (Azure RBAC).
 
 Throughout the certificate renewal process, components that use identities are:
 

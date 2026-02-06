@@ -1,13 +1,12 @@
 ---
 title: Machine learning operations
 description: Learn about a single deployable set of repeatable and maintainable patterns for creating machine learning CI/CD and retraining pipelines.
-author: setuc
-ms.author: setuchokshi
+author: delynchoong
+ms.author: delynchoong 
 ms.date: 07/03/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
-ms.custom: arb-aiml
 ai-usage: ai-assisted
 ---
 
@@ -265,19 +264,19 @@ The Machine Learning natural language processing architecture is based on the cl
 
 ## Other considerations
 
-The preceding MLOps v2 architectural pattern has several critical components, including role-based access control (RBAC) that aligns with business stakeholders, efficient package management, and robust monitoring mechanisms. These components collectively contribute to the successful implementation and management of machine learning workflows.
+The preceding MLOps v2 architectural pattern has several critical components, including Azure RBAC that aligns with business stakeholders, efficient package management, and robust monitoring mechanisms. These components collectively contribute to the successful implementation and management of machine learning workflows.
 
-### Persona-based RBAC
+### Persona-based Azure RBAC
 
-It's crucial that you manage access to machine learning data and resources. RBAC provides a robust framework to help you manage who can perform specific actions and access specific areas within your solution. Design your identity segmentation strategy to align with the lifecycle of machine learning models in Machine Learning and the personas included in the process. Each persona has a specific set of responsibilities that are reflected in their RBAC roles and group membership.
+It's crucial that you manage access to machine learning data and resources. Azure RBAC provides a robust framework to help you manage who can take specific actions and access specific areas within your solution. Design your identity segmentation strategy to align with the lifecycle of machine learning models in Machine Learning and the personas included in the process. Each persona has a specific set of responsibilities that are reflected in their Azure RBAC roles and group membership.
 
 #### Example personas
 
-To support appropriate segmentation in a machine learning workload, consider the following common personas that inform the [identity-based RBAC](#identity-rbac) group design.
+To support appropriate segmentation in a machine learning workload, consider the following common personas that inform the [identity-based Azure RBAC](#identity-azure-rbac) group design.
 
 ##### Data scientist and machine learning engineer
 
-Data scientists and machine learning engineers perform various machine learning and data science activities across the software development life cycle of a project. Their duties include exploratory data analysis and data preprocessing. Data scientists and machine learning engineers are responsible for training, evaluating, and deploying models. These roles' responsibilities also include break-fix activities for machine learning models, packages, and data. These duties are out of scope for the platform's technical support team.
+Data scientists and machine learning engineers do various machine learning and data science activities across the software development life cycle of a project. Their duties include exploratory data analysis and data preprocessing. Data scientists and machine learning engineers are responsible for training, evaluating, and deploying models. These roles' responsibilities also include break-fix activities for machine learning models, packages, and data. These duties are out of scope for the platform's technical support team.
 
 **Type:** Person<br>
 **Project specific:** Yes
@@ -361,13 +360,13 @@ Data governance processes scan the machine learning project and data stores for 
 
 ### Microsoft Entra group membership
 
-When you implement RBAC, [Microsoft Entra groups](/entra/fundamentals/how-to-manage-groups) provide a flexible and scalable way to manage access permissions across different personas. You can use Microsoft Entra groups to manage users that need the same access and permissions to resources, such as potentially restricted apps and services. Instead of adding special permissions to individual users, you create a group that applies the special permissions to every member of that group.
+When you implement Azure RBAC, [Microsoft Entra groups](/entra/fundamentals/how-to-manage-groups) provide a flexible and scalable way to manage access permissions across different personas. You can use Microsoft Entra groups to manage users that need the same access and permissions to resources, such as potentially restricted apps and services. Instead of adding special permissions to individual users, you create a group that applies the special permissions to every member of that group.
 
 In this architectural pattern, you can couple these groups with a [Machine Learning workspace setup](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-resource-organization#team-structure-and-workspace-setup), such as a project, team, or department. You can associate users with specific groups to define fine-grained access policies. The policies grant or restrict permissions to various Machine Learning workspaces based on job functions, project requirements, or other criteria. For example, you can have a group that grants all data scientists access to a development workspace for a specific use case.
 
-### Identity RBAC
+### Identity Azure RBAC
 
-Consider how you can use the following built-in Azure RBAC roles to apply RBAC to production and preproduction environments. For the [architecture](#architecture) in this article, the production environments include staging, testing, and production environments. The preproduction environments include development environments. The following RBAC roles are based on the personas described earlier in this article.
+Consider how you can use the following built-in Azure RBAC roles to apply access control to production and preproduction environments. For the [architecture](#architecture) in this article, the production environments include staging, testing, and production environments. The preproduction environments include development environments. The following built-in roles are based on the personas described earlier in this article.
 
 #### Standard roles
 
@@ -438,7 +437,7 @@ Consider how you can use the following built-in Azure RBAC roles to apply RBAC t
 > [!NOTE]
 > Every persona retains access for the project's duration except platform technical support, which has temporary or just-in-time [Microsoft Entra Privileged Identity Management (PIM)](/entra/id-governance/privileged-identity-management/pim-configure) access.
 
-RBAC plays a vital role in securing and streamlining MLOps workflows. RBAC restricts access based on assigned roles and prevents unauthorized users from accessing sensitive data, which mitigates security risks. Sensitive data includes training data or models and critical infrastructure, such as production pipelines. You can use RBAC to ensure compliance with data privacy regulations. RBAC also provides a clear record of access and permissions, which simplifies auditing, makes it easy to identify security gaps, and tracks user activity.
+Azure RBAC plays a vital role in securing and streamlining MLOps workflows. It restricts access based on assigned roles and prevents unauthorized users from accessing sensitive data, which mitigates security risks. Sensitive data includes training data or models and critical infrastructure, such as production pipelines. You can use Azure RBAC to ensure compliance with data privacy regulations. Azure RBAC also provides a clear record of access and permissions, which simplifies auditing, makes it easy to identify security gaps, and tracks user activity.
 
 ### Package management
 
@@ -476,14 +475,14 @@ Monitor model performance to detect model problems and performance degradation e
 
 ##### Data drift
 
-[Data drift](/azure/machine-learning/how-to-monitor-datasets) tracks changes in the distribution of a model's input data by comparing it to the model's training data or recent past production data. These changes are a result of changes in market dynamics, feature transformation changes, or upstream data changes. Such changes can degrade model performance, so it's important to monitor for drift to ensure timely remediation. To perform a comparison, data drift refactoring requires recent production datasets and outputs.
+[Data drift](/azure/machine-learning/how-to-monitor-datasets) tracks changes in the distribution of a model's input data by comparing it to the model's training data or recent past production data. These changes are a result of changes in market dynamics, feature transformation changes, or upstream data changes. Such changes can degrade model performance, so it's important to monitor for drift to ensure timely remediation. To compare results, data drift refactoring requires recent production datasets and outputs.
 
 **Environment:** Production<br>
 **Azure facilitation:** Machine Learning – [Model monitoring](/azure/machine-learning/concept-model-monitoring#enabling-model-monitoring)
 
 ##### Prediction drift
 
-Prediction drift tracks changes in the distribution of a model's prediction outputs by comparing it to validation, test-labeled, or recent production data. To perform a comparison, data drift refactoring requires recent production datasets and outputs.
+Prediction drift tracks changes in the distribution of a model's prediction outputs by comparing it to validation, test-labeled, or recent production data. Data-drift refactoring requires recent production datasets and outputs to support this comparison.
 
 **Environment:** Production<br>
 **Azure facilitation:** Machine Learning – [Model monitoring](/azure/machine-learning/concept-model-monitoring#enabling-model-monitoring)

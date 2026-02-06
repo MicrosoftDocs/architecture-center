@@ -58,7 +58,7 @@ The solution is composed of the following software as a service (SaaS) offerings
 
 - [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed compute platform for hosting custom web applications. In this architecture, App Service hosts the consumer portal and account portal components that provide the marketplace experience, user registration, and account management features for API consumers.
 
-- [Azure Active Directory B2C (Azure AD B2C)](/azure/active-directory-b2c/overview) is an extension of Microsoft Entra ID that your application can use to manage external customer or partner identities for access and authorization. In this architecture, Azure AD B2C handles user registration, authentication, and identity management for API consumers. These tasks support integration with identity providers and the [Microsoft identify platform](/entra/identity-platform/v2-overview).
+- [Microsoft Entra External ID](/entra/external-id/customers/overview-customers-ciam) is an extension of Microsoft Entra ID that your application can use to manage external customer or partner identities for access and authorization. In this architecture, Microsoft Entra External ID handles user registration, authentication, and identity management for API consumers. These tasks support integration with identity providers and the [Microsoft identify platform](/entra/identity-platform/v2-overview).
 
 ## Scenario details
 
@@ -111,13 +111,13 @@ The goal of productization is to identify and define the monetized APIs, their m
 
 Productization comprises the following capabilities:
 
-- **API products**. This catalog of APIs is made available to the consumers. A product may be offered for purchase or as a free service.
+- **API products**. This catalog of APIs is made available to the consumers. A product might be offered for purchase or as a free service.
 
 - **Variants**. The developer experience should identify the variants of any API product that's monetized.
 
 - **Pricing plans**. Define the various pricing plans to make it attractive for the consumers.
 
-- **Taxonomy and content**. Define and create the content—textual, PDFs, images, and so on—that's required for the marketing strategy for these API products.
+- **Taxonomy and content**. Define and create the content (such as text, PDFs, and images) that's required in the marketing strategy for these API products.
 
 - **Physical assets**. This comprises the actual cloud services that are part of the specific API product and their corresponding lifecycle management. Consider the operations cost of maintaining these services while deriving the pricing plans.
 
@@ -147,7 +147,7 @@ The adoption of the API platform is heavily dependent on how easily consumers ca
 - Pay for the API products that they selected.
 - Start using the APIs in their applications.
 
-A consumer experience is typically delivered through a web portal, a mobile app, or both. You can use [Azure AD B2C](/azure/active-directory-b2c) to facilitate user registration and identity management. Azure AD B2C includes support for OpenID identity providers, such as Microsoft and Google.
+A consumer experience is typically delivered through a web portal, a mobile app, or both. You can use [Microsoft Entra External ID](/entra/external-id/customers/overview-customers-ciam) to facilitate user registration and identity management. Microsoft Entra External ID includes support for OpenID identity providers, such as Microsoft and Google.
 
 Consumer experiences comprise the following components:
 
@@ -167,7 +167,7 @@ API Management supports [autoscaling](/azure/api-management/api-management-howto
 
 App Service is a fully managed platform as a service that features built-in security and autoscaling with an [SLA](https://azure.microsoft.com//support/legal/sla/app-service/v1_5) that promises high availability. App Service is [ISO, SOC, and PCI compliant](https://www.microsoft.com/trustcenter), and it supports authenticating users with Microsoft Entra ID, Google, Facebook, Twitter, or Microsoft account. With App Service, you can also [create IP address restrictions](/azure/app-service/app-service-ip-restrictions).
 
-Azure AD B2C offers high availability and scales to supporting hundreds of millions of users. Azure AD B2C supports [OpenID Connect](/entra/identity-platform/v2-protocols-oidc) and multiple identity providers so that customers can choose their preferred provider. Azure AD B2C also supports application-based and policy-based multifactor authentication, adding additional layers of security. For more information about Azure AD B2C, see [What is Azure Active Directory B2C](/azure/active-directory-b2c/overview)? For more information about using external identities, see [External Identities in Microsoft Entra ID](/entra/external-id/external-identities-overview).
+Microsoft Entra External ID offers high availability and scales to supporting hundreds of thousands of users. Microsoft Entra External ID supports [OpenID Connect](/entra/identity-platform/v2-protocols-oidc) and multiple identity providers so that customers can choose their preferred provider. Microsoft Entra External ID also supports application-based and policy-based multifactor authentication, adding additional layers of security. For more information about Microsoft Entra External ID, see [Secure your apps using External ID in an external tenant](/entra/external-id/customers/overview-customers-ciam)
 
 GitHub makes security reviews an automated part of code reviews, scanning every new commit for potential security issues. This service helps you to discover problems as soon as they're offered as additions to the code base. GitHub security allows you to customize searches for security concerns and integrate third-party scanning engines. For more features and details, see [Security](https://github.com/features/security) on GitHub.
 

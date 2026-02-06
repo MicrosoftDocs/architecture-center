@@ -5,7 +5,7 @@ author: ritesh-modi
 ms.author: rimod
 ms.date: 03/20/2025
 ms.update-cycle: 180-days
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.collection: ce-skilling-ai-copilot
 ms.custom: arb-aiml
@@ -41,9 +41,9 @@ The following services provide targeted language processing capabilities for AI 
 
   - **Don't use** Document Intelligence as a real-time search API.
 
-### Azure OpenAI Service
+### Azure OpenAI in Foundry Models
 
-[Azure OpenAI Service](/azure/ai-services/openai/overview) provides REST API access to OpenAI's powerful language models. These models include O3-Mini, O1, O1-Mini, GPT-4o, GPT-4o Mini, GPT-4 Turbo with Vision, GPT-4, GPT-3.5-Turbo, and the Embeddings model series. These models are highly adaptable, which allows you to tailor them for tasks like content generation, summarization, image analysis, and semantic search. They also support natural language to code translation, which makes them versatile for various applications.
+[Azure OpenAI in Foundry Models](/azure/ai-services/openai/overview) provides REST API access to OpenAI's powerful language models. These models include O3-Mini, O1, O1-Mini, GPT-4o, GPT-4o Mini, GPT-4 Turbo with Vision, GPT-4, GPT-3.5-Turbo, and the Embeddings model series. These models are highly adaptable, which allows you to tailor them for tasks like content generation, summarization, image analysis, and semantic search. They also support natural language to code translation, which makes them versatile for various applications.
 
 #### Capabilities
 
@@ -144,7 +144,7 @@ The following table provides a list of some of the capabilities available in Doc
 | [Credit card extraction](/azure/ai-services/document-intelligence/concept-credit-card) | The Document Intelligence credit/debit card model uses OCR capabilities to analyze and extract key fields from credit and debit cards. Credit and debit cards can appear in various formats and qualities, including images captured by phone, scanned documents, and digital PDFs. The API analyzes document text, extracts key information such as card number, issuing bank, and expiration date, and then returns a structured JSON data representation. The model currently supports document formats in English. |
 | [Health insurance card extraction](/azure/ai-services/document-intelligence/concept-health-insurance-card) | The Document Intelligence health insurance card model combines OCR capabilities with deep learning models to analyze and extract key information from US health insurance cards. A health insurance card is a key document for care processing and can be digitally analyzed for patient onboarding, financial coverage information, cashless payments, and insurance claim processing. The health insurance card model analyzes health card images, extracts key information such as insurer, member, prescription, and group number, and then returns a structured JSON representation. Health insurance cards can appear in various formats and qualities, including images captured by phone, scanned documents, and digital PDFs. |
 | [US tax document extraction](/azure/ai-services/document-intelligence/concept-tax-document) | The Document Intelligence contract model uses OCR capabilities to analyze and extract key fields and line items from a select group of tax documents. Tax documents can be of various formats and quality, including phone-captured images, scanned documents, and digital PDFs. The API analyzes document text, extracts key information such as customer name, billing address, due date, and amount due, and then returns a structured JSON data representation. The model currently supports specific tax document formats in English. |
-| [Client libraries](/azure/ai-services/document-intelligence/concept-model-overview) | Document Intelligence supports a wide variety of models that enable you to add intelligent document processing to your apps and flows. You can use a prebuilt domain-specific model or train a custom model tailored to your specific business need and use cases. Document Intelligence can be used with the REST API or Python, C#, Java, and JavaScript client libraries. |
+| [Client libraries](/azure/ai-services/document-intelligence/concept-model-overview) | Document Intelligence supports a wide range of models that enable you to add intelligent document processing to your apps and flows. You can use a prebuilt domain-specific model or train a custom model tailored to your specific business need and use cases. Document Intelligence can be used with the REST API or Python, C#, Java, and JavaScript client libraries. |
 
 For more information about model scenarios, see [Which model should I choose?](/azure/ai-services/document-intelligence/choose-model-feature)
 

@@ -4,7 +4,7 @@ description: Learn about approaches to support multitenancy for compute componen
 author: DixitArora-MSFT
 ms.author: dixitaro
 ms.date: 05/02/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-saas
 ---
@@ -181,4 +181,4 @@ Review service-specific guidance for your compute services:
 
 - [App Service and Azure Functions considerations for multitenancy](../service/app-service.md)
 - [Considerations for using Container Apps in a multitenant solution](../service/container-apps.md)
-- [AKS considerations for multitenancy](../service/aks.yml)
+- [AKS considerations for multitenancy](../service/aks.md)

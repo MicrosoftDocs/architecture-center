@@ -111,7 +111,7 @@ You can also optimize your costs by following the process to right-size the capa
 
 To estimate the cost of Azure products and configurations, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/). VMs are used for the MCP. Supporting VMs are used for print or tape. Storage account types can range from premium SSD storage to standard blob storage, depending on your performance needs and data retention policies.
 
-To learn more about Unisys CPF offerings and pricing, see the [Unisys CPF solution catalog](https://www.unisys.com/solutions/clearpath-forward/).
+For more information about Unisys CPF offerings and pricing, see the [Unisys CPF solution catalog](https://www.unisys.com/solutions/clearpath-forward/).
 
 ### Operational Excellence
 

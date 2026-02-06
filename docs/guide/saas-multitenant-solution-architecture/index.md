@@ -3,8 +3,8 @@ title: SaaS and Multitenant Solution Architecture
 description: This guide provides an overview of the architectural content for software as a service (SaaS), startups, and multitenancy and guidance about how to architect multitenant solutions on Azure.
 author: PlagueHO 
 ms.author: dascottr 
-ms.date: 04/29/2025
-ms.topic: conceptual
+ms.date: 12/16/2025
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
   - arb-saas
@@ -21,20 +21,26 @@ The key concepts in this article are *SaaS*, *startups*, and *multitenancy*. The
 
 **Startups are businesses in an early stage of their life cycle.** Many software startups build SaaS solutions, but some might provide software in other ways. Startups often have specific concerns, including rapid innovation, finding a product and market fit, and anticipating scale and growth.
 
-**Multitenancy is a way of architecting a solution to share components between multiple tenants, which usually correspond to customers.** You usually use multitenant architectures in SaaS solutions. You can also use multitenant architectures outside of SaaS, such as in organizations that build a platform for multiple business units to share. Multitenancy doesn't imply that every component in a solution is shared. Instead, it implies that at least *some* components of a solution are reused across multiple tenants. How you [define a tenant](../multitenant/considerations/tenancy-models.md#define-a-tenant) and choose a [tenancy model](../multitenant/considerations/tenancy-models.md#common-tenancy-models) depends on whether your business model is B2C SaaS or B2B SaaS or you're a large organization.
+**Multitenancy is a way of architecting a solution to share components between multiple tenants, which usually correspond to customers.** You usually use multitenant architectures in SaaS solutions. However, it is also possible to use multitenant architectures outside of SaaS, such as in organizations that build a platform for multiple business units to share. Multitenancy doesn't imply that every component in a solution is shared. Instead, it implies that at least *some* components are shared across multiple tenants.
+
+How you [define a tenant](../multitenant/considerations/tenancy-models.md#define-a-tenant) and choose a [tenancy model](../multitenant/considerations/tenancy-models.md#common-tenancy-models) depends on whether your business model is B2C SaaS or B2B SaaS or you're a large organization.
 
 > [!NOTE]
 > This series uses the term *tenant* to refer to **your** tenants, which might be your customers or groups of users. The guidance can help you build your own multitenant software solutions on top of the Azure platform.
 >
 > In Microsoft Entra ID, a tenant refers to individual directories, and multitenancy refers to interactions between multiple Microsoft Entra tenants. The terms are the same, but the concepts aren't. For clarity, this series uses the full term, *Microsoft Entra tenant*, when referring to the Microsoft Entra ID concept of a tenant.
 
-The following diagram illustrates the differences between these concepts for an organization that uses a SaaS business model:
+## Multitenant architecture for SaaS and non-SaaS business models
+
+Although multitenancy is typically associated with SaaS solutions, it is also possible to use multitenant architectures in non-SaaS scenarios. The underlying multitenant architecture might be similar, but the business model affects how you define a tenant and your design choices.
+
+In the following diagram, you can see a multitenant architecture that's designed to serve a SaaS business model for both consumers (B2C) and business customers (B2B). Taking a technical lens, B2C tenants are represented by a group of users, like a family, with a set of users in each group. In contrast, B2B tenants represent other businesses and their employees are users.
 
 :::image type="complex" border="false" source="./images/saas-business-model.svg" alt-text="Diagram that shows a multitenant application architecture that serves a SaaS business model." lightbox="./images/saas-business-model.svg":::
    The diagram shows a business model section and a technical architecture section. The business model section includes a SaaS section that has B2C and B2B SaaS types. Arrows point from these types to the tenants in the multitenant application section. The technical architecture section includes tenants, user groups, and employees.
 :::image-end:::
 
-The following diagram illustrates how you can use a multitenant architecture in a business model that isn't a SaaS:
+The following diagram illustrates how you can use a multitenant architecture in a business model that isn't a SaaS. For example, suppose you're designing a system for a large organization that has multiple business units and departments that wish to share a centralized application or platform. Each business unit is represented as a tenant, and has its own set of users.
 
 :::image type="complex" border="false" source="./images/enterprise-business-model.svg" alt-text="Diagram that shows how an organization can use a multitenant architecture." lightbox="./images/enterprise-business-model.svg":::
    The diagram shows a business model section and a technical architecture section. The business model section includes an enterprise section which contains a business units section. The business units section includes accounting, HR, and sales. The technical architecture section includes a multitenant application section which contains a tenant section that has multiple tenants.

@@ -1,4 +1,4 @@
-In this scenario, an e-commerce company in the travel industry migrates a legacy web application by using Azure API Management. The new UI will be hosted as a platform as a service (PaaS) application on Azure, and it will depend on both existing and new HTTP APIs. These APIs will ship with a better-designed set of interfaces, which will enable better performance, easier integration, and future extensibility.
+In this scenario, an e-commerce company in the travel industry migrates a legacy web application by using Azure API Management. The new UI is hosted as a platform as a service (PaaS) application on Azure, and it depends on both existing and new HTTP APIs. These APIs ship with a better-designed set of interfaces, which enable better performance, easier integration, and future extensibility.
 
 ## Architecture
 
@@ -25,11 +25,11 @@ In this scenario, an e-commerce company in the travel industry migrates a legacy
 
 The API Management instance is configured to map the legacy HTTP services to a new API contract. In this configuration, the new Web UI is unaware of the integration with a set of legacy services/APIs and new APIs.
 
-In the future, the project team will gradually port functionality to the new APIs and retire the original services. The team will handle these changes within API Management configuration, leaving the front-end UI unaffected and avoiding redevelopment work.
+In the future, the project team can gradually port functionality to the new APIs and retire the original services. The team handles these changes within API Management configuration, leaving the front-end UI unaffected and avoiding redevelopment work.
 
 ### Components
 
-- [Azure API Management](/azure/well-architected/service-guides/api-management/reliability) abstracts backend APIs as well as adding cross cutting functionality and discovery for developers and applications. In this scenario the recomposition of existing legacy backend APIs and the addition of new API functionality is made possible by using API Management as a [façade](/azure/architecture/patterns/strangler-fig) for the new client application to consume consistently and using modern standards. Because API Management façades both the existing and new APIs it's possible for the developers to modernize the legacy backends behind the API Management façade in an iterative way and with minimal to zero impact on the new front end development.
+- [Azure API Management](/azure/well-architected/service-guides/api-management/reliability) abstracts backend APIs as well as adding cross cutting functionality and discovery for developers and applications. In this scenario, the recomposition of existing legacy backend APIs and the addition of new API functionality is made possible by using API Management as a [façade](/azure/architecture/patterns/strangler-fig) for the new client application to consume consistently and using modern standards. Because API Management façades both the existing and new APIs it's possible for the developers to modernize the legacy backends behind the API Management façade in an iterative way and with minimal to zero impact on the new front end development.
 - [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a turn-key Platform as a Service (PaaS) service for web hosting which provides out of the box features such as security, load balancing, autoscaling, and automated management. Azure App Service is a great choice for the new APIs being developed for this solution because it provides flexible turn-key hosting, enabling the DevOps team to focus on delivering features.
 
 ### Alternatives
@@ -47,13 +47,13 @@ In the future, the project team will gradually port functionality to the new API
 
 An e-commerce company in the travel industry is modernizing its legacy browser-based software stack. Although the existing stack is mostly monolithic, some [Simple Object Access Protocol (SOAP)-based HTTP services][soap] exist from a recent project. The company is considering the creation of additional revenue streams to monetize some of the internal intellectual property that it has developed.
 
-Goals for the project include addressing technical debt, improving ongoing maintenance, and accelerating feature development with fewer regression bugs. The project will use an iterative process to avoid risk, with some steps performed in parallel:
+Goals for the project include addressing technical debt, improving ongoing maintenance, and accelerating feature development with fewer regression bugs. The project uses an iterative process to avoid risk, with some steps performed in parallel:
 
-- The development team will modernize the application's back end, which consists of relational databases hosted on VMs.
-- The in-house development team will write new business functionality that will be exposed over new HTTP APIs.
-- A contract development team will build a new browser-based UI, which will be hosted in Azure.
+- The development team modernizes the application's back end, which consists of relational databases hosted on VMs.
+- The in-house development team writes new business functionality that is exposed over new HTTP APIs.
+- A contract development team builds a new browser-based UI, which is hosted in Azure.
 
-New application features will be delivered in stages. These features will gradually replace the existing browser-based client/server UI functionality (hosted on-premises) that now powers the company's e-commerce business.
+New application features are delivered in stages. These features gradually replace the existing browser-based client/server UI functionality (hosted on-premises) that now powers the company's e-commerce business.
 
 Members of the management team don't want to modernize unnecessarily. They also want to maintain control of scope and costs. To do this, they've decided to preserve their existing SOAP HTTP services. They also intend to minimize changes to the existing UI. They can use [Azure API Management][apim] to address many of the project's requirements and constraints.
 
@@ -84,7 +84,7 @@ Reliability helps ensure that your application can meet the commitments that you
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-API Management is offered in four tiers: Developer, Basic, Standard, and Premium. For detailed guidance on the differences in these tiers, see the [Azure API Management pricing guidance][apim-pricing].
+API Management is offered in four tiers: Developer, Basic, Standard, and Premium. For more information about the differences in these tiers, see [Azure API Management pricing guidance][apim-pricing].
 
 You can scale API Management by adding and removing units. Each unit has capacity that depends on its tier.
 
