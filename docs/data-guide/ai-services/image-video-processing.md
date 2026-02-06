@@ -27,7 +27,7 @@ This article covers Foundry Tools that provide video and image processing capabi
 
 ### Azure OpenAI in Microsoft Foundry models
 
-[Azure OpenAI in Microsoft Foundry models](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#azure-openai-in-microsoft-foundry-models) provides access to OpenAI's powerful language models, including the latest generation of GPT models with image, video, and audio generation capabilities.  [Sora and Sora 2 video generation models](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure?view=foundry-classic&pivots=azure-openai&tabs=global-standard-aoai%2Cglobal-standard#video-generation-models) and [DALL-E image generation models](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure?view=foundry-classic&pivots=azure-openai&tabs=global-standard-aoai%2Cglobal-standard#image-generation-models) are also available.
+[Azure OpenAI in Microsoft Foundry models](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#azure-openai-in-microsoft-foundry-models) provides access to OpenAI's powerful language models, including the latest generation of GPT models with image, video, and audio generation capabilities.  [Sora and Sora 2 video generation models](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#video-generation-models) and [DALL-E image generation models](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#image-generation-models) are also available.
 
 | Use Azure OpenAI in Microsoft Foundry models to | Don't use Azure OpenAI in Microsoft Foundry models to |
 | :----------| :-------------|
