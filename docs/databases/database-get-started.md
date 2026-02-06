@@ -148,22 +148,6 @@ For database-specific guidance, see the Azure Well-Architected Framework service
 - [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database)
 
 
-## Path to production
-
-[Choosing a data store](../guide/technology-choices/data-stores-getting-started.md) is a foundational decision when implementing databases on Azure. Understanding the different [data store models](../data-guide/technology-choices/understand-data-store-models.md) enables you to select the appropriate technology for your workload requirements.
-
-Key decision points include:
-
-- **Data model**: Choose between relational, document, key-value, graph, or columnar data models based on your data structure and query patterns.
-
-- **Consistency requirements**: Determine whether you need strong consistency (ACID transactions) or can work with eventual consistency for better scalability.
-
-- **Scalability**: Evaluate whether vertical scaling (larger instances) or horizontal scaling (distributed data) better fits your growth needs.
-
-- **Managed vs. self-managed**: Decide between fully managed PaaS services, managed instances, or IaaS deployments based on operational requirements.
-
-To view different architecture styles for database solutions, see [architectures](#database-architectures).
-
 
 ## Best practices
 
