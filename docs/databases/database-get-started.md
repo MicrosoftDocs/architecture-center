@@ -18,7 +18,7 @@ Selecting the right database depends on your data model, consistency requirement
 
 ## Architecture
 
-:::image type="complex" border="false" source=".media/data-service-classifications.png" alt-text="Diagram that shows the analytics solution journey on Azure." lightbox="media/data-service-classifications.png":::
+:::image type="complex" border="false" source="media/data-service-classifications.png" alt-text="Diagram that shows the analytics solution journey on Azure." lightbox="media/data-service-classifications.png":::
    Diagram that contrasts relational database management system (RDBMS) and big data solutions. 
 :::image-end:::
 
