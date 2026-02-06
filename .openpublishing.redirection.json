@@ -7728,8 +7728,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "docs/solution-ideas/articles/containers-get-started.md",
-      "redirect_url": "/azure/architecture/containers/containers-get-started",
+      "source_path": "docs/solution-ideas/articles/container-get-started.md",
+      "redirect_url": "/azure/architecture/containers/container-get-started",
       "redirect_document_id": false
     }
   ]

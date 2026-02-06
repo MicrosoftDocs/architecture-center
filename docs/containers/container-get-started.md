@@ -69,7 +69,7 @@ Azure Kubernetes Service (AKS) is the most comprehensive container platform on A
 
 **AKS solution ideas** - These solution ideas demonstrate AKS implementation patterns and possibilities to explore:
 
-- [Data streaming with AKS](../solution-ideas/data-streaming-scenario.yml) - Real-time data streaming architectures using AKS.
+- [Data streaming with AKS](../solution-ideas/articles/data-streaming-scenario.yml) - Real-time data streaming architectures using AKS.
 
 ### PaaS container hosting
 

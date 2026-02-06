@@ -67,10 +67,10 @@ These production-ready architectures demonstrate end-to-end analytics solutions 
 
 These solution ideas demonstrate implementation patterns and possibilities to explore:
 
-- [Ingestion, ETL, and stream processing pipelines with Azure Databricks](../solution-ideas/ingest-etl-stream-with-adb.yml) - Create ETL pipelines for batch and streaming data to simplify data lake ingestion.
-- [Modern analytics architecture with Azure Databricks](../solution-ideas/azure-databricks-modern-analytics-architecture.yml) - Collect, process, analyze, and visualize data using a modern data architecture.
-- [Modern data platform for small and medium businesses](../solution-ideas/small-medium-modern-data-platform.yml) - Build a modern data platform architecture for small and medium businesses using Microsoft Fabric and Azure Databricks.
-- [Real-time analytics with Azure Data Explorer](../solution-ideas/analytics-service-bus.yml) - Analyze data in real time using Azure Data Explorer and Azure Service Bus.
+- [Ingestion, ETL, and stream processing pipelines with Azure Databricks](../solution-ideas/articles/ingest-etl-stream-with-adb.yml) - Create ETL pipelines for batch and streaming data to simplify data lake ingestion.
+- [Modern analytics architecture with Azure Databricks](../solution-ideas/articles/azure-databricks-modern-analytics-architecture.yml) - Collect, process, analyze, and visualize data using a modern data architecture.
+- [Modern data platform for small and medium businesses](../solution-ideas/articles/small-medium-modern-data-platform.yml) - Build a modern data platform architecture for small and medium businesses using Microsoft Fabric and Azure Databricks.
+- [Real-time analytics with Azure Data Explorer](../solution-ideas/articles/analytics-service-bus.yml) - Analyze data in real time using Azure Data Explorer and Azure Service Bus.
 
 ## Learn about analytics on Azure
 
@@ -169,9 +169,9 @@ Key hybrid analytics scenarios:
 Real-time analytics enables organizations to act on data as it arrives. Here are some resources to help you get started with real-time analytics on Azure:
 
 - [Real-time analytics on big data architecture](../solution-ideas/articles/real-time-analytics.yml) - Process and analyze streaming data at scale.
-- [IoT analytics with Azure Data Explorer](../solution-ideas/iot-azure-data-explorer.yml) - Analyze IoT telemetry data in real time.
+- [IoT analytics with Azure Data Explorer](../solution-ideas/articles/iot-azure-data-explorer.yml) - Analyze IoT telemetry data in real time.
 - [Stream processing with Azure Stream Analytics](../reference-architectures/data/stream-processing-stream-analytics.yml) - Build serverless streaming solutions.
-- [Create a modern analytics architecture by using Azure Databricks](../solution-ideas/azure-databricks-modern-analytics-architecture.yml) - Enterprise-grade analytics using Apache Spark.
+- [Create a modern analytics architecture by using Azure Databricks](../solution-ideas/articles/azure-databricks-modern-analytics-architecture.yml) - Enterprise-grade analytics using Apache Spark.
 
 [Browse more analytics examples in the Azure Architecture Center](../browse/index.yml?azure_categories=analytics)
 
