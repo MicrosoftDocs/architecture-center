@@ -7719,8 +7719,18 @@
     },
     {
       "source_path": "docs/databases/index.yml",
-      "redirect_url": "/azure/architecture/solution-ideas/articles/database-get-started",
+      "redirect_url": "/azure/architecture/databases/database-get-started",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/analytics-get-started.md",
+      "redirect_url": "/azure/architecture/analytics/analytics-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/containers-get-started.md",
+      "redirect_url": "/azure/architecture/containers/containers-get-started",
+      "redirect_document_id": false
     }
   ]
 }

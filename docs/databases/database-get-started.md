@@ -18,7 +18,7 @@ Selecting the right database depends on your data model, consistency requirement
 
 ## Architecture
 
-:::image type="complex" border="false" source="../media/data-service-classifications.png" alt-text="Diagram that shows the analytics solution journey on Azure." lightbox="../media/data-service-classifications.png":::
+:::image type="complex" border="false" source=".media/data-service-classifications.png" alt-text="Diagram that shows the analytics solution journey on Azure." lightbox="media/data-service-classifications.png":::
    Diagram that contrasts relational database management system (RDBMS) and big data solutions. 
 :::image-end:::
 
@@ -35,85 +35,85 @@ The articles in this section include solution ideas, fully developed architectur
 
 **Technology choices** - These articles help you choose the best database technologies for your needs:
 
-- [Prepare to choose a data store in Azure](../../guide/technology-choices/data-stores-getting-started.md)
-- [Understand data store models](../../data-guide/technology-choices/understand-data-store-models.md)
-- [Big data storage](../../data-guide/technology-choices/data-storage.md)
-- [Search data store](../../data-guide/technology-choices/search-options.md)
-- [Vector search](../../guide/technology-choices/vector-search.md)
-- [Pipeline orchestration](../../data-guide/technology-choices/pipeline-orchestration-data-movement.md)
-- [Data transfer options](../../data-guide/scenarios/data-transfer.md)
+- [Prepare to choose a data store in Azure](../guide/technology-choices/data-stores-getting-started.md)
+- [Understand data store models](../data-guide/technology-choices/understand-data-store-models.md)
+- [Big data storage](../data-guide/technology-choices/data-storage.md)
+- [Search data store](../data-guide/technology-choices/search-options.md)
+- [Vector search](../guide/technology-choices/vector-search.md)
+- [Pipeline orchestration](../data-guide/technology-choices/pipeline-orchestration-data-movement.md)
+- [Data transfer options](../data-guide/scenarios/data-transfer.md)
 
 **NoSQL**
 
-- [Use the Transactional Outbox pattern](../../databases/guide/transactional-outbox-cosmos.yml)
-- [Run Apache Cassandra](../../databases/guide/cassandra.md)
+- [Use the Transactional Outbox pattern](../databases/guide/transactional-outbox-cosmos.yml)
+- [Run Apache Cassandra](../databases/guide/cassandra.md)
 
 **Data processing**
 
-- [OLAP solutions](../../data-guide/relational-data/online-analytical-processing.md)
-- [OLTP solutions](../../data-guide/relational-data/online-transaction-processing.md)
-- [ETL guide](../../data-guide/relational-data/etl.yml)
-- [Data lakes](../../data-guide/scenarios/data-lake.md)
-- [Big data architectures](../../databases/guide/big-data-architectures.md)
+- [OLAP solutions](../data-guide/relational-data/online-analytical-processing.md)
+- [OLTP solutions](../data-guide/relational-data/online-transaction-processing.md)
+- [ETL guide](../data-guide/relational-data/etl.yml)
+- [Data lakes](../data-guide/scenarios/data-lake.md)
+- [Big data architectures](../databases/guide/big-data-architectures.md)
 
 **Data governance**
 
-- [Data obfuscation with Delphix](../../databases/guide/data-obfuscation-with-delphix-in-azure-data-factory.yml)
-- [Data scrambling for SAP with Delphix](../../databases/guide/data-scrambling-for-sap-using-delphix-and-azure-data-factory.yml)
-- [Collection structure for a federated Purview catalog](../../guide/data/collection-structure-federated-catalog.md)
+- [Data obfuscation with Delphix](../databases/guide/data-obfuscation-with-delphix-in-azure-data-factory.yml)
+- [Data scrambling for SAP with Delphix](../databases/guide/data-scrambling-for-sap-using-delphix-and-azure-data-factory.yml)
+- [Collection structure for a federated Purview catalog](../guide/data/collection-structure-federated-catalog.md)
 
 ### Database architectures
 
 **Data warehouse**
 
-- [DataOps for modern data warehouse](../../databases/architecture/dataops-mdw.yml)
-- [Greenfield lakehouse on Microsoft Fabric](../../example-scenario/data/greenfield-lakehouse-fabric.yml)
+- [DataOps for modern data warehouse](../databases/architecture/dataops-mdw.yml)
+- [Greenfield lakehouse on Microsoft Fabric](../example-scenario/data/greenfield-lakehouse-fabric.yml)
 
 **Azure Data Factory**
 
-- [Medallion lakehouse with Azure Data Factory](../../databases/architecture/azure-data-factory-on-azure-landing-zones-index.yml)
-- [Azure Data Factory baseline architecture](../../databases/architecture/azure-data-factory-on-azure-landing-zones-baseline.yml)
-- [Azure Data Factory enterprise hardened architecture](../../databases/architecture/azure-data-factory-enterprise-hardened.yml)
-- [Azure Data Factory mission critical architecture](../../databases/architecture/azure-data-factory-mission-critical.yml)
+- [Medallion lakehouse with Azure Data Factory](../databases/architecture/azure-data-factory-on-azure-landing-zones-index.yml)
+- [Azure Data Factory baseline architecture](../databases/architecture/azure-data-factory-on-azure-landing-zones-baseline.yml)
+- [Azure Data Factory enterprise hardened architecture](../databases/architecture/azure-data-factory-enterprise-hardened.yml)
+- [Azure Data Factory mission critical architecture](../databases/architecture/azure-data-factory-mission-critical.yml)
 
 **NoSQL**
 
-- [Deploy MongoDB Atlas on Azure](../../databases/architecture/mongodb-atlas-baseline.md)
-- [Analyze MongoDB Atlas data](../../databases/architecture/azure-synapse-analytics-integrate-mongodb-atlas.yml)
+- [Deploy MongoDB Atlas on Azure](../databases/architecture/mongodb-atlas-baseline.md)
+- [Analyze MongoDB Atlas data](../databases/architecture/azure-synapse-analytics-integrate-mongodb-atlas.yml)
 
 **Mainframe**
 
-- [Replicate and sync mainframe data](../../reference-architectures/migration/sync-mainframe-data-with-azure.yml)
-- [Mainframe data replication with Connect](../../example-scenario/mainframe/mainframe-replication-precisely-connect.yml)
-- [Mainframe data replication with Qlik](../../example-scenario/mainframe/mainframe-midrange-data-replication-azure-qlik.yml)
-- [Mainframe data replication with RDRS](../../example-scenario/mainframe/mainframe-data-replication-azure-rdrs.yml)
-- [Migrate mainframe data tier to Azure with mLogica LIBER*IRIS](../../example-scenario/mainframe/mainframe-data-replication-azure-data-platform.yml)
-- [Modernize mainframe midrange data](../../example-scenario/mainframe/modernize-mainframe-data-to-azure.yml)
-- [Re-engineer mainframe batch apps](../../example-scenario/mainframe/reengineer-mainframe-batch-apps-azure.yml)
-- [Rehost IMS DC and IMS DB](../../example-scenario/mainframe/rehost-ims-raincode-imsql.yml)
-- [Implement SMA OpCon in Azure](../../example-scenario/integration/sma-opcon-azure.yml)
+- [Replicate and sync mainframe data](../reference-architectures/migration/sync-mainframe-data-with-azure.yml)
+- [Mainframe data replication with Connect](../example-scenario/mainframe/mainframe-replication-precisely-connect.yml)
+- [Mainframe data replication with Qlik](../example-scenario/mainframe/mainframe-midrange-data-replication-azure-qlik.yml)
+- [Mainframe data replication with RDRS](../example-scenario/mainframe/mainframe-data-replication-azure-rdrs.yml)
+- [Migrate mainframe data tier to Azure with mLogica LIBER*IRIS](../example-scenario/mainframe/mainframe-data-replication-azure-data-platform.yml)
+- [Modernize mainframe midrange data](../example-scenario/mainframe/modernize-mainframe-data-to-azure.yml)
+- [Re-engineer mainframe batch apps](../example-scenario/mainframe/reengineer-mainframe-batch-apps-azure.yml)
+- [Rehost IMS DC and IMS DB](../example-scenario/mainframe/rehost-ims-raincode-imsql.yml)
+- [Implement SMA OpCon in Azure](../example-scenario/integration/sma-opcon-azure.yml)
 
 **Relational**
 
-- [Oracle Database with Azure NetApp Files](../../example-scenario/file-storage/oracle-azure-netapp-files.yml)
-- [SAP deployment using an Oracle database](../../example-scenario/apps/sap-production.yml)
+- [Oracle Database with Azure NetApp Files](../example-scenario/file-storage/oracle-azure-netapp-files.yml)
+- [SAP deployment using an Oracle database](../example-scenario/apps/sap-production.yml)
 
 **Big data**
 
-- [Microsoft Fabric deployment patterns](../../analytics/architecture/fabric-deployment-patterns.yml)
+- [Microsoft Fabric deployment patterns](../analytics/architecture/fabric-deployment-patterns.yml)
 
 ### Database solution ideas
 
 **Relational**
 
-- [Migrate an Oracle database to Azure](../../databases/idea/topic-migrate-oracle-azure.yml)
-- [Migrate an Oracle database to an Azure virtual machine](../../databases/idea/migrate-oracle-azure-iaas.yml)
-- [Migrate an Oracle database to OD@A Exadata Database Service](../../databases/idea/migrate-oracle-odaa-exadata.yml)
-- [Cross-region resiliency for SQL TDE with Azure Key Vault Managed HSM](../../solution-ideas/articles/secure-sql-managed-instance-managed-hardware-security-module.yml)
+- [Migrate an Oracle database to Azure](../databases/idea/topic-migrate-oracle-azure.yml)
+- [Migrate an Oracle database to an Azure virtual machine](../databases/idea/migrate-oracle-azure-iaas.yml)
+- [Migrate an Oracle database to OD@A Exadata Database Service](../databases/idea/migrate-oracle-odaa-exadata.yml)
+- [Cross-region resiliency for SQL TDE with Azure Key Vault Managed HSM](../solution-ideas/articles/secure-sql-managed-instance-managed-hardware-security-module.yml)
 
 **NoSQL**
 
-- [Minimal storage – change feed replication](../../databases/idea/minimal-storage-change-feed-replicate-data.yml)
+- [Minimal storage – change feed replication](../databases/idea/minimal-storage-change-feed-replicate-data.yml)
 
 
 ## Learn about databases on Azure
@@ -150,7 +150,7 @@ For database-specific guidance, see the Azure Well-Architected Framework service
 
 ## Path to production
 
-[Choosing a data store](../../guide/technology-choices/data-stores-getting-started.md) is a foundational decision when implementing databases on Azure. Understanding the different [data store models](../../data-guide/technology-choices/understand-data-store-models.md) enables you to select the appropriate technology for your workload requirements.
+[Choosing a data store](../guide/technology-choices/data-stores-getting-started.md) is a foundational decision when implementing databases on Azure. Understanding the different [data store models](../data-guide/technology-choices/understand-data-store-models.md) enables you to select the appropriate technology for your workload requirements.
 
 Key decision points include:
 
@@ -171,7 +171,7 @@ Review these best practices when designing your database solutions:
 
 | Best practice | Description |
 |---------------|-------------|
-| [Transactional Outbox pattern with Azure Cosmos DB](../../databases/guide/transactional-outbox-cosmos.yml) | Learn how to use the Transactional Outbox pattern for reliable messaging and guaranteed delivery of events. |
+| [Transactional Outbox pattern with Azure Cosmos DB](../databases/guide/transactional-outbox-cosmos.yml) | Learn how to use the Transactional Outbox pattern for reliable messaging and guaranteed delivery of events. |
 | [Distribute your data globally with Azure Cosmos DB](/azure/cosmos-db/distribute-data-globally) | To achieve low latency and high availability, some applications need to be deployed in datacenters that are close to their users. |
 | [Security in Azure Cosmos DB](/azure/cosmos-db/database-security) | Security best practices help prevent, detect, and respond to database breaches. |
 | [Continuous backup with point-in-time restore in Azure Cosmos DB](/azure/cosmos-db/continuous-backup-restore-introduction) | Learn about Azure Cosmos DB point-in-time restore feature. |
@@ -205,32 +205,32 @@ Many organizations need a hybrid approach to databases because they have workloa
 
 Key hybrid database scenarios:
 
-- [Azure Arc hybrid management for SQL Server](../../hybrid/azure-arc-sql-server.yml) - Use Azure Arc to manage SQL Server across environments.
-- [Hybrid architecture design](../../hybrid/hybrid-start-here.md) - Connect on-premises environments to Azure.
+- [Azure Arc hybrid management for SQL Server](../hybrid/azure-arc-sql-server.yml) - Use Azure Arc to manage SQL Server across environments.
+- [Hybrid architecture design](../hybrid/hybrid-start-here.md) - Connect on-premises environments to Azure.
 
 ### Mainframe data modernization
 
 Modernize mainframe data tier workloads to Azure:
 
-- [Modernize mainframe midrange data](../../example-scenario/mainframe/modernize-mainframe-data-to-azure.yml) - Migrate legacy data sources to modern platforms.
-- [Replicate and sync mainframe data](../../reference-architectures/migration/sync-mainframe-data-with-azure.yml) - Keep mainframe and cloud data synchronized.
-- [Mainframe data replication with Connect](../../example-scenario/mainframe/mainframe-replication-precisely-connect.yml) - Use Precisely Connect for data replication.
-- [Mainframe data replication with Qlik](../../example-scenario/mainframe/mainframe-midrange-data-replication-azure-qlik.yml) - Replicate data using Qlik technologies.
+- [Modernize mainframe midrange data](../example-scenario/mainframe/modernize-mainframe-data-to-azure.yml) - Migrate legacy data sources to modern platforms.
+- [Replicate and sync mainframe data](../reference-architectures/migration/sync-mainframe-data-with-azure.yml) - Keep mainframe and cloud data synchronized.
+- [Mainframe data replication with Connect](../example-scenario/mainframe/mainframe-replication-precisely-connect.yml) - Use Precisely Connect for data replication.
+- [Mainframe data replication with Qlik](../example-scenario/mainframe/mainframe-midrange-data-replication-azure-qlik.yml) - Replicate data using Qlik technologies.
 
 ### Analytics integration
 
 For analytics workloads that depend on robust database foundations, see:
 
-- [Analytics architecture design](../../solution-ideas/articles/analytics-get-started.md) - Overview of analytics solutions on Azure.
-- [Data warehousing and analytics](../../example-scenario/data/data-warehouse.yml) - Integrate databases with analytics platforms.
+- [Analytics architecture design](../solution-ideas/articles/analytics-get-started.md) - Overview of analytics solutions on Azure.
+- [Data warehousing and analytics](../example-scenario/data/data-warehouse.yml) - Integrate databases with analytics platforms.
 
 
 ## AWS or Google Cloud professionals
 
 These articles can help you ramp up quickly by comparing Azure database options to other cloud services:
 
-- [Relational database technologies on Azure and AWS](../../aws-professional/databases.md) - Compare Azure and AWS database services.
-- [Google Cloud to Azure services comparison - Data platform](../../gcp-professional/services.md#data-platform) - Compare Azure and Google Cloud database services.
+- [Relational database technologies on Azure and AWS](../aws-professional/databases.md) - Compare Azure and AWS database services.
+- [Google Cloud to Azure services comparison - Data platform](../gcp-professional/services.md#data-platform) - Compare Azure and Google Cloud database services.
 
 
 ## Contributors

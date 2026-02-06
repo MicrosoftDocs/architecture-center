@@ -442,7 +442,7 @@ items:
   - name: Analytics
     items:
     - name: Get started
-      href: solution-ideas/articles/analytics-get-started.md
+      href: analytics/analytics-get-started.md
     - name: Guides
       items:
       - name: Technology choices
@@ -608,7 +608,7 @@ items:
   - name: Containers
     items:
     - name: Get started
-      href: solution-ideas/articles/container-get-started.md
+      href: containers/container-get-started.md
     - name: Guides
       items:
       - name: Choose a container host
@@ -718,7 +718,7 @@ items:
   - name: Database
     items:
     - name: Get started
-      href: solution-ideas/articles/database-get-started.md
+      href: databases/database-get-started.md
     - name: Guides
       items:
       - name: Prepare to choose a data store in Azure
