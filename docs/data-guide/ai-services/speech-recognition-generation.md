@@ -19,7 +19,7 @@ This article covers Foundry Tools that provide speech recognition and generation
 
 - [Azure Speech](#azure-speech) provides speech-to-text and text-to-speech capabilities. You can transcribe speech to text with high accuracy, produce natural-sounding text-to-speech voices, translate spoken audio, and conduct live AI voice conversations. Create custom voices, add specific words to your base vocabulary, or build your own models. Run Azure Speech anywhere, in the cloud or at the edge in containers.
 
-- [Azure AI Immersive Reader](#immersive-reader) is a tool that implements proven techniques to improve reading comprehension for emerging readers, language learners, and people with learning differences.
+- [Azure AI Immersive Reader](#azure-ai-immersive-readerimmersive-reader) is a tool that implements proven techniques to improve reading comprehension for emerging readers, language learners, and people with learning differences.
 
 ### Azure Speech
 

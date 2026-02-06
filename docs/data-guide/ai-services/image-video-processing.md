@@ -23,8 +23,6 @@ This article covers Foundry Tools that provide video and image processing capabi
 
 - [Azure AI Custom Vision](#custom-vision) is an image recognition service that you can use to build, deploy, and improve your image identifier models for specific requirements that can't be met by other services.
 
-- [Azure AI Face](#azure-ai-face) provides AI algorithms that detect, recognize, and analyze human faces in images for scenarios such as identification, touchless access control, and automatic face blurring for privacy.
-
 - [Azure AI Video Indexer](#azure-ai-video-indexer) is a comprehensive AI solution that enables organizations to extract deep insights from video (live and uploaded) and audio content using advanced machine learning and generative AI models.
 
 ### Azure OpenAI in Microsoft Foundry models
@@ -33,9 +31,8 @@ This article covers Foundry Tools that provide video and image processing capabi
 
 | Use Azure OpenAI in Microsoft Foundry models to | Don't use Azure OpenAI in Microsoft Foundry models to |
 | :----------| :-------------|
-| Generate video from natural language descriptions using Sora or Sora 2. | |
 | Generate images from natural language descriptions using DALL-E. | Perform specific image processing like form extraction or domain-specialized detection. For these tasks, use [Document Intelligence](/azure/ai-services/document-intelligence/overview). |
-| Perform broad, nonspecific analysis on images using vision-capable models like GPT-4o. | Detect, recognize, or analyze human faces. For face-related tasks, use [Azure AI Face](#azure-ai-face). |
+| Perform broad, nonspecific analysis on images using vision-capable models like GPT-4o. | Detect, recognize, or analyze human faces. For face-related tasks, use [Azure Vision](#azure-vision). |
 | Generate accessibility descriptions for images. | Use open-source image generation models. For open-source models, use Azure Machine Learning. |
 
 ### Azure Vision
@@ -56,17 +53,23 @@ The following table provides a list of features available in Azure Vision.
 | :----------| :-------------|
 | [Optical character recognition (OCR)](/azure/ai-services/computer-vision/overview-ocr) | Extracts text from images. You can use the Read API to extract printed and handwritten text from photos and documents. It uses deep-learning-based models and works with text on various surfaces and backgrounds including business documents, invoices, receipts, posters, business cards, letters, and whiteboards. |
 | [Image Analysis](/azure/ai-services/computer-vision/overview-image-analysis) | Extracts many visual features from images, such as objects, faces, adult content, and auto-generated text descriptions. You can create custom image identifier models by using [Image Analysis 4.0](/azure/ai-services/computer-vision/how-to/model-customization) based on the Florence foundation model. |
-| [Face](/azure/ai-services/computer-vision/overview-identity) | Provides AI algorithms that detect, recognize, and analyze human faces in images. Facial recognition software is important in scenarios such as identification, touchless access control, and face blurring for privacy. |
+| [Face detection and analysis](/azure/ai-services/computer-vision/concept-face-detection) | Identifies the regions of an image that contain a human face, typically by returning bounding-box coordinates that form a rectangle around the face. |
+| [Find similar faces](/azure/ai-services/computer-vision/overview-identity#find-similar-faces) | Matches a target face with a set of candidate faces and identifies a smaller group of faces that closely resemble the target face. Useful for face search by image. |
+| [Group faces](/azure/ai-services/computer-vision/overview-identity#group-faces) | Divides a set of unknown faces into several smaller groups based on similarity. |
+| [Face identification](/azure/ai-services/computer-vision/overview-identity#identification) | Performs one-to-many matching of one face in an image to a set of faces in a secure repository. Match candidates are returned based on how closely their face data matches the query face. |
+| [Face verification](/azure/ai-services/computer-vision/overview-identity#face-recognition-operations) | Performs one-to-one matching to confirm that a user is who they claim to be. |
+| [Liveness detection](/azure/ai-services/computer-vision/overview-identity#liveness-detection) | An anti-spoofing feature that checks whether a user is physically present in front of the camera. Prevents spoofing attacks that use a printed photo, recorded video, or a 3D mask of the user's face. |
 
-#### Getting started
+#### Use cases
 
-Use [Vision Studio](https://portal.vision.cognitive.azure.com/) to quickly try out Azure Vision features in your web browser without writing code.
+The following table provides a list of possible use cases for Azure Vision.
 
-To build Azure Vision into your app, follow a quickstart:
-
-- [Quickstart: Optical character recognition (OCR)](/azure/ai-services/computer-vision/quickstarts-sdk/client-library)
-- [Quickstart: Image Analysis](/azure/ai-services/computer-vision/quickstarts-sdk/image-analysis-client-library)
-- [Quickstart: Face](/azure/ai-services/computer-vision/quickstarts-sdk/identity-client-library)
+| Use case | Description |
+| :----------| :-------------|
+| [Generate image alt text](/azure/ai-services/computer-vision/use-case-alt-text) | Use Image Analysis captioning models to auto-generate alt text descriptions for images. Alt text improves accessibility for blind and low-vision users, helps meet legal compliance requirements, and makes your website more discoverable through better SEO. Microsoft products like PowerPoint, Word, and Edge browser use this capability. |
+| [Identity verification](/azure/ai-services/computer-vision/use-case-identity-verification) | Use Face to verify users are who they claim to be. Verification compares a probe image against an enrolled template (such as a government-issued ID) for access control scenarios. Benefits include seamless user experience and improved security over knowledge-based methods. |
+| Face redaction | Redact or blur detected faces of people recorded in a video to protect their privacy. |
+| Touchless access control | Use opt-in face identification for enhanced access control while reducing the hygiene and security risks from physical media sharing, loss, or theft. Facial recognition assists the check-in process with a human in the loop for check-ins in airports, stadiums, theme parks, buildings, reception kiosks at offices, hospitals, gyms, clubs, or schools. |
 
 ### Custom Vision
 
@@ -74,7 +77,7 @@ To build Azure Vision into your app, follow a quickstart:
 
 | Use Custom Vision to | Don't use Custom Vision to |
 | :----------| :-------------|
-| Recognize unusual objects and manufacturing defects that standard image analysis can't detect. | Perform basic object detection or face detection. Use [Azure AI Face](#azure-ai-face) or [Azure Vision](#azure-vision) instead. |
+| Recognize unusual objects and manufacturing defects that standard image analysis can't detect. | Perform basic object detection or face detection. Use [Azure Vision](#azure-vision) instead. |
 | Provide detailed custom classifications for specific business requirements. | Perform basic visual analysis. Use vision-capable models from [Azure OpenAI in Microsoft Foundry models](#azure-openai-in-microsoft-foundry-models) or open-source models in Azure Machine Learning instead. |
 | Train models with your own labeled images for specialized scenarios. | |
 
@@ -97,39 +100,6 @@ The following table provides a list of possible use cases for Custom Vision.
 | :----------| :-------------|
 | [Use Custom Vision with an IoT device to report visual states](/azure/iot-edge/tutorial-deploy-custom-vision) | Use Custom Vision to train a device that has a camera to detect visual states. You can run this detection scenario on an IoT device by using an exported ONNX model. A visual state describes the content of an image, such as an empty room or a room with people or an empty driveway or a driveway with a truck. |
 | [Classify images and objects](/azure/ai-services/custom-vision-service/overview#classification-and-object-detection) | Analyze photos and scan for specific logos by training a custom model. |
-
-### Azure AI Face
-
-[Azure AI Face](/azure/ai-services/computer-vision/overview-identity) provides AI algorithms that detect, recognize, and analyze human faces in images. Facial recognition software is important in various scenarios, such as identification, touchless access control, and automatic face blurring for privacy.
-
-| Use Azure AI Face to | Don't use Azure AI Face to |
-| :----------| :-------------|
-| Check whether faces are live or spoofed using liveness detection. | Detect emotions in faces or perform other high-level reasoning about faces. Use multimodal language models for those tasks instead. |
-| Identify, group, or find similar faces. | Perform general image analysis. Use [Azure Vision](#azure-vision) or [Azure OpenAI in Microsoft Foundry models](#azure-openai-in-microsoft-foundry-models) instead. |
-| Verify a person against a trusted face image for identity confirmation. | |
-
-#### Available Azure AI Face features
-
-The following table provides a list of features available in Azure AI Face.
-
-| Feature | Description |
-| :----------| :-------------|
-| [Face detection and analysis](/azure/ai-services/computer-vision/concept-face-detection) | Identify the regions of an image that contain a human face, typically by returning bounding-box coordinates that form a rectangle around the face. |
-| [Find similar faces](/azure/ai-services/computer-vision/overview-identity#find-similar-faces) | The Find Similar operation matches a target face with a set of candidate faces. It identifies a smaller group of faces that closely resemble the target face. This functionality is useful for doing a face search by image. |
-| [Group faces](/azure/ai-services/computer-vision/overview-identity#group-faces) | The Group operation divides a set of unknown faces into several smaller groups based on similarity. Each group is a disjoint proper subset of the original set of faces. It also returns a single `messyGroup` array that contains the face IDs for which no similarities were found. |
-| [Identification](/azure/ai-services/computer-vision/overview-identity#identification) | Face identification can address one-to-many matching of one face in an image to a set of faces in a secure repository. Match candidates are returned based on how closely their face data matches the query face. |
-| [Face recognition operations](/azure/ai-services/computer-vision/overview-identity#face-recognition-operations) | Modern enterprises and apps can use the Azure AI Face recognition technologies, including face verification (or one-to-one matching) and face identification (or one-to-many matching) to confirm that a user is who they claim to be. |
-| [Liveness detection](/azure/ai-services/computer-vision/overview-identity#liveness-detection) | Liveness detection is an anti-spoofing feature that checks whether a user is physically present in front of the camera. It's used to prevent spoofing attacks that use a printed photo, recorded video, or a 3D mask of the user's face. |
-
-#### Use cases
-
-The following table provides a list of possible use cases for Azure AI Face.
-
-| Use case | Description |
-| :----------| :-------------|
-| Verify user identity | Verify a person against a trusted face image. This verification can be used to grant access to digital or physical properties. In most scenarios, the trusted face image comes from a government-issued ID, such as a passport or driver's license, or from an enrollment photo taken in person. During verification, liveness detection can play a crucial role in verifying that the image comes from a real person and not a printed photo or mask. |
-| Face redaction | Redact or blur detected faces of people recorded in a video to protect their privacy. |
-| Touchless access control | Compared to methods like cards or tickets, opt-in face identification enables an enhanced access control experience while reducing the hygiene and security risks from physical media sharing, loss, or theft. Facial recognition assists the check-in process with a human in the loop for check-ins in airports, stadiums, theme parks, buildings, reception kiosks at offices, hospitals, gyms, clubs, or schools. |
 
 ### Azure AI Video Indexer
 
