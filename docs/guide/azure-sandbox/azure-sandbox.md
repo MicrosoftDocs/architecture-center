@@ -125,7 +125,7 @@ For example, you can use the following capabilities and configurations that the 
 
   - Visual Studio Code preinstalled with Remote-SSH into a Linux jump box
 
-  - Storage Explorer, AzCopy, and Azure Data Studio preinstalled
+  - Storage Explorer and AzCopy preinstalled
 
   - SQL Server Management Studio preinstalled
 
