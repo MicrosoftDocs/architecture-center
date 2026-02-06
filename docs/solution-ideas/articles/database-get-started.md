@@ -162,7 +162,7 @@ Key decision points include:
 
 - **Managed vs. self-managed**: Decide between fully managed PaaS services, managed instances, or IaaS deployments based on operational requirements.
 
-To view different architecture styles for database solutions, see [architectures](#architectures).
+To view different architecture styles for database solutions, see [architectures](#database-architectures).
 
 
 ## Best practices

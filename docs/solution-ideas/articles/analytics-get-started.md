@@ -27,7 +27,7 @@ Data can be processed in batches or in real-time, on-premises or in the cloud, b
 *Download a [Visio file](https://arch-center.azureedge.net/analytics-get-started-diagram.vsdx) of this architecture.*
 
 
-The diagram above demonstrates a typical basic/baseline analytics implementation. Refer to the [architectures](#architectures) provided in this section to find real-world solutions that you can build in Azure.
+The diagram above demonstrates a typical basic/baseline analytics implementation. Refer to the [architectures](#analytics-architectures) provided in this section to find real-world solutions that you can build in Azure.
 
 ## Explore analytics architectures and guides
 
@@ -111,7 +111,7 @@ Key decision points include:
 
 - **Analytics tools**: Select BI and AI technologies that align with your team's skills and business needs.
 
-To view different architecture styles for analytics solutions, see [architectures](#architectures).
+To view different architecture styles for analytics solutions, see [architectures](#analytics-architectures).
 
 ## Best practices
 
