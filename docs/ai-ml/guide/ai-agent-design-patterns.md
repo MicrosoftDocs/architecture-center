@@ -185,7 +185,7 @@ Consider group chat orchestration when your scenario can be solved through spont
 
 Avoid this pattern in the following scenarios:
 
-- Simple task delegation or linear pipeline processing is sufficient.
+- Basic task delegation or linear pipeline processing is sufficient.
 
 - Real-time processing requirements make discussion overhead unacceptable.
 
@@ -245,7 +245,7 @@ Avoid this pattern in the following scenarios:
 
 - The appropriate agents and their order are always known upfront.
 
-- Task routing is simple and deterministically rule-based, not based on dynamic context window or dynamic interpretation.
+- Task routing is deterministic and rule-based, not based on dynamic context window or dynamic interpretation.
 
 - Suboptimal routing decisions might lead to a poor or frustrating user experience.
 
@@ -275,7 +275,7 @@ The magentic orchestration pattern is designed for open-ended and complex proble
    The image shows a Manager agent section. It includes the input and a model. An arrow labeled Invoke agents points from the Manager agent to Agent 2. An arrow labeled Evaluate goal loop points to the Task complete section. An arrow labeled Yes points to the Results section, and an arrow labeled No points back to the Manager agent. An arrow points from the Manager agent to the Task and progress ledger section. A line connects the Task and progress ledger section to the Human participant section. A line that has three arrows points to Agent 1, Agent 2, an unlabeled section, and Agent n. A line connects Agent 1 to a section that reads Model and knowledge. A line connects Agent 2 to a section that reads Model, knowledge, and tools. A line connects Agent n to Model and tools. An arrow points from the section that reads Model, knowledge, and tools to External systems and from the Model and tools section to External systems.
 :::image-end:::
 
-The manager agent communicates directly with specialized agents to gather information as it builds and refines the task ledger. It iterates, backtracks, and delegates as many times as needed to build a complete plan that it can successfully carry out. The manager agent frequently evaluates whether the original request is fully satisfied or stalled. It updates the ledger to adjust the plan. 
+The manager agent communicates directly with specialized agents to gather information as it builds and refines the task ledger. It iterates, backtracks, and delegates as many times as needed to build a complete plan that it can successfully carry out. The manager agent regularly checks whether the original request is satisfied or stalled and updates the ledger to adjust the plan.
 
 In some ways, this orchestration pattern is an extension of the [group chat](#group-chat-orchestration) pattern. The magentic orchestration pattern focuses on an agent that builds a plan of approach, while other agents use tools to make changes in external systems instead of only using their knowledge stores to reach an outcome.
 
@@ -393,7 +393,7 @@ Distributing your AI system across multiple agents requires monitoring and testi
 
 Avoid these common mistakes when you implement agent orchestration patterns:
 
-- Creating unnecessary coordination complexity by using a complex pattern when simple sequential or concurrent orchestration would suffice.
+- Creating unnecessary coordination complexity by using a complex pattern when basic sequential or concurrent orchestration would suffice.
 
 - Adding agents that don't provide meaningful specialization.
 

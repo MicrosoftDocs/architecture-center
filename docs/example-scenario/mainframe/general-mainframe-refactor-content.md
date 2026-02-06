@@ -52,7 +52,7 @@ The following workflow corresponds to the previous diagram:
 
 1. Application compute clusters can run on Azure VMs or run in containers in AKS clusters. Mainframe system emulation for PL/I or COBOL applications typically uses VMs. Applications refactored to Java or .NET use containers. Some mainframe system emulation software also supports deployment in containers. Compute resources use Azure Premium SSD disks or Azure Ultra Disk Storage with accelerated networking and remote direct memory access (RDMA).
 
-1. Application servers in the compute clusters host the applications based on language capability, such as Java classes or COBOL programs. The servers receive application input and share application state and data by using Azure Cache for Redis or RDMA.
+1. Application servers in the compute clusters host the applications based on language capability, such as Java classes or COBOL programs. The servers receive application input and share application state and data by using Azure Managed Redis or RDMA.
 
 1. Data services in the application clusters support multiple connections to persistent data sources. Azure Private Link provides private connectivity from within the virtual network to Azure services. Data sources can include:
 
@@ -100,7 +100,7 @@ This example features the following Azure components. Several of these component
 
 - [Private Link](/azure/private-link/private-link-overview) is a service that provides private connectivity from a virtual network to Azure services. In this architecture, Private Link simplifies network architecture and secures the connection between Azure endpoints by eliminating exposure to the public internet.
 
-- [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is a fully managed service that adds a quick-caching layer to application architecture to handle large volumes at high speed. This architecture component scales performance simply and cost-effectively.
+- [Azure Managed Redis](/azure/redis/overview) is a fully managed service that adds a caching layer to application architecture to handle large volumes at high speed. This architecture component scales performance simply and cost-effectively.
 
 - [Azure Storage](/azure/storage/common/storage-introduction) is a cloud-based service that provides scalable, secure cloud storage for all your data, applications, and workloads. In this architecture, Storage provides the necessary storage infrastructure for various data types and applications.
 

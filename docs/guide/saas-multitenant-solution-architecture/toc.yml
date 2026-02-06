@@ -89,7 +89,7 @@ items:
             - name: Azure Container Apps
               href: ../multitenant/service/container-apps.md
             - name: Azure Kubernetes Service (AKS)
-              href: ../multitenant/service/aks.yml
+              href: ../multitenant/service/aks.md
           - name: Networking
             items:
             - name: Azure Front Door

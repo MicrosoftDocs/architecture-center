@@ -1,4 +1,14 @@
-## Overview
+---
+title: DR for an Azure Data Platform - Overview
+description: Learn how to design a disaster recovery strategy for an Azure enterprise data platform, including service continuity and regional failover operations.
+author: lponnam75
+ms.author: lsuryadevara
+ms.date: 12/18/2025
+ms.topic: concept-article
+ms.subservice: architecture-guide
+---
+
+# Disaster recovery for an Azure data platform
 
 This series provides an illustrative example of how an organization could design a disaster recovery (DR) strategy for an Azure enterprise data platform.
 
@@ -52,10 +62,10 @@ The key assumptions for this DR worked example are:
 
 ## Next steps
 
-After you review the scenario at a high level, proceed to the [architecture](../disaster-recovery/dr-for-azure-data-platform-architecture.yml) for this use case.
+After you review the scenario at a high level, proceed to the [architecture](../disaster-recovery/dr-for-azure-data-platform-architecture.md) for this use case.
 
 ## Related resources
 
-- [DR for Azure Data Platform - Architecture](dr-for-azure-data-platform-architecture.yml)
-- [DR for Azure Data Platform - Scenario details](dr-for-azure-data-platform-scenario-details.yml)
-- [DR for Azure Data Platform - Recommendations](dr-for-azure-data-platform-recommendations.yml)
+- [DR for Azure Data Platform - Architecture](dr-for-azure-data-platform-architecture.md)
+- [DR for Azure Data Platform - Scenario details](dr-for-azure-data-platform-scenario-details.md)
+- [DR for Azure Data Platform - Recommendations](dr-for-azure-data-platform-recommendations.md)

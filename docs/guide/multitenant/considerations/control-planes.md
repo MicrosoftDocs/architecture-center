@@ -239,7 +239,7 @@ Other contributors:
 
 ## Next step
 
-- [Well-Architected Framework](/azure/well-architected/)
+Consider how you [measure consumption](measure-consumption.md) by tenants in your solution.
 
 ## Related resources
 

@@ -1,7 +1,7 @@
 ---
 title: Enterprise Web App Patterns
 description: Learn about enterprise web app patterns, which provide a structured approach to guide developers and architects through the cloud journey.
-author: stephen-sumner    
+author: claytonsiemens77
 ms.author: pnp
 ms.reviewer: ssumner
 ms.date: 10/15/2024

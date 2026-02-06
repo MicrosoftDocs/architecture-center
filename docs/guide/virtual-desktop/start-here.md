@@ -56,7 +56,7 @@ The following sections, organized by category, provide links to example scenario
 
 ### Azure Virtual Desktop for the enterprise
 
-- [Azure Virtual Desktop for the enterprise](../../example-scenario/azure-virtual-desktop/azure-virtual-desktop.yml)
+- [Azure Virtual Desktop landing zone design guide](../../landing-zones/azure-virtual-desktop/design-guide.md)
 
 ### FSLogix
 

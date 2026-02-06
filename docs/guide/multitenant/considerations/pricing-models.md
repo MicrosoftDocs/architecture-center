@@ -288,6 +288,6 @@ Other contributors:
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
-## Next steps
+## Next step
 
-Consider how you [measure consumption](measure-consumption.md) by tenants in your solution.
+Learn about how to [design a control plane](./control-planes.md) for a multitenant solution.

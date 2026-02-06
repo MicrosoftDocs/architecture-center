@@ -96,7 +96,7 @@ In Azure, Spark services like Azure Databricks, Microsoft Fabric, and HDInsight 
 
 - If you need low-level natural language processing capabilities like tokenization, stemming, lemmatization, and term frequency/inverse document frequency (TF/IDF), consider using Azure Databricks, Fabric, or HDInsight with Spark NLP. Alternatively, use an open-source software library in your processing tool of choice.
 
-- If you need simple, high-level natural language processing capabilities like entity and intent identification, topic detection, spell check, or sentiment analysis, consider using the APIs that AI services provides. Or download your model of choice through Spark NLP to use prebuilt functions for these tasks.
+- If you need straightforward, high‑level natural language processing capabilities like entity and intent identification, topic detection, spell check, or sentiment analysis, consider using the APIs that AI services provide. Or download your model of choice through Spark NLP and apply its prebuilt functions for these tasks.
 
 ## Capability matrix
 

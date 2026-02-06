@@ -137,7 +137,7 @@ Consider the following points if an operation throws an uncaught exception.
 
 ### Capture exceptions and return a meaningful response to clients
 
-The code that implements an HTTP operation should provide comprehensive exception handling rather than letting uncaught exceptions propagate to the framework. If an exception makes it impossible to complete the operation successfully, the exception can be passed back in the response message, but it should include a meaningful description of the error that caused the exception. The exception should also include the appropriate HTTP status code rather than simply returning status code 500 for every situation. For example, if a user request causes a database update that violates a constraint (such as attempting to delete a customer that has outstanding orders), you should return status code 409 (Conflict) and a message body indicating the reason for the conflict. If some other condition renders the request unachievable, you can return status code 400 (Bad Request). You can find a full list of HTTP status codes on the [Status code definitions](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) page on the W3C website.
+The code that implements an HTTP operation should provide comprehensive exception handling rather than letting uncaught exceptions propagate to the framework. If an exception makes it impossible to complete the operation successfully, the exception can be passed back in the response message, but it should include a meaningful description of the error that caused the exception. The exception should also include the appropriate HTTP status code instead of returning status code 500 for every situation. For example, if a user request causes a database update that violates a constraint (such as attempting to delete a customer that has outstanding orders), you should return status code 409 (Conflict) and a message body indicating the reason for the conflict. If some other condition renders the request unachievable, you can return status code 400 (Bad Request). You can find a full list of HTTP status codes on the [Status code definitions](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) page on the W3C website.
 
 The code example traps different conditions and returns an appropriate response.
 
@@ -427,7 +427,7 @@ public class OrdersController : ApiController
 }
 ```
 
-This example incorporates an additional custom `IHttpActionResult` class named `EmptyResultWithCaching`. This class simply acts as a wrapper around an `HttpResponseMessage` object that doesn't contain a response body:
+This example incorporates an additional custom `IHttpActionResult` class named `EmptyResultWithCaching`. This class serves as a wrapper around an `HttpResponseMessage` object that doesn't contain a response body:
 
 ```csharp
 public class EmptyResultWithCaching : IHttpActionResult
@@ -574,7 +574,7 @@ HTTP HEAD requests and partial responses are described in more detail in [API de
 
 ### Avoid sending unnecessary 100-Continue status messages in client applications
 
-A client application that is about to send a large amount of data to a server might determine first whether the server is actually willing to accept the request. Prior to sending the data, the client application can submit an HTTP request with an Expect: 100-Continue header, a Content-Length header that indicates the size of the data, but an empty message body. If the server is willing to handle the request, it should respond with a message that specifies the HTTP status 100 (Continue). The client application can then proceed and send the complete request including the data in the message body.
+A client application that is about to send a large amount of data to a server might determine first whether the server is actually willing to accept the request. Before the client application sends the data, it can submit an HTTP request that has an empty message body and an `Expect: 100-Continue` header, which is a `Content-Length` header that indicates the size of the data. If the server is willing to handle the request, it should respond with a message that specifies the HTTP status 100 (Continue). The client application can then proceed and send the complete request, including the data in the message body.
 
 If you host a service by using Internet Information Services (IIS), the HTTP.sys driver automatically detects and handles Expect: 100-Continue headers before passing requests to your web application. This means that you are unlikely to see these headers in your application code, and you can assume that IIS has already filtered any messages that it deems to be unfit or too large.
 
@@ -739,7 +739,7 @@ On Azure, consider using [Azure API Management](/azure/api-management) to publis
 1. Create a product. A product is the unit of publication; you add the web APIs that you previously connected to the management service to the product. When the product is published, the web APIs become available to developers.
 
     > [!NOTE]
-    > Prior to publishing a product, you can also define user-groups that can access the product and add users to these groups. This gives you control over the developers and applications that can use the web API. If a web API is subject to approval, prior to being able to access it a developer must send a request to the product administrator. The administrator can grant or deny access to the developer. Existing developers can also be blocked if circumstances change.
+    > Before you publish a product, you can define user-groups that can access the product and add users to these groups. This gives you control over the developers and applications that can use the web API. If a web API requires approval, developers must send a request to the product administrator before they can access it. The administrator can grant or deny access to the developer. Existing developers can also be blocked if circumstances change.
 
 1. Configure policies for each web API. Policies govern aspects such as whether cross-domain calls should be allowed, how to authenticate clients, whether to convert between XML and JSON data formats transparently, whether to restrict calls from a given IP range, usage quotas, and whether to limit the call rate. Policies can be applied globally across the entire product, for a single web API in a product, or for individual operations in a web API.
 

@@ -7678,6 +7678,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/resiliency/failure-mode-analysis.md",
+      "redirect_url": "/azure/well-architected/reliability/failure-mode-analysis",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/reference-architectures/zos/refactor-zos-coupling-facility.yml",
       "redirect_url": "/azure/architecture/example-scenario/mainframe/general-mainframe-refactor",
       "redirect_document_id": false
@@ -7685,6 +7690,11 @@
     {
       "source_path": "docs/example-scenario/mainframe/refactor-mainframe-applications-astadia.yml",
       "redirect_url": "/azure/architecture/example-scenario/mainframe/general-mainframe-refactor",
+      "redirect_document_id": false      
+    },
+    {
+      "source_path": "docs/example-scenario/azure-virtual-desktop/azure-virtual-desktop.yml",
+      "redirect_url": "/azure/architecture/landing-zones/azure-virtual-desktop/design-guide?tabs=baseline",
       "redirect_document_id": false
     },
     {
@@ -7693,8 +7703,18 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/example-scenario/mainframe/ibm-system-i-azure-infinite-i.yml",
+      "redirect_url": "/azure/architecture/example-scenario/mainframe/general-mainframe-refactor",
+      "redirect_document_id": false      
+    },
+    {
       "source_path": "docs/example-scenario/mainframe/refactor-mainframe-applications-advanced.yml",
       "redirect_url": "/azure/architecture/example-scenario/mainframe/general-mainframe-refactor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/analytics-start-here.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/analytics-get-started",
       "redirect_document_id": false
     }
   ]

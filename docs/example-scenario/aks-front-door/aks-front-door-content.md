@@ -366,5 +366,5 @@ Principal author:
 - [AKS day-2 operations guide](../../operator-guides/aks/day-2-operations-guide.md)
 - [AKS solution journey](../../reference-architectures/containers/aks-start-here.md)
 - [Baseline architecture for an AKS cluster](../../reference-architectures/containers/aks/baseline-aks.yml)
-- [Best practices for multitenancy and cluster isolation](../../guide/multitenant/service/aks.yml)
+- [Best practices for multitenancy and cluster isolation](../../guide/multitenant/service/aks.md)
 - [Microservices architecture on AKS](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)

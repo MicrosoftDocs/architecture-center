@@ -160,7 +160,7 @@ The above behavior is expected. It's the problem that the scenarios address.
 
 ## Scenarios
 
-Although solutions to this problem are similar, walking through common workload scenarios shows how the solutions address the requirements of various situations. Most scenarios consist of a client that accesses one or more PaaS services over a private endpoint. They adhere to the starting network topology, but differ in their workload requirements. The scenarios start simply, with a client that accesses a single regional PaaS service. They get incrementally more complex, adding more network visibility, regions, and PaaS services.
+Solutions to this problem are similar, but examining common workload scenarios shows how each solution meets different requirements. Most scenarios consist of a client that accesses one or more PaaS services over a private endpoint. They adhere to the starting network topology but differ in their workload requirements. The scenarios start with a client that accesses a single regional PaaS service. They become incrementally more complex and add more network visibility, regions, and PaaS services.
 
 In most scenarios, the client is implemented as a VM, and the PaaS service that the client accesses is a storage account. You should consider VMs as a stand-in for any Azure resource that has a NIC that's exposed on a virtual network, such as Virtual Machine Scale Sets, Azure Kubernetes Service nodes, or any other service that routes in a similar way.
 
