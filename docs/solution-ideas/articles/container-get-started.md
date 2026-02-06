@@ -31,7 +31,9 @@ Refer to the [architectures](#explore-container-architectures-and-guides) provid
 
 The articles in this section include fully developed architectures that you can deploy in Azure and expand to production-grade solutions and guides. These can help you make important decisions about how you use container technologies in Azure. Solution ideas demonstrate implementation patterns and possibilities to consider as you plan your container implementation.
 
-### Guides
+### Container architecture guides
+
+**Technology choices** - These articles help you evaluate and select the right container platform for your workload requirements:
 
 - [Choose an Azure container service](../../guide/choose-azure-container-service.md) - Decision tree for selecting the right container platform.
 - [Azure container service considerations](../../guide/container-service-general-considerations.md) - Detailed considerations for container service selection.
@@ -42,7 +44,7 @@ The articles in this section include fully developed architectures that you can 
 
 Azure Kubernetes Service (AKS) is the most comprehensive container platform on Azure. See the following resources for AKS:
 
-#### AKS guides
+**AKS guides** - These articles provide detailed guidance for designing and implementing AKS solutions:
 
 - [Get started with AKS](../../reference-architectures/containers/aks-start-here.md) - Introduction to AKS architecture and design.
 - [Choose a Kubernetes at the edge option](../../operator-guides/aks/choose-kubernetes-edge-compute-option.md) - Compare options for running Kubernetes at the edge.
@@ -54,7 +56,7 @@ Azure Kubernetes Service (AKS) is the most comprehensive container platform on A
 - [Firewall protection for an AKS cluster](../../guide/aks/aks-firewall.yml) - Secure AKS clusters with Azure Firewall.
 - [Use Azure Kubernetes Service to host GPU-based workloads](../../reference-architectures/containers/aks-gpu/gpu-aks.md) - Run GPU workloads on AKS for AI/ML scenarios.
 
-#### AKS architectures
+**AKS architectures** - These production-ready architectures demonstrate end-to-end AKS solutions that you can deploy and customize:
 
 - [AKS baseline cluster](../../reference-architectures/containers/aks/baseline-aks.yml) - Production-ready baseline architecture for AKS.
 - [AKS baseline for multi-region clusters](../../reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml) - Deploy AKS across multiple regions for high availability.
@@ -65,15 +67,15 @@ Azure Kubernetes Service (AKS) is the most comprehensive container platform on A
 - [Secure AKS workloads with Azure Front Door](../../example-scenario/aks-front-door/aks-front-door.yml) - Global load balancing and security for AKS.
 - [Multitenancy with AKS and AGIC](../../example-scenario/aks-agic/aks-agic.yml) - Multi-tenant architectures using Application Gateway Ingress Controller.
 
-#### AKS solution ideas
+**AKS solution ideas** - These solution ideas demonstrate AKS implementation patterns and possibilities to explore:
 
 - [Data streaming with AKS](./data-streaming-scenario.yml) - Real-time data streaming architectures using AKS.
 
 ### PaaS container hosting
 
-Azure Container Apps and Azure Container Instances provide serverless container platforms that abstract infrastructure management. See the following resources:
+Azure Container Apps and Azure Container Instances provide serverless container platforms that abstract infrastructure management.
 
-#### PaaS architectures
+**PaaS architectures** - These architectures demonstrate serverless container solutions:
 
 - [Microservices with Container Apps](../../example-scenario/serverless/microservices-with-container-apps.yml) - Build microservices using Azure Container Apps.
 - [Microservices with Dapr and KEDA](../../example-scenario/serverless/microservices-with-container-apps-dapr.yml) - Event-driven microservices with Dapr and KEDA on Container Apps.

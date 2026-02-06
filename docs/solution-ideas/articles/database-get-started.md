@@ -31,7 +31,7 @@ Azure database solutions include traditional relational database management syst
 
 The articles in this section include solution ideas, fully developed architectures, and guidance that address database scenarios on Azure. Solution ideas demonstrate implementation patterns and possibilities to consider. Architectures can be deployed and expanded to production-grade solutions. Guides help you make important decisions about how you use database technologies in Azure.
 
-### Guides
+### Database architecture guides
 
 **Technology choices** - These articles help you choose the best database technologies for your needs:
 
@@ -62,7 +62,7 @@ The articles in this section include solution ideas, fully developed architectur
 - [Data scrambling for SAP with Delphix](../../databases/guide/data-scrambling-for-sap-using-delphix-and-azure-data-factory.yml)
 - [Collection structure for a federated Purview catalog](../../guide/data/collection-structure-federated-catalog.md)
 
-### Architectures
+### Database architectures
 
 **Data warehouse**
 
@@ -102,7 +102,7 @@ The articles in this section include solution ideas, fully developed architectur
 
 - [Microsoft Fabric deployment patterns](../../analytics/architecture/fabric-deployment-patterns.yml)
 
-### Solution ideas
+### Database solution ideas
 
 **Relational**
 

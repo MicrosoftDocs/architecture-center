@@ -33,7 +33,26 @@ The diagram above demonstrates a typical basic/baseline analytics implementation
 
 The articles in this section include fully developed architectures that you can deploy in Azure and expand to production-grade solutions and guides. These can help you make important decisions about how you use analytics technologies in Azure. Solution ideas demonstrate implementation patterns and possibilities to consider as you plan your analytics proof-of-concept development.
 
-### Architectures
+### Analytics architecture guides
+
+**Technology choices** - These articles help you evaluate and select the best analytics technologies for your workload requirements:
+
+- [Analytics and reporting](../../data-guide/technology-choices/analysis-visualizations-reporting.md) - Compare options for data analysis and visualization in Azure.
+- [Batch processing](../../data-guide/technology-choices/batch-processing.md) - Evaluate batch processing technologies for big data workloads.
+- [Stream processing](../../data-guide/technology-choices/stream-processing.md) - Compare stream processing technologies for real-time analytics.
+- [Choose an analytical data store](../../data-guide/technology-choices/analytical-data-stores.md) - Guidance on selecting the right analytical data store.
+- [Choose an analytical data store in Microsoft Fabric](../../data-guide/technology-choices/fabric-analytical-data-stores.md) - Guidance on selecting data stores in Microsoft Fabric.
+
+**Disaster recovery for Azure data platform** - These articles provide comprehensive guidance for implementing disaster recovery strategies:
+
+- [Overview](../../data-guide/disaster-recovery/dr-for-azure-data-platform-overview.md) - Overview of disaster recovery strategies for Azure data platforms.
+- [Architecture](../../data-guide/disaster-recovery/dr-for-azure-data-platform-architecture.md) - Architecture patterns for disaster recovery in Azure data platforms.
+- [Scenario details](../../data-guide/disaster-recovery/dr-for-azure-data-platform-scenario-details.md) - Detailed scenarios for implementing disaster recovery.
+- [Recommendations](../../data-guide/disaster-recovery/dr-for-azure-data-platform-recommendations.md) - Best practice recommendations for disaster recovery.
+
+### Analytics architectures
+
+These production-ready architectures demonstrate end-to-end analytics solutions that you can deploy and customize:
 
 - [Analytics end-to-end with Microsoft Fabric](../../example-scenario/dataplate2e/data-platform-end-to-end.yml) - Build a modern analytics platform using Microsoft Fabric's integrated capabilities.
 - [Data warehousing and analytics](../../example-scenario/data/data-warehouse.yml) - Integrate large amounts of data from multiple sources into a unified analytics platform.
@@ -44,31 +63,14 @@ The articles in this section include fully developed architectures that you can 
 - [Stream processing with Azure Stream Analytics](../../reference-architectures/data/stream-processing-stream-analytics.yml) - Build a stream processing pipeline that ingests data, correlates records, and calculates rolling averages.
 - [Modern data warehouse for small and medium business](../../example-scenario/data/small-medium-data-warehouse.yml) - Build a modern data warehouse solution designed for small and medium businesses.
 
+### Analytics solution ideas
 
-### Solution ideas
+These solution ideas demonstrate implementation patterns and possibilities to explore:
 
 - [Ingestion, ETL, and stream processing pipelines with Azure Databricks](./ingest-etl-stream-with-adb.yml) - Create ETL pipelines for batch and streaming data to simplify data lake ingestion.
 - [Modern analytics architecture with Azure Databricks](./azure-databricks-modern-analytics-architecture.yml) - Collect, process, analyze, and visualize data using a modern data architecture.
 - [Modern data platform for small and medium businesses](./small-medium-modern-data-platform.yml) - Build a modern data platform architecture for small and medium businesses using Microsoft Fabric and Azure Databricks.
 - [Real-time analytics with Azure Data Explorer](./analytics-service-bus.yml) - Analyze data in real time using Azure Data Explorer and Azure Service Bus.
-
-
-### Guides
-
-#### Technology choices
-
-- [Analytics and reporting](../../data-guide/technology-choices/analysis-visualizations-reporting.md) - Compare options for data analysis and visualization in Azure.
-- [Batch processing](../../data-guide/technology-choices/batch-processing.md) - Evaluate batch processing technologies for big data workloads.
-- [Stream processing](../../data-guide/technology-choices/stream-processing.md) - Compare stream processing technologies for real-time analytics.
-- [Choose an analytical data store](../../data-guide/technology-choices/analytical-data-stores.md) - Guidance on selecting the right analytical data store.
-- [Choose an analytical data store in Microsoft Fabric](../../data-guide/technology-choices/fabric-analytical-data-stores.md) - Guidance on selecting data stores in Microsoft Fabric.
-
-#### Disaster recovery for Azure data platform
-
-- [Overview](../../data-guide/disaster-recovery/dr-for-azure-data-platform-overview.md) - Overview of disaster recovery strategies for Azure data platforms.
-- [Architecture](../../data-guide/disaster-recovery/dr-for-azure-data-platform-architecture.md) - Architecture patterns for disaster recovery in Azure data platforms.
-- [Scenario details](../../data-guide/disaster-recovery/dr-for-azure-data-platform-scenario-details.md) - Detailed scenarios for implementing disaster recovery.
-- [Recommendations](../../data-guide/disaster-recovery/dr-for-azure-data-platform-recommendations.md) - Best practice recommendations for disaster recovery.
 
 ## Learn about analytics on Azure
 
