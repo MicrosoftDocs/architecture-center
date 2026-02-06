@@ -17,7 +17,7 @@ ms.custom: arb-aiml
 
 This article covers Foundry Tools that provide video and image processing capabilities, such as visual analysis and generation of images, object detection, image classification, and facial recognition, including:
 
-- [Foundry Models](#foundry-models) provides access to OpenAI's powerful language models, including the latest generation of GPT models with vision capabilities and DALL-E for image generation. Use Foundry Models for image generation from natural language or for broad, nonspecific image analysis.
+- [Azure OpenAI in Microsoft Foundry models](#azure-openai-in-microsoft-foundry-models) provides access to OpenAI's powerful language models, including the latest generation of GPT models with vision capabilities, Sora for video generation, and DALL-E for image generation. Use Azure OpenAI in Microsoft Foundry models for image generation from natural language or for broad, nonspecific image analysis.
 
 - [Azure Vision](#azure-vision) is part of Foundry Tools and provides advanced algorithms that process images and return information based on visual features. It includes optical character recognition (OCR), image analysis, and face detection capabilities.
 
@@ -27,13 +27,14 @@ This article covers Foundry Tools that provide video and image processing capabi
 
 - [Azure AI Video Indexer](#azure-ai-video-indexer) is a comprehensive AI solution that enables organizations to extract deep insights from video (live and uploaded) and audio content using advanced machine learning and generative AI models.
 
-### Foundry Models
+### Azure OpenAI in Microsoft Foundry models
 
-[Foundry Models](/azure/ai-foundry/model-inference/concepts/models) provides access to OpenAI's powerful language models, including the latest generation of [GPT models](/azure/ai-services/openai/concepts/models) with vision capabilities. These models support visual analysis and generation of images. [DALL-E](/azure/ai-services/openai/concepts/models#dall-e-models) and other image generation models are also available.
+[Azure OpenAI in Microsoft Foundry models](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#azure-openai-in-microsoft-foundry-models) provides access to OpenAI's powerful language models, including the latest generation of GPT models with image, video, and audio generation capabilities.  [Sora and Sora 2 video generation models](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure?view=foundry-classic&pivots=azure-openai&tabs=global-standard-aoai%2Cglobal-standard#video-generation-models) and [DALL-E image generation models](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure?view=foundry-classic&pivots=azure-openai&tabs=global-standard-aoai%2Cglobal-standard#image-generation-models) are also available.
 
-| Use Foundry Models to | Don't use Foundry Models to |
+| Use Azure OpenAI in Microsoft Foundry models to | Don't use Azure OpenAI in Microsoft Foundry models to |
 | :----------| :-------------|
-| Generate images from natural language descriptions using DALL-E or other generative models. | Perform specific image processing like form extraction or domain-specialized detection. For these tasks, use [Document Intelligence](/azure/ai-services/document-intelligence/overview) or [Custom Vision](#custom-vision). |
+| Generate video from natural language descriptions using Sora or Sora 2. | |
+| Generate images from natural language descriptions using DALL-E. | Perform specific image processing like form extraction or domain-specialized detection. For these tasks, use [Document Intelligence](/azure/ai-services/document-intelligence/overview). |
 | Perform broad, nonspecific analysis on images using vision-capable models like GPT-4o. | Detect, recognize, or analyze human faces. For face-related tasks, use [Azure AI Face](#azure-ai-face). |
 | Generate accessibility descriptions for images. | Use open-source image generation models. For open-source models, use Azure Machine Learning. |
 
@@ -74,7 +75,7 @@ To build Azure Vision into your app, follow a quickstart:
 | Use Custom Vision to | Don't use Custom Vision to |
 | :----------| :-------------|
 | Recognize unusual objects and manufacturing defects that standard image analysis can't detect. | Perform basic object detection or face detection. Use [Azure AI Face](#azure-ai-face) or [Azure Vision](#azure-vision) instead. |
-| Provide detailed custom classifications for specific business requirements. | Perform basic visual analysis. Use vision-capable models from [Foundry Models](#foundry-models) or open-source models in Azure Machine Learning instead. |
+| Provide detailed custom classifications for specific business requirements. | Perform basic visual analysis. Use vision-capable models from [Azure OpenAI in Microsoft Foundry models](#azure-openai-in-microsoft-foundry-models) or open-source models in Azure Machine Learning instead. |
 | Train models with your own labeled images for specialized scenarios. | |
 
 Custom Vision uses a machine learning algorithm to analyze images for custom features. You submit sets of images that do have and don't have the visual characteristics that you want. Then you label the images with your own labels, or *tags*, at the time of submission. The algorithm trains to this data and calculates its own accuracy by testing itself on the same images. After you train your model, you can test, retrain, and eventually use the model in your image recognition app to classify images or detect objects. You can also export the model for offline use.
@@ -104,7 +105,7 @@ The following table provides a list of possible use cases for Custom Vision.
 | Use Azure AI Face to | Don't use Azure AI Face to |
 | :----------| :-------------|
 | Check whether faces are live or spoofed using liveness detection. | Detect emotions in faces or perform other high-level reasoning about faces. Use multimodal language models for those tasks instead. |
-| Identify, group, or find similar faces. | Perform general image analysis. Use [Azure Vision](#azure-vision) or [Foundry Models](#foundry-models) instead. |
+| Identify, group, or find similar faces. | Perform general image analysis. Use [Azure Vision](#azure-vision) or [Azure OpenAI in Microsoft Foundry models](#azure-openai-in-microsoft-foundry-models) instead. |
 | Verify a person against a trusted face image for identity confirmation. | |
 
 #### Available Azure AI Face features
