@@ -1,20 +1,8 @@
 This article describes how to integrate MongoDB Atlas with Microsoft Fabric using **Fabric Open Mirroring**, the recommended architecture for high‑fidelity, low‑latency ingestion of operational data into OneLake.
 
-Open Mirroring enables MongoDB change data to be written directly into Fabric, where it's automatically converted to Delta format and made immediately available for Lakehouse, Data Warehouse, Real-Time Analytics, and Power BI.
-
-The article also provides guidance for alternative ingestion approaches—including Real-Time Intelligence (RTI), Azure Functions with Atlas triggers (push), and Fabric pipelines (pull)—to support a range of operational and analytical requirements.
-
 ## Architecture
 
 The **MongoDB Atlas Fabric Mirroring Accelerator** implements the Fabric **Open Mirroring** capability. An open mirrored database in Fabric exposes a **landing zone** in OneLake. Applications write Parquet files containing MongoDB change data to this landing zone following the open mirroring specification.
-
-Fabric automatically:
-
-- Detects new Parquet files
-- Converts them to Delta format
-- Applies schema evolution
-- Synchronizes mirrored tables with the source collections
-- Generates a default semantic model for Power BI
 
 The following diagram shows how the reference mirroring application deployed in Azure App Service streams MongoDB Atlas change events into Fabric.
 
@@ -24,13 +12,21 @@ The following diagram shows how the reference mirroring application deployed in 
 
 1. Create an [open mirrored database](/fabric/mirroring/open-mirroring-tutorial) in Fabric via API or the Fabric portal.  
 2. Obtain the **landing zone URL** associated with the mirrored database.  
-3. Deploy the mirroring accelerator (Terraform or ARM).  
+3. Deploy the mirroring accelerator [Terraform or ARM](https://github.com/mongodb-partners/MongoDB_Fabric_Mirroring/tree/main/terraform).  
 4. The application:
    - Performs initial historical load.
    - Subscribes to MongoDB Change Streams.
    - Writes Parquet files into the landing zone.  
 5. Fabric ingests, converts, and mirrors the data into Delta tables.  
 6. Power BI, Lakehouse, and Data Warehouse workloads can consume the synchronized data.
+
+Fabric automatically:
+
+- Detects new Parquet files
+- Converts them to Delta format
+- Applies schema evolution
+- Synchronizes mirrored tables with the source collections
+- Generates a default semantic model for Power BI
 
 ### Components
 
@@ -45,6 +41,10 @@ The following diagram shows how the reference mirroring application deployed in 
 
 The following diagram depicts the mirroring integration architecture:
 :::image type="content" source="media/mongodb-mirroring-integrated-arch.png" alt-text="Diagram that shows the Fabric MongoDB Mirroring integrated architecture." border="false" lightbox="media/mongodb-mirroring-integrated-arch.png":::
+
+Open Mirroring enables MongoDB change data to be written directly into Fabric, where it's automatically converted to Delta format and made immediately available for Lakehouse, Data Warehouse, Real-Time Analytics, and Power BI.
+
+The article also provides guidance for alternative ingestion approaches—including Real-Time Intelligence (RTI), Azure Functions with Atlas triggers (push), and Fabric pipelines (pull)—to support a range of operational and analytical requirements.
 
 ### Alternatives
 
@@ -266,8 +266,6 @@ Other contributors:
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
-
-For more information about the solution, contact [partners@mongodb.com](mailto:partners@mongodb.com).
 
 - [Fabric overview](/fabric/fundamentals/microsoft-fabric-overview)
 - [MongoDB Atlas on Azure Marketplace](https://marketplace.microsoft.com/en-us/product/mongodb.mongodb_atlas_azure_native_prod?tab=Overview)
