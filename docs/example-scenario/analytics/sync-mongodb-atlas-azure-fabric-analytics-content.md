@@ -203,17 +203,9 @@ If the model achieves high accuracy, it yields a prioritized set of alternative 
 
 ---
 
-# Considerations
+## Considerations
 
-## Push vs Pull
-
-- **Push (triggers → Functions)** – Best for near real-time, event-driven ingestion.  
-- **Pull (pipelines)** – Best for scheduled, batch, or micro-batch workloads.
-
-## Lakehouse SQL endpoint vs Data Warehouse
-
-- **Data Warehouse** – Use for governed relational models and enterprise BI.  
-- **Lakehouse SQL endpoint** – Use for lightweight SQL over Delta without warehouse provisioning.
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
 
 ### Security
 
@@ -245,6 +237,10 @@ Performance Efficiency refers to your workload's ability to scale to meet user d
 - Tune pipeline parallelism; apply **pushdown filters** on MongoDB connectors.  
 - Monitor ingestion lag; implement retries and idempotent upserts.  
 - Schedule **OPTIMIZE** and **VACUUM** for Lakehouse maintenance.
+- Push (triggers → Functions) – Best for near real-time, event-driven ingestion.
+- Pull (pipelines) – Best for scheduled, batch, or micro-batch workloads.
+- Data Warehouse – Use for governed relational models and enterprise BI.
+- Lakehouse SQL endpoint – Use for lightweight SQL over Delta without warehouse provisioning.
 
 ## Conclusion
 
