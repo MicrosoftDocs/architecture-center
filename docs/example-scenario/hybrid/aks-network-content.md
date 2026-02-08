@@ -292,7 +292,7 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 - Use the [Azure pricing calculator][] to estimate costs for the services used in the architecture. Other best practices are described in the [cost optimization][] section in [Microsoft Azure Well-Architected Framework.][]
 - Consider implementing hyper-threading on your physical computer, to optimize the cost, because the AKS on Azure Local billing unit is a virtual core.
 - Azure Arc control plane functionality is provided at no extra cost. This includes support for resource organization through Azure management groups and tags, and access control through Azure RBAC. Azure services used in conjunction to Azure Arc–enabled servers incur costs according to their usage.
-- For cost-effectiveness, you can use as few as two cluster nodes with only four disks and 64 gigabytes (GB) of memory per node. To further minimize costs, you can use switchless interconnects between nodes, thereby eliminating the need for redundant switch devices.
+- For cost-effectiveness, you can use as few as two cluster nodes with only four disks and 64 gigabytes (GB) of memory per node. To further minimize costs, you can use switchless interconnects between nodes, which eliminates the need for redundant switch devices.
 
 ### Operational Excellence
 

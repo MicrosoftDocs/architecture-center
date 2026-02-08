@@ -186,4 +186,4 @@ Other contributor:
 ## Related resources
 
 - [Databases architecture design](../../databases/index.yml)
-- [Analytics architecture design](../../solution-ideas/articles/analytics-start-here.yml)
+- [Analytics architecture design](../../solution-ideas/articles/analytics-get-started.md)

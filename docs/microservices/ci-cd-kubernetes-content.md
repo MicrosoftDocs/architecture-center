@@ -103,7 +103,7 @@ Our recommendation is to create a dedicated production cluster along with a sepa
 
 ## Build process
 
-When possible, package your build process into a Docker container. This configuration allows you to build code artifacts using Docker and without configuring a build environment on each build machine. A containerized build process makes it easy to scale out the CI pipeline by adding new build agents. Also, any developer on the team can build the code simply by running the build container.
+When possible, package your build process into a Docker container. This configuration allows you to build code artifacts using Docker and without configuring a build environment on each build machine. A containerized build process simplifies scaling out the CI pipeline by adding new build agents. Also, any developer on the team can build the code by running the build container.
 
 By using multi-stage builds in Docker, you can define the build environment and the runtime image in a single Dockerfile. For example, here's a Dockerfile that builds a .NET application:
 
