@@ -201,6 +201,7 @@ Principal author:
 
 Other contributors:
 
+- [Ekaterina Krivich](https://www.linkedin.com/in/kiote/) | Applied Scientist
 - [Oscar Shimabukuro Kiyan](https://www.linkedin.com/in/oscarshk/) | Senior Cloud Solution Architect – US Customer Success
 - [Veera Vemula](https://www.linkedin.com/in/veera-vemula-7a05279/) | Senior Cloud Solution Architect – US Customer Success
 
