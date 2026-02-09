@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: claytonsiemens77
-ms.date: 02/02/2026
+ms.date: 02/09/2026
 ms.topic: whats-new
 ms.author: pnp
 ---
@@ -17,6 +17,27 @@ The Azure Architecture Center (AAC) helps you design, build, and operate solutio
 > [!VIDEO 9f9fdf91-3dcd-455f-b64e-8ec0802dd5db]
 
 The following new and updated articles have recently been published in the Azure Architecture Center.
+
+## February 2026
+
+### New articles
+
+- [Analytics architecture design](./solution-ideas/articles/analytics-get-started.md)
+- [Container architecture design](./solution-ideas/articles/container-get-started.md)
+
+### Updated articles
+
+- [Design a Secure Multitenant RAG Inferencing Solution](./ai-ml/guide/secure-multitenant-rag.md) ([#5a2098fe65](https://github.com/MicrosoftDocs/architecture-center/commit/5a2098fe65))
+- [Choose an Azure Service for Vector Search](./guide/technology-choices/vector-search.md) ([#5a2098fe65](https://github.com/MicrosoftDocs/architecture-center/commit/5a2098fe65))
+- [Use AI to Forecast Customer Orders](./ai-ml/idea/next-order-forecasting.yml) ([#f365d63572](https://github.com/MicrosoftDocs/architecture-center/commit/f365d63572))
+- [Online Transaction Processing (OLTP)](./data-guide/relational-data/online-transaction-processing.md) ([#60721ace7f](https://github.com/MicrosoftDocs/architecture-center/commit/60721ace7f))
+- [Caching guidance](./best-practices/caching.yml) ([#1133f877df](https://github.com/MicrosoftDocs/architecture-center/commit/1133f877df))
+- [Multitenancy and Azure OpenAI](./guide/multitenant/service/openai.md) ([#10b2e229d0](https://github.com/MicrosoftDocs/architecture-center/commit/10b2e229d0))
+- [Baseline Architecture for an AKS Cluster](./reference-architectures/containers/aks/baseline-aks.yml) ([#25e94b78b3](https://github.com/MicrosoftDocs/architecture-center/commit/25e94b78b3))
+- [Use a gateway in front of multiple Azure OpenAI deployments or instances](./ai-ml/guide/azure-openai-gateway-multi-backend.yml) ([#08556e5f37](https://github.com/MicrosoftDocs/architecture-center/commit/08556e5f37))
+- [Generative AI Operations for Organizations with MLOps Investments](./ai-ml/guide/genaiops-for-mlops.md) ([#08556e5f37](https://github.com/MicrosoftDocs/architecture-center/commit/08556e5f37))
+- [Develop a RAG Solution—Information-Retrieval Phase](./ai-ml/guide/rag/rag-information-retrieval.md) ([#08556e5f37](https://github.com/MicrosoftDocs/architecture-center/commit/08556e5f37))
+- [SDWAN integration with Azure hub-and-spoke network topologies](./networking/guide/sdwan-integration-in-hub-and-spoke-network-topologies.yml) ([#08556e5f37](https://github.com/MicrosoftDocs/architecture-center/commit/08556e5f37))
 
 ## January 2026
 
