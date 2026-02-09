@@ -159,7 +159,7 @@ The following foundation services require extension to support this solution:
 
 ### Network design
 
-:::image type="content" source="_images/azure-data-factory-baseline-network.png" alt-text="Diagram that shows a medallion architecture network design." border="false" lightbox="_images/azure-data-factory-baseline-network.png":::
+:::image type="content" source="_images/azure-data-factory-hardened-network.svg" alt-text="Diagram that shows a medallion architecture network design." border="false" lightbox="_images/azure-data-factory-hardened-network.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-data-factory-baseline-network.vsdx) of this architecture.*
 

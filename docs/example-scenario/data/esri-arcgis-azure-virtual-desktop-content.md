@@ -24,7 +24,7 @@ The following diagram presents a high-level architecture for deploying ArcGIS co
 
 - Web GIS users can also take advantage of this solution by accessing ArcGIS Enterprise administrative interfaces either in the browser in the Azure Virtual Desktop RDP session or via their local browser (if ArcGIS is published as public facing). The Azure application gateway routes the traffic to the correct endpoint for the ArcGIS server roles. As with ArcGIS Pro, the latency between the browsers and the back end are minimized.
 - You can deploy the enterprise geodatabase in Azure SQL Managed Instance. ArcGIS Pro users can then create, manage, and edit the geodatabase from an RDP session. During the creation of the Azure Virtual Desktop image, administrators can include the ODBC drivers so users don't have to install them on the Azure Virtual Desktop VMs.
-- Azure NetApp Files supports fast access to the ArcGIS Server configuration store and directories. You can use Azure Files and Azure Storage, but Azure NetApp Files costs less for large deployments. Additionally, you can use Azure NetApp Files to store Portal for ArcGIS items and raster images, lidar data, and so on.
+- Azure NetApp Files supports fast access to the ArcGIS Server configuration store and directories. You can use Azure Files and Azure Storage, but Azure NetApp Files costs less for large deployments. Also, you can use Azure NetApp Files to store data such as Portal for ArcGIS items and raster images, and lidar data.
 
 ### Components
 
@@ -180,8 +180,8 @@ Principal authors:
 - [Best practices for tuning ArcGIS Enterprise](https://enterprise.arcgis.com/en/server/latest/administer/windows/tuning-your-arcgis-server-site.htm)
 - [Configure highly available ArcGIS Enterprise](https://enterprise.arcgis.com/en/portal/latest/administer/windows/configure-highly-available-system.htm)
 - [Esri GIS mapping software, location intelligence, and spatial analytics](https://www.esri.com/home)
-
-## Related resources
-
-- [Azure Virtual Desktop for the enterprise](../azure-virtual-desktop/azure-virtual-desktop.yml)
 - [FSLogix configuration examples](/fslogix/concepts-configuration-examples)
+
+## Related resource
+
+- [Azure Virtual Desktop landing zone design guide](../../landing-zones/azure-virtual-desktop/design-guide.md)

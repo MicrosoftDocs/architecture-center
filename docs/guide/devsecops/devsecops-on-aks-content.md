@@ -84,7 +84,7 @@ Building a more secure AKS-hosted platform is an important step to help ensure s
 
 #### Best Practice – Build threat modeling into your process
 
-- Threat modeling is usually a manual activity that involves security and development teams. It's used to model and find threats within a system so vulnerabilities can be addressed prior to any code development or changes to a system. Threat modeling can occur at different times, triggered by events such as a significant software change, solution architectural change, or security incidents.
+- Threat modeling is usually a manual activity that involves security and development teams. It's used to model and find threats within a system so that vulnerabilities can be addressed before any code development or changes to a system. Threat modeling can occur at different times, triggered by events such as a significant software change, solution architectural change, or security incidents.
 - We recommend you use the [STRIDE threat model](/azure/security/develop/threat-modeling-tool-threats#stride-model). This methodology starts with a data-flow diagram and uses the STRIDE mnemonic (Spoofing, Tampering, Info Disclosure, Repudiation, Denial of Service, and Elevation of Privilege) threat categories to empower teams to identify, mitigate, and validate risk. It also includes a [modeling tool](https://www.microsoft.com/securityengineering/sdl/threatmodeling) to notate and visualize system components, data flows, and security boundaries. Building threat modeling into your SDLC processes introduces new processes and more work to maintain updated threat models. But it helps ensure security is in place early, which helps reduce the potential cost of dealing with security issues found in later SDLC stages.
 
 #### Best Practice – Apply Azure Well Architect Framework (WAF)
@@ -176,7 +176,7 @@ During the build phase, developers work with the site reliability engineers and 
 
 - Azure Key Vault stores a signing key that can be used by [notation](/azure/container-registry/container-registry-tutorial-sign-build-push) with the notation Key Vault plugin (azure-kv) to [sign](/azure/container-registry/container-registry-tutorial-sign-build-push) and verify container images and other artifacts. Container Registry lets you attach these signatures by using the Azure CLI commands.
 - The signed containers let users make sure that deployments are built from a trusted entity and verify an artifact hasn't been tampered with since its creation. The signed artifact ensures integrity and authenticity before the user pulls an artifact into any environment, which helps avoid attacks.
-  - [Ratify](https://github.com/deislabs/ratify/blob/main/README.md) lets Kubernetes clusters verify artifact security metadata prior to deployment and admit for deployment only those that comply with an admission policy that you create.
+  - [Ratify](https://github.com/deislabs/ratify/blob/main/README.md) lets Kubernetes clusters verify artifact security metadata before deployment and admit for deployment only those that comply with an admission policy that you create.
 
 ### Deploy phase
 

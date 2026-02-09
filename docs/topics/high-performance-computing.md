@@ -307,27 +307,6 @@ Run GPU-powered virtual machines in Azure in the same region as the HPC output f
 - [GPU-optimized virtual machine sizes](/azure/virtual-machines/sizes-gpu)
 - [Configure GPU acceleration for Azure Virtual Desktop](/azure/virtual-desktop/configure-vm-gpu)
 
-<ul class="columns is-multiline has-margin-left-none has-margin-bottom-none has-padding-top-medium">
-    <li class="column is-one-third has-padding-top-small-mobile has-padding-bottom-small">
-        <a class="is-undecorated is-full-height is-block"
-            href="../example-scenario/azure-virtual-desktop/azure-virtual-desktop.yml">
-            <article class="card has-outline-hover is-relative is-fullheight">
-                    <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
-                        <img role="presentation" alt="Diagram of an architecture for Azure Virtual Desktops on Azure." src="../example-scenario/azure-virtual-desktop/images/azure-virtual-desktop.png">
-                    </figure>
-                <div class="card-content has-text-overflow-ellipsis">
-                    <div class="has-padding-bottom-none">
-                        <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">Windows desktops using Azure Virtual Desktop on Azure</h3>
-                    </div>
-                    <div class="is-size-7 has-margin-top-small has-line-height-reset">
-                        <p>Build a VDI environment for Windows desktops using Azure Virtual Desktop on Azure.</p>
-                    </div>
-                </div>
-            </article>
-        </a>
-    </li>
-</ul>
-
 ## Performance benchmarks
 
 - [Compute benchmarks](/azure/virtual-machines/windows/compute-benchmark-scores)

@@ -42,7 +42,7 @@ J. The Processor Resource / System Manager (PR/SM) hypervisor performs direct ha
 
 3. You can deploy to a VM in a compute cluster or in a pod that can be deployed in a Kubernetes cluster. Java Business Services and applications created via Renovate run equally well on Azure VMs and Azure Kubernetes containers. For a more detailed analysis  of compute options, see [this Azure compute service decision tree](../../guide/technology-choices/compute-decision-tree.md).
 
-4. Application servers receive the input in the compute clusters and share application state and data by using Azure Cache for Redis or Remote Direct Memory Access (RDMA).
+4. Application servers receive the input in the compute clusters and share application state and data by using Azure Managed Redis or Remote Direct Memory Access (RDMA).
 
 5. Business services and applications in the application clusters allow for multiple connections to persistent data sources. These data sources can include PaaS services like Azure SQL Database and Azure Cosmos DB, databases on VMs, such as Oracle or Db2, and big data repositories like Azure Databricks and Azure Data Lake. Application data services can also connect to streaming data services like Kafka and Azure Stream Analytics.
 
@@ -58,7 +58,7 @@ J. The Processor Resource / System Manager (PR/SM) hypervisor performs direct ha
 
 ### Components
 
-- [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is a distributed, managed cache that helps you build scalable and responsive applications by providing fast access to your data. In this architecture, Azure Cache for Redis enables application servers in the compute clusters to share application state and data.
+- [Azure Managed Redis](/azure/redis/overview) is a distributed, managed cache that helps you build scalable and responsive applications by providing fast access to your data. In this architecture, Azure Managed Redis enables application servers in the compute clusters to share application state and data.
 
 - [Azure Kubernetes Service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed Kubernetes service that simplifies the deployment, management, and scaling of containerized applications by using Kubernetes. In this architecture, AKS provides a container orchestration platform where Java applications created via Renovate can be deployed in pods as an alternative to VMs. It provides benefits such as improved resource utilization, faster deployment times, and enhanced scalability.
 

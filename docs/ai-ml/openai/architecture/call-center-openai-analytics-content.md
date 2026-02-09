@@ -1,4 +1,4 @@
-This article describes how to extract insights from customer conversations at a call center by using Azure AI services and Azure OpenAI Service. Use these services to improve your customer interactions and satisfaction by analyzing call intent and sentiment, extracting key entities, and summarizing call content.
+This article describes how to extract insights from customer conversations at a call center by using Azure AI services and Azure OpenAI in Foundry Models. Use these services to improve your customer interactions and satisfaction by analyzing call intent and sentiment, extracting key entities, and summarizing call content.
 
 ## Architecture
 
@@ -23,7 +23,7 @@ This article describes how to extract insights from customer conversations at a 
 
    1. Pass the raw data to the Azure AI Language service to [detect and redact personal data](/azure/ai-services/language-service/personally-identifiable-information/how-to-call-for-conversations) in the transcript.
 
-   1. Send the redacted data to the Azure OpenAI service to perform various post call analytics like understand the intent and sentiment of the call, extract entities, or [summarize the conversation](/azure/ai-services/openai/quickstart#try-text-summarization) to evaluate the effectiveness of the call.
+   1. Send the redacted data to Azure OpenAI to perform various post call analytics like understand the intent and sentiment of the call, extract entities, or [summarize the conversation](/azure/ai-services/openai/quickstart#try-text-summarization) to evaluate the effectiveness of the call.
 
    1. Store the processed output in Azure Storage for visualization or consumption by downstream applications for further processing.
 
@@ -33,7 +33,7 @@ This article describes how to extract insights from customer conversations at a 
 
 - [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is the object storage solution for raw files in this scenario. Blob Storage supports libraries for languages like .NET, Node.js, and Python. Applications can access files on Blob Storage via HTTP or HTTPS. Blob Storage has [hot, cool, and archive access tiers](/azure/storage/blobs/access-tiers-overview) for storing large amounts of data, which optimizes cost.
 
-- [Azure OpenAI](/azure/ai-foundry/openai/overview) provides access to the Azure OpenAI language models, including GPT-3, Codex, and the embeddings model series, for content generation, summarization, semantic search, and natural language-to-code translation. You can access the service through REST APIs, Python SDK, or the web-based interface in the [Azure OpenAI studio](https://oai.azure.com/).
+- [Azure OpenAI](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure) provides access to the Azure OpenAI language models, including GPT-3, Codex, and the embeddings model series, for content generation, summarization, semantic search, and natural language-to-code translation. You can access the service through REST APIs, Python SDK, or the Microsoft Foundry portal.
 
 - [Azure AI Speech](/azure/ai-services/speech-service/overview) is an AI-based API that provides speech capabilities like speech-to-text, text-to-speech, speech translation, and speaker recognition. This architecture uses the Azure AI Speech batch transcription functionality.
 
@@ -52,7 +52,7 @@ Depending on your scenario, you can add the following workflows.
 
 ## Scenario details
 
-This solution uses Azure AI Speech to Text to convert call-center audio into written text. Azure AI Language redacts sensitive information in the conversation transcription. Azure OpenAI extracts insights from customer conversation to improve call center efficiency and customer satisfaction. Use this solution to process transcribed text, recognize and remove sensitive information, and perform analytics on the extractions like reason for the call, resolution provided or not, sentiment of the call, listing product /service offering based on the number of queries/customer complaints, and so on. Scale the services and the pipeline to accommodate any volume of recorded data.
+This solution uses Azure AI Speech to Text to convert call-center audio into written text. Azure AI Language redacts sensitive information in the conversation transcription. Azure OpenAI extracts insights from customer conversation to improve call center efficiency and customer satisfaction. Use this solution to process transcribed text, recognize and remove sensitive information, and perform analytics on the extractions like reason for the call, resolution provided or not, sentiment of the call, and listing product /service offering based on the number of queries/customer complaints. Scale the services and the pipeline to accommodate any volume of recorded data.
 
 ### Potential use cases
 

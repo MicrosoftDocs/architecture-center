@@ -2,8 +2,8 @@
 title: Hybrid architecture design
 description: Get an introductory overview of hybrid cloud technologies and how you can connect an on-premises environment to Azure in a way that works best for your organization.
 author: claytonsiemens77
-ms.subservice: reference-architecture
-ms.topic: reference-architecture
+ms.topic: concept-article
+ms.subservice: architecture-guide
 ms.date: 07/26/2022
 ms.author: pnp
 ms.custom:
@@ -40,8 +40,6 @@ When you adopt a hybrid model, you can choose from multiple solutions to confide
 - [Monitor performance](hybrid-perf-monitoring.yml)
 - [Enable virtual machine protection in Azure Site Recovery](/azure-stack/operator/protect-virtual-machines)
 
----
-
 ## Additional resources
 
 The typical hybrid solution journey ranges from learning how to get started with a hybrid architecture to how to use Azure services in hybrid environments. However, you might also just be looking for additional reference and supporting material to help along the way for your specific situation. See these resources for general information on hybrid architectures:
@@ -53,5 +51,5 @@ The typical hybrid solution journey ranges from learning how to get started with
 
 Here are some example implementations to consider:
 
-- [Cross-cloud scaling](/azure/adaptive-cloud/app-solutions/pattern-cross-cloud-scale)
+- [Cross-cloud scaling](/azure-stack/user/pattern-cross-cloud-scale)
 - [Hybrid connections](/azure/app-service/app-service-hybrid-connections)

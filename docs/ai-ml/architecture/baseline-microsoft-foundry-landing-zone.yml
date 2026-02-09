@@ -1,0 +1,28 @@
+### YamlMime:Architecture
+metadata:
+  title: Baseline Microsoft Foundry Chat Reference Architecture in an Azure Landing Zone
+  description: Learn about deploying the baseline Microsoft Foundry, Foundry Agent Service, Azure OpenAI in Foundry Models, and Azure App Service chat architecture in an Azure landing zone.
+  author: claytonsiemens77
+  ms.author: pnp
+  ms.date: 12/19/2025
+  ms.topic: reference-architecture
+  ms.collection: ce-skilling-ai-copilot
+  ms.subservice: reference-architecture
+  ai-usage: ai-assisted
+azureCategories:
+  - ai-machine-learning
+  - web
+  - networking
+  - security
+products:
+  - azure-openai
+  - ai-services
+  - azure-app-service
+  - azure-key-vault
+  - azure-monitor
+  - azure-ai-foundry
+name: Baseline Microsoft Foundry chat reference architecture in an Azure landing zone
+summary: Learn about deploying the baseline Microsoft Foundry, Foundry Agent Service, Azure OpenAI in Foundry Models, and Azure App Service chat architecture in an Azure landing zone.
+thumbnailUrl: ../../browse/thumbs/baseline-microsoft-foundry-landing-zone.png
+content: |
+   [!INCLUDE[](baseline-microsoft-foundry-landing-zone-content.md)]

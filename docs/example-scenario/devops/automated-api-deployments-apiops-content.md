@@ -136,7 +136,7 @@ Deploying this solution involves these steps:
 
       After generating the artifact, this stage creates a PR with the changes extracted for the platform team to review.
 
-      The first time you run the extractor, it pulls everything from the Git repository. The PR that's created will have all the APIs, policies, artifacts, and so on.
+      The first time you run the extractor, it pulls everything from the Git repository. The PR that's created will have all the APIs, policies, and artifacts.
 
       Later extractions have only changes made before the extraction in the PR. Sometimes changes might be only to the specification of an API, which is the case in the following example of a PR.
 

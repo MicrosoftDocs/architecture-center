@@ -5,7 +5,7 @@ This article describes how merchandise distributors can use AI and machine learn
 ## Architecture
 
 :::image type="complex" border="false" source="./_images/next-order-forecasting.svg" alt-text="Diagram that shows an architecture for forecasting orders." lightbox="./_images/next-order-forecasting.svg":::
-   The diagram shows a next-order forecasting workflow that has seven stages connected by arrows. Stage 1, the data sources, shows the orders database, customers database, merchandise database, and partner data sources feeding into stage 2, ingestion, which includes Azure Data Factory. Stage 3, the staging area, includes Azure Data Lake Storage, Azure SQL Database, and OneLake for data preparation. Stage 4, model training, features an Azure Machine Learning compute cluster and a model instance for parallel processing. Stage 4 also shows Microsoft Fabric with Spark compute to train machine learning models. Stage 5, model inferencing, deploys the trained machine learning model to online managed endpoints and real-time model endpoints to process data. Stage 6, analytical workload, shows Data Lake Storage, SQL Database, and OneLake for storing the prediction results. Stage 7, customer model consumption, shows Power BI dashboards, Power Apps, and the Web Apps feature of Azure App Service for delivering forecasting insights to customers.
+   The diagram shows a next-order forecasting workflow that has seven stages connected by arrows. Stage 1, the data sources, shows the orders database, customers database, merchandise database, and partner data sources feeding into stage 2, ingestion, which includes Azure Data Factory. Stage 3, the staging area, includes Azure Data Lake Storage, Azure SQL Database, and OneLake for data preparation. Stage 4, model training, features an Azure Machine Learning compute cluster and a model instance for parallel processing. Stage 4 also shows Microsoft Fabric with Spark compute to train machine learning models. Stage 5, model inferencing, deploys the trained machine learning model to managed online endpoints and real-time model endpoints to process data. Stage 6, analytical workload, shows Data Lake Storage, SQL Database, and OneLake for storing the prediction results. Stage 7, customer model consumption, shows Power BI dashboards, Power Apps, and the Web Apps feature of Azure App Service for delivering forecasting insights to customers.
 :::image-end:::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/next-order-forecasting.pptx) of this architecture.*
@@ -47,9 +47,9 @@ This article describes how merchandise distributors can use AI and machine learn
 
    - [Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) is used to manage the entire machine learning project life cycle, including training models, deploying models, and managing machine learning operations.
 
-      - [ParallelRunStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep?view=azure-ml-py) is used to process large amounts of data in parallel and create models that can forecast the next order for every customer store and merchandise SKU combination. You can reduce processing time by dividing the dataset into smaller parts and processing them simultaneously on multiple virtual machines. You can use Machine Learning compute clusters to distribute workloads across multiple nodes.
+      - [Parallel jobs](/azure/machine-learning/how-to-use-parallel-job-in-pipeline) are used to process large amounts of data in parallel and create models that can forecast the next order for every customer store and merchandise SKU combination. You can reduce processing time by dividing the dataset into smaller parts and processing them simultaneously on multiple virtual machines. You can use Machine Learning compute clusters to distribute workloads across multiple nodes.
 
-      - After the data is prepared, Machine Learning can start the parallel model training process by using ParallelRunStep with a range of forecasting models, including exponential smoothing, elastic net, and Prophet. Each node or compute instance starts building the model, so the process is more efficient and faster.
+      - After the data is prepared, Machine Learning can start the parallel model training process by using parallel jobs with a range of forecasting models, including exponential smoothing, elastic net, and Prophet. Each node or compute instance starts building the model, so the process is more efficient and faster.
 
    - Apache Spark, a part of Microsoft Fabric, enables machine learning with big data. By using Apache Spark, you can build valuable insights into large masses of structured, unstructured, and fast-moving data. You have several available open-source library options when you [train machine learning models with Apache Spark in Fabric](/fabric/data-science/model-training-overview), including Apache Spark MLlib and [SynapseML](/fabric/data-science/synapseml-first-model).
 
@@ -59,9 +59,9 @@ This article describes how merchandise distributors can use AI and machine learn
 
    - Machine Learning provides model registries for storing and versioning trained models. Model registries can help you organize and track trained models and ensure that they're readily available for deployment.
 
-      - Deploying a trained machine learning model enables the model to process new data for inferencing. We recommend that you use [Azure managed endpoints](/azure/machine-learning/concept-endpoints) for the deployment target. Endpoints enable easy scalability, performance tuning, and high availability.
+      - Deploying a trained machine learning model enables the model to process new data for inferencing. We recommend that you use [managed online endpoints](/azure/machine-learning/concept-endpoints-online) for the deployment target. Managed online endpoints enable easy scalability, performance tuning, and high availability.
 
-        In this use case, there are two ways to deploy models on the [managed endpoints](/azure/machine-learning/how-to-deploy-online-endpoints). The first option is to deploy each model on its own managed endpoint, as shown in the diagram. The second option is to bundle multiple models into a single model and deploy it on a single managed endpoint. The latter approach is more efficient and provides an easier way to deploy and manage multiple models simultaneously.
+        In this use case, there are two ways to deploy models on [managed online endpoints](/azure/machine-learning/how-to-deploy-online-endpoints). The first option is to deploy each model on its own managed online endpoint, as shown in the diagram. The second option is to bundle multiple models into a single model and deploy it on a single managed online endpoint. The latter approach is more efficient and provides an easier way to deploy and manage multiple models simultaneously.
 
    - Fabric provides real-time predictions from machine learning models by using secure, scalable, and easy-to-use online endpoints. These endpoints are available as built-in properties of most Fabric models.
 
@@ -121,7 +121,7 @@ This article describes how merchandise distributors can use AI and machine learn
 
 - Power BI is a popular tool for visualization. Grafana is another option. The main difference is that Grafana is open source, while Power BI is a software as a service (SaaS) offering from Microsoft. If you prioritize customization and the use of open-source tools, Grafana is a better choice. If you prioritize integration with other Microsoft products and product support, Power BI is a better choice.
 
-- Instead of using an endpoint for each model, you can bundle multiple models into a single model for deployment to a single managed endpoint. Bundling models for deployment is known as *model orchestration*. Potential drawbacks of using this approach include increased complexity, potential conflicts between models, and increased risk of downtime if the single endpoint fails.
+- Instead of using an endpoint for each model, you can bundle multiple models into a single model for deployment to a single managed online endpoint. Bundling models for deployment is known as *model orchestration*. Potential drawbacks of using this approach include increased complexity, potential conflicts between models, and increased risk of downtime if the single endpoint fails.
 
 ## Scenario details
 
@@ -201,6 +201,7 @@ Principal author:
 
 Other contributors:
 
+- [Ekaterina Krivich](https://www.linkedin.com/in/kiote/) | Applied Scientist
 - [Oscar Shimabukuro Kiyan](https://www.linkedin.com/in/oscarshk/) | Senior Cloud Solution Architect – US Customer Success
 - [Veera Vemula](https://www.linkedin.com/in/veera-vemula-7a05279/) | Senior Cloud Solution Architect – US Customer Success
 

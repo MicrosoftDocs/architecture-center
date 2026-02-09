@@ -31,7 +31,7 @@ Common data lake use cases include:
 - **Self-service exploration**: Analysts and data scientists can query data directly, encouraging experimentation and discovery.
 - **Flexible data support**: Unlike warehouses that require structured formats, lakes can natively handle structured, semi-structured, and unstructured data.
 - **Scalable and performant**: In distributed architectures, data lakes enable parallel ingestion and distributed execution at scale, frequently outperforming traditional ETL pipelines in high-volume workloads. The performance benefits stem from:
-  - Parallelism: Distributed compute engines (e.g., Spark) partition data and execute transformations across multiple nodes concurrently, while traditional ETL frameworks often rely on sequential or limited multi-threaded execution.
+  - Parallelism: Distributed compute engines (like Spark) partition data and execute transformations across multiple nodes concurrently, while traditional ETL frameworks often rely on sequential or limited multi-threaded execution.
   - Scalability: Distributed systems scale horizontally by elastically adding compute and storage nodes, whereas traditional ETL pipelines typically depend on vertical scaling of a single host, which quickly hits resource limits.
 - **Foundation for hybrid architectures**: Data lakes often coexist with warehouses in a lakehouse approach, combining raw storage with structured query performance.
 

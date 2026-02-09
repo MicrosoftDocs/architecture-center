@@ -85,7 +85,7 @@ The following table presents considerations that might influence your decision t
 
 ## Pattern 2: Multiple workspaces backed by a single Fabric capacity
 
-In this deployment pattern, you use separate workspaces. Because a single capacity is shared across workspaces, workloads that run concurrently at any time might affect the performance of jobs and interactive queries.
+In this deployment pattern, you use separate workspaces. Because a single capacity is shared across workspaces, workloads that run concurrently can affect the performance of jobs and interactive queries.
 
 :::image type="content" source="../_images/fabric-deployment-pattern-2-multiple-workspaces-single-capacity.svg" alt-text="Diagram that shows a single Fabric tenant that contains a single capacity and two workspaces." border="false":::
 

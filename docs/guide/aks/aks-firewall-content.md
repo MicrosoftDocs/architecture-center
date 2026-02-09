@@ -37,7 +37,7 @@ An Azure Bastion host provides improved-security SSH connectivity to the jump bo
 
 AKS doesn't provide a built-in solution for securing ingress and egress traffic between the cluster and external networks.
 
-For this reason, the architecture presented in this article includes an [Azure Firewall](/azure/firewall/overview) that controls inbound and outbound traffic by using [destination network address translation (DNAT) rules, network rules, and application rules](/azure/firewall/rule-processing). The firewall also protects workloads by using [threat intelligence-based filtering](/azure/firewall/threat-intel). The Azure Firewall and Bastion are deployed to a hub virtual network that is peered with the virtual network hosting the private AKS cluster. A route table and user-defined routes route outbound traffic from the AKS cluster to the Azure Firewall.
+For this reason, the architecture presented in this article includes an [Azure Firewall](/azure/firewall/overview) that controls inbound and outbound traffic by using [destination network address translation (DNAT) rules, network rules, and application rules](/azure/firewall/rule-processing). The firewall also protects workloads by using [threat intelligence-based filtering](/azure/firewall/threat-intel). The Azure Firewall and Bastion are deployed to a hub virtual network that is peered with the virtual network hosting the private AKS cluster. A route table and user-defined routes direct outbound traffic from the AKS cluster to the Azure Firewall.
 
 > [!NOTE]
 >

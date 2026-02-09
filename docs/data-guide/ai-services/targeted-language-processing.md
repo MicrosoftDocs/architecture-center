@@ -41,9 +41,9 @@ The following services provide targeted language processing capabilities for AI 
 
   - **Don't use** Document Intelligence as a real-time search API.
 
-### Azure OpenAI Service
+### Azure OpenAI in Foundry Models
 
-[Azure OpenAI Service](/azure/ai-services/openai/overview) provides REST API access to OpenAI's powerful language models. These models include O3-Mini, O1, O1-Mini, GPT-4o, GPT-4o Mini, GPT-4 Turbo with Vision, GPT-4, GPT-3.5-Turbo, and the Embeddings model series. These models are highly adaptable, which allows you to tailor them for tasks like content generation, summarization, image analysis, and semantic search. They also support natural language to code translation, which makes them versatile for various applications.
+[Azure OpenAI in Foundry Models](/azure/ai-services/openai/overview) provides REST API access to OpenAI's powerful language models. These models include O3-Mini, O1, O1-Mini, GPT-4o, GPT-4o Mini, GPT-4 Turbo with Vision, GPT-4, GPT-3.5-Turbo, and the Embeddings model series. These models are highly adaptable, which allows you to tailor them for tasks like content generation, summarization, image analysis, and semantic search. They also support natural language to code translation, which makes them versatile for various applications.
 
 #### Capabilities
 

@@ -3,7 +3,7 @@ metadata:
   title: Azure Files Accessed from On-Premises and Secured by AD DS in a Private Network
   description: Learn how to provide on-premises access to Azure Files with security provided by on-premises Windows Server Active Directory Domain Services (AD DS).
   author: rudneir2
-  ms.author: ruolivei
+  ms.author: ruoliveira
   ms.date: 09/19/2024
   ms.topic: example-scenario
   ms.subservice: example-scenario

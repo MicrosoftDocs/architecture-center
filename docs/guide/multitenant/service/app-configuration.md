@@ -59,7 +59,7 @@ When you use App Configuration in a multitenant application, there are several f
 
 In App Configuration, you work with key-value pairs that represent application settings. The key represents the name of the configuration setting. You can use a hierarchical naming structure for your keys. In a multitenant solution, consider using a tenant identifier as the prefix for your keys.
 
-For example, suppose you need to store a setting to indicate the logging level for your application. In a single-tenant solution, you might name this setting `LogLevel`. In a multitenant solution, you might choose to use a hierarchical key name, such as `tenant1/LogLevel` for tenant 1, `tenant2/LogLevel` for tenant 2, and so on.
+For example, suppose you need to store a setting to indicate the logging level for your application. In a single-tenant solution, you might name this setting `LogLevel`. In a multitenant solution, you might choose to use a hierarchical key name, such as `tenant1/LogLevel` for tenant 1, and `tenant2/LogLevel` for tenant 2.
 
 You can specify long key names and multiple levels in a hierarchy. If you choose to use long key names, ensure that you understand the [size limits for keys and values](/azure/azure-app-configuration/concept-key-value#keys).
 

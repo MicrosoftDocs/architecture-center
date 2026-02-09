@@ -3,7 +3,7 @@ title: Guidance for Using Azure Database for PostgreSQL in a Multitenant Solutio
 description: Learn about the Azure Database for PostgreSQL features that are useful when you work with multitenant systems. Explore guidance and examples.
 author: PlagueHO
 ms.author: dascottr
-ms.date: 07/11/2025
+ms.date: 01/23/2026
 ms.update-cycle: 180-days
 ms.topic: concept-article
 ms.subservice: architecture-guide
@@ -24,9 +24,6 @@ The following deployment modes are available for Azure Database for PostgreSQL a
 
 - [Azure Cosmos DB for PostgreSQL](/azure/cosmos-db/postgresql/) is an Azure-managed database service designed for solutions that require a high level of scale, like multitenant applications. This service is part of the Azure Cosmos DB family of products.
 
-> [!NOTE]
-> Azure Database for PostgreSQL single server is on the retirement path and is [scheduled for retirement by March 28, 2025](https://azure.microsoft.com/updates/azure-database-for-postgresql-single-server-will-be-retired-migrate-to-flexible-server-by-28-march-2025/). It's not recommended for new multitenant workloads.
-
 ## Azure Database for PostgreSQL features that support multitenancy
 
 When you use Azure Database for PostgreSQL to build a multitenant application, the following features can enhance your solution.
@@ -40,7 +37,16 @@ Row-level security is useful for enforcing tenant-level isolation when you use s
 
 Implementing row-level security on a table might affect performance. You might need to create other indexes on tables that have row-level security enabled to ensure that performance isn't affected. When you use row-level security, it's important to use performance testing techniques to validate that your workload meets your baseline performance requirements.
 
-For more information, see [Secure your Azure Database for PostgreSQL server](/azure/postgresql/flexible-server/security-overview).
+For more information about row-level security, see [Access management for Azure Database for PostgreSQL](/azure/postgresql/security/security-access-control#row-level-security).
+
+#### Tenant context for row-level security
+
+Row-level security policies require access to the current tenant identifier. Azure Database for PostgreSQL flexible server provides two extensions that help manage tenant context:
+
+- **session_variable**: Provides session-scoped variables that you can use to store and retrieve the tenant identifier within a session. Use these variables in your row-level security policies.
+- **login_hook**: Executes a function at login time. Use this extension to automatically set the tenant context when a connection is established.
+
+For more information, see [Extensions and extension versions for Azure Database for PostgreSQL flexible server](/azure/postgresql/extensions/concepts-extensions-versions).
 
 ### Horizontal scaling with sharding
 
@@ -58,16 +64,22 @@ For more information, see the following articles:
 - [Choose distribution columns](/azure/cosmos-db/postgresql/howto-choose-distribution-column)
 - [Use Citus for multitenant applications](https://docs.citusdata.com/en/v10.2/use_cases/multi_tenant.html)
 
-### Elastic clusters (preview)
+### Elastic clusters
 
 Elastic clusters are a feature of Azure Database for PostgreSQL flexible server. They provide horizontal scaling capabilities within a single managed service. This deployment option uses distributed table functionality for multitenant workloads that require scale-out capabilities.
 
-In multitenant solutions, elastic clusters enable tenant data sharding across multiple nodes. You can distribute tables by tenant ID to ensure that tenant data colocates on specific nodes. This approach can improve query performance for tenant-specific queries.
+In multitenant solutions, elastic clusters enable tenant data sharding across multiple nodes. Elastic clusters support two sharding models:
+
+- **Row-based sharding**: You can distribute tables by tenant ID to ensure that tenant data colocates on specific nodes. This approach can improve query performance for tenant-specific queries but requires that queries include the distribution column.
+- **Schema-based sharding**: You can isolate tenants by using a separate schema per tenant. This approach is ideal for ISVs deploying applications that can't undergo query modifications to support row-based sharding. Schema-based sharding is well-suited for workloads that have between 1 and 10,000 tenants.
 
 > [!NOTE]
 > Elastic clusters are in preview and available only in Azure Database for PostgreSQL flexible server.
 
-For more information, see [Elastic clusters in Azure Database for PostgreSQL flexible server (preview)](/azure/postgresql/flexible-server/concepts-elastic-clusters).
+For more information, see the following articles:
+
+- [Elastic clusters in Azure Database for PostgreSQL flexible server](/azure/postgresql/flexible-server/concepts-elastic-clusters)
+- [Sharding models for elastic clusters](/azure/postgresql/elastic-clusters/concepts-elastic-clusters-sharding-models)
 
 ### Connection pooling
 

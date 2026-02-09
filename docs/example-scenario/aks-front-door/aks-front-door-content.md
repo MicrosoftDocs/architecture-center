@@ -213,7 +213,7 @@ These recommendations are essential for single-tenant AKS solutions and aren't s
 
 - Use the Standard or Premium tier for your production AKS clusters. These tiers include the [uptime service-level agreement (SLA) feature](/azure/aks/uptime-sla), which guarantees 99.95% availability of the Kubernetes API server endpoint for clusters that use [availability zones](/azure/aks/availability-zones) and 99.9% availability for clusters that don't use availability zones. For more information, see [Free, Standard, and Premium pricing tiers for AKS cluster management](/azure/aks/free-standard-pricing-tiers).
 
-- Enable [zone redundancy](/azure/reliability/availability-zones-overview) if you use Container Registry to store container images and Oracle Cloud Infrastructure (OCI) artifacts. Container Registry supports optional zone redundancy and [geo-replication](/azure/container-registry/container-registry-geo-replication). Zone redundancy provides resiliency and high availability to a registry or replication resource (replica) in a specific region. Geo-replication replicates registry data across one or more Azure regions to provide availability and reduce latency for regional operations.
+- Enable [zone redundancy](/azure/reliability/availability-zones-overview) if you use Container Registry to store container images and Open Container Initiative (OCI) artifacts. Container Registry supports optional zone redundancy and [geo-replication](/azure/container-registry/container-registry-geo-replication). Zone redundancy provides resiliency and high availability to a registry or replication resource (replica) in a specific region. Geo-replication replicates registry data across one or more Azure regions to provide availability and reduce latency for regional operations.
 
 #### Disaster recovery and business continuity
 
@@ -366,5 +366,5 @@ Principal author:
 - [AKS day-2 operations guide](../../operator-guides/aks/day-2-operations-guide.md)
 - [AKS solution journey](../../reference-architectures/containers/aks-start-here.md)
 - [Baseline architecture for an AKS cluster](../../reference-architectures/containers/aks/baseline-aks.yml)
-- [Best practices for multitenancy and cluster isolation](../../guide/multitenant/service/aks.yml)
+- [Best practices for multitenancy and cluster isolation](../../guide/multitenant/service/aks.md)
 - [Microservices architecture on AKS](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)

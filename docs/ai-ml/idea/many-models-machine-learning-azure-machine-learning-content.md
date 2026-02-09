@@ -179,6 +179,6 @@ Principal author:
 
 ## Related resources
 
-- [Analytics architecture design](../../solution-ideas/articles/analytics-start-here.yml)
+- [Analytics architecture design](../../solution-ideas/articles/analytics-get-started.md)
 - [Choose an analytical data store in Azure](../../data-guide/technology-choices/analytical-data-stores.md)
 - [Choose a data analytics technology in Azure](../../data-guide/technology-choices/analysis-visualizations-reporting.md)

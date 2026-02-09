@@ -3,7 +3,7 @@ title: Considerations for Using Azure Container Apps in a Multitenant Solution
 description: Learn about Azure Container Apps features that are useful in multitenant systems, including scalability, isolation, and resource management.
 author: PlagueHO
 ms.author: dascottr
-ms.date: 02/05/2025
+ms.date: 01/27/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-saas
@@ -138,19 +138,19 @@ For more information, see [Use rule-based routing with Container Apps](/azure/co
 
 Principal authors:
 
-- [Daniel Larsen](https://www.linkedin.com/in/daniellarsennz/) | Principal Customer Engineer, FastTrack for Azure
-- [Will Velida](https://www.linkedin.com/in/willvelida/) | Customer Engineer 2, FastTrack for Azure
+- [Daniel Larsen](https://www.linkedin.com/in/daniellarsennz/)
+- [Will Velida](https://www.linkedin.com/in/willvelida/)
 
 Other contributors:
 
 - [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
 - [Chad Kittel](https://www.linkedin.com/in/chadkittel/) | Principal Software Engineer, Azure Patterns & Practices
-- [Xuhong Liu](https://www.linkedin.com/in/xuhong-l-5937159b/) | Senior Service Engineer, FastTrack for Azure
+- [Xuhong Liu](https://www.linkedin.com/in/xuhong-l-5937159b/) | Senior Software Engineer
 - [Aarthi Murugan](https://www.linkedin.com/in/aarthimurugan/) | Senior Program Manager, CS Tech Strategy App Innovation
-- [Kendall Roden](https://www.linkedin.com/in/kendallroden/) | Senior Program Manager, Container Apps
-- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori/) | Principal Customer Engineer, FastTrack for Azure
+- [Kendall Roden](https://www.linkedin.com/in/kendallroden/)
+- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori/)
 - [Daniel Scott-Raynsford](https://www.linkedin.com/in/dscottraynsford) | Partner Solution Architect, Data & AI
-- [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv/) | Principal Customer Engineer, FastTrack for Azure
+- [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv/) | Principal Customer Engineer
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 

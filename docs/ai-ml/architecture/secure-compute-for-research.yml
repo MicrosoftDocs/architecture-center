@@ -11,6 +11,7 @@ metadata:
   ms.custom:
     - fcp
     - arb-telco
+    - arb-aiml
   ai-usage: ai-assisted
 azureCategories:
   - ai-machine-learning

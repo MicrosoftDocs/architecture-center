@@ -59,7 +59,7 @@ This diagram shows the legacy architecture migrated to Azure. A rehost approach 
 
 For decades, Software AG Adabas has been the adaptable database system behind many large mission-critical business applications. Now you can bring the convenience of cloud computing to these applications without giving up your Adabas database, the Natural programming language, or even your green screen, unless you want to.  
 
-Most organizations are pragmatic in their approach to digital transformation. They want to reuse what they can and make cost-effective choices about the rest. That's why the rehost approach to cloud migration is so popular. You simply move your workload as is, if possible, to Azure virtual machines (VMs), a type of infrastructure as a service (IaaS). VMs run in Azure datacenters that Microsoft manages, so you benefit from the efficiency, scalability, and performance of a distributed platform without the overhead of hardware management. 
+Most organizations are pragmatic in their approach to digital transformation. They want to reuse what they can and make cost-effective choices about the rest. That's why the rehost approach to cloud migration is so popular. You move your workload as is, if possible, to Azure virtual machines (VMs). These machines are a type of infrastructure as a service (IaaS). VMs run in Azure datacenters that Microsoft manages, so you benefit from the efficiency, scalability, and performance of a distributed platform without the overhead of hardware management.
 
 This architecture presents the rehost option. It provides a high-level look at what's possible, whether you keep the green screen or go modern. 
 

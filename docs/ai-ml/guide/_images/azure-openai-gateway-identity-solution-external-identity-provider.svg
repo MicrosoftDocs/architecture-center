@@ -1354,10 +1354,10 @@
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(51000):26"/>
 			</v:userDefs>
-			<title>Azure OpenAI Service.1281</title>
+			<title>Azure OpenAI.1281</title>
 			<g id="group1282-216" v:mID="1282" v:groupContext="group">
 				<title>Sheet.1282</title>
-				<desc>Azure OpenAI Service</desc>
+				<desc>Azure OpenAI</desc>
 				<g id="shape1283-217" v:mID="1283" v:groupContext="shape">
 					<title>Sheet.1283</title>
 					<path d="M0 265.89 L0 289.7 C0 292.52 2.28 294.8 5.1 294.8 L28.91 294.8 C31.73 294.8 34.02 292.52 34.02 289.7
@@ -1369,21 +1369,19 @@
 				<g id="shape1282-222" v:mID="1282" v:groupContext="groupContent">
 					<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
 					<v:textRect cx="16.5827" cy="305.705" width="71.72" height="21.2598"/>
-					<text x="-14.16" y="302.71" class="st24" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure OpenAI <tspan
-								x="1.04" dy="1.2em" class="st9">Service</tspan></text>				</g>
+					<text x="-14.16" y="302.71" class="st24" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure OpenAI</text>				</g>
 			</g>
 		</g>
 		<g id="shape1284-225" v:mID="1284" v:groupContext="shape" transform="translate(394.429,-58.1102)">
 			<title>Sheet.1284</title>
-			<desc>Azure OpenAI Service</desc>
+			<desc>Azure OpenAI</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(52000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="41.1025" cy="278.646" width="82.21" height="32.315"/>
 			<rect x="0" y="262.488" width="82.2051" height="32.315" class="st16"/>
-			<text x="10.36" y="275.65" class="st15" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure OpenAI <tspan
-						x="25.56" dy="1.2em" class="st9">Service</tspan></text>		</g>
+			<text x="10.36" y="275.65" class="st15" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure OpenAI</text>		</g>
 		<g id="shape1285-229" v:mID="1285" v:groupContext="shape" transform="translate(66.2599,-113.102)">
 			<title>Sheet.1285</title>
 			<desc>Intelligent application</desc>

@@ -91,7 +91,7 @@ The following list provides guidance to select the right Azure services for your
 
   - *Consistency with on-premises configurations:* It supports [different community versions of PostgreSQL](/azure/postgresql/flexible-server/concepts-supported-versions), including the version that Contoso Fiber currently uses.
 
-  - *Resiliency:* The flexible server deployment automatically creates [server backups](/azure/postgresql/flexible-server/concepts-backup-restore) and stores them in zone-redundant storage (ZRS) within the same region. Contoso Fiber can restore the database to any point in time within the backup retention period. The backup and restoration capability creates a better RPO compared to on-premises environments.
+  - *Recoverability:* The flexible server deployment automatically creates [server backups](/azure/postgresql/flexible-server/concepts-backup-restore) and stores them in zone-redundant storage (ZRS) within the same region. Contoso Fiber can restore the database to any point in time within the backup retention period. The backup and restoration capability creates a better RPO compared to on-premises environments.
 
 - *Application performance monitoring:* Use [Application Insights](/azure/azure-monitor/app/app-insights-overview) to analyze telemetry on your application. Contoso Fiber uses Application Insights for the following reasons:
 

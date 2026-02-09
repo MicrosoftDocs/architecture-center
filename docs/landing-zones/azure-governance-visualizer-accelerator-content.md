@@ -123,5 +123,4 @@ Principal authors:
 
 ## Related resources
 
-- [Azure landing zones - Bicep modules design considerations](../landing-zones/bicep/landing-zone-bicep.md)
 - [Azure landing zone overview](/azure/cloud-adoption-framework/ready/landing-zone/)

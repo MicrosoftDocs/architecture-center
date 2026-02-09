@@ -2,8 +2,8 @@
 metadata:
   title: Deploy and Operate Apps with AKS Enabled by Azure Arc on Azure Local
   description: Build containerized app deployment pipelines for AKS on Azure Local with Azure Arc and GitOps. Learn about Flux automation for hybrid Kubernetes clusters.
-  author: parameshbabu
-  ms.author: pabab
+  author: ssarwa
+  ms.author: srikantsarwa
   ms.date: 4/28/2025
   ms.topic: example-scenario
   ms.subservice: example-scenario

@@ -3,7 +3,7 @@ metadata:
   title: Building the First Layer of Defense with Azure Security Services
   description: Secure your IT environment by using Azure security services and Azure Security Benchmark. This article is part of a series.
   author: rudneir2
-  ms.author: ruolivei
+  ms.author: ruoliveira
   ms.custom: fcp
   ms.date: 11/11/2024
   ms.topic: solution-idea

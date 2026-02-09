@@ -26,7 +26,7 @@ The following AI services can provide speech recognition and generation capabili
 
 - [Microsoft Azure AI Speech](#speech) provides natural language processing for text analysis.
 
-  - **Use** Speech when you need to transcribe or translate spoken speech and identify speakers in a conversation. You can also use Speech as a lower-cost alternative for natural-sounding speech generation compared to the higher-quality [Whisper](/azure/ai-services/openai/concepts/models) system in the OpenAI models.
+  - **Use** Speech when you need to transcribe or translate spoken speech and identify speakers in a conversation. You can also use Speech as a lower-cost alternative for natural-sounding speech generation compared to the higher-quality [Whisper](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#audio-api) system in the OpenAI models.
 
   - **Don't use** Speech for chat, content summarization, moderation, or guiding users through scripts. Use other models for those things instead.
 

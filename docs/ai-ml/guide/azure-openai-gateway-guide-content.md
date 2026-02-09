@@ -1,6 +1,6 @@
-This article describes the key challenges across the five pillars of the [Azure Well-Architected Framework](/azure/well-architected/) that you encounter if your workload design includes direct access from your consumers to the Azure OpenAI Service data plane APIs. Learn how introducing a gateway into your architecture can help resolve these direct access challenges, while introducing new challenges. This article describes the architectural pattern but not how to implement the gateway.
+This article describes the key challenges across the five pillars of the [Azure Well-Architected Framework](/azure/well-architected/) that you encounter if your workload design includes direct access from your consumers to the Azure OpenAI in Foundry Models data plane APIs. Learn how introducing a gateway into your architecture can help resolve these direct access challenges, while introducing new challenges. This article describes the architectural pattern but not how to implement the gateway.
 
-[Azure OpenAI](https://azure.microsoft.com/products/ai-services/openai-service) exposes HTTP APIs that let your applications perform embeddings or completions by using OpenAI's language models. Intelligent applications call these HTTP APIs directly from clients or orchestrators. Examples of clients include chat UI code and custom data processing pipelines. Examples of orchestrators include Microsoft Agent Framework, Semantic Kernel, LangChain, and Microsoft Foundry Agent Service. When your workload connects to one or more Azure OpenAI instances, you must decide whether these consumers connect directly or through a reverse proxy API gateway.
+[Azure OpenAI](https://azure.microsoft.com/products/ai-services/openai-service) exposes HTTP APIs that let your applications perform embeddings or completions by using OpenAI's language models. Intelligent applications call these HTTP APIs directly from clients or orchestrators. Examples of clients include chat UI code and custom data processing pipelines. Examples of orchestrators include Microsoft Agent Framework, Semantic Kernel, LangChain, and Foundry Agent Service. When your workload connects to one or more Azure OpenAI instances, you must decide whether these consumers connect directly or through a reverse proxy API gateway.
 
 Because a gateway can be used to solve specific scenarios that might not be present in every workload, see be sure to see [Specific scenario guidance](#next-steps), which looks at that specific use case of a gateway in more depth.
 
@@ -12,11 +12,11 @@ This section provides examples of specific key architectural challenges that you
 
 ### Reliability challenges
 
-The reliability of the workload depends on several factors, including its capacity for self-preservation and self-recovery, which are often implemented through replication and failover mechanisms. Without a gateway, all reliability concerns must be addressed exclusively by using client logic and Azure OpenAI Service features. Workload reliability is compromised when there isn't enough reliability control available in either of those two surfaces.
+The reliability of the workload depends on several factors, including its capacity for self-preservation and self-recovery, which are often implemented through replication and failover mechanisms. Without a gateway, all reliability concerns must be addressed exclusively by using client logic and Azure OpenAI features. Workload reliability is compromised when there isn't enough reliability control available in either of those two surfaces.
 
 - **Load balancing or Redundancy:** Failing over between multiple Azure OpenAI instances based on service availability is a client responsibility that you need to control through configuration and custom logic.
 
-  Whether you use [Global](/azure/ai-foundry/foundry-models/concepts/deployment-types#global-standard), standard or provisioned, or [data zone](/azure/ai-foundry/foundry-models/concepts/deployment-types#data-zone-standard), standard or provisioned, it doesn't affect the Azure OpenAI service availability from a regional endpoint availability perspective. You still have a responsibility to implement failover logic yourself.
+  Whether you use [Global](/azure/ai-foundry/foundry-models/concepts/deployment-types#global-standard), standard or provisioned, or [data zone](/azure/ai-foundry/foundry-models/concepts/deployment-types#data-zone-standard), standard or provisioned, it doesn't affect the Azure OpenAI availability from a regional endpoint availability perspective. You still have a responsibility to implement failover logic yourself.
 
 - **Scale out to handle spikes:** Failing over to Azure OpenAI instances with capacity when throttled is another client responsibility that you need to control through configuration and custom logic. Updating multiple client configurations for new Azure OpenAI instances presents greater risk and has timeliness concerns. The same is true for updating client code to implement changes in logic, such as directing low priority requests to a queue during high demand periods.
 
@@ -26,7 +26,7 @@ The reliability of the workload depends on several factors, including its capaci
 
 ### Security challenges
 
-Security controls must help protect workload confidentiality, integrity, and availability. Without a gateway, all security concerns must be addressed exclusively in client logic and Azure OpenAI Service features. Workload requirements might demand more than what's available for client segmentation, client control, or service security features for direct communication.
+Security controls must help protect workload confidentiality, integrity, and availability. Without a gateway, all security concerns must be addressed exclusively in client logic and Azure OpenAI features. Workload requirements might demand more than what's available for client segmentation, client control, or service security features for direct communication.
 
 - **Identity management - authentication scope:** The data plane APIs exposed by Azure OpenAI can be secured in one of two ways: API key or Azure role-based access control (RBAC). In both cases, authentication happens at the Azure OpenAI instance level, not the individual deployment level, which introduces complexity for providing least privileged access and identity segmentation for specific deployment models.
 
@@ -81,7 +81,7 @@ To address the many challenges listed in [Key challenges](#key-challenges), you 
 
 - Cross-cutting and cross-model monitoring.
 
-- Ability to introduce [gateway aggregation](../../patterns/gateway-aggregation.yml) and advanced [routing](../../patterns/gateway-routing.yml) to multiple services, such as routing low priority messages to a queue for [queue-based load leveling](../../patterns/queue-based-load-leveling.yml) or to compute to perform tasks.
+- Ability to introduce [gateway aggregation](../../patterns/gateway-aggregation.yml) and advanced [routing](../../patterns/gateway-routing.yml) to multiple services, like routing low priority messages to a queue for [queue-based load leveling](../../patterns/queue-based-load-leveling.yml) or to compute resources to handle tasks.
 
 - Load balancing that uses [health endpoint monitoring](../../patterns/health-endpoint-monitoring.yml) to route only to healthy endpoints by [circuit breaking](../../patterns/circuit-breaker.md) on unavailable or overloaded model deployments.
 
@@ -147,7 +147,7 @@ When considering how an API gateway benefits your architecture, use the [Design 
 
 - The gateway service can introduce a throughput bottleneck. Ensure the gateway has adequate performance to handle full concurrent load and can easily scale in line with your growth expectations. Ensure elasticity in the solution so that the gateway can reduce supply, or scale down, when demand is low, such as with business day usage.
 
-- The gateway service has processing it must perform per request, and introduces added latency per API invocation. You should optimize your routing logic to keep requests performing well.
+- The gateway service must run processes for each request, and it introduces added latency for each API invocation. Optimize your routing logic to keep requests fast and reliable.
 
 - In most cases, the gateway should be geographically near both the users and the Azure OpenAI instances to reduce latency. While network latency is usually a small percentage of time in overall API calls to language models, it might be a competitive factor for your workload.
 

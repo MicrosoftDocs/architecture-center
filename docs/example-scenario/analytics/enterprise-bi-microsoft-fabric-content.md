@@ -5,7 +5,7 @@ This guidance builds on the [Microsoft Fabric end-to-end scenario][e2e-analytics
 ## Architecture
 
 :::image type="complex" source="./media/enterprise-bi-scoped-architecture.svg" border="false" lightbox="./media/enterprise-bi-scoped-architecture.svg" alt-text="Diagram that shows the enterprise BI architecture with Fabric.":::
-  The diagram shows types of input, like data streams, databases, data services, unstructured data, and structured data. Components in the Ingest phase receive the data input. The Ingest phase components are Azure Event Hubs, Azure IoT Hub, Fabric pipelines, Fabric real-time intelligence (RTI) eventstreams, mirroring, and copy jobs. Fabric OneLake is the primary storage for the Store phase via multiple options such as a Fabric lakehouse, Fabric warehouse, Fabric eventhouse, or mirrored databases. Then the data goes to the process phase for Fabric eventstreams and KQL querysets to process the data in real time, and Spark notebooks, SQL scripts, and Dataflow Gen2 for batch workloads. Some of the machine learning models data goes to the Enrich phase, which includes Azure AI Foundry and Azure Machine Learning. The other data goes to the Serve phase, which includes Power BI, Fabric data agents, and OneLake shortcuts. The data outputs to business users, analytics, applications, and shared datasets.
+  The diagram shows types of input, like data streams, databases, data services, unstructured data, and structured data. Components in the Ingest phase receive the data input. The Ingest phase components are Azure Event Hubs, Azure IoT Hub, Fabric pipelines, Fabric real-time intelligence (RTI) eventstreams, mirroring, and copy jobs. Fabric OneLake is the primary storage for the Store phase via multiple options such as a Fabric lakehouse, Fabric warehouse, Fabric eventhouse, or mirrored databases. Then the data goes to the process phase for Fabric eventstreams and KQL querysets to process the data in real time, and Spark notebooks, SQL scripts, and Dataflow Gen2 for batch workloads. Some of the machine learning models data goes to the Enrich phase, which includes Microsoft Foundry and Azure Machine Learning. The other data goes to the Serve phase, which includes Power BI, Fabric data agents, and OneLake shortcuts. The data outputs to business users, analytics, applications, and shared datasets.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/enterprise-bi-scoped-architecture.vsdx) of this architecture.*
@@ -314,7 +314,7 @@ Other contributors:
 ## Related resources
 
 - [Databases architecture design](../../databases/index.yml)
-- [Analytics end-to-end with Azure Synapse Analytics](../../example-scenario/dataplate2e/data-platform-end-to-end.yml)
+- [Analytics end-to-end with Microsoft Fabric](../../example-scenario/dataplate2e/data-platform-end-to-end.yml)
 
 [blue-green-dep]: https://martinfowler.com/bliki/BlueGreenDeployment.html
 [canary-releases]: https://martinfowler.com/bliki/CanaryRelease.html

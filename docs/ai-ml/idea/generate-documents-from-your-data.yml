@@ -2,16 +2,16 @@
 metadata:
   title: Generate Documents from Your Data
   description: Learn how to build a simple system to generate documents. It combines retrieval, summarization, and generation to support faster document drafting by using AI.
-  author: gpickett
-  ms.author: gpickett
-  ms.date: 6/16/2025
+  author: malrose07
+  ms.author: malrose
+  ms.date: 12/01/2025
   ms.topic: solution-idea
   ms.collection: ce-skilling-ai-copilot
   ms.subservice: solution-idea
 azureCategories:
   - ai-machine-learning
 products:
-  - ai-services
+  - azure-cognitive-search
   - azure-cosmos-db
   - azure-ai-foundry
 name: Generate documents from your data

@@ -11,7 +11,7 @@ ms.subservice: architecture-guide
 
 # RAG generate embeddings phase
 
-In the previous steps of your retrieval-augmented generation (RAG) solution, you divided your documents into chunks and enriched the chunks. In this step, you generate embeddings for those chunks and any metadata fields on which you plan to perform vector searches.
+In the previous steps of your retrieval-augmented generation (RAG) solution, you divided your documents into chunks and enriched the chunks. In this step, you generate embeddings for those chunks and any metadata fields on which you plan to run vector searches.
 
 This article is part of a series. Read the [introduction](./rag-solution-design-and-evaluation-guide.md).
 
@@ -119,7 +119,7 @@ You can use a programmatic method to evaluate how well your embedding model work
 
 ## Evaluate embedding models by using retrieval performance
 
-To choose the best embedding model, evaluate how well it performs in retrieval scenarios. Embed your content, perform vector search, and assess whether the correct items are retrieved.
+To choose the best embedding model, evaluate how well it performs in retrieval scenarios. Embed your content, run a vector search, and assess whether the correct items are retrieved.
 
 You can experiment with different models, comparison formulas, and dimensionality settings. Use evaluation metrics to determine which model provides the best results for your use case.
 

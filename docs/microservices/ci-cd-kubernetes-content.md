@@ -103,7 +103,7 @@ Our recommendation is to create a dedicated production cluster along with a sepa
 
 ## Build process
 
-When possible, package your build process into a Docker container. This configuration allows you to build code artifacts using Docker and without configuring a build environment on each build machine. A containerized build process makes it easy to scale out the CI pipeline by adding new build agents. Also, any developer on the team can build the code simply by running the build container.
+When possible, package your build process into a Docker container. This configuration allows you to build code artifacts using Docker and without configuring a build environment on each build machine. A containerized build process simplifies scaling out the CI pipeline by adding new build agents. Also, any developer on the team can build the code by running the build container.
 
 By using multi-stage builds in Docker, you can define the build environment and the runtime image in a single Dockerfile. For example, here's a Dockerfile that builds a .NET application:
 
@@ -174,7 +174,7 @@ This file uses the Docker `ENTRYPOINT` command to run the tests, not the Docker 
 
 Here are some other best practices to consider for containers:
 
-- Define organization-wide conventions for container tags, versioning, and naming conventions for resources deployed to the cluster (pods, services, and so on). That can make it easier to diagnose deployment issues.
+- Define organization-wide conventions for container tags, versioning, and naming conventions for resources deployed to the cluster (for example, pods and services). That can make it easier to diagnose deployment issues.
 
 - During the development and test cycle, the CI/CD process builds many container images. Only some of those images are candidates for release, and then only some of those release candidates get promoted to production. Have a clear versioning strategy so that you know which images are currently deployed to production and to help roll back to a previous version if necessary.
 
