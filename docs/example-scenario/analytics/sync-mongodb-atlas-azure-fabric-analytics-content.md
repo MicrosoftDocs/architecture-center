@@ -104,6 +104,7 @@ This model is recommended for batch workloads or scenarios where real-time inges
 :::image type="content" source="media/azure-fabric-mongodb-connectors.svg" alt-text="Connector architecture for integrating MongoDB with Fabric pipelines." lightbox="media/azure-fabric-mongodb-connectors.svg" border="false":::
 
 Using Dataflow Gen2 (Power BI / self‑service pull model)
+
 Dataflow Gen2 provides a no‑code, Power BI–centric option to ingest MongoDB Atlas data into OneLake. Customers using Power BI as their primary analytics tool can use the Dataflow Gen2 MongoDB connector to:
 
 - Perform scheduled ingestion
@@ -237,7 +238,7 @@ Performance Efficiency refers to your workload's ability to scale to meet user d
 - Tune pipeline parallelism; apply **pushdown filters** on MongoDB connectors.  
 - Monitor ingestion lag; implement retries and idempotent upserts.  
 - Schedule **OPTIMIZE** and **VACUUM** for Lakehouse maintenance.
-- Push (triggers → Functions) – Best for near real-time, event-driven ingestion.
+- Push (Mirroring accelerator, triggers → Functions, RTI) – Best for near real-time, event-driven ingestion.
 - Pull (pipelines) – Best for scheduled, batch, or micro-batch workloads.
 - Data Warehouse – Use for governed relational models and enterprise BI.
 - Lakehouse SQL endpoint – Use for lightweight SQL over Delta without warehouse provisioning.
@@ -253,7 +254,7 @@ Microsoft Fabric and MongoDB Atlas integrate seamlessly through **Open Mirroring
 Principal authors:
 
 - [Rodrigo Rodríguez](https://www.linkedin.com/in/rod2k10/) | Senior Cloud Solution Architect, AI & Quantum
-- [Diana Annie Jenosh](https://www.linkedin.com/in/diana-jenosh-0b014814) | Senior Solutions Architect - MongoDB Partners team
+- [Diana Annie Jenosh](https://www.linkedin.com/in/diana-jenosh-0b014814) | Advisory Solutions Architect - MongoDB Partners team
 
 Other contributors:
 
@@ -264,6 +265,7 @@ Other contributors:
 ## Next steps
 
 - [Fabric overview](/fabric/fundamentals/microsoft-fabric-overview)
+- [MongoDB mirroring accelerator for Microsoft Fabric](https://mongodb.com/company/blog/technical/near-real-time-analytics-mirroring-microsoft-fabric-for-mongodb-atlas)
 - [MongoDB Atlas on Azure Marketplace](https://marketplace.microsoft.com/en-us/product/mongodb.mongodb_atlas_azure_native_prod?tab=Overview)
 - [MongoDB horizontal use cases](https://www.mongodb.com/use-cases)
 - [MongoDB industry-specific use cases](https://www.mongodb.com/industries)
