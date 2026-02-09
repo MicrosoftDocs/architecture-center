@@ -163,7 +163,6 @@ When you implement vector search, you can also consider linking with other Micro
 >
 > We recommend that you migrate Azure OpenAI On Your Data workloads to [Foundry Agent Service](/azure/ai-foundry/agents/overview) with [Foundry IQ](/azure/ai-foundry/agents/concepts/what-is-foundry-iq) to retrieve content and generate grounded answers from your data.
 
-
 ## Contributors
 
 *Microsoft maintains this article. The following contributors wrote this article.*

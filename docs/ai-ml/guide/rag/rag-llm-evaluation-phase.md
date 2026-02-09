@@ -88,7 +88,7 @@ The following table provides guidance for how to evaluate completeness and utili
 
 You can use the following methods to calculate the relevance of responses:
 
-- [AI-assisted: Relevance in Microsoft Foundry](/azure/ai-foundry/concepts/evaluation-metrics-built-in#ai-assisted-relevance)
+- [AI-assisted: Relevance in Microsoft Foundry](/azure/ai-foundry/concepts/observability#what-are-evaluators)
 - [Ragas answer relevancy library](https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/answer_relevance/)
 - [MLflow relevance calculation](https://mlflow.org/docs/latest/llms/llm-evaluate/index.html#metrics-with-llm-as-the-judge)
 

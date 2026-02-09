@@ -100,7 +100,7 @@ Serverless computing lets you integrate systems and run backend processes withou
 
 | Architecture | Description |
 |-----|-----|
-| [Cross-cloud scaling pattern](/azure/adaptive-cloud/app-solutions/pattern-cross-cloud-scale) | Learn how to improve cross-cloud scalability with a solution architecture that includes Azure Stack. A step-by-step flowchart details instructions for implementation. |
+| [Cross-cloud scaling pattern](/azure-stack/user/pattern-cross-cloud-scale) | Learn how to improve cross-cloud scalability with a solution architecture that includes Azure Stack. A step-by-step flowchart details instructions for implementation. |
 
 [View all the serverless architectures](/azure/architecture/browse/?expanded=azure&products=azure-functions)
 
