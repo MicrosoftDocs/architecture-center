@@ -11,11 +11,7 @@ items:
           - name: Microsoft SaaS stories
             href: ../saas/case-studies/saas-stories.md
       - name: Startups
-        items:
-        - name: Overview
-          href: ../startups/startup-architecture.md
-        - name: Core startup stack architecture
-          href: ../../example-scenario/startups/core-startup-stack.yml
+        href: ../startups/startup-architecture.md
       - name: Multitenant applications
         items:
         - name: Overview

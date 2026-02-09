@@ -60,7 +60,7 @@ Model retirement behavior depends on your model deployment strategy. There are t
 
 - **MaaS (model as a service) solutions** are pretrained models exposed as APIs that provide scalability and ease of integration. They have a trade-off of potentially higher costs and lower control of models. Examples of MaaS solutions include models deployed in Azure OpenAI in Foundry Models and models from the model catalog deployed as serverless APIs.
 
-- **MaaP (model as a platform) solutions** are models deployed and managed within a larger platform, such as models from the Azure model catalog deployed in [managed compute](/azure/ai-foundry/how-to/model-catalog-overview#managed-compute). This solution usually provides greater control of models but requires more management than MaaS solutions.
+- **MaaP (model as a platform) solutions** are models deployed and managed within a larger platform, such as models from the Azure model catalog deployed in [managed compute](/azure/ai-foundry/concepts/foundry-models-overview#managed-compute). This solution usually provides greater control of models but requires more management than MaaS solutions.
 
 - **Self-hosting models** are models deployed on your own infrastructure. This deployment provides maximum control over models but requires significant responsibility for infrastructure, management, and maintenance.
 

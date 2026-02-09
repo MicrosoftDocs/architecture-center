@@ -1,4 +1,4 @@
-This article provides a basic architecture to help you learn how to run chat applications by using [Microsoft Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) and [Azure OpenAI in Foundry Models](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#azure-openai-in-azure-ai-foundry-models). The architecture includes a client user interface (UI) that runs in Azure App Service. To fetch grounding data for the language model, the UI uses an agent hosted in Foundry Agent Service to orchestrate the workflow from incoming prompts to data stores. The architecture runs in a single region.
+This article provides a basic architecture to help you learn how to run chat applications by using [Microsoft Foundry](/azure/ai-foundry/what-is-foundry) and [Azure OpenAI in Foundry Models](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#azure-openai-in-azure-ai-foundry-models). The architecture includes a client user interface (UI) that runs in Azure App Service. To fetch grounding data for the language model, the UI uses an agent hosted in Foundry Agent Service to orchestrate the workflow from incoming prompts to data stores. The architecture runs in a single region.
 
 > [!IMPORTANT]
 > This architecture isn't for production. It's an introductory architecture for learning and proof of concept (POC) purposes. When you design production chat applications, use the [Baseline Foundry chat reference architecture](baseline-microsoft-foundry-chat.yml), which adds production design decisions.
@@ -34,7 +34,7 @@ The following workflow corresponds to the previous diagram:
 
 Many of this architecture's components are the same as the [basic App Service web application architecture](../../web-apps/app-service/architectures/basic-web-app.yml) because the chat UI is based on that architecture. This section highlights data services, components that you can use to build and orchestrate chat flows, and services that expose language models.
 
-- [Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) is a platform that you use to build, test, and deploy AI solutions and models as a service (MaaS). This architecture uses Foundry to deploy an Azure OpenAI model.
+- [Foundry](/azure/ai-foundry/what-is-foundry) is a platform that you use to build, test, and deploy AI solutions and models as a service (MaaS). This architecture uses Foundry to deploy an Azure OpenAI model.
 
   - [Foundry projects](/azure/ai-foundry/how-to/create-projects) establish connections to data sources, define agents, and invoke deployed models, including Azure OpenAI models. This architecture has only one Foundry project within the Foundry account.
 
