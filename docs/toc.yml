@@ -806,7 +806,7 @@ items:
             displayName: Azure Kubernetes Service
             href: guide/aks/aks-firewall.yml
           - name: Secure AKS workloads with Azure Front Door
-            displayName: Azure Kubernetes Service
+            displayName: Azure Kubernetes Service, AFD
             href: example-scenario/aks-front-door/aks-front-door.yml
           - name: Multitenancy with AKS and AGIC
             displayName: Azure Kubernetes Service

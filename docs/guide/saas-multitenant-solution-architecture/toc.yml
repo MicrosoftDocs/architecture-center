@@ -93,6 +93,7 @@ items:
           - name: Networking
             items:
             - name: Azure Front Door
+              displayName: AFD
               href: ../multitenant/service/front-door.md
             - name: Azure NAT Gateway
               href: ../multitenant/service/nat-gateway.md

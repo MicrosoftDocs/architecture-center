@@ -10,10 +10,13 @@ items:
           displayName: Hub and spoke, star, spoke-hub, VNet
           href: architecture/hub-spoke.yml
         - name: Hub-spoke topology with Virtual WAN
+          displayName: VWAN
           href: architecture/hub-spoke-virtual-wan-architecture.yml
         - name: Massive-scale Virtual WAN architecture design
+          displayName: VWAN
           href: architecture/massive-scale-azure-architecture.yml      
         - name: Virtual WAN optimized for requirements
+          displayName: VWAN
           href: architecture/performance-security-optimized-vwan.yml
         - name: Azure DNS Private Resolver
           displayName: DNS forwarding, hybrid DNS resolution
