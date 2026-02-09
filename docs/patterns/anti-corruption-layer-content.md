@@ -67,6 +67,41 @@ An architect should evaluate how the Anti-corruption Layer pattern can be used i
 
 As with any design decision, consider any tradeoffs against the goals of the other pillars that might be introduced with this pattern.
 
+## Example
+
+This pattern is conceptual and originates in Domain‑Driven Design. Azure services such as API Management or Azure Functions may assist with protocol handling and translation, but the core purpose of an Anti‑corruption Layer is to protect the domain model, not to prescribe any specific product choice.
+
+```text
+   Client Apps
+       |
+       v
++--------------------+
+| Azure API          |
+| Management (APIM)  |  <-- Auth, throttling, protocol facade (REST)
++--------------------+
+          |
+          v
++----------------------------+
+| Azure Function             |
+| OrdersAclFunction          |  <-- Domain mapping & Anti-corruption Layer
+| - Maps REST DTO -> Domain  |
+| - Maps Domain -> Legacy DTO|
++----------------------------+
+          |
+          v
++----------------------------+
+| Azure Logic App            |
+| LegacyOrderConnector       |  <-- Calls legacy API (HTTP/SOAP/etc.)
++----------------------------+
+          |
+          v
++----------------------------+
+| Legacy Order System        |
++----------------------------+
+```
+
+In this example, API Management handles exposure and protocol concerns, while the Azure Function (OrdersAclFunction) implements the Anti-corruption Layer by mapping between the modern domain model and the legacy order system via a Logic App.
+
 ## Next steps
 
 - Explore cloud design patterns that help manage distributed transactions and maintain data consistency, such as the [Compensating Transaction pattern](./compensating-transaction.yml) and [Saga distributed transactions pattern](./saga.yml)
