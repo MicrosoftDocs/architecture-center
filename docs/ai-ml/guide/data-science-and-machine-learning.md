@@ -3,7 +3,7 @@ title: Overview of Microsoft Machine Learning Products and Technologies
 description: Compare options for building, deploying, and managing your machine learning models. Decide which Microsoft products to choose for your solution.
 author: claytonsiemens77
 ms.author: pnp
-ms.date: 02/06/2026
+ms.date: 01/27/2025
 ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
