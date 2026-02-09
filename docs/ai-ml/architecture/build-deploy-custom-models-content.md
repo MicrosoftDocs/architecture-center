@@ -66,7 +66,7 @@ The following dataflow corresponds to the previous diagram:
 
   - [Export labeled data](/azure/machine-learning/how-to-use-labeled-dataset#export-data-labels) as [COCO](https://cocodataset.org) or Machine Learning datasets. You can use these datasets to train and deploy models in Machine Learning notebooks.
 
-- [Azure OpenAI](/azure/ai-foundry/openai/overview) provides powerful [language models and multimodal models](/azure/ai-services/openai/concepts/models) as REST APIs that you can use to complete various tasks. In this architecture, Azure OpenAI models handle advanced language tasks like [fine-tuning models](/azure/ai-services/openai/concepts/models#fine-tuning-models) to improve performance on data that's missing or underrepresented during the base model's original training. You can also use foundation models from multiple providers to complete these tasks.
+- [Azure OpenAI](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#azure-openai-in-microsoft-foundry-models) provides powerful language models and multimodal models as REST APIs that you can use to complete various tasks. In this architecture, Azure OpenAI models handle advanced language tasks like [fine-tuning models](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#fine-tuning-models) to improve performance on data that's missing or underrepresented during the base model's original training. You can also use foundation models from multiple providers to complete these tasks.
 
 ### Alternatives
 
@@ -78,7 +78,7 @@ You can add more workflows to this scenario based on specific use cases.
 
 - Use preprocessing code to run text processing steps. These steps include cleaning, stop words removal, lemmatization, stemming, and text summarization on extracted data according to document processing requirements. You can expose the code as REST APIs for automation. Manually complete or automate these steps by integrating with the [Azure Logic Apps](/azure/logic-apps/logic-apps-custom-api-host-deploy-call) or [Azure Functions](/samples/azure-samples/flask-app-on-azure-functions/azure-functions-python-create-flask-app) ingestion process.
 
-- You can use the [Foundry portal](/azure/ai-foundry/what-is-azure-ai-foundry) to [fine-tune](/azure/ai-foundry/concepts/fine-tuning-overview) and deploy foundation models, and build generative AI applications.
+- You can use the [Foundry portal](/azure/ai-foundry/what-is-foundry) to [fine-tune](/azure/ai-foundry/concepts/fine-tuning-overview) and deploy foundation models, and build generative AI applications.
 
   Foundry provides two compute options for models as a platform (MaaP) hosting, [serverless compute and managed compute](/azure/ai-foundry/concepts/fine-tuning-overview#serverless-or-managed-compute). [Specific models and regions](/azure/ai-foundry/how-to/deploy-models-serverless-availability) support deployment through serverless API, which provides models as a service (MaaS).
 

@@ -33,7 +33,7 @@ This article describes how to extract insights from customer conversations at a 
 
 - [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is the object storage solution for raw files in this scenario. Blob Storage supports libraries for languages like .NET, Node.js, and Python. Applications can access files on Blob Storage via HTTP or HTTPS. Blob Storage has [hot, cool, and archive access tiers](/azure/storage/blobs/access-tiers-overview) for storing large amounts of data, which optimizes cost.
 
-- [Azure OpenAI](/azure/ai-foundry/openai/overview) provides access to the Azure OpenAI language models, including GPT-3, Codex, and the embeddings model series, for content generation, summarization, semantic search, and natural language-to-code translation. You can access the service through REST APIs, Python SDK, or the web-based interface in the [Azure OpenAI studio](https://oai.azure.com/).
+- [Azure OpenAI](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure) provides access to the Azure OpenAI language models, including GPT-3, Codex, and the embeddings model series, for content generation, summarization, semantic search, and natural language-to-code translation. You can access the service through REST APIs, Python SDK, or the Microsoft Foundry portal.
 
 - [Azure AI Speech](/azure/ai-services/speech-service/overview) is an AI-based API that provides speech capabilities like speech-to-text, text-to-speech, speech translation, and speaker recognition. This architecture uses the Azure AI Speech batch transcription functionality.
 

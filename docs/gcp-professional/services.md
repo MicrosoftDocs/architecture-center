@@ -195,7 +195,7 @@ Here are some architectures that use AKS as the orchestrator.
 
 | Architecture | Description |
 |----|----|
-| [Cross-cloud scaling pattern](/azure/adaptive-cloud/app-solutions/pattern-cross-cloud-scale) | Learn how to improve cross-cloud scalability with solution architecture that includes Azure Stack. A step-by-step flowchart details instructions for implementation. |
+| [Cross-cloud scaling pattern](/azure-stack/user/pattern-cross-cloud-scale) | Learn how to improve cross-cloud scalability with solution architecture that includes Azure Stack. A step-by-step flowchart details instructions for implementation. |
 
 ## DevOps and application monitoring
 
