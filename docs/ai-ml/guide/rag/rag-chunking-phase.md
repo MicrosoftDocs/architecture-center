@@ -11,7 +11,7 @@ ms.subservice: architecture-guide
 
 # RAG chunking phase
 
-After you gather your test documents and queries and perform a document analysis during the [preparation phase](./rag-preparation-phase.md), you move to the next phase, which is chunking. Chunking is where you break documents into appropriately sized chunks that each contain semantically relevant content. It's crucial to a successful retrieval-augmented generation (RAG) implementation. If you try to pass entire documents or oversized chunks, it's expensive, might overwhelm the token limits of the model, and doesn't produce the best results. Also, if you pass information to a language model that's irrelevant to the query, it can result in inaccurate or unrelated responses. You must use effective chunking and searching strategies to optimize the process, pass relevant information, and remove irrelevant information. This approach minimizes false positives and false negatives, and maximizes true positives and true negatives.
+After you gather your test documents and queries and do a document analysis during the [preparation phase](./rag-preparation-phase.md), you move to the next phase, which is chunking. Chunking is where you break documents into appropriately sized chunks that each contain semantically relevant content. It's crucial to a successful retrieval-augmented generation (RAG) implementation. If you try to pass entire documents or oversized chunks, it's expensive, might overwhelm the token limits of the model, and doesn't produce the best results. Also, if you pass information to a language model that's irrelevant to the query, it can result in inaccurate or unrelated responses. You must use effective chunking and searching strategies to optimize the process, pass relevant information, and remove irrelevant information. This approach minimizes false positives and false negatives, and maximizes true positives and true negatives.
 
 Chunks that are too small and don't contain sufficient context to address the query can result in poor outcomes. Relevant context that exists across multiple chunks might not be captured. The key is to implement effective chunking approaches for your specific document types and their specific structures and content. There are various chunking approaches to consider, each with their own cost implications and effectiveness, depending on the type and structure of the document that you apply them to.
 
@@ -107,8 +107,8 @@ This section provides an overview of common chunking approaches. You can use mul
 
 A summarized decision-making matrix accompanies each approach. The matrix highlights the tools, associated costs, and more. The engineering effort and processing costs described here are subjective and included for relative comparison.
 
->[!IMPORTANT]
->Your chunking approach is a semipermanent choice in your overall solution design. Do a thorough comparison of the approaches to find the best fit for your use case and content type prior to choosing one to use in production. When you change chunking strategies, it can significantly affect downstream processes and require changes throughout the workflow.
+> [!IMPORTANT]
+> Your chunking approach is a semipermanent choice in your overall solution design. Before you choose a solution for production, thoroughly compare the approaches to find the best fit for your use case and content type. When you change chunking strategies, it can significantly affect downstream processes and require changes throughout the workflow.
 
 ### Fixed-size parsing, with overlap
 

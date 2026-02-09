@@ -1,11 +1,25 @@
+---
+title: DR for an Azure Data Platform - Architecture
+description: Learn how to structure an Azure data platform architecture with disaster recovery capabilities by using enterprise landing zones and analytics components.
+author: lponnam75
+ms.author: lsuryadevara
+ms.date: 12/18/2025
+ms.topic: concept-article
+ms.subservice: architecture-guide
+---
+
+# Disaster recovery architecture for an Azure data platform
+
+This article is the second in a series that provides guidance about disaster recovery (DR) for an Azure data platform. It presents a reference architecture that shows how to structure an Azure data platform with DR capabilities. Use this architecture as a foundation to plan your own DR implementation.
+
 ## Use case definition
 To support this worked example, the fictitious firm "Contoso" is used with an Azure Data Platform based upon Microsoft Reference Architectures.
 
 ### Data Service - Component View
 Contoso has implemented the following foundational Azure architecture, which is a subset of the [Enterprise Landing Zone](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-conceptual-architecture) design.
-[![Diagram that shows an example Enterprise Azure landing zone.](../images/dr-for-azure-data-platform-landing-zone-architecture.png)](../images/dr-for-azure-data-platform-landing-zone-architecture.png#lightbox)
+[![Diagram that shows an example Enterprise Azure landing zone.](../images/dr-for-azure-data-platform-landing-zone-architecture.svg)](../images/dr-for-azure-data-platform-landing-zone-architecture.svg#lightbox)
 
-*The numbers in the following descriptions correspond to the preceding diagram.*
+*Download a [Visio file](https://arch-center.azureedge.net/dr-for-azure-data-platform-landing-zone-architecture.vsdx) of this architecture.*
 
 ### Contoso's Azure Foundations - Workflow
 
@@ -92,7 +106,7 @@ The workflow reads from left to right and shows the flow of data.
 
   - [External data sharing](/fabric/governance/external-data-sharing-overview) in Fabric enables a provider tenant to securely share OneLake data with a consumer tenant. This capability supports cross-tenant access and collaboration without moving data. In the previous diagram, a provider tenant is the organization that shares data externally, and a consumer tenant is the organization that accesses and uses that shared data.
 
-  - Disaster recovery (DR) for external data sharing ensures that shared data remains available and consistent during outages or failures. Key aspects include the following components:
+  - DR for external data sharing ensures that shared data remains available and consistent during outages or failures. Key aspects include the following components:
 
     - Geo-redundancy: OneLake data resides in geo-replicated regions, so shared datasets remain available if the primary region experiences downtime.
 
@@ -105,9 +119,9 @@ The workflow reads from left to right and shows the flow of data.
 - **Platform:** Fabric provides an end-to-end, unified software as a service (SaaS) analytics platform with centralized data storage in OneLake and embedded AI capabilities. Microsoft Entra ID manages identity and access control. [Workspace monitoring](/fabric/fundamentals/workspace-monitoring-overview) and cost management deliver operational visibility and optimization. Azure DevOps and GitHub support development and deployment workflows for CI/CD, and Azure Policy enforces consistent governance across resources. Fabric also supports bring your own key (BYOK) through Key Vault, which lets you manage and control encryption keys for securing data at rest.
 
 > [!NOTE]
-> For many customers, the conceptual level of the Data Platform reference architecture that's used aligns, but the physical implementation might vary. For example, ELT (extract, load, transform) processes might be performed through [Azure Data Factory](/azure/data-factory/), and data modeling by [Azure SQL server](/azure/azure-sql/?view=azuresql). To address this concern, the following [Stateful vs stateless components](#stateful-vs-stateless-components) section provides guidance.
+> For many customers, the conceptual level of the Data Platform reference architecture that's used aligns, but the physical implementation might vary. For example, ELT (extract, load, transform) processes might be performed through [Azure Data Factory](/azure/data-factory/), and data modeling by [Azure SQL server](/azure/azure-sql/). To address this concern, the following [Stateful vs stateless components](#stateful-vs-stateless-components) section provides guidance.
 
-For the Data Platform, Contoso has selected the lowest recommended production service tiers for all components and has chosen to adopt a "Redeploy on disaster" disaster recovery (DR) strategy based upon an operating cost-minimization approach.
+For the Data Platform, Contoso has selected the lowest recommended production service tiers for all components and has chosen to adopt a "Redeploy on disaster" DR strategy based upon an operating cost-minimization approach.
 
 The following sections provide a baseline understanding of the DR process and levers available to customers to uplift this posture.
 
@@ -125,7 +139,7 @@ The following tables present a breakdown of each Azure service and component use
     - Contoso SKU selection: Premium P1
     - DR uplift options: Microsoft Entra reliability is part of its software as a service (SaaS) offering.
     - Notes:
-        - [Advancing service resilience in Microsoft Entra ID](https://azure.microsoft.com/en-us/blog/advancing-service-resilience-in-azure-active-directory-with-its-backup-authentication-service/)
+        - [Advancing service resilience in Microsoft Entra ID](https://azure.microsoft.com/blog/advancing-service-resilience-in-azure-active-directory-with-its-backup-authentication-service/)
 
 - **Azure Key Vault**
     - Component recovery responsibility: Microsoft
@@ -137,7 +151,7 @@ The following tables present a breakdown of each Azure service and component use
     - Component recovery responsibility: Microsoft
     - Workload/configuration recovery responsibility: Microsoft
     - Contoso SKU selection: DevOps Services
-    - DR uplift options: DevOps [service and data reliability](/azure/devops/organizations/security/data-protection?view=azure-devops#data-availability) is part of its SaaS offering.
+    - DR uplift options: DevOps [service and data reliability](/azure/devops/organizations/security/data-protection#data-availability) is part of its SaaS offering.
     - Notes:
         - DevOps Server as the on-premises offering remains the customer's responsibility for disaster recovery.
         - If non-Microsoft services (like SonarCloud, JFrog Artifactory, and Jenkins build servers) are used, they remain the customer's responsibility for recovery from a disaster.
@@ -319,7 +333,7 @@ The following tables present a breakdown of each Azure service and component use
     - Notes:
         - Power BI resides in the Office365 tenancy, not that of Azure.
         - [Power BI uses Azure Availability Zones](/power-bi/enterprise/service-admin-failover#what-does--high-availability--mean-for-power-bi-) to protect Power BI reports, applications and data from datacenter failures.
-        - In the case of regional failure, Power BI will [failover to a new region](/power-bi/enterprise/service-admin-failover#what-is-a-power-bi-failover-), usually in the same geographical location, as noted in the [Microsoft Trust Center](https://www.microsoft.com/en-us/trust-center/product-overview?rtc=1).
+        - In the case of regional failure, Power BI will [failover to a new region](/power-bi/enterprise/service-admin-failover#what-is-a-power-bi-failover-), usually in the same geographical location, as noted in the [Microsoft Trust Center](https://www.microsoft.com/trust-center/product-overview?rtc=1).
 
 - **Azure Cosmos DB**
     - Component recovery responsibility: Microsoft
@@ -495,10 +509,10 @@ This section contains high availability (HA) and DR guidance for other key Azure
 
 ## Next steps
 
-Now that you've learned about the scenario's architecture, you can learn about the [scenario details](../disaster-recovery/dr-for-azure-data-platform-scenario-details.yml).
+Now that you've learned about the scenario's architecture, you can learn about the [scenario details](../disaster-recovery/dr-for-azure-data-platform-scenario-details.md).
 
 ## Related resources
 
-- [DR for Azure Data Platform - Overview](dr-for-azure-data-platform-overview.yml)
-- [DR for Azure Data Platform - Scenario details](dr-for-azure-data-platform-scenario-details.yml)
-- [DR for Azure Data Platform - Recommendations](dr-for-azure-data-platform-recommendations.yml)
+- [DR for Azure Data Platform - Overview](dr-for-azure-data-platform-overview.md)
+- [DR for Azure Data Platform - Scenario details](dr-for-azure-data-platform-scenario-details.md)
+- [DR for Azure Data Platform - Recommendations](dr-for-azure-data-platform-recommendations.md)

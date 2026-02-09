@@ -51,7 +51,7 @@ public class PersonRepository : IPersonRepository
 
 This antipattern typically occurs because:
 
-- Not using a cache is simpler to implement, and it works fine under low loads. Caching makes the code more complicated.
+- Not using a cache is simpler to implement and works adequately under low loads. Caching complicates the code.
 - The benefits and drawbacks of using a cache aren't clearly understood.
 - There is concern about the overhead of maintaining the accuracy and freshness of cached data.
 - An application was migrated from an on-premises system, where network latency was not an issue, and the system ran on expensive high-performance hardware, so caching wasn't considered in the original design.
@@ -133,7 +133,7 @@ Notice that the `GetAsync` method now calls the `CacheService` class, rather tha
 
 ## How to detect a no caching antipattern
 
-You can perform the following steps to help identify whether lack of caching is causing performance problems:
+You can do the following steps to help identify whether lack of caching is causing performance problems:
 
 1. Review the application design. Take an inventory of all the data stores that the application uses. For each, determine whether the application is using a cache. If possible, determine how frequently the data changes. Good initial candidates for caching include data that changes slowly, and static reference data that is read frequently.
 
@@ -141,7 +141,7 @@ You can perform the following steps to help identify whether lack of caching is 
 
 3. Profile the application in a test environment to capture low-level metrics about the overhead associated with data access operations or other frequently performed calculations.
 
-4. Perform load testing in a test environment to identify how the system responds under a normal workload and under heavy load. Load testing should simulate the pattern of data access observed in the production environment using realistic workloads.
+4. Run load testing in a test environment to identify how the system responds under a normal workload and under heavy load. Load testing should simulate the pattern of data access observed in the production environment using realistic workloads.
 
 5. Examine the data access statistics for the underlying data stores and review how often the same data requests are repeated.
 

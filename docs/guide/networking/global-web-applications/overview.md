@@ -1,5 +1,5 @@
 ---
-title: Global routing redundancy for mission-critical web applications
+title: Global Routing Redundancy for Mission-Critical Web Applications
 description: Learn how to develop highly resilient global web applications.
 author: johndowns
 ms.author: pnp
@@ -18,7 +18,7 @@ ms.subservice: architecture-guide
 
 Mission-critical systems strive to minimize single points of failure by building redundancy and self-healing capabilities in the solution as much as possible. Any unified entry point of the system can be considered a point of failure. If this component experiences an outage, the entire system goes offline for the user. When choosing a routing service, it's important to consider the reliability of the service itself.
 
-In the **[architecture for a mission-critical application](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro)**, Azure Front Door is chosen because of its high uptime service-level agreement (SLA) and a rich feature set:
+The [architecture for a mission-critical application](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro) uses Azure Front Door because of its high uptime service-level agreement (SLA) and a rich feature set:
 
 - Route traffic to multiple regions, in either an active-active or active-passive model
 - Transparent failover using TCP anycast

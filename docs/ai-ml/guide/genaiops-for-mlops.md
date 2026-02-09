@@ -58,7 +58,7 @@ This category of technical patterns can address many use cases:
 
 RAG is an architectural pattern that enhances language models by incorporating domain-specific data into the prompt. This grounding data enables the model to reason over information specific to your company, customers, or domain. In a RAG solution, an orchestration layer queries your data sources and injects the most relevant results into the prompt. The orchestrator then sends this enriched prompt to the language model, typically exposed via an API endpoint for use in intelligent applications.
 
-A typical RAG implementation is to break up your source data into chunks and store them in a vector store along with metadata. Vector stores, such as Azure AI Search, allow you to perform both textual and vector similarity searches to return contextually relevant results. RAG solutions can also [use other data stores](/azure/architecture/guide/technology-choices/vector-search) to return grounding data.
+A typical RAG implementation is to break up your source data into chunks and store them in a vector store along with metadata. Vector stores, like Azure AI Search, let you run both textual and vector similarity searches to return contextually relevant results. RAG solutions can also [use other data stores](/azure/architecture/guide/technology-choices/vector-search) to return grounding data.
 
 The following diagram illustrates a RAG architecture that includes data from documents.
 
@@ -86,7 +86,7 @@ Both MLOps and GenAIOps apply the fundamentals of data operations (DataOps) to c
 
 #### Training and fine-tuning
 
-This technical pattern should fully take advantage of the existing DataOps investments from your MLOps implementation. Reproducibility and data versioning allow you to experiment with different feature engineering data, compare the performance of the different models, and reproduce results.
+This technical pattern should maximize the existing DataOps investments from your MLOps implementation. Reproducibility and data versioning let you experiment with different feature engineering data, compare the performance of the different models, and reproduce results.
 
 #### RAG and prompt engineering
 
@@ -118,7 +118,7 @@ You can experiment on multiple dimensions for different prompts, including diffe
 - Methods for enriching chunks
 - Embedding model selection
 - Configuration of the search index
-- Types of searches to perform, such as vector, full-text, and hybrid
+- Types of searches to run, like vector, full-text, and hybrid
 
 As described in [DataOps](#dataops), reproducibility and data versioning are key to experimentation. A good experimentation framework enables you to store inputs, such as changes to hyperparameters or prompts, along with outputs to be used when you [evaluate the experiment](#evaluation-and-experimentation).
 
@@ -146,11 +146,11 @@ The experimentation process remains consistent, regardless of the use case for y
 > [!NOTE]
 > For more information about how to evaluate language models and RAG solutions, see [Large language model end-to-end evaluation](rag/rag-llm-evaluation-phase.md).
 
-Generative AI solutions generally extend the responsibilities of the machine learning team from training models to prompting and managing grounding data. Because prompting and RAG experimentation and evaluation don't necessarily require data scientists, you might be tempted to use other roles, like software engineers and data engineers, to perform these functions. You might encounter challenges if you omit data scientists from the process of experimenting with prompting and RAG solutions. Other roles often lack the specialized training needed to scientifically evaluate results as effectively as data scientists. For more information, see [Design and develop a RAG solution](rag/rag-solution-design-and-evaluation-guide.md).
+Generative AI solutions generally extend the responsibilities of the machine learning team from training models to prompting and managing grounding data. Because prompting and RAG experimentation and evaluation don't necessarily require data scientists, you might be tempted to use other roles, like software engineers and data engineers, to handle these functions. You might encounter challenges if you omit data scientists from the process of experimenting with prompting and RAG solutions. Other roles often lack the specialized training needed to scientifically evaluate results as effectively as data scientists. For more information, see [Design and develop a RAG solution](rag/rag-solution-design-and-evaluation-guide.md).
 
 Investing in generative AI solutions helps reduce some of the workload on your data science resources. The role of software engineers expands in these solutions. For example, software engineers are great resources for managing the orchestration responsibility in generative AI solutions, and they're adept at setting up the evaluation metrics. It's important to have data scientists review this work. They have the training and experience to understand how to properly evaluate the experiments.
 
-It's also a good idea to request feedback from subject matter experts when you perform evaluations during the initial phase of the project.
+It's also a good idea to request feedback from subject matter experts when you do evaluations during the initial phase of the project.
 
 ### Deployment
 
@@ -198,7 +198,7 @@ As part of operational monitoring, it's important to track metrics such as laten
 
 A crucial aspect of monitoring during the inferencing stage is learning from production. Monitoring for traditional machine learning models tracks metrics like accuracy, precision, and recall. A key goal is to avoid prediction drift. Solutions that use generative models, such as a GPT model for classification, can take advantage of existing MLOps monitoring investments.
 
-Solutions that use generative models to reason over grounding data use [metrics](rag/rag-llm-evaluation-phase.md#language-model-evaluation-metrics) like groundedness, completeness, usage, and relevancy. The goal is to ensure that the model fully answers the query and bases the response on its context. In this solution, you need to try to prevent problems like data drift. You want to ensure that the grounding data and the prompt that you provide to the model are maximally relevant to the user query.
+Solutions that use generative models to reason over grounding data use [metrics](rag/rag-llm-evaluation-phase.md#language-model-evaluation-metrics) like groundedness, completeness, usage, and relevancy. The goal is to ensure that the model completely answers the query and bases the response on its context. In this solution, you need to try to prevent problems like data drift. You want to ensure that the grounding data and the prompt that you provide to the model are maximally relevant to the user query.
 
 Solutions that use generative models for nonpredictive tasks, like RAG solutions, often benefit from human feedback from users to evaluate usefulness sentiments. User interfaces can capture feedback like thumbs up or down. You can use this data to periodically evaluate the responses.
 

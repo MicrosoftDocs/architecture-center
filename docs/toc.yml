@@ -91,8 +91,6 @@ items:
       href: guide/design-principles/design-for-evolution.md
     - name: Build for the needs of business
       href: guide/design-principles/build-for-business.md
-    - name: Failure mode analysis for services
-      href: resiliency/failure-mode-analysis.md
   - name: Technology choices
     items:
     - name: Overview
@@ -444,7 +442,7 @@ items:
   - name: Analytics
     items:
     - name: Get started
-      href: solution-ideas/articles/analytics-start-here.yml
+      href: solution-ideas/articles/analytics-get-started.md
     - name: Guides
       items:
       - name: Technology choices
@@ -458,13 +456,13 @@ items:
       - name: Disaster recovery for Azure data platform
         items:
         - name: Overview
-          href: data-guide/disaster-recovery/dr-for-azure-data-platform-overview.yml
+          href: data-guide/disaster-recovery/dr-for-azure-data-platform-overview.md
         - name: Architecture
-          href: data-guide/disaster-recovery/dr-for-azure-data-platform-architecture.yml
+          href: data-guide/disaster-recovery/dr-for-azure-data-platform-architecture.md
         - name: Scenario details
-          href: data-guide/disaster-recovery/dr-for-azure-data-platform-scenario-details.yml
+          href: data-guide/disaster-recovery/dr-for-azure-data-platform-scenario-details.md
         - name: Recommendations
-          href: data-guide/disaster-recovery/dr-for-azure-data-platform-recommendations.yml
+          href: data-guide/disaster-recovery/dr-for-azure-data-platform-recommendations.md
     - name: Architectures
       items:
       - name: Analytics end to end
@@ -543,8 +541,6 @@ items:
           href: example-scenario/mainframe/extend-mainframes-rest-apis.yml
         - name: General mainframe refactor to Azure
           href: example-scenario/mainframe/general-mainframe-refactor.yml
-        - name: Migrate IBM System i to Azure by using Infinite i
-          href: example-scenario/mainframe/ibm-system-i-azure-infinite-i.yml
         - name: IBM z/OS migration with Avanade AMT
           href: example-scenario/mainframe/avanade-amt-zos-migration.yml
         - name: IBM z/OS online transaction processing
@@ -611,12 +607,22 @@ items:
           href: solution-ideas/articles/sap-workload-automation-suse.yml
   - name: Containers
     items:
-    - name: Choose a container host
+    - name: Get started
+      href: solution-ideas/articles/container-get-started.md
+    - name: Guides
       items:
-      - name: Overview
-        href: guide/choose-azure-container-service.md
-      - name: Considerations
-        href: guide/container-service-general-considerations.md
+      - name: Choose a container host
+        items:
+        - name: Overview
+          href: guide/choose-azure-container-service.md
+        - name: Considerations
+          href: guide/container-service-general-considerations.md
+      - name: Microservices design
+        items:
+        - name: Microservices architecture style
+          href: guide/architecture-styles/microservices.md
+        - name: Design a microservices architecture
+          href: microservices/design/index.md
     - name: Kubernetes-based hosting
       items:
       - name: Get started
@@ -1034,8 +1040,6 @@ items:
         href: example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr.yml
     - name: Architectures
       items:
-      - name: Azure Virtual Desktop for the enterprise
-        href: example-scenario/azure-virtual-desktop/azure-virtual-desktop.yml
       - name: Esri ArcGIS on Azure Virtual Desktop
         href: example-scenario/data/esri-arcgis-azure-virtual-desktop.yml
   - name: Web applications

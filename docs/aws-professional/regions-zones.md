@@ -19,7 +19,7 @@ One of the main ways to make an application resilient is through redundancy. But
 
 In Azure, some regions are further divided into multiple Availability Zones. An Availability Zone corresponds with a physically isolated datacenter in the geographic region. Azure has numerous features for providing application redundancy at every level of potential failure, including **availability sets**, **availability zones**, and **paired regions**.
 
-:::image type="complex" source="../resiliency/images/redundancy.svg" alt-text="Diagram showing availability sets, availability zones, and paired regions.":::
+:::image type="complex" source="./images/redundancy.svg" alt-text="Diagram showing availability sets, availability zones, and paired regions.":::
    The diagram has three parts. The first part shows VMs in an availability set in a virtual network. The second part shows an availability zone with two availability sets in a virtual network. The third part shows regional pairs with resources in each region.
 :::image-end:::
 
