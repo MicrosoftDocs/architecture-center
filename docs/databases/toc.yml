@@ -9,6 +9,7 @@ items:
         - name: Migrate an Oracle database to Azure
           href: idea/topic-migrate-oracle-azure.yml
         - name: Migrate an Oracle database to an Azure virtual machine
+          displayName: VM
           href: idea/migrate-oracle-azure-iaas.yml
         - name: Migrate an Oracle database to OD@A Exadata Database Service
           href: idea/migrate-oracle-odaa-exadata.yml

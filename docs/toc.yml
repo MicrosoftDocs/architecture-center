@@ -39,6 +39,7 @@ items:
           - name: Microservices assessment and readiness
             href: guide/technology-choices/microservices-assessment.md
           - name: CI/CD for microservices
+            displayName: continuous integration continuous delivery
             href: microservices/ci-cd.yml
           - name: Domain modeling for microservices
             items:
@@ -99,56 +100,70 @@ items:
   - name: Technology choices
     items:
     - name: Overview
+      displayName: choose
       href: guide/technology-choices/technology-choices-overview.md
     - name: Choose a compute service
       items:
       - name: Azure compute services
+        displayName: choose, decision tree
         href: guide/technology-choices/compute-decision-tree.md
       - name: Microservices compute options
         href: /azure/architecture/microservices/design/compute-options
     - name: Choose a container option
       items:
       - name: Container options
+        displayName: choose
         href: guide/choose-azure-container-service.md      
       - name: Kubernetes at the edge
+        displayName: choose
         href: operator-guides/aks/choose-kubernetes-edge-compute-option.md
     - name: Choose a hybrid service
       items:
       - name: Azure hybrid options
+        displayName: choose
         href: guide/technology-choices/hybrid-considerations.yml
     - name: Choose a storage service
       items:
       - name: Storage options
+        displayName: choose
         href: guide/technology-choices/storage-options.md
     - name: Choose a data store
       items:
       - name: Prepare to choose a data store in Azure
         href: guide/technology-choices/data-stores-getting-started.md
       - name: Understand data store models
+        displayName: choose
         href: data-guide/technology-choices/understand-data-store-models.md
       - name: Selecting a specialized data store model
         items:
           - name: Big data storage
+            displayName: choose
             href: data-guide/technology-choices/data-storage.md
           - name: Search data store
+            displayName: choose
             href: data-guide/technology-choices/search-options.md
           - name: Vector search
+            displayName: choose
             href: guide/technology-choices/vector-search.md
       - name: Data movement
         items:
         - name: Pipeline orchestration
+          displayName: choose
           href: data-guide/technology-choices/pipeline-orchestration-data-movement.md
         - name: Data transfer options
           href: data-guide/scenarios/data-transfer.md
     - name: Choose an analytics solution
       items:
       - name: Analytical data stores
+        displayName: choose
         href: data-guide/technology-choices/analytical-data-stores.md
       - name: Stream processing
+        displayName: choose
         href: data-guide/technology-choices/stream-processing.md
     - name: Choose an AI service
       items:
       - name: AI services
+        displayName: choose
         href: data-guide/technology-choices/ai-services.md
       - name: Targeted language processing
         href: data-guide/ai-services/targeted-language-processing.md
@@ -157,6 +172,7 @@ items:
       - name: Image and video processing
         href: data-guide/ai-services/image-video-processing.md
       - name: Natural language processing
+        displayName: choose, NLP
         href: data-guide/technology-choices/natural-language-processing.md
       - name: Machine learning
         href: ai-ml/guide/data-science-and-machine-learning.md
@@ -165,9 +181,10 @@ items:
     - name: Choose a networking service
       items:
       - name: Load balancing options
-        displayName: Traffic distribution, Azure load balancer, global, regional
+        displayName: Traffic distribution, Azure load balancer, global, regional, choose
         href: guide/technology-choices/load-balancing-overview.md
       - name: Virtual network peering, VPN gateways, and spoke-to-spoke communication
+        displayName: virtual private network, VNet
         href: reference-architectures/hybrid-networking/virtual-network-peering.yml
     - name: Choose a messaging service
       items:
@@ -177,6 +194,7 @@ items:
     - name: Development tools
       items:
       - name: Compare Java application hosting options
+        displayName: choose
         href: guide/technology-choices/service-for-java-comparison.yml
   - name: Best practices for cloud applications
     items:
@@ -290,29 +308,39 @@ items:
   - name: Azure for AWS professionals
     items:
     - name: Overview
-      displayName: AWS to Azure migration, migration, cloud comparison
+      displayName: AWS to Azure migration, cloud comparison
       href: aws-professional/index.md
     - name: Component information
       items:
       - name: Accounts
+        displayName: AWS
         href: aws-professional/accounts.md
       - name: Compute
+        displayName: AWS
         href: aws-professional/compute.md
       - name: Data and AI
+        displayName: AWS
         href: aws-professional/data-ai.md
       - name: Databases
+        displayName: AWS
         href: aws-professional/databases.md
       - name: Messaging
+        displayName: AWS
         href: aws-professional/messaging.md
       - name: Networking
+        displayName: AWS
         href: aws-professional/networking.md
       - name: Regions and zones
+        displayName: AWS
         href: aws-professional/regions-zones.md
       - name: Resources
+        displayName: AWS
         href: aws-professional/resources.md
       - name: Identity
+        displayName: AWS
         href: aws-professional/security-identity.md
       - name: Storage
+        displayName: AWS
         href: aws-professional/storage.md
     - name: Guidance
       items:
@@ -323,37 +351,48 @@ items:
       - name: AKS for AWS
         items:
         - name: AKS for Amazon EKS professionals
+          displayName: Azure Kubernetes Service
           href: aws-professional/eks-to-aks/index.md
         - name: Identity and access management
+          displayName: AWS, EKS
           href: aws-professional/eks-to-aks/workload-identity.md
         - name: Cluster monitoring and logging
+          displayName: AWS, EKS
           href: aws-professional/eks-to-aks/monitoring.md
         - name: Network topologies and security
+          displayName: AWS, EKS
           href: aws-professional/eks-to-aks/private-clusters.md
         - name: Storage options
+          displayName: AWS, EKS
           href: aws-professional/eks-to-aks/storage.md
         - name: Cost management and optimization
+          displayName: AWS, EKS
           href: aws-professional/eks-to-aks/cost-management.md
         - name: Agent node management
+          displayName: AWS, EKS
           href: aws-professional/eks-to-aks/node-pools.md
         - name: Cluster governance
+          displayName: AWS, EKS
           href: aws-professional/eks-to-aks/governance.md
       - name: Migration from AWS
         items:
         - name: Containers
           items:
           - name: Migrate Amazon EKS to AKS
+            displayName: Azure Kubernetes Service
             href: aws-professional/eks-to-aks/migrate.md
       - name: Security for AWS
         items:
         - name: Microsoft security for AWS
+          displayName: Amazon
           href: guide/aws/aws-azure-security-solutions.md
   - name: Azure for Google Cloud professionals
     items:
     - name: Overview
-      displayName: Google, GCP to Azure migration, Google Cloud comparison, GCP equivalent services
+      displayName: GCP to Azure migration, Google Cloud comparison
       href: gcp-professional/index.md
     - name: Services comparison
+      displayName: GCP, Google Cloud
       href: gcp-professional/services.md
 - name: Design patterns
   items:
@@ -494,8 +533,10 @@ items:
       - name: Technology choices
         items:
         - name: Analytics and reporting
+          displayName: choose
           href: data-guide/technology-choices/analysis-visualizations-reporting.md
         - name: Batch processing
+          displayName: choose
           href: data-guide/technology-choices/batch-processing.md
         - name: Choose an analytical data store in Microsoft Fabric
           href: data-guide/technology-choices/fabric-analytical-data-stores.md
@@ -548,10 +589,12 @@ items:
       - name: SAS on Azure architecture
         href: guide/sas/sas-overview.yml
       - name: Build workloads with Azure Spot Virtual Machines
+        displayName: VM, spot instances
         href: guide/spot/spot-eviction.yml
     - name: Architectures
       items:
       - name: VM baseline
+        displayName: virtual machine
         href: virtual-machines/baseline.yml
       - name: VM baseline in an Azure landing zone
         displayName: ALZ, virtual machine
@@ -563,20 +606,24 @@ items:
       - name: Multi-region load balancing
         href: high-availability/reference-architecture-traffic-manager-application-gateway.yml
       - name: Multi-tier web application built for HA/DR
+        displayName: high availability, disaster recovery
         href: example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml
       - name: Deploy IBM Maximo Application Suite
         href: example-scenario/apps/deploy-ibm-maximo-application-suite.yml
       - name: Deploy IBM Sterling Order Management
         href: reference-architectures/ibm/deploy-ibm-sterling-oms.yml
       - name: Manage virtual machine compliance
+        displayName: VM
         href: example-scenario/security/virtual-machine-compliance.yml
       - name: Quantum computing solutions
         items:
         - name: Quantum computing integration with classical apps
           href: example-scenario/quantum/quantum-computing-integration-with-classical-apps.yml
       - name: Run a Linux VM on Azure
+        displayName: virtual machine
         href: reference-architectures/n-tier/linux-vm.yml
       - name: Run a Windows VM on Azure
+        displayName: virtual machine
         href: reference-architectures/n-tier/windows-vm.yml
       - name: Mainframe
         items:
@@ -661,6 +708,7 @@ items:
       - name: Choose a container host
         items:
         - name: Overview
+          displayName: choose
           href: guide/choose-azure-container-service.md
         - name: Considerations
           href: guide/container-service-general-considerations.md
@@ -683,33 +731,41 @@ items:
         - name: Application
           items:
           - name: Microservices architecture on AKS
+            displayName: Azure Kubernetes Service
             href: reference-architectures/containers/aks-microservices/aks-microservices.yml
           - name: Advanced microservices on AKS
+            displayName: Azure Kubernetes Service
             href: reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml
         - name: Infrastructure
           items:
           - name: AKS baseline cluster
-            displayName: Kubernetes reference architecture, production, best practices
+            displayName: Kubernetes reference architecture, production, best practices, Azure Kubernetes Service
             href: reference-architectures/containers/aks/baseline-aks.yml
           - name: AKS baseline for multi-region clusters
+            displayName: Azure Kubernetes Service
             href: reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml
           - name: Use Azure Red Hat OpenShift in the financial services industry
             href: reference-architectures/containers/aro/azure-redhat-openshift-financial-services-workloads.yml
           - name: CI/CD for microservices on Kubernetes
+            displayName: continuous integration continuous delivery
             href: microservices/ci-cd-kubernetes.yml
       - name: Guides
         items:
         - name: Application
           items:
           - name: High availability for multitier AKS apps
+            displayName: Azure Kubernetes Service, HA
             href: guide/aks/aks-high-availability.yml
           - name: CI/CD for AKS apps via Azure Pipelines
+            displayName: Azure Kubernetes Service, continuous integration continuous delivery
             href: guide/aks/aks-cicd-azure-pipelines.md
           - name: GitOps for AKS
+            displayName: Azure Kubernetes Service
             href: example-scenario/gitops-aks/gitops-blueprint-aks.yml
         - name: Infrastructure
           items:
           - name: Access an AKS API server
+            displayName: Azure Kubernetes Service
             href: guide/security/access-azure-kubernetes-service-cluster-api-server.yml
           - name: AKS day-2 operations guide
             items:
@@ -730,30 +786,38 @@ items:
               - name: 5. Container registry connectivity
                 href: operator-guides/aks/aks-triage-container-registry.md
             - name: Backup and recovery for AKS
+              displayName: Azure Kubernetes Service
               href: operator-guides/aks/aks-backup-and-recovery.md
             - name: Patch and upgrade worker nodes
               href: operator-guides/aks/aks-upgrade-practices.md
             - name: Troubleshoot networking
               href: operator-guides/aks/troubleshoot-network-aks.md
             - name: Monitor AKS with Azure Monitor
+              displayName: Azure Kubernetes Service
               href: /azure/aks/monitor-aks?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
               maintainContext: true
             - name: Common issues
               href: /azure/aks/troubleshooting?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
               maintainContext: true
           - name: Blue-green deployment of AKS clusters
+            displayName: Azure Kubernetes Service
             href: guide/aks/blue-green-deployment-for-aks.yml
           - name: Firewall protection for an AKS cluster
+            displayName: Azure Kubernetes Service
             href: guide/aks/aks-firewall.yml
           - name: Secure AKS workloads with Azure Front Door
+            displayName: Azure Kubernetes Service
             href: example-scenario/aks-front-door/aks-front-door.yml
           - name: Multitenancy with AKS and AGIC
+            displayName: Azure Kubernetes Service
             href: example-scenario/aks-agic/aks-agic.yml
           - name: Use Azure Kubernetes Service to host GPU-based workloads
+            displayName: AKS
             href: reference-architectures/containers/aks-gpu/gpu-aks.md
       - name: Solution ideas
         items:
         - name: Data streaming with AKS
+          displayName: Azure Kubernetes Service
           href: solution-ideas/articles/data-streaming-scenario.yml
     - name: PaaS container hosting
       items:
@@ -774,6 +838,7 @@ items:
       - name: Azure Sandbox
         href: guide/azure-sandbox/azure-sandbox.md
       - name: DevSecOps on AKS
+        displayName: Azure Kubernetes Service
         href: guide/devsecops/devsecops-on-aks.yml
       - name: Use deployment scripts to check resource properties
         href: guide/devops/deployment-scripts-property-check.yml
@@ -794,6 +859,7 @@ items:
     - name: Guides
       items:
       - name: Troubleshoot a hybrid VPN connection
+        displayName: virtual private network
         href: reference-architectures/hybrid-networking/troubleshoot-vpn.yml
     - name: Architectures
       items:
@@ -804,6 +870,7 @@ items:
           - name: Manage Kubernetes by using Azure Arc
             href: hybrid/arc-hybrid-kubernetes.yml
           - name: Deploy an Azure Arc-enabled SQL managed instance for DR
+            displayName: disaster recovery
             href: hybrid/arc-sql-managed-instance-disaster-recovery.yml
           - name: Optimize SQL Server with Azure Arc
             href: hybrid/azure-arc-sql-server.yml
@@ -818,10 +885,13 @@ items:
           - name: AKS on Azure Local (AKS enabled by Azure Arc)
             items:
             - name: AKS on Azure Local baseline architecture
+              displayName: Azure Kubernetes Service
               href: example-scenario/hybrid/aks-baseline.yml
             - name: Deploy apps with AKS enabled by Azure Arc on Azure Local  
+              displayName: Azure Kubernetes Service
               href: example-scenario/hybrid/aks-hybrid-azure-local.yml
           - name: Azure Virtual Desktop for Azure Local
+            displayName: AVD
             href: hybrid/azure-local-workload-virtual-desktop.yml
       - name: Hybrid connectivity
         items:
@@ -850,6 +920,7 @@ items:
         - name: Azure enterprise cloud file share
           href: hybrid/azure-files-private.yml
         - name: Azure files secured by AD DS
+          displayName: Active Directory Domain Services
           href: example-scenario/hybrid/azure-files-on-premises-authentication.yml
         - name: Hybrid file services
           href: hybrid/hybrid-file-services.yml
@@ -866,12 +937,15 @@ items:
     - name: Architectures
       items:
       - name: AD DS resource forests in Azure
+        displayName: Active Directory Domain Services
         href: reference-architectures/identity/adds-forest.yml
       - name: Microsoft Entra identity management for AWS
         href: reference-architectures/aws/aws-azure-ad-security.yml
       - name: Deploy AD DS in an Azure virtual network
+        displayName: Active Directory Domain Services, VNet
         href: example-scenario/identity/adds-extend-domain.yml
       - name: Extend on-premises AD FS to Azure
+        displayName: Active Directory Federation Services
         href: reference-architectures/identity/adfs.yml
       - name: On-premises AD domains with Microsoft Entra ID
         href: reference-architectures/identity/azure-ad.yml
@@ -915,12 +989,16 @@ items:
     - name: Guides
       items:
       - name: Enable ML inference on IoT Edge
+        displayName: Internet of Things
         href: guide/iot/machine-learning-inference-iot-edge.yml
       - name: Scale your IoT Hub solutions
+        displayName: Internet of Things
         href: guide/iot/scale-iot-solution-azure.md
       - name: Move IoT Hub solutions to production
+        displayName: Internet of Things
         href: example-scenario/iot/iot-move-to-production.yml
       - name: Multitenant IoT Hub-based solutions
+        displayName: Internet of Things
         href: guide/multitenant/approaches/iot.md
     - name: Architectures
       items:
@@ -929,12 +1007,16 @@ items:
     - name: Solution ideas
       items:
       - name: Azure Load Testing for IoT Hub
+        displayName: Internet of Things
         href: guide/testing/load-testing/load-testing-with-custom-plugins.md
       - name: IoT Hub analytics with Azure Data Explorer
+        displayName: Internet of Things
         href: solution-ideas/articles/iot-azure-data-explorer.yml
       - name: IoT Hub private file upload to Azure Storage
+        displayName: Internet of Things
         href: example-scenario/iot/iot-private-file-upload.yml
       - name: Project 15 IoT sustainability
+        displayName: Internet of Things
         href: solution-ideas/articles/project-15-iot-sustainability.yml
   - name: Management + Governance
     items:
@@ -943,6 +1025,7 @@ items:
     - name: Guides
       items:
       - name: Update Windows VMs in Azure
+        displayName: virtual machines
         href: example-scenario/wsus/index.yml
       - name: Use the Azure Governance Visualizer
         displayName: ALZ, Azure landing zone
@@ -952,6 +1035,7 @@ items:
       - name: Hybrid management
         items:
         - name: Azure Arc hybrid management with AKS
+          displayName: Azure Kubernetes Service
           href: hybrid/arc-hybrid-kubernetes.yml
         - name: Hybrid availability and monitoring
           href: hybrid/hybrid-perf-monitoring.yml
@@ -1000,6 +1084,7 @@ items:
       - name: VMware agentless migration
         items:
         - name: Agentless migration of VMware VMs
+          displayName: virtual machines
           href: /azure/migrate/concepts-vmware-agentless-migration
           maintainContext: true
         - name: Prepare for VMware agentless migration
@@ -1017,6 +1102,7 @@ items:
     - name: Guides
       items:
       - name: Virtual Network security options
+        displayName: VNet
         href: example-scenario/gateway/firewall-application-gateway.yml
       - name: Zero Trust network for web applications
         href: example-scenario/gateway/application-gateway-before-azure-firewall.md
@@ -1031,6 +1117,7 @@ items:
     - name: Solution ideas
       items:
       - name: Multilayered protection for Azure VMs
+        displayName: virtual machines
         href: solution-ideas/articles/multilayered-protection-azure-vm.yml
       - name: Threat assessments
         items:
@@ -1053,16 +1140,19 @@ items:
       - name: Azure file shares in a hybrid environment
         href: hybrid/azure-file-share.yml
       - name: Azure files secured by AD DS
+        displayName: Active Directory Domain Services
         href: example-scenario/hybrid/azure-files-on-premises-authentication.yml
       - name: Azure NetApp Files solutions
         items:
         - name: Enterprise file shares with DR
+          displayName: disaster recovery
           href: example-scenario/file-storage/enterprise-file-shares-disaster-recovery.yml
         - name: Moodle deployment with ANF
           href: example-scenario/file-storage/moodle-azure-netapp-files.yml
         - name: Oracle Database with Azure NetApp Files
           href: example-scenario/file-storage/oracle-azure-netapp-files.yml
         - name: SQL Server on VMs with Azure NetApp Files
+          displayName: virtual machines
           href: example-scenario/file-storage/sql-server-azure-netapp-files.yml
       - name: Hybrid file services
         href: hybrid/hybrid-file-services.yml
@@ -1083,15 +1173,17 @@ items:
     - name: Guides
       items:
       - name: Azure Virtual Desktop design guide
-        displayName: ALZ, Azure landing zone
+        displayName: ALZ, Azure landing zone, AVD
         href: landing-zones/azure-virtual-desktop/design-guide.md
       - name: Windows 365 Azure network connection
         href: guide/virtual-desktop/windows-365-azure-network-connection.md
       - name: Multiregion BCDR for AVD
+        displayName: Azure Virtual Desktop, business continuity, disaster recovery
         href: example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr.yml
     - name: Architectures
       items:
       - name: Esri ArcGIS on Azure Virtual Desktop
+        displayName: AVD
         href: example-scenario/data/esri-arcgis-azure-virtual-desktop.yml
   - name: Web applications
     href: web-apps/index.md

@@ -52,7 +52,7 @@ items:
       - name: Resource organization
         items:
         - name: Deploy highly available NVAs
-          displayName: firewall HA
+          displayName: firewall HA, network virtual appliance
           href: guide/network-virtual-appliance-high-availability.md       
         - name: SDWAN integration
           displayName: Software-defined WAN, SD-WAN

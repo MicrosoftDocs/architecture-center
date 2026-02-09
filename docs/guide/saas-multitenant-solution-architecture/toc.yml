@@ -127,6 +127,7 @@ items:
           - name: Integration
             items:
             - name: Azure API Management
+              displayName: APIM
               href: ../multitenant/service/api-management.md
           - name: AI and ML
             items:
