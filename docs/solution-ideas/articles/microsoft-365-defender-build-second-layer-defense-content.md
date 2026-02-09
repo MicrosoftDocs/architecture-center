@@ -106,6 +106,6 @@ Other contributors:
 
 ## Related resources
 
-- [Map threats to your IT environment](https://chatgpt.com/g/g-p-6982219b5bb48191ac26ecb1d30db39d-article-2/c/map-threats-it-environment.yml)
+- [Map threats to your IT environment](./map-threats-it-environment.yml)
 - [Build the first layer of defense with Azure security services](./azure-security-build-first-layer-defense.yml)
 - [Integrate Azure and Microsoft Defender XDR security services](./microsoft-365-defender-security-integrate-azure.yml)
