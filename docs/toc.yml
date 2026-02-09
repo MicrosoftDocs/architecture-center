@@ -113,7 +113,7 @@ items:
       items:
       - name: Container options
         displayName: choose
-        href: guide/choose-azure-container-service.md      
+        href: guide/choose-azure-container-service.md
       - name: Kubernetes at the edge
         displayName: choose
         href: operator-guides/aks/choose-kubernetes-edge-compute-option.md

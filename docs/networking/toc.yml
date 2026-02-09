@@ -14,7 +14,7 @@ items:
           href: architecture/hub-spoke-virtual-wan-architecture.yml
         - name: Massive-scale Virtual WAN architecture design
           displayName: VWAN
-          href: architecture/massive-scale-azure-architecture.yml      
+          href: architecture/massive-scale-azure-architecture.yml
         - name: Virtual WAN optimized for requirements
           displayName: VWAN
           href: architecture/performance-security-optimized-vwan.yml
@@ -25,7 +25,7 @@ items:
         items:        
         - name: TIC 3.0 compliance
           displayName: Trusted Internet Connections, FedRAMP
-          href: architecture/trusted-internet-connections.yml          
+          href: architecture/trusted-internet-connections.yml
     - name: Apply guidance
       items:
       - name: Network security
@@ -56,7 +56,7 @@ items:
         items:
         - name: Deploy highly available NVAs
           displayName: firewall HA, network virtual appliance
-          href: guide/network-virtual-appliance-high-availability.md       
+          href: guide/network-virtual-appliance-high-availability.md
         - name: SDWAN integration
           displayName: Software-defined WAN, SD-WAN
           href: guide/sdwan-integration-in-hub-and-spoke-network-topologies.yml     
