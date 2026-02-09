@@ -494,7 +494,7 @@ items:
   - name: Compute
     items:
     - name: Get started
-      href: topics/high-performance-computing.md
+      href: solution-ideas/articles/compute-get-started.md
     - name: Guides
       items:
       - name: Choose a compute service
@@ -503,6 +503,8 @@ items:
         href: guide/sas/sas-overview.yml
       - name: Build workloads with Azure Spot Virtual Machines
         href: guide/spot/spot-eviction.yml
+      - name: High-performance computing
+        href: guide/compute/high-performance-computing.md
     - name: Architectures
       items:
       - name: VM baseline
