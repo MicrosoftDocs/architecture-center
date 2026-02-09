@@ -21,18 +21,22 @@ items:
           - name: Overview
             href: ../multitenant/considerations/overview.yml
           - name: Tenancy models
+            displayName: Single tenant vs multi-tenant, tenant isolation
             href: ../multitenant/considerations/tenancy-models.md
           - name: Tenant life cycle
             href: ../multitenant/considerations/tenant-life-cycle.md
           - name: Pricing models
             href: ../multitenant/considerations/pricing-models.md
           - name: Control planes
+            displayName: Tenant provisioning, management plane, admin API
             href: ../multitenant/considerations/control-planes.md
           - name: Measure consumption
+            displayName: Usage metering, tenant billing, consumption tracking
             href: ../multitenant/considerations/measure-consumption.md
           - name: Deploy updates
             href: ../multitenant/considerations/updates.md
           - name: Map requests to tenants
+            displayName: Tenant resolution, tenant identification, tenant routing
             href: ../multitenant/considerations/map-requests.yml
           - name: Identity
             href: ../multitenant/considerations/identity.md

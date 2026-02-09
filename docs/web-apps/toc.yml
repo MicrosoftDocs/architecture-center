@@ -13,6 +13,7 @@ items:
         - name: Basic web application
           href: app-service/architectures/basic-web-app.yml
         - name: Baseline web application with zone redundancy
+          displayName: High availability
           href: app-service/architectures/baseline-zone-redundant.yml
       - name: Host web apps with App Service Environment
         items:
@@ -39,6 +40,7 @@ items:
       - name: Security guidance for web apps
         items:
         - name: Single-page application authorization
+          displayName: SPA, OAuth
           href: guides/security/secure-single-page-application-authorization.md
       - name: Application development guidance for web apps
         items:

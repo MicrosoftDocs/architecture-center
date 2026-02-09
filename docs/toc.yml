@@ -10,8 +10,10 @@ items:
 - name: Landing zones
   items:
   - name: Deployment options
+    displayName: Azure landing zone, ALZ
     href: landing-zones/landing-zone-deploy.md
   - name: Subscription vending implementation
+    displayName: ALZ, Azure landing zone
     href: landing-zones/subscription-vending.md
 - name: Application architecture fundamentals
   items:
@@ -22,6 +24,7 @@ items:
     - name: Overview
       href: guide/architecture-styles/index.md
     - name: Big compute
+      displayName: HPC, high-performance computing, parallel processing, batch computing
       href: guide/architecture-styles/big-compute.md
     - name: Big data
       href: guide/architecture-styles/big-data.md
@@ -64,8 +67,10 @@ items:
             - name: Design patterns for microservices
               href: microservices/design/patterns.yml
     - name: N-tier application
+      displayName: Layered architecture, three tier
       href: guide/architecture-styles/n-tier.md
     - name: Web-queue-worker
+      displayName: Asynchronous processing, background job
       href: guide/architecture-styles/web-queue-worker.md
   - name: Design principles for Azure applications
     items:
@@ -160,12 +165,14 @@ items:
     - name: Choose a networking service
       items:
       - name: Load balancing options
+        displayName: Traffic distribution, Azure load balancer, global, regional
         href: guide/technology-choices/load-balancing-overview.md
       - name: Virtual network peering, VPN gateways, and spoke-to-spoke communication
         href: reference-architectures/hybrid-networking/virtual-network-peering.yml
     - name: Choose a messaging service
       items:
       - name: Asynchronous messaging
+        displayName: queue comparison, event-driven, Service Bus, Event Hubs, Event Grid
         href: guide/technology-choices/messaging.yml
     - name: Development tools
       items:
@@ -186,18 +193,21 @@ items:
     - name: Caching
       href: best-practices/caching.yml
     - name: Content Delivery Network
+      displayName: CDN, edge, static content
       href: best-practices/cdn.yml
     - name: Data partitioning
       href: best-practices/data-partitioning.yml
     - name: Data partitioning strategies (by service)
       href: best-practices/data-partitioning-strategies.yml
     - name: Host name preservation
+      displayName: host header, reverse proxy hostname, HTTP header
       href: best-practices/host-name-preservation.yml
     - name: Message encoding considerations
       href: best-practices/message-encode.md
     - name: Monitoring and diagnostics
       href: best-practices/monitoring.yml
     - name: Transient fault handling
+      displayName: Retry logic, temporary failure handling, exponential backoff
       href: best-practices/transient-faults.md
   - name: Performance antipatterns
     items:
@@ -208,18 +218,22 @@ items:
     - name: Busy Front End
       href: antipatterns/busy-front-end/index.md
     - name: Chatty I/O
+      displayName: request batching
       href: antipatterns/chatty-io/index.md
     - name: Extraneous Fetching
       href: antipatterns/extraneous-fetching/index.md
     - name: Improper Instantiation
+      displayName: Connection pool exhaustion
       href: antipatterns/improper-instantiation/index.md
     - name: Monolithic Persistence
       href: antipatterns/monolithic-persistence/index.md
     - name: No Caching
       href: antipatterns/no-caching/index.md
     - name: Noisy Neighbor
+      displayName: Resource contention, multitenant, shared infrastructure
       href: antipatterns/noisy-neighbor/noisy-neighbor.yml
     - name: Retry Storm
+      displayName: Thundering herd, cascading
       href: antipatterns/retry-storm/index.md
     - name: Synchronous I/O
       href: antipatterns/synchronous-io/index.md
@@ -276,6 +290,7 @@ items:
   - name: Azure for AWS professionals
     items:
     - name: Overview
+      displayName: AWS to Azure migration, migration, cloud comparison
       href: aws-professional/index.md
     - name: Component information
       items:
@@ -336,6 +351,7 @@ items:
   - name: Azure for Google Cloud professionals
     items:
     - name: Overview
+      displayName: Google, GCP to Azure migration, Google Cloud comparison, GCP equivalent services
       href: gcp-professional/index.md
     - name: Services comparison
       href: gcp-professional/services.md
@@ -348,40 +364,54 @@ items:
     - name: Network secure global ingress
       href: pattern-implementations/network-secure-ingress.md
   - name: Ambassador
+    displayName: API proxy, cross-cutting concerns
     href: patterns/ambassador.yml
   - name: Anti-Corruption Layer
+    displayName: legacy system integration, system boundary translation
     href: patterns/anti-corruption-layer.yml
   - name: Asynchronous Request-Reply
     href: patterns/async-request-reply.yml
   - name: Backends for Frontends
+    displayName: BFF pattern, frontend-specific API
     href: patterns/backends-for-frontends.md
   - name: Bulkhead
+    displayName: Fault isolation, failure containment, resource isolation
     href: patterns/bulkhead.yml
   - name: Cache-Aside
+    displayName: Lazy loading, caching, read-through
     href: patterns/cache-aside.yml
   - name: Choreography
     href: patterns/choreography.yml
   - name: Circuit Breaker
+    displayName: failure prevention, fault tolerance, resilience pattern
     href: patterns/circuit-breaker.md
   - name: Claim Check
+    displayName: Large message handling, message size limit
     href: patterns/claim-check.yml
   - name: Compensating Transaction
+    displayName: rollback, undo, eventual consistency
     href: patterns/compensating-transaction.yml
   - name: Competing Consumers
+    displayName: Worker pool, parallel message processing
     href: patterns/competing-consumers.yml
   - name: Compute Resource Consolidation
     href: patterns/compute-resource-consolidation.yml
   - name: CQRS
+    displayName: Command Query Responsibility Segregation, read write separation
     href: patterns/cqrs.md
   - name: Deployment Stamps
+    displayName: Scale units, cell-based architecture
     href: patterns/deployment-stamp.yml
   - name: Edge Workload Configuration
+    displayName: IoT, device configuration
     href: patterns/edge-workload-configuration.md
   - name: Event Sourcing
+    displayName: Event store, append-only, audit trail
     href: patterns/event-sourcing.yml
   - name: External Configuration Store
     href: patterns/external-configuration-store.yml
   - name: Federated Identity
+    displayName: Single sign-on, SSO
     href: patterns/federated-identity.yml
   - name: Gatekeeper
     href: patterns/gatekeeper.yml
@@ -392,48 +422,64 @@ items:
   - name: Gateway Routing
     href: patterns/gateway-routing.yml
   - name: Geode
+    displayName: Geo-distribution, multi-region deployment, global data replication
     href: patterns/geodes.yml
   - name: Health Endpoint Monitoring
+    displayName: Health check, liveness probe, readiness probe
     href: patterns/health-endpoint-monitoring.yml
   - name: Index Table
+    displayName: Secondary index, query optimization
     href: patterns/index-table.yml
   - name: Leader Election
+    displayName: Distributed coordination
     href: patterns/leader-election.yml
   - name: Materialized View
+    displayName: Precomputed query results, read optimization, denormalized view
     href: patterns/materialized-view.yml
   - name: Messaging Bridge
+    displayName: Protocol translation, message broker
     href: patterns/messaging-bridge.yml
   - name: Pipes and Filters
+    displayName: Processing pipeline, composable data processing
     href: patterns/pipes-and-filters.yml
   - name: Priority Queue
     href: patterns/priority-queue.yml
   - name: Publisher/Subscriber
+    displayName: Pub/sub, pub sub, topic messaging
     href: patterns/publisher-subscriber.yml
   - name: Quarantine
+    displayName: Deployment validation, input verification, security gate
     href: patterns/quarantine.yml
   - name: Queue-Based Load Leveling
+    displayName: Backpressure, buffering, load smoothing
     href: patterns/queue-based-load-leveling.yml
   - name: Rate Limiting
     href: patterns/rate-limiting-pattern.yml
   - name: Retry
     href: patterns/retry.yml
   - name: Saga
+    displayName: Distributed transactions, eventual consistency
     href: patterns/saga.yml
   - name: Scheduler Agent Supervisor
     href: patterns/scheduler-agent-supervisor.yml
   - name: Sequential Convoy
+    displayName: FIFO, message ordering
     href: patterns/sequential-convoy.yml
   - name: Sharding
+    displayName: Horizontal partitioning, database partitioning
     href: patterns/sharding.yml
   - name: Sidecar
     href: patterns/sidecar.yml
   - name: Static Content Hosting
+    displayName: Blob storage website, CDN hosting, static website, static assets
     href: patterns/static-content-hosting.yml
   - name: Strangler Fig
+    displayName: migration, incremental modernization, facade
     href: patterns/strangler-fig.md
   - name: Throttling
     href: patterns/throttling.yml
   - name: Valet Key
+    displayName: SAS token, access token
     href: patterns/valet-key.yml
 - name: Azure categories
   items:
@@ -508,6 +554,7 @@ items:
       - name: VM baseline
         href: virtual-machines/baseline.yml
       - name: VM baseline in an Azure landing zone
+        displayName: ALZ, virtual machine
         href: virtual-machines/baseline-landing-zone.yml
       - name: Teamcenter baseline architecture
         href: example-scenario/manufacturing/teamcenter-baseline.yml
@@ -642,6 +689,7 @@ items:
         - name: Infrastructure
           items:
           - name: AKS baseline cluster
+            displayName: Kubernetes reference architecture, production, best practices
             href: reference-architectures/containers/aks/baseline-aks.yml
           - name: AKS baseline for multi-region clusters
             href: reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml
@@ -854,6 +902,7 @@ items:
     - name: Architectures
       items:
       - name: API Management landing zone architecture
+        displayName: ALZ, Azure landing zone, APIM
         href: example-scenario/integration/app-gateway-internal-api-management-function.yml
       - name: Basic enterprise integration on Azure
         href: reference-architectures/enterprise-integration/basic-enterprise-integration.yml
@@ -896,6 +945,7 @@ items:
       - name: Update Windows VMs in Azure
         href: example-scenario/wsus/index.yml
       - name: Use the Azure Governance Visualizer
+        displayName: ALZ, Azure landing zone
         href: landing-zones/azure-governance-visualizer-accelerator.yml
     - name: Architectures
       items:
@@ -1033,6 +1083,7 @@ items:
     - name: Guides
       items:
       - name: Azure Virtual Desktop design guide
+        displayName: ALZ, Azure landing zone
         href: landing-zones/azure-virtual-desktop/design-guide.md
       - name: Windows 365 Azure network connection
         href: guide/virtual-desktop/windows-365-azure-network-connection.md

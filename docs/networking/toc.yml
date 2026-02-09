@@ -7,6 +7,7 @@ items:
       - name: Network topology
         items: 
         - name: Hub-spoke network topology in Azure
+          displayName: Hub and spoke, star, spoke-hub, VNet
           href: architecture/hub-spoke.yml
         - name: Hub-spoke topology with Virtual WAN
           href: architecture/hub-spoke-virtual-wan-architecture.yml
@@ -15,10 +16,12 @@ items:
         - name: Virtual WAN optimized for requirements
           href: architecture/performance-security-optimized-vwan.yml
         - name: Azure DNS Private Resolver
+          displayName: DNS forwarding, hybrid DNS resolution
           href: architecture/azure-dns-private-resolver.yml
       - name: Network security
         items:        
         - name: TIC 3.0 compliance
+          displayName: Trusted Internet Connections, FedRAMP
           href: architecture/trusted-internet-connections.yml          
     - name: Apply guidance
       items:
@@ -49,6 +52,8 @@ items:
       - name: Resource organization
         items:
         - name: Deploy highly available NVAs
+          displayName: firewall HA
           href: guide/network-virtual-appliance-high-availability.md       
         - name: SDWAN integration
+          displayName: Software-defined WAN, SD-WAN
           href: guide/sdwan-integration-in-hub-and-spoke-network-topologies.yml     
