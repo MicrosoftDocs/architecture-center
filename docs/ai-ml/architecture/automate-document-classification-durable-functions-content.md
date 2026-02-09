@@ -45,7 +45,7 @@ The following workflow corresponds to the previous diagram:
 
 - [Semantic Kernel](/semantic-kernel/overview) is a framework that integrates large language models (LLMs) into applications. In this architecture, Semantic Kernel creates embeddings for the document content and metadata information, which are stored in AI Search.
 
-- [Microsoft Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) is a platform that you use to build, test, and deploy AI solutions and models as a service (MaaS). In this architecture, Foundry deploys an Azure OpenAI model.
+- [Microsoft Foundry](/azure/ai-foundry/what-is-foundry) is a platform that you use to build, test, and deploy AI solutions and models as a service (MaaS). In this architecture, Foundry deploys an Azure OpenAI model.
 
   - [Foundry projects](/azure/ai-foundry/how-to/create-projects) are specialized workspaces that you can use to establish connections to data sources, define agents, and invoke deployed models, including Azure OpenAI models. This architecture has a single Foundry project within the Foundry account.
 

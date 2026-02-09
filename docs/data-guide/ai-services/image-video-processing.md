@@ -61,7 +61,7 @@ The following services provide video and image processing capabilities for AI se
 
 ### Azure OpenAI
 
-[Azure OpenAI](/azure/ai-services/openai/index) provides access to OpenAI's powerful language models, including the latest generation of [GPT models](/azure/ai-services/openai/concepts/models). These models support visual analysis and generations of images. [DALL-E](/azure/ai-services/openai/concepts/models#dall-e-models) also supports image generation.
+[Azure OpenAI](/azure/ai-services/openai/index) provides access to OpenAI's powerful language models, including the latest generation of [GPT models](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure). These models support visual analysis and generations of images. [DALL-E](/azure/ai-foundry/openai/how-to/dall-e) also supports image generation.
 
 ### Vision
 
