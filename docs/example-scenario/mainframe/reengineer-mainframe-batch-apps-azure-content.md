@@ -33,7 +33,7 @@ The second diagram shows how you can use Azure services to re-engineer a similar
 
 :::image type="content" source="media/azure-reengineered-mainframe-batch-application-architecture.svg" alt-text="Diagram of a batch application re-engineered using Azure services. Multiple example services are included." lightbox="media/azure-reengineered-mainframe-batch-application-architecture.svg" border="false":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/us-1858749-pr-3417-azure-reengineer-mainframe-batch-example.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/azure-reengineered-mainframe-batch-application-architecture.vsdx) of this architecture.*
 
 ### Workflow
 
