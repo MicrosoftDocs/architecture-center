@@ -227,7 +227,7 @@ The `AsyncOperationStatusChecker` function implements the status endpoint. This 
                 {
                     case OnPendingEnum.OK:
                         {
-                            // Return an HTTP 200 status code with the 
+                            // Return an HTTP 200 status code.
                             return new OkObjectResult(new { status = "In progress", Location = rqs });
                         }
 
