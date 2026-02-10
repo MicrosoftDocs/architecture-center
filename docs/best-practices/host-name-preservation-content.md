@@ -42,7 +42,7 @@ You can meet all these requirements by adding the expected host name to the appl
 Sometimes the incoming host name is used by components outside of the application code or in middleware on the application server over which you don't have full control. Here are some examples:
 
 - In App Service, you can [enforce HTTPS](/azure/app-service/configure-common#configure-general-settings) for your web app. Doing so causes any HTTP requests that aren't secure to redirect to HTTPS. In this case, the incoming host name is used to generate the absolute URL for the HTTP redirect's `Location` header.
-- Azure Container Apps can also [redirect HTTP requests to HTTPS](/azure/container-apps/ingress-how-to) and uses the incoming host to generate the HTTPS URL.
+- Azure Container Apps can also [redirect HTTP requests to HTTPS](/azure/container-apps/ingress-how-to) and use the incoming host to generate the HTTPS URL.
 - App Service has an [ARR affinity setting](/azure/app-service/configure-common#configure-general-settings) to enable sticky sessions, so that requests from the same browser instance are always served by the same back-end server. The App Service front ends add a cookie to the HTTP response. The cookie's `Domain` is set to the incoming host.
 - App Service provides [authentication and authorization capabilities](/azure/app-service/overview-authentication-authorization) that allow users to sign in and access data in APIs.
   - The incoming host name is used to construct the redirect URL to which the identity provider needs to return the user after successful authentication.
@@ -165,7 +165,7 @@ As noted previously, however, APIs are less sensitive to the problems caused by 
 
 ## Application configuration
 
-Even when you preserve the original host name at the reverse proxy level, the reverse proxy still terminates the client's TLS connection. The new connection that the proxy establishes to the back end loses the original client IP address and HTTPS scheme. These values are forwarded through standard HTTP headers: `X-Forwarded-For` for the client IP address, `X-Forwarded-Proto` for the original scheme, and `X-Forwarded-Host` for the original host name. Your application must be configured to read these headers so that it can correctly determine the request scheme, client address, and original host information.
+Even when you preserve the original host name at the reverse proxy level, the reverse proxy still terminates the client's TLS connection. The new connection that the proxy establishes to the back end loses the original client IP address and HTTPS scheme. These values are typically forwarded through commonly used HTTP headers: `X-Forwarded-For` for the client IP address, `X-Forwarded-Proto` for the original scheme, and `X-Forwarded-Host` for the original host name. Your application must be configured to read these headers so that it can correctly determine the request scheme, client address, and original host information.
 
 If your application framework doesn't process `X-Forwarded-Proto`, the application treats the back-end connection as plain HTTP even though the end user connected over HTTPS. That misperception is the most common cause of infinite HTTP-to-HTTPS redirect loops. It can also result in insecure cookie flags or mixed-content errors.
 
