@@ -45,7 +45,7 @@ Azure provides built-in autoscaling for most compute options.
 
 - **Azure virtual machines** autoscale via [virtual machine scale sets][vm-scale-sets], which manage a set of virtual machines as a group. For more information, see [Use automatic scaling and virtual machine scale sets][vm-scale-sets-autoscale].
 
-- **Azure Service Fabric** supports autoscaling through virtual machine scale sets. Every node type in a Service Fabric cluster is set up as a separate virtual machine scale set. Each node type can be scaled in or out independently. For more information, see [Scale a Service Fabric cluster in or out by using autoscale rules][service-fabric-autoscale].
+- **Azure Container Apps** has built-in autoscaling based on HTTP traffic, event-driven triggers (via KEDA), or CPU and memory usage. Azure Container Apps scales to zero when idle and scales out automatically based on demand. For more information, see [Set scaling rules in Azure Container Apps](/azure/container-apps/scale-app).
 
 - **Azure App Service** has built-in autoscaling. Autoscale settings apply to all of the apps within an app service. For more information, see [Scale instance count manually or automatically][app-service-autoscale] and [Scale up an app in App Service](/azure/app-service/manage-scale-up).
 
@@ -99,10 +99,6 @@ Consider the following points when you use autoscaling:
   For more information about how Azure Monitor scales, see [Best practices for autoscale](/Azure/azure-monitor/platform/autoscale-best-practices).
 
 - If you configure autoscaling by using the SDK rather than the portal, you can specify a more detailed schedule during which the rules are active. You can also create your own metrics and use them with or without any of the existing ones in your autoscaling rules. For example, you might wish to use alternative counters, such as the number of requests per second or the average memory availability. Or you might use custom counters to measure specific business processes.
-
-- When you autoscale Service Fabric, the node types in your cluster are made of virtual machine scale sets at the back end, so you need to set up autoscale rules for each node type. Take into account the number of nodes that you must have before you set up autoscaling. Your reliability level drives the minimum number of nodes that you must have for the primary node type. For more information, see [Scale a Service Fabric cluster in or out by using autoscale rules](/azure/service-fabric/service-fabric-cluster-resource-manager-autoscaling).
-
-- You can use the portal to link resources such as Azure SQL Database instances and queues to a cloud service instance. This method allows you to more easily access the separate manual and automatic scaling configuration options for each of the linked resources. For more information, see [Manage Azure Cloud Services](/azure/cloud-services/cloud-services-how-to-manage).
 
 - When you configure multiple policies and rules, they could conflict with each other. Autoscale uses the following conflict resolution rules to ensure that there's always a sufficient number of instances running:
   - Scale-out operations always take precedence over scale-in operations.
@@ -158,6 +154,5 @@ The following patterns and guidance might also be relevant to your scenario when
 [app-service-autoscale]: /azure/app-service/manage-scale-up
 [autoscale-metrics]: /azure/monitoring-and-diagnostics/insights-autoscale-common-metrics
 [functions-scale]: /azure/azure-functions/functions-scale
-[service-fabric-autoscale]: /azure/service-fabric/service-fabric-cluster-resource-manager-autoscaling
 [vm-scale-sets]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview
 [vm-scale-sets-autoscale]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview

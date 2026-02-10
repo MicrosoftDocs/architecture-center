@@ -36,6 +36,10 @@ The following diagram shows how to migrate this architecture to Azure.
 1. Input requests go to a global load balancer service, like Azure Front Door or Azure Traffic Manager. The load balancer can serve a geographically spread user base. It routes the requests according to rules defined for the supported workloads. These load balancers can coordinate with Azure Application Gateway or Azure Load Balancer to load balance the application layer. The Azure Content Delivery Network service caches static content in edge servers for quick response. A web application firewall (WAF) helps secure the service.
 1. The front end of the application layer uses Azure services like Azure App Service to implement application screens and to interact with users. The screens are migrated versions of the mainframe screens.
 1. COBOL and PL/I code in the back end of the application layer implement the business logic. The code can use services and features like Azure Functions, WebJobs, and Azure Spring Apps microservices. Applications can run in an Azure Kubernetes Service (AKS) container.
+
+   > [!IMPORTANT]
+   > Azure Spring Apps is retired as of March 31, 2028. We recommend [Azure Container Apps](/azure/container-apps/overview) and [Azure Kubernetes Service (AKS)](/azure/aks/what-is-aks) as the replacement services. For more information, see [Azure Spring Apps retirement announcement](/azure/spring-apps/basic-standard/retirement-announcement).
+
 1. An in-memory data store accelerates high-throughput OLTP applications. Examples include In-Memory OLTP, which is a feature of Azure SQL Database and Azure SQL Managed Instance, and Azure Managed Redis.
 1. The data layer can include:
 
