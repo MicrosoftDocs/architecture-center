@@ -16,7 +16,7 @@ In many cases, the application server or some component in the request pipeline 
 > [!IMPORTANT]
 > Never use the value of the host in a security mechanism. The value is provided by the browser or some other user agent and can easily be manipulated by an end user.
 
-In some scenarios, especially when there's an HTTP reverse proxy in the request chain, the original host header can get changed before it reaches the application server. A reverse proxy closes the client network session and sets up a new connection to the back end. In this new session, it can either carry over the original host name of the client session or set a new one. In the latter case, the proxy often still sends the original host value in other HTTP headers, like [`Forwarded`](https://datatracker.ietf.org/doc/html/rfc7239#section-4) or [`X-Forwarded-Host`](https://developer.mozilla.org/docs/Web/HTTP/Headers/X-Forwarded-Host). This value allows applications to determine the original host name, but only if they're coded to read these headers.
+In some scenarios, especially when there's an HTTP reverse proxy in the request chain, the original host header can get changed before it reaches the application server. A reverse proxy closes the client network session and sets up a new connection to the back end. In this new session, it can either carry over the original host name of the client session or set a new one. In the latter case, the proxy often still sends the original host value in other HTTP headers, like [`Forwarded`](https://datatracker.ietf.org/doc/html/rfc7239#section-4) or [`X-Forwarded-Host`](https://developer.mozilla.org/docs/Web/HTTP/Reference/Headers/X-Forwarded-Host). This value allows applications to determine the original host name, but only if they're coded to read these headers.
 
 ### Why web platforms use the host name
 
@@ -41,7 +41,7 @@ You can meet all these requirements by adding the expected host name to the appl
 
 And sometimes the incoming host name is used by components outside of the application code or in middleware on the application server over which you don't have full control. Here are some examples:
 
-- In App Service, you can [enforce HTTPS](/azure/app-service/configure-ssl-bindings#enforce-https) for your web app. Doing so causes any HTTP requests that aren't secure to redirect to HTTPS. In this case, the incoming host name is used to generate the absolute URL for the HTTP redirect's `Location` header.
+- In App Service, you can [enforce HTTPS](/azure/app-service/configure-common#configure-general-settings) for your web app. Doing so causes any HTTP requests that aren't secure to redirect to HTTPS. In this case, the incoming host name is used to generate the absolute URL for the HTTP redirect's `Location` header.
 - Azure Container Apps also can [redirect HTTP requests to HTTPS](/azure/container-apps/ingress-how-to). It also uses the incoming host to generate the HTTPS URL.
 - App Service has an [ARR affinity setting](/azure/app-service/configure-common#configure-general-settings) to enable sticky sessions, so that requests from the same browser instance are always served by the same back-end server. This is performed by the App Service front ends, which add a cookie to the HTTP response. The cookie's `Domain` is set to the incoming host.
 - App Service provides [authentication and authorization capabilities](/azure/app-service/overview-authentication-authorization) to easily allow users to sign in and access data in APIs.
@@ -56,7 +56,7 @@ It might seem like the easy way to make this configuration work is to override o
 
 ![Diagram that illustrates a configuration with the host name overridden.](images/host-name-preservation/configuration-host-overridden.png)
 
-At this point, App Service does recognize the host name, and it accepts the request without requiring that a custom domain name be configured. In fact, [Application Gateway makes it easy to override the host header](/azure/application-gateway/configuration-http-settings#pick-host-name-from-back-end-address) with the host of the back-end pool. [Azure Front Door even does so by default](/azure/frontdoor/origin#origin-host-header).
+At this point, App Service does recognize the host name, and it accepts the request without requiring that a custom domain name be configured. In fact, [Application Gateway makes it easy to override the host header](/azure/application-gateway/configuration-http-settings#pick-host-name-from-backend-address) with the host of the back-end pool. [Azure Front Door even does so by default](/azure/frontdoor/origin#origin-host-header).
 
 The problem with this solution, however, is that it can result in various problems when the app doesn't see the original host name.
 
@@ -118,7 +118,7 @@ Similarly, if you're using **Azure Container Apps**, you can [use a custom domai
 
 If you have a reverse proxy in front of **API Management** (which itself also acts as a reverse proxy), you can [configure a custom domain on your API Management instance](/azure/api-management/configure-custom-domain) to avoid using the `azure-api.net` host name. You can import an existing or free managed certificate if you require end-to-end TLS/SSL. As noted previously, however, APIs are less sensitive to the problems caused by host name mismatches, so this configuration might not be as important.
 
-If you host your applications on **other platforms**, like on Kubernetes or directly on virtual machines, there's no built-in functionality that depends on the incoming host name. You're responsible for how the host name is used in the application server itself. The recommendation to preserve the host name typically still applies for any components in your application that depend on it, unless you specifically make your application aware of reverse proxies and respect the [`forwarded`](https://datatracker.ietf.org/doc/html/rfc7239#section-4) or [`X-Forwarded-Host`](https://developer.mozilla.org/docs/Web/HTTP/Headers/X-Forwarded-Host) headers, for example.
+If you host your applications on **other platforms**, like on Kubernetes or directly on virtual machines, there's no built-in functionality that depends on the incoming host name. You're responsible for how the host name is used in the application server itself. The recommendation to preserve the host name typically still applies for any components in your application that depend on it, unless you specifically make your application aware of reverse proxies and respect the [`forwarded`](https://datatracker.ietf.org/doc/html/rfc7239#section-4) or [`X-Forwarded-Host`](https://developer.mozilla.org/docs/Web/HTTP/Reference/Headers/X-Forwarded-Host) headers, for example.
 
 ### Reverse proxy configuration
 
