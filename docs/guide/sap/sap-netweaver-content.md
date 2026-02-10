@@ -7,6 +7,9 @@ This guide presents a set of proven practices for running SAP NetWeaver in a Win
 The following diagram shows SAP NetWeaver in a Windows environment.
 
 :::image type="content" source="media/sap-netweaver.png" alt-text="Architecture diagram that shows a solution for SAP NetWeaver on Windows. The database is AnyDB on Azure VMs with availability sets." lightbox="media/sap-netweaver.png" border="false":::
+to do
+add numbers to the diagram
+numbers represent steps in workflow
 
 *Download a [Visio file](https://arch-center.azureedge.net/sap-netweaver-windows.vsdx) of this architecture.*
 
@@ -16,7 +19,12 @@ The following diagram shows SAP NetWeaver in a Windows environment.
 This guide describes a production system. The system is deployed with specific virtual machine (VM) sizes that you can change to accommodate the needs of your organization. The system can be reduced to a single VM. In this guide, the network layout is greatly simplified to demonstrate architectural principles. It's not intended to describe a full enterprise network.
 
 ### Workflow
+to do
+describe workflow step by step
 
+## components
+to do
+make sure ingredients are complete
 **Virtual networks.** The [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) service connects Azure resources to each other with enhanced security. In this architecture, the virtual network connects to an on-premises network via an Azure ExpressRoute gateway that's deployed in the hub of a [hub-spoke topology](../../networking/architecture/hub-spoke.yml). The spoke is the virtual network that's used for the SAP applications and the database tiers. The hub virtual network is used for shared services like Azure Bastion and backup.
 
 **Virtual network peering.** This architecture uses a hub-and-spoke networking topology with multiple virtual networks that are [peered together](/azure/virtual-network/virtual-network-peering-overview). This topology provides network segmentation and isolation for services that are deployed on Azure. Peering enables transparent connectivity between peered virtual networks through the Microsoft backbone network. It doesn't incur a performance penalty if deployed within a single region. The virtual network is divided into separate subnets for each tier: application (SAP NetWeaver), the database, and shared services like Bastion and a third-party backup solution.
@@ -147,6 +155,39 @@ For the backup data store, we recommend Azure [cool and archive access tiers](/a
 
 For a high-availability, high-performance shared data store, use [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction). This technology is particularly useful for the database tier when you use [Oracle](/azure/azure-netapp-files/performance-oracle-single-volumes), and also when you [host application data](/azure/virtual-machines/workloads/sap/high-availability-guide-windows-netapp-files-smb).
 
+## considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
+ 
+### Reliability
+ 
+Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
+ 
+TODO: Move content into here
+ 
+### Security
+ 
+Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
+ 
+TODO: Move content into here
+ 
+### Cost Optimization
+ 
+Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+ 
+TODO:
+Move content here
+
+Also, Link to the pricing calculator (https://azure.microsoft.com/pricing/calculator), with this architecture prepopulated.
+ 
+### Performance Efficiency
+ 
+Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+ 
+TODO: Move content here
+
+to do
+take everything below and move into correct position
 ## Performance considerations
 
 SAP application servers communicate constantly with the database servers. For performance-critical applications that run on database platforms, enable [Write Accelerator](/azure/virtual-machines/windows/how-to-enable-write-accelerator) for the log volume if you're using Premium SSD v1. Doing so can improve log-write latency. Write Accelerator is available for M-series VMs. 
