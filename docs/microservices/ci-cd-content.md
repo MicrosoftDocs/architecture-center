@@ -106,7 +106,7 @@ A canary release is more complex to manage than either blue-green or rolling upd
 - [Learning path: Define and implement continuous integration](/training/paths/az-400-define-implement-continuous-integration)
 - [Training: Introduction to continuous delivery](/training/modules/introduction-to-continuous-delivery)
 - [Microservices architecture](/dotnet/architecture/microservices/architect-microservice-container-applications/microservices-architecture)
-- [Why use a microservices approach to building applications](/azure/architecture/microservices/)
+- [Why use a microservices approach to building applications](/azure/architecture/guide/architecture-styles/microservices)
 
 ## Related resources
 
