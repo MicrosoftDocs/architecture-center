@@ -11,7 +11,7 @@ If you require end-to-end TLS/SSL (the connection between the reverse proxy and 
 
 ### The host of an HTTP request
 
-In many cases, the application server or some component in the request pipeline needs the internet domain name that was used by the browser to access it. This is the *host* of the request. It can be an IP address, but usually it's a name like `contoso.com` (which the browser then resolves to an IP address by using DNS). The host value is typically determined from the [host component of the request URI](https://datatracker.ietf.org/doc/html/rfc3986#section-3.2.2), which the browser sends to the application as the [`Host` HTTP header](https://datatracker.ietf.org/doc/html/rfc2616#section-14.23).
+In many cases, the application server or some component in the request pipeline needs the internet domain name that was used by the browser to access it. This is the *host* of the request. It can be an IP address, but usually it's a name like `contoso.com` (which the browser then resolves to an IP address by using DNS). The host value is typically determined from the [host component of the request URI](https://datatracker.ietf.org/doc/html/rfc3986#section-3.2.2), which the browser sends to the application as the [`Host` HTTP header](https://datatracker.ietf.org/doc/html/rfc9110#field.host).
 
 > [!IMPORTANT]
 > Never use the value of the host in a security mechanism. The value is provided by the browser or some other user agent and can easily be manipulated by an end user.
