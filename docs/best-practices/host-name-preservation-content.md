@@ -140,6 +140,8 @@ If you use Application Gateway as the reverse proxy, you can ensure that the ori
 
 Because health probes are sent outside the context of an incoming request, they can't dynamically determine the correct host name. Instead, you have to create a custom health probe, disable **Pick host name from backend HTTP settings**, and [explicitly specify the host name](/azure/application-gateway/application-gateway-probe-overview#custom-health-probe-settings). For this host name, you should also use an appropriate custom domain, for consistency. (You could, however, use the default domain of the hosting platform here, because health probes ignore incorrect cookies or redirect URLs in the response.)
 
+If the host name isn't preserved and you need to diagnose the resulting problems, see [Troubleshoot redirection to App Service URL](/azure/application-gateway/troubleshoot-app-service-redirection-app-service-url). If you can't fully preserve the host name, you can evaluate if [HTTP header and URL rewrites](/azure/application-gateway/troubleshoot-app-service-redirection-app-service-url#workaround-rewrite-the-location-header) should be used as a partial workaround.
+
 #### Azure Front Door
 
 If you use Azure Front Door, you can preserve the host name by leaving the [origin host header](/azure/frontdoor/origin#origin-host-header) blank in the origin definition. In the [Resource Manager definition of the origin](/azure/templates/microsoft.cdn/profiles/origingroups/origins#afdoriginproperties), this configuration corresponds to setting `originHostHeader` to `null`.
