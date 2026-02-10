@@ -136,17 +136,17 @@ Whether you preserve or override the host name in the reverse proxy, ensure that
 
 #### Application Gateway
 
-If you use [Application Gateway](/azure/application-gateway) as the reverse proxy, you can ensure that the original host name is preserved by disabling **Override with new host name** on the back-end HTTP setting. Doing so disables both [Pick host name from back-end address](/azure/application-gateway/configuration-http-settings#pick-host-name-from-backend-address) and [Override with specific domain name](/azure/application-gateway/configuration-http-settings#host-name-override). (Both of these settings override the host name.) In the [Azure Resource Manager properties for Application Gateway](/azure/templates/microsoft.network/applicationgateways), this configuration corresponds to setting the `hostName` property to `null` and `pickHostNameFromBackendAddress` to `false`.
+If you use Application Gateway as the reverse proxy, you can ensure that the original host name is preserved by disabling **Override with new host name** on the back-end HTTP setting. Doing so disables both [Pick host name from back-end address](/azure/application-gateway/configuration-http-settings#pick-host-name-from-backend-address) and [Override with specific domain name](/azure/application-gateway/configuration-http-settings#host-name-override). (Both of these settings override the host name.) In the [Azure Resource Manager properties for Application Gateway](/azure/templates/microsoft.network/applicationgateways), this configuration corresponds to setting the `hostName` property to `null` and `pickHostNameFromBackendAddress` to `false`.
 
 Because health probes are sent outside the context of an incoming request, they can't dynamically determine the correct host name. Instead, you have to create a custom health probe, disable **Pick host name from backend HTTP settings**, and [explicitly specify the host name](/azure/application-gateway/application-gateway-probe-overview#custom-health-probe-settings). For this host name, you should also use an appropriate custom domain, for consistency. (You could, however, use the default domain of the hosting platform here, because health probes ignore incorrect cookies or redirect URLs in the response.)
 
 #### Azure Front Door
 
-If you use [Azure Front Door](/azure/frontdoor), you can preserve the host name by leaving the [origin host header](/azure/frontdoor/origin#origin-host-header) blank in the origin definition. In the [Resource Manager definition of the origin](/azure/templates/microsoft.cdn/profiles/origingroups/origins#afdoriginproperties), this configuration corresponds to setting `originHostHeader` to `null`.
+If you use Azure Front Door, you can preserve the host name by leaving the [origin host header](/azure/frontdoor/origin#origin-host-header) blank in the origin definition. In the [Resource Manager definition of the origin](/azure/templates/microsoft.cdn/profiles/origingroups/origins#afdoriginproperties), this configuration corresponds to setting `originHostHeader` to `null`.
 
 #### API Management
 
-By default, [API Management](/azure/api-management) overrides the host name that's sent to the back end with the host component of the API's web service URL (which corresponds to the `serviceUrl` value of the [Resource Manager definition of the API](/azure/templates/microsoft.apimanagement/service/apis)).
+By default, API Management overrides the host name that's sent to the back end with the host component of the API's web service URL (which corresponds to the `serviceUrl` value of the [Resource Manager definition of the API](/azure/templates/microsoft.apimanagement/service/apis)).
 
 You can force API Management to instead use the host name of the incoming request by adding an `inbound` [Set header](/azure/api-management/set-header-policy) policy, as follows:
 
@@ -163,11 +163,13 @@ As noted previously, however, APIs are less sensitive to the problems caused by 
 
 ## Next steps
 
-- [App Service](/azure/app-service)
-- [Azure Container Apps](/azure/container-apps)
-- [Application Gateway](/azure/application-gateway)
-- [Azure Front Door](/azure/frontdoor)
-- [API Management](/azure/api-management)
+Review the Well-Architected Framework service guides for the Azure services you use in your workload.
+
+- [App Service](/azure/well-architected/service-guides/app-service-web-apps)
+- [Azure Container Apps](/azure/well-architected/service-guides/azure-container-apps)
+- [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway)
+- [Azure Front Door](/azure/well-architected/service-guides/azure-front-door)
+- [API Management](/azure/well-architected/service-guides/azure-api-management)
 
 ## Related resources
 
