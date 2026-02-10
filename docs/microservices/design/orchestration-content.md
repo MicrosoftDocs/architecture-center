@@ -66,7 +66,7 @@ Here are some options for implementing microservices container orchestration in 
 
   For simple orchestration scenarios, you can use [Docker Compose](https://docs.docker.com/compose/) to define and run a multi-container application locally. Then, deploy the Docker containers as an ACI container group in a managed, serverless Azure environment. For full container orchestration scenarios, ACI can integrate with AKS to create virtual nodes for AKS orchestration.
 
-- [Azure Spring Apps](https://azure.microsoft.com/services/spring-cloud/) is an enterprise-ready, fully managed service for [Spring Boot](https://spring.io/projects/spring-boot) apps. With Spring Apps, you can focus on building and running apps without having to manage infrastructure. Spring Apps comes with built-in lifecycle and orchestration management, ease of monitoring, and full integration with Azure.
+- [Azure Container Apps](https://azure.microsoft.com/services/container-apps/) is a fully managed serverless container service for building and deploying modern apps at scale. With Container Apps, you can run microservices built with [Spring Boot](https://spring.io/projects/spring-boot) and other frameworks without having to manage infrastructure. Container Apps supports built-in autoscaling, traffic splitting, and integration with Azure.
 
 - [Azure Red Hat OpenShift (ARO)](https://azure.microsoft.com/services/openshift/) supports deployment of fully managed [OpenShift](https://www.openshift.com/) clusters on Azure. Running Kubernetes production containers requires integration with frameworks and tools like image registries, storage management, monitoring, and DevOps. ARO extends Kubernetes by combining these components into a single container platform as a service (PaaS).
 
@@ -86,7 +86,6 @@ Principal author:
 - [Advanced Azure Kubernetes Service (AKS) microservices architecture](../../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml)
 - [CI/CD for AKS apps with Azure Pipelines](../../guide/aks/aks-cicd-azure-pipelines.md)
 - [Use API gateways in microservices](gateway.yml)
-- [Azure Spring Apps reference architecture](/azure/spring-cloud/reference-architecture)
 
 ## Related resources
 
