@@ -46,7 +46,7 @@ Sometimes the incoming host name is used by components outside of the applicatio
 - App Service has an [ARR affinity setting](/azure/app-service/configure-common#configure-general-settings) to enable sticky sessions, so that requests from the same browser instance are always served by the same back-end server. The App Service front ends add a cookie to the HTTP response. The cookie's `Domain` is set to the incoming host.
 - App Service provides [authentication and authorization capabilities](/azure/app-service/overview-authentication-authorization) that allow users to sign in and access data in APIs.
   - The incoming host name is used to construct the redirect URL to which the identity provider needs to return the user after successful authentication.
-  - [Enabling this feature by default also turns on HTTP-to-HTTPS redirection](/azure/app-service/overview-authentication-authorization#considerations-for-using-built-in-authentication). Again, the incoming host name is used to generate the redirect location.
+  - Enabling this feature also turns on [HTTP-to-HTTPS redirection](/azure/app-service/overview-authentication-authorization#considerations-for-using-built-in-authentication). Again, the incoming host name is used to generate the redirect location.
 
 ### Why you might be tempted to override the host name
 
