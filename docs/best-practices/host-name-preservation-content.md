@@ -146,7 +146,7 @@ If you use [Azure Front Door](/azure/frontdoor), you can preserve the host name 
 
 #### API Management
 
-By default, [API Management](/azure/api-management) overrides the host name that's sent to the back end with the host component of the API's web service URL (which corresponds to the `serviceUrl` value of the [Resource Manager definition of the API](/azure/templates/microsoft.apimanagement/2021-08-01/service/apis)).
+By default, [API Management](/azure/api-management) overrides the host name that's sent to the back end with the host component of the API's web service URL (which corresponds to the `serviceUrl` value of the [Resource Manager definition of the API](/azure/templates/microsoft.apimanagement/service/apis)).
 
 You can force API Management to instead use the host name of the incoming request by adding an `inbound` [Set header](/azure/api-management/set-header-policy) policy, as follows:
 
