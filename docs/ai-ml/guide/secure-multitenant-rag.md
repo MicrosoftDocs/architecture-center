@@ -9,6 +9,7 @@ ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
 ms.custom:
   - arb-saas
+  - arb-aiml
 ---
 
 # Design a secure multitenant RAG inferencing solution
