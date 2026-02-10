@@ -7,6 +7,7 @@ ms.date: 07/30/2025
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.collection: ce-skilling-ai-copilot
+ms.custom: arb-aiml
 ---
 # Choose the right AI model for your workload
 
