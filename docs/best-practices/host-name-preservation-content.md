@@ -163,6 +163,21 @@ You can force API Management to instead use the host name of the incoming reques
 
 As noted previously, however, APIs are less sensitive to the problems caused by host name mismatches, so this configuration might not be as important.
 
+## Application configuration
+
+Even when you preserve the original host name at the reverse proxy level, the reverse proxy still terminates the client's TLS connection. The new connection that the proxy establishes to the back end loses the original client IP address and HTTPS scheme. These values are forwarded through standard HTTP headers: `X-Forwarded-For` for the client IP address, `X-Forwarded-Proto` for the original scheme, and `X-Forwarded-Host` for the original host name. Your application must be configured to read these headers so that it can correctly determine the request scheme, client address, and original host information.
+
+If your application framework doesn't process `X-Forwarded-Proto`, the application treats the back-end connection as plain HTTP even though the end user connected over HTTPS. That misperception is the most common cause of infinite HTTP-to-HTTPS redirect loops. It can also result in insecure cookie flags or mixed-content errors.
+
+Most web frameworks have a mechanism to process forwarded headers. Review your framework's documentation and configure it appropriately. The following examples cover common frameworks:
+
+- **ASP.NET Core**: Use the [Forwarded Headers Middleware](/aspnet/core/host-and-deploy/proxy-load-balancer).
+- **Java Spring Boot**: Set [`server.forward-headers-strategy` to `FRAMEWORK`](https://docs.spring.io/spring-boot/how-to/webserver.html#howto.webserver.use-behind-a-proxy-server) in your application properties.
+- **Node.js Express**: Set [`app.set('trust proxy', <value>)`](https://expressjs.com/en/guide/behind-proxies.html).
+
+> [!IMPORTANT]
+> Only trust forwarded headers from known proxies. For example, configure [`KnownProxies` or `KnownNetworks`](/aspnet/core/host-and-deploy/proxy-load-balancer#forwarded-headers-middleware-options) to restrict which sources can set forwarded headers. Accepting forwarded headers from untrusted sources enables a client to spoof its IP address or original scheme.
+
 ## Next steps
 
 Review the Well-Architected Framework service guides for the Azure services you use in your workload.
