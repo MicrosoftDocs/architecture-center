@@ -158,7 +158,6 @@ Once network connectivity is securely established, you can start using cloud com
 There are many workload managers offered in the [Microsoft Marketplace](https://marketplace.microsoft.com).
 
 - [SUSE Linux Enterprise Server for HPC](https://www.suse.com/products/server/hpc/)
-- [TIBCO DataSynapse GridServer](https://marketplace.microsoft.com/product/tibco-software.tibco_datasynapse_gridserver)
 - [Azure Data Science VM for Windows and Linux](/azure/machine-learning/data-science-virtual-machine/overview)
 - [UberCloud](https://marketplace.microsoft.com/product/ubercloud.ubercloud_platform_subscription_vm)
 
