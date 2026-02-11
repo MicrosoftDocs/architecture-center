@@ -13,7 +13,7 @@ metadata:
 azureCategories:
   - compute
 products:
-  - azure-spring-apps
+  - azure-container-apps
   - azure-app-service
   - azure-kubernetes-service
   - azure-virtual-machines
