@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
 ai-usage: ai-assisted
+ms.custom: arb-aiml
 ---
 
 # Machine learning operations

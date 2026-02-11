@@ -308,7 +308,7 @@ Don't implement a unified gateway solely for the purpose of increasing quota. Us
 
 If clients aren't expected to fail over between regions and you have the ability to give clients a specific gateway to use, then instead use multiple gateways, one per region, and follow the guidance in one of the previous sections. Don't tie the availability of other regions to the region containing your gateway as a single point of failure.
 
-Don't implement a unified gateway if your model and version isn't available in all regions exposed by the gateway. Clients need to be routed to the same model and the same model version. For multi-region load-balanced and failover gateways, you need to pick a common model and model version that is available across all involved regions. For more information, see [Model availability](/azure/ai-services/openai/concepts/models#standard-deployment-model-availability). If you can't standardize on model and model version, the benefit of the gateway is limited.
+Don't implement a unified gateway if your model and version isn't available in all regions exposed by the gateway. Clients need to be routed to the same model and the same model version. For multi-region load-balanced and failover gateways, you need to pick a common model and model version that is available across all involved regions. For more information, see [Model availability](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#model-summary-table-and-region-availability). If you can't standardize on model and model version, the benefit of the gateway is limited.
 
 ## General recommendations
 

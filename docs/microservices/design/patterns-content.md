@@ -28,7 +28,7 @@ For the complete catalog of cloud design patterns on the Azure Architecture Cent
 
 - [Training: Decompose a monolithic application into a microservices architecture](/training/modules/microservices-architecture)
 - [What are microservices?](/devops/deliver/what-are-microservices)
-- [Why use a microservices approach to building applications](/azure/service-fabric/service-fabric-overview-microservices)
+- [Why use a microservices approach to building applications](/azure/architecture/guide/architecture-styles/microservices)
 - [Microservices architecture](/dotnet/architecture/microservices/architect-microservice-container-applications/microservices-architecture)
 
 ## Related resources

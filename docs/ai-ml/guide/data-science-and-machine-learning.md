@@ -7,6 +7,7 @@ ms.date: 01/27/2025
 ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
+ms.custom: arb-aiml
 ---
 
 # Compare Microsoft machine learning products and technologies
@@ -45,7 +46,6 @@ The following development platforms and tools are available for machine learning
 | [Microsoft ML.NET](#mlnet) | Open-source, cross-platform machine learning SDK | Develop machine learning solutions for .NET applications. |
 | [AI for Windows apps](#ai-for-windows-apps) | Inference engine for trained models on Windows devices | Integrates AI capabilities into Windows applications by using components like [Windows Machine Learning (WinML)](/windows/ai/windows-ml/overview) and [Direct Machine Learning (DirectML)](/windows/ai/directml/dml) for local, real-time AI model evaluation and hardware acceleration. |
 | [SynapseML](#synapseml) | Open-source, distributed machine learning and microservices framework for Apache Spark | Create and deploy scalable machine learning applications for Scala and Python. |
-| [Machine learning extension for Azure Data Studio](#sql-machine-learning) | Open-source and cross-platform machine learning extension for Azure Data Studio | Manage packages, import machine learning models, make predictions, and create notebooks to run experiments for your SQL databases. |
 
 ## Azure Machine Learning
 
@@ -69,7 +69,7 @@ Use Python SDK, Jupyter notebooks, R, and the CLI for machine learning at cloud 
 
 - **Vision:** Includes object detection, face recognition, and optical character recognition. For more information, see [Azure AI Vision](/azure/ai-services/computer-vision/), [Azure AI Face](/azure/ai-services/computer-vision/overview-identity), and [Azure AI Document Intelligence](/azure/ai-services/document-intelligence/).
 - **Speech:** Includes speech-to-text, text-to-speech, and speaker recognition capabilities. For more information, see [Speech service](/azure/ai-services/speech-service/).
-- **Language:** Includes translation, sentiment analysis, key phrase extraction, and language understanding. For more information, see [Azure OpenAI in Foundry Models](/azure/ai-services/openai/), [Azure AI Translator](/azure/ai-services/translator/), [Azure AI Immersive Reader](/azure/ai-services/immersive-reader/), [Bot Framework Composer](/composer/), and [Azure AI Language](/azure/ai-services/language-service/).
+- **Language:** Includes translation, sentiment analysis, key phrase extraction, and language understanding. For more information, see [Azure OpenAI in Foundry Models](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#azure-openai-in-microsoft-foundry-models), [Azure AI Translator](/azure/ai-services/translator/), [Azure AI Immersive Reader](/azure/ai-services/immersive-reader/), [Bot Framework Composer](/composer/), and [Azure AI Language](/azure/ai-services/language-service/).
 - **Decision-making:** Detect unwanted content and make informed decisions. For more information, see [Azure AI Content Safety](/azure/ai-services/content-safety/).
 - **Search and knowledge:** Bring AI-powered cloud search and knowledge mining capabilities to your apps. For more information, see [Azure AI Search](/azure/search/).
 
@@ -88,7 +88,6 @@ Use AI services to develop apps across devices and platforms. The APIs continuou
 
 - [SQL Server Machine Learning Services](/sql/machine-learning/sql-server-machine-learning-services).
 - [SQL Managed Instance Machine Learning Services](/azure/azure-sql/managed-instance/machine-learning-services-overview).
-- [Machine Learning extension for Azure Data Studio](/sql/azure-data-studio/machine-learning-extension).
 
 Use SQL machine learning when you need built-in AI and predictive analytics on relational data in SQL.
 
