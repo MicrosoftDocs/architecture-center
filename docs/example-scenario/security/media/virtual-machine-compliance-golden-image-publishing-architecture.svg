@@ -693,24 +693,24 @@
 		</g>
 		<g id="shape1212-234" v:mID="1212" v:groupContext="shape" transform="translate(25.5921,-271.014)">
 			<title>Sheet.1212</title>
-			<desc>Azure Marketplace</desc>
+			<desc>Microsoft Marketplace</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(22000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="46.063" cy="382.075" width="92.13" height="22.7472"/>
 			<rect x="0" y="370.702" width="92.126" height="22.7472" class="st28"/>
-			<text x="4.84" y="385.08" class="st29" v:langID="2057"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Marketplace</text>		</g>
+			<text x="4.84" y="385.08" class="st29" v:langID="2057"><v:paragraph v:horizAlign="1"/><v:tabList/>Microsoft Marketplace</text>		</g>
 		<g id="shape1213-237" v:mID="1213" v:groupContext="shape" transform="translate(25.5921,-136.782)">
 			<title>Sheet.1213</title>
-			<desc>Azure Marketplace image</desc>
+			<desc>Microsoft Marketplace image</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(23000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="46.063" cy="382.075" width="92.13" height="22.7472"/>
 			<rect x="0" y="370.702" width="92.126" height="22.7472" class="st28"/>
-			<text x="4.84" y="379.08" class="st29" v:langID="2057"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Marketplace <tspan
+			<text x="4.84" y="379.08" class="st29" v:langID="2057"><v:paragraph v:horizAlign="1"/><v:tabList/>Microsoft Marketplace <tspan
 						x="32.44" dy="1.2em" class="st30" v:langID="1033">i</tspan>mage</text>		</g>
 		<g id="shape1214-241" v:mID="1214" v:groupContext="shape" transform="translate(435.827,-139.582)">
 			<title>Sheet.1214</title>

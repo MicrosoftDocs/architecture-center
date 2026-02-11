@@ -29,7 +29,7 @@ When you build your multitenant solution in Azure, there are many elements that 
 
 - Based on your customers' requirements, decide on the [tenancy models](./considerations/tenancy-models.md) that are appropriate for various parts of your solution.  
 
-- When you're ready, sell your B2B multitenant solution by using the [Microsoft commercial marketplace](/azure/marketplace/plan-saas-offer).  
+- When you're ready, sell your B2B multitenant solution by using the [Microsoft commercial marketplace](/partner-center/marketplace-offers/plan-saas-offer).  
 
 ## Reliability considerations  
 

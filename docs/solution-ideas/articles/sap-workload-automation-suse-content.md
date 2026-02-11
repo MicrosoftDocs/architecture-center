@@ -54,7 +54,7 @@ SUSE provides support with:
 
 Explore SUSE SAP deployment template to create SAP infrastructure on Azure:
 
-- [Infrastructure for SAP NetWeaver and SAP HANA](https://azuremarketplace.microsoft.com/marketplace/apps/suse.sles-sap-15-sp6-byos?tab=Overview) (Azure Marketplace)
+- [Infrastructure for SAP NetWeaver and SAP HANA](https://marketplace.microsoft.com/marketplace/apps?search=SUSE+SLES+SAP) (Microsoft Marketplace)
 - [SUSE and Microsoft Solution Templates for SAP Applications](https://documentation.suse.com/sbp/all/single-html/SBP-SAP-AzureSolutionTemplates) (SUSE)
 
 ## Contributors
@@ -73,11 +73,8 @@ Principal author:
 - [SAP workloads on Azure: planning and deployment checklist](/azure/virtual-machines/workloads/sap/sap-deployment-checklist?toc=/azure/architecture/toc.json&bc=/azure/architecture/bread/toc.json)
 - [Automated SAP/HA Deployments in Public/Private Clouds with Terraform](https://github.com/SUSE/ha-sap-terraform-deployments) (GitHub project)
 
-
 ### SUSE
 
-- [SUSE on Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=SUSE)
+- [SUSE on the Microsoft Marketplace](https://marketplace.microsoft.com/marketplace/apps?search=SUSE)
 - [Highly Available NFS Storage with DRBD and Pacemaker](https://documentation.suse.com/sle-ha/15-SP6/)
 - [Run SAP](https://www.suse.com/solutions/run-sap-solutions)
-
-

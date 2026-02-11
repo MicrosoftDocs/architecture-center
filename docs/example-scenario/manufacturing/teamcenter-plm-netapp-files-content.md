@@ -231,7 +231,7 @@ Other contributors:
 
 ## Next steps
 
-- [Azure Marketplace solutions for Teamcenter](https://azuremarketplace.microsoft.com/marketplace/apps?search=teamcenter)
+- [Microsoft Marketplace solutions for Teamcenter](https://marketplace.microsoft.com/marketplace/apps?search=teamcenter)
 - [Oracle solutions on Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-solution-architectures#oracle)
 - [SQL Server solutions on Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-solution-architectures#sql-server)
 - [Benefits of using Azure NetApp Files for SQL Server deployment](/azure/azure-netapp-files/solutions-benefits-azure-netapp-files-sql-server)

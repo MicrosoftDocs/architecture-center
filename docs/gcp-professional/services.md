@@ -26,7 +26,7 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 
 | Google Cloud service | Azure service | Description |
 | --- | --- | --- |
-| [Google Cloud Marketplace](https://cloud.google.com/marketplace) | [Azure Marketplace](https://azure.microsoft.com/marketplace/) | Preconfigured third-party applications that can be deployed to single or multiple virtual machines. |
+| [Google Cloud Marketplace](https://cloud.google.com/marketplace) | [Microsoft Marketplace](https://marketplace.microsoft.com) | Preconfigured third-party applications that can be deployed to single or multiple virtual machines. |
 
 ## Data platform
 
@@ -211,7 +211,7 @@ Here are some architectures that use AKS as the orchestrator.
 | [gcloud SDK](https://cloud.google.com/sdk) | [Azure SDKs and Tools](https://azure.microsoft.com/downloads/) | The Azure SDKs are collections of libraries that make it easier to use Azure services from your language of choice. These libraries are consistent, approachable, diagnosable, dependable, and idiomatic. The Azure command-line interface (CLI) is a set of commands used to create and manage Azure resources. The Azure CLI is available across Azure services and is designed to get you working quickly with Azure, with an emphasis on automation. |
 | [Cloud Shell](https://cloud.google.com/shell) | [Azure Cloud Shell](/azure/cloud-shell/overview) | Azure Cloud Shell is an interactive, authenticated, browser-accessible shell for managing Azure resources. It provides the flexibility of choosing the shell experience that best suits the way you work, either Bash or PowerShell. |
 | [PowerShell on Google Cloud](https://cloud.google.com/tools/powershell/docs/quickstart) | [Azure PowerShell](/powershell/azure/?view=azps-3.7.0&preserve-view=true) | Azure PowerShell is a set of cmdlets for managing Azure resources directly from the PowerShell command line. Azure PowerShell is designed to be approachable and includes features for automation. Azure PowerShell works all [platforms that support PowerShell version 7 or higher](/powershell/scripting/install/PowerShell-Support-Lifecycle#supported-platforms). |
-| [Cloud Deployment Manager](https://cloud.google.com/deployment-manager) | [Azure Marketplace](https://azuremarketplace.microsoft.com) | The Marketplace is a catalog of software offerings validated to run on Azure. |
+| [Cloud Deployment Manager](https://cloud.google.com/deployment-manager) | [Microsoft Marketplace](https://marketplace.microsoft.com) | The Marketplace is a catalog of software offerings validated to run on Azure. |
 | [Cloud Deployment Manager](https://cloud.google.com/deployment-manager) | [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/) | Provides a way for users to automate the manual, long-running, error-prone, and frequently repeated IT tasks. |
 
 ### DevOps architectures
