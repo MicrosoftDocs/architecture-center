@@ -18,11 +18,15 @@ Selecting the right database depends on your data model, consistency requirement
 
 ## Architecture
 
-:::image type="complex" border="false" source="media/data-service-classifications.png" alt-text="Diagram that shows the analytics solution journey on Azure." lightbox="media/data-service-classifications.png":::
-   Diagram that contrasts relational database management system (RDBMS) and big data solutions. 
+:::image type="complex" border="false" source="media/get-started-databases.png" alt-text="Diagram that shows the analytics solution journey on Azure." lightbox="media/get-started-databases.png":::
+   Diagram that contrasts relational database management system (RDBMS) and big data solutions.
 :::image-end:::
 
+*Download a [Visio file](https://arch-center.azureedge.net/databases-get-started-diagram.vsdx) of this architecture.*
+
 *Apache®, Apache Cassandra®, and the Hadoop logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
+
+
 
 Azure database solutions include traditional relational database management systems (RDBMS and OLTP), big data and analytics workloads (including OLAP), and NoSQL workloads. Refer to the [architectures](#explore-database-architectures-and-guides) provided in this section to find real-world solutions that you can build in Azure.
 
