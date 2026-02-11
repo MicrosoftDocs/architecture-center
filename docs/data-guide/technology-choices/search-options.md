@@ -18,7 +18,7 @@ This article compares technology choices for search data stores in Azure. A sear
 In Azure, all of the following data stores will meet the core requirements for search against free-form text data by providing a search index:
 
 - [Azure AI Search](/azure/search/search-what-is-azure-search)
-- [Elasticsearch](https://marketplace.microsoft.com/product/saas/elastic.ec-azure-pp)
+- [Elasticsearch](https://marketplace.microsoft.com/product/elastic.ec-azure-pp)
 - [Azure SQL Database with full text search](/sql/relational-databases/search/full-text-search)
 
 ## Key selection criteria
@@ -87,7 +87,7 @@ Principal author:
 
 - [What is AI Search?](/azure/search/search-what-is-azure-search)
 - [Full-Text Search in SQL Server and Azure SQL Database](/sql/relational-databases/search/full-text-search)
-- [Elastic Cloud (Elasticsearch Service)](https://marketplace.microsoft.com/product/saas/elastic.ec-azure-pp)
+- [Elastic Cloud (Elasticsearch Service)](https://marketplace.microsoft.com/product/elastic.ec-azure-pp)
 
 ## Related resources
 
