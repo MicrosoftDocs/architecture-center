@@ -19,12 +19,17 @@ numbers represent steps in workflow
 This guide describes a production system. The system is deployed with specific virtual machine (VM) sizes that you can change to accommodate the needs of your organization. The system can be reduced to a single VM. In this guide, the network layout is greatly simplified to demonstrate architectural principles. It's not intended to describe a full enterprise network.
 
 ### Workflow
-to do
-describe workflow step by step
 
-## components
+1. SAP database layer
+2. SAP application server layer
+3. Azure gateway
+4. Azure connection
+5. On premise network
+
+## Components
 to do
 make sure ingredients are complete
+
 **Virtual networks.** The [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) service connects Azure resources to each other with enhanced security. In this architecture, the virtual network connects to an on-premises network via an Azure ExpressRoute gateway that's deployed in the hub of a [hub-spoke topology](../../networking/architecture/hub-spoke.yml). The spoke is the virtual network that's used for the SAP applications and the database tiers. The hub virtual network is used for shared services like Azure Bastion and backup.
 
 **Virtual network peering.** This architecture uses a hub-and-spoke networking topology with multiple virtual networks that are [peered together](/azure/virtual-network/virtual-network-peering-overview). This topology provides network segmentation and isolation for services that are deployed on Azure. Peering enables transparent connectivity between peered virtual networks through the Microsoft backbone network. It doesn't incur a performance penalty if deployed within a single region. The virtual network is divided into separate subnets for each tier: application (SAP NetWeaver), the database, and shared services like Bastion and a third-party backup solution.
@@ -121,11 +126,13 @@ At this time, there are no network access control lists or other attributes that
 
 #### ExpressRoute FastPath
 
-[FastPath](/azure/expressroute/about-fastpath) is designed to improve the data path performance between your on-premises network and your virtual network. When it's enabled, FastPath sends network traffic directly to virtual machines in the virtual network, bypassing the gateway.
+[ExpressRoute Direct](/azure/expressroute/about-fastpath) is designed to improve the data path performance between your on-premises network and your virtual network. VNet peering over FastPath is supported. When it's enabled, FastPath sends network traffic directly to virtual machines in the virtual network, bypassing the gateway.
 
 For all new ExpressRoute connections to Azure, FastPath is the default configuration. For existing ExpressRoute circuits, contact Azure support to activate FastPath.
 
-FastPath doesn't support virtual network peering. If other virtual networks are peered with one that's connected to ExpressRoute, the network traffic from your on-premises network to the other spoke virtual networks is sent to the virtual network gateway. The workaround is to connect all virtual networks to the ExpressRoute circuit directly. This feature is currently in public preview.
+ExpressRoute provider circuits does not support VNet peering over FastPath.
+
+If other virtual networks are peered with one that's connected to ExpressRoute, the network traffic from your on-premises network to the other spoke virtual networks is sent to the virtual network gateway. The workaround is to connect all virtual networks to the ExpressRoute circuit directly.
 
 ### Load balancers
 
