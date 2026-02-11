@@ -112,7 +112,7 @@ To scale up on Azure, choose a [larger VM size](https://azure.microsoft.com/serv
 
 ## Deploy this scenario
 
-To get started running AIX applications on Azure, check out the [Kyndryl Cloud Uplift (formerly SkyTap)](https://marketplace.microsoft.com/product/skytapinc.skytap-on-azure-main1?tab=Overview) template in the Microsoft Marketplace.
+To get started running AIX applications on Azure, check out the [Kyndryl Cloud Uplift (formerly Skytap)](https://marketplace.microsoft.com/product/skytapinc.skytap-on-azure-main1?tab=Overview) template in the Microsoft Marketplace.
 Learn more about the different Migration and Deployment options with the [Skytap Well-Architected Framework](https://skytap.github.io/well-architected-framework/).
 
 ## Next steps
