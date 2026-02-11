@@ -1,4 +1,4 @@
-[Skytap on Azure](https://azuremarketplace.microsoft.com/marketplace/apps/skytapinc.skytap-on-azure-main1) is a cloud infrastructure as a service (IaaS) that you can use to run [IBM Power](https://www.ibm.com/power) workloads such as AIX, IBM i (AS/400), and Linux on Power together with x86 workloads natively on Azure. Skytap doesn't require refactoring, rearchitecting, or replatforming, so you can easily move traditional workloads to Azure.
+Skytap on Azure is a cloud infrastructure as a service (IaaS) that you can use to run [IBM Power](https://www.ibm.com/power) workloads such as AIX, IBM i (AS/400), and Linux on Power together with x86 workloads natively on Azure. Skytap doesn't require refactoring, rearchitecting, or replatforming, so you can easily move traditional workloads to Azure.
 
 If you deploy Skytap on Azure, use [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) for file storage. You can scale storage allocations up or down at any time without service interruptions. You can also dynamically adjust storage service-level performance requirements.
 
@@ -23,7 +23,7 @@ This architecture demonstrates how to use Azure NetApp Files with workloads in S
 
 The architecture uses these components:
 
-- [Skytap on Azure](https://azuremarketplace.microsoft.com/marketplace/apps/skytapinc.skytap-on-azure-main1) is a service in Azure that natively runs IBM Power and x86 traditional workloads on hardware in Azure datacenters. If your organization runs IBM Power-based AIX, IBM i, or Linux operating systems (OS), you can use Skytap on Azure to migrate workloads to Azure with minimal upfront effort.
+- [Kyndryl Cloud Uplift (formerly Skytap on Azure)](https://marketplace.microsoft.com/product/skytapinc.skytap-on-azure-main1) is a service in Azure that natively runs IBM Power and x86 traditional workloads on hardware in Azure datacenters. If your organization runs IBM Power-based AIX, IBM i, or Linux operating systems (OS), you can use Skytap on Azure to migrate workloads to Azure with minimal upfront effort.
 
 - [Azure NetApp Files](/azure/well-architected/service-guides/azure-netapp-files) is an Azure-native, enterprise-class, high-performance file storage service. Azure NetApp Files provides volumes as a service that you can use to create NetApp accounts, capacity pools, and volumes. You can select service and performance levels and manage data protection and replication across zones and regions.
 

@@ -101,7 +101,7 @@ Consider the following factors:
 | Managed service | Yes | Managed infrastructure as a service | Yes |
 | Autoscale | Yes | Yes | Yes |
 | Partner offering | No | No | Yes |
-| Pricing model | [Based on tier](https://azure.microsoft.com/pricing/details/event-hubs/) | [Per cluster hour](https://azure.microsoft.com/pricing/details/hdinsight/) | [Consumption models](https://azuremarketplace.microsoft.com/marketplace/apps/confluentinc.confluent-cloud-azure-prod?tab=PlansAndPrice) |
+| Pricing model | [Based on tier](https://azure.microsoft.com/pricing/details/event-hubs/) | [Per cluster hour](https://azure.microsoft.com/pricing/details/hdinsight/) | [Consumption models](https://marketplace.microsoft.com/product/saas/confluentinc.confluent-cloud-azure-prod?tab=PlansAndPrice) |
 
 ### Stream processing
 
