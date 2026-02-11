@@ -135,7 +135,7 @@ When you deploy Azure Virtual Desktop for Azure Local, you can install FSLogix i
 
 In Azure Virtual Desktop, user sessions can be classified into one of two types: single session or multi-session. Each type offers different performance and user experience options.
 
-- **Single session:** Each VM hosts one user session at a time, which is similar to a traditional VDI model in which each user has their own desktop experience. Single session mode is ideal for [workloads that demand high performance](#azure-virtual-desktop-workload-types) and custom configurations or for applications that don't work well in shared environments.
+- **Single-session:** Each VM hosts one user session at a time, which is similar to a traditional VDI model in which each user has their own desktop experience. Single-session mode is ideal for [workloads that demand high performance](#azure-virtual-desktop-workload-types) and custom configurations or for applications that don't work well in shared environments.
 
 - **Multi-session:** A single VM can host multiple user sessions simultaneously. This mode optimizes cost efficiency and scalability because users share resources like CPU, memory, and storage. Multi-session is ideal for scenarios in which users need access to standard applications or [lighter workloads](#azure-virtual-desktop-workload-types), like task workers or shared workstations, because it consolidates resources across many users.
 
