@@ -19,13 +19,13 @@ Understanding your workload requirements is essential for choosing the right com
 
 ## Architecture
 
-:::image type="complex" border="false" source="../media/compute-get-started-diagram.png" alt-text="Diagram that shows the compute solution journey on Azure." lightbox="../media/compute-get-started-diagram.svg":::
+:::image type="complex" border="false" source="../media/compute-get-started-diagram.svg" alt-text="Diagram that shows the compute solution journey on Azure." lightbox="../media/compute-get-started-diagram.svg":::
    The diagram shows an Azure subscription at the top that contains a virtual network. On the left side, a workload client connects through the network ingress control layer, which contains three options: Azure Front Door, Azure Application Gateway, or Azure Load Balancer. In the center is an application platform compute box that contains Azure Virtual Machines, Azure Virtual Machine Scale Sets, Azure Batch, Azure Container Apps, Azure Kubernetes Service (AKS), and Azure App Service. The application platform box connects to another box that contains application dependencies, like databases and private endpoints. On the right side is a box labeled specialized compute. It contains Oracle on Virtual Machines, SAP on Azure, data science VMs, SQL Server on Virtual Machines, and Azure CycleCloud HPC. Below the specialized compute box, icons represent user-defined routes, and network and application security groups. At the bottom left, an icon that represents on-premises connectivity connects via virtual private network (VPN) or Azure ExpressRoute to Azure Bastion and public IP addresses within the virtual network. Along the bottom of the diagram are platform services, including Azure Update Manager, Microsoft Entra managed identities, Azure Monitor, and Azure maintenance configurations. Below the Azure subscription box, a box labeled platform contains Microsoft Entra ID, Microsoft Cost Management, Microsoft Defender for Cloud, Azure DevOps and GitHub, and Azure DNS.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/compute-get-started-diagram.vsdx) of this architecture.*
 
-The preceding diagram demonstrates a typical basic or baseline compute implementation. For real-world solutions that you can build in Azure, see [Architectures](#architectures).
+The preceding diagram demonstrates a typical basic or baseline compute implementation. For real-world solutions that you can build in Azure, see [Compute architectures](#compute-architectures).
 
 ## Explore compute architectures and guides
 
@@ -33,7 +33,7 @@ The articles in this section include fully developed architectures that you can 
 
 ### Compute architecture guides
 
-**Technology choices** - The following articles help you evaluate and select the best compute technologies for your workload requirements:
+The following articles help you evaluate and select the best compute technologies for your workload requirements:
 
 - [Choose a compute service](../../guide/technology-choices/compute-decision-tree.md) - Use a decision tree to help you choose the right compute option.
 - [Shared access signatures (SAS) on Azure architecture](../../guide/sas/sas-overview.yml) - Get comprehensive guidance about running SAS analytics on Azure.
