@@ -47,7 +47,7 @@ You can use other services to deliver a similar level of firewall and WAF protec
 - [Azure Front Door](/azure/frontdoor/front-door-overview) provides built-in distributed denial-of-service (DDoS) protection and global load balancing.
 
 - [Azure Firewall](/azure/firewall/overview) provides network-level protection and centralized security policy management.
-- Partner solutions, such as [Barracuda WAF](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.waf), or other WAF solutions are available in [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/security?page=1&subcategories=threat-protection).
+- Partner solutions, such as [Barracuda CloudGen WAF for Azure](https://marketplace.microsoft.com/product/virtual-machines/barracudanetworks.waf), or other WAF solutions are available in the [Microsoft Marketplace](https://marketplace.microsoft.com/marketplace/apps?category=security).
 
 ## Recommendations
 

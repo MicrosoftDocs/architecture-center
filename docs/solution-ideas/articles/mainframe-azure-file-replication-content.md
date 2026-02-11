@@ -24,7 +24,7 @@ The following dataflow corresponds to the architecture diagram:
 
    - The Azure Data Factory FTP or Secure File Transfer Protocol (SFTP) connector can be used to transfer data from the mainframe system to Blob Storage. This method requires an intermediate VM on which a self-hosted integration runtime is installed.
 
-   - You can also find non-Microsoft tools on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace) to transfer files from mainframes to Azure.
+   - You can also find non-Microsoft tools on the [Microsoft Marketplace](https://marketplace.microsoft.com/marketplace/apps?search=mainframe) to transfer files from mainframes to Azure.
 
 1. Orchestrate, convert, and transform data:
 
