@@ -66,7 +66,7 @@ When you deploy to a multitenant environment, follow these practices:
 - Use infrastructure as code (IaC) technologies, such as [Bicep](/azure/azure-resource-manager/bicep/overview), JSON Azure Resource Manager templates (ARM templates), or Terraform.
 - Use code to invoke Azure SDKs if appropriate.
 
-If you plan to offer your Azure solution through the [Microsoft Marketplace](https://marketplace.microsoft.com), you should provide a [fully automated onboarding process for new tenants](/azure/marketplace/partner-center-portal/pc-saas-fulfillment-operations-api).
+If you plan to offer your Azure solution through the [Microsoft Marketplace](https://marketplace.microsoft.com), you should provide a [fully automated onboarding process for new tenants](/partner-center/marketplace-offers/pc-saas-fulfillment-operations-api).
 
 ### Maximum resource capacity
 
