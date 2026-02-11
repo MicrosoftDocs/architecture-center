@@ -21,10 +21,11 @@ This guide describes a production system. The system is deployed with specific v
 ### Workflow
 
 1. SAP database layer
-2. SAP application server layer
-3. Azure gateway
-4. Azure connection
-5. On premise network
+2. External SAP input files
+3. SAP application server layer
+4. Azure gateway
+5. Azure connection
+6. On premise network
 
 ## Components
 to do
