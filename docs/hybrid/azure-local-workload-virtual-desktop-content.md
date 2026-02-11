@@ -141,7 +141,7 @@ In Azure Virtual Desktop, user sessions can be classified into one of two types:
 
 #### Session type considerations
 
-A single session Azure Virtual Desktop for Azure Local can be resource-intensive because it requires dedicated resources for each individual user. In contrast, Windows 10 and Windows 11 Multi-Session editions support multiple user session consurrently on the same VM, improving resource efficiency. Windows 10 and Windows 11 Multi-Session editions are available exclusively through Azure Virtual Desktop, offering a compelling advantage in both cost savings and user experience.
+A single session Azure Virtual Desktop for Azure Local can be resource-intensive because it requires dedicated resources for each individual user. In contrast, Windows 10 and Windows 11 multi-session editions support multiple user session concurrently on the same VM, improving resource efficiency. Windows 10 and Windows 11 multi-session editions are available exclusively through Azure Virtual Desktop, offering a compelling advantage in both cost savings and user experience.
 
 The following sections outline the key factors to consider when choosing between single session or multi-session environments.
 
