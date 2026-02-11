@@ -28,7 +28,7 @@ Clearly define your requirements before you plan your deployment strategy. Consi
 
 - **Provisioning time:** Establish how quickly the onboarding process must be completed. If you don't have a clear answer, define whether this step should be measured in seconds, minutes, hours, or days.
 
-- **Azure Marketplace:** Confirm whether you plan to use Azure Marketplace to initiate deployment. If you do, meet the necessary [requirements to add new tenants](/azure/marketplace/plan-azure-application-offer).
+- **[Microsoft Marketplace](https://marketplace.microsoft.com):** Confirm whether you plan to use the Microsoft Marketplace to initiate deployment of your Azure solution. If you do, meet the necessary [requirements to add new tenants](/partner-center/marketplace-offers/plan-azure-application-offer).
 
 Also consider onboarding and provisioning steps, automation, and resource management responsibility.
 
@@ -66,7 +66,7 @@ When you deploy to a multitenant environment, follow these practices:
 - Use infrastructure as code (IaC) technologies, such as [Bicep](/azure/azure-resource-manager/bicep/overview), JSON Azure Resource Manager templates (ARM templates), or Terraform.
 - Use code to invoke Azure SDKs if appropriate.
 
-If you plan to offer your solution through Azure Marketplace, you should provide a [fully automated onboarding process for new tenants](/azure/marketplace/partner-center-portal/pc-saas-fulfillment-operations-api).
+If you plan to offer your Azure solution through the [Microsoft Marketplace](https://marketplace.microsoft.com), you should provide a [fully automated onboarding process for new tenants](/azure/marketplace/partner-center-portal/pc-saas-fulfillment-operations-api).
 
 ### Maximum resource capacity
 
