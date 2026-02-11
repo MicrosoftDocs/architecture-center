@@ -601,7 +601,7 @@ Implement automated security scans as part of the automated integration and depl
 
 **Environment:** All<br>
 **Azure facilitation:** [Defender For DevOps](/azure/defender-for-cloud/defender-for-devops-introduction)<br>
-**Notes:** You can use extensions in the [Visual Studio Marketplace](https://marketplace.visualstudio.com/search?term=security&target=AzureDevOps&category=All%20categories&sortBy=Relevance) to extend this process for non-Microsoft security testing modules.
+**Notes:** You can use solutions from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/search?term=security&target=AzureDevOps&category=All%20categories&sortBy=Relevance) to extend this process with non-Microsoft security testing modules.
 
 ##### Ongoing service
 
