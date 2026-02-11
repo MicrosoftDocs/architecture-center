@@ -142,7 +142,7 @@ When a gateway is involved, it's in a unique position to capture details about a
 
 - Load balancing and failover logic are implementable within Azure API Management policies. You might be able to provide a more sophisticated approach using a code-based gateway solution, but API Management is sufficient for this use case.
 
-- Deploy your gateway in the same region as the model instance.
+- Deploy the gateway in the same region as the model instance.
 
 - Deploy the gateway into a dedicated resource group in the subscription that is separate from the model instances. Having the gateway isolated from the back ends can help drive an [APIOps](https://github.com/Azure/apiops) approach through separations of concern.
 
