@@ -54,7 +54,7 @@ The preceding list doesn't include all services. The following tables describe s
 
 | AWS service | Azure service | Description |
 | :---------- | :------------ | :---------- |
-| [AWS Marketplace](https://aws.amazon.com/marketplace) | [Microsoft Marketplace](https://marketplace.microsoft.com) | These services present easy-to-deploy and automatically configured partner applications, including single virtual machine (VM) or multiple VM solutions. You can purchase software as a service (SaaS) products from either marketplace. Many of the Azure offerings are eligible to count toward your Azure consumption commitment. To understand which offerings count toward your commitment, see [Azure consumption commitment benefit](/marketplace/azure-consumption-commitment-benefit). |
+| [AWS Marketplace](https://aws.amazon.com/marketplace) | [Microsoft Marketplace](https://marketplace.microsoft.com) | These services present easy-to-deploy and automatically configured partner applications, including single virtual machine (VM) or multiple VM solutions. You can purchase software as a service (SaaS) products from either marketplace. Many of the Microsoft Marketplace offers for Azure are eligible to count toward your Azure consumption commitment. To understand which offerings count toward your commitment, see [Azure consumption commitment benefit](/marketplace/azure-consumption-commitment-benefit). |
 
 ### Time series databases and analytics
 
