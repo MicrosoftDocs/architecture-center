@@ -269,16 +269,6 @@ Consider the following points when deciding how to partition data with Azure Cac
 
 - Redis supports a limited number of atomic operations. The only operations of this type that support multiple keys and values are MGET and MSET operations. MGET operations return a collection of values for a specified list of keys, and MSET operations store a collection of values for a specified list of keys. If you need to use these operations, the key-value pairs that are referenced by the MSET and MGET commands must be stored within the same database.
 
-## Partitioning Azure Service Fabric
-
-Azure Service Fabric is a microservices platform that provides a runtime for distributed applications in the cloud. Service Fabric supports .NET guest executables, stateful and stateless services, and containers. Stateful services provide a [reliable collection][service-fabric-reliable-collections] to persistently store data in a key-value collection within the Service Fabric cluster. For more information about strategies for partitioning keys in a reliable collection, see [Guidelines and recommendations for reliable collections in Azure Service Fabric].
-
-### Next steps
-
-- [Overview of Azure Service Fabric] is an introduction to Azure Service Fabric.
-
-- [Partition Service Fabric reliable services] provides more information about reliable services in Azure Service Fabric.
-
 ## Partitioning Azure Event Hubs
 
 [Azure Event Hubs][event-hubs] is designed for data streaming at massive scale, and partitioning is built into the service to enable horizontal scaling. Each consumer only reads a specific partition of the message stream.
@@ -295,37 +285,20 @@ For considerations about trade-offs between availability and consistency, see [A
 
 [Availability and consistency in Event Hubs]: /azure/event-hubs/event-hubs-availability-and-consistency
 [azure-limits]: /azure/azure-subscription-service-limits
-[Azure Content Delivery Network]: /azure/cdn/cdn-overview
 [Azure Cache for Redis]: https://azure.microsoft.com/services/cache
 [Azure Storage Table Design Guide]: /azure/storage/storage-table-design-guide
-[Building a Polyglot Solution]: /previous-versions/msp-n-p/dn313279(v=pandp.10)
 [cosmos-db-ru]: /azure/cosmos-db/request-units
-[Data Access for Highly Scalable Solutions: Using SQL, NoSQL, and Polyglot Persistence]: /previous-versions/msp-n-p/dn271399(v=pandp.10)
-[Data consistency primer]: /previous-versions/msp-n-p/dn589800(v=pandp.10)
-[Data Partitioning Guidance]: /previous-versions/msp-n-p/dn589795(v=pandp.10)
 [Data Types]: https://redis.io/topics/data-types
 [cosmos-db-sql-api]: /azure/cosmos-db/sql-api-introduction
-[Elastic Database features overview]: /azure/sql-database/sql-database-elastic-scale-introduction
 [event-hubs]: /azure/event-hubs
-[Federations Migration Utility]: https://code.msdn.microsoft.com/vstudio/Federations-Migration-ce61e9c1
-[guidelines and recommendations for reliable collections in Azure Service Fabric]: /azure/service-fabric/service-fabric-reliable-services-reliable-collections-guidelines
-[Multi-shard querying]: /azure/sql-database/sql-database-elastic-scale-multishard-querying
-[Overview of Azure Service Fabric]: /azure/service-fabric/service-fabric-overview
-[Partition Service Fabric reliable services]: /azure/service-fabric/service-fabric-concepts-partitioning
 [Partitioning: how to split data among multiple Redis instances]: https://redis.io/topics/partitioning
 [Performing Entity Group Transactions]: /rest/api/storageservices/Performing-Entity-Group-Transactions
 [Redis cluster tutorial]: https://redis.io/topics/cluster-tutorial
-[Running Redis on a CentOS Linux VM in Azure]: /archive/blogs/tconte/running-redis-on-a-centos-linux-vm-in-windows-azure
-[Scaling using the Elastic Database split-merge tool]: /azure/sql-database/sql-database-elastic-scale-overview-split-and-merge
-[Using Azure Content Delivery Network]: /azure/cdn/cdn-create-new-endpoint
 [Service Bus quotas]: /azure/service-bus-messaging/service-bus-quotas
-[service-fabric-reliable-collections]: /azure/service-fabric/service-fabric-reliable-services-reliable-collections
 [Service limits in AI Search]: /azure/search/search-limits-quotas-capacity
-[Sharding pattern]: ../patterns/sharding.yml
 [Supported Data Types (AI Search)]: /rest/api/searchservice/Supported-data-types
 [Transactions]: https://redis.io/topics/transactions
 [What is Event Hubs?]: /azure/event-hubs/event-hubs-what-is-event-hubs
 [What is AI Search?]: /azure/search/search-what-is-azure-search
-[What is Azure SQL Database?]: /azure/sql-database/sql-database-technical-overview
 [scalability targets]: /azure/storage/common/storage-scalability-targets
 [Scalable partitioning strategy]: /rest/api/storageservices/designing-a-scalable-partitioning-strategy-for-azure-table-storage
