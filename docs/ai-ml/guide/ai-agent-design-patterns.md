@@ -481,7 +481,7 @@ These orchestration patterns are technology-agnostic. You can implement them by 
 - [Magentic orchestration](/agent-framework/user-guide/workflows/orchestrations/magentic)
 
 > [!TIP]
-> All of these orchestrations workflow implementations in the Microsoft Agent Framework support [human-in-the-loop](/agent-framework/user-guide/workflows/orchestrations/human-in-the-loop) capabilities for approvals and feedback during workflow execution.
+> All of these orchestration implementations in the Microsoft Agent Framework support [human-in-the-loop](/agent-framework/user-guide/workflows/orchestrations/human-in-the-loop) capabilities for approvals and feedback during workflow execution.
 
 For hands-on implementation, explore [Agent Framework declarative workflow samples](https://github.com/microsoft/agent-framework/tree/main/workflow-samples) on GitHub.
 
