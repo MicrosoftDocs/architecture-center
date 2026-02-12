@@ -44,6 +44,8 @@ The patterns in this guide show proven approaches for orchestrating multiple age
 
 The sequential orchestration pattern chains AI agents in a predefined, linear order. Each agent processes the output from the previous agent in the sequence, which creates a pipeline of specialized transformations.
 
+*Also known as: pipeline, prompt chaining, linear delegation.*
+
 :::image type="complex" border="false" source="_images/sequential-pattern.svg" alt-text="Diagram that shows sequential orchestration where agents process tasks in a defined pipeline order. Output flows from one agent to the next." lightbox="_images/sequential-pattern.svg":::
    The image shows several sections that have arrows and connecting lines. An arrow points from Input to Agent 1. A line connects Agent 1 to a section that reads Model, knowledge, and tools. An arrow points from Agent 1 to Agent 2. A line connects Agent 2 to a section that reads Model, knowledge, and tools. An arrow points from Agent 2 to a box that has ellipses. An arrow points from this box to Agent n. A line connects Agent n to a section that reads Model, knowledge, and tools. An arrow points from Agent n to Result. A section that reads Common state spans the Agent 1 section through the Agent n section.
 :::image-end:::
@@ -99,6 +101,8 @@ A law firm's document management software uses sequential agents for contract ge
 ## Concurrent orchestration
 
 The concurrent orchestration pattern runs multiple AI agents simultaneously on the same task. This approach allows each agent to provide independent analysis or processing from its unique perspective or specialization.
+
+*Also known as: parallel, fan-out/fan-in, scatter-gather, map-reduce.*
 
 :::image type="complex" border="false" source="_images/concurrent-pattern.svg" alt-text="Diagram that shows concurrent orchestration where multiple agents process the same input task simultaneously and their results are aggregated." lightbox="_images/concurrent-pattern.svg":::
    The image contains three key sections. In the top section, an arrow points from Input to the Initiator and collector agent. An arrow points from the Initiator and collector agent to a section that reads Aggregated results based on combined, compared, and selected results. A line connects the Initiator and collector agent to a line that connects to four sections via arrows. These sections are Agent 1, Agent 2, an unlabeled section that has ellipses, and Agent n. An arrow points from Agent 1 to Intermediate result. A line points from Agent 1 and splits into two flows. The first flow shows a Sub agent 1.1 section and a section that reads Model, knowledge, and tools. The second flow shows a Sub agent 1.2 and a section that reads Model, knowledge and tools. An arrow points from Agent 2 to Intermediate result. A line connects Agent 2 to a section that reads Model, knowledge, and tools. An arrow points from the unlabeled section that has ellipses to Intermediate results. An arrow points from Agent n to Intermediate result. A line connects Agent n to a section that reads Model, knowledge, and tools.
@@ -164,6 +168,8 @@ These independent results are then combined into a comprehensive investment reco
 
 The group chat orchestration pattern enables multiple agents to solve problems, make decisions, or validate work by participating in a shared conversation thread where they collaborate through discussion. A chat manager coordinates the flow by determining which agents can respond next and by managing different interaction modes, from collaborative brainstorming to structured quality gates.
 
+*Also known as: roundtable, collaborative, multi-agent debate, council.*
+
 :::image type="complex" border="false" source="_images/group-chat-pattern.svg" alt-text="Diagram that shows group chat orchestration where multiple agents participate in a managed conversation. A central chat manager coordinates the discussion flow." lightbox="_images/group-chat-pattern.svg":::
    The image shows several sections that have arrows and connecting lines. An arrow points from Input to Group chat manager. An arrow starts at Model, goes through Group chat manager, and points to Accumulating chat thread. A section below this line reads New group instructions based on accumulated context. A line connects to a section that reads Human chat participant or observer. An arrow points from Group chat manager to Agent 2. A double-sided arrow connects Agent 1, an unlabeled box that has ellipses, and Agent n. A line connects Agent 1, Agent 2, the unlabeled box, and Agent n. A line connects Agent 1 to Model and knowledge. A line connects Agent 2 to Model and knowledge. A line connects Agent n to Model and knowledge. An arrow points from a section that reads Chat output from agents to Accumulating chat thread. A line connects Accumulating chat thread to Result.
 :::image-end:::
@@ -212,6 +218,8 @@ Managing conversation flow and preventing infinite loops require careful attenti
 
 The maker-checker loop is a specific type of group chat orchestration where one agent, the *maker*, creates or proposes something, and another agent, the *checker*, evaluates the result against defined criteria. If the checker identifies gaps or quality issues, it pushes the conversation back to the maker with specific feedback. The maker revises its output and resubmits. This cycle repeats until the checker approves the result or the orchestration reaches a maximum iteration limit. Although the group chat pattern doesn't require agents to *take turns* chatting, the maker-checker loop requires a formal turn-based sequence that the chat manager drives.
 
+*Also known as: evaluator-optimizer, generator-verifier, critic loop, reflection loop.*
+
 This pattern requires clear acceptance criteria for the checker agent so that it can make consistent pass or fail decisions. An iteration cap is used to prevent infinite refinement loops combined with a fallback behavior for when the cap is reached, such as escalating to a human reviewer or returning the best result with a quality warning.
 
 ### Group chat orchestration example
@@ -235,6 +243,8 @@ The chat manager facilitates structured debate where agents challenge each other
 ## Handoff orchestration
 
 The handoff orchestration pattern enables dynamic delegation of tasks between specialized agents. Each agent can assess the task at hand and decide whether to handle it directly or transfer it to a more appropriate agent based on the context and requirements.
+
+*Also known as: routing, triage, transfer, dispatch, delegation.*
 
 :::image type="complex" border="false" source="_images/handoff-pattern.svg" alt-text="Diagram that shows handoff orchestration where an agent intelligently routes tasks to appropriate specialist agents based on dynamic analysis." lightbox="_images/handoff-pattern.svg":::
    The image shows five key sections. The Agent 1 section includes input, a model and general knowledge section, and a result. The Agent 2 section includes a result and model and knowledge section. The Agent 3 section includes the model, knowledge, and tools section, a result, and an unlabeled section that connects to a result. The Agent n section includes a model and knowledge section and a result. The Customer support employee section includes a result. Curved arrows flow from agent to agent and to the customer support employee.
@@ -285,6 +295,8 @@ One example of a handoff instance is highlighted in the diagram. It begins with 
 ## Magentic orchestration
 
 The magentic orchestration pattern is designed for open-ended and complex problems that don't have a predetermined plan of approach. Agents in this pattern typically have tools that allow them to make direct changes in external systems. The focus is as much on building and documenting the approach to solve the problem as it is on implementing that approach. The task list is dynamically built and refined as part of the workflow through collaboration between specialized agents and a magentic manager agent. As the context evolves, the magentic manager agent builds a task ledger to develop the approach plan with goals and subgoals, which is eventually finalized, followed, and tracked to complete the desired outcome.
+
+*Also known as: dynamic orchestration, task-ledger-based orchestration, adaptive planning.*
 
 :::image type="complex" border="false" source="_images/magentic-pattern.svg" alt-text="Diagram that shows magentic orchestration." lightbox="_images/magentic-pattern.svg":::
    The image shows a Manager agent section. It includes the input and a model. An arrow labeled Invoke agents points from the Manager agent to Agent 2. An arrow labeled Evaluate goal loop points to the Task complete section. An arrow labeled Yes points to the Results section, and an arrow labeled No points back to the Manager agent. An arrow points from the Manager agent to the Task and progress ledger section. A line connects the Task and progress ledger section to the Human participant section. A line that has three arrows points to Agent 1, Agent 2, an unlabeled section, and Agent n. A line connects Agent 1 to a section that reads Model and knowledge. A line connects Agent 2 to a section that reads Model, knowledge, and tools. A line connects Agent n to Model and tools. An arrow points from the section that reads Model, knowledge, and tools to External systems and from the Model and tools section to External systems.
