@@ -396,6 +396,8 @@ Implementing proper security mechanisms in these design patterns minimizes the r
 
 - Consider how to handle the user's identity across agents. Agents must have broad access to knowledge stores to handle requests from all users, but they must not return data that's inaccessible to the user. Security trimming must be implemented in every agent in the pattern.
 
+- Apply content safety [guardrails](/azure/ai-foundry/guardrails/guardrails-overview) at multiple points in the orchestration, including user input, tool calls, tool responses, and final output. Intermediate agents can introduce or propagate harmful content.
+
 ### Observability and testing
 
 Distributing your AI system across multiple agents requires monitoring and testing each agent individually, as well as the system as a whole, to ensure proper functionality. When you design your observability and testing strategies, consider the following recommendations:
