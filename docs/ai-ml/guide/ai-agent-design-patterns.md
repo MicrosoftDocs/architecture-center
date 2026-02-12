@@ -436,7 +436,7 @@ Distributing your AI system across multiple agents requires monitoring and testi
 
 ### Human participation
 
-Several orchestration patterns support human involvement, such as observers in group chat, reviewers in maker-checker loops, and escalation targets in handoff and magentic orchestrations. When you design your orchestration, identify which points require human input and whether that input is optional or mandatory. Mandatory approval gates, such as reviewing a magentic task ledger before agents execute it, make the orchestration synchronous at that step and introduce wait time. Design the orchestration to persist state at these checkpoints so that it can resume after human review without replaying prior agent work.
+Several orchestration patterns support human-in-the-loop (HITL) involvement: observers in group chat, reviewers in maker-checker loops, and escalation targets in handoff and magentic orchestrations. Identify which points require human input, whether that input is optional or mandatory, and whether the human response is an approval that advances the workflow or feedback that loops back to the agent for refinement. Mandatory gates make the orchestration synchronous at that step, so persist state at these checkpoints to allow resumption without replaying prior agent work. You can also scope HITL gates to specific tool invocations rather than full agent outputs, which allows the orchestration to proceed autonomously for low-risk actions while requiring approval only for sensitive operations.
 
 ### Common pitfalls and anti-patterns
 
@@ -479,6 +479,8 @@ These orchestration patterns are technology-agnostic. You can implement them by 
 - [Group Chat orchestration](/agent-framework/user-guide/workflows/orchestrations/group-chat)
 - [Handoff orchestration](/agent-framework/user-guide/workflows/orchestrations/handoff)
 - [Magentic orchestration](/agent-framework/user-guide/workflows/orchestrations/magentic)
+
+All of these orchestrations support [human-in-the-loop](/agent-framework/user-guide/workflows/orchestrations/human-in-the-loop) capabilities for approvals and feedback during workflow execution.
 
 For hands-on implementation, explore [Agent Framework declarative workflow samples](https://github.com/microsoft/agent-framework/tree/main/workflow-samples) on GitHub.
 
