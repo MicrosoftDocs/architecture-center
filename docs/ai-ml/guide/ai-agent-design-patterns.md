@@ -108,7 +108,7 @@ The concurrent orchestration pattern runs multiple AI agents simultaneously on t
    The image contains three key sections. In the top section, an arrow points from Input to the Initiator and collector agent. An arrow points from the Initiator and collector agent to a section that reads Aggregated results based on combined, compared, and selected results. A line connects the Initiator and collector agent to a line that connects to four sections via arrows. These sections are Agent 1, Agent 2, an unlabeled section that has ellipses, and Agent n. An arrow points from Agent 1 to Intermediate result. A line points from Agent 1 and splits into two flows. The first flow shows a Sub agent 1.1 section and a section that reads Model, knowledge, and tools. The second flow shows a Sub agent 1.2 and a section that reads Model, knowledge and tools. An arrow points from Agent 2 to Intermediate result. A line connects Agent 2 to a section that reads Model, knowledge, and tools. An arrow points from the unlabeled section that has ellipses to Intermediate results. An arrow points from Agent n to Intermediate result. A line connects Agent n to a section that reads Model, knowledge, and tools.
 :::image-end:::
 
-This pattern addresses scenarios where you need diverse insights or approaches to the same problem. Instead of sequential processing, all agents work in parallel, which reduces overall run time and provides comprehensive coverage of the problem space. This orchestration pattern resembles the Fan-out/Fan-in cloud design pattern. The results from each agent are often aggregated to return a final result, but that's not required. Each agent can independently produce its own results within the workload, such as invoking tools to accomplish tasks or updating different data stores in parallel.
+This pattern addresses scenarios where you need diverse insights or approaches to the same problem. Instead of sequential processing, all agents work in parallel, which reduces overall run time and provides comprehensive coverage of the problem space. This orchestration pattern resembles the Fan-out/Fan-in cloud design pattern. The results from each agent are often aggregated to return a final result, but that's not required. Each agent can independently produce its own results within the workload, such as invoking tools to accomplish tasks or updating different data stores in parallel. When aggregation is needed, choose a strategy that fits the task: voting or majority-rule for classification, weighted merging for scored recommendations, or an LLM-synthesized summary when results need to be reconciled into a coherent narrative.
 
 Agents operate independently and don't hand off results to each other. An agent might invoke extra AI agents by using its own orchestration approach as part of its independent processing. The available agents must know which agents are available for processing. This pattern supports both deterministic calls to all registered agents and dynamic selection of which agents to invoke based on the task requirements.
 
@@ -446,7 +446,7 @@ Distributing your AI system across multiple agents requires monitoring and testi
 
 - Design testable interfaces for individual agents.
 
-- Implement integration tests for multi-agent workflows.
+- Implement integration tests for multi-agent workflows. Because agent outputs are nondeterministic, use scoring rubrics or LLM-as-judge evaluations rather than exact-match assertions.
 
 ### Human participation
 
