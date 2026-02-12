@@ -100,7 +100,9 @@ At this time, there are no network access control lists or other attributes that
 
 For all new ExpressRoute connections to Azure, FastPath is the default configuration. For existing ExpressRoute circuits, contact Azure support to activate FastPath.
 
-ExpressRoute provider circuits does not support VNet peering over FastPath.
+If you are using ExpressRoute Direct, FastPath does support VNet peering, with these conditions:
+Global VNet peering is not supported![alt text](image.png)
+ExpressRoute provider circuits do not support VNet peering over FastPath.
 
 If other virtual networks are peered with one that's connected to ExpressRoute, the network traffic from your on-premises network to the other spoke virtual networks is sent to the virtual network gateway. The workaround is to connect all virtual networks to the ExpressRoute circuit directly.
 
