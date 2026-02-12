@@ -396,6 +396,8 @@ These patterns require properly functioning agents and reliable transitions betw
 
 - Surface errors instead of hiding them, so downstream agents and orchestrator logic can respond appropriately.
 
+- Validate agent output before passing it to the next agent. Low-confidence, malformed, or off-topic responses can cascade through a pipeline. The orchestrator or the receiving agent should check output quality and either retry, request clarification, or halt the workflow rather than propagate bad input.
+
 - Consider circuit breaker patterns for agent dependencies.
 
 - Design agents to be as isolated as is practical from each other, with single points of failure not shared between agents. For example:
