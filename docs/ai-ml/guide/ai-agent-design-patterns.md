@@ -354,9 +354,13 @@ As described in [Start with the right level of complexity](#start-with-the-right
 
 Some patterns require you to route flow between agents deterministically. Others rely on agents to choose their own routes. If your agents are defined in a no-code or low-code environment, you might not control those behaviors. If you define your agents in code by using SDKs like [Microsoft Agent Framework](/agent-framework/overview/agent-framework-overview) or Semantic Kernel, you have more control.
 
-### Context window
+### Context and state management
 
-AI agents often have limited context windows. This constraint can affect their ability to process complex tasks. When you implement these patterns, decide what context the next agent requires to be effective. In some scenarios, you need the full, raw context gathered so far. In other scenarios, a summarized or truncated version is more appropriate. If your agent can work without accumulated context and only requires a new instruction set, take that approach instead of providing context that doesn't help accomplish the agent's task.
+AI agents often have limited context windows. This constraint can affect their ability to process complex tasks, especially as context grows with each agent transition. When you implement these patterns, decide what context the next agent requires to be effective. In some scenarios, you need the full, raw context gathered so far. In other scenarios, a compacted version, such as a summary of prior agent outputs, is more appropriate. If your agent can work without accumulated context and only requires a new instruction set, take that approach instead of providing context that doesn't help accomplish the agent's task.
+
+In multi-agent orchestrations, context windows can grow rapidly because each agent adds its own reasoning, tool results, and intermediate outputs. Monitor accumulated context size and use compaction techniques, such as summarization or selective pruning, between agents to prevent exceeding model limits or degrading response quality.
+
+For orchestrations that span multiple user interactions or long-running tasks, persist shared state externally rather than relying on in-memory context alone. Store task progress, intermediate results, and conversation history in a durable store so that agents can resume work after interruptions. Scope persisted state to the minimum necessary information to reduce token overhead and privacy risk.
 
 ### Reliability
 
