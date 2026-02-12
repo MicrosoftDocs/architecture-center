@@ -346,7 +346,7 @@ When you implement any of these agent design patterns, several considerations mu
 
 ### Single agent, multitool
 
-As described in [Start with the right level of complexity](#start-with-the-right-level-of-complexity), you can address some problems with a single agent if you give it sufficient access to tools and knowledge sources. As the number of knowledge sources and tools increases, it becomes difficult to provide a predictable agent experience. If a single agent can reliably solve your scenario, consider adopting that approach. Decision-making and flow-control overhead often exceed the benefits of breaking the task into multiple agents. However, security boundaries, network line of sight, and other factors can still render a single-agent approach infeasible.
+As described in [Start with the right level of complexity](#start-with-the-right-level-of-complexity), you can address some problems with a single agent if you give it sufficient access to tools and knowledge sources. Protocols like [Model Context Protocol (MCP)](/azure/developer/ai/intro-agents-mcp) standardize how agents discover and invoke tools. As the number of knowledge sources and tools increases, it becomes difficult to provide a predictable agent experience. If a single agent can reliably solve your scenario, consider adopting that approach. Decision-making and flow-control overhead often exceed the benefits of breaking the task into multiple agents. However, security boundaries, network line of sight, and other factors can still render a single-agent approach infeasible.
 
 ### Deterministic routing
 
