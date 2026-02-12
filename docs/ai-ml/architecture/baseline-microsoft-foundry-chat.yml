@@ -19,7 +19,7 @@ products:
   - foundry-tools
   - azure-app-service
   - azure-monitor
-  -microsoft-foundry
+  - microsoft-foundry
   - foundry-agent-service
 name: Baseline Microsoft Foundry chat reference architecture
 summary: Learn how to build network-secured, highly available, and zone-redundant enterprise chat applications by using Microsoft Foundry tools and Azure App Service.

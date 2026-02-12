@@ -13,7 +13,7 @@ azureCategories:
   - ai-machine-learning
 products:
   - azure-functions
-  -microsoft-foundry
+  - microsoft-foundry
   - azure-ai-foundry-sdk
   - foundry-tools
   - azure-cognitive-search

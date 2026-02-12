@@ -16,7 +16,7 @@ azureCategories:
 products:
   - azure-app-service
   - azure-monitor
-  -microsoft-foundry
+  - microsoft-foundry
   - foundry-agent-service
   - azure-ai-foundry-sdk
 name: Basic Microsoft Foundry chat reference architecture

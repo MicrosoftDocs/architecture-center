@@ -17,7 +17,7 @@ products:
   - foundry-tools
   - azure-logic-apps
   - azure-machine-learning-studio
-  -microsoft-foundry
+  - microsoft-foundry
   - azure-storage
 name: Build and deploy custom document processing models on Azure
 summary: Learn more about Azure options for orchestrating, storing, building, deploying, and using custom document processing models.
