@@ -240,7 +240,7 @@ The handoff orchestration pattern enables dynamic delegation of tasks between sp
    The image shows five key sections. The Agent 1 section includes input, a model and general knowledge section, and a result. The Agent 2 section includes a result and model and knowledge section. The Agent 3 section includes the model, knowledge, and tools section, a result, and an unlabeled section that connects to a result. The Agent n section includes a model and knowledge section and a result. The Customer support employee section includes a result. Curved arrows flow from agent to agent and to the customer support employee.
 :::image-end:::
 
-This pattern addresses scenarios where the optimal agent for a task isn't known upfront or where the task requirements become clear only during processing. It enables intelligent routing and ensures that tasks reach the most capable agent. Agents in this pattern don't typically work in parallel. Full control transfers from one agent to another agent.
+This pattern addresses scenarios where the optimal agent for a task isn't known upfront or where the task requirements become clear only during processing. It enables intelligent delegation and ensures that tasks reach the most capable agent. Agents in this pattern don't typically work in parallel. Full control transfers from one agent to another agent.
 
 ### When to use handoff orchestration
 
@@ -258,7 +258,7 @@ Consider the agent handoff pattern in the following scenarios:
 
 Avoid this pattern in the following scenarios:
 
-- The appropriate agents and their order are always known upfront.
+- The appropriate agent or sequence of agents is identifiable from the initial input. In that case, use deterministic routing or a simpler dispatcher that classifies the input upfront and sends it to the appropriate agent without taking an active role in processing.
 
 - Task routing is deterministic and rule-based, not based on dynamic context window or dynamic interpretation.
 
