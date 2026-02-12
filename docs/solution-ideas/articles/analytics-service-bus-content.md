@@ -2,8 +2,6 @@
 
 This architecture showcases how to build a scalable, secure, and intelligent real-time analytics solution using Azure Service Bus and Microsoft Fabric Real-Time Intelligence (RTI). Designed for cloud architects, data engineers, and retail solution strategists, it enables actionable insights from high-velocity data streams - ideal for scenarios like personalized product recommendations, dynamic pricing, and inventory optimization. 
 
-### Scenario: Personalized Recommendations
-
 Imagine a customer browsing a retail app. As they interact—clicking on products, adding items to their cart, or scanning loyalty cards in-store—these events are streamed in real time. The system analyzes this behavior instantly to recommend complementary products, apply targeted discounts, or alert staff to restock shelves. 
 
 ## Architecture
