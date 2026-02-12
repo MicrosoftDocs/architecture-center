@@ -72,7 +72,7 @@ Esri's ArcGIS and virtual desktop solutions are frequently used for:
 - Employees like bring your own device (BYOD) users, mobile users, and branch workers.
 - Specialized workloads like land management (facilities and real estate), design and engineering, legacy apps, and software testing.
 
-Although GIS has been implemented in Azure for many years, it has typically included only the back-end components. That implementation introduces latency between the client and server components. Organizations have been able to deploy desktop GIS on VMs from Azure Marketplace, but that deployment is for thick clients and isn't very scalable. This architecture addresses both challenges.
+Although GIS has been implemented in Azure for many years, it has typically included only the back-end components. That implementation introduces latency between the client and server components. Organizations have been able to deploy desktop GIS on Azure VMs from the [Microsoft Marketplace](https://marketplace.microsoft.com/marketplace/apps?search=ArcGIS), but that deployment is for thick clients and isn't very scalable. This architecture addresses both challenges.
 
 ## Considerations
 

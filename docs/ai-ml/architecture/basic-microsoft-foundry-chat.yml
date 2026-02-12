@@ -8,6 +8,7 @@ metadata:
   ms.topic: reference-architecture
   ms.collection: ce-skilling-ai-copilot  
   ms.subservice: reference-architecture
+  ms.custom: arb-aiml
 azureCategories:
   - ai-machine-learning
   - web

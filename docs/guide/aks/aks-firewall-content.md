@@ -82,7 +82,7 @@ A Log Analytics workspace is used to collect the diagnostics logs and metrics fr
 
 ### Alternatives
 
-You can use a third-party firewall from Azure Marketplace instead of [Azure Firewall](/azure/firewall/overview). If you do, it's your responsibility to properly configure the firewall to inspect and allow or deny the inbound and outbound traffic from the AKS cluster.
+You can use a third-party firewall from the [Microsoft Marketplace](https://marketplace.microsoft.com/search/products?subcategories=firewalls&category=security) instead of [Azure Firewall](/azure/firewall/overview). If you do, it's your responsibility to properly configure the firewall to inspect and allow or deny the inbound and outbound traffic from the AKS cluster.
 
 ## Scenario details
 

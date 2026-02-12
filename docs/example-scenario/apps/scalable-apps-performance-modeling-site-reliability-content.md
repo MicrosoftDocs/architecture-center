@@ -42,7 +42,7 @@ Client applications such as web apps, mobile apps, and even service applications
 Because this solution uses a highly scalable microservices-based architecture, consider these alternatives for the compute plane:
 
 - [Azure Functions](https://azure.microsoft.com/services/functions) for serverless API services
-- [Azure Spring Apps](https://azure.microsoft.com/services/spring-cloud) for Java-based microservices
+- [Azure Container Apps](/azure/container-apps/overview) for Java-based microservices
 
 ## Appropriate reliability
 

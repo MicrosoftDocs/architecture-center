@@ -124,7 +124,7 @@ This architecture uses the following components:
 
 - [Azure Data Factory](/azure/data-factory/introduction) is a hybrid data integration service. You can use this fully managed, serverless solution to create, schedule, and orchestrate extract-transform-load (ETL) and extract-load-transform (ELT) workflows.
 
-- [IIS][Internet Information Server with Windows 2019] is an extensible web server. Its modular architecture provides a flexible web hosting environment.
+- [IIS on Virtual Machines](https://marketplace.microsoft.com/search/products?search=IIS) is an extensible web server. Its modular architecture provides a flexible web hosting environment.
 
 - [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer/reliability) distributes inbound traffic to back-end pool instances. Load Balancer directs traffic according to configured load-balancing rules and health probes. The back-end pool instances can be Azure VMs or instances in an Azure Virtual Machine Scale Set.
 
@@ -206,7 +206,6 @@ To estimate the cost of implementing this solution, use the [Azure pricing calcu
 - Azure Files pricing depends on many factors: [data volume, data redundancy, transaction volume, and the number of file sync servers][Azure Files Pricing] that you use.
 - For SSD managed disk pricing, see [Managed disks pricing][Managed Disks pricing].
 - With Site Recovery, you pay for each [protected instance][Azure Site Recovery pricing].
-- For IIS software plan charges, see [Internet Information Services pricing][Internet Information Services pricing].
 
 - Other services are free with your Azure subscription, but you pay for usage and traffic:
 
@@ -264,7 +263,7 @@ Various Azure PaaS components provide scalability:
 
 Principal author:
 
- - [Philip Brooks](https://www.linkedin.com/in/philipbbrooks) | Senior Technical Program Manager
+- [Philip Brooks](https://www.linkedin.com/in/philipbbrooks) | Senior Technical Program Manager
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
@@ -284,7 +283,6 @@ Principal author:
   - [Micro Focus Enterprise Server on Azure VMs][Micro Focus Enterprise Server on Azure VMs]
   - [Modernize mainframe & midrange data][Modernize mainframe & midrange data]
 
-[About Site Recovery]: /azure/site-recovery/site-recovery-overview
 [Astadia]: https://www.astadia.com/
 [Azure Bastion pricing]: https://azure.microsoft.com/pricing/details/azure-bastion/
 [Azure ExpressRoute pricing]: https://azure.microsoft.com/pricing/details/expressroute/
@@ -302,24 +300,17 @@ Principal author:
 [Create, change, or delete a network interface]: /azure/virtual-network/virtual-network-network-interface
 [Data Factory pricing]: https://azure.microsoft.com/pricing/details/data-factory/
 [Email address for information on migrating legacy systems to Azure]: mailto:legacy2azure@microsoft.com
-[Internet Information Server with Windows 2019]: https://azuremarketplace.microsoft.com/marketplace/apps/cloudwhizsolutions.internet-information-server-with-windows-2019-cw
-[Internet Information Services pricing]: https://azuremarketplace.microsoft.com/marketplace/apps/cloudwhizsolutions.internet-information-server-with-windows-2019-cw?tab=PlansAndPrice
-[Introduction to Azure Blob storage]: /azure/storage/blobs/storage-blobs-introduction
-[Introduction to Azure managed disks]: /azure/virtual-machines/managed-disks-overview
 [Load Balancing pricing]: https://azure.microsoft.com/pricing/details/load-balancer/
 [Mainframe rehosting on Azure virtual machines]: /azure/virtual-machines/workloads/mainframe-rehosting/overview
 [Managed Disks pricing]: https://azure.microsoft.com/pricing/details/managed-disks/
 [Micro Focus]: https://www.microfocus.com/home
 [Micro Focus Enterprise Server on Azure VMs]: ./micro-focus-server.yml
-[Microsoft Azure Well-Architected Framework]: /azure/architecture/framework/index
 [Modernize mainframe & midrange data]: /azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure
-[Network security groups]: /azure/virtual-network/network-security-groups-overview
 [Overview of the performance efficiency pillar]: /azure/architecture/framework/scalability/overview
 [Pricing calculator]: https://azure.microsoft.com/pricing/calculator/
 [Unisys mainframe migration]: ../../reference-architectures/migration/unisys-mainframe-migration.yml
 [Optimize VM costs]: /azure/architecture/framework/cost/optimize-vm
 [Unisys ClearPath MCP virtualization on Azure]: /azure/architecture/example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost
-[Use auto-failover groups to enable transparent and coordinated failover of multiple databases]: /azure/azure-sql/database/auto-failover-group-overview
 [Virtualization of Unisys ClearPath Forward OS 2200 enterprise server on Azure]: /azure/architecture/mainframe/virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure
 [Virtual Network pricing]: https://azure.microsoft.com/pricing/details/virtual-network/
 [Visio version of architecture diagram]: https://arch-center.azureedge.net/US-1813846-PR-2593-migrate-unisys-dorado-mainframe-apps-architecture-diagram.vsdx
@@ -327,13 +318,5 @@ Principal author:
 [VM pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux/
 [What are ARM templates?]: /azure/azure-resource-manager/templates/overview
 [What is Application Insights?]: /azure/azure-monitor/app/app-insights-overview
-[What is Azure Bastion?]: /azure/bastion/bastion-overview
-[What is Azure Data Factory?]: /azure/data-factory/introduction
-[What is Azure ExpressRoute?]: /azure/expressroute/expressroute-introduction
-[What is Azure Files?]: /azure/storage/files/storage-files-introduction
-[What is Azure Load Balancer?]: /azure/load-balancer/load-balancer-overview
 [What is Azure Network Watcher?]: /azure/network-watcher/network-watcher-monitoring-overview
-[What is Azure Private Link?]: /azure/private-link/private-link-overview
-[What is Azure SQL Database?]: /azure/azure-sql/database/sql-database-paas-overview
-[What is Azure Virtual Network?]: /azure/virtual-network/virtual-networks-overview
 [What is a virtual machine?]: https://azure.microsoft.com/overview/what-is-a-virtual-machine/
