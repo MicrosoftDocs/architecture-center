@@ -342,6 +342,18 @@ Throughout this process, the manager agent continuously refines the task ledger 
 
 The manager agent watches for excessive stalls in restoring service and guards against infinite remediation loops. It maintains a complete audit trail of the evolving plan and the implementation steps, which provides transparency for post-incident review. This transparency ensures that the SRE team can improve both the workload and the automation based on lessons learned.
 
+## Choosing a pattern
+
+The following table compares the orchestration patterns to help you identify the approach that fits your coordination requirements.
+
+| Pattern | Coordination | Routing | Best for | Watch out for |
+| :------ | :----------- | :------ | :------- | :------------ |
+| [Sequential](#sequential-orchestration) | Linear pipeline; each agent processes the previous agent's output | Deterministic, predefined order | Step-by-step refinement with clear stage dependencies | Failures in early stages propagate; no parallelism |
+| [Concurrent](#concurrent-orchestration) | Parallel; agents work independently on the same input | Deterministic or dynamic agent selection | Independent analysis from multiple perspectives; latency-sensitive scenarios | Requires conflict resolution when results contradict; resource-intensive |
+| [Group chat](#group-chat-orchestration) | Conversational; agents contribute to a shared thread | Chat manager controls turn order | Consensus-building, brainstorming, iterative maker-checker validation | Conversation loops; difficult to control with many agents |
+| [Handoff](#handoff-orchestration) | Dynamic delegation; one active agent at a time | Agents decide when to transfer control | Tasks where the right specialist emerges during processing | Infinite handoff loops; unpredictable routing paths |
+| [Magentic](#magentic-orchestration) | Plan-build-execute; manager agent builds and adapts a task ledger | Manager agent assigns and reorders tasks dynamically | Open-ended problems with no predetermined solution path | Slow to converge; stalls on ambiguous goals |
+
 ## Implementation considerations
 
 When you implement any of these agent design patterns, several considerations must be addressed. Reviewing these considerations helps you avoid common pitfalls and ensures that your agent orchestration is robust, secure, and maintainable.
