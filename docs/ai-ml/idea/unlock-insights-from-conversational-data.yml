@@ -12,11 +12,11 @@ metadata:
 azureCategories:
   - ai-machine-learning
 products:
-  - ai-services
+  - foundry-tools
   - azure-container-apps
   - azure-cosmos-db
   - semantic-kernel
-  - azure-ai-foundry
+  -microsoft-foundry
 name: Build a conversation knowledge mining solution by using Azure AI services
 summary: Learn how to design a scalable conversation analytics system that extracts insights from conversational data by using Azure AI services and Microsoft Foundry.
 thumbnailUrl: /azure/architecture/browse/thumbs/unlock-insights-from-conversational-data.png

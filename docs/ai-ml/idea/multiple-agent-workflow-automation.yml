@@ -14,9 +14,9 @@ azureCategories:
 products:
   - azure-container-apps
   - azure-cognitive-search
-  - ai-services
+  - foundry-tools
   - azure-cosmos-db
-  - azure-ai-foundry
+  -microsoft-foundry
   - semantic-kernel
 name: Build a multiple-agent workflow automation solution by using Microsoft Agent Framework
 summary: Learn how to design scalable automation pipelines where multiple AI agents collaborate by using Microsoft Agent Framework and Azure Container Apps for enterprise-grade tasks.

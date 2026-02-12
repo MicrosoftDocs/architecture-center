@@ -16,11 +16,11 @@ azureCategories:
   - networking
   - security
 products:
-  - ai-services
+  - foundry-tools
   - azure-app-service
   - azure-monitor
-  - azure-ai-foundry
-  - azure-ai-foundry-agent-service
+  -microsoft-foundry
+  - foundry-agent-service
 name: Baseline Microsoft Foundry chat reference architecture
 summary: Learn how to build network-secured, highly available, and zone-redundant enterprise chat applications by using Microsoft Foundry tools and Azure App Service.
 thumbnailUrl: /azure/architecture/browse/thumbs/microsoft-foundry-end-to-end-baseline-deployment.png
