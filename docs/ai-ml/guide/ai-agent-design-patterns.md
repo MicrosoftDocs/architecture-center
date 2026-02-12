@@ -466,38 +466,31 @@ Applications sometimes require you to combine multiple orchestration patterns to
 
 AI agent orchestration patterns extend and complement traditional [cloud design patterns](/azure/architecture/patterns/) by addressing the unique challenges of coordinating intelligent, autonomous components. Cloud design patterns focus on structural and behavioral concerns in distributed systems, but AI agent orchestration patterns specifically address the coordination of components with reasoning capabilities, learning behaviors, and nondeterministic outputs.
 
-## SDK-based implementations
+## Implementations
 
-Many of these patterns rely on a code-based implementation to address the orchestration logic. SDKs that support an agent framework often provides support for many of the agent orchestration patterns.
+These orchestration patterns are technology-agnostic. You can implement them by using various SDKs and platforms, depending on your language, infrastructure, and integration requirements.
 
 ### Microsoft Agent Framework
 
-The orchestration patterns described on this page are implemented as workflow orchestrations in the Microsoft Agent Framework. For architectural guidance and implementation details, see the [Workflow orchestrations overview](/agent-framework/user-guide/workflows/orchestrations/overview).
+[Microsoft Agent Framework](/agent-framework/overview/agent-framework-overview) is an open-source SDK that unifies the orchestration capabilities previously available in Semantic Kernel and AutoGen into a single framework. It is the recommended SDK for building multi-agent orchestrations on the Microsoft platform. Agent Framework provides built-in support for the orchestration patterns described in this article as [workflow orchestrations](/agent-framework/user-guide/workflows/orchestrations/overview).
 
-- [Sequential orchestration using the Agent Framework](/agent-framework/user-guide/workflows/orchestrations/sequential)
-- [Concurrent orchestration using the Agent Framework](/agent-framework/user-guide/workflows/orchestrations/concurrent)
-- [Handoff orchestration using the Agent Framework](/agent-framework/user-guide/workflows/orchestrations/handoff)
-- [Magentic orchestration using the Agent Framework](/agent-framework/user-guide/workflows/orchestrations/magentic)
+- [Sequential orchestration](/agent-framework/user-guide/workflows/orchestrations/sequential)
+- [Concurrent orchestration](/agent-framework/user-guide/workflows/orchestrations/concurrent)
+- [Group Chat orchestration](/agent-framework/user-guide/workflows/orchestrations/group-chat)
+- [Handoff orchestration](/agent-framework/user-guide/workflows/orchestrations/handoff)
+- [Magentic orchestration](/agent-framework/user-guide/workflows/orchestrations/magentic)
 
-For hands-on implementation, explore [Agent Framework declarative workflow samples](https://github.com/microsoft/agent-framework/tree/main/workflow-samples) on GitHub that demonstrate some of these patterns in practice.
+For hands-on implementation, explore [Agent Framework declarative workflow samples](https://github.com/microsoft/agent-framework/tree/main/workflow-samples) on GitHub.
 
-### Semantic Kernel
+[Semantic Kernel](/semantic-kernel/frameworks/agent/agent-orchestration/) continues to provide agent orchestration support. If you have existing Semantic Kernel workloads, see the [migration guide](/agent-framework/migration-guide/from-semantic-kernel/) for transitioning to Agent Framework.
 
-The Semantic Kernel SDK has implementation guidance for its [agent framework](/semantic-kernel/frameworks/agent/agent-orchestration/).
+### Foundry Agent Service
 
-- [Sequential orchestration using Semantic Kernel](/semantic-kernel/frameworks/agent/agent-orchestration/sequential)
-- [Concurrent orchestration using Semantic Kernel](/semantic-kernel/frameworks/agent/agent-orchestration/concurrent)
-- [Group Chat orchestration using Semantic Kernel](/semantic-kernel/frameworks/agent/agent-orchestration/group-chat)
-- [Handoff orchestration using Semantic Kernel](/semantic-kernel/frameworks/agent/agent-orchestration/handoff)
-- [Magentic orchestration using Semantic Kernel](/semantic-kernel/frameworks/agent/agent-orchestration/magentic)
+[Foundry Agent Service](/azure/ai-foundry/agents/overview) provides a managed, no-code approach to chaining agents together by using its [connected agents](/azure/ai-foundry/agents/how-to/connected-agents) functionality. The workflows in this service are primarily nondeterministic, which limits which patterns you can fully implement. Use Foundry Agent Service when you need a managed environment and your orchestration requirements are straightforward.
 
-For hands-on implementation, explore [Semantic Kernel multi-agent orchestration samples](https://github.com/microsoft/semantic-kernel/tree/main/python/samples/getting_started_with_agents) on GitHub that demonstrate these patterns in practice.
+### Other frameworks
 
-You can also find many of these patterns in [AutoGen](https://microsoft.github.io/autogen/stable/user-guide/core-user-guide/design-patterns/intro.html), such as [Magentic-One](https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/magentic-one.html).
-
-## Implementations in Foundry Agent Service
-
-You can also use [Foundry Agent Service](/azure/ai-foundry/agents/overview) to chain agents together in relatively simple workflows by using its [connected agents](/azure/ai-foundry/agents/how-to/connected-agents) functionality. The workflows that you implement by using this service are primarily nondeterministic, which limits which patterns can be fully implemented in this no-code environment.
+The orchestration patterns described in this article are not specific to Microsoft SDKs. Other frameworks that support multi-agent orchestration include [LangChain](https://docs.langchain.com/oss/python/langchain/multi-agent#patterns), [CrewAI](https://docs.crewai.com/concepts/processes), and the [OpenAI Agents SDK](https://openai.github.io/openai-agents-python/multi_agent/). Each framework has its own approach to implementing these patterns, and you can apply the architectural guidance in this article regardless of the SDK you choose.
 
 ## Contributors
 
@@ -522,4 +515,4 @@ Other contributors:
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Implement agent orchestration with Semantic Kernel](/semantic-kernel/frameworks/agent/agent-orchestration/)
+> [Implement agent orchestration with Microsoft Agent Framework](/agent-framework/user-guide/workflows/orchestrations/overview)
