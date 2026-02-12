@@ -490,7 +490,7 @@ These orchestration patterns are technology-agnostic. You can implement them by 
 
 - [Sequential orchestration](/agent-framework/user-guide/workflows/orchestrations/sequential)
 - [Concurrent orchestration](/agent-framework/user-guide/workflows/orchestrations/concurrent)
-- [Group Chat orchestration](/agent-framework/user-guide/workflows/orchestrations/group-chat)
+- [Group chat orchestration](/agent-framework/user-guide/workflows/orchestrations/group-chat)
 - [Handoff orchestration](/agent-framework/user-guide/workflows/orchestrations/handoff)
 - [Magentic orchestration](/agent-framework/user-guide/workflows/orchestrations/magentic)
 
