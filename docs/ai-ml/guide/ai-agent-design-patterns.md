@@ -398,6 +398,10 @@ Implementing proper security mechanisms in these design patterns minimizes the r
 
 - Apply content safety [guardrails](/azure/ai-foundry/guardrails/guardrails-overview) at multiple points in the orchestration, including user input, tool calls, tool responses, and final output. Intermediate agents can introduce or propagate harmful content.
 
+### Human participation
+
+Several orchestration patterns support human involvement, such as observers in group chat, reviewers in maker-checker loops, and escalation targets in handoff and magentic orchestrations. When you design your orchestration, identify which points require human input and whether that input is optional or mandatory. Mandatory approval gates, such as reviewing a magentic task ledger before agents execute it, make the orchestration synchronous at that step and introduce wait time. Design the orchestration to persist state at these checkpoints so that it can resume after human review without replaying prior agent work.
+
 ### Observability and testing
 
 Distributing your AI system across multiple agents requires monitoring and testing each agent individually, as well as the system as a whole, to ensure proper functionality. When you design your observability and testing strategies, consider the following recommendations:
