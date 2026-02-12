@@ -3,7 +3,7 @@ title: AI Agent Orchestration Patterns
 description: Learn about fundamental orchestration patterns for AI agent architectures, including sequential, concurrent, group chat, handoff, and magentic patterns.
 author: claytonsiemens77
 ms.author: pnp
-ms.date: 07/08/2025
+ms.date: 02/12/2026
 ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
