@@ -410,9 +410,17 @@ Implementing proper security mechanisms in these design patterns minimizes the r
 
 - Apply content safety [guardrails](/azure/ai-foundry/guardrails/guardrails-overview) at multiple points in the orchestration, including user input, tool calls, tool responses, and final output. Intermediate agents can introduce or propagate harmful content.
 
-### Human participation
+### Cost optimization
 
-Several orchestration patterns support human involvement, such as observers in group chat, reviewers in maker-checker loops, and escalation targets in handoff and magentic orchestrations. When you design your orchestration, identify which points require human input and whether that input is optional or mandatory. Mandatory approval gates, such as reviewing a magentic task ledger before agents execute it, make the orchestration synchronous at that step and introduce wait time. Design the orchestration to persist state at these checkpoints so that it can resume after human review without replaying prior agent work.
+Multi-agent orchestrations multiply model invocations, and each agent consumes tokens for its instructions, context, reasoning, and tool interactions. The pattern you choose directly affects cost. Sequential and handoff patterns invoke agents one at a time, which limits concurrent resource usage but accumulates cost across each step. Concurrent patterns increase throughput but can spike resource consumption when many agents invoke models simultaneously. Magentic orchestrations are the most variable because the manager agent iterates until it builds a viable plan, making total cost difficult to predict.
+
+To manage cost in multi-agent orchestrations:
+
+- Assign each agent a model that matches the complexity of its task. Not every agent requires the most capable model. Agents that perform classification, extraction, or formatting can often use smaller, less expensive models without degrading the orchestration's overall quality.
+
+- Monitor token consumption per agent and per orchestration run to identify which agents or patterns are the most expensive. Use this data to target optimization efforts.
+
+- Apply context compaction between agents to reduce token volume passed through the orchestration, as described in [Context and state management](#context-and-state-management).
 
 ### Observability and testing
 
@@ -425,6 +433,10 @@ Distributing your AI system across multiple agents requires monitoring and testi
 - Design testable interfaces for individual agents.
 
 - Implement integration tests for multi-agent workflows.
+
+### Human participation
+
+Several orchestration patterns support human involvement, such as observers in group chat, reviewers in maker-checker loops, and escalation targets in handoff and magentic orchestrations. When you design your orchestration, identify which points require human input and whether that input is optional or mandatory. Mandatory approval gates, such as reviewing a magentic task ledger before agents execute it, make the orchestration synchronous at that step and introduce wait time. Design the orchestration to persist state at these checkpoints so that it can resume after human review without replaying prior agent work.
 
 ### Common pitfalls and anti-patterns
 
