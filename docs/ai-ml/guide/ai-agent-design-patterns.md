@@ -472,7 +472,7 @@ These orchestration patterns are technology-agnostic. You can implement them by 
 
 ### Microsoft Agent Framework
 
-[Microsoft Agent Framework](/agent-framework/overview/agent-framework-overview) is an open-source SDK that unifies the orchestration capabilities previously available in Semantic Kernel and AutoGen into a single framework. It is the recommended SDK for building multi-agent orchestrations on the Microsoft platform. Agent Framework provides built-in support for the orchestration patterns described in this article as [workflow orchestrations](/agent-framework/user-guide/workflows/orchestrations/overview).
+[Microsoft Agent Framework](/agent-framework/overview/agent-framework-overview) is an open-source SDK that provides a framework for orchestration capabilities. It is the recommended SDK for building multi-agent orchestrations on the Microsoft platform. Agent Framework provides built-in support for the orchestration patterns described in this article as [workflow orchestrations](/agent-framework/user-guide/workflows/orchestrations/overview).
 
 - [Sequential orchestration](/agent-framework/user-guide/workflows/orchestrations/sequential)
 - [Concurrent orchestration](/agent-framework/user-guide/workflows/orchestrations/concurrent)
