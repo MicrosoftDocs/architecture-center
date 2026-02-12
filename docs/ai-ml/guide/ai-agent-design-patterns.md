@@ -16,7 +16,7 @@ As architects and developers design their workload to take full advantage of lan
 
 ## Start with the right level of complexity
 
-However, before you adopt a multi-agent orchestration pattern, evaluate whether your scenario requires one. Agent architectures exist on a spectrum of complexity, and each level introduces coordination overhead, latency, and cost. Use the lowest level of complexity that reliably meets your requirements.
+Before you adopt a multi-agent orchestration pattern, evaluate whether your scenario requires one. Agent architectures exist on a spectrum of complexity, and each level introduces coordination overhead, latency, and cost. Use the lowest level of complexity that reliably meets your requirements.
 
 | Level | Description | When to use | Considerations |
 | :---- | :---------- | :---------- | :------------- |
@@ -110,7 +110,7 @@ The concurrent orchestration pattern runs multiple AI agents simultaneously on t
 
 This pattern addresses scenarios where you need diverse insights or approaches to the same problem. Instead of sequential processing, all agents work in parallel, which reduces overall run time and provides comprehensive coverage of the problem space. This orchestration pattern resembles the Fan-out/Fan-in cloud design pattern. The results from each agent are often aggregated to return a final result, but that's not required. Each agent can independently produce its own results within the workload, such as invoking tools to accomplish tasks or updating different data stores in parallel. When aggregation is needed, choose a strategy that fits the task: voting or majority-rule for classification, weighted merging for scored recommendations, or an LLM-synthesized summary when results need to be reconciled into a coherent narrative.
 
-Agents operate independently and don't hand off results to each other. An agent might invoke extra AI agents by using its own orchestration approach as part of its independent processing. The available agents must know which agents are available for processing. This pattern supports both deterministic calls to all registered agents and dynamic selection of which agents to invoke based on the task requirements.
+Agents operate independently and don't hand off results to each other. An agent might invoke extra AI agents by using its own orchestration approach as part of its independent processing. The orchestrator must know which agents are registered and available. This pattern supports both deterministic calls to all registered agents and dynamic selection of which agents to invoke based on the task requirements.
 
 ### When to use concurrent orchestration
 
@@ -328,7 +328,7 @@ Avoid this pattern in the following scenarios:
 
 - The task has low complexity and a simpler pattern can solve it.
 
-- The work is time-sensitive, as the pattern focuses on building and debating viable plans, not optimizing for end results.
+- The work is time-sensitive, as the pattern focuses on building and debating viable plans, not optimizing for speed.
 
 - You anticipate frequent stalls or infinite loops that don't have a clear path to resolution.
 
@@ -368,7 +368,7 @@ The following table compares the orchestration patterns to help you identify the
 
 ## Implementation considerations
 
-When you implement any of these agent design patterns, several considerations must be addressed. Reviewing these considerations helps you avoid common pitfalls and ensures that your agent orchestration is robust, secure, and maintainable.
+When you implement any of these agent design patterns, address the following considerations. Reviewing them helps you avoid common pitfalls and ensures that your agent orchestration is robust, secure, and maintainable.
 
 ### Single agent, multitool
 
@@ -404,7 +404,7 @@ These patterns require properly functioning agents and reliable transitions betw
 
   - Ensure compute isolation between agents.
 
-  - Evaluate how using a single models as a service (MaaS) model or a shared knowledge store can result in rate limiting when agents run concurrently.
+  - Evaluate how using a single model-as-a-service (MaaS) endpoint or a shared knowledge store can result in rate limiting when agents run concurrently.
 
 - Use checkpoint features available in your SDK to help recover from an interrupted orchestration, such as from a fault or a new code deployment.
 
@@ -486,7 +486,7 @@ These orchestration patterns are technology-agnostic. You can implement them by 
 
 ### Microsoft Agent Framework
 
-[Microsoft Agent Framework](/agent-framework/overview/agent-framework-overview) is an open-source SDK that provides a framework for orchestration capabilities. It is the recommended SDK for building multi-agent orchestrations on the Microsoft platform. Agent Framework provides built-in support for the orchestration patterns described in this article as [workflow orchestrations](/agent-framework/user-guide/workflows/orchestrations/overview).
+[Microsoft Agent Framework](/agent-framework/overview/agent-framework-overview) is an open-source SDK for building multi-agent orchestrations on the Microsoft platform. Agent Framework provides built-in support for the orchestration patterns described in this article as [workflow orchestrations](/agent-framework/user-guide/workflows/orchestrations/overview).
 
 - [Sequential orchestration](/agent-framework/user-guide/workflows/orchestrations/sequential)
 - [Concurrent orchestration](/agent-framework/user-guide/workflows/orchestrations/concurrent)
@@ -495,7 +495,7 @@ These orchestration patterns are technology-agnostic. You can implement them by 
 - [Magentic orchestration](/agent-framework/user-guide/workflows/orchestrations/magentic)
 
 > [!TIP]
-> All of these orchestration implementations in the Microsoft Agent Framework support [human-in-the-loop](/agent-framework/user-guide/workflows/orchestrations/human-in-the-loop) capabilities for approvals and feedback during workflow execution.
+> All of these orchestrations support [human-in-the-loop](/agent-framework/user-guide/workflows/orchestrations/human-in-the-loop) capabilities for approvals and feedback during workflow execution.
 
 For hands-on implementation, explore [Agent Framework declarative workflow samples](https://github.com/microsoft/agent-framework/tree/main/workflow-samples) on GitHub.
 
