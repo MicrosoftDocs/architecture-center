@@ -45,7 +45,7 @@ This architecture makes use of the following technologies:
 
 - To help protect SAP global host files for SAP Central Services and the SAP transport directory, you can deploy [Network File System (NFS)](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs) servers in a failover cluster configuration.
 
-- [SIOS Protection Suite](https://us.sios.com/solutions/cloud-high-availability/azure), available in Azure Marketplace, can be used to protect the global host files for Central Services instead of NFS or Azure NetApp Files.
+- [SIOS clustering solutions](https://us.sios.com/solutions/cloud-high-availability/azure), available in the [Microsoft Marketplace](https://marketplace.microsoft.com/marketplace/apps?search=SIOS) for Azure, can be used to protect the global host files for Central Services instead of NFS or Azure NetApp Files.
 
 - [Azure Application Gateway](/azure/application-gateway/features) is a web traffic load balancer. In one service, it provides SSL termination, a Web Application Firewall (WAF) service, and other handy high-availability and scalability features. Some SAP deployments have used it as a [gateway for the SAP Fiori front end](https://www.linkedin.com/pulse/internet-facing-sap-fiori-access-azure-firewall-gateway-apparao-sanam) in their production landscape.
 

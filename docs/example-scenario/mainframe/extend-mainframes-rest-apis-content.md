@@ -70,7 +70,7 @@ Instead of an ExpressRoute gateway, you can use an Azure VPN gateway. A VPN gate
 
 ## Scenario details
 
-You can deploy IBM Z and Cloud Modernization Stack and z/OS Connect on Azure via Azure Marketplace or Azure Resource Manager templates. You can use this solution to build REST APIs for z/OS applications and data while adhering to OpenAPI standards. You can also scale business-critical APIs and take advantage of IBM Z benefits. Seamless integration with API management solutions like [API Management](https://azure.microsoft.com/products/api-management/) ensures effective API governance. You can integrate APIs with web applications or Microsoft Power Platform for efficient data exchange and integration.
+You can deploy IBM Z and Cloud Modernization Stack and z/OS Connect on Azure via Azure Resource Manager templates. You can use this solution to build REST APIs for z/OS applications and data while adhering to OpenAPI standards. You can also scale business-critical APIs and take advantage of IBM Z benefits. Seamless integration with API management solutions like [API Management](https://azure.microsoft.com/products/api-management/) ensures effective API governance. You can integrate APIs with web applications or Microsoft Power Platform for efficient data exchange and integration.
 
 [z/OS Connect Designer](https://www.ibm.com/docs/cloud-paks/z-modernization-stack/2023.2?topic=concepts-what-is-zos-connect-designer) features an intuitive web user interface that provides a low-code approach that's designed to create APIs for IBM Z. This graphical interface reduces development time and the learning curve for new developers who use z/OS Connect.
 

@@ -155,12 +155,11 @@ Once network connectivity is securely established, you can start using cloud com
 
 ### Marketplace solutions
 
-There are many workload managers offered in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace).
+There are many workload managers offered in the [Microsoft Marketplace](https://marketplace.microsoft.com).
 
 - [SUSE Linux Enterprise Server for HPC](https://www.suse.com/products/server/hpc/)
-- [TIBCO DataSynapse GridServer](https://azuremarketplace.microsoft.com/marketplace/apps/tibco-software.tibco_datasynapse_gridserver)
 - [Azure Data Science VM for Windows and Linux](/azure/machine-learning/data-science-virtual-machine/overview)
-- [UberCloud](https://azuremarketplace.microsoft.com/marketplace/apps/ubercloud.ansys_182_test)
+- [UberCloud](https://marketplace.microsoft.com/product/ubercloud.ubercloud_platform_subscription_vm)
 
 ### Azure Batch
 
@@ -278,7 +277,7 @@ In addition to the network configurations available in the [Cloud Bursting](#hyb
 
 ## HPC applications
 
-Run custom or commercial HPC applications in Azure. Several examples in this section are benchmarked to scale efficiently with additional VMs or compute cores. Visit the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace) for ready-to-deploy solutions.
+Run custom or commercial HPC applications in Azure. Several examples in this section are benchmarked to scale efficiently with additional VMs or compute cores. Visit the [Microsoft Marketplace](https://marketplace.microsoft.com) for ready-to-deploy solutions.
 
 > [!NOTE]
 > Check with the vendor of any commercial application for licensing or other restrictions for running in the cloud. Not all vendors offer pay-as-you-go licensing. You might need a licensing server in the cloud for your solution, or connect to an on-premises license server.
