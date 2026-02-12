@@ -144,5 +144,5 @@ RTI supports open telemetry standards, enabling cost-effective observability.
 - [Microsoft Fabric Real-Time Intelligence](/fabric/real-time-intelligence/)
 - [Microsoft Fabric Real-Time Hub - Azure Service Bus](/fabric/real-time-hub/add-source-azure-service-bus)
 - [Microsoft Fabric Eventstream - Azure Service Bus](/fabric/real-time-intelligence/event-streams/add-source-azure-service-bus)
-- [Alerting and acting on data from the Real-Time Hub](/blog/alerting-and-acting-on-data-from-the-real-time-hub)
+- [Alerting and acting on data from the Real-Time Hub](https://blog.fabric.microsoft.com/en-us/blog/alerting-and-acting-on-data-from-the-real-time-hub/)
 - [How to create a data agent](/fabric/data-science/how-to-create-data-agent)
