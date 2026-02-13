@@ -1,7 +1,8 @@
 ---
 name: 'azure-update-executor'
 tools: [vscode/askQuestions, read/problems, read/readFile, agent, ms-docs-mcp/microsoft_docs_fetch, ms-docs-mcp/microsoft_docs_search, edit/editFiles, search, web, todo]
-description: 'Azure update executor'
+description: Maps Azure update report findings to affected articles in the codebase and applies content updates
+argument-hint: Provide the path to azure-updates-report.md
 ---
 
 # Azure Update Executor

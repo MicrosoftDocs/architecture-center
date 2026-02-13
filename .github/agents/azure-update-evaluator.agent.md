@@ -1,7 +1,13 @@
 ---
 name: azure-update-evaluator
 tools: [vscode/askQuestions, read/problems, read/readFile, agent, ms-docs-mcp/microsoft_docs_fetch, ms-docs-mcp/microsoft_docs_search, edit/editFiles, search, todo]
-description: 'Azure update evaluator'
+description: Summarizes Azure product updates from a JSON feed into a classified report for article impact assessment
+argument-hint: Provide the path to the Azure updates JSON file
+handoffs:
+  - label: Execute Updates
+    agent: azure-update-executor
+    prompt: Use the azure-updates-report.md that was just generated to find and update affected articles in the codebase.
+    send: false
 ---
 
 # Azure Update Evaluator
