@@ -4,7 +4,7 @@ This architecture showcases how to build a scalable, secure, and intelligent rea
 
 ## Architecture
 
-:::image type="content" source="../media/fabric-realtimeintelligence-service-bus.pngg" alt-text="Diagram that shows an architecture for implementing near real-time analytics in Fabric with Azure Service Bus." lightbox="../media/fabric-realtimeintelligence-service-bus.png" border="false":::
+:::image type="content" source="../media/fabric-realtimeintelligence-service-bus.png‎" alt-text="Diagram that shows an architecture for implementing near real-time analytics in Fabric with Azure Service Bus." lightbox="../media/fabric-realtimeintelligence-service-bus.png" border="false":::
 
 ### Workflow
 #### Ingestion
@@ -134,8 +134,8 @@ Imagine a customer browsing a retail app. As they interact—clicking on product
 *Microsoft maintains this article. The following contributors wrote this article.*
 
 Principal authors:
-- ([Christopher Schmidt](https://www.linkedin.com/in/christophermschmidt/)) | Enterprise AI & Data Strategy Leader 
-- ([Lauren Baird](https://www.linkedin.com/in/laurenkbaird/)) | Cloud Solution Architect
+- [Christopher Schmidt](https://www.linkedin.com/in/christophermschmidt/) | Enterprise AI & Data Strategy Leader 
+- [Lauren Baird](https://www.linkedin.com/in/laurenkbaird/) | Cloud Solution Architect
 
 ## Next steps
 
