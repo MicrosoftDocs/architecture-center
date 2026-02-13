@@ -1,6 +1,6 @@
 ---
-mode: 'agent'
-tools: ['codebase', 'editFiles', 'problems']
+name: azure-update-evaluator
+tools: [vscode/askQuestions, read/problems, read/readFile, agent, ms-docs-mcp/microsoft_docs_fetch, ms-docs-mcp/microsoft_docs_search, edit/editFiles, search, todo]
 description: 'Azure update evaluator'
 ---
 

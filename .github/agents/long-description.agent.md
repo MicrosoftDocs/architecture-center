@@ -1,5 +1,4 @@
 ---
-agent: agent
 name: 'long-description-generator'
 tools: ['search/codebase', 'edit/editFiles', 'search']
 description: 'Provides alternative text for complex images in the Azure Architecture Center to be used with the :::image markdown extension'
