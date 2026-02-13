@@ -64,7 +64,7 @@ Consider the following points as you decide how to implement this pattern:
 - **Subsets of messages.** Subscribers are usually interested in only a subset of messages from a publisher. Messaging services often allow subscribers to narrow what they receive by:
 
   - **Topics.** Each topic has a dedicated output channel, and each consumer can subscribe to all relevant topics.
-  - **Content filtering.** Messages are inspected and distributed based on the content of each message. Each subscriber can specify the content it is interested in.
+  - **Content filtering.** Messages are inspected and distributed based on the content of each message. Each subscriber can specify the content it's interested in.
 
   Choose topic granularity carefully. Broad topics are simpler to manage but force subscribers to filter out messages they don't need. Narrow topics reduce filtering but increase the number of topics to manage. Some brokers support wildcard subscriptions (for example, `orders.*`), which let subscribers match multiple topics without enumerating each one.
 
@@ -88,7 +88,7 @@ Consider the following points as you decide how to implement this pattern:
 
 - **Message expiration.** A message might have a limited lifetime. If it isn't processed within that period, it's no longer relevant and should be discarded. Set an expiration time as part of the message data so that receivers can check relevance before processing.
 
-- **Message scheduling.** A message might be embargoed and should not be processed until a specific date and time. The message must not be available to a receiver until then.
+- **Message scheduling.** A message might be embargoed and shouldn't be processed until a specific date and time. The message must not be available to a receiver until then.
 
 - **Message schema evolution.** Because publishers and subscribers are deployed independently, message schemas change over time. Prefer backward compatible changes, such as adding optional fields, so existing subscribers continue working. For breaking changes, version through topic names (for example, `orders.v1` and `orders.v2`) or through a version field in message metadata. Subscribers should ignore fields they don't recognize.
 
