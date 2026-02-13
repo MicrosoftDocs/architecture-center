@@ -80,6 +80,8 @@ Consider the following points when deciding how to implement this pattern:
 
 - **Message scheduling.** A message might be temporarily embargoed and should not be processed until a specific date and time. The message should not be available to a receiver until this time.
 
+- **Message schema evolution.** Because publishers and subscribers are deployed independently, message schemas change over time. Prefer backward compatible changes, such as adding optional fields, so existing subscribers continue working. For breaking changes, version through topic names (for example, `orders.v1` and `orders.v2`) or through a version field in message metadata. Subscribers should ignore fields they don't recognize.
+
 - **Scaling out subscribers.** If a given subscriber is unable to keep up with the rate of messages it is receiving, use the [Competing Consumers pattern](competing-consumers.yml) to scale it out.
 
 ## When to use this pattern
