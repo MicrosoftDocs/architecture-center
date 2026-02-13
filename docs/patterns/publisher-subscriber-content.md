@@ -102,9 +102,13 @@ Use this pattern when:
 
 This pattern might not be useful when:
 
-- An application has only a few consumers who need significantly different information from the producing application.
+- An application has only a few consumers who need significantly different information from the producing application. The overhead of a broker adds complexity without the scaling benefit. Direct communication or separate queues might be more appropriate.
 
-- An application requires near real-time interaction with consumers.
+- An application requires near real-time interaction with consumers. Pub/sub introduces latency through the broker. If the publisher needs a synchronous response, a request-reply pattern is a better fit.
+
+- The consumers must process messages in a strict, guaranteed order. Pub/sub systems generally don't guarantee ordering across subscribers, and maintaining order adds significant constraints to the broker and consumer design.
+
+- The operation requires a single atomic transaction across the publisher and its consumers. Pub/sub is inherently asynchronous and eventually consistent. If you need transactional guarantees, consider a direct database transaction or the [Saga pattern](saga.yml) for coordinating distributed transactions.
 
 ## Workload design
 
