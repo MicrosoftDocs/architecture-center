@@ -55,7 +55,7 @@ Consider the following points when deciding how to implement this pattern:
 
 - **Subscription handling.** The messaging infrastructure must provide mechanisms that consumers can use to subscribe to or unsubscribe from available channels.
 
-- **Security.** Connecting to any message channel must be restricted by security policy to prevent eavesdropping by unauthorized users or applications.
+- **Security.** Authenticate and authorize both publishers and subscribers on a per-topic basis. An unauthorized publisher injecting messages can be as damaging as an unauthorized subscriber reading them. Encrypt messages in transit and, if content is sensitive, at rest in the broker to prevent eavesdropping.
 
 - **Subsets of messages.** Subscribers are usually only interested in subset of the messages distributed by a publisher. Messaging services often allow subscribers to narrow the set of messages received by:
 
