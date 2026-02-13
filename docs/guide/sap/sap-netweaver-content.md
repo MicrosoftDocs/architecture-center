@@ -22,21 +22,33 @@ This guide describes a production system. The system is deployed with specific v
 
 The following workflow corresponds to the preceding diagram.
 
-1. SAP database layer
+### 1. SAP database layer
 
-2. External SAP input files
+This is at the core of each SAP installation. Application data and programs are persisted here. In this case the database is replicated for HA reasons.
 
-3. SAP application server layer
+### 2. External SAP input files
 
-4. Azure gateway
+This is data from external non-SAP systems to be processed in the SAP system. For HA reasons this data is replicated
 
-5. Azure connection
+### 3. SAP application server layer
 
-6. On premise network
+This layer contains the central application components. Processing of data happens here. This layer is protected by ASR, WSFC and multiple application servers.
+
+### 4. Azure gateway
+
+This is the entry point from the on-premise network into the Azure cloud including security measures.
+
+### 5. Azure connection
+
+This is the route from your on-premise network into Azure.
+
+###  6. On premise network
+
+This is your local on-premise network.
 
 ## Components
 
-**VMs.** This architecture uses VMs for the application tier and database tier, grouped in the following way:
+**VMs.** This architecture uses VMs for the application tier and database tier.
 
 **AnyDB.** The database tier runs AnyDB as the database, which can be Microsoft SQL Server, Oracle, or IBM DB2.
 
@@ -108,15 +120,14 @@ At this time, there are no network access control lists or other attributes that
 
 For all new ExpressRoute connections to Azure, FastPath is the default configuration. For existing ExpressRoute circuits, contact Azure support to activate FastPath.
 
-| Scenario | FastPath + Virtual network peering |
-| : ------ | :--------------------------------- |
-|  ExpressRoute Director   | Supported (same region only) |
-|  ExpressRoute Director   | Not supported |
-|  ExpressRoute Director   | Not supported |
-|  ExpressRoute Director   | Supported |
-|  ExpressRoute Director   | Not supported |
+| Scenario                         | FastPath + Virtual network peering |
+| : ------------------------------ | :--------------------------------- |
+|  ExpressRoute Direct             | Supported (same region only)       |
+|  ExpressRoute provider circuit   | Not supported                      |
+|  Global VNet peering             | Not supported                      |
+|  Hub - spoke traffic (Direct)    | Supported                          |
+|  Hub - spoke ILB traffic         | Gateway used                       |
 
-![alt text](image.png)
 ExpressRoute provider circuits do not support VNet peering over FastPath.
 
 If other virtual networks are peered with one that's connected to ExpressRoute, the network traffic from your on-premises network to the other spoke virtual networks is sent to the virtual network gateway. The workaround is to connect all virtual networks to the ExpressRoute circuit directly.
