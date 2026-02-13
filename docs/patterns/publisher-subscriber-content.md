@@ -74,6 +74,8 @@ Consider the following points when deciding how to implement this pattern:
 
 - **Repeated messages.** The same message might be sent more than once. For example, the sender might fail after posting a message. Then a new instance of the sender might start up and repeat the message. The messaging infrastructure should implement duplicate message detection and removal (also known as de-duping) based on message IDs in order to provide at-most-once delivery of messages. Alternatively, if using messaging infrastructure which doesn't de-duplicate messages, make sure the [message processing logic is idempotent](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing).
 
+- **Delivery guarantees.** Messaging systems offer different delivery guarantees, and each one carries trade-offs. *At-most-once* delivery minimizes overhead but can lose messages if the broker or subscriber fails. *At-least-once* delivery ensures messages aren't lost but can deliver duplicates, which requires subscribers to handle messages idempotently. *Exactly-once* delivery eliminates duplicates but adds coordination overhead and latency, and its availability depends on the messaging infrastructure. Different subscribers in the same workload might need different guarantees.
+
 - **Message expiration.** A message might have a limited lifetime. If it isn't processed within this period, it might no longer be relevant and should be discarded. A sender can specify an expiration time as part of the data in the message. A receiver can examine this information before deciding whether to perform the business logic associated with the message.
 
 - **Message scheduling.** A message might be temporarily embargoed and should not be processed until a specific date and time. The message should not be available to a receiver until this time.
@@ -129,8 +131,6 @@ The following guidance might be relevant when implementing this pattern:
 - [Asynchronous Messaging Primer](/previous-versions/msp-n-p/dn589781(v=pandp.10)). Message queues are an asynchronous communications mechanism. If a consumer service needs to send a reply to an application, it might be necessary to implement some form of response messaging. The Asynchronous Messaging Primer provides information on how to implement request/reply messaging using message queues.
 
 The following patterns might be relevant when implementing this pattern:
-
-- [Observer pattern](https://en.wikipedia.org/wiki/Observer_pattern). The Publish-Subscribe pattern builds on the Observer pattern by decoupling subjects from observers via asynchronous messaging. The observer pattern allows consumers to register with a sender for notifications, but it typically couples the sender to its observers through direct function calls or in-process references. That coupling makes the observer pattern unsuitable for distributed systems where components run in separate processes, use different platforms, or scale independently. The Publish-Subscribe pattern removes that coupling by introducing a message broker between publishers and subscribers.
 
 - [Message Broker pattern](https://en.wikipedia.org/wiki/Message_broker). Many messaging subsystems that support a publish-subscribe model are implemented via a message broker.
 
