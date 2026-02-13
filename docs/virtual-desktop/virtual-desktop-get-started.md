@@ -37,13 +37,13 @@ The articles in this section include fully developed architectures that you can 
 
 ### Virtual desktop guides
 
-- [Azure Virtual Desktop landing zone design guide](../../landing-zones/azure-virtual-desktop/design-guide.md) - Plan and design your Azure Virtual Desktop deployment aligned with Azure landing zone principles.
+- [Azure Virtual Desktop landing zone design guide](../landing-zones/azure-virtual-desktop/design-guide.md) - Plan and design your Azure Virtual Desktop deployment aligned with Azure landing zone principles.
 - [Windows 365 Azure network connection](windows-365-azure-network-connection.md) - Design and implement Windows 365 Azure network connections to integrate Cloud PCs with your existing network infrastructure.
-- [Multiregion Business Continuity and Disaster Recovery (BCDR) for Azure Virtual Desktop](../../example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr.yml) - Design a multiregion BCDR strategy for Azure Virtual Desktop to provide high availability and resilience.
+- [Multiregion Business Continuity and Disaster Recovery (BCDR) for Azure Virtual Desktop](../example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr.yml) - Design a multiregion BCDR strategy for Azure Virtual Desktop to provide high availability and resilience.
 
 ### Virtual desktop architectures
 
-- [Deploy Esri ArcGIS Pro in Azure Virtual Desktop](../../example-scenario/data/esri-arcgis-azure-virtual-desktop.yml) - Run Esri ArcGIS Pro in Azure Virtual Desktop for GIS workloads that require GPU-accelerated virtual desktops.
+- [Deploy Esri ArcGIS Pro in Azure Virtual Desktop](../example-scenario/data/esri-arcgis-azure-virtual-desktop.yml) - Run Esri ArcGIS Pro in Azure Virtual Desktop for GIS workloads that require GPU-accelerated virtual desktops.
 
 ## Learn about virtual desktops on Azure
 
@@ -117,14 +117,14 @@ Network connectivity is a key consideration for virtual desktop deployments:
 
 ### Hybrid
 
-Organizations often need to integrate cloud-based virtual desktops with on-premises infrastructure. Azure Virtual Desktop supports hybrid deployment scenarios that extend virtual desktop capabilities to on-premises environments. To connect environments, organizations must [choose a hybrid network architecture](../../reference-architectures/hybrid-networking/index.yml).
+Organizations often need to integrate cloud-based virtual desktops with on-premises infrastructure. Azure Virtual Desktop supports hybrid deployment scenarios that extend virtual desktop capabilities to on-premises environments. To connect environments, organizations must [choose a hybrid network architecture](../reference-architectures/hybrid-networking/index.yml).
 
-- [Azure Virtual Desktop for Azure Local](../../hybrid/azure-local-workload-virtual-desktop.yml) - Deploy Azure Virtual Desktop on Azure Local hardware for scenarios that require on-premises data residency or low-latency connectivity.
+- [Azure Virtual Desktop for Azure Local](../hybrid/azure-local-workload-virtual-desktop.yml) - Deploy Azure Virtual Desktop on Azure Local hardware for scenarios that require on-premises data residency or low-latency connectivity.
 
 ### AWS professionals
 
 These articles can help you ramp up quickly by comparing Azure virtual desktop options to other cloud services:
 
-- [AWS to Azure services comparison - End-user computing](../../aws-professional/index.md#end-user-computing)
+- [AWS to Azure services comparison - End-user computing](../aws-professional/index.md#end-user-computing)
 
 
