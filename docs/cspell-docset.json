@@ -14,8 +14,7 @@
         "replatform",
         "subnetting",
         "subresource",
-        "subresources",
-        "subservice"
+        "subresources"
     ],
     "ignoreRegExpList": [
         "[\\( ]/[a-z\\d/-]+",
@@ -39,21 +38,23 @@
         "afds",
         "eslz",
         "hateoas",
-        "hdfs",
+        "hdinsight",
         "hkey",
+        "johndowns",
+        "jumpbox",
         "kured",
         "lamna",
-        "linq",
         "mgmt",
         "privatelink",
         "recordsets",
+        "sapmnt",
         "scikit",
         "servicebus",
         "sysvol",
         "timespan",
+        "tmax",
         "vwan",
-        "wget",
-        "wordpress"
+        "wget"
     ],
     "flagWords": []
 }
