@@ -244,7 +244,7 @@ All subnets in the spoke network include a route that directs all internet-bound
 | App Service (chat UI) | [Regional virtual network integration](/azure/app-service/configure-vnet-integration-enable) and the [vnetRouteAllEnabled](/azure/app-service/configure-vnet-integration-routing#configure-application-routing) setting are enabled. |
 | AI Search | None. Traffic that originates from this service can't be forced through a firewall. This architecture doesn't use skills. |
 | Agent Service | A UDR applied to the snet-agentsEgress subnet. |
-| Jump boxes | A UDR applied to the snet-jumpbox subnet. |
+| Jump boxes | A UDR applied to the snet-jumpBoxes subnet. |
 | Build agents | A UDR applied to the snet-agents subnet. |
 
 This architecture doesn't configure force tunneling for components that don't initiate outbound communication.
