@@ -4,9 +4,11 @@ Enable an application to announce events to multiple interested consumers asynch
 
 ## Context and problem
 
-In cloud-based and distributed applications, components of the system often need to provide information to other components as events happen.
+In cloud-based and distributed applications, components of the system often need to provide information to other components as events happen. When a sender communicates directly with its consumers, it must know the identity and endpoint of every consumer, handle delivery to each one, and manage failures individually. Adding or removing a consumer requires changes to the sender, which limits the ability of teams to develop and deploy components independently.
 
-Asynchronous messaging is an effective way to decouple senders from consumers, and avoid blocking the sender to wait for a response. However, using a dedicated message queue for each consumer does not effectively scale to many consumers. Also, some of the consumers might be interested in only a subset of the information. How can the sender announce events to all interested consumers without knowing their identities?
+Message queues can decouple senders from consumers and avoid blocking the sender while it waits for a response. However, a standard queue creates a relationship between a sender and a single consumer. Supporting multiple consumers requires a dedicated queue for each one, which doesn't scale well and complicates the sender with routing logic. Some consumers might be interested in only a subset of the information the sender produces, but queues alone offer no built-in mechanism for filtering messages by content or category.
+
+How can a sender announce events to many interested consumers without knowing their identities, while allowing each consumer to independently decide which events to receive?
 
 ## Solution
 
@@ -128,7 +130,7 @@ The following guidance might be relevant when implementing this pattern:
 
 The following patterns might be relevant when implementing this pattern:
 
-- [Observer pattern](https://en.wikipedia.org/wiki/Observer_pattern). The Publish-Subscribe pattern builds on the Observer pattern by decoupling subjects from observers via asynchronous messaging.
+- [Observer pattern](https://en.wikipedia.org/wiki/Observer_pattern). The Publish-Subscribe pattern builds on the Observer pattern by decoupling subjects from observers via asynchronous messaging. The observer pattern allows consumers to register with a sender for notifications, but it typically couples the sender to its observers through direct function calls or in-process references. That coupling makes the observer pattern unsuitable for distributed systems where components run in separate processes, use different platforms, or scale independently. The Publish-Subscribe pattern removes that coupling by introducing a message broker between publishers and subscribers.
 
 - [Message Broker pattern](https://en.wikipedia.org/wiki/Message_broker). Many messaging subsystems that support a publish-subscribe model are implemented via a message broker.
 
