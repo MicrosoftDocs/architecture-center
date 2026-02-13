@@ -68,7 +68,7 @@ Consider the following points when deciding how to implement this pattern:
 
 - **Bi-directional communication.** The channels in a publish-subscribe system are treated as unidirectional. If a specific subscriber needs to send acknowledgment or communicate status back to the publisher, consider using the [Request/Reply Pattern](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RequestReply.html). This pattern uses one channel to send a message to the subscriber, and a separate reply channel for communicating back to the publisher.
 
-- **Message ordering.** The order in which consumer instances receive messages isn't guaranteed, and doesn't necessarily reflect the order in which the messages were created. Design the system to ensure that message processing is idempotent to help eliminate any dependency on the order of message handling.
+- **Message ordering.** The order in which consumer instances receive messages isn't guaranteed, and doesn't necessarily reflect the order in which the messages were created. If ordering matters, the broker might support ordered delivery within a partition or session, but that constrains scalability. Where possible, design subscribers to handle messages independently of arrival order.
 
 - **Message priority.** Some solutions might require that messages are processed in a specific order. The [Priority Queue pattern](priority-queue.yml) provides a mechanism for ensuring specific messages are delivered before others.
 
