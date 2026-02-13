@@ -33,13 +33,11 @@ Pub/sub messaging has the following benefits:
 
 - It increases scalability and improves responsiveness of the sender. The sender can quickly send a single message to the input channel, then return to its core processing responsibilities. The messaging infrastructure is responsible for routing messages to interested subscribers.
 
-- It improves reliability. Asynchronous messaging helps applications continue to run smoothly under increased loads and handle intermittent failures more effectively.
+- It isolates faults. A subscriber failure doesn't affect the publisher or other subscribers, and the broker can retain messages until a recovered subscriber is ready to process them.
 
 - It allows for deferred or scheduled processing. Subscribers can wait to pick up messages until off-peak hours, or messages can be routed or processed according to a specific schedule.
 
 - It enables simpler integration between systems using different platforms, programming languages, or communication protocols, as well as between on-premises systems and applications running in the cloud.
-
-- It facilitates asynchronous workflows across an enterprise.
 
 - It improves testability. Channels can be monitored and messages can be inspected or logged as part of an overall integration test strategy.
 
@@ -75,6 +73,7 @@ Consider the following points when deciding how to implement this pattern:
 - **Poison messages.** A malformed message, or a task that requires access to resources that aren't available, can cause a service instance to fail. The system should prevent such messages being returned to the queue. Instead, capture and store the details of these messages elsewhere so that they can be analyzed if necessary. Some message brokers, like Azure Service Bus, support this via their [dead-letter queue functionality](/azure/service-bus-messaging/service-bus-dead-letter-queues).
 
 - **Delivery guarantees and duplicate messages.** Messaging systems offer different delivery guarantees, and each one carries trade-offs.
+
   - *At-most-once* delivery minimizes overhead but can lose messages if the broker or subscriber fails.
   - *At-least-once* delivery ensures messages aren't lost but can deliver duplicates, for example when a sender fails after posting a message and a new instance repeats it.
   - *Exactly-once* delivery eliminates duplicates but adds coordination overhead and latency, and its availability depends on the messaging infrastructure.
