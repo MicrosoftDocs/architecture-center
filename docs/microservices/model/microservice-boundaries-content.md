@@ -55,7 +55,7 @@ The details of the Drone and Account bounded contexts are beyond the scope of th
 
 - Is the data schema for the other bounded context suitable for this context, or is it better to have a schema tailored to this bounded context?
 
-- Is the other bounded context a legacy system? If so, you might create a service that acts as an [anti-corruption layer](../../patterns/anti-corruption-layer.md) to translate between the legacy system and the modern application.
+- Is the other bounded context a legacy system? If so, you might create a service that acts as an [anti-corruption layer](../../patterns/anti-corruption-layer.yml) to translate between the legacy system and the modern application.
 
 - What is the team structure? Is it easy to communicate with the team responsible for the other bounded context? If not, creating a service that mediates between the two contexts can help to mitigate the cost of cross-team communication.
 

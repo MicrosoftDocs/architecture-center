@@ -1,15 +1,3 @@
----
-title: Anti-corruption layer pattern
-description: Use an anti-corruption layer to isolate a modern workload from legacy or external systems that have different semantics, integration models, or data representations.
-author: claytonsiemens77
-ms.author: pnp
-ms.date: 06/02/2026
-ms.topic: design-pattern
-ms.subservice: cloud-fundamentals
----
-
-# Anti-corruption layer pattern
-
 Implement a façade or adapter layer between different subsystems that don't share the same semantics. This layer translates requests that one subsystem makes to the other subsystem. Use this pattern to ensure that an application's design isn't limited by dependencies on outside subsystems. This pattern was first described by Eric Evans in *Domain-Driven Design*.
 
 ## Context and problem
