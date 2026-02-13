@@ -144,7 +144,7 @@ For more information, see the following resources:
 
 - [Azure App Services, Cloud Services, and Virtual Machines comparison](/azure/app-service-web/choose-web-site-cloud-service-vm)
 - [Sizes for Windows virtual machines in Azure](/azure/virtual-machines/windows/sizes)
-- [Operating systems and prebuilt images for Virtual Machines](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute)
+- [Operating systems and prebuilt images for Virtual Machines](https://marketplace.microsoft.com/search/products?product=virtual-machines)
 
 To initiate the background task in a separate virtual machine, you have a range of options:
 
