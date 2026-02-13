@@ -1,6 +1,6 @@
 ---
 title: Compute Architecture Design
-description: Learn about Azure compute technologies, from virtual machines to serverless functions. See guidance, solution ideas, and reference architectures.
+description: Learn about Azure compute technologies, from virtual machines to serverless functions. Review guidance, solution ideas, and reference architectures.
 author: anaharris-ms
 ms.author: anaharris
 ms.date: 02/03/2026
@@ -67,7 +67,7 @@ SAP workloads have specific architecture requirements. See the following resourc
 
 #### SAP guides
 
-- [SAP landscape architecture](../../guide/sap/sap-whole-landscape.yml) - See guidance about SAP landscapes on Azure.
+- [SAP landscape architecture](../../guide/sap/sap-whole-landscape.yml) - Review guidance about SAP landscapes on Azure.
 - [Inbound and outbound internet connections for SAP on Azure](../../guide/sap/sap-internet-inbound-outbound.yml) - See a network architecture for SAP internet connectivity.
 
 #### SAP architectures
@@ -177,7 +177,7 @@ HPC uses large clusters of computers to solve complex computational problems. Fo
 
 Container-based architectures are increasingly popular for building scalable, portable applications. For more information, see the following articles:
 
-- [Choose an Azure container service](../../guide/choose-azure-container-service.md) - See guidance for container workloads.
+- [Choose an Azure container service](../../guide/choose-azure-container-service.md) - Review guidance for container workloads.
 - [AKS baseline architecture](../../reference-architectures/containers/aks/baseline-aks.yml) - See an example production-ready Kubernetes deployment.
 - [Microservices architecture](../../guide/architecture-styles/microservices.md) - See design patterns for microservices.
 
