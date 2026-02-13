@@ -47,9 +47,15 @@ Pub/sub messaging has the following benefits:
 
 Consider the following points as you decide how to implement this pattern:
 
-- **Existing technologies.** It is strongly recommended to use available messaging products and services that support a publish-subscribe model, rather than building your own. In Azure, consider using [Service Bus](/azure/service-bus-messaging/), [Event Hubs](/azure/event-hubs/) or [Event Grid](/azure/event-grid/). Other technologies that can be used for pub/sub messaging include Redis, RabbitMQ, and Apache Kafka.
+- **Existing technologies.** Use available messaging products and services that support a publish-subscribe model rather than building your own. In Azure, consider the following services:
 
-  Libraries like [MassTransit](https://masstransit.io) and [NServiceBus](https://docs.particular.net/nservicebus/) also provide built-in support for the publish-subscribe model on Azure Service Bus and other messaging technologies.
+  - [Azure Service Bus](/azure/service-bus-messaging/) for messaging that requires features like transactions, ordering, sessions, and dead-letter queues.
+  - [Azure Event Grid](/azure/event-grid/) for reactive, event-based notifications with push delivery, especially when reacting to state changes in Azure resources.
+  - [Azure Event Hubs](/azure/event-hubs/) for high-throughput event streaming scenarios such as telemetry ingestion and log aggregation. Event Hubs uses a log-based streaming model rather than traditional pub/sub, but it supports multiple consumer groups reading the same stream independently.
+
+  For help choosing between these services, see [Choose between Azure services that deliver messages](/azure/service-bus-messaging/compare-messaging-services). Other technologies that support pub/sub messaging include [Redis](https://redis.io/docs/latest/develop/interact/pubsub/), RabbitMQ, and Apache Kafka.
+
+  Libraries like [MassTransit](https://masstransit.io) and [NServiceBus](https://docs.particular.net/nservicebus/) provide built-in support for the publish-subscribe model on Azure Service Bus and other messaging technologies.
 
 - **Subscription handling.** The messaging infrastructure must provide mechanisms that consumers can use to subscribe to or unsubscribe from available channels.
 
