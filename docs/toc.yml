@@ -352,7 +352,7 @@ items:
   - name: Anti-Corruption Layer
     href: patterns/anti-corruption-layer.yml
   - name: Asynchronous Request-Reply
-    href: patterns/async-request-reply.md
+    href: patterns/async-request-reply.yml
   - name: Backends for Frontends
     href: patterns/backends-for-frontends.md
   - name: Bulkhead

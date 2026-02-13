@@ -1,14 +1,3 @@
----
-title: Asynchronous Request-Reply pattern
-description: Allow decoupling of backend processing from a frontend host, where backend processing needs to be asynchronous, but the frontend still needs a clear response.
-author: claytonsiemens77
-ms.author: pnp
-ms.date: 02/05/2026
-ms.topic: design-pattern
-ms.subservice: cloud-fundamentals
----
-# Asynchronous Request-Reply pattern
-
 Decouple backend processing from a frontend host, where backend processing needs to be asynchronous, but the frontend still needs a clear response.
 
 ## Context and problem
