@@ -22,7 +22,7 @@ This architecture makes use of the following technologies:
 
 - [Network security groups (NSGs)](/azure/virtual-network/security-overview) attach to a subnet or to the network interface cards (NICs) on a virtual machine. NSGs are used to restrict incoming, outgoing, and intra-subnet traffic in the virtual network.
 
-- [Azure Bastion](/azure/bastion/bastion-overview) provides secure access through the Azure portal to virtual machines that run in Azure, without using a jumpbox and its associated public IP address. This mechanism limits internet-facing exposure.
+- [Azure Bastion](/azure/bastion/bastion-overview) provides secure access through the Azure portal to virtual machines that run in Azure, without using a jump box and its associated public IP address. This mechanism limits internet-facing exposure.
 
 - [Azure managed disks](/azure/virtual-machines/disks-types) Premium or Ultra storage disks are recommended. These storage types provide data persistence for virtual machines with the SAP workload.
 

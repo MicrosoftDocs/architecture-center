@@ -1,4 +1,4 @@
-<!-- cSpell:ignore Unisys ClearPath postmigration HDDs Tmax tmaxsoft openframe replatforming replatformed -->
+<!-- cSpell:ignore Unisys ClearPath postmigration replatforming -->
 
 The Unisys mainframe systems trace their lineage back to the first commercially available mainframes. The Unisys ClearPath Forward (CPF) Dorado (2200) and Libra (Master Control Program) systems are full-featured mainframe operating environments. They can scale vertically to handle mission-critical workloads. These systems can be emulated, converted, or modernized into Azure. Azure provides similar or improved performance characteristics and service-level agreement metrics.
 

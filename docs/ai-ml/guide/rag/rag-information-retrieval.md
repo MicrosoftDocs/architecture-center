@@ -10,6 +10,8 @@ ms.subservice: architecture-guide
 ms.custom: arb-aiml
 ---
 
+<!-- cSpell:ignore softmax -->
+
 # Information retrieval
 
 In the previous step of your Retrieval-Augmented Generation (RAG) solution, you generated the embeddings for your chunks. In this step, you generate the index in the vector database and experiment to determine your optimal searches. This article covers configuration options for a search index, types of searches, and reranking strategies.
