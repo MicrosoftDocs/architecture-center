@@ -17,7 +17,7 @@ Introduce an asynchronous messaging subsystem that includes the following compon
 - An input messaging channel used by the sender. The sender packages events into messages, using a known message format, and sends these messages via the input channel. The sender in this pattern is also called the *publisher*.
 
   > [!NOTE]
-  > A *message* is a packet of data. An *event* is a message that notifies other components about a change or an action that has taken place.
+  > A *message* is a packet of data. An *event* is a message that notifies other components about a change or an action that has taken place. Although this pattern is often used with events, it can carry any type of message, including commands and state notifications.
 
 - One output messaging channel per consumer. The consumers are known as *subscribers*.
 
@@ -31,7 +31,7 @@ Pub/sub messaging has the following benefits:
 
 - It decouples subsystems that still need to communicate. Subsystems can be managed independently, and messages can be properly managed even if one or more receivers are offline.
 
-- It increases scalability and improves responsiveness of the sender. The sender can quickly send a single message to the input channel, then return to its core processing responsibilities. The messaging infrastructure is responsible for ensuring messages are delivered to interested subscribers.
+- It increases scalability and improves responsiveness of the sender. The sender can quickly send a single message to the input channel, then return to its core processing responsibilities. The messaging infrastructure is responsible for routing messages to interested subscribers.
 
 - It improves reliability. Asynchronous messaging helps applications continue to run smoothly under increased loads and handle intermittent failures more effectively.
 
