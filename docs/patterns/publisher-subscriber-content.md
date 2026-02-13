@@ -29,17 +29,17 @@ The following diagram shows the logical components of this pattern:
 
 Pub/sub messaging has the following benefits:
 
-- It decouples subsystems that still need to communicate. Subsystems can be managed independently, and messages can be properly managed even if one or more receivers are offline.
+- It decouples subsystems that still need to communicate. Subsystems can be managed independently, and messages are retained even if one or more receivers are offline.
 
-- It increases scalability and improves responsiveness of the sender. The sender can quickly send a single message to the input channel, then return to its core processing responsibilities. The messaging infrastructure is responsible for routing messages to interested subscribers.
+- It increases scalability and improves responsiveness of the sender. The sender sends a single message to the input channel and then returns to its core processing responsibilities. The messaging infrastructure routes messages to interested subscribers.
 
 - It isolates faults. A subscriber failure doesn't affect the publisher or other subscribers, and the broker can retain messages until a recovered subscriber is ready to process them.
 
 - It allows for deferred or scheduled processing. Subscribers can wait to pick up messages until off-peak hours, or messages can be routed or processed according to a specific schedule.
 
-- It enables simpler integration between systems using different platforms, programming languages, or communication protocols, as well as between on-premises systems and applications running in the cloud.
+- It enables integration between systems that use different platforms, programming languages, or communication protocols, as well as between on-premises systems and applications running in the cloud.
 
-- It improves testability. Channels can be monitored and messages can be inspected or logged as part of an overall integration test strategy.
+- It improves testability. Channels can be monitored and messages can be inspected or logged as part of an integration test strategy.
 
 - It provides separation of concerns for your applications. Each application can focus on its core capabilities, while the messaging infrastructure handles everything required to reliably route messages to multiple consumers.
 
@@ -47,9 +47,9 @@ Pub/sub messaging has the following benefits:
 
 Consider the following points as you decide how to implement this pattern:
 
-- **Existing technologies.** Use available messaging products and services that support a publish-subscribe model rather than building your own. In Azure, consider the following services:
+- **Existing technologies.** Use messaging products and services that support a publish-subscribe model rather than building your own. In Azure, consider the following services:
 
-  - [Azure Service Bus](/azure/service-bus-messaging/) for messaging that requires features like transactions, ordering, sessions, and dead-letter queues.
+  - [Azure Service Bus](/azure/service-bus-messaging/) for messaging that requires transactions, ordering, sessions, or dead-letter queues.
   - [Azure Event Grid](/azure/event-grid/) for reactive, event-based notifications with push delivery, especially when reacting to state changes in Azure resources.
   - [Azure Event Hubs](/azure/event-hubs/) for high-throughput event streaming scenarios such as telemetry ingestion and log aggregation. Event Hubs uses a log-based streaming model rather than traditional pub/sub, but it supports multiple consumer groups reading the same stream independently.
 
@@ -61,26 +61,24 @@ Consider the following points as you decide how to implement this pattern:
 
 - **Security.** Authenticate and authorize both publishers and subscribers on a per-topic basis. An unauthorized publisher injecting messages can be as damaging as an unauthorized subscriber reading them. Encrypt messages in transit and, if content is sensitive, at rest in the broker to prevent eavesdropping.
 
-- **Subsets of messages.** Subscribers are usually only interested in subset of the messages distributed by a publisher. Messaging services often allow subscribers to narrow the set of messages received by:
+- **Subsets of messages.** Subscribers are usually interested in only a subset of messages from a publisher. Messaging services often allow subscribers to narrow what they receive by:
 
   - **Topics.** Each topic has a dedicated output channel, and each consumer can subscribe to all relevant topics.
   - **Content filtering.** Messages are inspected and distributed based on the content of each message. Each subscriber can specify the content it is interested in.
 
-  Choose topic granularity carefully. Broad topics are simpler to manage but force subscribers to filter out messages they don't need. Narrow topics reduce filtering but increase the number of topics to manage.
+  Choose topic granularity carefully. Broad topics are simpler to manage but force subscribers to filter out messages they don't need. Narrow topics reduce filtering but increase the number of topics to manage. Some brokers support wildcard subscriptions (for example, `orders.*`), which let subscribers match multiple topics without enumerating each one.
 
-- **Wildcard subscribers.** Consider allowing subscribers to subscribe to multiple topics via wildcards.
+- **Bi-directional communication.** The channels in a publish-subscribe system are unidirectional. If a subscriber needs to send acknowledgment or communicate status back to the publisher, use the [Request/Reply Pattern](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RequestReply.html). This pattern uses one channel to send a message to the subscriber and a separate reply channel for communicating back to the publisher.
 
-- **Bi-directional communication.** The channels in a publish-subscribe system are treated as unidirectional. If a specific subscriber needs to send acknowledgment or communicate status back to the publisher, consider using the [Request/Reply Pattern](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RequestReply.html). This pattern uses one channel to send a message to the subscriber, and a separate reply channel for communicating back to the publisher.
+- **Message ordering.** The order in which subscribers receive messages isn't guaranteed and doesn't necessarily reflect the order in which messages were created. If ordering matters, the broker might support ordered delivery within a partition or session, but that constrains scalability. Design subscribers to handle messages independently of arrival order.
 
-- **Message ordering.** The order in which consumer instances receive messages isn't guaranteed, and doesn't necessarily reflect the order in which the messages were created. If ordering matters, the broker might support ordered delivery within a partition or session, but that constrains scalability. Where possible, design subscribers to handle messages independently of arrival order.
+- **Message priority.** Some workloads require that certain messages are processed before others. The [Priority Queue pattern](priority-queue.yml) provides a mechanism for routing higher-priority messages ahead of lower-priority ones.
 
-- **Message priority.** Some solutions might require that messages are processed in a specific order. The [Priority Queue pattern](priority-queue.yml) provides a mechanism for ensuring specific messages are delivered before others.
-
-- **Poison messages.** A malformed message, or a task that requires access to resources that aren't available, can cause a service instance to fail. The system should prevent such messages being returned to the queue. Instead, capture and store the details of these messages elsewhere so that they can be analyzed if necessary. Some message brokers, like Azure Service Bus, support this via their [dead-letter queue functionality](/azure/service-bus-messaging/service-bus-dead-letter-queues).
+- **Poison messages.** A malformed message, or a task that requires access to unavailable resources, can cause a service instance to fail. Prevent such messages from being returned to the queue. Capture and store the details of these messages elsewhere for analysis. Some message brokers, like Azure Service Bus, support this through [dead-letter queues](/azure/service-bus-messaging/service-bus-dead-letter-queues).
 
 - **Message size.** Brokers enforce message size limits. When payloads are large, such as files or images, store the content in an external data store and include a reference in the message. The [Claim-Check pattern](claim-check.yml) describes this approach.
 
-- **Delivery guarantees and duplicate messages.** Messaging systems offer different delivery guarantees, and each one carries trade-offs.
+- **Delivery guarantees and duplicate messages.** Messaging systems offer different delivery guarantees, each with trade-offs.
 
   - *At-most-once* delivery minimizes overhead but can lose messages if the broker or subscriber fails.
   - *At-least-once* delivery ensures messages aren't lost but can deliver duplicates, for example when a sender fails after posting a message and a new instance repeats it.
@@ -88,15 +86,15 @@ Consider the following points as you decide how to implement this pattern:
 
   If your broker doesn't provide deduplication, design subscribers to [handle messages idempotently](../reference-architectures/containers/aks-mission-critical/mission-critical-data-platform.md#idempotent-message-processing). Different subscribers in the same workload might need different guarantees.
 
-- **Message expiration.** A message might have a limited lifetime. If it isn't processed within this period, it might no longer be relevant and should be discarded. A sender can specify an expiration time as part of the data in the message. A receiver can examine this information before deciding whether to perform the business logic associated with the message.
+- **Message expiration.** A message might have a limited lifetime. If it isn't processed within that period, it's no longer relevant and should be discarded. Set an expiration time as part of the message data so that receivers can check relevance before processing.
 
-- **Message scheduling.** A message might be temporarily embargoed and should not be processed until a specific date and time. The message should not be available to a receiver until this time.
+- **Message scheduling.** A message might be embargoed and should not be processed until a specific date and time. The message must not be available to a receiver until then.
 
 - **Message schema evolution.** Because publishers and subscribers are deployed independently, message schemas change over time. Prefer backward compatible changes, such as adding optional fields, so existing subscribers continue working. For breaking changes, version through topic names (for example, `orders.v1` and `orders.v2`) or through a version field in message metadata. Subscribers should ignore fields they don't recognize.
 
-- **Correlation.** The broker decouples publishers from subscribers, which makes it harder to trace the end-to-end flow of a message. Include a correlation ID in every message so that downstream subscribers and logging systems can connect related operations into a single trace.
+- **Correlation.** The broker decouples publishers from subscribers, which makes it harder to trace the end-to-end flow of a message. Include a correlation ID in every message so that subscribers and logging systems can connect related operations into a single trace.
 
-- **Backpressure and scaling.** When subscribers can't keep up, unprocessed messages accumulate in the broker and can exhaust its resources. Use broker flow control settings to limit unacknowledged messages per subscriber and scale out subscribers using the [Competing Consumers pattern](competing-consumers.yml) when flow control alone isn't sufficient.
+- **Backpressure and scaling.** When subscribers can't keep up, unprocessed messages accumulate in the broker and can exhaust its resources. Use broker flow control settings to limit unacknowledged messages per subscriber. Scale out subscribers using the [Competing Consumers pattern](competing-consumers.yml) when flow control alone isn't sufficient.
 
 ## When to use this pattern
 
