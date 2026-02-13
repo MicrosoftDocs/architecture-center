@@ -1,4 +1,4 @@
-<!-- cSpell:ignore vpaulreed WSUS NSGs VM's -->
+<!-- cSpell:ignore WSUS NSGs -->
 
 If you've locked down your Azure virtual network from the internet, you can still get Windows updates without jeopardizing security and opening up access to the internet as a whole. This article contains recommendations on how you can set up a perimeter network, also called a DMZ, to host a Windows Server Update Service (WSUS) instance to securely update virtual networks without internet connectivity.
 
