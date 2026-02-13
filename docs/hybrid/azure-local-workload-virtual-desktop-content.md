@@ -81,7 +81,7 @@ Consider the following key points when you deploy Azure Virtual Desktop for Azur
 
 - Azure Virtual Desktop for Azure Local connects to the Azure cloud via agents. The agents provide features such as extra governance, monitoring, and lifecycle management services, and identity management.
 
-- Azure Local supports many types of hardware and on-premises networking capabilities, so performance and user density might vary compared to session hosts that run on Azure. Azure Virtual Desktop VM sizing guidelines are broad, so should be used as a reference point to initially estimate performance and to monitor your workload after deployment.
+- Azure Local supports many types of hardware and on-premises networking capabilities, so performance and user density might vary compared to session hosts that run on Azure. Azure Virtual Desktop VM sizing guidelines are broad, so this should be used as a reference point to initially estimate performance and to monitor your workload after deployment.
 
 ## Workload design considerations
 
@@ -121,7 +121,7 @@ When you deploy Azure Virtual Desktop for Azure Local, you can install FSLogix i
 
 - **Considerations:** Network performance and latency are crucial. The file share must be highly accessible and have minimal latency to help ensure quick sign-in times and a consistent user experience. A robust network infrastructure helps support this setup.
 
-- **Recommendation for large deployments:** If you want to scale beyond on-premises storage capacities, you can use cloud-based storage solutions like [Azure Files](/azure/storage/files/storage-files-introduction) or [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction). These options provide high availability, consistent performance, and simpler management, while also alleviating storage constraints on the Azure Local instance. They can offer better scalability and flexibility compared to on-premises file share solutions. When you use a cloud-based storage solution, consider network latency, bandwidth and throughput requirements compared to on-premises options. 
+- **Recommendation for large deployments:** If you want to scale beyond on-premises storage capacities, you can use cloud-based storage solutions like [Azure Files](/azure/storage/files/storage-files-introduction) or [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction). These options provide high availability, consistent performance, and simpler management, while also alleviating storage constraints on the Azure Local instance. They can offer better scalability and flexibility compared to on-premises file share solutions. When you use a cloud-based storage solution, consider network latency, bandwidth and throughput requirements compared to on-premises options.
 
 #### Use the same Azure Local instance
 
