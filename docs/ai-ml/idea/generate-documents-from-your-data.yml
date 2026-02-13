@@ -14,7 +14,7 @@ azureCategories:
 products:
   - azure-cognitive-search
   - azure-cosmos-db
-  - azure-ai-foundry
+  - microsoft-foundry
 name: Generate documents from your data
 summary: Learn how to build a simple system for generating document templates by using AI. It combines retrieval, summarization, and generation to support faster document drafting.
 thumbnailUrl: /azure/architecture/browse/thumbs/generate-documents.png

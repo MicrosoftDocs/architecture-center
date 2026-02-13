@@ -13,9 +13,9 @@ azureCategories:
   - ai-machine-learning
 products:
   - azure-functions
-  - azure-ai-foundry
+  - microsoft-foundry
   - azure-ai-foundry-sdk
-  - ai-services
+  - foundry-tools
   - azure-cognitive-search
   - document-intelligence
 name: Automate document classification in Azure
