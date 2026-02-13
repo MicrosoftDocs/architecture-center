@@ -62,6 +62,8 @@ Consider the following points when deciding how to implement this pattern:
   - **Topics.** Each topic has a dedicated output channel, and each consumer can subscribe to all relevant topics.
   - **Content filtering.** Messages are inspected and distributed based on the content of each message. Each subscriber can specify the content it is interested in.
 
+  Choose topic granularity carefully. Broad topics are simpler to manage but force subscribers to filter out messages they don't need. Narrow topics reduce filtering but increase the number of topics to manage.
+
 - **Wildcard subscribers.** Consider allowing subscribers to subscribe to multiple topics via wildcards.
 
 - **Bi-directional communication.** The channels in a publish-subscribe system are treated as unidirectional. If a specific subscriber needs to send acknowledgment or communicate status back to the publisher, consider using the [Request/Reply Pattern](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RequestReply.html). This pattern uses one channel to send a message to the subscriber, and a separate reply channel for communicating back to the publisher.
