@@ -17,8 +17,6 @@ keywords:
   - "API standards"
 ---
 
-<!-- cSpell:ignore HATEOAS -->
-
 # Best practices for RESTful web API design
 
 A RESTful web API implementation is a web API that employs Representational State Transfer (REST) architectural principles to achieve a stateless, loosely coupled interface between a client and service. A web API that is RESTful supports the standard HTTP protocol to perform operations on resources and return representations of resources that contain hypermedia links and HTTP operation status codes.

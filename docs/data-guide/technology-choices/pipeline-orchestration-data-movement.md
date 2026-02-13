@@ -8,7 +8,7 @@ ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
 
-<!-- cSpell:ignore Oozie HDFS SSMS -->
+<!-- cSpell:ignore Oozie SSMS -->
 
 # Choose a data pipeline orchestration technology in Azure
 

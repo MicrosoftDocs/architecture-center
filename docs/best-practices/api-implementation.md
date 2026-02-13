@@ -10,7 +10,7 @@ ms.custom:
   - best-practice
 ---
 
-<!-- cSpell:ignore CNAME HATEOAS WADL hashedOrderEtag nonMatchEtags matchEtags -->
+<!-- cSpell:ignore CNAME WADL hashedOrderEtag nonMatchEtags matchEtags -->
 
 # Web API implementation
 

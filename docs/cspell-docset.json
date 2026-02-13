@@ -72,6 +72,8 @@
       "downloadazcopy",
       "dvdrental",
       "eslz",
+      "hateoas",
+      "hdfs",
       "hkey",
       "hostnamectl",
       "hrgeneral",
@@ -80,6 +82,7 @@
       "kured",
       "lalogs",
       "lamna",
+      "linq",
       "majeure",
       "mgmt",
       "multientity",
@@ -102,6 +105,7 @@
       "unsnooze",
       "vwan",
       "wget",
+      "wordpress",
       "zonemap"
   ],
   "flagWords": []

@@ -1,5 +1,3 @@
-<!-- cSpell:ignore wordpress -->
-
 WordPress is a versatile and popular content management system that's used to create websites of all sizes, for multiple purposes. From small personal blogs to large-scale corporate sites and e-commerce stores, WordPress offers a range of functionalities and customizations to suit different needs. However, due to its installations' varying sizes and use cases, WordPress also has unique hosting requirements that depend on factors such as traffic volume and storage needs.
 
 This article covers WordPress deployments on Azure. It provides guidance on what to consider and implement to help ensure a secure, scalable, and cost-effective installation.
