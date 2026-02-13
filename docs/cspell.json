@@ -209,6 +209,7 @@
         "walkthrough"
     ],
     "ignoreWords": [
+        "21vianet",
         "azurecli",
         "azuredeploy",
         "bool",
@@ -234,10 +235,8 @@
         "ruleset",
         "scikit",
         "stdout",
-        "subresource",
         "sudo",
         "syslog",
-        "vianet",
         "visualstudio",
         "westus",
         "wwwroot"
