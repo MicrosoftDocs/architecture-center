@@ -23,7 +23,6 @@
         "\\bn?(tiny|small|medium|big|var)?(binary|char|int|datetime|money|text)\\b",
         "/etc/[a-z]+/",
         "/azureml",
-        "_sapase|_sqlserver",
         "`[a-z\\d]+`",
         "`[A-Z\\d-]+`",
         " -[a-z]+ "
