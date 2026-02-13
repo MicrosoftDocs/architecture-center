@@ -84,7 +84,7 @@ Consider the following points when deciding how to implement this pattern:
 
 - **Correlation.** The broker decouples publishers from subscribers, which makes it harder to trace the end-to-end flow of a message. Include a correlation ID in every message so that downstream subscribers and logging systems can connect related operations into a single trace.
 
-- **Scaling out subscribers.** If a given subscriber is unable to keep up with the rate of messages it is receiving, use the [Competing Consumers pattern](competing-consumers.yml) to scale it out.
+- **Backpressure and scaling.** When subscribers can't keep up, unprocessed messages accumulate in the broker and can exhaust its resources. Use broker flow control settings to limit unacknowledged messages per subscriber and scale out subscribers using the [Competing Consumers pattern](competing-consumers.yml) when flow control alone isn't sufficient.
 
 ## When to use this pattern
 
