@@ -7721,6 +7721,16 @@
       "source_path": "docs/example-scenario/startups/core-startup-stack.yml",
       "redirect_url": "/azure/architecture/guide/startups/startup-architecture",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/virtual-desktop/start-here.md",
+      "redirect_url": "/azure/architecture/virtual-desktop/virtual-desktop-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/virtual-desktop/windows-365-azure-network-connection.md",
+      "redirect_url": "/azure/architecture/virtual-desktop/windows-365-azure-network-connection",
+      "redirect_document_id": false
     }
   ]
 }
