@@ -43,9 +43,9 @@ Pub/sub messaging has the following benefits:
 
 - It provides separation of concerns for your applications. Each application can focus on its core capabilities, while the messaging infrastructure handles everything required to reliably route messages to multiple consumers.
 
-## Issues and considerations
+## Problems and considerations
 
-Consider the following points when deciding how to implement this pattern:
+Consider the following points as you decide how to implement this pattern:
 
 - **Existing technologies.** It is strongly recommended to use available messaging products and services that support a publish-subscribe model, rather than building your own. In Azure, consider using [Service Bus](/azure/service-bus-messaging/), [Event Hubs](/azure/event-hubs/) or [Event Grid](/azure/event-grid/). Other technologies that can be used for pub/sub messaging include Redis, RabbitMQ, and Apache Kafka.
 
@@ -106,7 +106,7 @@ Use this pattern when:
 
 - An application needs to communicate information to multiple consumers, which might have different availability requirements or uptime schedules than the sender.
 
-This pattern might not be useful when:
+This pattern might not be suitable when:
 
 - An application has only a few consumers who need significantly different information from the producing application. The overhead of a broker adds complexity without the scaling benefit. Direct communication or separate queues might be more appropriate.
 
@@ -118,17 +118,17 @@ This pattern might not be useful when:
 
 ## Workload design
 
-An architect should evaluate how the Publisher/Subscriber pattern can be used in their workload's design to address the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). For example:
+Evaluate how to use the Publisher-Subscriber pattern in a workload's design to address the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). The following table provides guidance about how this pattern supports the goals of each pillar.
 
 | Pillar | How this pattern supports pillar goals |
 | :----- | :------------------------------------- |
 | [Reliability](/azure/well-architected/reliability/checklist) design decisions help your workload become **resilient** to malfunction and to ensure that it **recovers** to a fully functioning state after a failure occurs. | The decoupling introduced in this pattern enables independent reliability targets on components and removes direct dependencies.<br/><br/> - [RE:03 Failure mode analysis](/azure/well-architected/reliability/failure-mode-analysis)<br/> - [RE:07 Background jobs](/azure/well-architected/design-guides/background-jobs) |
 | [Security](/azure/well-architected/security/checklist) design decisions help ensure the **confidentiality**, **integrity**, and **availability** of your workload's data and systems. | This pattern introduces an important security segmentation boundary that enables queue subscribers to be network-isolated from the publisher.<br/><br/> - [SE:04 Segmentation](/azure/well-architected/security/segmentation) |
-| [Cost Optimization](/azure/well-architected/cost-optimization/checklist) is focused on **sustaining and improving** your workload's **return on investment**. | This decoupled design can enable an event-driven approach in your architecture, which couples well with consumption-based billing to avoid overprovisioning.<br/><br/> - [CO:05 Rate optimization](/azure/well-architected/cost-optimization/get-best-rates)<br/> - [CO:12 Scaling costs](/azure/well-architected/cost-optimization/optimize-scaling-costs) |
+| [Cost Optimization](/azure/well-architected/cost-optimization/checklist) focuses on **sustaining and improving** your workload's **return on investment**. | This decoupled design can enable an event-driven approach in your architecture, which couples well with consumption-based billing to avoid overprovisioning.<br/><br/> - [CO:05 Rate optimization](/azure/well-architected/cost-optimization/get-best-rates)<br/> - [CO:12 Scaling costs](/azure/well-architected/cost-optimization/optimize-scaling-costs) |
 | [Operational Excellence](/azure/well-architected/operational-excellence/checklist) helps deliver **workload quality** through **standardized processes** and team cohesion. | This layer of indirection can enable you to safely change the implementation on either the publisher or subscriber side without needing to coordinate changes to both components.<br/><br/> - [OE:06 Workload development](/azure/well-architected/operational-excellence/workload-supply-chain)<br/> - [OE:11 Safe deployment practices](/azure/well-architected/operational-excellence/safe-deployments) |
-| [Performance Efficiency](/azure/well-architected/performance-efficiency/checklist) helps your workload **efficiently meet demands** through optimizations in scaling, data, code. | The decoupling of publishers from consumers enables you to optimize the compute and code specifically for the task that the consumer needs to perform for the specific message.<br/><br/> - [PE:02 Capacity planning](/azure/well-architected/performance-efficiency/capacity-planning)<br/> - [PE:05 Scaling and partitioning](/azure/well-architected/performance-efficiency/scale-partition) |
+| [Performance Efficiency](/azure/well-architected/performance-efficiency/checklist) helps your workload **efficiently meet demands** through optimizations in scaling, data, and code. | The decoupling of publishers from consumers enables you to optimize the compute and code specifically for the task that the consumer needs to perform for the specific message.<br/><br/> - [PE:02 Capacity planning](/azure/well-architected/performance-efficiency/capacity-planning)<br/> - [PE:05 Scaling and partitioning](/azure/well-architected/performance-efficiency/scale-partition) |
 
-As with any design decision, consider any tradeoffs against the goals of the other pillars that might be introduced with this pattern.
+If this pattern introduces trade-offs within a pillar, consider them against the goals of the other pillars.
 
 ## Example
 
@@ -138,13 +138,11 @@ The following diagram shows an enterprise integration architecture that uses Ser
 
 ## Next steps
 
-The following guidance might be relevant when implementing this pattern:
-
 - [Asynchronous messaging options](../guide/technology-choices/messaging.yml). Describes the messaging services available in Azure, including guidance on message broker technology choices, messaging patterns, and request/reply messaging.
+- [You don't need ordered delivery](https://particular.net/blog/you-dont-need-ordered-delivery). This blog post describes different ways of handling messages that arrive out of order.
 
 ## Related resources
 
-- [You don't need ordered delivery](https://particular.net/blog/you-dont-need-ordered-delivery). This blog post describes different ways of handling messages that arrive out of order.
 - The [Event-driven architecture style](../guide/architecture-styles/event-driven.md) is an architecture style that uses pub/sub messaging.
 - [Idempotent message processing](../reference-architectures/containers/aks-mission-critical/mission-critical-data-platform.md#idempotent-message-processing)
 - [Enterprise integration on Azure using message queues and events](../example-scenario/integration/queues-events.yml)
