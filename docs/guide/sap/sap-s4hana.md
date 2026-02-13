@@ -8,7 +8,7 @@ ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
 
-<!-- cSpell:ignore lbrader HANA Fiori -->
+<!-- cSpell:ignore HANA Fiori -->
 
 # SAP S/4HANA in Linux on Azure
 

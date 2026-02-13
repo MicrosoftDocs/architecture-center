@@ -15,7 +15,7 @@ keywords:
   - horizontal partitioning
 ---
 
-<!-- cSpell:ignore IQueryable LINQ -->
+<!-- cSpell:ignore IQueryable -->
 
 # Extraneous Fetching antipattern
 
