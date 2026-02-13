@@ -702,7 +702,7 @@ items:
   - name: Containers
     items:
     - name: Get started
-      href: solution-ideas/articles/container-get-started.md
+      href: containers/containers-get-started.md
     - name: Guides
       items:
       - name: Choose a container host
