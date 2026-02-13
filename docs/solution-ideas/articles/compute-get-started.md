@@ -13,19 +13,19 @@ ms.custom: arb-compute
 
 # Compute architecture design
 
-Compute resources are the foundation of cloud workloads. Azure provides a wide range of compute options to meet diverse requirements, from virtual machines (VMs) that give you full control over the operating system to fully managed serverless functions that scale automatically. Whether you're migrating existing workloads, building new cloud-native applications, or running high-performance computing (HPC) simulations, Azure compute services provide the flexibility, scale, and performance that your organization needs.
+Compute resources form the foundation of cloud workloads. Azure provides a wide range of compute options to meet diverse requirements, from virtual machines (VMs) that give you full control of the operating system to fully managed serverless functions that scale automatically. Azure compute services support workload migration, cloud-native application development, and high-performance computing (HPC) simulations. They also provide flexibility and scaling capabilities to improve workload performance.
 
-Understanding your workload requirements is essential for choosing the right compute option. Consider the level of control you need, how your application scales, latency requirements, and cost optimization goals. The compute portfolio on Azure spans infrastructure as a service (IaaS), platform as a service (PaaS), and serverless models, so you can select the approach that best fits your architecture.
+Understanding your workload requirements is essential for choosing the right compute option. Consider the level of control that you need, how your application scales, your latency needs, and your cost optimization goals. The compute portfolio on Azure spans infrastructure as a service (IaaS), platform as a service (PaaS), and serverless models, so you can choose the approach that suits your architecture.
 
 ## Architecture
 
 :::image type="complex" border="false" source="../media/compute-get-started-diagram.svg" alt-text="Diagram that shows the compute solution journey on Azure." lightbox="../media/compute-get-started-diagram.svg":::
-   The diagram shows an Azure subscription at the top that contains a virtual network. On the left side, a workload client connects through the network ingress control layer, which contains three options: Azure Front Door, Azure Application Gateway, or Azure Load Balancer. In the center is an application platform compute box that contains Azure Virtual Machines, Azure Virtual Machine Scale Sets, Azure Batch, Azure Container Apps, Azure Kubernetes Service (AKS), and Azure App Service. The application platform box connects to another box that contains application dependencies, like databases and private endpoints. On the right side is a box labeled specialized compute. It contains Oracle on Virtual Machines, SAP on Azure, data science VMs, SQL Server on Virtual Machines, and Azure CycleCloud HPC. Below the specialized compute box, icons represent user-defined routes, and network and application security groups. At the bottom left, an icon that represents on-premises connectivity connects via virtual private network (VPN) or Azure ExpressRoute to Azure Bastion and public IP addresses within the virtual network. Along the bottom of the diagram are platform services, including Azure Update Manager, Microsoft Entra managed identities, Azure Monitor, and Azure maintenance configurations. Below the Azure subscription box, a box labeled platform contains Microsoft Entra ID, Microsoft Cost Management, Microsoft Defender for Cloud, Azure DevOps and GitHub, and Azure DNS.
+   The diagram shows an Azure subscription at the top that includes a virtual network. On the left side, a workload client connects through the network ingress control layer, which has three options: Azure Front Door, Azure Application Gateway, or Azure Load Balancer. In the center is an application platform compute box that includes Azure Virtual Machines, Azure Virtual Machine Scale Sets, Azure Batch, Azure Container Apps, Azure Kubernetes Service (AKS), and Azure App Service. The application platform box connects to another box that has application dependencies, like databases and private endpoints. On the right side is a box labeled specialized compute. It includes Oracle on Virtual Machines, SAP on Azure, data science VMs, SQL Server on Virtual Machines, and Azure CycleCloud HPC. Below the specialized compute box, icons represent user-defined routes (UDRs), and network and application security groups. At the bottom left, an icon that represents on-premises connectivity connects via virtual private network (VPN) or Azure ExpressRoute to Azure Bastion and public IP addresses within the virtual network. Along the bottom of the diagram are platform services, including Azure Update Manager, Microsoft Entra managed identities, Azure Monitor, and Azure maintenance configurations. Below the Azure subscription box, a box labeled platform has Microsoft Entra ID, Microsoft Cost Management, Microsoft Defender for Cloud, Azure DevOps and GitHub, and Azure DNS.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/compute-get-started-diagram.vsdx) of this architecture.*
 
-The preceding diagram demonstrates a typical basic or baseline compute implementation. For real-world solutions that you can build in Azure, see [Compute architectures](#compute-architectures).
+The previous diagram demonstrates a common basic or baseline compute implementation. For real-world solutions that you can build in Azure, see [Compute architectures](#compute-architectures).
 
 ## Explore compute architectures and guides
 
@@ -36,13 +36,13 @@ The articles in this section include fully developed architectures that you can 
 The following articles help you evaluate and select the best compute technologies for your workload requirements:
 
 - [Choose a compute service](../../guide/technology-choices/compute-decision-tree.md) - Use a decision tree to help you choose the right compute option.
-- [Shared access signatures (SAS) on Azure architecture](../../guide/sas/sas-overview.yml) - Get comprehensive guidance about running SAS analytics on Azure.
-- [Build workloads by using Azure Spot Virtual Machines](../../guide/spot/spot-eviction.yml) - Learn how to design workloads that take advantage of spare Azure capacity at reduced costs.
+- [Shared access signatures (SAS) on Azure architecture](../../guide/sas/sas-overview.yml) - Get guidance about running SAS analytics on Azure.
+- [Build workloads by using Azure Spot Virtual Machines](../../guide/spot/spot-eviction.yml) - Learn how to design workloads that take advantage of spare Azure capacity at reduced cost.
 - [HPC on Azure](../../guide/compute/high-performance-computing.md) - Learn about HPC capabilities and architectures on Azure.
 
 ### Compute architectures
 
-The following production-ready architectures demonstrate end-to-end compute solutions that you can deploy and customize:
+The following production-ready architectures demonstrate comprehensive compute solutions that you can deploy and customize:
 
 - [Azure Virtual Machines baseline architecture](../../virtual-machines/baseline.yml) - See a foundational reference architecture for workloads deployed on Virtual Machines.
 - [Virtual Machines baseline architecture in an Azure landing zone](../../virtual-machines/baseline-landing-zone.yml) - Deploy VM workloads in an Azure landing zone context.
@@ -67,7 +67,7 @@ SAP workloads have specific architecture requirements. See the following resourc
 
 #### SAP guides
 
-- [SAP landscape architecture](../../guide/sap/sap-whole-landscape.yml) - See comprehensive guidance about SAP landscapes on Azure.
+- [SAP landscape architecture](../../guide/sap/sap-whole-landscape.yml) - See guidance about SAP landscapes on Azure.
 - [Inbound and outbound internet connections for SAP on Azure](../../guide/sap/sap-internet-inbound-outbound.yml) - See a network architecture for SAP internet connectivity.
 
 #### SAP architectures
@@ -87,7 +87,7 @@ The following solution ideas demonstrate implementation patterns and possibiliti
 
 ## Learn about compute on Azure
 
-[Microsoft Learn](/training/?WT.mc_id=learnaka) provides free online training resources for Azure compute technologies. The platform provides videos, tutorials, and hands-on labs for specific products and services, along with learning paths organized by job role.
+[Microsoft Learn](/training/?WT.mc_id=learnaka) provides free online training resources for Azure compute technologies. The platform provides videos, tutorials, and interactive labs for specific products and services, along with learning paths organized by job role.
 
 The following resources provide foundational knowledge for compute implementations on Azure:
 
@@ -112,7 +112,7 @@ To help ensure the quality of your compute solution on Azure, we recommend that 
 For compute-specific guidance, see the following Well-Architected Framework service guides:
 
 - [Virtual Machines and scale sets](/azure/well-architected/service-guides/virtual-machines)
-- [Azure App Service (Web Apps)](/azure/well-architected/service-guides/app-service-web-apps)
+- [App Service (Web Apps)](/azure/well-architected/service-guides/app-service-web-apps)
 - [Azure Functions](/azure/well-architected/service-guides/azure-functions)
 - [AKS](/azure/well-architected/service-guides/azure-kubernetes-service)
 - [Azure Container Apps](/azure/well-architected/service-guides/azure-container-apps)
@@ -145,7 +145,7 @@ To stay current with key compute services, see the following articles:
 
 - [What's new in Virtual Machines](/azure/virtual-machines/whats-new)
 - [AKS release notes](/azure/aks/release-tracker)
-- [Azure App Service announcements](https://azure.github.io/AppService/feed.xml)
+- [App Service announcements](https://azure.github.io/AppService/feed.xml)
 - [Azure Functions updates](/azure/azure-functions/functions-versions)
 
 ## Additional resources
@@ -157,7 +157,7 @@ Compute is a broad category and covers a range of solutions. The following resou
 Many organizations need a hybrid approach to compute because their workloads run on-premises and in the cloud. Azure provides the following services to [extend your datacenter to the cloud](/azure/architecture/databases/guide/hybrid-on-premises-and-cloud) and run Azure services on-premises:
 
 - [Azure Arc](/azure/azure-arc/overview) - Extend Azure management and services to any infrastructure.
-- [Azure Local](/azure/azure-local/overview) - Run Azure services on-premises by using a hyperconverged infrastructure solution.
+- [Azure Local](/azure/azure-local/overview) - Run Azure services on-premises by using a hyperconverged infrastructure (HCI) solution.
 - [Hybrid network architecture](../../reference-architectures/hybrid-networking/index.yml) - Connect on-premises networks to Azure.
 
 The following articles describe key hybrid compute scenarios:
