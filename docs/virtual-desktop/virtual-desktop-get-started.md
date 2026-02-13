@@ -72,10 +72,10 @@ To help assure the quality of your virtual desktop solution on Azure, we recomme
 
 Implementing virtual desktop solutions requires attention to security, performance, and cost management. The following resources provide guidance on best practices for your virtual desktop environment:
 
-- [Security best practices for Azure Virtual Desktop](/azure/virtual-desktop/security-guide) - Follow security recommendations to protect your Azure Virtual Desktop environment.
-- [Azure security baseline for Azure Virtual Desktop](/security/benchmark/azure/baselines/virtual-desktop-security-baseline) - Apply the Azure security benchmark to Azure Virtual Desktop.
-- [Session host virtual machine sizing guidelines](/windows-server/remote/remote-desktop-services/virtual-machine-recs) - Select the appropriate virtual machine sizes for your session host workloads.
-- [Configure device redirection](/azure/virtual-desktop/configure-device-redirections) - Configure which local devices users can access in their remote sessions.
+- [Security recommendations for Azure Virtual Desktop](/azure/virtual-desktop/security-recommendations) - Follow security recommendations to protect your Azure Virtual Desktop environment.
+- [Azure security baseline for Azure Virtual Desktop](/security/benchmark/azure/baselines/azure-virtual-desktop-security-baseline) - Apply the Azure security benchmark to Azure Virtual Desktop.
+- [Session host virtual machine sizing guidelines](/windows-server/remote/remote-desktop-services/session-host-virtual-machine-sizing-guidelines) - Select the appropriate virtual machine sizes for your session host workloads.
+- [Configure device redirection](/azure/virtual-desktop/redirection-remote-desktop-protocol) - Configure which local devices users can access in their remote sessions.
 - [Set up scaling tool using Azure Automation and Azure Logic Apps for Azure Virtual Desktop](/azure/virtual-desktop/set-up-scaling-script) - Automatically scale session host VMs based on demand to optimize costs.
 
 ## Stay current with virtual desktop technologies
@@ -105,7 +105,7 @@ Authentication and identity are foundational to any virtual desktop deployment:
 FSLogix is designed for roaming profiles in remote computing environments like Azure Virtual Desktop. It stores a complete user profile in a single container. At sign-in, this container is dynamically attached to the computing environment:
 
 - [FSLogix configuration examples](/fslogix/concepts-configuration-examples) - Review configuration examples for FSLogix profile containers.
-- [FSLogix profile containers and Azure Files](/azure/virtual-desktop/fslogix-containers-azure-files?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) - Use Azure Files as a storage solution for FSLogix profile containers.
+- [FSLogix profile containers and Azure Files](/azure/virtual-desktop/fslogix-profile-containers?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) - Use Azure Files as a storage solution for FSLogix profile containers.
 - [Storage options for FSLogix profile containers in Azure Virtual Desktop](/azure/virtual-desktop/store-fslogix-profile?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) - Compare storage options for FSLogix profile containers.
 
 ### Networking
@@ -113,7 +113,7 @@ FSLogix is designed for roaming profiles in remote computing environments like A
 Network connectivity is a key consideration for virtual desktop deployments:
 
 - [Understanding Azure Virtual Desktop network connectivity](/azure/virtual-desktop/network-connectivity?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) - Review a high-level overview of the network connections used by Azure Virtual Desktop.
-- [Azure Virtual Desktop RDP Shortpath for managed networks](/azure/virtual-desktop/shortpath?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) - Configure RDP Shortpath to establish a direct UDP-based transport between a client and session host.
+- [RDP Shortpath for Azure Virtual Desktop](/azure/virtual-desktop/rdp-shortpath?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) - Configure RDP Shortpath to establish a direct UDP-based transport between a client and session host.
 
 ### Hybrid
 
