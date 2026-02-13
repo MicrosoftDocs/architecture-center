@@ -72,6 +72,8 @@ Consider the following points when deciding how to implement this pattern:
 
 - **Poison messages.** A malformed message, or a task that requires access to resources that aren't available, can cause a service instance to fail. The system should prevent such messages being returned to the queue. Instead, capture and store the details of these messages elsewhere so that they can be analyzed if necessary. Some message brokers, like Azure Service Bus, support this via their [dead-letter queue functionality](/azure/service-bus-messaging/service-bus-dead-letter-queues).
 
+- **Message size.** Brokers enforce message size limits. When payloads are large, such as files or images, store the content in an external data store and include a reference in the message. The [Claim-Check pattern](claim-check.yml) describes this approach.
+
 - **Delivery guarantees and duplicate messages.** Messaging systems offer different delivery guarantees, and each one carries trade-offs.
 
   - *At-most-once* delivery minimizes overhead but can lose messages if the broker or subscriber fails.
@@ -142,11 +144,7 @@ The following guidance might be relevant when implementing this pattern:
 
 - [Asynchronous Messaging Primer](/previous-versions/msp-n-p/dn589781(v=pandp.10)). Message queues are an asynchronous communications mechanism. If a consumer service needs to send a reply to an application, it might be necessary to implement some form of response messaging. The Asynchronous Messaging Primer provides information on how to implement request/reply messaging using message queues.
 
-The following patterns might be relevant when implementing this pattern:
-
-- [Message Broker pattern](https://en.wikipedia.org/wiki/Message_broker). Many messaging subsystems that support a publish-subscribe model are implemented via a message broker.
-
-[This blog post](https://particular.net/blog/you-dont-need-ordered-delivery) describes different ways of handling messages that arrive out of order.
+- [You don't need ordered delivery](https://particular.net/blog/you-dont-need-ordered-delivery). This blog post describes different ways of handling messages that arrive out of order.
 
 ## Related resources
 
