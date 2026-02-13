@@ -82,6 +82,8 @@ Consider the following points when deciding how to implement this pattern:
 
 - **Message schema evolution.** Because publishers and subscribers are deployed independently, message schemas change over time. Prefer backward compatible changes, such as adding optional fields, so existing subscribers continue working. For breaking changes, version through topic names (for example, `orders.v1` and `orders.v2`) or through a version field in message metadata. Subscribers should ignore fields they don't recognize.
 
+- **Correlation.** The broker decouples publishers from subscribers, which makes it harder to trace the end-to-end flow of a message. Include a correlation ID in every message so that downstream subscribers and logging systems can connect related operations into a single trace.
+
 - **Scaling out subscribers.** If a given subscriber is unable to keep up with the rate of messages it is receiving, use the [Competing Consumers pattern](competing-consumers.yml) to scale it out.
 
 ## When to use this pattern
