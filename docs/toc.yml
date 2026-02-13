@@ -527,7 +527,7 @@ items:
   - name: Analytics
     items:
     - name: Get started
-      href: solution-ideas/articles/analytics-get-started.md
+      href: analytics/analytics-get-started.md
     - name: Guides
       items:
       - name: Technology choices

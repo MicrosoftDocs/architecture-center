@@ -7721,6 +7721,20 @@
       "source_path": "docs/example-scenario/startups/core-startup-stack.yml",
       "redirect_url": "/azure/architecture/guide/startups/startup-architecture",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/storage/storage-start-here.md",
+      "redirect_url": "/azure/architecture/storage/storage-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/analytics-get-started.md",
+      "redirect_url": "/azure/architecture/analytics/analytics-get-started",
+      ,
+    {
+      "source_path": "docs/solution-ideas/articles/containers-get-started.md",
+      "redirect_url": "/azure/architecture/containers/containers-get-started",
+      "redirect_document_id": false
     }
   ]
 }
