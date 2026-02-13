@@ -1,5 +1,3 @@
-<!-- cSpell:ignore sujayt -->
-
 This example scenario is applicable to any industry that needs to deploy resilient multitier applications built for high availability and disaster recovery. In this scenario, the application consists of three layers.
 
 - Web tier: The top layer including the user interface. This layer parses user interactions and passes the actions to next layer for processing.

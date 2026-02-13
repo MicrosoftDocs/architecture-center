@@ -10,7 +10,7 @@ ms.custom:
   - fcp
 ---
 
-<!-- cSpell:ignore fullheight neuro milliman hymans netapp gluster tibco cyclecloud hpcpack radioss ansys axioma alces slurm mdcs cntk -->
+<!-- cSpell:ignore fullheight netapp gluster cyclecloud hpcpack alces slurm mdcs cntk -->
 
 # High-performance computing (HPC) on Azure
 
