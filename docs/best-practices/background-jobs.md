@@ -10,7 +10,7 @@ ms.custom:
   - best-practice
 ---
 
-<!-- cSpell:ignore webjobs wwwroot -->
+<!-- cSpell:ignore webjobs -->
 
 # Background jobs
 

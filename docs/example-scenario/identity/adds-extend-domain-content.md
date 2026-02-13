@@ -1,5 +1,3 @@
-<!-- cSpell:ignore sysvol -->
-
 This architecture shows how to extend an on-premises Active Directory domain to Azure to provide distributed authentication services.
 
 ## Architecture
