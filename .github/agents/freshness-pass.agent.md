@@ -1,7 +1,8 @@
 ---
-mode: 'agent'
-tools: ['codebase', 'editFiles', 'search', 'problems', 'searchResults', 'azure_design_architecture', 'azure_query_learn']
-description: 'Guides you through a standard freshness pass for your article'
+name: freshness-pass-guide
+tools: [vscode/askQuestions, read/problems, read/readFile, agent, 'ms-docs-mcp/*', edit/editFiles, search, web, todo]
+description: Guides you through a standard freshness pass for your article
+argument-hint: Provide the path to the article to refresh
 ---
 
 # Freshness pass

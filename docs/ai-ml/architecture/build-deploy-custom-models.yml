@@ -14,10 +14,10 @@ azureCategories:
   - ai-machine-learning
 products:
   - document-intelligence
-  - ai-services
+  - foundry-tools
   - azure-logic-apps
   - azure-machine-learning-studio
-  - azure-ai-foundry
+  - microsoft-foundry
   - azure-storage
 name: Build and deploy custom document processing models on Azure
 summary: Learn more about Azure options for orchestrating, storing, building, deploying, and using custom document processing models.

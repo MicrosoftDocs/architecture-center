@@ -12,7 +12,7 @@ metadata:
 azureCategories:
   - ai-machine-learning
 products:
-  - ai-services
+  - foundry-tools
   - azure-openai
   - azure-api-management
 name: Use a gateway in front of multiple Azure OpenAI deployments or instances

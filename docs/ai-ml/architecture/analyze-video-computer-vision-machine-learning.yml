@@ -17,7 +17,7 @@ azureCategories:
   - media
 products:
   - azure-machine-learning
-  - ai-services
+  - foundry-tools
   - azure-logic-apps
   - azure-data-lake-storage
   - fabric
