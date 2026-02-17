@@ -1,9 +1,9 @@
 ---
 title: AKS Backup and Recovery
 description: Learn how to back up and recover your AKS clusters and their workloads.
-author: samcogan
-ms.author: samcogan
-ms.date: 02/17/2026
+author: AdamSharif-MSFT
+ms.author: jotavar
+ms.date: 01/20/2025
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
@@ -39,11 +39,6 @@ When it comes to intra-region high availability and cross-region disaster recove
 - [Azure Kubernetes Fleet Manager](https://azure.microsoft.com/products/kubernetes-fleet-manager): Azure Kubernetes Fleet Manager enables multi-cluster and at-scale intra-region and cross-region scenarios for AKS clusters.
 - [Geo-redundancy options for Azure Container Registry (ACR)](/azure/container-registry/container-registry-geo-replication): Azure Container Registry (ACR) offers geo-replication capabilities. With geo-redundancy, your container images are replicated across different Azure regions. So even if a particular region experiences an outage, your images are available, which provides higher availability for your container registry.
 
-For multi-region disaster recovery patterns, see:
-
-- [Active-active HA for AKS](/azure/architecture/guide/aks/aks-high-availability)
-- [Active-passive DR for AKS](/azure/architecture/guide/aks/blue-green-deployment-for-aks)
-
 You can also use methodologies such as Infrastructure as Code (IaC), Azure Pipelines, GitOps and Flux to quickly redeploy your workloads if disaster occurs.
 
 To find out more about these methodologies, you can review these articles:
@@ -62,9 +57,6 @@ When considering backup and recovery for AKS and Kubernetes clusters in general,
  The cluster state is stored in a highly available etcd key-value pair database, which is often only accessible from the API server, as is the case of managed clusters like AKS. The cluster state is defined in a declarative manner and is the result of all Kubernetes configuration files applied to the cluster, such as YAML manifests.
 
 - **Application data:** Refers to the data created, managed, or accessed by the containerized workloads running within the cluster. To ensure data persistence across pod or container restarts, Kubernetes recommends storing application data in persistent volumes. These volumes can be created statically or dynamically and can be backed by various types of persistent storage, offering flexibility and scalability for data storage and management requirements.
-
-> [!TIP]
-> For stateful workloads such as databases, consider using [Custom Hooks](/azure/backup/azure-kubernetes-service-cluster-backup-concept#backup-hooks) in AKS Backup. Backup hooks let you run custom scripts in containers before and after a snapshot is taken (using pre- and post-hooks), ensuring application-consistent backups. For example, you can freeze a database write operation before a snapshot and unfreeze it afterward.
 
 While a complete backup of the cluster would require both the cluster state and application data to be included as a single unit, determining the optimal scope of each backup depends on various factors. For example, the presence of alternative sources, like Continuous Integration and Continuous Delivery (CI/CD) pipelines, might allow for easier recovery of the cluster state. Additionally, the size of the application data plays a role in storage costs and the time required for backup and recovery operations.
 
@@ -86,19 +78,17 @@ Following are some examples of backup and recovery solutions that you can use wi
 
 [AKS Backup](/azure/backup/azure-kubernetes-service-backup-overview) is Azure's offering for backing up and restoring your AKS clusters. It's an Azure-native process that lets you back up and restore the containerized applications and data running in your AKS clusters.
 
-AKS Backup allows for on-demand or scheduled backups of full or fine-grained cluster state and application data stored in Azure disk-based persistent volumes. AKS Backup supports two storage tiers: the **Operational Tier**, which stores backups as local snapshots and Kubernetes resource backups in a storage account in your subscription, and the **Vault Tier**, which copies backup data to an Azure Backup managed storage vault for long-term retention and geo-redundant protection. Vault Tier supports only persistent volumes backed by Azure Disks up to 1 TB in size and enables **Cross Region Restore (CRR)**, allowing recovery of AKS workloads in an Azure paired secondary region.
-
-AKS Backup integrates with the [Resiliency in Azure](/azure/backup/backup-center-overview) area in the Azure portal to help you govern, monitor, operate, and analyze backups at scale.
+AKS Backup allows for on-demand or scheduled backups of full or fine-grained cluster state and application data stored in Azure disk-based persistent volumes. It integrates with the [Azure Backup Center](/azure/backup/backup-center-overview) to provide a single area in the Azure portal that can help you govern, monitor, operate, and analyze backups at scale.
 
 See [About AKS Backup using Azure Backup](/azure/backup/azure-kubernetes-service-backup-overview) for a detailed description of how AKS Backup works and its capabilities.
 
-### Kasten by Veeam
+### Kasten
 
-[Kasten by Veeam](https://www.kasten.io/) (formerly Kasten K10) is a commercial product that provides operations teams with a secure system for backup and recovery of Kubernetes applications. It's available in both a free version with limited functionality and no support, and a paid version that includes more features and customer support.
+[Kasten](https://www.kasten.io/) is a commercial product that provides operations teams with a secure system for backup and recovery of Kubernetes applications. It's available in both a free version with limited functionality and no support, and a paid version that includes more features and customer support.
 
 When Kasten is deployed as a Kubernetes operator within the cluster, it provides a comprehensive backup solution. It offers a management dashboard for centralized control and visibility. With Kasten, users can benefit from incremental and application-aware backups, enabling efficient data protection. Additionally, Kasten offers disaster recovery capabilities. These capabilities include automated failover and failback, and features for data migration and ensuring security.
 
-For more information about Kasten's feature set, see the [Kasten by Veeam documentation](https://docs.kasten.io/latest/index.html). For more information about how to effectively use Kasten with AKS clusters, see [Installing Kasten on Azure](https://docs.kasten.io/latest/install/azure/azure.html).
+For more information about Kasten's feature set, see the [Kasten K10 documentation](https://docs.kasten.io/latest/index.html). For more information about how to effectively use Kasten with AKS clusters, see [Installing K10 on Azure](https://docs.kasten.io/latest/install/azure/azure.html).
 
 ### Velero
 
@@ -133,7 +123,7 @@ The chosen backup frequency and retention period are a trade-off between desirab
 
 In the AKS Backup service, backup frequency and retention period are stored as a *backup policy* resource, which applies to both the cluster state and the application data from persistent volumes.
 
-Backup policies in AKS Backup support backup frequencies at **4, 6, 8, 12, and 24-hour intervals** (the minimum supported interval is 4 hours), with retention periods of up to 360 days for the Operational Tier and up to 30 days for the Vault Tier. Multiple policies can be defined and applied to the same cluster.
+Backup policies in AKS Backup support daily and hourly backups, with retention periods of up to 360 days, while multiple policies can be defined and applied to the same cluster.
 
 See [Create a backup policy](/azure/backup/azure-kubernetes-service-cluster-backup#create-a-backup-policy) for more information on how to configure backup policies in AKS Backup.
 
@@ -154,25 +144,17 @@ By taking these other considerations into account, you can ensure that your back
 
 ## AKS Backup Location and Storage
 
-AKS Backup uses a Backup vault, a storage account, and (optionally) the Vault Tier to store the different types of data captured from a cluster during a backup.
+AKS Backup uses a Backup vault and a storage account to store the different types of data captured from a cluster during a backup.
 
-### Operational Tier storage
+For disk-based persistent volumes, AKS Backup uses incremental snapshots of the underlying Azure Disk, which are stored within your Azure subscription.
 
-For disk-based persistent volumes, AKS Backup uses [incremental snapshots](/azure/virtual-machines/disks-incremental-snapshots?tabs=azure-cli) of the underlying Azure Disk. Incremental snapshots are point-in-time backups for managed disks that consist only of the changes since the last snapshot. The first incremental snapshot is a full copy of the disk. These snapshots are stored within your Azure subscription in the same region as the source disk.
+A [Backup vault](/azure/backup/backup-vault-overview) is a secure storage entity within Azure, which is used to store backup data for workloads supported by Azure Backup, such as AKS clusters. The Backup Vault itself contains both the backup policies, and the backups and recovery points created by backup jobs.
 
-Cluster state (Kubernetes resources) is backed up to a blob container within a designated [storage account](/azure/storage/common/storage-account-overview). The storage account provides multiple intra-region and cross-region redundancy options to ensure data durability.
+Azure automatically manages the storage for a Backup Vault. You can choose from several redundancy options for the data stored within it, which can be configured at the point of Backup Vault creation.
 
-### Vault Tier storage
+A [storage account](/azure/storage/common/storage-account-overview) is a storage area for your data objects within Azure, and is highly configurable. It provides multiple intra-region and cross-region redundancy options to ensure data durability. AKS Backup uses a blob container within a designated storage account to take backups of some components of the AKS cluster.
 
-When Vault Tier is enabled in the backup policy, AKS Backup also copies backup data to an Azure Backup managed vault. Vault Tier provides an **off-site, isolated storage** layer that is managed entirely by Azure Backup, separate from your subscription. This provides protection against ransomware and operational mistakes. Vault Tier is available only for persistent volumes backed by Azure Disks up to 1 TB in size. To use Vault Tier, a **staging resource group and storage account** are required as intermediate locations during data transfer.
-
-When the Backup vault is configured with **geo-redundant storage (GRS)** and **Cross Region Restore** is enabled, backup data in the Vault Tier is replicated to the Azure paired secondary region. This enables recovery of workloads in the secondary region with an RPO of up to 36 hours.
-
-### Backup vault
-
-A [Backup vault](/azure/backup/backup-vault-overview) is a secure storage entity within Azure, which is used to store backup data for workloads supported by Azure Backup, such as AKS clusters. The Backup Vault itself contains the backup policies, and the backups and recovery points created by backup jobs.
-
-Azure automatically manages the storage for a Backup Vault. You can choose from several redundancy options for the data stored within it, including locally redundant storage (LRS), geo-redundant storage (GRS), and zone-redundant storage (ZRS). These options are configured at the point of Backup Vault creation.
+[Incremental snapshots](/azure/virtual-machines/disks-incremental-snapshots?tabs=azure-cli) are point-in-time backups for managed disks that, when taken, consist only of the changes since the last snapshot. The first incremental snapshot is a full copy of the disk. The subsequent incremental snapshots only capture delta changes to disks since the last snapshot.
 
 ## Using AKS Backup to migrate workloads between AKS clusters
 
@@ -180,9 +162,6 @@ You can use AKS Backup as a mechanism for backup and recovery for specific clust
 
 - Restoring a development cluster to a staging cluster
 - Replicating contents across multiple clusters
-- Restoring a backup to a cluster in a different subscription within the same tenant
-
-When restoring to a different cluster, AKS Backup provides conflict resolution options such as **Skip** (skip resources that already exist in the target) and **Patch** (update mutable fields on existing resources), as well as **namespace mapping** to redirect resources into different namespaces during restore.
 
 To ensure that your scenario is supported, consult the following documentation:
 
@@ -220,7 +199,7 @@ Other contributors:
 
 ### Third-party AKS backup and recovery options
 
-- [Kasten by Veeam](https://docs.kasten.io/latest/index.html)
+- [Kasten](https://docs.kasten.io/latest/index.html)
 - [Velero](https://velero.io/docs)
 
 ## Related resources
