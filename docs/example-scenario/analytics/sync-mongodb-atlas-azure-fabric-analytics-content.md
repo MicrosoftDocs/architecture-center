@@ -99,7 +99,7 @@ Pipelines can load documents into:
 - **Lakehouse** (Delta/Parquet/Avro/JSON/CSV)  
 - **Fabric Data Warehouse**
 
-This model is recommended for batch workloads or scenarios where real-time ingestion isn't required.
+This model is recommended for batch workloads or scenarios where real-time ingestion isn't required. For example, you can use a Fabric pipeline to run a nightly copy from MongoDB Atlas into a Fabric Data Warehouse for executive reporting. Because the data only needs to reflect end‑of‑day state, a scheduled pipeline using the MongoDB connector is sufficient, avoiding the complexity of continuous ingestion.
 
 :::image type="content" source="media/azure-fabric-mongodb-connectors.svg" alt-text="Connector architecture for integrating MongoDB with Fabric pipelines." lightbox="media/azure-fabric-mongodb-connectors.svg" border="false":::
 
