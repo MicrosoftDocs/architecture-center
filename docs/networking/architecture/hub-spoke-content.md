@@ -309,7 +309,7 @@ This deployment includes one hub virtual network and two connected spokes, and a
 Principal authors:
 
 - [Alejandra Palacios](https://www.linkedin.com/in/alejandrampalacios/) | Senior Customer Engineer
-- [Jose Moreno](https://www.linkedin.com/in/erjosito/) | Principal Engineer
+- [Jose Moreno](https://www.linkedin.com/in/erjosito/) | Solutions Engineer
 - [Adam Torkar](https://www.linkedin.com/in/at-10993764/) | Azure Networking Global Blackbelt at Microsoft
 
 Other contributors:
@@ -328,11 +328,13 @@ Other contributors:
 
 Your architecture might differ from this simple hub-spoke architecture. The following list describes guidance for advanced scenarios:
 
-- **Add more regions and fully-mesh the hubs to each other** - [Spoke-to-spoke networking](../../reference-architectures/hybrid-networking/virtual-network-peering.yml#spoke-to-spoke-communication-patterns) for multi-region connectivity patterns and [Multi-region networking with Azure Route Server](/azure/route-server/multiregion)
+- **Add more regions** - [Use Azure Firewall to route a multi-hub and spoke topology](/azure/firewall/firewall-multi-hub-spoke).
 
-- **Replace Azure Firewall with a custom network virtual appliance (NVA)** - [Deploy highly available NVAs](/azure/architecture/networking/guide/network-virtual-appliance-high-availability)
+- **Advanced spoke-to-spoke patterns** - [Spoke-to-spoke networking](../../reference-architectures/hybrid-networking/virtual-network-peering.yml#spoke-to-spoke-communication-patterns).
 
-- **Replace Azure Virtual Network Gateway with custom SDWAN NVA** - [SDWAN integration with Azure hub-and-spoke network topologies](/azure/architecture/networking/guide/sdwan-integration-in-hub-and-spoke-network-topologies)
+- **Replace Azure Firewall with a custom network virtual appliance (NVA)** - [Deploy highly available NVAs](/azure/architecture/networking/guide/network-virtual-appliance-high-availability).
+
+- **Replace Azure Virtual Network Gateway with custom SDWAN NVA** - [SDWAN integration with Azure hub-and-spoke network topologies](/azure/architecture/networking/guide/sdwan-integration-in-hub-and-spoke-network-topologies).
 
 - **Use Azure Route Server to provide transitivity between your ExpressRoute and VPN or SDWAN, or to customize prefixes advertised over BGP on Azure virtual network gateways** - [Azure Route Server support for ExpressRoute and Azure VPN](/azure/route-server/expressroute-vpn-support)
 
