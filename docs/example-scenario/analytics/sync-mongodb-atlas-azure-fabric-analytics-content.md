@@ -44,7 +44,7 @@ The following diagram depicts the mirroring integration architecture:
 
 Open Mirroring enables MongoDB change data to be written directly into Fabric, where it's automatically converted to Delta format and made immediately available for Lakehouse, Data Warehouse, Real-Time Analytics, and Power BI.
 
-The article also provides guidance for alternative ingestion approaches—including Real-Time Intelligence (RTI), Azure Functions with Atlas triggers (push), and Fabric pipelines (pull)—to support a range of operational and analytical requirements.
+The article covers alternative ingestion approaches—Real-Time Intelligence (RTI), Azure Functions with Atlas triggers (push), and Fabric pipelines (pull)—for various operational and analytical needs.
 
 ### Alternatives
 
