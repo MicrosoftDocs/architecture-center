@@ -105,7 +105,7 @@ This model is recommended for batch workloads or scenarios where real-time inges
 
 Using Dataflow Gen2 (Power BI / self‑service pull model)
 
-Dataflow Gen2 provides a no‑code, Power BI–centric option to ingest MongoDB Atlas data into OneLake. Customers using Power BI as their primary analytics tool can use the Dataflow Gen2 MongoDB connector to:
+Dataflow Gen2 provides a no‑code, Power BI–centric option to ingest MongoDB Atlas data into OneLake. If you use Power BI as your primary analytics tool you can use the Dataflow Gen2 MongoDB connector to:
 
 - Perform scheduled ingestion
 - Retrieve filtered historical data
