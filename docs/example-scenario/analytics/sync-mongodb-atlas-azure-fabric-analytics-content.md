@@ -13,7 +13,7 @@ The following diagram shows how the reference mirroring application deployed in 
 1. Create an [open mirrored database](/fabric/mirroring/open-mirroring-tutorial) in Fabric via API or the Fabric portal.  
 2. Obtain the **landing zone URL** associated with the mirrored database.  
 3. Deploy the mirroring accelerator [Terraform or ARM](https://github.com/mongodb-partners/MongoDB_Fabric_Mirroring/tree/main/terraform).  
-4. The application:
+The application:
    - Performs initial historical load.
    - Subscribes to MongoDB Change Streams.
    - Writes Parquet files into the landing zone.  
