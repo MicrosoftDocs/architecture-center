@@ -1,6 +1,6 @@
 ---
-title: No-caching antipattern
-description: Learn about ways to mitigate the no-caching antipattern, the common design flaw of repeatedly fetching the same data.
+title: No-Caching antipattern
+description: Learn about ways to mitigate the No-Caching antipattern, the common design flaw of repeatedly fetching the same data.
 ms.author: pnp
 author: claytonsiemens77
 ms.date: 06/05/2017
@@ -19,7 +19,7 @@ keywords:
 
 # No-caching antipattern
 
-Antipatterns are common design flaws that can break your software or applications in stress situations and shouldn't be overlooked. A *no caching antipattern* occurs when a cloud application that handles many concurrent requests repeatedly fetches the same data. This can reduce performance and scalability.
+Antipatterns are common design flaws that can break your software or applications in stress situations and shouldn't be overlooked. A *No-Caching antipattern* occurs when a cloud application that handles many concurrent requests, repeatedly fetches the same data. This can reduce performance and scalability.
 
 When data isn't cached, it can cause undesirable behaviors, like:
 
@@ -29,7 +29,7 @@ When data isn't cached, it can cause undesirable behaviors, like:
 
 These problems can lead to poor response times, increased contention in the data store, and poor scalability.
 
-## Examples of no-caching antipattern
+## Examples of No-Caching antipattern
 
 The following example uses Entity Framework to connect to a database. Every client request results in a call to the database, even if multiple requests are fetching the same data. The cost of repeated requests, in terms of I/O overhead and data access charges, can accumulate quickly.
 
@@ -55,9 +55,9 @@ This antipattern typically occurs because:
 - The benefits and drawbacks of using a cache aren't clearly understood.
 - There are concerns about the costs of maintaining the accuracy and freshness of cached data.
 - An application was migrated from an on-premises system, where network latency wasn't an issue, and the system ran on expensive high-performance hardware, so caching wasn't considered in the original design.
-- Developers aren't aware that caching is possible—for example, you might not think of using ETags when implementing a web API.
+- Developers aren't aware that caching is possible. For example, developers might not think of using ETags when implementing a web API.
 
-## How to fix the no caching antipattern
+## How to fix the No-Caching antipattern
 
 The most popular caching strategy is the *on-demand* or *cache-aside* strategy.
 
@@ -105,23 +105,19 @@ public class CacheService
 }
 ```
 
-> [!NOTE] 
-> The `GetAsync` method now calls the `CacheService` class, rather than calling the database directly. The `CacheService` class first tries to get the item from Azure Managed Redis. If the value isn't found in the cache, the `CacheService` invokes a lambda function passed to it by the caller. The lambda function is responsible for fetching the data from the database. This decouples the repository from the particular caching solution, and decouples the `CacheService` from the database.
+Notice that the `GetAsync` method now calls the `CacheService` class, rather than calling the database directly. The `CacheService` class first tries to get the item from Azure Managed Redis. If the value isn't found in the cache, the `CacheService` invokes a lambda function passed to it by the caller. The lambda function is responsible for fetching the data from the database. This decouples the repository from the particular caching solution, and decouples the `CacheService` from the database.
 
 ## Considerations for caching strategy
 
-- If the cache is unavailable, perhaps because of a transient failure, don't return an error to the client. Instead, fetch the data from the original data source.
-
-> [!CAUTION]
-> The original data store might be swamped with requests while the cache is being recovered, resulting in timeouts and failed connections—this is one of the motivations for using a cache in the first place. Use a technique like the [Circuit Breaker pattern][circuit-breaker] to avoid overwhelming the data source.
+- If the cache is unavailable, perhaps because of a transient failure, don't return an error to the client. Instead, fetch the data from the original data source. However, be aware that while the cache is being recovered, the original data store could be swamped with requests, resulting in timeouts and failed connections. (After all, this is one of the motivations for using a cache in the first place.) Use a technique such as the [Circuit Breaker pattern][circuit-breaker] to avoid overwhelming the data source.
 
 - Applications that cache dynamic data should be designed to support eventual consistency.
 
-- For web APIs, you can support client-side caching by including a cache-control header in request and response messages, and using ETags to identify versions of objects. For more information, see [API implementation][api-implementation].
+- For web APIs, you can support client-side caching by including a `Cache-Control` header in request and response messages, and using ETags to identify versions of objects. For more information, see [API implementation][api-implementation].
 
-- You don't have to cache entire entities. If most of an entity is static, but only a small piece changes frequently, cache the static elements and retrieve the dynamic elements from the data source. This approach can help to reduce the volume of I/O that is performed against the data source.
+- You don't have to cache entire entities. If most of an entity is static, but only a small piece changes frequently, cache the static elements and retrieve the dynamic elements from the data source. This approach can help to reduce the volume of I/O that's performed against the data source.
 
-- If volatile data is short-lived, it can be useful to cache it—for example, consider a device that continually sends status updates. It might make sense to cache this information as it arrives, and not write it to a persistent store at all.
+- If volatile data is short-lived, it can be useful to cache it. For example, consider a device that continually sends status updates. It might make sense to cache this information as it arrives, and not write it to a persistent store at all.
 
 - To prevent data from becoming stale, many caching solutions support configurable expiration periods, so that data is automatically removed from the cache after a specified interval. You might need to tune the expiration time for your scenario. Highly static data can stay in the cache for longer than volatile data, which might become stale quickly.
 
@@ -131,11 +127,11 @@ public class CacheService
 
 - It might be useful to prime the cache when the application starts. Populate the cache with the data that is most likely to be used.
 
-- Always include instrumentation that detects cache hits and misses. Use this information to tune caching policies, like what data to cache, and how long to hold data in the cache before it expires.
+- Always include instrumentation that detects cache hits and cache misses. Use this information to tune caching policies, like what data to cache, and how long to hold data in the cache before it expires.
 
 - If the lack of caching is a bottleneck, adding caching might increase the volume of requests so much that the web front end becomes overloaded. Clients might start to receive HTTP 503 (Service Unavailable) errors. These indicate that you should scale out the front end.
 
-## How to detect a no-caching antipattern
+## How to detect a No-Caching antipattern
 
 To help identify whether lack of caching is causing performance problems:
 
@@ -165,7 +161,7 @@ If you need a deeper analysis, you can use a profiler to capture low-level perfo
 
 ### Load test the application
 
-The graph shows the results of load testing the sample application. The load test simulates a step load of up to 800 users performing a typical series of operations.
+The following graph shows the results of load testing the sample application. The load test simulates a step load of up to 800 users performing a typical series of operations.
 
 ![Performance load test results for the uncached scenario][Performance-Load-Test-Results-Uncached]
 

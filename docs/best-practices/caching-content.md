@@ -14,7 +14,7 @@ Caching is most effective when a client instance repeatedly reads the same data,
 Distributed applications typically implement either or both of the following strategies when caching data:
 
 - They use a private cache, where data is held locally on the computer that's running an instance of an application or service.
-- They use a shared cache, serving as a common source accessible to multiple processes and machines.
+- They use a shared cache, serving as a common source that multiple processes and machines can access.
 
 In both cases, caching can be performed client-side and server-side. Client-side caching is done by the process that provides the user interface for a system, such as a web browser or desktop application. Server-side caching is done by the process that provides the business services that are running remotely.
 
@@ -22,7 +22,7 @@ In both cases, caching can be performed client-side and server-side. Client-side
 
 The most basic type of cache is an in-memory store. It's held in the address space of a single process and accessed directly by the code that runs in that process. This type of cache is quick to access. It can also provide an effective means for storing modest amounts of static data. The size of a cache is typically constrained by the amount of memory available on the machine that hosts the process.
 
-If you need to cache more information than is physically possible in memory, you can write cached data to the local file system. This process is slower to access than data held in memory, but it should still be faster and more reliable than retrieving data across a network.
+If you need to cache more information than is physically possible in memory, you can write cached data to the local file system. This process is slower to access than data that's held in memory, but it should still be faster and more reliable than retrieving data across a network.
 
 If you have multiple instances of an application that uses this model running concurrently, each application instance has its own independent cache holding its own copy of the data.
 
@@ -55,7 +55,7 @@ The following sections describe in more detail the considerations for designing 
 
 Caching can dramatically improve performance, scalability, and availability. The more data that you have and the larger the number of users that need to access this data, the greater the benefits of caching become. Caching reduces the latency and contention associated with handling large volumes of concurrent requests in the original data store.
 
-For example, a database might support a limited number of concurrent connections. Retrieving data from a shared cache, however, rather than the underlying database, makes it possible for a client application to access this data even if the number of available connections is currently exhausted. Additionally, if the database becomes unavailable, client applications might be able to continue by using the data held in the cache.
+For example, a database might support a limited number of concurrent connections. Retrieving data from a shared cache, however, rather than the underlying database, makes it possible for a client application to access this data even if the number of available connections is currently exhausted. Additionally, if the database becomes unavailable, client applications might be able to continue by using the data that;s held in the cache.
 
 Consider caching data that is read frequently but modified infrequently (for example, data that has a higher proportion of read operations than write operations). However, we don't recommend that you use the cache as the authoritative store of critical information. Instead, ensure that all changes that your application can't afford to lose are always saved to a persistent data store. If the cache is unavailable, your application can still continue to operate by using the data store, and you won't lose important information.
 
@@ -71,23 +71,23 @@ Caching typically works well with data that's immutable or that changes infreque
 
 Caching is less useful for dynamic data, although there are some exceptions to this consideration (for more information, see the section Cache highly dynamic data later in this article). When the original data changes regularly, either the cached information becomes stale quickly or the overhead of synchronizing the cache with the original data store reduces the effectiveness of caching.
 
-A cache doesn't have to include the complete data for an entity. For example, if a data item represents a multivalued object, such as a bank customer with a name, address, and account balance, some of these elements might remain static, such as the name and address. Other elements, such as the account balance, might be more dynamic. In these situations, it can be useful to cache the static portions of the data and retrieve (or calculate) only the remaining information when required.
+A cache doesn't have to include the complete data for an entity. For example, if a data item represents a multivalued object, such as a bank customer with a name, address, and account balance, some of these elements might remain static, such as the name and address. Other elements, such as the account balance, might be more dynamic. In these situations, it can be useful to cache the static portions of the data and retrieve (or calculate) only the remaining information when it's required.
 
 We recommend that you carry out performance testing and usage analysis to determine whether prepopulating or on-demand loading of the cache, or a combination of both, is appropriate. The decision should be based on the volatility and usage pattern of the data. Cache utilization and performance analysis are important in applications that encounter heavy loads and must be highly scalable. For example, in highly scalable scenarios you can seed the cache to reduce the load on the data store at peak times.
 
 Caching can also be used to avoid repeating computations while the application is running. If an operation transforms data or performs a complicated calculation, it can save the results of the operation in the cache. If the same calculation is required afterward, the application can retrieve the results from the cache.
 
-An application can modify data held in a cache. However, we recommend thinking of the cache as a transient data store that could disappear at any time. Don't store valuable data in the cache only; make sure that you maintain the information in the original data store as well. This means that if the cache becomes unavailable, you minimize the chance of losing data.
+An application can modify data that's held in a cache. However, we recommend thinking of the cache as a transient data store that could disappear at any time. Don't store valuable data in the cache only; make sure that you maintain the information in the original data store as well. This means that if the cache becomes unavailable, you minimize the chance of losing data.
 
 ### Cache highly dynamic data
 
-When you store rapidly changing information in a persistent data store, it can impose an overhead on the system. For example, consider a device that continually reports status or some other measurement. If an application chooses not to cache this data on the basis that the cached information is often outdated, then the same consideration could be true when storing and retrieving this information from the data store. In the time it takes to save and fetch this data, it might change.
+When you store rapidly changing information in a persistent data store, it can impose an overhead on the system. For example, consider a device that continually reports status or some other measurement. If an application chooses not to cache this data on the basis that the cached information is usually outdated, then the same consideration could be true when storing and retrieving this information from the data store. In the time it takes to save and fetch this data, it might change.
 
 In a situation such as this, consider the benefits of storing the dynamic information directly in the cache instead of in the persistent data store. If the data is noncritical and doesn't require auditing, then it doesn't matter if the occasional change is lost.
 
 ### Manage data expiration in a cache
 
-In most cases, data held in a cache is a copy of data held in the original data store. The data in the original data store might change after it was cached, causing the cached data to become stale. Many caching systems enable you to configure the cache to expire data and reduce the period for which data might be out of date.
+In most cases, data that's held in a cache is a copy of data that's held in the original data store. The data in the original data store might change after it was cached, causing the cached data to become stale. Many caching systems enable you to configure the cache to expire data and reduce the period for which data might be out of date.
 
 Expired cached data is removed from the cache, and the application must retrieve the data from the original data store (it can put the newly fetched information back into cache). You can set a default expiration policy when you configure the cache. In many cache services, you can also stipulate the expiration period for individual objects when you store them programmatically in the cache. Some caches enable you to specify the expiration period as an absolute value, or as a sliding value that causes the item to be removed from the cache if it isn't accessed within the specified time. This setting overrides any cache-wide expiration policy, but only for the specified objects.
 
@@ -104,15 +104,15 @@ Some caching implementations might provide other eviction policies. There are se
 
 ### Invalidate data in a client-side cache
 
-Data held in a client-side cache is considered to be outside the auspices of the service that provides the data to the client. A service can't directly force a client to add or remove information from a client-side cache.
+Data that's held in a client-side cache is generally considered to be outside the auspices of the service that provides the data to the client. A service can't directly force a client to add or remove information from a client-side cache.
 
-This means that it's possible for a client that uses a poorly configured cache to continue using outdated information. For example, if the expiration policies of the cache aren't properly implemented, a client might use outdated information cached locally when the information in the original data source changes.
+This means that it's possible for a client that uses a poorly configured cache to continue using outdated information. For example, if the expiration policies of the cache aren't properly implemented, a client might use outdated information that's cached locally when the information in the original data source changes.
 
 If you build a web application that serves data over an HTTP connection, you can implicitly force a web client (such as a browser or web proxy) to fetch the most recent information. You can do this if a resource is updated by a change in the URI of that resource. Web clients typically use the URI of a resource as the key in the client-side cache, so if the URI changes, the web client ignores any previously cached versions of a resource and fetches the new version instead.
 
 ## Managing concurrency in a cache
 
-Often, caches are designed to be shared by multiple instances of an application. Each application instance can read and modify data in the cache. So, the same concurrency issues that arise with any shared data store also apply to a cache. In a situation where an application needs to modify data held in the cache, you might need to ensure that updates made by one instance of the application don't overwrite the changes made by another instance.
+Often, caches are designed to be shared by multiple instances of an application. Each application instance can read and modify data in the cache, so the same concurrency issues that arise with any shared data store also apply to a cache. In a situation where an application needs to modify data held in the cache, you might need to ensure that updates made by one instance of the application don't overwrite the changes made by another instance.
 
 Depending on the nature of the data and the likelihood of collisions, you can adopt one of two approaches to concurrency:
 
@@ -137,17 +137,17 @@ This approach requires careful configuration to prevent the local cache from bec
 
 *Figure 3: Using a local private cache with a shared cache.*
 
-To support large caches that hold relatively long-lived data, some cache services provide a high-availability option that implements automatic failover if the cache becomes unavailable. This approach typically involves replicating the cached data stored on a primary cache server to a secondary cache server, and switching to the secondary server if the primary server fails or connectivity is lost.
+To support large caches that hold relatively long-lived data, some cache services provide a high-availability option that implements automatic failover if the cache becomes unavailable. This approach typically involves replicating the cached data that's stored on a primary cache server to a secondary cache server, and switching to the secondary server if the primary server fails or connectivity is lost.
 
-To reduce the latency associated with writing to multiple destinations, the replication to the secondary server might occur asynchronously when data is written to the cache on the primary server. This approach leads to the possibility that some cached information might be lost if there's a failure, but the proportion of this data should be small, compared to the overall size of the cache.
+To reduce the latency that's associated with writing to multiple destinations, the replication to the secondary server might occur asynchronously when data is written to the cache on the primary server. This approach leads to the possibility that some cached information might be lost if there's a failure, but the proportion of this data should be small, compared to the overall size of the cache.
 
 If a shared cache is large, it might be beneficial to partition the cached data across nodes to reduce the chances of contention and improve scalability. Many shared caches support the ability to dynamically add (and remove) nodes and rebalance the data across partitions. This approach might involve clustering, in which the collection of nodes is presented to client applications as a seamless, single cache. Internally, however, the data is dispersed between nodes following a predefined distribution strategy that balances the load evenly. For more information about possible partitioning strategies, see [Data partitioning guidance](/previous-versions/msp-n-p/dn589795(v=pandp.10)).
 
 Clustering can also increase the availability of the cache. If a node fails, the remainder of the cache is still accessible. Clustering is frequently used with replication and failover. Each node can be replicated, and the replica can be quickly brought online if the node fails.
 
-Many read-and-write operations are likely to involve single data values or objects. However, at times it might be necessary to store or retrieve large volumes of data quickly. For example, seeding a cache could involve writing hundreds or thousands of items to the cache. An application might also need to retrieve a large number of related items from the cache as part of the same request.
+Many read and write operations are likely to involve single data values or objects. However, at times it might be necessary to store or retrieve large volumes of data quickly. For example, seeding a cache could involve writing hundreds or thousands of items to the cache. An application might also need to retrieve a large number of related items from the cache as part of the same request.
 
-Many large-scale caches provide batch operations for these purposes. This enables a client application to package up a large volume of items into a single request and reduces the overhead associated with performing a large number of small requests.
+Many large-scale caches provide batch operations for these purposes. This enables a client application to package up a large volume of items into a single request and reduces the overhead that's associated with performing a large number of small requests.
 
 ## Caching and eventual consistency
 
@@ -159,7 +159,7 @@ For more information about handling data consistency, see the [Data consistency 
 
 ### Protect cached data
 
-Irrespective of the cache service you use, consider how to protect the data held in the cache from unauthorized access. There are two main concerns:
+Irrespective of the cache service you use, consider how to protect the data that's held in the cache from unauthorized access. There are two main concerns:
 
 - The privacy of the data in the cache.
 - The privacy of data as it flows between the cache and the application that's using the cache.
@@ -169,14 +169,14 @@ To protect data in the cache, the cache service might implement an authenticatio
 - Which identities can access data in the cache.
 - Which operations (read and write) that these identities are allowed to perform.
 
-To reduce overhead associated with reading and writing data, after an identity is granted write or read access to the cache, that identity can use any data in the cache.
+To reduce overhead that's associated with reading and writing data, after an identity is granted write or read access to the cache, that identity can use any data in the cache.
 
 If you need to restrict access to subsets of the cached data, you can do one of the following approaches:
 
 - Split the cache into partitions (by using different cache servers) and only grant access to identities for the partitions that they should be allowed to use.
 - Encrypt the data in each subset by using different keys, and provide the encryption keys only to identities that should have access to each subset. A client application might still be able to retrieve all of the data in the cache, but it will only be able to decrypt the data for which it has the keys.
 
-You must also protect the data as it flows in and out of the cache. To do this, you depend on the security features provided by the network infrastructure that client applications use to connect to the cache. If the cache is implemented using an on-site server within the same organization that hosts the client applications, then the isolation of the network itself might not require you to take another steps. If the cache is located remotely and requires a TCP or HTTP connection over a public network (such as the Internet), consider implementing SSL.
+You must also protect the data as it flows in and out of the cache. To do this, you depend on the security features provided by the network infrastructure that client applications use to connect to the cache. If the cache is implemented using an on-site server within the same organization that hosts the client applications, then the isolation of the network itself might not require you to take more steps. If the cache is located remotely and requires a TCP or HTTP connection over a public network (such as the Internet), consider implementing SSL.
 
 ## Considerations for implementing caching in Azure
 
@@ -297,8 +297,8 @@ Each primary/subordinate pair should be located close together to minimize laten
 
 Partitioning the cache involves splitting the cache across multiple computers. This structure gives you several advantages over using a single cache server, including:
 
-- Creating a cache that is too big stored on a single server.
-- Distributing data across servers, improving availability. If one server fails or becomes inaccessible, the data that it holds is unavailable, but the data on the remaining servers can still be accessed. For a cache, this isn't crucial because the cached data is only a transient copy of the data held in a database. Cached data on a server that becomes inaccessible can be cached on a different server instead.
+- Creating a cache that is too big to store on a single server.
+- Distributing data across servers, improving availability. If one server fails or becomes inaccessible, the data that it holds is unavailable, but the data on the remaining servers can still be accessed. For a cache, this isn't crucial because the cached data is only a transient copy of the data that's held in a database. Cached data on a server that becomes inaccessible can be cached on a different server instead.
 - Spreading the load across servers, which improves performance and scalability.
 - Geolocating data close to the users that access it, thus reducing latency.
 
@@ -491,7 +491,7 @@ Redis supports a series of atomic get-and-set operations on string values. These
   // newValue should be 50
   ```
 
-- `GETSET`, which retrieves the value associated with a key and changes it to a new value. The StackExchange library makes this operation available through the `IDatabase.StringGetSetAsync` method. The following code snippet shows an example of this method. This code returns the current value associated with the key "data:counter" from the previous example. Then it resets the value for this key back to zero, all as part of the same operation:
+- `GETSET`, which retrieves the value that's associated with a key and changes it to a new value. The StackExchange library makes this operation available through the `IDatabase.StringGetSetAsync` method. The following code snippet shows an example of this method. This code returns the current value that's associated with the key "data:counter" from the previous example. Then it resets the value for this key back to zero, all as part of the same operation:
 
   ```csharp
   ConnectionMultiplexer redisHostConnection = ...;
@@ -529,7 +529,7 @@ You can also combine multiple operations into a single Redis transaction as desc
 
 You create an `ITransaction` object by using the `IDatabase.CreateTransaction` method. You invoke commands to the transaction by using the methods provided by the `ITransaction` object.
 
-The `ITransaction` interface provides access to a set of methods similar to those accessed by the `IDatabase` interface, except that all the methods are asynchronous. This means that they're only performed when the `ITransaction.Execute` method is invoked. The value returned by the `ITransaction.Execute` method indicates whether the transaction was created successfully (true) or if it failed (false).
+The `ITransaction` interface provides access to a set of methods that's similar to those accessed by the `IDatabase` interface, except that all the methods are asynchronous. This means that they're only performed when the `ITransaction.Execute` method is invoked. The value that's returned by the `ITransaction.Execute` method indicates whether the transaction was created successfully (true) or if it failed (false).
 
 The following code snippet shows an example that increments and decrements two counters as part of the same transaction:
 
@@ -721,7 +721,7 @@ A common task required of many applications is to find the most recently accesse
 
 You can implement this functionality by using a Redis list. A Redis list contains multiple items that share the same key. The list acts as a double-ended queue. You can push items to either end of the list by using the LPUSH (left push) and RPUSH (right push) commands. You can retrieve items from either end of the list by using the LPOP and RPOP commands. You can also return a set of elements by using the LRANGE and RRANGE commands.
 
-The following code snippets show how you can perform these operations by using the StackExchange library. This code uses the `BlogPost` type from the previous examples. As a user reads a blog post, the `IDatabase.ListLeftPushAsync` method pushes the title of the blog post onto a list associated with the key "blog:recent_posts" in the Redis cache.
+The following code snippets show how you can perform these operations by using the StackExchange library. This code uses the `BlogPost` type from the previous examples. As a user reads a blog post, the `IDatabase.ListLeftPushAsync` method pushes the title of the blog post onto a list that's associated with the key "blog:recent_posts" in the Redis cache.
 
 ```csharp
 ConnectionMultiplexer redisHostConnection = ...;
@@ -879,6 +879,6 @@ Some options to consider include:
 
 The following patterns might also be relevant to your scenario when you implement caching in your applications:
 
-- [Cache-aside pattern](../patterns/cache-aside.yml): This pattern describes how to load data on demand into a cache from a data store. This pattern also helps to maintain consistency between data held in the cache and the data in the original data store.
+- [Cache-aside pattern](../patterns/cache-aside.yml): This pattern describes how to load data on demand into a cache from a data store. This pattern also helps to maintain consistency between data that's held in the cache and the data in the original data store.
 
 - The [Sharding pattern](../patterns/sharding.yml) provides information about implementing horizontal partitioning to help improve scalability when storing and accessing large volumes of data.

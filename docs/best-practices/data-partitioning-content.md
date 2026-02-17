@@ -67,7 +67,7 @@ Other advantages of vertical partitioning:
 
 - Sensitive data can be stored in a separate partition with extra security controls.
 
-- Vertical partitioning can reduce the amount of concurrent access needed.
+- Vertical partitioning can reduce the amount of concurrent access that's needed.
 
 Vertical partitioning operates at the entity level within a data store, partially normalizing an entity to break it down from a *wide* item to a set of *narrow* items. It's ideally suited for column-oriented data stores such as HBase and Cassandra. If the data in a collection of columns is unlikely to change, you can also consider using column stores in SQL Server.
 
@@ -212,7 +212,7 @@ Optionally, you can mark a partition as read-only in step 1, so that application
 
 ## Online migration
 
-Online migration is more complex to perform but less disruptive. The process is similar to offline migration, except the original partition isn't marked offline. Depending on the granularity of the migration process (for example, item by item versus shard by shard), the data access code in the client applications might have to handle reading and writing data held in two locations, the original partition and the new partition.
+Online migration is more complex to perform but less disruptive. The process is similar to offline migration, except the original partition isn't marked offline. Depending on the granularity of the migration process (for example, item by item versus shard by shard), the data access code in the client applications might have to handle reading and writing data that's held in two locations, the original partition and the new partition.
 
 ## Next steps
 

@@ -62,7 +62,7 @@ The partitioning scheme can significantly affect the performance of your system.
 
 ## Partitioning Azure Table storage
 
-Azure Table storage is a key-value store that's designed around partitioning. All entities are stored in a partition, and partitions are managed by Azure Table storage. Each entity stored in a table must provide a two-part key that includes:
+Azure Table storage is a key-value store that's designed around partitioning. All entities are stored in a partition, and partitions are managed internally by Azure Table storage. Each entity stored in a table must provide a two-part key that includes:
 
 - **The partition key**. This is a string value that determines the partition where Azure Table storage places the entity. All entities with the same partition key are stored in the same partition.
 
@@ -86,7 +86,7 @@ Each table has multiple partitions.
 
 Consider the following points when you design your entities for Azure Table storage:
 
-- Select a partition key and row key by how the data is accessed. Choose a partition key/row key combination that supports most your queries. The most efficient queries retrieve data by specifying the partition key and the row key. Queries that specify a partition key and a range of row keys can be completed by scanning a single partition. This is relatively fast because the data is held in row key order. If queries don't specify which partition to scan, every partition must be scanned.
+- Select a partition key and row key by how the data is accessed. Choose a partition key/row key combination that supports most of your queries. The most efficient queries retrieve data by specifying the partition key and the row key. Queries that specify a partition key and a range of row keys can be completed by scanning a single partition. This is relatively fast because the data is held in row key order. If queries don't specify which partition to scan, every partition must be scanned.
 
 - If an entity has one natural key, then use it as the partition key and specify an empty string as the row key. If an entity has a composite key consisting of two properties, select the slowest changing property as the partition key and the other as the row key. If an entity has more than two key properties, use a concatenation of properties to provide the partition and row keys.
 
@@ -98,7 +98,7 @@ Consider the following points when you design your entities for Azure Table stor
 
 - Consider the granularity of the partition key:
 
-  - Using the same partition key for every entity results in a single partition held on one server. This prevents the partition from scaling out and focuses the load on a single server. As a result, this approach is only suitable for storing a few entities. However, it does ensure that all entities can participate in entity group transactions.
+  - Using the same partition key for every entity results in a single partition that's held on one server. This prevents the partition from scaling out and focuses the load on a single server. As a result, this approach is only suitable for storing a few entities. However, it does ensure that all entities can participate in entity group transactions.
 
   - Using a unique partition key for every entity causes the table storage service to create a separate partition for each entity, possibly resulting in a large number of small partitions. This approach is more scalable than using a single partition key, but entity group transactions aren't possible. Also, queries that fetch more than one entity might involve reading from more than one server. However, if the application performs range queries, then using a monotonic sequence for the partition keys might help to optimize these queries.
 
@@ -122,7 +122,7 @@ The actions of writing a single block or page are atomic, but operations that sp
 
 Azure Storage queues enable you to implement asynchronous messaging between processes. An Azure Storage account can contain any number of queues, and each queue can contain any number of messages. The only limitation is the space that's available in the storage account. The maximum size of an individual message is 64 KB. If you require messages bigger than this, then consider using Azure Service Bus queues instead.
 
-Each storage queue has a unique name within the storage account that contains it. Azure partitions queues based on the name. All messages for the same queue are stored in the same partition, controlled by a single server. Different queues are managed by different servers to help balance the load. The allocation of queues to servers is transparent to applications and users.
+Each storage queue has a unique name within the storage account that contains it. Azure partitions queues based on the name. All messages for the same queue are stored in the same partition, which is controlled by a single server. Different queues are managed by different servers to help balance the load. The allocation of queues to servers is transparent to applications and users.
 
 In a large-scale application, don't use the same storage queue for all instances of the application because this approach might cause the server that's hosting the queue to become a hot spot. Instead, use different queues for different functional areas of the application. Azure Storage queues don't support transactions, so directing messages to different queues should have little effect on messaging consistency.
 
@@ -132,7 +132,7 @@ An Azure Storage queue can handle up to 2,000 messages per second. If you need t
 
 Azure Service Bus uses a message broker to handle messages that are sent to a Service Bus queue or topic. By default, all messages that are sent to a queue or topic are handled by the same message broker process. This architecture can place a limitation on the overall throughput of the message queue. However, you can also partition a queue or topic when it's created. You do this by setting the *EnablePartitioning* property of the queue or topic description to *true*.
 
-A partitioned queue or topic is divided into multiple fragments, each backed by a separate message store and message broker. Service Bus takes responsibility for creating and managing these fragments. When an application posts a message to a partitioned queue or topic, Service Bus assigns the message to a fragment for that queue or topic. When an application receives a message from a queue or subscription, Service Bus checks each fragment for the next available message and then passes it to the application for processing.
+A partitioned queue or topic is divided into multiple fragments, each of which backed by a separate message store and message broker. Service Bus takes responsibility for creating and managing these fragments. When an application posts a message to a partitioned queue or topic, Service Bus assigns the message to a fragment for that queue or topic. When an application receives a message from a queue or subscription, Service Bus checks each fragment for the next available message and then passes it to the application for processing.
 
 This structure helps distribute the load across message brokers and message stores, increasing scalability and improving availability. If the message broker or message store for one fragment is temporarily unavailable, Service Bus can retrieve messages from one of the remaining available fragments.
 
@@ -157,7 +157,7 @@ Consider the following points when deciding if or how to partition a Service Bus
 
 - Messages that are sent as part of a transaction must specify a partition key. This can be a *SessionId*, *PartitionKey*, or *MessageId* property. All messages that are sent as part of the same transaction must specify the same partition key because they are handled by the same message broker process. You can't send messages to different queues or topics within the same transaction.
 
-- Partitioned queues and topics can't be automatically deleted when they become idle.
+- Partitioned queues and topics can't be configured to be automatically deleted when they become idle.
 
 - Partitioned queues and topics can't currently be used with the Advanced Message Queuing Protocol (AMQP) if you're building cross-platform or hybrid solutions.
 
@@ -165,12 +165,12 @@ Consider the following points when deciding if or how to partition a Service Bus
 
 [Azure Cosmos DB for NoSQL][cosmos-db-sql-api] is a NoSQL database for storing JSON documents. A document in an Azure Cosmos DB database is a JSON-serialized representation of an object or other piece of data. No fixed schemas are enforced except that every document must contain a unique ID.
 
-Documents are organized into collections. You can group related documents together in a collection. For example, in a system that maintains blog postings, you can store the contents of each blog post as a document in a collection. You can also create collections for each subject type. Alternatively, in a multitenant application, such as a system where different authors control and manage their own blog posts, you can partition blogs by author and create separate collections for each author. The storage space allocated to collections is elastic and can shrink or grow as needed.
+Documents are organized into collections. You can group related documents together in a collection. For example, in a system that maintains blog postings, you can store the contents of each blog post as a document in a collection. You can also create collections for each subject type. Alternatively, in a multitenant application, such as a system where different authors control and manage their own blog posts, you can partition blogs by author and create separate collections for each author. The storage space that's allocated to collections is elastic and can shrink or grow as needed.
 
 Azure Cosmos DB supports automatic partitioning of data based on an application-defined partition key. A *logical partition* is a partition that stores all the data for a single partition key value. All documents that share the same value for the partition key are placed within the same logical partition. Azure Cosmos DB distributes values according to hash of the partition key. A logical partition has a maximum size of 20 GB. Therefore, the choice of the partition key is an important decision at design time. Choose a property with a wide range of values and even access patterns. For more information, see [Partition and scale in Azure Cosmos DB](/azure/cosmos-db/partition-data).
 
 > [!NOTE]
-> Each Azure Cosmos DB database has a *performance level* that determines the amount of resources it gets. A performance level is associated with a *request unit (RU)* rate limit. The RU rate limit specifies the volume of resources reserved and available for exclusive use by that collection. The cost of a collection depends on the performance level selected for that collection. The higher the performance level (and RU rate limit) the higher the charge. You can adjust the performance level of a collection by using the Azure portal. For more information, see [Request Units in Azure Cosmos DB][cosmos-db-ru].
+> Each Azure Cosmos DB database has a *performance level* that determines the amount of resources it gets. A performance level is associated with a *request unit (RU)* rate limit. The RU rate limit specifies the volume of resources that's reserved and available for exclusive use by that collection. The cost of a collection depends on the performance level that's selected for that collection. The higher the performance level (and RU rate limit) the higher the charge. You can adjust the performance level of a collection by using the Azure portal. For more information, see [Request Units in Azure Cosmos DB][cosmos-db-ru].
 
 If the partitioning mechanism that Azure Cosmos DB provides isn't sufficient, you might need to shard the data at the application level. Document collections provide a natural mechanism for partitioning data within a single database. The most straightforward way to implement sharding is to create a collection for each shard. Containers are logical resources and can span one or more servers. Fixed-size containers have a maximum limit of 20 GB and 10,000 RU/s throughput. Unlimited containers don't have a maximum storage size, but must specify a partition key. With application sharding, the client application must direct requests to the appropriate shard, usually by implementing its own mapping mechanism based on some attributes of the data that define the shard key.
 
@@ -182,7 +182,7 @@ Consider the following points when deciding how to partition data with Azure Cos
 
 - **Each document must have an attribute that can be used to uniquely identify that document within the collection in which it's held**. This attribute is different from the shard key, which defines which collection holds the document. A collection can contain a large number of documents. In theory, it's limited only by the maximum length of the document ID. The document ID can be up to 255 characters.
 
-- **All operations against a document are performed within the context of a transaction. Transactions are scoped to the collection in which the document is contained.** If an operation fails, the work it has performed is rolled back. While a document is subject to an operation, any changes that are made are subject to snapshot-level isolation. This mechanism guarantees that if, for example, a request to create a new document fails, another user who's querying the database simultaneously won't see a partial document that is then removed.
+- **All operations against a document are performed within the context of a transaction. Transactions are scoped to the collection in which the document is contained.** If an operation fails, the work that it has performed is rolled back. While a document is subject to an operation, any changes that are made are subject to snapshot-level isolation. This mechanism guarantees that if, for example, a request to create a new document fails, another user who's querying the database simultaneously won't see a partial document that is then removed.
 
 - **Database queries are also scoped to the collection level**. A single query can retrieve data from only one collection. If you need to retrieve data from multiple collections, you must query each collection individually and merge the results in your application code.
 
@@ -211,14 +211,14 @@ You have limited control over how AI Search partitions data for each instance of
 
 - Create two tiers of AI Search:
 
-  - A local service in each region that contains the data most frequently accessed by users in that region. Users can direct requests here for fast but limited results.
+  - A local service in each region that contains the data that's most frequently accessed by users in that region. Users can direct requests here for fast but limited results.
   - A global service that encompasses all the data. Users can direct requests here for slower but more complete results.
 
 This approach is most suitable when there's a significant regional variation in the data that's being searched.
 
 ## Partitioning Azure Cache for Redis
 
-Azure Cache for Redis provides a shared caching service in the cloud, based on the Redis key-value data store. As its name implies, Azure Cache for Redis is intended as a caching solution. Use it only for holding transient data and not as a permanent data store. Applications that use Azure Cache for Redis should be able to continue functioning if the cache is unavailable. Azure Cache for Redis supports primary/secondary replication to provide high availability, but currently limits the maximum cache size to 53 GB. If you need more space than this, you must create more caches. For more information, see [Azure Cache for Redis].
+Azure Cache for Redis provides a shared caching service in the cloud, that's based on the Redis key-value data store. As its name implies, Azure Cache for Redis is intended as a caching solution. Use it only for holding transient data and not as a permanent data store. Applications that use Azure Cache for Redis should be able to continue functioning if the cache is unavailable. Azure Cache for Redis supports primary/secondary replication to provide high availability, but currently limits the maximum cache size to 53 GB. If you need more space than this, you must create more caches. For more information, see [Azure Cache for Redis].
 
 Partitioning a Redis data store involves splitting the data across instances of the Redis service. Each instance constitutes a single partition. Azure Cache for Redis abstracts the Redis services behind a façade and doesn't expose them directly. The most straightforward way to implement partitioning is to create multiple Azure Cache for Redis instances and distribute the data across them.
 
@@ -262,12 +262,12 @@ Consider the following points when deciding how to partition data with Azure Cac
   > [!NOTE]
   > When you use Azure Cache for Redis, you specify the maximum size of the cache (from 250 MB to 53 GB) by selecting the appropriate pricing tier. However, after an Azure Cache for Redis is created, you can't increase (or decrease) its size.
 
-- Redis batches and transactions can't span multiple connections, so all data affected by a batch or transaction should be held in the same database (shard).
+- Redis batches and transactions can't span multiple connections, so all data that's affected by a batch or transaction should be held in the same database (shard).
 
   > [!NOTE]
   > A sequence of operations in a Redis transaction isn't necessarily atomic. The commands that compose a transaction are verified and queued before they run. If an error occurs during this phase, the entire queue is discarded. However, after the transaction is successfully submitted, the queued commands run in sequence. If any command fails, only that command stops running. All previous and subsequent commands in the queue are performed. For more information, go to the [Transactions] page on the Redis website.
 
-- Redis supports a limited number of atomic operations. The only operations of this type that support multiple keys and values are MGET and MSET operations. MGET operations return a collection of values for a specified list of keys, and MSET operations store a collection of values for a specified list of keys. If you need to use these operations, the key-value pairs referenced by the MSET and MGET commands must be stored within the same database.
+- Redis supports a limited number of atomic operations. The only operations of this type that support multiple keys and values are MGET and MSET operations. MGET operations return a collection of values for a specified list of keys, and MSET operations store a collection of values for a specified list of keys. If you need to use these operations, the key-value pairs that are referenced by the MSET and MGET commands must be stored within the same database.
 
 ## Partitioning Azure Service Fabric
 
