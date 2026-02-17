@@ -3,7 +3,7 @@ title: AI Agent Orchestration Patterns
 description: Learn about fundamental orchestration patterns for AI agent architectures, including sequential, concurrent, group chat, handoff, and magentic patterns.
 author: claytonsiemens77
 ms.author: pnp
-ms.date: 07/08/2025
+ms.date: 02/12/2026
 ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
@@ -13,6 +13,18 @@ ms.custom: arb-aiml
 # AI agent orchestration patterns
 
 As architects and developers design their workload to take full advantage of language model capabilities, AI agent systems become increasingly complex. These systems often exceed the abilities of a single agent that has access to many tools and knowledge sources. Instead, these systems use multi-agent orchestrations to handle complex, collaborative tasks reliably. This guide covers fundamental orchestration patterns for multi-agent architectures and helps you choose the approach that fits your specific requirements.
+
+## Start with the right level of complexity
+
+Before you adopt a multi-agent orchestration pattern, evaluate whether your scenario requires one. Agent architectures exist on a spectrum of complexity, and each level introduces coordination overhead, latency, and cost. Use the lowest level of complexity that reliably meets your requirements.
+
+| Level | Description | When to use | Considerations |
+| :---- | :---------- | :---------- | :------------- |
+| **Direct model call** | A single language model call with a well-crafted prompt. No agent logic, no tool access. | Classification, summarization, translation, and other single-step tasks that the model can complete in one pass. | The least complex option. If prompt engineering can solve the problem, you don't need an agent. |
+| **Single agent with tools** | One agent that reasons and acts by selecting from available tools, knowledge sources, and APIs. The agent can loop through multiple model calls and tool invocations to refine results. | Varied queries within a single domain where some requests require dynamic tool use, such as looking up order status or querying a database. | Often the right default for enterprise use cases. Simpler to debug and test than multi-agent setups, while still allowing dynamic logic. Guard against infinite tool-call loops by setting iteration limits. |
+| **Multi-agent orchestration** | Multiple specialized agents coordinate to solve a problem. An orchestrator or peer-based protocol manages work distribution, context sharing, and result aggregation. | Cross-functional or cross-domain problems, scenarios that require distinct security boundaries per agent, or tasks that benefit from parallel specialization. | Adds coordination overhead, latency, and failure modes. Justify the added complexity by demonstrating that a single agent can't reliably handle the task due to prompt complexity, tool overload, or security requirements. |
+
+The rest of this guide focuses on orchestration patterns for the multi-agent level, where the coordination challenges are most significant.
 
 ## Overview
 
@@ -31,6 +43,8 @@ The patterns in this guide show proven approaches for orchestrating multiple age
 ## Sequential orchestration
 
 The sequential orchestration pattern chains AI agents in a predefined, linear order. Each agent processes the output from the previous agent in the sequence, which creates a pipeline of specialized transformations.
+
+*Also known as: pipeline, prompt chaining, linear delegation.*
 
 :::image type="complex" border="false" source="_images/sequential-pattern.svg" alt-text="Diagram that shows sequential orchestration where agents process tasks in a defined pipeline order. Output flows from one agent to the next." lightbox="_images/sequential-pattern.svg":::
    The image shows several sections that have arrows and connecting lines. An arrow points from Input to Agent 1. A line connects Agent 1 to a section that reads Model, knowledge, and tools. An arrow points from Agent 1 to Agent 2. A line connects Agent 2 to a section that reads Model, knowledge, and tools. An arrow points from Agent 2 to a box that has ellipses. An arrow points from this box to Agent n. A line connects Agent n to a section that reads Model, knowledge, and tools. An arrow points from Agent n to Result. A section that reads Common state spans the Agent 1 section through the Agent n section.
@@ -88,13 +102,15 @@ A law firm's document management software uses sequential agents for contract ge
 
 The concurrent orchestration pattern runs multiple AI agents simultaneously on the same task. This approach allows each agent to provide independent analysis or processing from its unique perspective or specialization.
 
+*Also known as: parallel, fan-out/fan-in, scatter-gather, map-reduce.*
+
 :::image type="complex" border="false" source="_images/concurrent-pattern.svg" alt-text="Diagram that shows concurrent orchestration where multiple agents process the same input task simultaneously and their results are aggregated." lightbox="_images/concurrent-pattern.svg":::
    The image contains three key sections. In the top section, an arrow points from Input to the Initiator and collector agent. An arrow points from the Initiator and collector agent to a section that reads Aggregated results based on combined, compared, and selected results. A line connects the Initiator and collector agent to a line that connects to four sections via arrows. These sections are Agent 1, Agent 2, an unlabeled section that has ellipses, and Agent n. An arrow points from Agent 1 to Intermediate result. A line points from Agent 1 and splits into two flows. The first flow shows a Sub agent 1.1 section and a section that reads Model, knowledge, and tools. The second flow shows a Sub agent 1.2 and a section that reads Model, knowledge and tools. An arrow points from Agent 2 to Intermediate result. A line connects Agent 2 to a section that reads Model, knowledge, and tools. An arrow points from the unlabeled section that has ellipses to Intermediate results. An arrow points from Agent n to Intermediate result. A line connects Agent n to a section that reads Model, knowledge, and tools.
 :::image-end:::
 
-This pattern addresses scenarios where you need diverse insights or approaches to the same problem. Instead of sequential processing, all agents work in parallel, which reduces overall run time and provides comprehensive coverage of the problem space. This orchestration pattern resembles the Fan-out/Fan-in cloud design pattern. The results from each agent are often aggregated to return a final result, but that's not required. Each agent can independently produce its own results within the workload, such as invoking tools to accomplish tasks or updating different data stores in parallel.
+This pattern addresses scenarios where you need diverse insights or approaches to the same problem. Instead of sequential processing, all agents work in parallel, which reduces overall run time and provides comprehensive coverage of the problem space. This orchestration pattern resembles the Fan-out/Fan-in cloud design pattern. The results from each agent are often aggregated to return a final result, but that's not required. Each agent can independently produce its own results within the workload, such as invoking tools to accomplish tasks or updating different data stores in parallel. When aggregation is needed, choose a strategy that fits the task: voting or majority-rule for classification, weighted merging for scored recommendations, or an LLM-synthesized summary when results need to be reconciled into a coherent narrative.
 
-Agents operate independently and don't hand off results to each other. An agent might invoke extra AI agents by using its own orchestration approach as part of its independent processing. The available agents must know which agents are available for processing. This pattern supports both deterministic calls to all registered agents and dynamic selection of which agents to invoke based on the task requirements.
+Agents operate independently and don't hand off results to each other. An agent might invoke extra AI agents by using its own orchestration approach as part of its independent processing. The orchestrator must know which agents are registered and available. This pattern supports both deterministic calls to all registered agents and dynamic selection of which agents to invoke based on the task requirements.
 
 ### When to use concurrent orchestration
 
@@ -152,6 +168,8 @@ These independent results are then combined into a comprehensive investment reco
 
 The group chat orchestration pattern enables multiple agents to solve problems, make decisions, or validate work by participating in a shared conversation thread where they collaborate through discussion. A chat manager coordinates the flow by determining which agents can respond next and by managing different interaction modes, from collaborative brainstorming to structured quality gates.
 
+*Also known as: roundtable, collaborative, multi-agent debate, council.*
+
 :::image type="complex" border="false" source="_images/group-chat-pattern.svg" alt-text="Diagram that shows group chat orchestration where multiple agents participate in a managed conversation. A central chat manager coordinates the discussion flow." lightbox="_images/group-chat-pattern.svg":::
    The image shows several sections that have arrows and connecting lines. An arrow points from Input to Group chat manager. An arrow starts at Model, goes through Group chat manager, and points to Accumulating chat thread. A section below this line reads New group instructions based on accumulated context. A line connects to a section that reads Human chat participant or observer. An arrow points from Group chat manager to Agent 2. A double-sided arrow connects Agent 1, an unlabeled box that has ellipses, and Agent n. A line connects Agent 1, Agent 2, the unlabeled box, and Agent n. A line connects Agent 1 to Model and knowledge. A line connects Agent 2 to Model and knowledge. A line connects Agent n to Model and knowledge. An arrow points from a section that reads Chat output from agents to Accumulating chat thread. A line connects Accumulating chat thread to Result.
 :::image-end:::
@@ -198,7 +216,11 @@ Managing conversation flow and preventing infinite loops require careful attenti
 
 ### Maker-checker loops
 
-The maker-checker loop is a specific type of group chat orchestration where one agent, the *maker*, creates or proposes something. Another agent, the *checker*, provides a critique of the result. This pattern is iterative, with the checker agent pushing the conversation back to the maker agent to make updates and repeat the process. Although the group chat pattern doesn't require agents to *take turns* chatting, the maker-checker loop requires a formal turn-based sequence that the chat manager drives.
+The maker-checker loop is a specific type of group chat orchestration where one agent, the *maker*, creates or proposes something, and another agent, the *checker*, evaluates the result against defined criteria. If the checker identifies gaps or quality issues, it pushes the conversation back to the maker with specific feedback. The maker revises its output and resubmits. This cycle repeats until the checker approves the result or the orchestration reaches a maximum iteration limit. Although the group chat pattern doesn't require agents to *take turns* chatting, the maker-checker loop requires a formal turn-based sequence that the chat manager drives.
+
+*Also known as: evaluator-optimizer, generator-verifier, critic loop, reflection loop.*
+
+This pattern requires clear acceptance criteria for the checker agent so that it can make consistent pass or fail decisions. An iteration cap is used to prevent infinite refinement loops combined with a fallback behavior for when the cap is reached, such as escalating to a human reviewer or returning the best result with a quality warning.
 
 ### Group chat orchestration example
 
@@ -222,11 +244,13 @@ The chat manager facilitates structured debate where agents challenge each other
 
 The handoff orchestration pattern enables dynamic delegation of tasks between specialized agents. Each agent can assess the task at hand and decide whether to handle it directly or transfer it to a more appropriate agent based on the context and requirements.
 
+*Also known as: routing, triage, transfer, dispatch, delegation.*
+
 :::image type="complex" border="false" source="_images/handoff-pattern.svg" alt-text="Diagram that shows handoff orchestration where an agent intelligently routes tasks to appropriate specialist agents based on dynamic analysis." lightbox="_images/handoff-pattern.svg":::
    The image shows five key sections. The Agent 1 section includes input, a model and general knowledge section, and a result. The Agent 2 section includes a result and model and knowledge section. The Agent 3 section includes the model, knowledge, and tools section, a result, and an unlabeled section that connects to a result. The Agent n section includes a model and knowledge section and a result. The Customer support employee section includes a result. Curved arrows flow from agent to agent and to the customer support employee.
 :::image-end:::
 
-This pattern addresses scenarios where the optimal agent for a task isn't known upfront or where the task requirements become clear only during processing. It enables intelligent routing and ensures that tasks reach the most capable agent. Agents in this pattern don't typically work in parallel. Full control transfers from one agent to another agent.
+This pattern addresses scenarios where the optimal agent for a task isn't known upfront or where the task requirements become clear only during processing. It enables intelligent delegation and ensures that tasks reach the most capable agent. Agents in this pattern don't typically work in parallel. Full control transfers from one agent to another agent.
 
 ### When to use handoff orchestration
 
@@ -244,7 +268,7 @@ Consider the agent handoff pattern in the following scenarios:
 
 Avoid this pattern in the following scenarios:
 
-- The appropriate agents and their order are always known upfront.
+- The appropriate agent or sequence of agents is identifiable from the initial input. In that case, use deterministic routing or a simpler dispatcher that classifies the input upfront and sends it to the appropriate agent without taking an active role in processing.
 
 - Task routing is deterministic and rule-based, not based on dynamic context window or dynamic interpretation.
 
@@ -271,6 +295,8 @@ One example of a handoff instance is highlighted in the diagram. It begins with 
 ## Magentic orchestration
 
 The magentic orchestration pattern is designed for open-ended and complex problems that don't have a predetermined plan of approach. Agents in this pattern typically have tools that allow them to make direct changes in external systems. The focus is as much on building and documenting the approach to solve the problem as it is on implementing that approach. The task list is dynamically built and refined as part of the workflow through collaboration between specialized agents and a magentic manager agent. As the context evolves, the magentic manager agent builds a task ledger to develop the approach plan with goals and subgoals, which is eventually finalized, followed, and tracked to complete the desired outcome.
+
+*Also known as: dynamic orchestration, task-ledger-based orchestration, adaptive planning.*
 
 :::image type="complex" border="false" source="_images/magentic-pattern.svg" alt-text="Diagram that shows magentic orchestration." lightbox="_images/magentic-pattern.svg":::
    The image shows a Manager agent section. It includes the input and a model. An arrow labeled Invoke agents points from the Manager agent to Agent 2. An arrow labeled Evaluate goal loop points to the Task complete section. An arrow labeled Yes points to the Results section, and an arrow labeled No points back to the Manager agent. An arrow points from the Manager agent to the Task and progress ledger section. A line connects the Task and progress ledger section to the Human participant section. A line that has three arrows points to Agent 1, Agent 2, an unlabeled section, and Agent n. A line connects Agent 1 to a section that reads Model and knowledge. A line connects Agent 2 to a section that reads Model, knowledge, and tools. A line connects Agent n to Model and tools. An arrow points from the section that reads Model, knowledge, and tools to External systems and from the Model and tools section to External systems.
@@ -302,7 +328,7 @@ Avoid this pattern in the following scenarios:
 
 - The task has low complexity and a simpler pattern can solve it.
 
-- The work is time-sensitive, as the pattern focuses on building and debating viable plans, not optimizing for end results.
+- The work is time-sensitive, as the pattern focuses on building and debating viable plans, not optimizing for speed.
 
 - You anticipate frequent stalls or infinite loops that don't have a clear path to resolution.
 
@@ -328,21 +354,37 @@ Throughout this process, the manager agent continuously refines the task ledger 
 
 The manager agent watches for excessive stalls in restoring service and guards against infinite remediation loops. It maintains a complete audit trail of the evolving plan and the implementation steps, which provides transparency for post-incident review. This transparency ensures that the SRE team can improve both the workload and the automation based on lessons learned.
 
+## Choosing a pattern
+
+The following table compares the orchestration patterns to help you identify the approach that fits your coordination requirements.
+
+| Pattern | Coordination | Routing | Best for | Watch out for |
+| :------ | :----------- | :------ | :------- | :------------ |
+| [Sequential](#sequential-orchestration) | Linear pipeline; each agent processes the previous agent's output | Deterministic, predefined order | Step-by-step refinement with clear stage dependencies | Failures in early stages propagate; no parallelism |
+| [Concurrent](#concurrent-orchestration) | Parallel; agents work independently on the same input | Deterministic or dynamic agent selection | Independent analysis from multiple perspectives; latency-sensitive scenarios | Requires conflict resolution when results contradict; resource-intensive |
+| [Group chat](#group-chat-orchestration) | Conversational; agents contribute to a shared thread | Chat manager controls turn order | Consensus-building, brainstorming, iterative maker-checker validation | Conversation loops; difficult to control with many agents |
+| [Handoff](#handoff-orchestration) | Dynamic delegation; one active agent at a time | Agents decide when to transfer control | Tasks where the right specialist emerges during processing | Infinite handoff loops; unpredictable routing paths |
+| [Magentic](#magentic-orchestration) | Plan-build-execute; manager agent builds and adapts a task ledger | Manager agent assigns and reorders tasks dynamically | Open-ended problems with no predetermined solution path | Slow to converge; stalls on ambiguous goals |
+
 ## Implementation considerations
 
-When you implement any of these agent design patterns, several considerations must be addressed. Reviewing these considerations helps you avoid common pitfalls and ensures that your agent orchestration is robust, secure, and maintainable.
+When you implement any of these agent design patterns, address the following considerations. Reviewing them helps you avoid common pitfalls and ensures that your agent orchestration is robust, secure, and maintainable.
 
 ### Single agent, multitool
 
-You can address some problems with a single agent if you give it sufficient access to tools and knowledge sources. As the number of knowledge sources and tools increases, it becomes difficult to provide a predictable agent experience. If a single agent can reliably solve your scenario, consider adopting that approach. Decision-making and flow-control overhead often exceed the benefits of breaking the task into multiple agents. However, security boundaries, network line of sight, and other factors can still render a single-agent approach infeasible.
+As described in [Start with the right level of complexity](#start-with-the-right-level-of-complexity), you can address some problems with a single agent if you give it sufficient access to tools and knowledge sources. Protocols like [Model Context Protocol (MCP)](/azure/developer/ai/intro-agents-mcp) standardize how agents discover and invoke tools. As the number of knowledge sources and tools increases, it becomes difficult to provide a predictable agent experience. If a single agent can reliably solve your scenario, consider adopting that approach. Decision-making and flow-control overhead often exceed the benefits of breaking the task into multiple agents. However, security boundaries, network line of sight, and other factors can still render a single-agent approach infeasible.
 
 ### Deterministic routing
 
 Some patterns require you to route flow between agents deterministically. Others rely on agents to choose their own routes. If your agents are defined in a no-code or low-code environment, you might not control those behaviors. If you define your agents in code by using SDKs like [Microsoft Agent Framework](/agent-framework/overview/agent-framework-overview) or Semantic Kernel, you have more control.
 
-### Context window
+### Context and state management
 
-AI agents often have limited context windows. This constraint can affect their ability to process complex tasks. When you implement these patterns, decide what context the next agent requires to be effective. In some scenarios, you need the full, raw context gathered so far. In other scenarios, a summarized or truncated version is more appropriate. If your agent can work without accumulated context and only requires a new instruction set, take that approach instead of providing context that doesn't help accomplish the agent's task.
+AI agents often have limited context windows. This constraint can affect their ability to process complex tasks, especially as context grows with each agent transition. When you implement these patterns, decide what context the next agent requires to be effective. In some scenarios, you need the full, raw context gathered so far. In other scenarios, a compacted version, such as a summary of prior agent outputs, is more appropriate. If your agent can work without accumulated context and only requires a new instruction set, take that approach instead of providing context that doesn't help accomplish the agent's task.
+
+In multi-agent orchestrations, context windows can grow rapidly because each agent adds its own reasoning, tool results, and intermediate outputs. Monitor accumulated context size and use compaction techniques, such as summarization or selective pruning, between agents to prevent exceeding model limits or degrading response quality.
+
+For orchestrations that span multiple user interactions or long-running tasks, persist shared state externally rather than relying on in-memory context alone. Store task progress, intermediate results, and conversation history in a durable store so that agents can resume work after interruptions. Scope persisted state to the minimum necessary information to reduce token overhead and privacy risk.
 
 ### Reliability
 
@@ -354,13 +396,15 @@ These patterns require properly functioning agents and reliable transitions betw
 
 - Surface errors instead of hiding them, so downstream agents and orchestrator logic can respond appropriately.
 
+- Validate agent output before passing it to the next agent. Low-confidence, malformed, or off-topic responses can cascade through a pipeline. The orchestrator or the receiving agent should check output quality and either retry, request clarification, or halt the workflow rather than propagate bad input.
+
 - Consider circuit breaker patterns for agent dependencies.
 
 - Design agents to be as isolated as is practical from each other, with single points of failure not shared between agents. For example:
 
   - Ensure compute isolation between agents.
 
-  - Evaluate how using a single models as a service (MaaS) model or a shared knowledge store can result in rate limiting when agents run concurrently.
+  - Evaluate how using a single model-as-a-service (MaaS) endpoint or a shared knowledge store can result in rate limiting when agents run concurrently.
 
 - Use checkpoint features available in your SDK to help recover from an interrupted orchestration, such as from a fault or a new code deployment.
 
@@ -378,6 +422,20 @@ Implementing proper security mechanisms in these design patterns minimizes the r
 
 - Consider how to handle the user's identity across agents. Agents must have broad access to knowledge stores to handle requests from all users, but they must not return data that's inaccessible to the user. Security trimming must be implemented in every agent in the pattern.
 
+- Apply content safety [guardrails](/azure/ai-foundry/guardrails/guardrails-overview) at multiple points in the orchestration, including user input, tool calls, tool responses, and final output. Intermediate agents can introduce or propagate harmful content.
+
+### Cost optimization
+
+Multi-agent orchestrations multiply model invocations, and each agent consumes tokens for its instructions, context, reasoning, and tool interactions. The pattern you choose directly affects cost. Sequential and handoff patterns invoke agents one at a time, which limits concurrent resource usage but accumulates cost across each step. Concurrent patterns increase throughput but can spike resource consumption when many agents invoke models simultaneously. Magentic orchestrations are the most variable because the manager agent iterates until it builds a viable plan, making total cost difficult to predict.
+
+To manage cost in multi-agent orchestrations:
+
+- Assign each agent a model that matches the complexity of its task. Not every agent requires the most capable model. Agents that perform classification, extraction, or formatting can often use smaller, less expensive models without degrading the orchestration's overall quality.
+
+- Monitor token consumption per agent and per orchestration run to identify which agents or patterns are the most expensive. Use this data to target optimization efforts.
+
+- Apply context compaction between agents to reduce token volume passed through the orchestration, as described in [Context and state management](#context-and-state-management).
+
 ### Observability and testing
 
 Distributing your AI system across multiple agents requires monitoring and testing each agent individually, as well as the system as a whole, to ensure proper functionality. When you design your observability and testing strategies, consider the following recommendations:
@@ -388,7 +446,11 @@ Distributing your AI system across multiple agents requires monitoring and testi
 
 - Design testable interfaces for individual agents.
 
-- Implement integration tests for multi-agent workflows.
+- Implement integration tests for multi-agent workflows. Because agent outputs are nondeterministic, use scoring rubrics or LLM-as-judge evaluations rather than exact-match assertions.
+
+### Human participation
+
+Several orchestration patterns support human-in-the-loop (HITL) involvement: observers in group chat, reviewers in maker-checker loops, and escalation targets in handoff and magentic orchestrations. Identify which points require human input, whether that input is optional or mandatory, and whether the human response is an approval that advances the workflow or feedback that loops back to the agent for refinement. Mandatory gates make the orchestration synchronous at that step, so persist state at these checkpoints to allow resumption without replaying prior agent work. You can also scope HITL gates to specific tool invocations rather than full agent outputs, which allows the orchestration to proceed autonomously for low-risk actions while requiring approval only for sensitive operations.
 
 ### Common pitfalls and anti-patterns
 
@@ -418,38 +480,34 @@ Applications sometimes require you to combine multiple orchestration patterns to
 
 AI agent orchestration patterns extend and complement traditional [cloud design patterns](/azure/architecture/patterns/) by addressing the unique challenges of coordinating intelligent, autonomous components. Cloud design patterns focus on structural and behavioral concerns in distributed systems, but AI agent orchestration patterns specifically address the coordination of components with reasoning capabilities, learning behaviors, and nondeterministic outputs.
 
-## SDK-based implementations
+## Implementations
 
-Many of these patterns rely on a code-based implementation to address the orchestration logic. SDKs that support an agent framework often provides support for many of the agent orchestration patterns.
+These orchestration patterns are technology-agnostic. You can implement them by using various SDKs and platforms, depending on your language, infrastructure, and integration requirements.
 
 ### Microsoft Agent Framework
 
-The orchestration patterns described on this page are implemented as workflow orchestrations in the Microsoft Agent Framework. For architectural guidance and implementation details, see the [Workflow orchestrations overview](/agent-framework/user-guide/workflows/orchestrations/overview).
+[Microsoft Agent Framework](/agent-framework/overview/agent-framework-overview) is an open-source SDK for building multi-agent orchestrations on the Microsoft platform. Agent Framework provides built-in support for the orchestration patterns described in this article as [workflow orchestrations](/agent-framework/user-guide/workflows/orchestrations/overview).
 
-- [Sequential orchestration using the Agent Framework](/agent-framework/user-guide/workflows/orchestrations/sequential)
-- [Concurrent orchestration using the Agent Framework](/agent-framework/user-guide/workflows/orchestrations/concurrent)
-- [Handoff orchestration using the Agent Framework](/agent-framework/user-guide/workflows/orchestrations/handoff)
-- [Magentic orchestration using the Agent Framework](/agent-framework/user-guide/workflows/orchestrations/magentic)
+- [Sequential orchestration](/agent-framework/user-guide/workflows/orchestrations/sequential)
+- [Concurrent orchestration](/agent-framework/user-guide/workflows/orchestrations/concurrent)
+- [Group chat orchestration](/agent-framework/user-guide/workflows/orchestrations/group-chat)
+- [Handoff orchestration](/agent-framework/user-guide/workflows/orchestrations/handoff)
+- [Magentic orchestration](/agent-framework/user-guide/workflows/orchestrations/magentic)
 
-For hands-on implementation, explore [Agent Framework declarative workflow samples](https://github.com/microsoft/agent-framework/tree/main/workflow-samples) on GitHub that demonstrate some of these patterns in practice.
+> [!TIP]
+> All of these orchestrations support [human-in-the-loop](/agent-framework/user-guide/workflows/orchestrations/human-in-the-loop) capabilities for approvals and feedback during workflow execution.
 
-### Semantic Kernel
+For hands-on implementation, explore [Agent Framework declarative workflow samples](https://github.com/microsoft/agent-framework/tree/main/workflow-samples) on GitHub.
 
-The Semantic Kernel SDK has implementation guidance for its [agent framework](/semantic-kernel/frameworks/agent/agent-orchestration/).
+[Semantic Kernel](/semantic-kernel/frameworks/agent/agent-orchestration/) continues to provide agent orchestration support. If you have existing Semantic Kernel workloads, see the [migration guide](/agent-framework/migration-guide/from-semantic-kernel/) for transitioning to Agent Framework.
 
-- [Sequential orchestration using Semantic Kernel](/semantic-kernel/frameworks/agent/agent-orchestration/sequential)
-- [Concurrent orchestration using Semantic Kernel](/semantic-kernel/frameworks/agent/agent-orchestration/concurrent)
-- [Group Chat orchestration using Semantic Kernel](/semantic-kernel/frameworks/agent/agent-orchestration/group-chat)
-- [Handoff orchestration using Semantic Kernel](/semantic-kernel/frameworks/agent/agent-orchestration/handoff)
-- [Magentic orchestration using Semantic Kernel](/semantic-kernel/frameworks/agent/agent-orchestration/magentic)
+### Foundry Agent Service
 
-For hands-on implementation, explore [Semantic Kernel multi-agent orchestration samples](https://github.com/microsoft/semantic-kernel/tree/main/python/samples/getting_started_with_agents) on GitHub that demonstrate these patterns in practice.
+[Foundry Agent Service](/azure/ai-foundry/agents/overview) provides a managed, no-code approach to chaining agents together by using its [connected agents](/azure/ai-foundry/agents/how-to/connected-agents) functionality. The workflows in this service are primarily nondeterministic, which limits which patterns you can fully implement. Use Foundry Agent Service when you need a managed environment and your orchestration requirements are straightforward.
 
-You can also find many of these patterns in [AutoGen](https://microsoft.github.io/autogen/stable/user-guide/core-user-guide/design-patterns/intro.html), such as [Magentic-One](https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/magentic-one.html).
+### Other frameworks
 
-## Implementations in Foundry Agent Service
-
-You can also use [Foundry Agent Service](/azure/ai-foundry/agents/overview) to chain agents together in relatively simple workflows by using its [connected agents](/azure/ai-foundry/agents/how-to/connected-agents) functionality. The workflows that you implement by using this service are primarily nondeterministic, which limits which patterns can be fully implemented in this no-code environment.
+The orchestration patterns described in this article are not specific to Microsoft SDKs. Other frameworks that support multi-agent orchestration include [LangChain](https://docs.langchain.com/oss/python/langchain/multi-agent#patterns), [CrewAI](https://docs.crewai.com/concepts/processes), and the [OpenAI Agents SDK](https://openai.github.io/openai-agents-python/multi_agent/). Each framework has its own approach to implementing these patterns, and you can apply the architectural guidance in this article regardless of the SDK you choose.
 
 ## Contributors
 
@@ -474,4 +532,4 @@ Other contributors:
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Implement agent orchestration with Semantic Kernel](/semantic-kernel/frameworks/agent/agent-orchestration/)
+> [Implement agent orchestration with Microsoft Agent Framework](/agent-framework/user-guide/workflows/orchestrations/overview)

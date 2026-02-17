@@ -191,7 +191,7 @@ For model training and fine-tuning, you generally observe the DataOps for proces
 
 For prompting in generative AI solutions, you have extra monitoring concerns. You must monitor the data pipelines that process the grounding data or other data that's used to generate prompts. This processing might include data store operations like building or rebuilding indexes.
 
-In a multi-agent system, you need to monitor the availability, performance characteristics, and response quality and consistency of the agents that your orchestrator interfaces with.
+In a multi-agent system, you need to monitor the availability, performance characteristics, and response quality and consistency of the agents that your orchestrator interfaces with. For guidance on designing these systems, see [AI agent orchestration patterns](ai-agent-design-patterns.md).
 
 As part of operational monitoring, it's important to track metrics such as latency, token usage, and 429 errors to ensure that users aren't encountering significant problems.
 
