@@ -29,15 +29,15 @@ The following workflow corresponds to the preceding diagram.
 
 3. SAP application server layer
 
-   This layer contains the central application components. Processing of data happens here. This layer is protected by ASR, WSFC and multiple application servers to ensure local and remote redundancy.
+   This layer contains the central application components. Processing of data happens here. This layer is protected by ASR, WSFC and multiple application servers.
 
 4. Azure network gateway in a hub network
 
    This is the entry point from the on-premise network into the Azure cloud. The hub network includes security measures.
 
-5. On premise network connection to Azure
+5. On premise network connection to Azure  TODO
 
-   This is your local on-premise network, extended into Azure.  It connects to Azure either via ExpressRoute or a VPN over the internet.
+   This is your local on-premise network, extended into Azure.  TODO
 
 ## Components
 
