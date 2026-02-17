@@ -224,7 +224,7 @@ Azure Managed Redis supports built-in high availability and horizontal scaling t
 
 Partitioning a Redis data store involves splitting data across multiple nodes. Azure Managed Redis uses native Redis Cluster partitioning to automatically distribute keys across nodes based on hash slots. This approach abstracts the underlying nodes from application logic and removes the need for application-level partition management in most scenarios. For more information about clustering models and client connectivity options in Azure Managed Redis, see the [Azure Managed Redis clustering documentation](/azure/redis/architecture#clustering).
 
-Client applications connect to the cluster using standard Redis client libraries through Redis endpoints. Requests are automatically routed to the appropriate node within the cluster. If a request initially reaches a node that does not own the requested key, it is forwarded internally to the node that holds the corresponding hash slot. Request routing and cluster topology management are handled by the Redis service and supporting client libraries.
+Client applications connect to the cluster using standard Redis client libraries through Redis endpoints. Requests are automatically routed to the appropriate node within the cluster. If a request initially reaches a node that doesn't own the requested key, it is forwarded internally to the node that holds the corresponding hash slot. Request routing and cluster topology management are handled by the Redis service and supporting client libraries.
 
 Redis clustering is transparent to application logic. Nodes can be added or removed and data can be automatically rebalanced without requiring application reconfiguration.
 
