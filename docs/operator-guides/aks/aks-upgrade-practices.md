@@ -1,8 +1,8 @@
 ---
 title: "AKS Day-2 Guide: Patch and Upgrade Guidance"
 description: Learn about day-2 patching and upgrading practices for Azure Kubernetes Service (AKS) worker nodes and Kubernetes versions.
-author: aionic
-ms.author: anevico
+author: samcogan
+ms.author: samcogan
 ms.date: 02/17/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
