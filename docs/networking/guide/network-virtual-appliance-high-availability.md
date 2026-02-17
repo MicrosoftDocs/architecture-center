@@ -172,6 +172,7 @@ This design doesn't require SNAT to guarantee traffic symmetry because only one 
 Authors:
 
 - [Jose Moreno](https://www.linkedin.com/in/erjosito) | Solutions Engineer
+- [Keith Mayer](https://www.linkedin.com/in/keithm) | Principal Cloud Solution Architec
  
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
