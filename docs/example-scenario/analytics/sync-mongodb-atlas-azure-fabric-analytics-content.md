@@ -132,7 +132,7 @@ This approach is optimal for Spark‑centric engineering teams or workloads that
 
 **Fabric Pipelines (optional orchestration)**
 
-Fabric Pipelines can still orchestrate MongoDB batch ingestion through the MongoDB connector if needed, but the Spark Connector provides a more flexible path for both batch and streaming scenarios.
+Fabric Pipelines can orchestrate MongoDB batch ingestion through the MongoDB connector, but the Spark Connector provides more flexibility for batch and streaming scenarios.
 
 ## Scenario details
 
