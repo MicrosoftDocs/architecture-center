@@ -17,7 +17,7 @@ The application:
    - Performs initial historical load.
    - Subscribes to MongoDB Change Streams.
    - Writes Parquet files into the landing zone.  
-5. Fabric ingests, converts, and mirrors the data into Delta tables.  
+Fabric ingests, converts, and mirrors the data into Delta tables.  
 6. Power BI, Lakehouse, and Data Warehouse workloads can consume the synchronized data.
 
 Fabric automatically:
