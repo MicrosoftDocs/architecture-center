@@ -37,7 +37,7 @@ Fabric automatically:
 - [Azure App Service](/azure/app-service/overview). Hosts the mirroring Python application.  
 - [MongoDB ChangeStreams](https://www.mongodb.com/docs/manual/changeStreams/). Streams inserts, updates, and deletes from Atlas.  
 - [Terraform templates](https://github.com/mongodb-partners/MongoDB_Fabric_Mirroring/tree/main/terraform). Provided by the MongoDB team for automated deployment.
-- [PowerBI](/power-bi/fundamentals/power-bi-overview). Consumes the mirrored Delta tables through Direct Lake, enabling high-performance real-time dashboards and analytics over MongoDB transactional data with no data movement.
+- [Power BI](/power-bi/fundamentals/power-bi-overview). Consumes the mirrored Delta tables through Direct Lake, enabling high-performance real-time dashboards and analytics over MongoDB transactional data with no data movement.
 
 The following diagram depicts the mirroring integration architecture:
 :::image type="content" source="media/mongodb-mirroring-integrated-arch.png" alt-text="Diagram that shows the Fabric MongoDB Mirroring integrated architecture." border="false" lightbox="media/mongodb-mirroring-integrated-arch.png":::
