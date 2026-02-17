@@ -15,9 +15,7 @@ keywords:
   - reduce latency
 ---
 
-<!-- cSpell:ignore linq -->
-
-# No-caching antipattern
+# No-Caching antipattern
 
 Antipatterns are common design flaws that can break your software or applications in stress situations and shouldn't be overlooked. A *no caching antipattern* occurs when a cloud application that handles many concurrent requests repeatedly fetches the same data. This can reduce performance and scalability.
 

@@ -1,5 +1,3 @@
-<!-- cSpell:ignore DharmeshBhagat HANA -->
-
 This reference architecture shows a set of proven practices for running a high-availability SAP NetWeaver with Oracle Database on Azure. The architecture principles are OS-agnostic, however, unless otherwise specified, the architecture is assumed to be based on Linux.
 
 The first diagram shows a reference architecture for SAP on Oracle in Azure. We recommend that you deploy across two availability zones.

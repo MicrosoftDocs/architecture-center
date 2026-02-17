@@ -7,7 +7,7 @@ The solution consists of two processes:
 - The golden image publishing process
 - The process of tracking virtual machine (VM) compliance
 
-:::image type="content" source="./media/virtual-machine-compliance-golden-image-publishing-architecture.svg" alt-text="Architecture diagram showing how the solution manages Azure Marketplace images. Illustrated steps include customization, tracking, testing, and publishing." border="false":::
+:::image type="content" source="./media/virtual-machine-compliance-golden-image-publishing-architecture.svg" alt-text="Architecture diagram showing how the solution manages Microsoft Marketplace images for Azure. Illustrated steps include customization, tracking, testing, and publishing." border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/virtual-machine-compliance-golden-image-publishing-architecture.vsdx) of this architecture.*
 
@@ -15,7 +15,7 @@ The solution consists of two processes:
 
 The golden image publishing process runs monthly and contains these steps:
 
-1. The process captures a base image from Azure Marketplace.
+1. The process captures a base image from the [Microsoft Marketplace](https://marketplace.microsoft.com).
 1. VM Image Builder customizes the image.
 1. The process of image tattooing tracks image version information like the source and publish date.
 1. Automated tests validate the image.
@@ -92,9 +92,9 @@ To manage compliance:
 
 #### Restrict images
 
-Don't allow DevOps teams to use Azure Marketplace VM images. Only allow VM images that Compute Gallery publishes. This restriction is critical for ensuring VM compliance. You can use a custom policy in Azure Policy to enforce this restriction. For a sample, see [Allow image publishers][Only allow certain image publishers from the Marketplace].
+Don't allow DevOps teams to use Microsoft Marketplace VM images. Only allow VM images that Compute Gallery publishes. This restriction is critical for ensuring VM compliance. You can use a custom policy in Azure Policy to enforce this restriction. For a sample, see [Allow image publishers][Only allow certain image publishers from the Marketplace].
 
-As part of this solution, VM Image Builder should use an Azure Marketplace image. It's essential to use the latest image that's available in Azure Marketplace. Apply any customizations on top of that image. Azure Marketplace images are refreshed often, and each image has certain preset configurations, ensuring your images are secure by default.
+As part of this solution, VM Image Builder should use a Microsoft Marketplace image. It's essential to use the latest image that's available in the Microsoft Marketplace. Apply any customizations on top of that image. Microsoft Marketplace images are refreshed often, and each image has certain preset configurations, ensuring your images are secure by default.
 
 #### Customize images
 
@@ -121,7 +121,7 @@ For image tattooing on Windows VMs, set up a custom registry. Add all required i
 
 #### Validate golden images with automated tests
 
-Generally, you should refresh golden images monthly to stay current with the latest updates and changes in Azure Marketplace images. Use a recurrent testing procedure for this purpose. As part of the image creation process, use an Azure pipeline or other automated workflow for testing. Set up the pipeline to deploy a new VM for running tests before the beginning of each month. The tests should confirm pared images before publishing them for consumption. Automate tests by using a test automation solution or by running commands or batches on the VM.
+Generally, you should refresh golden images monthly to stay current with the latest updates and changes in Microsoft Marketplace images. Use a recurrent testing procedure for this purpose. As part of the image creation process, use an Azure pipeline or other automated workflow for testing. Set up the pipeline to deploy a new VM for running tests before the beginning of each month. The tests should confirm pared images before publishing them for consumption. Automate tests by using a test automation solution or by running commands or batches on the VM.
 
 Common test scenarios include:
 

@@ -1,5 +1,3 @@
-<!-- cSpell:ignore wordpress -->
-
 This article describes a solution for small to medium-sized WordPress installations. The solution provides the scalability, reliability, and security of the Azure platform without the need for complex configuration or management. For solutions for larger or storage-intensive installations, see [WordPress hosting options on Azure](../../guide/infrastructure/wordpress-overview.yml#wordpress-hosting-options-on-azure).
 
 ## Architecture
