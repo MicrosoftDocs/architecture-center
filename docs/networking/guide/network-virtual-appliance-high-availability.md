@@ -107,7 +107,7 @@ This setup supports both active/active and active/standby configurations. For ac
 
 ### Layer-7 load balancers
 
-Another specific design for security appliances replaces the Azure public load balancer with a Layer-7 load balancer such as the [Azure Application Gateway][appgw], which can be considered an NVA itself.
+A variant of this pattern is replacing the Azure public load balancer with a Layer-7 load balancer such as the [Azure Application Gateway][appgw], which can be considered an NVA itself.
 
 In this scenario, the NVAs only require an internal load balancer for traffic from the workload systems. Dual-NIC devices sometimes use this approach to avoid routing problems with the Azure load balancer's health checks. This design supports only the Layer-7 protocols that the Layer-7 load balancer supports, which is typically HTTP and HTTPS.
 
@@ -121,7 +121,7 @@ The NVA should handle inbound traffic for protocols that the Layer-7 load balanc
 This diagram shows a hub and two spokes. The hub contains a gateway subnet, NVA subnet, and Route Server subnet. The gateway subnet contains a VPN or ExpressRoute gateway. The NVA subnet contains two NVAs. The Route Server subnet contains Route Server. Each spoke contains an app server. Spoke2 has a note that reads spoke effective routes 0.0.0.0/0 to 10.0.0.37 and 0.0.0.0/0 to 10.0.0.38. Inbound traffic flows from the public internet to NVA1 through the public Azure load balancer. This traffic then flows to the app server in Spoke2. Return traffic flows from this app server to NVA1 and then to the public internet. BGP adjacency connects NVA1, NVA2, and Route Server. NVA2 and Route Server are connected via eBGP.
 :::image-end:::
 
-In the previous diagram, each NVA instance connects to Route Server via BGP. This design doesn't require a route table in the spoke subnets because Route Server programs the routes that the NVAs advertise. If two or more routes are programmed in the Azure virtual machines, they use equal-cost multi-path routing to choose one of the NVA instances for every traffic flow. Therefore, you must include SNAT in this design if you require traffic symmetry.
+In the previous diagram, each NVA instance connects to Route Server via BGP. This design doesn't require a route table in the spoke subnets because Route Server configures the spoke workloads with the routes advertised by the NVAs. If two or more routes are programmed in the Azure virtual machines, they use equal-cost multi-path routing to choose one of the NVA instances for every traffic flow. Therefore, you must include SNAT in this design if you require traffic symmetry.
 
 This insertion method supports both active/active and active/standby configurations. In an active/active configuration, all NVAs advertise the same routes to Route Server. In an active/standby configuration, one NVA advertises routes with a shorter Autonomous System (AS) path than the other. Route Server supports a maximum of eight BGP adjacencies. So if you use a scale-out cluster of active NVAs, this design supports a maximum of eight NVA instances.
 
