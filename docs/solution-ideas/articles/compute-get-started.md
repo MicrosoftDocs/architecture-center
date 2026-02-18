@@ -31,7 +31,7 @@ The previous diagram demonstrates a common basic or baseline compute implementat
 
 The articles in this section include fully developed architectures that you can deploy in Azure and expand to production-grade solutions and guides. These articles can help you make important decisions about how you use compute technologies in Azure. Solution ideas demonstrate implementation patterns and possibilities to consider when you plan your compute proof-of-concept (POC) development.
 
-### Compute architecture guides
+### Compute guides
 
 The following articles help you evaluate and select the best compute technologies for your workload requirements:
 
