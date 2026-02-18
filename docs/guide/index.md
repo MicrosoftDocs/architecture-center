@@ -106,7 +106,7 @@ After you determine the type of architecture that you want to build and the desi
 
 - *Data stores* include databases and storage for files, caches, logs, and anything else that an application might persist to storage. For more information, see [Understand data store models](../data-guide/technology-choices/understand-data-store-models.md) and [Review your storage options](./technology-choices/storage-options.md).
 
-- *Messaging* technologies enable asynchronous messaging between components of the system. For more information, see [Asynchronous messaging options](./technology-choices/messaging.yml).
+- *Messaging* technologies enable asynchronous messaging between components of the system. For more information, see [Asynchronous messaging options](./technology-choices/messaging.md).
 
 - *AI* technologies solve problems that are computationally complex to implement in traditional application code. For more information, see [Choose an Azure AI services technology](../data-guide/technology-choices/ai-services.md).
 

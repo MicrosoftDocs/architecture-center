@@ -164,7 +164,7 @@ Region Pairs in Azure
 
 For a listing of how services map between platforms, see [Google Cloud to Azure services](./services.md) comparison.
 
-Not all Azure products and services are available in all regions. For more information, see [Products by region](https://azure.microsoft.com/global-infrastructure/services). You can find the uptime guarantees and downtime credit policies for each Azure product or service on the [Service Level Agreements](https://azure.microsoft.com/support/legal/sla) page.
+Not all Azure products and services are available in all regions. For more information, see [Products by region](https://azure.microsoft.com/global-infrastructure/services). You can find the uptime guarantees and downtime credit policies for each Azure product or service in the [Service Level Agreements for Microsoft Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services) document.
 
 ## Next steps
 

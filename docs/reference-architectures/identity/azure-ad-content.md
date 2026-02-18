@@ -303,5 +303,5 @@ Principal author:
 [identity-best-practices]: /azure/security/fundamentals/identity-management-best-practices
 [microsoft-graph-powershell]: /powershell/module/?view=graph-powershell-1.0
 [security-compass-paw]: /security/compass/overview
-[sla-aad]: https://azure.microsoft.com/support/legal/sla/active-directory
+[sla-aad]: https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services
 [staging-mode]: /entra/identity/hybrid/connect/how-to-connect-sync-staging-server

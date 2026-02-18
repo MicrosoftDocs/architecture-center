@@ -50,7 +50,7 @@ The following dataflow corresponds to the previous diagram:
 1. Data is ingested and transformed. Mainframe and midrange systems store their file system data in EBCDIC-encoded format in file formats like:
 
    - Indexed [VSAM](https://www.ibm.com/docs/cobol-zos/6.3?topic=files-vsam) files.
-   - Nonindexed [GDG](https://www.ibm.com/support/knowledgecenter/zosbasics/com.ibm.zos.zconcepts/zconcepts_175.htm) files.
+   - Nonindexed [GDG](https://www.ibm.com/docs/zos-basic-skills?topic=vtoc-what-is-generation-data-group) files.
    - Flat files.
    
     COBOL, Programming Language One, and assembly language copybooks define the data structure of these files.
@@ -66,23 +66,23 @@ The following dataflow corresponds to the previous diagram:
       IBM mainframe and midrange systems store data in relational databases like:
 
       - [Db2 for z/OS](https://www.ibm.com/products/db2-for-zos).
-      - [Db2 for Linux UNIX and Windows](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.kc.doc/welcome.html).
+      - [Db2 for Linux UNIX and Windows](https://www.ibm.com/docs/db2/10.5.0).
       - [Db2 for IBM i](https://www.ibm.com/support/pages/db2-ibm-i).
      
       The following services migrate the database data:
 
      - Azure Data Factory uses a Db2 connector to extract and integrate data from the databases.
-     - SQL Server Integration Services handles various data [extract, transform, and load](https://www.ibm.com/cloud/learn/etl) tasks.
+     - SQL Server Integration Services handles various data [extract, transform, and load](https://www.ibm.com/think/topics/etl) tasks.
      - Fabric Data Factory uses the IBM Db2 connector to migrate Db2 data.
 
    d. Nonrelational database data is migrated.
       
       IBM mainframe and midrange systems store data in nonrelational databases like:
 
-      - [IDMS](https://www.broadcom.com/products/mainframe/databases-database-mgmt/idms), a [network model](https://web.archive.org/web/20060904190944/http:/coronet.iicm.edu/wbtmaster/allcoursescontent/netlib/ndm1.htm) database management system (DBMS).
-      - [IMS](https://www.ibm.com/it-infrastructure/z/ims), a [hierarchical model](https://www.ibm.com/support/knowledgecenter/SSEPH2_14.1.0/com.ibm.ims14.doc.apg/ims_comparehierandreldbs.htm) DBMS.
-      - [Adabas](https://www.softwareag.com/en_corporate/platform/adabas-natural.html).
-      - [Datacom](https://www.broadcom.com/products/mainframe/databases-database-mgmt/datacom).
+      - [IDMS](https://www.broadcom.com/products/mainframe/databases/idms), a [network model](https://web.archive.org/web/20060904190944/http:/coronet.iicm.edu/wbtmaster/allcoursescontent/netlib/ndm1.htm) database management system (DBMS).
+      - [IMS](https://www.ibm.com/products/ims), a [hierarchical model](https://www.ibm.com/docs/ims/14.1.0?topic=ims-comparison-hierarchical-relational-databases) DBMS.
+      - [Adabas](https://www.softwareag.com/en/adabas-natural).
+      - [Datacom](https://www.broadcom.com/products/mainframe/databases/datacom).
       
       Partner products integrate data from these databases.
 
@@ -104,13 +104,13 @@ This architecture uses the following components.
 
 This architecture describes how to migrate data to scalable, more secure cloud storage and managed databases for flexible, intelligent data management in Azure.
 
-- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed [multiple-model](https://www.infoworld.com/article/2861579/the-rise-of-the-multimodel-database.html) [NoSQL](https://www.infoworld.com/article/3240644/what-is-nosql-databases-for-a-cloud-scale-future.html) database. In this architecture, Azure Cosmos DB serves as a scalable NoSQL target for modernizing nonrelational mainframe databases like IMS and IDMS.
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed [multiple-model](https://www.infoworld.com/article/2237677/the-rise-of-the-multimodel-database.html) [NoSQL](https://www.infoworld.com/article/2260280/what-is-nosql-databases-for-a-cloud-scale-future.html) database. In this architecture, Azure Cosmos DB serves as a scalable NoSQL target for modernizing nonrelational mainframe databases like IMS and IDMS.
 
 - [Azure Database for MySQL](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) is a fully managed relational database service based on the community edition of the open-source [MySQL](https://www.mysql.com/products/community) database engine. In this architecture, Azure Database for MySQL provides another relational database target option for migrated mainframe data.
 
 - [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a fully managed relational database service based on the community edition of the open-source [PostgreSQL](https://www.postgresql.org) database engine. In this architecture, Azure Database for PostgreSQL provides an alternative target database for mainframe relational data migration.
 
-- [SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is part of the [Azure SQL family](/azure/azure-sql/). It's designed for the cloud and provides all the benefits of a fully managed and evergreen platform as a service (PaaS). SQL Database also provides AI-powered automated features that optimize performance and durability. Serverless compute and [Hyperscale storage options](/azure/azure-sql/database/service-tier-hyperscale) automatically scale resources on demand. In this architecture, SQL Database serves as a target database for migrated relational data from mainframe Db2 systems.
+- [SQL Database](/azure/well-architected/service-guides/azure-sql-database) is part of the [Azure SQL family](/azure/azure-sql/). It's designed for the cloud and provides all the benefits of a fully managed and evergreen platform as a service (PaaS). SQL Database also provides AI-powered automated features that optimize performance and durability. Serverless compute and [Hyperscale storage options](/azure/azure-sql/database/service-tier-hyperscale) automatically scale resources on demand. In this architecture, SQL Database serves as a target database for migrated relational data from mainframe Db2 systems.
 
 - [Azure SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) is a cloud database service that provides all the benefits of a fully managed and evergreen PaaS. SQL Managed Instance has almost complete compatibility with the latest SQL Server Enterprise edition database engine. It also provides a native virtual network implementation that addresses common security concerns. In this architecture, SQL Managed Instance serves as a target for mainframe data that requires SQL Server compatibility and enterprise features.
 
@@ -224,8 +224,6 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-- The key pillars of Performance Efficiency are performance management, capacity planning, [scalability](https://azure.microsoft.com/product-categories/databases/), and choosing an appropriate performance pattern.
-
 - You can [scale out the self-hosted IR](/azure/data-factory/concepts-integration-runtime#self-hosted-ir-compute-resource-and-scaling) by associating the logical instance with multiple on-premises machines in active-active mode.
 
 - Use SQL Database to dynamically scale your databases. The Serverless tier can automatically scale the compute resources. Elastic pools allow databases to share resources in a pool and can only be scaled manually.
@@ -250,13 +248,6 @@ Other contributors:
 ## Next steps
 
 Review the [Azure Database Migration Guides](/data-migration). Contact [Azure Data Engineering - Mainframe & Midrange Modernization](mailto:datasqlninja@microsoft.com) for more information.
-
-See the following articles:
-
-- [IBM workloads on Azure](/azure/virtual-machines/workloads/mainframe-rehosting/ibm/get-started)
-- [Mainframe rehosting on Azure VMs](/azure/virtual-machines/workloads/mainframe-rehosting/overview)
-- [Mainframe workloads supported on Azure](/azure/virtual-machines/workloads/mainframe-rehosting/partner-workloads)
-- [Move mainframe compute to Azure](/azure/virtual-machines/workloads/mainframe-rehosting/concepts/mainframe-compute-azure)
 
 ## Related resource
 

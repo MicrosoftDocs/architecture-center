@@ -371,22 +371,22 @@ The Modern Web App pattern breaks up the monolithic architecture and introduces 
 For example, the reference implementation uses the Service Bus KEDA scaler to automatically scale Container Apps based on the length of the Service Bus queue. The scaling rule, named `service-bus-queue-length-rule`, adjusts the number of service replicas based on the message count in the specified Service Bus queue. The `messageCount` parameter is set to 10, which configures the scaler to add one replica for every 10 messages in the queue. The maximum replica count (`max_replicas`) is set to 10. The minimum replica count is implicitly 0 unless it's overridden. This configuration lets the service scale down to zero when there are no messages in the queue. The connection string for the Service Bus queue is stored as a secret in Azure, named `azure-servicebus-connection-string`, which is used to authenticate the scaler to the Service Bus. Here's the Terraform code:
 
 ```terraform
-    max_replicas = 10
-    min_replicas = 1
+max_replicas = 10
+min_replicas = 1
 
-    custom_scale_rule {
-      name             = "service-bus-queue-length-rule"
-      custom_rule_type = "azure-servicebus"
-      metadata = {
-        messageCount = 10
-        namespace    = var.servicebus_namespace
-        queueName    = var.email_request_queue_name
-      }
-      authentication {
-        secret_name       = "azure-servicebus-connection-string"
-        trigger_parameter = "connection"
-      }
-    }
+custom_scale_rule {
+  name             = "service-bus-queue-length-rule"
+  custom_rule_type = "azure-servicebus"
+  metadata = {
+    messageCount = 10
+    namespace    = var.servicebus_namespace
+    queueName    = var.email_request_queue_name
+  }
+  authentication {
+    secret_name       = "azure-servicebus-connection-string"
+    trigger_parameter = "connection"
+  }
+}
 ```
 
 ### Containerize service deployment
@@ -420,7 +420,6 @@ The Dockerfile includes the following steps:
 The Dockerfile keeps the image small by only including runtime dependencies. It's suitable for deployment environments like Container Apps that support Linux-based containers.
 
 ```dockerfile
-
 # Use the OpenJDK 17 base image on Ubuntu as the foundation.
 FROM mcr.microsoft.com/openjdk/jdk:17-ubuntu
 
@@ -442,7 +441,6 @@ USER appuser
 
 # Set the entrypoint to run the application with the Application Insights agent.
 ENTRYPOINT ["java", "-javaagent:applicationinsights-agent.jar", "-jar", "app.jar"]
-
 ```
 
 ## Deploy the reference implementation

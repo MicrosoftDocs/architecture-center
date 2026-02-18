@@ -4249,7 +4249,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "docs/solution-ideas/articles/messaging.yml",
+      "source_path": "docs/solution-ideas/articles/messaging.md",
       "redirect_url": "/azure/architecture/databases/idea/messaging",
       "redirect_document_id": true
     },

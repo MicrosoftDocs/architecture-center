@@ -67,7 +67,7 @@ Reliability helps ensure that your application can meet the commitments that you
 - **Event Grid** resource definitions for topics, system topics, domains, and event subscriptions and event data are automatically replicated across [availability zones](/azure/reliability/availability-zones-overview) in a region. When there's a failure in one of the availability zones, Event Grid resources automatically fail over to another availability zone without any human intervention. For more information, see [Cross-region disaster recovery and business continuity](/azure/reliability/reliability-event-grid#cross-region-disaster-recovery-and-business-continuity).
 - **Service Bus** Premium supports [geo-disaster recovery](/azure/service-bus-messaging/service-bus-outages-disasters#geo-disaster-recovery) and [availability zones](/azure/service-bus-messaging/service-bus-outages-disasters#availability-zones). Service Bus Standard supports [replication](/azure/service-bus-messaging/service-bus-outages-disasters#protection-against-outages-and-disasters). 
 
-For information about guaranteed availability details of each service, see [SLAs for online services][apim-sla].
+For information about guaranteed availability details of each service, see [SLAs for online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
 ### Security
 
@@ -144,17 +144,12 @@ For more Service Bus recommendations, see [Best practices for performance improv
 - [Basic enterprise integration on Azure](../../reference-architectures/enterprise-integration/basic-enterprise-integration.yml)
 - [Use Microsoft Fabric to design an enterprise BI solution](../../example-scenario/analytics/enterprise-bi-microsoft-fabric.yml)
 
-
-[aaf-cost]: /azure/architecture/framework/cost/overview
+[aaf-cost]: /azure/well-architected/cost-optimization/
 [apim]: /azure/api-management
-[apim-sla]: https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services
 [apim-autoscale]: /azure/api-management/api-management-howto-autoscale
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [event-grid]: /azure/event-grid
-[event-grid-sla]: https://azure.microsoft.com/support/legal/sla/event-grid
 [logic-apps]: /azure/logic-apps/logic-apps-overview
-[logic-apps-sla]: https://azure.microsoft.com/support/legal/sla/logic-apps
-[sb-sla]: https://azure.microsoft.com/support/legal/sla/service-bus
 [service-bus]: /azure/service-bus-messaging
 [service-bus-pricing]: https://azure.microsoft.com/pricing/details/service-bus
 [basic-enterprise-integration]: ../../reference-architectures/enterprise-integration/basic-enterprise-integration.yml

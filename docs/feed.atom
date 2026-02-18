@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2026-02-09T18:44:10.797Z</updated>
+    <updated>2026-02-17T16:37:01.786Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
@@ -23,6 +23,22 @@
         <updated>2026-02-04T20:30:12.000Z</updated>
         <summary type="html"><![CDATA[Get an overview of Azure container technologies, guidance offerings, solution ideas, and reference architectures.]]></summary>
         <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[AI Agent Orchestration Patterns]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/ai-agent-design-patterns</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/ai-agent-design-patterns"/>
+        <updated>2026-02-12T17:13:32.000Z</updated>
+        <summary type="html"><![CDATA[Learn about fundamental orchestration patterns for AI agent architectures, including sequential, concurrent, group chat, handoff, and magentic patterns.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Migrate IBM i series to Azure with Skytap]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/migrate-ibm-i-series-to-azure-with-skytap</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/migrate-ibm-i-series-to-azure-with-skytap"/>
+        <updated>2026-02-11T23:27:46.000Z</updated>
+        <summary type="html"><![CDATA[This example architecture shows how to use the native IBM i backup and recovery services with Microsoft Azure components.]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Design a Secure Multitenant RAG Inferencing Solution]]></title>
