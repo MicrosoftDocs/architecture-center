@@ -24,6 +24,7 @@ The following new and updated articles have recently been published in the Azure
 
 - [Analytics architecture design](./solution-ideas/articles/analytics-get-started.md)
 - [Container architecture design](./solution-ideas/articles/container-get-started.md)
+- [Storage arhictecture design](./storage/storage-get-started.md)
 
 ### Updated articles
 
