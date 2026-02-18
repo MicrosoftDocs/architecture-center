@@ -13,7 +13,7 @@ The following diagram shows how the reference mirroring application deployed in 
 1. Create an [open mirrored database](/fabric/mirroring/open-mirroring-tutorial) in Fabric via API or the Fabric portal.  
 2. Obtain the **landing zone URL** associated with the mirrored database.  
 3. Deploy the mirroring accelerator [Terraform or ARM](https://github.com/mongodb-partners/MongoDB_Fabric_Mirroring/tree/main/terraform).  
-The application:
+4. The application:
    - Performs initial historical load.
    - Subscribes to MongoDB Change Streams.
    - Writes Parquet files into the landing zone.  
@@ -30,14 +30,14 @@ Fabric automatically:
 
 ### Components
 
-- [Fabric Open Mirroring](/fabric/mirroring/open-mirroring). Primary ingestion mechanism; converts landed Parquet files to Delta and keeps mirrored tables synchronized.  
-- [Fabric Onelake](/fabric/onelake/onelake-overview). File system folder used by the accelerator to deposit change data.  
-- [Fabric Lakehouse](/fabric/data-warehouse/get-started-lakehouse-sql-analytics-endpoint). Auto-generated T‑SQL access to mirrored Delta tables.  
-- [Semantic models](/fabric/data-warehouse/semantic-models). Created automatically to accelerate Power BI adoption.  
-- [Azure App Service](/azure/app-service/overview). Hosts the mirroring Python application.  
-- [MongoDB ChangeStreams](https://www.mongodb.com/docs/manual/changeStreams/). Streams inserts, updates, and deletes from Atlas.  
-- [Terraform templates](https://github.com/mongodb-partners/MongoDB_Fabric_Mirroring/tree/main/terraform). Provided by the MongoDB team for automated deployment.
-- [Power BI](/power-bi/fundamentals/power-bi-overview). Consumes the mirrored Delta tables through Direct Lake, enabling high-performance real-time dashboards and analytics over MongoDB transactional data with no data movement.
+- [Fabric Open Mirroring](/fabric/mirroring/open-mirroring). Continuously ingests data into Fabric by converting landed Parquet files into Delta tables and keeping them synchronized with MongoDB changes.  
+- [Fabric Onelake](/fabric/onelake/onelake-overview). Provides the unified storage layer where change data is initially deposited and made available to downstream Fabric services.  
+- [Fabric Lakehouse](/fabric/data-warehouse/get-started-lakehouse-sql-analytics-endpoint). Exposes the mirrored Delta tables through a Lakehouse with built-in T‑SQL access for analytics and querying.  
+- [Semantic models](/fabric/data-warehouse/semantic-models). Automatically generated models that simplify and accelerate analytics consumption in Power BI.  
+- [Azure App Service](/azure/app-service/overview). Hosts the Python-based mirroring application that orchestrates change ingestion into Fabric.  
+- [MongoDB ChangeStreams](https://www.mongodb.com/docs/manual/changeStreams/). Captures real-time inserts, updates, and deletes from MongoDB Atlas to drive continuous synchronization.  
+- [Terraform templates](https://github.com/mongodb-partners/MongoDB_Fabric_Mirroring/tree/main/terraform). Automate the deployment of required Azure and Fabric resources for the solution.
+- [Power BI](/power-bi/fundamentals/power-bi-overview). Visualizes and analyzes the mirrored data using Direct Lake for high-performance, near-real-time reporting.
 
 The following diagram depicts the mirroring integration architecture:
 :::image type="content" source="media/mongodb-mirroring-integrated-arch.png" alt-text="Diagram that shows the Fabric MongoDB Mirroring integrated architecture." border="false" lightbox="media/mongodb-mirroring-integrated-arch.png":::
@@ -54,7 +54,7 @@ Fabric supports additional patterns for integrating MongoDB Atlas. These alterna
 
 Fabric Real-Time Intelligence (RTI) provides a native, code-free ingestion path using the [**MongoDB CDC connector**](/fabric/real-time-intelligence/event-streams/add-source-mongodb-change-data-capture) for Eventstream. The connector streams change events from MongoDB Atlas directly into Fabric.
 
-Eventstream routes CDC events to:
+Eventstream routes **Change Data Capture (CDC)** events to:
 
 - **Eventhouse (KQL Database)** – For real-time analytics, anomaly detection, and observability.  
 - **OneLake** – For downstream Lakehouse or Data Warehouse processing.  
@@ -69,7 +69,7 @@ Eventstream routes CDC events to:
 
 #### Atlas triggers → Functions → OneLake (push model)
 
-This approach uses [**MongoDB Atlas Triggers**](https://github.com/mongodb/atlas-functions-triggers-examples) to invoke a **Fabric Function** (or Azure Function when Fabric Function isn't available). The function writes the updated document into OneLake using the ADLS Gen2-compatible API.
+This approach uses [**MongoDB Atlas Triggers**](https://github.com/mongodb/atlas-functions-triggers-examples) to invoke a **Fabric Function** (or Azure Function when Fabric Function isn't available). The function writes the updated document into OneLake using the **Azure Data Lake Storage (ADLS)** Gen2-compatible API.
 
 :::image type="content" source="media/azure-fabric-analytics-mongodb.svg" alt-text="Architecture diagram showing MongoDB CDC ingestion using Fabric Real-Time Intelligence." lightbox="media/azure-fabric-analytics-mongodb.svg" border="false":::
 
