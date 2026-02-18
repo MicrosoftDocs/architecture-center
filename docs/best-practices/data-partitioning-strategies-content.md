@@ -218,17 +218,17 @@ This approach is most suitable when there's a significant regional variation in 
 
 ## Partitioning Azure Managed Redis
 
-Azure Managed Redis is a fully managed, enterprise-grade data platform built on Redis Enterprise. While it continues to excel at classic caching scenarios, it provides a high-performance, multi-model, in-memory environment capable of accelerating both traditional application patterns and modern AI-driven architectures, such as AI agents.
+Azure Managed Redis is a fully managed, enterprise-grade data platform built on Redis Enterprise. While it continues to excel at classic caching scenarios, it provides a high-performance, multi-model, in-memory environment capable of accelerating both traditional application patterns and modern AI-driven architectures, like AI agents.
 
 Azure Managed Redis supports built-in high availability and horizontal scaling through Redis clustering, which distributes data across multiple nodes. Capacity and performance can be adjusted by scaling the service tier and SKU, removing the need to manually provision multiple caches to increase overall storage or throughput. For more information, see [Azure Managed Redis].
 
 Partitioning a Redis data store involves splitting data across multiple nodes. Azure Managed Redis uses native Redis Cluster partitioning to automatically distribute keys across nodes based on hash slots. This approach abstracts the underlying nodes from application logic and removes the need for application-level partition management in most scenarios. For more information about clustering models and client connectivity options in Azure Managed Redis, see the [Azure Managed Redis clustering documentation](/azure/redis/architecture#clustering).
 
-Client applications connect to the cluster using standard Redis client libraries through Redis endpoints. Requests are automatically routed to the appropriate node within the cluster. If a request initially reaches a node that doesn't own the requested key, it is forwarded internally to the node that holds the corresponding hash slot. Request routing and cluster topology management are handled by the Redis service and supporting client libraries.
+Client applications connect to the cluster using standard Redis client libraries through Redis endpoints. Requests are automatically routed to the appropriate node within the cluster. If a request initially reaches a node that doesn't own the requested key, the request is forwarded internally to the node that holds the corresponding hash slot. The Redis service and supporting client libraries handle request routing and cluster topology management.
 
 Redis clustering is transparent to application logic. Nodes can be added or removed and data can be automatically rebalanced without requiring application reconfiguration.
 
-Operations that involve multiple keys, such as transactions or batch operations, must ensure that all participating keys are located in the same partition. Application developers should design key-naming strategies accordingly to support these access patterns.
+Operations that involve multiple keys, like transactions or batch operations, must ensure that all participating keys are located in the same partition. Application developers should design key-naming strategies accordingly to support these access patterns.
 
 > [!IMPORTANT]
 > Azure Managed Redis provides built-in Redis clustering as part of the service. Applications should generally rely on native Redis Cluster partitioning rather than implementing client-side partitioning logic.
@@ -237,46 +237,46 @@ The remainder of this section focuses on data modeling and key design considerat
 
 Consider the following points when deciding how to structure and partition data with Azure Managed Redis:
 
-- Azure Managed Redis is not intended to act as a permanent system of record. Applications must be able to retrieve data from a durable data store if data is unavailable or evicted from Redis.
+- Azure Managed Redis isn't intended to act as a permanent system of record. Applications must be able to retrieve data from a durable data store if data is unavailable or evicted from Redis.
 
-  Data stored in Azure Managed Redis can be populated using different patterns depending on application requirements. In addition to cache-aside approaches—where data is loaded into Redis on demand—applications may use ingestion-based patterns, where data is proactively written to Redis from external systems. This can be implemented using event-driven or batch ingestion mechanisms, such as Redis Data Integration (RDI) or Azure Functions, to synchronize data from durable data stores into Redis.
+  Data stored in Azure Managed Redis can be populated using different patterns depending on application requirements. In addition to cache-aside approaches, where data is loaded into Redis on demand, applications might use ingestion-based patterns, where data is proactively written to Redis from external systems. This can be implemented using event-driven or batch ingestion mechanisms, such as Redis Data Integration (RDI) or Azure Functions, to synchronize data from durable data stores into Redis.
 
 - Data that is frequently accessed together should be modeled so that it can be stored and accessed together. Redis provides a broad set of optimized data structures to support different access patterns, including but not limited to:
 
   - Simple key-value entries intended for relatively small, bounded values
-  - Aggregate types such as lists (which can act as queues and stacks)
+  - Aggregate types, like lists, which can act as queues and stacks
   - Sets and sorted sets, which support unordered collections and ranked data
   - Hashes, which can group related fields together under a single key
-  - Bitmaps for efficient representation of flags and boolean states
-  - Probabilistic data structures, such as Bloom filters and HyperLogLog, for space-efficient membership and cardinality estimation
+  - Bitmaps for efficient representation of flags and Boolean states
+  - Probabilistic data structures, like Bloom filters and HyperLogLog, for space-efficient membership and cardinality estimation
   - Document-oriented structures for storing and querying JSON data
   - Time-series structures optimized for timestamped measurements
   - Indexing and search capabilities for querying structured and semi-structured data
 
-- Aggregate and structured data types enable you to associate many related values with a single key. A Redis key identifies a list, set, sorted set, hash, or document rather than the individual data items that it contains. These data structures are available in Azure Managed Redis and are described in the [Data types] documentation. For example, in an e-commerce system that tracks customer orders, the details for each customer can be stored in a Redis hash keyed by customer ID. Each hash can hold a collection of order IDs associated with that customer. A separate Redis set can store the orders themselves, structured as hashes and keyed by order ID. Figure 8 shows this structure. Redis does not enforce referential integrity, so it is the application’s responsibility to maintain relationships between customers and orders.
+- Aggregate and structured data types enable you to associate many related values with a single key. A Redis key identifies a list, set, sorted set, hash, or document rather than the individual data items that it contains. These data structures are available in Azure Managed Redis and are described in the [Data types] documentation. For example, in an e-commerce system that tracks customer orders, the details for each customer can be stored in a Redis hash keyed by customer ID. Each hash can hold a collection of order IDs associated with that customer. A separate Redis set can store the orders themselves, structured as hashes and keyed by order ID. Figure 8 shows this structure. Redis doesn't enforce referential integrity, so it's the application’s responsibility to maintain relationships between customers and orders.
 
 ![Suggested structure in Redis storage for recording customer orders and their details](./images/data-partitioning/redis-customers-and-orders.png)
 
 *Figure 8. Suggested structure in Redis storage for recording customer orders and their details.*
 
 > [!NOTE]
-> In Redis, keys and values are binary-safe and can, in theory, store values up to hundreds of megabytes in size. However, best practices recommend keeping values relatively small and bounded to minimize latency, reduce replication and rebalancing costs, and improve overall efficiency. Keys should follow a consistent naming convention that is descriptive, stable, and not excessively long. A common approach is to use keys of the form "entity_type:ID". For example, "customer:99" can represent the key for a customer with ID 99.
+> In Redis, keys and values are binary-safe and can, in theory, store values up to hundreds of megabytes in size. However, best practices recommend keeping values relatively small and bounded to minimize latency, reduce replication and rebalancing costs, and improve overall efficiency. Keys should follow a consistent naming convention that's descriptive, stable, and not excessively long. A common approach is to use keys of the form "entity_type:ID". For example, "customer:99" can represent the key for a customer with ID 99.
 
 - You can implement vertical partitioning by storing related information in separate data structures under different keys within the same Redis database. For example, in an e-commerce application, commonly accessed product information can be stored in one Redis hash, while less frequently accessed or more detailed product data is stored in another. Both structures can use the same product identifier as part of the key, such as "product:nn" for frequently accessed data and "product:details:nn" for detailed information. This approach helps reduce the amount of data retrieved by most queries and improves access efficiency.
 
-- Azure Managed Redis uses built-in Redis clustering to distribute data across nodes and to rebalance data automatically as the cluster scales. Applications do not need to manage repartitioning explicitly. Instead, partition-aware design should focus on key structure, access patterns, and data lifecycle.
+- Azure Managed Redis uses built-in Redis clustering to distribute data across nodes and to rebalance data automatically as the cluster scales. Applications don't need to manage repartitioning explicitly. Instead, partition-aware design should focus on key structure, access patterns, and data lifecycle.
 
-- Redis has traditionally been accessed by exact key lookups. While careful key design remains important, Azure Managed Redis also provides indexing and search capabilities that enable applications to query data based on attributes, ranges, or text content. These capabilities can help avoid application-side key iteration or complex secondary-key management. Search and indexing should be applied selectively, based on access patterns and query requirements, rather than as a replacement for efficient key-based access.
+- Redis is usually accessed by exact key lookups. While careful key design remains important, Azure Managed Redis also provides indexing and search capabilities that enable applications to query data based on attributes, ranges, or text content. These capabilities can help avoid application-side key iteration or complex secondary-key management. Search and indexing should be applied selectively, based on access patterns and query requirements, rather than as a replacement for efficient key-based access.
 
 - Azure Managed Redis supports assigning a time-to-live (TTL) value to keys to control data lifecycle. TTLs can be used to manage freshness, enforce retention policies, or support cache and derived-data scenarios. Eviction policies can be configured to determine how Redis behaves when memory pressure occurs. Applications should be designed to tolerate evictions and reload or regenerate data when necessary.
 
   > [!NOTE]
   > With Azure Managed Redis, capacity and performance are determined by the selected service tier and SKU, and can be adjusted over time as workload requirements change. Applications should be designed to scale independently of specific node sizes or fixed capacity limits.
 
-- Redis batches and transactions cannot span multiple partitions. Any data affected by a batch or transaction must be located within the same partition. When designing keys and access patterns, ensure that related keys that participate in transactional or batched operations are co-located.
+- Redis batches and transactions can't span multiple partitions. Any data affected by a batch or transaction must be located within the same partition. When designing keys and access patterns, ensure that related keys that participate in transactional or batched operations are co-located.
 
   > [!NOTE]
-  > A sequence of operations in a Redis transaction is not necessarily atomic in the traditional database sense. The commands that compose a transaction are validated and queued before execution. If an error occurs during this phase, the entire queue is discarded. Once the transaction is successfully submitted, the queued commands execute sequentially. If a command fails during execution, only that command fails; previous and subsequent commands in the queue are still executed. For more information, see the [Redis transactions](https://redis.io/docs/latest/develop/using-commands/transactions/) documentation.
+  > A sequence of operations in a Redis transaction isn't necessarily atomic in the traditional database sense. The commands that compose a transaction are validated and queued before execution. If an error occurs during this phase, the entire queue is discarded. After the transaction is successfully submitted, the queued commands execute sequentially. If a command fails during execution, only that command fails; previous and subsequent commands in the queue are still executed. For more information, see the [Redis transactions](https://redis.io/docs/latest/develop/using-commands/transactions/) documentation.
 
 - Redis supports a limited set of atomic operations across multiple keys. The primary multi-key atomic operations are MGET and MSET, which retrieve or store values for a specified set of keys. When using these operations in a clustered deployment, all referenced keys must be located in the same partition. Key design should account for this constraint to ensure correctness and performance.
 
