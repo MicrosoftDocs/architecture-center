@@ -164,9 +164,9 @@ Azure Storage services are evolving to address modern data challenges. You can g
 
 To stay current with key Storage services, see:
 
-- [What's new in Azure Files](https://learn.microsoft.com/azure/storage/files/files-whats-new). New features and updates for Azure Files. 
-- [What's new in Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/whats-new). New features and updates for Azure NetApp Files. 
-- [What's new in Azure Disk Storage](https://learn.microsoft.com/azure/virtual-machines/disks-whats-new). New capabilities and updates for Azure managed disks. 
+- [What's new in Azure Files](/azure/storage/files/files-whats-new). New features and updates for Azure Files. 
+- [What's new in Azure NetApp Files](/azure/azure-netapp-files/whats-new). New features and updates for Azure NetApp Files. 
+- [What's new in Azure Disk Storage](/azure/virtual-machines/disks-whats-new). New capabilities and updates for Azure managed disks. 
 
 
 ## Other resources <
