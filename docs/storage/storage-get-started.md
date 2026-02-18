@@ -86,10 +86,10 @@ Organizations that are beginning their cloud adoption can use the [Cloud Adoptio
 
 To help assure the quality of your Storage solution on Azure, we recommend following the [Azure Well-Architected Framework (WAF)](/azure/well-architected/). WAF provides prescriptive guidance for organizations seeking architectural excellence and discusses how to design, provision, and monitor cost-optimized Azure solutions. For Storage-specific guidance, see the Azure Well-Architected Framework service guides for:
 
-- [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage)
-- [Azure Files](/azure/well-architected/service-guides/azure-files)
-- [Azure NetApp Files](/azure/well-architected/service-guides/azure-netapp-files)
-- [Azure Disk Storage](/azure/well-architected/service-guides/azure-disk-storage)
+- [Architecture best practices for Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage)
+- [Architecture best practices for Azure Files](/azure/well-architected/service-guides/azure-files)
+- [Architecture best practices for Azure NetApp Files](/azure/well-architected/service-guides/azure-netapp-files)
+- [Architecture best practices for Azure Disk Storage](/azure/well-architected/service-guides/azure-disk-storage)
 
 ## Best practices 
 
@@ -169,7 +169,7 @@ To stay current with key Storage services, see:
 - [What's new in Azure Disk Storage](/azure/virtual-machines/disks-whats-new). New capabilities and updates for Azure managed disks. 
 
 
-## Other resources <
+## Other resources 
 
 Storage is a broad category and covers a range of solutions. The following resources can help you discover more about Azure.
 
@@ -196,7 +196,7 @@ For guidance on migrating data to Azure Storage, see:
 - [Data transfer for large datasets](/azure/storage/common/storage-solution-large-dataset-low-network). Choose the right transfer method for large-scale data migration scenarios with limited network bandwidth.
 - [Azure Data Box documentation](/azure/databox/). Transfer large volumes of data to Azure when network transfer isn't practical.
 
-## AWS or Google Cloud professionals (OPTIONAL) 
+## AWS or Google Cloud professionals
 
 These articles can help you ramp up quickly by comparing Azure Storage options to other cloud services:
 
