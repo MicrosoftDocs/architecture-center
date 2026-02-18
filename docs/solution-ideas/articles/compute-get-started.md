@@ -99,7 +99,7 @@ The following resources provide foundational knowledge for compute implementatio
 
 ### Learning paths by role
 
-- **Solutions architect**: [Architect compute infrastructure in Azure](/training/paths/architect-compute-infrastructure/)
+- **Solutions architect:** [Architect compute infrastructure in Azure](/training/paths/architect-compute-infrastructure/)
 - **Developer**: [Implement Azure Functions](/training/paths/implement-azure-functions/)
 - **DevOps engineer**: [Build and deploy applications with AKS](/training/paths/build-applications-with-azure-devops/)
 
