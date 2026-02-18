@@ -29,16 +29,16 @@ The previous diagram demonstrates a common basic or baseline compute implementat
 
 ## Explore compute architectures and guides
 
-The articles in this section include fully developed architectures that you can deploy in Azure and expand to production-grade solutions and guides. These articles can help you make important decisions about how you use compute technologies in Azure. Solution ideas demonstrate implementation patterns and possibilities to consider when you plan your compute proof-of-concept (POC) development.
+The articles in this section include fully developed architectures that you can deploy in Azure and expand to production-grade solutions and guides. These articles can help you decide how to use compute technologies in Azure. Solution ideas demonstrate implementation patterns and possibilities to consider when you plan your compute proof-of-concept (POC) development.
 
-### Compute architecture guides
+### Compute guides
 
 The following articles help you evaluate and select the best compute technologies for your workload requirements:
 
-- [Choose a compute service](../../guide/technology-choices/compute-decision-tree.md) - Use a decision tree to help you choose the right compute option.
-- [Shared access signatures (SAS) on Azure architecture](../../guide/sas/sas-overview.yml) - Get guidance about running SAS analytics on Azure.
-- [Build workloads by using Azure Spot Virtual Machines](../../guide/spot/spot-eviction.yml) - Learn how to design workloads that take advantage of spare Azure capacity at reduced cost.
-- [HPC on Azure](../../guide/compute/high-performance-computing.md) - Learn about HPC capabilities and architectures on Azure.
+- **[Choose a compute service](../../guide/technology-choices/compute-decision-tree.md):** Use a decision tree to help you choose the right compute option.
+- **[Shared access signatures (SAS) on Azure architecture](../../guide/sas/sas-overview.yml):** Get guidance about running SAS analytics on Azure.
+- **[Build workloads by using Azure Spot Virtual Machines](../../guide/spot/spot-eviction.yml):** Learn how to design workloads that take advantage of spare Azure capacity at reduced cost.
+- **[HPC on Azure](../../guide/compute/high-performance-computing.md):** Learn about HPC capabilities and architectures on Azure.
 
 ### Compute architectures
 
