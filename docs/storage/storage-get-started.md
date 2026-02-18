@@ -14,7 +14,7 @@ ms.custom:
 
 # Storage architecture design
 
-The Azure Storage platform is the Microsoft cloud storage solution for modern data storage scenarios. Azure Storage provides highly available, massively scalable, durable, and secure storage for a variety of data objects in the cloud.
+Azure Storage provides the foundation for data persistence, backup, and sharing across cloud workloads. Whether you need massive-scale object storage for unstructured data, managed file shares for enterprise applications, or durable queues for asynchronous messaging, Azure Storage services deliver the reliability, security, and performance that modern architectures require.
 
 
 The Azure Storage platform includes the following data services:
