@@ -64,7 +64,7 @@ The following workflow corresponds to the preceding diagram.
 
 - **Network security groups** - To restrict incoming, outgoing, and intra-subnet traffic in a virtual network, create [network security groups](/azure/virtual-network/tutorial-filter-network-traffic-cli).
 
-  **Application security groups.** To define fine-grained, workload-based network security policies that are centered on applications, use [application security groups](/azure/virtual-network/security-overview) instead of explicit IP addresses. Application security groups provide a way to group VMs by name and help you secure applications by filtering traffic from trusted segments of your network.
+  **Application security groups** - To define fine-grained, workload-based network security policies that are centered on applications, use [application security groups](/azure/virtual-network/security-overview) instead of explicit IP addresses. Application security groups provide a way to group VMs by name and help you secure applications by filtering traffic from trusted segments of your network.
 
 - **Private DNS service** - [Azure Private DNS](/azure/dns/private-dns-overview) provides a reliable and secure DNS service for your virtual network. Azure Private DNS manages and resolves domain names in the virtual network, without the need to configure a custom DNS solution.
 
@@ -79,7 +79,7 @@ The following workflow corresponds to the preceding diagram.
 
   Standard Load Balancer supports multiple front-end virtual IPs. This support is ideal for cluster implementations that involve these components:
 
-- **Application gateway.** - Azure Application Gateway is a web traffic load balancer that you can use to manage the traffic to your web applications. Traditional load balancers operate at the transport layer (OSI layer 4 - TCP and UDP). They route traffic based on the source IP address and the port to a destination IP address and port. Application Gateway can make routing decisions based on additional attributes of an HTTP request, such as the URI path or host headers. This type of routing is known as application layer (OSI layer 7) load balancing.
+- **Application gateway** - Azure Application Gateway is a web traffic load balancer that you can use to manage the traffic to your web applications. Traditional load balancers operate at the transport layer (OSI layer 4 - TCP and UDP). They route traffic based on the source IP address and the port to a destination IP address and port. Application Gateway can make routing decisions based on additional attributes of an HTTP request, such as the URI path or host headers. This type of routing is known as application layer (OSI layer 7) load balancing.
 
 ## Recommendations
 
