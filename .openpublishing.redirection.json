@@ -4249,7 +4249,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "docs/solution-ideas/articles/messaging.yml",
+      "source_path": "docs/solution-ideas/articles/messaging.md",
       "redirect_url": "/azure/architecture/databases/idea/messaging",
       "redirect_document_id": true
     },
@@ -7723,18 +7723,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "docs/guide/storage/storage-start-here.md",
+      "source_path": "docs/guides/storage/storage-start-here.md",
       "redirect_url": "/azure/architecture/storage/storage-get-started",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "docs/solution-ideas/articles/analytics-get-started.md",
-      "redirect_url": "/azure/architecture/analytics/analytics-get-started",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "docs/solution-ideas/articles/container-get-started.md",
-      "redirect_url": "/azure/architecture/containers/containers-get-started",
       "redirect_document_id": false
     }
   ]

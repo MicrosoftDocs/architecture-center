@@ -189,8 +189,8 @@ items:
     - name: Choose a messaging service
       items:
       - name: Asynchronous messaging
+        href: guide/technology-choices/messaging.md
         displayName: queue comparison, event-driven, Service Bus, Event Hubs, Event Grid
-        href: guide/technology-choices/messaging.yml
     - name: Development tools
       items:
       - name: Compare Java application hosting options
@@ -508,7 +508,7 @@ items:
     displayName: Horizontal partitioning, database partitioning
     href: patterns/sharding.yml
   - name: Sidecar
-    href: patterns/sidecar.yml
+    href: patterns/sidecar.md
   - name: Static Content Hosting
     displayName: Blob storage website, CDN hosting, static website, static assets
     href: patterns/static-content-hosting.yml
@@ -527,7 +527,7 @@ items:
   - name: Analytics
     items:
     - name: Get started
-      href: analytics/analytics-get-started.md
+      href: solution-ideas/articles/analytics-get-started.md
     - name: Guides
       items:
       - name: Technology choices
@@ -702,7 +702,7 @@ items:
   - name: Containers
     items:
     - name: Get started
-      href: containers/containers-get-started.md
+      href: solution-ideas/articles/container-get-started.md
     - name: Guides
       items:
       - name: Choose a container host
@@ -1134,7 +1134,7 @@ items:
   - name: Storage
     items:
     - name: Get started
-      href: guide/storage/storage-start-here.md
+      href: storage/storage-get-started.md
     - name: Architectures
       items:
       - name: Azure file shares in a hybrid environment
