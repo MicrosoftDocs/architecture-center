@@ -31,11 +31,11 @@ Fabric automatically:
 ### Components
 
 - [Fabric Open Mirroring](/fabric/mirroring/open-mirroring). Continuously ingests data into Fabric by converting landed Parquet files into Delta tables and keeping them synchronized with MongoDB changes.  
-- [Fabric Onelake](/fabric/onelake/onelake-overview). Provides the unified storage layer where change data is initially deposited and made available to downstream Fabric services.  
+- [Fabric OneLake](/fabric/onelake/onelake-overview). Provides the unified storage layer where change data is initially deposited and made available to downstream Fabric services.  
 - [Fabric Lakehouse](/fabric/data-warehouse/get-started-lakehouse-sql-analytics-endpoint). Exposes the mirrored Delta tables through a Lakehouse with built-in T‑SQL access for analytics and querying.  
 - [Semantic models](/fabric/data-warehouse/semantic-models). Automatically generated models that simplify and accelerate analytics consumption in Power BI.  
 - [Azure App Service](/azure/app-service/overview). Hosts the Python-based mirroring application that orchestrates change ingestion into Fabric.  
-- [MongoDB ChangeStreams](https://www.mongodb.com/docs/manual/changeStreams/). Captures real-time inserts, updates, and deletes from MongoDB Atlas to drive continuous synchronization.  
+- [MongoDB Change Streams](https://www.mongodb.com/docs/manual/changeStreams/). Captures real-time inserts, updates, and deletes from MongoDB Atlas to drive continuous synchronization.  
 - [Terraform templates](https://github.com/mongodb-partners/MongoDB_Fabric_Mirroring/tree/main/terraform). Automate the deployment of required Azure and Fabric resources for the solution.
 - [Power BI](/power-bi/fundamentals/power-bi-overview). Visualizes and analyzes the mirrored data using Direct Lake for high-performance, near-real-time reporting.
 
