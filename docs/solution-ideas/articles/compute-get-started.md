@@ -100,12 +100,12 @@ The following resources provide foundational knowledge for compute implementatio
 ### Learning paths by role
 
 - **Solutions architect:** [Architect compute infrastructure in Azure](/training/paths/architect-compute-infrastructure/)
-- **Developer**: [Implement Azure Functions](/training/paths/implement-azure-functions/)
-- **DevOps engineer**: [Build and deploy applications with AKS](/training/paths/build-applications-with-azure-devops/)
+- **Developer:** [Implement Azure Functions](/training/paths/implement-azure-functions/)
+- **DevOps engineer:** [Build and deploy applications with AKS](/training/paths/build-applications-with-azure-devops/)
 
 ## Organizational readiness
 
-Organizations that are beginning their cloud adoption can use the [Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/) for proven guidance designed to accelerate cloud adoption. For cloud-scale compute guidance, see [Cloud-scale analytics](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics).
+Organizations that begin their cloud adoption can use the [Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/) to access proven guidance that accelerates cloud adoption. For cloud-scale compute guidance, see [Cloud-scale analytics](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics).
 
 To help ensure the quality of your compute solution on Azure, we recommend that you follow the [Azure Well-Architected Framework](/azure/well-architected/). The Well-Architected Framework provides prescriptive guidance for organizations that seek architectural excellence and describes how to design, provision, and monitor cost-optimized Azure solutions.
 
@@ -148,7 +148,7 @@ To stay current with key compute services, see the following articles:
 - [App Service announcements](https://azure.github.io/AppService/feed.xml)
 - [Azure Functions updates](/azure/azure-functions/functions-versions)
 
-## Additional resources
+## Other resources
 
 Compute is a broad category and covers a range of solutions. The following resources can help you discover more about Azure.
 
@@ -169,7 +169,7 @@ The following articles describe key hybrid compute scenarios:
 
 HPC uses large clusters of computers to solve complex computational problems. For more information, see the following articles:
 
-- [HPC on Azure](../../topics/high-performance-computing.md) - Learn about HPC capabilities and architectures.
+- [HPC on Azure](../../guide/compute/high-performance-computing.md) - Learn about HPC capabilities and architectures.
 - [Azure Batch](/azure/batch/batch-technical-overview) - Run large-scale parallel and HPC applications efficiently.
 - [Azure CycleCloud](/azure/cyclecloud/overview) - Create, manage, and optimize HPC clusters.
 
