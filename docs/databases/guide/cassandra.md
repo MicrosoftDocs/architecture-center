@@ -64,7 +64,7 @@ For more information, see [Comparing Azure VM data disk caching configurations](
 
 ## Linux read-ahead
 
-In most Linux distributions in the Azure Marketplace, the default block device read-ahead setting is 4096 KB. Cassandra's read I/OS are usually random and relatively small. Therefore, having a large read-ahead wastes throughput by reading parts of files that aren't needed.
+In most Linux distributions available for Azure in the [Microsoft Marketplace](https://marketplace.microsoft.com/search/products?filters=linux&product=virtual-machines), the default block device read-ahead setting is 4096 KB. Cassandra's read I/OS are usually random and relatively small. Therefore, having a large read-ahead wastes throughput by reading parts of files that aren't needed.
 
 To minimize unnecessary lookahead, set the Linux block device read-ahead setting to 8 KB. (See [Recommended production settings](https://docs.datastax.com/en/dse/6.7/dse-admin/datastax_enterprise/config/configRecommendedSettings.html#OptimizeSSDs) in the DataStax documentation.)
 

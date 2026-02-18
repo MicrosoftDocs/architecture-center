@@ -221,7 +221,7 @@ Review and understand the available security controls and visibility for each of
 | Azure Functions | Supported | [Azure Functions pricing][cost-functions] | [Microservices][microservices], [event-driven architecture][event-driven] |
 | AKS | [Ingress controller](/azure/aks/ingress) | [AKS pricing][cost-acs] | [Microservices][microservices], [event-driven architecture][event-driven] |
 | Container Apps |  [Ingress controller](/azure/container-apps/ingress) | [Container Apps pricing][cost-container-apps] | [Microservices][microservices], [event-driven architecture][event-driven] |
-| Container Instances | Use [sidecar](../../patterns/sidecar.yml) container | [Container Instances pricing](https://azure.microsoft.com/pricing/details/container-instances) | [Microservices][microservices], task automation, batch jobs |
+| Container Instances | Use [sidecar](../../patterns/sidecar.md) container | [Container Instances pricing](https://azure.microsoft.com/pricing/details/container-instances) | [Microservices][microservices], task automation, batch jobs |
 | Azure Red Hat OpenShift | Supported | [Azure Red Hat OpenShift pricing][cost-aro] | [Microservices][microservices], [event-driven architecture][event-driven] |
 | Service Fabric | Supported | [Service Fabric pricing][cost-service-fabric] | [Microservices][microservices], [event-driven architecture][event-driven] |
 | Batch | Supported | [Batch pricing][cost-batch] | [Big compute][big-compute] (HPC) |

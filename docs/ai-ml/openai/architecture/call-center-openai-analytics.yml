@@ -17,7 +17,7 @@ azureCategories:
 products:
   - azure-blob-storage
   - azure-speech
-  - ai-services
+  - foundry-tools
   - power-bi
 name: Extract and analyze call center data
 summary: Learn how to extract insights from customer conversations at a call center by using Azure AI services and Azure OpenAI in Foundry Models.

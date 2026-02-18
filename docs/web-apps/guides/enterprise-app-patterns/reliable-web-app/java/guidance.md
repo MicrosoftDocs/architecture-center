@@ -341,31 +341,29 @@ azd env set APP_ENVIRONMENT prod
   - [Enable Azure Monitor OpenTelemetry for Java applications](/azure/azure-monitor/app/opentelemetry-enable)
   - [Use Azure Monitor Application Insights with Spring Boot](/azure/azure-monitor/app/java-spring-boot)
 
-- *Create custom application metrics.* Implement code-based instrumentation to capture [custom application telemetry](/azure/azure-monitor/app/metrics-overview) by adding the Application Insights SDK and using its API.
+- *Create custom application metrics.* Implement code-based instrumentation to capture [custom application telemetry](/azure/azure-monitor/app/metrics-overview) by adding the [Azure Monitor OpenTelemetry Distro](/azure/azure-monitor/app/java-get-started-supplemental).
 
 - *Monitor the platform.* Enable diagnostics for all supported services. Send diagnostics to the same destination as the application logs for correlation. Azure services create platform logs automatically but only store them when you enable diagnostics. Enable diagnostic settings for each service that supports diagnostics.
 
   The reference implementation uses Terraform to enable Azure diagnostics on supported services. The following Terraform code configures the diagnostic settings for the app service:
 
-    ```terraform
-    # Configure diagnostic settings for app service
-    resource "azurerm_monitor_diagnostic_setting" "app_service_diagnostic" {
-      name                           = "app-service-diagnostic-settings"
-      target_resource_id             = azurerm_linux_web_app.application.id
-      log_analytics_workspace_id     = var.log_analytics_workspace_id
-      #log_analytics_destination_type = "AzureDiagnostics"
+  ```terraform
+  # Configure diagnostic settings for app service
+  resource "azurerm_monitor_diagnostic_setting" "app_service_diagnostic" {
+    name                       = "app-service-diagnostic-settings"
+    target_resource_id         = azurerm_linux_web_app.application.id
+    log_analytics_workspace_id = var.log_analytics_workspace_id
 
-      enabled_log {
-        category_group = "allLogs"
-
-      }
-
-      metric {
-        category = "AllMetrics"
-        enabled  = true
-      }
+    enabled_log {
+      category_group = "allLogs"
     }
-    ```
+
+    metric {
+      category = "AllMetrics"
+      enabled  = true
+    }
+  }
+  ```
 
 ## Deploy the reference implementation
 

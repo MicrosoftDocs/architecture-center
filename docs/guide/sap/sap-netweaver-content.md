@@ -1,4 +1,4 @@
-<!-- cSpell:ignore lbrader netweaver jump-box jump-boxes ACLs HANA SWDs SMLG ABAP SAPGUI SAPGUIs SPOF WSFC ASCS MSEE Iperf SIOS sapmnt -->
+<!-- cSpell:ignore netweaver HANA SMLG ABAP SPOF WSFC ASCS Iperf SIOS -->
 
 This guide presents a set of proven practices for running SAP NetWeaver in a Windows environment, on Azure, with high availability. The database is AnyDB, the SAP term for any supported database management system (DBMS) besides SAP HANA.
 
@@ -51,6 +51,8 @@ The following workflow corresponds to the preceding diagram.
   - Enqueue Replication Server (ERS)
 
   The Standard SKU also supports multi-systems identifier (multi-SID) SAP clusters. In other words, [multiple SAP systems on Windows](/azure/virtual-machines/workloads/sap/high-availability-guide) can share a common high availability infrastructure to save cost. Evaluate the cost savings, and avoid placing too many systems in one cluster. Azure supports no more than five SIDs per cluster.
+
+  There are also partner products like [SIOS DataKeeper Cluster Edition](https://marketplace.microsoft.com/product/sios_datakeeper.sios-datakeeper-8) from SIOS Technology Corp. This add-on replicates content from independent disks that are attached to the ASCS cluster nodes and then presents the disks as a cluster shared volume to the cluster software.
 
 - **Azure Storage** - Storage provides data persistence for a VM in the form of a virtual hard disk. We recommend [Azure managed disks](/azure/virtual-machines/windows/managed-disks-overview).
 

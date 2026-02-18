@@ -13,7 +13,7 @@ You can use a [WAF policy](/azure/web-application-firewall/ag/create-waf-policy-
 - This architecture uses a companion Azure Resource Manager template (ARM template) to deploy a new virtual network that has four subnets:
 
   - **AksSubnet** hosts the AKS cluster.
-  - **VmSubnet** hosts a jumpbox virtual machine (VM) and private endpoints.
+  - **VmSubnet** hosts a jump box virtual machine (VM) and private endpoints.
   - **AppGatewaySubnet** hosts Application Gateway WAF2 tier.
   - **AzureBastionSubnet** hosts Azure Bastion.
 
@@ -61,7 +61,7 @@ You can use a [WAF policy](/azure/web-application-firewall/ag/create-waf-policy-
 - A virtual network link exists between the virtual network that hosts the AKS cluster and the preceding private DNS zones. A Log Analytics workspace collects the diagnostics logs and metrics from the following sources:
 
   - The AKS cluster
-  - The jumpbox VM
+  - The jump box VM
   - Application Gateway
   - Key Vault
   - Azure network security groups
@@ -229,7 +229,7 @@ The security considerations don't fully pertain to multitenancy in AKS, but they
 - Configure [Application Gateway](/azure/application-gateway/overview) to use a [WAF policy](/azure/application-gateway/waf-overview) to help protect public-facing workloads that run on AKS from malicious attacks.
 - Use Azure CNI networking in AKS to integrate with existing virtual networks or on-premises networks. This network model also allows greater separation of resources and controls in an enterprise environment.
 - Use network policies to segregate and secure intra-service communications by controlling which components can communicate with each other. By default, all pods in a Kubernetes cluster can send and receive traffic without limitations. To improve security, you can use Azure network policies or Calico network policies to define rules that control the traffic flow between various microservices. For more information, see [Network policy](/azure/aks/use-network-policies).
-- Don't expose remote connectivity to your AKS nodes. Create a bastion host, or jumpbox, in a management virtual network. Use the bastion host to securely route traffic into your AKS cluster to remote management tasks.
+- Don't expose remote connectivity to your AKS nodes. Create a bastion host, or jump box, in a management virtual network. Use the bastion host to securely route traffic into your AKS cluster to remote management tasks.
 - Consider using [authorized IP address ranges](/azure/aks/api-server-authorized-ip-ranges) in AKS to create a [private AKS cluster](/azure/aks/private-clusters) in your production environment. If you can't use a private AKS cluster, at least secure access to the API server.
 - Combine [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) with application-design best practices to provide enhanced DDoS mitigation features and extra defense against DDoS attacks. Enable [DDoS Protection](/azure/ddos-protection/ddos-protection-overview) on perimeter virtual networks.
 

@@ -10,7 +10,7 @@ ms.custom:
   - best-practice
 ---
 
-<!-- cSpell:ignore CNAME HATEOAS WADL hashedOrderEtag nonMatchEtags matchEtags -->
+<!-- cSpell:ignore CNAME WADL hashedOrderEtag nonMatchEtags matchEtags -->
 
 # Web API implementation
 
@@ -779,7 +779,7 @@ Depending on how you have published and deployed your web API you can monitor th
 
 ### Monitoring a web API directly
 
-If you have implemented your web API by using the ASP.NET Web API template (either as a Web API project or as a Web role in an Azure cloud service) and Visual Studio 2013, you can gather availability, performance, and usage data by using ASP.NET Application Insights. Application Insights is a package that transparently tracks and records information about requests and responses when the web API is deployed to the cloud; once the package is installed and configured, you don't need to amend any code in your web API to use it. When you deploy the web API to an Azure web site, all traffic is examined and the following statistics are gathered:
+Use the [Azure Monitor OpenTelemetry Distro](/azure/azure-monitor/app/opentelemetry-enable) to collect availability, performance, and usage data from your web API and send it to Application Insights. The Distro tracks and records information about requests and responses when the web API is deployed to the cloud. When you deploy the web API to an Azure web site, all traffic is examined and the following statistics are gathered:
 
 - Server response time.
 - Number of server requests and the details of each request.
@@ -791,7 +791,7 @@ If you have implemented your web API by using the ASP.NET Web API template (eith
 
 You can view this data in real time in the Azure portal. You can also create web tests that monitor the health of the web API. A web test sends a periodic request to a specified URI in the web API and captures the response. You can specify the definition of a successful response (such as HTTP status code 200), and if the request doesn't return this response you can arrange for an alert to be sent to an administrator. If necessary, the administrator can restart the server hosting the web API if it has failed.
 
-For more information, see [Application Insights - Get started with ASP.NET](/azure/application-insights/app-insights-asp-net).
+For more information, see [Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python, and Java applications](/azure/azure-monitor/app/opentelemetry-enable).
 
 ### Monitoring a web API through the API Management Service
 
@@ -818,4 +818,4 @@ You can use this information to determine whether a particular web API or operat
 - [API Management](https://azure.microsoft.com/services/api-management) describes how to publish a product that provides controlled and secure access to a web API.
 - [Azure API Management REST API reference](/rest/api/apimanagement) describes how to use the API Management REST API to build custom management applications.
 - [Traffic Manager routing methods](/azure/traffic-manager/traffic-manager-routing-methods) summarizes how Azure Traffic Manager can be used to load-balance requests across multiple instances of a website hosting a web API.
-- [Application Insights - Get started with ASP.NET](/azure/application-insights/app-insights-asp-net) provides detailed information on installing and configuring Application Insights in an ASP.NET Web API project.
+- [Enable Azure Monitor OpenTelemetry](/azure/azure-monitor/app/opentelemetry-enable) provides detailed information on configuring the Azure Monitor OpenTelemetry Distro to send telemetry to Application Insights.

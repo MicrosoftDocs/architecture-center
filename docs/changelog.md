@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: claytonsiemens77
-ms.date: 02/09/2026
+ms.date: 02/17/2026
 ms.topic: whats-new
 ms.author: pnp
 ---
@@ -27,6 +27,8 @@ The following new and updated articles have recently been published in the Azure
 
 ### Updated articles
 
+- [AI Agent Orchestration Patterns](./ai-ml/guide/ai-agent-design-patterns.md) ([#d6b2e09262](https://github.com/MicrosoftDocs/architecture-center/commit/d6b2e09262))
+- [Migrate IBM i series to Azure with Skytap](./example-scenario/mainframe/migrate-ibm-i-series-to-azure-with-skytap.yml) ([#2e24036506](https://github.com/MicrosoftDocs/architecture-center/commit/2e24036506))
 - [Design a Secure Multitenant RAG Inferencing Solution](./ai-ml/guide/secure-multitenant-rag.md) ([#5a2098fe65](https://github.com/MicrosoftDocs/architecture-center/commit/5a2098fe65))
 - [Choose an Azure Service for Vector Search](./guide/technology-choices/vector-search.md) ([#5a2098fe65](https://github.com/MicrosoftDocs/architecture-center/commit/5a2098fe65))
 - [Use AI to Forecast Customer Orders](./ai-ml/idea/next-order-forecasting.yml) ([#f365d63572](https://github.com/MicrosoftDocs/architecture-center/commit/f365d63572))

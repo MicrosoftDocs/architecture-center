@@ -125,7 +125,7 @@ The following resources provide practical recommendations and information for sp
 [About connectors in Azure Logic Apps]: /azure/connectors/apis-list?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [API Management ACOM page]: https://azure.microsoft.com/services/api-management
 [Architect API integration in Azure]: /training/paths/architect-api-integration
-[Asynchronous messaging options]: ../guide/technology-choices/messaging.yml
+[Asynchronous messaging options]: ../guide/technology-choices/messaging.md
 [Azure Functions ACOM page]: https://azure.microsoft.com/services/functions
 [Azure Logic Apps ACOM page]: https://azure.microsoft.com/services/logic-apps
 [Azure Policy Regulatory Compliance controls for Azure Logic Apps]: /azure/logic-apps/security-controls-policy?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json

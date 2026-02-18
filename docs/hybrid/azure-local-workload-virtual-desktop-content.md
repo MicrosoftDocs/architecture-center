@@ -71,7 +71,7 @@ Use Azure Virtual Desktop for Azure Local to take advantage of the following ben
 - **Reduce cost and improve user experience** by using Windows 10 and Windows 11 Enterprise multi-session, which provides multiple concurrent interactive sessions.
 - **Simplify your virtual desktop infrastructure (VDI) deployment and management**, compared to traditional on-premises VDI solutions, by using the Azure portal.
 - **Achieve the best performance** by using [RDP Shortpath](/azure/virtual-desktop/rdp-shortpath) for low-latency user access.
-- **Deploy the latest fully patched images efficiently** by using [Azure Marketplace images](/azure-stack/hci/manage/virtual-machine-image-azure-marketplace).
+- **Deploy the latest fully patched images efficiently** by using [Microsoft Marketplace images](/azure-stack/hci/manage/virtual-machine-image-azure-marketplace).
 
 ### Key considerations
 

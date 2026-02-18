@@ -42,7 +42,7 @@ Client applications such as web apps, mobile apps, and even service applications
 Because this solution uses a highly scalable microservices-based architecture, consider these alternatives for the compute plane:
 
 - [Azure Functions](https://azure.microsoft.com/services/functions) for serverless API services
-- [Azure Spring Apps](https://azure.microsoft.com/services/spring-cloud) for Java-based microservices
+- [Azure Container Apps](/azure/container-apps/overview) for Java-based microservices
 
 ## Appropriate reliability
 
@@ -81,7 +81,7 @@ This article explores how to apply scalability and performance modeling techniqu
 - Define the SLIs and SLOs for the user scenarios.
 
 > [!NOTE]
-> Azure Application Insights, part of Azure Monitor, is a powerful application performance management (APM) tool that you can easily integrate with your applications to send telemetry and analyze application-specific metrics. It also provides ready-to-use dashboards and a metrics explorer that you can use to analyze the data to explore business needs.
+> Azure Application Insights, part of Azure Monitor, is a powerful application performance management (APM) tool that you can integrate with your applications to send telemetry and analyze application-specific metrics. Use the [Azure Monitor OpenTelemetry Distro](/azure/azure-monitor/app/opentelemetry-enable) to instrument your application. Application Insights also provides ready-to-use dashboards and a metrics explorer that you can use to analyze the data to explore business needs.
 
 ### Capture scalability requirements
 
