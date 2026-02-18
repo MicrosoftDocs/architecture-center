@@ -44,22 +44,22 @@ The following articles help you evaluate and select the best compute technologie
 
 The following production-ready architectures demonstrate comprehensive compute solutions that you can deploy and customize:
 
-- [Azure Virtual Machines baseline architecture](../../virtual-machines/baseline.yml) - See a foundational reference architecture for workloads deployed on Virtual Machines.
-- [Virtual Machines baseline architecture in an Azure landing zone](../../virtual-machines/baseline-landing-zone.yml) - Deploy VM workloads in an Azure landing zone context.
-- [Siemens Teamcenter baseline architecture](../../example-scenario/manufacturing/teamcenter-baseline.yml) - Deploy a Siemens Teamcenter product life cycle management (PLM) solution on Azure.
-- [Multiregion load balancing](../../high-availability/reference-architecture-traffic-manager-application-gateway.yml) - Learn how to load balance traffic across multiple Azure regions.
-- [Multitier web application built for high availability and disaster recovery (HA/DR)](../../example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml) - Deploy a multitier application that has HA/DR.
-- [Deploy IBM Maximo Application Suite (MAS)](../../example-scenario/apps/deploy-ibm-maximo-application-suite.yml) - Run IBM MAS enterprise asset management on Azure.
-- [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml) - Learn about best practices for running a Linux VM on Azure.
-- [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml) - Learn about best practices for running a Windows VM on Azure.
+- **[Azure Virtual Machines baseline architecture](../../virtual-machines/baseline.yml):** See a foundational reference architecture for workloads deployed on Virtual Machines.
+- **[Virtual Machines baseline architecture in an Azure landing zone](../../virtual-machines/baseline-landing-zone.yml):** Deploy VM workloads in an Azure landing zone context.
+- **[Siemens Teamcenter baseline architecture](../../example-scenario/manufacturing/teamcenter-baseline.yml):** Deploy a Siemens Teamcenter product life cycle management (PLM) solution on Azure.
+- **[Multiregion load balancing](../../high-availability/reference-architecture-traffic-manager-application-gateway.yml):** Learn how to load balance traffic across multiple Azure regions.
+- **[Multitier web application built for high availability and disaster recovery (HA/DR)](../../example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml):** Deploy a multitier application that has HA/DR.
+- **[Deploy IBM Maximo Application Suite (MAS)](../../example-scenario/apps/deploy-ibm-maximo-application-suite.yml):** Run IBM MAS enterprise asset management on Azure.
+- **[Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml):** Learn about best practices for running a Linux VM on Azure.
+- **[Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml):** Learn about best practices for running a Windows VM on Azure.
 
 #### Mainframe
 
-- [AIX UNIX to Azure Linux migration](../../example-scenario/unix-migration/migrate-aix-azure-linux.yml) - Migrate IBM AIX workloads to Azure Linux.
-- [General mainframe refactor to Azure](../../example-scenario/mainframe/general-mainframe-refactor.yml) - Modernize mainframe applications by using Azure services.
-- [Rehost a general mainframe on Azure](../../example-scenario/mainframe/mainframe-rehost-architecture-azure.yml) - Rehost mainframe workloads on Azure infrastructure.
-- [Micro Focus Enterprise Server on Azure](../../example-scenario/mainframe/micro-focus-server.yml) - Run Micro Focus Enterprise Server for mainframe modernization.
-- [Solaris emulator on Azure virtual machines](./solaris-azure.yml) - Emulate legacy Sun SPARC systems on Azure virtual machines.
+- **[AIX UNIX to Azure Linux migration](../../example-scenario/unix-migration/migrate-aix-azure-linux.yml):** Migrate IBM AIX workloads to Azure Linux.
+- **[General mainframe refactor to Azure](../../example-scenario/mainframe/general-mainframe-refactor.yml):** Modernize mainframe applications by using Azure services.
+- **[Rehost a general mainframe on Azure](../../example-scenario/mainframe/mainframe-rehost-architecture-azure.yml):** Rehost mainframe workloads on Azure infrastructure.
+- **[Micro Focus Enterprise Server on Azure](../../example-scenario/mainframe/micro-focus-server.yml):** Run Micro Focus Enterprise Server for mainframe modernization.
+- **[Solaris emulator on Azure virtual machines](./solaris-azure.yml):** Emulate legacy Sun SPARC systems on Azure virtual machines.
 
 ### SAP
 
@@ -67,23 +67,23 @@ SAP workloads have specific architecture requirements. See the following resourc
 
 #### SAP guides
 
-- [SAP landscape architecture](../../guide/sap/sap-whole-landscape.yml) - Review guidance about SAP landscapes on Azure.
-- [Inbound and outbound internet connections for SAP on Azure](../../guide/sap/sap-internet-inbound-outbound.yml) - See a network architecture for SAP internet connectivity.
+- **[SAP landscape architecture](../../guide/sap/sap-whole-landscape.yml):** Review guidance about SAP landscapes on Azure.
+- **[Inbound and outbound internet connections for SAP on Azure](../../guide/sap/sap-internet-inbound-outbound.yml):** See a network architecture for SAP internet connectivity.
 
 #### SAP architectures
 
-- [SAP BW/4HANA in Linux on Azure](../../reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines.yml) - Deploy an SAP BW/4HANA data warehouse on Azure Linux VMs.
-- [SAP deployment by using an Oracle database](../../example-scenario/apps/sap-production.yml) - Run SAP production workloads by using an Oracle database on Azure.
-- [SAP HANA scale-up systems on Linux](../../reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.yml) - Scale up SAP HANA deployments on Azure Linux VMs.
-- [SAP NetWeaver in Windows on Azure](../../guide/sap/sap-netweaver.yml) - Deploy SAP NetWeaver on Windows VMs.
-- [SAP S/4HANA in Linux on Azure](../../guide/sap/sap-s4hana.md) - Run SAP S/4HANA on Azure Linux VMs.
+- **[SAP BW/4HANA in Linux on Azure](../../reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines.yml):** Deploy an SAP BW/4HANA data warehouse on Azure Linux VMs.
+- **[SAP deployment by using an Oracle database](../../example-scenario/apps/sap-production.yml):** Run SAP production workloads by using an Oracle database on Azure.
+- **[SAP HANA scale-up systems on Linux](../../reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.yml):** Scale up SAP HANA deployments on Azure Linux VMs.
+- **[SAP NetWeaver in Windows on Azure](../../guide/sap/sap-netweaver.yml):** Deploy SAP NetWeaver on Windows VMs.
+- **[SAP S/4HANA in Linux on Azure](../../guide/sap/sap-s4hana.md):** Run SAP S/4HANA on Azure Linux VMs.
 
 #### SAP solution ideas
 
 The following solution ideas demonstrate implementation patterns and possibilities to explore:
 
-- [SAP S/4HANA for Azure Large Instances for Epic](./sap-s4-hana-on-hli-with-ha-and-dr.yml) - Deploy SAP S/4HANA on Azure Large Instances for Epic with HA/DR.
-- [Automate SAP workloads by using SUSE on Azure](./sap-workload-automation-suse.yml) - Automate SAP deployment and operations by using SUSE tools.
+- **[SAP S/4HANA for Azure Large Instances for Epic](./sap-s4-hana-on-hli-with-ha-and-dr.yml):** Deploy SAP S/4HANA on Azure Large Instances for Epic with HA/DR.
+- **[Automate SAP workloads by using SUSE on Azure](./sap-workload-automation-suse.yml):** Automate SAP deployment and operations by using SUSE tools.
 
 ## Learn about compute on Azure
 
@@ -92,20 +92,20 @@ The following solution ideas demonstrate implementation patterns and possibiliti
 The following resources provide foundational knowledge for compute implementations on Azure:
 
 - [Describe Azure compute and networking services](/training/modules/describe-azure-compute-networking-services/)
-- [Deploy and run a containerized web app with Azure App Service](/training/modules/deploy-run-container-app-service/)
+- [Run a custom container in Azure](/azure/app-service/quickstart-custom-container)
 - [Introduction to Azure Kubernetes Service (AKS)](/training/modules/intro-to-azure-kubernetes-service/)
 - [Implement Azure Functions](/training/paths/implement-azure-functions/)
 - [Introduction to Azure virtual machines](/training/modules/intro-to-azure-virtual-machines/)
 
 ### Learning paths by role
 
-- **Solutions architect**: [Architect compute infrastructure in Azure](/training/paths/architect-compute-infrastructure/)
-- **Developer**: [Implement Azure Functions](/training/paths/implement-azure-functions/)
-- **DevOps engineer**: [Build and deploy applications with AKS](/training/paths/build-applications-with-azure-devops/)
+- **Solutions architect:** [Architect compute infrastructure in Azure](/training/paths/architect-compute-infrastructure/)
+- **Developer:** [Implement Azure Functions](/training/paths/implement-azure-functions/)
+- **DevOps engineer:** [Deploy and monitor applications on AKS](/training/paths/deploy-monitor-apps-azure-kubernetes-service/)
 
 ## Organizational readiness
 
-Organizations that are beginning their cloud adoption can use the [Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/) for proven guidance designed to accelerate cloud adoption. For cloud-scale compute guidance, see [Cloud-scale analytics](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics).
+Organizations that begin their cloud adoption can use the [Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/) to access proven guidance that accelerates cloud adoption. For cloud-scale compute guidance, see [Cloud-scale analytics](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics).
 
 To help ensure the quality of your compute solution on Azure, we recommend that you follow the [Azure Well-Architected Framework](/azure/well-architected/). The Well-Architected Framework provides prescriptive guidance for organizations that seek architectural excellence and describes how to design, provision, and monitor cost-optimized Azure solutions.
 
@@ -122,20 +122,20 @@ For compute-specific guidance, see the following Well-Architected Framework serv
 
 Follow best practices to help ensure that your compute solution on Azure is reliable, secure, and cost-effective.
 
-- [Autoscaling best practices](../../best-practices/auto-scaling.md) - Learn about dynamic scaling to rightsize your infrastructure.
-- [Background jobs guidance](../../best-practices/background-jobs.md) - Implement background processing for long-running tasks.
-- [Caching guidance](../../best-practices/caching.yml) - Improve performance and reduce load on back-end systems.
-- [Content delivery network guidance](../../best-practices/cdn.yml) - Distribute content closer to users for better performance.
+- **[Autoscaling best practices](../../best-practices/auto-scaling.md):** Learn about dynamic scaling to rightsize your infrastructure.
+- **[Background jobs guidance](../../best-practices/background-jobs.md):** Implement background processing for long-running tasks.
+- **[Caching guidance](../../best-practices/caching.yml):** Improve performance and reduce load on back-end systems.
+- **[Content delivery network guidance](../../best-practices/cdn.yml):** Distribute content closer to users for better performance.
 
 ### Cost optimization
 
 To manage compute costs on Azure, you must understand your usage patterns and choose the right pricing models.
 
-- [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) - Make 1-year or 3-year commitments and save up to 72% on VMs, App Service, AKS, and other compute services compared to pay-as-you-go prices.
-- [Spot Virtual Machines](/azure/virtual-machines/spot-vms) - Access unused Azure capacity at significant discounts for interruptible workloads.
-- [Azure savings plan for compute](/azure/cost-management-billing/savings-plan/savings-plan-compute-overview) - Take advantage of flexible pricing for compute across VMs, App Service, Azure Container Instances, and Functions Premium.
-- [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) - Use existing Windows Server, SQL Server, and Linux subscription licenses on Azure.
-- [Reduce service costs by using Azure Advisor](/azure/advisor/advisor-cost-recommendations) - Use Advisor recommendations to identify underutilized VMs, App Service plans, and other resources.
+- **[Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations):** Make 1-year or 3-year commitments and save up to 72% on VMs, App Service, AKS, and other compute services compared to pay-as-you-go prices.
+- **[Spot Virtual Machines](/azure/virtual-machines/spot-vms):** Access unused Azure capacity at significant discounts for interruptible workloads.
+- **[Azure savings plan for compute](/azure/cost-management-billing/savings-plan/savings-plan-compute-overview):** Take advantage of flexible pricing for compute across VMs, App Service, Azure Container Instances, and Functions Premium.
+- **[Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/):** Use existing Windows Server, SQL Server, and Linux subscription licenses on Azure.
+- **[Reduce service costs by using Azure Advisor](/azure/advisor/advisor-cost-recommendations):** Use Advisor recommendations to identify underutilized VMs, App Service plans, and other resources.
 
 ## Stay current with compute
 
@@ -143,12 +143,11 @@ Azure compute services evolve to address modern data challenges. Stay informed a
 
 To stay current with key compute services, see the following articles:
 
-- [What's new in Virtual Machines](/azure/virtual-machines/whats-new)
 - [AKS release notes](/azure/aks/release-tracker)
 - [App Service announcements](https://azure.github.io/AppService/feed.xml)
 - [Azure Functions updates](/azure/azure-functions/functions-versions)
 
-## Additional resources
+## Other resources
 
 Compute is a broad category and covers a range of solutions. The following resources can help you discover more about Azure.
 
@@ -156,35 +155,35 @@ Compute is a broad category and covers a range of solutions. The following resou
 
 Many organizations need a hybrid approach to compute because their workloads run on-premises and in the cloud. Azure provides the following services to [extend your datacenter to the cloud](/azure/architecture/databases/guide/hybrid-on-premises-and-cloud) and run Azure services on-premises:
 
-- [Azure Arc](/azure/azure-arc/overview) - Extend Azure management and services to any infrastructure.
-- [Azure Local](/azure/azure-local/overview) - Run Azure services on-premises by using a hyperconverged infrastructure (HCI) solution.
-- [Hybrid network architecture](../../reference-architectures/hybrid-networking/index.yml) - Connect on-premises networks to Azure.
+- **[Azure Arc](/azure/azure-arc/overview):** Extend Azure management and services to any infrastructure.
+- **[Azure Local](/azure/azure-local/overview):** Run Azure services on-premises by using a hyperconverged infrastructure (HCI) solution.
+- **[Hybrid network architecture](../../reference-architectures/hybrid-networking/index.yml):** Connect on-premises networks to Azure.
 
 The following articles describe key hybrid compute scenarios:
 
-- [Hybrid architecture design](../../hybrid/hybrid-start-here.md) - See an overview of hybrid solutions on Azure.
-- [Azure Arc hybrid management and deployment for Kubernetes clusters](../../hybrid/arc-hybrid-kubernetes.yml) - Manage Kubernetes clusters across environments.
+- **[Hybrid architecture design](../../hybrid/hybrid-start-here.md):** See an overview of hybrid solutions on Azure.
+- **[Azure Arc hybrid management and deployment for Kubernetes clusters](../../hybrid/arc-hybrid-kubernetes.yml):** Manage Kubernetes clusters across environments.
 
 ### HPC
 
 HPC uses large clusters of computers to solve complex computational problems. For more information, see the following articles:
 
-- [HPC on Azure](../../topics/high-performance-computing.md) - Learn about HPC capabilities and architectures.
-- [Azure Batch](/azure/batch/batch-technical-overview) - Run large-scale parallel and HPC applications efficiently.
-- [Azure CycleCloud](/azure/cyclecloud/overview) - Create, manage, and optimize HPC clusters.
+- **[HPC on Azure](../../guide/compute/high-performance-computing.md):** Learn about HPC capabilities and architectures.
+- **[Azure Batch](/azure/batch/batch-technical-overview):** Run large-scale parallel and HPC applications efficiently.
+- **[Azure CycleCloud](/azure/cyclecloud/overview):** Create, manage, and optimize HPC clusters.
 
 ### Containers and Kubernetes
 
 Container-based architectures are increasingly popular for building scalable, portable applications. For more information, see the following articles:
 
-- [Choose an Azure container service](../../guide/choose-azure-container-service.md) - Review guidance for container workloads.
-- [AKS baseline architecture](../../reference-architectures/containers/aks/baseline-aks.yml) - See an example production-ready Kubernetes deployment.
-- [Microservices architecture](../../guide/architecture-styles/microservices.md) - See design patterns for microservices.
+- **[Choose an Azure container service](../../guide/choose-azure-container-service.md):** Review guidance for container workloads.
+- **[AKS baseline architecture](../../reference-architectures/containers/aks/baseline-aks.yml):** See an example production-ready Kubernetes deployment.
+- **[Microservices architecture](../../guide/architecture-styles/microservices.md):** See design patterns for microservices.
 
 ## AWS or Google Cloud professionals
 
 The following articles can help you ramp up quickly by comparing Azure compute options to other cloud services:
 
-- [Compute services on Azure and Amazon Web Services (AWS)](../../aws-professional/compute.md) - Compare Azure and AWS compute services.
-- [Azure for AWS professionals](../../aws-professional/index.md) - See this overview of Azure if you're familiar with AWS.
-- [Google Cloud to Azure services comparison](../../gcp-professional/services.md#compute) - Compare Azure and Google Cloud compute services.
+- **[Compute services on Azure and Amazon Web Services (AWS)](../../aws-professional/compute.md):** Compare Azure and AWS compute services.
+- **[Azure for AWS professionals](../../aws-professional/index.md):** See this overview of Azure if you're familiar with AWS.
+- **[Google Cloud to Azure services comparison](../../gcp-professional/services.md#compute):** Compare Azure and Google Cloud compute services.
