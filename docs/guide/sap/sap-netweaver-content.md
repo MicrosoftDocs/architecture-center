@@ -2,7 +2,7 @@
 
 This guide presents a set of proven practices for running SAP NetWeaver in a Windows environment, on Azure, with high availability. The database is AnyDB, the SAP term for any supported database management system (DBMS) besides SAP HANA.
 
-# Architecture
+## Architecture
 
 The following diagram shows SAP NetWeaver in a Windows environment.
 
@@ -15,7 +15,7 @@ The following diagram shows SAP NetWeaver in a Windows environment.
 
 This guide describes a production system. The system is deployed with specific virtual machine (VM) sizes that you can change to accommodate the needs of your organization. The system can be reduced to a single VM. In this guide, the network layout is greatly simplified to demonstrate architectural principles. It's not intended to describe a full enterprise network.
 
-## Workflow
+### Workflow
 
 The following workflow corresponds to the preceding diagram.
 
