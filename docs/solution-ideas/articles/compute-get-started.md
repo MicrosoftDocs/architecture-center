@@ -38,7 +38,7 @@ The following articles help you evaluate and select the best compute technologie
 - [Choose a compute service](../../guide/technology-choices/compute-decision-tree.md) - Use a decision tree to help you choose the right compute option.
 - [Shared access signatures (SAS) on Azure architecture](../../guide/sas/sas-overview.yml) - Get guidance about running SAS analytics on Azure.
 - [Build workloads by using Azure Spot Virtual Machines](../../guide/spot/spot-eviction.yml) - Learn how to design workloads that take advantage of spare Azure capacity at reduced cost.
-- [HPC on Azure](../../guide/compute/high-performance-computing.md) - Learn about HPC capabilities and architectures on Azure.
+- Learn about [HPC capabilities and architectures on Azure](../../guide/compute/high-performance-computing.md).
 
 ### Compute architectures
 
