@@ -57,7 +57,7 @@ To ensure that your AKS cluster operates smoothly during maintenance, follow the
    > [!WARNING]
    > Misconfigured PDBs can block the upgrade process because the Kubernetes API prevents the necessary cordon and drain that occurs with a rolling node-image upgrade. Additionally, if too many pods are moved simultaneously, an application outage can occur. Proper PDB configuration mitigates this risk.
 
-- **Consider enabling [Deployment Safeguards](/azure/aks/deployment-safeguards)**. These enforce Kubernetes best practices, including PDB validation, resource limits, health probes, and anti-affinity rules. Deployment Safeguards uses Azure Policy controls at deployment time to help ensure workloads are properly configured before an upgrade begins.
+- **Enable [Deployment Safeguards](/azure/aks/deployment-safeguards)**. These enforce Kubernetes best practices, including PDB validation, resource limits, health probes, and anti-affinity rules. Deployment Safeguards uses Azure Policy controls at deployment time to help ensure workloads are properly configured before an upgrade begins.
 
 - **Check available compute and network limits.**  Verify the available compute and network limits in your Azure subscription via the [quota page](/azure/quotas/view-quotas) in the Azure portal, or by using the [az quota](/cli/azure/quota/usage?view=azure-cli-latest#az-quota-usage-list&preserve-view=true) command. Check compute and network resources, especially virtual machine (VM) vCPUs for your nodes, and the number of VMs and virtual machine scale sets. If you're close to a limit, request a quota increase before you upgrade.
 
@@ -76,7 +76,7 @@ To ensure that your AKS cluster operates smoothly during maintenance, follow the
 - **Use force upgrade for emergency scenarios.** For emergency security patching, the `--enable-force-upgrade` flag with `--upgrade-override-until` allows operators to bypass PDB protections and validation checks. When force upgrade is enabled, it takes precedence over all other drain configurations including undrainable node behavior settings.
 
   > [!IMPORTANT]
-  > Use this option only for urgent CVE response scenarios. For more information, see [Force upgrade an AKS cluster](/azure/aks/upgrade-aks-cluster#force-upgrade).
+  > Use this option only for urgent CVE response scenarios. For more information, see [Force upgrade an AKS cluster](/azure/aks/upgrade-options#option-1-force-upgrade-bypass-pdb).
 
 - **Tune surge upgrade values.** By default, AKS has a surge value of 1, which means that one extra node is created at a time as part of the upgrade process. You can increase the speed of an AKS upgrade by increasing this value. The recommended maximum surge value for workloads that are sensitive to disruptions is 33%. For more information, see [Customize node surge upgrade](/azure/aks/upgrade-aks-node-pools-rolling#customize-node-surge).
 
