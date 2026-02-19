@@ -3,7 +3,7 @@ title: Azure AI Video Processing Guide
 description: Learn about Foundry Tools for video processing and video generation. Understand and compare each service's capabilities and use cases.
 author: ritesh-modi
 ms.author: rimod
-ms.date: 02/05/2026
+ms.date: 02/19/2026
 ms.update-cycle: 180-days
 ms.topic: concept-article
 ms.subservice: architecture-guide

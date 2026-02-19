@@ -255,3 +255,5 @@ docs/.vscode/settings.json
 .temp
 .env
 
+# Skills
+.github/skills/*

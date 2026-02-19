@@ -3,7 +3,7 @@ title: Choose an Azure AI Targeted Language Processing Technology
 description: Learn about Azure Foundry Tools targeted language processing capabilities, including NLP, text analytics, translation, and document data extraction.
 author: ritesh-modi
 ms.author: rimod
-ms.date: 02/03/2026
+ms.date: 02/19/2026
 ms.update-cycle: 180-days
 ms.topic: concept-article
 ms.subservice: architecture-guide
