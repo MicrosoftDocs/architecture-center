@@ -293,6 +293,7 @@ Principal author:
 ## Related resources
 
 - [Implement a secure hybrid network](../../reference-architectures/dmz/secure-vnet-dmz.yml)
+- [Multi-region load balancing with Traffic Manager, Azure Firewall, and Application Gateway](../../high-availability/reference-architecture-traffic-manager-application-gateway.yml)
 - [Hub-spoke network topology in Azure](../../networking/architecture/hub-spoke.yml)
 - [Hub-spoke network topology that uses Virtual WAN](../../networking/architecture/hub-spoke-virtual-wan-architecture.yml)
 
