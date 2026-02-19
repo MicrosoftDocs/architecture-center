@@ -29,15 +29,15 @@ The following workflow corresponds to the preceding diagram.
 
 3. SAP application server layer
 
-   This layer contains the central application components. Processing of data happens here. This layer is protected by ASR, Windows Server Failover Cluster (WSFC), and multiple application servers to ensure local and remote redundancy.
+   This layer contains the central application components. Processing of data happens here. This layer is protected by Azure Site Recovery (ASR), Windows Server Failover Cluster (WSFC), and multiple application servers to ensure local and remote redundancy.
 
 4. Azure network gateway in a hub network
 
    This gateway is the entry point from the on-premise network into the Azure cloud. The hub network includes security measures.
 
-5. On premise network connection to Azure
+5. On premises network connection to Azure
 
-   This connection is your local on-premise network, extended into Azure. It connects to Azure either via ExpressRoute or a VPN over the internet.
+   This connection is your local on-premises network, extended into Azure. It connects to Azure either via ExpressRoute or a VPN over the internet.
 
 ## Components
 
@@ -45,7 +45,7 @@ The following workflow corresponds to the preceding diagram.
 
 - **Databases** - The database tier runs any SAP-certified database, such as be Microsoft SQL Server, Oracle, or IBM DB2.
 
-- **SAP NetWeaver** - The application tier uses Windows VMs to run SAP Central Services and SAP application servers. For high availability, the VMs that run Central Services are configured in a Windows server failover cluster. WSAFC supports Azure file shares or Azure shared disks.
+- **SAP NetWeaver** - The application tier uses Windows VMs to run SAP Central Services and SAP application servers. For high availability, the VMs that run Central Services are configured in a Windows server failover cluster. WSFC supports Azure file shares or Azure shared disks.
 
   - Advanced Business Application Programming (ABAP) SAP Central Service (ASCS)
   - Enqueue Replication Server (ERS)
@@ -56,7 +56,7 @@ The following workflow corresponds to the preceding diagram.
 
 - **Azure Storage** - Storage provides data persistence for a VM in the form of a virtual hard disk. We recommend [Azure managed disks](/azure/virtual-machines/windows/managed-disks-overview).
 
-- **Virtual networks** The [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) service connects Azure resources to each other with enhanced security. In this architecture, the virtual network connects to an on-premises network via an Azure ExpressRoute gateway that connects in the hub of a [hub-spoke topology](../../networking/architecture/hub-spoke.yml). The spoke is the virtual network that's used for the SAP applications and the database tiers. The hub virtual network is used for shared services like Azure Bastion and backup.
+- **Virtual networks** - The [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) service connects Azure resources to each other with enhanced security. In this architecture, the virtual network connects to an on-premises network via an Azure ExpressRoute gateway that connects in the hub of a [hub-spoke topology](../../networking/architecture/hub-spoke.yml). The spoke is the virtual network that's used for the SAP applications and the database tiers. The hub virtual network is used for shared services like Azure Bastion and backup.
 
 - **Virtual network peering** - This architecture uses a hub-and-spoke networking topology with multiple virtual networks that are [peered together](/azure/virtual-network/virtual-network-peering-overview). This topology provides network segmentation and isolation for services that are deployed on Azure. Peering enables transparent connectivity between peered virtual networks through the Microsoft backbone network. It doesn't incur a performance penalty if deployed within a single region. The virtual network is divided into separate subnets for each tier: application (SAP NetWeaver), the database, and shared services like Bastion and a third-party backup solution.
 
@@ -66,7 +66,7 @@ The following workflow corresponds to the preceding diagram.
 
 - **Network security groups** - To restrict incoming, outgoing, and intra-subnet traffic in a virtual network, create [network security groups](/azure/virtual-network/tutorial-filter-network-traffic-cli).
 
-  **Application security groups** - To define fine-grained, workload-based network security policies that are centered on applications, use [application security groups](/azure/virtual-network/security-overview) instead of explicit IP addresses. Application security groups provide a way to group VMs by name and help you secure applications by filtering traffic from trusted segments of your network.
+- **Application security groups** - To define fine-grained, workload-based network security policies that are centered on applications, use [application security groups](/azure/virtual-network/security-overview) instead of explicit IP addresses. Application security groups provide a way to group VMs by name and help you secure applications by filtering traffic from trusted segments of your network.
 
 - **Private DNS service** - [Azure Private DNS](/azure/dns/private-dns-overview) provides a reliable and secure DNS service for your virtual network. Azure Private DNS manages and resolves domain names in the virtual network, without the need to configure a custom DNS solution.
 
@@ -79,7 +79,7 @@ The following workflow corresponds to the preceding diagram.
 
   For some internet-facing inbound/outbound design examples, see [Inbound and outbound internet connections for SAP on Azure](./sap-internet-inbound-outbound.yml).
 
-  Standard Load Balancer supports multiple front-end virtual IPs. This support is ideal for cluster implementations that involve these components:
+  Standard Load Balancer supports multiple front-end virtual IPs. This support is ideal for cluster implementations that involves this component:
 
 - **Application gateway** - Azure Application Gateway is a web traffic load balancer that you can use to manage the traffic to your web applications. Traditional load balancers operate at the transport layer (OSI layer 4 - TCP and UDP). They route traffic based on the source IP address and the port to a destination IP address and port. Application Gateway can make routing decisions based on more attributes of an HTTP request, such as the URI path or host headers. This type of routing is known as application layer (OSI layer 7) load balancing.
 
@@ -113,7 +113,7 @@ At this time, there are no network access control lists or other attributes that
 
 ### ExpressRoute FastPath
 
-[ExpressRoute Direct](/azure/expressroute/about-fastpath) is designed to improve the data path performance between your on-premises network and your virtual network. VNet peering over FastPath is supported. Enabling FastPath sends network traffic directly to virtual machines in the virtual network, bypassing the gateway.
+[ExpressRoute FastPath](/azure/expressroute/about-fastpath) is designed to improve the data path performance between your on-premises network and your virtual network. VNet peering over FastPath is supported. Enabling FastPath sends network traffic directly to virtual machines in the virtual network, bypassing the gateway.
 
 For all new ExpressRoute connections to Azure, FastPath is the default configuration. For existing ExpressRoute circuits, contact Azure support to activate FastPath.
 
@@ -127,7 +127,7 @@ For all new ExpressRoute connections to Azure, FastPath is the default configura
 
 ExpressRoute provider circuits do not support VNet peering over FastPath.
 
-Peering other virtual networks are with one connecting to ExpressRoute, the network traffic from your on-premises network to the other spoke virtual networks is sent to the virtual network gateway. The workaround is to connect all virtual networks to the ExpressRoute circuit directly.
+When you peer additional virtual networks with the virtual network that is connected to ExpressRoute, traffic from your on-premises network to those peered spoke virtual networks is routed through the virtual network gateway instead of over FastPath. To avoid this limitation, connect each virtual network directly to the ExpressRoute circuit.
 
 ### Load balancers
 
@@ -149,7 +149,7 @@ For high-availability scenarios, you can use [Azure file shares](/azure/storage/
 
 Storage is also used by [Cloud Witness](/windows-server/failover-clustering/deploy-cloud-witness) to maintain quorum with a device in a remote Azure region, away from the primary region where the cluster resides.
 
-For the backup data store, we recommend Azure [cool and archive access tiers](/azure/storage/blobs/access-tiers-overview). These storage tiers provide a cost-effective way to store long-lived data for infrequent accesses.
+For the backup data store, we recommend Azure [cool and archive access tiers](/azure/storage/blobs/access-tiers-overview). These storage tiers provide a cost-effective way to store long-lived data for infrequent access.
 
 [Azure Premium SSD v2 disk storage](https://azure.microsoft.com/updates/general-availability-azure-premium-ssd-v2-disk-storage/) is designed for performance-critical workloads like online transaction processing systems that consistently need submillisecond latency combined with high IOPS and throughput.
 
@@ -200,7 +200,7 @@ Load balancing traffic within a pool of application servers achieves high availa
 
 #### Database tier
 
-In this architecture, the source database runs on AnyDB a DBMS like SQL Server, SAP ASE, IBM DB2, or Oracle. The native replication feature of the database tier provides either manual or automatic failover between replicated nodes.
+In this architecture, the source database runs on AnyDB a DBMS such as SQL Server, SAP ASE, IBM DB2, or Oracle. The native replication feature of the database tier provides either manual or automatic failover between replicated nodes.
 
 For implementation details about specific database systems, see [Azure Virtual Machines DBMS deployment for SAP NetWeaver](/azure/virtual-machines/workloads/sap/dbms_guide_general).
 
@@ -268,12 +268,12 @@ For infrastructure security, data is encrypted in transit and at rest. For infor
 
 For SAP systems running on Linux, ADE is not broadly recommended due to support limitations, operational complexity, and documented reliability issues in combination with backup, recovery, and high-availability scenarios. In addition, ADE is not supported by SAP-certified Linux distributions for certain SAP use cases, and its long-term viability should be carefully evaluated.
 
-Microsoft has announced that Azure Disk Encryption is scheduled for retirement, and customers are advised to plan for alternative encryption mechanisms for new deployments and future-proof architectures.
+Given the availability of newer disk and host-based encryption options, you should evaluate Azure Disk Encryption carefully and prefer alternative encryption mechanisms for new deployments and future-proof architectures.
 
 For SAP workloads, Microsoft recommends the following approaches instead of ADE:
 
-- **Database-native encryption** - (for example, SAP HANA data, log, and backup encryption) for protecting SAP database content
-- **Encryption at host** -, optionally combined with Azure Storage Service Encryption and customer-managed keys, for VM-level protection
+- **Database-native encryption** (for example, SAP HANA data, log, and backup encryption) for protecting SAP database content
+- **Encryption at host**, optionally combined with Azure Storage Service Encryption and customer-managed keys, for VM-level protection
 
 Azure Disk Encryption should only be used when explicitly required to meet specific compliance or customer mandates, and only after validating supportability with the chosen operating system, SAP workload type, and operational tooling (such as backup and disaster recovery).
 
@@ -285,7 +285,7 @@ As always, manage security updates and patches to safeguard your information ass
 
 #### Identity management
 
-To control access to resources at all levels use a centralized identity management system like Microsoft Entra ID and Active Directory Domain Services (AD DS) :
+To control access to resources at all levels, use a centralized identity management system like Microsoft Entra ID and Active Directory Domain Services (AD DS) :
 
 - Provide access to Azure resources by using [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview).
 
@@ -315,7 +315,7 @@ Use [Azure spot VMs](/azure/virtual-machines/windows/spot-vms) to run workloads 
 - Test environments, including continuous integration and continuous delivery workloads
 - Large-scale stateless applications
 
-Azure Reserved Virtual Machine Instances can reduce your total cost of ownership. Combining Azure Reserved Virtual Machine Instances rates with a pay-as-you-go subscription. This way you can manage costs across predictable and variable workloads. For more information, see [Azure Reserved Virtual Machine Instances](/azure/virtual-machines/prepay-reserved-vm-instances).
+Azure Reserved Virtual Machine Instances can reduce your total cost of ownership. You can combine Azure Reserved Virtual Machine Instances rates with a pay-as-you-go subscription to manage costs across predictable and variable workloads. For more information, see [Azure Reserved Virtual Machine Instances](/azure/virtual-machines/prepay-reserved-vm-instances).
 
 If your workload requires more memory and fewer CPUs, consider using one of the [constrained vCPU VM](/azure/virtual-machines/constrained-vcpu) sizes to reduce software licensing costs that are charged per vCPU.
 
@@ -337,7 +337,7 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 #### Azure Center for SAP solutions
 
-Azure Center for SAP solutions is an end-to-end solution that enables you to create and run SAP systems as a unified workload on Azure and provides a more seamless foundation for innovation. Also, the Azure Center for SAP solutions guided deployment experience creates the necessary compute, storage, and networking components that you need to run your SAP system. It then helps you automate the installation of SAP software according to Microsoft best practices. You can take advantage of the management capabilities for both new and existing Azure-based SAP systems. For more information, see [Azure Center for SAP solutions](/azure/sap/center-sap-solutions/overview).
+Azure Center for SAP solutions is an end-to-end solution that enables you to create and run SAP systems as a unified workload on Azure and provides a foundation for innovation. Also, the Azure Center for SAP solutions guided deployment experience creates the necessary compute, storage, and networking components that you need to run your SAP system. It then helps you automate the installation of SAP software according to Microsoft best practices. You can take advantage of the management capabilities for both new and existing Azure-based SAP systems. For more information, see [Azure Center for SAP solutions](/azure/sap/center-sap-solutions/overview).
 
 If you need more control over maintenance events or hardware isolation, for either performance or compliance, consider deploying your VMs on [dedicated hosts](/azure/virtual-machines/dedicated-hosts).
 
