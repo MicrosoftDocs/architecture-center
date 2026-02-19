@@ -151,32 +151,13 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-*Regions -* Use at least two Azure regions for recoverability. Deploying your application across multiple Azure regions in active/passive or active/active configurations enables recovery from a regional outage. Multiple regions also help avoid application downtime if a subsystem of the application fails.
+*Regions -* Deploy to at least two Azure regions for recoverability. An active/passive or active/active multi-region configuration enables your workload to recover from a regional outage. Traffic Manager monitors endpoint health and redirects DNS responses away from unhealthy regions, but you are responsible for ensuring the secondary region is ready to serve traffic, including data replication and application readiness.
 
-Traffic Manager automatically fails over to the secondary region if the primary region fails.
+For your secondary region, prefer a [paired region](/azure/reliability/cross-region-replication-azure) when one is available for benefits like prioritized recovery sequencing and staggered platform updates. If your region doesn't have a pair, you can still build a multi-region solution, but some services like [geo-redundant storage](/azure/storage/common/storage-redundancy#geo-redundant-storage) require alternative replication approaches. Also factor in geographic distance, data residency, service availability, and cost. For more information, see [Select Azure regions](/azure/cloud-adoption-framework/ready/azure-setup-guide/regions).
 
-Choose the best regions for your needs based on all of these factors:
+*Availability zones -* This architecture deploys Application Gateway, Azure Firewall, Azure Load Balancer, and Virtual Machine Scale Sets across multiple [availability zones](/azure/reliability/availability-zones-overview) within each region to provide resiliency against datacenter-level failures.
 
-- Your technical requirements, including geographic distance and cross-region latency
-- Data residency needs
-- Regulatory considerations
-- Availability zone support
-- Service availability in each region
-- Cost
-
-Many Azure regions are paired. If your region has a pair, there can be some benefits to using the paired region as your secondary region. However, you should verify the region pair meets all your requirements first.
-
-For more information about how to select Azure regions, see [Select Azure regions in the Cloud Adoption Framework](/azure/cloud-adoption-framework/ready/azure-setup-guide/regions).
-
-*Availability zones -* Use multiple availability zones to support your Application Gateway, Azure Firewall, Azure Load Balancer, and application tiers when available.
-
-*Virtual Machine Scale Sets -* Flexible orchestration distributes VM instances across fault domains within each availability zone, which reduces the blast radius of a single host failure. It also lets you assign individual VMs to specific availability zones and fault domains, which provides the placement control that the multi-subnet SQL Server availability group configuration in this architecture requires.
-
-For more information, see:
-
-- [Regions and availability zones in Azure](/azure/reliability/availability-zones-overview)
-- [Azure region pairs and nonpaired regions](/azure/reliability/regions-paired)
-- [HADR configuration best practices for SQL Server on Azure VMs](/azure/azure-sql/virtual-machines/windows/hadr-cluster-best-practices)
+*Virtual Machine Scale Sets -* Flexible orchestration distributes VM instances across fault domains within each availability zone, which reduces the blast radius of a single host failure. It also provides the per-VM placement control that the [multi-subnet SQL Server availability group](/azure/azure-sql/virtual-machines/windows/hadr-cluster-best-practices) configuration requires.
 
 #### Global routing
 
