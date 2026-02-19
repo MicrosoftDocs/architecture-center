@@ -43,7 +43,7 @@ The following workflow corresponds to the preceding diagram.
 
 - **Azure Virtual Machines** - This architecture uses VMs for the application tier and database tier.
 
-- **Databases** - The database tier runs any SAP-certified database, such as be Microsoft SQL Server, Oracle, or IBM DB2.
+- **Databases** - The database tier runs any SAP-certified database, such as Microsoft SQL Server, Oracle, or IBM Db2.
 
 - **SAP NetWeaver** - The application tier uses Windows VMs to run SAP Central Services and SAP application servers. For high availability, the VMs that run Central Services are configured in a Windows server failover cluster. WSFC supports Azure file shares or Azure shared disks.
 
