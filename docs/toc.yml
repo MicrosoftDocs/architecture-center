@@ -245,7 +245,7 @@ items:
       href: antipatterns/improper-instantiation/index.md
     - name: Monolithic Persistence
       href: antipatterns/monolithic-persistence/index.md
-    - name: No-Caching
+    - name: No Caching
       href: antipatterns/no-caching/index.md
     - name: Noisy Neighbor
       displayName: Resource contention, multitenant, shared infrastructure
