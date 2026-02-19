@@ -23,6 +23,8 @@ This article covers Foundry Tools that provide video and image processing capabi
 
 - [Azure AI Custom Vision](#custom-vision) is an image recognition service that you can use to build, deploy, and improve your image identifier models for specific requirements that can't be met by other services.
 
+- [Azure AI Content Understanding in Microsoft Foundry Tools](#azure-ai-content-understanding) is a Foundry Tool that uses generative AI to extract structured fields from images and video. Use Content Understanding when you need schema-defined extraction, scene segmentation, or RAG-ready video output.
+
 - [Azure AI Video Indexer](#azure-ai-video-indexer) is a comprehensive AI solution that enables organizations to extract deep insights from video (live and uploaded) and audio content using advanced machine learning and generative AI models.
 
 ### Azure OpenAI in Microsoft Foundry models
@@ -100,6 +102,42 @@ The following table provides a list of possible use cases for Custom Vision.
 | :----------| :-------------|
 | [Use Custom Vision with an IoT device to report visual states](/azure/iot-edge/tutorial-deploy-custom-vision) | Use Custom Vision to train a device that has a camera to detect visual states. You can run this detection scenario on an IoT device by using an exported ONNX model. A visual state describes the content of an image, such as an empty room or a room with people or an empty driveway or a driveway with a truck. |
 | [Classify images and objects](/azure/ai-services/custom-vision-service/overview#classification-and-object-detection) | Analyze photos and scan for specific logos by training a custom model. |
+
+### Azure AI Content Understanding
+
+[Azure AI Content Understanding](/azure/ai-services/content-understanding/overview) is a Foundry Tool that uses generative AI to extract structured fields from images and video. You define a schema that specifies what to extract, and Content Understanding applies generative models to produce structured JSON or RAG-ready Markdown output. It also provides confidence scores and grounding for each extracted value, enabling automated workflows with targeted human review.
+
+| Use Azure AI Content Understanding to | Don't use Azure AI Content Understanding to |
+| :----------| :-------------|
+| Extract custom structured fields from images using a schema you define, such as detecting products, brands, or defects. | Perform standard image analysis such as object detection or OCR. Use [Azure Vision](#azure-vision-in-foundry-tools) for those tasks. |
+| Generate RAG-ready output from video, including scene descriptions, transcripts, and key frames, for use in search indexes or chat agents. | Extract deep video insights such as celebrity identification, speaker enumeration, or sentiment analysis across long-form content. Use [Azure AI Video Indexer](#azure-ai-video-indexer) for those tasks. |
+| Segment video into scenes and extract custom metadata per segment, such as brand presence or ad category. | |
+| Generate face descriptions in images or video, such as facial expressions or celebrity identification (limited access). | |
+
+#### Available Azure AI Content Understanding features for images and video
+
+The following table provides a list of image and video features available in Azure AI Content Understanding.
+
+| Feature | Description |
+| :----------| :-------------|
+| [Image field extraction](/azure/ai-services/content-understanding/image/overview) | Extracts custom structured fields from images based on a schema you define. Fields can be extracted directly, classified from a set of categories, or generated using a generative model. Useful for retail shelf analysis, manufacturing quality control, and chart-based business intelligence. |
+| [Key frame extraction](/azure/ai-services/content-understanding/video/overview#content-extraction-capabilities) | Extracts representative key frames from each shot in a video. Ensures each segment has sufficient visual context for downstream field extraction. |
+| [Shot detection](/azure/ai-services/content-understanding/video/overview#content-extraction-capabilities) | Identifies shot boundaries in a video based on visual cues, producing a list of timestamps for precise editing, repackaging, and segmentation. |
+| [Scene segmentation](/azure/ai-services/content-understanding/video/overview#field-extraction-and-segmentation) | Divides a video into logical scenes described in natural language. You define the segmentation logic, such as splitting a news broadcast by story topic, and the generative model creates matching segments. |
+| [Video field extraction](/azure/ai-services/content-understanding/video/overview#field-extraction-and-segmentation) | Generates custom structured fields per video segment based on a schema, such as brand logos, ad categories, or scene sentiment, using a generative model. |
+| [Face description](/azure/ai-services/content-understanding/video/overview#face-description-fields) | Generates textual descriptions of faces in images or video, including facial hair, expressions, and celebrity identification. This is a limited-access feature that requires disabling face blurring in the analyzer configuration. |
+
+#### Use cases
+
+The following table provides a list of possible use cases for Azure AI Content Understanding applied to images and video.
+
+| Use case | Description |
+| :----------| :-------------|
+| [RAG on video](/azure/ai-services/content-understanding/video/overview#prebuilt-video-analyzer-example) | Generate RAG-ready Markdown from video files, including inline transcripts, key frame thumbnails, and natural-language segment descriptions. Drop the output directly into a vector store to enable agent or search workflows without post-processing. |
+| [Media asset management](/azure/ai-services/content-understanding/video/overview#why-use-content-understanding-for-video) | Tag video assets with scene-level metadata such as content category, brand presence, and key moments. Helps editors, producers, and marketing teams organize and retrieve content from large video libraries. |
+| [Manufacturing quality control](/azure/ai-services/content-understanding/image/overview) | Analyze product images against a custom schema to detect defects, anomalies, or misalignments in production lines. |
+| [Retail shelf analysis](/azure/ai-services/content-understanding/image/overview) | Extract structured data from shelf images to count products, detect misplacements, and monitor stock levels. |
+| [Ad and brand analysis](/azure/ai-services/content-understanding/video/overview#field-extraction-and-segmentation) | Identify brand logos and ad categories in promotional video segments to assess brand exposure and compliance with branding guidelines. |
 
 ### Azure AI Video Indexer
 

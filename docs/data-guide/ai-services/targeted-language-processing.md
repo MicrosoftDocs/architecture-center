@@ -23,6 +23,8 @@ This article covers Foundry Tools that provide targeted language processing capa
 
 - [Azure Document Intelligence in Foundry Tools](#document-intelligence) is a service that can convert images directly into electronic forms. You can specify expected fields and then search images that you provide to capture those fields without human intervention. Document Intelligence hosts many prebuilt models and also allows you to build custom models of your own.
 
+- [Azure Content Understanding in Foundry Tools](#azure-content-understanding-in-foundry-tools) uses generative AI to extract schema-defined fields from documents using natural language descriptions. Use Content Understanding when your document type has no prebuilt Document Intelligence model, when you need confidence scores and grounding for automated workflows, or when you need RAG-ready Markdown output.
+
 - [Microsoft Foundry language Models](#foundry-language-models) can be used directly through model APIs to perform language tasks such as content generation, summarization, and translation. 
 
 ## Azure Language
@@ -136,8 +138,10 @@ The following table provides a list of possible use cases for Azure Translator.
 
 | Use Document Intelligence to | Don't use Document Intelligence to |
 | :----------| :-------------|
-| Extract specific fields from scanned documents to fill electronic forms appropriately. | Perform real-time search. |
-| Identify key structures, like headers, footers, and chapter breaks, in varied collections of documents to further programmatically interact with the document, such as in a RAG implementation. | |
+| Extract specific fields from known document types that have a prebuilt model, such as invoices, receipts, W-2s, or ID documents. | Extract fields from custom document types that have no prebuilt model and require flexible, schema-defined extraction. Use [Azure Content Understanding in Foundry Tools](#azure-content-understanding-in-foundry-tools) instead. |
+| Process high volumes of structured or semistructured documents where deterministic, low-variability extraction is required. | Build RAG pipelines that require Markdown-formatted output with embedded figures, section hierarchy, and chunk-ready structure. Use [Azure Content Understanding in Foundry Tools](#azure-content-understanding-in-foundry-tools) instead. |
+| Train custom neural or template models on labeled datasets for document types specific to your business. | Require confidence scores and grounding per extracted field to drive human-in-the-loop review workflows. Use [Azure Content Understanding in Foundry Tools](#azure-content-understanding-in-foundry-tools) instead. |
+| Identify key structures, like headers, footers, and chapter breaks, in varied collections of documents to further programmatically interact with the document. | |
 
 ### Document analysis models
 
@@ -191,6 +195,40 @@ Document Intelligence supports optional features that you can enable or disable 
 - Key-value pairs
 
 For more information about model scenarios, see [Which model should I choose?](/azure/ai-services/document-intelligence/choose-model-feature)
+
+## Azure Content Understanding in Foundry Tools
+
+[Azure Content Understanding](/azure/ai-services/content-understanding/overview) is a Foundry Tool that uses generative AI to extract structured fields from documents based on a schema you define in natural language. Unlike Document Intelligence, which relies on pretrained or custom-trained ML models tied to specific document layouts, Content Understanding uses generative models to reason over document content and produce schema-aligned JSON or RAG-ready Markdown output. It also provides per-field confidence scores and grounding, enabling automation workflows with targeted human review.
+
+| Use Azure Content Understanding in Foundry Tools to | Don't use Azure Content Understanding in Foundry Tools to |
+| :----------| :-------------|
+| Extract fields from document types that have no Document Intelligence prebuilt model, using schema definitions written in natural language. | Extract fields from standard document types that have an existing Document Intelligence prebuilt model. [Document Intelligence](#document-intelligence) is more cost-effective and deterministic for those scenarios. |
+| Build RAG pipelines that require Markdown output with preserved layout, headings, tables, figures, and annotations ready for vector indexing. | Process very high volumes of simple, structured documents where LLM variability and cost are a concern. Use [Document Intelligence](#document-intelligence) instead. |
+| Drive automation workflows that require per-field confidence scores and grounding to route low-confidence records to human review. | Perform general-purpose language tasks such as summarization or sentiment analysis. Use [Azure Language](#azure-language) or [Foundry language models](#foundry-language-models) instead. |
+| Classify document types before routing them to the appropriate analyzer in a mixed-document pipeline. | |
+
+### Available Azure Content Understanding features for documents
+
+The following table provides a list of document features available in Azure Content Understanding.
+
+| Feature | Description |
+| :----------| :-------------|
+| [Content extraction](/azure/ai-services/content-understanding/document/overview#document-analyzer-capabilities) | Transforms unstructured documents into structured, machine-readable data. Captures printed and handwritten text, selection marks, barcodes, mathematical formulas, image elements, hyperlinks, and annotations. Preserves document structure including paragraphs, tables, hierarchical sections, and figure elements. |
+| [Field extraction](/azure/ai-services/content-understanding/document/overview#document-analyzer-capabilities) | Extracts structured key-value pairs from documents based on a schema you define. Fields can be extracted directly from the source, classified from a predefined set of categories, or generated using a generative model. Confidence scores and grounding are available per field as an opt-in feature. |
+| [Prebuilt document analyzers](/azure/ai-services/content-understanding/concepts/analyzer-templates) | Ready-to-use analyzers for common enterprise scenarios including contract lifecycle management, loan and mortgage applications, financial reports, expense management, and knowledge base scenarios. |
+| [RAG output](/azure/ai-services/content-understanding/document/overview#document-analyzer-capabilities) | Produces Markdown-formatted output that preserves document structure for use in vector stores and search indexes. Supports figure descriptions, layout analysis, and annotation detection to make content that standard chunking would miss accessible to retrieval workflows. |
+
+### Use cases
+
+The following table provides a list of possible use cases for Azure Content Understanding for documents.
+
+| Use case | Description |
+| :----------| :-------------|
+| [Contract lifecycle management](/azure/ai-services/content-understanding/document/overview#business-use-cases) | Extract key fields, clauses, and obligations from various contract types without training a layout-specific model. |
+| [Loan and mortgage application processing](/azure/ai-services/content-understanding/document/overview#business-use-cases) | Automate processing of supplementary supporting documentation from varied formats and templates that go beyond what Document Intelligence mortgage prebuilt models cover. |
+| [Expense management](/azure/ai-services/content-understanding/document/overview#business-use-cases) | Parse receipts and invoices from varied retailers and formats using schema-defined extraction, with confidence scores to flag records that need human review. |
+| [RAG document ingestion](/azure/ai-services/content-understanding/concepts/retrieval-augmented-generation) | Convert unstructured documents into structured, searchable data assets with layout-preserving Markdown output for use in RAG search pipelines and agent workflows. |
+| [Mixed-document classification and routing](/azure/ai-services/content-understanding/document/overview#document-analyzer-capabilities) | Classify incoming documents by type and route each to the appropriate analyzer, enabling end-to-end automation of pipelines that receive multiple document types. |
 
 ## Foundry language models
 
