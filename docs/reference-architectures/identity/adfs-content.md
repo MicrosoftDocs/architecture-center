@@ -1,4 +1,4 @@
-This reference architecture implements a secure hybrid network that extends your on-premises network to Azure and uses [Active Directory Federation Services (AD FS)][active-directory-federation-services] to perform federated authentication and authorization for components that run in Azure.
+This reference architecture implements a secure hybrid network that extends your on-premises network to Azure and uses [Active Directory Federation Services (AD FS)](/windows-server/identity/active-directory-federation-services) to perform federated authentication and authorization for components that run in Azure.
 
 ## Architecture
 
@@ -25,15 +25,15 @@ The following workflow corresponds to the previous diagram:
 
     The application that runs in Azure is known as the *relying party*. The partner federation server must issue claims that the web application understands. The partner federation servers are known as *account partners* because they submit access requests on behalf of authenticated accounts in the partner organization. The AD FS servers are known as *resource partners* because they provide access to resources (the web application).
 
-  - Authenticate and authorize incoming requests from external users running a web browser or device that needs access to web applications by using AD DS and the [Active Directory device registration service (DRS)][ADDRS].
+  - Authenticate and authorize incoming requests from external users running a web browser or device that needs access to web applications by using AD DS and the [Active Directory device registration service (DRS)](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn486831(v=ws.11)).
 
   The AD FS servers are configured as a farm accessed through an Azure load balancer. This implementation improves availability and scalability. The AD FS servers aren't exposed directly to the internet. All internet traffic is filtered through AD FS web application proxy (WAP) servers and a demilitarized zone (DMZ), also known as a *perimeter network*.
 
-  For more information, see [AD FS overview][active-directory-federation-services-overview]. 
+  For more information, see [AD FS overview](/windows-server/identity/active-directory-federation-services). 
 
 - **AD FS proxy subnet:** The AD FS proxy servers can be contained within their own subnet and use NSG rules for protection. The servers in this subnet are exposed to the internet through a set of network virtual appliances that provide a firewall between your Azure virtual network and the internet.
 
-- **AD FS WAP servers:** These VMs serve as AD FS servers for incoming requests from partner organizations and external devices. The WAP servers act as a filter that shields the AD FS servers from direct access from the internet. As with the AD FS servers, deploying the WAP servers in a farm with load balancing gives you greater availability and scalability than deploying a collection of standalone servers. For more information, see [Install and configure the WAP server][install-and-configure-the-web-application-proxy-server].
+- **AD FS WAP servers:** These VMs serve as AD FS servers for incoming requests from partner organizations and external devices. The WAP servers act as a filter that shields the AD FS servers from direct access from the internet. As with the AD FS servers, deploying the WAP servers in a farm with load balancing gives you greater availability and scalability than deploying a collection of standalone servers. For more information, see [Install and configure the WAP server](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383662(v=ws.11)).
 
 - **Partner organization:** A partner organization runs a web application that requests access to a web application running in Azure. The federation server at the partner organization authenticates requests locally and submits security tokens that contain claims to AD FS running in Azure. AD FS in Azure validates the security tokens. If the tokens are valid, AD FS can pass the claims to the web application running in Azure to authorize them.
 
@@ -42,7 +42,7 @@ The following workflow corresponds to the previous diagram:
 
 ### Components
 
-This architecture extends the implementation described in [Deploy AD DS in an Azure virtual network][extending-ad-to-azure]. It contains the following components:
+This architecture extends the implementation described in [Deploy AD DS in an Azure virtual network](./adds-extend-domain.yml). It contains the following components:
 
 - **An [AD DS subnet](/entra/identity/domain-services/network-considerations#azure-virtual-network-design)** is an object that maps an IP address range to a site. This mapping allows domain controllers to efficiently direct authentication and replication based on a client's network location.
 
@@ -70,7 +70,7 @@ The previous diagram shows the following scenarios:
 
 This reference architecture focuses on *passive federation*, in which the federation servers decide how and when to authenticate a user. The user provides sign-in information when the application starts. This mechanism is most commonly used by web browsers and involves a protocol that redirects the browser to a site where the user authenticates. AD FS also supports *active federation*, where an application takes on responsibility for supplying credentials without further user interaction, but that scenario is outside the scope of this architecture.
 
-For other considerations, see [Integrate on-premises Active Directory domains with Microsoft Entra ID][considerations].
+For other considerations, see [Integrate on-premises Active Directory domains with Microsoft Entra ID](./index.yml).
 
 ### Potential use cases
 
@@ -98,13 +98,13 @@ Set the IP address of the preferred and secondary domain name service (DNS) serv
 
 ### AD FS installation
 
-The article [Deploy a federation server farm][deploy-a-federation-server-farm] provides detailed instructions for how to install and configure AD FS. Perform the following tasks before you configure the first AD FS server in your farm:
+The article [Deploy a federation server farm](/windows-server/identity/ad-fs/deployment/deploying-a-federation-server-farm) provides detailed instructions for how to install and configure AD FS. Perform the following tasks before you configure the first AD FS server in your farm:
 
 1. Obtain a publicly trusted certificate for performing server authentication. The *subject name* must contain the name that clients use to access the federation service. This identifier can be the DNS name registered for the load balancer, such as `adfs.contoso.com`. Avoid using wildcard names such as `*.contoso.com` for security reasons. Use the same certificate on all AD FS server VMs. You can purchase a certificate from a trusted certification authority, but if your organization uses Active Directory Certificate Services, you can create your own.
 
     The DRS uses the *subject alternative name* to enable access from external devices. This DNS name should follow the format `enterpriseregistration.contoso.com`.
 
-    For more information, see [Obtain and configure a Secure Sockets Layer certificate for AD FS][adfs-certificates].
+    For more information, see [Obtain and configure a Secure Sockets Layer certificate for AD FS](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn781428(v=ws.11)).
 
 1. On the domain controller, generate a new root key for the Key Distribution Service (KDS). Set the effective time to the current time minus 10 hours. This configuration reduces the delay that can occur in distributing and synchronizing keys across the domain. This step is necessary to support creation of the group service account that's used to run the AD FS service. The following PowerShell command demonstrates how to generate a new KDS root key with a time offset:
 
@@ -127,9 +127,9 @@ Establish federation trust between your AD FS installation and the federation se
 
 - DevOps staff in your organization must also configure AD FS to pass claims on to your organization's web applications.
 
-For more information, see [Establish a federation trust][establish-federation-trust].
+For more information, see [Establish a federation trust](/exchange/manage-a-federation-trust-exchange-2013-help).
 
-Publish your organization's web applications and make them available to external partners by using preauthentication through the WAP servers. For more information, see [Publish applications by using AD FS preauthentication][publish-applications-by-using-AD-FS-preauthentication].
+Publish your organization's web applications and make them available to external partners by using preauthentication through the WAP servers. For more information, see [Publish applications by using AD FS preauthentication](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383640(v=ws.11)).
 
 AD FS supports token transformation and augmentation. Microsoft Entra ID doesn't provide this feature. By using AD FS, when you set up the trust relationships, you can do the following tasks:
 
@@ -139,7 +139,7 @@ AD FS supports token transformation and augmentation. Microsoft Entra ID doesn't
 
 ### AD FS monitoring
 
-The [Microsoft System Center Management Pack for AD FS 2012 R2][oms-adfs-pack] provides both proactive and reactive monitoring of your AD FS deployment for the federation server. This management pack monitors the following aspects of your AD FS deployment:
+The [Microsoft System Center Management Pack for AD FS 2012 R2](https://www.microsoft.com/download/details.aspx?id=54526) provides both proactive and reactive monitoring of your AD FS deployment for the federation server. This management pack monitors the following aspects of your AD FS deployment:
 
 - Events that the AD FS service records in its event logs
 
@@ -184,7 +184,7 @@ Security provides assurances against deliberate attacks and the misuse of your v
 
 AD FS uses HTTPS, so make sure that the NSG rules for the subnet that contain the web tier VMs permit HTTPS requests. These requests can originate from the on-premises network, the subnets that contain the web tier, business tier, data tier, private DMZ, public DMZ, and the subnet that contains the AD FS servers.
 
-Prevent direct exposure of the AD FS servers to the internet. AD FS servers are domain-joined computers that have full authorization to grant security tokens. If a server is compromised, a malicious user can issue full access tokens to all web applications and to all federation servers that are protected by AD FS. If your system must handle requests from guests not connecting from trusted partner sites, use WAP servers to handle these requests. For more information, see [Where to place a federation server proxy][where-to-place-an-fs-proxy].
+Prevent direct exposure of the AD FS servers to the internet. AD FS servers are domain-joined computers that have full authorization to grant security tokens. If a server is compromised, a malicious user can issue full access tokens to all web applications and to all federation servers that are protected by AD FS. If your system must handle requests from guests not connecting from trusted partner sites, use WAP servers to handle these requests. For more information, see [Where to place a federation server proxy](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dd807048(v=ws.11)).
 
 Place AD FS servers and WAP servers in separate subnets that have their own firewalls. You can use NSG rules to define firewall rules. All firewalls should allow traffic on port 443 (HTTPS).
 
@@ -198,13 +198,13 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 #### Microsoft Entra Domain Services
 
-Consider having Microsoft Entra Domain Services as a shared service that multiple workloads consume to lower costs. For more information, see [Domain Services pricing][microsoft-entra-domain-services-pricing].
+Consider having Microsoft Entra Domain Services as a shared service that multiple workloads consume to lower costs. For more information, see [Domain Services pricing](https://azure.microsoft.com/pricing/details/microsoft-entra-ds/).
 
 <a name='azure-ad-federation-services'></a>
 
 #### AD FS
 
-For information about the editions that Microsoft Entra ID provides, see [Microsoft Entra pricing][Azure-AD-pricing]. The AD FS feature is available in all editions.
+For information about the editions that Microsoft Entra ID provides, see [Microsoft Entra pricing](https://azure.microsoft.com/pricing/details/active-directory). The AD FS feature is available in all editions.
 
 ### Operational Excellence
 
@@ -226,7 +226,7 @@ For other DevOps considerations, see [Deploy AD DS in an Azure virtual network](
 
 Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-The following considerations, summarized from the article [Plan your AD FS deployment][plan-your-adfs-deployment], give a starting point for sizing AD FS farms:
+The following considerations, summarized from the article [Plan your AD FS deployment](/previous-versions/azure/azure-services/dn151324(v=azure.100)), give a starting point for sizing AD FS farms:
 
 - If you have fewer than 1,000 users, don't create dedicated servers. Instead, install AD FS on each of the AD DS servers in the cloud. Make sure that you have at least two AD DS servers to maintain availability. Create a single WAP server.
 
@@ -236,7 +236,7 @@ The following considerations, summarized from the article [Plan your AD FS deplo
 
 These considerations assume that you're using dual quad-core VM (Standard D4_v2, or better) sizes in Azure.
 
-If you use the Windows Internal Database to store AD FS configuration data, you're limited to eight AD FS servers in the farm. If you think that you might need more in the future, use SQL Server. For more information, see [The role of the AD FS configuration database][adfs-configuration-database].
+If you use the Windows Internal Database to store AD FS configuration data, you're limited to eight AD FS servers in the farm. If you think that you might need more in the future, use SQL Server. For more information, see [The role of the AD FS configuration database](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/ee913581(v=ws.11)).
 
 ## Contributors
 
@@ -258,23 +258,3 @@ Principal author:
 
 - [Manage identity in multitenant applications](../../multitenant-identity/index.yml)
 - [Microsoft Entra identity management and access management for AWS](../aws/aws-azure-ad-security.yml)
-
-<!-- links -->
-
-[extending-ad-to-azure]: ./adds-extend-domain.yml
-[Azure-AD-pricing]: https://azure.microsoft.com/pricing/details/active-directory
-[where-to-place-an-fs-proxy]: /previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dd807048(v=ws.11)
-[microsoft-entra-domain-services-pricing]: https://azure.microsoft.com/pricing/details/microsoft-entra-ds/
-[ADDRS]: /previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn486831(v=ws.11)
-[plan-your-adfs-deployment]: /previous-versions/azure/azure-services/dn151324(v=azure.100)
-[adfs-certificates]: /previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn781428(v=ws.11)
-[adfs-configuration-database]: /previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/ee913581(v=ws.11)
-[active-directory-federation-services]: /windows-server/identity/active-directory-federation-services
-[active-directory-federation-services-overview]: /windows-server/identity/active-directory-federation-services
-[establish-federation-trust]: /exchange/manage-a-federation-trust-exchange-2013-help
-[deploy-a-federation-server-farm]: /windows-server/identity/ad-fs/deployment/deploying-a-federation-server-farm
-[install-and-configure-the-web-application-proxy-server]: /previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383662(v=ws.11)
-[publish-applications-by-using-AD-FS-preauthentication]: /previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383640(v=ws.11)
-[oms-adfs-pack]: https://www.microsoft.com/download/details.aspx?id=54526
-[adfs-intro]: /entra/identity/hybrid/whatis-hybrid-identity
-[considerations]: ./index.yml

@@ -22,9 +22,9 @@ The following dataflow corresponds to the preceding diagram:
 
     (**3b**) A data pipeline triggers the ingestion of decoded files from the lakehouse.
 
-1. The Eventhouse uses [update policies](/azure/data-explorer/kusto/management/update-policy) to enrich the data and to expand the JSON data into a suitable row format, for example location data might be clustered to align with geospatial analytics. Every time a new row is ingested, the real-time analytics engine invokes an associated `Update()` function.
+1. The Eventhouse uses [update policies](/kusto/management/update-policy?view=microsoft-fabric) to enrich the data and to expand the JSON data into a suitable row format, for example location data might be clustered to align with geospatial analytics. Every time a new row is ingested, the real-time analytics engine invokes an associated `Update()` function.
 
-1. Data engineers and data scientists use [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/) to build analytics use cases. Users store frequently used cases as shareable user-defined functions. The engineers use built-in KQL functions such as aggregation, time-series analysis, geospatial clustering, windowing, and machine learning plugins with Copilot support.
+1. Data engineers and data scientists use [Kusto Query Language (KQL)](/kusto/query/) to build analytics use cases. Users store frequently used cases as shareable user-defined functions. The engineers use built-in KQL functions such as aggregation, time-series analysis, geospatial clustering, windowing, and machine learning plugins with Copilot support.
 
 1. R&D engineers and data scientists use notebooks to analyze data and build test and validation use cases.
 
@@ -36,7 +36,7 @@ The following dataflow corresponds to the preceding diagram:
 
 1. Engineers can also connect more tools to Microsoft Fabric. For instance, they can connect Azure Managed Grafana to the Eventhouse or create a web application that queries the Eventhouse directly.
 
-1. Data engineers and R&D engineers use [Data Activator](/fabric/data-activator/) to create reflex items to monitor conditions and trigger actions, such as triggering Power Automate flows for business integration. For example, Data Activator can notify a Teams channel if the health of a device degrades.
+1. Data engineers and R&D engineers use [Data Activator](/fabric/real-time-intelligence/data-activator/) to create reflex items to monitor conditions and trigger actions, such as triggering Power Automate flows for business integration. For example, Data Activator can notify a Teams channel if the health of a device degrades.
 
 1. The data collector configuration enables engineers to change the data collection policies of the data capture device. Azure API Management abstracts and secures the partner configuration API and provides observability.
 
@@ -44,7 +44,7 @@ The following dataflow corresponds to the preceding diagram:
 
 :::image type="content" source="images/data-explorer-schema.svg" alt-text="Diagram that shows the KQL database and methods to extract, expand, and enrich data." border="false" lightbox="images/data-explorer-schema.svg":::
 
-When [you design the table schema](/azure/data-explorer/kusto/concepts/fact-and-dimension-tables), consider the difference between `fact` tables and `dimension` tables. Telemetry is a `fact` table because vehicle signals are progressively appended in a streaming fashion or as part of a complete recording, and telemetry doesn't change. You can classify fleet metadata as a `fact` table that updates slowly.
+When [you design the table schema](/kusto/concepts/fact-and-dimension-tables), consider the difference between `fact` tables and `dimension` tables. Telemetry is a `fact` table because vehicle signals are progressively appended in a streaming fashion or as part of a complete recording, and telemetry doesn't change. You can classify fleet metadata as a `fact` table that updates slowly.
 
 The vehicle telemetry lands in raw tables. You can use the following message processing concepts to organize the data for analysis and reporting:
 
@@ -59,17 +59,17 @@ The vehicle telemetry lands in raw tables. You can use the following message pro
 
 - Create a **Signals Last Known Values** materialized view by using the aggregation function `arg_max()` on the timestamp. This materialized view provides an up-to-date status of the vehicles.
 
-- Create a **Signals Downsampled** materialized view by using the [summarize operator](/azure/data-explorer/kusto/query/summarize-operator) with time bins such as *hourly* and *daily*. This materialized view aggregates signals and simplifies reporting across the fleet.
+- Create a **Signals Downsampled** materialized view by using the [summarize operator](/kusto/query/summarize-operator) with time bins such as *hourly* and *daily*. This materialized view aggregates signals and simplifies reporting across the fleet.
 
 - Create user-defined functions that provide anomaly detection or root cause analysis.
 
-    - Use time-series functions for [anomaly detection and forecasting](/azure/data-explorer/kusto/query/anomaly-detection) to detect potential problems and predict failures.
+    - Use time-series functions for [anomaly detection and forecasting](/kusto/query/anomaly-detection) to detect potential problems and predict failures.
 
-    - Use the [scan operator](/azure/data-explorer/kusto/query/scan-operator) to scan, match, and build sequences from the data. Engineers can use the `scan` operator to detect sequences. For example, if a specific event occurs, then a subsequent event must occur within a certain amount of time.
+    - Use the [scan operator](/kusto/query/scan-operator) to scan, match, and build sequences from the data. Engineers can use the `scan` operator to detect sequences. For example, if a specific event occurs, then a subsequent event must occur within a certain amount of time.
 
-    - Use machine learning plugins like [autocluster](/azure/data-explorer/kusto/query/autocluster-plugin) to find common patterns of discrete attributes.
+    - Use machine learning plugins like [autocluster](/kusto/query/autocluster-plugin) to find common patterns of discrete attributes.
 
-- Perform geospatial analytics with user-defined functions. Use the [geospatial analytics](/azure/data-explorer/kusto/query/geospatial-grid-systems/) functions to convert coordinates to a suitable grid system and perform aggregations on the data.
+- Perform geospatial analytics with user-defined functions. Use the [geospatial analytics](/kusto/query/geospatial-grid-systems) functions to convert coordinates to a suitable grid system and perform aggregations on the data.
 
 - Create a **fleet metadata table** to store changes on the vehicle metadata and configuration. Create a **fleet metadata last known values** materialized view to store the latest state of the vehicle fleet based on a last-time modified column.
 
@@ -79,7 +79,7 @@ The following key technologies implement this workload. For each component in th
 
 - [Fabric Real-Time Intelligence](/fabric/real-time-intelligence) is a service that ingests, analyzes, and reacts to streaming data via eventstreams and KQL databases. In this architecture, it stores and processes vehicle telemetry in motion, which enables real-time analytics and triggers automated actions through reflexes.
 
-- [Data Activator](/fabric/data-activator/data-activator-introduction) is a no-code automation tool that responds to data patterns and conditions. In this architecture, it monitors telemetry data and triggers actions such as alerts or Power Automate flows when data meets predefined conditions.
+- [Data Activator](/fabric/real-time-intelligence/data-activator/activator-introduction) is a no-code automation tool that responds to data patterns and conditions. In this architecture, it monitors telemetry data and triggers actions such as alerts or Power Automate flows when data meets predefined conditions.
 
 - [Event Grid](/azure/well-architected/service-guides/event-grid/reliability) is a managed event routing service that supports MQTT and other protocols. In this architecture, it distributes telemetry and file upload events from vehicles to downstream services like Azure Functions and the lakehouse. Vehicles can use Event Grid to publish and subscribe to topics. For example, they can publish telemetry and subscribe to command and control messages. 
 
@@ -157,7 +157,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-- [Azure availability zones](https://azure.microsoft.com/global-infrastructure/availability-zones) are unique physical locations within the same Azure region. Availability zones can protect Azure Data Explorer compute clusters and data from partial region failure.
+- [Azure availability zones](/azure/reliability/availability-zones-overview) are unique physical locations within the same Azure region. Availability zones can protect Azure Data Explorer compute clusters and data from partial region failure.
 
 - [Business continuity and disaster recovery (BCDR)](/azure/data-explorer/business-continuity-overview) in Azure Data Explorer lets your business continue operating in the face of disruption.
 
@@ -169,7 +169,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 It's important to understand the division of responsibility between the automotive OEM and Microsoft. In the vehicle, the OEM owns the whole stack, but as the data moves to the cloud, some responsibilities transfer to Microsoft. Azure platform as a service (PaaS) provides built-in security on the physical stack, including the operating system.
 
-- Use [Azure Policy](https://azure.microsoft.com/services/azure-policy) to apply security guardrails.
+- Use [Azure Policy](https://azure.microsoft.com/products/azure-policy) to apply security guardrails.
 
 - Review the [governance overview and guidance](/fabric/governance/governance-compliance-overview) for Fabric.
 
@@ -183,9 +183,9 @@ It's important to understand the division of responsibility between the automoti
 
 - Use Microsoft Entra identities and [Microsoft Entra Conditional Access](/entra/identity/conditional-access/plan-conditional-access) policies.
 
-- Use [row level security (RLS)](/azure/data-explorer/kusto/management/rowlevelsecuritypolicy) for KQL databases and Azure Data Explorer.
+- Use [row level security (RLS)](/kusto/management/row-level-security-policy) for KQL databases and Azure Data Explorer.
 
-- Use the [restrict statement](/azure/data-explorer/kusto/query/restrict-statement) when you implement middleware applications with access to the KQL database. This configuration creates a logical model that restricts user access to the data.
+- Use the [restrict statement](/kusto/query/restrict-statement) when you implement middleware applications with access to the KQL database. This configuration creates a logical model that restricts user access to the data.
 
 All these features help automotive OEMs create a secure environment for their vehicle telemetry data. For more information, see [Security in Fabric](/fabric/security/security-overview).
 
@@ -213,9 +213,9 @@ Performance Efficiency is the ability of your workload to scale to meet the dema
 
 - Consider performing common calculations and analysis after ingest and storing them in extra tables.
 
-- Use [KQL query best practices](/azure/data-explorer/kusto/query/best-practices) to make your query run faster.
+- Use [KQL query best practices](/kusto/query/best-practices) to make your query run faster.
 
-- Use a `where` clause to define a time window to reduce the amount of data that's queried. Consider changing the data partition policy for the signals table if your common search criteria aren't time-based, for instance if you filter by recording ID and signal name. When the KQL database expands to contain billions or trillions of records, proper data filtration becomes essential, especially considering the active [partition policy](/azure/data-explorer/kusto/management/partitioning-policy).
+- Use a `where` clause to define a time window to reduce the amount of data that's queried. Consider changing the data partition policy for the signals table if your common search criteria aren't time-based, for instance if you filter by recording ID and signal name. When the KQL database expands to contain billions or trillions of records, proper data filtration becomes essential, especially considering the active [partition policy](/kusto/management/partitioning-policy).
 
 > [!WARNING]
 > Consult with your support team before you alter a data partition policy.
@@ -248,9 +248,9 @@ Other contributors:
 - [MQTT broker feature in Event Grid](/azure/event-grid/mqtt-overview)
 - [Add a KQL database destination to an eventstream](/fabric/real-time-intelligence/event-streams/add-destination-kql-database?pivots=enhanced-capabilities)
 - [Get data from OneLake](/fabric/real-time-intelligence/get-data-onelake)
-- [Materialized views](/azure/data-explorer/kusto/management/materialized-views/materialized-view-overview)
+- [Materialized views](/kusto/management/materialized-views/materialized-view-overview)
 - [Create a real-time dashboard](/fabric/real-time-intelligence/dashboard-real-time-create)
-- [Create Data Activator alerts from a real-time dashboard](/fabric/data-activator/data-activator-get-data-real-time-dashboard)
+- [Create Data Activator alerts from a real-time dashboard](/fabric/real-time-intelligence/data-activator/activator-get-data-real-time-dashboard)
 - [Power BI report](/fabric/real-time-intelligence/create-powerbi-report)
 - [Visualize data from Azure Data Explorer in Grafana](/azure/data-explorer/grafana)
 - [Automotive messaging, data, and analytics reference architecture](/industry/mobility/architecture/automotive-connected-fleets-content)

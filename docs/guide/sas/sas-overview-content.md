@@ -80,7 +80,7 @@ Linux works best for running SAS workloads. SAS supports 64-bit versions of the 
 
 For more information about specific SAS releases, see the [SAS Operating System support matrix](https://support.sas.com/supportos/list?requestAction=summary&outputView=sasrelease&sasrelease=9.4&platformGroup=UNIX&platformName=Linux+64-bit). In environments that use multiple machines, it's best to run the same version of Linux on all machines. Azure doesn't support Linux 32-bit deployments.
 
-To optimize compatibility and integration with Azure, start with an operating system image from Azure Marketplace. Using a custom image without additional configurations can degrade SAS performance.
+To optimize compatibility and integration with Azure, start with an operating system image from the [Microsoft Marketplace](https://marketplace.microsoft.com/search/products?filters=linux&product=virtual-machines). Using a custom image without additional configurations can degrade SAS performance.
 
 #### Kernel issues
 
@@ -243,7 +243,7 @@ For best performance:
 
 SAS and Microsoft have tested a series of data platforms that you can use to host SAS datasets. The SAS blogs document the results in detail, including performance characteristics. The tests include the following platforms:
 
-- [Sycomp Storage Fueled by IBM Spectrum Scale](https://azuremarketplace.microsoft.com/marketplace/apps?search=Sycomp%20Storage&page=1), which uses General Parallel File System (GPFS)
+- [Sycomp Storage Fueled by IBM Spectrum Scale](https://marketplace.microsoft.com/product/sycompatechnologycompanyinc1588192103892.sycompstoragefueledbyibmstoragescale), which uses General Parallel File System (GPFS)
 - [Azure Managed Lustre](/azure/azure-managed-lustre/amlfs-overview), which provides the Lustre parallel file system
 - [Azure NetApp Files](https://azure.microsoft.com/services/netapp/), which supports NFS file-storage protocols
 - [Azure Files premium](https://azure.microsoft.com/products/storage/files/), which is a file share service that supports the NFS protocol

@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: claytonsiemens77
-ms.date: 02/02/2026
+ms.date: 02/17/2026
 ms.topic: whats-new
 ms.author: pnp
 ---
@@ -17,6 +17,29 @@ The Azure Architecture Center (AAC) helps you design, build, and operate solutio
 > [!VIDEO 9f9fdf91-3dcd-455f-b64e-8ec0802dd5db]
 
 The following new and updated articles have recently been published in the Azure Architecture Center.
+
+## February 2026
+
+### New articles
+
+- [Analytics architecture design](./solution-ideas/articles/analytics-get-started.md)
+- [Container architecture design](./solution-ideas/articles/container-get-started.md)
+
+### Updated articles
+
+- [AI Agent Orchestration Patterns](./ai-ml/guide/ai-agent-design-patterns.md) ([#d6b2e09262](https://github.com/MicrosoftDocs/architecture-center/commit/d6b2e09262))
+- [Migrate IBM i series to Azure with Skytap](./example-scenario/mainframe/migrate-ibm-i-series-to-azure-with-skytap.yml) ([#2e24036506](https://github.com/MicrosoftDocs/architecture-center/commit/2e24036506))
+- [Design a Secure Multitenant RAG Inferencing Solution](./ai-ml/guide/secure-multitenant-rag.md) ([#5a2098fe65](https://github.com/MicrosoftDocs/architecture-center/commit/5a2098fe65))
+- [Choose an Azure Service for Vector Search](./guide/technology-choices/vector-search.md) ([#5a2098fe65](https://github.com/MicrosoftDocs/architecture-center/commit/5a2098fe65))
+- [Use AI to Forecast Customer Orders](./ai-ml/idea/next-order-forecasting.yml) ([#f365d63572](https://github.com/MicrosoftDocs/architecture-center/commit/f365d63572))
+- [Online Transaction Processing (OLTP)](./data-guide/relational-data/online-transaction-processing.md) ([#60721ace7f](https://github.com/MicrosoftDocs/architecture-center/commit/60721ace7f))
+- [Caching guidance](./best-practices/caching.yml) ([#1133f877df](https://github.com/MicrosoftDocs/architecture-center/commit/1133f877df))
+- [Multitenancy and Azure OpenAI](./guide/multitenant/service/openai.md) ([#10b2e229d0](https://github.com/MicrosoftDocs/architecture-center/commit/10b2e229d0))
+- [Baseline Architecture for an AKS Cluster](./reference-architectures/containers/aks/baseline-aks.yml) ([#25e94b78b3](https://github.com/MicrosoftDocs/architecture-center/commit/25e94b78b3))
+- [Use a gateway in front of multiple Azure OpenAI deployments or instances](./ai-ml/guide/azure-openai-gateway-multi-backend.yml) ([#08556e5f37](https://github.com/MicrosoftDocs/architecture-center/commit/08556e5f37))
+- [Generative AI Operations for Organizations with MLOps Investments](./ai-ml/guide/genaiops-for-mlops.md) ([#08556e5f37](https://github.com/MicrosoftDocs/architecture-center/commit/08556e5f37))
+- [Develop a RAG Solution—Information-Retrieval Phase](./ai-ml/guide/rag/rag-information-retrieval.md) ([#08556e5f37](https://github.com/MicrosoftDocs/architecture-center/commit/08556e5f37))
+- [SDWAN integration with Azure hub-and-spoke network topologies](./networking/guide/sdwan-integration-in-hub-and-spoke-network-topologies.yml) ([#08556e5f37](https://github.com/MicrosoftDocs/architecture-center/commit/08556e5f37))
 
 ## January 2026
 
@@ -62,7 +85,7 @@ The following new and updated articles have recently been published in the Azure
 - [AI Architecture Design](./ai-ml/index.md) ([#d587a699fc](https://github.com/MicrosoftDocs/architecture-center/commit/d587a699fc))
 - [Deploy Microservices to Azure Container Apps](./example-scenario/serverless/microservices-with-container-apps.yml) ([#7521d30186](https://github.com/MicrosoftDocs/architecture-center/commit/7521d30186))
 - [Choose an Azure Service for Vector Search](./guide/technology-choices/vector-search.md) ([#7521d30186](https://github.com/MicrosoftDocs/architecture-center/commit/7521d30186))
-- [Build a Conversation Knowledge Mining Solution by using Azure AI Services](./ai-ml/idea/unlock-insights-from-conversational-data.yml) ([#9f370bb224](https://github.com/MicrosoftDocs/architecture-center/commit/9f370bb224))
+- [Build a Conversation Knowledge Mining Solution by using Foundry Tools](./ai-ml/idea/unlock-insights-from-conversational-data.yml) ([#9f370bb224](https://github.com/MicrosoftDocs/architecture-center/commit/9f370bb224))
 - [Generate Documents from Your Data](./ai-ml/idea/generate-documents-from-your-data.yml) ([#fec7972bc2](https://github.com/MicrosoftDocs/architecture-center/commit/fec7972bc2))
 - [Baseline Microsoft Foundry Chat Reference Architecture in an Azure Landing Zone](./ai-ml/architecture/baseline-microsoft-foundry-landing-zone.yml) ([#dbb5fdf008](https://github.com/MicrosoftDocs/architecture-center/commit/dbb5fdf008))
 - [Design and Develop a RAG Solution](./ai-ml/guide/rag/rag-solution-design-and-evaluation-guide.md) ([#4c4cbcb7bb](https://github.com/MicrosoftDocs/architecture-center/commit/4c4cbcb7bb))
@@ -105,7 +128,7 @@ The following new and updated articles have recently been published in the Azure
 ### Updated articles
 
 - [Deploy Microservices to Azure Container Apps](./example-scenario/serverless/microservices-with-container-apps.yml) ([#b64113461e](https://github.com/MicrosoftDocs/architecture-center/commit/b64113461e))
-- [Automate Video Analysis by Using Azure Machine Learning and Azure AI Vision](./ai-ml/architecture/analyze-video-computer-vision-machine-learning.yml) ([#fbe994e490](https://github.com/MicrosoftDocs/architecture-center/commit/fbe994e490))
+- [Automate Video Analysis by Using Azure Machine Learning and Azure Vision in Foundry Tools](./ai-ml/architecture/analyze-video-computer-vision-machine-learning.yml) ([#fbe994e490](https://github.com/MicrosoftDocs/architecture-center/commit/fbe994e490))
 - [Build Real-Time Monitoring and Observable Systems for Media](./example-scenario/monitoring/monitoring-observable-systems-media.yml) ([#9523c80384](https://github.com/MicrosoftDocs/architecture-center/commit/9523c80384))
 - [Azure Icons](./icons/index.md) ([#e780b39549](https://github.com/MicrosoftDocs/architecture-center/commit/e780b39549))
 - [Load Balancing Options](./guide/technology-choices/load-balancing-overview.md) ([#39668ec73c](https://github.com/MicrosoftDocs/architecture-center/commit/39668ec73c))
@@ -115,7 +138,7 @@ The following new and updated articles have recently been published in the Azure
 - [Global Routing Redundancy for Mission-Critical Web Applications](./guide/networking/global-web-applications/overview.md) ([#0f46d38455](https://github.com/MicrosoftDocs/architecture-center/commit/0f46d38455))
 - [Choose a Data Transfer Technology](./data-guide/scenarios/data-transfer.md) ([#fd12403a4a](https://github.com/MicrosoftDocs/architecture-center/commit/fd12403a4a))
 - [Automate Document Classification in Azure](./ai-ml/architecture/automate-document-classification-durable-functions.yml) ([#01d81fef19](https://github.com/MicrosoftDocs/architecture-center/commit/01d81fef19))
-- [Choose an Azure AI Technology](./data-guide/technology-choices/ai-services.md) ([#be37dd953f](https://github.com/MicrosoftDocs/architecture-center/commit/be37dd953f))
+- [Choose an AI services technology](./data-guide/technology-choices/ai-services.md) ([#be37dd953f](https://github.com/MicrosoftDocs/architecture-center/commit/be37dd953f))
 - [Replicate Mainframe Data by Using Precisely Connect](./example-scenario/mainframe/mainframe-replication-precisely-connect.yml) ([#3f0cd53f92](https://github.com/MicrosoftDocs/architecture-center/commit/3f0cd53f92))
 - [Develop a RAG Solution - Chunking Phase](./ai-ml/guide/rag/rag-chunking-phase.md) ([#c558440e24](https://github.com/MicrosoftDocs/architecture-center/commit/c558440e24))
 - [Develop a RAG Solution - Chunk Enrichment Phase](./ai-ml/guide/rag/rag-enrichment-phase.md) ([#c558440e24](https://github.com/MicrosoftDocs/architecture-center/commit/c558440e24))

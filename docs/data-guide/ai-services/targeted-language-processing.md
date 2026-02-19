@@ -19,13 +19,13 @@ This article covers Foundry Tools that provide targeted language processing capa
 
 - [Azure Language](#azure-language) is a cloud-based service that provides NLP features for understanding and analyzing text, including named entity recognition, sentiment analysis, language detection, summarization, and question answering.
 
-- [Azure Translator](#azure-translator) is a machine translation service. It can perform [real-time text translation](/azure/ai-services/translator/text-translation-overview), batch and single file [document translation](/azure/ai-services/translator/document-translation/overview), and [custom translations](/azure/ai-services/translator/custom-translator/overview) that you can use to incorporate specialized terminology or industry-specific language for your scenario. Azure Translator [supports multiple languages](/azure/ai-services/translator/language-support).
+- [Azure Translator in Foundry Tools](#azure-translator) is a machine translation service. It can perform [real-time text translation](/azure/ai-services/translator/text-translation-overview), batch and single file [document translation](/azure/ai-services/translator/document-translation/overview), and [custom translations](/azure/ai-services/translator/custom-translator/overview) that you can use to incorporate specialized terminology or industry-specific language for your scenario. Azure Translator [supports multiple languages](/azure/ai-services/translator/language-support).
 
-- [Azure AI Document Intelligence](#document-intelligence) is a service that can convert images directly into electronic forms. You can specify expected fields and then search images that you provide to capture those fields without human intervention. Document Intelligence hosts many prebuilt models and also allows you to build custom models of your own.
+- [Azure Document Intelligence in Foundry Tools](#document-intelligence) is a service that can convert images directly into electronic forms. You can specify expected fields and then search images that you provide to capture those fields without human intervention. Document Intelligence hosts many prebuilt models and also allows you to build custom models of your own.
 
 - [Microsoft Foundry language Models](#foundry-language-models) can be used directly through model APIs to perform language tasks such as content generation, summarization, and translation. 
 
-### Azure Language
+## Azure Language
 
 [Azure Language](/azure/ai-services/language-service/overview) provides specialized tools that enable seamless integration between AI agents and language processing services through standardized protocols.
 
@@ -35,14 +35,14 @@ This article covers Foundry Tools that provide targeted language processing capa
 | Work with structured or unstructured documents for the wide array of language-related tasks described in this article. | Check documents for content safety. Use [Azure AI Content Safety](/azure/ai-services/content-safety/overview) instead. |
 | | Translate documents. For translation, use [Azure Translator](#azure-translator) instead. |
 
-#### Available Azure Language tools
+### Available Azure Language tools
 
 The [Azure Language MCP server](/azure/ai-services/language-service/concepts/foundry-tools-agents#azure-language-mcp-server-) creates a standardized bridge that connects AI agents directly to Azure Language services through industry-standard protocols. This integration enables developers to build conversational applications with reliable NLP capabilities while ensuring enterprise-grade compliance, data protection, and processing accuracy throughout AI workflows. Azure Language provides both remote and local MCP server options:
 
 - **Remote server**: Available through Foundry Tool Catalog for cloud-hosted deployments.
 - **Local server**: Available for developers who prefer to host the server in their own environment.
 
-#### Available Azure Language agents
+### Available Azure Language agents
 
 The following table provides a list of agents available in Azure Language for conversational AI scenarios.
 
@@ -51,7 +51,7 @@ The following table provides a list of agents available in Azure Language for co
 | [Intent Routing agent](/azure/ai-services/language-service/concepts/foundry-tools-agents#azure-language-intent-routing-agent-) | Manages conversation flows by understanding user intentions and delivering accurate responses in conversational AI applications. Uses predictable decision-making processes combined with controlled response generation to ensure consistent, reliable interactions. |
 | [Exact Question Answering agent](/azure/ai-services/language-service/concepts/foundry-tools-agents#azure-language-exact-question-answering-agent-) | Provides reliable, word-for-word responses to important business questions. Automates frequently asked questions while maintaining human oversight and quality control to ensure accuracy and compliance. |
 
-#### Available Azure Language features
+### Available Azure Language features
 
 The following table provides a list of features available in Azure Language.
 
@@ -71,7 +71,7 @@ The following table provides a list of features available in Azure Language.
 | [Orchestration workflow](/azure/ai-services/language-service/orchestration-workflow/overview) | Connects [CLU](/azure/ai-services/language-service/conversational-language-understanding/overview), [question answering](/azure/ai-services/language-service/question-answering/overview), and [LUIS](/azure/ai-services/luis/what-is-luis) applications. |
 | [Question answering](/azure/ai-services/language-service/question-answering/overview) | Identifies the most suitable answer for user inputs. Commonly used to build conversational client applications, such as social media applications, chat bots, and speech-enabled desktop applications. |
 
-#### Which Language feature should I use?
+### Which Language feature should I use?
 
 The following table provides a list of possible use cases for Language.
 
@@ -96,9 +96,7 @@ The following table provides a list of possible use cases for Language.
 
 *\* If a feature is customizable, you can train an AI model by using our tools to fit your specific data. Otherwise, the feature is preconfigured, which means that its AI models remain unchanged. You provide your data and use the feature's output in your applications.*
 
-
-
-### Azure Translator
+## Azure Translator
 
 [Azure Translator](/azure/ai-services/translator/overview) is a cloud-based neural machine translation service that's part of Foundry Tools. Azure Translator powers many Microsoft products and services used by thousands of businesses worldwide for language translation and other language-related operations.
 
@@ -108,7 +106,7 @@ The following table provides a list of possible use cases for Language.
 | | Analyze content for sentiment. For sentiment analysis, use [Azure Language](/azure/ai-services/language-service/overview) instead. |
 | | Moderate content. For content moderation, use [Microsoft Azure AI Content Safety](/azure/ai-services/content-safety/overview) instead. |
 
-#### Features and development options
+### Features and development options
 
 The following table provides a list of features available in Azure Translator.
 
@@ -123,7 +121,7 @@ The following table provides a list of features available in Azure Translator.
 > [!TIP]
 > Use [Microsoft Foundry](https://ai.azure.com/) for text and synchronous document translation operations via a no-code interface.
 
-#### Use cases
+### Use cases
 
 The following table provides a list of possible use cases for Azure Translator.
 
@@ -132,7 +130,7 @@ The following table provides a list of possible use cases for Azure Translator.
 | Translate industry-specific text. | [Custom Translator](/azure/ai-services/translator/custom-translator/overview) |
 | Translate generic text that isn't specific to an industry. | [Text translation](/azure/ai-services/translator/text-translation-overview) |
 
-### Document Intelligence
+## Document Intelligence
 
 [Azure Document Intelligence](/azure/ai-services/document-intelligence/overview) is a cloud-based Foundry Tools service that you can use to build intelligent document processing solutions. Use Document Intelligence to automate document processing in applications and workflows, enhance data-driven strategies, and enrich document search capabilities.
 
@@ -141,7 +139,7 @@ The following table provides a list of possible use cases for Azure Translator.
 | Extract specific fields from scanned documents to fill electronic forms appropriately. | Perform real-time search. |
 | Identify key structures, like headers, footers, and chapter breaks, in varied collections of documents to further programmatically interact with the document, such as in a RAG implementation. | |
 
-#### Document analysis models
+### Document analysis models
 
 Document analysis models enable text extraction from forms and documents and return structured business-ready content.
 
@@ -150,7 +148,7 @@ Document analysis models enable text extraction from forms and documents and ret
 | [Read](/azure/ai-services/document-intelligence/prebuilt/read) | Extract printed and handwritten text from documents. Use for digitizing documents, compliance and auditing, and processing handwritten notes. |
 | [Layout](/azure/ai-services/document-intelligence/prebuilt/layout) | Extract text, tables, and document structure. Use for document indexing and retrieval by structure, and financial and medical report analysis. |
 
-#### Prebuilt models
+### Document Prebuilt models
 
 Prebuilt models add intelligent document processing to your apps and flows without having to train and build your own models.
 
@@ -169,7 +167,7 @@ Prebuilt models add intelligent document processing to your apps and flows witho
 | [US mortgage documents](/azure/ai-services/document-intelligence/prebuilt/mortgage-documents) | Extract loan application details from 1003, 1004, 1005, 1008 forms and closing disclosures. Use for Fannie Mae and Freddie Mac documentation requirements. |
 | [US tax documents](/azure/ai-services/document-intelligence/prebuilt/tax-document) | Extract information from W-2, 1098, 1099, and 1040 tax form variations. Use for automated tax document management and mortgage loan application processing. |
 
-#### Custom models
+### Custom models
 
 Custom models are trained by using your labeled datasets to extract distinct data from forms and documents that are specific to your use cases.
 
@@ -180,7 +178,7 @@ Custom models are trained by using your labeled datasets to extract distinct dat
 | [Custom composed](/azure/ai-services/document-intelligence/train/composed-models) | Combine a collection of custom models to analyze similar form types, like purchase orders. |
 | [Custom classifier](/azure/ai-services/document-intelligence/train/custom-classifier) | Identify designated document types (classes) before invoking an extraction model. Use for loan application packages that contain application forms, pay slips, and bank statements. |
 
-#### Add-on capabilities
+### Add-on capabilities
 
 Document Intelligence supports optional features that you can enable or disable depending on the document extraction scenario:
 
@@ -194,7 +192,7 @@ Document Intelligence supports optional features that you can enable or disable 
 
 For more information about model scenarios, see [Which model should I choose?](/azure/ai-services/document-intelligence/choose-model-feature)
 
-### Foundry language models
+## Foundry language models
 
 [Microsoft Foundry Models](/azure/ai-foundry/concepts/foundry-models-overview) provide access to a catalog of foundation models from Microsoft, OpenAI, and other leading providers. These models can perform general-purpose language tasks such as content generation, summarization, translation, and conversational interactions.
 
@@ -206,7 +204,7 @@ For more information about model scenarios, see [Which model should I choose?](/
 | Answer general questions based on provided context. | |
 | Perform ad-hoc language tasks with flexible prompting. | |
 
-#### Available models
+### Available models
 
 Foundry Models include models from multiple providers:
 
@@ -224,7 +222,7 @@ Foundry Models include models from multiple providers:
 
 For a complete list of available models and regional availability, see [Foundry Models sold directly by Azure](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure).
 
-#### Getting started
+### Getting started
 
 To start using Foundry Models for language tasks:
 
@@ -232,8 +230,7 @@ To start using Foundry Models for language tasks:
 - **Code-based approach**: Use the [Microsoft Foundry SDK](/azure/ai-foundry/quickstarts/get-started-code) to integrate models into your applications with Python, C#, TypeScript, or Java.
 
 
-
 ## Related resources
 
-- [Microsoft Azure AI Speech capabilities guide](speech-recognition-generation.md)
-- [Microsoft Azure AI Vision capabilities guide](image-video-processing.md)
+- [Microsoft Azure Speech in Foundry Tools capabilities guide](speech-recognition-generation.md)
+- [Microsoft Azure Vision in Foundry Tools capabilities guide](image-video-processing.md)

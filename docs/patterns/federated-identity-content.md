@@ -82,14 +82,13 @@ Tenants won't need to remember separate credentials to access the application, a
 
 ## Next steps
 
-- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory/)
-- [Active Directory Domain Services](/previous-versions/windows/server-2008/bb897402(v=msdn.10))
-- [Active Directory Federation Services](/previous-versions/windows/server-2008/bb897402(v=msdn.10))
-- [Multitenant Applications in Azure](/azure/dotnet-develop-multitenant-applications)
+- [Microsoft Entra ID](/entra/fundamentals/whatis)
+- [Active Directory Domain Services](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview)
+- [Active Directory Federation Services](/windows-server/identity/ad-fs/ad-fs-overview)
 
 ## Related resources
 
-- [Identity management for multitenant applications in Microsoft Azure](../multitenant-identity/index.yml)
+- [Identity management for multitenant applications in Microsoft Azure](/azure/architecture/guide/multitenant/considerations/identity)
 - [Gatekeeper pattern](/azure/architecture/patterns/gatekeeper)
 - [Edge Workload Configuration pattern](/azure/architecture/patterns/edge-workload-configuration)
 - [Compute Resource Consolidation pattern](/azure/architecture/patterns/compute-resource-consolidation)

@@ -252,7 +252,7 @@ Fully deployable architectures that use Azure NetApp Files:
 [Proximity placement groups]: /azure/virtual-machines/co-location
 [Run SAP BW/4HANA with Linux virtual machines on Azure]: ../../reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines.yml
 [Run SAP NetWeaver in Windows on Azure]: /azure/architecture/guide/sap/sap-netweaver
-[SLA for Azure NetApp Files]: https://azure.microsoft.com/support/legal/sla/netapp/v1_1
-[SLA for Virtual Machines]: https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/
+[SLA for Azure NetApp Files]: https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services
+[SLA for Virtual Machines]: https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services
 [Solution architectures using Azure NetApp Files - Oracle]: /azure/azure-netapp-files/azure-netapp-files-solution-architectures#oracle
 [What is Azure NetApp Files]: /azure/azure-netapp-files/azure-netapp-files-introduction

@@ -45,7 +45,7 @@ Azure provides built-in autoscaling for most compute options.
 
 - **Azure virtual machines** autoscale via [virtual machine scale sets][vm-scale-sets], which manage a set of virtual machines as a group. For more information, see [Use automatic scaling and virtual machine scale sets][vm-scale-sets-autoscale].
 
-- **Azure Service Fabric** supports autoscaling through virtual machine scale sets. Every node type in a Service Fabric cluster is set up as a separate virtual machine scale set. Each node type can be scaled in or out independently. For more information, see [Scale a Service Fabric cluster in or out by using autoscale rules][service-fabric-autoscale].
+- **Azure Container Apps** has built-in autoscaling based on HTTP traffic, event-driven triggers (via KEDA), or CPU and memory usage. Azure Container Apps scales to zero when idle and scales out automatically based on demand. For more information, see [Set scaling rules in Azure Container Apps](/azure/container-apps/scale-app).
 
 - **Azure App Service** has built-in autoscaling. Autoscale settings apply to all of the apps within an app service. For more information, see [Scale instance count manually or automatically][app-service-autoscale] and [Scale up an app in App Service](/azure/app-service/manage-scale-up).
 
@@ -100,10 +100,6 @@ Consider the following points when you use autoscaling:
 
 - If you configure autoscaling by using the SDK rather than the portal, you can specify a more detailed schedule during which the rules are active. You can also create your own metrics and use them with or without any of the existing ones in your autoscaling rules. For example, you might wish to use alternative counters, such as the number of requests per second or the average memory availability. Or you might use custom counters to measure specific business processes.
 
-- When you autoscale Service Fabric, the node types in your cluster are made of virtual machine scale sets at the back end, so you need to set up autoscale rules for each node type. Take into account the number of nodes that you must have before you set up autoscaling. Your reliability level drives the minimum number of nodes that you must have for the primary node type. For more information, see [Scale a Service Fabric cluster in or out by using autoscale rules](/azure/service-fabric/service-fabric-cluster-resource-manager-autoscaling).
-
-- You can use the portal to link resources such as Azure SQL Database instances and queues to a cloud service instance. This method allows you to more easily access the separate manual and automatic scaling configuration options for each of the linked resources. For more information, see [Manage Azure Cloud Services](/azure/cloud-services/cloud-services-how-to-manage).
-
 - When you configure multiple policies and rules, they could conflict with each other. Autoscale uses the following conflict resolution rules to ensure that there's always a sufficient number of instances running:
   - Scale-out operations always take precedence over scale-in operations.
 
@@ -114,13 +110,13 @@ Consider the following points when you use autoscaling:
 
 ## Application design considerations
 
-Autoscaling isn't an instant solution. Simply adding resources to a system or running more instances of a process doesn't guarantee that the performance of the system improves. Consider the following points when designing an autoscaling strategy:
+Autoscaling isn't an instant solution. Adding resources to a system or running more instances of a process doesn't guarantee improved performance. Consider the following points when you design an autoscaling strategy:
 
 - The system must be designed to be horizontally scalable. Avoid making assumptions about instance affinity. Don't design solutions that require that the code is always running in a specific instance of a process. When scaling a cloud service or website horizontally, don't assume that a series of requests from the same source are always routed to the same instance. For the same reason, design services to be stateless to avoid requiring a series of requests from an application to always be routed to the same instance of a service. When designing a service that reads messages from a queue and processes them, don't make any assumptions about which instance of the service handles a specific message. Autoscaling could start more instances of a service as the queue length grows. The [Competing Consumers pattern](../patterns/competing-consumers.yml) describes how to handle this scenario.
 
 - If the solution implements a long-running task, design this task to support both scaling out and scaling in. Without proper design, such a task could prevent an instance of a process from being shut down cleanly when the system scales in. Or it could lose data if the process is forcibly terminated. Ideally, refactor a long-running task and break up the processing that it performs into smaller, discrete chunks. For an example, see [Pipes and Filters pattern](../patterns/pipes-and-filters.yml).
 
-- Alternatively, you can implement a checkpoint mechanism that records state information about the task at regular intervals. Save this state information in durable storage that any instance of the process that runs the task can access. So if the process is shut down, the work that it was performing can be resumed from the last checkpoint by using another instance. There are libraries that provide this functionality, such as [NServiceBus](https://docs.particular.net/nservicebus/sagas) and [MassTransit](https://masstransit-project.com/usage/sagas). They transparently persist state, where the intervals are aligned with the processing of messages from queues in Azure Service Bus.
+- Alternatively, you can implement a checkpoint mechanism that records state information about the task at regular intervals. Save this state information in durable storage that any instance of the process that runs the task can access. So if the process is shut down, the work that it was performing can be resumed from the last checkpoint by using another instance. There are libraries that provide this functionality, such as [NServiceBus](https://docs.particular.net/nservicebus/sagas) and [MassTransit](https://masstransit.massient.com/concepts/saga-state-machines). They transparently persist state, where the intervals are aligned with the processing of messages from queues in Azure Service Bus.
 
 - When background tasks run on separate compute instances, such as in worker roles of a cloud services-hosted application, you might need to scale different parts of the application by using different scaling policies. For example, you might need to deploy more user interface (UI) compute instances without increasing the number of background compute instances, or the opposite. You can offer different levels of service, such as basic and premium service packages. You might need to scale out the compute resources for premium service packages more aggressively than resources for basic service packages. This approach helps you meet SLAs.
 
@@ -158,6 +154,5 @@ The following patterns and guidance might also be relevant to your scenario when
 [app-service-autoscale]: /azure/app-service/manage-scale-up
 [autoscale-metrics]: /azure/monitoring-and-diagnostics/insights-autoscale-common-metrics
 [functions-scale]: /azure/azure-functions/functions-scale
-[service-fabric-autoscale]: /azure/service-fabric/service-fabric-cluster-resource-manager-autoscaling
 [vm-scale-sets]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview
 [vm-scale-sets-autoscale]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview

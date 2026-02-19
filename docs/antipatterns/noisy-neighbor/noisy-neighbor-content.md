@@ -50,7 +50,7 @@ Sharing a single resource inherently carries the risk of noisy neighbor problems
   
   - Consider whether you have background processes or resource-intensive workloads that aren't time-sensitive. Run these workloads asynchronously at off-peak times to preserve your resource capacity for time-sensitive workloads.
 
-- **Check whether your downstream services provide controls to mitigate noisy neighbor problems.** For example, when you use Kubernetes, consider using [pod limits](/azure/aks/developer-best-practices-resource-management). When you use Azure Service Fabric, consider using the [built-in governance capabilities](/azure/service-fabric/service-fabric-resource-governance).
+- **Check whether your downstream services provide controls to mitigate noisy neighbor problems.** For example, when you use Kubernetes, consider using [pod limits](/azure/aks/developer-best-practices-resource-management). When you use Azure Container Apps, consider using [workload profiles](/azure/container-apps/workload-profiles-overview) to isolate workloads.
 
 - **Restrict the operations that tenants can perform.** For example, restrict tenants from running resource-intensive database queries by setting a maximum returnable record count or query time limit. Or change these operations to be asynchronous and schedule them to run at off-peak times. This action mitigates the risk of tenants taking actions that might negatively affect other tenants.
 

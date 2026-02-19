@@ -10,7 +10,7 @@ ms.custom:
   - best-practice
 ---
 
-<!-- cSpell:ignore CNAME HATEOAS WADL hashedOrderEtag nonMatchEtags matchEtags -->
+<!-- cSpell:ignore CNAME WADL hashedOrderEtag nonMatchEtags matchEtags -->
 
 # Web API implementation
 
@@ -137,7 +137,7 @@ Consider the following points if an operation throws an uncaught exception.
 
 ### Capture exceptions and return a meaningful response to clients
 
-The code that implements an HTTP operation should provide comprehensive exception handling rather than letting uncaught exceptions propagate to the framework. If an exception makes it impossible to complete the operation successfully, the exception can be passed back in the response message, but it should include a meaningful description of the error that caused the exception. The exception should also include the appropriate HTTP status code rather than simply returning status code 500 for every situation. For example, if a user request causes a database update that violates a constraint (such as attempting to delete a customer that has outstanding orders), you should return status code 409 (Conflict) and a message body indicating the reason for the conflict. If some other condition renders the request unachievable, you can return status code 400 (Bad Request). You can find a full list of HTTP status codes on the [Status code definitions](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) page on the W3C website.
+The code that implements an HTTP operation should provide comprehensive exception handling rather than letting uncaught exceptions propagate to the framework. If an exception makes it impossible to complete the operation successfully, the exception can be passed back in the response message, but it should include a meaningful description of the error that caused the exception. The exception should also include the appropriate HTTP status code instead of returning status code 500 for every situation. For example, if a user request causes a database update that violates a constraint (such as attempting to delete a customer that has outstanding orders), you should return status code 409 (Conflict) and a message body indicating the reason for the conflict. If some other condition renders the request unachievable, you can return status code 400 (Bad Request). You can find a full list of HTTP status codes on the [Status code definitions](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) page on the W3C website.
 
 The code example traps different conditions and returns an appropriate response.
 
@@ -427,7 +427,7 @@ public class OrdersController : ApiController
 }
 ```
 
-This example incorporates an additional custom `IHttpActionResult` class named `EmptyResultWithCaching`. This class simply acts as a wrapper around an `HttpResponseMessage` object that doesn't contain a response body:
+This example incorporates an additional custom `IHttpActionResult` class named `EmptyResultWithCaching`. This class serves as a wrapper around an `HttpResponseMessage` object that doesn't contain a response body:
 
 ```csharp
 public class EmptyResultWithCaching : IHttpActionResult
@@ -574,7 +574,7 @@ HTTP HEAD requests and partial responses are described in more detail in [API de
 
 ### Avoid sending unnecessary 100-Continue status messages in client applications
 
-A client application that is about to send a large amount of data to a server might determine first whether the server is actually willing to accept the request. Prior to sending the data, the client application can submit an HTTP request with an Expect: 100-Continue header, a Content-Length header that indicates the size of the data, but an empty message body. If the server is willing to handle the request, it should respond with a message that specifies the HTTP status 100 (Continue). The client application can then proceed and send the complete request including the data in the message body.
+A client application that is about to send a large amount of data to a server might determine first whether the server is actually willing to accept the request. Before the client application sends the data, it can submit an HTTP request that has an empty message body and an `Expect: 100-Continue` header, which is a `Content-Length` header that indicates the size of the data. If the server is willing to handle the request, it should respond with a message that specifies the HTTP status 100 (Continue). The client application can then proceed and send the complete request, including the data in the message body.
 
 If you host a service by using Internet Information Services (IIS), the HTTP.sys driver automatically detects and handles Expect: 100-Continue headers before passing requests to your web application. This means that you are unlikely to see these headers in your application code, and you can assume that IIS has already filtered any messages that it deems to be unfit or too large.
 
@@ -637,7 +637,7 @@ You can implement a simple polling mechanism by providing a *polling* URI that a
    - Consider applying [retry techniques](/azure/architecture/patterns/retry) to resolve possibly transient failures.
 6. While the task is running, the client can continue performing its own processing. It can periodically send a request to the URI it received earlier.
 7. The web API at the URI queries the state of the corresponding task in the table and returns a response message with HTTP status code 200 (OK) containing this state (*Running*, *Complete*, or *Failed*). If the task has completed or failed, the response message can also include the results of the processing or any information available about the reason for the failure.
-   - If the long-running process has more intermediate states, it's better to use a library that supports the saga pattern, like [NServiceBus](https://docs.particular.net/nservicebus/sagas) or [MassTransit](https://masstransit-project.com/usage/sagas).
+   - If the long-running process has more intermediate states, it's better to use a library that supports the saga pattern, like [NServiceBus](https://docs.particular.net/nservicebus/sagas) or [MassTransit](https://masstransit.massient.com/concepts/saga-state-machines).
 
 Options for implementing notifications include:
 
@@ -739,7 +739,7 @@ On Azure, consider using [Azure API Management](/azure/api-management) to publis
 1. Create a product. A product is the unit of publication; you add the web APIs that you previously connected to the management service to the product. When the product is published, the web APIs become available to developers.
 
     > [!NOTE]
-    > Prior to publishing a product, you can also define user-groups that can access the product and add users to these groups. This gives you control over the developers and applications that can use the web API. If a web API is subject to approval, prior to being able to access it a developer must send a request to the product administrator. The administrator can grant or deny access to the developer. Existing developers can also be blocked if circumstances change.
+    > Before you publish a product, you can define user-groups that can access the product and add users to these groups. This gives you control over the developers and applications that can use the web API. If a web API requires approval, developers must send a request to the product administrator before they can access it. The administrator can grant or deny access to the developer. Existing developers can also be blocked if circumstances change.
 
 1. Configure policies for each web API. Policies govern aspects such as whether cross-domain calls should be allowed, how to authenticate clients, whether to convert between XML and JSON data formats transparently, whether to restrict calls from a given IP range, usage quotas, and whether to limit the call rate. Policies can be applied globally across the entire product, for a single web API in a product, or for individual operations in a web API.
 
@@ -779,7 +779,7 @@ Depending on how you have published and deployed your web API you can monitor th
 
 ### Monitoring a web API directly
 
-If you have implemented your web API by using the ASP.NET Web API template (either as a Web API project or as a Web role in an Azure cloud service) and Visual Studio 2013, you can gather availability, performance, and usage data by using ASP.NET Application Insights. Application Insights is a package that transparently tracks and records information about requests and responses when the web API is deployed to the cloud; once the package is installed and configured, you don't need to amend any code in your web API to use it. When you deploy the web API to an Azure web site, all traffic is examined and the following statistics are gathered:
+Use the [Azure Monitor OpenTelemetry Distro](/azure/azure-monitor/app/opentelemetry-enable) to collect availability, performance, and usage data from your web API and send it to Application Insights. The Distro tracks and records information about requests and responses when the web API is deployed to the cloud. When you deploy the web API to an Azure web site, all traffic is examined and the following statistics are gathered:
 
 - Server response time.
 - Number of server requests and the details of each request.
@@ -791,7 +791,7 @@ If you have implemented your web API by using the ASP.NET Web API template (eith
 
 You can view this data in real time in the Azure portal. You can also create web tests that monitor the health of the web API. A web test sends a periodic request to a specified URI in the web API and captures the response. You can specify the definition of a successful response (such as HTTP status code 200), and if the request doesn't return this response you can arrange for an alert to be sent to an administrator. If necessary, the administrator can restart the server hosting the web API if it has failed.
 
-For more information, see [Application Insights - Get started with ASP.NET](/azure/application-insights/app-insights-asp-net).
+For more information, see [Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python, and Java applications](/azure/azure-monitor/app/opentelemetry-enable).
 
 ### Monitoring a web API through the API Management Service
 
@@ -818,4 +818,4 @@ You can use this information to determine whether a particular web API or operat
 - [API Management](https://azure.microsoft.com/services/api-management) describes how to publish a product that provides controlled and secure access to a web API.
 - [Azure API Management REST API reference](/rest/api/apimanagement) describes how to use the API Management REST API to build custom management applications.
 - [Traffic Manager routing methods](/azure/traffic-manager/traffic-manager-routing-methods) summarizes how Azure Traffic Manager can be used to load-balance requests across multiple instances of a website hosting a web API.
-- [Application Insights - Get started with ASP.NET](/azure/application-insights/app-insights-asp-net) provides detailed information on installing and configuring Application Insights in an ASP.NET Web API project.
+- [Enable Azure Monitor OpenTelemetry](/azure/azure-monitor/app/opentelemetry-enable) provides detailed information on configuring the Azure Monitor OpenTelemetry Distro to send telemetry to Application Insights.

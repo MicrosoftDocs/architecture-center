@@ -8,11 +8,12 @@ metadata:
   ms.topic: example-scenario
   ms.collection: ce-skilling-ai-copilot
   ms.subservice: example-scenario
+  ms.custom: arb-aiml
 azureCategories:
   - media
 products:
   - document-intelligence
-  - ai-services
+  - foundry-tools
   - azure-logic-apps
   - azure-functions
 name: Automate PDF forms processing

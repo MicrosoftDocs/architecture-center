@@ -116,5 +116,5 @@ The Immersive Reader client library is available in multiple languages and platf
 
 ## Related resources
 
-- [Microsoft Azure AI Language capabilities guide](targeted-language-processing.md)
-- [Microsoft Azure AI Vision capabilities guide](image-video-processing.md)
+- [Microsoft Azure Language in Foundry Tools capabilities guide](targeted-language-processing.md)
+- [Microsoft Azure Vision in Foundry Tools capabilities guide](image-video-processing.md)

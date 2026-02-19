@@ -166,7 +166,7 @@ Cost Optimization is about looking at ways to reduce unnecessary expenses and im
 
 The overall cost of this solution depends on the quantum computing target that you select to run the quantum job. Calculating estimated costs for the classic components is straightforward. You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
 
-For the Azure Quantum service, consider that Quantum computing providers can be consumed via an Azure Marketplace offering. Pricing depends on the type of resource (simulator or hardware), the SKU, and your usage. For more information, see the reference page for the provider needed for your scenario. These reference pages are listed in [Quantum computing providers on Azure Quantum](/azure/quantum/qc-target-list).
+For the Azure Quantum service, consider that Quantum computing providers can be consumed via a [Microsoft Marketplace](https://marketplace.microsoft.com/marketplace/apps?search=quantum) offering. Pricing depends on the type of resource (simulator or hardware), the SKU, and your usage. For more information, see the reference page for the provider needed for your scenario. These reference pages are listed in [Quantum computing providers on Azure Quantum](/azure/quantum/qc-target-list).
 
 #### Operational Excellence
 

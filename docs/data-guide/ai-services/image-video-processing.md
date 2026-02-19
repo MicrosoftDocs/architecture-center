@@ -35,7 +35,7 @@ This article covers Foundry Tools that provide video and image processing capabi
 | Perform broad, nonspecific analysis on images using vision-capable models like GPT-4o. | Detect, recognize, or analyze human faces. For face-related tasks, use [Azure Vision](#azure-vision). |
 | Generate accessibility descriptions for images. | Use open-source image generation models. For open-source models, use Azure Machine Learning. |
 
-### Azure Vision
+### Azure Vision in Foundry Tools
 
 [Azure Vision](/azure/ai-services/computer-vision/overview) is part of Foundry Tools and provides advanced algorithms that process images and return information based on the visual features you're interested in. Azure Vision includes OCR, image analysis, and face detection capabilities.
 

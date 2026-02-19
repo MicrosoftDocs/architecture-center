@@ -1,6 +1,6 @@
 ---
 title: Choose an Azure AI Technology
-description: Learn about Azure AI services that you can use in AI applications and data flows. Choose the appropriate service for your use case.
+description: Learn about AI services that you can use in AI applications and data flows. Choose the appropriate service for your use case.
 author: davihern
 ms.author: davihern
 ms.date: 11/22/2025
@@ -11,7 +11,7 @@ ms.subservice: architecture-guide
 ms.custom: arb-aiml
 ---
 
-# Choose an Azure AI services technology
+# Choose an AI services technology
 
 [Foundry Tools](/azure/ai-services/what-are-ai-services) provide a suite of data science tools, models, and inferencing capabilities that support a broad range of functions. Most AI services require little to no AI expertise. This accessibility makes them available to students, small-business owners, startups, and large enterprises alike. Instead of building custom solutions, Microsoft recommends that you use these services to embed intelligent functionality into your workloads. In many cases, prebuilt models and software-as-a-service solutions provide the necessary capabilities. However, many services support further customization and fine-tuning without the need to redesign your workload.
 
