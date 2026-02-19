@@ -262,7 +262,20 @@ You can deploy an NVA to filter traffic between virtual networks, but don't plac
 
 For infrastructure security, data is encrypted in transit and at rest. For information about network security, see the "Security recommendations" section in [Azure Virtual Machines planning and implementation for SAP NetWeaver](/azure/virtual-machines/workloads/sap/planning-guide#security-recommendations). This article also specifies the network ports that you need to open on the firewalls to allow application communication.
 
-You can use [Azure Disk Encryption](/azure/security/azure-security-disk-encryption-overview) to encrypt Windows VM disks. This service uses the BitLocker feature of Windows to provide volume encryption for the operating system and the data disks. The solution also works with Azure Key Vault to help you control and manage the disk-encryption keys and secrets in your key vault subscription. Data on the VM disks is encrypted at rest in your Azure storage.
+#### Azure Disk Encryption (ADE)
+
+[Azure Disk Encryption (ADE)](/azure/security/azure-security-disk-encryption-overview) provides operating system–level encryption using BitLocker on Windows and dm-crypt on Linux virtual machines. While ADE can be enabled for SAP application servers, its use requires careful consideration, particularly for Linux-based SAP workloads.
+
+For SAP systems running on Linux, ADE is not broadly recommended due to support limitations, operational complexity, and documented reliability issues in combination with backup, recovery, and high-availability scenarios. In addition, ADE is not supported by SAP-certified Linux distributions for certain SAP use cases, and its long-term viability should be carefully evaluated.
+
+Microsoft has announced that Azure Disk Encryption is scheduled for retirement, and customers are advised to plan for alternative encryption mechanisms for new deployments and future-proof architectures.
+
+For SAP workloads, Microsoft recommends the following approaches instead of ADE:
+
+- **Database-native encryption** - (for example, SAP HANA data, log, and backup encryption) for protecting SAP database content
+- **Encryption at host** -, optionally combined with Azure Storage Service Encryption and customer-managed keys, for VM-level protection
+
+Azure Disk Encryption should only be used when explicitly required to meet specific compliance or customer mandates, and only after validating supportability with the chosen operating system, SAP workload type, and operational tooling (such as backup and disaster recovery).
 
 For data-at-rest encryption, SQL Server transparent data encryption (TDE) encrypts SQL Server and Azure SQL Database data files. For more information, see [SQL Server Azure Virtual Machines DBMS deployment for SAP NetWeaver](/azure/virtual-machines/workloads/sap/dbms_guide_sqlserver).
 
