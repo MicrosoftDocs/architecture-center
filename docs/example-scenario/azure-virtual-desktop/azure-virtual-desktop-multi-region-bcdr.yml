@@ -4,7 +4,7 @@ metadata:
   description: Learn which options and scenarios are possible to design and implement an effective multi-region BCDR strategy for Azure Virtual Desktop.
   author: BenMartinBaur
   ms.author: bebaur
-  ms.date: 07/05/2024
+  ms.date: 19/02/2026
   ms.topic: concept-article
   ms.subservice: architecture-guide
 azureCategories:
