@@ -161,7 +161,7 @@ You can force API Management to instead use the host name of the incoming reques
 </inbound>
 ```
 
-As noted previously, however, APIs are less sensitive to the problems caused by host name mismatches, so this configuration might not be as important.
+But, as noted previously, APIs are less sensitive to the problems caused by host name mismatches, so this configuration might not be as important.
 
 ## Application configuration
 
