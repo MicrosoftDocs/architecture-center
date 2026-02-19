@@ -30,7 +30,7 @@ If only web applications are exposed (no non-HTTP(S) applications), and the doub
 
 1. The business-tier virtual machines are spread across availability zones, and they route traffic to the availability group listener of the databases.
 
-1. The data-tier stores the application data, typically in a database, object storage, or file share. This architecture has SQL server on virtual machines distributed across three availability zones. They are in an availability group and use a distributed network name (DNN) to route traffic to the [availability group listener](/azure/azure-sql/virtual-machines/windows/availability-group-overview) for load balancing.
+1. The data-tier stores the application data, typically in a database, object storage, or file share. This architecture has SQL Server on virtual machines distributed across three availability zones. They use an Always On availability group with each SQL Server VM in a [separate subnet](/azure/azure-sql/virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial-multi-subnet). A multi-subnet deployment allows the [availability group listener](/azure/azure-sql/virtual-machines/windows/availability-group-overview) to route traffic directly to the replicas without requiring an Azure Load Balancer or distributed network name (DNN).
 
 ### Inbound non-HTTP(S) traffic flows
 
@@ -50,7 +50,7 @@ If only web applications are exposed (no non-HTTP(S) applications), and the doub
 
 1. The business-tier virtual machines are spread across availability zones, and they route traffic to the availability group listener of the databases.
 
-1. The data-tier stores the application data, typically in a database, object storage, or file share. This architecture has SQL server on virtual machines distributed across three availability zones. They are in an availability group and use a distributed network name (DNN) to route traffic to the [availability group listener](/azure/azure-sql/virtual-machines/windows/availability-group-overview) for load balancing.
+1. The data-tier stores the application data, typically in a database, object storage, or file share. This architecture has SQL Server on virtual machines distributed across three availability zones. They use an Always On availability group with each SQL Server VM in a [separate subnet](/azure/azure-sql/virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial-multi-subnet). A multi-subnet deployment allows the [availability group listener](/azure/azure-sql/virtual-machines/windows/availability-group-overview) to route traffic directly to the replicas without requiring an Azure Load Balancer or distributed network name (DNN).
 
 ### Outbound traffic flows (all protocols)
 
