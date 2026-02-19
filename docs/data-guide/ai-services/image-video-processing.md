@@ -17,7 +17,7 @@ ms.custom: arb-aiml
 
 This article covers Foundry Tools that provide video and image processing capabilities, such as visual analysis and generation of images, object detection, image classification, and facial recognition, including:
 
-- [Azure OpenAI in Microsoft Foundry models](#azure-openai-in-microsoft-foundry-models) provides access to OpenAI's powerful language models, including the latest generation of GPT models with vision capabilities, Sora for video generation, and DALL-E for image generation. Use Azure OpenAI in Microsoft Foundry models for image generation from natural language or for broad, nonspecific image analysis.
+- [Azure OpenAI in Microsoft Foundry models](#azure-openai-in-microsoft-foundry-models) provides access to OpenAI's powerful language models, including the latest generation of GPT models with vision and audio capabilities, Sora for video generation, DALL-E for image generation, and Audio API models such as Whisper for speech-to-text transcription and translation. Use Azure OpenAI in Microsoft Foundry models for image generation from natural language, broad nonspecific image analysis, or audio transcription and translation scenarios that don't require a dedicated speech service.
 
 - [Azure Vision in Foundry tools](#azure-vision-in-foundry-tools) is part of Foundry Tools and provides advanced algorithms that process images and return information based on visual features. It includes optical character recognition (OCR), image analysis, and face detection capabilities.
 
@@ -29,13 +29,19 @@ This article covers Foundry Tools that provide video and image processing capabi
 
 ### Azure OpenAI in Microsoft Foundry models
 
-[Azure OpenAI in Microsoft Foundry models](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#azure-openai-in-microsoft-foundry-models) provides access to OpenAI's powerful language models, including the latest generation of GPT models with image, video, and audio generation capabilities.  [Sora and Sora 2 video generation models](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#video-generation-models) and [DALL-E image generation models](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#image-generation-models) are also available.
+[Azure OpenAI in Microsoft Foundry models](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#azure-openai-in-microsoft-foundry-models) provides access to OpenAI's powerful language models, including the latest generation of GPT models with image, video, and audio capabilities. [Sora and Sora 2 video generation models](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#video-generation-models), [DALL-E and GPT-image image generation models](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#image-generation-models), [Whisper and GPT-4o audio models](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#audio-models) for speech-to-text and speech translation, and text-to-speech models are also available.
 
 | Use Azure OpenAI in Microsoft Foundry models to | Don't use Azure OpenAI in Microsoft Foundry models to |
 | :----------| :-------------|
-| Generate images from natural language descriptions using DALL-E. | Perform specific image processing like form extraction or domain-specialized detection. For these tasks, use [Document Intelligence](/azure/ai-services/document-intelligence/overview). |
-| Perform broad, nonspecific analysis on images using vision-capable models like GPT-4o. | Detect, recognize, or analyze human faces. For face-related tasks, use [Azure Vision](#azure-vision-in-foundry-tools). |
+| Generate images from natural language descriptions using DALL-E or GPT-image models. | Perform specific image processing like form extraction or domain-specialized detection. For these tasks, use [Document Intelligence](/azure/ai-services/document-intelligence/overview). |
+| Perform broad, nonspecific analysis on images using vision-capable models like GPT-4o. | Extract structured fields from images using a schema you define. For schema-driven extraction, use [Azure AI Content Understanding](#azure-ai-content-understanding). |
+| Transcribe speech to text or translate spoken audio using Whisper or GPT-4o transcription models. | Detect, recognize, or analyze human faces. For face-related tasks, use [Azure Vision](#azure-vision-in-foundry-tools). |
+| Enable low-latency real-time voice conversations using GPT-4o Realtime audio models. | Perform high-volume speech transcription with advanced customization, speaker diarization, or custom vocabulary. For those scenarios, use [Azure Speech](/azure/ai-services/speech-service/overview). |
 | Generate accessibility descriptions for images. | Use open-source image generation models. For open-source models, use Azure Machine Learning. |
+
+#### Audio models
+
+Azure OpenAI provides audio models through two interfaces: [GPT-4o audio models](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#gpt-4o-audio-models) for real-time, low-latency speech-in, speech-out conversational interactions, and [Audio API models](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#audio-api) via the `/audio` endpoint for speech-to-text transcription (Whisper, GPT-4o transcription), speech translation, and text-to-speech.
 
 ### Azure Vision in Foundry Tools
 
