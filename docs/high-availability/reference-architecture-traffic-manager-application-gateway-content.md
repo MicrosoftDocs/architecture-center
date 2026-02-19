@@ -90,7 +90,7 @@ Outbound traffic flows for virtual machine patch updates or other connectivity t
 
 *Availability Zones -* The architecture uses three availability zones. The zones create a high-availability architecture for the Application Gateways, internal load balancers, and virtual machines in each region. If there's a zone outage, the remaining availability zones in that region would take over the load, which wouldn't trigger a regional failover.
 
-*Application Gateway -* While Traffic Manager provides DNS-based regional load balancing, Application Gateway gives you many of the same capabilities as Azure Front Door but at the regional level such as:
+*Application Gateway -* While Traffic Manager provides DNS-based global load balancing, Application Gateway gives you many of the same capabilities as Azure Front Door but at the regional level such as:
 
 - Web Application Firewall (WAF)
 - Transport Layer Security (TLS) termination
@@ -104,10 +104,6 @@ Outbound traffic flows for virtual machine patch updates or other connectivity t
 - Outbound flows from Azure Virtual Machines are inspected by Azure Firewall to prevent data exfiltration and access to forbidden sites and applications.
 
 *Virtual network peering -* We call peering between regions "global virtual network peering." Global virtual network peering provides low-latency, high-bandwidth data replication between regions. You can transfer data across Azure subscriptions, Microsoft Entra tenants, and deployment models with this global peering. In hub-spoke environment virtual network peerings would exist between hub and spoke networks.
-
-## Recommendations
-
-The following recommendations adhere to the pillars of the Azure Well-Architected Framework (WAF). The WAF pillars are guiding tenets that help ensure the quality of cloud workloads. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ## Considerations
 
@@ -211,7 +207,7 @@ For more information, see:
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-*Web Application Firewall -* The WAF functionality of Azure Application Gateway detects and prevents attacks at the HTTP level, such as SQL injection (SQLi) or cross-site scripting (CSS).
+*Web Application Firewall -* The WAF functionality of Azure Application Gateway detects and prevents attacks at the HTTP level, such as SQL injection (SQLi) or cross-site scripting (XSS).
 
 *Next-Generation Firewall -* Azure Firewall Premium provides an additional layer of defense by inspecting content for non-web attacks, such as malicious files uploaded via HTTP(S) or any other protocol.
 
@@ -252,7 +248,7 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 *Resource groups -* Use [resource groups](/azure/azure-resource-manager/management/overview) to manage Azure resources by lifetime, owner, and other characteristics.
 
-*Virtual network peering -* Use [virtual network peering](/azure/virtual-network/virtual-network-peering-overview) to seamlessly connect two or more virtual networks in Azure. The virtual networks appear as one for connectivity purposes. The traffic between virtual machines in peered virtual networks uses the Microsoft backbone infrastructure. Make sure that the address space of the virtual networks doesn't overlap.
+*Virtual network peering -* Use [virtual network peering](/azure/virtual-network/virtual-network-peering-overview) to connect two or more virtual networks in Azure. The virtual networks appear as one for connectivity purposes. The traffic between virtual machines in peered virtual networks uses the Microsoft backbone infrastructure. Make sure that the address space of the virtual networks doesn't overlap.
 
 *Virtual network and subnets -* Create a separate subnet for each tier of your subnet. You should deploy VMs and resources, such as Application Gateway and Load Balancer, into a virtual network with subnets.
 
