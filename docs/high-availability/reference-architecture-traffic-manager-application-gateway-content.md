@@ -8,7 +8,7 @@ In a Virtual WAN environment Application Gateways cannot be deployed in the hub,
 
 The proposed architecture opts for double inspection of web content through both a Web Application Firewall (based on Application Gateway) in front of Azure Firewall. Other options exist, as documented in [Firewall and Application Gateway for virtual networks](/azure/architecture/example-scenario/gateway/firewall-application-gateway), but this option is the most flexible and complete one: it exposes the client's IP address in the HTTP header `X-Forwarded-For` for the end application, it provides end-to-end encryption, and it prevents clients from bypassing the WAF to access the application.
 
-If only web applications are exposed (no non-HTTP(S) applications), and the double inspection by WAF and Azure Firewall of this web traffic isn't required, Azure Front Door would be a better global load balancing solution than Traffic Manager. Front Door is a layer-7 load balancer for HTTP(S) content that also provides caching, traffic acceleration, SSL/TLS termination, certificate management, health probes, and other capabilities. However, Application Gateway offers better integration with Azure Firewall for a layered protection approach.
+If your workload only exposes HTTP(S) endpoints and does not require deep packet inspection by Azure Firewall, use [Azure Front Door](/azure/frontdoor/front-door-overview) instead of Traffic Manager. Front Door is a layer-7 global load balancer purpose-built for HTTP(S) traffic that provides caching, traffic acceleration, TLS termination, certificate management, and built-in WAF. It is the preferred global routing solution for HTTP(S)-only workloads. This architecture uses Traffic Manager because it must also handle non-HTTP(S) protocol flows and route them through Azure Firewall for network-level inspection, which Front Door does not support.
 
 ### Inbound HTTP(S) traffic flows
 
@@ -34,11 +34,13 @@ If only web applications are exposed (no non-HTTP(S) applications), and the doub
 
 ### Inbound non-HTTP(S) traffic flows
 
+Some workloads accept traffic over protocols other than HTTP(S), such as SFTP for file-based data ingestion from business partners or legacy TCP-based integrations. This flow handles those scenarios.
+
 :::image type="content" source="images/high-availability-multi-region-nonweb-v-10.png" alt-text="Diagram showing multi-region load balancing with Azure Firewall, Application Gateway and Traffic Manager for non-web traffic." lightbox="images/high-availability-multi-region-nonweb-v-10.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/high-availability-multi-region-v-10.vsdx) of this architecture.*
 
-1. Azure Traffic Manager uses DNS-based routing to load balance incoming traffic across the two regions. Traffic Manager resolves DNS queries for the application to the public IP addresses of the Azure endpoints. The public endpoints of the Application Firewall serve as the backend endpoints of Traffic Manager for non-HTTP(S) traffic. Traffic Manager resolves DNS queries based on a choice of various routing methods. The browser connects directly to the endpoint; [Traffic Manager doesn't see the HTTP(S) traffic](/azure/traffic-manager/traffic-manager-routing-methods#priority-traffic-routing-method).
+1. Azure Traffic Manager uses DNS-based routing to load balance incoming traffic across the two regions. Traffic Manager resolves DNS queries for the application to the public IP addresses of the Azure endpoints. The public endpoints of Azure Firewall serve as the backend endpoints of Traffic Manager for non-HTTP(S) traffic. Traffic Manager resolves DNS queries based on a choice of various routing methods. The client connects directly to the resolved endpoint; [Traffic Manager doesn't see the protocol traffic](/azure/traffic-manager/traffic-manager-routing-methods#priority-traffic-routing-method).
 
 1. The Azure Firewall Premium is zone-redundant, and it inspects the inbound traffic for security. If the Azure Firewall detects a threat in the traffic, it drops the packets. Otherwise, upon successful inspection the Azure Firewall forwards the traffic to the web-tier internal load balancer performing Destination Network Address Translation (DNAT) on the inbound packets.
 
