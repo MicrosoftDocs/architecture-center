@@ -106,9 +106,9 @@ This architecture makes specific technology choices to support mixed-protocol, m
 
 ### Global load balancer
 
-**Current approach:** Traffic Manager provides DNS-based global load balancing that supports both HTTP(S) and non-HTTP(S) protocols. This architecture uses Traffic Manager because it must route non-HTTP(S) flows, such as SFTP and legacy TCP integrations, through Azure Firewall for network-level inspection.
+**Current approach:** Traffic Manager provides DNS-based global load balancing that supports both HTTP(S) and non-HTTP(S) protocols. This architecture uses Traffic Manager because it must route non-HTTP(S) flows, such as SFTP and legacy TCP integrations, through Azure Firewall for network-level inspection. Because Traffic Manager is DNS-based, clients connect directly to the backend endpoints, which requires Application Gateway and Azure Firewall to have public IP addresses.
 
-**Alternative approach:** Use [Azure Front Door](/azure/frontdoor/front-door-overview) instead of Traffic Manager. Front Door is a layer-7 global load balancer purpose-built for HTTP(S) traffic that provides caching, traffic acceleration, TLS termination, certificate management, and built-in WAF. It is the preferred global routing solution for HTTP(S)-only workloads.
+**Alternative approach:** Use [Azure Front Door](/azure/frontdoor/front-door-overview) instead of Traffic Manager. Front Door is a layer-7 global load balancer purpose-built for HTTP(S) traffic that provides caching, traffic acceleration, TLS termination, certificate management, and built-in WAF. Because Front Door is a reverse proxy, it can connect to Application Gateway over [Private Link](/azure/frontdoor/private-link), which eliminates the need for public IP addresses on your backend infrastructure. It is the preferred global routing solution for HTTP(S)-only workloads.
 
 Consider Front Door if your workload meets the following conditions:
 
