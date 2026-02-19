@@ -122,6 +122,7 @@ Reliability ensures your application can meet the commitments you make to your c
 Traffic Manager automatically fails over to the secondary region if the primary region fails.
 
 Choose the best regions for your needs based on all of these factors:
+
 - Your technical requirements, including geographic distance and cross-region latency
 - Data residency needs
 - Regulatory considerations
@@ -135,14 +136,12 @@ For more information about how to select Azure regions, see [Select Azure region
 
 *Availability zones -* Use multiple availability zones to support your Application Gateway, Azure Firewall, Azure Load Balancer, and application tiers when available.
 
-*Application gateway autoscaling and instances -* Configure the Application Gateway with a minimum of two instances to avoid downtime, and autoscaling to provide dynamic adaptation to changing application capacity demands.
-
 For more information, see:
 
 - [Regions and availability zones in Azure](/azure/reliability/availability-zones-overview)
 - [Azure region pairs and nonpaired regions](/azure/reliability/regions-paired)
 
-### Global routing
+#### Global routing
 
 *Global routing method -* Use the traffic-routing method that best meets the needs of your customers. Traffic Manager supports multiple traffic-routing methods to deterministically route traffic to the various service endpoints.
 
@@ -153,31 +152,30 @@ For more information, see:
 - [Configure the performance traffic routing method](/azure/traffic-manager/traffic-manager-configure-performance-routing-method)
 - [Traffic Manager routing methods](/azure/traffic-manager/traffic-manager-routing-methods)
 
-### Global traffic view
+#### Global traffic view
 
 Use Traffic View in Traffic Manager to see traffic patterns and latency metrics. Traffic View can help you plan your footprint expansion to new Azure regions.
 
 For more information, see [Traffic Manager Traffic View](/azure/traffic-manager/traffic-manager-traffic-view-overview).
 
-### Application Gateway
+#### Application Gateway
 
-Use Application Gateway v2 SKU for out-of-the-box automated resiliency.
+To maintain reliable traffic flow through Application Gateway:
 
-- Application Gateway v2 SKU automatically ensures that new instances spawn across fault domains and update domains. If you choose zone redundancy, the newest instances also spawn across availability zones to give fault tolerance.
+- The platform automatically distributes instances across fault domains and update domains. In regions that support availability zones, Application Gateway is zone-redundant by default, which means instances are also spread across availability zones for zonal fault tolerance.
+- Enable autoscaling and set the minimum instance count to at least two. This reserved capacity ensures that Application Gateway can serve traffic without the three-to-five-minute delay that provisioning new instances requires. For more information, see [Application Gateway autoscaling](/azure/application-gateway/application-gateway-autoscaling-zone-redundant).
 
-- Application Gateway v1 SKU supports high-availability scenarios when you've deployed two or more instances. Azure distributes these instances across update and fault domains to ensure that instances don't fail at the same time. The v1 SKU supports scalability by adding multiple instances of the same gateway to share the load.
-
-The Application Gateway needs to trust the CA certificate of Azure Firewall.
-
-### Azure Firewall
+#### Azure Firewall
 
 The Premium tier of Azure Firewall is required in this design to provide TLS inspection. Azure Firewall intercepts the TLS sessions between Application Gateway and the web-tier virtual machines generating its own certificates, as well as inspect outbound traffic flows from the virtual networks to the public Internet. You can find more information on this design in [Zero-trust network for web applications with Azure Firewall and Application Gateway](/azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall).
 
-### Health probe recommendations
+Monitor the expiration dates of the intermediate CA certificates that Azure Firewall uses for TLS inspection. An expired certificate breaks the TLS handshake and prevents traffic from reaching your backend servers, even though all infrastructure components remain healthy. For more information about the certificate configuration, see [TLS certificate trust chain](#security) in this article.
+
+#### Health probe recommendations
 
 Here are some recommendations for health probes in Traffic Manager, Application Gateway, and Load Balancer.
 
-#### Traffic Manager
+##### Traffic Manager
 
 *Endpoint health -* Create an endpoint that reports the overall health of the application. Traffic Manager uses an HTTP(S) probe to monitor the availability of each region. The probe checks for an HTTP 200 response for a specified URL path. Use the endpoint you created for the health probe. Otherwise, the probe might report a healthy endpoint when critical parts of the application are failing.
 
@@ -192,7 +190,7 @@ For more information, see [health endpoint monitoring pattern](../patterns/healt
 
 For more information, see [Traffic Manager monitoring](/azure/traffic-manager/traffic-manager-monitoring).
 
-#### Application Gateway and Load Balancer
+##### Application Gateway and Load Balancer
 
 Familiarize yourself with the health probe policies of the Application Gateway and load balancer to ensure you understand the health of your VMs. Here's a brief overview:
 
@@ -218,6 +216,8 @@ Security provides assurances against deliberate attacks and the abuse of your va
 *Next-Generation Firewall -* Azure Firewall Premium provides an additional layer of defense by inspecting content for non-web attacks, such as malicious files uploaded via HTTP(S) or any other protocol.
 
 *End-to-end encryption -* Traffic is encrypted at all times when traversing the Azure network. Both Application Gateway and Azure Firewall encrypt traffic before sending it to the corresponding backend system.
+
+*TLS certificate trust chain -* Azure Firewall Premium acts as a forward proxy and dynamically generates certificates signed by a private CA during TLS inspection. Configure Application Gateway to trust the root CA certificate that Azure Firewall uses so that the TLS handshake between them succeeds. For production deployments, use an enterprise PKI to generate the intermediate CA certificate. For more information, see [Deploy and configure enterprise CA certificates for Azure Firewall](/azure/firewall/premium-deploy-certificates-enterprise-ca) and the [certificate chain details for this architecture](/azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall#digital-certificates).
 
 *Distributed Denial of Service (DDoS) -* Use [Azure DDoS Network Protection](/azure/ddos-protection/ddos-protection-overview) for greater DDoS protection than the basic protection that Azure provides.
 
