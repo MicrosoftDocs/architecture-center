@@ -19,7 +19,7 @@ This article covers Foundry Tools that provide video and image processing capabi
 
 - [Azure OpenAI in Microsoft Foundry models](#azure-openai-in-microsoft-foundry-models) provides access to OpenAI's powerful language models, including the latest generation of GPT models with vision capabilities, Sora for video generation, and DALL-E for image generation. Use Azure OpenAI in Microsoft Foundry models for image generation from natural language or for broad, nonspecific image analysis.
 
-- [Azure Vision](#azure-vision) is part of Foundry Tools and provides advanced algorithms that process images and return information based on visual features. It includes optical character recognition (OCR), image analysis, and face detection capabilities.
+- [Azure Vision in Foundry tools](#azure-vision-in-foundry-tools) is part of Foundry Tools and provides advanced algorithms that process images and return information based on visual features. It includes optical character recognition (OCR), image analysis, and face detection capabilities.
 
 - [Azure AI Custom Vision](#custom-vision) is an image recognition service that you can use to build, deploy, and improve your image identifier models for specific requirements that can't be met by other services.
 
@@ -34,7 +34,7 @@ This article covers Foundry Tools that provide video and image processing capabi
 | Use Azure OpenAI in Microsoft Foundry models to | Don't use Azure OpenAI in Microsoft Foundry models to |
 | :----------| :-------------|
 | Generate images from natural language descriptions using DALL-E. | Perform specific image processing like form extraction or domain-specialized detection. For these tasks, use [Document Intelligence](/azure/ai-services/document-intelligence/overview). |
-| Perform broad, nonspecific analysis on images using vision-capable models like GPT-4o. | Detect, recognize, or analyze human faces. For face-related tasks, use [Azure Vision](#azure-vision). |
+| Perform broad, nonspecific analysis on images using vision-capable models like GPT-4o. | Detect, recognize, or analyze human faces. For face-related tasks, use [Azure Vision](#azure-vision-in-foundry-tools). |
 | Generate accessibility descriptions for images. | Use open-source image generation models. For open-source models, use Azure Machine Learning. |
 
 ### Azure Vision in Foundry Tools
@@ -79,7 +79,7 @@ The following table provides a list of possible use cases for Azure Vision.
 
 | Use Custom Vision to | Don't use Custom Vision to |
 | :----------| :-------------|
-| Recognize unusual objects and manufacturing defects that standard image analysis can't detect. | Perform basic object detection or face detection. Use [Azure Vision](#azure-vision) instead. |
+| Recognize unusual objects and manufacturing defects that standard image analysis can't detect. | Perform basic object detection or face detection. Use [Azure Vision](#azure-vision-in-foundry-tools) instead. |
 | Provide detailed custom classifications for specific business requirements. | Perform basic visual analysis. Use vision-capable models from [Azure OpenAI in Microsoft Foundry models](#azure-openai-in-microsoft-foundry-models) or open-source models in Azure Machine Learning instead. |
 | Train models with your own labeled images for specialized scenarios. | |
 
@@ -109,12 +109,12 @@ The following table provides a list of possible use cases for Custom Vision.
 
 | Use Azure AI Content Understanding to | Don't use Azure AI Content Understanding to |
 | :----------| :-------------|
-| Extract custom structured fields from images using a schema you define, such as detecting products, brands, or defects. | Perform standard image analysis such as object detection or OCR. Use [Azure Vision](#azure-vision-in-foundry-tools) for those tasks. |
+| Extract custom structured fields from images using a schema you define, such as detecting products, brands, or defects. | Perform standard image analysis such as object detection or OCR. Use [Azure Vision](#azure-vision-in-foundry-tools-in-foundry-tools) for those tasks. |
 | Generate RAG-ready output from video, including scene descriptions, transcripts, and key frames, for use in search indexes or chat agents. | Extract deep video insights such as celebrity identification, speaker enumeration, or sentiment analysis across long-form content. Use [Azure AI Video Indexer](#azure-ai-video-indexer) for those tasks. |
 | Segment video into scenes and extract custom metadata per segment, such as brand presence or ad category. | |
 | Generate face descriptions in images or video, such as facial expressions or celebrity identification (limited access). | |
 
-#### Available Azure AI Content Understanding features for images and video
+#### Available Azure AI Content Understanding features
 
 The following table provides a list of image and video features available in Azure AI Content Understanding.
 
@@ -127,7 +127,7 @@ The following table provides a list of image and video features available in Azu
 | [Video field extraction](/azure/ai-services/content-understanding/video/overview#field-extraction-and-segmentation) | Generates custom structured fields per video segment based on a schema, such as brand logos, ad categories, or scene sentiment, using a generative model. |
 | [Face description](/azure/ai-services/content-understanding/video/overview#face-description-fields) | Generates textual descriptions of faces in images or video, including facial hair, expressions, and celebrity identification. This is a limited-access feature that requires disabling face blurring in the analyzer configuration. |
 
-#### Use cases
+#### Use cases for Azure AI Content Understanding
 
 The following table provides a list of possible use cases for Azure AI Content Understanding applied to images and video.
 
@@ -145,8 +145,8 @@ The following table provides a list of possible use cases for Azure AI Content U
 
 | Use Azure AI Video Indexer to | Don't use Azure AI Video Indexer to |
 | :----------| :-------------|
-| Extract insights from uploaded videos including transcription, translation, and content analysis. | Perform basic video analysis tasks like people counting and motion detection. [Azure Vision](#azure-vision) is more cost-effective for these tasks. |
-| Analyze live video streams in real time for retail, manufacturing, or safety scenarios. | Extract text from static images. For OCR on images, use [Azure Vision](#azure-vision). |
+| Extract insights from uploaded videos including transcription, translation, and content analysis. | Perform basic video analysis tasks like people counting and motion detection. [Azure Vision](#azure-vision-in-foundry-tools) is more cost-effective for these tasks. |
+| Analyze live video streams in real time for retail, manufacturing, or safety scenarios. | Extract text from static images. For OCR on images, use [Azure Vision](#azure-vision-in-foundry-tools). |
 | Run video analysis on edge devices with strict data residency or low-latency requirements using Azure Arc. | |
 
 #### Deployment options
@@ -165,7 +165,6 @@ The following table provides a list of video analysis features available in Vide
 | Feature | Description |
 | :----------| :-------------|
 | [Face detection](/azure/azure-video-indexer/face-detection) | Detects and groups faces appearing in the video. |
-| [Celebrity identification](/azure/azure-video-indexer/celebrities-recognition) | Identifies over 1 million celebrities, such as world leaders, actors, artists, athletes, researchers, and business and tech leaders across the globe. |
 | [Account-based face identification](/azure/azure-video-indexer/customize-person-model-with-website) | Trains a model for a specific account and recognizes faces in videos based on the trained model. |
 | [Observed people detection](/azure/azure-video-indexer/observed-matched-people-insight) | Detects observed people in videos and provides location information using bounding boxes, with exact timestamps and confidence levels. Includes matched person, detected clothing, and featured clothing insights. |
 | [Object detection](/azure/azure-video-indexer/object-detection) | Detects unique objects that are tracked so they're recognized if they return to the frame. |
