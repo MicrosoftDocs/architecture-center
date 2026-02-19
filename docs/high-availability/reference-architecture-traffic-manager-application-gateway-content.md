@@ -258,14 +258,23 @@ For more information, see [application gateway infrastructure configuration](/az
 
 Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-For more information, see:
+*Multi-region baseline cost -* This architecture deploys a full infrastructure stamp in each region: Virtual Machine Scale Sets across three tiers, Application Gateway, Azure Firewall Premium, and load balancers. The secondary region incurs cost whether or not it is actively serving traffic. In an active/passive configuration, reduce cost by scaling the secondary region's VMSS instances to the minimum required for a timely failover, rather than running at full production capacity.
 
-- [Load Balancing pricing](https://azure.microsoft.com/pricing/details/load-balancer/)
-- [Virtual network Pricing](https://azure.microsoft.com/pricing/details/virtual-network/)
-- [Application gateway pricing](https://azure.microsoft.com/pricing/details/application-gateway/)
-- [Choose the right Azure Firewall SKU to meet your needs](/azure/firewall/choose-firewall-sku)
+*Virtual machines -* VMs are the largest cost driver because every tier in both regions runs compute continuously. Use [Azure Reserved VM Instances](/azure/virtual-machines/prepay-reserved-vm-instances) or [Azure savings plans for compute](/azure/cost-management-billing/savings-plan/savings-plan-compute-overview). Reserved instances work well for the minimum always-on capacity, while savings plans offer flexibility if VM sizes change over time.
+
+*Azure Firewall Premium -* Firewall Premium has a fixed per-deployment-unit hourly charge plus variable per-gigabyte processing fees, and it runs in both regions. If your workload does not require IDPS or TLS inspection, evaluate whether [Azure Firewall Standard](/azure/firewall/choose-firewall-sku) meets your security requirements at a lower price point.
+
+*DDoS Network Protection and WAF discount -* [DDoS Network Protection](/azure/ddos-protection/ddos-protection-overview) has a fixed monthly cost that covers up to 100 public IP addresses across subscriptions in a tenant. When DDoS Network Protection is enabled, Application Gateway WAF instances are [billed at the lower Standard rate](/azure/application-gateway/understanding-pricing) instead of the WAF rate. For architectures with multiple Application Gateway instances like this one, the WAF discount can offset a meaningful portion of the DDoS plan cost.
+
+*Application Gateway scaling -* Application Gateway charges a fixed hourly rate plus variable [capacity unit](/azure/application-gateway/understanding-pricing#capacity-unit) costs. Setting the autoscale minimum instance count higher than necessary reserves capacity units you pay for regardless of traffic. Balance the minimum instance count against acceptable cold-start latency to avoid paying for unused capacity.
+
+For service-specific pricing details, see:
+
+- [Virtual Machines pricing](https://azure.microsoft.com/pricing/details/virtual-machines/)
+- [Application Gateway pricing](https://azure.microsoft.com/pricing/details/application-gateway/)
+- [Azure Firewall pricing](https://azure.microsoft.com/pricing/details/azure-firewall/)
+- [Azure DDoS Protection pricing](https://azure.microsoft.com/pricing/details/ddos-protection/)
 - [Traffic Manager pricing](https://azure.microsoft.com/pricing/details/traffic-manager/)
-- [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 
 ### Operational Excellence
 
