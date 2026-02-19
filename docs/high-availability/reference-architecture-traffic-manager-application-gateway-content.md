@@ -1,12 +1,8 @@
 This architecture is for global, internet-facing applications that use HTTP(S) and non-HTTP(S) protocols. It features DNS-based global load balancing, two forms of regional load balancing, and global virtual network peering to create a reliable architecture. Availability zones provide resiliency within each region, and multi-region deployment provides recoverability from a regional outage. Azure Web Application Firewall (WAF) and Azure Firewall inspect traffic at multiple layers.
 
-### Architecture notes
+## Architecture
 
-The architecture in this document can be adapted to a hub-and-spoke virtual network design, where Azure Firewall resides in the hub network and Application Gateway resides either in the hub or in a spoke. If you deploy Application Gateway in the hub, use multiple Application Gateway instances, each for a given set of applications, to control Azure role-based access control (Azure RBAC) scope and to stay within [Application Gateway limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#application-gateway-limits).
-
-In a Virtual WAN environment, Application Gateways can't be deployed in the hub, so they are installed in spoke virtual networks.
-
-This architecture uses double inspection of web content through both a Web Application Firewall (based on Application Gateway) in front of Azure Firewall. Other options exist, as documented in [Firewall and Application Gateway for virtual networks](/azure/architecture/example-scenario/gateway/firewall-application-gateway), but this option preserves the client's IP address in the HTTP header `X-Forwarded-For` for the end application, it provides end-to-end encryption, and it prevents clients from bypassing the WAF to access the application.
+This section describes the traffic flows through the architecture for inbound HTTP(S), inbound non-HTTP(S), and outbound requests. Each flow shows how traffic is routed, inspected, and distributed across the application tiers in both regions.
 
 ### Inbound HTTP(S) traffic flows
 
@@ -92,7 +88,9 @@ Outbound traffic flows for virtual machine patch updates or other internet-bound
 
 - **Regional load balancing and WAF** - Application Gateway provides layer-7 capabilities within each region: Web Application Firewall (WAF), TLS termination, path-based routing, and cookie-based session affinity.
 
-- **Network security and deep packet inspection** - Azure Firewall Premium inspects three types of flows in this architecture:
+- **Network security and deep packet inspection** - This architecture places Application Gateway in front of Azure Firewall for double inspection of web content. Other options exist, as documented in [Firewall and Application Gateway for virtual networks](/azure/architecture/example-scenario/gateway/firewall-application-gateway), but this option [preserves the client's source IP address](/azure/architecture/best-practices/host-name-preservation) in the HTTP `X-Forwarded-For` header, provides end-to-end encryption, and prevents clients from bypassing the WAF.
+
+  Azure Firewall Premium inspects three types of flows:
 
   - Inbound HTTP(S) flows from Application Gateway, protected with TLS inspection.
   - Inbound non-HTTP(S) flows from the public internet, inspected with the full [premium feature set](/azure/firewall/premium-features). Application Gateway also supports [Layer 4 (TCP/TLS) proxying](/azure/application-gateway/tcp-tls-proxy-overview), which could consolidate both HTTP and non-HTTP ingress onto a single entry point. However, this capability is in preview and WAF does not apply to Layer 4 traffic, so this architecture uses a separate path for non-HTTP(S) flows.
@@ -137,6 +135,12 @@ Consider PaaS alternatives if your workload meets the following conditions:
 **Alternative approach:** Your workload's protocol, latency, and security requirements might lead to a different combination of load-balancing services. For example, workloads that don't need WAF can use Azure Load Balancer alone for regional distribution, and workloads that need path-based routing without a firewall can use Application Gateway without Azure Firewall in front of it.
 
 To evaluate which services fit your scenario, see [Load-balancing options in Azure](/azure/architecture/guide/technology-choices/load-balancing-overview).
+
+### Network topology
+
+**Current approach:** This architecture uses a flat virtual network design with all components in a single virtual network per region.
+
+**Alternative approach:** Adapt this architecture to a [hub-spoke virtual network design](/azure/architecture/networking/architecture/hub-spoke), where Azure Firewall resides in the hub network and Application Gateway resides either in the hub or in a spoke. If you deploy Application Gateway in the hub, use multiple instances, each for a given set of applications, to control Azure RBAC scope and to stay within [Application Gateway limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#application-gateway-limits). In a [Virtual WAN](/azure/architecture/networking/architecture/hub-spoke-virtual-wan-architecture) environment, Application Gateways can't be deployed in the hub, so they are installed in spoke virtual networks.
 
 ## Considerations
 
