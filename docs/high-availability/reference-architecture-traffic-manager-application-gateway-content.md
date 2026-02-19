@@ -1,4 +1,4 @@
-This architecture is for global, internet-facing applications that use HTTP(S) and non-HTTP(S) protocols. It features DNS-based global load balancing, two forms of regional load balancing, and global virtual network peering to create a high availability architecture that can withstand a regional outage. Traffic inspection is provided by both Azure Web Application Firewall (WAF) and Azure Firewall.
+This architecture is for global, internet-facing applications that use HTTP(S) and non-HTTP(S) protocols. It features DNS-based global load balancing, two forms of regional load balancing, and global virtual network peering to create a reliable architecture. Availability zones provide resiliency within each region, and multi-region deployment with automatic failover provides recoverability from a regional outage. Traffic inspection is provided by both Azure Web Application Firewall (WAF) and Azure Firewall.
 
 ### Architecture notes
 
@@ -76,7 +76,7 @@ Outbound traffic flows for virtual machine patch updates or other connectivity t
 
 - [Azure DNS private zones](/azure/dns/private-dns-overview) are a feature of Azure DNS. Azure DNS private zones provide name resolution within a virtual network and between virtual networks. In this architecture, Azure DNS private zones enable internal name resolution for resources within the virtual network infrastructure.
 
-- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is a service that provides on-demand, scalable computing resources that give you the flexibility of virtualization but eliminate the maintenance demands of physical hardware. In this architecture, Virtual Machines host the application tiers and distributes them across availability zones in multiple regions for high availability.
+- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is a service that provides on-demand, scalable computing resources that give you the flexibility of virtualization but eliminate the maintenance demands of physical hardware. In this architecture, Virtual Machines host the application tiers, distributed across availability zones for resiliency and across multiple regions for recoverability.
 
    You can replace specific components, like the database and the front-end tier, of the applications with platform as a service (PaaS) Azure resources. However, the architecture won't change significantly if you use [Azure Private Link](/azure/private-link/private-link-overview) and [Azure App Service virtual network integration](/azure/app-service/overview-vnet-integration) to bring those PaaS services into the virtual network.
 
@@ -92,7 +92,7 @@ Outbound traffic flows for virtual machine patch updates or other connectivity t
 
 *Traffic Manager -* We configured Traffic Manager to use performance routing. It routes traffic to the endpoint that has the lowest latency for the user. Traffic Manager automatically adjusts its load balancing algorithm as endpoint latency changes. Traffic manager provides automatic failover if there's a regional outage. It uses priority routing and regular health checks to determine where to route traffic.
 
-*Availability Zones -* The architecture uses three availability zones. The zones create a high-availability architecture for the Application Gateways, internal load balancers, and virtual machines in each region. If there's a zone outage, the remaining availability zones in that region would take over the load, which wouldn't trigger a regional failover.
+*Availability Zones -* The architecture uses three availability zones. The zones provide resiliency for the Application Gateways, internal load balancers, and virtual machines within each region. If there's a zone outage, the remaining availability zones in that region take over the load without triggering a regional failover.
 
 *Application Gateway -* While Traffic Manager provides DNS-based global load balancing, Application Gateway gives you many of the same capabilities as Azure Front Door but at the regional level such as:
 
@@ -119,7 +119,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-*Regions -* Use at least two Azure regions for high availability. You can deploy your application across multiple Azure regions in active/passive or active/active configurations. Multiple regions also help avoid application downtime if a subsystem of the application fails.
+*Regions -* Use at least two Azure regions for recoverability. Deploying your application across multiple Azure regions in active/passive or active/active configurations enables recovery from a regional outage. Multiple regions also help avoid application downtime if a subsystem of the application fails.
 
 Traffic Manager automatically fails over to the secondary region if the primary region fails.
 
@@ -144,6 +144,7 @@ For more information, see:
 
 - [Regions and availability zones in Azure](/azure/reliability/availability-zones-overview)
 - [Azure region pairs and nonpaired regions](/azure/reliability/regions-paired)
+- [HADR configuration best practices for SQL Server on Azure VMs](/azure/azure-sql/virtual-machines/windows/hadr-cluster-best-practices)
 
 #### Global routing
 
