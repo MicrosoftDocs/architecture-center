@@ -146,30 +146,21 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-- **Regions** - Deploy to at least two Azure regions for recoverability. An active/passive or active/active multi-region configuration enables your workload to recover from a regional outage. Traffic Manager monitors endpoint health and redirects DNS responses away from unhealthy regions, but you are responsible for ensuring the secondary region is ready to serve traffic, including data replication and application readiness.
+- Deploy to at least two Azure regions for recoverability. An active/passive or active/active multi-region configuration enables your workload to recover from a regional outage. Traffic Manager monitors endpoint health and redirects DNS responses away from unhealthy regions, but you are responsible for ensuring the secondary region is ready to serve traffic, including data replication and application readiness.
 
   For your secondary region, prefer a [paired region](/azure/reliability/cross-region-replication-azure) when one is available for benefits like prioritized recovery sequencing and staggered platform updates. If your region doesn't have a pair, you can still build a multi-region solution, but some services like [geo-redundant storage](/azure/storage/common/storage-redundancy#geo-redundant-storage) require alternative replication approaches. Also factor in geographic distance, data residency, service availability, and cost. For more information, see [Select Azure regions](/azure/cloud-adoption-framework/ready/azure-setup-guide/regions).
 
-- **Availability zones** - This architecture deploys Application Gateway, Azure Firewall, Azure Load Balancer, and Virtual Machine Scale Sets across multiple [availability zones](/azure/reliability/availability-zones-overview) within each region to provide resiliency against datacenter-level failures.
+- This architecture deploys Application Gateway, Azure Firewall, Azure Load Balancer, and Virtual Machine Scale Sets across multiple [availability zones](/azure/reliability/availability-zones-overview) within each region to provide resiliency against datacenter-level failures.
 
 - **Virtual Machine Scale Sets** - Flexible orchestration distributes VM instances across fault domains within each availability zone, which reduces the blast radius of a single host failure. It also provides the per-VM placement control that the [multi-subnet SQL Server availability group](/azure/azure-sql/virtual-machines/windows/hadr-cluster-best-practices) configuration requires.
 
 #### Global routing
 
-- **Global routing method** - Use the traffic-routing method that best meets the needs of your customers. Traffic Manager supports multiple traffic-routing methods to deterministically route traffic to the various service endpoints.
+- Use the traffic-routing method that best meets the needs of your customers. Traffic Manager supports multiple [traffic-routing methods](/azure/traffic-manager/traffic-manager-routing-methods) to deterministically route traffic to the various service endpoints.
 
-- **Nested configuration** - Use Traffic Manager in a nested configuration if you need more granular control to choose a preferred failover within a region.
+  Use Traffic Manager in a [nested configuration](/azure/traffic-manager/traffic-manager-configure-performance-routing-method) if you need more granular control to choose a preferred failover within a region.
 
-For more information, see:
-
-- [Configure the performance traffic routing method](/azure/traffic-manager/traffic-manager-configure-performance-routing-method)
-- [Traffic Manager routing methods](/azure/traffic-manager/traffic-manager-routing-methods)
-
-#### Global traffic view
-
-Use Traffic View in Traffic Manager to see traffic patterns and latency metrics. Traffic View can help you plan your footprint expansion to new Azure regions.
-
-For more information, see [Traffic Manager Traffic View](/azure/traffic-manager/traffic-manager-traffic-view-overview).
+- Use [Traffic View](/azure/traffic-manager/traffic-manager-traffic-view-overview) to see traffic patterns and latency metrics. Traffic View can help you plan your footprint expansion to new Azure regions.
 
 #### Application Gateway
 
@@ -193,7 +184,7 @@ Here are some recommendations for health probes in Traffic Manager, Application 
 
 - **Endpoint health** - Create an endpoint that reports the overall health of the application. Traffic Manager uses an HTTP(S) probe to monitor the availability of each region. The probe checks for an HTTP 200 response for a specified URL path. Use the endpoint you created for the health probe. Otherwise, the probe might report a healthy endpoint when critical parts of the application are failing.
 
-For more information, see [health endpoint monitoring pattern](../patterns/health-endpoint-monitoring.yml).
+  For more information, see [health endpoint monitoring pattern](../patterns/health-endpoint-monitoring.yml).
 
 - **Failover delay** - Traffic Manager has a failover delay. The following factors determine the duration of the delay:
 
@@ -202,7 +193,7 @@ For more information, see [health endpoint monitoring pattern](../patterns/healt
   - Probe timeout: how long before Traffic Manager considers the endpoint unhealthy.
   - Time-to-live (TTL): DNS servers must update the cached DNS records for the IP address. The time it takes depends on the DNS TTL. The default TTL is 300 seconds (5 minutes), but you can configure this value when you create the Traffic Manager profile.
 
-For more information, see [Traffic Manager monitoring](/azure/traffic-manager/traffic-manager-monitoring).
+  For more information, see [Traffic Manager monitoring](/azure/traffic-manager/traffic-manager-monitoring).
 
 ##### Application Gateway and Load Balancer
 
@@ -212,14 +203,9 @@ Familiarize yourself with the health probe policies of the Application Gateway a
 
 - Load Balancer can evaluate either HTTP or TCP. Use an HTTP probe if a VM runs an HTTP server. Use TCP for everything else.
 
-- HTTP probes send an HTTP GET request to a specified path and listen for an HTTP 200 response. This path can be the root path ("/"), or a health-monitoring endpoint that implements custom logic to check the health of the application.
-- The endpoint must allow anonymous HTTP requests. If a probe can't reach an instance within the timeout period, the Application Gateway or Load Balancer stops sending traffic to that VM. The probe continues to check and returns the VM to the back-end pool if the VM becomes available again.
+- HTTP probes send an HTTP GET request to a specified path and listen for an HTTP 200 response. This path can be the root path ("/"), or a health-monitoring endpoint that implements custom logic to check the health of the application. The endpoint must allow anonymous HTTP requests. If a probe can't reach an instance within the timeout period, the Application Gateway or Load Balancer stops sending traffic to that VM. The probe continues to check and returns the VM to the back-end pool if the VM becomes available again.
 
-For more information, see:
-
-- [Load Balancer health probes](/azure/load-balancer/load-balancer-custom-probe-overview)
-- [Application Gateway health monitoring overview](/azure/application-gateway/application-gateway-probe-overview)
-- [Health endpoint monitoring pattern](../patterns/health-endpoint-monitoring.yml)
+For more information, see [Load Balancer health probes](/azure/load-balancer/load-balancer-custom-probe-overview), [Application Gateway health monitoring overview](/azure/application-gateway/application-gateway-probe-overview), and [Health endpoint monitoring pattern](../patterns/health-endpoint-monitoring.yml).
 
 ### Security
 
@@ -233,11 +219,13 @@ This architecture follows zero-trust principles by assuming no implicit trust be
 
 - **End-to-end encryption** - Traffic is encrypted at all times when traversing the Azure network. Both Application Gateway and Azure Firewall encrypt traffic before sending it to the corresponding backend system.
 
-- **TLS certificate trust chain** - Azure Firewall Premium acts as a forward proxy and dynamically generates certificates signed by a private CA during TLS inspection. Configure Application Gateway to trust the root CA certificate that Azure Firewall uses so that the TLS handshake between them succeeds. For production deployments, use an enterprise PKI to generate the intermediate CA certificate. For more information, see [Deploy and configure enterprise CA certificates for Azure Firewall](/azure/firewall/premium-deploy-certificates-enterprise-ca) and the [certificate chain details for this architecture](/azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall#digital-certificates).
+- **TLS certificate trust chain** - Azure Firewall Premium acts as a forward proxy and dynamically generates certificates signed by a private CA during TLS inspection. Configure Application Gateway to trust the root CA certificate that Azure Firewall uses so that the TLS handshake between them succeeds.
+
+  For production deployments, use an enterprise PKI to generate the intermediate CA certificate. For more information, see [Deploy and configure enterprise CA certificates for Azure Firewall](/azure/firewall/premium-deploy-certificates-enterprise-ca) and the [certificate chain details for this architecture](/azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall#digital-certificates).
 
 - **Distributed Denial of Service (DDoS)** - Use [Azure DDoS Network Protection](/azure/ddos-protection/ddos-protection-overview) for greater DDoS protection than the basic protection that Azure provides.
 
-- **Network security groups (NSGs)** - Use [NSGs](/azure/virtual-network/network-security-groups-overview) to restrict network traffic within the virtual network. For example, in the three-tier architecture shown here, the data tier accepts traffic only from the business tier, not from the web front end. Only the business tier can communicate directly with the database tier. To enforce this rule, the database tier should block all incoming traffic except for the business-tier subnet.
+- **Network security groups (NSGs)** - Use [NSGs](/azure/virtual-network/network-security-groups-overview) to restrict network traffic within the virtual network. For example, in the three-tier architecture shown here, the data tier accepts traffic only from the business tier, not from the web front end. To enforce this rule, the database tier should block all incoming traffic except for the business-tier subnet.
 
   1. Allow inbound traffic from the business-tier subnet.
   1. Allow inbound traffic from the database-tier subnet itself. This rule allows communication between the database VMs. Database replication and failover need this rule.
@@ -259,7 +247,9 @@ Cost Optimization is about looking at ways to reduce unnecessary expenses and im
 
 - **Azure Firewall Premium** - Firewall Premium has a fixed per-deployment-unit hourly charge plus variable per-gigabyte processing fees, and it runs in both regions. If your workload does not require IDPS or TLS inspection, evaluate whether [Azure Firewall Standard](/azure/firewall/choose-firewall-sku) meets your security requirements at a lower price point.
 
-- **DDoS Network Protection and WAF discount** - [DDoS Network Protection](/azure/ddos-protection/ddos-protection-overview) has a fixed monthly cost that covers up to 100 public IP addresses across subscriptions in a tenant. When DDoS Network Protection is enabled, Application Gateway WAF instances are [billed at the lower Standard rate](/azure/application-gateway/understanding-pricing) instead of the WAF rate. For architectures with multiple Application Gateway instances like this one, the WAF discount can offset a meaningful portion of the DDoS plan cost.
+- **DDoS Network Protection and WAF discount** - [DDoS Network Protection](/azure/ddos-protection/ddos-protection-overview) has a fixed monthly cost that covers up to 100 public IP addresses across subscriptions in a tenant.
+
+  When DDoS Network Protection is enabled, Application Gateway WAF instances are [billed at the lower Standard rate](/azure/application-gateway/understanding-pricing) instead of the WAF rate. For architectures with multiple Application Gateway instances like this one, the WAF discount can offset a meaningful portion of the DDoS plan cost.
 
 - **Application Gateway scaling** - Application Gateway charges a fixed hourly rate plus variable [capacity unit](/azure/application-gateway/understanding-pricing#capacity-unit) costs. Setting the autoscale minimum instance count higher than necessary reserves capacity units you pay for regardless of traffic. Balance the minimum instance count against acceptable cold-start latency to avoid paying for unused capacity.
 
@@ -279,15 +269,19 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 - **Deployment coordination** - With two active regional stamps, deploy updates to the secondary region first and validate before promoting to the primary. Use [safe deployment practices](/azure/well-architected/operational-excellence/safe-deployments) with progressive exposure to limit blast radius. Traffic Manager's DNS weighting can support canary traffic shifting between regions during rollouts.
 
-- **Monitoring** - Deploy a [Log Analytics workspace](/azure/azure-monitor/logs/workspace-design) in each region so that monitoring remains functional even during a regional outage. Use [cross-workspace queries](/azure/azure-monitor/logs/cross-workspace-query) and [Azure Monitor workbooks](/azure/azure-monitor/visualize/workbooks-overview) to correlate signals across both regions into a unified operational view. Build a [health model](/azure/well-architected/operational-excellence/observability) that combines Traffic Manager endpoint probes, Application Gateway backend health, Firewall logs, and VM-level metrics into a composite health status.
+- **Monitoring** - Deploy a [Log Analytics workspace](/azure/azure-monitor/logs/workspace-design) in each region so that monitoring remains functional even during a regional outage.
+
+  Use [cross-workspace queries](/azure/azure-monitor/logs/cross-workspace-query) and [Azure Monitor workbooks](/azure/azure-monitor/visualize/workbooks-overview) to correlate signals across both regions into a unified operational view. Build a [health model](/azure/well-architected/operational-excellence/observability) that combines Traffic Manager endpoint probes, Application Gateway backend health, Firewall logs, and VM-level metrics into a composite health status.
 
 - **Configuration drift** - Operating two identical regional stamps creates ongoing risk of configuration drift. Use [Azure Policy](/azure/governance/policy/overview) to enforce guardrails, such as requiring NSG rules, Firewall policy versions, or Application Gateway WAF rule sets to be consistent across regions.
 
-- **Resource groups** - Use [resource groups](/azure/azure-resource-manager/management/overview) to manage Azure resources by lifetime, owner, and other characteristics.
-
 - **Virtual network peering** - Use [virtual network peering](/azure/virtual-network/virtual-network-peering-overview) to connect two or more virtual networks in Azure. The virtual networks appear as one for connectivity purposes. The traffic between virtual machines in peered virtual networks uses the Microsoft backbone infrastructure. Make sure that the address space of the virtual networks doesn't overlap.
 
-- **Operational overhead** - This IaaS architecture requires you to manage middleware configuration, certificate rotation, firewall rule tuning, and SQL Server availability group health across both regions. Flexible orchestration supports [automatic guest patching](/azure/virtual-machines/automatic-vm-guest-patching) for critical and security patches, but does not support automatic OS image upgrades. Use [Azure Update Manager](/azure/update-manager/overview) or your deployment pipeline for those. This ongoing operational burden is the primary tradeoff for the control and flexibility that IaaS provides. If your team lacks the need for this level of management, evaluate the PaaS alternatives described in the [Alternatives](#compute-platform) section.
+- **Operational overhead** - This IaaS architecture requires you to manage middleware configuration, certificate rotation, firewall rule tuning, and SQL Server availability group health across both regions.
+
+  Flexible orchestration supports [automatic guest patching](/azure/virtual-machines/automatic-vm-guest-patching) for critical and security patches, but does not support automatic OS image upgrades. Use [Azure Update Manager](/azure/update-manager/overview) or your deployment pipeline for those.
+
+  This ongoing operational burden is the primary tradeoff for the control and flexibility that IaaS provides. If your team lacks the need for this level of management, evaluate the PaaS alternatives described in the [Alternatives](#compute-platform) section.
 
 ### Performance Efficiency
 
