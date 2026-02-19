@@ -169,6 +169,7 @@ To maintain reliable traffic flow through Application Gateway:
 
 - The platform automatically distributes instances across fault domains and update domains. In regions that support availability zones, Application Gateway is zone-redundant by default, which means instances are also spread across availability zones for zonal fault tolerance.
 - Enable autoscaling and set the minimum instance count to at least two. This reserved capacity ensures that Application Gateway can serve traffic without the three-to-five-minute delay that provisioning new instances requires. For more information, see [Application Gateway autoscaling](/azure/application-gateway/application-gateway-autoscaling-zone-redundant).
+- Enable [connection draining](/azure/application-gateway/features#connection-draining) so that in-flight requests complete before backend instances are removed. Without it, scale-in events and configuration updates cause transient request failures.
 
 #### Azure Firewall
 
@@ -272,6 +273,12 @@ Performance Efficiency is the ability of your workload to meet the demands place
 *Virtual Machine Scale Sets -* Deploy a separate [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview) instance with [Flexible orchestration](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#scale-sets-with-flexible-orchestration) for each application tier (web, business, and data). Separate scale sets let you scale each tier independently based on its own demand profile. Configure [autoscaling policies](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview) on the web and business tiers to scale out during demand increases and scale in during off-peak periods.
 
 *Double inspection latency -* The HTTP(S) flow in this architecture passes traffic through both Application Gateway's WAF and Azure Firewall Premium's TLS inspection. This layered defense adds latency to each request. Test your application's performance under realistic load to confirm that the additional inspection time meets your response-time requirements.
+
+*Azure Firewall throughput -* Enabling IDPS in Alert and Deny mode significantly reduces Azure Firewall's maximum throughput compared to other modes. If your workload requires both IDPS deny-mode and high throughput, plan your capacity accordingly and monitor firewall throughput metrics. For more information, see [Azure Firewall performance](/azure/firewall/firewall-performance).
+
+*Application Gateway capacity -* WAF rule processing and TLS operations consume compute units and reduce per-instance throughput. Monitor the [capacity unit and compute unit metrics](/azure/application-gateway/understanding-pricing#capacity-unit) to verify that autoscaling keeps pace with demand.
+
+*Read-only routing -* The Always On availability group secondaries in this architecture can serve read-only queries, such as reporting or analytics workloads. Configure [read-only routing](/sql/database-engine/availability-groups/windows/configure-read-only-routing-for-an-availability-group-sql-server) to offload read traffic from the primary replica and turn the HA investment into a performance benefit.
 
 ## Next steps
 
