@@ -271,13 +271,19 @@ For more information, see:
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
+*Infrastructure as code -* This architecture has a large resource surface area: Traffic Manager, two regional stamps each with Application Gateway, Azure Firewall, load balancers, Virtual Machine Scale Sets, NSGs, VNets, and subnets. Define all resources in [Bicep](/azure/azure-resource-manager/bicep/overview) or [Terraform](/azure/developer/terraform/overview) to ensure both regional stamps stay consistent and to enable repeatable deployments.
+
+*Deployment coordination -* With two active regional stamps, deploy updates to the secondary region first and validate before promoting to the primary. Use [safe deployment practices](/azure/well-architected/operational-excellence/safe-deployments) with progressive exposure to limit blast radius. Traffic Manager's DNS weighting can support canary traffic shifting between regions during rollouts.
+
+*Monitoring -* Deploy a [Log Analytics workspace](/azure/azure-monitor/logs/workspace-design) in each region so that monitoring remains functional even during a regional outage. Use [cross-workspace queries](/azure/azure-monitor/logs/cross-workspace-query) and [Azure Monitor workbooks](/azure/azure-monitor/visualize/workbooks-overview) to correlate signals across both regions into a unified operational view. Build a [health model](/azure/well-architected/operational-excellence/observability) that combines Traffic Manager endpoint probes, Application Gateway backend health, Firewall logs, and VM-level metrics into a composite health status.
+
+*Configuration drift -* Operating two identical regional stamps creates ongoing risk of configuration drift. Use [Azure Policy](/azure/governance/policy/overview) to enforce guardrails, such as requiring NSG rules, Firewall policy versions, or Application Gateway WAF rule sets to be consistent across regions.
+
 *Resource groups -* Use [resource groups](/azure/azure-resource-manager/management/overview) to manage Azure resources by lifetime, owner, and other characteristics.
 
 *Virtual network peering -* Use [virtual network peering](/azure/virtual-network/virtual-network-peering-overview) to connect two or more virtual networks in Azure. The virtual networks appear as one for connectivity purposes. The traffic between virtual machines in peered virtual networks uses the Microsoft backbone infrastructure. Make sure that the address space of the virtual networks doesn't overlap.
 
-*Application tier patching -* Virtual Machine Scale Sets with Flexible orchestration supports [automatic guest patching](/azure/virtual-machines/automatic-vm-guest-patching), which applies critical and security patches during off-peak hours without operator intervention. However, Flexible orchestration does not support automatic OS image upgrades. Use [Azure Update Manager](/azure/update-manager/overview) or your deployment pipeline to manage OS image updates across the web, business, and data tiers.
-
-*Virtual network and subnets -* Create a separate subnet for each tier of your subnet. You should deploy VMs and resources, such as Application Gateway and Load Balancer, into a virtual network with subnets.
+*Operational overhead -* This IaaS architecture requires you to manage middleware configuration, certificate rotation, firewall rule tuning, and SQL Server availability group health across both regions. Flexible orchestration supports [automatic guest patching](/azure/virtual-machines/automatic-vm-guest-patching) for critical and security patches, but does not support automatic OS image upgrades. Use [Azure Update Manager](/azure/update-manager/overview) or your deployment pipeline for those. This ongoing operational burden is the primary tradeoff for the control and flexibility that IaaS provides. If your team lacks the need for this level of management, evaluate the PaaS alternatives described in the [Alternatives](#compute-platform) section.
 
 ### Performance Efficiency
 
