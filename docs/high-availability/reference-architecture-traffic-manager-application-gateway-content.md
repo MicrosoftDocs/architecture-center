@@ -211,6 +211,8 @@ For more information, see:
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
+This architecture follows zero-trust principles by assuming no implicit trust between components. Traffic is inspected and authorized at multiple points: Application Gateway's WAF filters HTTP-level threats, Azure Firewall Premium performs deep packet inspection on all traffic flows, NSGs enforce least-privilege network segmentation between tiers, and TLS encryption protects data in transit between every hop. No single layer is trusted to catch all threats.
+
 *Web Application Firewall -* The WAF functionality of Azure Application Gateway detects and prevents attacks at the HTTP level, such as SQL injection (SQLi) or cross-site scripting (XSS).
 
 *Next-Generation Firewall -* Azure Firewall Premium provides an additional layer of defense by inspecting content for non-web attacks, such as malicious files uploaded via HTTP(S) or any other protocol.
