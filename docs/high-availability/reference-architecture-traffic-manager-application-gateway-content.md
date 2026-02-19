@@ -199,13 +199,11 @@ Here are some recommendations for health probes in Traffic Manager, Application 
 
 Familiarize yourself with the health probe policies of the Application Gateway and load balancer to ensure you understand the health of your VMs. Here's a brief overview:
 
-- Application Gateway always uses an HTTP probe.
+- Application Gateway always uses an [HTTP probe](/azure/application-gateway/application-gateway-probe-overview).
 
-- Load Balancer can evaluate either HTTP or TCP. Use an HTTP probe if a VM runs an HTTP server. Use TCP for everything else.
+- Load Balancer can evaluate either [HTTP or TCP](/azure/load-balancer/load-balancer-custom-probe-overview). Use an HTTP probe if a VM runs an HTTP server. Use TCP for everything else.
 
 - HTTP probes send an HTTP GET request to a specified path and listen for an HTTP 200 response. This path can be the root path ("/"), or a health-monitoring endpoint that implements custom logic to check the health of the application. The endpoint must allow anonymous HTTP requests. If a probe can't reach an instance within the timeout period, the Application Gateway or Load Balancer stops sending traffic to that VM. The probe continues to check and returns the VM to the back-end pool if the VM becomes available again.
-
-For more information, see [Load Balancer health probes](/azure/load-balancer/load-balancer-custom-probe-overview), [Application Gateway health monitoring overview](/azure/application-gateway/application-gateway-probe-overview), and [Health endpoint monitoring pattern](../patterns/health-endpoint-monitoring.yml).
 
 ### Security
 
@@ -233,9 +231,7 @@ This architecture follows zero-trust principles by assuming no implicit trust be
 
   Create rule 3 with lower priority (higher number) than the first rules.
 
-  You can use [service tags](/azure/virtual-network/service-tags-overview) to define network access controls on Network Security Groups or Azure Firewall.
-
-  For more information, see [application gateway infrastructure configuration](/azure/application-gateway/configuration-infrastructure#network-security-groups).
+  You can use [service tags](/azure/virtual-network/service-tags-overview) to define network access controls on Network Security Groups or Azure Firewall. Application Gateway also has its own [required NSG rules](/azure/application-gateway/configuration-infrastructure#network-security-groups) that you must allow on its dedicated subnet.
 
 ### Cost Optimization
 
