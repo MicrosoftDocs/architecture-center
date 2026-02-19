@@ -115,7 +115,7 @@ The following table provides a list of possible use cases for Custom Vision.
 
 | Use Azure AI Content Understanding to | Don't use Azure AI Content Understanding to |
 | :----------| :-------------|
-| Extract custom structured fields from images using a schema you define, such as detecting products, brands, or defects. | Perform standard image analysis such as object detection or OCR. Use [Azure Vision](#azure-vision-in-foundry-tools-in-foundry-tools) for those tasks. |
+| Extract custom structured fields from images using a schema you define, such as detecting products, brands, or defects. | Perform standard image analysis such as object detection or OCR. Use [Azure Vision](#azure-vision-in-foundry-tools) for those tasks. |
 | Generate RAG-ready output from video, including scene descriptions, transcripts, and key frames, for use in search indexes or chat agents. | Extract deep video insights such as celebrity identification, speaker enumeration, or sentiment analysis across long-form content. Use [Azure AI Video Indexer](#azure-ai-video-indexer) for those tasks. |
 | Segment video into scenes and extract custom metadata per segment, such as brand presence or ad category. | |
 | Generate face descriptions in images or video, such as facial expressions or celebrity identification (limited access). | |
