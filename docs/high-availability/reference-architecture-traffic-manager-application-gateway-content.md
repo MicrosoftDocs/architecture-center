@@ -12,6 +12,8 @@ If your workload only exposes HTTP(S) endpoints and does not require deep packet
 
 ### Inbound HTTP(S) traffic flows
 
+HTTP(S) traffic passes through both Application Gateway's WAF and Azure Firewall Premium's TLS inspection before reaching the application tiers.
+
 :::image type="content" source="images/high-availability-multi-region-web-v-10.png" alt-text="Diagram showing multi-region load balancing with Azure Firewall, Application Gateway and Traffic Manager for web traffic." lightbox="images/high-availability-multi-region-web-v-10.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/high-availability-multi-region-v-10.vsdx) of this architecture.*
@@ -34,7 +36,7 @@ If your workload only exposes HTTP(S) endpoints and does not require deep packet
 
 ### Inbound non-HTTP(S) traffic flows
 
-Some workloads accept traffic over protocols other than HTTP(S), such as SFTP for file-based data ingestion from business partners or legacy TCP-based integrations. This flow handles those scenarios.
+Some workloads accept traffic over protocols other than HTTP(S), such as SFTP for file-based data ingestion from business partners or legacy TCP-based integrations. Non-HTTP(S) traffic routes directly to Azure Firewall for DNAT and inspection, bypassing Application Gateway.
 
 :::image type="content" source="images/high-availability-multi-region-nonweb-v-10.png" alt-text="Diagram showing multi-region load balancing with Azure Firewall, Application Gateway and Traffic Manager for non-web traffic." lightbox="images/high-availability-multi-region-nonweb-v-10.png":::
 
@@ -102,7 +104,7 @@ Outbound traffic flows for virtual machine patch updates or other connectivity t
 *Azure Firewall -* Azure Firewall Premium offers network security for generic applications (web and non-web traffic), inspecting three types of flows in this architecture:
 
 - Inbound HTTP(S) flows from the Application Gateway are protected with Azure Firewall Premium TLS inspection.
-- Inbound non-HTTP(S) flows from the public Internet are inspected with the rest of [Azure Firewall Premium features](/azure/firewall/premium-features).
+- Inbound non-HTTP(S) flows from the public Internet are inspected with the rest of [Azure Firewall Premium features](/azure/firewall/premium-features). Application Gateway also supports [Layer 4 (TCP/TLS) proxying](/azure/application-gateway/tcp-tls-proxy-overview), which could consolidate both HTTP and non-HTTP ingress onto a single entry point. However, this capability is in preview and WAF does not apply to Layer 4 traffic, so this architecture uses a separate path for non-HTTP(S) flows.
 - Outbound flows from Azure Virtual Machines are inspected by Azure Firewall to prevent data exfiltration and access to forbidden sites and applications.
 
 *Virtual Machine Scale Sets -* This architecture uses Flexible orchestration for all three application tiers. The data tier's multi-subnet SQL Server availability group requires placing individual VMs into specific subnets and fault domains, which only Flexible orchestration supports. The web and business tiers use Flexible orchestration as well to maintain a single operational model across the workload rather than mixing orchestration modes across tiers.
@@ -267,6 +269,8 @@ Operational Excellence covers the operations processes that deploy an applicatio
 Performance Efficiency is the ability of your workload to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 *Virtual Machine Scale Sets -* Deploy a separate [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview) instance with [Flexible orchestration](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#scale-sets-with-flexible-orchestration) for each application tier (web, business, and data). Separate scale sets let you scale each tier independently based on its own demand profile. Configure [autoscaling policies](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview) on the web and business tiers to scale out during demand increases and scale in during off-peak periods.
+
+*Double inspection latency -* The HTTP(S) flow in this architecture passes traffic through both Application Gateway's WAF and Azure Firewall Premium's TLS inspection. This layered defense adds latency to each request. Test your application's performance under realistic load to confirm that the additional inspection time meets your response-time requirements.
 
 ## Next steps
 
