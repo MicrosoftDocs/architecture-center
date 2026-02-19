@@ -8,8 +8,6 @@ In a Virtual WAN environment Application Gateways cannot be deployed in the hub,
 
 The proposed architecture opts for double inspection of web content through both a Web Application Firewall (based on Application Gateway) in front of Azure Firewall. Other options exist, as documented in [Firewall and Application Gateway for virtual networks](/azure/architecture/example-scenario/gateway/firewall-application-gateway), but this option is the most flexible and complete one: it exposes the client's IP address in the HTTP header `X-Forwarded-For` for the end application, it provides end-to-end encryption, and it prevents clients from bypassing the WAF to access the application.
 
-If your workload only exposes HTTP(S) endpoints and does not require deep packet inspection by Azure Firewall, use [Azure Front Door](/azure/frontdoor/front-door-overview) instead of Traffic Manager. Front Door is a layer-7 global load balancer purpose-built for HTTP(S) traffic that provides caching, traffic acceleration, TLS termination, certificate management, and built-in WAF. It is the preferred global routing solution for HTTP(S)-only workloads. This architecture uses Traffic Manager because it must also handle non-HTTP(S) protocol flows and route them through Azure Firewall for network-level inspection, which Front Door does not support.
-
 ### Inbound HTTP(S) traffic flows
 
 HTTP(S) traffic passes through both Application Gateway's WAF and Azure Firewall Premium's TLS inspection before reaching the application tiers.
@@ -78,8 +76,6 @@ Outbound traffic flows for virtual machine patch updates or other connectivity t
 
 - [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is a service that provides on-demand, scalable computing resources that give you the flexibility of virtualization but eliminate the maintenance demands of physical hardware. In this architecture, Virtual Machines host the application tiers, distributed across availability zones for resiliency and across multiple regions for recoverability.
 
-   You can replace specific components, like the database and the front-end tier, of the applications with platform as a service (PaaS) Azure resources. However, the architecture won't change significantly if you use [Azure Private Link](/azure/private-link/private-link-overview) and [Azure App Service virtual network integration](/azure/app-service/overview-vnet-integration) to bring those PaaS services into the virtual network.
-
 - [Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview) with [Flexible orchestration](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#scale-sets-with-flexible-orchestration) is a service that lets you create and manage a group of load-balanced VMs that can automatically scale based on demand. In this architecture, Virtual Machine Scale Sets hosts the web, business, and data tier VMs across availability zones in each region.
 
 - [SQL Server on VMs](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview) is a service that provides full versions of SQL Server in the cloud without having to manage any on-premises hardware. In this architecture, SQL Server on VMs forms the data tier with Always On availability groups distributed across availability zones in a [multi-subnet configuration](/azure/azure-sql/virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial-multi-subnet).
@@ -110,6 +106,42 @@ Outbound traffic flows for virtual machine patch updates or other connectivity t
 *Virtual Machine Scale Sets -* This architecture uses Flexible orchestration for all three application tiers. The data tier's multi-subnet SQL Server availability group requires placing individual VMs into specific subnets and fault domains, which only Flexible orchestration supports. The web and business tiers use Flexible orchestration as well to maintain a single operational model across the workload rather than mixing orchestration modes across tiers.
 
 *Virtual network peering -* We call peering between regions "global virtual network peering." Global virtual network peering provides low-latency, high-bandwidth data replication between regions. You can transfer data across Azure subscriptions, Microsoft Entra tenants, and deployment models with this global peering. In hub-spoke environment virtual network peerings would exist between hub and spoke networks.
+
+## Alternatives
+
+This architecture makes specific technology choices to support mixed-protocol, multi-region workloads. Your workload's requirements might lead to different choices. Consider the following alternatives.
+
+### Global load balancer
+
+**Current approach:** Traffic Manager provides DNS-based global load balancing that supports both HTTP(S) and non-HTTP(S) protocols. This architecture uses Traffic Manager because it must route non-HTTP(S) flows, such as SFTP and legacy TCP integrations, through Azure Firewall for network-level inspection.
+
+**Alternative approach:** Use [Azure Front Door](/azure/frontdoor/front-door-overview) instead of Traffic Manager. Front Door is a layer-7 global load balancer purpose-built for HTTP(S) traffic that provides caching, traffic acceleration, TLS termination, certificate management, and built-in WAF. It is the preferred global routing solution for HTTP(S)-only workloads.
+
+Consider Front Door if your workload meets the following conditions:
+
+- All inbound traffic uses HTTP(S) protocols.
+- You don't require Azure Firewall for deep packet inspection of inbound traffic.
+- You want integrated WAF and CDN capabilities at the global edge.
+
+### Compute platform
+
+**Current approach:** The web, business, and data tiers run on Virtual Machine Scale Sets with SQL Server on Azure Virtual Machines. This IaaS approach provides full control over the operating system, middleware, and database engine configuration.
+
+**Alternative approach:** Replace specific tiers with platform as a service (PaaS) resources such as [Azure App Service](/azure/app-service/overview) for the web tier or [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview) for the data tier. The overall network architecture does not change significantly if you use [Azure Private Link](/azure/private-link/private-link-overview) and [App Service virtual network integration](/azure/app-service/overview-vnet-integration) to bring those PaaS services into the virtual network.
+
+Consider PaaS alternatives if your workload meets the following conditions:
+
+- You don't require direct OS-level or middleware configuration control.
+- You want to reduce operational overhead for patching, scaling, and availability management.
+- Your database workload is compatible with Azure SQL Database feature set and limits.
+
+### Load-balancing service combination
+
+**Current approach:** This architecture uses Traffic Manager (global, DNS-based), Application Gateway (regional, layer 7), and Azure Load Balancer (regional, layer 4) to address global routing, WAF inspection, and internal tier-to-tier distribution respectively.
+
+**Alternative approach:** Your workload's protocol, latency, and security requirements might lead to a different combination of load-balancing services. For example, workloads that don't need WAF can use Azure Load Balancer alone for regional distribution, and workloads that need path-based routing without a firewall can use Application Gateway without Azure Firewall in front of it.
+
+To evaluate which services fit your scenario, see [Load-balancing options in Azure](/azure/architecture/guide/technology-choices/load-balancing-overview).
 
 ## Considerations
 
