@@ -218,13 +218,13 @@ This approach is most suitable when there's a significant regional variation in 
 
 ## Partitioning Azure Managed Redis
 
-Azure Managed Redis is a fully managed, enterprise-grade data platform built on Redis Enterprise. It excels at classic caching scenarios, and it also provides a multimodel, in-memory environment that accelerates both traditional application patterns and modern AI‑driven architectures, like AI agents.
+Azure Managed Redis is a fully managed, enterprise-grade data platform built on Redis Enterprise. It excels at classic caching scenarios, and it also provides a multimodel, in-memory environment that can accelerate both traditional application patterns and modern AI‑driven architectures, like AI agents.
 
 Azure Managed Redis supports built-in high availability and horizontal scaling through Redis clustering, which distributes data across multiple nodes. You can adjust capacity and performance by scaling the service tier and SKU, so you don't need to deploy multiple caches to increase overall storage or throughput. For more information, see [Azure Managed Redis].
 
 Partitioning a Redis data store involves splitting data across multiple nodes. Azure Managed Redis uses native Redis Cluster partitioning to automatically distribute keys across nodes based on hash slots. This approach abstracts the underlying nodes from application logic and removes the need for application-level partition management in most scenarios. For more information about clustering models and client connectivity options in Azure Managed Redis, see [Azure Managed Redis clustering](/azure/redis/architecture#clustering).
 
-Client applications connect to the cluster by using standard Redis client libraries through Redis endpoints. Requests automatically route to the appropriate node within the cluster. If a request reaches a node that doesn't own the requested key, the request forwards to the node that holds the corresponding hash slot. The Redis service and supporting client libraries handle request routing and cluster topology management.
+Client applications connect to the cluster by using standard Redis client libraries through Redis endpoints. Requests automatically route to the appropriate node within the cluster. If a request reaches a node that doesn't own the requested key, the request forwards internally to the node that holds the corresponding hash slot. The Redis service and supporting client libraries handle request routing and cluster topology management.
 
 Redis clustering is transparent to application logic. Nodes can be added or removed and data can be automatically rebalanced without requiring application reconfiguration.
 
@@ -257,12 +257,10 @@ Consider the following points when you use Azure Managed Redis to structure and 
  
   For example, in an e-commerce system that tracks customer orders, you can store each customer's details in a Redis hash that uses the customer ID as its key. Each hash holds a collection of order IDs associated with that customer. A separate Redis set stores the orders themselves as hashes that use the order ID as their key. The following diagram shows this structure. Redis doesn't enforce referential integrity, so the application must maintain relationships between customers and orders.
 
-![Suggested structure in Redis storage for recording customer orders and their details](./images/data-partitioning/redis-customers-and-orders.png)
+  ![Suggested structure in Redis storage for recording customer orders and their details.](./images/data-partitioning/redis-customers-and-orders.png)
 
-*Figure 8. Suggested structure in Redis storage for recording customer orders and their details.*
-
-> [!NOTE]
-> In Redis, keys and values are binary-safe and can store values up to hundreds of megabytes (MBs) in size. But you should keep values relatively small and bounded to minimize latency, reduce replication and rebalancing costs, and improve overall efficiency. Ensure that keys follow a consistent naming convention that's descriptive, stable, and not excessively long. A common approach is to use keys of the form `entity_type:ID`. For example, `customer:99` represents the key for a customer with ID 99.
+  > [!NOTE]
+  > In Redis, keys and values are binary-safe and can store values up to hundreds of megabytes (MBs) in size. But you should keep values relatively small and bounded to minimize latency, reduce replication and rebalancing costs, and improve overall efficiency. Ensure that keys follow a consistent naming convention that's descriptive, stable, and not excessively long. A common approach is to use keys of the form `entity_type:ID`. For example, `customer:99` represents the key for a customer with ID 99.
 
 - To implement vertical partitioning, store related information in separate data structures under different keys within the same Redis database. For example, in an e-commerce application, store commonly accessed product information in one Redis hash and store less frequently accessed or more detailed product data in another Redis hash. Both structures can use the same product identifier as part of the key, like `product:nn` for frequently accessed data and `product:details:nn` for detailed information. This approach helps reduce the amount of data that most queries retrieve and improves access efficiency.
 
