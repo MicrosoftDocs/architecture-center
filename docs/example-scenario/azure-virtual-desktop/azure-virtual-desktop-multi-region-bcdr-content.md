@@ -1,4 +1,4 @@
-This article provides implementation-level architecture and configuration guidance for deploying Azure Virtual Desktop with multiregion business continuity and disaster recovery (BCDR). You learn about BCDR model options (active-active, active-passive, and personal host pools with Site Recovery), FSLogix Cloud Cache configuration, failover and failback procedures, and storage considerations.
+This article provides implementation-level architecture and configuration guidance for deploying Azure Virtual Desktop (AVD) with multiregion business continuity and disaster recovery (BCDR). [FSLogix](/fslogix/overview) is a profile management solution that stores user profiles in virtual hard disk containers, and its Cloud Cache component enables cross-region profile replication. You learn about BCDR model options (active-active, active-passive, and personal host pools with Site Recovery), FSLogix Cloud Cache configuration, failover and failback procedures, and storage considerations.
 
 This article complements two related resources:
 
@@ -14,7 +14,7 @@ The goals of this guide are to:
 - Ensure maximum resiliency and geo-disaster recovery capability while minimizing data loss for important selected user data.
 - Minimize recovery time.
 
-These objectives are also known as the recovery point objective (RPO) and the Recovery Time Objective (RTO).
+These objectives are also known as the recovery point objective (RPO) and the recovery time objective (RTO).
 
 :::image type="content" source="images/rpo-rto-diagram.png " alt-text="Diagram that shows an example of R T O and R P O.":::
 
@@ -29,9 +29,9 @@ The achievable RPO and RTO depend on the BCDR model and host pool type you selec
 > [!NOTE]
 > These values are estimates. Validate them through DR testing in your environment. Actual RPO depends on profile size, storage throughput, and network bandwidth between regions. Actual RTO depends on the number of session hosts, autoscale configuration, and the time needed to complete application group reassignments.
 
-The proposed solution provides local high-availability, protection from a single [availability zone](/azure/reliability/availability-zones-overview) failure, and protection from an entire Azure region failure. It relies on a redundant deployment in a different, or secondary, Azure region to recover the service. While it's still a good practice, Virtual Desktop and the technology used to build BCDR don't require Azure regions to be [paired](/azure/reliability/cross-region-replication-azure). Primary and secondary locations can be any Azure region combination, if the network latency permits it. [Operating AVD host pools in multiple geographic regions](/azure/cloud-adoption-framework/ready/azure-setup-guide/regions#operate-in-multiple-geographic-regions) can offer more benefits not limited to BCDR.
+The proposed solution provides local high-availability, protection from a single [availability zone](/azure/reliability/availability-zones-overview) failure, and protection from an entire Azure region failure. It relies on a redundant deployment in a different, or secondary, Azure region to recover the service. While it's still a good practice, Virtual Desktop and the technology used to build BCDR don't require Azure regions to be [paired](/azure/reliability/cross-region-replication-azure). Primary and secondary locations can be any Azure region combination, if the network latency permits it. [Operating Azure Virtual Desktop host pools in multiple geographic regions](/azure/cloud-adoption-framework/ready/azure-setup-guide/regions#operate-in-multiple-geographic-regions) can offer more benefits not limited to BCDR.
 
-To reduce the impact of a single availability zone failure, use resiliency to improve high availability:
+To reduce the impact of a single availability zone failure, apply the following resiliency practices to improve high availability:
 
 - At the [compute](/azure/virtual-desktop/faq#can-i-set-availability-options-when-creating-host-pools-) layer, spread the Virtual Desktop session hosts across different availability zones.
 - At the [storage](/azure/storage/common/storage-redundancy) layer, use zone resiliency whenever possible.
@@ -45,13 +45,13 @@ Depending on the number of availability zones you use, evaluate over-provisionin
 
 :::image type="content" source="images/azure-az-picture.png" alt-text="Diagram that shows Azure zones, datacenters, and geographies." lightbox="images/azure-az-picture.png":::
 
-Because of the possible combinations of types, replication options, service capabilities, and availability restrictions in some regions, the [Cloud Cache](/fslogix/cloud-cache-resiliency-availability-cncpt) component from [FSLogix](/fslogix/overview) is recommended to be used instead of storage-specific replication mechanisms.
+Because of the possible combinations of types, replication options, service capabilities, and availability restrictions in some regions, use the [FSLogix](/fslogix/overview) [Cloud Cache](/fslogix/cloud-cache-resiliency-availability-cncpt) component instead of storage-specific replication mechanisms.
 
-### Out of scope
+### Scope limitations
 
-OneDrive isn't covered in this article. For more information on redundancy and high-availability, see [SharePoint and OneDrive data resiliency in Microsoft 365](/compliance/assurance/assurance-sharepoint-onedrive-data-resiliency).
+OneDrive isn't covered in this article. For more information on redundancy and high availability, see [SharePoint and OneDrive data resiliency in Microsoft 365](/compliance/assurance/assurance-sharepoint-onedrive-data-resiliency).
 
-Cost implications are discussed, but the primary goal is providing an effective geo disaster recovery deployment with minimal data loss.
+Cost implications are discussed, but the primary goal is to provide an effective geo-disaster recovery deployment with minimal data loss.
 For more BCDR details, see the following resources:
 
 - [Business continuity considerations for Azure Virtual Desktop workloads](/azure/well-architected/azure-virtual-desktop/business-continuity)
@@ -78,7 +78,7 @@ The Azure Virtual Desktop control plane (Web, Broker, Gateway, Resource director
 
 The two different Azure Virtual Desktop host pool types support different recovery solutions.
 
-- **Personal:** In this type of host pool, a user has a permanently assigned session host, which should never change. Since it's personal, this VM can store user data. The assumption is to use replication and backup techniques to preserve and protect the state.
+- **Personal:** In this type of host pool, a user has a permanently assigned session host, which should never change. Because each user has a dedicated VM, the VM can store user data. Use replication and backup techniques to preserve and protect the state.
 - **Pooled:** Users are temporarily assigned one of the available session host VMs from the pool, either directly through a desktop application group or by using remote apps. VMs are stateless and user data and profiles are stored in external storage or OneDrive.
 
 ## Active-Active vs. Active-Passive
@@ -89,15 +89,15 @@ For each single Virtual Desktop host pool, you can base your BCDR strategy on an
 
 - **Active-Active**
   - For each host pool in the primary region, you deploy a second host pool in the secondary region.
-  - This configuration provides almost zero RTO, and RPO has an extra cost.
+  - This configuration provides near-zero RTO. Achieving near-zero RPO requires extra cost.
   - You don't require an administrator to intervene or fail over. During normal operations, the secondary host pool provides the user with Virtual Desktop resources.
   - Each host pool has its own storage accounts (at least one) for persistent user profiles.
   - You should evaluate latency based on the user's physical location and connectivity available. For some Azure regions, such as Western Europe and Northern Europe, the difference can be negligible when accessing either the primary or secondary regions. You can validate this scenario using the [Azure Virtual Desktop Experience Estimator](https://azure.microsoft.com/services/virtual-desktop/assessment) tool.
-  - Users are assigned to different application groups, like *Desktop Application Group (DAG)* and *RemoteApp Application Group (RAG)*, in both the primary and secondary host pools. In this case, they see duplicate entries in their Virtual Desktop client feed. To avoid confusion, use separate Virtual Desktop workspaces with clear names and labels that reflect the purpose of each resource. Inform your users about the usage of these resources.
+  - Users are assigned to different application groups, like a *Desktop Application Group* (DAG) and a *RemoteApp Application Group* (RAG), in both the primary and secondary host pools. In this case, they see duplicate entries in their Virtual Desktop client feed. To avoid confusion, use separate Virtual Desktop workspaces with clear names and labels that reflect the purpose of each resource. Inform your users about the usage of these resources.
 
     :::image type="content" source="images/azure-virtual-desktop-multiple-workspaces.png " alt-text="Picture that explains the usage of multiple workspaces.":::
 
-  - If you need storage to manage [FSLogix Profile and ODFC containers](/fslogix/concepts-container-types) separately, use Cloud Cache to ensure almost zero RPO.
+  - If you need storage to manage [FSLogix Profile and Office Data File Container (ODFC) containers](/fslogix/concepts-container-types) separately, use Cloud Cache to ensure near-zero RPO.
     - To avoid profile conflicts, don't permit users to access both host pools at the same time.
     - Due to the active-active nature of this scenario, you should educate your users on how to use these resources in the proper way.
 
@@ -106,7 +106,7 @@ For each single Virtual Desktop host pool, you can base your BCDR strategy on an
 
 - **Active-Passive**
   - Like active-active, for each host pool in the primary region, you deploy a second host pool in the secondary region.
-  - The amount of compute resources active in the secondary region is reduced compared to the primary region, depending on the budget available. You can use automatic scaling to provide more compute capacity, but it requires more time, and Azure capacity isn't guaranteed.
+  - You deploy fewer active compute resources in the secondary region than in the primary region, depending on your budget. You can use automatic scaling to provide more compute capacity, but it requires more time, and Azure capacity isn't guaranteed.
   - This configuration provides higher RTO when compared to the active-active approach, but it's less expensive.
   - You need administrator intervention to execute a failover procedure if there's an Azure outage. The secondary host pool doesn't normally provide the user access to Virtual Desktop resources.
   - Each host pool has its own storage accounts for persistent user profiles.
@@ -114,7 +114,7 @@ For each single Virtual Desktop host pool, you can base your BCDR strategy on an
   - Users are assigned to only one set of application groups, like Desktop and Remote apps. During normal operations, these apps are in the primary host pool. During an outage, and after a failover, users are assigned to Application Groups in the secondary host pool. No duplicate entries are shown in the user's Virtual Desktop client feed, they can use the same workspace, and everything is transparent for them.
   - If you need storage to manage FSLogix Profile and Office containers, use Cloud Cache to ensure almost zero RPO.
     - To avoid profile conflicts, don't permit users to access both host pools at the same time. Since this scenario is active-passive, administrators can enforce this behavior at the application group level. Only after a failover procedure is the user able to access each application group in the secondary host pool. Access is revoked in the primary host pool application group and reassigned to an application group in the secondary host pool.
-    - Execute a failover for all application groups, otherwise users using different application groups in different host pools might cause profile conflicts if not effectively managed.
+    - Execute a failover for all application groups. Otherwise, users who access different application groups in different host pools might cause profile conflicts.
   - It's possible to allow a specific subset of users to selectively fail over to the secondary host pool and provide limited active-active behavior and test failover capability. It's also possible to fail over specific application groups, but you should educate your users to not use resources from different host pools at the same time.
 
 For specific circumstances, you can create a single host pool with a mix of session hosts located in different regions. The advantage of this solution is that if you have a single host pool, then there's no need to duplicate definitions and assignments for desktop and remote apps. Unfortunately, [disaster recovery for shared host pools](/azure/virtual-desktop/disaster-recovery-concepts#disaster-recovery-for-shared-host-pools) has several disadvantages:
@@ -183,7 +183,7 @@ Review the following architecture diagrams before reading the component-level de
 
 ### General
 
-In order to deploy either an active-active or active-passive configuration using multiple host pools and an FSLogix cloud cache mechanism, you can create the host pool inside the same workspace or a different one, depending on the model. This approach requires you to maintain the alignment and updates, keeping both host pools in sync and at the same configuration level. In addition to a new host pool for the secondary disaster recovery region, you need:
+To deploy either an active-active or active-passive configuration using multiple host pools and an FSLogix Cloud Cache mechanism, you can create the host pool inside the same workspace or a different one, depending on the model. This approach requires you to maintain the alignment and updates, keeping both host pools in sync and at the same configuration level. In addition to a new host pool for the secondary disaster recovery region, you need:
 
 - To create new distinct application groups and related applications for the new host pool.
 - To revoke user assignments to the primary host pool, and then manually reassign them to the new host pool during the failover.
@@ -198,7 +198,7 @@ There are limits for Virtual Desktop resources that must be considered in the de
 
 For diagnostics and monitoring, it's good practice to use the same Log Analytics workspace for both the primary and secondary host pool. Using this configuration, [Azure Virtual Desktop Insights](/azure/virtual-desktop/insights) offers a unified view of deployment in both regions.
 
-However, using a single log destination can cause problems if the entire primary region is unavailable. The secondary region won't be able to use the Log Analytics workspace in the unavailable region. If this situation is unacceptable, the following solutions could be adopted:
+However, using a single log destination can cause problems if the entire primary region is unavailable. The secondary region won't be able to use the Log Analytics workspace in the unavailable region. If this situation is unacceptable, consider the following solutions:
 
 - Use a separate Log Analytics workspace for each region, and then point the Virtual Desktop components to log toward its local workspace.
 - Test and review Logs Analytics [workspace replication and failover capabilities](/azure/azure-monitor/logs/workspace-replication).
@@ -210,8 +210,7 @@ However, using a single log destination can cause problems if the entire primary
 
     :::image type="content" source="images/azure-compute-gallery-hires.png" alt-text="Diagram that shows Azure Compute Gallery and Image replicas." lightbox="images/azure-compute-gallery-hires.png":::
 
-- The Azure Compute Gallery isn't a global resource. It's recommended to have at least a secondary gallery in the secondary region. In your primary region, create a gallery, a VM image definition and a VM image version. Then, create the same objects also in the secondary region. When creating the VM image version, there's the possibility to copy the VM image version created in the primary region by specifying the gallery, VM image definition and VM image version used in the primary region. Azure copies the image and creates a local VM image version.
-It's possible to run this operation by using the Azure portal or the Azure CLI command as outlined in the following articles:
+- The Azure Compute Gallery isn't a global resource. Create at least a secondary gallery in the secondary region. In your primary region, create a gallery, a VM image definition, and a VM image version. Then create the same objects in the secondary region. When you create the VM image version in the secondary region, you can copy the image version from the primary region by specifying the source gallery, VM image definition, and VM image version. Azure copies the image and creates a local VM image version. You can run this operation by using the Azure portal or the Azure CLI command as outlined in the following articles:
 
   [Create an image definition and an image version](/azure/virtual-machines/image-version)
 
@@ -219,8 +218,8 @@ It's possible to run this operation by using the Azure portal or the Azure CLI c
 
   For golden image design principles, including zone-redundant storage and replica planning, see [Golden images in Business continuity considerations](/azure/well-architected/azure-virtual-desktop/business-continuity#golden-images).
 
-- Not all the session host VMs in the secondary disaster recovery locations must be active and running all the time. You must initially create a sufficient number of VMs, and after that, use an autoscale mechanism like [Scaling plans](/azure/virtual-desktop/autoscale-scaling-plan). With these mechanisms, it's possible to maintain most compute resources in an offline or deallocated state to reduce costs.
-- It's also possible to use automation to create session hosts in the secondary region only when needed. This method optimizes costs, but depending on the mechanism you use, might require a longer RTO. This approach doesn't permit failover tests without a new deployment and doesn't permit selective failover for specific groups of users.
+- Not all the session host VMs in the secondary disaster recovery locations must be active and running all the time. You must initially create a sufficient number of VMs, and after that, use an autoscale mechanism like [Scaling plans](/azure/virtual-desktop/autoscale-scaling-plan). With these mechanisms, you can keep most compute resources in an offline or deallocated state to reduce costs.
+- You can also use automation to create session hosts in the secondary region only when needed. This method optimizes costs, but depending on the mechanism you use, might require a longer RTO. This approach doesn't permit failover tests without a new deployment and doesn't permit selective failover for specific groups of users.
 
 > [!NOTE]
 > You must power on each session host VM for a few hours at least one time every 90 days to refresh the authentication token needed to connect to the Virtual Desktop control plane. You should also routinely apply security patches and application updates.
@@ -248,8 +247,8 @@ In this guide, you use at least two separate storage accounts for each Virtual D
 - RPO and RTO are higher compared to FSLogix Cloud Cache mechanism.
 - It isn't easy to test failover and failback in a production environment.
 - Azure NetApp Files requires more considerations:
-  - Zone redundancy isn't yet available. If the resiliency requirement is more important than performance, use Azure Files share.
-  - Azure NetApp Files can be [zonal](/azure/azure-netapp-files/manage-availability-zone-volume-placement), that is customers can decide in which (single) Azure Availability Zone to allocate.
+  - Azure NetApp Files supports [elastic zone-redundant volumes](/azure/azure-netapp-files/elastic-zone-redundant-concept), which distribute data across availability zones for zone-level resilience. Evaluate whether elastic zone-redundant volumes meet your resiliency requirements.
+  - Azure NetApp Files can be [zonal](/azure/azure-netapp-files/manage-availability-zone-volume-placement), that is, customers can decide in which (single) Azure Availability Zone to allocate.
   - [Cross-zone replication](/azure/azure-netapp-files/replication#cross-zone-replication) is a recoverability capability, not automatic zone-level resilience. Use it to restore service after a zone outage rather than to continue serving traffic during one. Before using this feature, review the [requirements and considerations for cross-zone replication](/azure/azure-netapp-files/create-cross-zone-replication).
   - You can use Azure NetApp Files with zone-redundant VPN and ExpressRoute gateways, if [standard networking](/azure/azure-netapp-files/configure-network-features) feature is used, which you might use for networking resiliency. For more information, see [Supported network topologies](/azure/azure-netapp-files/azure-netapp-files-network-topologies#supported-network-topologies).
   - Azure Virtual WAN is supported when used together with Azure NetApp Files [standard networking](/azure/azure-netapp-files/configure-network-features). For more information, see [Supported network topologies](/azure/azure-netapp-files/azure-netapp-files-network-topologies#supported-network-topologies).
@@ -278,7 +277,7 @@ The storage account you use for MSIX application packages should be distinct fro
 
 Microsoft recommends that you use the following FSLogix configuration and features:
 
-- If the Profile container content needs to have separate BCDR management, and has different requirements compared to the Office container, you should split them.
+- If the Profile container content needs separate BCDR management with different requirements than the Office container, split Profile and Office containers into separate storage accounts.
   - Office Container only has cached content that can be rebuilt or repopulated from the source if there's a disaster. With Office Container, you might not need to keep backups, which can reduce costs.
   - When you use different storage accounts, you can only enable backups on the profile container. Or, you must have different settings like retention period, storage used, frequency, and RTO/RPO.
 - [Cloud Cache](/fslogix/cloud-cache-resiliency-availability-cncpt) is an FSLogix component in which you can specify multiple profile storage locations and asynchronously replicate profile data, all without relying on any underlying storage replication mechanisms. If the first storage location fails or isn't reachable, Cloud Cache automatically fails over to use the secondary, and effectively adds a resiliency layer. Use Cloud Cache to replicate both Profile and Office containers between different storage accounts in the primary and secondary regions.
@@ -286,7 +285,7 @@ Microsoft recommends that you use the following FSLogix configuration and featur
     :::image type="content" source="images/cloud-cache-general.png" lightbox="images/cloud-cache-general.png" alt-text="Diagram that shows a high-level view of Cloud Cache.":::
 
 - You must enable Cloud Cache twice in the session host VM registry, once for [Profile Container](/fslogix/configure-cloud-cache-tutorial#configuring-cloud-cache-for-profile-container) and once for [Office Container](/fslogix/configure-cloud-cache-tutorial#configuring-cloud-cache-for-office-container). It's possible to not enable Cloud Cache for Office Container, but not enabling it might cause a data misalignment between the primary and the secondary disaster recovery region if there's failover and failback. Test this scenario carefully before using it in production.
-- Cloud Cache is compatible with both [profile split](/fslogix/profile-container-office-container-cncpt) and [per-group](/fslogix/configure-per-user-per-group-ht) settings. per-group requires careful design and planning of active directory groups and membership. You must ensure that every user is part of exactly one group, and that group is used to grant access to host pools.
+- Cloud Cache is compatible with both [profile split](/fslogix/profile-container-office-container-cncpt) and [per-group](/fslogix/configure-per-user-per-group-ht) settings. Per-group requires careful design and planning of Active Directory groups and membership. You must ensure that every user is part of exactly one group, and that group is used to grant access to host pools.
 - In the secondary disaster recovery region, reverse the *CCDLocations* provider order so the local (secondary) storage account is listed first. Cloud Cache writes to the first reachable provider as the active write target and asynchronously replicates to subsequent entries. By listing the local storage account first in each region, you ensure that writes go to local storage during normal operations and that replication flows cross-region. For more information, see [Tutorial: Configure Cloud Cache to redirect profile containers or office container to multiple Providers](/fslogix/configure-cloud-cache-tutorial).
 
   > [!TIP]
@@ -324,7 +323,7 @@ The following example shows a Cloud Cache configuration and related registry key
 
 ### Cloud Cache replication
 
-The Cloud Cache configuration and replication mechanisms guarantee profile data replication between different regions with minimal data loss. Since the same user profile file can be opened in ReadWrite mode by only one process, concurrent access should be avoided, thus users shouldn't open a connection to both host pools at the same time.
+The Cloud Cache configuration and replication mechanisms enable profile data replication between different regions with minimal data loss. Since the same user profile file can be opened in ReadWrite mode by only one process, concurrent access should be avoided, thus users shouldn't open a connection to both host pools at the same time.
 
 :::image type="content" source="images/cloud-cache-replication-diagram.png" alt-text="Diagram that shows a high-level overview of the Cloud Cache replication flow." lightbox="images/cloud-cache-replication-diagram.png":::
 
@@ -395,7 +394,7 @@ One of the desired characteristics of an active-active disaster recovery model i
 
 In an active-passive model, the secondary disaster recovery region should be idle, with minimal resources configured, and active. Configuration should be kept aligned with the primary region. If there's a failover, reassignments for all users to all desktop and application groups for remote apps in the secondary disaster recovery host pool happen at the same time.
 
-It's possible to have an active-active model and partial failover. If the host pool is only used to provide desktop and application groups, then you can partition the users in multiple nonoverlapping Active Directory groups and reassign the group to desktop and application groups in the primary or secondary disaster recovery host pools. A user shouldn't have access to both host pools at the same time. If there's multiple application groups and applications, the user groups you use to assign users might overlap. In this case, it's difficult to implement an active-active strategy. Whenever a user starts a remote app in the primary host pool, the user profile is loaded by FSLogix on a session host VM. Trying to do the same on the secondary host pool might cause a conflict on the underlying profile disk.
+It's possible to have an active-active model and partial failover. If the host pool is only used to provide desktop and application groups, then you can partition the users in multiple nonoverlapping Active Directory groups and reassign the group to desktop and application groups in the primary or secondary disaster recovery host pools. A user shouldn't have access to both host pools at the same time. If there are multiple application groups and applications, the user groups you use to assign users might overlap. In this case, it's difficult to implement an active-active strategy. Whenever a user starts a remote app in the primary host pool, the user profile is loaded by FSLogix on a session host VM. Trying to do the same on the secondary host pool might cause a conflict on the underlying profile disk.
 
 > [!WARNING]
 > By default, FSLogix [registry settings](/fslogix/profile-container-configuration-reference#profiletype) prohibit concurrent access to the same user profile from multiple sessions. In this BCDR scenario, you shouldn't change this behavior and leave a value of **0** for registry key **ProfileType**.
@@ -403,8 +402,8 @@ It's possible to have an active-active model and partial failover. If the host p
 Here's the initial situation and configuration assumptions:
 
 - The host pools in the primary region and secondary disaster recovery regions are aligned during configuration, including Cloud Cache.
-- In the host pools, both DAG1 desktop and APPG2 and APPG3 remote app application groups are offered to users.
-- In the host pool in the primary region, Active Directory user groups GRP1, GRP2, and GRP3 are used to assign users to DAG1, APPG2, and APPG3. These groups might have overlapping user memberships, but since the model here uses active-passive with full failover, it's not a problem.
+- In the host pools, both DAG1 (Desktop Application Group) and APPG2 and APPG3 (RemoteApp Application Groups) are offered to users.
+- In the host pool in the primary region, Active Directory user groups (GRP) GRP1, GRP2, and GRP3 are used to assign users to DAG1, APPG2, and APPG3. These groups might have overlapping user memberships, but since the model here uses active-passive with full failover, it's not a problem.
 
 The following steps describe when a failover happens, after either a planned or unplanned disaster recovery.
 
@@ -431,10 +430,10 @@ It's also possible to implement a test failover plan with a few configuration ch
 
 ## Backup
 
-An assumption in this guide is that there's profile split and data separation between Profile containers and Office containers.
+This guide assumes that you separate Profile containers and Office containers.
 FSLogix permits this configuration and the usage of separate storage accounts. Once in separate storage accounts, you can use different backup policies.
 
-- For ODFC Container, if the content represents only cached data that can be rebuilt from on-line data store like Microsoft 365, it isn't necessary to back up data.
+- For ODFC containers, if the content represents only cached data that can be rebuilt from an online data store like Microsoft 365, it isn't necessary to back up data.
 - If it's necessary to back up Office container data, you can use a less expensive storage or a different backup frequency and retention period.
 - For a personal host pool type, you should execute the backup at the session host VM level. This method only applies if the data is stored locally.
 - If you use OneDrive and known folder redirection, the requirement to save data inside the container might disappear.
@@ -456,12 +455,12 @@ FSLogix permits this configuration and the usage of separate storage accounts. O
 Principal authors:
 
 - [Ben Martin Baur](https://www.linkedin.com/in/ben-martin-baur/) | Technical Architect - Microsoft Innovation Hub
-- [Igor Pagliai](https://www.linkedin.com/in/igorpag/) | FastTrack for Azure (FTA) Principal Engineer
 
 Other contributors:
 
 - [Nelson Del Villar](https://www.linkedin.com/in/nelsondelvillar) | Cloud Solution Architect, Azure Core Infrastructure
 - [Jason Martinez](https://www.linkedin.com/in/jason-martinez-502766123) | Technical Writer
+- [Igor Pagliai](https://www.linkedin.com/in/igorpag/) | FastTrack for Azure (FTA) Principal Engineer
 
 ## Next steps
 
