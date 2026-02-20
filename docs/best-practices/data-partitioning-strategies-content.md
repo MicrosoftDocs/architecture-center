@@ -237,11 +237,11 @@ The remainder of this section focuses on data modeling and key design considerat
 
 Consider the following points when you use Azure Managed Redis to structure and partition data:
 
-- Azure Managed Redis doesn't serve as a permanent system of record. Applications must retrieve data from a durable data store if data becomes unavailable or Redis evicts data.
+- Azure Managed Redis doesn't serve as a permanent system of record. Applications must be able to retrieve data from a durable data store if data becomes unavailable, or if data is evicted from Redis.
 
   Applications populate data in Azure Managed Redis by using different patterns depending on their requirements. In cache-aside approaches, applications load data into Redis on demand. Applications might also use ingestion-based patterns, where data is proactively written to Redis from external systems. You can implement ingestion by using event-driven or batch ingestion mechanisms, like Redis Data Integration (RDI) or Azure Functions, which synchronize data from durable data stores into Redis.
 
-- Structure data that's frequently accessed together so that it can be stored and retrieved together. Redis provides a broad set of optimized data structures to support different access patterns:
+- Structure or model frequently accessed data together, so that it can be stored and retrieved together. Redis provides a broad set of optimized data structures to support different access patterns. Some examples of optimized data structures include:
 
   - Simple key-value entries for small, bounded values
   - Aggregate types, like lists, which can act as queues and stacks
