@@ -97,7 +97,7 @@ spec:
 - Use [APIM rate‑limit policies](/azure/api-management/api-management-policies#rate-limiting-and-quotas) to control request throughput per client or backend.
 - Use [Azure Functions concurrency](/azure/azure-functions/functions-concurrency) controls to limit parallel executions.
 - Set [Container Apps resource limits](/azure/container-apps/containers) to control CPU and memory per workload.
-- Assign [Cosmos DB RU throughput](/azure/cosmos-db/throughput) per container for predictable isolation.
+- Assign [Cosmos DB RU throughput](/azure/cosmos-db/set-throughput) per container for predictable isolation.
 
 ## Related resources
 
