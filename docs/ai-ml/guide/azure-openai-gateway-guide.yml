@@ -2,9 +2,9 @@
 metadata:
   title: Access Azure OpenAI in Foundry Models and Other Language Models Through a Gateway
   description: Understand how implementing a gateway helps manage access to Azure OpenAI and other language models more securely and efficiently.
-  author: claytonsiemens77
-  ms.author: pnp
-  ms.date: 12/16/2024
+  author: davihern
+  ms.author: davihern
+  ms.date: 02/22/2026
   ms.topic: concept-article
   ms.collection: ce-skilling-ai-copilot  
   ms.subservice: architecture-guide
