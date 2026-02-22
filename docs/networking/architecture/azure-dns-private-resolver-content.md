@@ -34,7 +34,7 @@ The following workflow corresponds to the previous diagram:
 
 1. The response arrives at the on-premises internal DNS server.
 
-1. The response arrives at the client VM.
+1. The response arrives at the client VM. 
 
 1. The client VM establishes a private connection to the private endpoint that uses the IP address `10.5.0.5`. The private endpoint provides the client VM with a more secure connection to an Azure database.
 
