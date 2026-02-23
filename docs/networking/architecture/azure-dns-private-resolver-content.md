@@ -165,11 +165,11 @@ The following diagram shows the traffic flow that results when VM 1 issues a DNS
 
 1. The Azure private DNS service resolves DNS queries that are sent through the Azure public DNS service to the DNS Private Resolver inbound endpoint.
 
-#### Traffic flow for a VM DNS query via DNS Private Resolver (usecase 5 - Nested DNS Resolver)
+#### Traffic flow for a VM DNS query via DNS Private Resolver (usecase 5 - nested DNS resolver)
 
 The following diagram shows the traffic flow that results when VM 1 issues a DNS request via a Hub DNS Private Resolver inbound endpoint. In this scenario, the Spoke 1 spoke virtual network attempts to resolve the request to the nested DNS resolver.
 
-:::image type="complex" border="false" source="./_images/azure-dns-private-resolver-spoke-query-traffic-uc2.svg" alt-text="Architecture diagram that shows traffic with DNS Private Resolver when a spoke VM issues a DNS request." lightbox="./_images/azure-dns-private-resolver-spoke-query-traffic-uc2.svg":::
+:::image type="complex" border="false" source="./_images/azure-dns-private-resolver-spoke-query-traffic-uc5.svg" alt-text="Architecture diagram that shows traffic with DNS Private Resolver when a spoke VM issues a DNS request." lightbox="./_images/azure-dns-private-resolver-spoke-query-traffic-uc2.svg":::
    The image includes two main sections. The On-premises section contains the on-premises server, Windows desktops, App 1, App 2, App 3, and servers and their IP addresses. Azure ExpressRoute connects the On-premises section to the site-to site or Azure ExpressRoute gateway in the Azure section. The Azure section contains the inbound and outbound endpoints, Azure DNS, Azure Private DNS, Azure DNS Private Resolver, and DNS server sections that contain a spoke and a VM. A green arrow indicates the flow between the DNS server sections, the inbound endpoint, Azure DNS, and Azure private DNS. The DNS server sections also connect via the DNS forwarding virtual network link to the DNS forwarding rule set. A dotted line connects this section to the outbound endpoint.
 :::image-end:::
 
@@ -180,17 +180,17 @@ The following diagram shows the traffic flow that results when VM 1 issues a DNS
 1. If the query doesn't match a private DNS zone linked to the hub resolver virtual network, DNS Private Resolver checks for a DNS forwarding rule set associated with the resolver virtual network.
 
 1. If a match is found in the DNS forwarding rule set, the DNS query is forwarded via the outbound endpoint to the IP address specified in the rule set.
-   - Note: In this scenario, since the hub resolver already has a virtual network link to privatelink.blob.core.windows.net, the DNS forwarding ruleset intended to forward queries to privatelink.blob.core.windows.net to the nested DNS resolver will not work by design.
+   - Note: In this scenario, since the hub resolver already has a virtual network link to privatelink.blob.core.windows.net, the DNS forwarding ruleset intended to forward queries to privatelink.blob.core.windows.net (**4.1**) to the nested DNS resolver will not work by design.
 
 1. If the Azure private DNS service (**2**) and DNS Private Resolver (**3**) can't find a matching record, Azure DNS (**5**) is used to resolve the query.
 
 Each DNS forwarding rule specifies one or more target DNS servers to use for conditional forwarding. The specified information includes the domain name, target IP address, and port.
 
-#### Traffic flow for a VM DNS query via DNS Private Resolver (usecase 6 - Nested DNS Resolver)
+#### Traffic flow for a VM DNS query via DNS Private Resolver (usecase 6 - nested DNS resolver)
 
 The following diagram shows the traffic flow that results when VM 1 issues a DNS request via a Hub DNS Private Resolver inbound endpoint. In this scenario, the Spoke 1 spoke virtual network attempts to resolve the request to the nested DNS resolver.
 
-:::image type="complex" border="false" source="./_images/azure-dns-private-resolver-spoke-query-traffic-uc2.svg" alt-text="Architecture diagram that shows traffic with DNS Private Resolver when a spoke VM issues a DNS request." lightbox="./_images/azure-dns-private-resolver-spoke-query-traffic-uc2.svg":::
+:::image type="complex" border="false" source="./_images/azure-dns-private-resolver-spoke-query-traffic-uc6.svg" alt-text="Architecture diagram that shows traffic with DNS Private Resolver when a spoke VM issues a DNS request." lightbox="./_images/azure-dns-private-resolver-spoke-query-traffic-uc2.svg":::
    The image includes two main sections. The On-premises section contains the on-premises server, Windows desktops, App 1, App 2, App 3, and servers and their IP addresses. Azure ExpressRoute connects the On-premises section to the site-to site or Azure ExpressRoute gateway in the Azure section. The Azure section contains the inbound and outbound endpoints, Azure DNS, Azure Private DNS, Azure DNS Private Resolver, and DNS server sections that contain a spoke and a VM. A green arrow indicates the flow between the DNS server sections, the inbound endpoint, Azure DNS, and Azure private DNS. The DNS server sections also connect via the DNS forwarding virtual network link to the DNS forwarding rule set. A dotted line connects this section to the outbound endpoint.
 :::image-end:::
 
@@ -201,7 +201,7 @@ The following diagram shows the traffic flow that results when VM 1 issues a DNS
 1. If the query doesn't match a private DNS zone linked to the hub resolver virtual network, DNS Private Resolver checks for a DNS forwarding rule set associated with the resolver virtual network.
 
 1. If a match is found in the DNS forwarding rule set, the DNS query is forwarded via the outbound endpoint to the IP address specified in the rule set.
-   - Note: In this scenario, since the hub resolver does not have any virtual network link to privatelink.vaultcore.azure.net, the DNS forwarding ruleset intended to forward queries xyz.privatelink.vaultcore.azure.net to the nested DNS resolver woud work as intended. 
+   - Note: In this scenario, since the hub resolver does not have any virtual network link to privatelink.vaultcore.azure.net, the DNS forwarding ruleset intended to forward queries xyz.privatelink.vaultcore.azure.net (**4.1**) to the nested DNS resolver woud work as intended. 
 
 1. If the Azure private DNS service (**2**) and DNS Private Resolver (**3**) can't find a matching record, Azure DNS (**5**) is used to resolve the query.
 
