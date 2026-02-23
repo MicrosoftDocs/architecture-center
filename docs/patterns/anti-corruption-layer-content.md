@@ -89,6 +89,7 @@ Beyond this synchronous request/response model, the anti-corruption layer can al
 ## Next steps
 
 - Explore cloud design patterns that help manage distributed transactions and maintain data consistency, such as the [Compensating Transaction pattern](./compensating-transaction.yml) and [Saga distributed transactions pattern](./saga.yml)
+- Because the anti-corruption layer can become a single point of failure, plan for resilience using the [Retry pattern](./retry.yml), [Circuit Breaker pattern](./circuit-breaker.md), [Bulkhead pattern](./bulkhead.yml), and [Health Endpoint Monitoring pattern](./health-endpoint-monitoring.yml).
 
 ## Related resources
 
