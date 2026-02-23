@@ -1,3 +1,13 @@
+title: Data Partitioning Guidance
+description: Learn how to preserve the original HTTP host name between a reverse proxy and its back-end web application in common Azure
+author: claytonsiemens77
+ms.author: pnp
+ms.date: 07/25/2022
+ms.topic: concept-article
+ms.subservice: architecture-guide
+
+# Preserve the original HTTP host name between a reverse proxy and its back-end web application
+
 We recommend that you preserve the original HTTP host name when you use a reverse proxy in front of a web application. If you use a different host name at the reverse proxy, cookies or redirect URLs might not work properly. For example, session state might get lost, authentication might fail, or back-end URLs might inadvertently be exposed to end users. By preserving the host name of the initial request, the application server sees the same domain as the web browser.
 
 This guidance applies especially to applications that are hosted in platform as a service (PaaS) offerings like [Azure App Service](/azure/app-service) and [Azure Container Apps](/azure/container-apps). This article provides specific [implementation guidance](#implementation-guidance-for-common-azure-services) for commonly used reverse proxy services, including [Azure Application Gateway](/azure/application-gateway), [Azure Front Door](/azure/frontdoor), and [Azure API Management](/azure/api-management).
