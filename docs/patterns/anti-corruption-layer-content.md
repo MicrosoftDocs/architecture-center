@@ -51,7 +51,7 @@ An architect should evaluate how the Anti-corruption Layer pattern can be used i
 
 | Pillar | How this pattern supports pillar goals |
 | :----- | :------------------------------------- |
-| [Operational Excellence](/azure/well-architected/operational-excellence/checklist) helps deliver **workload quality** through **standardized processes** and team cohesion. | This pattern helps ensure that new component design remains uninfluenced by legacy implementations that might have different data models or business rules when you integrate with these legacy systems and it can reduce technical debt in new components while still supporting existing components.<br/><br/> - [OE:04 Tools and processes](/azure/well-architected/operational-excellence/tools-processes) |
+| [Operational Excellence](/azure/well-architected/operational-excellence/checklist) helps deliver **workload quality** through **standardized processes** and team cohesion. | This pattern helps ensure that new component design remains uninfluenced by legacy implementations that might have different data models or business rules when you integrate with these legacy systems and it can reduce technical debt in new components while still supporting existing components.<br/><br/> - [OE:04 Tools and processes](/azure/well-architected/operational-excellence/tools-processes)<br/> - [OE:07 Monitoring system](/azure/well-architected/operational-excellence/observability) |
 
 As with any design decision, consider any tradeoffs against the goals of the other pillars that might be introduced with this pattern.
 
@@ -60,35 +60,31 @@ As with any design decision, consider any tradeoffs against the goals of the oth
 This pattern is conceptual and originates in Domain‑Driven Design. Azure services such as API Management or Azure Functions may assist with protocol handling and translation, but the core purpose of an Anti‑corruption Layer is to protect the domain model, not to prescribe any specific product choice.
 
 ```text
-   Client Apps
-       |
-       v
-+--------------------+
-| Azure API          |
-| Management (APIM)  |  <-- Auth, throttling, protocol facade (REST)
-+--------------------+
-          |
-          v
-+----------------------------+
-| Azure Function             |
-| OrdersAclFunction          |  <-- Domain mapping & Anti-corruption Layer
-| - Maps REST DTO -> Domain  |
-| - Maps Domain -> Legacy DTO|
-+----------------------------+
-          |
-          v
-+----------------------------+
-| Azure Logic App            |
-| LegacyOrderConnector       |  <-- Calls legacy API (HTTP/SOAP/etc.)
-+----------------------------+
-          |
-          v
-+----------------------------+
-| Legacy Order System        |
-+----------------------------+
+       Client Apps
+           |
+           v
+    +--------------------+
+    | Azure API          |
+    | Management (APIM)  |  <-- Auth, throttling, protocol facade (REST)
+    +--------------------+
+              |
+              v                     +----------------------------+
+    +----------------------------+  | Azure Monitor              |
+    | Azure Function             |  | & Application Insights     |
+    | OrdersAclFunction          |  |                            |
+    | - Maps REST DTO -> Domain  |--| - Logging & Tracing        |
+    | - Maps Domain -> Legacy DTO|  | - Translation Error Rates  |
+    +----------------------------+  +----------------------------+
+              |
+              v
+    +----------------------------+
+    | Legacy Order System        |
+    +----------------------------+
 ```
 
-In this example, API Management handles exposure and protocol concerns, while the Azure Function (OrdersAclFunction) implements the Anti-corruption Layer by mapping between the modern domain model and the legacy order system via a Logic App.
+In this example, API Management handles the external exposure and protocol concerns. The Azure Function implements the Anti-corruption Layer through domain mapping between the new system and the legacy system. Azure Monitor and Application Insights provide the critical observability required to track the success and latency of the translation between the two subsystems.
+
+Beyond this synchronous request/response model, an Anti-corruption Layer often adopts an asynchronous, event-driven architecture. By utilizing **Azure Service Bus**, **Azure Event Grid**, or **Azure Event Hubs**, the ACL can decouple the modern domain from the legacy system's throughput constraints. This approach provides the architect with the option to use message-based translation for high-throughput or highly decoupled workloads, ensuring that the new system remains resilient to the latency or downtime of legacy components.
 
 ## Next steps
 
