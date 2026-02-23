@@ -84,7 +84,7 @@ This pattern is conceptual and originates in Domain‑Driven Design. Azure servi
 
 In this example, API Management handles the external exposure and protocol concerns. The Azure Function implements the Anti-corruption Layer through domain mapping between the new system and the legacy system. Azure Monitor and Application Insights provide the critical observability required to track the success and latency of the translation between the two subsystems.
 
-Beyond this synchronous request/response model, an Anti-corruption Layer often adopts an asynchronous, event-driven architecture. By utilizing **Azure Service Bus**, **Azure Event Grid**, or **Azure Event Hubs**, the ACL can decouple the modern domain from the legacy system's throughput constraints. This approach provides the architect with the option to use message-based translation for high-throughput or highly decoupled workloads, ensuring that the new system remains resilient to the latency or downtime of legacy components.
+Beyond this synchronous request/response model, the anti-corruption layer can also use an asynchronous, event-driven approach. By using Azure Service Bus, Azure Event Grid, or Azure Event Hubs, the layer decouples the modern domain from the legacy system's throughput constraints, enabling message-based translation for high-throughput or highly decoupled workloads.
 
 ## Next steps
 
