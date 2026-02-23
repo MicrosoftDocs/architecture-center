@@ -46,7 +46,7 @@ This article uses the following scenarios to describe how each deployment patter
 
 In this deployment pattern, you provision a single workspace to cater to all your use cases. All business units work within the same, single workspace.
 
-:::image type="content" source="../_images/fabric-deployment-pattern-1-monolithic-deployment.svg" alt-text="Diagram that shows a single Fabric tenant that has a single capacity and a single workspace." border="false":::
+:::image type="content" source="../media/fabric-deployment-pattern-1-monolithic-deployment.svg" alt-text="Diagram that shows a single Fabric tenant that has a single capacity and a single workspace." border="false":::
 
 When you provision a single Fabric capacity and attach a single workspace to it, the following points are true:
 
@@ -87,7 +87,7 @@ The following table presents considerations that might influence your decision t
 
 In this deployment pattern, you use separate workspaces. Because a single capacity is shared across workspaces, workloads that run concurrently can affect the performance of jobs and interactive queries.
 
-:::image type="content" source="../_images/fabric-deployment-pattern-2-multiple-workspaces-single-capacity.svg" alt-text="Diagram that shows a single Fabric tenant that contains a single capacity and two workspaces." border="false":::
+:::image type="content" source="../media/fabric-deployment-pattern-2-multiple-workspaces-single-capacity.svg" alt-text="Diagram that shows a single Fabric tenant that contains a single capacity and two workspaces." border="false":::
 
 When you provision a single Fabric capacity and attach multiple workspaces to it, the following points are true:
 
@@ -130,7 +130,7 @@ The following table presents considerations that might influence your decision t
 
 In this deployment pattern, you achieve separation between business units for governance and performance.
 
-:::image type="content" source="../_images/fabric-deployment-pattern-3-multiple-workspaces-multiple-capacites.svg" alt-text="Diagram that shows a single Fabric tenant that contains two capacities. The first capacity has two workspaces. The second capacity has one workspace." border="false":::
+:::image type="content" source="../media/fabric-deployment-pattern-3-multiple-workspaces-multiple-capacites.svg" alt-text="Diagram that shows a single Fabric tenant that contains two capacities. The first capacity has two workspaces. The second capacity has one workspace." border="false":::
 
 When you provision multiple Fabric capacities with their own workspaces, the following points are true:
 
