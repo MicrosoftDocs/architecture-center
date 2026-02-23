@@ -43,7 +43,7 @@ Use this pattern when:
 
 This pattern might not be suitable when:
 
-- There are no significant semantic differences between new and legacy systems. At the same time, it is important to remain the anti-corruption layer focused on translation logic. Avoid placing business rules or orchestration in the layer.
+- There are no significant semantic differences between new and legacy systems. At the same time, it is important to keep the anti-corruption layer focused on translation logic. Avoid placing business rules or orchestration in the layer.
 
 ## Workload design
 
