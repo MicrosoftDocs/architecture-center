@@ -31,7 +31,7 @@ Consider the following points as you decide how to implement this pattern:
 - Consider whether the anti-corruption layer needs to handle all communication between different subsystems, or just a subset of features.
 - If the anti-corruption layer is part of an application migration strategy, consider whether it will be permanent, or will be retired after all legacy functionality has been migrated.
 - This pattern is illustrated with distinct subsystems above, but can apply to other service architectures as well, such as when integrating legacy code together in a monolithic architecture.
-- Treat the anti-corruption layer as a security and trust boundary, ensuring validation and sanitization of all interactions.
+- Because the anti-corruption layer mediates between systems that might have different trust levels, consider enforcing input validation, and sanitization at this boundary. 
 - Plan for observability, including correlation IDs and structured logging, to diagnose translation failures.
 
 ## When to use this pattern
