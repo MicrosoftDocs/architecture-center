@@ -18,7 +18,7 @@ products:
   - azure-application-gateway
   - azure-container-apps
   - azure-front-door
-name: Preserve the original HTTP host name between a reverse proxy and its backend web application
+name: Preserve the original HTTP host name between a reverse proxy and its back-end web application
 summary: Learn how to preserve the original HTTP host name between a reverse proxy and its back-end web application in common Azure services.
 thumbnailUrl: /azure/architecture/browse/thumbs/issue-redirect-urls.png
 content: |

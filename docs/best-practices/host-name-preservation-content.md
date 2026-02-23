@@ -3,7 +3,7 @@ We recommend that you preserve the original HTTP host name when you use a revers
 This guidance applies especially to applications that are hosted in platform as a service (PaaS) offerings like [Azure App Service](/azure/app-service) and [Azure Container Apps](/azure/container-apps). This article provides specific [implementation guidance](#implementation-guidance-for-common-azure-services) for commonly used reverse proxy services, including [Azure Application Gateway](/azure/application-gateway), [Azure Front Door](/azure/frontdoor), and [Azure API Management](/azure/api-management).
 
 > [!NOTE]
-> Web APIs are less sensitive to the problems caused by host name mismatches. Web APIs don't usually depend on cookies, unless you [use cookies to secure communications between a single-page app and its back-end API](https://auth0.com/docs/manage-users/cookies/spa-authenticate-with-cookies), for example, in a pattern known as [Backends for Frontends](/azure/architecture/patterns/backends-for-frontends). Web APIs often don't return absolute URLs back to themselves, except in certain API styles, like [Open Data Protocol (OData)](https://www.odata.org/) and [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS). The guidance provided in this article doesn't apply in scenarios where your API implementation depends on cookies or generates absolute URLs.
+> Web APIs are less sensitive to the problems caused by host name mismatches. Web APIs don't usually depend on cookies, unless you [use cookies to secure communications between a single-page app and its back-end API](https://auth0.com/docs/manage-users/cookies/spa-authenticate-with-cookies), for example, in a pattern known as [Backends for Frontends](/azure/architecture/patterns/backends-for-frontends). Web APIs often don't return absolute URLs back to themselves, except in certain API styles, like [Open Data Protocol (OData)](https://www.odata.org/) and [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS). The guidance provided in this article applies in scenarios where your API implementation depends on cookies or generates absolute URLs.
 
 If you require end-to-end TLS/SSL (that is, the connection between the reverse proxy and the back-end service uses HTTPS), the back-end service also needs a matching TLS certificate for the original host name. This requirement adds operational complexity when you deploy and renew certificates, but many PaaS services offer free TLS certificates that are fully managed.
 
@@ -48,7 +48,7 @@ Sometimes the incoming host name is used by components outside of the applicatio
 
 ## Reasons to override the host name
 
-When you create a web application in App Service, or a similar service like Azure Container Apps, with a default domain of `contoso.azurewebsites.net`, you don't configure a custom domain on App Service. To put a reverse proxy, like Application Gateway, in front of this application, you set the DNS record for `contoso.com` to resolve to the IP address of Application Gateway. App Service receives the request for `contoso.com` from the browser, and is configured to forward that request to the IP address that `contoso.azurewebsites.net` resolves to. This is the final back-end service for the requested host. App Service doesn't recognize the `contoso.com` custom domain, and rejects all incoming requests for this host name. It can't determine where to route the request.
+When you create a web application in App Service, or a similar service like Azure Container Apps, with a default domain of `contoso.azurewebsites.net`, you don't configure a custom domain on App Service. To put a reverse proxy, like Application Gateway, in front of this application, you set the DNS record for `contoso.com` to resolve to the IP address of Application Gateway. Application Gateway receives the request for `contoso.com` from the browser, and forwards it to the App Service endpoint at `contoso.azurewebsites.net`. App Service is the final back-end service for the requested host. However, because App Service doesn't recognize the `contoso.com` custom domain, it rejects all incoming requests for this host name. It can't determine where to route the request.
 
 It might seem like the easy way to make this configuration work is to override or rewrite the `Host` header of the HTTP request in Application Gateway and set it to the value of `contoso.azurewebsites.net`. If you do, the outgoing request from Application Gateway makes it seem like the original request was intended for `contoso.azurewebsites.net` instead of `contoso.com`:
 
@@ -58,7 +58,7 @@ Now, App Service recognizes the host name, and it accepts the request without ne
 
 ## Potential problems
 
-The following sections describe common problems that can arise when the original HTTP host name isn’t preserved between a reverse proxy and the back-end application.
+The following sections describe common problems that can arise when the original HTTP host name isn't preserved between a reverse proxy and the back-end application.
 
 ### Incorrect absolute URLs
 
@@ -98,7 +98,7 @@ A host name mismatch can also cause problems when the application server issues 
 1. The browser sends a request for `contoso.com` to the reverse proxy.
 2. The reverse proxy rewrites the host name to be `contoso.azurewebsites.net` in the request to the back-end web application, or to a similar default domain for another service.
 3. The application generates a cookie that uses a domain based on the incoming `contoso.azurewebsites.net` host name. The browser stores the cookie for this specific domain rather than the `contoso.com` domain that the user is using.
-4. The browser doesn't include the cookie on any subsequent request for `contoso.com`, because the cookie's `contoso.azurewebsites.net` domain doesn't match the domain of the request. The application doesn't receive the cookie it issued earlier. Now, the user might lose state that's should be in the cookie, and features like ARR affinity might not work. These problems don't generate an error and aren't directly visible to the end user, which makes them difficult to troubleshoot.
+4. The browser doesn't include the cookie on any subsequent request for `contoso.com`, because the cookie's `contoso.azurewebsites.net` domain doesn't match the domain of the request. The application doesn't receive the cookie it issued earlier. Now, the user might lose state that should be in the cookie, and features like ARR affinity might not work. These problems don't generate an error and aren't directly visible to the end user, which makes them difficult to troubleshoot.
 
 ## Implementation guidance for common Azure services
 
