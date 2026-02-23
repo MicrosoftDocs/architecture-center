@@ -36,7 +36,7 @@ There are three types of updates for AKS, and each one builds on the previous up
 
 - **Quarterly Kubernetes releases:** AKS provides quarterly updates for [Kubernetes releases](https://kubernetes.io/releases/release/#the-release-cycle). These updates enable AKS users to use the latest Kubernetes features and enhancements, such as security patches and node image updates. For more information, see [Supported Kubernetes versions in AKS](/azure/aks/supported-kubernetes-versions).
 
-### Pre-upgrade considerations
+### Preupgrade considerations
 
 Before you upgrade your AKS worker nodes and Kubernetes versions, consider the following effects and best practices.
 
