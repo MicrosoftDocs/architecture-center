@@ -34,9 +34,9 @@ A common way to implement choreography is to use a message broker that buffers r
 
 
 
-## Issues and considerations
+## Problems and considerations
 
-Decentralizing the orchestrator can cause issues while managing the workflow.
+Consider the following points as you decide how to implement this pattern:
 
 - Handling failures can be challenging. Components in an application might conduct atomic tasks but they might still have a level of dependency. Failure in one component can affect others, which might cause delays in completing the overall request. 
 
@@ -48,10 +48,15 @@ Decentralizing the orchestrator can cause issues while managing the workflow.
 
     ![A diagram of workflow in an messaging system that implements the choreography pattern in parallel and subsequently.](./_images/choreography-pattern-parallel-workflow.png)
 
-- The pattern becomes a challenge if the number of services grow rapidly. Given the high number of independent moving parts, the workflow between services tends to get complex. Also, [distributed tracing](/dotnet/core/diagnostics/distributed-tracing) becomes difficult, although tools like [ServiceInsight together with NServiceBus](https://docs.particular.net/serviceinsight/#sequence-diagram) can help reduce these challenges.
+- The pattern becomes a challenge if the number of services grow rapidly. Given the high number of independent moving parts, the workflow between services tends to get complex. Also, [distributed tracing](/dotnet/core/diagnostics/distributed-tracing) becomes difficult, end‑to‑end visibility requires consistent use of distributed tracing and correlation identifiers to maintain observability.
 
 - In an orchestrator-led design, the central component can partially participate and delegate resiliency logic to another component that retries transient, nontransient, and time-out failures, consistently. With the dissolution of the orchestrator in the choreography pattern, the downstream components shouldn't pick up those resiliency tasks. Those must still be handled by the resiliency handler. But now, the downstream components must directly communicate with the resiliency handler, increasing point-to-point communication. 
 
+- Event schema drift can break consumers over time. In this pattern, multiple independent services consume the same events. If a producer changes the data structure of an event, it can break downstream consumers that depend on the old schema. Use a schema registry to manage event contracts and use versioning to maintain compatibility as services evolve independently.
+
+- Event ordering isn't guaranteed under retries or scale-out. Design for idempotency and versioning to handle duplicate or out-of-order events.
+
+- Decentralized event flows can create emergent behavior at scale. When many services react to each other's events, the system can unintentionally produce feedback loops or event storms. A minor event may trigger a cascade of downstream reactions. Use guardrails such as event filtering, consumer concurrency limits, throttling, and explicit rules to prevent circular event chains
 
 ## When to use this pattern
 
@@ -67,14 +72,13 @@ Use this pattern when:
 
 - There's performance bottleneck introduced by the central orchestrator.
 
-This pattern might not be useful when:
+This pattern might not be suitable when:
 
 - The application is complex and requires a central component to handle shared logic to keep the downstream components lightweight.
 
 - There are situations where point-to-point communication between the components is inevitable.
 
 - You need to consolidate all operations handled by downstream components, by using business logic. 
-
 
 ## Workload design
 
@@ -83,7 +87,7 @@ An architect should evaluate how the Choreography pattern can be used in their w
 | Pillar | How this pattern supports pillar goals |
 | :----- | :------------------------------------- |
 | [Operational Excellence](/azure/well-architected/operational-excellence/checklist) helps deliver **workload quality** through **standardized processes** and team cohesion. | Because the distributed components in this pattern are autonomous and designed to be replaceable, you can modify the workload with less overall change to the system.<br/><br/> - [OE:04 Tools and processes](/azure/well-architected/operational-excellence/tools-processes) |
-| [Performance Efficiency](/azure/well-architected/performance-efficiency/checklist) helps your workload **efficiently meet demands** through optimizations in scaling, data, code. | This pattern provides an alternative when performance bottlenecks occur in a centralized orchestration topology.<br/><br/> - [PE:02 Capacity planning](/azure/well-architected/performance-efficiency/capacity-planning)<br/> - [PE:05 Scaling and partitioning](/azure/well-architected/performance-efficiency/scale-partition) |
+| [Performance Efficiency](/azure/well-architected/performance-efficiency/checklist) helps your workload **efficiently meet demands** through optimizations in scaling, data, and code. | This pattern provides an alternative when performance bottlenecks occur in a centralized orchestration topology.<br/><br/> - [PE:02 Capacity planning](/azure/well-architected/performance-efficiency/capacity-planning)<br/> - [PE:05 Scaling and partitioning](/azure/well-architected/performance-efficiency/scale-partition) |
 
 As with any design decision, consider any tradeoffs against the goals of the other pillars that might be introduced with this pattern.
 
@@ -109,7 +113,7 @@ The business transaction is processed in a sequence through multiple hops. Each 
 
 When a client sends a delivery request through an HTTP endpoint, the Ingestion service receives it, converts such request into a message, and then publishes the message to the shared message bus. The subscribed business services are going to be consuming new messages added to the bus. On receiving the message, the business services can complete the operation with success, failure, or the request can time out. If successful, the services respond to the bus with the Ok status code, raises a new operation message, and sends it to the message bus. If there's a failure or time-out, the service reports failure by sending the reason code to the message bus. Additionally, the message is added to a dead-letter queue. Messages that couldn't be received or processed within a reasonable and appropriate amount of time are moved the DLQ as well.
 
-The design uses multiple message buses to process the entire business transaction. [Microsoft Azure Service Bus](/azure/service-bus-messaging) and [Microsoft Azure Event Grid](/azure/event-grid/) are composed to provide with the messaging service platform for this design. The workload is deployed on [Azure Container Apps](/azure/container-apps/) hosting [Azure Functions](/azure/azure-functions/functions-container-apps-hosting/) for ingestion, and apps handling [event-driven processing](/azure/container-apps/scale-app?pivots=azure-cli#custom) that executes the business logic.
+The design uses multiple message buses to process the entire business transaction. [Microsoft Azure Service Bus](/azure/service-bus-messaging) and [Microsoft Azure Event Grid](/azure/event-grid/) are composed to provide with the messaging service platform for this design. The workload is deployed on [Azure Container Apps](/azure/container-apps/) hosting [Azure Functions](/azure/azure-functions/functions-container-apps-hosting/) for ingestion, and apps handling [event-driven processing](/azure/container-apps/scale-app) that executes the business logic.
 
 The design ensures the choreography to occur in a sequence. A single Azure Service Bus namespace contains a topic with two subscriptions and a session-aware queue. The Ingestion service publishes messages to the topic. The Package service and Drone Scheduler service subscribe to the topic and publish messages communicating the success to the queue. Including a common session identifier with a GUID associated to the delivery identifier, enables the ordered handling of unbounded sequences of related messages. The Delivery service awaits two related messages per transaction. The first message indicates the package is ready to be shipped, and the second signals that a drone is scheduled.
 
@@ -120,6 +124,14 @@ This design uses Azure Service Bus to handle high-value messages that can't be l
 To avoid cascading retry operations that might lead to multiple efforts, business services should immediately flag unacceptable messages. It's possible to enrich such messages using well-known reason codes or a defined application code, so it can be moved to a [dead letter queue (DLQ)](/azure/service-bus-messaging/service-bus-dead-letter-queues). Consider managing consistency issues implementing [Saga](/azure/architecture/reference-architectures/saga/saga) from downstream services. For example, another service could handle dead lettered messages for remediation purposes only by executing a compensation, retry, or pivot transaction.
 
 The business services are idempotent to make sure retry operations don't result in duplicate resources. For example, the Package service uses upsert operations to add data to the data store.
+
+## Next steps
+
+- Maintain compatibility as your services evolve by centralizing event schema management using the [Azure Schema Registry in Azure Event Hubs](/azure/event-hubs/schema-registry-overview).
+
+- Review [asynchronous messaging options in Azure](../guide/technology-choices/messaging.md) to understand the different infrastructure choices available for implementing a decentralized workflow.
+
+- Evaluate the technical capabilities of different platforms to [choose the right Azure messaging service](/azure/service-bus-messaging/compare-messaging-services) for your specific choreography requirements.
 
 ## Related resources
 
@@ -132,7 +144,3 @@ Consider these patterns in your design for choreography.
 - Use asynchronous distributed messaging through the [publisher-subscriber pattern](./publisher-subscriber.yml).
 
 - Use [compensating transactions](./compensating-transaction.yml) to undo a series of successful operations in case one or more related operations fail.
-
-- For information about using a message broker in a messaging infrastructure, see [Asynchronous messaging options in Azure](../guide/technology-choices/messaging.md).
-
-- [Choose between Azure messaging services](/azure/service-bus-messaging/compare-messaging-services)
