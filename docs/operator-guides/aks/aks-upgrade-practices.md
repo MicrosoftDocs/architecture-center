@@ -375,7 +375,7 @@ The following table describes the characteristics of various AKS upgrade and pat
 |Node image upgrade | Yes  | No | Yes, if an updated node image uses an updated kernel| Yes  |
 |Cluster automatic upgrade | No  | Yes | Yes, if an updated node image uses an updated kernel | Yes, if a new release is available  |
 
-- An OS security patch that's applied as part of a node image upgrade might install a later version of the kernel than the creation of a new cluster might install.
+- An OS security patch that's applied as par t of a node image upgrade might install a later version of the kernel than the creation of a new cluster might install.
 
 - Node pool scale-up uses the model that's currently associated with the virtual machine scale set. The OS kernels are upgraded when security patches are applied and the nodes restart.
 
