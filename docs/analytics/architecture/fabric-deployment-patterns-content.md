@@ -4,9 +4,9 @@ This article describes four deployment patterns that you can choose from when yo
 
 The following diagram shows the four-level hierarchy that defines all Fabric deployments:
 
-:::image type="content" source="../_images/fabric-deployment-hierarchy-overview.png" alt-text="Diagram showing the Microsoft Fabric deployment hierarchy: M365 Tenant contains Capacities (region-bound), which contain Workspaces, which contain Items. Fabric Domains group workspaces logically across capacities, and OneLake provides unified storage across all levels." border="false":::
+:::image type="content" source="../_images/fabric-deployment-patterns-conceptual-overview.png" alt-text="Diagram showing the Microsoft Fabric deployment hierarchy: M365 Tenant contains Capacities (region-bound), which contain Workspaces, which contain Items. Fabric Domains group workspaces logically across capacities, and OneLake provides unified storage across all levels." border="false":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/Fabric_Deployment_Patterns.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/fabric-deployment-patterns.vsdx) of this architecture.*
 
 ### Workflow
 
