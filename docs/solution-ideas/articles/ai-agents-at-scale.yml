@@ -1,0 +1,22 @@
+### YamlMime:Architecture
+metadata:
+  title: Dynamic AI Agents at Scale Pattern
+  description: Learn how to dynamically select and orchestrate AI agents from a large pool using Azure AI Foundry, Azure AI Search, and Azure OpenAI to build scalable multi-agent systems.
+  author: munishm
+  ms.author: mumalhot
+  ms.date: 02/19/2026
+  ms.topic: solution-idea
+  ms.subservice: solution-idea
+azureCategories:
+  - ai-machine-learning
+products:
+  - azure-cognitive-search
+  - azure-openai
+  - microsoft-foundry
+  - azure-cache-redis
+  - azure-monitor
+name: Dynamic AI agents at scale pattern
+summary: Learn how to dynamically select and orchestrate AI agents from a large pool using Azure AI Foundry, Azure AI Search, and Azure OpenAI to build scalable multi-agent systems.
+thumbnailUrl: /azure/architecture/browse/thumbs/ai-agents-at-scale-architecture.png
+content: |
+  [!INCLUDE[](ai-agents-at-scale-content.md)]
