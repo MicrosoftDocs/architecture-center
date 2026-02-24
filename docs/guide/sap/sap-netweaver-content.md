@@ -147,15 +147,15 @@ Application servers don't host business data. So you can also use the smaller P4
 
 For high-availability scenarios, you can use [Azure file shares](/azure/storage/files/storage-files-introduction) and [Azure shared disks](/azure/virtual-machines/disks-shared). [Azure Premium SSD managed disks and Azure Ultra Disk Storage](/azure/storage/storage-managed-disks-overview) are available for Azure shared disks, and Premium SSD is available for Azure file shares.
 
-Storage is also used by [Cloud Witness](/windows-server/failover-clustering/deploy-cloud-witness) to maintain quorum with a device in a remote Azure region, away from the primary region where the cluster resides.
+Storage is also used by [Cloud Witness](/windows-server/failover-clustering/deploy-quorum-witness) to maintain quorum with a device in a remote Azure region, away from the primary region where the cluster resides.
 
 For the backup data store, we recommend Azure [cool and archive access tiers](/azure/storage/blobs/access-tiers-overview). These storage tiers provide a cost-effective way to store long-lived data for infrequent access.
 
-[Azure Premium SSD v2 disk storage](https://azure.microsoft.com/updates/general-availability-azure-premium-ssd-v2-disk-storage/) is designed for performance-critical workloads like online transaction processing systems that consistently need submillisecond latency combined with high IOPS and throughput.
+[Azure Premium SSD v2 disk storage](/azure/virtual-machines/disks-types#premium-ssd-v2) is designed for performance-critical workloads like online transaction processing systems that consistently need submillisecond latency combined with high IOPS and throughput.
 
-[Ultra Disk Storage](/azure/virtual-machines/linux/disks-enable-ultra-ssd) greatly reduces disk latency. As a result, it benefits performance-critical applications like the SAP database servers. To compare block storage options in Azure, see [Azure managed disk types](/azure/virtual-machines/windows/disks-types).
+[Ultra Disk Storage](/azure/virtual-machines/disks-types#ultra-disks) greatly reduces disk latency. As a result, it benefits performance-critical applications like the SAP database servers. To compare block storage options in Azure, see [Azure managed disk types](/azure/virtual-machines/disks-types).
 
-For a high-availability, high-performance shared data store, use [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction). This technology is useful for the database tier when you use [Oracle](/azure/azure-netapp-files/performance-oracle-single-volumes), and also when you [host application data](/azure/virtual-machines/workloads/sap/high-availability-guide-windows-netapp-files-smb).
+For a high-availability, high-performance shared data store, use [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction). This technology is useful for the database tier when you use [Oracle](/azure/azure-netapp-files/performance-oracle-single-volumes), and also when you [host application data](/azure/sap/workloads/high-availability-guide-windows-netapp-files-smb).
 
 ## Considerations
 
@@ -202,7 +202,7 @@ Load balancing traffic within a pool of application servers achieves high availa
 
 In this architecture, the source database runs on AnyDB a DBMS such as SQL Server, SAP ASE, IBM DB2, or Oracle. The native replication feature of the database tier provides either manual or automatic failover between replicated nodes.
 
-For implementation details about specific database systems, see [Azure Virtual Machines DBMS deployment for SAP NetWeaver](/azure/virtual-machines/workloads/sap/dbms_guide_general).
+For implementation details about specific database systems, see [Azure Virtual Machines DBMS deployment for SAP NetWeaver](/azure/sap/workloads/dbms-guide-general).
 
 #### VMs deployed across availability zones
 
@@ -221,13 +221,13 @@ Take these [considerations](/azure/virtual-machines/workloads/sap/sap-ha-availab
 
 #### Active/inactive deployment example
 
-In this example deployment, the [active/passive](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones#activepassive-deployment) status refers to the application service state within the zones. In the application layer, all four active application servers of the SAP system are in zone 1. Another set of four passive application servers is built in zone 2 but is shut down. They're activated only when they're needed.
+In this example deployment, the [active/passive](/azure/sap/workloads/high-availability-zones?tabs=passive#deployment-types) status refers to the application service state within the zones. In the application layer, all four active application servers of the SAP system are in zone 1. Another set of four passive application servers is built in zone 2 but is shut down. They're activated only when they're needed.
 
 The two-node clusters for Central Services and the database services are stretched across two zones. If zone 1 fails, Central Services and the database services run in zone 2. The passive application servers in zone 2 get activated. With all components of this SAP system now colocated in the same zone, network latency is minimized.
 
 #### Active/active deployment example
 
-In an [active/active](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones#activeactive-deployment) deployment, two sets of application servers are built across two zones. Within each zone, two application servers in each set of servers are inactive, because they're shut down. As a result, there are active application servers in both zones during normal operations.
+In an [active/active](/azure/sap/workloads/high-availability-zones?tabs=active#deployment-types) deployment, two sets of application servers are built across two zones. Within each zone, two application servers in each set of servers are inactive, because they're shut down. As a result, there are active application servers in both zones during normal operations.
 
 Central Services and the database services run in zone 1. The application servers in zone 2 might have longer network latency when they connect to Central Services and the database services because of the physical distance between zones.
 
