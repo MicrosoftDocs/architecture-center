@@ -1,3 +1,4 @@
+---
 title: Data Partitioning Guidance
 description: Learn how to preserve the original HTTP host name between a reverse proxy and its back-end web application in common Azure
 author: claytonsiemens77
@@ -5,6 +6,7 @@ ms.author: pnp
 ms.date: 07/25/2022
 ms.topic: concept-article
 ms.subservice: architecture-guide
+---
 
 # Preserve the original HTTP host name between a reverse proxy and its back-end web application
 
