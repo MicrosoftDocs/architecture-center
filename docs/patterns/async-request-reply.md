@@ -3,7 +3,7 @@ title: Asynchronous Request-Reply Pattern
 description: Learn how to decouple back-end processing from front-end hosts by using asynchronous operations and HTTP polling for long-running tasks.
 ms.author: pnp
 author: claytonsiemens77
-ms.date: 02/25/2026
+ms.date: 02/27/2026
 ms.topic: design-pattern
 ms.subservice: cloud-fundamentals
 ---
