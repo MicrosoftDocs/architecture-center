@@ -1,8 +1,8 @@
-Like most Azure Platform as a Service (PaaS) services, Azure Web Apps and Function Apps are internet-accessible by default. To restrict inbound traffic, Azure provides two built-in options: access restrictions and private endpoints.
+Like most Azure Platform as a Service (PaaS) services, Azure Web Apps and Function Apps can be accessed from the internet by default. If you want to restrict the inbound traffic to a Web App or Function App, Azure provides two built-in options: access restrictions and private endpoints.
 
-Access restrictions let you configure the resource's internal firewall by defining allow and deny rules. Restrictions can be based on IPv4/IPv6 addresses, service tags, or service endpoints. Service endpoints permit only traffic from selected subnets and virtual networks. Access restrictions are free and available in all App Service and Functions plans, but they have drawbacks: maintaining rules is challenging, and third-party clients require listed IPs (which may be dynamic or considered sensitive).
+If you use access restrictions, you can configure the internal firewall of the resource by defining allow and deny rules. You can base the restrictions on IP addresses (IPv4 and IPv6) or service tags, or you can use service endpoints to restrict access. When you use service endpoints, only traffic from selected subnets and virtual networks can access your app. There's no cost to use access restrictions, and they're available in all Azure App Service and Azure Functions plans. But access restrictions have some drawbacks. Maintaining allow and deny rules can be challenging. Also, to allow a third party to consume your service, you need to list its IP address in an allow rule. Some third-party services have dynamic IPs, and some organizations view IP addresses as sensitive.
 
-The second option, a private endpoint, gives clients in your private network secure access to your app over Azure Private Link. A private endpoint uses an IP address from the Azure virtual network address space. Network traffic between the client and the app traverses the virtual network and Private Link on the Microsoft backbone, eliminating exposure to the public internet. Private endpoints also enable ad hoc cross-tenant access: a secure point-to-site VPN tunnel can run from a consumer virtual network in one tenant to a Web App or Function App in another tenant, removing the need for site-to-site VPNs or virtual network peerings.
+The second option, a private endpoint, gives clients in your private network secure access to your app over Azure Private Link. A private endpoint uses an IP address from your internal Azure virtual network address space. The network traffic between a client in your private network and the app traverses the virtual network and Private Link over the Microsoft backbone network. This solution eliminates exposure to the public internet. You can also use private endpoints to form ad hoc connections among Azure tenants. Specifically, you can create a secure site-to-point virtual private network (VPN) tunnel. The tunnel can run from a consumer virtual network in one tenant to an Azure Web App or Function App in another tenant. This approach eliminates the need to set up and maintain site-to-site VPNs or virtual network peerings.
 
 This guide presents an architecture that uses the private endpoint option. The private endpoint securely exposes an Azure Web App in one tenant to a client that consumes the app in another Azure tenant. You can also use this approach for a Function App if you have a Premium or App Service plan for Functions.
 
@@ -34,11 +34,11 @@ This guide presents an architecture that uses the private endpoint option. The p
 
 ## Provider setup
 
-Start by securing the Azure Web App in the tenant that owns it. Create a private endpoint to remove public internet access to the Web App.
+The first step is to secure the Azure Web App within the tenant that owns it. The goal is to ensure that the Web App is no longer available on the public internet. You can achieve this goal by creating a private endpoint on the Azure Web App.
 
 Web apps and function apps become immediately inaccessible publicly when they're associated with a private endpoint. If you want to turn on public access again, you can do so via the access restriction settings. Other Azure services are still publicly available after you associate them with a private endpoint. These services require additional access controls to become inaccessible.
 
-Before you create the private endpoint, prepare a virtual network and subnet for the private endpoint NIC. The NIC consumes one IP address from the subnet. Also define your DNS strategy so you can register the NIC's A record in the appropriate DNS zone.
+Before you activate the private endpoint, have a virtual network and subnet ready where you can deploy the NIC of the private endpoint. This step consumes an IP address of the subnet. Also, define your DNS strategy. You need to register an A record of the NIC in the DNS zone.
 
 - If you use the DNS services that Azure provides by default, we recommend that you use the Azure DNS private zone service and allow automatic integration during the creation of the private endpoint. This approach ensures that:
   - The private DNS zone (`privatelink.azurewebsites.net`) is created automatically if needed.
@@ -57,7 +57,7 @@ In both cases, during the creation of the private endpoint, the Azure DNS public
 
 ## Consumer setup
 
-Next, enable a client in another tenant to reach the provider's Azure Web App. The consumer initiates this setup. Manual approval by the provider is required to activate the connection.
+The next step is to enable a client in another tenant to reach the Azure Web App of the provider. The consumer initiates this setup. Manual approval by the provider is required to activate the connection.
 
 ### Step 1 (consumer): Create a private endpoint
 
@@ -71,7 +71,7 @@ When the private endpoint resource has been created, the connection status is *P
 
 ### Step 2 (provider): Review and approve the connection request
 
-The provider doesn't receive a notification that there's a pending private endpoint connection request. The consumer needs to inform the provider when a request has been made.
+The provider doesn't get a notification that there's a pending private endpoint connection request. The consumer needs to inform the provider when a request has been made.
 
 The provider can retrieve, review, and approve or reject pending requests in the Azure portal in either of the following places:
 
@@ -156,7 +156,7 @@ Other contributor:
 ## Next steps
 
 - [Azure role-based access control (Azure RBAC) permissions for Azure Private Link](/azure/private-link/rbac-permissions)
-- [Restrict your storage account to a virtual network (for Functions)](/azure/azure-functions/configure-networking-how-to#restrict-your-storage-account-to-a-virtual-network)
+- [Restrict your storage account to a virtual network (for Functions))](/azure/azure-functions/configure-networking-how-to#restrict-your-storage-account-to-a-virtual-network)
 - [Microsoft Azure Well-Architected Framework - Security](/azure/architecture/framework/security)
 - [Set up Azure App Service access restrictions](/azure/app-service/app-service-ip-restrictions)
 - [Using private endpoints for Azure Web App](/azure/app-service/networking/private-endpoint)
