@@ -74,8 +74,7 @@ When you create a web application in App Service, or a similar service like Cont
 
 To make this configuration work, you might consider overriding or rewriting the `Host` header of the HTTP request in Application Gateway and setting it to the value of `contoso.azurewebsites.net`. But if you do this approach, the outgoing request from Application Gateway makes it appear like the original request is intended for `contoso.azurewebsites.net` instead of `contoso.com`.
 
-:::image type="complex" source="images/host-name-preservation/configuration-host-overridden.png" alt-text="Diagram that illustrates a configuration with the host name overridden.":::
-:::image-end:::
+:::image type="content" source="images/host-name-preservation/configuration-host-overridden.png" alt-text="Diagram that illustrates a configuration with the host name overridden.":::
 
 App Service now recognizes the host name and accepts the request without needing a custom domain name to be configured.  [Application Gateway makes it easy to override the host header](/azure/application-gateway/configuration-http-settings#pick-host-name-from-backend-address) with the host of the back-end pool. [Azure Front Door does this process by default](/azure/frontdoor/origin#origin-host-header). But this solution can cause problems when the app doesn't see the original host name.
 
@@ -132,8 +131,7 @@ A host name mismatch can also cause problems when the application server issues 
 
 To avoid these potential problems, we recommend that you preserve the original host name in the call between the reverse proxy and the back-end application server.
 
-:::image type="complex" source="images/host-name-preservation/configuration-host-preserved.png" alt-text="Diagram that shows a configuration in which the host name is preserved.":::
-:::image-end:::
+:::image type="content" source="images/host-name-preservation/configuration-host-preserved.png" alt-text="Diagram that shows a configuration in which the host name is preserved.":::
 
 ### Back-end configuration
 
