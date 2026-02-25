@@ -14,7 +14,7 @@ Decouple back-end processing from a front-end host when back-end processing need
 
 ## Context and problem
 
-In modern application development, client applications often rely on remote APIs to provide business logic and compose functionality. Many applications run code in a web browser, and other environments also host client code. The APIs might relate directly to the application or operate as shared services from a third party. Most API calls use HTTP or HTTPS and follow REST semantics.
+In modern application development, client applications often rely on remote APIs to provide business logic and compose functionality. Many applications run code in a web browser, and other environments also host client code. The APIs might relate directly to the application or operate as shared services from an external service. Most API calls use HTTP or HTTPS and follow REST semantics.
 
 In most cases, APIs for a client application respond in about 100 milliseconds (ms) or less. Many factors can affect the response latency:
 
@@ -29,7 +29,7 @@ In most cases, APIs for a client application respond in about 100 milliseconds (
 
 These factors can add latency to the response. You can mitigate some factors by scaling out the back end. Other factors, like network infrastructure, are outside the application developer's control. Most APIs respond quickly enough for the response to return over the same connection. Application code can make a synchronous API call in a nonblocking way to give the appearance of asynchronous processing, which is recommended for input and output (I/O)‑bound operations.
 
-In some scenarios, the work that the back end does is long-running and takes a few seconds. In other scenarios, the back end does long-running background work for minutes or even hours. In those cases, it isn't feasible to wait for the work to finish before responding to the request. This situation can create a problem for synchronous request-reply patterns.
+In some scenarios, the back end does work that's long-running and takes a few seconds. In other scenarios, the back end does long-running background work for minutes or for extended periods. In these cases, you can't wait for the work to finish before you send a response. This situation can create a problem for synchronous request-reply patterns.
 
 Some architectures solve this problem by using a message broker to separate the request and response stages. Many systems achieve this separation through the [Queue-Based Load Leveling pattern](./queue-based-load-leveling.yml). This separation lets the client process and the back-end API scale independently. It also introduces extra complexity when the client requires success notification because that step must also become asynchronous.
 
@@ -52,19 +52,19 @@ The following steps describe the solution:
 
 - The API offloads processing to another component, like a message queue.
 
-- For a successful call to the status endpoint, it returns HTTP 200. While the work is pending, the endpoint returns a resource that indicates that the work is in progress. When the work completes, the endpoint either returns a resource that indicates completion or redirects to another resource URL. For example, if the asynchronous operation creates a new resource, the status endpoint redirects to the URL for that resource.
+- For a successful call to the status endpoint, the endpoint returns HTTP 200 (OK). While the work is in progress, the endpoint returns a resource that indicates that state. When the work completes, the endpoint returns a resource that indicates completion or redirects to another resource URL. For example, if the asynchronous operation creates a new resource, the status endpoint redirects to the URL for that resource.
 
 The following diagram shows a typical flow.
 
 :::image type="complex" border="false" source="./_images/async-request.png" alt-text="Image that shows the request and response flow for asynchronous HTTP requests." lightbox="./_images/async-request.png":::
-   A sequence diagram that shows a client, an API endpoint, a status endpoint, and a resource URI. The client sends a POST request to the API endpoint, which returns HTTP 202 Accepted. The client then sends repeated GET requests to the status endpoint. The first response returns HTTP 200 OK, and a later response returns HTTP 302 Found. The client follows the redirect with a GET request to the resource URI, which returns HTTP 200 OK. The diagram shows an asynchronous request pattern with polling and a final redirect to the completed resource.
+   A sequence diagram that shows a client, an API endpoint, a status endpoint, and a resource URI. The client sends a POST request to the API endpoint, which returns HTTP 202. The client then sends repeated GET requests to the status endpoint. The first response returns HTTP 200, and a later response returns HTTP 302. The client follows the redirect with a GET request to the resource URI, which returns HTTP 200. The diagram shows an asynchronous request pattern with polling and a final redirect to the completed resource.
 :::image-end:::
 
-1. The client sends a request and receives an HTTP 202 (Accepted) response.
+1. The client sends a request and receives an HTTP 202 response.
 
 1. The client sends an HTTP GET request to the status endpoint. The work is pending, so this call returns HTTP 200.
 
-1. The work completes and the status endpoint returns 302 (Found) to redirect to the resource.
+1. The work completes and the status endpoint returns HTTP 302 (Found) to redirect to the resource.
 
 1. The client fetches the resource at the specified URL.
 
@@ -72,26 +72,26 @@ The following diagram shows a typical flow.
 
 Consider the following points as you decide how to implement this pattern:
 
-- Multiple ways exist to implement this pattern over HTTP, and upstream services don't always share the same semantics. For example, most services return HTTP 404 from a GET method when a remote process isn't complete, rather than HTTP 202. According to standard REST semantics, 404 is the correct response because the result of the call doesn't exist yet.
+- Multiple ways exist to implement this pattern over HTTP, and upstream services don't always use the same semantics. For example, most services return HTTP 404 from a GET method when a remote process isn't complete, rather than HTTP 202. According to standard REST semantics, 404 is the correct response because the result of the call doesn't exist yet.
 
 - An HTTP 202 response indicates where the client polls and how often. It includes the following headers.
 
     | Header | Description | Notes |
     | --- | --- | --- |
-    | Location | A URL that the client polls for a response status | This URL can be a shared access signature token. The[Valet Key pattern](./valet-key.yml) works well when this location needs access control. The pattern also applies when response polling needs to move to another back end. |
-    | Retry-After | An estimate of when processing will complete | This header prevents polling clients from sending too many requests to the back end. |
+    | `Location` | A URL that the client polls for a response status | This URL can be a shared access signature token. The [Valet Key pattern](./valet-key.yml) works well when this location needs access control. The pattern also applies when response polling needs to move to another back end. |
+    | `Retry-After` | An estimate of when processing will complete | This header prevents polling clients from sending too many requests to the back end. |
 
     Consider expected client behavior when you design this response. A client that you control can follow these response values exactly. Clients that others author, including clients built with no-code or low-code tools like Azure Logic Apps, can apply their own handling for HTTP 202.
 
 - You might need to use a processing proxy to adjust the response headers or payload, depending on the underlying services that you use.
 
-- If the status endpoint redirects after completion, either [HTTP 302](https://datatracker.ietf.org/doc/html/rfc7231#section-6.4.3) or [HTTP 303](https://datatracker.ietf.org/doc/html/rfc7231#section-6.4.4) are valid return codes, depending on the semantics that you support.
+- If the status endpoint redirects after completion, either [HTTP 302](https://datatracker.ietf.org/doc/html/rfc7231#section-6.4.3) or [HTTP 303 (See Other)](https://datatracker.ietf.org/doc/html/rfc7231#section-6.4.4) are valid return codes, depending on the semantics that you support.
 
-- After successful processing, the resource that the Location header specifies returns an HTTP status code like 200 (OK), 201 (Created), or 204 (No Content).
+- After the server processes the request, the resource that the `Location` header specifies returns an HTTP status code like 200, 201 (Created), or 204 (No Content).
 
-- If an error occurs during processing, persist the error at the resource URL that the Location header specifies and return a 4xx status code from that resource that matches the failure.
+- If an error occurs during processing, persist the error at the resource URL that the `Location` header specifies and return a 4xx status code from that resource that matches the failure.
 
-- Solutions don't all implement this pattern the same way, and some services include extra or alternate headers. For example, Azure Resource Manager uses a modified variant of this pattern. For more information, see [Azure Resource Manager asynchronous operations](/azure/azure-resource-manager/management/async-operations).
+- Solutions don't all implement this pattern the same way, and some services include extra or alternate headers. For example, Azure Resource Manager uses a modified variant of this pattern. For more information, see [Resource Manager asynchronous operations](/azure/azure-resource-manager/management/async-operations).
 
 - Legacy clients might not support this pattern. In that case, you might need to place a processing proxy over the asynchronous API to hide the asynchronous processing from the original client. For example, Logic Apps supports this pattern natively, and you can use it as an integration layer between an asynchronous API and a client that makes synchronous calls. For more information, see [Perform long-running tasks with the webhook action pattern](/azure/logic-apps/logic-apps-create-api-app#perform-long-running-tasks-with-the-webhook-action-pattern).
 
@@ -103,7 +103,7 @@ Use this pattern when:
 
 - You work with client-side code, like browser applications, and those constraints make callback endpoints difficult to provide or long-running connections add too much complexity.
 
-- You call a service that uses only the HTTP protocol and the return service can't fire callbacks because of firewall restrictions on the client side.
+- You call a service that uses only the HTTP protocol and the return service can't send callbacks because of firewall restrictions on the client side.
 
 - You integrate with legacy architectures that don't support modern callback technologies like WebSockets or webhooks.
 
@@ -125,7 +125,7 @@ An architect should evaluate how they can use the Asynchronous Request-Reply pat
 
 | Pillar | How this pattern supports pillar goals |
 | :----- | :------------------------------------- |
-| [Performance Efficiency](/azure/well-architected/performance-efficiency/checklist) helps your workload meet demand through optimizations in scaling, data, and code. | You improve responsiveness and scalability when you decouple the request and reply phases for processes that don't need an immediate answer. With an asynchronous approach, the server maximizes concurrency and schedules work for completion as capacity allows. <br/><br/> - [PE:05 Scaling and partitioning](/azure/well-architected/performance-efficiency/scale-partition)<br/> - [PE:07 Code and infrastructure](/azure/well-architected/performance-efficiency/optimize-code-infrastructure) |
+| [Performance Efficiency](/azure/well-architected/performance-efficiency/checklist) helps your workload meet demand through optimizations in scaling, data, and code. | You improve responsiveness and scalability by decoupling the request and reply phases for processes that don't require an immediate response. An asynchronous approach increases concurrency and lets the server schedule work as capacity becomes available. <br/><br/> - [PE:05 Scaling and partitioning](/azure/well-architected/performance-efficiency/scale-partition)<br/> - [PE:07 Code and infrastructure](/azure/well-architected/performance-efficiency/optimize-code-infrastructure) |
 
 As with any design decision, consider trade-offs against the goals of the other pillars that this pattern might introduce.
 
@@ -145,11 +145,11 @@ The following code shows excerpts from an application that uses Azure Functions 
 
 ### AsyncProcessingWorkAcceptor function
 
-The `AsyncProcessingWorkAcceptor` function implements an endpoint that accepts work from a client application and puts it on a queue for processing:
+The `AsyncProcessingWorkAcceptor` function implements an endpoint that accepts work from a client application and enqueues it for processing:
 
 - The function generates a request ID and adds it as metadata to the queue message.
 
-- The HTTP response includes a location header that points to a status endpoint, and the request ID appears in the URL path.
+- The HTTP response includes a `Location` header that points to a status endpoint. The request ID appears in the URL path.
 
 ```csharp
     public class AsyncProcessingWorkAcceptor(ServiceBusClient _serviceBusClient)
@@ -213,9 +213,9 @@ The `AsyncProcessingBackgroundWorker` function reads the operation from the queu
 
 The `AsyncOperationStatusChecker` function implements the status endpoint. This function checks the status of the request:
 
-- If the request completed, the function returns a [valet key](./valet-key.yml) to the response or redirects the call immediately to the valet-key URL.
+- If the request completes, the function returns a [valet key](./valet-key.yml) to the response or redirects the call immediately to the valet-key URL.
 
-- If the request is pending, the function returns a [200 code that includes the current state](/azure/architecture/best-practices/api-design#asynchronous-operations).
+- If the request is pending, the function returns a [HTTP 200 code that includes the current state](/azure/architecture/best-practices/api-design#asynchronous-operations).
 
 ```csharp
     public class AsyncOperationStatusChecker(ILogger<AsyncOperationStatusChecker> _logger)
@@ -229,15 +229,15 @@ The `AsyncOperationStatusChecker` function implements the status endpoint. This 
 
             _logger.LogInformation($"C# HTTP trigger function processed a request for status on {thisGUID} - OnComplete {OnComplete} - OnPending {OnPending}");
 
-            // ** Check whether the blob exists. **
+            // Check whether the blob exists.
             if (await inputBlob.ExistsAsync())
             {
-                // ** If the blob exists, the function uses the OnComplete parameter to determine the next action. **
+                // If the blob exists, the function uses the OnComplete parameter to determine the next action.
                 return await OnCompleted(OnComplete, inputBlob, thisGUID);
             }
             else
             {
-                // ** If the blob doesn't exist, the function uses the OnPending parameter to determine the next action. **
+                // If the blob doesn't exist, the function uses the OnPending parameter to determine the next action.
                 string scheme = Environment.GetEnvironmentVariable("AZURE_FUNCTIONS_ENVIRONMENT") == "Development" ? "http" : "https";
                 string rqs = $"{scheme}://{Environment.GetEnvironmentVariable("WEBSITE_HOSTNAME")}/api/RequestStatus/{thisGUID}";
 
@@ -251,7 +251,7 @@ The `AsyncOperationStatusChecker` function implements the status endpoint. This 
 
                     case OnPendingEnum.Synchronous:
                         {
-                            // Back off and retry. Time out if the backoff period hits one minute.
+                            // Back off and retry. Time out if the back-off period reaches one minute.
                             int backoff = 250;
 
                             while (!await inputBlob.ExistsAsync() && backoff < 64000)
@@ -288,13 +288,13 @@ The `AsyncOperationStatusChecker` function implements the status endpoint. This 
 
                     {
                         // The typical way to generate a shared access signature token in code requires the storage account key.
-                        //If you need to use "Managed Identity" to control access to your storage accounts in code, which is something highly recommend wherever possible as this is a security best practice.
+                        // If you need to use a managed identity to control access to your storage accounts in code, which is a recommended best practice, you should do so when possible.
                         // In this scenario, you don't have a storage account key, so you need to find another way to generate the shared access signatures.
-                        // To generate shared access signatures, use an approach known as user delegation shared access signature. By using a user delegation shared access signature, we can sign the signature with the Microsoft Entra ID credentials instead of the storage account key.
+                        // To generate shared access signatures, use a user delegation shared access signature. This approach lets you sign the shared access signature by using Microsoft Entra ID credentials instead of the storage account key.
 
                         BlobServiceClient blobServiceClient = inputBlob.GetParentBlobContainerClient().GetParentBlobServiceClient();
                         var userDelegationKey = await blobServiceClient.GetUserDelegationKeyAsync(DateTimeOffset.UtcNow, DateTimeOffset.UtcNow.AddDays(7));
-                        // Redirect to the shared access signature uniform resource identifier (URI) to blob storage
+                        // Redirect to the shared access signature uniform resource identifier (URI) to blob storage.
                         return new RedirectResult(inputBlob.GenerateSASURI(userDelegationKey));
                     }
 
@@ -352,10 +352,10 @@ The following `CloudBlockBlobExtensions` class provides an extension method that
                 Sas = blobSasBuilder.ToSasQueryParameters(userDelegationKey, blobServiceClient.AccountName)
             };
 
-            //Generate the shared access signature on the blob, which sets the constraints directly on the signature.
+            // Generate the shared access signature on the blob, which sets the constraints directly on the signature.
             Uri sasUri = blobUriBuilder.ToUri();
 
-            //Return the URI string for the container, including the shared access signature token.
+            // Return the URI string for the container, including the shared access signature token.
             return sasUri.ToString();
         }
     }
@@ -364,7 +364,7 @@ The following `CloudBlockBlobExtensions` class provides an extension method that
 ## Next steps
 
 - [Use the polling action pattern for long-running tasks](/azure/logic-apps/logic-apps-create-api-app#perform-long-running-tasks-with-the-polling-action-pattern)
-- [Durable functions](/azure/azure-functions/durable/durable-functions-overview#async-http)
+- [Durable functions overview](/azure/azure-functions/durable/durable-functions-overview#async-http)
 
 ## Related resources
 
