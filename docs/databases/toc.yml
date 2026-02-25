@@ -9,6 +9,7 @@ items:
         - name: Migrate an Oracle database to Azure
           href: idea/topic-migrate-oracle-azure.yml
         - name: Migrate an Oracle database to an Azure virtual machine
+          displayName: VM
           href: idea/migrate-oracle-azure-iaas.yml
         - name: Migrate an Oracle database to OD@A Exadata Database Service
           href: idea/migrate-oracle-odaa-exadata.yml
@@ -33,8 +34,10 @@ items:
       - name: Azure Data Factory reference architectures
         items:
         - name: Medallion lakehouse with Azure Data Factory
+          displayName: ALZ, Azure landing zone, ADF lakehouse
           href: architecture/azure-data-factory-on-azure-landing-zones-index.yml
         - name: Azure Data Factory baseline architecture
+          displayName: ALZ, Azure landing zone, ADF
           href: architecture/azure-data-factory-on-azure-landing-zones-baseline.yml
         - name: Azure Data Factory enterprise hardened architecture
           href: architecture/azure-data-factory-enterprise-hardened.yml
@@ -73,14 +76,18 @@ items:
         - name: NoSQL
           items:
           - name: Use the Transactional Outbox pattern
+            displayName: Reliable messaging, at least once
             href: guide/transactional-outbox-cosmos.yml
           - name: Run Apache Cassandra
             href: guide/cassandra.md
       - name: OLAP solutions
+        displayName: Online Analytical Processing, cubes, multidimensional
         href: ../data-guide/relational-data/online-analytical-processing.md
       - name: OLTP solutions
+        displayName: Online Transaction Processing, transactional, relational
         href: ../data-guide/relational-data/online-transaction-processing.md
       - name: ETL guide
+        displayName: Extract Transform Load, data pipeline, data ingestion, data transformation
         href: ../data-guide/relational-data/etl.yml
       - name: Data lakes
         href: ../data-guide/scenarios/data-lake.md

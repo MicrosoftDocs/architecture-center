@@ -180,7 +180,7 @@ This architecture uses the following Fabric and Azure services:
 
 - [Power BI](/power-bi/fundamentals/power-bi-overview) is a business intelligence (BI) and data visualization platform. In this architecture, it connects to OneLake to create dashboards and reports.
 
-- [Microsoft Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) is a unified platform as a service (PaaS) for building, deploying, and managing AI applications and agents at enterprise scale. In this architecture, Foundry agents enrich and enable multiple-agent systems, and Fabric data agents serve as domain experts alongside other agents.
+- [Microsoft Foundry](/azure/ai-foundry/what-is-foundry) is a unified platform as a service (PaaS) for building, deploying, and managing AI applications and agents at enterprise scale. In this architecture, Foundry agents enrich and enable multiple-agent systems, and Fabric data agents serve as domain experts alongside other agents.
 
 - [Azure Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) is an enterprise-grade cloud service for managing the entire machine learning life cycle, from data preparation and experimentation to model training, deployment, and monitoring. In this architecture, you can enable users to run machine learning models by using batch endpoints. OneLake shortcuts let Machine Learning and Fabric share the same underlying Data Lake Storage instance, so both services can read and write without duplicating data.
 
@@ -230,7 +230,7 @@ This example scenario shows how Fabric facilitates enterprises in building a uni
 
 - Enable cross-tenant data sharing through OneLake shortcuts and external data share.
 
-- Integrate Fabric data agents with [Azure AI Foundry](/fabric/data-science/data-agent-foundry) or [Microsoft Copilot Studio](/fabric/data-science/data-agent-microsoft-copilot-studio) to build intelligent, conversational, and context-aware AI solutions for business users and applications.
+- Integrate Fabric data agents with [Microsoft Foundry](/fabric/data-science/data-agent-foundry) or [Microsoft Copilot Studio](/fabric/data-science/data-agent-microsoft-copilot-studio) to build intelligent, conversational, and context-aware AI solutions for business users and applications.
 
 ## Recommendations
 

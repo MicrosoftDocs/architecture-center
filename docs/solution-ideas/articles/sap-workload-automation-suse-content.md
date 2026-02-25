@@ -46,7 +46,7 @@ SUSE provides support with:
 ### Components
 
 - [Azure Storage](/azure/storage/common/storage-introduction) is a set of scalable and secure cloud services for storing data, apps, and workloads. In this architecture, Azure Storage, specifically [Azure Files](/azure/well-architected/service-guides/azure-files), hosts SAP media and supports file sharing across cloud and on-premises environments by using Server Message Block (SMB) and Network File System (NFS) protocols. Azure Files also enables the migration and deployment of SAP workloads by providing shared access to SAP installation media and configuration files.
-- [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer) is a layer-4 load balancing service for Transmission Control Protocol (TCP) and User Datagram Protocol (UDP) traffic. In this architecture, Load Balancer distributes traffic across Azure Spring Apps and Azure Kubernetes Service (AKS) components to ensure high availability and scalability.
+- [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer) is a layer-4 load balancing service for Transmission Control Protocol (TCP) and User Datagram Protocol (UDP) traffic. In this architecture, Load Balancer distributes traffic across the SAP HANA and SAP NetWeaver virtual machines in high-availability cluster configurations.
 - [Linux virtual machines in Azure](/azure/well-architected/service-guides/virtual-machines) are on-demand, scalable Linux computing resources that provide the flexibility of virtualization but eliminate the maintenance demands of physical hardware. In this architecture, Linux virtual machines host SAP HANA and SAP NetWeaver applications.
 - [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is a networking service in Azure that enables secure communication between Azure resources, the internet, and on-premises networks. In this architecture, Virtual Network connects virtual machines, load balancers, and other resources, which enables secure communication between SAP components and integration with on-premises networks.
 
@@ -54,7 +54,7 @@ SUSE provides support with:
 
 Explore SUSE SAP deployment template to create SAP infrastructure on Azure:
 
-- [Infrastructure for SAP NetWeaver and SAP HANA](https://azuremarketplace.microsoft.com/marketplace/apps/suse.sles-sap-15-sp6-byos?tab=Overview) (Azure Marketplace)
+- [Infrastructure for SAP NetWeaver and SAP HANA](https://marketplace.microsoft.com/marketplace/apps?search=SUSE+SLES+SAP) (Microsoft Marketplace)
 - [SUSE and Microsoft Solution Templates for SAP Applications](https://documentation.suse.com/sbp/all/single-html/SBP-SAP-AzureSolutionTemplates) (SUSE)
 
 ## Contributors
@@ -73,11 +73,8 @@ Principal author:
 - [SAP workloads on Azure: planning and deployment checklist](/azure/virtual-machines/workloads/sap/sap-deployment-checklist?toc=/azure/architecture/toc.json&bc=/azure/architecture/bread/toc.json)
 - [Automated SAP/HA Deployments in Public/Private Clouds with Terraform](https://github.com/SUSE/ha-sap-terraform-deployments) (GitHub project)
 
-
 ### SUSE
 
-- [SUSE on Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=SUSE)
+- [SUSE on the Microsoft Marketplace](https://marketplace.microsoft.com/marketplace/apps?search=SUSE)
 - [Highly Available NFS Storage with DRBD and Pacemaker](https://documentation.suse.com/sle-ha/15-SP6/)
 - [Run SAP](https://www.suse.com/solutions/run-sap-solutions)
-
-

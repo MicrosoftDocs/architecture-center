@@ -1,5 +1,3 @@
-<!-- cSpell:ignore wordpress -->
-
 This article describes a container solution that hosts a large, storage-intensive installation of WordPress on Azure. The solution maximizes scalability and security. Key components include [Azure Front Door](/azure/frontdoor/front-door-overview), [Azure Kubernetes Service (AKS)](/azure/aks/what-is-aks), and [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction).
 
 ## Architecture

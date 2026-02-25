@@ -16,7 +16,7 @@ Put client frameworks and libraries into an external process that acts as a prox
 
 Features that are offloaded to the ambassador can be managed independently of the application. You can update and modify the ambassador without disturbing the application's legacy functionality. It also allows for separate, specialized teams to implement and maintain security, networking, or authentication features that have been moved to the ambassador.
 
-Ambassador services can be deployed as a [sidecar](./sidecar.yml) to accompany the lifecycle of a consuming application or service. Alternatively, if an ambassador is shared by multiple separate processes on a common host, it can be deployed as a daemon or Windows service. If the consuming service is containerized, the ambassador should be created as a separate container on the same host, with the appropriate links configured for communication.
+Ambassador services can be deployed as a [sidecar](./sidecar.md) to accompany the lifecycle of a consuming application or service. Alternatively, if an ambassador is shared by multiple separate processes on a common host, it can be deployed as a daemon or Windows service. If the consuming service is containerized, the ambassador should be created as a separate container on the same host, with the appropriate links configured for communication.
 
 ## Issues and considerations
 
@@ -59,4 +59,4 @@ The following diagram shows an application making a request to a remote service 
 
 ## Related resources
 
-- [Sidecar pattern](./sidecar.yml)
+- [Sidecar pattern](./sidecar.md)

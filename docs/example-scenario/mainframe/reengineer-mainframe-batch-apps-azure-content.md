@@ -33,7 +33,7 @@ The second diagram shows how you can use Azure services to re-engineer a similar
 
 :::image type="content" source="media/azure-reengineered-mainframe-batch-application-architecture.svg" alt-text="Diagram of a batch application re-engineered using Azure services. Multiple example services are included." lightbox="media/azure-reengineered-mainframe-batch-application-architecture.svg" border="false":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/us-1858749-pr-3417-azure-reengineer-mainframe-batch-example.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/azure-reengineered-mainframe-batch-application-architecture.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -49,7 +49,11 @@ The second diagram shows how you can use Azure services to re-engineer a similar
 1. Azure provides various services to implement a mainframe batch workload. Select specific services that are based on your business requirements. For example, compute power required, total execution time, the ability to split mainframe batch process into smaller units, and cost sensitivity.
 
     1. Azure Databricks is an Apache Spark-based analytics platform. Jobs can be written in the R, Python, Java, Scala, and Spark SQL languages. It provides a compute environment with fast cluster start times, auto termination, and autoscaling. It has built-in integration with Azure storage like Azure Blob Storage and Azure Data Lake storage. Use Azure Databricks if you need to process large amounts of data in a short time. It's also a good choice if you need to run Extract, Transform, and Load (ETL) workloads.
-    2. AKS and Service Fabric provide an infrastructure to implement a service-based application architecture. It might not be cost effective for a single application. You can refactor your mainframe application using Java Spring Boot. The best way to run Spring Boot apps on Azure is to use Azure Spring Apps, a fully managed Spring service. Java developers can use it to easily build and run Spring Boot Microservices on Azure.
+    2. AKS provides an infrastructure to implement a service-based application architecture. It might not be cost effective for a single application. You can refactor your mainframe application using Java Spring Boot. The best way to run Spring Boot apps on Azure is to use Azure Spring Apps, a fully managed Spring service. Java developers can use it to easily build and run Spring Boot Microservices on Azure.
+
+       > [!IMPORTANT]
+       > Azure Spring Apps is retired as of March 31, 2028. We recommend [Azure Container Apps](/azure/container-apps/overview) and [Azure Kubernetes Service (AKS)](/azure/aks/what-is-aks) as the replacement services. For more information, see [Azure Spring Apps retirement announcement](/azure/spring-apps/basic-standard/retirement-announcement).
+
     3. You can re-engineer your mainframe batch application using .NET or Java. Batch provides the infrastructure to run this application at scale. It creates and manages a pool of virtual machines (VMs), installs the applications, and then schedules jobs to run on the VMs. There's no cluster or job scheduler software to install, manage, or scale. Write applications in any programming language supported by Windows or Linux.
     4. You can re-engineer short running COBOL or PL/1 batch programs. For these programs, use Azure services like Functions, WebJobs, or Logic Apps.
 
@@ -57,7 +61,7 @@ The second diagram shows how you can use Azure services to re-engineer a similar
 
     - You can migrate mainframe relational databases like Db2 and Informix with minimal changes to the Azure relational database offerings' visibility. For example, relational database services like Azure SQL VM, Azure SQL DB, or Azure SQL MI. You can also use any open-source Relational Database Management System (RDBMS) like Azure PostgreSQL. The selection of an Azure database depends on the type of workload, cross-database queries, two-phase commit requirements, and many other factors.
     - You can migrate mainframe non-relational databases like IMS, Integrated Data Management System (IDMS), or VSAM to Azure Cosmos DB. Azure Cosmos DB provides fast response times, automatic and instant scalability, and guaranteed speed at any scale. It's a cost-effective option for unpredictable or sporadic workloads of any size or scale. Developers can easily get started without having to plan for or manage capacity.
-    - You can use Azure Cache for Redis to speed up a re-engineered application.
+    - You can use Azure Managed Redis to speed up a re-engineered application.
 
 1. Applications, the OS, and Azure resources can use agents to send logs and metrics to **Azure Monitor Logs**.
 
@@ -98,7 +102,7 @@ This solution uses the following components.
 
 - [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed platform for building, deploying, and scaling web apps and APIs. By using [WebJobs](/azure/app-service/webjobs-create), a feature of App Service, you can code reusable background business logic as web jobs. In this architecture, App Service with WebJobs provides a platform for running background batch processing tasks.
 
-- [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is a fully managed in-memory caching service that enables applications by using a high volume of back-end data to scale and deliver highly optimized performance by integrating with an in-memory data store like Redis. Azure Cache for Redis provides both the Redis open-source (OSS Redis) and Redis Enterprise, a commercial product from Redis Labs, as a managed service. In this architecture, Azure Cache for Redis provides high-speed caching to improve the performance of reengineered batch applications.
+- [Azure Managed Redis](/azure/redis/overview) is a fully managed in-memory caching service that enables applications by using a high volume of back-end data to scale and deliver highly optimized performance by integrating with an in-memory data store like Redis. In this architecture, Azure Managed Redis provides high-speed caching to improve the performance of reengineered batch applications.
 
 #### Storage
 

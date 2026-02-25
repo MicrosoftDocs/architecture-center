@@ -68,7 +68,7 @@ To help ensure comprehensive monitoring of your Kubernetes clusters, use the fol
 
 [Microsoft Sentinel](/azure/sentinel/overview) delivers intelligent security analytics and threat intelligence across enterprises. Microsoft Sentinel provides a single solution for attack detection, threat visibility, proactive hunting, and threat response.
 
-You must connect Microsoft Sentinel with AKS by using the [AKS connector](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-azurekubernetes). Then you can stream your AKS diagnostics logs into Microsoft Sentinel to continuously monitor activity in your instances.
+You must connect Microsoft Sentinel with AKS by using the [AKS connector](https://marketplace.microsoft.com/product/azuresentinel.azure-sentinel-solution-azurekubernetes). Then you can stream your AKS diagnostics logs into Microsoft Sentinel to continuously monitor activity in your instances.
 
 After you connect your data sources to Microsoft Sentinel, you can [visualize and monitor the data](/azure/sentinel/monitor-your-data). Microsoft Sentinel and Azure Monitor workbooks provide versatility to create custom dashboards.
 
@@ -105,7 +105,7 @@ You can deploy Prometheus independently as a self-managed solution within AKS cl
 
 [Azure Managed Grafana](/azure/managed-grafana/overview) is a data visualization platform that's built on top of [Grafana](https://grafana.com/). It's a fully managed Azure service that Microsoft operates and supports. Azure Managed Grafana has predefined Grafana dashboards to monitor Kubernetes and full-stack troubleshooting.
 
-Azure Managed Grafana is optimized for the Azure environment, works with many Azure services, and provides simple integration features. You can also deploy Grafana independently as a self-managed solution. For more information, see [Monitor your Azure services in Grafana](/azure/azure-monitor/visualize/grafana-plugin).
+Azure Managed Grafana is optimized for the Azure environment, integrates with many Azure services, and provides simple integration features. You can also deploy Grafana independently as a self-managed solution. For more information, see [Monitor your Azure services in Grafana](/azure/azure-monitor/visualize/grafana-plugin).
 
 ### AKS monitoring costs
 

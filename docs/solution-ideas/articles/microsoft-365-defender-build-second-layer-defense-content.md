@@ -102,7 +102,7 @@ The following diagram shows which portals are currently available and their rela
 
 *Security.microsoft.com* is currently the most important portal available because it brings functionalities from Microsoft Defender for Office 365 (1), from Defender for Endpoint (2), from Defender for Office (3), Defender for Identity (5), Defender for Apps (4) and also for Microsoft Sentinel. 
 
-It is important to mention that Microsoft Sentinel has some features that still run only on the Azure Portal (portal.azure.com). 
+It is important to mention that Microsoft Sentinel has some features that still run only on the Azure portal (portal.azure.com). 
 
 Lastly, `endpoint.microsoft.com` provides functionality mainly for Intune and Configuration Manager, but also for other services that are part of Endpoint Manager. Because `security.microsoft.com` and `endpoint.microsoft.com` deliver security protection for endpoints, they have many interactions between them (9) to offer a great security posture for your endpoints.
 

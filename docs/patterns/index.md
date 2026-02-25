@@ -76,7 +76,7 @@ Each pattern in this catalog describes the problem that it addresses, considerat
 | [Scheduler Agent Supervisor](./scheduler-agent-supervisor.yml) | Coordinate a set of actions across distributed services and resources. | - Reliability<br><br>- Performance&nbsp;Efficiency |
 | [Sequential Convoy](./sequential-convoy.yml) | Process a set of related messages in a defined order without blocking other message groups. | - Reliability |
 | [Sharding](./sharding.yml) | Divide a data store into a set of horizontal partitions or shards. | - Reliability<br><br>- Cost&nbsp;Optimization |
-| [Sidecar](./sidecar.yml) | Deploy components into a separate process or container to provide isolation and encapsulation. | - Security<br><br>- Operational&nbsp;Excellence |
+| [Sidecar](./sidecar.md) | Deploy components into a separate process or container to provide isolation and encapsulation. | - Security<br><br>- Operational&nbsp;Excellence |
 | [Static Content Hosting](./static-content-hosting.yml) | Deploy static content to a cloud-based storage service for direct client delivery. | - Cost&nbsp;Optimization |
 | [Strangler Fig](./strangler-fig.md) | Incrementally migrate a legacy system by gradually replacing pieces of functionality with new applications and services. | - Reliability<br><br>- Cost&nbsp;Optimization<br><br>- Operational&nbsp;Excellence |
 | [Throttling](./throttling.yml) | Control the consumption of resources from applications, tenants, or services. | - Reliability<br><br>- Security<br><br>- Cost&nbsp;Optimization<br><br>- Performance&nbsp;Efficiency |

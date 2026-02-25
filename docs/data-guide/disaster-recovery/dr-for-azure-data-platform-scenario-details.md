@@ -161,7 +161,7 @@ The following sections present a breakdown of Contoso activity necessary across 
         - Azure regional failure: Contoso would need to redeploy the Event Hubs instance into the secondary region.
     - Notes:
         - When you use the Azure portal, zone redundancy via support for availability zones is [automatically enabled](/azure/event-hubs/event-hubs-geo-dr#availability-zones), this can be disabled via using the Azure CLI or PowerShell commands.
-        - Zone redundancy provides local resilience (continued operation during a zonal outage). For region-wide disruptions, you should use Event Hubs geo-disaster recovery feature to restore operations in a secondary region. See [Geo-disaster recovery](/azure/event-hubs/event-hubs-geo-dr).
+        - Zone redundancy provides local resilience (continued operation during a zone outage). For region-wide disruptions, you should use Event Hubs geo-disaster recovery feature to restore operations in a secondary region. See [Geo-disaster recovery](/azure/event-hubs/event-hubs-geo-dr).
 
 - **Azure IoT Hubs**
     - Contoso SKU selection: Standard
@@ -199,7 +199,7 @@ The following sections present a breakdown of Contoso activity necessary across 
       - Azure regional failure: Contoso redeploys Foundry resources in a secondary region to maintain continuity.  
     - Notes:
       - Microsoft manages the Foundry platform infrastructure, but customers handle associated resources like storage accounts, compute clusters, and networking to ensure high availability and DR.  
-      - We recommend that you plan for [multi-region deployment](/azure/ai-foundry/how-to/disaster-recovery) and use geo-redundant storage (GRS) for critical assets to meet recovery time objectives (RTOs) and recovery point objectives (RPOs).
+      - We recommend that you design for [Foundry Agent Service disaster recovery](/azure/ai-foundry/how-to/agent-service-disaster-recovery).
       - Customers implement [backup strategies](/azure/ai-foundry/openai/how-to/business-continuity-disaster-recovery) for custom models, datasets, and configuration artifacts because the platform doesn't automatically replicate them across regions.
 
 - **Fabric – Eventhouse**

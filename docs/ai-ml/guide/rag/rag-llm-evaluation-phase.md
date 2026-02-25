@@ -7,6 +7,7 @@ ms.date: 10/10/2025
 ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
+ms.custom: arb-aiml
 ---
 
 # Large language model end-to-end evaluation
@@ -78,7 +79,7 @@ The following table provides guidance for how to evaluate completeness and utili
 | | High utilization | Low utilization |
 | --- | --- | --- |
 | **High completeness** | No action needed. | The returned data addresses the question but also returns irrelevant chunks. Consider reducing the top-k parameter value to yield more probable or deterministic results. |
-| **Low completeness** | The language model uses the chunks that you provide, but they don't fully address the question. Consider taking the following steps:<br /><ul><li>Review your chunking strategy to increase the context within the chunks.</li><li>Increase the number of chunks by increasing the top-k parameter value.</li><li>Evaluate whether you have chunks that weren't returned that can increase the completeness. If so, investigate why they weren't returned.</li><li>Follow the guidance in the [completeness section](#understand-completeness).</li></ul> | The returned data doesn't fully answer the question, and the chunks you provide aren't utilized completely. Consider taking the following steps:<br /><ul><li>Review your chunking strategy to increase the context within the chunks. If you use fixed-size chunking, consider increasing the chunk sizes.</li><li>Fine-tune your prompts to improve responses.</li></ul> |
+| **Low completeness** | The language model uses the chunks that you provide, but they don't fully address the question. Consider taking the following steps:<br/><ul><li>Review your chunking strategy to increase the context within the chunks.</li><li>Increase the number of chunks by increasing the top-k parameter value.</li><li>Evaluate whether you have chunks that weren't returned that can increase the completeness. If so, investigate why they weren't returned.</li><li>Follow the guidance in the [completeness section](#understand-completeness).</li></ul> | The returned data doesn't completely answer the question, and the chunks you provide aren't utilized completely. Consider taking the following steps:<br /><ul><li>Review your chunking strategy to increase the context within the chunks. If you use fixed-size chunking, consider increasing the chunk sizes.</li><li>Fine-tune your prompts to improve responses.</li></ul> |
 
 ### Relevance
 
@@ -88,7 +89,7 @@ The following table provides guidance for how to evaluate completeness and utili
 
 You can use the following methods to calculate the relevance of responses:
 
-- [AI-assisted: Relevance in Microsoft Foundry](/azure/ai-foundry/concepts/evaluation-metrics-built-in#ai-assisted-relevance)
+- [AI-assisted: Relevance in Microsoft Foundry](/azure/ai-foundry/concepts/observability#what-are-evaluators)
 - [Ragas answer relevancy library](https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/answer_relevance/)
 - [MLflow relevance calculation](https://mlflow.org/docs/latest/llms/llm-evaluate/index.html#metrics-with-llm-as-the-judge)
 
@@ -254,7 +255,7 @@ Use automated personal data detection tools and enforce strict access controls t
 
 The articles in this series walk you through all the phases and design choices that are involved in designing and evaluating a RAG solution. They focus on what you should do, not how to do it. An engineering team that works with Microsoft top customers developed a tool called the [RAG Experiment Accelerator](https://github.com/microsoft/rag-experiment-accelerator). The RAG Experiment Accelerator is a custom, code-based experimentation framework. It optimizes and enhances the development of RAG solutions. The framework empowers researchers and developers to efficiently explore and fine-tune the critical components that drive RAG performance. This innovation ultimately results in more accurate and coherent text generation.
 
-The implementation in the repository uses a command-line interface (CLI), so you can easily experiment with various embedding models, refine chunking strategies, and evaluate different search approaches to unlock the full potential of your RAG system. It helps you focus on the core aspects of RAG development by using a simple configuration for hyperparameter tuning.
+The implementation in the repository uses a command-line interface (CLI), so you can easily experiment with various embedding models, refine chunking strategies, and evaluate different search approaches to unlock the full potential of your RAG system. It helps you focus on the core aspects of RAG development by using a basic configuration for hyperparameter tuning.
 
 The framework also provides comprehensive support for language model configuration. This support helps you strike the perfect balance between model complexity and generation quality. The tool simplifies experimentation, saves time, and improves the performance of your RAG models.
 

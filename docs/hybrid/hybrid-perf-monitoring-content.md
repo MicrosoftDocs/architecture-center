@@ -109,7 +109,7 @@ The following considerations help to ensure availability in your environment.
 
 - Availability tests. The URL ping test used in this architecture is the simplest *outside-in* availability test. However, other options are available, such as:
   - Multi-step web test. Plays back recordings of sequenced web requests to test complex scenarios. Multiple-step web tests are created in Microsoft Visual Studio Enterprise, and then uploaded to the portal for execution.
-  - Custom track availability tests. Use the `TrackAvailability()` method to send test results to Application Insights.
+  - Custom track availability tests. Use the `TrackAvailability()` method to send test results to Application Insights. For more information about custom availability tests with OpenTelemetry, see [Enable Azure Monitor OpenTelemetry](/azure/azure-monitor/app/opentelemetry-enable).
 - Alerts. When you create an availability test in Application Insights, event alert notifications are enabled by default. You can edit the alert rules by specifying the notification type and details, from **Azure Monitor** > **Alerts**.
 
 ### Security
@@ -160,7 +160,7 @@ The following are considerations for making your environment more manageable.
 The following are considerations for integrating your environment with DevOps processes and solutions.
 
 - Application Insights. Integrate Application Insights into Azure Pipelines to help make performance and usability improvements. Application Insights can detect performance anomalies automatically. It connects to various development tools, such as Azure DevOps Services and GitHub.
-- Application Instrumentation. *Instrument* applications by modifying application code to enable telemetry with Application Insights. The following methods are ways to instrument applications:
+- Application Instrumentation. *Instrument* applications by using the [Azure Monitor OpenTelemetry Distro](/azure/azure-monitor/app/opentelemetry-enable) to enable telemetry collection with Application Insights. The following methods are ways to instrument applications:
   - At runtime. Instrumenting your web application on the server at runtime is ideal for applications that are deployed already, as it avoids having to update code. Suitable scenarios include:
     - Microsoft ASP.NET or ASP.NET Core applications hosted on Azure Web Apps
     - ASP.NET applications hosted in Microsoft Internet Information Services (IIS) on a virtual machine or virtual machine scale set
@@ -168,8 +168,7 @@ The following are considerations for integrating your environment with DevOps pr
     - Java-based Azure Functions
     - Node.js apps on Linux App Services
     - Microservices hosted on AKS
-  - At development time. Add Application Insights to your code to customize telemetry collection and send more data. Supported languages and platforms include:
-    - ASP.NET applications
+  - At development time. Add the Azure Monitor OpenTelemetry Distro to your code to customize telemetry collection and send more data. Supported languages and platforms include:
     - ASP.NET Core applications
     - .NET Console applications
     - Java

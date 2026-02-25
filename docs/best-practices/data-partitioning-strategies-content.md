@@ -172,7 +172,7 @@ Azure Cosmos DB supports automatic partitioning of data based on an application-
 > [!NOTE]
 > Each Azure Cosmos DB database has a *performance level* that determines the amount of resources it gets. A performance level is associated with a *request unit (RU)* rate limit. The RU rate limit specifies the volume of resources that's reserved and available for exclusive use by that collection. The cost of a collection depends on the performance level that's selected for that collection. The higher the performance level (and RU rate limit) the higher the charge. You can adjust the performance level of a collection by using the Azure portal. For more information, see [Request Units in Azure Cosmos DB][cosmos-db-ru].
 
-If the partitioning mechanism that Azure Cosmos DB provides isn't sufficient, you might need to shard the data at the application level. Document collections provide a natural mechanism for partitioning data within a single database. The simplest way to implement sharding is to create a collection for each shard. Containers are logical resources and can span one or more servers. Fixed-size containers have a maximum limit of 20 GB and 10,000 RU/s throughput. Unlimited containers do not have a maximum storage size, but must specify a partition key. With application sharding, the client application must direct requests to the appropriate shard, usually by implementing its own mapping mechanism based on some attributes of the data that define the shard key.
+If the partitioning mechanism that Azure Cosmos DB provides isn't sufficient, you might need to shard the data at the application level. Document collections provide a natural mechanism for partitioning data within a single database. The most straightforward way to implement sharding is to create a collection for each shard. Containers are logical resources and can span one or more servers. Fixed-size containers have a maximum limit of 20 GB and 10,000 RU/s throughput. Unlimited containers do not have a maximum storage size, but must specify a partition key. With application sharding, the client application must direct requests to the appropriate shard, usually by implementing its own mapping mechanism based on some attributes of the data that define the shard key.
 
 All databases are created in the context of an Azure Cosmos DB database account. A single account can contain several databases, and it specifies in which regions the databases are created. Each account also enforces its own access control. You can use Azure Cosmos DB accounts to geo-locate shards (collections within databases) close to the users who need to access them, and enforce restrictions so that only those users can connect to them.
 
@@ -220,13 +220,13 @@ This approach is most suitable when there's a significant regional variation in 
 
 Azure Cache for Redis provides a shared caching service in the cloud that's based on the Redis key-value data store. As its name implies, Azure Cache for Redis is intended as a caching solution. Use it only for holding transient data and not as a permanent data store. Applications that use Azure Cache for Redis should be able to continue functioning if the cache is unavailable. Azure Cache for Redis supports primary/secondary replication to provide high availability, but currently limits the maximum cache size to 53 GB. If you need more space than this, you must create additional caches. For more information, see [Azure Cache for Redis].
 
-Partitioning a Redis data store involves splitting the data across instances of the Redis service. Each instance constitutes a single partition. Azure Cache for Redis abstracts the Redis services behind a façade and doesn't expose them directly. The simplest way to implement partitioning is to create multiple Azure Cache for Redis instances and spread the data across them.
+Partitioning a Redis data store involves splitting the data across instances of the Redis service. Each instance constitutes a single partition. Azure Cache for Redis abstracts the Redis services behind a façade and doesn't expose them directly. The most straightforward way to implement partitioning is to create multiple Azure Cache for Redis instances and distribute the data across them.
 
-You can associate each data item with an identifier (a partition key) that specifies which cache stores the data item. The client application logic can then use this identifier to route requests to the appropriate partition. This scheme is very simple, but if the partitioning scheme changes (for example, if additional Azure Cache for Redis instances are created), client applications might need to be reconfigured.
+You can associate each data item with an identifier (a partition key) that specifies which cache stores the data item. The client application logic can then use this identifier to route requests to the appropriate partition. This scheme is straightforward, but if the partitioning scheme changes (like if extra Azure Cache for Redis instances are created), you might need to reconfigure client applications.
 
 Native Redis (not Azure Cache for Redis) supports server-side partitioning based on Redis clustering. In this approach, you can divide the data evenly across servers by using a hashing mechanism. Each Redis server stores metadata that describes the range of hash keys that the partition holds, and also contains information about which hash keys are located in the partitions on other servers.
 
-Client applications simply send requests to any of the participating Redis servers (probably the closest one). The Redis server examines the client request. If it can be resolved locally, it performs the requested operation. Otherwise it forwards the request on to the appropriate server.
+Client applications send requests to any of the participating Redis servers (probably the closest one). The Redis server examines the client request. If it can be resolved locally, it performs the requested operation. Otherwise, it forwards the request to the appropriate server.
 
 This model is implemented by using Redis clustering, and is described in more detail on the [Redis cluster tutorial] page on the Redis website. Redis clustering is transparent to client applications. Additional Redis servers can be added to the cluster (and the data can be repartitioned) without requiring that you reconfigure the clients.
 
@@ -269,16 +269,6 @@ Consider the following points when deciding how to partition data with Azure Cac
 
 - Redis supports a limited number of atomic operations. The only operations of this type that support multiple keys and values are MGET and MSET operations. MGET operations return a collection of values for a specified list of keys, and MSET operations store a collection of values for a specified list of keys. If you need to use these operations, the key-value pairs that are referenced by the MSET and MGET commands must be stored within the same database.
 
-## Partitioning Azure Service Fabric
-
-Azure Service Fabric is a microservices platform that provides a runtime for distributed applications in the cloud. Service Fabric supports .NET guest executables, stateful and stateless services, and containers. Stateful services provide a [reliable collection][service-fabric-reliable-collections] to persistently store data in a key-value collection within the Service Fabric cluster. For more information about strategies for partitioning keys in a reliable collection, see [Guidelines and recommendations for reliable collections in Azure Service Fabric].
-
-### Next steps
-
-- [Overview of Azure Service Fabric] is an introduction to Azure Service Fabric.
-
-- [Partition Service Fabric reliable services] provides more information about reliable services in Azure Service Fabric.
-
 ## Partitioning Azure Event Hubs
 
 [Azure Event Hubs][event-hubs] is designed for data streaming at massive scale, and partitioning is built into the service to enable horizontal scaling. Each consumer only reads a specific partition of the message stream.
@@ -295,37 +285,20 @@ For considerations about trade-offs between availability and consistency, see [A
 
 [Availability and consistency in Event Hubs]: /azure/event-hubs/event-hubs-availability-and-consistency
 [azure-limits]: /azure/azure-subscription-service-limits
-[Azure Content Delivery Network]: /azure/cdn/cdn-overview
 [Azure Cache for Redis]: https://azure.microsoft.com/services/cache
 [Azure Storage Table Design Guide]: /azure/storage/storage-table-design-guide
-[Building a Polyglot Solution]: /previous-versions/msp-n-p/dn313279(v=pandp.10)
 [cosmos-db-ru]: /azure/cosmos-db/request-units
-[Data Access for Highly Scalable Solutions: Using SQL, NoSQL, and Polyglot Persistence]: /previous-versions/msp-n-p/dn271399(v=pandp.10)
-[Data consistency primer]: /previous-versions/msp-n-p/dn589800(v=pandp.10)
-[Data Partitioning Guidance]: /previous-versions/msp-n-p/dn589795(v=pandp.10)
 [Data Types]: https://redis.io/topics/data-types
 [cosmos-db-sql-api]: /azure/cosmos-db/sql-api-introduction
-[Elastic Database features overview]: /azure/sql-database/sql-database-elastic-scale-introduction
 [event-hubs]: /azure/event-hubs
-[Federations Migration Utility]: https://code.msdn.microsoft.com/vstudio/Federations-Migration-ce61e9c1
-[guidelines and recommendations for reliable collections in Azure Service Fabric]: /azure/service-fabric/service-fabric-reliable-services-reliable-collections-guidelines
-[Multi-shard querying]: /azure/sql-database/sql-database-elastic-scale-multishard-querying
-[Overview of Azure Service Fabric]: /azure/service-fabric/service-fabric-overview
-[Partition Service Fabric reliable services]: /azure/service-fabric/service-fabric-concepts-partitioning
 [Partitioning: how to split data among multiple Redis instances]: https://redis.io/topics/partitioning
 [Performing Entity Group Transactions]: /rest/api/storageservices/Performing-Entity-Group-Transactions
 [Redis cluster tutorial]: https://redis.io/topics/cluster-tutorial
-[Running Redis on a CentOS Linux VM in Azure]: /archive/blogs/tconte/running-redis-on-a-centos-linux-vm-in-windows-azure
-[Scaling using the Elastic Database split-merge tool]: /azure/sql-database/sql-database-elastic-scale-overview-split-and-merge
-[Using Azure Content Delivery Network]: /azure/cdn/cdn-create-new-endpoint
 [Service Bus quotas]: /azure/service-bus-messaging/service-bus-quotas
-[service-fabric-reliable-collections]: /azure/service-fabric/service-fabric-reliable-services-reliable-collections
 [Service limits in AI Search]: /azure/search/search-limits-quotas-capacity
-[Sharding pattern]: ../patterns/sharding.yml
 [Supported Data Types (AI Search)]: /rest/api/searchservice/Supported-data-types
 [Transactions]: https://redis.io/topics/transactions
 [What is Event Hubs?]: /azure/event-hubs/event-hubs-what-is-event-hubs
 [What is AI Search?]: /azure/search/search-what-is-azure-search
-[What is Azure SQL Database?]: /azure/sql-database/sql-database-technical-overview
 [scalability targets]: /azure/storage/common/storage-scalability-targets
 [Scalable partitioning strategy]: /rest/api/storageservices/designing-a-scalable-partitioning-strategy-for-azure-table-storage
