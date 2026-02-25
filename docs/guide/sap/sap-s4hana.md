@@ -14,7 +14,9 @@ ms.subservice: architecture-guide
 
 This guide presents a set of proven practices for running S/4HANA and Suite on HANA in a high availability (HA) environment that supports disaster recovery (DR) on Azure. The Fiori information applies only to S/4HANA applications.
 
-## Key terminology
+## Architecture
+
+### Key terminology
 
 - **HA**: High Availability
 - **DR**: Disaster Recovery
@@ -28,8 +30,6 @@ This guide presents a set of proven practices for running S/4HANA and Suite on H
 - **NSG**: Network Security Group
 - **NVA**: Network Virtual Appliance
 - **ADE**: Azure Disk Encryption
-
-## Architecture
 
 :::image type="complex" border="false" source="media/s-4hana.svg" alt-text="Architecture diagram that shows SAP S/4HANA for Linux virtual machines in an Azure availability set." lightbox="media/s-4hana.svg":::
    The image contains two large rectangles labeled Region 1 (primary region) and Region 2 (secondary region). Inside Region 1 are two sections. The first section is labeled Hub virtual network. This section has a rectangle labeled Gateway subnet and a rectangle labeled Shared services subnet. An external on-premises network connects to the gateway subnet via a solid arrow labeled ExpressRoute. The Gateway subnet rectangle contains an icon that represents a zone-redundant gateway. The Shared services subnet rectangle contains an icon that represents Azure Bastion. The second section in Region 1 is labeled Spoke virtual network. It has two sections. The first section is labeled Application layer subnet. This section has four rectangles labeled SAP Web Dispatcher pool, SAP Central Services cluster, SAP app servers pool, and NFS/Azure Files shares ZRS. The first three components are grouped together and connect to a virtual machine in region 2. NFS/Azure Files shares ZRS connects to a cloud folder icon in region 2. The second section is labeled Database layer subnet. It has text that reads HANA replication and an icon that represents Load Balancer. A dotted arrow points from here to a rectangle in Region 2 labeled Database replica.
