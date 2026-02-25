@@ -1,9 +1,9 @@
 ---
-title: Database architecture design
-description: Get an overview of Azure database technologies, guidance offerings, solution ideas, and reference architectures.
+title: Database Architecture Design
+description: Learn about database architecture design on Azure including technology choices, solution ideas, and reference architectures for your workloads.
 author: anaharris-ms
 ms.author: anaharris
-ms.date: 02/04/2026
+ms.date: 02/25/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ai-usage: ai-assisted
@@ -11,10 +11,9 @@ ai-usage: ai-assisted
 
 # Database architecture design
 
-Data is at the heart of every application, and choosing the right database solution is one of the most important architectural decisions you'll make. Azure provides a comprehensive portfolio of database services spanning relational databases, NoSQL databases, in-memory caches, and managed database instances. Whether you're building transactional applications, analytical workloads, or globally distributed systems, Azure database services offer the performance, scalability, and reliability your organization needs.
+Data is central to every application. One of your most important architectural decisions is choosing the right database solution. Azure provides a comprehensive portfolio of database services that span relational databases, NoSQL databases, in-memory caches, and managed database instances. Whether you build transactional applications, analytical workloads, or globally distributed systems, Azure database services provide the performance, scalability, and reliability that your organization needs.
 
-Selecting the right database depends on your data model, consistency requirements, query patterns, and operational preferences. Key considerations include data structure (relational vs. non-relational), transaction requirements, scalability needs, and the level of management overhead you want to handle. Azure's database portfolio spans fully managed platform as a service (PaaS) offerings, infrastructure as a service (IaaS) options, and specialized services for specific workload patterns.
-
+The right database for your scenario depends on your data model, consistency requirements, query patterns, and operational preferences. Key considerations include data structure like relational versus nonrelational, transaction requirements, scalability needs, and your desired level of management overhead. The Azure database portfolio spans fully managed platform as a service (PaaS) offerings, infrastructure as a service (IaaS) options, and specialized services for specific workload patterns.
 
 ## Architecture
 
@@ -26,10 +25,7 @@ Selecting the right database depends on your data model, consistency requirement
 
 *Apache®, Apache Cassandra®, and the Hadoop logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
-
-
-Azure database solutions include traditional relational database management systems (RDBMS and OLTP), big data and analytics workloads (including OLAP), and NoSQL workloads. Refer to the [architectures](#explore-database-architectures-and-guides) provided in this section to find real-world solutions that you can build in Azure.
-
+Azure database solutions include traditional relational database management systems (RDBMS) and online transaction processing (OLTP) systems, big data and analytics workloads including online analytical processing (OLAP) systems, and NoSQL workloads. To find real-world solutions that you can build in Azure, see the [architectures](#explore-database-architectures-and-guides) in this section.
 
 ## Explore database architectures and guides
 
@@ -37,7 +33,9 @@ The articles in this section include solution ideas, fully developed architectur
 
 ### Database architecture guides
 
-**Technology choices** - These articles help you choose the best database technologies for your needs:
+**Technology choices**
+
+The following articles help you choose the best database technologies for your needs:
 
 - [Prepare to choose a data store in Azure](../guide/technology-choices/data-stores-getting-started.md)
 - [Understand data store models](../data-guide/technology-choices/understand-data-store-models.md)
@@ -56,15 +54,15 @@ The articles in this section include solution ideas, fully developed architectur
 
 - [OLAP solutions](../data-guide/relational-data/online-analytical-processing.md)
 - [OLTP solutions](../data-guide/relational-data/online-transaction-processing.md)
-- [ETL guide](../data-guide/relational-data/etl.yml)
+- [Extract, transform, and load (ETL) guide](../data-guide/relational-data/etl.yml)
 - [Data lakes](../data-guide/scenarios/data-lake.md)
 - [Big data architectures](../databases/guide/big-data-architectures.md)
 
 **Data governance**
 
-- [Data obfuscation with Delphix](../databases/guide/data-obfuscation-with-delphix-in-azure-data-factory.yml)
-- [Data scrambling for SAP with Delphix](../databases/guide/data-scrambling-for-sap-using-delphix-and-azure-data-factory.yml)
-- [Collection structure for a federated Purview catalog](../guide/data/collection-structure-federated-catalog.md)
+- [Data obfuscation by using Delphix](../databases/guide/data-obfuscation-with-delphix-in-azure-data-factory.yml)
+- [Data scrambling for SAP by using Delphix](../databases/guide/data-scrambling-for-sap-using-delphix-and-azure-data-factory.yml)
+- [Collection structure for a federated Microsoft Purview catalog](../guide/data/collection-structure-federated-catalog.md)
 
 ### Database architectures
 
@@ -75,7 +73,7 @@ The articles in this section include solution ideas, fully developed architectur
 
 **Azure Data Factory**
 
-- [Medallion lakehouse with Azure Data Factory](../databases/architecture/azure-data-factory-on-azure-landing-zones-index.yml)
+- [Medallion lakehouse by using Azure Data Factory](../databases/architecture/azure-data-factory-on-azure-landing-zones-index.yml)
 - [Azure Data Factory baseline architecture](../databases/architecture/azure-data-factory-on-azure-landing-zones-baseline.yml)
 - [Azure Data Factory enterprise hardened architecture](../databases/architecture/azure-data-factory-enterprise-hardened.yml)
 - [Azure Data Factory mission critical architecture](../databases/architecture/azure-data-factory-mission-critical.yml)
@@ -88,13 +86,13 @@ The articles in this section include solution ideas, fully developed architectur
 **Mainframe**
 
 - [Replicate and sync mainframe data](../reference-architectures/migration/sync-mainframe-data-with-azure.yml)
-- [Mainframe data replication with Connect](../example-scenario/mainframe/mainframe-replication-precisely-connect.yml)
-- [Mainframe data replication with Qlik](../example-scenario/mainframe/mainframe-midrange-data-replication-azure-qlik.yml)
-- [Mainframe data replication with RDRS](../example-scenario/mainframe/mainframe-data-replication-azure-rdrs.yml)
-- [Migrate mainframe data tier to Azure with mLogica LIBER*IRIS](../example-scenario/mainframe/mainframe-data-replication-azure-data-platform.yml)
+- [Mainframe data replication by using Connect](../example-scenario/mainframe/mainframe-replication-precisely-connect.yml)
+- [Mainframe data replication by using Qlik](../example-scenario/mainframe/mainframe-midrange-data-replication-azure-qlik.yml)
+- [Mainframe data replication by using Rocket® Data Replicate and Sync (RDRS)](../example-scenario/mainframe/mainframe-data-replication-azure-rdrs.yml)
+- [Migrate mainframe data tier to Azure by using mLogica LIBER*IRIS](../example-scenario/mainframe/mainframe-data-replication-azure-data-platform.yml)
 - [Modernize mainframe midrange data](../example-scenario/mainframe/modernize-mainframe-data-to-azure.yml)
 - [Re-engineer mainframe batch apps](../example-scenario/mainframe/reengineer-mainframe-batch-apps-azure.yml)
-- [Rehost IMS DC and IMS DB](../example-scenario/mainframe/rehost-ims-raincode-imsql.yml)
+- [Rehost Information Management System Data Communication (IMS DC) and IMS Database (IMS DB)](../example-scenario/mainframe/rehost-ims-raincode-imsql.yml)
 - [Implement SMA OpCon in Azure](../example-scenario/integration/sma-opcon-azure.yml)
 
 **Relational**
@@ -104,7 +102,7 @@ The articles in this section include solution ideas, fully developed architectur
 
 **Big data**
 
-- [Microsoft Fabric deployment patterns](../analytics/architecture/fabric-deployment-patterns.yml)
+- [Fabric deployment patterns](../analytics/architecture/fabric-deployment-patterns.yml)
 
 ### Database solution ideas
 
@@ -118,7 +116,6 @@ The articles in this section include solution ideas, fully developed architectur
 **NoSQL**
 
 - [Minimal storage – change feed replication](../databases/idea/minimal-storage-change-feed-replicate-data.yml)
-
 
 ## Learn about databases on Azure
 
@@ -139,19 +136,16 @@ The following resources provide foundational knowledge for database implementati
 - **Database administrator**: [Azure SQL fundamentals](/training/paths/azure-sql-fundamentals/)
 - **Developer**: [Work with Azure Cosmos DB](/training/paths/work-with-nosql-data-in-azure-cosmos-db/)
 
-
 ## Organizational readiness
-
+f
 Organizations that are beginning their cloud adoption can use the [Cloud Adoption Framework](/azure/cloud-adoption-framework/) for proven guidance designed to accelerate cloud adoption. For cloud-scale analytics and data management guidance, see [Cloud-scale analytics](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics).
 
-To help assure the quality of your database solution on Azure, we recommend following the [Azure Well-Architected Framework (WAF)](/azure/well-architected/). WAF provides prescriptive guidance for organizations seeking architectural excellence and discusses how to design, provision, and monitor cost-optimized Azure solutions.
+To help assure the quality of your database solution on Azure, we recommend following the [Azure Well-Architected Framework](/azure/well-architected/). Well-Architected Framework provides prescriptive guidance for organizations seeking architectural excellence and discusses how to design, provision, and monitor cost-optimized Azure solutions.
 
-For database-specific guidance, see the Azure Well-Architected Framework service guides for:
+For database-specific guidance, see the Well-Architected Framework service guides for:
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db)
 - [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database)
-
-
 
 ## Best practices
 
@@ -166,7 +160,6 @@ Review these best practices when designing your database solutions:
 | [Achieve high availability with Azure Cosmos DB](/azure/cosmos-db/high-availability) | Azure Cosmos DB provides multiple features and configuration options to achieve high availability. |
 | [High availability for Azure SQL Database and SQL Managed Instance](/azure/azure-sql/database/high-availability-sla) | The database shouldn't be a single point of failure in your architecture. |
 
-
 ## Stay current with databases
 
 Azure database services are evolving to address modern data challenges. Stay informed about the latest updates and planned features.
@@ -178,7 +171,6 @@ To stay current with key database services, see:
 - [What's new in Azure SQL Database](/azure/azure-sql/database/doc-changes-updates-release-notes-whats-new)
 - [What's new in Azure Database for PostgreSQL](/azure/postgresql/flexible-server/release-notes)
 - [What's new in Azure Database for MySQL](/azure/mysql/flexible-server/whats-new)
-
 
 ## Additional resources
 
@@ -220,7 +212,6 @@ These articles can help you ramp up quickly by comparing Azure database options 
 - [Relational database technologies on Azure and AWS](../aws-professional/databases.md) - Compare Azure and AWS database services.
 - [Google Cloud to Azure services comparison - Data platform](../gcp-professional/services.md#data-platform) - Compare Azure and Google Cloud database services.
 
-
 ## Contributors
 
 *Microsoft maintains this article. The following contributors wrote this article.*
@@ -230,7 +221,6 @@ Principal authors:
 - [Mohit Agarwal](https://www.linkedin.com/in/mohitagarwal01/) | Principal Cloud Solution Architect
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
-
 
 ## Related resources
 
