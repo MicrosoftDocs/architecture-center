@@ -76,7 +76,7 @@ The following articles help you choose the best database technologies for your n
 - [Medallion lakehouse by using Azure Data Factory](../databases/architecture/azure-data-factory-on-azure-landing-zones-index.yml)
 - [Azure Data Factory baseline architecture](../databases/architecture/azure-data-factory-on-azure-landing-zones-baseline.yml)
 - [Azure Data Factory enterprise hardened architecture](../databases/architecture/azure-data-factory-enterprise-hardened.yml)
-- [Azure Data Factory mission critical architecture](../databases/architecture/azure-data-factory-mission-critical.yml)
+- [Azure Data Factory mission-critical architecture](../databases/architecture/azure-data-factory-mission-critical.yml)
 
 **NoSQL**
 
@@ -86,7 +86,7 @@ The following articles help you choose the best database technologies for your n
 **Mainframe**
 
 - [Replicate and sync mainframe data](../reference-architectures/migration/sync-mainframe-data-with-azure.yml)
-- [Mainframe data replication by using Connect](../example-scenario/mainframe/mainframe-replication-precisely-connect.yml)
+- [Mainframe data replication by using Precisely Connect](../example-scenario/mainframe/mainframe-replication-precisely-connect.yml)
 - [Mainframe data replication by using Qlik](../example-scenario/mainframe/mainframe-midrange-data-replication-azure-qlik.yml)
 - [Mainframe data replication by using Rocket® Data Replicate and Sync (RDRS)](../example-scenario/mainframe/mainframe-data-replication-azure-rdrs.yml)
 - [Migrate mainframe data tier to Azure by using mLogica LIBER*IRIS](../example-scenario/mainframe/mainframe-data-replication-azure-data-platform.yml)
