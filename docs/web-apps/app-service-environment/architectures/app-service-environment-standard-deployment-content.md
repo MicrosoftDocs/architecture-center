@@ -141,7 +141,7 @@ properties: {
 ```
 
 > [!NOTE]
-> The `pickHostNameFromBackendAddress` setting overrides the HTTP `Host` header with the back-end address. This approach can cause problems with cookies, redirect URLs, and session affinity. For more information about the implications and alternative configurations, see [Preserve the original HTTP host name](../../../best-practices/host-name-preservation).
+> The `pickHostNameFromBackendAddress` setting overrides the HTTP `Host` header with the back-end address. This approach can cause problems with cookies, redirect URLs, and session affinity. For more information about the implications and alternative configurations, see [Preserve the original HTTP host name](../../../best-practices/host-name-preservation.md).
 
 ##### Web Application Firewall
 
