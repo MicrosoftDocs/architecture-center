@@ -131,13 +131,13 @@ When you peer additional virtual networks with the virtual network that is conne
 
 ### Load balancers
 
-[SAP Web Dispatcher](https://help.sap.com/doc/saphelp_nw73ehp1/7.31.19/en-US/CA/6FBD35746DBD2DE10000009B38F889/frameset.htm) handles load balancing of HTTP(S) traffic to a pool of SAP application servers. This software load balancer provides application layer services (referred to as layer 7 in the ISO networking model) that can perform SSL termination and other offloading functions.
+[SAP Web Dispatcher](https://help.sap.com/docs/SUPPORT_CONTENT/si/3362959690.html) handles load balancing of HTTP(S) traffic to a pool of SAP application servers. This software load balancer provides application layer services (referred to as layer 7 in the ISO networking model) that can perform SSL termination and other offloading functions.
 
 [Azure Load Balancer](https://azure.microsoft.com/blog/azure-load-balancer-new-distribution-mode) is a network transmission layer service (layer 4) that balances traffic by using a five-tuple hash from the data streams. The hash is based on source IP, source port, destination IP, destination port, and protocol type. In SAP deployments on Azure, Load Balancer is used in cluster setups to direct traffic to the primary service instance or to the healthy node if there's a fault.
 
-We recommend that you use [Standard Load Balancer](/azure/load-balancer/load-balancer-standard-overview) for all SAP scenarios. If VMs in the back-end pool require public outbound connectivity, or if they're used in an Azure zone deployment, Standard Load Balancer requires [extra configurations](/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) because they're secure by default. They don't allow outbound connectivity unless you explicitly configure it.
+We recommend that you use [Internal Load Balancer](/azure/load-balancer/quickstart-load-balancer-standard-internal-portal) for all SAP scenarios. If VMs in the back-end pool require public outbound connectivity, or if they're used in an Azure zone deployment, Internal Load Balancer requires [extra configurations](/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) because they're secure by default. They don't allow outbound connectivity unless you explicitly configure it.
 
-For traffic from SAP GUI clients that connect to an SAP server via DIAG protocol or RFC, the Central Services message server balances the load through SAP application server [logon groups](https://wiki.scn.sap.com/wiki/display/SI/ABAP+Logon+Group+based+Load+Balancing). For this type of setup, you don't need another load balancer.
+For traffic from SAP GUI clients that connect to an SAP server via DIAG protocol or RFC, the Central Services message server balances the load through SAP application server [logon groups](https://userapps.support.sap.com/sap/support/knowledge/en/2472141). For this type of setup, you don't need another load balancer.
 
 ### Storage
 
@@ -173,7 +173,7 @@ In this distributed installation of the SAP application, the base installation i
 
 #### Web Dispatcher in the application servers tier
 
-The Web Dispatcher component is used as a load balancer for SAP traffic among the SAP application servers. To achieve [high availability of SAP Web Dispatcher](https://help.sap.com/doc/saphelp_nw73ehp1/7.31.19/48/9a9a6b48c673e8e10000000a42189b/frameset.htm), Load Balancer implements either the failover cluster or the parallel Web Dispatcher setup.
+The Web Dispatcher component is used as a load balancer for SAP traffic among the SAP application servers. To achieve [high availability of SAP Web Dispatcher](https://help.sap.com/docs/SUPPORT_CONTENT/si/3362959690.html), Load Balancer implements either the failover cluster or the parallel Web Dispatcher setup.
 
 For internet-facing communications, we recommend a stand-alone solution in the perimeter network, which is also known as *DMZ*, to satisfy security concerns.
 
@@ -185,14 +185,9 @@ High availability of the Central Services is implemented with a Windows server f
 
 - We recommend that you use [Azure Files](/azure/storage/files/storage-files-introduction) as fully managed, cloud-native SMB or NFS shares. Another way is to use [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction), which provides high-performance, enterprise-class NFS and SMB shares.
 
-- There are two ways to set up clusters with shared disks on Azure. First, we recommend that you use [Azure shared disks](/azure/virtual-machines/disks-shared) to set up a [Windows server failover cluster for SAP Central Services](/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-shared-disk). For an implementation example, see [ASCS cluster using Azure shared disks](/azure/sap/workloads/sap-high-availability-infrastructure-wsfc-shared-disk). Another way to implement a clustered shared disk is to use SIOS DataKeeper to perform the following tasks:
+- To set up clusters with shared disks on Azure. First, we recommend that you use [Azure shared disks](/azure/virtual-machines/disks-shared) to set up a [Windows server failover cluster for SAP Central Services](/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-shared-disk). For an implementation example, see [ASCS cluster using Azure shared disks](/azure/sap/workloads/sap-high-availability-infrastructure-wsfc-shared-disk)./367898).
 
-  - Replicate the content of independent disks that are attached to the cluster nodes.
-  - Abstract the drives as a cluster shared volume for the cluster manager.
-
-  For implementation details, see [Clustering SAP ASCS on Azure with SIOS](https://techcommunity.microsoft.com/t5/Running-SAP-Applications-on-the/Clustering-SAP-ASCS-Instance-using-Windows-Server-Failover/ba-p/367898).
-
-If you use Standard Load Balancer, you can enable the [high availability port](/azure/load-balancer/load-balancer-ha-ports-overview). By doing so, you can avoid needing to configure load-balancing rules for multiple SAP ports. Also, when you set up Azure load balancers, enable Direct Server Return (DSR), which is also called *Floating IP*. Doing so provides a way for server responses to bypass the load balancer. This direct connection keeps the load balancer from becoming a bottleneck in the path of data transmission. We recommend that you enable DSR for the ASCS and database clusters.
+If you use Internal Load Balancer, you can enable the [high availability port](/azure/load-balancer/load-balancer-ha-ports-overview). By doing so, you can avoid needing to configure load-balancing rules for multiple SAP ports. Also, when you set up Azure load balancers, enable Direct Server Return (DSR), which is also called *Floating IP*. Doing so provides a way for server responses to bypass the load balancer. This direct connection keeps the load balancer from becoming a bottleneck in the path of data transmission. We recommend that you enable DSR for the ASCS and database clusters.
 
 #### Application services in the application servers tier
 
@@ -254,7 +249,7 @@ Databases are critical workloads that require a low recovery point objective (RP
 
 Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-SAP has its own user management engine (UME) to control role-based access and authorization within the SAP application and databases. For detailed application security guidance, see [SAP NetWeaver Security Guide](https://help.sap.com/doc/saphelp_nw73ehp1/7.31.19/4a/af6fd65e233893e10000000a42189c/frameset.htm).
+SAP has its own user management engine (UME) to control role-based access and authorization within the SAP application and databases. For detailed application security guidance, see [SAP NetWeaver Security Guide](https://help.sap.com/docs/SAP_NETWEAVER_701/6f457d836c4b10148949c300573c213b/4aaf6fd65e233893e10000000a42189c.html).
 
 For more network security, consider using a [perimeter network](../../reference-architectures/dmz/secure-vnet-dmz.yml) that uses an NVA to create a firewall in front of the subnet for Web Dispatcher.
 
