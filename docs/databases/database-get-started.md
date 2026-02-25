@@ -29,7 +29,7 @@ Azure database solutions include traditional relational database management syst
 
 ## Explore database architectures and guides
 
-The articles in this section include solution ideas, fully developed architectures, and guidance that address database scenarios on Azure. Solution ideas demonstrate implementation patterns and possibilities to consider. Architectures can be deployed and expanded to production-grade solutions. Guides help you make important decisions about how you use database technologies in Azure.
+The articles in this section include solution ideas, fully developed architectures, and guidance that address database scenarios on Azure. Solution ideas demonstrate implementation patterns and possibilities to consider. You can deploy and expand architectures to production-grade solutions. Use the following guides to help determine how to use database technologies in Azure.
 
 ### Database architecture guides
 
@@ -92,17 +92,17 @@ The following articles help you choose the best database technologies for your n
 - [Migrate mainframe data tier to Azure by using mLogica LIBER*IRIS](../example-scenario/mainframe/mainframe-data-replication-azure-data-platform.yml)
 - [Modernize mainframe midrange data](../example-scenario/mainframe/modernize-mainframe-data-to-azure.yml)
 - [Re-engineer mainframe batch apps](../example-scenario/mainframe/reengineer-mainframe-batch-apps-azure.yml)
-- [Rehost Information Management System Data Communication (IMS DC) and IMS Database (IMS DB)](../example-scenario/mainframe/rehost-ims-raincode-imsql.yml)
+- [Rehost IMS Data Communication (IMS DC) and IMS Database (IMS DB)](../example-scenario/mainframe/rehost-ims-raincode-imsql.yml)
 - [Implement SMA OpCon in Azure](../example-scenario/integration/sma-opcon-azure.yml)
 
 **Relational**
 
 - [Oracle Database with Azure NetApp Files](../example-scenario/file-storage/oracle-azure-netapp-files.yml)
-- [SAP deployment using an Oracle database](../example-scenario/apps/sap-production.yml)
+- [SAP deployment by using an Oracle database](../example-scenario/apps/sap-production.yml)
 
 **Big data**
 
-- [Fabric deployment patterns](../analytics/architecture/fabric-deployment-patterns.yml)
+- [Microsoft Fabric deployment patterns](../analytics/architecture/fabric-deployment-patterns.yml)
 
 ### Database solution ideas
 
@@ -110,12 +110,12 @@ The following articles help you choose the best database technologies for your n
 
 - [Migrate an Oracle database to Azure](../databases/idea/topic-migrate-oracle-azure.yml)
 - [Migrate an Oracle database to an Azure virtual machine](../databases/idea/migrate-oracle-azure-iaas.yml)
-- [Migrate an Oracle database to OD@A Exadata Database Service](../databases/idea/migrate-oracle-odaa-exadata.yml)
-- [Cross-region resiliency for SQL TDE with Azure Key Vault Managed HSM](../solution-ideas/articles/secure-sql-managed-instance-managed-hardware-security-module.yml)
+- [Migrate an Oracle database to Oracle Exadata Database@Azure](../databases/idea/migrate-oracle-odaa-exadata.yml)
+- [Cross-region resiliency for SQL transparent data encryption (TDE) by using Azure Key Vault Managed HSM](../solution-ideas/articles/secure-sql-managed-instance-managed-hardware-security-module.yml)
 
 **NoSQL**
 
-- [Minimal storage – change feed replication](../databases/idea/minimal-storage-change-feed-replicate-data.yml)
+- [Replicate data by using a change feed to minimize storage](../databases/idea/minimal-storage-change-feed-replicate-data.yml)
 
 ## Learn about databases on Azure
 
@@ -132,15 +132,15 @@ The following resources provide foundational knowledge for database implementati
 
 ### Learning paths by role
 
-- **Data engineer**: [Azure Data Fundamentals: Explore relational data in Azure](/training/paths/azure-data-fundamentals-explore-relational-data/)
+- **Data engineer**: [Azure data fundamentals: Explore relational data in Azure](/training/paths/azure-data-fundamentals-explore-relational-data/)
 - **Database administrator**: [Azure SQL fundamentals](/training/paths/azure-sql-fundamentals/)
 - **Developer**: [Work with Azure Cosmos DB](/training/paths/work-with-nosql-data-in-azure-cosmos-db/)
 
 ## Organizational readiness
-f
-Organizations that are beginning their cloud adoption can use the [Cloud Adoption Framework](/azure/cloud-adoption-framework/) for proven guidance designed to accelerate cloud adoption. For cloud-scale analytics and data management guidance, see [Cloud-scale analytics](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics).
 
-To help assure the quality of your database solution on Azure, we recommend following the [Azure Well-Architected Framework](/azure/well-architected/). Well-Architected Framework provides prescriptive guidance for organizations seeking architectural excellence and discusses how to design, provision, and monitor cost-optimized Azure solutions.
+Organizations that are beginning their cloud adoption can use the [Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/) for proven guidance designed to accelerate cloud adoption. For cloud-scale analytics and data management guidance, see [Cloud-scale analytics](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics).
+
+To help assure the quality of your database solution on Azure, we recommend that you follow the [Azure Well-Architected Framework](/azure/well-architected/). The Well-Architected Framework provides prescriptive guidance for organizations that seek architectural excellence and discusses how to design, provision, and monitor cost-optimized Azure solutions.
 
 For database-specific guidance, see the Well-Architected Framework service guides for:
 
@@ -149,16 +149,16 @@ For database-specific guidance, see the Well-Architected Framework service guide
 
 ## Best practices
 
-Review these best practices when designing your database solutions:
+Review the following best practices when you design your database solutions.
 
 | Best practice | Description |
 |---------------|-------------|
-| [Transactional Outbox pattern with Azure Cosmos DB](../databases/guide/transactional-outbox-cosmos.yml) | Learn how to use the Transactional Outbox pattern for reliable messaging and guaranteed delivery of events. |
-| [Distribute your data globally with Azure Cosmos DB](/azure/cosmos-db/distribute-data-globally) | To achieve low latency and high availability, some applications need to be deployed in datacenters that are close to their users. |
+| [The Transactional Outbox pattern with Azure Cosmos DB](../databases/guide/transactional-outbox-cosmos.yml) | Learn how to use the Transactional Outbox pattern for reliable messaging and guaranteed delivery of events. |
+| [Distribute your data globally by using Azure Cosmos DB](/azure/cosmos-db/distribute-data-globally) | To achieve low latency and high availability, some applications need to be deployed in datacenters that are close to their users. |
 | [Security in Azure Cosmos DB](/azure/cosmos-db/database-security) | Security best practices help prevent, detect, and respond to database breaches. |
 | [Continuous backup with point-in-time restore in Azure Cosmos DB](/azure/cosmos-db/continuous-backup-restore-introduction) | Learn about Azure Cosmos DB point-in-time restore feature. |
-| [Achieve high availability with Azure Cosmos DB](/azure/cosmos-db/high-availability) | Azure Cosmos DB provides multiple features and configuration options to achieve high availability. |
-| [High availability for Azure SQL Database and SQL Managed Instance](/azure/azure-sql/database/high-availability-sla) | The database shouldn't be a single point of failure in your architecture. |
+| [Achieve high availability by using Azure Cosmos DB](/azure/cosmos-db/high-availability) | Azure Cosmos DB provides multiple features and configuration options to achieve high availability. |
+| [High availability for Azure SQL Database and Azure SQL Managed Instance](/azure/azure-sql/database/high-availability-sla) | The database shouldn't be a single point of failure in your architecture. |
 
 ## Stay current with databases
 
@@ -178,39 +178,39 @@ Databases is a broad category and covers a range of solutions. The following res
 
 ### Hybrid and multicloud
 
-Many organizations need a hybrid approach to databases because they have workloads running both on-premises and in the cloud. Azure provides services to extend your database platforms across environments:
+Many organizations need a hybrid approach to databases because they have workloads that run both on-premises and in the cloud. Azure provides services to extend your database platforms across environments:
 
-- [Azure Arc-enabled PostgreSQL](/azure/azure-arc/data/what-is-azure-arc-enabled-postgres-hyperscale) - Run Azure-managed PostgreSQL on your infrastructure.
-- [Azure hybrid and multicloud patterns](/azure/architecture/hybrid/hybrid-start-here) - Connect on-premises databases to cloud services.
+- [Azure Arc-enabled PostgreSQL](/azure/azure-arc/data/what-is-azure-arc-enabled-postgres-hyperscale): Run Azure-managed PostgreSQL on your infrastructure.
+- [Azure hybrid and multicloud patterns](/azure/architecture/hybrid/hybrid-start-here): Connect on-premises databases to cloud services.
 
 Key hybrid database scenarios:
 
-- [Azure Arc hybrid management for SQL Server](../hybrid/azure-arc-sql-server.yml) - Use Azure Arc to manage SQL Server across environments.
-- [Hybrid architecture design](../hybrid/hybrid-start-here.md) - Connect on-premises environments to Azure.
+- [Azure Arc hybrid management for SQL Server](../hybrid/azure-arc-sql-server.yml): Use Azure Arc to manage SQL Server across environments.
+- [Hybrid architecture design](../hybrid/hybrid-start-here.md)L: Connect on-premises environments to Azure.
 
 ### Mainframe data modernization
 
 Modernize mainframe data tier workloads to Azure:
 
-- [Modernize mainframe midrange data](../example-scenario/mainframe/modernize-mainframe-data-to-azure.yml) - Migrate legacy data sources to modern platforms.
-- [Replicate and sync mainframe data](../reference-architectures/migration/sync-mainframe-data-with-azure.yml) - Keep mainframe and cloud data synchronized.
-- [Mainframe data replication with Connect](../example-scenario/mainframe/mainframe-replication-precisely-connect.yml) - Use Precisely Connect for data replication.
-- [Mainframe data replication with Qlik](../example-scenario/mainframe/mainframe-midrange-data-replication-azure-qlik.yml) - Replicate data using Qlik technologies.
+- [Modernize mainframe midrange data](../example-scenario/mainframe/modernize-mainframe-data-to-azure.yml): Migrate legacy data sources to modern platforms.
+- [Replicate and sync mainframe data](../reference-architectures/migration/sync-mainframe-data-with-azure.yml): Keep mainframe and cloud data synchronized.
+- [Mainframe data replication by using Connect](../example-scenario/mainframe/mainframe-replication-precisely-connect.yml): Use Precisely Connect for data replication.
+- [Mainframe data replication by using Qlik](../example-scenario/mainframe/mainframe-midrange-data-replication-azure-qlik.yml): Replicate data by using Qlik technologies.
 
 ### Analytics integration
 
 For analytics workloads that depend on robust database foundations, see:
 
-- [Analytics architecture design](../solution-ideas/articles/analytics-get-started.md) - Overview of analytics solutions on Azure.
-- [Data warehousing and analytics](../example-scenario/data/data-warehouse.yml) - Integrate databases with analytics platforms.
+- [Analytics architecture design](../solution-ideas/articles/analytics-get-started.md): See an overview of analytics solutions on Azure.
+- [Data warehousing and analytics](../example-scenario/data/data-warehouse.yml): Integrate databases with analytics platforms.
 
 
-## AWS or Google Cloud professionals
+## Amazon Web Services (AWS) or Google Cloud professionals
 
-These articles can help you ramp up quickly by comparing Azure database options to other cloud services:
+The following articles can help you ramp up quickly by comparing Azure database options to other cloud services:
 
-- [Relational database technologies on Azure and AWS](../aws-professional/databases.md) - Compare Azure and AWS database services.
-- [Google Cloud to Azure services comparison - Data platform](../gcp-professional/services.md#data-platform) - Compare Azure and Google Cloud database services.
+- [Relational database technologies on Azure and AWS](../aws-professional/databases.md): Compare Azure and AWS database services.
+- [Google Cloud to Azure services comparison: Data platform](../gcp-professional/services.md#data-platform): Compare Azure and Google Cloud database services.
 
 ## Contributors
 
