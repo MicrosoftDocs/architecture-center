@@ -3,7 +3,7 @@ title: Asynchronous Request-Reply Pattern
 description: Learn how to decouple back-end processing from front-end hosts by using asynchronous operations and HTTP polling for long-running tasks.
 ms.author: pnp
 author: claytonsiemens77
-ms.date: 02/25/2026
+ms.date: 02/27/2026
 ms.topic: design-pattern
 ms.subservice: cloud-fundamentals
 ---
@@ -57,7 +57,7 @@ The following steps describe the solution:
 The following diagram shows a typical flow.
 
 :::image type="complex" border="false" source="./_images/async-request.png" alt-text="Image that shows the request and response flow for asynchronous HTTP requests." lightbox="./_images/async-request.png":::
-   <Long description that ends with a period.>
+   A sequence diagram that shows a client, an API endpoint, a status endpoint, and a resource URI. The client sends a POST request to the API endpoint, which returns HTTP 202 Accepted. The client then sends repeated GET requests to the status endpoint. The first response returns HTTP 200 OK, and a later response returns HTTP 302 Found. The client follows the redirect with a GET request to the resource URI, which returns HTTP 200 OK. The diagram shows an asynchronous request pattern with polling and a final redirect to the completed resource.
 :::image-end:::
 
 1. The client sends a request and receives an HTTP 202 (Accepted) response.
@@ -135,13 +135,13 @@ The following code shows excerpts from an application that uses Azure Functions 
 
 - The asynchronous API endpoint
 - The status endpoint
-- A back-end function that takes queued work items and executes them
+- A back-end function that takes queued work items and runs them
 
 :::image type="complex" border="false" source="_images/async-request-fn.png" alt-text="Image of the structure of the Asynchronous Request Reply pattern in Functions." lightbox="_images/async-request-fn.png":::
-   <Long description that ends with a period.>
+   In step 1, a client calls an API. In step 2, the API places a message in a queue. In step 3, the API returns a status endpoint to the client. In step 4, a worker receives the message from the queue. In step 5, the worker processes the message and writes the result to blob storage. In step 6, the client calls the status endpoint. In step 7, the status endpoint checks for the result in blob storage.
 :::image-end:::
 
-![GitHub logo](../_images/github.png) This sample is available on [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/main/async-request-reply).
+![GitHub logo](../_images/github.png) This sample is available on [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/main/asynchronous-request-reply).
 
 ### AsyncProcessingWorkAcceptor function
 
