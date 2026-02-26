@@ -503,7 +503,6 @@ Communities can answer questions and help you set up a successful deployment. Co
 - [SAP on Azure Product Announcements Summary – SAP Sapphire 2025](https://techcommunity.microsoft.com/blog/sapapplications/sap-on-azure-product-announcements-summary-%E2%80%93-sap-sapphire-2025/4415281)
 - [Azure community support](https://azure.microsoft.com/support/forums)
 - [SAP Community](https://www.sap.com/community.html)
-- [Stack Overflow SAP](https://stackoverflow.com/tags/sap/info)
 
 ## Contributors
 
