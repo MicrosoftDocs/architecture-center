@@ -15,7 +15,11 @@ ms.custom: arb-aiml
 
 [Foundry Tools](/azure/ai-services/what-are-ai-services) help developers and organizations rapidly create intelligent, cutting-edge, market-ready, and responsible applications with out-of-the-box and prebuilt and customizable APIs and models.
 
-This article covers [Azure Speech in Foundry Tools](#azure-speech) which provides speech-to-text and text-to-speech capabilities. You can transcribe speech to text with high accuracy, produce natural-sounding text-to-speech voices, translate spoken audio, and conduct live AI voice conversations. Create custom voices, add specific words to your base vocabulary, or build your own models. Run Azure Speech anywhere, in the cloud or at the edge in containers.
+This article covers Foundry tools that provide speech-to-text and text-to-speech capabilities. You can transcribe speech to text with high accuracy, produce natural-sounding text-to-speech voices, translate spoken audio, and conduct live AI voice conversations. Create custom voices, add specific words to your base vocabulary, or build your own models. Run Azure Speech anywhere, in the cloud or at the edge in containers.
+
+- [Azure Speech in Foundry Tools](#azure-speech) provides speech-to-text, text-to-speech, speech translation, speaker identification, and custom voice capabilities. Use Azure Speech for real-time or batch transcription, natural-sounding voice synthesis, multilingual audio translation, and brand-specific custom voices.
+
+- [Azure OpenAI in Microsoft Foundry models](#azure-openai-in-microsoft-foundry-models) provides access to OpenAI's powerful language models, including the latest generation of GPT models with audio capabilities and Audio API models such as Whisper for speech-to-text transcription and translation. Use Azure OpenAI in Microsoft Foundry models for audio transcription and translation scenarios that don't require a dedicated speech service.
 
 
 ## Azure Speech
@@ -74,3 +78,15 @@ Azure Speech can be deployed in the cloud or on-premises. By using [containers](
 
 - [Microsoft Azure Language in Foundry Tools capabilities guide](targeted-language-processing.md)
 - [Microsoft Azure Vision in Foundry Tools capabilities guide](image-video-processing.md)
+
+### Azure OpenAI in Microsoft Foundry models
+
+[Azure OpenAI in Microsoft Foundry models](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#azure-openai-in-microsoft-foundry-models) provides audio models through two interfaces: [GPT-4o audio models](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#gpt-4o-audio-models) for real-time, low-latency speech-in, speech-out conversational interactions, and [Audio API models](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#audio-api) via the `/audio` endpoint for speech-to-text transcription ([Whisper and GPT-4o audio models](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#audio-models)), speech translation, and text-to-speech.
+
+| Use Azure OpenAI audio models when | Use Azure Speech when |
+| :----------| :-------------|
+| You need low-latency, real-time voice conversations with a generative AI model using [GPT-4o Realtime](/azure/ai-services/openai/realtime-audio-quickstart). | You need high-volume [real-time](/azure/ai-services/speech-service/get-started-speech-to-text) or [batch](/azure/ai-services/speech-service/batch-transcription) speech transcription with predictable accuracy and cost. |
+| You need general-purpose transcription or translation without custom vocabulary or acoustic tuning, using [Whisper](/azure/ai-services/openai/whisper-quickstart) or [GPT-4o audio models](/azure/ai-services/openai/audio-completions-quickstart). | You need [speaker diarization](/azure/ai-services/speech-service/batch-transcription-create?tabs=portal#display-options-and-speaker-diarization), [custom speech models](/azure/ai-services/speech-service/custom-speech-overview), or custom vocabulary for domain-specific or noisy audio. |
+| Your workload combines speech input with downstream reasoning, summarization, or language understanding in a single model call. | You need natural-sounding [text-to-speech](/azure/ai-services/speech-service/text-to-speech) output using neural voices, including custom brand voices built with [Custom Neural Voice](/azure/ai-services/speech-service/custom-neural-voice). |
+| You need ad-hoc, flexible audio processing that benefits from prompt-based control. | You require [on-premises or container deployment](/azure/ai-services/speech-service/speech-container-howto) for compliance, data residency, or [sovereign cloud](/azure/ai-services/speech-service/sovereign-clouds) requirements. |
+

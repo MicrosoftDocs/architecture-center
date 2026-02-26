@@ -250,6 +250,7 @@ Foundry Models include models from multiple providers:
 | :----------| :-------------|
 | GPT-4o and GPT-4o mini | OpenAI multimodal models that can process both text and images, with enhanced accuracy and responsiveness for English text and coding tasks. |
 | GPT-4.1 series | OpenAI text and image processing models with large context windows (up to 1 million tokens) for handling extensive documents. |
+| GPT-5 family | OpenAI's latest generation flagship models with advanced reasoning, multimodal capabilities, and improved instruction following. Suited for complex, multi-step language tasks that require high accuracy. |
 | o-series (o3, o4-mini) | OpenAI reasoning models designed for advanced problem-solving tasks that require increased focus and capability in areas like science, coding, and math. |
 | Phi-4 family | Microsoft's small language models (SLMs) optimized for complex reasoning. Phi-4 (14B parameters) excels in low-latency scenarios, while Phi-4-reasoning and Phi-4-mini-reasoning provide specialized reasoning capabilities for multi-step problem solving with smaller resource requirements. Supports over 40 languages. |
 | DeepSeek | Open-weight models including DeepSeek-R1 for reasoning tasks and DeepSeek-V3 series for general-purpose language understanding. Known for strong performance on coding and mathematical reasoning benchmarks. |
