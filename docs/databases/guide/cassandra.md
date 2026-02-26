@@ -38,7 +38,7 @@ Cassandra nodes shouldn't be too data-dense. We recommend having at most 1 &ndas
 
 Evaluate [Azure Ultra Disks](/azure/virtual-machines/linux/disks-enable-ultra-ssd) for Cassandra workloads that need smaller disk capacity. They can provide higher IOPS/throughput and lower latency on VM sizes like [Standard_E16s_v5][esv5] and [Standard_D16s_v5][dsv5].
 
-For Cassandra workloads that don't need durable storage—that is, where data can be easily reconstructed from another storage medium—consider using [Standard_L16s_v3][lsv3] or [Standard_L16s_v2][lsv2] VMs. These VMs sizes have large and fast local *temporary* NVM Express (NVMe) disks.
+For Cassandra workloads that don't need durable storage—that is, where data can be easily reconstructed from another storage medium—consider using [Standard_L16s_v3](/azure/virtual-machines/lsv3-series) or [Standard_L16s_v2](/azure/virtual-machines/lsv2-series) VMs. These VMs sizes have large and fast local *temporary* NVM Express (NVMe) disks.
 
 For more information, see [Comparing performance of Azure local/ephemeral vs attached/persistent disks](https://github.com/Azure-Samples/cassandra-on-azure-vms-performance-experiments/blob/master/docs/cassandra-local-attached-disks.md) (GitHub).
 
@@ -174,9 +174,6 @@ For more information about general Cassandra settings, not specific to Azure, se
 - [Data partitioning guidance](../../best-practices/data-partitioning.yml)
 
 [dsv2]: /azure/virtual-machines/dv2-dsv2-series-memory
-[dsv3]: /azure/virtual-machines/dv3-dsv3-series
 [dsv5]: /azure/virtual-machines/dv5-dsv5-series
 [esv5]: /azure/virtual-machines/ev5-esv5-series
-[lsv2]: /azure/virtual-machines/lsv2-series
-[lsv3]: /azure/virtual-machines/lsv3-series
 [repo]: https://github.com/Azure-Samples/cassandra-on-azure-vms-performance-experiments

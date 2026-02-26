@@ -61,7 +61,7 @@ productDirectory:
           text: Choose a data store
         - url: /azure/architecture/data-guide/technology-choices/ai-services
           text: Choose AI services
-        - url: ./guide/technology-choices/messaging.yml
+        - url: ./guide/technology-choices/messaging.md
           text: Choose a messaging service
     - title: Implement an Azure landing zone
       imageSrc: /media/common/i_architecture.svg

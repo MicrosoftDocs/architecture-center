@@ -32,10 +32,10 @@ For the Azure environment, the diagram shows the components that are listed in t
 
 | Label | Documentation |
 |---|---|---|
-| **VNET** | [What is Azure Virtual Network](https://azure.microsoft.com/services/virtual-network)? |
+| **VNET** | [What is Azure Virtual Network](https://azure.microsoft.com/products/virtual-network/)? |
 | **LBS** | [What is Azure Load Balancer](/azure/load-balancer/load-balancer-overview)? |
 | **PIPS** | [Public IP addresses](/azure/virtual-network/ip-services/public-ip-addresses) |
-| **SERVERS** | [Virtual Machines](https://azure.microsoft.com/services/virtual-machines) |
+| **SERVERS** | [Virtual Machines](https://azure.microsoft.com/products/virtual-machines/) |
 | **K8S** | [Azure Kubernetes Service](/azure/aks/intro-kubernetes) |
 | **VDI** | [What is Azure Virtual Desktop?](/azure/virtual-desktop/overview) |
 | **WEB APPS** | [App Service overview](/azure/app-service/overview) |
@@ -62,7 +62,7 @@ The architecture diagram includes the following layers:
 
 2. **Office 365 environment**
 
-    This example environment contains traditional office applications, such as Word, Excel, PowerPoint, Outlook, and OneNote. Depending on the type of license, it might also include other applications, such as OneDrive, Exchange, Sharepoint, and Teams. In the diagram, these are represented by an icon for Microsoft 365 (formerly Office 365) apps and an icon for Microsoft Entra ID. Users must be authenticated to obtain access to Microsoft 365 applications, and Microsoft Entra ID acts as the identity provider. Microsoft 365 authenticates users against the same type of Microsoft Entra ID that Azure uses. In most organizations, the [Microsoft Entra ID *tenant*](/microsoft-365/education/deploy/intro-azure-active-directory) is the same for both Azure and Microsoft 365.
+    This example environment contains traditional office applications, such as Word, Excel, PowerPoint, Outlook, and OneNote. Depending on the type of license, it might also include other applications, such as OneDrive, Exchange, Sharepoint, and Teams. In the diagram, these are represented by an icon for Microsoft 365 (formerly Office 365) apps and an icon for Microsoft Entra ID. Users must be authenticated to obtain access to Microsoft 365 applications, and Microsoft Entra ID acts as the identity provider. Microsoft 365 authenticates users against the same type of Microsoft Entra ID that Azure uses. In most organizations, the [Microsoft Entra ID *tenant*](/microsoft-365/education/guide/1-reference/introduction-microsoft-entra-id) is the same for both Azure and Microsoft 365.
 
 3. **Azure environment**
 

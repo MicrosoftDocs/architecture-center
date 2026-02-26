@@ -1,4 +1,4 @@
-This article describes how to extract insights from customer conversations at a call center by using Azure AI services and Azure OpenAI in Foundry Models. Use these services to improve your customer interactions and satisfaction by analyzing call intent and sentiment, extracting key entities, and summarizing call content.
+This article describes how to extract insights from customer conversations at a call center by using Foundry Tools and Azure OpenAI in Foundry Models. Use these services to improve your customer interactions and satisfaction by analyzing call intent and sentiment, extracting key entities, and summarizing call content.
 
 ## Architecture
 
@@ -17,11 +17,11 @@ This article describes how to extract insights from customer conversations at a 
 
 1. The Azure function will trigger an Azure App Service which will execute the following steps in sequence:
 
-   1. Call the Azure AI Speech to transcribe the files.
+   1. Call Azure Speech in Foundry Tools to transcribe the files.
 
    1. Optionally, save this raw file in Azure blob storage for future reference.
 
-   1. Pass the raw data to the Azure AI Language service to [detect and redact personal data](/azure/ai-services/language-service/personally-identifiable-information/how-to-call-for-conversations) in the transcript.
+   1. Pass the raw data to the Azure Language in Foundry Tools service to [detect and redact personal data](/azure/ai-services/language-service/personally-identifiable-information/how-to-call-for-conversations) in the transcript.
 
    1. Send the redacted data to Azure OpenAI to perform various post call analytics like understand the intent and sentiment of the call, extract entities, or [summarize the conversation](/azure/ai-services/openai/quickstart#try-text-summarization) to evaluate the effectiveness of the call.
 
@@ -35,9 +35,9 @@ This article describes how to extract insights from customer conversations at a 
 
 - [Azure OpenAI](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure) provides access to the Azure OpenAI language models, including GPT-3, Codex, and the embeddings model series, for content generation, summarization, semantic search, and natural language-to-code translation. You can access the service through REST APIs, Python SDK, or the Microsoft Foundry portal.
 
-- [Azure AI Speech](/azure/ai-services/speech-service/overview) is an AI-based API that provides speech capabilities like speech-to-text, text-to-speech, speech translation, and speaker recognition. This architecture uses the Azure AI Speech batch transcription functionality.
+- [Speech](/azure/ai-services/speech-service/overview) is an AI-based API that provides speech capabilities like speech-to-text, text-to-speech, speech translation, and speaker recognition. This architecture uses the Speech batch transcription functionality.
 
-- [Azure AI Language](/azure/ai-services/language-service/overview) consolidates the Azure natural-language processing services. For more information about prebuilt and customizable options, see [Azure AI Language available features](/azure/ai-services/language-service/overview#available-features).
+- [Language](/azure/ai-services/language-service/overview) consolidates the Azure natural-language processing services. For more information about prebuilt and customizable options, see [Language available features](/azure/ai-services/language-service/overview#available-features).
 
 - [Language Studio](/azure/ai-services/language-service/language-studio) provides a UI for exploring and analyzing AI services for language features. Language Studio provides options for building, tagging, training, and deploying custom models.
 
@@ -47,12 +47,12 @@ This article describes how to extract insights from customer conversations at a 
 
 Depending on your scenario, you can add the following workflows.
 
-- Perform [conversation summarization](/azure/ai-services/language-service/summarization/overview) by using the prebuilt model in Azure AI Language.
+- Perform [conversation summarization](/azure/ai-services/language-service/summarization/overview) by using the prebuilt model in Language.
 - Azure also offers Speech Analytics which provides the entire orchestration for post call analytics in batch.
 
 ## Scenario details
 
-This solution uses Azure AI Speech to Text to convert call-center audio into written text. Azure AI Language redacts sensitive information in the conversation transcription. Azure OpenAI extracts insights from customer conversation to improve call center efficiency and customer satisfaction. Use this solution to process transcribed text, recognize and remove sensitive information, and perform analytics on the extractions like reason for the call, resolution provided or not, sentiment of the call, and listing product /service offering based on the number of queries/customer complaints. Scale the services and the pipeline to accommodate any volume of recorded data.
+This solution uses Speech to Text to convert call-center audio into written text. Language redacts sensitive information in the conversation transcription. Azure OpenAI extracts insights from customer conversation to improve call center efficiency and customer satisfaction. Use this solution to process transcribed text, recognize and remove sensitive information, and perform analytics on the extractions like reason for the call, resolution provided or not, sentiment of the call, and listing product /service offering based on the number of queries/customer complaints. Scale the services and the pipeline to accommodate any volume of recorded data.
 
 ### Potential use cases
 
@@ -74,8 +74,8 @@ Reliability helps ensure that your application can meet the commitments that you
 
 Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-- Implement data protection, identity and access management, and network security recommendations for [Blob Storage](/azure/storage/blobs/security-recommendations), [AI services](/security/benchmark/azure/baselines/cognitive-services-security-baseline), and [Azure OpenAI](/azure/ai-services/openai/how-to/managed-identity).
-- [Configure AI services virtual networks](/azure/ai-services/cognitive-services-virtual-networks).
+- Implement data protection, identity and access management, and network security recommendations for [Blob Storage](/azure/storage/blobs/security-recommendations), [Foundry Tools](/security/benchmark/azure/baselines/cognitive-services-security-baseline), and [Azure OpenAI](/azure/ai-services/openai/how-to/managed-identity).
+- [Configure Foundry Tools virtual networks](/azure/ai-services/cognitive-services-virtual-networks).
 
 ### Cost Optimization
 
@@ -92,7 +92,7 @@ For more information, see the following resources:
 
 - [Azure OpenAI pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service)
 - [Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs)
-- [Azure AI Language pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-service)
+- [Language pricing](https://azure.microsoft.com/pricing/details/language/)
 - [Azure Machine Learning pricing](https://azure.microsoft.com/pricing/details/machine-learning)
 
 Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate your solution cost.
@@ -101,9 +101,9 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-When high volumes of data are processed, it can expose performance bottlenecks. To ensure proper performance efficiency, understand and plan for the [scaling options](/azure/azure-functions/functions-scale#scale) to use with the [AI services autoscale feature](/azure/ai-services/autoscale).
+When high volumes of data are processed, it can expose performance bottlenecks. To ensure proper performance efficiency, understand and plan for the [scaling options](/azure/azure-functions/functions-scale#scale) to use with the [Foundry Tools autoscale feature](/azure/ai-services/autoscale).
 
-The batch speech API is designed for high volumes, but other AI services APIs might have request limits, depending on the subscription tier. Consider containerizing AI services APIs to avoid slowing down large-volume processing. Containers provide deployment flexibility in the cloud and on-premises. Mitigate side effects of new version rollouts by using containers. For more information, see [Container support in AI services](/azure/ai-services/cognitive-services-container-support).
+The batch speech API is designed for high volumes, but other Foundry Tools APIs might have request limits, depending on the subscription tier. Consider containerizing Foundry Tools APIs to avoid slowing down large-volume processing. Containers provide deployment flexibility in the cloud and on-premises. Mitigate side effects of new version rollouts by using containers. For more information, see [Container support in Foundry Tools](/azure/ai-services/cognitive-services-container-support).
 
 ## Contributors
 
@@ -120,14 +120,14 @@ Principal authors:
 
 ## Next steps
 
-- [What is Azure AI Speech?](/azure/ai-services/speech-service/overview)
+- [What is Speech?](/azure/ai-services/speech-service/overview)
 - [What is Azure OpenAI?](/azure/ai-services/openai/overview)
 - [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-ml)
 - [Introduction to Blob Storage](/azure/storage/blobs/storage-blobs-introduction)
-- [What is Azure AI Language?](/azure/ai-services/language-service/overview)
+- [What is Language?](/azure/ai-services/language-service/overview)
 - [Introduction to Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
 - [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
-- [Ingestion Client with AI services](/azure/ai-services/speech-service/ingestion-client)
+- [Ingestion Client with Foundry Tools](/azure/ai-services/speech-service/ingestion-client)
 - [Post-call transcription and analytics](/azure/ai-services/speech-service/call-center-quickstart)
 
 ## Related resource

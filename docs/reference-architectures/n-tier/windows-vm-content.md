@@ -12,31 +12,31 @@ Provisioning a virtual machine (VM) in Azure requires additional components besi
 
 A [resource group][resource-manager-overview] is a logical container that holds related Azure resources. In general, group resources based on their lifetime and who will manage them.
 
-Put closely associated resources that share the same lifecycle into the same [resource group][resource-manager-overview]. Resource groups allow you to deploy and monitor resources as a group and track billing costs by resource group. You can also delete resources as a set, which is useful for test deployments. Assign meaningful resource names to simplify locating a specific resource and understanding its role. For more information, see [Recommended Naming Conventions for Azure Resources][naming-conventions].
+Put closely associated resources that share the same lifecycle into the same [resource group][resource-manager-overview]. Resource groups allow you to deploy and monitor resources as a group and track billing costs by resource group. You can also delete resources as a set, which is useful for test deployments. Assign meaningful resource names to simplify locating a specific resource and understanding its role. For more information, see [Recommended Naming Conventions for Azure Resources](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
 
 ### Virtual machine
 
 You can provision a VM from a list of published images, or from a custom managed image or virtual hard disk (VHD) file uploaded to Azure Blob storage.
 
-Azure provides many different [virtual machine sizes][virtual-machine-sizes]. If you move an existing workload to Azure, start with the VM size that's the closest match to your on-premises servers. Then measure the performance of your actual workload in terms of CPU, memory, and disk input/output operations per second (IOPS), and adjust the size as needed.
+Azure provides many different [virtual machine sizes](/azure/virtual-machines/sizes). If you move an existing workload to Azure, start with the VM size that's the closest match to your on-premises servers. Then measure the performance of your actual workload in terms of CPU, memory, and disk input/output operations per second (IOPS), and adjust the size as needed.
 
-Generally, choose an Azure region that is closest to your internal users or customers. Not all VM sizes are available in all regions. For more information, see [Services by region][services-by-region]. For a list of the VM sizes available in a specific region, run the following command from the Azure CLI:
+Generally, choose an Azure region that is closest to your internal users or customers. Not all VM sizes are available in all regions. For more information, see [Services by region](https://azure.microsoft.com/regions/#services). For a list of the VM sizes available in a specific region, run the following command from the Azure CLI:
 
 ```azurecli
 az vm list-sizes --location <location>
 ```
 
-For information about choosing a published VM image, see [Find Windows VM images][select-vm-image].
+For information about choosing a published VM image, see [Find Windows VM images](/azure/virtual-machines/windows/cli-ps-findimage).
 
 ### Disks
 
-For best disk I/O performance, we recommend [Premium Storage][premium-storage], which stores data on solid-state drives (SSDs). Cost is based on the capacity of the provisioned disk. IOPS and throughput also depend on disk size, so when you provision a disk, consider all three factors (capacity, IOPS, and throughput). Premium storage also features free bursting, combined with an understanding of workload patterns, offers an effective SKU selection and cost optimization strategy for IaaS infrastructure, enabling high performance without excessive over-provisioning and minimizing the cost of unused capacity.
+For best disk I/O performance, we recommend [Premium Storage](/azure/virtual-machines/windows/premium-storage), which stores data on solid-state drives (SSDs). Cost is based on the capacity of the provisioned disk. IOPS and throughput also depend on disk size, so when you provision a disk, consider all three factors (capacity, IOPS, and throughput). Premium storage also features free bursting, combined with an understanding of workload patterns, offers an effective SKU selection and cost optimization strategy for IaaS infrastructure, enabling high performance without excessive over-provisioning and minimizing the cost of unused capacity.
 
-[Managed disks][managed-disks] simplify disk management by handling the storage for you. Managed disks don't require a storage account. You specify the size and type of disk and it's deployed as a highly available resource. Managed disks also offer cost optimization by providing desired performance without the need for over-provisioning, accounting for fluctuating workload patterns, and minimizing unused provisioned capacity.
+[Managed disks](/azure/storage/storage-managed-disks-overview) simplify disk management by handling the storage for you. Managed disks don't require a storage account. You specify the size and type of disk and it's deployed as a highly available resource. Managed disks also offer cost optimization by providing desired performance without the need for over-provisioning, accounting for fluctuating workload patterns, and minimizing unused provisioned capacity.
 
-The OS disk is a VHD stored in [Azure Storage][azure-storage], so it persists even when the host machine is down. We also recommend creating one or more [data disks][data-disk], which are persistent VHDs used for application data. 
+The OS disk is a VHD stored in [Azure Storage](/azure/storage/common/storage-introduction), so it persists even when the host machine is down. We also recommend creating one or more [data disks](/azure/virtual-machines/windows/disks-types), which are persistent VHDs used for application data. 
 
-Ephemeral disks provide good performance at no extra cost, but come with the significant drawbacks of being non-persistent, having limited capacity, and being restricted to OS and temp disk use only. When possible, install applications on a data disk, not the OS disk. Some legacy applications might need to install components on the C: drive; in that case, you can [resize the OS disk][resize-os-disk] using PowerShell.
+Ephemeral disks provide good performance at no extra cost, but come with the significant drawbacks of being non-persistent, having limited capacity, and being restricted to OS and temp disk use only. When possible, install applications on a data disk, not the OS disk. Some legacy applications might need to install components on the C: drive; in that case, you can [resize the OS disk](/azure/virtual-machines/windows/expand-os-disk) using PowerShell.
 
 The VM is also created with a temporary disk (the `D:` drive on Windows). This disk is stored on a physical drive on the host machine. It is *not* saved in Azure Storage and may be deleted during reboots and other VM lifecycle events. Use this disk only for temporary data, such as page or swap files.
 
@@ -46,16 +46,16 @@ The networking components include the following resources:
 
 - **Virtual network**. Every VM is deployed into a virtual network that can be segmented into multiple subnets.
 
-- **Network interface (NIC)**. The NIC enables the VM to communicate with the virtual network. If you need multiple NICs for your VM, a maximum number of NICs is defined for each [VM size][vm-size-tables].
+- **Network interface (NIC)**. The NIC enables the VM to communicate with the virtual network. If you need multiple NICs for your VM, a maximum number of NICs is defined for each [VM size](/azure/virtual-machines/sizes).
 
 - **Public IP address**. A public IP address is needed to communicate with the VM &mdash; for example, via Remote Desktop Protocol (RDP). The public IP address can be dynamic or static. The default is dynamic.
 
-  - Reserve a [static IP address][static-ip] if you need a fixed IP address that doesn't change &mdash; for example, if you need to create a DNS 'A' record or add the IP address to a safe list.
-  - You can also create a fully qualified domain name (FQDN) for the IP address. You can then register a [CNAME record][cname-record] in DNS that points to the FQDN. For more information, see [Create a fully qualified domain name in the Azure portal][fqdn].
+  - Reserve a [static IP address](/azure/virtual-network/virtual-networks-reserved-public-ip) if you need a fixed IP address that doesn't change &mdash; for example, if you need to create a DNS 'A' record or add the IP address to a safe list.
+  - You can also create a fully qualified domain name (FQDN) for the IP address. You can then register a [CNAME record](https://en.wikipedia.org/wiki/CNAME_record) in DNS that points to the FQDN. For more information, see [Create a fully qualified domain name in the Azure portal](/azure/virtual-machines/windows/portal-create-fqdn).
 
-- **Network security group (NSG)**. [Network security groups][nsg] are used to allow or deny network traffic to VMs. NSGs can be associated either with subnets or with individual VM instances.
+- **Network security group (NSG)**. [Network security groups](/azure/virtual-network/virtual-networks-nsg) are used to allow or deny network traffic to VMs. NSGs can be associated either with subnets or with individual VM instances.
 
-  - All NSGs contain a set of [default rules][nsg-default-rules], including a rule that blocks all inbound Internet traffic. The default rules can't be deleted, but other rules can override them. To enable Internet traffic, create rules that allow inbound traffic to specific ports &mdash; for example, port 80 for HTTP. To enable RDP, add an NSG rule that allows inbound traffic to TCP port 3389.
+  - All NSGs contain a set of [default rules](/azure/virtual-network/security-overview#default-security-rules), including a rule that blocks all inbound Internet traffic. The default rules can't be deleted, but other rules can override them. To enable Internet traffic, create rules that allow inbound traffic to specific ports &mdash; for example, port 80 for HTTP. To enable RDP, add an NSG rule that allows inbound traffic to TCP port 3389.
   
 - **Azure NAT Gateway.** [Network Address Translation (NAT) gateways](/azure/nat-gateway) allow all instances in a private subnet to connect outbound to the internet while remaining fully private. Only packets that arrive as response packets to an outbound connection can pass through a NAT gateway. Unsolicited inbound connections from the internet aren't permitted.
 
@@ -63,15 +63,15 @@ The networking components include the following resources:
 
 ### Operations
 
-**Diagnostics**. Enable monitoring and diagnostics, including basic health metrics, diagnostics infrastructure logs, and [boot diagnostics][boot-diagnostics]. Boot diagnostics can help you diagnose boot failure if your VM gets into a non-bootable state. Create an Azure Storage account to store the logs. A standard locally redundant storage (LRS) account is sufficient for diagnostic logs. For more information, see [Enable monitoring and diagnostics][enable-monitoring].
+**Diagnostics**. Enable monitoring and diagnostics, including basic health metrics, diagnostics infrastructure logs, and [boot diagnostics](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/). Boot diagnostics can help you diagnose boot failure if your VM gets into a non-bootable state. Create an Azure Storage account to store the logs. A standard locally redundant storage (LRS) account is sufficient for diagnostic logs. For more information, see [Enable monitoring and diagnostics](/azure/monitoring-and-diagnostics/insights-how-to-use-diagnostics).
 
-**Availability**. Your VM might be affected by [planned maintenance][planned-maintenance] or [unplanned downtime][manage-vm-availability]. You can use [VM reboot logs][reboot-logs] to determine whether a VM reboot was caused by planned maintenance. For higher availability, deploy multiple VMs in an [availability set](/azure/virtual-machines/availability#availability-sets) or across [availability zones](/azure/virtual-machines/availability#availability-zones) in a region. Both of these configurations provide a higher [service-level agreement (SLA)][vm-sla].
+**Availability**. Your VM might be affected by [planned maintenance](/azure/virtual-machines/maintenance-and-updates) or [unplanned downtime](/azure/virtual-machines/windows/manage-availability). You can use [VM reboot logs](https://azure.microsoft.com/blog/viewing-vm-reboot-logs) to determine whether a VM reboot was caused by planned maintenance. For higher availability, deploy multiple VMs in an [availability set](/azure/virtual-machines/availability#availability-sets) or across [availability zones](/azure/virtual-machines/availability#availability-zones) in a region. Both of these configurations provide a higher [service-level agreement (SLA)](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
 **Backups** To protect against accidental data loss, use the [Azure Backup](/azure/backup/) service to back up your VMs to geo-redundant storage. Azure Backup provides application-consistent backups. For performance-sensitive workloads, consider the [agentless multi-disk crash consistent backup](/azure/backup/backup-azure-vms-agentless-multi-disk-crash-consistent-overview) feature that enables VM backups without using the Volume Shadow Copy Service (VSS), reducing performance impact.
 
 **Stopping a VM**. Azure makes a distinction between "stopped" and "deallocated" states. You are charged when the VM status is stopped, but not when the VM is deallocated. In the Azure portal, the **Stop** button deallocates the VM. If you shut down through the OS while logged in, the VM is stopped but **not** deallocated, so you will still be charged.
 
-**Deleting a VM**. If you delete a VM, you have the option to delete or keep its disks. That means you can safely delete the VM without losing data. However, you will still be charged for the disks. You can delete managed disks just like any other Azure resource. To prevent accidental deletion, use a [resource lock][resource-lock] to lock the entire resource group or lock individual resources, such as a VM.
+**Deleting a VM**. If you delete a VM, you have the option to delete or keep its disks. That means you can safely delete the VM without losing data. However, you will still be charged for the disks. You can delete managed disks just like any other Azure resource. To prevent accidental deletion, use a [resource lock](/azure/resource-group-lock-resources) to lock the entire resource group or lock individual resources, such as a VM.
 
 ## Considerations
 
@@ -81,26 +81,26 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-Use [Microsoft Defender for Cloud][security-center] to get a central view of the security state of your Azure resources. Defender for Cloud monitors potential security issues and provides a comprehensive picture of the security health of your deployment. Defender for Cloud is configured per Azure subscription. Enable security data collection as described in [Onboard your Azure subscription to Defender for Cloud Standard][security-center-get-started]. When data collection is enabled, Defender for Cloud automatically scans any VMs created under that subscription.
+Use [Microsoft Defender for Cloud](/azure/security-center/security-center-intro) to get a central view of the security state of your Azure resources. Defender for Cloud monitors potential security issues and provides a comprehensive picture of the security health of your deployment. Defender for Cloud is configured per Azure subscription. Enable security data collection as described in [Onboard your Azure subscription to Defender for Cloud Standard](/azure/security-center/security-center-get-started). When data collection is enabled, Defender for Cloud automatically scans any VMs created under that subscription.
 
-**Patch management**. If enabled, Defender for Cloud checks whether any security and critical updates are missing. Use [Group Policy settings][group-policy] on the VM to enable automatic system updates.
+**Patch management**. If enabled, Defender for Cloud checks whether any security and critical updates are missing. Use [Group Policy settings](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates) on the VM to enable automatic system updates.
 
 **Antimalware**. If enabled, Defender for Cloud checks whether antimalware software is installed. You can also use Defender for Cloud to install antimalware software from inside the Azure portal.
 
-**Access control**. Use [Azure role-based access control (Azure RBAC)][rbac] to control access to Azure resources. Azure RBAC lets you assign authorization roles to members of your DevOps team. For example, the Reader role can view Azure resources but not create, manage, or delete them. Some permissions are specific to an Azure resource type. For example, the Virtual Machine Contributor role can restart or deallocate a VM, reset the administrator password, and create a new VM. Other [built-in roles][rbac-roles] that might be useful for this architecture include [DevTest Labs User][rbac-devtest] and [Network Contributor][rbac-network].
+**Access control**. Use [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) to control access to Azure resources. Azure RBAC lets you assign authorization roles to members of your DevOps team. For example, the Reader role can view Azure resources but not create, manage, or delete them. Some permissions are specific to an Azure resource type. For example, the Virtual Machine Contributor role can restart or deallocate a VM, reset the administrator password, and create a new VM. Other [built-in roles](/azure/role-based-access-control/built-in-roles) that might be useful for this architecture include [DevTest Labs User](/azure/role-based-access-control/built-in-roles#devtest-labs-user) and [Network Contributor](/azure/role-based-access-control/built-in-roles#network-contributor).
 
 > [!NOTE]
 > Azure RBAC does not limit the actions that a user logged into a VM can perform. Those permissions are determined by the account type on the guest OS.
 
-**Audit logs**. Use [audit logs][audit-logs] to see provisioning actions and other VM events.
+**Audit logs**. Use [audit logs](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) to see provisioning actions and other VM events.
 
-**Data encryption**. Use [Azure Disk Encryption][disk-encryption] if you need to encrypt the OS and data disks.
+**Data encryption**. Use [Azure Disk Encryption](/azure/security/fundamentals/azure-disk-encryption-vms-vmss) if you need to encrypt the OS and data disks.
 
 ### Cost Optimization
 
 Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-There are various options for VM sizes depending on the usage and workload. The range includes most economical option of the Bs-series to the newest GPU VMs optimized for machine learning. For information about the available options, see [Azure Windows VM pricing][windows-vms-pricing].
+There are various options for VM sizes depending on the usage and workload. The range includes the most economical option of the Bs-series to the newest GPU VMs optimized for machine learning. For information about the available options, see [Azure Windows VM pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows).
 
 For predictable workloads, use [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) and [Azure savings plan for compute](https://azure.microsoft.com/pricing/offers/savings-plan-compute/#benefits-and-features) with a one-year or three-year contract and receive significant savings off pay-as-you-go prices. For workloads with no predictable time of completion or resource consumption, consider the **Pay as you go** option.
 
@@ -110,9 +110,9 @@ Use [Azure Spot VMs](/azure/virtual-machines/windows/spot-vms) to run workloads 
 - Test environments, including continuous integration and continuous delivery workloads.
 - Large-scale stateless applications.
 
-Use the [Azure Pricing Calculator][azure-pricing-calculator] to estimates costs.
+Use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs.
 
-For more information, see the cost section in [Microsoft Azure Well-Architected Framework][WAF-cost].
+For more information, see the cost section in [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/cost/overview).
 
 ### Operational Excellence
 
@@ -120,9 +120,9 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 Use infrastructure as Code (IaC) either by using a single [Azure Resource Manager template][arm-template] for provisioning the Azure resources (declarative approach) or by using a single PowerShell script (imperative approach).Because all the resources are in the same virtual network, they're isolated in the same basic workload. That makes it easier to associate the workload's specific resources to a DevOps team, so that the team can independently manage all aspects of those resources. This isolation enables the DevOps Team and Services to perform continuous integration and continuous delivery (CI/CD).
 
-Also, you can use different [Azure Resource Manager templates][arm-template] and integrate them with [Azure DevOps Services][az-devops] to provision different environments in minutes, for example to replicate production like scenarios or load testing environments only when needed, saving cost.
+Also, you can use different [Azure Resource Manager templates][arm-template] and integrate them with [Azure DevOps Services](/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services) to provision different environments in minutes, for example to replicate production like scenarios or load testing environments only when needed, saving cost.
 
-Consider using the [Azure Monitor][azure-monitor] to Analyze and optimize the performance of your infrastructure, Monitor and diagnose networking issues without logging into your virtual machines.
+Consider using the [Azure Monitor](https://azure.microsoft.com/services/monitor/) to Analyze and optimize the performance of your infrastructure, Monitor and diagnose networking issues without logging into your virtual machines.
 
 ## Next steps
 
@@ -137,41 +137,4 @@ Consider using the [Azure Monitor][azure-monitor] to Analyze and optimize the pe
 - [Plan deployment for updating Windows VMs in Azure](/azure/architecture/example-scenario/wsus)
 
 [arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
-[az-devops]: /azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
-[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
-[azure-monitor]: https://azure.microsoft.com/services/monitor/
-[audit-logs]: https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/
-[azure-storage]: /azure/storage/common/storage-introduction
-[blob-storage]: /azure/storage/common/storage-introduction
-[boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/
-[cname-record]: https://en.wikipedia.org/wiki/CNAME_record
-[data-disk]: /azure/virtual-machines/windows/disks-types
-[disk-encryption]: /azure/security/fundamentals/azure-disk-encryption-vms-vmss
-[enable-monitoring]: /azure/monitoring-and-diagnostics/insights-how-to-use-diagnostics
-[fqdn]: /azure/virtual-machines/windows/portal-create-fqdn
-[group-policy]: /windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates
-[manage-vm-availability]: /azure/virtual-machines/windows/manage-availability
-[managed-disks]: /azure/storage/storage-managed-disks-overview
-[naming-conventions]: /azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging
-[nsg]: /azure/virtual-network/virtual-networks-nsg
-[nsg-default-rules]: /azure/virtual-network/security-overview#default-security-rules
-[planned-maintenance]: /azure/virtual-machines/maintenance-and-updates
-[premium-storage]: /azure/virtual-machines/windows/premium-storage
-[rbac]: /azure/role-based-access-control/overview
-[rbac-roles]: /azure/role-based-access-control/built-in-roles
-[rbac-devtest]: /azure/role-based-access-control/built-in-roles#devtest-labs-user
-[rbac-network]: /azure/role-based-access-control/built-in-roles#network-contributor
-[reboot-logs]: https://azure.microsoft.com/blog/viewing-vm-reboot-logs
-[resize-os-disk]: /azure/virtual-machines/windows/expand-os-disk
-[resource-lock]: /azure/resource-group-lock-resources
 [resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview
-[security-center]: /azure/security-center/security-center-intro
-[security-center-get-started]: /azure/security-center/security-center-get-started
-[select-vm-image]: /azure/virtual-machines/windows/cli-ps-findimage
-[services-by-region]: https://azure.microsoft.com/regions/#services
-[static-ip]: /azure/virtual-network/virtual-networks-reserved-public-ip
-[virtual-machine-sizes]: /azure/virtual-machines/sizes
-[vm-size-tables]: /azure/virtual-machines/sizes
-[vm-sla]: https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services
-[windows-vms-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/windows
-[WAF-cost]: /azure/architecture/framework/cost/overview

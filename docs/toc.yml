@@ -43,7 +43,8 @@ items:
             href: microservices/ci-cd.yml
           - name: Domain modeling for microservices
             items:
-            - name: Domain analysis
+            - name: Use domain analysis to model microservices
+              displayName: DDD
               href: microservices/model/domain-analysis.md
             - name: Tactical DDD
               href: microservices/model/tactical-ddd.yml
@@ -163,7 +164,7 @@ items:
     - name: Choose an AI service
       items:
       - name: AI services
-        displayName: choose
+        displayName: choose, foundry tools
         href: data-guide/technology-choices/ai-services.md
       - name: Targeted language processing
         href: data-guide/ai-services/targeted-language-processing.md
@@ -189,8 +190,8 @@ items:
     - name: Choose a messaging service
       items:
       - name: Asynchronous messaging
+        href: guide/technology-choices/messaging.md
         displayName: queue comparison, event-driven, Service Bus, Event Hubs, Event Grid
-        href: guide/technology-choices/messaging.yml
     - name: Development tools
       items:
       - name: Compare Java application hosting options
@@ -261,7 +262,7 @@ items:
       href: guide/responsible-innovation/index.md
     - name: Understand potential harms
       href: guide/responsible-innovation/harms-modeling/index.md
-    - name: Implement AI responsibly when you use Azure AI services
+    - name: Implement AI responsibly when you use AI services
       href: /azure/ai-services/responsible-use-of-ai-overview
     - name: Measure Azure app sustainability
       href: example-scenario/apps/measure-azure-app-sustainability-sci-score.yml
@@ -508,7 +509,7 @@ items:
     displayName: Horizontal partitioning, database partitioning
     href: patterns/sharding.yml
   - name: Sidecar
-    href: patterns/sidecar.yml
+    href: patterns/sidecar.md
   - name: Static Content Hosting
     displayName: Blob storage website, CDN hosting, static website, static assets
     href: patterns/static-content-hosting.yml
@@ -899,7 +900,7 @@ items:
           href: reference-architectures/hybrid-networking/index.yml
         - name: Connect on-premises with ExpressRoute
           href: reference-architectures/hybrid-networking/expressroute-vpn-failover.yml
-        - name: Design a hybrid Domain Name System
+        - name: Design a hybrid Domain Name System (DNS) solution by using Azure
           href: hybrid/hybrid-dns-infra.yml
         - name: Implement a secure hybrid network
           href: reference-architectures/dmz/secure-vnet-dmz.yml

@@ -88,15 +88,15 @@ Spark NLP's infrastructure scales by using optimized builds for CPUs, GPUs, and 
 
 ## Key selection criteria
 
-In Azure, Spark services like Azure Databricks, Microsoft Fabric, and HDInsight provide natural language processing functionality when you use them with Spark NLP. Azure AI services is another option for natural language processing functionality. To help you decide which service to use, consider the following aspects:
+In Azure, Spark services like Azure Databricks, Microsoft Fabric, and HDInsight provide natural language processing functionality when you use them with Spark NLP. Foundry Tools is another option for natural language processing functionality. To help you decide which service to use, consider the following aspects:
 
-- If you want to use prebuilt or pretrained models, consider using the APIs that AI services provides. Or you can download your model of choice through Spark NLP, which includes advanced models like Llama 2 and MPNet for enhanced capabilities.
+- If you want to use prebuilt or pretrained models, consider using the APIs that Foundry Tools provides. Or you can download your model of choice through Spark NLP, which includes advanced models like Llama 2 and MPNet for enhanced capabilities.
 
 - If you need to train custom models against a large collection of text data, consider using Azure Databricks, Fabric, or HDInsight with Spark NLP. These platforms provide the computational power and flexibility that you need for extensive model training.
 
 - If you need low-level natural language processing capabilities like tokenization, stemming, lemmatization, and term frequency/inverse document frequency (TF/IDF), consider using Azure Databricks, Fabric, or HDInsight with Spark NLP. Alternatively, use an open-source software library in your processing tool of choice.
 
-- If you need straightforward, high‑level natural language processing capabilities like entity and intent identification, topic detection, spell check, or sentiment analysis, consider using the APIs that AI services provide. Or download your model of choice through Spark NLP and apply its prebuilt functions for these tasks.
+- If you need straightforward, high‑level natural language processing capabilities like entity and intent identification, topic detection, spell check, or sentiment analysis, consider using the APIs that Foundry Tools provide. Or download your model of choice through Spark NLP and apply its prebuilt functions for these tasks.
 
 ## Capability matrix
 
@@ -104,7 +104,7 @@ The following tables summarize the key differences in the capabilities of natura
 
 ### General capabilities
 
-| Capability | Spark service (Azure Databricks, Fabric, HDInsight) with Spark NLP | AI services |
+| Capability | Spark service (Azure Databricks, Fabric, HDInsight) with Spark NLP | Foundry Tools |
 | --- | --- | --- |
 | Provides pretrained models as a service | Yes | Yes |
 | REST API | Yes | Yes |
@@ -113,7 +113,7 @@ The following tables summarize the key differences in the capabilities of natura
 
 ### Annotator capabilities
 
-| Capability | Spark service (Azure Databricks, Fabric, HDInsight) with Spark NLP | AI services |
+| Capability | Spark service (Azure Databricks, Fabric, HDInsight) with Spark NLP | Foundry Tools |
 | --- | --- | --- |
 | Sentence detector | Yes | No |
 | Deep sentence detector | Yes | Yes |
@@ -136,7 +136,7 @@ The following tables summarize the key differences in the capabilities of natura
 
 ### High-level natural language processing capabilities
 
-| Capability | Spark service (Azure Databricks, Fabric, HDInsight) with Spark NLP | AI services |
+| Capability | Spark service (Azure Databricks, Fabric, HDInsight) with Spark NLP | Foundry Tools |
 | --- | --- | --- |
 | Spell check | Yes | No |
 | Summarization | Yes | Yes |
@@ -218,12 +218,12 @@ Other contributors:
   - [Fabric](/fabric/)
   - [HDInsight](/azure/hdinsight/spark/apache-spark-overview)
   - [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks)
-  - [AI services](/azure/ai-services/what-are-ai-services)
+  - [Foundry Tools](/azure/ai-services/what-are-ai-services)
 
 - Learn resources:
 
   - [Microsoft Azure AI fundamentals: Explore natural language processing](/training/paths/explore-natural-language-processing)
-  - [Develop natural language processing solutions with AI Services](/training/paths/develop-language-solutions-azure-ai)
+  - [Develop natural language processing solutions with Foundry Tools](/training/paths/develop-language-solutions-azure-ai)
 
 ## Related resources
 

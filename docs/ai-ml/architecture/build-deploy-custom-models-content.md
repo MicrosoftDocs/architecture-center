@@ -32,7 +32,7 @@ The following dataflow corresponds to the previous diagram:
 
 1. To deploy the custom models and use them for inferencing:
 
-   - Azure AI Document Intelligence has built-in model deployment. Inferencing with the custom models is done by using [SDKs](/python/api/overview/azure/ai-documentintelligence-readme) or [document models REST API](/rest/api/aiservices/document-models/get-analyze-result). The [modelId](/azure/ai-services/document-intelligence/how-to-guides/build-a-custom-model), or *model name*, specified during model creation is included in the request URL for document analysis. Document Intelligence doesn't require any further deployment steps.
+   - Azure Document Intelligence in Foundry Tools has built-in model deployment. Inferencing with the custom models is done by using [SDKs](/python/api/overview/azure/ai-documentintelligence-readme) or [document models REST API](/rest/api/aiservices/document-models/get-analyze-result). The [modelId](/azure/ai-services/document-intelligence/how-to-guides/build-a-custom-model), or *model name*, specified during model creation is included in the request URL for document analysis. Document Intelligence doesn't require any further deployment steps.
 
    - Language Studio provides an option to deploy custom language models. Get the REST endpoint [prediction URL](/azure/ai-services/language-service/custom-named-entity-recognition/how-to/call-api) by selecting the model for deployment. You can inference models by using either the REST endpoint or the Azure SDK client libraries.
 
@@ -52,11 +52,11 @@ The following dataflow corresponds to the previous diagram:
 
 - [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a scalable, cloud-based repository for storing and organizing large volumes of unstructured data. In this architecture, Data Lake Storage organizes and maintains large volumes of ingested data to support analytics, labeling, and machine learning workflows.
 
-- [Document Intelligence](/azure/ai-services/document-intelligence/overview) is a component of [Azure AI services](/azure/ai-services/what-are-ai-services). In this architecture, it provides built-in document analysis capabilities for extracting printed and handwritten text, tables, and key-value pairs. Document Intelligence has prebuilt models for extracting data from invoices, documents, receipts, ID cards, and business cards. Document Intelligence also has a [custom template](/azure/ai-services/document-intelligence/train/custom-template) form model and a [custom neural](/azure/ai-services/document-intelligence/train/custom-neural) document model that you can use to train and deploy custom models.
+- [Document Intelligence](/azure/ai-services/document-intelligence/overview) is a component of [Foundry Tools](/azure/ai-services/what-are-ai-services). In this architecture, it provides built-in document analysis capabilities for extracting printed and handwritten text, tables, and key-value pairs. Document Intelligence has prebuilt models for extracting data from invoices, documents, receipts, ID cards, and business cards. Document Intelligence also has a [custom template](/azure/ai-services/document-intelligence/train/custom-template) form model and a [custom neural](/azure/ai-services/document-intelligence/train/custom-neural) document model that you can use to train and deploy custom models.
 
 - [Document Intelligence Studio](/azure/ai-services/document-intelligence/studio-overview) provides an interface to explore Document Intelligence features and models. You can use the interface to label data and build custom document processing models.
 
-- [Azure AI Language](/azure/ai-services/language-service/overview) consolidates the Azure natural language processing (NLP) services. It provides [prebuilt and customizable options](/azure/ai-services/language-service/overview#available-features) and language understanding capabilities. Use it to classify documents, recognize named entities, and complete other NLP tasks.
+- [Azure Language in Foundry Tools](/azure/ai-services/language-service/overview) consolidates the Azure natural language processing (NLP) services. It provides [prebuilt and customizable options](/azure/ai-services/language-service/overview#available-features) and language understanding capabilities. Use it to classify documents, recognize named entities, and complete other NLP tasks.
 
 - [Language Studio](/azure/ai-services/language-service/overview) is a web-based UI in Language that you can use to build, train, manage, and deploy language models. In this architecture, it supports tagging, training, and deploying custom language models for tasks like classification and entity extraction within the document processing pipeline. [Autolabeling](/azure/ai-services/language-service/custom-text-classification/how-to/use-autolabeling) supports custom text classification and can automatically label documents into different classes or categories. The studio also provides options to view [model performance](/azure/ai-services/language-service/custom-text-classification/how-to/view-model-evaluation), including F1 score, precision, and recall.
 
@@ -84,7 +84,7 @@ You can add more workflows to this scenario based on specific use cases.
 
   Machine Learning and Foundry share capabilities, so [evaluate both platforms](/ai/ai-studio-experiences-overview) and choose the best one for your scenario.
 
-- You can use [Azure AI Content Understanding](/azure/ai-services/content-understanding/overview) to create a [custom analyzer](/azure/ai-services/content-understanding/quickstart/use-rest-api?tabs=document) by defining a field schema for extracting structured data from the document.
+- You can use [Azure Content Understanding in Foundry Tools](/azure/ai-services/content-understanding/overview) to create a [custom analyzer](/azure/ai-services/content-understanding/quickstart/use-rest-api?tabs=document) by defining a field schema for extracting structured data from the document.
 
 ## Scenario details
 
@@ -148,7 +148,7 @@ Reliability helps ensure that your application can meet the commitments that you
 
 Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-Implement data protection, identity and access management, and network security recommendations for [Blob Storage](/azure/storage/blobs/security-recommendations), [AI services](/security/benchmark/azure/baselines/cognitive-services-security-baseline) for Document Intelligence and Language Studio, [Machine Learning](/security/benchmark/azure/baselines/machine-learning-security-baseline), and [Azure OpenAI](/security/benchmark/azure/baselines/azure-openai-security-baseline).
+Implement data protection, identity and access management, and network security recommendations for [Blob Storage](/azure/storage/blobs/security-recommendations), [Foundry Tools](/security/benchmark/azure/baselines/cognitive-services-security-baseline) for Document Intelligence and Language Studio, [Machine Learning](/security/benchmark/azure/baselines/machine-learning-security-baseline), and [Azure OpenAI](/security/benchmark/azure/baselines/azure-openai-security-baseline).
 
 ### Cost Optimization
 
@@ -174,7 +174,7 @@ The major costs for this solution include:
 
 For more information about pricing for specific components, see the following resources:
 
-- [Azure AI Document Intelligence pricing](https://azure.microsoft.com/pricing/details/ai-document-intelligence/)
+- [Document Intelligence pricing](https://azure.microsoft.com/pricing/details/ai-document-intelligence/)
 - [Functions pricing](https://azure.microsoft.com/pricing/details/functions)
 - [Azure Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/)
 - [Azure Data Factory pricing](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline)
@@ -216,7 +216,7 @@ Principal authors:
 
 - [Get started with custom projects in Document Intelligence Studio](/azure/ai-services/document-intelligence/quickstarts/try-document-intelligence-studio)
 - [Use Document Intelligence models](/azure/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api)
-- [What is Azure AI Language?](/azure/ai-services/language-service/overview)
+- [What is Language?](/azure/ai-services/language-service/overview)
 - [What is optical character recognition?](/azure/ai-services/computer-vision/overview-ocr)
 - [How to configure Functions with a virtual network](/azure/azure-functions/configure-networking-how-to)
 
