@@ -23,15 +23,15 @@ Two important points are:
 - A compensating transaction might not have to undo the work in the exact reverse order of the original operation.
 - It might be possible to perform some of the undo steps in parallel.
 
-This approach is similar to the Sagas strategy that's discussed in [Clemens Vasters' blog](https://vasters.com/archive/Sagas.html).
+This approach is similar to the [Saga distributed transactions pattern](./saga.yml).
 
-A compensating transaction is an eventually consistent operation itself, so it can also fail. The system should be able to resume the compensating transaction at the point of failure and continue. It might be necessary to repeat a step that fails, so you should define the steps in a compensating transaction as [idempotent commands](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing). For more information, see [Idempotency Patterns](https://blog.jonathanoliver.com/idempotency-patterns) on Jonathan Oliver's blog.
+A compensating transaction is an eventually consistent operation itself, so it can also fail. The system should be able to resume the compensating transaction at the point of failure and continue. It might be necessary to repeat a step that fails, so you should define the steps in a compensating transaction as [idempotent commands](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing).
 
 In some cases, manual intervention might be the only way to recover from a step that has failed. In these situations, the system should raise an alert and provide as much information as possible about the reason for the failure.
 
-## Issues and considerations
+## Problems and considerations
 
-Consider the following points when you decide how to implement this pattern:
+Consider the following points as you decide how to implement this pattern:
 
 - It might not be easy to determine when a step in an operation that implements eventual consistency fails. A step might not fail immediately. Instead, it might get blocked. You might need to implement a time-out mechanism.
 
@@ -42,7 +42,7 @@ Consider the following points when you decide how to implement this pattern:
 - The infrastructure that handles the steps must meet the following criteria:
   - It's resilient in the original operation and in the compensating transaction.
   - It doesn't lose the information that's required to compensate for a failing step.
-  - It reliably monitors the progress of the compensation logic.
+  - It reliably monitors the progress of the compensation logic. Because compensating transactions often span multiple services and time boundaries, ensure that both the original operation and its compensation can be correlated and audited end‑to‑end.
 
 - A compensating transaction doesn't necessarily return the system data to its state at the start of the original operation. Instead, the transaction compensates for the work that the operation completed successfully before it failed.
 
@@ -54,9 +54,19 @@ Consider the following points when you decide how to implement this pattern:
 
 - When you implement a compensating transaction, you face many of the same challenges that you face when you implement eventual consistency. For more information, see the "Considerations for Implementing Eventual Consistency" section in [Data Consistency Primer](/previous-versions/msp-n-p/dn589800(v=pandp.10)).
 
+- Define clear "points of no return" and irreversible steps. In complex workflows, not all operations can be safely or meaningfully undone (for example, external side effects or legally binding actions). Identify which steps are compensable and which are irreversible, and design the workflow so that irreversible steps occur only after all critical validations succeed.
+
 ## When to use this pattern
 
-Use this pattern only for operations that must be undone if they fail. If possible, design solutions to avoid the complexity of requiring compensating transactions.
+Use this pattern when:
+
+- A business operation spans multiple steps, services, or data stores and must be undone if a later step fails. This is common in long‑running workflows that follow an eventual consistency model and can't rely on atomic transactions. 
+- Failure recovery requires business‑specific logic rather than a simple data rollback. Compensating actions are needed when undoing work involves applying domain rules (for example, canceling reservations or issuing partial refunds). 
+
+This pattern might not be suitable when:
+
+- Operations can be retried safely or handled as transient failures. If retry logic alone can resolve most failures, introducing compensating transactions adds unnecessary complexity. 
+- Strong consistency or atomic transactions are required across all steps. If the system can't tolerate temporary inconsistency, or compensation can't reliably restore a valid state, alternative designs should be considered. 
 
 ## Workload design
 
@@ -94,7 +104,8 @@ In many business solutions, failure of a single step doesn't always necessitate 
 ## Next steps
 
 - [Data Consistency Primer](/previous-versions/msp-n-p/dn589800(v=pandp.10)). The Compensating Transaction pattern is often used to undo operations that implement the eventual consistency model. This primer provides information about the benefits and trade-offs of eventual consistency.
-- [Idempotency Patterns](https://blog.jonathanoliver.com/idempotency-patterns). In a compensating transaction, it's best to use idempotent commands. This blog post describes factors to consider when you implement idempotency.
+- Use [Transactional Outbox pattern with Azure Cosmos DB pattern](/azure/architecture/databases/guide/transactional-outbox-cosmos) when compensating transactions rely on publishing events or commands reliably. The Transactional Outbox pattern helps ensure state changes and related messages are recorded atomically, reducing the risk of message loss between a successful state update and event publication in distributed systems.
+- [Design for self healing](../guide/design-principles/self-healing.md). This guide explains how to design self-healing applications. You can use compensating transactions as part of a self-healing approach.
 
 ## Related resources
 
@@ -102,4 +113,3 @@ In many business solutions, failure of a single step doesn't always necessitate 
 - [Retry pattern](./retry.yml). Compensating transactions can be computationally demanding. You can try to minimize their use by using the Retry pattern to implement an effective policy of retrying failed operations.
 - [Saga distributed transactions pattern](./saga.yml). This article explains how to use the Saga pattern to manage data consistency across microservices in distributed transaction scenarios. The Saga pattern handles failure recovery with compensating transactions.
 - [Pipes and Filters pattern](./pipes-and-filters.yml). This article describes the Pipes and Filters pattern, which you can use to decompose a complex processing task into a series of reusable elements. You can use the Pipes and Filters pattern with the Compensating Transaction pattern as an alternative to implementing distributed transactions.
-- [Design for self healing](../guide/design-principles/self-healing.md). This guide explains how to design self-healing applications. You can use compensating transactions as part of a self-healing approach.
