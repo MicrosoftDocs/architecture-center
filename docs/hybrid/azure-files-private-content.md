@@ -138,19 +138,6 @@ For more information, see [Private resolver architecture](/azure/dns/private-res
 
 When it comes to an on-premises file sharing solution, many administrators choose to use a DFS rather than a traditional standalone file server. DFS allows administrators to consolidate file shares that might exist on multiple servers so that they appear as though they all live in the same location, allowing users to access them from a single point on the network. During migration to a cloud file share solution, Azure File Sync can replace traditional DFS-R. For more information, see [Migrate a DFS Replication (DFS-R) deployment to Azure File Sync](/azure/storage/file-sync/file-sync-deployment-guide#migrate-a-dfs-r-deployment-to-azure-file-sync).
 
-### Data loss and backup
-
-Data loss is a serious problem for businesses of all sizes. Azure file share backup uses file share snapshots to provide a cloud-based backup solution that protects your data in the cloud and eliminates additional maintenance overhead involved in on-premises backup solutions. The key benefits of Azure file share backup include:
-
-- Zero infrastructure
-- Customized retention
-- Built-in management capabilities
-- Instant restores
-- Alerting and reporting
-- Protection against accidental deletion of file shares
-
-For more information, see [About Azure file share backup](/azure/backup/azure-file-share-backup-overview)
-
 ### Support for hybrid identities on Azure Files
 
 Although this article describes Active Directory for authenticating on Azure Files, it's possible to use Microsoft Entra ID for authenticating hybrid user identities. Azure Files supports identity-based authentication over Server Message Block (SMB), by using the Kerberos authentication protocol through the following methods:
@@ -161,6 +148,25 @@ Although this article describes Active Directory for authenticating on Azure Fil
 - AD authentication for Linux clients
 
 For more information, see [Enable Microsoft Entra Kerberos authentication for hybrid identities on Azure Files](/azure/storage/files/storage-files-identity-auth-hybrid-identities-enable).
+
+### Reliability
+
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
+
+#### Data loss and backup
+
+Data loss is a serious problem for businesses of all sizes. Azure file share backup uses file share snapshots to provide a cloud-based backup solution that protects your data in the cloud and eliminates additional maintenance overhead involved in on-premises backup solutions. The key benefits of Azure file share backup include:
+
+- Zero infrastructure
+- Customized retention
+- Built-in management capabilities
+- Instant restores
+- Alerting and reporting
+- Protection against accidental deletion of file shares
+
+For more information, see [About Azure file share backup](/azure/backup/azure-file-share-backup-overview).
+
+Azure File Sync provides built-in redundancy by synchronizing files between on-premises servers and Azure Files. If an on-premises server fails, you can provision a new server, install the Azure File Sync agent, and connect it to the same sync group to restore access. Use geo-redundant storage (GRS) or geo-zone-redundant storage (GZRS) for the Azure Files storage account to protect against regional outages.
 
 ### Security
 
@@ -177,7 +183,28 @@ File access auditing can be enabled locally and remotely:
 - Locally, by using Dynamic Access Control. For more information, see [Plan for File Access Auditing](/windows-server/identity/solution-guides/plan-for-file-access-auditing).
 - Remotely, by using Azure Storage logs in Azure Monitor on Azure Files. Azure Storage logs contains StorageRead, StorageWrite, StorageDelete, and Transaction logs. Azure file access can be logged to a storage account, log analytics workspace, or streamed to an event hub separately. For more information, see [Monitor Azure Files](/azure/storage/files/storage-files-monitoring).
 
-### Scalability and performance
+### Cost Optimization
+
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+
+- Azure Files offers two storage tiers, premium and standard, so you can right-size your file shares based on performance and cost requirements.
+- Azure File Sync cloud tiering reduces storage costs on-premises by keeping only frequently accessed files on the local server.
+- Private endpoints incur hourly charges and bandwidth premiums through the Azure Private Link service. Factor these costs into your overall budget. For more information, see [Private Link pricing](https://azure.microsoft.com/pricing/details/private-link).
+- ExpressRoute circuits have monthly charges based on bandwidth and pricing model. Use a VPN gateway as a lower-cost alternative when throughput requirements allow it.
+
+To estimate the cost of this solution, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
+
+### Operational Excellence
+
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
+
+- Use [Azure Monitor](/azure/azure-monitor/overview) to monitor Azure File Sync health, sync activity, and cloud tiering metrics. Enable diagnostic settings on the storage account to collect storage metrics and logs.
+- Azure File Sync provides built-in monitoring through the Storage Sync Service in the Azure portal. Review sync health and cloud tiering status regularly to detect issues.
+- Use [Azure Backup](/azure/backup/backup-overview) reports and alerting to track backup status and restore operations for Azure file shares.
+
+### Performance Efficiency
+
+Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 Scalability and performance targets for Azure Files and Azure File Sync depend on various factors like SMB client behavior and network bandwidth. For example, the performance of I/O for a file might be affected by your SMB client's behavior and by your available network bandwidth. Testing your usage pattern helps determine if they meet your needs. For more information, see [Scalability and performance targets for Azure Files and Azure File Sync](/azure/storage/files/storage-files-scale-targets).
 
