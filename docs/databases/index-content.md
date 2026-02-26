@@ -28,6 +28,7 @@ Here are some **Learn modules** about Azure databases:
 - [Secure your Azure SQL Database](/training/modules/secure-your-azure-sql-database)
 - [Azure Cosmos DB](/azure/cosmos-db/introduction) 
 - [What is Azure DocumentDB (with MongoDB compatibility)?](/azure/documentdb/overview)
+- [Managed Instance for Apache Cassandra](/azure/managed-instance-apache-cassandra/)
 - [Azure Database for PostgreSQL](/azure/postgresql/)
 - [HorizonDB](/products/horizondb?msockid=1c5190a7254460011f6a862a24566162)
 - [Azure Database for MySQL](/azure/mysql/flexible-server/overview-single)
