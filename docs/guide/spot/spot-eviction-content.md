@@ -151,7 +151,7 @@ The following workflow corresponds to the previous diagram:
 
 1. **Query Scheduled Events endpoint:** An API request is sent to a static nonroutable IP address `169.254.169.254`. The API request queries the Scheduled Events endpoint for infrastructure maintenance signals.
 
-1. **Application Insights:** The architecture uses Application Insights only for learning purposes. It's not an essential component of interruptible workload orchestration, but allows you to validate the telemetry from the .NET worker application. The .NET worker application sends telemetry to Application Insights. For more information, see [Enable live metrics from the .NET application](/azure/azure-monitor/app/live-stream#enable-live-metrics-using-code-for-any-net-application).
+1. **Application Insights:** The architecture uses Application Insights only for learning purposes. It's not an essential component of interruptible workload orchestration, but allows you to validate the telemetry from the .NET worker application. The .NET worker application sends telemetry to Application Insights via the [Azure Monitor OpenTelemetry Distro](/azure/azure-monitor/app/opentelemetry-enable). For more information, see [Enable live metrics from the .NET application](/azure/azure-monitor/app/live-stream#enable-live-metrics-using-code-for-any-net-application).
 
 ## Next step
 

@@ -19,7 +19,7 @@ The numbered circles in the diagram correspond to the numbered steps in the foll
 1. The Java nodes use Java Message Service to connect to Service Bus, and Java interfaces like Java Database Connectivity to connect to other data sources. They use other Java APIs as needed.
 1. The recoverable transactions run along with the business code for each batch step.
 1. The batch infrastructure uses Azure accelerated networking for speed.
-1. Azure Cache for Redis, Azure Cosmos DB, and Azure Stream Analytics provide working storage if needed.
+1. Azure Managed Redis, Azure Cosmos DB, and Azure Stream Analytics provide working storage if needed.
 1. The permanent data layer uses Azure Data Factory for data integration and Azure SQL Managed Instance, business critical performance tier, for high availability. The permanent storage is loosely coupled for easy switching to other database technologies, and for optimization of storage organization (using shards or partitions, for example).
 1. The data solutions (transitional and permanent) use the Azure Storage geo-redundant storage (GRS) option to protect against catastrophic failures.
 
@@ -29,7 +29,7 @@ The numbered circles in the diagram correspond to the numbered steps in the foll
 
 - [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is a cloud object storage service that provides scalable and secure REST-based object storage for cloud-native workloads, archives, data lakes, high-performance computing, and machine learning. In this architecture, Blob Storage provides scalable storage for batch processing input, output, and intermediate data files.
 
-- [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is a fully managed in-memory caching service for sharing data and state among compute resources. In this architecture, Azure Cache for Redis provides high-speed temporary storage for batch processing state and intermediate results.
+- [Azure Managed Redis](/azure/redis/overview) provides an in-memory data store based on Redis Enterprise software. In this architecture, Azure Managed Redis provides high-speed temporary storage for batch processing state and intermediate results.
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed multiple-model NoSQL database that has open APIs for any scale. In this architecture, Azure Cosmos DB provides scalable NoSQL storage for batch processing metadata and working data.
 

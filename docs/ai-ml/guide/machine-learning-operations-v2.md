@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
 ai-usage: ai-assisted
+ms.custom: arb-aiml
 ---
 
 # Machine learning operations
@@ -600,7 +601,7 @@ Implement automated security scans as part of the automated integration and depl
 
 **Environment:** All<br>
 **Azure facilitation:** [Defender For DevOps](/azure/defender-for-cloud/defender-for-devops-introduction)<br>
-**Notes:** You can use apps in [Azure Marketplace](https://marketplace.visualstudio.com/search?term=security&target=AzureDevOps&category=All%20categories&sortBy=Relevance) to extend this process for non-Microsoft security testing modules.
+**Notes:** You can use solutions from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/search?term=security&target=AzureDevOps&category=All%20categories&sortBy=Relevance) to extend this process with non-Microsoft security testing modules.
 
 ##### Ongoing service
 
@@ -647,7 +648,7 @@ Other contributors:
 
 ## Related resources
 
-- [Choose a Microsoft Azure AI services technology](../../data-guide/technology-choices/ai-services.md)
+- [Choose an AI services technology](../../data-guide/technology-choices/ai-services.md)
 - [Natural language processing technology](../../data-guide/technology-choices/natural-language-processing.md)
 - [Compare the machine learning products and technologies from Microsoft](../../ai-ml/guide/data-science-and-machine-learning.md)
 - [What is the Team Data Science Process?](../../data-science-process/overview.yml)

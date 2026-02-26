@@ -31,7 +31,7 @@ To learn more about communicating design intent, see [Architecture design diagra
 
 ## Example architecture diagrams
 
-:::image type="complex" source="./images/baseline-app-service-architecture.svg" lightbox="./images/baseline-app-service-architecture.svg" alt-text="Diagram that shows a baseline App Service architecture with zonal redundancy and high availability.":::
+:::image type="complex" source="./images/baseline-app-service-architecture.svg" lightbox="./images/baseline-app-service-architecture.svg" alt-text="Diagram that shows a baseline App Service architecture with zone redundancy and high availability.":::
     The diagram shows a virtual network with three subnets. One subnet contains Azure Application Gateway with Azure Web Application Firewall. The second subnet contains private endpoints for Azure PaaS services, while the third subnet contains a virtual interface for Azure App Service network integration. The diagram shows App Gateway communicating to Azure App Service via a private endpoint. App Service shows a zonal configuration. The diagram also shows App Service using virtual network integration and private endpoints to communicate to Azure SQL Database, Azure Key Vault, and Azure Storage.
 :::image-end:::
 

@@ -16,7 +16,7 @@ A key design area of any mission critical architecture is the application platfo
 
 - Design in layers. Choose the right set of services, their configuration, and the application-specific dependencies. This layered approach helps in creating **logical and physical segmentation**. It's useful in defining roles and functions, and assigning appropriate privileges, and deployment strategies. This approach ultimately increases the reliability of the system.
 
-- A mission-critical application must be highly reliable and resistant to datacenter and regional failures. Building **zonal and regional redundancy** in an active-active configuration is the main strategy. As you choose Azure services for your application's platform, consider their Availability Zones support and deployment and operational patterns to use multiple Azure regions.
+- A mission-critical application must be highly reliable and resistant to datacenter and regional failures. Building **zone and regional redundancy** in an active-active configuration is the main strategy. As you choose Azure services for your application's platform, consider their Availability Zones support and deployment and operational patterns to use multiple Azure regions.
 
 - Use a *scale units*-based architecture to handle increased load. Scale units allow you to logically group resources and a unit can be **scaled independent of other units** or services in the architecture. Use your capacity model and expected performance to define the boundaries of, number of, and the baseline scale of each unit.
 

@@ -22,7 +22,7 @@ This architecture makes use of the following technologies:
 
 - [Network security groups (NSGs)](/azure/virtual-network/security-overview) attach to a subnet or to the network interface cards (NICs) on a virtual machine. NSGs are used to restrict incoming, outgoing, and intra-subnet traffic in the virtual network.
 
-- [Azure Bastion](/azure/bastion/bastion-overview) provides secure access through the Azure portal to virtual machines that run in Azure, without using a jumpbox and its associated public IP address. This mechanism limits internet-facing exposure.
+- [Azure Bastion](/azure/bastion/bastion-overview) provides secure access through the Azure portal to virtual machines that run in Azure, without using a jump box and its associated public IP address. This mechanism limits internet-facing exposure.
 
 - [Azure managed disks](/azure/virtual-machines/disks-types) Premium or Ultra storage disks are recommended. These storage types provide data persistence for virtual machines with the SAP workload.
 
@@ -45,7 +45,7 @@ This architecture makes use of the following technologies:
 
 - To help protect SAP global host files for SAP Central Services and the SAP transport directory, you can deploy [Network File System (NFS)](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs) servers in a failover cluster configuration.
 
-- [SIOS Protection Suite](https://us.sios.com/solutions/cloud-high-availability/azure), available in Azure Marketplace, can be used to protect the global host files for Central Services instead of NFS or Azure NetApp Files.
+- [SIOS clustering solutions](https://us.sios.com/solutions/cloud-high-availability/azure), available in the [Microsoft Marketplace](https://marketplace.microsoft.com/marketplace/apps?search=SIOS) for Azure, can be used to protect the global host files for Central Services instead of NFS or Azure NetApp Files.
 
 - [Azure Application Gateway](/azure/application-gateway/features) is a web traffic load balancer. In one service, it provides SSL termination, a Web Application Firewall (WAF) service, and other handy high-availability and scalability features. Some SAP deployments have used it as a [gateway for the SAP Fiori front end](https://www.linkedin.com/pulse/internet-facing-sap-fiori-access-azure-firewall-gateway-apparao-sanam) in their production landscape.
 
@@ -98,7 +98,7 @@ These transactions use the load-balancing capability within the message server o
 
 This example shows a highly available cluster that uses Azure NetApp Files as a shared file storage solution. High availability for the Central Services cluster requires shared storage. Azure NetApp Files provides a simple highly available option so you don't have to deploy a Linux cluster infrastructure. An alternative is to set up a highly available [NFS service](/azure/virtual-machines/workloads/sap/high-availability-guide-suse#setting-up-a-highly-available-nfs-server).
 
-You can also deploy Central Services to a single virtual machine with Premium-managed disks and get a 99.9-percent availability [SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9).
+You can also deploy Central Services to a single virtual machine with Premium-managed disks and get a 99.9-percent availability [SLA](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
 The virtual machines used for the application servers support multiple IP addresses per NIC. This feature supports the SAP recommended practice of using virtual host names for installations as outlined in [SAP Note 962955](https://launchpad.support.sap.com/#/notes/962955). Virtual host names decouple the SAP services from the physical host names and make it easier to migrate services from one physical host to another. This principle also applies to cloud virtual machines.
 
@@ -161,7 +161,7 @@ Resource redundancy is the general theme in highly available infrastructure solu
 
 To maximize application availability, you can deploy redundant resources in an availability set or across [Availability Zones](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones). For more information, see the [SAP S/4HANA reference architecture](/azure/architecture/guide/sap/sap-s4hana#availability-considerations).
 
-This architecture places virtual machines that do the same role into an availability set. This configuration helps meet [SLAs](https://azure.microsoft.com/support/legal/sla/virtual-machines) by guarding against downtime caused by Azure infrastructure maintenance and unplanned outages. Two or more virtual machines per availability set are required to get a higher SLA.
+This architecture places virtual machines that do the same role into an availability set. This configuration helps meet [SLAs](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services) by guarding against downtime caused by Azure infrastructure maintenance and unplanned outages. Two or more virtual machines per availability set are required to get a higher SLA.
 
 ##### Azure Load Balancer
 

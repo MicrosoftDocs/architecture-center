@@ -3,10 +3,11 @@ title: Choose the Right AI Model for Your Workload
 description: Learn strategies to help you select the best model for your AI workload, including key criteria and practical considerations for decision-making.
 author: claytonsiemens77
 ms.author: csiemens
-ms.date: 07/30/2025
+ms.date: 02/17/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.collection: ce-skilling-ai-copilot
+ms.custom: arb-aiml
 ---
 # Choose the right AI model for your workload
 
@@ -29,17 +30,65 @@ Determine the purpose of the model, like chat, reasoning, embedding, retrieval-a
 
 When you select an AI model, choose a model that has capabilities that align with the specific task that you need it to do. Different models are optimized for different functions. Some models excel at natural language processing, like text classification and summarization. Convolutional neural networks (CNNs) are ideal for visual data, including image classification and object detection. Recurrent neural networks (RNNs) and transformers support audio analysis and speech recognition. Multimodal models handle tasks that combine text, image, or audio inputs. For example, GPT models are well-suited for text generation and understanding. To narrow your options and choose a model that delivers the best performance, accuracy, and efficiency for your use case, clearly define your task. Tasks include sentiment analysis, code generation, or real-time conversation.
 
+Modern workloads increasingly involve agentic behaviors, such as multi-step reasoning, tool invocation, and interaction with user interfaces or external systems. These patterns place greater emphasis on reasoning quality, latency predictability, and orchestration support when evaluating task fit.
+
+### Model routing strategy
+
+Some workloads benefit from introducing an architectural abstraction between the application and individual models. A model routing strategy enables the application to send requests to a single endpoint while a routing component dynamically selects a backing model.
+
+Model routers evaluate characteristics of the request and route it to an appropriate model based on predefined criteria. Common routing strategies include:
+
+- **Cost-optimized routing**, which favors lower-cost models for simpler or noncritical requests.
+
+- **Quality-optimized routing**, which routes complex or high-risk requests to higher-capability models.
+
+- **Balanced routing**, which automatically trades off cost and quality based on workload characteristics.
+
+Model routing does not eliminate the need to understand model capabilities. Instead, it operationalizes that understanding at runtime and enables systems to adapt as models and workloads change.
+
+#### Design considerations for model routers
+
+When you adopt a model routing strategy, consider the following factors:
+
+- **Model pool constraints**: Routing decisions are limited to the models included in the router's backing pool.
+
+- **Context window limits**: The effective context window is constrained by the smallest context window among all candidate models.
+
+- **Custom and fine-tuned models**: Routing strategies must account for models that are tuned for specific domains or tasks.
+
+- **Predictability and observability**: Dynamic routing can complicate cost forecasting, debugging, and performance analysis.
+
+Model routers are most effective when variability in request complexity or volume justifies the added architectural complexity.
+
 #### Single model vs. multiple model considerations
 
 When you consider task fit, factor in your workload application design. A single model that fulfills all task requirements works best for a simpler approach. Alternatively, you can structure the task into multiple steps that each use a model suited to its specific purpose. Multiple models are common in AI agent-based workload design, especially when you use [AI agent orchestration patterns](/azure/architecture/ai-ml/guide/ai-agent-design-patterns). For example, you might combine language understanding, reasoning, and retrieval. This modular approach enables greater flexibility, scalability, and adaptability, especially in dynamic environments where tasks evolve or require diverse capabilities.
 
 Individually evaluate and select each model that you include in your workload. Apply the following considerations for each model.
 
+#### Manual routing between multiple models vs. automatic model selection
+
+Most model selection guidance assumes that you manually choose a model during design time. This approach works well when workload requirements are stable, model behavior is well understood, and cost or performance characteristics are predictable.
+
+In more dynamic workloads, you might delegate model choice to the system itself. Automatic model selection introduces a routing layer that evaluates each request at runtime and selects the most appropriate model from a predefined set. This approach shifts model choice from a static design-time decision to an operational concern.
+
+Manual selection emphasizes predictability and control. Automatic selection emphasizes adaptability as workloads, traffic patterns, and model capabilities evolve. Both approaches are valid architectural choices, and many systems combine them by using manual selection for critical paths and automatic selection for variable or exploratory workloads.
+
 ### Cost constraints
 
 Determine your budgetary limits for inference and deployment.
 
 Consider cost considerations when you select an AI model, especially when you balance performance with budget constraints. High-performing models often require significant compute resources, which can increase infrastructure and operational costs, especially at scale. For workloads that have limited funding, open-source or pretrained models from cloud providers can be a cost-effective option that still meets performance requirements. Alternatively, workloads that have larger budgets might prefer proprietary models or custom training to promote higher precision and domain-specific capabilities. Align your model choice around a model that maximizes return on investment (ROI).
+
+Cost is influenced not only by request volume, but also by model characteristics and workload behavior. Factors that commonly affect cost include:
+
+- **Context window size**, where larger windows increase input processing costs.
+
+- **Multimodal inputs**, such as images or audio, which add preprocessing and tokenization overhead.
+
+- **Reasoning capabilities**, which can introduce additional compute cost beyond visible output tokens.
+
+As models converge in capability, cost evaluation increasingly depends on how workload usage patterns interact with these characteristics rather than on simple model category comparisons.
 
 ### Context window size
 
@@ -63,7 +112,11 @@ Limited regional availability can significantly influence AI model selection, es
 
 Check whether you can host the model on serverless or managed infrastructure, your own infrastructure, or directly on a device.
 
-Models must be deployed on compute before they can be consumed. That compute can come from your cloud provider on shared infrastructure with other cloud customers, or it can be local to your workload, like running in process within your code. Some models available through a serverless platform from the provider, sometimes known as *models as a service (MaaS)*, are either too large or not licensed for deployment in your own compute. Your provider's hosting doesn't support some specialized models, so you can only run them in your own inferencing environment.
+Model choice is closely tied to where inference runs. In addition to cloud-hosted models, some workloads use local or on-device models. Local deployment introduces new constraints and opportunities that influence model selection, including hardware capabilities, memory limits, and available accelerators.
+
+Local models can reduce data movement, support offline or edge scenarios, and improve privacy by keeping sensitive data on the device. However, they often offer fewer enterprise guarantees than cloud-hosted models and place greater responsibility on the workload owner for model updates, safety, and provenance.
+
+In hybrid architectures, local inference might be combined with periodic cloud processing, enabling a balance between responsiveness, privacy, and centralized governance.
 
 Your workload requirements constrain what the compute platform options are for each task. This constraint effectively restricts which models can be used based on where they can be deployed to meet efficiency, cost, and compliance requirements. Depending on the available hosting, you might also have a choice in SDK to run inferencing against that model. Some platforms provide a unified SDK that supports calling all hosted models. Other compute platforms require you to use the SDK built by the model's provider.
 

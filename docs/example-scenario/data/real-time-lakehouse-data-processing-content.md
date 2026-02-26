@@ -113,7 +113,7 @@ Reliability helps ensure that your application can meet the commitments that you
 
 - Azure Synapse Analytics Spark pool jobs are recycled every seven days as nodes are taken down for maintenance. Consider this activity as you work through the service-level agreements (SLAs) tied to the system. This limitation isn't a problem for many scenarios where the recovery time objective (RTO) is around 15 minutes. Ensure autoscaling is configured to handle load spikes and node failures.
 
-- Use dedicated SQL pools that have geo-backup and zone-redundant storage (ZRS) to protect against regional and zonal outages.
+- Use dedicated SQL pools that have geo-backup and zone-redundant storage (ZRS) to protect against regional and zone outages.
 
 ### Cost Optimization
 
