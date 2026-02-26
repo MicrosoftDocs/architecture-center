@@ -105,6 +105,7 @@ Refer to [Azure updates](https://azure.microsoft.com/updates/?category=databases
 *Microsoft maintains this article. The following contributors wrote this article.*
 
 - [Mohit Agarwal](https://www.linkedin.com/in/mohitagarwal01/) |  Principal Cloud Solution Architect
+- [Felicia Lobillo](https://www.linkedin.com/in/felicia-lobillo-41013116/)) |  Global Black Belt Azure Databases EMEA
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
