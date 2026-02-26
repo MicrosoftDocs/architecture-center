@@ -29,7 +29,7 @@ This article covers Foundry Tools that provide targeted language processing capa
 
 ## Azure Language
 
-[Azure Language](/azure/ai-services/language-service/overview) provides specialized tools that enable seamless integration between AI agents and language processing services through standardized protocols.
+[Azure Language](/azure/ai-services/language-service/overview) provides specialized tools that connect AI agents to language processing services through standardized protocols.
 
 | Use Azure Language to | Don't use Azure Language to |
 | :----------| :-------------|
@@ -39,7 +39,7 @@ This article covers Foundry Tools that provide targeted language processing capa
 
 ### Available Azure Language tools
 
-The [Azure Language MCP server](/azure/ai-services/language-service/concepts/foundry-tools-agents#azure-language-mcp-server-) creates a standardized bridge that connects AI agents directly to Azure Language services through industry-standard protocols. This integration enables developers to build conversational applications with reliable NLP capabilities while ensuring enterprise-grade compliance, data protection, and processing accuracy throughout AI workflows. Azure Language provides both remote and local MCP server options:
+The [Azure Language MCP server](/azure/ai-services/language-service/concepts/foundry-tools-agents#azure-language-mcp-server-preview) connects AI agents directly to Azure Language services through the Model Context Protocol. This integration enables developers to build conversational applications with reliable NLP capabilities while ensuring enterprise-grade compliance, data protection, and processing accuracy throughout AI workflows. Azure Language provides both remote and local MCP server options:
 
 - **Remote server**: Available through Foundry Tool Catalog for cloud-hosted deployments.
 - **Local server**: Available for developers who prefer to host the server in their own environment.
@@ -50,8 +50,8 @@ The following table provides a list of agents available in Azure Language for co
 
 | Agent | Description |
 | :----------| :-------------|
-| [Intent Routing agent](/azure/ai-services/language-service/concepts/foundry-tools-agents#azure-language-intent-routing-agent-) | Manages conversation flows by understanding user intentions and delivering accurate responses in conversational AI applications. Uses predictable decision-making processes combined with controlled response generation to ensure consistent, reliable interactions. |
-| [Exact Question Answering agent](/azure/ai-services/language-service/concepts/foundry-tools-agents#azure-language-exact-question-answering-agent-) | Provides reliable, word-for-word responses to important business questions. Automates frequently asked questions while maintaining human oversight and quality control to ensure accuracy and compliance. |
+| [Intent Routing agent](/azure/ai-services/language-service/concepts/foundry-tools-agents#azure-language-intent-routing-agent-preview) | Manages conversation flows by understanding user intentions and delivering accurate responses in conversational AI applications. Uses predictable decision-making processes combined with controlled response generation to ensure consistent, reliable interactions. |
+| [Exact Question Answering agent](/azure/ai-services/language-service/concepts/foundry-tools-agents#azure-language-exact-question-answering-agent-preview) | Provides reliable, word-for-word responses to important business questions. Automates frequently asked questions while maintaining human oversight and quality control to ensure accuracy and compliance. |
 
 ### Available Azure Language features
 
@@ -114,7 +114,7 @@ The following table provides a list of features available in Azure Translator.
 
 | Feature | Description |
 | :----------| :-------------|
-| [Text translation (preview)](/azure/ai-services/translator/text-translation-overview) | The 2025-10-01-preview version introduces the newest cloud-based, multilingual, neural machine translation service. Key enhancements include the option to select specified large language models (LLM), adaptive custom translation, and expanded parameters for translation requests. |
+| [Text translation (preview)](/azure/ai-services/translator/text-translation-overview) | The 2025-10-01-preview version lets you select either standard neural machine translation (NMT) or an LLM deployment (GPT-4o-mini or GPT-4o) to perform text translation. Using an LLM deployment requires a Microsoft Foundry resource. |
 | [Text translation v3 (GA)](/azure/ai-services/translator/text-translation-overview) | Perform text translation between supported source and target languages in real time. Create a [dynamic dictionary](/azure/ai-services/translator/dynamic-dictionary) and learn how to [prevent translations](/azure/ai-services/translator/prevent-translation) by using the Azure Translator API. |
 | [Document translation (asynchronous)](/azure/ai-services/translator/document-translation/overview)| Translate batch and complex files while preserving the structure and format of the original documents. The batch translation process requires an Azure Blob Storage account that has containers for your source and translated documents. |
 | [Document translation (synchronous)](/azure/ai-services/translator/document-translation/overview)| Translate a single document file alone or with a glossary file while preserving the structure and format of the original document. The file translation process doesn't require a Blob Storage account. The final response contains the translated document and is returned directly to the calling client. |
