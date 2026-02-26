@@ -17,7 +17,7 @@ ms.custom: arb-aiml
 
 This article covers Foundry Tools that provide video and image processing capabilities, such as visual analysis and generation of images, object detection, image classification, and facial recognition, including:
 
-- [Azure OpenAI in Microsoft Foundry models](#azure-openai-in-microsoft-foundry-models) provides access to OpenAI's powerful language models, including the latest generation of GPT models with vision and audio capabilities, Sora for video generation, DALL-E for image generation, and Audio API models such as Whisper for speech-to-text transcription and translation. Use Azure OpenAI in Microsoft Foundry models for image generation from natural language, broad nonspecific image analysis, or audio transcription and translation scenarios that don't require a dedicated speech service.
+- [Azure OpenAI in Microsoft Foundry models](#azure-openai-in-microsoft-foundry-models) provides access to OpenAI's powerful language models, including the latest generation of GPT models with vision and audio capabilities, Sora for video generation, DALL-E for image generation, and [audio models](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#audio-models) for real-time voice conversations, audio generation, speech-to-text transcription, translation, and text-to-speech. Use Azure OpenAI in Microsoft Foundry models for image generation from natural language, broad nonspecific image analysis, or audio scenarios that don't require a dedicated speech service.
 
 - [Azure Vision in Foundry tools](#azure-vision-in-foundry-tools) is part of Foundry Tools and provides advanced algorithms that process images and return information based on visual features. It includes optical character recognition (OCR), image analysis, and face detection capabilities.
 
@@ -29,7 +29,7 @@ This article covers Foundry Tools that provide video and image processing capabi
 
 ### Azure OpenAI in Microsoft Foundry models
 
-[Azure OpenAI in Microsoft Foundry models](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#azure-openai-in-microsoft-foundry-models) provides access to OpenAI's powerful language models, including the latest generation of GPT models with image, video, and audio capabilities. [Sora and Sora 2 video generation models](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#video-generation-models), [DALL-E and GPT-image image generation models](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#image-generation-models), [Whisper and GPT-4o audio models](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#audio-models) for speech-to-text and speech translation, and text-to-speech models are also available.
+[Azure OpenAI in Microsoft Foundry models](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#azure-openai-in-microsoft-foundry-models) provides access to OpenAI's powerful language models, including the latest generation of GPT models with image, video, and audio capabilities. [Sora and Sora 2 video generation models](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#video-generation-models), [DALL-E and GPT-image image generation models](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#image-generation-models), and [audio models](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#audio-models) for real-time voice conversations, audio generation and transcription, speech-to-text, speech translation, and text-to-speech are also available.
 
 | Use Azure OpenAI in Microsoft Foundry models to | Don't use Azure OpenAI in Microsoft Foundry models to |
 | :----------| :-------------|
@@ -41,7 +41,7 @@ This article covers Foundry Tools that provide video and image processing capabi
 
 #### Audio models
 
-Azure OpenAI provides audio models through two interfaces: [GPT-4o audio models](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#gpt-4o-audio-models) for real-time, low-latency speech-in, speech-out conversational interactions, and [Audio API models](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#audio-api) via the `/audio` endpoint for speech-to-text transcription (Whisper, GPT-4o transcription), speech translation, and text-to-speech.
+Azure OpenAI provides audio models through three APIs: the [Realtime API](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#gpt-4o-audio-models) for low-latency, real-time voice conversations, the [Chat Completions API with audio](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#gpt-4o-audio-models) for flexible audio generation and transcription in a single model call, and the [Audio API](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#audio-api) via the `/audio` endpoint for file-based speech-to-text transcription (Whisper, GPT-4o transcription models), speech translation, and text-to-speech.
 
 ### Azure Vision in Foundry Tools
 
