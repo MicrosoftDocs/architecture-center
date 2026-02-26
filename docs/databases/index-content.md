@@ -1,6 +1,6 @@
 This article provides an overview of the Azure **operational** database solutions described in Azure Architecture Center. 
 
-If you want to explore Analytical databases (OLAP) and architectures please visit [Analytical Data Stores](azure/architecture/solution-ideas/articles/analytics-get-started).
+If you want to explore Analytical databases (OLAP) and architectures please visit [Analytical Data Stores](/azure/architecture/solution-ideas/articles/analytics-get-started).
 
 **Azure operational database solutions** include traditional relational database management systems (RDBMS) as well as NoSQL solutions. Azure Databases are managed, highly reliable (secure and scale-proof), AI-ready and natively integrated with other Azure services such as Fabric and AI Foundry in order to build and end-to-end data platform to bring value to your business processes.
 
@@ -87,13 +87,13 @@ Review these best practices when designing your solutions.
 | [MCP server for Azure Cosmos DB](/azure/developer/azure-mcp-server/tools/azure-cosmos-db)| Azure MCP Server tools for Azure Cosmos DB |
 | [MCP Server for Azure Database for PostgreSQL](/azure/developer/azure-mcp-server/tools/azure-database-postgresql)| Azure MCP Server tools for Azure DB for PostgreSQL |
 | [MCP Server for Azure Database for MySQL](/azure/developer/azure-mcp-server/tools/azure-mysql)| Azure MCP Server tools for Azure DB for MySQL |
-| [Optimize administration of SQL Server instances](azure/architecture/hybrid/azure-arc-sql-server) | Optimize your SQL Server Instances
+| [Optimize administration of SQL Server instances](/azure/architecture/hybrid/azure-arc-sql-server) | Optimize your SQL Server Instances
 
 ## Technology choices
 
 There are many options for technologies to use with Azure Databases. These articles help you choose the best technologies for your needs.
 -   [Choose a Data Store](/azure/architecture/guide/technology-choices/data-stores-getting-started)
--	[Choose a search data store in Azure](/azure/architecture/data-guide/technology-choices/search-options)
+-	  [Choose a search data store in Azure](/azure/architecture/data-guide/technology-choices/search-options)
 
 
 ## Stay current with databases
