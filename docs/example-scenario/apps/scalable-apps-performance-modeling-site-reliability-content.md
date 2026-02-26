@@ -18,7 +18,7 @@ For more information on SRE strategies, see [Develop a Site Reliability Engineer
    - Azure SQL for relational data.
    - Azure Storage and Azure Data Lake Storage for unstructured content and files.
 1. Microsoft Entra ID authenticates and authorizes users and service principals throughout the request flow.
-1. Azure Monitor and Application Insights collect telemetry at each layer (Front Door, API Management, Application Gateway, AKS, and data stores) to calculate SLIs and track SLO compliance.
+1. Azure Monitor and Application Insights collect telemetry independently at each layer: Front Door request metrics, API Management policy execution, Application Gateway for Containers load distribution, AKS pod-level metrics, and data store response times. Per-layer collection enables SRE teams to calculate composite SLIs, pinpoint degradation sources, and track SLO compliance.
 1. The response traverses back through the same path to the client application.
 
 This architecture represents a scalable API platform. The solution comprises multiple microservices that use various databases and storage services.
@@ -35,7 +35,7 @@ Client applications such as web apps, mobile apps, and service applications cons
 ### Components
 
 - [Azure Front Door](/azure/well-architected/service-guides/azure-front-door) serves as the single entry point for all client requests in this architecture. It terminates SSL and applies Azure Web Application Firewall (WAF) rules before routing traffic to API Management. See [Routing architecture overview](/azure/frontdoor/front-door-routing-architecture).
-- [Azure API Management](/azure/well-architected/service-guides/api-management/operational-excellence) acts as the API gateway for this platform. It enforces access control policies, applies rate limiting, caches responses, and transforms requests before forwarding them to the backend services. API Management supports autoscaling in Standard and Premium tiers.
+- [Azure API Management](/azure/well-architected/service-guides/api-management/operational-excellence) acts as the API gateway for this platform. It enforces access control policies, applies rate limiting, caches responses (using [Azure Managed Redis](/azure/azure-cache-for-redis/cache-overview) as an [external cache](/azure/api-management/api-management-howto-cache-external)), and transforms requests before forwarding them to the backend services. API Management supports autoscaling in Standard and Premium tiers.
 - [Azure Kubernetes Service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) hosts all microservices (Product, Profile, Orders and Payment, and Content) in this architecture. Azure manages the control plane; you manage the agent nodes.
 - [Application Gateway for Containers](/azure/application-gateway/for-containers/overview) provides layer 7 load balancing for traffic entering the AKS cluster. It distributes requests from API Management across the microservice pods.
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) stores product catalog and profile data that requires low-latency, globally distributed access. Autoscale throughput adjusts capacity based on demand.
@@ -66,14 +66,6 @@ The concepts in this article apply to:
 - E-commerce platforms with product browsing, registration, and order management.
 - Content delivery applications serving news articles and media.
 
-## Appropriate reliability
-
-The required reliability depends on the business context. SRE practices help you achieve the appropriate level of reliability.
-
-Reliability is measured using service level objectives (SLOs) that define the target level of reliability for a service. SLOs are usually defined as a percentage achievement over a period. Service level indicators (SLIs) are the metrics used to calculate SLOs, based on customer experience.
-
-For more information, see [Define SLI metrics to calculate SLOs](#define-sli-metrics-to-calculate-slos).
-
 ## Considerations
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
@@ -82,10 +74,12 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability helps to ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
+The required reliability depends on the business context. SRE practices help you achieve the appropriate level of reliability. Reliability is measured using service level objectives (SLOs) that define the target level of reliability for a service. SLOs are usually defined as a percentage achievement over a period. Service level indicators (SLIs) are the metrics used to calculate SLOs, based on customer experience. For more information, see [Define SLI metrics to calculate SLOs](#define-sli-metrics-to-calculate-slos).
+
 This architecture incorporates several reliability patterns:
 
 - **Zone redundancy**: Azure Front Door, Application Gateway for Containers, and AKS support availability zone deployment for high availability within a region.
-- **Autoscaling**: Azure Front Door, Application Gateway for Containers, AKS cluster autoscaler, API Management, and Azure Cosmos DB autoscale throughput all support autoscaling to help the system handle load variations without manual intervention.
+- **Autoscaling**: Azure Front Door scales automatically based on traffic volume. Application Gateway for Containers adjusts its capacity units automatically. AKS uses the cluster autoscaler for nodes and Horizontal Pod Autoscaler for pods. API Management supports autoscaling in Standard and Premium tiers. Azure Cosmos DB autoscale throughput adjusts based on request unit consumption. These capabilities help the system handle load variations without manual intervention.
 - **Health monitoring**: Use Azure Monitor and Application Insights to track SLIs and SLOs, enabling proactive identification of reliability issues.
 - **Resiliency and recovery testing**: Use [Azure Chaos Studio](/azure/chaos-studio/chaos-studio-overview) to validate fault tolerance and recovery procedures.
 
@@ -96,8 +90,8 @@ Security provides assurances against deliberate attacks and the misuse of your v
 This architecture addresses security through multiple layers:
 
 - **Identity and access management**: Microsoft Entra ID provides centralized identity management for users and service principals.
-- **Network security**: Azure Web Application Firewall (WAF), integrated with Azure Front Door, provides protection against common web exploits, including [OWASP Top 10](https://owasp.org/www-project-top-ten/) vulnerabilities.
-- **API gateway security**: API Management enforces authentication and authorization through OAuth 2.0 token validation and certificate authentication. It also applies rate limiting and IP filtering to protect backend services from abuse.
+- **Network security**: Azure Web Application Firewall (WAF), integrated with Azure Front Door, provides protection against common web exploits, including [OWASP Top 10](https://owasp.org/www-project-top-ten/) vulnerabilities. API Management enforces network-level access controls such as IP filtering and rate limiting.
+- **API gateway security**: API Management enforces application-level authentication and authorization through OAuth 2.0 token validation and certificate authentication. These policies validate caller identity at the API request level, distinct from the network-level protections that WAF and IP filtering provide.
 - **Data protection**: Use managed identities for service-to-service authentication. Enable encryption at rest for all data stores.
 
 ### Cost optimization
@@ -106,29 +100,26 @@ Cost optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 From an SRE perspective, cost optimization relates directly to how you provision monitoring infrastructure, define autoscaling thresholds, and allocate error budget. Over-provisioning degrades cost efficiency; under-provisioning degrades reliability.
 
-Cost drivers in this architecture include:
+Key SRE-related cost drivers in this architecture include:
 
-- **Compute**: AKS node pools and their VM sizes significantly affect costs. Start with standard-sized VMs and adjust based on monitoring data.
+- **Monitoring and observability**: Azure Monitor, Application Insights, and Azure Managed Grafana incur costs based on data ingestion volume, retention policies, and alert rule count. Tune sampling rates and retention periods to balance observability depth against cost.
+- **Autoscaling overhead**: Compute resources (AKS node pools, API Management scale units) represent the largest cost variable. Over-provisioning autoscale minimums wastes resources; setting them too low risks SLO violations during traffic spikes. Use monitoring data to calibrate thresholds.
+- **Error budget investment**: When your error budget is intact, invest in features. When it's consumed, invest in reliability. This practice prevents unnecessary spending on reliability improvements when the system already meets its SLOs.
+
+Additional cost drivers:
+
 - **API Management**: Costs vary by tier. The Standard and Premium tiers support autoscaling but at higher base costs compared to the Developer and Basic tiers, which don't support autoscaling.
 - **Data services**: Azure Cosmos DB costs depend on provisioned throughput and storage. Use autoscale throughput to optimize for fluctuating workloads.
-- **Networking**: Azure Front Door and Application Gateway incur costs based on traffic volume and features enabled.
+- **Networking**: Azure Front Door and Application Gateway for Containers incur costs based on traffic volume and features enabled.
 
 To optimize costs:
 
-- Use Azure Advisor recommendations for Reserved Instances and Azure Savings Plans.
+- Use [Azure Advisor](/azure/advisor/advisor-overview) recommendations for Reserved Instances and Azure Savings Plans.
 - Right-size AKS node pools based on actual utilization.
 - Configure autoscaling thresholds to balance performance and cost.
 - Use Azure Cosmos DB autoscale to avoid over-provisioning.
 
-Use the [Azure Pricing Calculator](https://azure.com/e/fe330064f12845cf82272f0e803b77e1) to estimate costs for this architecture. A typical medium-scale deployment includes:
-
-| Component | SKU | Estimated monthly cost factor |
-| --- | --- | --- |
-| Azure Front Door | Premium | Traffic-based |
-| API Management | Standard | Instance-based |
-| AKS | Standard | Node count × VM size |
-| Azure Cosmos DB | Autoscale | RU/s + storage |
-| Application Gateway for Containers | Standard | Capacity units |
+Use the [Azure Pricing Calculator](https://azure.com/e/fe330064f12845cf82272f0e803b77e1) to estimate costs for this architecture.
 
 ### Operational Excellence
 
