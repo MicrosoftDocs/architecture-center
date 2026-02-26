@@ -8,7 +8,7 @@ If you want to explore Analytical databases (OLAP) and architectures please visi
 -   Refer to [RDBMS Databases](/products/category/databases/?msockid=1c5190a7254460011f6a862a24566162#tabs-pill-bar-ocd815_tab1) in order to understand the options for RDBMS on Azure.
 
 
-![Diagram that contrasts operational databases and analytical solutions.](./_images/data-service-classifications.png)
+![Diagram that contrasts operational databases and analytical solutions.](./_images/landscape.svg)
 
 This article provides resources to learn about Azure databases. It outlines paths to implement the architectures that meet your needs and best practices to keep in mind as you design your solutions.
 
