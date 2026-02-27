@@ -19,7 +19,7 @@ The diagram shows two data paths: dotted and solid. The dotted line path represe
 
 1. Data flows from Service Bus in two directions: 
 
-    a. In the existing OLAP application flow, it triggers an **Azure Functions** app that processes data flowing from Azure Service Bus. The Functions app then sends the processed data to an operational database, such as an **Azure SQL database** or **Azure Cosmos DB**. This flow is represented by the dotted line in the diagram.
+    a. In the existing online analytical processing application flow, it triggers an **Azure Functions** app that processes data flowing from Azure Service Bus. The Functions app then sends the processed data to an operational database, like an **Azure SQL database** or **Azure Cosmos DB**. This flow is represented by the dotted line in the diagram.
 
     b. In the near real-time analytics flow, data from Service Bus is sent to **Azure Data Explorer** for analytics. This flow is represented by the solid line in the diagram.
 
@@ -29,14 +29,14 @@ The diagram shows two data paths: dotted and solid. The dotted line path represe
    
    - A polling service, like an application hosted on **Azure Kubernetes Service (AKS)** or an **Azure VM**, that sends data to Azure Data Explorer in micro batches. This option doesn’t require configuring streaming ingestion.
 
-1. Azure Data Explorer processes the data by using [schema mapping](/azure/data-explorer/kusto/management/mappings) and [update policies](/azure/data-explorer/kusto/management/updatepolicy). It makes the data available for interactive analytics and reporting through APIs, SDKs, or connectors. Optionally, Azure Data Explorer can also ingest or reference data from other sources, such as SQL Database or Azure Data Lake Storage.
+1. Azure Data Explorer processes the data by using [schema mapping](/azure/data-explorer/kusto/management/mappings) and [update policies](/azure/data-explorer/kusto/management/updatepolicy). It makes the data available for interactive analytics and reporting through APIs, SDKs, or connectors. Azure Data Explorer also ingests or references data from other sources, like SQL Database or Azure Data Lake Storage.
 
-1. Applications, custom services, or reporting services like [Azure Data Explorer dashboards](/azure/data-explorer/azure-data-explorer-dashboards), Power BI, and Azure Managed Grafana can query the data in Azure Data Explorer in near real-time.
+1. Applications and custom services, and reporting services like [Azure Data Explorer dashboards](/azure/data-explorer/azure-data-explorer-dashboards), Power BI, and Azure Managed Grafana query data in Azure Data Explorer in near real-time.
 
 
 ### Components
 
-- [App Service](/azure/well-architected/service-guides/app-service-web-apps) enables you to build and host web apps, mobile back ends, and RESTful APIs in the programming language of your choice without managing infrastructure. In this architecture, App Service hosts the source OLTP application that generates the data to be ingested into Azure Service Bus.
+- [App Service](/azure/well-architected/service-guides/app-service-web-apps) enables you to build and host web apps, mobile back ends, and RESTful APIs in the programming language of your choice, without managing infrastructure. In this architecture, App Service hosts the source OLTP application that generates the data to be ingested into Azure Service Bus.
 
 - [Service Bus](/azure/well-architected/service-guides/service-bus/reliability) provides reliable cloud messaging as a service. In this architecture, Service Bus captures data generated at source and triggers the orchestration flow.
 
@@ -44,7 +44,7 @@ The diagram shows two data paths: dotted and solid. The dotted line path represe
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, multimodel database for applications of any scale. Azure Cosmos DB, just like SQL Database, can also be used as an operational database to store data output from the Functions app.
 
-- [Azure Functions](/azure/well-architected/service-guides/azure-functions) is an event-driven serverless compute platform. With Functions, you can deploy and operate at scale in the cloud and use triggers and bindings to integrate services. In this architecture, Azure Functions is used to send data to an operational database via an orchestration flow or directly to Azure Data Explorer.
+- [Azure Functions](/azure/well-architected/service-guides/azure-functions) is an event-driven, serverless compute platform. With Functions, you can deploy and operate at scale in the cloud and use triggers and bindings to integrate services. In this architecture, Azure Functions is used to send data to an operational database via an orchestration flow or directly to Azure Data Explorer.
 
 - [AKS](/azure/well-architected/service-guides/azure-kubernetes-service) is a highly available, highly secure, and fully managed Kubernetes service for application and microservices workloads. AKS hosts a polling service, which sends data to Azure Data Explorer in micro batches.
 
@@ -52,9 +52,9 @@ The diagram shows two data paths: dotted and solid. The dotted line path represe
 
 - [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction), built on Azure Blob Storage, provides massively scalable data lake functionality. In this architecture, Azure Data Explorer pulls data from Data Lake Storage and combines it with data ingested from App Service for analytics.
 
-- [Power BI](/power-bi/fundamentals/power-bi-overview) can help you turn your data into coherent, visually immersive, interactive insights. Power BI is used as a visualization tool for the data received from App Service.
+- [Power BI](/power-bi/fundamentals/power-bi-overview) helps turn your data into coherent, visually immersive, interactive insights. Power BI is used as a visualization tool for the data received from App Service.
 
-- [Azure Managed Grafana](/azure/managed-grafana/overview) is a fully managed service that enables you to deploy Grafana without spending time on configuration. In this architecture, similar to Power BI or Azure Data Explorer dashboards, Azure Managed Grafana can be used as a visualization tool to create analytics dashboards on the data received from App Service.
+- [Azure Managed Grafana](/azure/managed-grafana/overview) is a fully managed service that enables you to deploy Grafana without spending time on configuration. In this architecture, similar to Power BI or Azure Data Explorer dashboards, Azure Managed Grafana is used as a visualization tool to create analytics dashboards on the data received from App Service.
 
 ## Scenario details
 
@@ -64,11 +64,11 @@ By using these processes, organizations can gain insights faster, make better de
 
 Many organizations implement near real-time analytics in existing solutions. This solution idea demonstrates how to add near real-time analytics to an existing architecture that's based on a message broker and that's part of an operational OLTP application.
 
-OLTP stands for Online Transaction Processing. It's a type of data processing that manages transaction-oriented applications, typically for data entry and retrieval transactions in a real-time environment. OLTP systems are designed to process small, fast transactions that are frequently financial in nature, like bank transactions or credit card purchases.
+OLTP is a type of data processing that manages transaction-oriented applications, typically for data entry and retrieval transactions in a real-time environment. OLTP systems are designed to process small, fast transactions that are frequently financial in nature, like bank transactions or credit card purchases.
 
 ### Potential use cases
 
-Here are some use cases that illustrate the benefits of near real-time analytics:
+Here are some use cases that illustrate the benefits of near real-time analytics.
 
 - Healthcare providers can track patient outcomes, detect anomalies, and improve quality of care.
 
@@ -92,7 +92,7 @@ Other contributors:
 
 - [Sreedhar Pelluru](https://www.linkedin.com/in/sreedharpelluru/) | Senior Content Developer
 
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
