@@ -10,9 +10,9 @@ For guidelines and recommendations about how to deploy highly available and resi
 
 The following architecture shows a high-level overview of the Azure Virtual Desktop for Azure Local solution.
 
-:::image type="content" source="images/azure-local-workload-virtual-desktop-light.svg" alt-text="Diagram that shows a reference architecture to deploy Azure Virtual Desktop on Azure Local." lightbox="images/azure-local-workload-virtual-desktop-light.svg" border="false":::
+:::image type="content" source="images/azure-virtual-desktop-azure-local.svg" alt-text="Diagram that shows a reference architecture to deploy Azure Virtual Desktop on Azure Local." lightbox="images/azure-virtual-desktop-azure-local.svg" border="false":::
 
-*Download a [PowerPoint file](https://arch-center.azureedge.net/virtual-desktop-azure-local.pptx) of this architecture.*
+*Download a [PowerPoint file](https://arch-center.azureedge.net/azure-virtual-desktop-azure-local.pptx) of this architecture.*
 
 ### Workflow
 

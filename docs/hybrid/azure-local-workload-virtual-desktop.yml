@@ -20,6 +20,6 @@ products:
   - azure-local
   - entra-id
   - azure-virtual-desktop
-thumbnailUrl: /azure/architecture/browse/thumbs/azure-local-workload-virtual-desktop.png
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-virtual-desktop-azure-local.png
 content: |
    [!include[](azure-local-workload-virtual-desktop-content.md)]
