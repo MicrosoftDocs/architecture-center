@@ -32,7 +32,7 @@ There are tradeoffs to each pattern. Request/response is a well-understood parad
 
 - **Reduced coupling**. The message sender doesn't need to know about the consumer.
 
-- **Multiple subscribers**. Using a [pub/sub model](../../patterns/publisher-subscriber.yml), multiple consumers can subscribe to receive events. See [Event-driven architecture style](../../guide/architecture-styles/event-driven.md).
+- **Multiple subscribers**. Using a [pub/sub model](../../patterns/publisher-subscriber.md), multiple consumers can subscribe to receive events. See [Event-driven architecture style](../../guide/architecture-styles/event-driven.md).
 
 - **Failure isolation**. If the consumer fails, the sender can still send messages. The messages are picked up when the consumer recovers. This ability is especially useful in a microservices architecture, because each service has its own lifecycle. A service could become unavailable or be replaced with a newer version at any given time. Asynchronous messaging can handle intermittent downtime. Synchronous APIs, on the other hand, require the downstream service to be available or the operation fails.
 

@@ -23,7 +23,7 @@ Events are delivered in near real time, so consumers can respond immediately to 
 
 This process differs from a [Competing Consumers pattern](/azure/architecture/patterns/competing-consumers). In the Competing Consumers pattern, consumers pull messages from a queue. Each message is processed only one time, assuming that there are no errors. In some systems, such as [Azure IoT](/azure/iot-fundamentals/iot-introduction), events must be ingested at high volumes.
 
-An event-driven architecture can use a [publish-subscribe model](/azure/architecture/patterns/publisher-subscriber) or an event stream model.
+An event-driven architecture can use a [publish-subscribe model](../../patterns/publisher-subscriber.md) or an event stream model.
 
 - **Publish-subscribe:** The publish-subscribe messaging infrastructure tracks subscriptions. When an event is published, it sends the event to each subscriber. After the event is delivered, it can't be replayed, and new subscribers don't see the event. We recommend that you use [Azure Event Grid](/azure/event-grid/overview) for publish-subscribe scenarios.
 

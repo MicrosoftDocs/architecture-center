@@ -485,7 +485,7 @@ items:
     href: patterns/priority-queue.yml
   - name: Publisher/Subscriber
     displayName: Pub/sub, pub sub, topic messaging
-    href: patterns/publisher-subscriber.yml
+    href: patterns/publisher-subscriber.md
   - name: Quarantine
     displayName: Deployment validation, input verification, security gate
     href: patterns/quarantine.yml
