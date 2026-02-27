@@ -125,7 +125,7 @@ An architect should evaluate how they can use the Asynchronous Request-Reply pat
 
 | Pillar | How this pattern supports pillar goals |
 | :----- | :------------------------------------- |
-| [Performance Efficiency](/azure/well-architected/performance-efficiency/checklist) helps your workload meet demand through optimizations in scaling, data, and code. | You improve responsiveness and scalability by decoupling the request and reply phases for processes that don't require an immediate response. An asynchronous approach increases concurrency and lets the server schedule work as capacity becomes available. <br/><br/> - [PE:05 Scaling and partitioning](/azure/well-architected/performance-efficiency/scale-partition)<br/> - [PE:07 Code and infrastructure](/azure/well-architected/performance-efficiency/optimize-code-infrastructure) |
+| [Performance Efficiency](/azure/well-architected/performance-efficiency/checklist) helps your workload **efficiently meet demands** through optimizations in scaling, data, and code. | You improve responsiveness and scalability by decoupling the request and reply phases for processes that don't require an immediate response. An asynchronous approach increases concurrency and lets the server schedule work as capacity becomes available. <br/><br/> - [PE:05 Scaling and partitioning](/azure/well-architected/performance-efficiency/scale-partition)<br/> - [PE:07 Code and infrastructure](/azure/well-architected/performance-efficiency/optimize-code-infrastructure) |
 
 As with any design decision, consider trade-offs against the goals of the other pillars that this pattern might introduce.
 
