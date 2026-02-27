@@ -484,7 +484,7 @@ items:
     href: patterns/pipes-and-filters.yml
   - name: Priority Queue
     href: patterns/priority-queue.yml
-  - name: Publisher/Subscriber
+  - name: Publisher-Subscriber
     displayName: Pub/sub, pub sub, topic messaging
     href: patterns/publisher-subscriber.md
   - name: Quarantine
