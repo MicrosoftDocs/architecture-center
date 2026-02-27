@@ -10,10 +10,7 @@ metadata:
   ms.category:
     - hybrid
     - storage
-  ms.custom:
-    - fcp
-    - e2e-hybrid
-    - arb-hybrid
+  ms.custom: arb-hybrid
   ai-usage: ai-assisted
 name: Azure enterprise cloud file share
 azureCategories:
@@ -28,4 +25,4 @@ products:
   - azure-virtual-network
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-files-private.png
 content: |
-   [!include[](azure-files-private-content.md)]
+   [!INCLUDE[](azure-files-private-content.md)]

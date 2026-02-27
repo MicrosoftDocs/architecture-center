@@ -102,21 +102,14 @@ Private domain name resolution queries go through components **3**, **5**, **6**
    - If the Azure DNS private resolver is configured, and the query matches the private DNS zones that are linked to the virtual network, those zones are consulted.
 5. The DNS server/Azure DNS private resolver returns a private IP, after resolving the private domain name to the respective private DNS zone. It uses the Azure virtual network's links to the Azure Files DNS zone and the Azure File Sync private DNS zone.
 
-## Considerations
+For Azure File Sync network considerations, refer to [Azure File Sync networking considerations](/azure/storage/file-sync/file-sync-networking-overview).
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
-
-Consider the following points when implementing this solution.
+For Azure Files networking considerations, refer to [Azure Files networking considerations](/azure/storage/files/storage-files-networking-overview).
 
 ### Planning
 
 - For Azure File Sync planning, refer to [Planning for an Azure File Sync deployment](/azure/storage/file-sync/file-sync-planning).
 - For Azure Files planning, refer to [Planning for an Azure Files deployment](/azure/storage/files/storage-files-planning).
-
-### Networking
-
-- For Azure File Sync network considerations, refer to [Azure File Sync networking considerations](/azure/storage/file-sync/file-sync-networking-overview).
-- For Azure Files networking considerations, refer to [Azure Files networking considerations](/azure/storage/files/storage-files-networking-overview).
 
 ### DNS
 
@@ -138,16 +131,11 @@ For more information, see [Private resolver architecture](/azure/dns/private-res
 
 When it comes to an on-premises file sharing solution, many administrators choose to use a DFS rather than a traditional standalone file server. DFS allows administrators to consolidate file shares that might exist on multiple servers so that they appear as though they all live in the same location, allowing users to access them from a single point on the network. During migration to a cloud file share solution, Azure File Sync can replace traditional DFS-R. For more information, see [Migrate a DFS Replication (DFS-R) deployment to Azure File Sync](/azure/storage/file-sync/file-sync-deployment-guide#migrate-a-dfs-r-deployment-to-azure-file-sync).
 
-### Support for hybrid identities on Azure Files
+## Considerations
 
-Although this article describes Active Directory for authenticating on Azure Files, it's possible to use Microsoft Entra ID for authenticating hybrid user identities. Azure Files supports identity-based authentication over Server Message Block (SMB), by using the Kerberos authentication protocol through the following methods:
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
-- On-premises Active Directory Domain Services (AD DS)
-- Microsoft Entra Domain Services
-- Microsoft Entra Kerberos (for hybrid user identities only)
-- AD authentication for Linux clients
-
-For more information, see [Enable Microsoft Entra Kerberos authentication for hybrid identities on Azure Files](/azure/storage/files/storage-files-identity-auth-hybrid-identities-enable).
+Consider the following points when implementing this solution.
 
 ### Reliability
 
@@ -175,6 +163,17 @@ Security provides assurances against deliberate attacks and the abuse of your va
 [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
 
 Security auditing is a necessary requirement for helping to maintain the security of an enterprise. Industry standards require enterprises to follow a strict set of rules related to data security and privacy.
+
+#### Support for hybrid identities on Azure Files
+
+Although this article describes Active Directory for authenticating on Azure Files, it's possible to use Microsoft Entra ID for authenticating hybrid user identities. Azure Files supports identity-based authentication over Server Message Block (SMB), by using the Kerberos authentication protocol through the following methods:
+
+- On-premises Active Directory Domain Services (AD DS)
+- Microsoft Entra Domain Services
+- Microsoft Entra Kerberos (for hybrid user identities only)
+- AD authentication for Linux clients
+
+For more information, see [Enable Microsoft Entra Kerberos authentication for hybrid identities on Azure Files](/azure/storage/files/storage-files-identity-auth-hybrid-identities-enable).
 
 #### File access auditing
 
