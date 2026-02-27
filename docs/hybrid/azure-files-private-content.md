@@ -4,7 +4,7 @@ This reference architecture illustrates an enterprise-level cloud file sharing s
 
 The following diagram shows how clients can access Azure file shares:
 
-- Locally through a cloud tiering file server.
+- Through a cloud tiering file server hosted on-premises.
 - Remotely over [ExpressRoute](/azure/expressroute/expressroute-introduction) private peering or VPN tunnels in a private network environment.
 
 [![Enterprise-level cloud file share diagram that shows how clients can access Azure file shares locally through a cloud tiering file server or remotely over ExpressRoute private peering or VPN tunnel in a private network environment.](./images/azure-files-private.svg)](./images/azure-files-private.svg#lightbox)
@@ -37,7 +37,7 @@ After enabling a private endpoint, private IP addresses are allocated in the Azu
 The solution shown in this architecture correctly configures on-premises DNS settings so that they resolve private domain names to private IP addresses, by using the following methods:
 
 - Private DNS zones (components **11** and **12**) are created from Azure to provide private name resolution for Azure File Sync and Azure Files.
-- Private DNS zones are linked to the Azure virtual network so that a DNS server deployed in the virtual network or Azure DNS private resolver(component **8**)  can resolve private domain names.
+- Private DNS zones are linked to the Azure virtual network so that a DNS server deployed in the virtual network or Azure DNS private resolver (component **8**) can resolve private domain names.
 - DNS A records are created for Azure Files and Azure File Sync in private DNS zones. For the endpoint configuration steps, see [Configuring Azure Files network endpoints](/azure/storage/files/storage-files-networking-endpoints) and [Configuring Azure File Sync network endpoints](/azure/storage/file-sync/file-sync-networking-endpoints).
 - The on-premises DNS server (component **3**) sets up conditional forwarding to forward the DNS query of `domain afs.azure.net` and `file.core.windows.net` to the DNS server in the Azure virtual network (component **8**).
 - After receiving the forwarded DNS query from the on-premises DNS server, the DNS server (component **8**) in the Azure virtual network uses the Azure DNS recursive resolver to resolve private domain names and return private IP addresses to the client.
@@ -68,7 +68,7 @@ The solution uses the following components:
 
 - **Azure Private DNS** (components **11** and **12**) is a DNS service that resolves domain names within a virtual network. In this architecture, it provides name resolution for private endpoints of Azure Files and Azure File Sync, which ensures that traffic stays within the private network.
 
-- **[Azure Backup](/azure/backup/backup-overview)** (component **13**) is a cloud-based backup service that protects Azure file shares by using snapshots. In this architecture, it enables data protection and recovery for Azure Files without requiring on-premises backup infrastructure. For more information, see [Data loss and backup](#data-loss-and-backup).
+- **[Azure Backup](/azure/backup/blob-backup-configure-manage)** (component **13**) is a cloud-based backup service that protects Azure file shares by using snapshots. In this architecture, it enables data protection and recovery for Azure Files without requiring on-premises backup infrastructure. For more information, see [Data loss and backup](#data-loss-and-backup).
 
 ## Scenario details
 
