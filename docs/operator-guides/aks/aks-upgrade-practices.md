@@ -29,7 +29,7 @@ There are three types of updates for AKS, and each one builds on the previous up
 ### Update types
 
 - **Node OS security patches (Linux only):** For Linux nodes, [Canonical Ubuntu](https://ubuntu.com/server) and [Azure Linux](/azure/azure-linux/intro-azure-linux) make OS security patches available once a day. Microsoft tests and bundles these patches in the weekly updates to node images.
-- **Weekly updates to node images:** AKS provides weekly updates to node images. These updates include the latest OS and AKS security patches, bug fixes, and enhancements. Node updates don't change the Kubernetes version. Linux versions are formatted by date, for example, 202601.07.0. Windows versions are formatted by by Windows Server OS build and date, for example, 20348.2113.260115. For more information, see [AKS release status](https://releases.aks.azure.com/).
+- **Weekly updates to node images:** AKS provides weekly updates to node images. These updates include the latest OS and AKS security patches, bug fixes, and enhancements. Node updates don't change the Kubernetes version. Linux versions are formatted by date, for example, 202601.07.0. Windows versions are formatted by Windows Server OS build and date, for example, 20348.2113.260115. For more information, see [AKS release status](https://releases.aks.azure.com/).
 - **Quarterly Kubernetes releases:** AKS provides quarterly updates for [Kubernetes releases](https://kubernetes.io/releases/release/#the-release-cycle). These updates enable AKS users to use the latest Kubernetes features and enhancements, like security patches and node image updates. For more information, see [Supported Kubernetes versions in AKS](/azure/aks/supported-kubernetes-versions).
 
 ### Preupgrade considerations
@@ -59,8 +59,8 @@ Follow these best practices to ensure that your AKS cluster operates smoothly du
 - **Check available IP address space in node subnets.** During updates, extra surge nodes are created in your cluster and pods are moved to these nodes. Monitor the IP address space in your node subnets to ensure that there's sufficient address space for these changes to occur. Different Kubernetes [network configurations](/azure/aks/concepts-network#azure-virtual-networks) have different IP address requirements. To start, review these considerations:
 
   - During an upgrade, the number of node IP addresses increases according to your surge value. The minimum surge value is 1.
-  - Clusters that are based on Azure Container Network Interface assign IP addresses to individual pods. Ensure that there is enough address space for pod movement.
-  - Your cluster continues to operate during upgrades. Ensure that there is enough IP address space for node scaling.
+  - Clusters that are based on Azure Container Network Interface assign IP addresses to individual pods. Ensure that there's enough address space for pod movement.
+  - Your cluster continues to operate during upgrades. Ensure that there's enough IP address space for node scaling.
 
 - **Set up multiple environments.** Set up multiple Kubernetes environments, like development, staging, and production environments. This separation enables you to test and validate changes before you move them to production. Validation is especially important when you move between multiple versions of AKS, for example from 1.32 to 1.34.
 
@@ -151,7 +151,7 @@ az aks maintenanceconfiguration show -g <ResourceGroupName> --cluster-name <AKSC
 If a cluster maintenance window isn't configured, node image updates occur biweekly. AKS maintenance occurs within the configured window as much as possible, but the time of maintenance isn't guaranteed.
 
 > [!IMPORTANT]
-> If you have a node pool with a large number of nodes that isn't configured with node surge, the automatic upgrade event might not trigger. Node images in a node pool are only upgraded if the estimated total upgrade time is within 24 hours.
+> If you have a node pool with a large number of nodes, and it isn't configured with node surge, the automatic upgrade event might not trigger. Node images in a node pool are only upgraded if the estimated total upgrade time is within 24 hours.
 >
 > In this situation, consider one of the following options:
 > - Split nodes into different node pools if your vCPU quota is almost full and you can't increase the vCPU quota.
