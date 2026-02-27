@@ -11,13 +11,13 @@ ms.subservice: cloud-fundamentals
 
 # Publisher-Subscriber pattern
 
-The Publisher-Subscriber pattern lets an application broadcast events asynchronously to multiple interested consumers, without coupling the senders to the receivers. This approach is known as *pub/sub messaging*.
+The Publisher-Subscriber pattern lets applications broadcast events asynchronously to multiple interested consumers without coupling the senders to the receivers. This approach is known as *pub/sub messaging*.
 
 ## Context and problem
 
 Cloud-based and distributed applications often include system components that send information to other components as events occur. When a sender communicates directly with its consumers, it must know the identity and endpoint of every consumer, deliver messages to each consumer, and manage failures individually. Adding or removing a consumer requires changes to the sender, which limits how independently teams can develop and deploy components.
 
-Message queues decouple senders from consumers and prevent the sender from blocking while it waits for a response. A standard queue creates a direct relationship between a sender and a single consumer. To support multiple consumers, the sender must create a separate queue for each consumer, which increases routing complexity and doesn't scale well. Some consumers need only a subset of the information the sender produces, but queues provide no built-in way to filter messages by content or category.
+Message queues decouple senders from consumers and prevent the sender from blocking while it waits for a response. A standard queue creates a direct relationship between a sender and a single consumer. To support multiple consumers, the sender must create a separate queue for each consumer, which increases routing complexity and doesn't scale well. Some consumers need only a subset of the information that the sender produces, but queues provide no built-in way to filter messages by content or category.
 
 Many scenarios require a sender to announce events to many interested consumers without knowing who those consumers are. Each consumer also needs a way to decide independently which events to receive.
 
@@ -66,7 +66,7 @@ Consider the following points as you decide how to implement this pattern:
 
   - [Azure Event Grid](/azure/event-grid/overview) for event‑based, push‑delivered notifications, especially when Azure resources change state and need to notify subscribed components.
 
-  - [Azure Event Hubs](/azure/event-hubs/event-hubs-about) for high-throughput event streaming scenarios like telemetry ingestion and log aggregation. Event Hubs uses a log-based streaming model rather than traditional pub/sub, but it supports multiple consumer groups that read the same stream independently.
+  - [Azure Event Hubs](/azure/event-hubs/event-hubs-about) for high-throughput event streaming scenarios like telemetry ingestion and log aggregation. Event Hubs uses a log-based streaming model rather than traditional pub/sub messaging, but it supports multiple consumer groups that read the same stream independently.
 
   For more information, see [Choose between Azure services that deliver messages](/azure/service-bus-messaging/compare-messaging-services). Other technologies that support pub/sub messaging include [Redis](https://redis.io/docs/latest/develop/pubsub/), RabbitMQ, and Apache Kafka.
 
@@ -74,7 +74,7 @@ Consider the following points as you decide how to implement this pattern:
 
 - **Subscription handling:** The messaging infrastructure must provide mechanisms that consumers use to subscribe to or unsubscribe from available channels.
 
-- **Security:** Authenticate and authorize both publishers and subscribers on a per-topic basis. Unauthorized publishers that inject messages can be as damaging as unauthorized subscribers that read them. Encrypt messages in transit, and if content is sensitive, encrypt them at rest in the broker to prevent eavesdropping.
+- **Security:** Authenticate and authorize both publishers and subscribers on a per-topic basis. Unauthorized publishers that inject messages can damage a system as much as unauthorized subscribers that read them. Encrypt messages in transit, and if content is sensitive, encrypt them at rest in the broker to prevent eavesdropping.
 
 - **Subsets of messages:** Subscribers are usually interested in only a subset of messages from a publisher. Messaging services often let subscribers select what they receive through the following mechanisms:
 
@@ -88,7 +88,7 @@ Consider the following points as you decide how to implement this pattern:
 
 - **Message ordering:** The order in which subscribers receive messages isn't guaranteed and doesn't necessarily reflect the order in which the sender created them. If ordering matters, the broker might support ordered delivery within a partition or session, but that constrains scalability. Design subscribers to handle messages independently of arrival order.
 
-- **Message priority:** Some workloads require that specific messages be processed before others. The [Priority Queue pattern](priority-queue.yml) provides a mechanism to route higher-priority messages before lower-priority ones.
+- **Message priority:** Some workloads require that specific messages be processed before others. The [Priority Queue pattern](priority-queue.yml) provides a mechanism to route higher-priority messages before lower-priority messages.
 
 - **Poison messages:** A malformed message, or a task that requires access to unavailable resources, can cause a service instance to fail. Capture and store these message details elsewhere for analysis. Some message brokers, like Service Bus, support this process through [dead-letter queues](/azure/service-bus-messaging/service-bus-dead-letter-queues).
 
@@ -96,11 +96,11 @@ Consider the following points as you decide how to implement this pattern:
 
 - **Delivery guarantees and duplicate messages:** Messaging systems provide different delivery guarantees that each have trade-offs.
 
-- *At-most-once* delivery minimizes overhead but can lose messages if the broker or subscriber fails.
+- *At-most-once delivery* minimizes overhead but can lose messages if the broker or subscriber fails.
 
-- *At-least-once* delivery ensures message delivery but can result in duplicates, like when a sender fails after it posts a message and a new instance repeats the post.
+- *At-least-once delivery* ensures message delivery but can result in duplicates, like when a sender fails after it posts a message and a new instance repeats the post.
 
-- *Exactly-once* delivery removes duplicates but adds coordination overhead and latency, and its availability depends on the messaging infrastructure.
+- *Exactly-once delivery* removes duplicates but adds coordination overhead and latency, and its availability depends on the messaging infrastructure.
 
   If your broker doesn't provide deduplication, design subscribers to [handle messages idempotently](../reference-architectures/containers/aks-mission-critical/mission-critical-data-platform.md#idempotent-message-processing). Different subscribers in the same workload might require different guarantees.
 
@@ -136,7 +136,7 @@ This pattern might not be suitable when:
 
 - Consumers must process messages in a specific, guaranteed order. Pub/sub systems generally don't guarantee ordering across subscribers, and maintaining order adds significant constraints to the broker and consumer design.
 
-- The operation requires a single atomic transaction across the publisher and its consumers. Pub/sub is inherently asynchronous and eventually consistent. If you need transactional guarantees, consider a direct database transaction or the [Saga pattern](saga.yml) for coordinating distributed transactions.
+- The operation requires a single atomic transaction across the publisher and its consumers. Pub/sub messaging is inherently asynchronous and eventually consistent. If you need transactional guarantees, consider a direct database transaction or the [Saga pattern](saga.yml) for coordinating distributed transactions.
 
 ## Workload design
 
@@ -154,7 +154,7 @@ If this pattern introduces trade-offs within a pillar, consider them against the
 
 ## Example
 
-The following diagram shows an enterprise integration architecture that uses Service Bus to coordinate workflows, and Event Grid to notify subsystems of events that occur. For more information, see [Enterprise integration on Azure by using message queues and events](../example-scenario/integration/queues-events.yml).
+The following diagram shows an enterprise integration architecture that uses Service Bus to coordinate workflows and Event Grid to notify subsystems of events that occur. For more information, see [Enterprise integration on Azure by using message queues and events](../example-scenario/integration/queues-events.yml).
 
 :::image type="complex" source="../example-scenario/integration/media/enterprise-integration-message-broker-events.svg" alt-text="Architecture diagram of an enterprise integration pattern that uses a message broker and events." lightbox="../example-scenario/integration/media/enterprise-integration-message-broker-events.svg":::
    On the far left, a solid arrow labeled HTTPS points right from the client apps to an API Gateway icon. Client apps connects to Microsoft Entra ID via an arrow labeled authentication. A solid arrow points from API Gateway via an arrow labeled HTTPS to REST or simple object access protocol (SOAP) web service. Two regions are to the right of the API Gateway. The top-middle region, labeled workflow and orchestration, includes three Logic app icons. A dotted arrow points from one Logic app icon to Service Bus. A solid arrow points from this Logic app to software as a service (SaaS) service. An unlabeled arrow splits from this line and points to Azure services. A dotted arrow points from Service Bus to the second Logic app icon. A dotted arrow labeled HTTPS points from Event Grid to the third Logic app. A solid arrow labeled HTTPS points from this Logic app to SaaS service. An unlabeled arrow splits from this line and points to Azure services. The lower-middle region labeled queues, topics, subscriptions, and events includes Service Bus and Event Grid. A dotted arrow labeled messages points to message-based service. On the far right, a box labeled back-end systems contains three icons: SaaS service, Azure services, and message-based service. A dotted arrow labeled events points from Azure services to Event Grid. A dotted arrow labeled send or pull messages points from message-based service to Service Bus.
