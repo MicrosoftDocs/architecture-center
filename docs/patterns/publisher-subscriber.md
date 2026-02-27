@@ -156,7 +156,7 @@ If this pattern introduces trade-offs within a pillar, consider them against the
 
 The following diagram shows an enterprise integration architecture that uses Service Bus to coordinate workflows, and Event Grid to notify subsystems of events that occur. For more information, see [Enterprise integration on Azure by using message queues and events](../example-scenario/integration/queues-events.yml).
 
-:::image type="complex" source="../../example-scenario/integration/media/enterprise-integration-message-broker-events.svg" alt-text="Architecture diagram of an enterprise integration pattern that uses a message broker and events." lightbox="../../example-scenario/integration/media/enterprise-integration-message-broker-events.svg":::
+:::image type="complex" source="../example-scenario/integration/media/enterprise-integration-message-broker-events.svg" alt-text="Architecture diagram of an enterprise integration pattern that uses a message broker and events." lightbox="../example-scenario/integration/media/enterprise-integration-message-broker-events.svg":::
    On the far left, a solid arrow labeled HTTPS points right from the client apps to an API Gateway icon. Client apps also connects to Microsoft Entra ID via an arrow labeled authentication. A solid arrow points from API Gateway via an arrow labeled HTTPS to REST or simple object access protocol (SOAP) web service. Two regions are to the right of the API Gateway. The top-middle region, labeled workflow and orchestration, includes three Logic app icons. A dotted arrow points from one Logic app icon to Service Bus. A solid arrow points from this Logic app to software as a service (SaaS) service. An unlabeled arrow splits from this line and points to Azure services. A dotted arrow points from Service Bus to the second Logic app icon. A dotted arrow labeled HTTPS points from Event Grid to the third Logic app. A solid arrow labeled HTTPS points from this Logic app to SaaS service. An unlabeled arrow splits from this line and points to Azure services. The lower-middle region labeled queues, topics, subscriptions, and events includes Service Bus and Event Grid. A dotted arrow labeled messages points to message-based service. On the far right, a box labeled back-end systems contains three icons: SaaS service, Azure services, and message-based service. A dotted arrow labeled events points from Azure services to Event Grid. A dotted arrow labeled send or pull messages points from message-based service to Service Bus.
 :::image-end:::
 
@@ -166,7 +166,7 @@ The following diagram shows an enterprise integration architecture that uses Ser
 
 ## Related resources
 
-- [Asynchronous messaging options](../guide/technology-choices/messaging.yml)
+- [Asynchronous messaging options](../guide/technology-choices/messaging.md)
 - [Event-driven architecture style](../guide/architecture-styles/event-driven.md)
 - [Idempotent message processing](../reference-architectures/containers/aks-mission-critical/mission-critical-data-platform.md#idempotent-message-processing)
 - [Enterprise integration on Azure by using message queues and events](../example-scenario/integration/queues-events.yml)
