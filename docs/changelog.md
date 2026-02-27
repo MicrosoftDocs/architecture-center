@@ -192,7 +192,7 @@ The following new and updated articles have recently been published in the Azure
 - [Data partitioning strategies](./best-practices/data-partitioning-strategies.yml) ([#27371ebc0f](https://github.com/MicrosoftDocs/architecture-center/commit/27371ebc0f))
 - [Monitoring and diagnostics guidance](./best-practices/monitoring.yml) ([#27371ebc0f](https://github.com/MicrosoftDocs/architecture-center/commit/27371ebc0f))
 - [Transient fault handling](./best-practices/transient-faults.md) ([#27371ebc0f](https://github.com/MicrosoftDocs/architecture-center/commit/27371ebc0f))
-- [Transactional Outbox pattern with Azure Cosmos DB](./databases/guide/transactional-outbox-cosmos.yml) ([#27371ebc0f](https://github.com/MicrosoftDocs/architecture-center/commit/27371ebc0f))
+- [Transactional Outbox pattern with Azure Cosmos DB](./databases/guide/transactional-out-box-cosmos.md) ([#27371ebc0f](https://github.com/MicrosoftDocs/architecture-center/commit/27371ebc0f))
 - [Migrate a web app by using Azure API Management](./example-scenario/apps/apim-api-scenario.yml) ([#27371ebc0f](https://github.com/MicrosoftDocs/architecture-center/commit/27371ebc0f))
 - [Analytics End-to-End with Microsoft Fabric](./example-scenario/dataplate2e/data-platform-end-to-end.yml) ([#27371ebc0f](https://github.com/MicrosoftDocs/architecture-center/commit/27371ebc0f))
 

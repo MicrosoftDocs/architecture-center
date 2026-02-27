@@ -74,7 +74,7 @@ A Log Analytics workspace is used to collect the diagnostics logs and metrics fr
 
 - [Virtual network interfaces](/azure/virtual-network/virtual-network-network-interface) are networking components that enable Azure VMs to communicate with the internet, Azure, and on-premises resources. In this architecture, network interfaces provide connectivity for the jump box VM and AKS nodes. You can add several network interface cards to one Azure VM, so that child VMs can have their own dedicated network interface devices and IP addresses.
 
-- [Azure managed disks](/azure/virtual-machines/windows/managed-disks-overview) are block-level storage volumes that Azure manages on Azure VMs. Ultra disks, premium solid-state drives (SSDs), standard SSDs, and standard hard disk drives (HDDs) are available. In this architecture, managed disks provide persistent storage for the jump box VM and AKS cluster nodes.
+- [Azure Managed Disks](/azure/virtual-machines/windows/managed-disks-overview) are block-level storage volumes that Azure manages on Azure VMs. Ultra Disks, Premium SSDs, Standard SSDs, and Standard HDDs are available. In this architecture, managed disks provide persistent storage for the jump box VM and AKS cluster nodes.
 
 - [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is an object storage solution for the cloud. Blob Storage is optimized for storing massive amounts of unstructured data. In this architecture, Blob Storage stores the boot diagnostics logs of the jump box VM.
 

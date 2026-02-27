@@ -6,7 +6,9 @@ Here are some of the main challenges arising from service-to-service communicati
 
 **Resiliency**. There might be dozens or even hundreds of instances of any given microservice. An instance can fail for any number of reasons. There can be a node-level failure, such as a hardware failure or a VM reboot. An instance might crash, or be overwhelmed with requests and unable to process any new requests. Any of these events can cause a network call to fail. There are two design patterns that can help make service-to-service network calls more resilient:
 
-- **[Retry](../../patterns/retry.yml)**. A network call might fail because of a transient fault that goes away by itself. Rather than fail outright, the caller should typically retry the operation a certain number of times, or until a configured time-out period elapses. However, if an operation isn't idempotent, retries can cause unintended side effects. The original call might succeed, but the caller never gets a response. If the caller retries, the operation might be invoked twice. Generally, it's not safe to retry POST or PATCH methods, because these aren't guaranteed to be idempotent.
+- **[Retry](../../patterns/retry.yml)**. A network call might fail because of a transient fault that resolves on its own. Rather than fail outright, the caller should typically retry the operation a specified number of times or until a configured timeout period elapses.
+
+  If an operation isn't idempotent, retries can cause unintended effects. The original call might succeed, but the caller never gets a response. If the caller retries, the operation might be invoked twice. Generally, it's not safe to retry POST or PATCH methods because these operations aren't guaranteed to be idempotent. For more information, see [Transient fault handling](../../best-practices/transient-faults.md).
 
 - **[Circuit Breaker](../../patterns/circuit-breaker.md)**. Too many failed requests can cause a bottleneck, as pending requests accumulate in the queue. These blocked requests might hold critical system resources such as memory, threads, and database connections, which can cause cascading failures. The Circuit Breaker pattern can prevent a service from repeatedly trying an operation that is likely to fail.
 
@@ -52,7 +54,7 @@ However, there are also some challenges to using asynchronous messaging effectiv
 
 - **Complexity**. Handling asynchronous messaging isn't a trivial task. For example, you must handle duplicated messages, either by de-duplicating or by making operations idempotent. It's also hard to implement request-response semantics using asynchronous messaging. To send a response, you need another queue, plus a way to correlate request and response messages.
 
-- **Throughput**. If messages require *queue semantics*, the queue can become a bottleneck in the system. Each message requires at least one queue operation and one dequeue operation. Moreover, queue semantics generally require some kind of locking inside the messaging infrastructure. If the queue is a managed service, there might be additional latency, because the queue is external to the cluster's virtual network. You can mitigate these issues by batching messages, but that complicates the code. If the messages don't require queue semantics, you might be able to use an event *stream* instead of a queue. For more information, see [Event-driven architectural style](../../guide/architecture-styles/event-driven.md).
+- **Throughput**. If messages require *queue semantics*, the queue can become a bottleneck in the system. Each message requires at least one queue operation and one dequeue operation. Moreover, queue semantics generally require some kind of locking inside the messaging infrastructure. If the queue is a managed service, there might be additional latency, because the queue is external to the cluster's virtual network. You can mitigate these issues by batching messages, but that complicates the code. If the messages don't require queue semantics, you might be able to use an *event stream* instead of a queue. For more information, see [Event-driven architectural style](../../guide/architecture-styles/event-driven.md).
 
 ## Drone Delivery: Choosing the messaging patterns
 
@@ -134,5 +136,5 @@ For microservices that talk directly to each other, it's important to create wel
 
 - [Design a microservices architecture](index.md)
 - [Using domain analysis to model microservices](../model/domain-analysis.md)
-- [Using tactical DDD to design microservices](../model/tactical-ddd.yml)
+- [Using tactical DDD to design microservices](../model/tactical-domain-driven-design.md)
 - [Identify microservice boundaries](../model/microservice-boundaries.yml)

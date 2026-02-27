@@ -63,7 +63,7 @@ Consider this architecture for the following use cases:
 
 - Shared data schemas or code modules between the front end and worker can create hidden dependencies.
 
-- The web front end can fail after it writes to the database but before it sends a message to the queue. This failure causes consistency problems because the worker never processes its part of the logic. To address this problem, use techniques like the [Transactional Outbox pattern](../../databases/guide/transactional-outbox-cosmos.yml), which routes outgoing messages through a separate queue first. The [NServiceBus Transactional Session](https://docs.particular.net/nservicebus/transactional-session/) library supports this approach.
+- The web front end can fail after it writes to the database but before it sends a message to the queue. This failure causes consistency problems because the worker never processes its part of the logic. To address this problem, use techniques like the [Transactional Outbox pattern](../../databases/guide/transactional-out-box-cosmos.md), which routes outgoing messages through a separate queue first. The [NServiceBus Transactional Session](https://docs.particular.net/nservicebus/transactional-session/) library supports this approach.
 
 ## Best practices
 
