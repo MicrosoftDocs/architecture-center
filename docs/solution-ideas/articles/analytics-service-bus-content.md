@@ -27,7 +27,7 @@ The diagram shows two data paths: dotted and solid. The dotted line path represe
 
    - An **Azure Functions** app that uses SDKs to send data in micro batches or uses managed streaming ingestion when Azure Data Explorer is [configured for streaming ingestion](/azure/data-explorer/ingest-data-streaming).
    
-   - A polling service, such as an application hosted on **Azure Kubernetes Service (AKS)** or an **Azure VM**, that sends data to Azure Data Explorer in micro batches. This option doesn’t require configuring streaming ingestion.
+   - A polling service, like an application hosted on **Azure Kubernetes Service (AKS)** or an **Azure VM**, that sends data to Azure Data Explorer in micro batches. This option doesn’t require configuring streaming ingestion.
 
 1. Azure Data Explorer processes the data by using [schema mapping](/azure/data-explorer/kusto/management/mappings) and [update policies](/azure/data-explorer/kusto/management/updatepolicy). It makes the data available for interactive analytics and reporting through APIs, SDKs, or connectors. Optionally, Azure Data Explorer can also ingest or reference data from other sources, such as SQL Database or Azure Data Lake Storage.
 
