@@ -4429,6 +4429,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/databases/guide/transactional-outbox-cosmos.md",
+      "redirect_url": "/azure/architecture/databases/guide/transactional-out-box-cosmos",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/solution-ideas/articles/loan-credit-risk-with-sql-server.yml",
       "redirect_url": "/azure/architecture/databases",
       "redirect_document_id": false
@@ -7713,6 +7718,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/microservices/model/tactical-ddd.yml",
+      "redirect_url": "/azure/architecture/microservices/model/tactical-domain-driven-design",
+      "redirect_document_id": false
+    },
+    {      
       "source_path": "docs/solution-ideas/articles/analytics-start-here.yml",
       "redirect_url": "/azure/architecture/solution-ideas/articles/analytics-get-started",
       "redirect_document_id": false

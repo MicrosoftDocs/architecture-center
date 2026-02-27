@@ -38,7 +38,7 @@ The numbers in the diagram correspond to the following data flow.
 
 - [Private Link](/azure/private-link/private-link-overview) is a networking service that creates your own private link service in your virtual network so that the web client can consume resources from Skytap on Azure. In this architecture, Private Link enables secure data transfer from IBM i systems to Blob Storage through a private endpoint.
 
-- [Kyndryl Cloud Uplift (formerly Skytap on Azure)](https://marketplace.microsoft.com/product/skytapinc.skytap-on-azure-main1?tab=Overview) is a service that runs IBM Power and x86 traditional workloads on hardware in Azure datacenters. Organizations of any size that run applications on IBM Power-based AIX, IBM i, or Linux operating systems can migrate them to Azure with little upfront effort. In this architecture, Skytap on Azure provides the native IBM Power9 infrastructure to host migrated IBM i LPARs without requiring application refactoring.
+- [Kyndryl Cloud Uplift (formerly Skytap on Azure)](https://marketplace.microsoft.com/search/products?search=Kyndryl%20Cloud%20Uplift) is a service that runs IBM Power and x86 traditional workloads on hardware in Azure datacenters. Organizations of any size that run applications on IBM Power-based AIX, IBM i, or Linux operating systems can migrate them to Azure with little upfront effort. In this architecture, Skytap on Azure provides the native IBM Power9 infrastructure to host migrated IBM i LPARs without requiring application refactoring.
 
 ### Alternatives
 
@@ -89,7 +89,7 @@ Cost Optimization is about looking at ways to reduce unnecessary expenses and im
 
 Running IBM i series workloads in Skytap on Azure helps optimize costs compared to on-premises deployments. The consumption-based usage plans let you deploy LPARs only as needed and scale them on demand to meet the needs of your workloads.
 
-See more pricing information on the [Plans + Pricing](https://marketplace.microsoft.com/product/skytapinc.skytap-on-azure-main1?tab=PlansAndPrice) tab in the Microsoft Marketplace.
+See more pricing information on the [Plans + Pricing](https://marketplace.microsoft.com/search/products?search=Kyndryl%20Cloud%20Uplift) tab in the Microsoft Marketplace.
 
 ### Performance Efficiency
 
@@ -104,7 +104,7 @@ Azure compute scale-up can be as simple as choosing the right [virtual machine](
 
 ## Deploy this scenario
 
-To get started running iSeries applications on Azure, check out the [Kyndryl Cloud Uplift (formerly Skytap on Azure)](https://marketplace.microsoft.com/product/skytapinc.skytap-on-azure-main1?tab=Overview) template in the Microsoft Marketplace.
+To get started running iSeries applications on Azure, check out the [Kyndryl Cloud Uplift (formerly Skytap on Azure)](https://marketplace.microsoft.com/search/products?search=Kyndryl%20Cloud%20Uplift) template in the Microsoft Marketplace.
 
 Learn more about the different Migration and Deployment options with the [Skytap Well-Architected Framework](https://skytap.github.io/well-architected-framework/).
 
