@@ -19,11 +19,11 @@ products:
 
 This article describes how to use Azure Private Link in a hub-and-spoke network topology. The target audience includes network architects and cloud solution architects. This guide outlines how to use Azure private endpoints to privately access platform as a service (PaaS) resources.
 
-This guide doesn't cover virtual network integration, service endpoints, and other solutions for connecting infrastructure as a service (IaaS) components to Azure PaaS resources. For more information about these solutions, see [Integrate Azure services with virtual networks for network isolation][Integrate Azure services with virtual networks for network isolation].
+This guide doesn't cover virtual network integration, service endpoints, and other solutions for connecting infrastructure as a service (IaaS) components to Azure PaaS resources. For more information about these solutions, see [Integrate Azure services with virtual networks for network isolation](/azure/virtual-network/vnet-integration-for-azure-services).
 
 ## Azure hub-and-spoke topologies
 
-You can use a hub-and-spoke network topology in Azure to efficiently manage communication services and meet security requirements at scale. For more information, see [Hub-and-spoke network topology][Hub-and-spoke network topology].
+You can use a hub-and-spoke network topology in Azure to efficiently manage communication services and meet security requirements at scale. For more information, see [Hub-and-spoke network topology](/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology).
 
 A hub-and-spoke architecture provides the following benefits:
 
@@ -42,7 +42,7 @@ The hub virtual network contains two DNS forwarders. It connects to the on-premi
 
 This architecture is one of two network topology options that Azure supports. This classic reference design uses basic network components like Azure Virtual Network, virtual network peering, and user-defined routes (UDRs). When you use a hub-and-spoke topology, you configure the services, and you must ensure that the network meets security and routing requirements.
 
-[Azure Virtual WAN][What is Virtual WAN?] provides an alternative for deployments at scale. This service uses a simplified network design. Virtual WAN reduces the configuration overhead associated with routing and security.
+[Azure Virtual WAN](/azure/virtual-wan/virtual-wan-about) provides an alternative for deployments at scale. This service uses a simplified network design. Virtual WAN reduces the configuration overhead associated with routing and security.
 
 Private Link supports different options for traditional hub-and-spoke networks and for Virtual WAN networks.
 
@@ -54,7 +54,7 @@ Private Link provides access to services over a private endpoint network interfa
 - Customer-owned services that Azure hosts
 - Partner services that Azure hosts
 
-Traffic between your virtual network and the service that you access travels across the Azure network backbone. As a result, you no longer access the service over a public endpoint. For more information, see [Private Link][What is Private Link?].
+Traffic between your virtual network and the service that you access travels across the Azure network backbone. As a result, you no longer access the service over a public endpoint. For more information, see [Private Link](/azure/private-link/private-link-overview?toc=/azure/virtual-network/toc.json).
 
 The following diagram shows how on-premises users connect to a virtual network and use Private Link to access PaaS resources.
 
@@ -74,8 +74,8 @@ If you use Virtual WAN, you can only deploy private endpoints on spoke virtual n
 
 For more information about integrating private endpoints into your network, see the following articles:
 
-- [Use Private Link in Virtual WAN][Use Private Link in Virtual WAN]
-- [Configure virtual hub routing][How to configure virtual hub routing]
+- [Use Private Link in Virtual WAN](/azure/virtual-wan/howto-private-link)
+- [Configure virtual hub routing](/azure/virtual-wan/how-to-virtual-hub-routing)
 
 #### Determine whether you use a network virtual appliance such as Azure Firewall
 
@@ -128,9 +128,9 @@ The following factors can affect your private endpoint implementation. They appl
 
 When you use private endpoints in a spoke virtual network, the subnet's default route table includes a `/32` route, with a next hop type of `InterfaceEndpoint`.
 
-- If you use a traditional hub-and-spoke topology, you can view this effective route at the network-interface level of your virtual machines (VMs). For more information, see [Diagnose a VM routing problem][Diagnose a virtual machine routing problem - Diagnose by using the Azure portal].
+- If you use a traditional hub-and-spoke topology, you can view this effective route at the network-interface level of your virtual machines (VMs). For more information, see [Diagnose a VM routing problem](/azure/virtual-network/diagnose-network-routing-problem#diagnose-using-azure-portal).
 
-- If you use Virtual WAN, you can view this route in the virtual hub effective routes. For more information, see [View virtual hub effective routes][View virtual hub effective routes].
+- If you use Virtual WAN, you can view this route in the virtual hub effective routes. For more information, see [View virtual hub effective routes](/azure/virtual-wan/effective-routes-virtual-hub).
 
 The `/32` route gets propagated to the following areas:
 
@@ -143,7 +143,7 @@ To restrict access from your hub or on-premises system to a private endpoint, us
 
 Components in your virtual network associate a private IP address with each private endpoint. Those components can only resolve that private IP address if you use a specific Domain Name System (DNS) setup. If you use a custom DNS solution, use DNS zone groups. Integrate the private endpoint with a centralized Azure private DNS zone, whether you deploy resources in a hub or a spoke. Link the private DNS zone with all virtual networks that need to resolve your private endpoint DNS name.
 
-In this approach, on-premises and Azure DNS clients can resolve the name and access the private IP address. For a reference implementation, see [Private Link and DNS integration at scale][Private Link and DNS integration at scale].
+In this approach, on-premises and Azure DNS clients can resolve the name and access the private IP address. For a reference implementation, see [Private Link and DNS integration at scale](/azure/cloud-adoption-framework/ready/azure-best-practices/private-link-and-dns-integration-at-scale).
 
 ### Costs
 
@@ -152,7 +152,7 @@ In this approach, on-premises and Azure DNS clients can resolve the name and acc
 - Peering costs apply with other infrastructure resource traffic that flows across a virtual network peering.
 - When you deploy private endpoints across different regions, Private Link rates and global peering inbound and outbound rates apply.
 
-For more information, see [Bandwidth pricing][Bandwidth pricing].
+For more information, see [Bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth).
 
 ## Contributors
 
@@ -170,37 +170,15 @@ Other contributor:
 
 ## Next steps
 
-- [Private Link availability][Azure Private Link availability]
-- [Private endpoints][What is a private endpoint?]
-- [Azure Virtual Network][What is Azure Virtual Network?]
-- [Azure DNS][What is Azure DNS?]
-- [Private Azure DNS zone][What is a private Azure DNS zone]
-- [Use Azure Firewall to inspect traffic destined to a private endpoint][Use Azure Firewall to inspect traffic destined to a private endpoint]
-- [How network security groups filter network traffic][How network security groups filter network traffic]
+- [Private Link availability](/azure/private-link/availability)
+- [Private endpoints](/azure/private-link/private-endpoint-overview)
+- [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview)
+- [Azure DNS](/azure/dns/dns-overview)
+- [Private Azure DNS zone](/azure/dns/private-dns-privatednszone)
+- [Use Azure Firewall to inspect traffic destined to a private endpoint](/azure/private-link/inspect-traffic-with-azure-firewall)
+- [How network security groups filter network traffic](/azure/virtual-network/network-security-group-how-it-works)
 
 ## Related resources
 
 - [Baseline highly available zone-redundant web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml)
-- [Hub-and-spoke network topology in Azure][Hub-spoke network topology in Azure]
-
-[Azure Private Link availability]: /azure/private-link/availability
-[Bandwidth pricing]: https://azure.microsoft.com/pricing/details/bandwidth
-[Diagnose a virtual machine routing problem - Diagnose by using the Azure portal]: /azure/virtual-network/diagnose-network-routing-problem#diagnose-using-azure-portal
-[How to configure virtual hub routing]: /azure/virtual-wan/how-to-virtual-hub-routing
-[How network security groups filter network traffic]: /azure/virtual-network/network-security-group-how-it-works
-[Hub-and-spoke network topology]: /azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology
-[Hub-spoke network topology in Azure]: ../architecture/hub-spoke.yml
-[Integrate Azure services with virtual networks for network isolation]: /azure/virtual-network/vnet-integration-for-azure-services
-[Private Link and DNS integration at scale]: /azure/cloud-adoption-framework/ready/azure-best-practices/private-link-and-dns-integration-at-scale
-[SVG version of architecture diagram]: ./images/private-link-hub-spoke-network-basic-hub-spoke-diagram.svg
-[SVG version of decision tree]: ./images/private-link-hub-spoke-network-decision-tree.svg
-[SVG version of Private Link diagram]: ./images/private-link-hub-spoke-network-private-link.svg
-[Use Azure Firewall to inspect traffic destined to a private endpoint]: /azure/private-link/inspect-traffic-with-azure-firewall
-[Use Private Link in Virtual WAN]: /azure/virtual-wan/howto-private-link
-[View virtual hub effective routes]: /azure/virtual-wan/effective-routes-virtual-hub
-[What is Azure DNS?]: /azure/dns/dns-overview
-[What is a private endpoint?]: /azure/private-link/private-endpoint-overview
-[What is Private Link?]: /azure/private-link/private-link-overview?toc=/azure/virtual-network/toc.json
-[What is Azure Virtual Network?]: /azure/virtual-network/virtual-networks-overview
-[What is Virtual WAN?]: /azure/virtual-wan/virtual-wan-about
-[What is a private Azure DNS zone]: /azure/dns/private-dns-privatednszone
+- [Hub-and-spoke network topology in Azure](../architecture/hub-spoke.yml)

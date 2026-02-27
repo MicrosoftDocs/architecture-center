@@ -230,7 +230,7 @@ This example scenario shows how Fabric facilitates enterprises in building a uni
 
 - Enable cross-tenant data sharing through OneLake shortcuts and external data share.
 
-- Integrate Fabric data agents with [Azure AI Foundry](/fabric/data-science/data-agent-foundry) or [Microsoft Copilot Studio](/fabric/data-science/data-agent-microsoft-copilot-studio) to build intelligent, conversational, and context-aware AI solutions for business users and applications.
+- Integrate Fabric data agents with [Microsoft Foundry](/fabric/data-science/data-agent-foundry) or [Microsoft Copilot Studio](/fabric/data-science/data-agent-microsoft-copilot-studio) to build intelligent, conversational, and context-aware AI solutions for business users and applications.
 
 ## Recommendations
 

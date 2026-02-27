@@ -273,9 +273,9 @@ This architecture uses a managed identity for microservices to authenticate to K
 
 The following recommended practices can help secure your pods and containers:
 
-- **Monitor for threats.** Monitor for threats by using [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) or a non-Microsoft capability. If you host containers on a virtual machine (VM), use [Microsoft Defender for Servers](/azure/security-center/defender-for-servers-introduction) or a non-Microsoft capability. You can also integrate logs from the [Container Monitoring solution in Azure Monitor](/azure/azure-monitor/insights/containers) to [Microsoft Sentinel](/azure/sentinel/) or an existing security information and event management (SIEM) solution.
+- **Monitor for threats.** Monitor for threats by using [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) or a non-Microsoft capability. If you host containers on a virtual machine (VM), use [Microsoft Defender for Servers](/azure/defender-for-cloud/plan-defender-for-servers) or a non-Microsoft capability. You can also integrate logs from the [Container Monitoring solution in Azure Monitor](/azure/azure-monitor/insights/containers) to [Microsoft Sentinel](/azure/sentinel/) or an existing security information and event management (SIEM) solution.
 
-- **Monitor vulnerabilities.** Continuously monitor images and running containers for known vulnerabilities by using [Microsoft Defender for Cloud](/azure/security-center/container-security) or a non-Microsoft solution.
+- **Monitor vulnerabilities.** Continuously monitor images and running containers for known vulnerabilities by using [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) or a non-Microsoft solution.
 
 - **Automate image patching.** Use [Container Registry tasks](/azure/container-registry/container-registry-tasks-overview) to automate image patching. A container image is built up from layers. The base layers include the OS image and application framework images, like ASP.NET Core or Node.js. The base images are typically created upstream from the application developers, and other project maintainers maintain them. When these images are patched upstream, you must update, test, and redeploy your own images so that you don't leave any known security vulnerabilities. Container Registry tasks can help automate this process.
 
@@ -363,10 +363,9 @@ Other contributors:
 
 - [Use a service principal with AKS](/azure/aks/kubernetes-service-principal)
 - [Container protection in Defender for Cloud](/azure/defender-for-cloud/defender-for-containers-introduction)
-- [Plan Defender for Servers deployment](/azure/security-center/defender-for-servers-introduction)
+- [Plan Defender for Servers deployment](/azure/defender-for-cloud/plan-defender-for-servers)
 - [Container Monitoring solution in Azure Monitor](/azure/azure-monitor/insights/containers)
 - [Microsoft Sentinel](/azure/sentinel/)
-- [Defender for Cloud](/azure/security-center/container-security)
 - [Automate container image builds and maintenance by using Container Registry tasks](/azure/container-registry/container-registry-tasks-overview)
 
 ## Related resources

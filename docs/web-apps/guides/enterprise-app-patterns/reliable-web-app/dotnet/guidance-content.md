@@ -79,12 +79,14 @@ For example, before it was moved to the cloud, Relecloud's ticketing web app was
   - *External data store.* The on-premises application servers performed VM-local caching. This setup didn't offload highly frequented data, and it couldn't invalidate data.
   - *Nonsticky sessions.* Externalizing session state supports nonsticky sessions.
 
-- *Load balancer:* Web applications that use PaaS solutions should use Azure Front Door, Azure Application Gateway, or both, depending on web app architecture and requirements. Use the [load balancer decision tree](/azure/architecture/guide/technology-choices/load-balancing-overview) to pick the right load balancer. Relecloud needed a layer-7 load balancer that could route traffic across multiple regions. The company needed a multi-region web app to meet the SLO of 99.9%. Relecloud chose [Azure Front Door](/azure/frontdoor/front-door-overview) for the following reasons:
+- *Load balancer:* Web applications that use PaaS solutions should use Azure Front Door, Azure Application Gateway, or both, depending on web app architecture and requirements. Use the [load balancer decision tree](/azure/architecture/guide/technology-choices/load-balancing-overview) to pick the right load balancer. Relecloud needed a layer-7 load balancer that could route traffic across multiple regions. The company needed a multi-region web app to meet the SLO of 99.9%.
+
+  Relecloud chose [Azure Front Door](/azure/frontdoor/front-door-overview) for the following reasons:
 
     - *Global load balancing.* It's a layer-7 load balancer that can route traffic across multiple regions.
     - *Web application firewall.* It integrates natively with Azure Web Application Firewall.
     - *Routing flexibility.* It allows the application team to configure ingress needs to support future changes in the application.
-    - *Traffic acceleration.* It uses anycast to reach the nearest Azure point of presence and find the fastest route to the web app.
+    - *Traffic acceleration.* It routes traffic to an optimal point of presence to find the fastest route to the web app.
     - *Custom domains.* It supports custom domain names with flexible domain validation.
     - *Health probes.* The application requires intelligent health probe monitoring. Azure Front Door uses responses from the probe to determine the best origin for routing client requests.
     - *Monitoring support.* It supports built-in reports with an all-in-one dashboard for both Azure Front Door and security patterns. You can configure alerts that integrate with Azure Monitor. Azure Front Door enables the application to log each request and failed health probes.
@@ -329,29 +331,25 @@ For example, the reference implementation uses Bicep parameters to deploy more e
 
 [!INCLUDE [Monitoring](../includes/monitor.md)]
 
-- *Collect application telemetry.* Use [autoinstrumentation](/azure/azure-monitor/app/codeless-overview) in Azure Application Insights to collect application [telemetry](/azure/azure-monitor/app/data-model-complete), such as request throughput, average request duration, errors, and dependency monitoring. You don't need to make any code changes to use this telemetry. 
+- *Collect application telemetry.* Use the [Azure Monitor OpenTelemetry Distro](/azure/azure-monitor/app/opentelemetry-enable) to collect application [telemetry](/azure/azure-monitor/app/data-model-complete) in Application Insights, such as request throughput, average request duration, errors, and dependency monitoring.
 
-    The reference implementation uses `AddApplicationInsightsTelemetry` from the NuGet package `Microsoft.ApplicationInsights.AspNetCore` to enable [telemetry collection](/azure/azure-monitor/app/asp-net-core):
+  The reference implementation adds the `Azure.Monitor.OpenTelemetry.AspNetCore` NuGet package and enables [telemetry collection](/azure/azure-monitor/app/opentelemetry-enable?tabs=aspnetcore):
 
-    ```csharp
-    public void ConfigureServices(IServiceCollection services)
-    {
-       ...
-       services.AddApplicationInsightsTelemetry(Configuration["App:Api:ApplicationInsights:ConnectionString"]);
-       ...
-    }
-    ```
+  ```csharp
+  var builder = WebApplication.CreateBuilder(args);
 
-- *Create custom application metrics.* Use code-based instrumentation for [custom application telemetry](/azure/azure-monitor/app/api-custom-events-metrics). Add the Application Insights SDK to your code and use the Application Insights API.
+  builder.Services.AddOpenTelemetry().UseAzureMonitor();
+  ```
 
-    The reference implementation gathers telemetry on events related to cart activity. `this.telemetryClient.TrackEvent` counts the tickets added to the cart. It supplies the event name (`AddToCart`) and specifies a dictionary that has the `concertId` and `count`:
+- *Create custom application metrics.* Use code-based instrumentation for [custom application telemetry](/azure/azure-monitor/app/opentelemetry-add-modify). Use the OpenTelemetry APIs (`ActivitySource`, `Meter`) to emit custom traces and metrics to Application Insights.
 
-    ```csharp
-    this.telemetryClient.TrackEvent("AddToCart", new Dictionary<string, string> {
-        { "ConcertId", concertId.ToString() },
-        { "Count", count.ToString() }
-    });
-    ```
+  The reference implementation gathers telemetry on events related to cart activity. It uses an `ActivitySource` to create a span that records when tickets are added to the cart:
+
+  ```csharp
+  using var activity = activitySource.StartActivity("AddToCart");
+  activity?.SetTag("ConcertId", concertId.ToString());
+  activity?.SetTag("Count", count.ToString());
+  ```
 
 - *Monitor the platform.* Enable diagnostics for all supported services. Send diagnostics to the same destination as the application logs for correlation. Azure services create platform logs automatically but only store them when you enable diagnostics. Enable diagnostic settings for each service that supports diagnostics.
 

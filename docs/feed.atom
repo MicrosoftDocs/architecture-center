@@ -2,12 +2,28 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2026-02-09T18:44:10.797Z</updated>
+    <updated>2026-02-23T18:32:13.127Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Sidecar Pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/sidecar</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/sidecar"/>
+        <updated>2026-02-17T22:04:11.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to deploy features of an application into a separate process or container to provide modular abstraction and isolation of cross-cutting concerns.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Asynchronous Messaging Options]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/technology-choices/messaging</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/technology-choices/messaging"/>
+        <updated>2026-02-17T18:57:40.000Z</updated>
+        <summary type="html"><![CDATA[Learn about asynchronous messaging options in Azure, including the different types of messages and the entities that participate in a messaging infrastructure.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Analytics architecture design]]></title>
         <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/analytics-get-started</id>
@@ -25,19 +41,259 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Design a Secure Multitenant RAG Inferencing Solution]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/secure-multitenant-rag</id>
-        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/secure-multitenant-rag"/>
-        <updated>2026-02-09T17:00:10.000Z</updated>
-        <summary type="html"><![CDATA[Learn about the considerations and recommendations for improved security that you should consider when you design a multitenant RAG inferencing solution.]]></summary>
+        <title type="html"><![CDATA[Greenfield Lakehouse on Microsoft Fabric]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/data/greenfield-lakehouse-fabric</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/data/greenfield-lakehouse-fabric"/>
+        <updated>2026-02-19T21:25:42.000Z</updated>
+        <summary type="html"><![CDATA[Learn about a greenfield solution for creating a robust, scalable data platform by using the lakehouse design paradigm on Microsoft Fabric.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Build and Deploy Custom Document Processing Models on Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/build-deploy-custom-models</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/build-deploy-custom-models"/>
+        <updated>2026-02-19T17:40:25.000Z</updated>
+        <summary type="html"><![CDATA[Learn more about Azure options for orchestrating, storing, building, deploying, and using custom document processing models.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Overview of Microsoft Machine Learning Products and Technologies]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/data-science-and-machine-learning</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/data-science-and-machine-learning"/>
+        <updated>2026-02-19T17:40:25.000Z</updated>
+        <summary type="html"><![CDATA[Compare options for building, deploying, and managing your machine learning models. Decide which Microsoft products to choose for your solution.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Extract and Analyze Call Center Data by Using Azure OpenAI in Foundry Models, Speech Services, and Language Services]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/openai/architecture/call-center-openai-analytics</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/openai/architecture/call-center-openai-analytics"/>
+        <updated>2026-02-19T17:40:25.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to extract insights from customer conversations at a call center by using Foundry Tools and Azure OpenAI in Foundry Models.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Migrate a web app by using Azure API Management]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/apps/apim-api-scenario</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/apps/apim-api-scenario"/>
+        <updated>2026-02-18T23:00:19.000Z</updated>
+        <summary type="html"><![CDATA[In this scenario, an e-commerce company in the travel industry uses Azure API Management to migrate a legacy web application.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Implement a Zero Trust Network for Web Applications by Using Azure Firewall and Azure Application Gateway]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall"/>
+        <updated>2026-02-18T23:00:19.000Z</updated>
+        <summary type="html"><![CDATA[Protect web apps by implementing Zero Trust security in virtual networks. Use Azure Firewall and Azure Application Gateway in networks to maximize protection.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Use a Message Broker and Events to Integrate Enterprise Systems]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/integration/queues-events</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/integration/queues-events"/>
+        <updated>2026-02-18T23:00:19.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to integrate enterprise back-end systems by using a message broker and events to decouple services for greater scalability and reliability.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy Highly Available NVAs]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/networking/guide/network-virtual-appliance-high-availability</id>
+        <link href="https://learn.microsoft.com/azure/architecture/networking/guide/network-virtual-appliance-high-availability"/>
+        <updated>2026-02-18T23:00:19.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to deploy network virtual appliances in high availability architectures for ingress and egress traffic in Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Private Link in a Hub-and-Spoke Network]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/networking/guide/private-link-hub-spoke-network</id>
+        <link href="https://learn.microsoft.com/azure/architecture/networking/guide/private-link-hub-spoke-network"/>
+        <updated>2026-02-18T23:00:19.000Z</updated>
+        <summary type="html"><![CDATA[Use Azure Private Link to access PaaS services from a hub-and-spoke network. Connect to these services by using a private IP address from your virtual network.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Virtual Network Connectivity Options and Spoke-To-Spoke Communication]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/virtual-network-peering</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/virtual-network-peering"/>
+        <updated>2026-02-18T23:00:19.000Z</updated>
+        <summary type="html"><![CDATA[Compare virtual network peering and VPN gateways for Azure connectivity. Learn spoke-to-spoke communication patterns in hub-and-spoke architectures.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Extend On-Premises Active Directory Federation Services to Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/identity/adfs</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/identity/adfs"/>
+        <updated>2026-02-18T23:00:19.000Z</updated>
+        <summary type="html"><![CDATA[Implement a secure hybrid network architecture with Active Directory Federation Services authorization and identity federation in Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Integrate On-Premises Active Directory Domains With Microsoft Entra ID]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/identity/azure-ad</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/identity/azure-ad"/>
+        <updated>2026-02-18T23:00:19.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to implement a secure hybrid network architecture that integrates on-premises Active Directory domains with Microsoft Entra ID.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Run a Linux VM on Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/n-tier/linux-vm</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/n-tier/linux-vm"/>
+        <updated>2026-02-18T23:00:19.000Z</updated>
+        <summary type="html"><![CDATA[Learn the best practices for running a Linux virtual machine on Azure, which requires some additional components, including networking and storage resources.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Run a Windows VM on Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/n-tier/windows-vm</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/n-tier/windows-vm"/>
+        <updated>2026-02-18T23:00:19.000Z</updated>
+        <summary type="html"><![CDATA[Learn the best practices for running a Windows virtual machine on Azure, which requires some additional components, including networking and storage resources.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Automate Video Analysis by Using Azure Machine Learning and Azure Vision in Foundry Tools]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/analyze-video-computer-vision-machine-learning</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/analyze-video-computer-vision-machine-learning"/>
+        <updated>2026-02-18T22:40:45.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to implement an architecture that automates video analysis by using Azure Machine Learning and Azure Vision in Foundry Tools.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Choose an Azure Compute Service]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/technology-choices/compute-decision-tree</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/technology-choices/compute-decision-tree"/>
+        <updated>2026-02-18T22:04:36.000Z</updated>
+        <summary type="html"><![CDATA[Use this chart and other information to decide which compute service, or hosting model for computing resources, best suits your application.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Data and AI]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/aws-professional/data-ai</id>
+        <link href="https://learn.microsoft.com/azure/architecture/aws-professional/data-ai"/>
+        <updated>2026-02-18T21:44:24.000Z</updated>
+        <summary type="html"><![CDATA[Compare Azure data and AI services to corresponding AWS services. Understand key differences in data integration, analytics, machine learning, and AI capabilities.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure AI Video Processing Guide]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-guide/ai-services/image-video-processing</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-guide/ai-services/image-video-processing"/>
+        <updated>2026-02-18T21:44:24.000Z</updated>
+        <summary type="html"><![CDATA[Learn about Foundry Tools for video processing and video generation. Understand and compare each service's capabilities and use cases.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Choose an Azure Speech Recognition and Generation Technology]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-guide/ai-services/speech-recognition-generation</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-guide/ai-services/speech-recognition-generation"/>
+        <updated>2026-02-18T21:44:24.000Z</updated>
+        <summary type="html"><![CDATA[Learn about Azure's AI speech recognition and generation capabilities, such as speech-to-text, speech translation, and text-to-speech.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Choose an Azure AI Targeted Language Processing Technology]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-guide/ai-services/targeted-language-processing</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-guide/ai-services/targeted-language-processing"/>
+        <updated>2026-02-18T21:44:24.000Z</updated>
+        <summary type="html"><![CDATA[Learn about Foundry Tools targeted language processing capabilities, including NLP, text analytics, translation, and document data extraction.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Natural Language Processing Technology]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-guide/technology-choices/natural-language-processing</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-guide/technology-choices/natural-language-processing"/>
+        <updated>2026-02-18T21:44:24.000Z</updated>
+        <summary type="html"><![CDATA[Choose a natural language processing service for sentiment analysis, topic and language detection, key phrase extraction, and document categorization.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Modernize Mainframe and Midrange Data]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure"/>
+        <updated>2026-02-18T18:30:01.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to modernize IBM mainframe and midrange data. Use a data-first approach to migrate the data to scalable and more secure cloud storage on Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Data analytics for automotive test fleets]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/industries/automotive/automotive-telemetry-analytics</id>
+        <link href="https://learn.microsoft.com/azure/architecture/industries/automotive/automotive-telemetry-analytics"/>
+        <updated>2026-02-18T18:30:01.000Z</updated>
+        <summary type="html"><![CDATA[Learn about a data analytics solution that can democratize data access and provide R&D engineers with near real-time insights into test drive diagnostic data.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Choose an Azure Service for Vector Search]]></title>
         <id>https://learn.microsoft.com/azure/architecture/guide/technology-choices/vector-search</id>
         <link href="https://learn.microsoft.com/azure/architecture/guide/technology-choices/vector-search"/>
-        <updated>2026-02-09T17:00:10.000Z</updated>
+        <updated>2026-02-17T22:18:04.000Z</updated>
         <summary type="html"><![CDATA[Learn how to use this information to decide which Azure service for vector search best suits your application.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Technology Choices for Azure Solutions]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/technology-choices/technology-choices-overview</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/technology-choices/technology-choices-overview"/>
+        <updated>2026-02-17T20:21:24.000Z</updated>
+        <summary type="html"><![CDATA[Learn where to find Azure technology guidance across compute, data, analytics, networking, and AI by using curated comparison and choice resources.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Choose the Right AI Model for Your Workload]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/choose-ai-model</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/choose-ai-model"/>
+        <updated>2026-02-17T20:12:57.000Z</updated>
+        <summary type="html"><![CDATA[Learn strategies to help you select the best model for your AI workload, including key criteria and practical considerations for decision-making.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Modern Web App Pattern for Java]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/web-apps/guides/enterprise-app-patterns/modern-web-app/java/guidance</id>
+        <link href="https://learn.microsoft.com/azure/architecture/web-apps/guides/enterprise-app-patterns/modern-web-app/java/guidance"/>
+        <updated>2026-02-17T17:17:44.000Z</updated>
+        <summary type="html"><![CDATA[Implement the Modern Web App pattern for Java. Get prescriptive architecture, code, and deployment guidance for scalable, decoupled cloud applications.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Reliable Web App Pattern for .NET]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/web-apps/guides/enterprise-app-patterns/reliable-web-app/dotnet/guidance</id>
+        <link href="https://learn.microsoft.com/azure/architecture/web-apps/guides/enterprise-app-patterns/reliable-web-app/dotnet/guidance"/>
+        <updated>2026-02-17T17:17:44.000Z</updated>
+        <summary type="html"><![CDATA[Implement the Reliable Web App pattern for .NET. Migrate (replatform) web apps to the cloud with prescriptive architecture, code, and configuration guidance.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Reliable Web App Pattern for Java]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/web-apps/guides/enterprise-app-patterns/reliable-web-app/java/guidance</id>
+        <link href="https://learn.microsoft.com/azure/architecture/web-apps/guides/enterprise-app-patterns/reliable-web-app/java/guidance"/>
+        <updated>2026-02-17T17:17:44.000Z</updated>
+        <summary type="html"><![CDATA[Implement the Reliable Web App pattern for Java. Get essential guidance for migrating web apps to the cloud. Learn how to replatform web apps.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[AI Agent Orchestration Patterns]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/ai-agent-design-patterns</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/ai-agent-design-patterns"/>
+        <updated>2026-02-12T17:13:32.000Z</updated>
+        <summary type="html"><![CDATA[Learn about fundamental orchestration patterns for AI agent architectures, including sequential, concurrent, group chat, handoff, and magentic patterns.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Migrate IBM i series to Azure with Skytap]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/migrate-ibm-i-series-to-azure-with-skytap</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/migrate-ibm-i-series-to-azure-with-skytap"/>
+        <updated>2026-02-11T23:27:46.000Z</updated>
+        <summary type="html"><![CDATA[This example architecture shows how to use the native IBM i backup and recovery services with Microsoft Azure components.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Design a Secure Multitenant RAG Inferencing Solution]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/secure-multitenant-rag</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/secure-multitenant-rag"/>
+        <updated>2026-02-09T17:00:10.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the considerations and recommendations for improved security that you should consider when you design a multitenant RAG inferencing solution.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -341,7 +597,7 @@
         <id>https://learn.microsoft.com/azure/architecture/ai-ml/idea/multiple-agent-workflow-automation</id>
         <link href="https://learn.microsoft.com/azure/architecture/ai-ml/idea/multiple-agent-workflow-automation"/>
         <updated>2025-12-18T18:19:53.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to design and deploy scalable multi‑agent automation infrastructure by using Microsoft Agent Framework, Azure Container Apps, and Azure AI services.]]></summary>
+        <summary type="html"><![CDATA[Learn how to design and deploy scalable multi‑agent automation infrastructure by using Microsoft Agent Framework, Azure Container Apps, and Foundry Tools.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -369,11 +625,11 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Build a Conversation Knowledge Mining Solution by using Azure AI Services]]></title>
+        <title type="html"><![CDATA[Build a Conversation Knowledge Mining Solution by using Foundry Tools]]></title>
         <id>https://learn.microsoft.com/azure/architecture/ai-ml/idea/unlock-insights-from-conversational-data</id>
         <link href="https://learn.microsoft.com/azure/architecture/ai-ml/idea/unlock-insights-from-conversational-data"/>
         <updated>2025-12-23T16:14:23.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to design a scalable conversation analytics system that extracts insights from conversational data by using Azure AI services and Microsoft Foundry.]]></summary>
+        <summary type="html"><![CDATA[Learn how to design a scalable conversation analytics system that extracts insights from conversational data by using Foundry Tools and Microsoft Foundry.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -649,11 +905,11 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Automate Video Analysis by Using Azure Machine Learning and Azure AI Vision]]></title>
+        <title type="html"><![CDATA[Automate Video Analysis by Using Azure Machine Learning and Azure Vision in Foundry Tools]]></title>
         <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/analyze-video-computer-vision-machine-learning</id>
         <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/analyze-video-computer-vision-machine-learning"/>
         <updated>2025-11-10T21:58:46.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to implement an architecture that automates video analysis by using Azure Machine Learning and Azure AI Vision.]]></summary>
+        <summary type="html"><![CDATA[Learn how to implement an architecture that automates video analysis by using Azure Machine Learning and Azure Vision in Foundry Tools.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -733,7 +989,7 @@
         <id>https://learn.microsoft.com/azure/architecture/data-guide/technology-choices/ai-services</id>
         <link href="https://learn.microsoft.com/azure/architecture/data-guide/technology-choices/ai-services"/>
         <updated>2025-11-24T17:03:41.000Z</updated>
-        <summary type="html"><![CDATA[Learn about Azure AI services that you can use in AI applications and data flows. Choose the appropriate service for your use case.]]></summary>
+        <summary type="html"><![CDATA[Learn about AI services that you can use in AI applications and data flows. Choose the appropriate service for your use case.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
