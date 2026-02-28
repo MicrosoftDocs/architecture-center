@@ -20,7 +20,11 @@ The reliability of the workload depends on several factors, including its capaci
 
 - **Scale out to handle spikes:** Failing over to Foundry Model instances with capacity when throttled is another client responsibility that you need to control through configuration and custom logic. Updating multiple client configurations for new Foundry Model instances presents greater risk and has timeliness concerns. The same is true for updating client code to implement changes in logic, such as directing low priority requests to a queue during high demand periods.
 
+<<<<<<< HEAD
 - **Throttling:** Foundry APIs throttle requests by returning an HTTP 429 error response code to requests that exceed the Token-Per-Minute (TPM) or Requests-Per-Minute (RPM) in the standard model. Foundry APIs also throttle requests that exceed provisioned capacity for the pre-provisioned billing model. Handling appropriate back-off and retry logic is left exclusively to client implementations.
+=======
+- **Throttling:** Azure OpenAI APIs throttle requests by returning an HTTP 429 error response code to requests that exceed the Token-Per-Minute (TPM) or Requests-Per-Minute (RPM) in the standard model. Azure OpenAI APIs also throttle requests that exceed provisioned capacity for the pre-provisioned billing model. Client implementations are solely responsible for handling appropriate [back-off and retry logic](/azure/well-architected/design-guides/handle-transient-faults).
+>>>>>>> b3a2d879d5d2d2246f7ee9b7258b1b485c8ba6bd
 
   Most workloads should solve this specific issue by using [global](/azure/ai-foundry/foundry-models/concepts/deployment-types#global-standard) and [data zone](/azure/ai-foundry/foundry-models/concepts/deployment-types#data-zone-standard) deployments of Foundry models. Those deployments use model capacity from data centers with enough capacity for each request. Using global and data zone deployments will significantly decrease service throttling without the added complexity of custom gateways. The global and data zone deployments are themselves a gateway implementation.
 
@@ -118,7 +122,7 @@ When considering how an API gateway benefits your architecture, use the [Design 
 
 - A gateway can extend the scope of client authorization and authentication beyond Microsoft Entra ID and API key authentication, and potentially across multiple identity providers (IdP).
 
-- Data sovereignty must be factored in your implementation in multi-region implementations. Ensure that your gateway compute and routing logic adheres to sovereignty requirements placed on your workload.
+- Data sovereignty must be factored in your implementation in multi-region implementations. Ensure that your gateway compute and routing logic adhere to sovereignty requirements placed on your workload.
 
 > [!IMPORTANT]
 > Don't implement a gateway if doing so would leave your workload unable to protect the confidentiality, integrity, or availability of itself or its users' data.

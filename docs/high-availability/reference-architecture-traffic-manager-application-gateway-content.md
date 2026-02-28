@@ -165,7 +165,7 @@ Use Application Gateway v2 SKU for out-of-the-box automated resiliency.
 
 - Application Gateway v2 SKU automatically ensures that new instances spawn across fault domains and update domains. If you choose zone redundancy, the newest instances also spawn across availability zones to give fault tolerance.
 
-- Application Gateway v1 SKU supports high-availability scenarios when you've deployed two or more instances. Azure distributes these instances across update and fault domains to ensure that instances don't fail at the same time. The v1 SKU supports scalability by adding multiple instances of the same gateway to share the load.
+- Application Gateway v2 SKU supports autoscaling. When you enable autoscaling, the gateway automatically increases or decreases the number of instances within the configured limits as load changes.
 
 The Application Gateway needs to trust the CA certificate of Azure Firewall.
 
