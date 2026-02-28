@@ -85,6 +85,8 @@ To address the many challenges listed in [Key challenges](#key-challenges), you 
 
 - Load balancing that uses [health endpoint monitoring](../../patterns/health-endpoint-monitoring.yml) to route only to healthy endpoints by [circuit breaking](../../patterns/circuit-breaker.md) on unavailable or overloaded model deployments.
 
+- Caching strategies to improve performance and cost optimization.
+
 Some specific scenarios have more guidance available that directly addresses an API gateway and Foundry instances. Those scenarios are listed in the [Next steps](#next-steps) section.
 
 ## Considerations
@@ -129,6 +131,9 @@ All implemented API gateways have runtime costs that need to be budgeted and acc
 
 To help manage costs when developing and testing a gateway, consider using a simulated endpoint for Azure OpenAI. For example, use the solution in the [Azure OpenAI API simulator](https://github.com/microsoft/aoai-api-simulator/) GitHub repository.
 
+Caching strategies can be implemented in the gateway to optimize costs. Caching can help reduce the number of calls made to Foundry, which can save costs, especially for frequently accessed data or common requests. However, caching strategies need to be carefully designed to ensure that they don't serve stale data or interfere with the freshness requirements of your workload.
+
+
 ### Operational Excellence
 
 When considering how an API gateway benefits your architecture, use the [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist) to evaluate your design. You need to address the following operational excellence considerations:
@@ -153,6 +158,8 @@ When considering how an API gateway benefits your architecture, use the [Design 
 
 - Evaluate the impact of the gateway on Foundry features, such as streaming responses or instance pinning for stateful interactions, such as the Assistants API.
 
+- Evaluate caching strategies that can be implemented in the gateway to improve performance and cost optimization.
+
 > [!IMPORTANT]
 > Don't implement a gateway if doing so makes achieving negotiated performance targets impossible or too compromising on other tradeoffs.
 
@@ -164,7 +171,7 @@ Azure doesn't offer a turn-key solution designed specifically to proxy Foundry's
 
 [Azure API Management](/azure/api-management/api-management-key-concepts) is a platform-managed service designed to offload cross-cutting concerns for HTTP-based APIs. It's configuration driven and supports customization through its inbound and outbound request processing policy system. It supports highly available, zone-redundant, and even multi-region replicas by using a single control plane.
 
-Most of the gateway routing and request handling logic must be implemented in the policy system of API Management. You can combine [built-in policies](/azure/api-management/api-management-policies) specific to Azure OpenAI, such as [Limit Azure OpenAI API token usage](/azure/api-management/azure-openai-token-limit-policy), [Limit large language model API token usage](/azure/api-management/llm-token-limit-policy), [Emit metrics for consumption of large language model tokens](/azure/api-management/llm-emit-token-metric-policy) or [Emit metrics for consumption of Azure OpenAI tokens](/azure/api-management/azure-openai-emit-token-metric-policy), and your own custom policies. The [GenAI gateway toolkit](https://github.com/Azure-Samples/apim-genai-gateway-toolkit) GitHub repository contains multiple custom API Management policies, along with a load-testing setup for testing the behavior of the policies.
+Most of the gateway routing, security, caching and request handling logic must be implemented in the policy system of API Management. You can combine [built-in policies](/azure/api-management/api-management-policies) specific to AI, such as [Limit large language model API token usage](/azure/api-management/llm-token-limit-policy), [Emit metrics for consumption of large language model tokens](/azure/api-management/llm-emit-token-metric-policy), [Enforce content safety](/azure/api-management/llm-content-safety-policy) or [Cache responses](/azure/api-management/llm-semantic-cache-store-policy), and your own custom policies. The [GenAI gateway toolkit](https://github.com/Azure-Samples/apim-genai-gateway-toolkit) GitHub repository contains multiple custom API Management policies, along with a load-testing setup for testing the behavior of the policies.
 
 Use the [Well-Architected Framework service guide for API Management](/azure/well-architected/service-guides/api-management/reliability) when designing a solution that involves Azure API Management. If your workload exists as part of an application landing zone, review the guidance available in the Cloud Adoption Framework for Azure on implementing an [Azure API Management landing zone](/azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator).
 
