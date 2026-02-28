@@ -22,7 +22,7 @@ The reliability of the workload depends on several factors, including its capaci
 
 - **Throttling:** Foundry APIs throttle requests by returning an HTTP 429 error response code to requests that exceed the Token-Per-Minute (TPM) or Requests-Per-Minute (RPM) in the standard model. Foundry APIs also throttle requests that exceed provisioned capacity for the pre-provisioned billing model. Handling appropriate back-off and retry logic is left exclusively to client implementations.
 
-  Most workloads should solve this specific issue by using [global](/azure/ai-foundry/foundry-models/concepts/deployment-types#global-standard) and [data zone](/azure/ai-foundry/foundry-models/concepts/deployment-types#data-zone-standard) deployments of Foundry models. Those deployments to use model capacity from data centers with enough capacity for each request. Using global and data zone deployments will significantly decrease service throttling without added complexity of custom gateways. The global and data zone deployments are themselves a gateway implementation.
+  Most workloads should solve this specific issue by using [global](/azure/ai-foundry/foundry-models/concepts/deployment-types#global-standard) and [data zone](/azure/ai-foundry/foundry-models/concepts/deployment-types#data-zone-standard) deployments of Foundry models. Those deployments use model capacity from data centers with enough capacity for each request. Using global and data zone deployments will significantly decrease service throttling without the added complexity of custom gateways. The global and data zone deployments are themselves a gateway implementation.
 
 ### Security challenges
 
@@ -40,7 +40,7 @@ Security controls must help protect workload confidentiality, integrity, and ava
 
 ### Cost optimization challenges
 
-Workloads benefit when architectures minimize waste and maximize utility. Strong cost modeling and monitoring are an important requirement for any workload. Without a gateway, utilization of provisioned or per-client cost tracking can be authoritatively achieved exclusively from aggregating Foundry instance usage telemetry.
+Workloads benefit when architectures minimize waste and maximize utility. Strong cost modeling and monitoring are important requirements for any workload. Without a gateway, utilization of provisioned or per-client cost tracking can be authoritatively achieved exclusively from aggregating Foundry instance usage telemetry.
 
 - **Cost tracking:** Being able to provide a financial perspective on Foundry usage is limited to data aggregated from Foundry instance usage telemetry. When required to do chargeback or showback, you need to attribute that usage telemetry with various clients across different departments or even customers for multitenant scenarios.
 
@@ -127,7 +127,7 @@ When considering how an API gateway benefits your architecture, use the [Design 
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-All implemented API gateways have runtime costs that need to be budgeted and accounted for. Those costs usually increase with added features to address the reliability, security, and performance of the gateway itself along with operational costs introduced with added APIOps management. These added costs need be measured against the new value delivered from the system with the gateway. You want to reach a point where the new capabilities introduced by using a gateway outweigh the cost to implement and maintain the gateway. Depending on your workload's relationship to its users, you might be able to chargeback usage.
+All implemented API gateways have runtime costs that need to be budgeted and accounted for. Those costs usually increase with added features to address the reliability, security, and performance of the gateway itself along with operational costs introduced with added APIOps management. These added costs need to be measured against the new value delivered from the system with the gateway. You want to reach a point where the new capabilities introduced by using a gateway outweigh the cost to implement and maintain the gateway. Depending on your workload's relationship to its users, you might be able to chargeback usage.
 
 To help manage costs when developing and testing a gateway, consider using a simulated endpoint for Azure OpenAI. For example, use the solution in the [Azure OpenAI API simulator](https://github.com/microsoft/aoai-api-simulator/) GitHub repository.
 
