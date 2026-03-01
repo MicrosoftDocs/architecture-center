@@ -314,9 +314,10 @@ Principal author:
 
 Other contributors:
 
-- [Lorrin Ferdinand](https://www.linkedin.com/in/lorrin-ferdinand) | Principal Consultant
+
 - [Holly Kelly](https://www.linkedin.com/in/holly-kelly-9466063/) | Principal Program Manager
 - [Gabi Muenster](https://www.linkedin.com/in/gabimuenster/) | Senior Program Manager
+- [Lorrin Ferdinand](https://www.linkedin.com/in/lorrin-ferdinand) | Principal Consultant
 - [Sarath Sasidharan](https://www.linkedin.com/in/sarathsasidharan/) | Senior Program Manager
 
 
