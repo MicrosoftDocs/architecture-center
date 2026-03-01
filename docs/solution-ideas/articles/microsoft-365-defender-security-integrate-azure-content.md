@@ -45,7 +45,7 @@ The diagram shows the following services in **Core Monitoring Services** and in 
 
 4.  **Microsoft Sentinel** works like a façade for Log Analytics. While Log Analytics stores logs and alerts from various sources, Microsoft Sentinel offers APIs that help with ingestion of logs from various sources. Those sources include on-premises VMs, Azure VMs, alerts from Microsoft Defender XDR and other services. Microsoft Sentinel correlates the logs to provide insights about what is going on in your IT environment, avoiding false positives. Microsoft Sentinel is the core of security and monitoring for Microsoft cloud services. For more information about Microsoft Sentinel, see [What is Microsoft Sentinel?](/azure/sentinel/overview).
 
-The preceding services in this list are core services that work throughout Azure, Office 365, and on-premises environments. The following services focus on specific resources:
+The preceding services in this list are core services that work throughout Azure, Microsoft 365, and on-premises environments. The following services focus on specific resources:
 
 5.  **Network Watcher** provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network. For more information, see [What is Azure Network Watcher?](/azure/network-watcher/network-watcher-monitoring-overview).
 
@@ -79,7 +79,7 @@ The following list provides information about how to access each of the services
 
 - **Microsoft Defender for Cloud Apps**. Defender for Cloud Apps is part of Microsoft 365. Access the service through [https://portal.cloudappsecurity.com](https://portal.cloudappsecurity.com).
 
-- **Microsoft Defender for Office 365**. Defender for Office 365 is part of Microsoft 365. Access the service through [https://security.microsoft.com](https://security.microsoft.com), the same portal used for Defender for Endpoint. (This is a change from the previous URL, `protection.office.com`.)
+- **Microsoft Defender for Microsoft 365**. Defender for Microsoft 365 is part of Microsoft 365. Access the service through [https://security.microsoft.com](https://security.microsoft.com), the same portal used for Defender for Endpoint. (This is a change from the previous URL, `protection.office.com`.)
 
 - **Microsoft Defender for Identity**. Defender for Identity is part of Microsoft 365. You access the service through [https://portal.atp.azure.com](https://portal.atp.azure.com). Although it's a cloud service, Defender for Identity is responsible for also protecting identity on on-premises systems.
 
@@ -153,7 +153,7 @@ Other contributors:
 - [Detect and respond to cyber attacks with Microsoft Defender XDR](/training/paths/defender-detect-respond)
 - [Get started with Microsoft Defender XDR](/microsoft-365/security/defender/get-started)
 - [Manage security with Microsoft 365](/training/paths/m365-security-management)
-- [Protect against malicious threats with Microsoft Defender for Office 365](/training/paths/defender-office-365-malicious-threats)
+- [Protect against malicious threats with Microsoft Defender for Microsoft 365](/training/paths/defender-office-365-malicious-threats)
 - [Protect on-premises identities with Microsoft Defender for Cloud for Identity](/training/paths/defender-identity-protect-on-premises)
 
 ## Related resources
