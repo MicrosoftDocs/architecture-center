@@ -25,7 +25,7 @@ In this scenario, users need to use a mobile client that supports modern authent
 1. The user enters credentials to complete authentication.
 1. The user is redirected back to Microsoft Entra ID.
 1. Microsoft Entra ID applies an Azure Conditional Access policy.
-1. The policy can enforce restrictions based on the user's device state if the device is enrolled in Microsoft Endpoint Manager, enforce application protection policies, and/or enforce multifactor authentication. You can find a detailed example of this type of [policy in the implementation steps described here](/exchange/clients/outlook-for-ios-and-android/use-hybrid-modern-auth?view=exchserver-2019#implementation-steps).
+1. The policy can enforce restrictions based on the user's device state if the device is enrolled in Microsoft Intune, enforce application protection policies, and/or enforce multifactor authentication. You can find a detailed example of this type of [policy in the implementation steps described here](/exchange/clients/outlook-for-ios-and-android/use-hybrid-modern-auth?view=exchserver-2019#implementation-steps).
 1. The user implements any policy requirements and completes the multifactor authentication request.
 1. Microsoft Entra ID returns access and refresh tokens to the client.
 1. The client uses the access token to connect to Exchange Online and retrieve the mailbox content.
@@ -66,7 +66,7 @@ In this scenario, users need to use a mobile client that supports modern authent
 1. The user enters credentials to complete authentication.
 1. The user is redirected back to Microsoft Entra ID.
 1. Microsoft Entra ID applies an Azure Conditional Access policy.
-1. The policy can enforce restrictions based on the user's device state if the device is enrolled in Microsoft Endpoint Manager, enforce application protection policies, and/or enforce multifactor authentication. You can find a detailed example of this type of policy in the [implementation steps described here](/exchange/clients/outlook-for-ios-and-android/use-hybrid-modern-auth?view=exchserver-2019#implementation-steps).
+1. The policy can enforce restrictions based on the user's device state if the device is enrolled in Microsoft Intune, enforce application protection policies, and/or enforce multifactor authentication. You can find a detailed example of this type of policy in the [implementation steps described here](/exchange/clients/outlook-for-ios-and-android/use-hybrid-modern-auth?view=exchserver-2019#implementation-steps).
 1. The user implements any policy requirements and completes the multifactor authentication request.
 1. Microsoft Entra ID returns access and refresh tokens to the client.
 1. The client uses the access token to connect to Exchange Online and retrieve the on-premises mailbox content. The content should be provided from the [cache, as described here](/exchange/clients/outlook-for-ios-and-android/use-hybrid-modern-auth?view=exchserver-2019#microsoft-cloud-architecture-for-hybrid-exchange-server-customers). To achieve that, the client issues a provisioning request that includes the user's access token and the on-premises ActiveSync endpoint.
