@@ -44,7 +44,7 @@ To explore options for identity solutions, consult these resources:
 
 - For a comprehensive hybrid identity solution, see [How Microsoft Entra ID delivers cloud-governed management for on-premises workloads][How Azure AD Delivers Cloud Governed Management for On-Premises Workloads].
 
-- To learn how Microsoft Entra Connect integrates on-premises directories with Microsoft Entra ID, see [What is Microsoft Entra Connect?][What is Azure AD Connect?].
+- To learn how Microsoft Entra Connect integrates on-premises directories with Microsoft Entra ID, see [What is Microsoft Entra Connect?][What is Microsoft Entra Connect?].
 
 ### Implementation
 
@@ -156,5 +156,5 @@ The following resources provide practical recommendations and information for sp
 [SC-300: Implement an identity management solution]: /training/paths/implement-identity-management-solution?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [Register a Single-page application with the Microsoft identity platform]: /entra/identity-platform/tutorial-single-page-app-react-register-app
 [Updated Guidance for M365 EDU Deployment during COVID-19]: /microsoft-365/education/deploy/guidance-for-m365-edu-deployment-during-covid19?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
-[What is Azure AD Connect?]: /entra/identity/hybrid/connect/whatis-azure-ad-connect?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
+[What is Microsoft Entra Connect?]: /entra/identity/hybrid/connect/whatis-azure-ad-connect?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [What's new in Azure Active Directory?]: /entra/fundamentals/whats-new?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
