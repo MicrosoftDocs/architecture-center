@@ -64,7 +64,7 @@ The following diagram shows a typical flow:
 
 - You might need to use a processing proxy or façade to manipulate the response headers or payload depending on the underlying services used.
 
-- If the status endpoint redirects on completion, either [HTTP 302](https://tools.ietf.org/html/rfc7231#section-6.4.3) or [HTTP 303](https://tools.ietf.org/html/rfc7231#section-6.4.4) are appropriate return codes, depending on the exact semantics you support.
+- If the status endpoint redirects on completion, either [HTTP 302](https://www.rfc-editor.org/rfc/rfc9110#section-15.4.3) or [HTTP 303](https://www.rfc-editor.org/rfc/rfc9110#section-15.4.4) are appropriate return codes, depending on the exact semantics you support.
 
 - Upon successful processing, the resource specified by the Location header should return an appropriate HTTP response code such as 200 (OK), 201 (Created), or 204 (No Content).
 
