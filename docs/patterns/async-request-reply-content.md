@@ -46,7 +46,7 @@ The following diagram shows a typical flow:
 
 1. The client sends a request and receives an HTTP 202 (Accepted) response.
 2. The client sends an HTTP GET request to the status endpoint. The work is still pending, so this call returns HTTP 200.
-3. At some point, the work is complete and the status endpoint returns 302 (Found) redirecting to the resource.
+3. At some point, the work is complete and the status endpoint returns 303 (See Other) redirecting to the resource.
 4. The client fetches the resource at the specified URL.
 
 ## Issues and considerations
@@ -64,7 +64,7 @@ The following diagram shows a typical flow:
 
 - You might need to use a processing proxy or façade to manipulate the response headers or payload depending on the underlying services used.
 
-- If the status endpoint redirects on completion, either [HTTP 302](https://www.rfc-editor.org/rfc/rfc9110#section-15.4.3) or [HTTP 303](https://www.rfc-editor.org/rfc/rfc9110#section-15.4.4) are appropriate return codes, depending on the exact semantics you support.
+- If the status endpoint redirects on completion, use [HTTP 303 (See Other)](https://www.rfc-editor.org/rfc/rfc9110#section-15.4.4). A 303 instructs the client to issue a GET request to the redirect URL, regardless of the original request method. This behavior is the correct semantic for this pattern because the client is retrieving a distinct result resource, not resubmitting the original operation. [HTTP 302 (Found)](https://www.rfc-editor.org/rfc/rfc9110#section-15.4.3) doesn't guarantee a method change &mdash; some clients replay the original method on redirect, which can cause unintended side effects such as duplicate POST requests.
 
 - Upon successful processing, the resource specified by the Location header should return an appropriate HTTP response code such as 200 (OK), 201 (Created), or 204 (No Content).
 
