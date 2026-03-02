@@ -17,8 +17,8 @@ The right database for your scenario depends on your data model, consistency req
 
 ## Architecture
 
-:::image type="complex" border="false" source="media/get-started-databases.png" alt-text="Diagram that shows the analytics solution journey on Azure." lightbox="media/get-started-databases.png":::
-   Diagram that contrasts relational database management system (RDBMS) and big data solutions.
+:::image type="complex" border="false" source="media/get-started-databases.svg" alt-text="Diagram that shows the analytics solution journey on Azure." lightbox="media/get-started-databases.svg":::
+   Architecture diagram of an Azure workload within a virtual network. Client traffic enters through network ingress services like Azure Front Door, Application Gateway, or Azure Load Balancer and reaches a compute layer. The workload uses managed Azure database services, including relational databases such as Azure SQL, Azure Database for MySQL, Azure SQL virtual machine (VM), and Azure Database for PostgreSQL, and NoSQL services like Azure Cosmos DB, Azure Managed Instance for Apache Cassandra, Azure Managed Redis, and Azure DocumentDB. The architecture also includes private endpoints, user-defined routes, network security groups (NSGs), virtual private network (VPN) or Azure ExpressRoute connectivity, and platform services such as managed identities, Azure Monitor, Azure Data Factory, Microsoft Entra ID, and Azure DNS.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/databases-get-started-diagram.vsdx) of this architecture.*
@@ -186,7 +186,7 @@ Many organizations need a hybrid approach to databases because they have workloa
 Key hybrid database scenarios:
 
 - [Azure Arc hybrid management for SQL Server](../hybrid/azure-arc-sql-server.yml): Use Azure Arc to manage SQL Server across environments.
-- [Hybrid architecture design](../hybrid/hybrid-start-here.md)L: Connect on-premises environments to Azure.
+- [Hybrid architecture design](../hybrid/hybrid-start-here.md): Connect on-premises environments to Azure.
 
 ### Mainframe data modernization
 
