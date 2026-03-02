@@ -25,7 +25,7 @@ Azure Storage is the Azure platform's managed service for providing cloud storag
 ### Key questions
 Answer the following questions about your workloads to help make decisions about your storage needs:
 
-- **Do your workloads require disk storage to support the deployment of infrastructure as a service (IaaS) virtual machines?** [Azure managed disks](/azure/virtual-machines/managed-disks-overview) provide virtual disk capabilities for IaaS virtual machines.
+- **Do your workloads require disk storage to support the deployment of infrastructure as a service (IaaS) virtual machines?** [Azure Managed Disks](/azure/virtual-machines/managed-disks-overview) provide virtual disk capabilities for IaaS virtual machines.
 - **Will you need to provide downloadable images, documents, or other media as part of your workloads?** [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction) hosts static files, which are then accessible for download over the internet. For more information, see [Static website hosting in Azure Storage](/azure/storage/blobs/storage-blob-static-website).
 - **Will you need a location to store virtual machine logs, application logs, and analytics data?** Azure Monitor has [native storage for metrics, logs, and distributed traces](/azure/azure-monitor/data-platform).
   - Metrics in Azure Monitor are stored in a time-series database that's optimized for analyzing time-stamped data.

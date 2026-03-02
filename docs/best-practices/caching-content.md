@@ -266,7 +266,7 @@ For further information and examples showing how to create and configure an Azur
 
 ## Caching session state and HTML output
 
-If you build ASP.NET web applications that run by using Azure web roles, you can save session state information and HTML output in an Azure Cache for Redis. The session state provider for Azure Cache for Redis enables you to share session information between different instances of an ASP.NET web application, and is very useful in web farm situations where client-server affinity isn't available and caching session data in-memory wouldn't be appropriate.
+If you build ASP.NET web applications that run in Azure App Service, you can save session state information and HTML output in an Azure Cache for Redis. The session state provider for Azure Cache for Redis enables you to share session information between different instances of an ASP.NET web application, and is very useful in web farm situations where client-server affinity isn't available and caching session data in-memory wouldn't be appropriate.
 
 Using the session state provider with Azure Cache for Redis delivers several benefits, including:
 

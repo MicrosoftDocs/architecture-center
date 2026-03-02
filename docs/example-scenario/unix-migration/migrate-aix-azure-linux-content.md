@@ -172,7 +172,7 @@ Performance Efficiency is the ability of your workload to scale to meet the dema
 
 - The potential bottlenecks in this architecture are the storage and compute subsystems. Make sure to choose your storage and VM SKUs accordingly.
 
-- The available VM disk types are ultra disks, premium SSDs, standard SSDs, and standard hard disk drives (HDDs). For this solution, it's best to use either premium SSDs or ultra disks.
+- The available VM disk types are Ultra Disks, Premium SSDs, Standard SSDs, and Standard HDDs. For this solution, it's best to use either Premium SSDs or Ultra Disks.
 
 - To estimate sizing for VMs coming from an AIX system, keep in mind that the AIX CPUs are about 1.4 times faster than most x86 vCPUs. This guideline can vary by workload.
 

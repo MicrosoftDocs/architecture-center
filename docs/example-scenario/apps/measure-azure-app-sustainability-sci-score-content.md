@@ -90,6 +90,8 @@ These sources provide real-time data needed for *carbon-aware* applications that
 
 - [WattTime](https://docs.watttime.org) and [Electricity Maps](https://app.electricitymaps.com/map/live/fifteen_minutes) are non-Microsoft APIs that provide real-time carbon intensity (`I`) data for the local power grid. Because Azure doesn't publish real-time datacenter carbon intensity, the local grid intensity serves as the standard proxy.
 
+- If your workload routes API traffic through Azure API Management, its [sustainability features](/azure/api-management/sustainability) provide carbon intensity data for each gateway region. API Management can propagate the current carbon intensity category to backend services as a custom header, such as `X-Sustainability-CarbonEmission`. Your measurement pipeline can ingest this data to supplement the carbon intensity (`I`) component of the SCI formula.
+
 - Application Insights collects real-time performance and scale metrics to calculate the functional unit (`R`) and estimate energy consumption (`E`):
 
   - Scaling factor (like API calls or active users)
@@ -174,6 +176,8 @@ A carbon-aware workload reacts to unfavorable real-time conditions. You typicall
 - Sudden unavailability of edge infrastructure because of resource overconsumption or supply chain problems
 
 You can take actions like shifting job processing times or moving workloads to cleaner energy grids based on these triggers. Consider the following actions:
+
+- Use API Management [sustainability features](/azure/api-management/sustainability) to implement *traffic shifting* and *traffic shaping*. Traffic shifting routes requests away from backend regions that exceed a carbon intensity threshold in a load-balanced pool. Traffic shaping uses gateway policies to adjust its own behavior based on the current carbon intensity. For example, gateway policies can extend cache durations, tighten rate limits, or reduce logging verbosity. Backend services that receive the `X-Sustainability-CarbonEmission` header can use this signal to defer batch processing or reduce response payload sizes during high-emission periods.
 
 - Apply [graceful degradation](/azure/well-architected/reliability/self-preservation#implement-a-graceful-degradation-mode) of application services and features.
 
