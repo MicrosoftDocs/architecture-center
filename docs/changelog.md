@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: claytonsiemens77
-ms.date: 02/23/2026
+ms.date: 03/02/2026
 ms.topic: whats-new
 ms.author: pnp
 ---
@@ -18,10 +18,20 @@ The Azure Architecture Center (AAC) helps you design, build, and operate solutio
 
 The following new and updated articles have recently been published in the Azure Architecture Center.
 
+## March 2026
+
+### Updated articles
+
+- [Enhanced-security hybrid messaging for client access](./example-scenario/hybrid/secure-hybrid-messaging-client.yml) ([#864bbfff71](https://github.com/MicrosoftDocs/architecture-center/commit/864bbfff71))
+- [Enhanced-security hybrid messaging for mobile access](./example-scenario/hybrid/secure-hybrid-messaging-mobile.yml) ([#864bbfff71](https://github.com/MicrosoftDocs/architecture-center/commit/864bbfff71))
+- [Identity architecture design](./identity/identity-start-here.yml) ([#864bbfff71](https://github.com/MicrosoftDocs/architecture-center/commit/864bbfff71))
+
 ## February 2026
 
 ### New articles
 
+- [Implement the Transactional Outbox Pattern by Using Azure Cosmos DB](./databases/guide/transactional-out-box-cosmos.md)
+- [Use Tactical DDD to Design Microservices](./microservices/model/tactical-domain-driven-design.md)
 - [Sidecar Pattern](./patterns/sidecar.md)
 - [Asynchronous Messaging Options](./guide/technology-choices/messaging.md)
 - [Analytics architecture design](./solution-ideas/articles/analytics-get-started.md)
@@ -29,6 +39,20 @@ The following new and updated articles have recently been published in the Azure
 
 ### Updated articles
 
+- [Design a Hybrid Domain Name System (DNS) Solution by using Azure](./hybrid/hybrid-dns-infra.yml) ([#19d5d7a24f](https://github.com/MicrosoftDocs/architecture-center/commit/19d5d7a24f))
+- [Siemens Teamcenter baseline architecture on Azure](./example-scenario/manufacturing/teamcenter-baseline.yml) ([#47e344910a](https://github.com/MicrosoftDocs/architecture-center/commit/47e344910a))
+- [Storage architecture](./guide/storage/storage-start-here.md) ([#d8759bd3c2](https://github.com/MicrosoftDocs/architecture-center/commit/d8759bd3c2))
+- [Storage Options for a Kubernetes Cluster](./aws-professional/eks-to-aks/storage.md) ([#3c45ff22aa](https://github.com/MicrosoftDocs/architecture-center/commit/3c45ff22aa))
+- [Run SAP NetWeaver in Windows on Azure](./guide/sap/sap-netweaver.yml) ([#3c45ff22aa](https://github.com/MicrosoftDocs/architecture-center/commit/3c45ff22aa))
+- [Transient Fault Handling](./best-practices/transient-faults.md) ([#19369cd91b](https://github.com/MicrosoftDocs/architecture-center/commit/19369cd91b))
+- [Automated API deployments using APIOps](./example-scenario/devops/automated-api-deployments-apiops.yml) ([#520a64549e](https://github.com/MicrosoftDocs/architecture-center/commit/520a64549e))
+- [Esri ArcGIS Platform on Azure Virtual Desktop](./example-scenario/data/esri-arcgis-azure-virtual-desktop.yml) ([#5933076273](https://github.com/MicrosoftDocs/architecture-center/commit/5933076273))
+- [Ambassador pattern](./patterns/ambassador.yml) ([#cd4298f132](https://github.com/MicrosoftDocs/architecture-center/commit/cd4298f132))
+- [Real-time analytics on data with Azure Service Bus and Azure Data Explorer](./solution-ideas/articles/analytics-service-bus.yml) ([#2c388b45b7](https://github.com/MicrosoftDocs/architecture-center/commit/2c388b45b7))
+- [Baseline Highly Available Zone-Redundant App Services Web Application](./web-apps/app-service/architectures/baseline-zone-redundant.yml) ([#484478be40](https://github.com/MicrosoftDocs/architecture-center/commit/484478be40))
+- [IoT Hub-Based Multitenant Solution Architectural Approaches](./guide/multitenant/approaches/iot.md) ([#d856bcf43a](https://github.com/MicrosoftDocs/architecture-center/commit/d856bcf43a))
+- [Use Domain Analysis to Model Microservices](./microservices/model/domain-analysis.md) ([#d677ad0868](https://github.com/MicrosoftDocs/architecture-center/commit/d677ad0868))
+- [Choreography pattern](./patterns/choreography.yml) ([#d677ad0868](https://github.com/MicrosoftDocs/architecture-center/commit/d677ad0868))
 - [Greenfield Lakehouse on Microsoft Fabric](./example-scenario/data/greenfield-lakehouse-fabric.yml) ([#c5864e12e3](https://github.com/MicrosoftDocs/architecture-center/commit/c5864e12e3))
 - [Build and Deploy Custom Document Processing Models on Azure](./ai-ml/architecture/build-deploy-custom-models.yml) ([#2542b61a21](https://github.com/MicrosoftDocs/architecture-center/commit/2542b61a21))
 - [Overview of Microsoft Machine Learning Products and Technologies](./ai-ml/guide/data-science-and-machine-learning.md) ([#2542b61a21](https://github.com/MicrosoftDocs/architecture-center/commit/2542b61a21))
@@ -142,59 +166,6 @@ The following new and updated articles have recently been published in the Azure
 - [Baseline Architecture for an AKS Cluster](./reference-architectures/containers/aks/baseline-aks.yml) ([#daf47085b8](https://github.com/MicrosoftDocs/architecture-center/commit/daf47085b8))
 - [Enterprise Deployment that uses App Service Environment](./web-apps/app-service-environment/architectures/app-service-environment-standard-deployment.yml) ([#5ba01ed0ea](https://github.com/MicrosoftDocs/architecture-center/commit/5ba01ed0ea))
 - [Migrate Cloud Workloads Across Security Tenants](./solution-ideas/articles/migrate-cloud-workloads-across-security-tenants.yml) ([#c87b907cf0](https://github.com/MicrosoftDocs/architecture-center/commit/c87b907cf0))
-
-## November 2025
-
-### New articles
-
-- [Web-Queue-Worker Architecture Style](./guide/architecture-styles/web-queue-worker.md)
-- [Data Considerations for Microservices](./microservices/design/data-considerations.md)
-- [API Design](./microservices/design/api-design.md)
-- [MLOps Maturity Model](./ai-ml/guide/mlops-maturity-model.md)
-- [Reliable Web App Pattern for Java](./web-apps/guides/enterprise-app-patterns/reliable-web-app/java/guidance.md)
-- [Deploy MongoDB Atlas in Azure](./databases/architecture/mongodb-atlas-baseline.md)
-- [Choose the Right AI Model for Your Workload](./ai-ml/guide/choose-ai-model.md)
-
-### Updated articles
-
-- [Deploy Microservices to Azure Container Apps](./example-scenario/serverless/microservices-with-container-apps.yml) ([#b64113461e](https://github.com/MicrosoftDocs/architecture-center/commit/b64113461e))
-- [Automate Video Analysis by Using Azure Machine Learning and Azure Vision in Foundry Tools](./ai-ml/architecture/analyze-video-computer-vision-machine-learning.yml) ([#fbe994e490](https://github.com/MicrosoftDocs/architecture-center/commit/fbe994e490))
-- [Build Real-Time Monitoring and Observable Systems for Media](./example-scenario/monitoring/monitoring-observable-systems-media.yml) ([#9523c80384](https://github.com/MicrosoftDocs/architecture-center/commit/9523c80384))
-- [Azure Icons](./icons/index.md) ([#e780b39549](https://github.com/MicrosoftDocs/architecture-center/commit/e780b39549))
-- [Load Balancing Options](./guide/technology-choices/load-balancing-overview.md) ([#39668ec73c](https://github.com/MicrosoftDocs/architecture-center/commit/39668ec73c))
-- [Architectural Approaches for Messaging in Multitenant Solutions](./guide/multitenant/approaches/messaging.md) ([#7959885e24](https://github.com/MicrosoftDocs/architecture-center/commit/7959885e24))
-- [Mission-Critical Global Content Delivery](./guide/networking/global-web-applications/mission-critical-content-delivery.md) ([#0f46d38455](https://github.com/MicrosoftDocs/architecture-center/commit/0f46d38455))
-- [Mission-Critical Global HTTP Ingress](./guide/networking/global-web-applications/mission-critical-global-http-ingress.md) ([#0f46d38455](https://github.com/MicrosoftDocs/architecture-center/commit/0f46d38455))
-- [Global Routing Redundancy for Mission-Critical Web Applications](./guide/networking/global-web-applications/overview.md) ([#0f46d38455](https://github.com/MicrosoftDocs/architecture-center/commit/0f46d38455))
-- [Choose a Data Transfer Technology](./data-guide/scenarios/data-transfer.md) ([#fd12403a4a](https://github.com/MicrosoftDocs/architecture-center/commit/fd12403a4a))
-- [Automate Document Classification in Azure](./ai-ml/architecture/automate-document-classification-durable-functions.yml) ([#01d81fef19](https://github.com/MicrosoftDocs/architecture-center/commit/01d81fef19))
-- [Choose an Azure AI Technology](./data-guide/technology-choices/ai-services.md) ([#be37dd953f](https://github.com/MicrosoftDocs/architecture-center/commit/be37dd953f))
-- [Replicate Mainframe Data by Using Precisely Connect](./example-scenario/mainframe/mainframe-replication-precisely-connect.yml) ([#3f0cd53f92](https://github.com/MicrosoftDocs/architecture-center/commit/3f0cd53f92))
-- [Develop a RAG Solution - Chunking Phase](./ai-ml/guide/rag/rag-chunking-phase.md) ([#c558440e24](https://github.com/MicrosoftDocs/architecture-center/commit/c558440e24))
-- [Develop a RAG Solution - Chunk Enrichment Phase](./ai-ml/guide/rag/rag-enrichment-phase.md) ([#c558440e24](https://github.com/MicrosoftDocs/architecture-center/commit/c558440e24))
-- [Develop a RAG Solution - Generate Embeddings Phase](./ai-ml/guide/rag/rag-generate-embeddings.md) ([#c558440e24](https://github.com/MicrosoftDocs/architecture-center/commit/c558440e24))
-- [Develop a RAG Solution - Large Language Model End-to-End Evaluation Phase](./ai-ml/guide/rag/rag-llm-evaluation-phase.md) ([#c558440e24](https://github.com/MicrosoftDocs/architecture-center/commit/c558440e24))
-- [Develop a RAG Solution - Preparation Phase](./ai-ml/guide/rag/rag-preparation-phase.md) ([#c558440e24](https://github.com/MicrosoftDocs/architecture-center/commit/c558440e24))
-- [Advanced Azure Kubernetes Service (AKS) Microservices Architecture](./reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml) ([#713baaa0d6](https://github.com/MicrosoftDocs/architecture-center/commit/713baaa0d6))
-- [Microservices Architecture on Azure Kubernetes Service](./reference-architectures/containers/aks-microservices/aks-microservices.yml) ([#713baaa0d6](https://github.com/MicrosoftDocs/architecture-center/commit/713baaa0d6))
-- [AI Architecture Design](./ai-ml/index.md) ([#be8a0ab42a](https://github.com/MicrosoftDocs/architecture-center/commit/be8a0ab42a))
-- [Modernize Mainframe Workloads by Using BMC AMI Cloud](./example-scenario/mainframe/mainframe-modernization-bmc-ami-cloud.yml) ([#fa01dc308a](https://github.com/MicrosoftDocs/architecture-center/commit/fa01dc308a))
-- [Choose a Stream Processing Technology](./data-guide/technology-choices/stream-processing.md) ([#1d28bc6ad8](https://github.com/MicrosoftDocs/architecture-center/commit/1d28bc6ad8))
-- [Use Azure Databricks to Orchestrate MLOps](./ai-ml/idea/orchestrate-machine-learning-azure-databricks.yml) ([#8bac038701](https://github.com/MicrosoftDocs/architecture-center/commit/8bac038701))
-- [High Availability Enterprise Deployment That Uses App Service Environment](./web-apps/app-service-environment/architectures/app-service-environment-high-availability-deployment.yml) ([#15cff51ed4](https://github.com/MicrosoftDocs/architecture-center/commit/15cff51ed4))
-- [Choose a Data Pipeline Orchestration Technology](./data-guide/technology-choices/pipeline-orchestration-data-movement.md) ([#d5bb3ca2d3](https://github.com/MicrosoftDocs/architecture-center/commit/d5bb3ca2d3))
-- [Design a Secure Research Environment for Regulated Data](./ai-ml/architecture/secure-compute-for-research.yml) ([#42e20acc18](https://github.com/MicrosoftDocs/architecture-center/commit/42e20acc18))
-- [Resilient design guidance for Event Hubs and Functions](./serverless/event-hubs-functions/resilient-design.md) ([#06fd492d4b](https://github.com/MicrosoftDocs/architecture-center/commit/06fd492d4b))
-- [Background jobs guidance](./best-practices/background-jobs.md) ([#27371ebc0f](https://github.com/MicrosoftDocs/architecture-center/commit/27371ebc0f))
-- [Caching guidance](./best-practices/caching.yml) ([#27371ebc0f](https://github.com/MicrosoftDocs/architecture-center/commit/27371ebc0f))
-- [CDN guidance](./best-practices/cdn.yml) ([#27371ebc0f](https://github.com/MicrosoftDocs/architecture-center/commit/27371ebc0f))
-- [Data partitioning guidance](./best-practices/data-partitioning.yml) ([#27371ebc0f](https://github.com/MicrosoftDocs/architecture-center/commit/27371ebc0f))
-- [Data partitioning strategies](./best-practices/data-partitioning-strategies.yml) ([#27371ebc0f](https://github.com/MicrosoftDocs/architecture-center/commit/27371ebc0f))
-- [Monitoring and diagnostics guidance](./best-practices/monitoring.yml) ([#27371ebc0f](https://github.com/MicrosoftDocs/architecture-center/commit/27371ebc0f))
-- [Transient fault handling](./best-practices/transient-faults.md) ([#27371ebc0f](https://github.com/MicrosoftDocs/architecture-center/commit/27371ebc0f))
-- [Transactional Outbox pattern with Azure Cosmos DB](./databases/guide/transactional-out-box-cosmos.md) ([#27371ebc0f](https://github.com/MicrosoftDocs/architecture-center/commit/27371ebc0f))
-- [Migrate a web app by using Azure API Management](./example-scenario/apps/apim-api-scenario.yml) ([#27371ebc0f](https://github.com/MicrosoftDocs/architecture-center/commit/27371ebc0f))
-- [Analytics End-to-End with Microsoft Fabric](./example-scenario/dataplate2e/data-platform-end-to-end.yml) ([#27371ebc0f](https://github.com/MicrosoftDocs/architecture-center/commit/27371ebc0f))
 
 
 ## Azure updates
