@@ -48,7 +48,7 @@ You can modify the [baseline architecture](azure-data-factory-on-azure-landing-z
 
   - [Power BI](/power-bi/connect-data/service-tutorial-build-machine-learning-model) for low code and for simple or medium complexity use cases across tabular data. This model is an ideal starting point for data citizens.
 
-  - [Azure Machine Learning](/azure/machine-learning) and AI service offerings that support the full set of use cases and [user maturity](/azure/architecture/ai-ml/guide/mlops-maturity-model).
+  - [Azure Machine Learning](/azure/machine-learning) and Foundry Tool offerings that support the full set of use cases and [user maturity](/azure/architecture/ai-ml/guide/mlops-maturity-model).
 
   - [Azure Databricks](/azure/databricks/lakehouse-architecture/performance-efficiency/best-practices#use-parallel-computation-where-it-is-beneficial) for large enterprise volume use cases with significant processing demands.
 

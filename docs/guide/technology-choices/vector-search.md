@@ -68,7 +68,7 @@ Native support for vector data types, approximate nearest neighbor (ANN) vector 
 1. <span id="a2">Vector search on embeddings is supported in Azure DocumentDB.</span>
 1. <span id="a3">AI Search supports the use of vectors.</span>
 1. <span id="a4">Vectors can be stored in a `VARBINARY(8000)` column or variable in SQL Database.</span>
-1. <span id="a5">Embedding models from OpenAI include 1,536 dimensions for both text-embedding-ada-002 and text-embedding-3-small, and 3,072 dimensions for text-embedding-3-large. Azure AI Vision multimodal embedding models have 1,024 dimensions for both image and text.</span>
+1. <span id="a5">Embedding models from OpenAI include 1,536 dimensions for both text-embedding-ada-002 and text-embedding-3-small, and 3,072 dimensions for text-embedding-3-large. Azure Vision in Foundry Tools multimodal embedding models have 1,024 dimensions for both image and text.</span>
 1. <span id="a6">Vectors can have up to 16,000 dimensions. However, indexing by using inverted file flat (IVFFlat) and hierarchical navigable small world (HNSW) algorithms supports vectors with a maximum of 2,000 dimensions.</span>
 1. <span id="a7">Vectors indexed by using the flat index type can have a maximum of 505 dimensions. Vectors indexed by using the quantizedFlat or DiskANN index type can have a maximum of 4,096 dimensions.</span>
 1. <span id="a8">SQL Database supports a vector data type.</span>

@@ -181,14 +181,14 @@ If your workload exceeds the maximum virtual machine size, use multi-node HANA s
 
 #### Storage
 
-This architecture uses [Azure managed disks](/azure/virtual-machines/windows/managed-disks-overview) for storage on the virtual machines or Azure NetApp Files. Guidelines for storage deployment with managed disks are in detail within the [SAP HANA Azure virtual machine storage configurations document](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage). Alternatively to managed disks, [Azure NetApp Files NFS](/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp) volumes can be used as storage solution for SAP HANA.
+This architecture uses [Azure Managed Disks](/azure/virtual-machines/managed-disks-overview) for storage on the virtual machines or Azure NetApp Files. Guidelines for storage deployment with managed disks are in detail within the [SAP HANA Azure virtual machine storage configurations document](/azure/sap/workloads/hana-vm-operations-storage). As an alternative to Managed Disks, [Azure NetApp Files NFS](/azure/sap/workloads/hana-vm-operations-netapp) volumes can be used as storage solution for SAP HANA.
 
 To achieve high input/output operations per second (IOPS) and disk storage throughput, the common practices in storage volume [performance optimization](/azure/virtual-machines/linux/premium-storage-performance) also apply to Azure storage layout. For example, combining multiple disks together with LVM to create a striped disk volume improves IO performance. Azure disk caching also plays a significant role in achieving required IO performance. 
 
 For SAP HANA log disks that run on Azure Premium SSD v1, use one of the following technologies in locations that hold */hana/log* for production:
 
 - [Write Accelerator](/azure/virtual-machines/how-to-enable-write-accelerator) (on M series VMs) 
-- [Ultra disks](/azure/virtual-machines/disks-enable-ultra-ssd) (on either M or E series VMs)
+- [Ultra Disks](/azure/virtual-machines/disks-enable-ultra-ssd) (on either M or E series VMs)
 - [Azure NetApp Files](/azure/azure-netapp-files/) (on either M or E series VMs) 
 
 These technologies are needed to consistently meet the required storage latency of less than 1 ms.
@@ -197,7 +197,7 @@ These technologies are needed to consistently meet the required storage latency 
 
 For more information about SAP HANA performance requirements, see [SAP Note 1943937 - Hardware Configuration Check Tool](https://launchpad.support.sap.com/#/notes/1943937).
 
-- **Cost-conscious storage design for non-production systems.** For SAP HANA environments that don't require maximum storage performance in all situations, you can use a storage architecture that's optimized for cost. This choice of storage optimization can apply to little-used production systems or some non-production SAP HANA environments. The cost-optimized storage option uses a combination of Standard SSDs instead of the Premium or Ultra SSDs that are used for production environments. It also combines */hana/data* and */hana/log* file systems onto a single set of disks. [Guidelines and best practices](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#cost-conscious-solution-with-azure-premium-storage) are available for most VM sizes. If you use Azure NetApp Files for SAP HANA, you can use size-reduced volumes to achieve the same goal.
+- **Cost-conscious storage design for non-production systems.** For SAP HANA environments that don't require maximum storage performance in all situations, you can use a storage architecture that's optimized for cost. This choice of storage optimization can apply to little-used production systems or some non-production SAP HANA environments. The cost-optimized storage option uses a combination of Standard SSDs instead of the Premium SSDs or Ultra Disks that are used for production environments. It also combines */hana/data* and */hana/log* file systems onto a single set of disks. [Guidelines and best practices](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#cost-conscious-solution-with-azure-premium-storage) are available for most VM sizes. If you use Azure NetApp Files for SAP HANA, you can use size-reduced volumes to achieve the same goal.
 
 - **Resizing storage when scaling-up.** When you resize a virtual machine because of changed business demands or because of a growing database size, the storage configuration can change. Azure supports online disk expansion, without any interruption to service. With a striped disk setup, as used for SAP HANA, a resize operation should be done equally to all disks in the volume group. The addition of more disks to a volume group can potentially unbalance the striped data. If you're adding more disks to a storage configuration, it's far preferable to create a new storage volume on new disks. Next, copy the contents during downtime and modify mount points. Finally, discard the old volume group and underlying disks.
 - **Azure NetApp Files application volume group.** For deployments with SAP HANA files contained on Azure NetApp Files NFS volumes, application volume groups enable you to deploy all volumes according to best practices. This process also ensures optimal performance for your SAP HANA database. [Details are available](/azure/azure-netapp-files/application-volume-group-introduction) about how to proceed with this process. It requires manual intervention. Allow some time for the creation.
@@ -236,7 +236,7 @@ Learn more about the component technologies:
 - [What is Azure Load Balancer?](/azure/load-balancer/load-balancer-overview)
 - [Connect to SAP HANA databases in Power BI](/power-bi/connect-data/desktop-sap-hana)
 - [What is Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction)
-- [Introduction to Azure managed disks](/azure/virtual-machines/managed-disks-overview)
+- [Introduction to Azure Managed Disks](/azure/virtual-machines/managed-disks-overview)
 - [Linux virtual machines in Azure](/azure/virtual-machines/linux/overview)
 - [Installation of SAP HANA on Azure virtual machines](/azure/virtual-machines/workloads/sap/hana-get-started)
 - [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
