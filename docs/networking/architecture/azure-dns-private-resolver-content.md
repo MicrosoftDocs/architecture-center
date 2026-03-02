@@ -209,7 +209,7 @@ Each DNS forwarding rule specifies one or more target DNS servers to use for con
 
 - The [Azure private DNS service](/azure/dns/private-dns-overview) is a managed DNS service that resolves domain names within a virtual network and connected virtual networks. It eliminates the need for custom DNS configuration. With private DNS zones, you can assign custom domain names instead of using the default names that Azure provides during deployment.
 
-- [DNS forwarders](/windows-server/identity/ad-ds/plan/reviewing-dns-concepts#resolving-names-by-using-forwarding) are DNS servers that send queries to external servers when they can't resolve domain names on their own. This approach has long been a standard method for DNS resolution. In this article and its use cases, the DNS Private Resolver replaces VM-based DNS forwarders, which provides a more efficient and streamlined approach to DNS resolution.
+- [DNS forwarders](/windows-server/identity/ad-ds/plan/reviewing-dns-concepts#resolving-names-by-using-forwarding) is a DNS server that forwards DNS queries it cannot resolve locally to another DNS server. This approach has long been a standard method for DNS resolution. In this article and its use cases, Azure DNS Private Resolver replaces traditional VM‑based DNS forwarders, offering a more efficient, scalable, and simplified solution for DNS resolution.
 
 ## Scenario details
 
