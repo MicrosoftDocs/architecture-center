@@ -2,7 +2,7 @@
 
 This content processing solution extracts data and applies schemas across multimodal content through confidence scoring and user validation. It processes claims, invoices, contracts, and other documents by extracting information from unstructured content and mapping it to structured formats.
 
-The architecture uses Microsoft Foundry, Azure Content Understanding, Azure OpenAI in Foundry Models, and other Azure services to transform large volumes of unstructured content through event-driven processing pipelines. It handles text, images, tables, and graphs, and provides automated quality checks and human review capabilities for business document workflows.
+The architecture uses Microsoft Foundry, Azure Content Understanding in Foundry Tools, Azure OpenAI in Foundry Models, and other Azure services to transform large volumes of unstructured content through event-driven processing pipelines. It handles text, images, tables, and graphs, and provides automated quality checks and human review capabilities for business document workflows.
 
 ## Architecture
 
@@ -47,11 +47,11 @@ The following workflow corresponds to the previous diagram:
 
 - [Container Apps](/azure/well-architected/service-guides/azure-container-apps) is a serverless container platform that runs microservices and containerized applications. In this architecture, Container Apps hosts the processing pipeline API that orchestrates content analysis, coordinates between AI services, and manages the extraction and transformation workflows. Your software engineering team develops the custom code.
 
-- [Foundry](/azure/ai-foundry/what-is-foundry) is a managed AI service that provides access to advanced language models for natural language processing and generation. In this architecture, Foundry provides the foundation for deploying and managing AI models used in the content processing pipeline. It also serves as the gateway to the connected AI services, like Content Understanding.
+- [Foundry](/azure/ai-foundry/what-is-foundry) is a managed AI service that provides access to advanced language models for natural language processing and generation. In this architecture, Foundry provides the foundation for deploying and managing AI models used in the content processing pipeline. It also serves as the gateway to the connected Foundry Tools, like Content Understanding.
 
   - [Azure OpenAI](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure) is a component of Foundry that provides language models, including GPT-4o and GPT-4o mini. In this architecture, Foundry hosts the models as a service. These models perform schema-based data transformation, map extracted content to structured formats, and calculate confidence scores for extraction accuracy.
 
-  - [Content Understanding](/azure/ai-services/content-understanding/overview) is a multimodal AI service that analyzes various kinds of media content, like audio, video, text, and images. It transforms the content into structured, searchable data. In this architecture, Content Understanding performs advanced OCR and content extraction from multimodal documents.
+  - [Content Understanding](/azure/ai-services/content-understanding/overview) is a multimodal Foundry Tool that analyzes various kinds of media content, like audio, video, text, and images. It transforms the content into structured, searchable data. In this architecture, Content Understanding performs advanced OCR and content extraction from multimodal documents.
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, multiple-model database service that provides guaranteed low latency and elastic scalability. In this architecture, Azure Cosmos DB stores processed results, confidence scores, validation outcomes, and historical processing data for audit trails and performance optimization.
 

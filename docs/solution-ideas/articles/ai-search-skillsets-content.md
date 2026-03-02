@@ -18,9 +18,9 @@ The following dataflow corresponds to the previous diagram. The dataflow describ
 
 1. To initiate the indexing process, the *document cracking* step extracts images and text from the data and then enriches the content. The enrichment steps in this process depend on the data and type of skills that you select.
 
-1. [Built-in skills](/azure/search/cognitive-search-predefined-skills) based on the Azure AI Vision and Azure AI Language APIs provide AI enrichments such as image optical character recognition (OCR), image analysis, text translation, entity recognition, and full-text search.
+1. [Built-in skills](/azure/search/cognitive-search-predefined-skills) based on the Azure Vision in Foundry Tools and Azure Language in Foundry Tools APIs provide AI enrichments such as image optical character recognition (OCR), image analysis, text translation, entity recognition, and full-text search.
 
-1. [Custom skills](/azure/search/cognitive-search-custom-skill-interface) support scenarios that require more complex AI models or services. Examples include Azure AI Document Intelligence, Azure Machine Learning models, and Azure Functions.
+1. [Custom skills](/azure/search/cognitive-search-custom-skill-interface) support scenarios that require more complex AI models or services. Examples include Azure Document Intelligence in Foundry Tools, Azure Machine Learning models, and Azure Functions.
 
 1. After the enrichment process is complete, the indexer saves the enriched and indexed documents in a [search index](/azure/search/search-what-is-an-index). Full-text search and other query forms can use this index.
 
@@ -34,9 +34,9 @@ The following dataflow corresponds to the previous diagram. The dataflow describ
 
 - [AI Search](/azure/search/search-what-is-azure-search) is a search service that enables indexing, querying, and enrichment of content by using built-in and custom AI skills. You can use AI Search to apply [prebuilt AI skills](/azure/search/cognitive-search-predefined-skills) to content. In this architecture, it indexes the content and powers the search user experience. This architecture also uses the service's extensibility mechanism to add [custom skills](/azure/search/cognitive-search-custom-skill-interface), which provide specific enrichment transformations.
 
-- [Azure AI Vision](/azure/ai-services/computer-vision/overview) is a service that extracts text and visual information from images. In this architecture, it uses [text recognition](/azure/ai-services/computer-vision/overview-ocr) to extract and recognize text information from images. The [Read API](/azure/ai-services/computer-vision/overview-ocr#ocr-read-editions) uses OCR recognition models and is optimized for large, text-heavy documents and noisy images.
+- [Vision](/azure/ai-services/computer-vision/overview) is a service that extracts text and visual information from images. In this architecture, it uses [text recognition](/azure/ai-services/computer-vision/overview-ocr) to extract and recognize text information from images. The [Read API](/azure/ai-services/computer-vision/overview-ocr#ocr-read-editions) uses OCR recognition models and is optimized for large, text-heavy documents and noisy images.
 
-- [Azure AI Language](/azure/ai-services/language-service/overview) is a text analytics service that extracts structured information from unstructured text by using capabilities like [named entity recognition](/azure/ai-services/language-service/named-entity-recognition/overview) and [key phrase extraction](/azure/search/cognitive-search-skill-keyphrases). In this architecture, Language enriches the JFK Files by identifying named entities and key phrases to support semantic search and filtering.
+- [Language](/azure/ai-services/language-service/overview) is a text analytics service that extracts structured information from unstructured text by using capabilities like [named entity recognition](/azure/ai-services/language-service/named-entity-recognition/overview) and [key phrase extraction](/azure/search/cognitive-search-skill-keyphrases). In this architecture, Language enriches the JFK Files by identifying named entities and key phrases to support semantic search and filtering.
 
 - [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is a REST-based object storage solution optimized for large volumes of unstructured data. You can use Blob Storage to expose data publicly or to store application data privately. In this architecture, Blob Storage stores the original JFK Files dataset, including scanned documents and images, which are ingested into the AI enrichment pipeline.
 
@@ -50,7 +50,7 @@ The following dataflow corresponds to the previous diagram. The dataflow describ
 
 Large, unstructured datasets can include typewritten and handwritten notes, photos, diagrams, and other unstructured data that standard search solutions can't parse. The [JFK Files](https://www.archives.gov/research/jfk/2017-release) contain over 34,000 pages of documents about the CIA investigation of the 1963 JFK assassination.
 
-You can use AI enrichment in AI Search to extract and enhance searchable, indexable text from images, blobs, and other unstructured data sources like the JFK Files. AI enrichment uses pretrained machine learning skill sets from the Azure AI services [Vision](/azure/ai-services/computer-vision/overview) and [Language](/azure/ai-services/language-service/text-analytics-for-health/overview?tabs=ner) APIs. You can also create and attach [custom skills](/azure/search/cognitive-search-custom-skill-interface) to add special processing for domain-specific data like CIA cryptonyms. AI Search can then index and search that context.
+You can use AI enrichment in AI Search to extract and enhance searchable, indexable text from images, blobs, and other unstructured data sources like the JFK Files. AI enrichment uses pretrained machine learning skill sets from the Foundry Tools [Vision](/azure/ai-services/computer-vision/overview) and [Language](/azure/ai-services/language-service/text-analytics-for-health/overview?tabs=ner) APIs. You can also create and attach [custom skills](/azure/search/cognitive-search-custom-skill-interface) to add special processing for domain-specific data like CIA cryptonyms. AI Search can then index and search that context.
 
 The AI Search skills in this solution can be categorized into the following groups:
 

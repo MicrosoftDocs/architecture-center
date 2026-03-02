@@ -6,7 +6,7 @@ The architecture combines retrieval, summarization, and generation with document
 
 ## Architecture
 
-:::image type="complex" border="false" source="./_images/generate-documents.svg" alt-text="Diagram that shows a document generation solution architecture that uses Azure AI services." lightbox="./_images/generate-documents.svg":::
+:::image type="complex" border="false" source="./_images/generate-documents.svg" alt-text="Diagram that shows a document generation solution architecture that uses Foundry Tools." lightbox="./_images/generate-documents.svg":::
    This diagram shows a flow from sample data through Azure services to the web front end for form-based template generation and export. The flow begins with enterprise data, which passes through an enterprise data sync process. This process loads PDF files into an Azure Storage account, and Foundry IQ processes the files and indexes the content. The indexed content flows through Azure App Service and then into Microsoft Foundry, which handles chat completion, conversation loops, and JSON mode via SDK. App Service also links to a web front end and Azure Cosmos DB. The web front end lets users chat with their own data, generate document templates, and export those templates.
 :::image-end:::
 
@@ -34,7 +34,7 @@ The following workflow corresponds to the previous diagram:
 
 - [App Service](/azure/well-architected/service-guides/app-service-web-apps) is a platform as a service (PaaS) solution that provides a scalable web hosting environment for applications. In this architecture, App Service hosts the web front-end interface where users interact with their enterprise data through conversational AI functionality. App Service also generates DOCX files by using the docx React library and stores them in Storage for delivery. The interface supports both structured and unstructured document generation and DOCX export capabilities, which provides a responsive and intuitive user experience.
 
-- [Foundry](/azure/ai-foundry/what-is-foundry) is a unified Azure PaaS offering for enterprise AI operations, model builders, and application development. It combines production-grade infrastructure with developer-oriented interfaces. These interfaces let developers focus on building applications rather than managing infrastructure. In this architecture, Foundry provides the foundation for deploying and managing AI models in the chat interface and serves as the gateway into the connected AI services, like Foundry IQ.
+- [Foundry](/azure/ai-foundry/what-is-foundry) is a unified Azure PaaS offering for enterprise AI operations, model builders, and application development. It combines production-grade infrastructure with developer-oriented interfaces. These interfaces let developers focus on building applications rather than managing infrastructure. In this architecture, Foundry provides the foundation for deploying and managing AI models in the chat interface and serves as the gateway into the connected Foundry Tools, like Foundry IQ.
 
   - [Foundry Agent Service](/azure/ai-foundry/agents/overview) is a managed platform within Foundry that integrates core components like models, tools, and frameworks into a unified agentic runtime. It manages conversations, orchestrates tool calls, enforces content safety, and integrates with identity, networking, and observability systems. In this architecture, the chat interface invokes Foundry Agent Service to power the chat completion, conversation loop, and JSON mode via the Microsoft Agent Framework SDK.
 

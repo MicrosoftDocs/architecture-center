@@ -13,18 +13,18 @@ ms.custom: arb-aiml
 
 # Choose an Azure AI speech recognition and generation technology
 
-[Azure AI services](/azure/ai-services/what-are-ai-services) help workload designers and developers create intelligent, cutting-edge, market-ready, and responsible applications with out-of-the-box and prebuilt and customizable APIs and models.
+[Foundry Tools](/azure/ai-services/what-are-ai-services) help workload designers and developers create intelligent, cutting-edge, market-ready, and responsible applications with out-of-the-box and prebuilt and customizable APIs and models.
 
-This article covers AI services that provide speech recognition and generation capabilities such as speech-to-text and text-to-speech conversions, audio translation, and speaker recognition. It also includes reading support for people with learning differences.
+This article covers Foundry Tools that provide speech recognition and generation capabilities such as speech-to-text and text-to-speech conversions, audio translation, and speaker recognition. It also includes reading support for people with learning differences.
 
 > [!NOTE]
 > To gather insights on terms or phrases or get detailed contextual analysis of spoken or written language, see [Choose an Azure AI targeted language processing technology](targeted-language-processing.md).
 
 ## Services
 
-The following AI services can provide speech recognition and generation capabilities for your workload.
+The following Foundry Tools can provide speech recognition and generation capabilities for your workload.
 
-- [Microsoft Azure AI Speech](#speech) provides natural language processing for text analysis.
+- [Azure Speech in Foundry Tools](#speech) provides natural language processing for text analysis.
 
   - **Use** Speech when you need to transcribe or translate spoken speech and identify speakers in a conversation. You can also use Speech as a lower-cost alternative for natural-sounding speech generation compared to the higher-quality [Whisper](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#audio-api) system in the OpenAI models.
 
@@ -71,7 +71,7 @@ The following table describes some of the ways that you can use Speech.
 
 ### Immersive Reader
 
-[Immersive Reader](https://www.onenote.com/learningtools), part of AI services, is an inclusively designed tool that implements proven techniques to improve reading comprehension for new readers, language learners, and people with learning differences such as dyslexia. With the Immersive Reader client library, you can use the same technology used in Microsoft Word and Microsoft OneNote to provide an enhanced experience for your workload's users.
+[Immersive Reader](https://www.onenote.com/learningtools) is an inclusively designed tool that implements proven techniques to improve reading comprehension for new readers, language learners, and people with learning differences such as dyslexia. With the Immersive Reader client library, you can use the same technology used in Microsoft Word and Microsoft OneNote to provide an enhanced experience for your workload's users.
 
 #### Capabilities
 
@@ -92,9 +92,9 @@ The following capabilities are available for your workload to help users achieve
 ## Next steps
 
 - [What is the Speech service?](/azure/ai-services/speech-service/overview)
-- [Learning path: Develop natural language processing solutions with AI services](/training/paths/develop-language-solutions-azure-ai/)
+- [Learning path: Develop natural language solutions in Azure](/training/paths/develop-language-solutions-azure-ai/)
 
 ## Related resources
 
-- [Microsoft Azure AI Language capabilities guide](targeted-language-processing.md)
-- [Microsoft Azure AI Vision capabilities guide](image-video-processing.md)
+- [Microsoft Azure Language in Foundry Tools capabilities guide](targeted-language-processing.md)
+- [Microsoft Azure Vision in Foundry Tools capabilities guide](image-video-processing.md)

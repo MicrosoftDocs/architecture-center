@@ -1,3 +1,15 @@
+> [!IMPORTANT]
+> Microsoft is announcing the planned retirement of the Azure Custom Vision service. Microsoft will provide full support for all existing Azure Custom Vision customers until 9/25/2028. During this support window, customers are encouraged to begin planning and executing their transition to alternative solutions.
+> Depending on your use case, we recommend the following paths for transition:
+> - For creating custom models for both image classification and object detection, **Azure Machine Learning AutoML** offers the ability to train both custom model types using classic machine learning techniques
+> - [Learn more about Azure Machine Learning AutoML](/azure/machine-learning/concept-automated-ml) and explore how it can offer support for custom model training.
+> 
+> Microsoft is also investing in Generative AI-based solutions that increase accuracy in custom scenarios using prompt engineering and other techniques.
+> - To use generative models, you can use one of models available in the Foundry model catalog and create your own solution for customized vision.
+> - For a managed generative solution for image classification, Azure Content Understanding in Foundry Tools (currently in public preview) offers the ability to create custom classification workflows. It also supports processing unstructured data of any type (image, documents, audio, video) and extract structured insights based on pre-defined or user-defined formats.
+> - [Learn more about Microsoft Foundry Models](/azure/ai-foundry/concepts/foundry-models-overview) and [Azure Content Understanding (public preview)](/azure/ai-services/content-understanding/overview) and explore how they can offer alternative paths for your custom needs.
+>
+> For more detailed guidance on migration, see the [Azure Custom Vision Migration Guide](https://aka.ms/custom-vision-migration).
 This article describes an architecture that replaces manual video analysis with an automated machine learning process. The automated process often produces more accurate results.
 
 ## Architecture
@@ -38,9 +50,9 @@ The following workflow corresponds to the previous diagram:
 
 - [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a scalable, secure, and cost-effective cloud storage solution for analytics workloads. In this architecture, it stores the extracted video frames for downstream image analysis and processing.
 
-- [Azure AI Vision](/azure/ai-services/computer-vision/overview) is part of [Azure AI services](/azure/ai-services/what-are-ai-services). It provides tools to extract information from images. In this architecture, it analyzes the extracted frames and identifies objects and features. It can also retrieve text via OCR.
+- [Azure Vision](/azure/ai-services/computer-vision/overview) is part of [Foundry Tools](/azure/ai-services/what-are-ai-services). It provides tools to extract information from images. In this architecture, it analyzes the extracted frames and identifies objects and features. It can also retrieve text via OCR.
 
-- [Custom Vision](/azure/ai-services/custom-vision-service/overview) is a cloud-based AI service that you can use to customize and embed advanced computer vision image analysis for your specific domains. In this architecture, it identifies domain-specific objects or qualities in the extracted video frames.
+- [Custom Vision](/azure/ai-services/custom-vision-service/overview) is a cloud-based Foundry Tool that you can use to customize and embed advanced computer vision image analysis for your specific domains. In this architecture, it identifies domain-specific objects or qualities in the extracted video frames.
 
 - [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) is a cloud-based service that automates workflows by connecting apps and data across environments. It provides a way to access and process data in real time. In this architecture, it monitors storage locations, initiates analysis workflows, processes results, and coordinates the movement and transformation of data.
 

@@ -15,7 +15,7 @@ This article describes an Azure architecture that you can use to replace costly 
 1. The logic app sends the location of the PDF file to a function app for processing. The function app is built by using the capabilities of Azure Functions.
 1. The function app receives the location of the file and takes these actions:
    1. It splits the file into single pages if the file has multiple pages. Each page contains one independent form. Split files are saved to a second container in Data Lake Storage.
-   1. It uses HTTPS POST, an Azure REST API, to send the location of the single-page PDF file to AI Document Intelligence for processing. When Azure AI Document Intelligence completes its processing, it sends a response back to the function app, which places the information into a data structure.
+   1. It uses HTTPS POST, an Azure REST API, to send the location of the single-page PDF file to Azure Document Intelligence in Foundry Tools for processing. When Document Intelligence completes its processing, it sends a response back to the function app, which places the information into a data structure.
    1. It creates a JSON data file that contains the response data and stores the file to a third container in Data Lake Storage.
 1. The forms processing logic app receives the processed response data.
 1. The forms processing logic app sends the processed data to Azure Cosmos DB, which saves the data in a database and in collections.
@@ -24,9 +24,9 @@ This article describes an Azure architecture that you can use to replace costly 
 
 ### Components
 
-- [Azure AI Document Intelligence](/azure/ai-services/document-intelligence/overview), a cloud-based service that enables you to build intelligent document processing solutions. It applies advanced machine learning to extract text, key-value pairs, tables, and structures from documents automatically and accurately. In this architecture, it is the intelligent document processing service utilized to extract information from PDF documents.
+- [Document Intelligence](/azure/ai-services/document-intelligence/overview), a cloud-based service that enables you to build intelligent document processing solutions. It applies advanced machine learning to extract text, key-value pairs, tables, and structures from documents automatically and accurately. In this architecture, it is the intelligent document processing service utilized to extract information from PDF documents.
 - [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) is a serverless cloud service for creating and running automated workflows that integrate apps, data, services, and systems. In this architecture, it is used to as an orchestrator to coordinate the user input, document storage, document processing, storage of the results, and analysis of the processed documents.
-- [Azure Functions](/azure/azure-functions/functions-overview) is a serverless solution that makes it possible for you to write less code, maintain less infrastructure, and save on costs. In this architecture, it is the backend services to configure input to utilize [Azure AI Document Intelligence](/azure/ai-services/document-intelligence/overview), and store the output.
+- [Azure Functions](/azure/azure-functions/functions-overview) is a serverless solution that makes it possible for you to write less code, maintain less infrastructure, and save on costs. In this architecture, it is the backend services to configure input to utilize [Document Intelligence](/azure/ai-services/document-intelligence/overview), and store the output.
 - [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is the foundation for building enterprise data lakes on Azure. In this architecture, it is used to store the raw PDF documents, machine learning results, and processed output.
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a fully managed NoSQL and relational database for modern app development. In this architecture, it is used to store the extracted insights from each PDF document. The information is utilized by [Power BI](/power-bi/fundamentals/power-bi-overview) to produce insights.
 - [Power BI](/power-bi/fundamentals/power-bi-overview) is a collection of software services, apps, and connectors that work together so that you can turn your unrelated sources of data into coherent, visually immersive, and interactive insights. In this architecture, it is used to analyze the document processing results.
@@ -39,7 +39,7 @@ This article describes an Azure architecture that you can use to replace costly 
 
 Forms processing is often a critical business function. Many companies still rely on manual processes that are costly, time consuming, and prone to error. Replacing manual processes reduces cost and risk and makes a company more agile.
 
-This article describes an architecture that you can use to replace manual PDF forms processing or costly legacy systems that automate PDF forms processing. Azure AI Document Intelligence processes the PDF forms, Logic Apps provides the workflow, and Functions provides data processing capabilities.
+This article describes an architecture that you can use to replace manual PDF forms processing or costly legacy systems that automate PDF forms processing. Document Intelligence processes the PDF forms, Logic Apps provides the workflow, and Functions provides data processing capabilities.
 
 For deployment information, see [Deploy this scenario](#deploy-this-scenario) in this article.
 
@@ -108,7 +108,7 @@ The sample receives the PDF forms, extracts the data fields, and saves the data 
 
 You can use the repository as is, without code modification, to process and visualize any single-page PDF forms such as safety forms, invoices, incident records, and many others. To use it, you only need to collect sample PDF forms, train a new model to learn the layout of the forms, and plug the model into the solution. You also need to redesign the Power BI report for your datasets so that it provides the insights that you want.
 
-The implementation uses [Azure AI Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio) to create custom models. The sample uses the field names that are saved in the machine learning model as a reference to process other forms. Only five sample forms are needed to create a custom-built machine learning model. You can merge as many as 100 custom-built models to create a composite machine learning model that can process a variety of forms.
+The implementation uses [Document Intelligence Studio](https://contentunderstanding.ai.azure.com/documentintelligence/studio) to create custom models. The sample uses the field names that are saved in the machine learning model as a reference to process other forms. Only five sample forms are needed to create a custom-built machine learning model. You can merge as many as 100 custom-built models to create a composite machine learning model that can process a variety of forms.
 
 ### Deployment repository
 

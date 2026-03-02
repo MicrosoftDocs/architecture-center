@@ -158,14 +158,14 @@ Implement distributed tracing with Application Insights and an Azure Monitor Log
 
 ### Application monitoring implementation details
 
-The `BackgroundProcessor` component uses the `Microsoft.ApplicationInsights.WorkerService` NuGet package to get out-of-the-box instrumentation from the application. Serilog is also used for all logging inside the application. Application Insights is configured as a sink in addition to the console sink. A `TelemetryClient` instance for Application Insights is used directly only when it's necessary to track other metrics.
+The `BackgroundProcessor` component uses the [Azure Monitor OpenTelemetry Distro](/azure/azure-monitor/app/opentelemetry-enable) to get out-of-the-box instrumentation from the application. Serilog is also used for all logging inside the application. Application Insights is configured as a sink in addition to the console sink. OpenTelemetry APIs such as `ActivitySource` and `Meter` are used directly when it's necessary to track other metrics.
 
 :::image type="content" source="./images/application-design-end-to-end-tracing.png" alt-text="Screenshot of the end-to-end tracing capability." lightbox="./images/application-design-end-to-end-tracing.png":::
 
 To demonstrate practical request traceability, every successful and unsuccessful API request returns the Correlation ID header to the caller. The application support team can search Application Insights with this identifier and get a detailed view of the full transaction, which is illustrated in the preceding diagram.
 
 > [!NOTE]
-> Adaptive sampling is enabled by default in the Application Insights SDK. Adaptive sampling means that not every request is sent to the cloud and is searchable by ID. Mission-critical application teams need to reliably trace every request. Adaptive sampling should be disabled in production environments.
+> Adaptive sampling might be enabled by default in Azure Monitor OpenTelemetry distribution used in your applications. Adaptive sampling means that not every request is sent to the cloud and is searchable by ID. Mission-critical application teams need to reliably trace every request. Adaptive sampling should be disabled in production environments.
 
 ### Kubernetes monitoring implementation details
 
