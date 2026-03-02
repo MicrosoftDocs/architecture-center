@@ -211,9 +211,6 @@ Take these [considerations](/azure/virtual-machines/workloads/sap/sap-ha-availab
 - Latency between VMs across chosen zones
 - Availability of the same Azure services (VM types) in the chosen zones
 
-> [!NOTE]
-> Availability zones support intra-region high availability, but they aren't effective for disaster recovery (DR). The distances between zones are too short. Typical DR sites should be at least 100 miles away from the primary region.
-
 #### Active/inactive deployment example
 
 In this example deployment, the [active/passive](/azure/sap/workloads/high-availability-zones?tabs=passive#deployment-types) status refers to the application service state within the zones. In the application layer, all four active application servers of the SAP system are in zone 1. Another set of four passive application servers is built in zone 2 but is shut down. They're activated only when they're needed.
@@ -230,10 +227,10 @@ If zone 1 goes offline, Central Services and the database services fail over to 
 
 #### DR considerations
 
-Every tier in the SAP application stack uses a different approach to provide DR protection. For DR strategies and implementation details, see [Disaster recovery overview and infrastructure guidelines for SAP workload](/azure/sap/workloads/disaster-recovery-overview-guide) and [Disaster recovery guidelines for SAP application](/azure/sap/workloads/disaster-recovery-sap-guide?tabs=linux).
+A DR here means that an entire region becomes unavaible, mainly thtough natural disaster like fire or flood. Every tier in the SAP application stack uses a different approach to provide DR protection. For DR strategies and implementation details, see [Disaster recovery overview and infrastructure guidelines for SAP workload](/azure/sap/workloads/disaster-recovery-overview-guide) and [Disaster recovery guidelines for SAP application](/azure/sap/workloads/disaster-recovery-sap-guide?tabs=linux).
 
 > [!NOTE]
-> If there's a regional disaster that causes a large failover event for many Azure customers in one region, the target region's [resource capacity](/azure/site-recovery/azure-to-azure-common-questions#capacity) isn't guaranteed. Site Recovery continues to add features and capabilities. For the latest information about Azure-to-Azure replication, see the [support matrix](/azure/site-recovery/azure-to-azure-support-matrix).
+> If there's a regional, natural disaster that causes a large failover event for many Azure customers in one region, the target region's [resource capacity](/azure/site-recovery/azure-to-azure-common-questions#capacity) isn't guaranteed. Site Recovery continues to add features and capabilities. For the latest information about Azure-to-Azure replication, see the [support matrix](/azure/site-recovery/azure-to-azure-support-matrix).
 
 #### Backup
 
@@ -257,24 +254,16 @@ You can deploy an NVA to filter traffic between virtual networks, but don't plac
 
 For infrastructure security, data is encrypted in transit and at rest. For information about network security, see the "Security recommendations" section in [Azure Virtual Machines planning and implementation for SAP NetWeaver](/azure/sap/workloads/planning-guide#security-for-your-sap-landscape). This article also specifies the network ports that you need to open on the firewalls to allow application communication.
 
-#### Azure Disk Encryption (ADE)
+#### Encryption
 
-[Azure Disk Encryption (ADE)](/azure/security/azure-security-disk-encryption-overview) provides operating system–level encryption using BitLocker on Windows and dm-crypt on Linux virtual machines. While ADE can be enabled for SAP application servers, its use requires careful consideration, particularly for Linux-based SAP workloads.
-
-For SAP systems running on Linux, ADE is not broadly recommended due to support limitations, operational complexity, and documented reliability issues in combination with backup, recovery, and high-availability scenarios. In addition, ADE is not supported by SAP-certified Linux distributions for certain SAP use cases, and its long-term viability should be carefully evaluated.
-
-Given the availability of newer disk and host-based encryption options, you should evaluate Azure Disk Encryption carefully and prefer alternative encryption mechanisms for new deployments and future-proof architectures.
-
-For SAP workloads, Microsoft recommends the following approaches instead of ADE:
+For SAP workloads, Microsoft recommends the following approaches:
 
 - **Database-native encryption** (for example, SAP HANA data, log, and backup encryption) for protecting SAP database content
 - **Encryption at host**, optionally combined with Azure Storage Service Encryption and customer-managed keys, for VM-level protection
 
-Azure Disk Encryption should only be used when explicitly required to meet specific compliance or customer mandates, and only after validating supportability with the chosen operating system, SAP workload type, and operational tooling (such as backup and disaster recovery).
-
 For data-at-rest encryption, SQL Server transparent data encryption (TDE) encrypts SQL Server and Azure SQL Database data files. For more information, see [SQL Server Azure Virtual Machines DBMS deployment for SAP NetWeaver](/azure/sap/workloads/dbms-guide-sqlserver).
 
-To monitor threats from inside and outside the firewall, consider deploying [Microsoft Sentinel (preview)](https://www.microsoft.com/security/blog/2021/05/19/protecting-sap-applications-with-the-new-azure-sentinel-sap-threat-monitoring-solution). The solution provides continuous threat detection and analytics for SAP systems that are deployed on Azure, in other clouds, or on-premises. For deployment guidance, see [Deploy Threat Monitoring for SAP in Microsoft Sentinel](/azure/sentinel/sap/deployment-overview).
+To monitor threats from inside and outside the firewall, consider deploying [Microsoft Sentinel](/azure/sentinel/sap/solution-overview). The solution provides continuous threat detection and analytics for SAP systems that are deployed on Azure, in other clouds, or on-premises. For deployment guidance, see [Deploy Threat Monitoring for SAP in Microsoft Sentinel](/azure/sentinel/sap/deployment-overview).
 
 As always, manage security updates and patches to safeguard your information assets. Consider using an end-to-end [automation approach](/azure/update-manager/view-updates?tabs=singlevm-overview) for this task.
 
