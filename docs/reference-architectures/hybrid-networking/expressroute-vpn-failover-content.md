@@ -386,7 +386,7 @@ Microsoft Learn modules:
 [configure-vpn]: /azure/expressroute/expressroute-howto-coexist-resource-manager
 [guidance-vpn]: /azure/expressroute/use-s2s-vpn-as-backup-for-expressroute-privatepeering
 [configure-expressroute-routing]: /azure/expressroute/expressroute-howto-routing-arm
-[sla-for-expressroute]: https://azure.microsoft.com/support/legal/sla/expressroute
+[sla-for-expressroute]: https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services
 [expressroute-introduction]: /azure/expressroute/expressroute-introduction
 [expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute/
 [highly-available-network-architecture]: ./expressroute-vpn-failover.yml

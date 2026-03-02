@@ -279,7 +279,7 @@ Other contributors:
 
 ## Next steps
 
-- [Microsoft Defender for Cloud](/azure/security-center/container-security)
+- [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction)
 - [Secure DevOps](https://www.microsoft.com/securityengineering/devsecops)
 - [Security in DevOps (DevSecOps)](/devops/operate/security-in-devops)
 - [GitHub Advanced Security](https://docs.github.com/enterprise-cloud@latest/get-started/learning-about-github/about-github-advanced-security)

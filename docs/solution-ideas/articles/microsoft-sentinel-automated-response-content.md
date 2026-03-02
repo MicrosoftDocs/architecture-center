@@ -127,7 +127,6 @@ Other contributors:
 
 ## Related content
 
-- [Overview of Azure Cloud Services?](/azure/cloud-services/cloud-services-choose-me)
 - [What is Microsoft Sentinel?](/azure/sentinel/overview)
 - [Security orchestration, automation, and response (SOAR) in Microsoft Sentinel.](/azure/sentinel/automation)
 - [Automate threat response with playbooks in Microsoft Sentinel](/azure/sentinel/automate-responses-with-playbooks)

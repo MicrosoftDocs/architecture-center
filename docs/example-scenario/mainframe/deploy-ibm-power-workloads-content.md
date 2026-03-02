@@ -23,7 +23,7 @@ This architecture demonstrates how to use Azure NetApp Files with workloads in S
 
 The architecture uses these components:
 
-- [Kyndryl Cloud Uplift (formerly Skytap on Azure)](https://marketplace.microsoft.com/product/skytapinc.skytap-on-azure-main1) is a service in Azure that natively runs IBM Power and x86 traditional workloads on hardware in Azure datacenters. If your organization runs IBM Power-based AIX, IBM i, or Linux operating systems (OS), you can use Skytap on Azure to migrate workloads to Azure with minimal upfront effort.
+- [Kyndryl Cloud Uplift (formerly Skytap on Azure)](https://marketplace.microsoft.com/search/products?search=Kyndryl%20Cloud%20Uplift) is a service in Azure that natively runs IBM Power and x86 traditional workloads on hardware in Azure datacenters. If your organization runs IBM Power-based AIX, IBM i, or Linux operating systems (OS), you can use Skytap on Azure to migrate workloads to Azure with minimal upfront effort.
 
 - [Azure NetApp Files](/azure/well-architected/service-guides/azure-netapp-files) is an Azure-native, enterprise-class, high-performance file storage service. Azure NetApp Files provides volumes as a service that you can use to create NetApp accounts, capacity pools, and volumes. You can select service and performance levels and manage data protection and replication across zones and regions.
 
@@ -64,7 +64,7 @@ Reliability helps ensure that your application can meet the commitments that you
 
 Skytap on Azure provides a standard 99.95% availability service-level objective (SLO) for the platform and logical partitions (LPARs).
 
-Azure NetApp Files provides a [standard 99.99% availability service-level agreement (SLA)](https://azure.microsoft.com/support/legal/sla/netapp/v1_1) for all tiers and supported regions. Azure NetApp Files also supports provisioning volumes in [availability zones](/azure/azure-netapp-files/use-availability-zones) that you choose, and supports HA deployments across zones for added data protection if there's a zone outage.
+Azure NetApp Files provides a [standard 99.99% availability service-level agreement (SLA)](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services) for all tiers and supported regions. Azure NetApp Files also supports provisioning volumes in [availability zones](/azure/azure-netapp-files/use-availability-zones) that you choose, and supports HA deployments across zones for added data protection if there's a zone outage.
 
 For improved recovery point objective and recovery time objective (RPO/RTO) SLAs, integrated data protection with [snapshots](/azure/azure-netapp-files/snapshots-introduction) and [backup](/azure/azure-netapp-files/backup-introduction) are available with the service. Additionally, [cross-region replication](/azure/azure-netapp-files/snapshots-introduction#how-volumes-and-snapshots-are-replicated-cross-region-for-dr) provides disaster recovery benefits across Azure regions.
 
@@ -135,7 +135,7 @@ For requirements related to your throughput and capacity, see:
 
 To scale compute performance, you can add capacity to LPARs that run in Skytap on Azure. You can also dynamically scale storage for Azure NetApp Files volumes. [Automatic QoS](/azure/azure-netapp-files/azure-netapp-files-performance-considerations) automatically scales performance. For more granular control of each volume, use [manual QoS](/azure/azure-netapp-files/azure-netapp-files-performance-considerations#manual-qos-volume-quota-and-throughput) to control the performance of each volume separately for your capacity pools.
 
-Azure NetApp Files volumes are available in [Ultra, Premium, Standard and Flexible service levels](/azure/azure-netapp-files/azure-netapp-files-service-levels#supported-service-levels). When you choose the tier that best suits your performance requirements, consider that available performance bandwidth [scales with the size of a volume](https://docs.netapp.com/us-en/bluexp-azure-netapp-files/task-manage-volumes.html). You can [change the service level of a volume](https://docs.netapp.com/us-en/occm37/task_manage_anf.html) at any time without disruption to storage operations. For more information about the Azure NetApp Files cost model, see [Pricing examples](/azure/azure-netapp-files/azure-netapp-files-cost-model#pricing-examples).
+Azure NetApp Files volumes are available in [Ultra, Premium, Standard and Flexible service levels](/azure/azure-netapp-files/azure-netapp-files-service-levels#supported-service-levels). When you choose the tier that best suits your performance requirements, consider that available performance bandwidth [scales with the size of a volume](https://docs.netapp.com/us-en/bluexp-azure-netapp-files/task-manage-volumes.html). You can [change the service level of a volume](/azure/azure-netapp-files/dynamic-change-volume-service-level) at any time without disruption to storage operations. For more information about the Azure NetApp Files cost model, see [Pricing examples](/azure/azure-netapp-files/azure-netapp-files-cost-model#pricing-examples).
 
 To get started, see the [Azure NetApp Files performance calculator](https://azure.github.io/azure-netapp-files/calc/).
 
@@ -156,8 +156,8 @@ Other contributors:
 
 ## Next steps
 
-- [About Skytap](https://www.skytap.com/about-us/)
-- [Skytap help and documentation](https://help.skytap.com/)
+- [About Kyndryl Cloud Uplift (formerly Skytap)](https://www.kyndryl.com/services/cloud-uplift)
+- [Kyndryl Cloud Uplift help and documentation](https://help.skytap.com/)
 - [What is Azure NetApp Files?](/azure/azure-netapp-files/azure-netapp-files-introduction)
 - [Understand NAS concepts in Azure NetApp Files | Microsoft Learn](/azure/azure-netapp-files/network-attached-storage-concept)
 - [Understand data protection and disaster recovery options in Azure NetApp Files | Microsoft Learn](/azure/azure-netapp-files/data-protection-disaster-recovery-options)

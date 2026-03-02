@@ -54,7 +54,7 @@ The following workflow corresponds to the preceding diagram.
 
   There are also partner products like [SIOS DataKeeper Cluster Edition](https://marketplace.microsoft.com/product/sios_datakeeper.sios-datakeeper-8) from SIOS Technology Corp. This add-on replicates content from independent disks that are attached to the ASCS cluster nodes and then presents the disks as a cluster shared volume to the cluster software.
 
-- **Azure Storage** - Storage provides data persistence for a VM in the form of a virtual hard disk. We recommend [Azure managed disks](/azure/virtual-machines/windows/managed-disks-overview).
+- **Azure Storage** - Storage provides data persistence for a VM in the form of a virtual hard disk. We recommend [Azure Managed Disks](/azure/virtual-machines/managed-disks-overview).
 
 - **Virtual networks** - The [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) service connects Azure resources to each other with enhanced security. In this architecture, the virtual network connects to an on-premises network via an Azure ExpressRoute gateway that connects in the hub of a [hub-spoke topology](../../networking/architecture/hub-spoke.yml). The spoke is the virtual network that's used for the SAP applications and the database tiers. The hub virtual network is used for shared services like Azure Bastion and backup.
 
@@ -141,19 +141,19 @@ For traffic from SAP GUI clients that connect to an SAP server via DIAG protocol
 
 ### Storage
 
-Some organizations use standard storage for their application servers. Standard managed disks aren't supported. See [SAP note 1928533](https://service.sap.com/sap/support/notes/1928533). To access SAP notes, you need an SAP Service Marketplace account. We recommend that you use premium [Azure managed disks](/azure/virtual-machines/managed-disks-overview) in all cases. A recent update to [SAP note 2015553](https://launchpad.support.sap.com/#/notes/2015553) excludes the use of Standard HDD storage and Standard SSD storage for a few specific use cases.
+Some organizations use standard storage for their application servers. Standard managed disks aren't supported. See [SAP note 1928533](https://service.sap.com/sap/support/notes/1928533). To access SAP notes, you need an SAP Service Marketplace account. We recommend that you use premium [Azure Managed Disks](/azure/virtual-machines/managed-disks-overview) in all cases. A recent update to [SAP note 2015553](https://launchpad.support.sap.com/#/notes/2015553) excludes the use of Standard HDD storage and Standard SSD storage for a few specific use cases.
 
 Application servers don't host business data. So you can also use the smaller P4 and P6 premium disks to help minimize costs. By doing so, you can benefit from the [single-instance VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_6) if you have a central SAP stack installation.
 
-For high-availability scenarios, you can use [Azure file shares](/azure/storage/files/storage-files-introduction) and [Azure shared disks](/azure/virtual-machines/disks-shared). [Azure Premium SSD managed disks and Azure Ultra Disk Storage](/azure/storage/storage-managed-disks-overview) are available for Azure shared disks, and Premium SSD is available for Azure file shares.
+For high-availability scenarios, you can use [Azure file shares](/azure/storage/files/storage-files-introduction) and [Azure shared disks](/azure/virtual-machines/disks-shared). [Premium SSDs and Azure Ultra Disk Storage](/azure/storage/storage-managed-disks-overview) are available for Azure shared disks, and Premium SSD is available for Azure file shares.
 
 Storage is also used by [Cloud Witness](/windows-server/failover-clustering/deploy-quorum-witness) to maintain quorum with a device in a remote Azure region, away from the primary region where the cluster resides.
 
 For the backup data store, we recommend Azure [cool and archive access tiers](/azure/storage/blobs/access-tiers-overview). These storage tiers provide a cost-effective way to store long-lived data for infrequent access.
 
-[Azure Premium SSD v2 disk storage](/azure/virtual-machines/disks-types#premium-ssd-v2) is designed for performance-critical workloads like online transaction processing systems that consistently need submillisecond latency combined with high IOPS and throughput.
+[Premium SSD v2](/azure/virtual-machines/disks-types#premium-ssd-v2) is designed for performance-critical workloads like online transaction processing systems that consistently need submillisecond latency combined with high IOPS and throughput.
 
-[Ultra Disk Storage](/azure/virtual-machines/disks-types#ultra-disks) greatly reduces disk latency. As a result, it benefits performance-critical applications like the SAP database servers. To compare block storage options in Azure, see [Azure managed disk types](/azure/virtual-machines/disks-types).
+[Ultra Disk Storage](/azure/virtual-machines/disks-types#ultra-disks) greatly reduces disk latency. As a result, it benefits performance-critical applications like the SAP database servers. To compare block storage options in Azure, see [Azure Managed Disk types](/azure/virtual-machines/disks-types).
 
 For a high-availability, high-performance shared data store, use [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction). This technology is useful for the database tier when you use [Oracle](/azure/azure-netapp-files/performance-oracle-single-volumes), and also when you [host application data](/azure/sap/workloads/high-availability-guide-windows-netapp-files-smb).
 

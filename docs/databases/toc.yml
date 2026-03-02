@@ -77,7 +77,7 @@ items:
           items:
           - name: Use the Transactional Outbox pattern
             displayName: Reliable messaging, at least once
-            href: guide/transactional-outbox-cosmos.yml
+            href: guide/transactional-out-box-cosmos.md
           - name: Run Apache Cassandra
             href: guide/cassandra.md
       - name: OLAP solutions

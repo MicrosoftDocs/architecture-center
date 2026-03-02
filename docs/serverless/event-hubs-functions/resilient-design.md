@@ -72,7 +72,7 @@ Without error handling, it can be tricky to implement retries, detect runtime ex
 
 ### Retries
 
-Implementing retry logic in an event streaming architecture can be complex. Supporting cancellation tokens, retry counts and exponential back off strategies are just a few of the considerations that make it challenging. Fortunately, Functions provides [retry policies](/azure/azure-functions/functions-bindings-error-pages#retry-policies-preview) that can make up for many of these tasks that you would typically code yourself.
+Implementing retry logic in an event streaming architecture can be complex. Supporting cancellation tokens, retry counts, and exponential back-off strategies are a few of the considerations that make it a challenge. Fortunately, Functions provides [retry policies](/azure/azure-functions/functions-bindings-error-pages#retry-policies) for many of these tasks that you typically code yourself. For general guidance on retry strategies, see [Recommendations for handling transient faults](/azure/well-architected/design-guides/handle-transient-faults).
 
 Several important factors that must be considered when you use the retry policies with the Event Hub binding, include:
 
@@ -88,7 +88,7 @@ An important takeaway for the retry policies in Functions is that it's a best ef
 
 ## Strategies for failures and corrupt data
 
-There are several noteworthy approaches that you can use to compensate for issues that arise due to failures or bad data in an event stream. Some fundamental strategies are:
+Several noteworthy approaches can help you compensate for problems that occur because of failures or bad data in an eventstream. Consider the following fundamental strategies:
 
 - **Stop sending and reading:** To fix the underlying issue, pause the reading and writing of events. The benefit of this approach is that data won't be lost, and operations can resume after a fix is rolled out. This approach might require a circuit-breaker component in the architecture and possibly a notification to the affected services to achieve a pause. In some cases, stopping a function might be necessary until the issues are resolved.
 

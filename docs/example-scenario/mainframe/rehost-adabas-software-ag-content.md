@@ -52,7 +52,7 @@ This diagram shows the legacy architecture migrated to Azure. A rehost approach 
 - [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network).  Virtual Network is the fundamental building block for your private network on Azure. Virtual Network enables many types of Azure resources, like VMs, to communicate with each other, the internet, and on-premises networks via a highly secure connection. A virtual network is like a traditional network that you might operate in your own datacenter, but it provides the benefits of the Azure infrastructure, like scalability, availability, and isolation.  
 - [Azure Application Gateway](/azure/well-architected/service-guides/azure-application-gateway). Application Gateway provides a customizable Layer 7 load-balancing solution.
 - [Virtual network interfaces](/azure/virtual-network/virtual-network-network-interface). A network interface enables a VM to communicate with internet, Azure, and on-premises resources. You can add network interface cards to a VM to provide child VMs with their own dedicated network interface device and IP address.  
-- [Azure managed disks](/azure/virtual-machines/managed-disks-overview). Azure managed disks are block-level storage volumes that Azure manages on its VMs. Ultra disks, premium solid-state drives (SSD), standard SSDs, and standard hard disk drives (HDD) are available. For this architecture, we recommend either premium SSDs or ultra disk SSDs.  
+- [Azure Managed Disks](/azure/virtual-machines/managed-disks-overview). Azure Managed Disks are block-level storage volumes that Azure manages on its VMs. Ultra Disks, Premium SSDs, Standard SSDs, and Standard HDDs are available. For this architecture, we recommend either Premium SSDs or Ultra Disks.  
 - [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute). You can use ExpressRoute to extend your on-premises networks into the Azure cloud via a private connection that's facilitated by a connectivity provider. By using ExpressRoute, you can establish connections to Microsoft cloud services like Azure and Office 365.
 
 ## Scenario details
@@ -89,7 +89,7 @@ Azure helps you avoid unnecessary costs by identifying the correct number of res
 
 Azure also provides cost optimization by running on VMs. You can turn off the VMs when they're not being used and script a schedule for known usage patterns. For more information about cost optimization for [VM instances](/azure/architecture/framework/cost/optimize-vm), see [Azure Well-Architected Framework](/azure/well-architected/). 
 
-The VMs in this architecture use either premium SSDs or ultra disk SSDs. For more information about disk options and pricing, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks). 
+The VMs in this architecture use either Premium SSDs or Ultra Disks. For more information about disk options and pricing, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks). 
 
 ### Operational Excellence  
 
