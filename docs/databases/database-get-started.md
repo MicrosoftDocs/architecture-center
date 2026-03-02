@@ -1,5 +1,5 @@
 ---
-title: Database Architecture Design
+title: Get Started with Database Architecture Design
 description: Learn about database architecture design on Azure including technology choices, solution ideas, and reference architectures for your workloads.
 author: anaharris-ms
 ms.author: anaharris
@@ -9,7 +9,7 @@ ms.subservice: architecture-guide
 ai-usage: ai-assisted
 ---
 
-# Database architecture design
+# Get started with database architecture design
 
 Data is central to every application. One of your most important architectural decisions is choosing the right database solution. Azure provides a comprehensive portfolio of database services that span relational databases, NoSQL databases, in-memory caches, and managed database instances. Whether you build transactional applications, analytical workloads, or globally distributed systems, Azure database services provide the performance, scalability, and reliability that your organization needs.
 
@@ -25,17 +25,19 @@ The right database for your scenario depends on your data model, consistency req
 
 *Apache®, Apache Cassandra®, and the Hadoop logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
+The previous diagram demonstrates a typical basic or baseline database implementation. For real-world solutions that you can build in Azure, see [Database architectures](#database-architectures).
+
 Azure database solutions include traditional relational database management systems (RDBMS) and online transaction processing (OLTP) systems, big data and analytics workloads including online analytical processing (OLAP) systems, and NoSQL workloads. To find real-world solutions that you can build in Azure, see the [architectures](#explore-database-architectures-and-guides) in this section.
 
 ## Explore database architectures and guides
 
 The articles in this section include solution ideas, fully developed architectures, and guidance that address database scenarios on Azure. Solution ideas demonstrate implementation patterns and possibilities to consider. You can deploy and expand architectures to production-grade solutions. Use the following guides to help determine how to use database technologies in Azure.
 
-### Database architecture guides
+### Database guides
 
 **Technology choices**
 
-The following articles help you choose the best database technologies for your needs:
+The following articles help you evaluate and select the best database technologies for your workload requirements:
 
 - [Prepare to choose a data store in Azure](../guide/technology-choices/data-stores-getting-started.md)
 - [Understand data store models](../data-guide/technology-choices/understand-data-store-models.md)
@@ -65,6 +67,8 @@ The following articles help you choose the best database technologies for your n
 - [Collection structure for a federated Microsoft Purview catalog](../guide/data/collection-structure-federated-catalog.md)
 
 ### Database architectures
+
+The following production-ready architectures demonstrate end-to-end database solutions that you can deploy and customize:
 
 **Data warehouse**
 
@@ -174,11 +178,11 @@ To stay current with key database services, see:
 - [What's new in Azure Database for PostgreSQL](/azure/postgresql/flexible-server/release-notes)
 - [What's new in Azure Database for MySQL](/azure/mysql/flexible-server/whats-new)
 
-## Additional resources
+## Other resources
 
 Databases is a broad category and covers a range of solutions. The following resources can help you discover more about Azure.
 
-### Hybrid and multicloud
+### Hybrid [and multicloud]
 
 Many organizations need a hybrid approach to databases because they have workloads that run both on-premises and in the cloud. Azure provides services to extend your database platforms across environments:
 
@@ -201,7 +205,7 @@ Modernize mainframe data tier workloads to Azure:
 
 ### Analytics integration
 
-For analytics workloads that depend on robust database foundations, see:
+For analytics workloads that depend on robust database foundations, see the following articles:
 
 - [Analytics architecture design](../solution-ideas/articles/analytics-get-started.md): See an overview of analytics solutions on Azure.
 - [Data warehousing and analytics](../example-scenario/data/data-warehouse.yml): Integrate databases with analytics platforms.
@@ -209,7 +213,7 @@ For analytics workloads that depend on robust database foundations, see:
 
 ## Amazon Web Services (AWS) or Google Cloud professionals
 
-The following articles can help you ramp up quickly by comparing Azure database options to other cloud services:
+To help you ramp up quickly, the following articles compare Azure database options to other cloud services:
 
 - [Relational database technologies on Azure and AWS](../aws-professional/databases.md): Compare Azure and AWS database services.
 - [Google Cloud to Azure services comparison: Data platform](../gcp-professional/services.md#data-platform): Compare Azure and Google Cloud database services.
