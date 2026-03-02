@@ -40,15 +40,15 @@ One solution to this problem is to use HTTP polling. Polling is useful to client
 
 - For every successful call to the status endpoint, it returns HTTP 200. While the work is still pending, the status endpoint returns a resource that indicates the work is still in progress. Once the work is complete, the status endpoint can either return a resource that indicates completion, or redirect to another resource URL. For example, if the asynchronous operation creates a new resource, the status endpoint would redirect to the URL for that resource.
 
-- The status response body should include enough information for the client to understand the current state of the operation. Consider including the following fields:
+  The status response body should include enough information for the client to understand the current state of the operation. Consider including the following fields:
 
-    | Field | Description | Notes |
-    | --- | --- | --- |
-    | status | The current state of the operation, such as `Pending`, `Running`, `Succeeded`, `Failed`, or `Cancelled`. | Use a consistent, documented set of terminal and non-terminal values. |
-    | createdAt | The time the operation was accepted. | Helps clients detect stale or abandoned operations. |
-    | lastUpdatedAt | The time the status was last updated. | Lets clients distinguish a stalled operation from one that is actively progressing. |
-    | percentComplete | An optional progress indicator. | Useful when the backend can estimate progress, but omit it rather than report inaccurate values. |
-    | error | A structured error object when the status is `Failed`. | Consider using the [RFC 9457 (Problem Details for HTTP APIs)](https://www.rfc-editor.org/rfc/rfc9457) format for consistency. |
+  | Field | Description | Notes |
+  | :---- | :---------- | :---- |
+    | `status` | The current state of the operation, such as *Pending*, *Running*, *Succeeded*, *Failed*, or *Cancelled*. | Use a consistent, documented set of values. |
+    | `createdAt` | The time the operation was accepted. | Helps clients detect stale or abandoned operations. |
+    | `lastUpdatedAt` | The time the status was last updated. | Lets clients distinguish a stalled operation from one that is actively progressing. |
+    | `percentComplete` | An optional progress indicator. | Useful when the backend can accurately estimate progress. |
+    | `error` | A structured error object when the status is `Failed`. | Consider using the [RFC 9457 (Problem Details for HTTP APIs)](https://www.rfc-editor.org/rfc/rfc9457) format for consistency. |
 
 The following diagram shows a typical flow:
 
