@@ -54,7 +54,7 @@ This diagram shows how you can migrate the legacy architecture to Azure by using
 
 ### Components  
 
-- [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) extends your on-premises networks into the Microsoft cloud over a private connection that's facilitated by a connectivity provider. You can use ExpressRoute to establish connections to Microsoft cloud services like Azure and Office 365. Alternatively, or as a backup, you can establish connections with Azure VPN Gateway. However, we recommend that you use ExpressRoute so that you can connect to the Azure environment through an enhanced-security high-speed private connection.
+- [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) extends your on-premises networks into the Microsoft cloud over a private connection that's facilitated by a connectivity provider. You can use ExpressRoute to establish connections to Microsoft cloud services like Azure and Microsoft 365. Alternatively, or as a backup, you can establish connections with Azure VPN Gateway. However, we recommend that you use ExpressRoute so that you can connect to the Azure environment through an enhanced-security high-speed private connection.
 
 - [AKS](/azure/well-architected/service-guides/azure-kubernetes-service) is a fully managed Kubernetes service for deploying and managing containerized applications. AKS provides serverless Kubernetes, integrated continuous integration and continuous delivery (CI/CD), and enterprise-grade security and governance. In this scenario, Adabas & Natural containers are deployed in AKS.
 

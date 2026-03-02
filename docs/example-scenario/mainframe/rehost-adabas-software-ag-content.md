@@ -53,7 +53,7 @@ This diagram shows the legacy architecture migrated to Azure. A rehost approach 
 - [Azure Application Gateway](/azure/well-architected/service-guides/azure-application-gateway). Application Gateway provides a customizable Layer 7 load-balancing solution.
 - [Virtual network interfaces](/azure/virtual-network/virtual-network-network-interface). A network interface enables a VM to communicate with internet, Azure, and on-premises resources. You can add network interface cards to a VM to provide child VMs with their own dedicated network interface device and IP address.  
 - [Azure Managed Disks](/azure/virtual-machines/managed-disks-overview). Azure Managed Disks are block-level storage volumes that Azure manages on its VMs. Ultra Disks, Premium SSDs, Standard SSDs, and Standard HDDs are available. For this architecture, we recommend either Premium SSDs or Ultra Disks.  
-- [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute). You can use ExpressRoute to extend your on-premises networks into the Azure cloud via a private connection that's facilitated by a connectivity provider. By using ExpressRoute, you can establish connections to Microsoft cloud services like Azure and Office 365.
+- [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute). You can use ExpressRoute to extend your on-premises networks into the Azure cloud via a private connection that's facilitated by a connectivity provider. By using ExpressRoute, you can establish connections to Microsoft cloud services like Azure and Microsoft 365.
 
 ## Scenario details
 
