@@ -79,11 +79,11 @@ The following list provides information about how to access each of the services
 
 - **Microsoft Defender for Cloud Apps**. Defender for Cloud Apps is part of Microsoft 365. Access the service through [https://portal.cloudappsecurity.com](https://portal.cloudappsecurity.com).
 
-- **Microsoft Defender for Microsoft 365**. Defender for Microsoft 365 is part of Microsoft 365. Access the service through [https://security.microsoft.com](https://security.microsoft.com), the same portal used for Defender for Endpoint. (This is a change from the previous URL, `protection.office.com`.)
+- **Microsoft Defender for Office 365**. Defender for Office 365 is part of Microsoft 365. Access the service through [https://security.microsoft.com](https://security.microsoft.com), the same portal used for Defender for Endpoint. (This is a change from the previous URL, `protection.office.com`.)
 
 - **Microsoft Defender for Identity**. Defender for Identity is part of Microsoft 365. You access the service through [https://portal.atp.azure.com](https://portal.atp.azure.com). Although it's a cloud service, Defender for Identity is responsible for also protecting identity on on-premises systems.
 
-- **Microsoft Intune**. Endpoint Manager is the new name for Intune, Configuration Manager, and other services. Access it through [https://endpoint.microsoft.com](https://endpoint.microsoft.com). To learn more about accessing the services that are provided by Microsoft Defender XDR and how each portal is related, see [Build the second layer of defense with Microsoft Defender XDR Security services](./microsoft-365-defender-build-second-layer-defense.yml).
+- **Microsoft Endpoint Manager**. Endpoint Manager is the new name for Intune, Configuration Manager, and other services. Access it through [https://endpoint.microsoft.com](https://endpoint.microsoft.com). To learn more about accessing the services that are provided by Microsoft Defender XDR and how each portal is related, see [Build the second layer of defense with Microsoft Defender XDR Security services](./microsoft-365-defender-build-second-layer-defense.yml).
 
 - **Azure Network Watcher**. To access Azure Network Watcher, search for *watcher* in the [Azure portal](https://portal.azure.com).
 
@@ -153,7 +153,7 @@ Other contributors:
 - [Detect and respond to cyber attacks with Microsoft Defender XDR](/training/paths/defender-detect-respond)
 - [Get started with Microsoft Defender XDR](/microsoft-365/security/defender/get-started)
 - [Manage security with Microsoft 365](/training/paths/m365-security-management)
-- [Protect against malicious threats with Microsoft Defender for Microsoft 365](/training/paths/defender-office-365-malicious-threats)
+- [Protect against malicious threats with Microsoft Defender for Office 365](/training/paths/defender-office-365-malicious-threats)
 - [Protect on-premises identities with Microsoft Defender for Cloud for Identity](/training/paths/defender-identity-protect-on-premises)
 
 ## Related resources

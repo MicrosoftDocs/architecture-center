@@ -9,7 +9,7 @@ To effectively utilize Microsoft 365 security services, it's important to unders
 - [Map threats to your IT environment](./map-threats-it-environment.yml)
 - [Build the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml)
 
-Microsoft 365 and Microsoft 365 are cloud-based services designed to address your organization's needs for strong security, reliability, and enhanced user productivity. Microsoft 365 encompasses services such as Power Automate, Forms, Stream, Sway, and Microsoft 365. Microsoft 365 specifically includes the familiar suite of productivity applications. For more information about subscription options for these two services, see [Microsoft 365 and Microsoft 365 plan options](/office365/servicedescriptions/office-365-platform-service-description/office-365-plan-options).
+Microsoft 365 and Office 365 are cloud-based services designed to address your organization's needs for strong security, reliability, and enhanced user productivity. Microsoft 365 encompasses services such as Power Automate, Forms, Stream, Sway, and Office 365. Office 365 specifically includes the familiar suite of productivity applications. For more information about subscription options for these two services, see [Microsoft 365 and Office 365 plan options](/office365/servicedescriptions/office-365-platform-service-description/office-365-plan-options).
 
 Depending on the license that you acquire for Microsoft 365, you can also get the security services for Microsoft 365. These security services are called Microsoft Defender XDR, which provides multiple services:
 
@@ -62,7 +62,7 @@ The following diagram shows a layer, labeled as **DEFENDER**, that represents th
 
 3.  **Microsoft Defender for Office**
 
-    Defender for Microsoft 365 safeguards your organization against malicious threats that are posed by email messages, links (URLs), and collaboration tools. It provides protection for email and collaboration. Depending on the license, you're able to add post-breach investigation, hunting, and response, as well as automation and simulation (for training). For more information about licensing options, see [Microsoft Defender for Microsoft 365 security overview](/microsoft-365/security/office-365-security/overview?view=o365-worldwide).
+    Defender for Office 365 safeguards your organization against malicious threats that are posed by email messages, links (URLs), and collaboration tools. It provides protection for email and collaboration. Depending on the license, you're able to add post-breach investigation, hunting, and response, as well as automation and simulation (for training). For more information about licensing options, see [Microsoft Defender for Office 365 security overview](/microsoft-365/security/office-365-security/overview?view=o365-worldwide).
 
 4.  **Microsoft Defender for Identity**
 
@@ -70,11 +70,11 @@ The following diagram shows a layer, labeled as **DEFENDER**, that represents th
 
     If you need protection for identities that are provided by Microsoft Entra ID and that runs natively on the cloud, consider Microsoft Entra ID Protection.
 
-5.  **Intune (formerly part of the Microsoft Intune**
+5.  **Intune (formerly part of the Microsoft Endpoint Manager**
 
 Microsoft Intune is a cloud-based service that helps organizations manage and secure their devices, apps, and data. It allows IT administrators to control how company devices such as laptops, smartphones, and tablets are used, ensuring compliance with security policies. With Intune, you can enforce device configurations, deploy software, manage mobile applications, and protect corporate data by using features like Conditional Access and remote wipe. It is particularly useful for enabling secure remote work, managing both corporate-owned and personal (BYOD) devices, and ensuring data security across diverse platforms like Windows, iOS, Android, and macOS.
 
-Another service that was part of Endpoint Manager is the Configuration Manager, an on-premises management solution that allows you to manage client and server computers that are on your network, connected directly or via the internet. You can enable cloud functionality to integrate Configuration Manager with Intune, Microsoft Entra ID, Defender for Endpoint, and other cloud services. Use it to deploy apps, software updates, and operating systems. You can also monitor compliance, query for objects, act on clients in real time, and much more. To learn about all the services that are available, see [Microsoft Intune overview](/mem/endpoint-manager-overview).
+Another service that was part of Endpoint Manager is the Configuration Manager, an on-premises management solution that allows you to manage client and server computers that are on your network, connected directly or via the internet. You can enable cloud functionality to integrate Configuration Manager with Intune, Microsoft Entra ID, Defender for Endpoint, and other cloud services. Use it to deploy apps, software updates, and operating systems. You can also monitor compliance, query for objects, act on clients in real time, and much more. To learn about all the services that are available, see [Microsoft Endpoint Manager overview](/mem/endpoint-manager-overview).
 
 ### Attack order of example threats
 
@@ -100,7 +100,7 @@ The following diagram shows which portals are currently available and their rela
 
 :::image type="content" alt-text="A diagram that shows the current relationship of portals to services." source="../media/microsoft-365-defender-build-second-layer-defense-portals.png" lightbox="../media/microsoft-365-defender-build-second-layer-defense-portals.png":::
 
-*Security.microsoft.com* is currently the most important portal available because it brings functionalities from Microsoft Defender for Microsoft 365 (1), from Defender for Endpoint (2), from Defender for Office (3), Defender for Identity (5), Defender for Apps (4) and also for Microsoft Sentinel. 
+*Security.microsoft.com* is currently the most important portal available because it brings functionalities from Microsoft Defender for Office 365 (1), from Defender for Endpoint (2), from Defender for Office (3), Defender for Identity (5), Defender for Apps (4) and also for Microsoft Sentinel. 
 
 It is important to mention that Microsoft Sentinel has some features that still run only on the Azure portal (portal.azure.com). 
 
@@ -148,7 +148,7 @@ Other contributors:
 - [Get started with Microsoft Defender XDR](/microsoft-365/security/defender/get-started)
 - [Implement threat intelligence in Microsoft 365](/training/paths/implement-microsoft-365-threat-intelligence)
 - [Manage security with Microsoft 365](/training/paths/m365-security-management)
-- [Protect against malicious threats with Microsoft Defender for Microsoft 365](/training/paths/defender-office-365-malicious-threats)
+- [Protect against malicious threats with Microsoft Defender for Office 365](/training/paths/defender-office-365-malicious-threats)
 - [Protect on-premises identities with Microsoft Defender for Cloud for Identity](/training/paths/defender-identity-protect-on-premises)
 
 ## Related resources

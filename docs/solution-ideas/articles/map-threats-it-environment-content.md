@@ -47,7 +47,7 @@ The diagram represents Microsoft 365 through the components listed in the follow
 
 | Label | Description | Documentation |
 |---|---|---|
-| `Microsoft 365` | Microsoft 365 services (formerly Office 365). The applications that Microsoft 365 makes available depends on the type of license. | [Microsoft 365 - Subscription for Office Apps](https://www.microsoft.com/microsoft-365) |
+| `OFFICE 365` | Microsoft 365 services (formerly Office 365). The applications that Microsoft 365 makes available depends on the type of license. | [Microsoft 365 - Subscription for Office Apps](https://www.microsoft.com/microsoft-365) |
 | `Microsoft Entra ID` | Microsoft Entra ID, the same one utilized by Azure. Many companies use the same Microsoft Entra service for Azure and Microsoft 365. | [What is Microsoft Entra ID?](/entra/fundamentals/whatis) |
 
 ### Workflow
@@ -60,7 +60,7 @@ The architecture diagram includes the following layers:
 
     The diagram includes some essential services such as servers (VMs), network appliances, and Domain Name System (DNS). It includes common applications that are found in most IT environments and run on virtual machines (VMs) or physical servers. It also includes various types of databases, both SQL and non-SQL. Organizations usually have a file server that shares files throughout the company. Lastly, the Active Directory Domain Service, a widespread infrastructure component, handles user credentials. The diagram includes all these components in the on-premises environment.
 
-2. **Microsoft 365 environment**
+2. **Office 365 environment**
 
     This example environment contains traditional office applications, such as Word, Excel, PowerPoint, Outlook, and OneNote. Depending on the type of license, it might also include other applications, such as OneDrive, Exchange, Sharepoint, and Teams. In the diagram, these are represented by an icon for Microsoft 365 (formerly Office 365) apps and an icon for Microsoft Entra ID. Users must be authenticated to obtain access to Microsoft 365 applications, and Microsoft Entra ID acts as the identity provider. Microsoft 365 authenticates users against the same type of Microsoft Entra ID that Azure uses. In most organizations, the [Microsoft Entra ID *tenant*](/microsoft-365/education/guide/1-reference/introduction-microsoft-entra-id) is the same for both Azure and Microsoft 365.
 
