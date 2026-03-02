@@ -39,9 +39,7 @@ The deployment hierarchy flows from the Microsoft 365 tenant down to individual 
 
 - **Azure Synapse Analytics**: If your organization requires more granular control over networking (customer-managed VNets, custom DNS, firewall rules that Fabric doesn't expose), Synapse Analytics provides dedicated SQL pools and Spark pools with deeper Azure integration. However, it requires more operational overhead (manual scaling, infrastructure provisioning) compared to Fabric's managed approach.
 
-- **Multiple Microsoft 365 tenants**: For strict organizational separation (for example, after a merger or acquisition, or for subsidiary isolation), you can deploy separate Microsoft 365 tenants. Each tenant has its own Fabric instance. Data sharing between tenants requires data pipelines or external storage (ADLS Gen2 with cross-tenant access).
-
-- **Azure Data Lake Storage Gen2 + Azure Databricks + Power BI**: If your organization prefers tighter control afforded by  integrating Azure PaaS services in lieu of a unified SaaS platform, you can build a similar architecture using ADLS Gen2 for storage, Databricks for Spark compute, and Power BI for reporting. This approach offers more flexibility in choosing compute engines but lacks the integrated workspace experience and simplified governance of Fabric.
+- **Azure Data Lake Storage Gen2 + Azure Databricks + Power BI**: If your organization wants more control instead of a single SaaS platform, you can build a data estate using ADLS Gen2 for storage, Databricks for end-to-end processing, and Power BI for reporting.
 
 ## Deployment patterns
 
@@ -61,9 +59,9 @@ A Fabric deployment has four levels: [Tenant](/fabric/enterprise/licenses#tenant
 
 An organization's structure or objectives in the areas of security, scale, governance, and application lifecycle might influence its choice of deployment pattern. Different deployment patterns offer varying flexibility and emphasis in the levels of a deployment.
 
-For example, an organization can use [domains](/fabric/governance/domains) to group workspaces in Fabric. Similarly, if an organization must have a centralized option that it can use to collaborate and to find content, a [OneLake data hub](/fabric/get-started/onelake-data-hub) in Fabric offers a centralized access point and is integrated with other familiar products, like Microsoft Teams and Excel.
+For example, an organization can use [domains](/fabric/governance/domains) to group workspaces in Fabric. Similarly, organizations that require centralized collaboration and content discovery can adopt the [OneLake data hub](/fabric/get-started/onelake-data-hub) in Fabric. OneLake provides a single access layer that integrates with Microsoft Teams, Excel, and other familiar tools.
 
-In Fabric, a large organization that has business units in separate geographical locations can use capacities to control where its data resides. It can manage a business unit that operates from a different geographical location as a single unit by using Fabric domains because domains can span workspaces that are in different regions.
+In Fabric, a large organization that has business units in separate geographical locations can use capacities to control where its data resides. Fabric domains allow a geographically distributed business unit to be governed as a single unit. This is possible because domains can span workspaces and their associated capacities across regions.
 
 For more information about Fabric levels and their role in choosing a deployment pattern, see [Microsoft Fabric concepts and licenses](/fabric/enterprise/licenses).
 
@@ -147,7 +145,7 @@ When you provision a single Fabric capacity and attach multiple workspaces to it
 You might choose to implement this deployment pattern for one or more of the following reasons:
 
 - You want a hub-and-spoke architecture in which your organization centralizes some aspects of operating the analytics environment and decentralizes others.
-- You want decentralization from an operational and management aspect but to varying degrees. For example, you might choose to have bronze and silver layers of a medallion architecture deployed to one workspace and the gold layer deployed to a different workspace. Your rationale might be that one team is responsible for the bronze and silver layers and a different team is responsible for operating and managing the gold layer.
+- You want decentralization from an operational and management aspect but to varying degrees. For example, when building a medallion architecture, an organization may choose to host the bronze and silver layers in one workspace, with the gold layer deployed in a separate workspace. This separation often reflects distinct operational responsibilities, where one team manages the bronze and silver layers and another team operates and governs the gold layer.
 - You aren't primarily concerned about performance management and isolating workloads from a performance perspective.
 - From the perspective of a lakehouse medallion architecture, your organization can create separate workspaces to implement bronze, silver, and gold layers.
 - Your organization doesn't need to deploy workloads across different geographical regions (all data must reside in one region).
@@ -206,7 +204,7 @@ The following table presents considerations that might influence your decision t
 | **Security - Control plane** | - You can provide controlled access on Fabric items by role to avoid accidental corruption or actions by malicious users. |
 | **Administration** | - Granular administrator capabilities are restricted to departments, teams, or users. <br/>- You have access to detailed monitoring requirements on usage or patterns of workloads. |
 | **DevOps** | - You can isolate DTAP environments by using different capacities. <br/>- Independent releases are based on a department, team, or workload. |
-| **Usability - Administrators** | - You get granular visibility into usage by department or team. <br/>- You have delegated capacity rights to capacity administrators per department or team, which helps with scaling and granular configuration. |
+| **Usability - Administrators** | - You get granular visibility into usage by department or team. <br/>- You delegate capacity rights per department or team to support scaling and granular configuration. |
 | **Usability - Other roles** | - Workspaces are available per medallion layer and capacity. <br/>- Fabric items are isolated per workspace, which helps prevent accidental corruption. <br/>- You have more options to prevent throttling that's caused by surges on shared capacity. |
 | **Performance** | - Performance requirements are high, and workloads need to meet higher SLAs. <br/>- You have flexibility in scaling up individual workloads per department or team. |
 | **Billing and cost management** | - Cross-charging requirements can be easily met by assigning dedicated capacities to an organizational entity (department, team, or project). <br/>- Cost management can be delegated to respective teams to manage. |
@@ -237,13 +235,14 @@ The per-pattern tables earlier in this article use design areas (Governance, Sec
 
 Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-Fabric provides built-in regional resiliency through availability zones where supported, automatically distributing resources across multiple zones without customer configuration. Cross-region recovery is available through an opt-in disaster recovery setting on the capacity settings page. When the disaster recovery capacity setting is turned on, cross-region replication is enabled for OneLake data using asynchronous replication to Azure paired regions.Note that this setting specifically applies to OneLake data (Lakehouse and Warehouse); BCDR for Power BI is always enabled regardless of this setting.
+Fabric provides built-in regional resiliency through availability zones where supported, automatically distributing resources across multiple zones without customer configuration. Cross-region recovery is available through an opt-in disaster recovery setting on the capacity settings page. Enabling the disaster recovery capacity setting replicates OneLake data across Azure paired regions using asynchronous replication.
+This applies only to OneLake (Lakehouse and Warehouse); Power BI BCDR is always enabled.
 
 Important limitations: Some Azure regions lack paired regions that support Fabric, which may compromise disaster recovery capabilities even if data is replicated. Additionally, data replication is asynchronous, meaning data written immediately before a regional disaster may be lost. For more information, see [Reliability in Fabric](/azure/reliability/reliability-fabric).
 
 Consider the following reliability implications when you choose a deployment pattern:
 
-- **Single-capacity patterns (1 and 2)**: All workloads are in one Azure region. If the region experiences an outage, all workspaces are affected simultaneously. Enable the disaster recovery setting on your capacity to replicate OneLake data to a paired region. Plan for the recovery time that's required to restore service in the paired region.
+- **Single-capacity patterns (1 and 2)**: All workloads are in one Azure region. If the region experiences an outage, all workspaces are affected simultaneously. To protect against regional failure, configure the capacity setting to replicate OneLake data to a paired region. Plan for the recovery time needed to restore service in the paired region.
 - **Multi-capacity patterns (3 and 4)**: Capacities in different regions provide natural regional isolation. A regional outage affects only the capacities in that region. Workloads in other regions continue to operate. This pattern supports data residency requirements and provides the foundation for active-passive or active-active regional strategies.
 - **Capacity pausing**: When you pause a Fabric capacity to reduce costs, all workloads on that capacity become unavailable. Consider the reliability effect before you pause a capacity that supports production workloads.
 - **OneLake shortcuts**: Shortcuts to external data sources introduce a dependency on the availability of those sources. If the external source is unavailable, items that rely on shortcuts might fail. Monitor the health of external data sources and plan for graceful degradation.
@@ -268,7 +267,7 @@ Fabric implements a layered security model that spans the tenant, workspace, and
 
 #### Data protection
 
-- Apply [sensitivity labels](/fabric/governance/information-protection) from Microsoft Purview Information Protection to classify and protect data as it flows through Fabric. Labels follow the data from source to report.
+- For data classification and protection, apply [sensitivity labels](/fabric/governance/information-protection) from Microsoft Purview Information Protection as data flows through Fabric. Labels follow the data from source to report.
 - Review [audit logs](/fabric/security/security-overview#audit-logs) and use [Microsoft Purview Compliance Manager](/purview/compliance-manager-alert-policies) to detect and respond to policy violations.
 
 ### Cost Optimization
@@ -278,8 +277,8 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 The deployment pattern you choose directly affects your cost structure. Use [Fabric pricing](https://azure.microsoft.com/pricing/details/microsoft-fabric/) and the [Fabric capacity estimator](https://www.microsoft.com/microsoft-fabric/capacity-estimator) to model costs for your scenario.
 
 - **Capacity sizing**: Right-size your F SKU based on actual workload demand. Start with a smaller SKU and scale up as needed. Use the [Fabric capacity metrics app](/fabric/enterprise/metrics-app) to monitor consumption and identify over-provisioned or under-provisioned capacities.
-- **Capacity pausing**: F SKU capacities can be paused to stop billing when not in use. In development or test environments, pause capacities outside of working hours. Consider automation through Azure Resource Manager APIs or scheduled pipelines. Note that pausing makes all workloads unavailable (see Reliability).
-- **Single-capacity patterns (1 and 2)**: One capacity means one bill. Cost management is centralized, but you can't chargeback costs to individual business units because all workloads share the same capacity.
+- **Capacity pausing**: F SKU capacities can be paused to stop billing when not in use. In development or test environments, pause capacities outside of working hours. Consider automation through Azure Resource Manager APIs or scheduled pipelines. Important: Pausing makes all workloads unavailable (see Reliability).
+- **Single-capacity patterns (1 and 2)**: One capacity means one bill. Cost management is centralized, but chargeback to individual business units isn’t possible because all workloads share the same capacity.
 - **Multi-capacity patterns (3 and 4)**: Each capacity generates its own Azure billing meter. You can chargeback costs to the business unit responsible for each capacity. You can independently right-size or pause each capacity based on the workload it supports.
 - **OneLake storage**: OneLake storage is billed at a pay-as-you-go rate per GB and doesn't consume capacity units. Regularly delete unused data (including soft-deleted data) and monitor storage through the capacity metrics app.
 - **Spark compute**: For data engineering workloads, you can provision separate Spark pools to move compute outside of the provisioned CU budget. Monitor Spark CU consumption to avoid unexpected costs.
@@ -300,7 +299,7 @@ Performance Efficiency refers to your workload's ability to scale to meet user d
 
 - **Capacity sizing and scaling**: Each capacity has a fixed CU allocation determined by its SKU. When demand exceeds available CUs, Fabric applies [throttling](/fabric/enterprise/throttling) and queues requests. Monitor throttling events through the capacity metrics app and scale up the SKU or distribute workloads across multiple capacities as needed.
 - **Workload isolation**: In single-capacity patterns (1 and 2), all workloads compete for the same CUs. An expensive query or data pipeline can degrade interactive query performance for other users. In multi-capacity patterns (3 and 4), you can isolate performance-sensitive workloads on a dedicated capacity with a guaranteed CU allocation.
-- **Spark pools**: For data engineering workloads, provision [custom Spark pools](/fabric/data-engineering/create-custom-spark-pools) to control min/max node counts and enable autoscaling. Managed virtual networks disable Starter pools (pre-warmed shared clusters), which increases session start time from seconds to 3–5 minutes.
+- **Spark pools**: For data engineering workloads, provision [custom Spark pools](/fabric/data-engineering/create-custom-spark-pools) to control min/max node counts and enable autoscaling. Managed virtual networks disable Starter pools (prewarmed shared clusters), which increases session start time from seconds to 3–5 minutes.
 - **Multi-geo performance**: In Pattern 3, you can provision capacities in regions close to data producers or consumers, which reduces cross-region latency. OneLake shortcuts can reference data in other regions, but cross-region reads incur latency and egress costs.
 - **Optimization techniques**: Use [Z-Ordering and V-Ordering](/fabric/data-engineering/delta-optimization-and-v-order) for Lakehouses to improve scan performance. For Warehouses, optimize query patterns to read smaller batches. Implement [Direct Lake](/fabric/fundamentals/direct-lake-overview) mode for Power BI reports to reduce capacity load compared to Import mode.
 
