@@ -4,7 +4,7 @@ This article describes four deployment patterns that you can choose from when yo
 
 The following diagram shows the four-level hierarchy that defines all Fabric deployments:
 
-:::image type="content" source="../_images/fabric-deployment-patterns-conceptual-overview.png" alt-text="Diagram showing the Microsoft Fabric deployment hierarchy: M365 Tenant contains Capacities (region-bound), which contain Workspaces, which contain Items. Fabric Domains group workspaces logically across capacities, and OneLake provides unified storage across all levels." border="false":::
+:::image type="content" source="../_images/fabric-deployment-patterns-conceptual-overview.svg" alt-text="Diagram showing the Microsoft Fabric deployment hierarchy: M365 Tenant contains Capacities (region-bound), which contain Workspaces, which contain Items. Fabric Domains group workspaces logically across capacities, and OneLake provides unified storage across all levels." border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/fabric-deployment-patterns.vsdx) of this architecture.*
 
@@ -256,7 +256,7 @@ Fabric implements a layered security model that spans the tenant, workspace, and
 #### Identity and access
 
 - Use [Microsoft Entra Conditional Access](/entra/identity/conditional-access/overview) to enforce tenant-level authentication policies such as multifactor authentication, device compliance, and location-based restrictions. Conditional Access requires a Microsoft Entra ID P1 license.
-- Assign [workspace roles](/fabric/security/roles-workspaces) (Admin, Member, Contributor, Viewer) to control who can create, edit, and consume items within a workspace. In multi-workspace patterns (2, 3, and 4), use separate workspaces to enforce role boundaries between business units.
+- Assign [workspace roles](/fabric/fundamentals/roles-workspaces) (Admin, Member, Contributor, Viewer) to control who can create, edit, and consume items within a workspace. In multi-workspace patterns (2, 3, and 4), use separate workspaces to enforce role boundaries between business units.
 - Use [OneLake security roles](/fabric/onelake/security/get-started-security) (preview) to apply granular access control at the table, folder, column, and row level for users in the Viewer role. Admins, Members, and Contributors bypass these roles.
 
 #### Network security
