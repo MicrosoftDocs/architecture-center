@@ -74,7 +74,7 @@ The following diagram shows a typical flow:
 
 - Legacy clients might not support this pattern. In that case, you might need to place a façade over the asynchronous API to hide the asynchronous processing from the original client. For example, Azure Logic Apps supports this pattern natively and can be used as an integration layer between an asynchronous API and a client that makes synchronous calls. See [Perform long-running tasks with the polling action pattern](/azure/logic-apps/logic-apps-create-api-app#perform-long-running-tasks-with-the-polling-action-pattern).
 
-- In some scenarios, you might want to provide a way for clients to cancel a long-running request. In that case, the backend service must support some form of cancellation instruction.
+- In some scenarios, you might want to provide a way for clients to cancel a long-running request. In that case, expose a DELETE operation on the status endpoint resource. This request should forward a cancellation instruction to the backend processing component. After the backend handles the cancellation, it should update the status resource to reflect the cancelled state. This process helps prevent incomplete work from consuming resources indefinitely. Consider whether the operation supports partial rollback or is best treated as a compensating transaction.
 
 ## When to use this pattern
 
