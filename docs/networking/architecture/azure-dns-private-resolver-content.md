@@ -117,7 +117,7 @@ The following diagram shows the traffic flow that results when VM 1 issues a DNS
    The image includes two main sections. The On-premises section contains the on-premises server, Windows desktops, App 1, App 2, App 3, and servers and their IP addresses. Azure ExpressRoute connects the On-premises section to the site-to site or Azure ExpressRoute gateway in the Azure section. The Azure section contains the inbound and outbound endpoints inside the gateway section, Azure DNS, Azure private DNS, Azure DNS Private Resolver, Azure provisioned DNS sections that contain a spoke and a VM. These sections connect via DNS forwarding virtual network link to the DNS forwarding rule set. A dotted line connects this section to the outbound endpoint.
 :::image-end:::
 
-1. VM 1 queries a DNS record. The spoke virtual networks are configured to use the name resolution that Azure provides. As a result, Azure DNS is used to resolve the DNS query.
+1. VM 1 or VM 2 queries a DNS record. The spoke virtual networks are configured to use the name resolution that Azure provides. As a result, Azure DNS is used to resolve the DNS query.
 
 1. If the query attempts to resolve a private name, the Azure private DNS service is contacted.
 
@@ -131,13 +131,13 @@ Each DNS forwarding rule specifies one or more target DNS servers to use for con
 
 #### Traffic flow for a VM DNS query via DNS Private Resolver (Centralized)
 
-The following diagram shows the traffic flow that results when VM 1 issues a DNS request via a DNS Private Resolver inbound endpoint. In this scenario, the Spoke 1 spoke virtual network attempts to resolve the request.
+The following diagram shows the traffic flow that results when VM 1 or VM 2 issues a DNS request via a DNS Private Resolver inbound endpoint. In this scenario, the Spoke 1 spoke virtual network attempts to resolve the request.
 
 :::image type="complex" border="false" source="./_images/azure-dns-private-resolver-spoke-query-traffic-usecase-3.svg" alt-text="Architecture diagram that shows traffic with DNS Private Resolver when a spoke VM issues a DNS request." lightbox="./_images/azure-dns-private-resolver-spoke-query-traffic-usecase-3.svg":::
    The image includes two main sections. The On-premises section contains the on-premises server, Windows desktops, App 1, App 2, App 3, and servers and their IP addresses. Azure ExpressRoute connects the On-premises section to the site-to site or Azure ExpressRoute gateway in the Azure section. The Azure section contains the inbound and outbound endpoints, Azure DNS, Azure Private DNS, Azure DNS Private Resolver, and DNS server sections that contain a spoke and a VM. A green arrow indicates the flow between the DNS server sections, the inbound endpoint, Azure DNS, and Azure private DNS. The DNS server sections also connect via the DNS forwarding virtual network link to the DNS forwarding rule set. A dotted line connects this section to the outbound endpoint.
 :::image-end:::
 
-1. VM 1 queries a DNS record. The spoke virtual networks are configured to use `10.0.0.8` as the name resolution DNS server. As a result, DNS Private Resolver is used to resolve the DNS query.
+1. VM 1 or VM 2 queries a DNS record. The spoke virtual networks are configured to use `10.0.0.8` as the name resolution DNS server. As a result, DNS Private Resolver is used to resolve the DNS query.
 
 1. If the query attempts to resolve a private name, the Azure private DNS service is contacted.
 
@@ -151,13 +151,13 @@ Each DNS forwarding rule specifies one or more target DNS servers to use for con
 
 #### Traffic flow for a VM DNS query via an on-premises DNS server
 
-The following diagram shows the traffic flow that results when VM 1 issues a DNS request via an on-premises DNS server. In this scenario, the Spoke 1 spoke virtual network attempts to resolve the request.
+The following diagram shows the traffic flow that results when VM 1 or VM 2 issues a DNS request via an on-premises DNS server. In this scenario, the Spoke 1 spoke virtual network attempts to resolve the request.
 
 :::image type="complex" border="false" source="./_images/azure-dns-private-resolver-spoke-query-traffic-usecase-4.svg" alt-text="Architecture diagram that shows name resolution traffic with DNS Private Resolver when a spoke VM issues a DNS request." lightbox="./_images/azure-dns-private-resolver-spoke-query-traffic-usecase-4.svg":::
    The image includes two main sections. The On-premises section contains the on-premises server, Windows desktops, App 1, App 2, App 3, and servers and their IP addresses. Azure ExpressRoute connects the On-premises section to the site-to site or Azure ExpressRoute gateway section located in the Azure section. The Azure section contains the inbound and outbound endpoints, Azure DNS, Azure Private DNS, Azure DNS Private Resolver, and DNS server sections that contain a spoke and a VM. The DNS server sections also connect via the DNS forwarding virtual network link to the DNS forwarding rule set. A purple arrow shows the flow of operations.
 :::image-end:::
 
-1. VM 1 queries a DNS record. The spoke virtual networks are configured to use `192.168.0.1/2` as the name resolution DNS server. As a result, an on-premises DNS server is used to resolve the DNS query. The request is sent to the local DNS server at IP address `192.168.0.1` or `192.168.0.2`.
+1. VM 1 or VM 2 queries a DNS record. The spoke virtual networks are configured to use `192.168.0.1/2` as the name resolution DNS server. As a result, an on-premises DNS server is used to resolve the DNS query. The request is sent to the local DNS server at IP address `192.168.0.1` or `192.168.0.2`.
 
 1. A conditional forwarder on the local DNS server for `blob.core.windows.net` forwards the request to the DNS resolver at IP address `10.0.0.8`.
 
@@ -167,13 +167,13 @@ The following diagram shows the traffic flow that results when VM 1 issues a DNS
 
 #### Traffic flow for a VM DNS query via DNS Private Resolver (nested DNS resolver)
 
-The following diagram shows the traffic flow that results when VM 1 issues a DNS request via a Hub DNS Private Resolver inbound endpoint. In this scenario, the Spoke 1 spoke virtual network attempts to resolve the request to the nested DNS resolver.
+The following diagram shows the traffic flow that results when VM 1 or VM 2 issues a DNS request via a Hub DNS Private Resolver inbound endpoint. In this scenario, the Spoke 1 spoke virtual network attempts to resolve the request to the nested DNS resolver.
 
 :::image type="complex" border="false" source="./_images/azure-dns-private-resolver-spoke-query-traffic-usecase-6.svg" alt-text="Architecture diagram that shows traffic with DNS Private Resolver when a spoke VM issues a DNS request." lightbox="./_images/azure-dns-private-resolver-spoke-query-traffic-usecase-6.svg":::
    The image includes two main sections. The On-premises section contains the on-premises server, Windows desktops, App 1, App 2, App 3, and servers and their IP addresses. Azure ExpressRoute connects the On-premises section to the site-to site or Azure ExpressRoute gateway in the Azure section. The Azure section contains the inbound and outbound endpoints, Azure DNS, Azure Private DNS, Azure DNS Private Resolver 1, Azure DNS Private Resolver 2 and DNS server sections that contain a spoke and a VM. A green arrow indicates the flow between the DNS server sections, the inbound endpoint, Azure DNS, and Azure private DNS. The DNS server sections also connect via the DNS forwarding virtual network link to the DNS forwarding rule set. A dotted line connects this section to the outbound endpoint.
 :::image-end:::
 
-1. VM 1 queries a DNS record. The spoke virtual networks are configured to use `10.0.0.8` as the name resolution DNS server. As a result, Hub DNS Private Resolver is used to resolve the DNS query.
+1. VM 1 or VM 2 queries a DNS record. The spoke virtual networks are configured to use `10.0.0.8` as the name resolution DNS server. As a result, Hub DNS Private Resolver is used to resolve the DNS query.
 
 1. If the query attempts to resolve a private name, the Azure private DNS service linked with hub resolver is contacted.
 
