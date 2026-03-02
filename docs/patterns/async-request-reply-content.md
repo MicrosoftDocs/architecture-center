@@ -131,7 +131,7 @@ The following code shows excerpts from an application that uses Azure Functions 
 - The status endpoint.
 - A backend function that takes queued work items and executes them.
 
-![Image of the structure of the Async Request Reply pattern in Functions](_images/async-request-fn.PNG)
+![Image of the structure of the Async Request Reply pattern in Functions](_images/async-request-fn.png)
 
 ![GitHub logo](../_images/github.png) This sample is available on [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/main/async-request-reply).
 
@@ -282,7 +282,8 @@ public class AsyncOperationStatusChecker(ILogger<AsyncOperationStatusChecker> _l
                         DateTimeOffset.UtcNow, DateTimeOffset.UtcNow.AddDays(7));
 
                     // Return 303 See Other to redirect the client to the result resource.
-                    req.HttpContext.Response.Headers.Location = inputBlob.GenerateSASURI(userDelegationKey);
+                    // GenerateUserDelegationSasUri is a custom helper; see the full implementation on GitHub.
+                    req.HttpContext.Response.Headers.Location = GenerateUserDelegationSasUri(inputBlob, userDelegationKey);;
                     return new StatusCodeResult(StatusCodes.Status303SeeOther);
                 }
 
