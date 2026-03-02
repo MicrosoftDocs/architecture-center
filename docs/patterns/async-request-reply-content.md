@@ -48,7 +48,7 @@ One solution to this problem is to use HTTP polling. Polling is useful to client
     | `createdAt` | The time the operation was accepted. | Helps clients detect stale or abandoned operations. |
     | `lastUpdatedAt` | The time the status was last updated. | Lets clients distinguish a stalled operation from one that is actively progressing. |
     | `percentComplete` | An optional progress indicator. | Useful when the backend can accurately estimate progress. |
-    | `error` | A structured error object when the status is `Failed`. | Consider using the [RFC 9457 (Problem Details for HTTP APIs)](https://www.rfc-editor.org/rfc/rfc9457) format for consistency. |
+    | `error` | A structured error object when the status is *Failed*. | Consider using the [RFC 9457 (Problem Details for HTTP APIs)](https://www.rfc-editor.org/rfc/rfc9457) format for consistency. |
 
 The following diagram shows a typical flow:
 
