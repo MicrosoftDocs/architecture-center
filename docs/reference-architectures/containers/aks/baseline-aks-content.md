@@ -922,7 +922,9 @@ Advanced deployment techniques, like [blue-green deployment](https://martinfowle
 
 ## Cost management
 
-Start by reviewing the cost optimization design checklist and list of recommendations outlined in [Well-Architected Framework for AKS](/azure/well-architected/service-guides/azure-kubernetes-service#cost-optimization). Use the [Azure pricing calculator](https://azure.com/e/16fc0fecb81e49ddadc91f2a0d0ecffc) to estimate costs for the services you use in the architecture. For other best practices, see [Cost Optimization](/azure/architecture/framework/cost/overview).
+Start by reviewing the cost optimization design checklist and list of recommendations outlined in [Well-Architected Framework for AKS](/azure/well-architected/service-guides/azure-kubernetes-service#cost-optimization). For general workload recommendations, see the [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+
+You can find a cost estimate for the components used in this baseline architecture in the [Azure pricing calculator](https://azure.com/e/16fc0fecb81e49ddadc91f2a0d0ecffc). Modify your estimate to include the components required for your use case.
 
 Consider using [AKS cost analysis](/azure/aks/cost-analysis) for granular cluster infrastructure cost allocation by Kubernetes-specific constructs.
 
