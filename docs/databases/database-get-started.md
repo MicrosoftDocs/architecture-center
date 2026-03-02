@@ -47,7 +47,7 @@ The following articles help you choose the best database technologies for your n
 
 **NoSQL**
 
-- [Use the Transactional Outbox pattern](../databases/guide/transactional-outbox-cosmos.yml)
+- [Use the Transactional Outbox pattern](../databases/guide/transactional-out-box-cosmos.yml)
 - [Run Apache Cassandra](../databases/guide/cassandra.md)
 
 **Data processing**
@@ -153,7 +153,7 @@ Review the following best practices when you design your database solutions.
 
 | Best practice | Description |
 |---------------|-------------|
-| [The Transactional Outbox pattern with Azure Cosmos DB](../databases/guide/transactional-outbox-cosmos.yml) | Learn how to use the Transactional Outbox pattern for reliable messaging and guaranteed delivery of events. |
+| [The Transactional Outbox pattern with Azure Cosmos DB](../databases/guide/transactional-out-box-cosmos.yml) | Learn how to use the Transactional Outbox pattern for reliable messaging and guaranteed delivery of events. |
 | [Distribute your data globally by using Azure Cosmos DB](/azure/cosmos-db/distribute-data-globally) | To achieve low latency and high availability, some applications need to be deployed in datacenters that are close to their users. |
 | [Security in Azure Cosmos DB](/azure/cosmos-db/database-security) | Security best practices help prevent, detect, and respond to database breaches. |
 | [Continuous backup with point-in-time restore in Azure Cosmos DB](/azure/cosmos-db/continuous-backup-restore-introduction) | Learn about Azure Cosmos DB point-in-time restore feature. |
