@@ -1,10 +1,12 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This article describes how to extend an existing Azure Service Bus–based message broker architecture with near real-time analytics by using Azure Data Explorer. The solution allows operational systems to remain optimized for transactional workloads while analytics queries run independently with minimal latency. This architecture is intended for IT administrators, cloud architects, and operations and monitoring teams.
+This article describes how to extend existing Azure Service Bus–based message broker architecture with near real-time analytics by using Azure Data Explorer. The solution allows operational systems to remain optimized for transactional workloads while analytics queries run independently with minimal latency. This architecture is intended for IT administrators, cloud architects, and operations and monitoring teams.
 
 ## Architecture
 
-:::image type="content" source="../media/analytics-service-bus.png" alt-text="Diagram that illustrates an architecture for implementing near real-time analytics." lightbox="../media/analytics-service-bus.png" border="false":::
+:::image type="complex" source="../media/analytics-service-bus.png" alt-text="Diagram that illustrates an architecture for implementing near real-time analytics." lightbox="../media/analytics-service-bus.png" border="false":::
+   Diagram that shows two data paths: a dotted line for the existing OLTP flow and a solid line for the new near real-time analytics flow. An OLTP application hosted in Azure App Service sends data to Azure Service Bus. From Service Bus, the dotted line path shows data triggering an Azure Functions app, which sends processed data to an operational database like Azure SQL Database or Azure Cosmos DB. The solid line path shows data flowing from Service Bus to Azure Data Explorer, either through an Azure Functions app or through a polling service hosted on Azure Kubernetes Service or an Azure VM. Azure Data Explorer also ingests or references data from Azure SQL Database and Azure Data Lake Storage. Applications and reporting services, including Azure Data Explorer dashboards, Power BI, and Azure Managed Grafana, query data from Azure Data Explorer for near real-time analytics.
+:::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/analytics-service-bus.vsdx) of this architecture.*
 
@@ -25,14 +27,13 @@ The diagram shows two data paths: dotted and solid. The dotted line path represe
 
 1. The orchestration flow sends data to **Azure Data Explorer** for near real-time analytics by using one of the following approaches:
 
-   - An **Azure Functions** app that uses SDKs to send data in micro batches or uses managed streaming ingestion when Azure Data Explorer is [configured for streaming ingestion](/azure/data-explorer/ingest-data-streaming).
+   - An **Azure Functions** app that uses SDKs to send data in micro batches, or uses managed streaming ingestion when Azure Data Explorer is [configured for streaming ingestion](/azure/data-explorer/ingest-data-streaming).
    
    - A polling service, like an application hosted on **Azure Kubernetes Service (AKS)** or an **Azure VM**, that sends data to Azure Data Explorer in micro batches. This option doesn’t require configuring streaming ingestion.
 
-1. Azure Data Explorer processes the data by using [schema mapping](/azure/data-explorer/kusto/management/mappings) and [update policies](/azure/data-explorer/kusto/management/updatepolicy). It makes the data available for interactive analytics and reporting through APIs, SDKs, or connectors. Azure Data Explorer also ingests or references data from other sources, like SQL Database or Azure Data Lake Storage.
+1. Azure Data Explorer processes the data by using [schema mapping](/azure/data-explorer/kusto/management/mappings) and [update policies](/azure/data-explorer/kusto/management/updatepolicy). Azure Data Explorer makes the data available for interactive analytics and reporting through APIs, SDKs, or connectors. Azure Data Explorer also ingests or references data from other sources, like SQL Database or Azure Data Lake Storage.
 
 1. Applications and custom services, and reporting services like [Azure Data Explorer dashboards](/azure/data-explorer/azure-data-explorer-dashboards), Power BI, and Azure Managed Grafana query data in Azure Data Explorer in near real-time.
-
 
 ### Components
 
@@ -40,9 +41,9 @@ The diagram shows two data paths: dotted and solid. The dotted line path represe
 
 - [Service Bus](/azure/well-architected/service-guides/service-bus/reliability) provides reliable cloud messaging as a service. In this architecture, Service Bus captures data generated at source and triggers the orchestration flow.
 
-- [SQL Database](/azure/well-architected/service-guides/azure-sql-database) is a fully managed SQL database that's built for the cloud. It provides automatic updates, provisioning, scaling, and backups. In this architecture, the SQL Database is an operational database that stores data output from the Functions app.
+- [SQL Database](/azure/well-architected/service-guides/azure-sql-database) is a fully managed SQL database that's built for the cloud. SQL Database provides automatic updates, provisioning, scaling, and backups. In this architecture, the SQL Database is an operational database that stores data output from the Functions app.
 
-- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, multimodel database for applications of any scale. Azure Cosmos DB, just like SQL Database, can also be used as an operational database to store data output from the Functions app.
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, multimodel database for applications of any scale. Azure Cosmos DB, like SQL Database, can also be used as an operational database to store data output from the Functions app.
 
 - [Azure Functions](/azure/well-architected/service-guides/azure-functions) is an event-driven, serverless compute platform. With Functions, you can deploy and operate at scale in the cloud and use triggers and bindings to integrate services. In this architecture, Azure Functions is used to send data to an operational database via an orchestration flow or directly to Azure Data Explorer.
 
