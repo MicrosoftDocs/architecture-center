@@ -47,7 +47,7 @@ The following articles help you choose the best database technologies for your n
 
 **NoSQL**
 
-- [Use the Transactional Outbox pattern](../databases/guide/transactional-out-box-cosmos.yml)
+- [Use the Transactional Outbox pattern](../databases/guide/transactional-out-box-cosmos.md)
 - [Run Apache Cassandra](../databases/guide/cassandra.md)
 
 **Data processing**
@@ -124,17 +124,19 @@ The following articles help you choose the best database technologies for your n
 The following resources provide foundational knowledge for database implementations on Azure:
 
 - [Explore Azure database and analytics services](/training/modules/azure-database-fundamentals/)
-- [Choose a data storage approach in Azure](/training/modules/choose-storage-approach-in-azure/)
+- [Choose a data storage approach in Azure](/azure/storage/common/storage-account-overview)
 - [Deploy Azure SQL Database](/training/modules/deploy-azure-sql-database/)
 - [Secure your Azure SQL Database](/training/modules/secure-your-azure-sql-database/)
-- [Design your migration to Azure](/training/modules/design-your-migration-to-azure/)
+- [Design your migration to Azure](/data-migration/sql-server/database/guide)
 - [Browse Azure database modules](/training/browse/?products=azure&terms=database)
 
 ### Learning paths by role
 
 - **Data engineer**: [Azure data fundamentals: Explore relational data in Azure](/training/paths/azure-data-fundamentals-explore-relational-data/)
-- **Database administrator**: [Azure SQL fundamentals](/training/paths/azure-sql-fundamentals/)
+- **Database administrator**: [Implement scalable database solutions by using Azure SQL](/training/courses/dp-300t00)
 - **Developer**: [Work with Azure Cosmos DB](/training/paths/work-with-nosql-data-in-azure-cosmos-db/)
+
+For more role-based training, [browse other learning paths](/training/browse/?resource_type=learning%20path).
 
 ## Organizational readiness
 
@@ -153,7 +155,7 @@ Review the following best practices when you design your database solutions.
 
 | Best practice | Description |
 |---------------|-------------|
-| [The Transactional Outbox pattern with Azure Cosmos DB](../databases/guide/transactional-out-box-cosmos.yml) | Learn how to use the Transactional Outbox pattern for reliable messaging and guaranteed delivery of events. |
+| [The Transactional Outbox pattern with Azure Cosmos DB](../databases/guide/transactional-out-box-cosmos.md) | Learn how to use the Transactional Outbox pattern for reliable messaging and guaranteed delivery of events. |
 | [Distribute your data globally by using Azure Cosmos DB](/azure/cosmos-db/distribute-data-globally) | To achieve low latency and high availability, some applications need to be deployed in datacenters that are close to their users. |
 | [Security in Azure Cosmos DB](/azure/cosmos-db/database-security) | Security best practices help prevent, detect, and respond to database breaches. |
 | [Continuous backup with point-in-time restore in Azure Cosmos DB](/azure/cosmos-db/continuous-backup-restore-introduction) | Learn about Azure Cosmos DB point-in-time restore feature. |
