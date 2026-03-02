@@ -20,7 +20,6 @@ The reliability of the workload depends on several factors, including its capaci
 
 - **Scale out to handle spikes:** Failing over to Foundry Model instances with capacity when throttled is another client responsibility that you need to control through configuration and custom logic. Updating multiple client configurations for new Foundry Model instances presents greater risk and has timeliness concerns. The same is true for updating client code to implement changes in logic, such as directing low priority requests to a queue during high demand periods.
 
-<<<<<<< HEAD
 - **Throttling:** Foundry APIs throttle requests by returning an HTTP 429 error response code to requests that exceed the Token-Per-Minute (TPM) or Requests-Per-Minute (RPM) in the standard model. Foundry APIs also throttle requests that exceed provisioned capacity for the pre-provisioned billing model. Handling appropriate back-off and retry logic is left exclusively to client implementations.
 - **Throttling:** Azure OpenAI APIs throttle requests by returning an HTTP 429 error response code to requests that exceed the Token-Per-Minute (TPM) or Requests-Per-Minute (RPM) in the standard model. Azure OpenAI APIs also throttle requests that exceed provisioned capacity for the pre-provisioned billing model. Client implementations are solely responsible for handling appropriate [back-off and retry logic](/azure/well-architected/design-guides/handle-transient-faults).
 
