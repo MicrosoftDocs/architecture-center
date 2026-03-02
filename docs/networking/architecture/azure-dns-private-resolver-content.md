@@ -307,7 +307,7 @@ The following resources provide information about how to create a DNS private re
 
 #### Reverse DNS support
 
-Reverse DNS is the process of resolving an IP address back to a hostname. Azure DNS Private Resolver is fully support reverse DNS when used together with Azure Private DNS zones. Traditionally, DNS records map a DNS name to an IP address. For example, `www.contoso.com` resolves to `42.3.10.170`. Reverse DNS performs the opposite function. It maps an IP address back to a DNS name. For example, the IP address `42.3.10.170` resolves to `www.contoso.com`.
+Reverse DNS is the process of resolving an IP address to its associated hostname. Azure DNS Private Resolver supports reverse DNS resolution when appropriate reverse lookup zones are configured within Azure Private DNS zones. Traditionally, DNS records map a DNS name to an IP address. For example, `www.contoso.com` resolves to `42.3.10.170`. Reverse DNS performs the opposite function. It maps an IP address back to a DNS name. For example, the IP address `42.3.10.170` resolves to `www.contoso.com`.
 
 For more information about Azure support for reverse DNS and how reverse DNS works, see [Overview of reverse DNS and support in Azure](/azure/dns/dns-reverse-dns-overview).
 
