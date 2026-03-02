@@ -295,7 +295,7 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-DNS Private Resolver is a fully managed Microsoft service that can handle millions of requests. Use a subnet address space between /28 and /24. For most users, /26 is most suitable. For more information, see [Subnet restrictions](/azure/dns/dns-private-resolver-overview#subnet-restrictions).
+Azure DNS Private Resolver is a fully managed, highly available service that exposes queries‑per‑second (QPS) metrics for monitoring. Its capacity and performance are automatically managed by the Azure platform. Ensure that each inbound or outbound endpoint is deployed in a dedicated subnet with a /28 or larger CIDR to provide sufficient IP addresses for scaling. For more information, see [Subnet restrictions](/azure/dns/dns-private-resolver-overview#subnet-restrictions).
 
 ### Networking
 
@@ -307,7 +307,7 @@ The following resources provide information about how to create a DNS private re
 
 #### Reverse DNS support
 
-Traditionally, DNS records map a DNS name to an IP address. For example, `www.contoso.com` resolves to `42.3.10.170`. Reverse DNS performs the opposite function. It maps an IP address back to a DNS name. For example, the IP address `42.3.10.170` resolves to `www.contoso.com`.
+Reverse DNS is the process of resolving an IP address back to a hostname. Azure DNS Private Resolver is fully support reverse DNS when used together with Azure Private DNS zones. Traditionally, DNS records map a DNS name to an IP address. For example, `www.contoso.com` resolves to `42.3.10.170`. Reverse DNS performs the opposite function. It maps an IP address back to a DNS name. For example, the IP address `42.3.10.170` resolves to `www.contoso.com`.
 
 For more information about Azure support for reverse DNS and how reverse DNS works, see [Overview of reverse DNS and support in Azure](/azure/dns/dns-reverse-dns-overview).
 
