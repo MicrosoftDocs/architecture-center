@@ -91,8 +91,6 @@ For data transfer scenarios, choose the right system for your needs by consideri
 
 The following tables summarize the key differences in capabilities.
 
-<!-- markdownlint-disable MD024 -->
-
 ### Physical transfer
 
 | Capability | The Azure Import/Export service | Data Box |

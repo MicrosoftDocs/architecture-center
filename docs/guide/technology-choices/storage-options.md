@@ -17,12 +17,8 @@ Storage capabilities are critical for supporting workloads and services that are
 
 Azure Storage is the Azure platform's managed service for providing cloud storage. Azure Storage is composed of several core services and supporting features. Storage in Azure is highly available, secure, durable, scalable, and redundant. Use these scenarios and considerations to choose Azure services and architectures. For more information, see [Azure Storage documentation](/azure/storage/).
 
-<!-- For each application or service you'll deploy to your landing zone environment, use the following decision tree as a starting point to help you determine your storage resources requirements:
-
-![Azure storage decision tree](../../_images/ready/storage-decision-tree.png)
--->
-
 ### Key questions
+
 Answer the following questions about your workloads to help make decisions about your storage needs:
 
 - **Do your workloads require disk storage to support the deployment of infrastructure as a service (IaaS) virtual machines?** [Azure Managed Disks](/azure/virtual-machines/managed-disks-overview) provide virtual disk capabilities for IaaS virtual machines.

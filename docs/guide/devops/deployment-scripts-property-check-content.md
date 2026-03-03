@@ -51,14 +51,6 @@ Because this environment is all deployed from a single file that uses Bicep modu
 
 The following excerpt from orchestration.bicep shows the use of **dependsOn**:
 
-<!--
-
-The following isn't currently supported in the architecture-center-pr repo:
-
-:::code language="bicep" source="~/azure-cae-bits/infra/samples/deployment-scripts-property-check/orchestration.bicep" range="57-68,98-134" highlight="110,125-127":::
-
--->
-
 ```Bicep
 @description('The API Version of the Azure Resource you wish to use to check a properties state.')
 param parAzResourceApiVersion string = '2022-01-01'
@@ -130,14 +122,6 @@ The following screenshot shows that, after more than 10 minutes of checking, the
 If the value doesn't become **Provisioned** after the maximum number of iterations, the script throws an exception, which signals to Resource Manager that the script resource failed. The Resource Manager deployment engine fails and stops the deployment, because the exception suggests that there's an issue with the Azure resource that requires troubleshooting.
 
 The Invoke-AzResourceStateCheck.ps1 script is as follows:
-
-<!--
-
-The following isn't currently supported in the architecture-center-pr repo:
-
-:::code language="powershell" source="~/azure-cae-bits/infra/samples/deployment-scripts-property-check/scripts/Invoke-AzResourceStateCheck.ps1" :::
-
--->
 
 ```Bicep
 [CmdletBinding()]

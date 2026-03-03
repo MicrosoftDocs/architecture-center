@@ -25,8 +25,6 @@ This architecture is suitable for hybrid applications where the traffic between 
 
 - [Hybrid network with VPN gateway](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz)
 
-<!-- markdownlint-disable MD024 -->
-
 ## Azure ExpressRoute connection
 
 [ExpressRoute](/azure/expressroute/) connections use a private, dedicated connection through a third-party connectivity provider. The private connection extends your on-premises network into Azure.
