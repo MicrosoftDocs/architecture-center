@@ -21,7 +21,7 @@ The diagram shows two data paths: dotted and solid. The dotted line path represe
 
 1. Data flows from Azure Service Bus in two directions: 
 
-    a. In the existing online analytical processing application flow, it triggers an **Azure Functions** app that processes data flowing from Azure Service Bus. The Functions app then sends the processed data to an operational database, like an **Azure SQL database** or **Azure Cosmos DB**. This flow is represented by the dotted line in the diagram.
+    a. In the existing OLTP application flow, it triggers an **Azure Functions** app that processes data flowing from Azure Service Bus. The Functions app then sends the processed data to an operational database, like an **Azure SQL database** or **Azure Cosmos DB**. This flow is represented by the dotted line in the diagram.
 
     b. In the near real-time analytics flow, data from Azure Service Bus is sent to **Azure Data Explorer** for analytics. This flow is represented by the solid line in the diagram.
 
@@ -33,7 +33,7 @@ The diagram shows two data paths: dotted and solid. The dotted line path represe
 
 1. Azure Data Explorer processes the data by using [schema mapping](/azure/data-explorer/kusto/management/mappings) and [update policies](/azure/data-explorer/kusto/management/updatepolicy). Azure Data Explorer makes the data available for interactive analytics and reporting through APIs, SDKs, or connectors. Azure Data Explorer also ingests or references data from other sources, like SQL Database or Azure Data Lake Storage.
 
-1. Applications and custom services, and reporting services like [Azure Data Explorer dashboards](/azure/data-explorer/azure-data-explorer-dashboards), Power BI, and Azure Managed Grafana query data in Azure Data Explorer in near real-time.
+1. Applications, custom services, and reporting services like [Azure Data Explorer dashboards](/azure/data-explorer/azure-data-explorer-dashboards), Power BI, and Azure Managed Grafana query data in Azure Data Explorer in near real-time.
 
 ### Components
 
