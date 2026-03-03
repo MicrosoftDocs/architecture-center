@@ -110,6 +110,88 @@ Operational Excellence covers the operations processes that deploy an applicatio
 - Deploy at least two [scale units](/azure/api-management/upgrade-and-scale) of API Management that are spread over two availability zones, per region. This method maximizes availability and performance.
 - If you use a DevOps tool, such as Azure DevOps or GitHub, then cloud-hosted agents or runners operate over the public internet. Since the API management in this architecture is set to an internal network, you'll need to use a DevOps agent that has access to the virtual network. The DevOps agent will help you deploy policies and other changes to the APIs in your architecture. These [CI/CD templates](/azure/api-management/devops-api-development-templates) can be used to break the process apart and to allow your development teams to deploy changes, per API. They're executed by the DevOps runners.
 
+## Architecture Considerations and Policy Behaviors
+
+Application Gateway with Web Application Firewall (WAF) is positioned in front of API Managment and handles all API traffic before it reaches the internal API Management instance. The intent is to add an edge-level security layer that inspects, filters, and routes client requests, while API Management focuses on API governance, transformation, and backend integration. Application Gateway can terminate TLS, evaluates WAF rules, and forwards traffic into the API Management subnet. API Management then applies its own policies as part of the API request pipeline. 
+
+However, this layered topology comes with behavioral implications for certain API Management policies: when TLS termination, routing decisions, or header/connection transformations occur at the Application Gateway boundary, the API Management policy engine may not see the original client attributes it expects. That can lead to policies behaving differently than when API Management is directly exposed. For example:
+- Client IP-based filtering: Policies such as <ip-filter> where you can allow or deny traffic based on source IP addresses will now see the Application Gateway’s private IP as the source, not the actual client address. As a result, the <ip-filter> policy needs to be carefully planned and managed to ensure the correct traffic is being filtered. 
+- Policy ordering and context assumptions: API Management policies expect to run against requests with certain headers, host names, or request characteristics. If Application Gateway rewrites headers (for routing, custom domains, or SSL offload), the context that downstream API Management policies rely on may not match what was defined in those policies. This can cause routing policies, validation, or transformation logic inside API Management to mismatch client intent.
+
+In essence, Application Gateway and API Management become two enforcement layers, and API Management’s view of incoming requests is one step removed from the original client context. This is not inherently wrong — the architecture assumes this separation — but it means you should avoid putting policies in API Management that depend on raw client attributes unless those attributes are preserved end-to-end.
+
+``` xml
+<policies>
+  <inbound>
+    <ip-filter action="allow">
+      <address-range from="203.0.113.0" to="203.0.113.255" />
+    </ip-filter>
+    …
+  </inbound>
+</policies>
+```
+
+If API Management is behind an Application Gateway that terminates TLS, the source IP seen by API Management is typically the Application Gateway’s private IP in the virtual network. API Management evaluates the <ip-filter> policy against that gateway IP — not the actual client IP. In this situation:
+- Clients in the allowed range might be blocked because API Management sees only the gateway address.
+- Clients outside the allowed range might be accepted because Application Gateway forwarded the request on their behalf.
+
+This doesn’t break the architecture, but it changes the effect of the policy because the policy engine no longer has full visibility into the un-proxied request details that were assumed when the policy was authored.
+
+Careful planning is required when defining policies that depend on client-side context in designs where a terminating gateway is fronting API Management.
+
+Additionally here is a sample policy that will allow for IP filtering and is an alternative to the built in <ip-filter> existing policy
+``` xml
+<policies>
+  <inbound>
+    <base />
+
+    <!--
+      Extract the first (original) IP from X-Forwarded-For.
+      If there is no header, fall back to context.Request.IpAddress.
+    -->
+    <set-variable name="clientIpFromXff" value="
+      @{
+          // Grab the header (or empty string if missing)
+          var xff = context.Request.Headers.GetValueOrDefault("X-Forwarded-For", "");
+          if (string.IsNullOrEmpty(xff))
+          {
+              return context.Request.IpAddress;
+          }
+          // If multiple IPs exist, take the first one
+          var firstIp = xff.Split(',')[0].Trim();
+          return firstIp;
+      }
+    " />
+
+    <!--
+      Enforce IP allow list based on the extracted IP.
+      Replace 203.0.113.0/24 with your allowed range/ip list.
+    -->
+    <choose>
+      <when condition="
+        @(!new [] { "203.0.113.1", "203.0.113.2", "203.0.113.3" }
+          .Contains(context.Variables.GetValueOrDefault<string>("clientIpFromXff")))
+      ">
+        <return-response>
+          <set-status code="403" reason="Forbidden" />
+          <set-body>Forbidden: Your IP is not allowed.</set-body>
+        </return-response>
+      </when>
+    </choose>
+
+    <!-- Continue normal execution -->
+  </inbound>
+  <backend>
+    <base />
+  </backend>
+  <outbound>
+    <base />
+  </outbound>
+  <on-error>
+    <base />
+  </on-error>
+</policies>
+```
 ## Deploy this scenario
 
 This architecture is available on [GitHub](https://github.com/Azure/apim-landing-zone-accelerator). It contains all the necessary infrastructure-as-code files and the [deployment instructions](https://github.com/Azure/apim-landing-zone-accelerator/blob/main/scenarios/apim-baseline/bicep/README.md).
