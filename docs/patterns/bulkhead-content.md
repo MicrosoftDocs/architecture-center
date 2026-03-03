@@ -41,7 +41,7 @@ Consider the following points as you decide how to implement this pattern:
 - Services that communicate using asynchronous messages can be isolated through different sets of queues. Each queue can have a dedicated set of instances processing messages on the queue, or a single group of instances using an algorithm to dequeue and dispatch processing.
 - Determine the level of granularity for the bulkheads. For example, if you want to distribute tenants across partitions, you could place each tenant into a separate partition, or put several tenants into one partition.
 - Monitor each partition's performance and SLA.
-- Take into account the platform's built‑in isolation and throttling capabilities (for example, APIM rate limits, Functions concurrency, Cosmos DB RU isolation, and container-level CPU/memory limits in AKS or Azure Container Apps) and take advantage of them instead of re‑implementing similar mechanisms in application code.
+- Leverage built-in platform controls-such as APIM rate limits, Cosmos DB RU isolation, and resource limits in AKS or Azure Container Apps-rather than recreating these throttling and isolation mechanisms within your application code.
 - AI and inference workloads often require strict bulkheads due to deployment‑level quotas and concurrency limits (for example, isolating Azure OpenAI deployments per workload or tenant).
 
 
