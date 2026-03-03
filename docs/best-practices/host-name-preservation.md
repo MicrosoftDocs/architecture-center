@@ -12,12 +12,12 @@ ms.custom: arb-web
 
 # Preserve the original HTTP host name between a reverse proxy and its back-end web application
 
-We recommend that you preserve the original HTTP host name when you use a reverse proxy in front of a web application. If you use a different host name at the reverse proxy, cookies or redirect URLs might not work properly. For example, session state might get lost, authentication might fail, or back-end URLs might inadvertently be exposed to users. By preserving the host name of the initial request, the application server sees the same domain as the web browser.
+We recommend that you preserve the original HTTP host name when you use a reverse proxy in front of a web application. If you use a different host name at the reverse proxy than the one that's provided to the back-end application server can cause cookies or redirect URLs to not work properly. For example, session state might get lost, authentication might fail, or back-end URLs might inadvertently be exposed to users. You avoid these problems by preserving the host name of the initial request, so the application server sees the same domain as the web browser.
 
 This guidance applies especially to applications that are hosted in platform as a service (PaaS) offerings like [Azure App Service](/azure/app-service) and [Azure Container Apps](/azure/container-apps). This article provides specific [implementation guidance](#implementation-guidance-for-common-azure-services) for commonly used reverse proxy services, including [Azure Application Gateway](/azure/application-gateway), [Azure Front Door](/azure/frontdoor), and [Azure API Management](/azure/api-management).
 
 > [!NOTE]
-> Web APIs are less sensitive to host name mismatches. Web APIs don't usually depend on cookies unless you [use cookies to secure communications between a single-page app and its back-end API](https://auth0.com/docs/manage-users/cookies/spa-authenticate-with-cookies), for example, in the [Backends for Frontends pattern](/azure/architecture/patterns/backends-for-frontends). Web APIs often don't return absolute URLs back to themselves, except in certain API styles, like [Open Data Protocol (OData)](https://www.odata.org/) and [HATEOAS](https://wikipedia.org/wiki/HATEOAS). The guidance provided in this article applies in scenarios where your API implementation depends on cookies or generates absolute URLs.
+> Web APIs are less sensitive to host name mismatches. Web APIs don't usually depend on cookies unless you [use cookies to secure communications between a single-page app and its back-end API](https://auth0.com/docs/manage-users/cookies/spa-authenticate-with-cookies), for example, in the [Backends for Frontends pattern](/azure/architecture/patterns/backends-for-frontends). Web APIs often don't return absolute URLs back to themselves, except in certain API styles, like [Open Data Protocol (OData)](https://www.odata.org/) and [HATEOAS](https://wikipedia.org/wiki/HATEOAS). The guidance provided in this article does apply in scenarios where your API implementation depends on cookies or generates absolute URLs.
 
 If you require end-to-end Transport Layer Security/Secure Sockets Layer (TLS/SSL), or the connection between the reverse proxy and the back-end service uses HTTPS, the back-end service also needs a matching TLS certificate for the original host name. This requirement adds operational complexity when you deploy and renew certificates, but many PaaS services provide free TLS certificates that are fully managed.
 
@@ -54,13 +54,13 @@ Application servers might need the host name to construct absolute URLs or to is
 
 - Issue HTTP cookies that are restricted to a specific host, as defined in the cookie's [`Domain` attribute](https://datatracker.ietf.org/doc/html/rfc6265#section-5.2.3).
 
-Meet these requirements by adding the expected host name to the application's configuration and by using that statically defined value instead of the incoming host name on the request. But this approach complicates application development and deployment. Also, a single installation of the application can serve multiple hosts. For example, a single web app can be used for multiple application tenants that have their own unique host names, like `tenant1.contoso.com` and `tenant2.contoso.com`.
+You could meet all these requirements by adding the expected host name to the application's configuration and by using that statically defined value instead of the incoming host name on the request. But this approach complicates application development and deployment. Also, a single installation of the application can serve multiple hosts. For example, a single web app can be used for multiple application tenants that have their own unique host names, like `tenant1.contoso.com` and `tenant2.contoso.com`.
 
 Sometimes the incoming host name is used by components outside the application code or in middleware on the application server, and you might not have full control. Here are some examples:
 
-- In App Service, [enforce HTTPS](/azure/app-service/configure-common#configure-general-settings) for your web app. This approach redirects unsecured HTTP requests to HTTPS. In this case, the incoming host name is used to generate the absolute URL for the HTTP redirect's `Location` header.
+- In App Service, you can [enforce HTTPS](/azure/app-service/configure-common#configure-general-settings) for your web app. This approach redirects unsecured HTTP requests to HTTPS. In this case, the incoming host name is used to generate the absolute URL for the HTTP redirect's `Location` header.
 
-- Container Apps can [redirect HTTP requests to HTTPS](/azure/container-apps/ingress-how-to) and use the incoming host to generate the HTTPS URL.
+- Container Apps can also [redirect HTTP requests to HTTPS](/azure/container-apps/ingress-how-to) and it too uses the incoming host to generate the HTTPS URL.
 
 - App Service has an [ARR affinity setting](/azure/app-service/configure-common#configure-general-settings) that provides sticky sessions, which ensure that requests from the same browser session route to the same back-end server. The App Service front ends add a cookie to the HTTP response. The cookie's `Domain` is set to the incoming host.
 
@@ -68,9 +68,9 @@ Sometimes the incoming host name is used by components outside the application c
   - The incoming host name is used to construct the redirect URL, which indicates where the identity provider returns the user after authentication.
   - When you turn this feature on, it also turns on [HTTP-to-HTTPS redirection](/azure/app-service/overview-authentication-authorization#considerations-for-using-built-in-authentication). The incoming host name is used to generate the redirect location.
 
-## Reasons to override the host name
+## Overriding the host name is not the solution
 
-When you create a web application in App Service, or a similar service like Container Apps, with a default domain of `contoso.azurewebsites.net`, you don't configure a custom domain on App Service. To put a reverse proxy, like Application Gateway, in front of this application, you set the DNS record for `contoso.com` to resolve to the IP address of Application Gateway. Application Gateway receives the request for `contoso.com` from the browser and forwards it to the App Service endpoint at `contoso.azurewebsites.net`. App Service is the final back-end service for the requested host. App Service doesn't recognize the `contoso.com` custom domain, so it rejects all incoming requests for this host name. It can't determine where to route the request.
+Say you create a web application in App Service, or a similar service like Container Apps. The host comes with a default domain of `contoso.azurewebsites.net.` However, you haven't yet configured a custom domain on App Service. To put a reverse proxy, like Application Gateway, in front of this application, you set the DNS record for `contoso.com` to resolve to the IP address of Application Gateway. The reverse proxy receives the request for `contoso.com` from the browser and forwards it to the App Service endpoint at `contoso.azurewebsites.net`. App Service is the final back-end service for the requested host. App Service doesn't recognize the `contoso.com` custom domain, so it rejects all incoming requests for this host name. It can't determine where to route the request.
 
 To make this configuration work, you might consider overriding or rewriting the `Host` header of the HTTP request in Application Gateway and setting it to the value of `contoso.azurewebsites.net`. But if you do this approach, the outgoing request from Application Gateway makes it appear like the original request is intended for `contoso.azurewebsites.net` instead of `contoso.com`.
 
@@ -119,7 +119,7 @@ A more specific case of the previous scenario occurs when absolute redirect URLs
 
 1. The browser goes to the identity provider to authenticate the user. The request includes the generated redirect URL to indicate where to return the user after successful authentication.
 
-1. Identity providers typically require redirect URLs to be registered up front. The identity provider should reject the request because the provided redirect URL isn't registered. If the redirect URL is registered, the identity provider redirects the browser to the redirect URL that's specified in the authentication request. In this case, the URL is `https://contoso.azurewebsites.net/`.
+1. Identity providers typically require redirect URLs to be registered up front. The identity provider should reject the request because the provided redirect URL isn't registered. If the redirect URL was mistakenly registered, the identity provider redirects the browser to the redirect URL that's specified in the authentication request. In this case, the URL is `https://contoso.azurewebsites.net/`.
 
 1. The browser follows this URL, which goes directly to the back-end service rather than back to the reverse proxy.
 
@@ -185,7 +185,7 @@ If you use Azure Front Door, preserve the host name by leaving the [origin host 
 
 #### API Management
 
-By default, API Management overrides the host name that's sent to the back end with the host component of the API's web service URL, which corresponds to the `serviceUrl` value of the [Resource Manager definition of the API](/azure/templates/microsoft.apimanagement/service/apis). Instead, force API Management to use the host name of the incoming request by adding an `inbound` [Set header](/azure/api-management/set-header-policy) policy, as follows:
+By default, API Management overrides the host name that's sent to the back end with the host component of the API's web service URL, which corresponds to the `serviceUrl` value of the [Resource Manager definition of the API](/azure/templates/microsoft.apimanagement/service/apis). Instead, force API Management to use the host name of the incoming request by adding an `inbound` [set header](/azure/api-management/set-header-policy) policy:
 
 ```xml
 <inbound>
@@ -200,9 +200,9 @@ APIs are less sensitive to the problems caused by host name mismatches, so this 
 
 ## Application configuration
 
-Even when you preserve the original host name at the reverse proxy level, the reverse proxy still terminates the client's TLS connection. The new connection that the proxy establishes to the back end loses the original client IP address and HTTPS scheme. These values are typically forwarded through commonly used HTTP headers: `X-Forwarded-For` for the client IP address, `X-Forwarded-Proto` for the original scheme, and `X-Forwarded-Host` for the original host name. Your application must be configured to read these headers so that it can correctly determine the request scheme, client address, and original host information.
+Even when you preserve the original host name at the reverse proxy level, the reverse proxy still terminates the client's TLS connection. The new connection that the proxy establishes to the back end loses the original client IP address and HTTPS scheme. These values are typically forwarded through commonly used HTTP headers. Examples include `X-Forwarded-For` for the client IP address, `X-Forwarded-Proto` for the original scheme, and `X-Forwarded-Host` for the original host name. Your application must be configured to read these headers so that it can correctly determine the request scheme, client address, and original host information.
 
-If your application framework doesn't process `X-Forwarded-Proto`, the application treats the back-end connection as plain HTTP, even though the end user connected over HTTPS. That misperception is the most common cause of infinite HTTP-to-HTTPS redirect loops. It can also result in insecure cookie flags or mixed-content errors.
+If your application framework doesn't process `X-Forwarded-Proto`, the application treats the back-end connection as plain HTTP, even though the user connects over HTTPS. That misperception is the most common cause of infinite HTTP-to-HTTPS redirect loops. It can also result in insecure cookie flags or mixed-content errors.
 
 Most web frameworks have a mechanism to process forwarded headers. Review your framework's documentation and configure it appropriately. The following examples cover common frameworks:
 
