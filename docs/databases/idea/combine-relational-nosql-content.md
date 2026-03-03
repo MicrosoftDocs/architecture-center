@@ -1,10 +1,19 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This article describes a polyglot persistence architecture that uses Azure Cosmos DB and Azure SQL Database together. Each database handles the workload type it's designed for: Azure SQL Database manages structured, transactional data that requires relational integrity, and Azure Cosmos DB handles high-volume, schema-flexible, or globally distributed data that requires low-latency access. A domain-driven microservices approach allows each service to use the database that matches its data characteristics.
+This article describes a polyglot persistence architecture that uses Azure Cosmos DB and Azure SQL Database together. 
+
+Each database is selected based on its characteristics to handle specific workload types: 
+
+* **Azure SQL Database** manages structured, transactional data that requires relational integrity
+* **Azure Cosmos DB** handles high-volume, schema-flexible, or globally distributed data that requires low-latency access
+
+A domain-driven microservices approach allows each service to use the database that matches its data characteristics.
 
 ## Architecture
 
-![Diagram that shows a polyglot persistence architecture where domain-driven microservices use Azure Cosmos DB or Azure SQL Database based on data requirements.](./media/combine-relational-nosql/unified-solution-diagram.png)
+:::image type="complex" source="media/combine-relational-nosql/unified-solution-diagram.png" border="false" lightbox="media/combine-relational-nosql/unified-solution-diagram.png" alt-text="Diagram that shows a polyglot persistence architecture where domain-driven microservices use Azure Cosmos DB or Azure SQL Database by data requirements.":::
+Diagram of an e-commerce polyglot persistence architecture. Users access the system through web and mobile clients, which connect to an Azure API Management gateway. The gateway routes requests to a microservices layer containing seven domain-driven services connected by bidirectional arrows: User Profile, User Session, ProductCatalog, Shopping Cart, Order Management, Inventory, and Payments. Each microservice connects to a dedicated database chosen by data requirements. The first four services use Azure Cosmos DB: Profile, Session State, Product Catalog, and Shopping Cart. Azure Cosmos DB is selected for flexible schemas, elastic scaling, and millisecond latency. The last three services use Azure SQL Database: Order Management, Inventory, and Payment. Azure SQL Database is selected for ACID compliance, relational queries, and transactional integrity.
+:::image-end:::
 
 ### Dataflow
 
@@ -15,7 +24,7 @@ This article describes a polyglot persistence architecture that uses Azure Cosmo
 
 ### Components
 
-- [Azure API Management](/azure/well-architected/service-guides/azure-api-management) is a hybrid, multicloud management platform for APIs. In this architecture, it provides a unified entry point that routes client requests to the appropriate domain microservices.
+- [Azure API Management](/azure/well-architected/service-guides/azure-api-management) is a management platform for APIs. In this architecture, it provides a unified entry point that routes client requests to the appropriate domain microservices.
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, multi-model database that enables your applications to elastically and independently scale throughput and storage. In this architecture, it stores data for workloads that require flexible schemas, low-latency access, horizontal scalability, or global distribution. Examples include user profiles, session state, product catalogs, and shopping carts.
 
@@ -29,17 +38,17 @@ A polyglot persistence strategy assigns each data workload to the database techn
 
 - **Independent scalability.** Each database scales according to its workload. Azure Cosmos DB handles read/write bursts of millions of operations per second with guaranteed low latency. Azure SQL Database efficiently processes complex transactional queries and scales predictably.
 - **Appropriate data modeling.** Azure SQL Database provides fixed schemas, foreign keys, and joins for data that has well-defined relationships. Azure Cosmos DB provides schema-agnostic storage with automatic indexing for data that evolves frequently.
-- **Global data distribution.** Azure Cosmos DB provides automatic multi-region replication with a 99.999% read availability SLA for workloads that require low-latency data access worldwide. Azure SQL Database provides geo-replication for read scenarios.
+- **Global data distribution.** Azure Cosmos DB provides automatic multi-region replication with a 99.999% read availability service level agreement (SLA) for workloads that require low-latency data access worldwide. Azure SQL Database provides geo-replication for read scenarios.
 - **Optimized cost allocation.** Each service uses its own pricing model. Azure SQL Database offers predictable pricing for steady transactional workloads. Azure Cosmos DB offers pay-per-request throughput for highly dynamic or spiky workloads. Segregating tasks avoids over-provisioning a single system.
-- **Shared capacity for multi-tenant workloads.** Both services support shared capacity deployment models. Azure SQL Database provides elastic pools for consolidating databases across tenants. Azure Cosmos DB provides fleet pools for efficient multi-tenant resource sharing. These options maintain isolation while reducing per-tenant costs.
+- **Shared capacity for multi-tenant workloads.** Both services support shared capacity deployment models. Azure SQL Database provides elastic pools for consolidating databases across tenants. Azure Cosmos DB provides fleet pools for efficient multitenant resource sharing. These options maintain isolation while reducing per-tenant costs.
 
 ### Potential use cases
 
 This architecture is appropriate for applications that handle multiple data workload types with different consistency, scalability, and schema requirements:
 
-- **SaaS platforms.** Multi-tenant applications that store per-tenant relational data in Azure SQL Database and shared, globally replicated metadata or user session content in Azure Cosmos DB.
+- **SaaS platforms.** Multitenant applications that store per-tenant relational data in Azure SQL Database and shared, globally replicated metadata or user session content in Azure Cosmos DB.
 - **E-commerce and retail.** Applications that use Azure SQL Database for customer accounts, orders, and inventory, and Azure Cosmos DB for product catalogs, personalization, and real-time session data.
-- **Healthcare and IoT.** Systems that ingest high-volume telemetry or sensor data into Azure Cosmos DB and store aggregated results, reference data, or final reports in Azure SQL Database.
+- **Healthcare and IoT.** Systems that ingest high-volume metrics or sensor data into Azure Cosmos DB and store aggregated results, reference data, or final reports in Azure SQL Database.
 - **Financial services.** Payment and trading platforms that use Azure SQL Database for transactional integrity over financial records and Azure Cosmos DB for globally distributed, low-latency access to portfolio or operational data.
 - **AI-enhanced applications.** Solutions that use Azure SQL Database for relational records of transactions and agreements, and Azure Cosmos DB for storing AI-generated metadata, chat sessions, or contextual artifacts that require flexible schema and fast access.
 
@@ -60,9 +69,9 @@ Reliability helps ensure that your application can meet the commitments you make
 Cost Optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 - Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for both services.
-- Azure SQL Database offers [serverless](/azure/azure-sql/database/serverless-tier-overview) and [provisioned](/azure/azure-sql/database/service-tiers-sql-database-vcore) compute tiers. Choose serverless for intermittent, unpredictable transactional workloads and provisioned for steady workloads.
+- Azure SQL Database offers [serverless](/azure/azure-sql/database/serverless-tier-overview) and [provisioned](/azure/azure-sql/database/service-tiers-sql-database-vcore) compute tiers. Choose serverless for intermittent, unpredictable transactional workloads. Alternatively, choose provisioned for steady workloads.
 - Azure Cosmos DB offers [provisioned throughput](/azure/cosmos-db/set-throughput) and [serverless](/azure/cosmos-db/throughput-serverless) modes. Use serverless for development and low-traffic workloads, and provisioned throughput with autoscale for production workloads with variable demand.
-- Segregate workloads by data characteristics to avoid over-provisioning. Placing high-volume NoSQL reads in Azure Cosmos DB and complex transactional queries in Azure SQL Database allows each service to operate within its optimal cost profile.
+- Avoid over-provisioning by segregating workloads by data characteristics. Placing high-volume NoSQL reads in Azure Cosmos DB and complex transactional queries in Azure SQL Database allows each service to operate within its optimal cost profile.
 
 ## Related content
 
