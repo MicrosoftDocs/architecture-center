@@ -123,7 +123,7 @@ If the value doesn't become **Provisioned** after the maximum number of iteratio
 
 The Invoke-AzResourceStateCheck.ps1 script is as follows:
 
-```Bicep
+```powershell
 [CmdletBinding()]
 param (
   [string]
