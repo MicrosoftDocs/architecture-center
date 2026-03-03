@@ -3,7 +3,7 @@ title: Architectural Approaches for AI and Machine Learning in Multitenant Solut
 description: Learn approaches for AI and machine learning multitenancy, including tenant isolation, model training, inference, and how to use Foundry Tools.
 author: PlagueHO
 ms.author: dascottr
-ms.date: 02/24/2025
+ms.date: 03/03/2026
 ms.update-cycle: 180-days
 ms.topic: concept-article
 ms.subservice: architecture-guide
