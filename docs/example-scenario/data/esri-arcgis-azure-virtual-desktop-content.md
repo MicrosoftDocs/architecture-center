@@ -138,7 +138,7 @@ You can test your system's latency by using the [Connection Experience Indicator
 
 Whether you're running your session host virtual machines on Remote Desktop Services or Azure Virtual Desktop, different types of workloads require different virtual machine configurations. The examples in this article are generic guidelines, and you should only use them for initial performance estimates. For the best possible experience, optimize and scale your deployment depending on your users' needs.
 
-ArcGIS Pro should use Windows 11 multisession VMs to provide additional flexibility and greater return on investment. It is necessary to allocate the appropriate VM types to give each user enough resources such as GPU, CPU, and RAM. Always consider the number of connections and limit the simultaneous user access to each VM to avoid oversaturation and hindering performance.
+ArcGIS Pro should use Windows 11 multisession VMs to provide additional flexibility and greater return on investment. It's necessary to allocate the appropriate VM types to give each user enough resources such as GPU, CPU, and RAM. Always consider the number of connections and limit the simultaneous user access to each VM to avoid oversaturation and hindering performance.
 
 ### Workloads
 
@@ -185,11 +185,11 @@ Principal authors:
 - [Matt Hallenborg](https://www.linkedin.com/in/matt-hallenborg/) | Senior Cloud Solution Architect
 - [Ron Vincent](https://www.linkedin.com/in/ron-vincent-8958145/) | Senior Program Manager
 
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
-- You can use the [ArcGIS Pro for Mission Landing Zone](https://github.com/Azure/missionlz/tree/main/src/add-ons/arcgis-pro) to deploy ArcGIS Pro on Azure Virtual Desktop. The implementation in the repository includes SCCA-compliant infrastructure, GPU-enabled VMs, Azure NetApp Files, and FSLogix pre-configured for rapid proof-of-concept deployments.
+- You can use the [ArcGIS Pro for Mission Landing Zone](https://github.com/Azure/missionlz/tree/main/src/add-ons/arcgis-pro) to deploy ArcGIS Pro on Azure Virtual Desktop. The implementation in the repository includes SCCA-compliant infrastructure, GPU-enabled VMs, Azure NetApp Files, and FSLogix preconfigured for rapid proof-of-concept deployments.
 - You can use [ArcGIS Enterprise Builder](https://enterprise.arcgis.com/en/get-started/latest/windows/arcgis-enterprise-builder.htm) to set up a base ArcGIS Enterprise deployment on a single machine or multiple machines.
 
 ## Related resource
