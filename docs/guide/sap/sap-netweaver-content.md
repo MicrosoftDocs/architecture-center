@@ -349,7 +349,7 @@ To optimize inter-server communications, use [Accelerated Networking](/azure/vir
 
 To achieve high IOPS and disk throughput, follow the common practices in storage volume [performance optimization](/azure/virtual-machines/premium-storage-performance), which apply to Azure storage layout. For example, you can position multiple disks together to create a striped disk volume to improve I/O performance. Enabling the read cache on storage content that changes infrequently enhances the speed of data retrieval.
 
-[Premium SSD v2](/azure/virtual-machines/disks-types) provides higher performance than Premium SSDs and is less expensive. You can set a Premium SSD v2 disk to any supported size you prefer and make granular adjustments to the performance without downtime.
+[Premium SSD v2](/azure/virtual-machines/disks-types) provides more flexibility in choosing performance characteristics than Premium SSDs. You can set a Premium SSD v2 disk to any supported size you prefer and make granular adjustments to the performance without downtime.
 
 [Ultra Disk Storage](/azure/virtual-machines/disks-enable-ultra-ssd) is available for I/O-intensive applications. Where these disks are available, we recommend them over [Write Accelerator](/azure/virtual-machines/windows/how-to-enable-write-accelerator) premium storage. You can individually increase or decrease performance metrics like IOPS and MBps without needing to reboot.
 
