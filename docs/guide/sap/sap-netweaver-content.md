@@ -296,11 +296,10 @@ There are several payment options for VMs:
 
 - Consider using [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) if you can commit to using a VM over a one-year or three-year term. VM reservations can significantly reduce costs. You might pay as little as 72 percent of the cost of a pay-as-you-go service.
 
-Use [Azure spot VMs](/azure/virtual-machines/spot-vms) to run workloads that can be interrupted and don't require completion within a predetermined time frame or an SLA. Azure deploys spot VMs when there's available capacity and evicts them when it needs the capacity back. Costs that are associated with spot VMs are lower than for other VMs. Consider spot VMs for these workloads:
+Use [Azure spot VMs](/azure/virtual-machines/spot-vms) to run compute that can be interrupted and don't require completion within a predetermined time frame or an SLA. Azure deploys spot VMs when there's available capacity and evicts them when it needs the capacity back. Costs that are associated with spot VMs are lower than for other VMs. Consider spot VMs for cost savings in this architecture for:
 
-- High-performance computing scenarios, batch processing jobs, or visual rendering applications
-- Test environments, including continuous integration and continuous delivery workloads
-- Large-scale stateless applications
+- Part of your application servers in production environments where you do not have a service level objective (SLO).
+- Application servers in non-production environments, including supporting compute such as continuous integration and continuous delivery agents.
 
 Azure Reserved Virtual Machine Instances can reduce your total cost of ownership. You can combine Azure Reserved Virtual Machine Instances rates with a pay-as-you-go subscription to manage costs across predictable and variable workloads. For more information, see [Azure Reserved Virtual Machine Instances](/azure/virtual-machines/prepay-reserved-vm-instances).
 
