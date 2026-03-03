@@ -2,6 +2,9 @@
 
 This guide presents a set of proven practices for running SAP NetWeaver in a Windows environment, on Azure, with high availability. The database is AnyDB, the SAP term for any supported database management system (DBMS) besides SAP HANA.
 
+> [!IMPORTANT]
+> This architecture uses SAP NetWeaver. SAP NetWeaver is approaching the end of standard maintenance and is no longer recommended for new deployments. To transition your architecture to a successor product, see [Transitioning Architectures from SAP NetWeaver](https://architecture.learning.sap.com/docs/ref-arch/9a5f7b59dc).
+
 ## Architecture
 
 The following diagram shows SAP NetWeaver in a Windows environment.
@@ -205,7 +208,7 @@ An availability zone consists of one or more datacenters. This design improves w
 
 In [Azure regions](https://azure.microsoft.com/global-infrastructure/regions) that support multiple zones, at least three zones are available. But the maximum distance between datacenters in these zones isn't guaranteed. To deploy a multitier SAP system across zones, you need to know the network latency within a zone and across targeted zones. You also need to know how sensitive your deployed applications are to network latency.
 
-Take these [considerations](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones) into account when you decide to deploy resources across availability zones:
+Take these [considerations](/azure/sap/workloads/high-availability-zones) into account when you decide to deploy resources across availability zones:
 
 - Latency between VMs in one zone
 - Latency between VMs across chosen zones
@@ -227,7 +230,7 @@ If zone 1 goes offline, Central Services and the database services fail over to 
 
 #### DR considerations
 
-A DR here means that an entire region becomes unavaible, mainly thtough natural disaster like fire or flood. Every tier in the SAP application stack uses a different approach to provide DR protection. For DR strategies and implementation details, see [Disaster recovery overview and infrastructure guidelines for SAP workload](/azure/sap/workloads/disaster-recovery-overview-guide) and [Disaster recovery guidelines for SAP application](/azure/sap/workloads/disaster-recovery-sap-guide?tabs=linux).
+A DR here means that an entire region becomes unavaible, mainly through natural disaster like fire or flood. Every tier in the SAP application stack uses a different approach to provide DR protection. For DR strategies and implementation details, see [Disaster recovery overview and infrastructure guidelines for SAP workload](/azure/sap/workloads/disaster-recovery-overview-guide) and [Disaster recovery guidelines for SAP application](/azure/sap/workloads/disaster-recovery-sap-guide?tabs=linux).
 
 > [!NOTE]
 > If there's a regional, natural disaster that causes a large failover event for many Azure customers in one region, the target region's [resource capacity](/azure/site-recovery/azure-to-azure-common-questions#capacity) isn't guaranteed. Site Recovery continues to add features and capabilities. For the latest information about Azure-to-Azure replication, see the [support matrix](/azure/site-recovery/azure-to-azure-support-matrix).
