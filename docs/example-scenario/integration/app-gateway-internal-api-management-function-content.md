@@ -108,7 +108,7 @@ However, this layered topology comes with behavioral implications for certain AP
 
 Application Gateway and API Management become two enforcement layers, and API Management's view of incoming requests is one step removed from the original client context. You must avoid use policies in API Management that depend on raw client attributes unless those attributes are preserved end-to-end, and might need to create custom policies based off of the data available in the HTTP request.
 
-For some additional recommendations on how to preserve data such as host headers, see [Preserve the original HTTP host name between a reverse proxy and its back-end web application](/azure/architecture/best-practices/host-name-preservation)
+For some additional recommendations on how to preserve data such as host headers, see [Preserve the original HTTP host name between a reverse proxy and its back-end web application](/azure/architecture/best-practices/host-name-preservation).
 
 ### Cost Optimization
 
