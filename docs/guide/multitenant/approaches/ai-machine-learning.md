@@ -3,7 +3,7 @@ title: Architectural Approaches for AI and Machine Learning in Multitenant Solut
 description: Learn approaches for AI and machine learning multitenancy, including tenant isolation, model training, inference, and how to use Foundry Tools.
 author: PlagueHO
 ms.author: dascottr
-ms.date: 07/28/2025
+ms.date: 02/24/2025
 ms.update-cycle: 180-days
 ms.topic: concept-article
 ms.subservice: architecture-guide
@@ -17,7 +17,7 @@ An ever-increasing number of multitenant solutions are built around AI and machi
 
 Multitenant AI and machine learning architectures need to consider the requirements for data and models. These architectures also need to account for the compute resources required to train models and perform inference. It's important to consider how multitenant AI and machine learning models are deployed, distributed, and orchestrated, and to ensure that your solution is accurate, reliable, and scalable.
 
-Generative AI technologies powered by both large and small language models continue to gain popularity. As a result, organizations must establish effective operational practices and strategies for managing these models in production environments by adopting machine learning operations (MLOps) and generative AI operations (GenAIOps), sometimes known as *LLMOps*.
+Generative AI technologies powered by both large and small language models continue to gain popularity. As a result, organizations must establish effective operational practices and strategies for managing these models in production environments by adopting machine learning operations (MLOps) and generative AI operations (GenAIOps), previously known as *LLMOps*.
 
 ## Key considerations and requirements
 
@@ -129,7 +129,7 @@ Azure provides a set of services to enable AI and machine learning workloads. Th
 
 It's a good practice to try to use prebuilt AI and machine learning services when you can. For example, your organization might be starting to explore AI and machine learning and want to quickly integrate with a useful service. Or you might have basic requirements that don't require custom machine learning model training and development. Prebuilt machine learning services enable you to use inference without building and training your own models.
 
-Azure has several services that provide AI and machine learning technology across a range of domains. These domains include language understanding, speech recognition, knowledge, document and form recognition, and computer vision. Azure delivers prebuilt AI and machine learning services through [Foundry](https://azure.microsoft.com/products/ai-foundry), which is a unified AI application service. This service gives users access to various models, including [Azure OpenAI in Foundry Models](https://azure.microsoft.com/products/ai-services/openai-service). Azure also provides a set of standalone AI services, including [Azure AI Search](/azure/search/search-what-is-azure-search) and [Azure Document Intelligence in Foundry Tools](https://azure.microsoft.com/products/ai-services/ai-document-intelligence). Each service provides a simple interface for integration and a collection of pretrained and tested models. As managed services, they provide service-level agreements and require little configuration or ongoing management. You don't need to develop or test your own models to use these services.
+Azure has several services that provide AI and machine learning technology across a range of domains. These domains include language understanding, speech recognition, knowledge, document and form recognition, and computer vision. Azure delivers prebuilt AI and machine learning services through [Foundry](https://azure.microsoft.com/products/ai-foundry), which is a unified AI application service. This service gives users access to various models, including [Azure OpenAI in Foundry Models](https://azure.microsoft.com/products/ai-services/openai-service). Azure also provides a set of standalone AI services, including [Azure AI Search](/azure/search/search-what-is-azure-search), [Foundry IQ](azure/foundry/agents/concepts/what-is-foundry-iq) and [Azure Document Intelligence in Foundry Tools](https://azure.microsoft.com/products/ai-services/ai-document-intelligence). Many of these services provide a simple interface for integration of sophisticated AI functionalities. As managed services, they provide service-level agreements and require little configuration or ongoing management. You don't need to develop or test your own models to use these services.
 
 Many managed machine learning services don't require model training or data, so there's usually no tenant data isolation concerns. However, some managed AI and machine learning services do provide a model customization capability:
 
