@@ -23,6 +23,10 @@ items:
         items:
         - name: Minimal storage – change feed replication
           href: idea/minimal-storage-change-feed-replicate-data.yml
+      - name: Combine relational and NoSQL
+        items:
+        - name: Polyglot persistence with Azure Cosmos DB and Azure SQL Database
+          href: idea/combine-relational-nosql.yml
     - name: Design architectures
       items:
       - name: Data warehouse

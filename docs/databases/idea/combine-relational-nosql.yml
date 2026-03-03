@@ -1,0 +1,22 @@
+### YamlMime:Architecture
+metadata:
+  title: Polyglot persistence with Azure Cosmos DB and Azure SQL Database
+  description: Learn how to use Azure Cosmos DB and Azure SQL Database together in a polyglot persistence architecture that assigns each database to the workload it handles best.
+  author: nabilshams
+  ms.author: nasiddi
+  ms.date: 03/03/2026
+  ms.topic: solution-idea
+  ms.subservice: solution-idea
+  ms.custom: arb-data
+azureCategories:
+  - databases
+  - web
+products:
+  - azure-cosmos-db
+  - azure-sql-database
+  - azure-api-management
+name: Polyglot persistence with Azure Cosmos DB and Azure SQL Database
+summary: Learn how to use Azure Cosmos DB and Azure SQL Database together in a polyglot persistence architecture that assigns each database to the workload it handles best.
+thumbnailUrl: /azure/architecture/browse/thumbs/combine-relational-nosql.png
+content: |
+  [!INCLUDE[](combine-relational-nosql-content.md)]
