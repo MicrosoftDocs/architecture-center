@@ -86,11 +86,25 @@ Security provides assurances against deliberate attacks and the misuse of your v
 - Azure [Defender for APIs](/azure/defender-for-cloud/defender-for-apis-deploy) offers full lifecycle protection, detection, and response coverage for APIs that are published in Azure API Management. One of the main capabilities is the ability to detect exploits of the Open Web Application Security Project (OWASP) API Top 10 vulnerabilities through runtime observations of anomalies using machine learning-based and rule-based detections.
 - Azure API Management [Workspaces](/azure/api-management/workspaces-overview) help you organize and isolate your APIs, making it easier to control who can access and manage them. Each workspace can have its own set of permissions, so you can limit access to only the people or teams who need it. This separation reduces the risk of accidental changes or unauthorized access, supporting a more secure API environment.
 - [Apply named values with Key Vault secrets](/azure/api-management/api-management-howto-properties) to protect sensitive information in APIM policies.
-- Use [Application Gateway for external access of an internal APIM instance](/azure/api-management/api-management-howto-integrate-internal-vnet-appgateway) to protect APIM instance, provide protection against common web application exploits and vulnerabilities using WAF, and to enable hybrid connectivity. 
+- Use [Application Gateway for external access of an internal APIM instance](/azure/api-management/api-management-howto-integrate-internal-vnet-appgateway) to protect APIM instance, provide protection against common web application exploits and vulnerabilities using WAF, and to enable hybrid connectivity.
 - Deploy the API Management gateway in a VNet, to support hybrid connectivity and increased security.
 - VNet peering provides great performance in a region and enables private communication between virtual networks.
-- By utilizing a WAF, you introduce a layer that inspects incoming traffic for malicious behavior, helping to block common threats like SQL injection and cross-site scripting. Additionally, with DDoS protection, Application Gateway helps prevent the APIM instance from being overwhelmed by excessive traffic or connection floods. To review the process of how Application Gateway can protect your api's review the article [here](/azure/architecture/web-apps/api-management/architectures/protect-apis).
+- By utilizing a WAF, you introduce a layer that inspects incoming traffic for malicious behavior, helping to block common threats like SQL injection and cross-site scripting. Additionally, with DDoS protection, Application Gateway helps prevent the APIM instance from being overwhelmed by excessive traffic or connection floods. To review the process of how Application Gateway can protect your APIs, see [Protect APIs by using Application Gateway and API Management](/azure/architecture/web-apps/api-management/architectures/protect-apis).
 - Utilizing private endpoints for Azure Functions allows you to securely connect to your function apps over a private IP address within your virtual network. This setup prevents exposure of your functions to the public internet, reducing the risk of unauthorized access. By using private endpoints, in this architecture you ensure that only trusted resources within your network can access your Azure Functions.
+
+### Handling API Management policies behind a reverse proxy
+
+Application Gateway with Web Application Firewall (WAF) is positioned in front of API Managment and handles all API traffic before it reaches the internal API Management instance. The intent is to add an edge-level security layer that inspects, filters, and routes client requests, while API Management focuses on API governance, transformation, and backend integration.
+
+However, this layered topology comes with behavioral implications for certain API Management policies: when TLS termination, routing decisions, or header/connection transformations occur at the Application Gateway boundary, the API Management policy engine may not see the original client request details it expects. That can lead to policies behaving differently than when API Management is directly exposed. For example:
+
+- **Client IP-based filtering**: Policies such as `ip-filter` where you can allow or deny traffic based on source IP addresses will now see the Application Gateway’s private IP as the source, not the actual client address. As a result, the `ip-filter` policy needs to be carefully planned and managed to ensure the correct traffic is being filtered.
+
+- **Policy ordering and context assumptions**: API Management policies expect to run against requests with certain headers, host names, or request characteristics. If Application Gateway rewrites headers (for routing, custom domains, or SSL offload), the context that downstream API Management policies rely on may not match what was defined in those policies. This can cause routing policies, validation, or transformation logic inside API Management to mismatch client intent.
+
+Application Gateway and API Management become two enforcement layers, and API Management's view of incoming requests is one step removed from the original client context. You must avoid use policies in API Management that depend on raw client attributes unless those attributes are preserved end-to-end, and might need to create custom policies based off of the data available in the HTTP request.
+
+For some additional recommendations on how to preserve data such as host headers, see [Preserve the original HTTP host name between a reverse proxy and its back-end web application](/azure/architecture/best-practices/host-name-preservation)
 
 ### Cost Optimization
 
@@ -110,88 +124,6 @@ Operational Excellence covers the operations processes that deploy an applicatio
 - Deploy at least two [scale units](/azure/api-management/upgrade-and-scale) of API Management that are spread over two availability zones, per region. This method maximizes availability and performance.
 - If you use a DevOps tool, such as Azure DevOps or GitHub, then cloud-hosted agents or runners operate over the public internet. Since the API management in this architecture is set to an internal network, you'll need to use a DevOps agent that has access to the virtual network. The DevOps agent will help you deploy policies and other changes to the APIs in your architecture. These [CI/CD templates](/azure/api-management/devops-api-development-templates) can be used to break the process apart and to allow your development teams to deploy changes, per API. They're executed by the DevOps runners.
 
-## Architecture Considerations and Policy Behaviors
-
-Application Gateway with Web Application Firewall (WAF) is positioned in front of API Managment and handles all API traffic before it reaches the internal API Management instance. The intent is to add an edge-level security layer that inspects, filters, and routes client requests, while API Management focuses on API governance, transformation, and backend integration. Application Gateway can terminate TLS, evaluates WAF rules, and forwards traffic into the API Management subnet. API Management then applies its own policies as part of the API request pipeline. 
-
-However, this layered topology comes with behavioral implications for certain API Management policies: when TLS termination, routing decisions, or header/connection transformations occur at the Application Gateway boundary, the API Management policy engine may not see the original client attributes it expects. That can lead to policies behaving differently than when API Management is directly exposed. For example:
-- Client IP-based filtering: Policies such as <ip-filter> where you can allow or deny traffic based on source IP addresses will now see the Application Gateway’s private IP as the source, not the actual client address. As a result, the <ip-filter> policy needs to be carefully planned and managed to ensure the correct traffic is being filtered. 
-- Policy ordering and context assumptions: API Management policies expect to run against requests with certain headers, host names, or request characteristics. If Application Gateway rewrites headers (for routing, custom domains, or SSL offload), the context that downstream API Management policies rely on may not match what was defined in those policies. This can cause routing policies, validation, or transformation logic inside API Management to mismatch client intent.
-
-In essence, Application Gateway and API Management become two enforcement layers, and API Management’s view of incoming requests is one step removed from the original client context. This is not inherently wrong — the architecture assumes this separation — but it means you should avoid putting policies in API Management that depend on raw client attributes unless those attributes are preserved end-to-end.
-
-``` xml
-<policies>
-  <inbound>
-    <ip-filter action="allow">
-      <address-range from="203.0.113.0" to="203.0.113.255" />
-    </ip-filter>
-    …
-  </inbound>
-</policies>
-```
-
-If API Management is behind an Application Gateway that terminates TLS, the source IP seen by API Management is typically the Application Gateway’s private IP in the virtual network. API Management evaluates the <ip-filter> policy against that gateway IP — not the actual client IP. In this situation:
-- Clients in the allowed range might be blocked because API Management sees only the gateway address.
-- Clients outside the allowed range might be accepted because Application Gateway forwarded the request on their behalf.
-
-This doesn’t break the architecture, but it changes the effect of the policy because the policy engine no longer has full visibility into the un-proxied request details that were assumed when the policy was authored.
-
-Careful planning is required when defining policies that depend on client-side context in designs where a terminating gateway is fronting API Management.
-
-Additionally here is a sample policy that will allow for IP filtering and is an alternative to the built in <ip-filter> existing policy
-``` xml
-<policies>
-  <inbound>
-    <base />
-
-    <!--
-      Extract the first (original) IP from X-Forwarded-For.
-      If there is no header, fall back to context.Request.IpAddress.
-    -->
-    <set-variable name="clientIpFromXff" value="
-      @{
-          // Grab the header (or empty string if missing)
-          var xff = context.Request.Headers.GetValueOrDefault("X-Forwarded-For", "");
-          if (string.IsNullOrEmpty(xff))
-          {
-              return context.Request.IpAddress;
-          }
-          // If multiple IPs exist, take the first one
-          var firstIp = xff.Split(',')[0].Trim();
-          return firstIp;
-      }
-    " />
-
-    <!--
-      Enforce IP allow list based on the extracted IP.
-      Replace 203.0.113.0/24 with your allowed range/ip list.
-    -->
-    <choose>
-      <when condition="
-        @(!new [] { "203.0.113.1", "203.0.113.2", "203.0.113.3" }
-          .Contains(context.Variables.GetValueOrDefault<string>("clientIpFromXff")))
-      ">
-        <return-response>
-          <set-status code="403" reason="Forbidden" />
-          <set-body>Forbidden: Your IP is not allowed.</set-body>
-        </return-response>
-      </when>
-    </choose>
-
-    <!-- Continue normal execution -->
-  </inbound>
-  <backend>
-    <base />
-  </backend>
-  <outbound>
-    <base />
-  </outbound>
-  <on-error>
-    <base />
-  </on-error>
-</policies>
-```
 ## Deploy this scenario
 
 This architecture is available on [GitHub](https://github.com/Azure/apim-landing-zone-accelerator). It contains all the necessary infrastructure-as-code files and the [deployment instructions](https://github.com/Azure/apim-landing-zone-accelerator/blob/main/scenarios/apim-baseline/bicep/README.md).
