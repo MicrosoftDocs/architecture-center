@@ -5,7 +5,7 @@ This article describes how to extend existing Azure Service Bus–based message 
 ## Architecture
 
 :::image type="complex" source="../media/analytics-service-bus.png" alt-text="Diagram that illustrates an architecture for implementing near real-time analytics." lightbox="../media/analytics-service-bus.png" border="false":::
-   Diagram that shows two data paths: a dotted line for the existing OLTP flow and a solid line for the new near real-time analytics flow. An OLTP application hosted in Azure App Service sends data to Azure Service Bus. From Service Bus, the dotted line path shows data triggering an Azure Functions app, which sends processed data to an operational database like Azure SQL Database or Azure Cosmos DB. The solid line path shows data flowing from Service Bus to Azure Data Explorer, either through an Azure Functions app or through a polling service hosted on Azure Kubernetes Service or an Azure VM. Azure Data Explorer also ingests or references data from Azure SQL Database and Azure Data Lake Storage. Applications and reporting services, including Azure Data Explorer dashboards, Power BI, and Azure Managed Grafana, query data from Azure Data Explorer for near real-time analytics.
+   Diagram that shows two data paths: a dotted line for the existing OLTP flow and a solid line for the new near real-time analytics flow. An OLTP application hosted in Azure App Service sends data to Azure Service Bus. From Azure Service Bus, the dotted line path shows data triggering an Azure Functions app, which sends processed data to an operational database like SQL Database or Azure Cosmos DB. The solid line path shows data flowing from Azure Service Bus to Azure Data Explorer, either through an Azure Functions app or through a polling service hosted on AKS or an Azure VM. Azure Data Explorer also ingests or references data from SQL Database and Azure Data Lake Storage. Applications and reporting services, including Azure Data Explorer dashboards, Power BI, and Azure Managed Grafana, query data from Azure Data Explorer for near real-time analytics.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/analytics-service-bus.vsdx) of this architecture.*
@@ -19,11 +19,11 @@ The diagram shows two data paths: dotted and solid. The dotted line path represe
 
 1. The OLTP application (the data source), hosted in **Azure App Service**, sends data to **Azure Service Bus**. 
 
-1. Data flows from Service Bus in two directions: 
+1. Data flows from Azure Service Bus in two directions: 
 
     a. In the existing online analytical processing application flow, it triggers an **Azure Functions** app that processes data flowing from Azure Service Bus. The Functions app then sends the processed data to an operational database, like an **Azure SQL database** or **Azure Cosmos DB**. This flow is represented by the dotted line in the diagram.
 
-    b. In the near real-time analytics flow, data from Service Bus is sent to **Azure Data Explorer** for analytics. This flow is represented by the solid line in the diagram.
+    b. In the near real-time analytics flow, data from Azure Service Bus is sent to **Azure Data Explorer** for analytics. This flow is represented by the solid line in the diagram.
 
 1. The orchestration flow sends data to **Azure Data Explorer** for near real-time analytics by using one of the following approaches:
 
@@ -37,9 +37,9 @@ The diagram shows two data paths: dotted and solid. The dotted line path represe
 
 ### Components
 
-- [App Service](/azure/well-architected/service-guides/app-service-web-apps) enables you to build and host web apps, mobile back ends, and RESTful APIs in the programming language of your choice, without managing infrastructure. In this architecture, App Service hosts the source OLTP application that generates the data to be ingested into Azure Service Bus.
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) enables you to build and host web apps, mobile back ends, and RESTful APIs in the programming language of your choice, without managing infrastructure. In this architecture, Azure App Service hosts the source OLTP application that generates the data to be ingested into Azure Service Bus.
 
-- [Service Bus](/azure/well-architected/service-guides/service-bus/reliability) provides reliable cloud messaging as a service. In this architecture, Service Bus captures data generated at source and triggers the orchestration flow.
+- [Azure Service Bus](/azure/well-architected/service-guides/service-bus/reliability) provides reliable cloud messaging as a service. In this architecture, Azure Service Bus captures data generated at source and triggers the orchestration flow.
 
 - [SQL Database](/azure/well-architected/service-guides/azure-sql-database) is a fully managed SQL database that's built for the cloud. SQL Database provides automatic updates, provisioning, scaling, and backups. In this architecture, the SQL Database is an operational database that stores data output from the Functions app.
 
@@ -51,11 +51,11 @@ The diagram shows two data paths: dotted and solid. The dotted line path represe
 
 - [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) is a fast, fully managed, and highly scalable data analytics service for real-time analysis of large volumes of data that streams from applications, websites, IoT devices, and more. Azure Data Explorer is used to run analytics in near real-time and expose data via either APIs or direct queries.
 
-- [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction), built on Azure Blob Storage, provides massively scalable data lake functionality. In this architecture, Azure Data Explorer pulls data from Data Lake Storage and combines it with data ingested from App Service for analytics.
+- [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction), built on Azure Blob Storage, provides massively scalable data lake functionality. In this architecture, Azure Data Explorer pulls data from Data Lake Storage and combines it with data ingested from Azure App Service for analytics.
 
-- [Power BI](/power-bi/fundamentals/power-bi-overview) helps turn your data into coherent, visually immersive, interactive insights. Power BI is used as a visualization tool for the data received from App Service.
+- [Power BI](/power-bi/fundamentals/power-bi-overview) helps turn your data into coherent, visually immersive, interactive insights. Power BI is used as a visualization tool for the data received from Azure App Service.
 
-- [Azure Managed Grafana](/azure/managed-grafana/overview) is a fully managed service that enables you to deploy Grafana without spending time on configuration. In this architecture, similar to Power BI or Azure Data Explorer dashboards, Azure Managed Grafana is used as a visualization tool to create analytics dashboards on the data received from App Service.
+- [Azure Managed Grafana](/azure/managed-grafana/overview) is a fully managed service that enables you to deploy Grafana without spending time on configuration. In this architecture, similar to Power BI or Azure Data Explorer dashboards, Azure Managed Grafana is used as a visualization tool to create analytics dashboards on the data received from Azure App Service.
 
 ## Scenario details
 
