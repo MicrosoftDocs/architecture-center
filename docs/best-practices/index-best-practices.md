@@ -54,7 +54,7 @@ This table lists various best practices. The **Related pillars** column contains
 [Cloud Design Patterns]: ../patterns/index.md
 [Data partitioning strategies]: ./data-partitioning-strategies.yml
 [Horizontal, vertical, and functional data partitioning]: ./data-partitioning.yml
-[Host name preservation]: ./host-name-preservation.yml
+[Host name preservation]: ./host-name-preservation.md
 [Introduction to Azure Blob storage]: /azure/storage/blobs/storage-blobs-introduction
 [Introduction to the core Azure Storage services]: /azure/storage/common/storage-introduction
 [Message encoding considerations]: ./message-encode.md
