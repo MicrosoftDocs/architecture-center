@@ -1,11 +1,11 @@
 ---
 title: Backends for Frontends Pattern
 description: Explore the Backends for Frontends pattern, which creates separate backend services for consumption by specific frontend applications or interfaces.
-ms.author: robbag
+ms.author: csiemens
 author: claytonsiemens77
 ms.date: 03/19/2025
 ms.topic: design-pattern
-ms.subservice: design-pattern
+ms.subservice: cloud-fundamentals
 ---
 
 # Backends for Frontends pattern
@@ -165,4 +165,3 @@ Each client has a dedicated BFF service running as an Azure function that serves
 - [Gateway Aggregation pattern](./gateway-aggregation.yml)
 - [Gateway Offloading pattern](./gateway-offloading.yml)
 - [Gateway Routing pattern](./gateway-routing.yml)
-- [Serverless web application reference architecture](../web-apps/serverless/architectures/web-app.yml)

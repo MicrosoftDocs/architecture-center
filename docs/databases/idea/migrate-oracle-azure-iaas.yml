@@ -5,12 +5,15 @@ metadata:
   author: gkayali
   ms.author: guherk
   ms.date: 10/29/2024
-  ms.topic: conceptual
+  ms.topic: concept-article
   ms.subservice: architecture-guide
   ms.category:
     - databases
     - migration
   ms.custom: arb-data
+  ms.collection:
+    - migration
+    - onprem-to-azure
 name: Migrate an Oracle database to an Azure virtual machine
 azureCategories:
   - databases

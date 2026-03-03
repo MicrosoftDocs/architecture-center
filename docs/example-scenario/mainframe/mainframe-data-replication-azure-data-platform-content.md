@@ -27,28 +27,37 @@ The steps to migrate mainframe data to Azure are as follows:
 
 ### Components
 
-- Networking and Identity
+This solution uses the following components.
 
-  - [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) lets you extend your on-premises networks into Azure over a private connection by using a connectivity provider.
-  - [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) is a virtual network gateway used to send encrypted traffic between an Azure virtual network and an on–premises location over the internet.
-  - [Microsoft Entra ID](/entra/fundamentals/whatis) is an identity and access management service that can be synchronized with an on-premises directory.
+#### Networking and identity
 
-- Application
+- [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) is a virtual network gateway used to send encrypted traffic between an Azure virtual network and an on-premises location over the public internet. In this architecture, VPN Gateway provides an alternative to ExpressRoute for secure connectivity between the mainframe environment and Azure.
 
-  - [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) provides on–demand, scalable computing resources. The mLogica data migration cluster runs on Azure Linux virtual machines optimized for network performance.
+- [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) is a connectivity service that lets you extend your on-premises networks into Azure over a private connection by using a connectivity provider. In this architecture, ExpressRoute provides a secure, private connection for transferring data definition files and extraction scripts between the mainframe and Azure.
 
-- Storage
+- [Microsoft Entra ID](/entra/fundamentals/whatis) is an identity and access management service that can be synchronized with an on-premises directory. In this architecture, Microsoft Entra ID provides authentication and access control for the mLogica data migration cluster and Azure resources.
 
-  - [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) offers a highly available, encrypted-at-rest, cost-efficient, high-capacity storage facility. It enables direct binary SFTP traffic from the mainframe. Blob Storage can mount containers on Linux virtual machines by using NFS.
-  - [Azure SQL](/azure/azure-sql/), [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql), and [Azure Database for MySQL](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) are fully managed platform as a service (PaaS) services for SQL Server, PostgreSQL, and MySQL. They provide high-performance, highly available options for mainframe relational data, emulated non-relational data, and emulated Virtual Storage Access Method (VSAM) data.
-  - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is an Azure NoSQL database. Use it to migrate non-relational mainframe sources like Information Management System (IMS), Integrated Database Management System (IDMS), and adaptable database system (ADABAS).
+#### Compute
 
-- Monitoring
+- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is a compute service that provides on-demand, scalable computing resources. In this architecture, the mLogica data migration cluster runs on Azure Linux virtual machines optimized for network performance.
 
-  - [Azure Monitor](/azure/azure-monitor/overview) delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments.
-  - [Application Insights](/azure/well-architected/service-guides/application-insights) receives application telemetry to analyze and present.
-  - [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs) is a feature of Azure Monitor that collects and organizes log and performance data from monitored resources. This feature can consolidate data from multiple sources into a single workspace. These sources include platform logs from Azure services, log and performance data from virtual machine agents, and usage and performance data from applications. Analyze these sources together by using a sophisticated query language, which is capable of quickly analyzing millions of records.
-  - [Log Analytics](/azure/well-architected/service-guides/azure-log-analytics) is a feature of Azure Monitor. Log queries help you use the data collected in Azure Monitor Logs and mLogica load script execution logs, which are stored in Blob Storage. A powerful query language allows you to join data from multiple tables, aggregate large sets of data, and perform complex operations.
+#### Databases and Storage
+
+- [Azure SQL](/azure/azure-sql/), [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql), and [Azure Database for MySQL](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) are fully managed platform as a service (PaaS) services for SQL Server, PostgreSQL, and MySQL respectively. In this architecture, they provide high-performance, highly available options for mainframe relational data, emulated nonrelational data, and emulated Virtual Storage Access Method (VSAM) data.
+
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a fully managed NoSQL database service that provides low latency and elastic scalability. In this architecture, it's used to migrate nonrelational mainframe sources like Information Management System (IMS), Integrated Database Management System (IDMS), and Adaptable Database System (ADABAS).
+
+- [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is a cloud storage service that provides a highly available, encrypted-at-rest, cost-efficient, high-capacity storage facility. In this architecture, Blob Storage enables direct binary SFTP traffic from the mainframe and can mount containers on Linux virtual machines by using NFS 3.0 for storing sequential files and load scripts.
+
+#### Monitoring
+
+- [Azure Monitor](/azure/azure-monitor/overview) is a comprehensive monitoring service that delivers a solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments. In this architecture, Azure Monitor is used to monitor the mLogica data migration cluster and set up alerts for proactive management.
+
+  - [Application Insights](/azure/well-architected/service-guides/application-insights) is a feature of Azure Monitor that provides application performance monitoring by collecting and analyzing application telemetry. In this architecture, Application Insights monitors the mLogica data migration cluster for performance insights and diagnostics.
+
+  - [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs) is a feature of Azure Monitor that collects and organizes log and performance data from monitored resources. In this architecture, Azure Monitor Logs consolidates data from multiple sources into a single workspace, including platform logs from Azure services, log and performance data from virtual machine agents, and usage and performance data from applications.
+
+  - [Log Analytics](/azure/well-architected/service-guides/azure-log-analytics) is a feature of Azure Monitor that enables log queries to help you use the data collected in Azure Monitor Logs. In this architecture, Log Analytics helps analyze mLogica load script execution logs stored in Blob Storage. It uses a powerful query language to join data from multiple tables, aggregate large sets of data, and perform complex operations.
 
 ### Potential use cases
 
@@ -157,7 +166,7 @@ Principal author:
 
 ## Next steps
 
-Review the [Azure Database Migration Guides](https://learn.microsoft.com/data-migration).
+Review the [Azure Database Migration Guides](/data-migration).
 
 For more information, contact [Azure Data Engineering - Mainframe & Midrange Modernization](mailto:datasqlninja@microsoft.com).
 
@@ -170,7 +179,7 @@ For more information, contact [Azure Data Engineering - Mainframe & Midrange Mod
 
 ## Related resources
 
-- [Azure data platform end-to-end](../dataplate2e/data-platform-end-to-end.yml)
+- [Analytics end-to-end with Microsoft Fabric](../dataplate2e/data-platform-end-to-end.yml)
 - [Modernize mainframe and midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure)
 - [Rehost Adabas & Natural applications in Azure](rehost-adabas-software-ag.yml)
 - [Rehost a general mainframe on Azure](mainframe-rehost-architecture-azure.yml)

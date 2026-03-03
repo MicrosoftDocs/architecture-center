@@ -1,4 +1,4 @@
-<!-- cSpell:ignore lbrader netweaver jump-box jump-boxes ACLs HANA SWDs SMLG ABAP SAPGUI SAPGUIs SPOF WSFC ASCS MSEE Iperf SIOS sapmnt -->
+<!-- cSpell:ignore netweaver HANA SMLG ABAP SPOF WSFC ASCS Iperf SIOS -->
 
 This guide presents a set of proven practices for running SAP NetWeaver in a Windows environment, on Azure, with high availability. The database is AnyDB, the SAP term for any supported database management system (DBMS) besides SAP HANA.
 
@@ -31,7 +31,7 @@ This guide describes a production system. The system is deployed with specific v
 
 **Private DNS service.** [Azure Private DNS](/azure/dns/private-dns-overview) provides a reliable and secure DNS service for your virtual network. Azure Private DNS manages and resolves domain names in the virtual network, without the need to configure a custom DNS solution.
 
-**Load balancers.** To distribute traffic to VMs in the SAP application tier subnet for high availability, we recommend that you use an [Azure standard load balancer](/azure/load-balancer/load-balancer-standard-availability-zones). Note that a standard load balancer provides a level of security by default. VMs that are behind a standard load balancer don't have outbound internet connectivity. To enable outbound internet on the VMs, you need to update your [standard load balancer configuration](/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections). For SAP web-based application high availability, use the built-in [SAP Web Dispatcher](https://help.sap.com/doc/saphelp_em900/9.0/en-US/48/8fe37933114e6fe10000000a421937/content.htm?no_cache=true) or another commercially available load balancer. Base your selection on:
+**Load balancers.** To distribute traffic to VMs in the SAP application tier subnet for high availability, we recommend that you use an [Azure standard load balancer](/azure/load-balancer/load-balancer-standard-availability-zones). A standard load balancer provides a level of security by default. VMs that are behind a standard load balancer don't have outbound internet connectivity. To enable outbound internet on the VMs, you need to update your [standard load balancer configuration](/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections). For SAP web-based application high availability, use the built-in [SAP Web Dispatcher](https://help.sap.com/doc/saphelp_em900/9.0/en-US/48/8fe37933114e6fe10000000a421937/content.htm?no_cache=true) or another commercially available load balancer. Base your selection on:
 
 - Your traffic type, like HTTP or SAP GUI.
 - The network services that you need, like Secure Sockets Layer (SSL) termination.
@@ -53,7 +53,7 @@ The Standard SKU also supports multi-systems identifier (multi-SID) SAP clusters
 
 **Gateway.** A gateway connects distinct networks, extending your on-premises network to the Azure virtual network. We recommend that you use [ExpressRoute](../../reference-architectures/hybrid-networking/expressroute.yml) to create private connections that don't go over the public internet, but you can also use a [site-to-site](../../reference-architectures/hybrid-networking/expressroute.yml) connection. To reduce latency or increase throughput, consider [ExpressRoute Global Reach](/azure/expressroute/expressroute-global-reach) and [ExpressRoute FastPath](/azure/expressroute/about-fastpath), as discussed later in this article.
 
-**Azure Storage.** Storage provides data persistence for a VM in the form of a virtual hard disk. We recommend [Azure managed disks](/azure/virtual-machines/windows/managed-disks-overview).
+**Azure Storage.** Storage provides data persistence for a VM in the form of a virtual hard disk. We recommend [Azure Managed Disks](/azure/virtual-machines/windows/managed-disks-overview).
 
 ## Recommendations
 
@@ -63,7 +63,7 @@ This architecture describes a small production-level deployment. Deployments dif
 
 In application server pools and clusters, adjust the number of VMs based on your requirements. For detailed information about running SAP NetWeaver on VMs, see [Azure Virtual Machines planning and implementation for SAP NetWeaver](/azure/virtual-machines/workloads/sap/planning-guide).
 
-For details about SAP support for Azure VM types and throughput metrics (SAPS), see [SAP note 1928533](https://launchpad.support.sap.com/#/notes/1928533). To access SAP notes, you need an SAP Service Marketplace account.
+For more information about SAP support for Azure VM types and throughput metrics (SAPS), see [SAP note 1928533](https://launchpad.support.sap.com/#/notes/1928533). To access SAP notes, you need an SAP Service Marketplace account.
 
 ### SAP Web Dispatcher
 
@@ -81,7 +81,7 @@ For highly available file shares, there are several options. We recommend that y
 
 You can also implement the highly available file shares on the Central Services instances by using a Windows server failover cluster with [Azure Files](/azure/virtual-machines/workloads/sap/high-availability-guide-windows-azure-files-smb). This solution also supports a Windows cluster with shared disks by using an Azure shared disk as the cluster shared volume. If you prefer to use shared disks, we recommend that you use [Azure shared disks](/azure/virtual-machines/disks-shared#linux) to set up a [Windows Server failover cluster for SAP Central Services cluster](/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-shared-disk).
 
-There are also partner products like [SIOS DataKeeper Cluster Edition](https://azuremarketplace.microsoft.com/marketplace/apps/sios_datakeeper.sios-datakeeper-8) from SIOS Technology Corp. This add-on replicates content from independent disks that are attached to the ASCS cluster nodes and then presents the disks as a cluster shared volume to the cluster software.
+There are also partner products like [SIOS DataKeeper Cluster Edition](https://marketplace.microsoft.com/product/sios_datakeeper.sios-datakeeper-8) from SIOS Technology Corp. This add-on replicates content from independent disks that are attached to the ASCS cluster nodes and then presents the disks as a cluster shared volume to the cluster software.
 
 If you use cluster network partitioning, the cluster software uses quorum votes to select a segment of the network and its associated services to serve as the brain of the fragmented cluster. Windows offers many quorum models. This solution uses [Cloud Witness](/windows-server/failover-clustering/deploy-cloud-witness) because it's simpler and provides more availability than a compute node witness. The [Azure file share witness](/windows-server/failover-clustering/file-share-witness) is another alternative for providing a cluster quorum vote.
 
@@ -117,7 +117,7 @@ At this time, there are no network access control lists or other attributes that
 
 For all new ExpressRoute connections to Azure, FastPath is the default configuration. For existing ExpressRoute circuits, contact Azure support to activate FastPath.
 
-FastPath doesn't support virtual network peering. If other virtual networks are peered with one that's connected to ExpressRoute, the network traffic from your on-premises network to the other spoke virtual networks is sent to the virtual network gateway. The workaround is to connect all virtual networks to the ExpressRoute circuit directly.  This feature is currently in public preview.
+FastPath doesn't support virtual network peering. If other virtual networks are peered with one that's connected to ExpressRoute, the network traffic from your on-premises network to the other spoke virtual networks is sent to the virtual network gateway. The workaround is to connect all virtual networks to the ExpressRoute circuit directly. This feature is currently in public preview.
 
 ### Load balancers
 
@@ -131,19 +131,19 @@ For traffic from SAP GUI clients that connect to an SAP server via DIAG protocol
 
 ### Storage
 
-Some organizations use standard storage for their application servers. Standard managed disks aren't supported. See [SAP note 1928533](http://service.sap.com/sap/support/notes/1928533). To access SAP notes, you need an SAP Service Marketplace account. We recommend that you use premium [Azure managed disks](/azure/storage/storage-managed-disks-overview) in all cases. A recent update to [SAP note 2015553](https://launchpad.support.sap.com/#/notes/2015553) excludes the use of Standard HDD storage and Standard SSD storage for a few specific use cases.
+Some organizations use standard storage for their application servers. Standard managed disks aren't supported. See [SAP note 1928533](https://service.sap.com/sap/support/notes/1928533). To access SAP notes, you need an SAP Service Marketplace account. We recommend that you use premium [Azure Managed Disks](/azure/storage/storage-managed-disks-overview) in all cases. A recent update to [SAP note 2015553](https://launchpad.support.sap.com/#/notes/2015553) excludes the use of Standard HDD storage and Standard SSD storage for a few specific use cases.
 
 Application servers don't host business data. So you can also use the smaller P4 and P6 premium disks to help minimize costs. By doing so, you can benefit from the [single-instance VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_6) if you have a central SAP stack installation.
 
-For high-availability scenarios, you can use [Azure file shares](/azure/storage/files/storage-files-introduction) and [Azure shared disks](/azure/virtual-machines/disks-shared). [Azure Premium SSD managed disks and Azure Ultra Disk Storage](/azure/storage/storage-managed-disks-overview) are available for Azure shared disks, and Premium SSD is available for Azure file shares.
+For high-availability scenarios, you can use [Azure file shares](/azure/storage/files/storage-files-introduction) and [Azure shared disks](/azure/virtual-machines/disks-shared). [Premium SSDs and Azure Ultra Disk Storage](/azure/storage/storage-managed-disks-overview) are available for Azure shared disks, and Premium SSD is available for Azure file shares.
 
 Storage is also used by [Cloud Witness](/windows-server/failover-clustering/deploy-cloud-witness) to maintain quorum with a device in a remote Azure region, away from the primary region where the cluster resides.
 
 For the backup data store, we recommend Azure [cool and archive access tiers](/azure/storage/blobs/access-tiers-overview). These storage tiers provide a cost-effective way to store long-lived data that's infrequently accessed.
 
-[Azure Premium SSD v2 disk storage](https://azure.microsoft.com/updates/general-availability-azure-premium-ssd-v2-disk-storage/) is designed for performance-critical workloads like online transaction processing systems that consistently need sub-millisecond latency combined with high IOPS and throughput.
+[Premium SSD v2](https://azure.microsoft.com/updates/general-availability-azure-premium-ssd-v2-disk-storage/) is designed for performance-critical workloads like online transaction processing systems that consistently need sub-millisecond latency combined with high IOPS and throughput.
 
-[Ultra Disk Storage](/azure/virtual-machines/linux/disks-enable-ultra-ssd) greatly reduces disk latency. As a result, it benefits performance-critical applications like the SAP database servers. To compare block storage options in Azure, see [Azure managed disk types](/azure/virtual-machines/windows/disks-types).
+[Ultra Disk Storage](/azure/virtual-machines/linux/disks-enable-ultra-ssd) greatly reduces disk latency. As a result, it benefits performance-critical applications like the SAP database servers. To compare block storage options in Azure, see [Azure Managed Disk types](/azure/virtual-machines/disks-types).
 
 For a high-availability, high-performance shared data store, use [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction). This technology is particularly useful for the database tier when you use [Oracle](/azure/azure-netapp-files/performance-oracle-single-volumes), and also when you [host application data](/azure/virtual-machines/workloads/sap/high-availability-guide-windows-netapp-files-smb).
 
@@ -155,7 +155,7 @@ To optimize inter-server communications, use [Accelerated Networking](/azure/vir
 
 To achieve high IOPS and disk throughput, follow the common practices in storage volume [performance optimization](/azure/virtual-machines/linux/premium-storage-performance), which apply to Azure storage layout. For example, you can position multiple disks together to create a striped disk volume to improve I/O performance. Enabling the read cache on storage content that changes infrequently enhances the speed of data retrieval.
 
-[Premium SSD v2](/azure/virtual-machines/disks-types) provides higher performance than Premium SSDs and is generally less expensive. You can set a Premium SSD v2 disk to any supported size you prefer and make granular adjustments to the performance without downtime.
+[Premium SSD v2](/azure/virtual-machines/disks-types) provides higher performance than Premium SSDs and is generally less expensive. You can set a Premium SSD v2 to any supported size you prefer and make granular adjustments to the performance without downtime.
 
 [Ultra Disk Storage](/azure/virtual-machines/linux/disks-enable-ultra-ssd) is available for I/O-intensive applications. Where these disks are available, we recommend them over [Write Accelerator](/azure/virtual-machines/windows/how-to-enable-write-accelerator) premium storage. You can individually increase or decrease performance metrics like IOPS and MBps without needing to reboot.
 
@@ -304,7 +304,7 @@ For infrastructure security, data is encrypted in transit and at rest. For infor
 
 You can use [Azure Disk Encryption](/azure/security/azure-security-disk-encryption-overview) to encrypt Windows VM disks. This service uses the BitLocker feature of Windows to provide volume encryption for the operating system and the data disks. The solution also works with Azure Key Vault to help you control and manage the disk-encryption keys and secrets in your key vault subscription. Data on the VM disks is encrypted at rest in your Azure storage.
 
-For data-at-rest encryption, SQL Server transparent data encryption (TDE) encrypts SQL Server, Azure SQL Database, and Azure Synapse Analytics data files. For more information, see [SQL Server Azure Virtual Machines DBMS deployment for SAP NetWeaver](/azure/virtual-machines/workloads/sap/dbms_guide_sqlserver).
+For data-at-rest encryption, SQL Server transparent data encryption (TDE) encrypts SQL Server and Azure SQL Database data files. For more information, see [SQL Server Azure Virtual Machines DBMS deployment for SAP NetWeaver](/azure/virtual-machines/workloads/sap/dbms_guide_sqlserver).
 
 To monitor threats from inside and outside the firewall, consider deploying [Microsoft Sentinel (preview)](https://www.microsoft.com/security/blog/2021/05/19/protecting-sap-applications-with-the-new-azure-sentinel-sap-threat-monitoring-solution). The solution provides continuous threat detection and analytics for SAP systems that are deployed on Azure, in other clouds, or on-premises. For deployment guidance, see [Deploy Threat Monitoring for SAP in Microsoft Sentinel](/azure/sentinel/sap-deploy-solution).
 
@@ -355,7 +355,7 @@ Communities can answer questions and help you set up a successful deployment. Co
 - [Running SAP Applications on the Microsoft Platform blog](https://techcommunity.microsoft.com/t5/Running-SAP-Applications-on-the/SAP-on-Azure-General-Update-March-2019/ba-p/377456?advanced=false&collapse_discussion=true&q=sap%20azure%20general%20update&search_type=thread)
 - [Azure Community Support](https://azure.microsoft.com/support/forums)
 - [SAP Community](https://www.sap.com/community.html)
-- [Stack Overflow for SAP](http://stackoverflow.com/tags/sap/info)
+- [Stack Overflow for SAP](https://stackoverflow.com/tags/sap/info)
 
 ## Contributors
 

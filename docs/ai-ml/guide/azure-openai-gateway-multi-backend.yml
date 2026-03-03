@@ -5,14 +5,14 @@ metadata:
   author: claytonsiemens77
   ms.author: pnp
   ms.date: 12/16/2024
-  ms.topic: conceptual
+  ms.topic: concept-article
   ms.collection: ce-skilling-ai-copilot  
   ms.subservice: architecture-guide
   ms.custom: arb-aiml
 azureCategories:
   - ai-machine-learning
 products:
-  - ai-services
+  - foundry-tools
   - azure-openai
   - azure-api-management
 name: Use a gateway in front of multiple Azure OpenAI deployments or instances

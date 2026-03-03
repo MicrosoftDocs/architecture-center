@@ -4,7 +4,7 @@ description: Learn about day-2 patching and upgrading practices for Azure Kubern
 author: aionic
 ms.author: anevico
 ms.date: 02/06/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
   - e2e-aks
@@ -73,7 +73,7 @@ To ensure that your AKS cluster operates smoothly during maintenance, follow the
 
 - **Tune node drain time-out.** [Node drain time-out](/azure/aks/upgrade-aks-cluster#set-node-drain-timeout-value) specifies the maximum amount of time that a cluster waits while a workload attempts to reschedule pods on a node that's updating. The default value is 30 minutes. For workloads that struggle to reschedule pods, increasing this value can be helpful.
 
-- **Tune node soak time-out.** By default, the [node soak configuration](/azure/aks/upgrade-aks-cluster#set-node-soak-time-value) moves on to reimaging the next node after a node completes its update process. For certain legacy or sensitive workloads, it might be beneficial to add a delay before moving on to the next node. Add a delay by configuring a node soak time-out.
+- **Tune node soak time-out.** By default, the [node soak configuration](/azure/aks/upgrade-aks-cluster#set-node-soak-time-value) proceeds to reimaging the next node after a node completes its update process. For certain legacy or sensitive workloads, it might be beneficial to add a delay before you continue to the next node. Add a delay by configuring a node soak time-out.
 
 - **Check other dependencies in your cluster.** Kubernetes operators often deploy other tooling to the Kubernetes cluster as part of operations, like KEDA scalers, DAPR, and service meshes. When you plan your upgrade processes, check release notes for any components that you use to ensure compatibility with the target version.
 
@@ -362,7 +362,7 @@ Principal author:
 Other contributors:
 
 - [Rishabh Saha](https://www.linkedin.com/in/rishabhsaha/) | Principal Solution Architect
-- [Paolo Salvatori](http://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
+- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
 - [Ali Yousefi](https://www.linkedin.com/in/iamaliyousefi/) | Cloud Solution Architect
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
@@ -372,14 +372,12 @@ Other contributors:
 - [AKS product documentation](/azure/aks/)
 - [AKS release tracker](https://releases.aks.azure.com/webpage/index.html)
 - [AKS roadmap](https://aka.ms/aks/roadmap)
-- [AKS landing zone accelerator](https://github.com/Azure/AKS-Landing-Zone-Accelerator)
 - [Troubleshoot AKS problems](/troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes)
 - [Optimize AKS upgrades](/azure/aks/upgrade-cluster#optimize-upgrades-to-improve-performance-and-minimize-disruptions)
 - [Node OS upgrade FAQ](/azure/aks/auto-upgrade-node-os-image#node-os-auto-upgrades-faq)
-- [AKS construction set](https://github.com/Azure/Aks-Construction)
-- [AKS baseline automation](https://github.com/Azure/aks-baseline-automation)
 - [Defining day-2 operations](https://dzone.com/articles/defining-day-2-operations)
 - [A practical guide for zone-redundant AKS clusters](https://techcommunity.microsoft.com/blog/fasttrackforazureblog/a-practical-guide-to-zone-redundant-aks-clusters-and-storage/4036254)
+- [Cloud Adoption Framework guidance for adopting AKS in an Azure landing zone](/azure/cloud-adoption-framework/scenarios/app-platform/aks/landing-zone-accelerator)
 
 ## Related resources
 

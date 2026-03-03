@@ -7,6 +7,7 @@ metadata:
   ms.date: 02/11/2025
   ms.topic: example-scenario
   ms.subservice: example-scenario
+  ai-usage: ai-assisted
 azureCategories:
   - security
 products:

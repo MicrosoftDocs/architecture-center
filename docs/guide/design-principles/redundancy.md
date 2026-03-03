@@ -4,7 +4,7 @@ description: Use these recommendations to avoid having single points of failure,
 author: ckittel
 ms.author: pnp
 ms.date: 07/30/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
 
@@ -50,7 +50,7 @@ If you use an IaaS database solution, choose one that supports replication and f
 
 **Partition for availability**. Database partitioning is often used to improve scalability, but it can also improve availability. If one shard goes down, the other shards can still be reached. A failure in one shard will only disrupt a subset of the total transactions.
 
-**Test and validate your redundant components**. Reliability benefits in many ways from simplicity and adding redundancy can increase complexity. To ensure that adding redundancy actually leads to higher availability, you should validate following:
+**Test and validate your redundant components**. Reliability benefits in many ways from simplicity and adding redundancy can increase complexity. To ensure that adding redundancy actually leads to higher availability, you should validate the following factors:
 
 - Can your system *reliably* detect healthy and unhealthy redundant components, and safely and expeditiously remove them from the component pool?
 - Can your system *reliably* scale out and in the redundant components?
@@ -68,7 +68,7 @@ If you use Traffic Manager or Azure Front Door in a multi-region solution as you
 
 **Use automatic failover but manual failback**. Use automation for failover, but not for failback. Automatic failback carries a risk that you might switch to the primary region before the region is completely healthy. Instead, verify that all application subsystems are healthy before manually failing back. Also you should check data consistency before failing back.
 
-To achieve this, disable the primary endpoint after failover. Note that if the monitoring interval of probes is short and the tolerated number of failures is small, failover as well as failback will take place in a short time. In some cases, disabling won't be completed in time. To avoid unconfirmed failback, consider also implementing a health endpoint that can verify that all subsystems are healthy. See the [Health Endpoint Monitoring pattern].
+To achieve this, disable the primary endpoint after failover. If the monitoring interval of probes is short and the tolerated number of failures is small, failover and failback will occur in a short time. In some cases, disabling won't be completed in time. To avoid unconfirmed failback, consider also implementing a health endpoint that can verify that all subsystems are healthy. For more information, see [Health Endpoint Monitoring pattern].
 
 **Include redundancy for your routing solution**. Consider designing a [Global routing redundancy solution](../networking/global-web-applications/overview.md) for mission-critical web applications.
 

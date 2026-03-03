@@ -13,13 +13,13 @@ This architecture is suitable for hybrid applications where the traffic between 
 
 ### Benefits
 
-- Simple to configure.
+- Relatively straightforward configuration compared to dedicated connectivity options.
 - High aggregate bandwidth available; up to 10 Gbps depending on the VPN Gateway SKU.
 
 ### Challenges
 
 - Requires an on-premises VPN device.
-- Although Microsoft guarantees 99.9% availability for each VPN Gateway, this [SLA](https://azure.microsoft.com/support/legal/sla/vpn-gateway/) only covers the VPN gateway, and not your network connection to the gateway.
+- Although Microsoft guarantees 99.9% availability for each VPN Gateway, this [SLA](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services) only covers the VPN gateway, and not your network connection to the gateway.
 
 ### Reference architecture
 

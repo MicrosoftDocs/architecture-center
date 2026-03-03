@@ -138,7 +138,7 @@ Principal authors:
 Other contributors:
 
 - [Ram Baskaran](https://www.linkedin.com/in/ram-baskaran) | Senior Cloud Solution Architect
-- [Jason Bouska](https://www.linkedin.com/in/jasonbouska) | Senior Software Engineer
+- [Jason Bouska](https://www.linkedin.com/in/jasonbouska/) | Senior Software Engineer - Azure Patterns & Practices
 - [Eugene Chung](https://www.linkedin.com/in/eugenesc) | Senior Cloud Solution Architect
 - [Pawan Hosatti](https://www.linkedin.com/in/pawanhosatti) | Senior Cloud Solution Architect - Engineering
 - [Daman Kaur](https://www.linkedin.com/in/damkaur) | Cloud Solution Architect

@@ -44,9 +44,11 @@ I. Partitions run separate workloads and segregate work types within the environ
 
 ### Components
 
-- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block for your private network in Azure. Virtual Network enables many types of Azure resources, like virtual machines (VMs), to communicate with each other, the internet, and on-premises networks, all with improved security. Virtual Network is like a traditional network that you operate in your own datacenter, but it provides more of the benefits of the Azure infrastructure, like scale, availability, and isolation.  
-- [Azure Virtual Machine Scale Sets](/azure/well-architected/service-guides/virtual-machines) provides automated and load-balanced VM scaling that simplifies the management of your applications and increases availability.
-- [Azure SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability), part of the Azure SQL service portfolio, is a managed, highly secure, always up-to-date SQL instance in the cloud.
+- [Azure SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) is a managed, secure, up-to-date SQL instance in the cloud that's part of the Azure SQL service portfolio. In this architecture, SQL Managed Instance serves as the database platform for IMSql. It replaces the mainframe IMS database system and provides storage and transaction processing capabilities.
+
+- [Azure Virtual Machine Scale Sets](/azure/well-architected/service-guides/virtual-machines) is a compute service that provides automated and load-balanced VM scaling that simplifies the management of your applications and increases availability. In this architecture, Virtual Machine Scale Sets hosts the IMSql processing servers and handles typical IMS workloads with automatic scaling capabilities.
+
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block for your private network in Azure. It enables many types of Azure resources, like VMs, to communicate more securely with each other, the internet, and on-premises networks. In this architecture, Virtual Network provides the networking foundation and secure communication infrastructure for all IMSql components.
 
 ### Alternatives
 
@@ -116,10 +118,6 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 Principal author:
 
 - [Bhaskar Bandam](https://www.linkedin.com/in/bhaskar-bandam-75202a9) | Senior Program Manager
-
-Other contributor:
-
-- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

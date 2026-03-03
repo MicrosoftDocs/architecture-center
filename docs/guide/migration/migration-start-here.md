@@ -4,7 +4,7 @@ description: Get an overview of Azure migration technologies, guidance offerings
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 08/11/2022
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.collection: migration
 ---
@@ -74,7 +74,6 @@ The following sections provide links to reference architectures in a few high-le
 - [Modernize mainframe and midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure)
 - [General mainframe refactor to Azure](../../example-scenario/mainframe/general-mainframe-refactor.yml)
 - [Rehost a general mainframe on Azure](../../example-scenario/mainframe/mainframe-rehost-architecture-azure.yml)
-- [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame](../../solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml)
 
 ### Oracle migrations
 

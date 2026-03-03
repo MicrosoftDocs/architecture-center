@@ -7,6 +7,10 @@ metadata:
   ms.date: 02/26/2025
   ms.topic: example-scenario
   ms.subservice: example-scenario
+  ai-usage: ai-assisted
+  ms.collection:
+    - migration
+    - onprem-to-azure
 azureCategories:
   - migration
   - databases

@@ -1,27 +1,28 @@
 ### YamlMime:Architecture
 metadata:
-  title: Video Analysis by Using Azure Machine Learning
-  description: Learn how to implement an architecture that automates video analysis by using Azure Machine Learning and Computer Vision.
+  title: Automate Video Analysis by Using Azure Machine Learning and Azure Vision in Foundry Tools
+  description: Learn how to implement an architecture that automates video analysis by using Azure Machine Learning and Azure Vision in Foundry Tools.
   author: oscarsk91
   ms.author: oscarsh
-  ms.date: 12/20/2024
+  ms.date: 10/01/2025
   ms.topic: example-scenario
   ms.collection: ce-skilling-ai-copilot
   ms.subservice: example-scenario
   ms.custom:
-    - arb-aiml
     - arb-telco
+    - arb-aiml
+  ai-usage: ai-assisted
 azureCategories:
   - ai-machine-learning
   - media
 products:
   - azure-machine-learning
-  - ai-services
+  - foundry-tools
   - azure-logic-apps
-  - azure-synapse-analytics
   - azure-data-lake-storage
-name: Perform video analysis by using Azure Machine Learning and Computer Vision
-summary: Learn how to implement an architecture that automates video analysis by using Azure Machine Learning and Computer Vision.
+  - fabric
+name: Automate video analysis by using Azure Machine Learning and Azure Vision in Foundry Tools
+summary: Learn how to implement an architecture that automates video analysis by using Azure Machine Learning and Azure Vision in Foundry Tools.
 thumbnailUrl: /azure/architecture/browse/thumbs/analyze-video-thumb.png
 content: |
   [!INCLUDE[](analyze-video-computer-vision-machine-learning-content.md)]

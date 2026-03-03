@@ -14,6 +14,7 @@ metadata:
     - fcp
     - e2e-hybrid
     - arb-hybrid
+  ai-usage: ai-assisted
 name: Azure enterprise cloud file share
 azureCategories:
   - hybrid

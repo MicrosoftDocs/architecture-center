@@ -10,6 +10,7 @@ metadata:
   ms.custom: 
     - references_regions
     - arb-web 
+  ai-usage: ai-assisted
 azureCategories:
   - "security"
   - "web"

@@ -3,8 +3,8 @@ title: Compare AWS and Azure Identity Management Solutions
 description: Learn about comparable AWS and Azure identity management solutions so that you can efficiently migrate solutions.
 author: jerrymsft
 ms.author: gerhoads
-ms.date: 03/27/2025
-ms.topic: conceptual
+ms.date: 10/01/2025
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.collection: 
  - migration
@@ -15,7 +15,7 @@ ms.collection:
 This guide is for organizations that use Amazon Web Services (AWS) and want to migrate to Azure or adopt a multicloud strategy. This guidance compares AWS identity management solutions to similar Azure solutions.
 
 > [!TIP]
-> For information about extending Microsoft Entra ID into AWS, see [Microsoft Entra identity management and access management for AWS](/azure/architecture/reference-architectures/aws/aws-azure-ad-security).
+> For more information about extending Microsoft Entra ID into AWS, see [Microsoft Entra identity management and access management for AWS](/azure/architecture/reference-architectures/aws/aws-azure-ad-security).
 
 ## Core identity services
 
@@ -145,7 +145,7 @@ Both platforms provide identity services to secure application access and API au
 |-------------|------------------|-------------|
 | [Cognito identity pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-identity.html) | No direct equivalent | AWS-specific approach to federate identities to AWS resources |
 | No direct equivalent | [Web Apps feature of Azure App Service Easy Auth](/azure/app-service/overview-authentication-authorization) | Platform-level authentication for web applications without code changes |
-| [Cognito user pool Lambda triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html) | [Microsoft identity platform B2C custom policies](/azure/active-directory-b2c/custom-policy-overview) | Extensibility mechanisms for authentication flows |
+| [Cognito user pool Lambda triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html) | [Microsoft identity platform custom authentication extensions](/entra/identity-platform/custom-extension-overview) | Extensibility mechanisms for authentication flows |
 | [AWS Web Application Firewall with Cognito](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-waf.html) | No direct equivalent | Security policies for access control |
 
 ## Contributors
@@ -174,4 +174,3 @@ Other contributor:
 
 - [Compare AWS and Azure resource management](resources.md)
 - [Compare AWS and Azure accounts](accounts.md)
-

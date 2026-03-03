@@ -153,7 +153,7 @@ See [an example of this solution](https://azure.com/e/e0b74472f72d48ce891b08b3af
 
 Principal author:
 
-- [Troy Hite](http://linkedin.com/in/digitalbydesign) | Senior Cloud Solution Architect
+- [Troy Hite](https://www.linkedin.com/in/digitalbydesign) | Senior Cloud Solution Architect
 
 Other contributors:
 

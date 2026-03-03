@@ -12,6 +12,7 @@ metadata:
     - storage
     - compute
   ms.custom: arb-sap
+  ai-usage: ai-assisted
 name: SAP S/4 HANA for Large Instances
 azureCategories:
   - web

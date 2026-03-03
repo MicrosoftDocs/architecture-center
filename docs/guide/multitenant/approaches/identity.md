@@ -4,7 +4,7 @@ description: This article covers identity management strategies for multitenant 
 author: johndowns
 ms.author: pnp
 ms.date: 05/16/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-saas
 ---
@@ -85,7 +85,7 @@ Determine which parts of your solution should handle authorization requests. Eva
 
 A common approach is for your identity system to embed a tenant identifier claim into a token. This approach enables your application to inspect the claim and verify that the users are working with the tenant that they're allowed to access. If you use the role-based security model, you might extend the token to include information about the user's role within the tenant.
 
-However, if a single user is allowed to access multiple tenants, you might need a way for your users to signal which tenant they plan to work with during the sign-in process. After the user selects their active tenant, the IdP can issue a token that include the correct tenant identifier claim and role for that tenant. You also need to consider how users can switch between tenants, which requires issuing a new token.
+However, if a single user is allowed to access multiple tenants, you might need a way for your users to signal which tenant they plan to work with during the sign-in process. After the user selects their active tenant, the IdP can issue a token that includes the correct tenant identifier claim and role for that tenant. You also need to consider how users can switch between tenants, which requires issuing a new token.
 
 #### Application-based authorization
 
@@ -100,7 +100,7 @@ Microsoft Entra ID and External ID are managed identity platforms that you can u
 
 Many multitenant solutions operate as SaaS. Your choice to use Microsoft Entra ID or External ID depends partly on how you define your tenants or customer base.
 
-- If your tenants or customers are organizations, they might already use Microsoft Entra ID for services like Microsoft 365, Microsoft Teams, or for their own Azure environments. You can create a [multitenant application](/entra/identity-platform/single-and-multi-tenant-apps) in your own Microsoft Entra ID directory to make your solution available to other Microsoft Entra ID directories. You can also list your solution in [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps) and make it easily accessible to organizations that use Microsoft Entra ID.
+- If your tenants or customers are organizations, they might already use Microsoft Entra ID for services like Microsoft 365, Microsoft Teams, or for their own Azure environments. You can create a [multitenant application](/entra/identity-platform/single-and-multi-tenant-apps) in your own Microsoft Entra ID directory to make your solution available to other Microsoft Entra ID directories. You can also list your solution in the [Microsoft Marketplace](https://marketplace.microsoft.com) and make it easily accessible to organizations that use Microsoft Entra ID.
 
 - If your tenants or customers don't use Microsoft Entra ID, or if they're individuals instead of organizations, consider using External ID. External ID provides features to control how users sign up and sign in. For example, you can restrict access to your solution to only the users that you invite, or you can enable self-service sign-up. You can use [custom branding](/entra/external-id/customers/how-to-customize-branding-customers). To enable your own staff to sign in, you can [invite users from your Microsoft Entra ID tenant as guests into the External ID via guest access](/entra/external-id/b2b-quickstart-add-guest-users-portal). External ID also enables [federation with other IdPs](/entra/external-id/customers/concept-authentication-methods-customers).
 
@@ -133,7 +133,7 @@ It's important to clearly consider how your solution defines a user and a tenant
 
 Ensure that you have a clear process for tracking tenant context within your application and requests. In some scenarios, this process requires you to include a tenant identifier in every access token and validate it on each request. In other cases, tenant authorization information is stored separately from user identities. This approach requires a more complex authorization system to manage which users can perform specific operations within each tenant.
 
-Tracking the tenant context of a user or token is applicable to any [tenancy model](../considerations/tenancy-models.yml) because a user identity always has a tenant context within a multitenant solution. It's a good practice to track tenant context when you deploy independent stamps for a single tenant, which future-proofs your codebase for other forms of multitenancy.
+Tracking the tenant context of a user or token is applicable to any [tenancy model](../considerations/tenancy-models.md) because a user identity always has a tenant context within a multitenant solution. It's a good practice to track tenant context when you deploy independent stamps for a single tenant, which future-proofs your codebase for other forms of multitenancy.
 
 ### Conflating role and resource authorization
 
@@ -149,16 +149,16 @@ Audit logs are an important tool for understanding your environment and how user
 
 Principal authors:
 
-- [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
-- [Daniel Scott-Raynsford](https://linkedin.com/in/dscottraynsford) | Partner Technology Strategist
-- [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
+- [Daniel Scott-Raynsford](https://www.linkedin.com/in/dscottraynsford) | Partner Technology Strategist
+- [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
   
 Other contributors:
 
-- [Jelle Druyts](https://linkedin.com/in/jelle-druyts-0b76823) | Principal Customer Engineer, FastTrack for Azure
+- [Jelle Druyts](https://www.linkedin.com/in/jelle-druyts-0b76823) | Principal Customer Engineer, FastTrack for Azure
 - [Landon Pierce](https://www.linkedin.com/in/landon-pierce/) | Senior Customer Engineer
-- [Sander van den Hoven](https://linkedin.com/in/azurehero) | Senior Partner Technology Strategist
-- [Nick Ward](https://linkedin.com/in/nickward13) | Senior Cloud Solution Architect
+- [Sander van den Hoven](https://www.linkedin.com/in/azurehero) | Senior Partner Technology Strategist
+- [Nick Ward](https://www.linkedin.com/in/nickward13) | Senior Cloud Solution Architect
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 

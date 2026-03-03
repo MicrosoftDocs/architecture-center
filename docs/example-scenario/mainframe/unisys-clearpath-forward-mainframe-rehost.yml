@@ -7,9 +7,10 @@ metadata:
   ms.date: 04/07/2025
   ms.topic: example-scenario
   ms.subservice: example-scenario
-  ms.custom:
-    - fcp
-    - kr2b-contr-experiment
+  ms.custom: kr2b-contr-experiment
+  ms.collection:
+    - migration
+    - onprem-to-azure
 azureCategories:
   - compute
   - hybrid

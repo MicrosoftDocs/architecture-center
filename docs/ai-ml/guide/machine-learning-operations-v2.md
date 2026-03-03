@@ -1,12 +1,13 @@
 ---
 title: Machine learning operations
 description: Learn about a single deployable set of repeatable and maintainable patterns for creating machine learning CI/CD and retraining pipelines.
-author: setuc
-ms.author: setuchokshi
+author: delynchoong
+ms.author: delynchoong 
 ms.date: 07/03/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
+ai-usage: ai-assisted
 ms.custom: arb-aiml
 ---
 
@@ -246,37 +247,37 @@ The Machine Learning natural language processing architecture is based on the cl
 
 ### Components
 
-- [Machine Learning](https://azure.microsoft.com/services/machine-learning) is a cloud service that you can use to train, score, deploy, and manage machine learning models at scale.
+- [Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) is a cloud service that you can use to train, score, deploy, and manage machine learning models at scale. In this architecture, it's the primary platform for model development, deployment, monitoring, and management throughout the MLOps life cycle.
 
-- [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) is a build-and-test system that's based on Azure DevOps and is used for build and release pipelines. Azure Pipelines splits these pipelines into logical steps called *tasks*.
+- [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) is a build-and-test system that's based on Azure DevOps and is used for build and release pipelines. Azure Pipelines splits these pipelines into logical steps called *tasks*. In this architecture, it automates and manages CI/CD workflows to help ensure consistent deployment and testing of machine learning solutions.
 
-- [GitHub](https://github.com) is a code-hosting platform for version control, collaboration, and CI/CD workflows.
+- [GitHub](https://github.com) is a code-hosting platform. In this architecture, GitHub is the central repository for source code, version control, and collaboration. It integrates with CI/CD pipelines for automation.
 
-- [Azure Arc](https://azure.microsoft.com/services/azure-arc) is a platform that uses Azure Resource Manager to manage Azure resources and on-premises resources. The resources can include virtual machines, Kubernetes clusters, and databases.
+- [Azure Arc](/azure/azure-arc/overview) is a platform that uses Azure Resource Manager to manage Azure resources and on-premises resources. The resources can include virtual machines, Kubernetes clusters, and databases. In this architecture, Azure Arc provides unified management and governance for hybrid and multicloud machine learning environments.
 
-- [Kubernetes](https://kubernetes.io) is an open-source system that you can use to automate the deployment, scaling, and management of containerized applications.
+- [Kubernetes](https://kubernetes.io) is an open-source system that you can use to automate the deployment, scaling, and management of containerized applications. In this architecture, Kubernetes orchestrates containerized machine learning workloads to enable scalable, efficient, and resilient deployments.
 
-- [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) is a Hadoop-compatible file system. It has an integrated hierarchical namespace and the massive scale and economy of Blob Storage.
+- [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a Hadoop-compatible file system. It has an integrated hierarchical namespace and the massive scale and economy of Blob Storage. In this architecture, it stores and manages large volumes of structured and unstructured data for machine learning workflows.
 
-- [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) is a limitless analytics service that brings together data integration, enterprise data warehousing, and big data analytics.
+- [Microsoft Fabric](/fabric/fundamentals/) is a unified platform that can meet your organization's data and analytics needs. In this architecture, Fabric facilitates end-to-end data integration, preparation, and analytics to support the data estate component of MLOps.
 
-- [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs) is a service that ingests data streams that client applications generate. It then ingests and stores streaming data, which preserves the sequence of events received. Customers can connect to the hub endpoints to retrieve messages for processing. This architecture uses Data Lake Storage integration.
+- [Azure Event Hubs](/azure/well-architected/service-guides/event-hubs) is a service that ingests data streams that client applications generate. In this architecture, Event Hubs ingests and stores real-time streaming data to enable data capture and analysis for machine learning pipelines. Customers can connect to the hub endpoints to retrieve messages for processing. This architecture uses Data Lake Storage integration.
 
 ## Other considerations
 
-The preceding MLOps v2 architectural pattern has several critical components, including role-based access control (RBAC) that aligns with business stakeholders, efficient package management, and robust monitoring mechanisms. These components collectively contribute to the successful implementation and management of machine learning workflows.
+The preceding MLOps v2 architectural pattern has several critical components, including Azure RBAC that aligns with business stakeholders, efficient package management, and robust monitoring mechanisms. These components collectively contribute to the successful implementation and management of machine learning workflows.
 
-### Persona-based RBAC
+### Persona-based Azure RBAC
 
-It's crucial that you manage access to machine learning data and resources. RBAC provides a robust framework to help you manage who can perform specific actions and access specific areas within your solution. Design your identity segmentation strategy to align with the lifecycle of machine learning models in Machine Learning and the personas included in the process. Each persona has a specific set of responsibilities that are reflected in their RBAC roles and group membership.
+It's crucial that you manage access to machine learning data and resources. Azure RBAC provides a robust framework to help you manage who can take specific actions and access specific areas within your solution. Design your identity segmentation strategy to align with the lifecycle of machine learning models in Machine Learning and the personas included in the process. Each persona has a specific set of responsibilities that are reflected in their Azure RBAC roles and group membership.
 
 #### Example personas
 
-To support appropriate segmentation in a machine learning workload, consider the following common personas that inform the [identity-based RBAC](#identity-rbac) group design.
+To support appropriate segmentation in a machine learning workload, consider the following common personas that inform the [identity-based Azure RBAC](#identity-azure-rbac) group design.
 
 ##### Data scientist and machine learning engineer
 
-Data scientists and machine learning engineers perform various machine learning and data science activities across the software development life cycle of a project. Their duties include exploratory data analysis and data preprocessing. Data scientists and machine learning engineers are responsible for training, evaluating, and deploying models. These roles' responsibilities also include break-fix activities for machine learning models, packages, and data. These duties are out of scope for the platform's technical support team.
+Data scientists and machine learning engineers do various machine learning and data science activities across the software development life cycle of a project. Their duties include exploratory data analysis and data preprocessing. Data scientists and machine learning engineers are responsible for training, evaluating, and deploying models. These roles' responsibilities also include break-fix activities for machine learning models, packages, and data. These duties are out of scope for the platform's technical support team.
 
 **Type:** Person<br>
 **Project specific:** Yes
@@ -360,13 +361,13 @@ Data governance processes scan the machine learning project and data stores for 
 
 ### Microsoft Entra group membership
 
-When you implement RBAC, [Microsoft Entra groups](/entra/fundamentals/how-to-manage-groups) provide a flexible and scalable way to manage access permissions across different personas. You can use Microsoft Entra groups to manage users that need the same access and permissions to resources, such as potentially restricted apps and services. Instead of adding special permissions to individual users, you create a group that applies the special permissions to every member of that group.
+When you implement Azure RBAC, [Microsoft Entra groups](/entra/fundamentals/how-to-manage-groups) provide a flexible and scalable way to manage access permissions across different personas. You can use Microsoft Entra groups to manage users that need the same access and permissions to resources, such as potentially restricted apps and services. Instead of adding special permissions to individual users, you create a group that applies the special permissions to every member of that group.
 
 In this architectural pattern, you can couple these groups with a [Machine Learning workspace setup](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-resource-organization#team-structure-and-workspace-setup), such as a project, team, or department. You can associate users with specific groups to define fine-grained access policies. The policies grant or restrict permissions to various Machine Learning workspaces based on job functions, project requirements, or other criteria. For example, you can have a group that grants all data scientists access to a development workspace for a specific use case.
 
-### Identity RBAC
+### Identity Azure RBAC
 
-Consider how you can use the following built-in Azure RBAC roles to apply RBAC to production and preproduction environments. For the [architecture](#architecture) in this article, the production environments include staging, testing, and production environments. The preproduction environments include development environments. The following RBAC roles are based on the personas described earlier in this article.
+Consider how you can use the following built-in Azure RBAC roles to apply access control to production and preproduction environments. For the [architecture](#architecture) in this article, the production environments include staging, testing, and production environments. The preproduction environments include development environments. The following built-in roles are based on the personas described earlier in this article.
 
 #### Standard roles
 
@@ -437,7 +438,7 @@ Consider how you can use the following built-in Azure RBAC roles to apply RBAC t
 > [!NOTE]
 > Every persona retains access for the project's duration except platform technical support, which has temporary or just-in-time [Microsoft Entra Privileged Identity Management (PIM)](/entra/id-governance/privileged-identity-management/pim-configure) access.
 
-RBAC plays a vital role in securing and streamlining MLOps workflows. RBAC restricts access based on assigned roles and prevents unauthorized users from accessing sensitive data, which mitigates security risks. Sensitive data includes training data or models and critical infrastructure, such as production pipelines. You can use RBAC to ensure compliance with data privacy regulations. RBAC also provides a clear record of access and permissions, which simplifies auditing, makes it easy to identify security gaps, and tracks user activity.
+Azure RBAC plays a vital role in securing and streamlining MLOps workflows. It restricts access based on assigned roles and prevents unauthorized users from accessing sensitive data, which mitigates security risks. Sensitive data includes training data or models and critical infrastructure, such as production pipelines. You can use Azure RBAC to ensure compliance with data privacy regulations. Azure RBAC also provides a clear record of access and permissions, which simplifies auditing, makes it easy to identify security gaps, and tracks user activity.
 
 ### Package management
 
@@ -475,14 +476,14 @@ Monitor model performance to detect model problems and performance degradation e
 
 ##### Data drift
 
-[Data drift](/azure/machine-learning/how-to-monitor-datasets) tracks changes in the distribution of a model's input data by comparing it to the model's training data or recent past production data. These changes are a result of changes in market dynamics, feature transformation changes, or upstream data changes. Such changes can degrade model performance, so it's important to monitor for drift to ensure timely remediation. To perform a comparison, data drift refactoring requires recent production datasets and outputs.
+[Data drift](/azure/machine-learning/how-to-monitor-datasets) tracks changes in the distribution of a model's input data by comparing it to the model's training data or recent past production data. These changes are a result of changes in market dynamics, feature transformation changes, or upstream data changes. Such changes can degrade model performance, so it's important to monitor for drift to ensure timely remediation. To compare results, data drift refactoring requires recent production datasets and outputs.
 
 **Environment:** Production<br>
 **Azure facilitation:** Machine Learning – [Model monitoring](/azure/machine-learning/concept-model-monitoring#enabling-model-monitoring)
 
 ##### Prediction drift
 
-Prediction drift tracks changes in the distribution of a model's prediction outputs by comparing it to validation, test-labeled, or recent production data. To perform a comparison, data drift refactoring requires recent production datasets and outputs.
+Prediction drift tracks changes in the distribution of a model's prediction outputs by comparing it to validation, test-labeled, or recent production data. Data-drift refactoring requires recent production datasets and outputs to support this comparison.
 
 **Environment:** Production<br>
 **Azure facilitation:** Machine Learning – [Model monitoring](/azure/machine-learning/concept-model-monitoring#enabling-model-monitoring)
@@ -600,7 +601,7 @@ Implement automated security scans as part of the automated integration and depl
 
 **Environment:** All<br>
 **Azure facilitation:** [Defender For DevOps](/azure/defender-for-cloud/defender-for-devops-introduction)<br>
-**Notes:** You can use apps in [Azure Marketplace](https://marketplace.visualstudio.com/search?term=security&target=AzureDevOps&category=All%20categories&sortBy=Relevance) to extend this process for non-Microsoft security testing modules.
+**Notes:** You can use solutions from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/search?term=security&target=AzureDevOps&category=All%20categories&sortBy=Relevance) to extend this process with non-Microsoft security testing modules.
 
 ##### Ongoing service
 
@@ -625,6 +626,7 @@ Other contributors:
 - [Scott Mckinnon](https://www.linkedin.com/in/scott-mckinnon-96756a83/) | Cloud Solution Architect
 - [Darren Turchiarelli](https://www.linkedin.com/in/darren-turchiarelli/) | Cloud Solution Architect
 - [Leo Kozhushnik](https://www.linkedin.com/in/leo-kozhushnik-ab16707/) | Cloud Solution Architect
+- [Daniel Crawford](https://www.linkedin.com/in/daniel-crawford-b661373/) | Senior Program Manager
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
@@ -639,14 +641,14 @@ Other contributors:
 - [Introduction to Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
 - [Azure DevOps documentation](/azure/devops)
 - [GitHub Docs](https://docs.github.com)
-- [Synapse Analytics documentation](/azure/synapse-analytics)
+- [Microsoft Fabric documentation](/fabric/fundamentals/)
 - [Event Hubs documentation](/azure/event-hubs)
 - [How Machine Learning works: resources and assets (v2)](/azure/machine-learning/concept-azure-machine-learning-v2)
 - [What are Machine Learning pipelines?](/azure/machine-learning/concept-ml-pipelines)
 
 ## Related resources
 
-- [Choose a Microsoft Azure AI services technology](../../data-guide/technology-choices/ai-services.md)
+- [Choose an AI services technology](../../data-guide/technology-choices/ai-services.md)
 - [Natural language processing technology](../../data-guide/technology-choices/natural-language-processing.md)
 - [Compare the machine learning products and technologies from Microsoft](../../ai-ml/guide/data-science-and-machine-learning.md)
 - [What is the Team Data Science Process?](../../data-science-process/overview.yml)

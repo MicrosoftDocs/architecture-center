@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Enhanced-security hybrid messaging — client access
+  title: Enhanced-security hybrid messaging for client access
   description: Enhance your security in a client access scenario by using Microsoft Entra multifactor authentication.
   author: claytonsiemens77
   ms.author: pnp
@@ -18,7 +18,7 @@ products:
   - entra-id
   - "m365"
   - "office-365"
-name: Enhanced-security hybrid messaging infrastructure — desktop-client access
+name: Enhanced-security hybrid messaging infrastructure for desktop-client access
 summary: Enhance your security in a desktop-client access scenario by using Microsoft Entra multifactor authentication.
 thumbnailUrl: /azure/architecture/browse/thumbs/desktop-online-option-1.png
 content: |

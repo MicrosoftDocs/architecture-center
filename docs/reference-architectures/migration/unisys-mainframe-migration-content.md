@@ -70,13 +70,13 @@ H. A printer subsystem manages on-premises printers.
 
 - [Virtual network interfaces](/azure/virtual-network/virtual-network-network-interface) let VMs communicate with the internet, Azure, and on-premises resources. You can add several network interface cards to one VM so that child VMs can have their own dedicated network interface devices and IP addresses.
 
-- [Azure managed disks](/azure/virtual-machines/disks-types) are block-level storage volumes that Azure manages on Virtual Machines. The types of disks are Ultra Disk Storage, Premium SSD, Standard SSD, and Standard HDD. This architecture works best with Premium SSD or Ultra Disk Storage.
+- [Azure Managed Disks](/azure/virtual-machines/disks-types) are block-level storage volumes that Azure manages on Virtual Machines. The types of disks are Ultra Disk Storage, Premium SSD, and Standard SSD. This architecture works best with Premium SSD or Ultra Disk Storage.
 
 - [Azure Files](/azure/well-architected/service-guides/azure-files) offers fully managed file shares in your Azure Storage account that are accessible from the cloud or on-premises. Windows, Linux, and macOS deployments can mount Azure file shares concurrently and access files via the industry standard Server Message Block (SMB) protocol.
 
 - [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. With ExpressRoute, you can establish connections to cloud services like Azure and Microsoft 365.
 
-- [Azure Bastion](/azure/bastion/bastion-overview) is a fully managed PaaS that you provision inside your virtual network. Azure Bastion provides secure and seamless Remote Desktop Protocol (RDP) and Secure Shell (SSH) connectivity to the VMs in your virtual network directly from the Azure portal over TLS.
+- [Azure Bastion](/azure/bastion/bastion-overview) is a fully managed PaaS that you provision inside your virtual network. Azure Bastion provides Remote Desktop Protocol (RDP) and Secure Shell (SSH) connectivity to the VMs in your virtual network over TLS from the Azure portal.
 
 - [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a fully managed PaaS database engine that runs on the latest stable version of SQL Server and patched OS, with 99.99% availability. SQL Database handles most database management functions like upgrading, patching, backups, and monitoring without user involvement. These PaaS capabilities let you focus on business-critical, domain-specific database administration and optimization.
 
@@ -84,7 +84,7 @@ H. A printer subsystem manages on-premises printers.
 
 - [Site Recovery](/azure/site-recovery/site-recovery-overview) uses replication, failover, and recovery processes to help keep your applications running during planned and unplanned outages.
 
-- [Load Balancer](/azure/well-architected/service-guides/azure-load-balancer/reliability) provides highly available and scalable apps in minutes with built-in application load balancing for cloud services and VMs. Load Balancer supports TCP/UDP-based protocols such as HTTP, HTTPS, and SMTP. With Load Balancer, you can provide a better customer experience to automatically scale your increasing app traffic. You don't need to reconfigure or manage the load balancer.
+- [Load Balancer](/azure/well-architected/service-guides/azure-load-balancer/reliability) provides Layer-4 load balancing for cloud services and VMs. Load Balancer supports TCP/UDP-based protocols such as HTTP, HTTPS, and SMTP and distributes traffic across healthy instances.
 
 ## Scenario details
 
@@ -92,7 +92,7 @@ This solution transforms proprietary legacy applications, infrastructure, busine
 
 Unisys ClearPath mainframe systems are full-featured operating environments that can scale up vertically to handle mission-critical workloads. ClearPath mainframe models include Dorado, which runs legacy Sperry 1100/2200, and Libra, which runs legacy Burroughs A Series/MCP. Emulating, converting, or modernizing these systems into Azure can provide similar or better performance and service-level agreement (SLA) guarantees, while taking advantage of Azure flexibility, reliability, and future capabilities.
 
-Use the Avanade AMT framework to quickly move into Azure without rewriting application code or redesigning data architecture. The framework converts legacy code to C#, while maintaining the source code in its original form. You don't have to change application user interfaces and interactions. This approach minimizes the need for end user retraining.
+Use the Avanade AMT framework to move to Azure without rewriting application code or redesigning data architecture. The framework converts legacy code to C#, while maintaining the source code in its original form. You don't have to change application user interfaces and interactions. This approach minimizes the need for end user retraining.
 
 Avanade AMT Transform automates the migration of the complete mainframe ecosystem to Azure by converting:
 
@@ -107,7 +107,7 @@ Avanade AMT Transform automates the migration of the complete mainframe ecosyste
 
 The AMT framework supports several options to move client workloads to Azure:
 
-- *Whole system conversion*: One migration method is to convert and move the entire mainframe system to Azure at once, saving interim mainframe maintenance and facility support costs. You should carefully consider and manage this approach because all processes, such as application conversion, data migration, and testing, must align for a smooth transition.
+- *Whole system conversion*: One migration method is to convert and move the entire mainframe system to Azure at once, saving interim mainframe maintenance and facility support costs. You should carefully consider and manage this approach because all processes, such as application conversion, data migration, and testing, must align to reduce disruption during the transition.
 - *Phased application transition*: A second methodology is to move applications from the mainframe to Azure using a phased approach with complete transition as the ultimate goal. You can save money on individual applications. You can also learn about the conversion for each application and apply those lessons to subsequent conversions.
 - *Resource optimization with phased transition*: If the goal is to release resources on the mainframe, the phased method can provide more processing cycles on the mainframe because you convert and migrate applications to Azure. This method results in a more complex migration due to varying factors, including setting up temporary interfaces to the mainframe and decoupling complex code. You can retire the mainframe after all migration phases are complete.
 
@@ -131,7 +131,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 - Use [Private Link for SQL Database](/azure/azure-sql/database/private-endpoint-overview) to provide a private, direct connection that's isolated to the Azure networking backbone from the VMs to SQL Database.
 
-- Use [Azure Bastion](/azure/bastion/bastion-overview) to maximize administrator access security by minimizing open ports. Azure Bastion provides secure and seamless secure RDP and SSH connectivity over TLS from the Azure portal to VMs in the virtual network.
+- Use [Azure Bastion](/azure/bastion/bastion-overview) to maximize administrator access security by minimizing open ports. Azure Bastion provides RDP and SSH connectivity over TLS from the Azure portal to VMs in the virtual network.
 
 ### Cost Optimization
 
@@ -149,7 +149,7 @@ Performance Efficiency is the ability of your workload to meet the demands place
 
 - Avanade AMT has proven single-application scalability that's equivalent to at least 28,000 million instructions per second (MIPS).
 
-- Use Virtual Machine Scale Sets so each set of servers can scale out to provide more throughput. For information, see [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview).
+- Use Virtual Machine Scale Sets so each set of servers can scale out to provide more throughput. For more information, see [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview).
 
 - SQL Database has hyperscale or business-critical tiers for high input/output operations per second (IOPS) and high uptime SLAs. For pricing information, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/azure-sql-database/single/).
 

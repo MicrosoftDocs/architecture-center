@@ -13,7 +13,7 @@ Use a message queue to implement the communication channel between the applicati
 ![Using a message queue to distribute work to instances of a service](./_images/competing-consumers-diagram.png)
 
 >[!NOTE]
->Although there are multiple consumers of these messages, this is not the same as the [Publish Subscribe pattern](publisher-subscriber.yml) (pub/sub). With the Competing Consumers approach, each message is passed to a single consumer for processing, whereas with the Pub/Sub approach, **all** consumers get passed **every** message.
+>Although there are multiple consumers of these messages, this isn't the same as the [Publish Subscribe pattern](publisher-subscriber.yml) (pub/sub). With the Competing Consumers approach, each message is passed to a single consumer for processing, whereas with the Pub/Sub approach, **all** consumers get passed **every** message.
 
 This solution has the following benefits:
 
@@ -80,7 +80,7 @@ As with any design decision, consider any tradeoffs against the goals of the oth
 
 Azure provides Service Bus Queues and Azure Function queue triggers that, when combined, are a direct implementation of this cloud design pattern. Azure Functions integrate with Azure Service Bus via triggers and bindings. Integrating with Service Bus allows you to build functions that consume queue messages sent by publishers. The publishing application(s) will post messages to a queue, and consumers, implemented as Azure Functions, can retrieve messages from this queue and handle them.
 
-For resiliency, a Service Bus queue enables a consumer to use `PeekLock` mode when it retrieves a message from the queue; this mode doesn't actually remove the message, but simply hides it from other consumers. The Azure Functions runtime receives a message in PeekLock mode, if the function finishes successfully it calls Complete on the message, or it may call Abandon if the function fails, and the message will become visible again, allowing another consumer to retrieve it. If the function runs for a period longer than the PeekLock timeout, the lock is automatically renewed as long as the function is running.
+For resiliency, a Service Bus queue enables a consumer to use `PeekLock` mode when it retrieves a message from the queue. This mode doesn't remove the message, but hides it from other consumers. The Azure Functions runtime receives a message in PeekLock mode, if the function finishes successfully it calls Complete on the message, or it might call Abandon if the function fails, and the message will become visible again, allowing another consumer to retrieve it. If the function runs for a period longer than the PeekLock timeout, the lock is automatically renewed as long as the function is running.
 
 Azure Functions can scale out/in based on the depth of the queue, all acting as competing consumers of the queue. If multiple instances of the functions are created they all compete by independently pulling and processing the messages.
 

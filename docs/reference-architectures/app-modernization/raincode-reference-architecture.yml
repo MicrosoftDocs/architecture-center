@@ -10,6 +10,9 @@ metadata:
   ms.category:
     - integration
     - databases
+  ms.collection:
+    - migration
+    - onprem-to-azure
 name: Rehost mainframe applications to Azure with Raincode compilers
 azureCategories:
   - integration

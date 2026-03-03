@@ -1,11 +1,11 @@
 ### YamlMime:Architecture
 metadata:
-  title: Deploy and operate apps with AKS enabled by Arc on Azure Local or Windows Server
-  description: Build an app deployment pipeline for containerized apps on AKS enabled by Arc that are running on Azure Local or Windows Server.
-  author: scooley
-  ms.author: scooley
-  ms.date: 06/14/2024
-  ms.topic: conceptual
+  title: Deploy and Operate Apps with AKS Enabled by Azure Arc on Azure Local
+  description: Build containerized app deployment pipelines for AKS on Azure Local with Azure Arc and GitOps. Learn about Flux automation for hybrid Kubernetes clusters.
+  author: ssarwa
+  ms.author: srikantsarwa
+  ms.date: 4/28/2025
+  ms.topic: example-scenario
   ms.subservice: example-scenario
   ms.custom: arb-hybrid
 azureCategories:
@@ -15,11 +15,10 @@ products:
   - azure-kubernetes-service
   - azure-local
   - azure-arc
-  - windows-server
   - github
   - azure-pipelines
-name: Deploy and operate apps with AKS enabled by Arc on Azure Local or Windows Server
-summary: Build an app deployment pipeline for containerized apps on AKS enabled by Arc that are running on Azure Local or Windows Server.
-thumbnailUrl: /azure/architecture/browse/thumbs/aks-stack-hci.png
+name: Deploy and operate apps with AKS enabled by Azure Arc on Azure Local
+summary: Build containerized app deployment pipelines for AKS on Azure Local with Azure Arc and GitOps. Learn about Flux automation for hybrid Kubernetes clusters.
+thumbnailUrl: /azure/architecture/browse/thumbs/aks-azure-local.png
 content: |
   [!INCLUDE[](aks-hybrid-azure-local-content.md)]

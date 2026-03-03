@@ -4,7 +4,7 @@ description: Use this guide to decide which Azure storage service best suits you
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 10/11/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: fcp
 ---
@@ -25,7 +25,7 @@ Azure Storage is the Azure platform's managed service for providing cloud storag
 ### Key questions
 Answer the following questions about your workloads to help make decisions about your storage needs:
 
-- **Do your workloads require disk storage to support the deployment of infrastructure as a service (IaaS) virtual machines?** [Azure managed disks](/azure/virtual-machines/managed-disks-overview) provide virtual disk capabilities for IaaS virtual machines.
+- **Do your workloads require disk storage to support the deployment of infrastructure as a service (IaaS) virtual machines?** [Azure Managed Disks](/azure/virtual-machines/managed-disks-overview) provide virtual disk capabilities for IaaS virtual machines.
 - **Will you need to provide downloadable images, documents, or other media as part of your workloads?** [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction) hosts static files, which are then accessible for download over the internet. For more information, see [Static website hosting in Azure Storage](/azure/storage/blobs/storage-blob-static-website).
 - **Will you need a location to store virtual machine logs, application logs, and analytics data?** Azure Monitor has [native storage for metrics, logs, and distributed traces](/azure/azure-monitor/data-platform).
   - Metrics in Azure Monitor are stored in a time-series database that's optimized for analyzing time-stamped data.
@@ -60,7 +60,7 @@ Azure offers multiple products and services for different storage capabilities. 
 | I have bare-metal servers or virtual machines (Hyper-V or VMware) with direct attached storage running line-of-business applications. | [Azure Premium SSD](/azure/virtual-machines/disks-types#premium-ssd) | For production services, Premium SSD option provides consistent low-latency coupled with high input/output operations per second (IOPS) and throughput. |
 | I have servers that will host web and mobile apps. | [Azure Standard SSD](/azure/virtual-machines/disks-types#standard-ssd) | Standard SSD IOPS and throughput might be sufficient at a lower cost than Premium SSD for CPU-bound web and application servers in production. |
 | I have an enterprise SAN or all-flash array. | [Premium SSD or Azure Ultra Disk Storage](/azure/virtual-machines/disks-types) or [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) | Ultra Disk Storage is NVMe-based and offers submillisecond latency with high IOPS and bandwidth. Ultra Disk Storage is scalable up to 64 TiB. The choice of Premium SSD or Ultra Disk Storage depends on peak latency, IOPS, and scalability requirements. |
-| I have high-availability clustered servers, such as SQL Server FCI or Windows Server failover clustering. | [Azure Files](/azure/storage/files/storage-files-planning#storage-tiers) or [Premium SSD or Ultra Disk Storage](/azure/virtual-machines/disks-types) | Clustered workloads require multiple nodes to mount the same underlying shared storage for failover or high availability. Premium file shares offer shared storage that's mountable by using SMB. Shared block storage also can be configured on Premium SSD or Ultra Disk Storage by using partner solutions. See [SIOS DataKeeper Cluster Edition](https://azuremarketplace.microsoft.com/marketplace/apps/sios_datakeeper.sios-datakeeper-8?tab=Overview). |
+| I have high-availability clustered servers, such as SQL Server FCI or Windows Server failover clustering. | [Azure Files](/azure/storage/files/storage-files-planning#storage-tiers) or [Premium SSD or Ultra Disk Storage](/azure/virtual-machines/disks-types) | Clustered workloads require multiple nodes to mount the same underlying shared storage for failover or high availability. Premium file shares offer shared storage that's mountable by using SMB. Shared block storage also can be configured on Premium SSD or Ultra Disk Storage by using partner solutions. See [SIOS DataKeeper Cluster Edition](https://marketplace.microsoft.com/product/sios_datakeeper.sios-datakeeper-8). |
 | I have a relational database or data warehouse workload, such as SQL Server or Oracle. | [Premium SSD or Ultra Disk Storage](/azure/virtual-machines/disks-types) | The choice of Premium SSD or Ultra Disk Storage depends on peak latency, IOPS, and scalability requirements. Ultra Disk Storage also reduces complexity by removing the need for storage pool configuration for scalability. See [Mission critical performance](https://azure.microsoft.com/blog/mission-critical-performance-with-ultra-ssd-for-sql-server-on-azure-vm/). |
 | I have a NoSQL cluster such as Cassandra or MongoDB. | [Premium SSD](/azure/virtual-machines/disks-types#premium-ssd) | Azure disk storage Premium SSD provides consistent low-latency coupled with high IOPS and throughput. |
 | I have containers with persistent volumes that require block storage. | [Standard SSD, Premium SSD, or Ultra Disk Storage](/azure/virtual-machines/disks-types) or [Azure Container Storage](/azure/storage/container-storage/container-storage-introduction) | Block (ReadWriteOnce) volume driver options are available for both Azure Kubernetes Service and custom Kubernetes deployments. For a fully managed solution that works seamlessly with Azure Kubernetes Service, consider using [Azure Container Storage](/azure/storage/container-storage/container-storage-introduction). |
@@ -134,7 +134,7 @@ Azure Storage has various redundancy options to help ensure durability and high 
 
 To learn more about these capabilities and how to decide on the best redundancy option for your use cases, see [Azure Storage redundancy](/azure/storage/common/storage-redundancy) and [Azure Files redundancy](/azure/storage/files/files-redundancy).
 
-SLAs for storage services provide financially backed guarantees. For more information, see [SLA for managed disks](https://azure.microsoft.com/support/legal/sla/managed-disks), [SLA for virtual machines](https://azure.microsoft.com/support/legal/sla/virtual-machines), and [SLA for storage accounts](https://azure.microsoft.com/support/legal/sla/storage).
+SLAs for storage services provide financially backed guarantees. For more information, see the [Service Level Agreements for Microsoft Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
 For help with planning the right solution for Azure disks, see [Backup and disaster recovery for Azure disk storage](/azure/virtual-machines/backup-and-disaster-recovery-for-azure-iaas-disks).
 

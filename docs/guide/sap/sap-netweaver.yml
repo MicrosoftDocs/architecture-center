@@ -4,8 +4,8 @@ metadata:
   description: Learn proven practices for running SAP NetWeaver in a Windows environment on Azure, with high availability.
   author: bqtrinh
   ms.author: bentrin
-  ms.date: 07/20/2023
-  ms.topic: conceptual
+  ms.date: 05/30/2025
+  ms.topic: concept-article
   ms.subservice: architecture-guide
   ms.category:
     - databases

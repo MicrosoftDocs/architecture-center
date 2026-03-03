@@ -2,11 +2,11 @@
 metadata:
   title: Azure Virtual Desktop for Azure Local
   description: Learn how to design Azure Virtual Desktop for Azure Local to provide a more secure and productive remote desktop experience for users.
-  author: seechanmsft
-  ms.author: seecha
+  author: sydbruck
+  ms.author: sydbruckm
   ms.date: 11/26/2024
-  ms.topic: conceptual
-  ms.subservice: example-workload
+  ms.topic: example-scenario
+  ms.subservice: example-scenario
   ms.category:
     - hybrid
     - management-and-governance

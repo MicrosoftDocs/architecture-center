@@ -15,13 +15,15 @@ The architecture consists of the following components:
 - **Sync groups**. Logical groupings of Azure file shares and servers that run Windows Server. Sync groups are deployed into Storage Sync Service, which registers servers for use with Azure File Sync and contains the sync group relationships.
 - **Azure File Sync agent**. This is installed on Windows Server machines to enable and configure sync with cloud endpoints.
 - **Windows Servers**. On-premises or cloud-based Windows Server machines that host a file share that syncs with an Azure file share.
-- **[Microsoft Entra ID][Azure Active Directory]**. The Microsoft Entra tenant that's used for identity synchronization across Azure and on-premises environments.
+- **[Microsoft Entra ID][Microsoft Entra ID]**. The Microsoft Entra tenant that's used for identity synchronization across Azure and on-premises environments.
 
 ### Components
 
-- [Azure Storage accounts](/azure/well-architected/service-guides/storage-accounts/reliability)
-- [Azure Files](/azure/well-architected/service-guides/azure-files)
-- [Microsoft Entra ID](/entra/fundamentals/whatis)
+- [Azure Files](/azure/well-architected/service-guides/azure-files) is a fully managed cloud file sharing service from Microsoft Azure that lets you create file shares accessible via SMB or network file system (NFS) protocols, with the scalability, security, and flexibility of the cloud. In this architecture, it enables scalable, secure file storage for applications and users and supports lift-and-shift scenarios and hybrid access.
+
+- [Azure Storage accounts](/azure/well-architected/service-guides/storage-accounts/reliability) are the foundational containers in Microsoft Azure that hold all your cloud storage data and provide a unified namespace for storing blobs, files, queues, tables, and disks. In this architecture, they serve as the foundational storage layer and ensure high availability, durability, and performance across workloads.
+
+- [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based identity and access management service. In this architecture, it governs authentication, authorization, and conditional access for users, apps, and services across the environment.
 
 ## Scenario details
 
@@ -184,7 +186,7 @@ Related architectures:
 [Visio diagram]: https://arch-center.azureedge.net/hybrid-file-services.vsdx
 [Storage Account]: /azure/storage/common/storage-account-overview
 [Azure Files]: /azure/storage/files/storage-files-planning
-[Azure Active Directory]: /entra/fundamentals/whatis
+[Microsoft Entra ID]: /entra/fundamentals/whatis
 [Azure File Sync proxy and firewall settings]: /azure/storage/files/storage-sync-files-firewall-and-proxy
 [Windows file server considerations]: /azure/storage/files/storage-sync-files-planning#windows-file-server-considerations
 [Azure File Sync Agent Download]: https://go.microsoft.com/fwlink/?linkid=858257

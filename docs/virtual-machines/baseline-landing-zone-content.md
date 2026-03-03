@@ -34,38 +34,38 @@ All Azure landing zone architectures have a separation of ownership between the 
 
 The following resources remain mostly unchanged from the [baseline architecture](./baseline.yml#workload-resources).
 
-- **Azure Virtual Machines** is the application platform. The compute resources are distributed across availability zones.
+- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is an infrastructure as a service (IaaS) offering that provides scalable compute resources. In this architecture, VMs host the front-end and back-end tiers and are distributed across availability zones for resilience.
 
-- **Azure Load Balancer** is used to privately load balance traffic from the front-end VMs to the back-end VMs. The load balancer distributes traffic to VMs across zones.
-- **Azure Application Gateway** is used as the reverse proxy to route user requests to the front-end VMs. The selected SKU is also used to host Azure Web Application Firewall to protect the front-end VMs from potentially malicious traffic.
-- **Azure Key Vault** is used to store application secrets and certificates.
-- **Azure Monitor, Log Analytics, and Application Insights** are used to collect, store, and visualize observability data.
-- **Azure Policy** is used to apply policies that are specific to the workload.
+- [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer) is a layer-4 load balancing service for Transmission Control Protocol (TCP) and User Datagram Protocol (UDP) traffic. In this architecture, it privately load balances traffic from front-end to back-end VMs across zones.
+- [Azure Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is a layer-7 reverse proxy and web traffic load balancer. In this architecture, it terminates Transport Layer Security (TLS), inspects requests, and serves as the reverse proxy to route user traffic to front-end VMs. The selected SKU also hosts Azure Web Application Firewall to protect the front-end VMs from potentially malicious traffic.
+- [Azure Key Vault](/azure/key-vault/general/overview) is a service for managing secrets, keys, and certificates. In this architecture, it holds the TLS certificates that Application Gateway and VMs consume.
+- [Azure Monitor](/azure/azure-monitor/fundamentals/overview), [Log Analytics](/azure/well-architected/service-guides/azure-log-analytics), and [Application Insights](/azure/well-architected/service-guides/application-insights) are tools that collect, store, and visualize observability data. In this architecture they collect guest and platform metrics and logs, ingest and correlate them in a dedicated workspace, and enable application-level telemetry and visualization for troubleshooting, performance tuning, and governance.
+- [Azure Policy](/azure/governance/policy/overview) is a service that enforces organizational standards and assesses compliance at scale. In this architecture, it applies workload-specific governance controls separate from platform-wide policies.
 
 The workload team maintains and fulfills the following resources and responsibilities.
 
-- **Spoke virtual network subnets and the network security groups (NSGs)** that are placed on those subnets to maintain segmentation and control traffic flow.
+- **Spoke virtual network subnets and the network security groups (NSGs)** provide segmented IP address space and traffic filtering boundaries. In this architecture, they implement tier-based isolation and control east‑west and ingress and egress flows for workload components.
 
-- **Private endpoints** to secure connectivity to platform as a service (PaaS) solutions and the **private DNS zones** required for those endpoints.
-- **Azure Managed Disks** stores log files on the back-end servers, and the data is retained even when VMs reboot. The front-end servers have disks attached that you can use to deploy your stateless application.
+- **Private endpoints** provide private IP-based access to platform services over the Azure backbone. In this architecture, they secure connectivity to platform as a service (PaaS) solutions and the **private DNS zones** required for those endpoints.
+- [Azure Managed Disks](/azure/virtual-machines/managed-disks-overview) provide durable, high-performance storage for VMs. In this architecture, they store log files on the back-end servers, and the data is retained even when VMs reboot. The front-end servers have disks attached that you can use to deploy your stateless application.
 
 #### Platform team-owned resources
 
 The platform team owns and maintains these centralized resources. This architecture assumes that these resources are preprovisioned and considers them dependencies.
 
-- **Azure Firewall in the hub network** is used to inspect and restrict egress traffic. This component replaces the standard load balancer in the baseline architecture, which doesn't provide restrictions on outbound traffic to the internet.
+- **Azure Firewall in the hub network** is a stateful network security service for filtering and logging traffic. In this architecture, it centrally inspects and restricts egress from the spoke via forced tunneling. This component replaces the standard load balancer in the baseline architecture, which doesn't provide restrictions on outbound traffic to the internet.
 
-- **Azure Bastion in the hub network** provides secure operational access to workload VMs. In the baseline architecture, the workload team owns this component.
-- The **spoke virtual network** is where the workload is deployed.
-- **User-defined routes (UDRs)** are used to force tunneling to the hub network.
-- **Azure Policy-based governance constraints** and `DeployIfNotExists` (DINE) policies are part of the workload subscription.
+- **Azure Bastion in the hub network** is an architectural approach that provides Remote Desktop Protocol (RDP) and Secure Shell (SSH) connectivity to VMs over TLS without exposing public IP addresses. In this architecture, it supplies shared, audited operational access to workload VMs. In the baseline architecture, the workload team owns this component.
+- The **spoke virtual network** is an isolated address space peered to a hub for shared services. In this architecture, it hosts the workload's compute, ingress, and related resources under workload team ownership.
+- **User-defined routes (UDRs)** are custom routing rules that let you customize routing tables to direct traffic through specific next hops. In this architecture, they force all internet-bound traffic from the spoke through the hub's firewall.
+- **Azure Policy-based governance constraints** and `DeployIfNotExists` (DINE) policies automatically deploy or configure required resources for compliance. In this architecture, they ensure that mandated platform-aligned configurations, such as private DNS or diagnostics, exist in the workload subscription.
 
 > [!IMPORTANT]
 > Azure landing zones provide some of the preceding resources as part of the platform landing zone subscriptions, and your workload subscription provides other resources. Many of the resources are part of the connectivity subscription, which has additional resources, such as Azure ExpressRoute, Azure VPN Gateway, and Azure DNS. These additional resources provide cross-premises access and name resolution. The management of these resources is outside the scope of this article.
 
 ## Subscription setup
 
-In a landing zone context, your workload team must inform the platform team of their specific requirements.
+In an application landing zone context, your workload team must inform the platform team of their specific requirements.
 
 Your **workload team** must include detailed information about the networking space that your workload needs, so that the platform team can allocate necessary resources. Your team determines the requirements, and the platform team determines the IP addresses to assign within the virtual network and the management group to which the subscription is assigned.
 
@@ -151,7 +151,7 @@ Make sure that you [communicate the workload requirements](#subscription-setup) 
 
 In the spoke virtual network, the workload team creates and allocates the subnets. Placing controls to restrict traffic in and out of the subnets helps to provide segmentation. This architecture uses the same subnet topology as the [baseline architecture](baseline.yml#subnetting-considerations), which has dedicated subnets for Application Gateway, front-end VMs, the load balancer, back-end VMs, and private endpoints.
 
-When you deploy your workload in an Azure landing zone, you still have to implement network controls. Organizations might impose restrictions to safeguard against data exfiltration and ensure visibility for the central security operations center (SOC) and the IT network team.
+When you deploy your workload in an application landing zone, you still have to implement network controls. Organizations might impose restrictions to safeguard against data exfiltration and ensure visibility for the central security operations center (SOC) and the IT network team.
 
 With this approach, the platform team can optimize overall organizational spend by using centralized services, rather than deploying redundant security controls for each workload throughout the organization. In this architecture, Azure Firewall is an example of a central service. It's not cost-effective or practical for each workload team to manage their own firewall instance. We recommend a centralized approach to firewall management.
 
@@ -207,7 +207,7 @@ This architecture uses the same authentication extension as the [baseline archit
 > [!NOTE]
 > When operators log into a VM, they must use their corporate identities in their Microsoft Entra ID tenant and not share service principals across functions.
 
-Always start with the principle of least-privilege and granular access to a task instead of long-standing access. In the landing zone context, take advantage of just-in-time (JIT) support that the platform team manages.
+Always start with the principle of least-privilege and granular access to a task instead of long-standing access. Take advantage of just-in-time (JIT) support that the platform team manages.
 
 ## Patch compliance and OS upgrades
 
@@ -240,7 +240,7 @@ Correlated data is often used during incident response. If there's a problem wit
 
 > [!IMPORTANT]
 >
-> **For the platform team:** Where possible, grant role-based access control (RBAC) to query and read log sinks for relevant platform resources. Enable firewall logs for network and application rule evaluations and DNS proxy because the application teams can use this information during troubleshooting tasks.
+> **For the platform team:** Where possible, grant Azure role-based access control (Azure RBAC) to query and read log sinks for relevant platform resources. Enable firewall logs for network and application rule evaluations and DNS proxy because the application teams can use this information during troubleshooting tasks.
 
 ## Azure Policy
 
@@ -370,7 +370,7 @@ The following table shows examples of egress in this architecture.
 | Windows Update endpoints | Windows Update functionality from Microsoft servers | *TCP/443* and *TCP/80* to the internet on the back-end VM subnet (the egress firewall narrows this broad opening) | Firewall allowance rule with FQDN tag of `WindowsUpdate` |
 | Monitor agent endpoints | Required traffic for the Monitor extension on VMs | *TCP/443* to the internet on both VM subnets (the egress firewall narrows this broad opening) | Necessary firewall application rule allowances for all specific FQDNs on *TCP/443* |
 | *nginx\.org* | To install Nginx (an example application component) directly from the vendor | *TCP/443* to the internet on the front-end VM subnet (the egress firewall narrows this broad opening) | Necessary firewall application rule allowance for *nginx\.org* on *TCP/443* |
-| Key Vault | To import (Transport Layer Security) TLS certificates in Application Gateway and VMs | - *TCP/443* to a private endpoint subnet from both VM subnets to a private endpoint subnet<br>- *TCP/443* to a private endpoint subnet from an Application Gateway subnet<br>- *TCP/443* from VMs tagged with a required application security group (ASG) designation and Application Gateway subnet | None |
+| Key Vault | To import TLS certificates in Application Gateway and VMs | - *TCP/443* to a private endpoint subnet from both VM subnets to a private endpoint subnet<br>- *TCP/443* to a private endpoint subnet from an Application Gateway subnet<br>- *TCP/443* from VMs tagged with a required application security group (ASG) designation and Application Gateway subnet | None |
 
 ##### DDoS Protection
 

@@ -4,7 +4,7 @@ description: Learn about the AKS managed solution, configurations, best practice
 author: francisnazareth
 ms.author: fnazaret
 ms.date: 01/28/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.collection: 
  - migration
@@ -28,13 +28,13 @@ The articles compare AKS with Amazon EKS in the following Kubernetes design area
 - [Cluster governance](governance.md)
 - [Workload migration](migrate.md)
 
-These articles provide recommended architectures and practices to improve AKS deployment security, compliance, management, and observability. Specifically, the [Migrate EKS to AKS](migrate.md) article provides strategies to migrate typical stateless and stateful workloads. For basic AKS implementation, see [Baseline architecture for an AKS cluster](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks) and [AKS in an application landing zone](/azure/cloud-adoption-framework/scenarios/app-platform/aks/landing-zone-accelerator).
+These articles provide recommended architectures and practices to improve AKS deployment security, compliance, management, and observability. Specifically, the [Migrate EKS to AKS](migrate.md) article provides strategies to migrate typical stateless and stateful workloads. For basic AKS implementation, see [Baseline architecture for an AKS cluster](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks) and [Cloud Adoption Framework guidance for adopting AKS in an Azure landing zone](/azure/cloud-adoption-framework/scenarios/app-platform/aks/landing-zone-accelerator).
 
 AKS isn't the only way to run containers in Azure, and Amazon EKS is only one of the container options for Amazon Web Services (AWS). These articles don't compare Azure services like Azure Container Apps, Azure Container Instances, and Azure App Service with AWS services like Amazon Elastic Container Service or AWS Fargate.
 
 For more information about other Azure services that can host containerized workloads, see the following articles:
 
-- [Choose an Azure compute service](../../guide/technology-choices/compute-decision-tree.yml)
+- [Choose an Azure compute service](../../guide/technology-choices/compute-decision-tree.md)
 - [Choose an Azure container service](../../guide/choose-azure-container-service.md)
 - [Compare Container Apps with other Azure container options](/azure/container-apps/compare-options)
 - [General architectural considerations to choose an Azure container service](../../guide/container-service-general-considerations.md)

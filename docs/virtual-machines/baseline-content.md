@@ -3,7 +3,7 @@ This article provides a foundational reference architecture for a workload deplo
 The example workload assumed by this architecture is an internet-facing multi-tier web application that is deployed on separate sets of virtual machines (VMs). VMs are provisioned as part of Azure Virtual Machine Scale Sets deployments. This architecture can be used for these scenarios:
 
 - **Private applications**. These applications include internal line-of-business applications or commercial off-the-shelf solutions.
-- **Public applications**. These applications are internet-facing applications. This architecture isn't for high-performance computing, mission-critical workloads, applications highly impacted by latency, or other specialized use cases.
+- **Public applications**. These applications are internet-facing applications. This architecture isn't for high-performance computing, mission-critical workloads, applications highly affected by latency, or other specialized use cases.
 
 The primary focus of this architecture isn't the application. Instead, this article provides guidance for configuring and deploying the infrastructure components with which the application interacts. These components include compute, storage, networking, and monitoring components.
 
@@ -25,7 +25,7 @@ This architecture serves as a starting point for an infrastructure as a service 
 
 *Download a [Visio file](https://arch-center.azureedge.net/baseline-architecture.vsdx) of this architecture.*
 
-For information about these resources, see Azure product documentation listed in [Related resources](#related-resources).
+For more information about these resources, see Azure product documentation listed in [Related resources](#related-resources).
 
 ### Components
 
@@ -33,34 +33,34 @@ This architecture consists of several Azure services for both workload resources
 
 #### Workload resources
 
-- **Azure Virtual Machines** serves as the compute resource for the application and is distributed across availability zones. For illustrative purposes, a combination of both Windows and Linux VMs is used.
+- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is an IaaS offering that provides scalable compute resources. In this architecture, VMs provide scalable and distributed processing across availability zones for both Windows and Linux workloads.
 
-    **Azure Virtual Machine Scale Sets** in Flexible orchestration mode is used to provision and manage the VMs.
+  [Azure Virtual Machine Scale Sets](/azure/well-architected/service-guides/virtual-machines) is a service that enables automatic deployment, scaling, and management of a group of identical VMs. In this architecture, it provisions and maintains the front-end and back-end compute resources by using Flexible orchestration mode.
 
-    The sample application can be represented in two tiers, each requiring its own compute.
+  The sample application uses two tiers, and each tier requires its own compute.
 
-    - The front end runs the web server and receives user requests.
-    - The back end runs another web server acting as a web API that exposes a single endpoint where the business logic is executed.
+  - The front end runs the web server and receives user requests.
+  - The back end runs another web server that functions as a web API that exposes a single endpoint where the business logic runs.
 
-    The front-end VMs have data disks (Premium_LRS) attached, which could be used to deploy a stateless application. The back-end VMs persist data to Premium_ZRS [local disks](#managed-disks) as part of its operation. This layout can be extended to include a database tier for storing state from the front-end and back-end compute. That tier is outside the scope of this architecture.
+  The front-end VMs have data disks (Premium_LRS) attached, which can be used to deploy a stateless application. The back-end VMs persist data to Premium_ZRS [local disks](#managed-disks) as part of its operation. You can extend this layout to include a database tier for storing state from the front-end and back-end compute. That tier is outside the scope of this architecture.
 
-- **Azure Virtual Network** provides a private network for all workload resources. The network is segmented into subnets, which serve as isolation boundaries.
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is a networking service that enables secure communication between Azure resources and on-premises environments. In this architecture, it isolates resources into subnets for security and traffic control.
 
-- **Azure Application Gateway** is the single point of ingress that routes requests to the front-end servers. The selected SKU includes integrated Azure Web Application Firewall (WAF) for added security.
+- [Azure Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is a web traffic layer-7 load balancer that enables you to manage traffic to your web applications. It's the single point of ingress that routes requests to the front-end servers. In this architecture, it balances traffic to front-end VMs and includes a web application firewall (WAF) for protection.
 
-- **Internal Azure Load Balancer** routes traffic from the front-end tier to the back-end servers.
+- [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer) is a layer-4 load balancing service for User Datagram Protocol (UDP) and Transmission Control Protocol (TCP) traffic. In this architecture, the public load balancer distributes outbound traffic and supports source network address translation (SNAT). The internal load balancer routes traffic from the front-end tier to the back-end servers to ensure high availability and scalability within the virtual network.
 
-- **Azure Load Balancer** Standard SKU provides outbound internet access to the VMs using three public IP addresses.
+  The Standard SKU provides outbound internet access to the VMs by using three public IP addresses.
 
-- **Azure Key Vault** stores the certificates used for end-to-end transport layer security (TLS) communication. It could also be used for application secrets.
+- [Azure Key Vault](/azure/key-vault/general/overview) is a service for managing secrets, keys, and certificates. In this architecture, it stores Transport Layer Security (TLS) certificates that Application Gateway uses. It can also be used for installing certificates in the VMs or for getting application secrets by code deployed on the VMs.
 
 #### Workload supporting resources
 
-- **Azure Bastion** provides operational access to the VMs over secure protocols.
+- [Azure Bastion](/azure/bastion/bastion-overview) is a managed service that provides Remote Desktop Protocol (RDP) and Secure Shell (SSH) access to VMs without exposing public IP addresses. In this architecture, it enables just-in-time operational access to VMs through a dedicated subnet.
 
-- **Application Insights** collects logs and metrics from the application. Because the application isn't the focus of this architecture, log collection isn't demonstrated in the implementation.
+- [Application Insights](/azure/well-architected/service-guides/application-insights) is an application performance management (APM) service that collects telemetry for availability, performance, and usage analysis. In this architecture it's deployed as a ready endpoint for future application telemetry, but the reference implementation doesn't emit or collect custom application logs because the application layer isn't in scope.
 
-- **Log Analytics** is the monitoring data sink that collects logs and metrics from the Azure resources and Application Insights. A storage account is provisioned as part of the workspace.
+- [Log Analytics](/azure/well-architected/service-guides/azure-log-analytics) is a centralized telemetry store for metrics and logs queried with Kusto Query Language. In this architecture, it serves as the monitoring data sink that aggregates platform logs, VM insights data, and Application Insights telemetry for analysis, alerting, and dashboards. A storage account is provisioned as part of the workspace.
 
 #### User flows
 
@@ -109,7 +109,7 @@ VMs often need to be bootstrapped, which is a process in which VMs are prepared 
     - The Azure Custom Script Extension ([Windows](/azure/virtual-machines/extensions/custom-script-windows), [Linux](/azure/virtual-machines/extensions/custom-script-linux)) Version 2 downloads and runs scripts on Azure virtual machines (VMs). This extension is useful for automating post-deployment configuration, software installation, or any other configuration or management tasks.
     - Azure Key Vault virtual machine extension ([Windows](/azure/virtual-machines/extensions/key-vault-windows), [Linux](/azure/virtual-machines/extensions/key-vault-linux)) provides automatic refresh of certificates stored in a Key Vault by detecting changes and installing the corresponding certificates.
     - [Application Health extension with Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension) are important when Azure Virtual Machine Scale Sets does automatic rolling upgrades. Azure relies on health monitoring of the individual instances to do the updates. You can also use the extension to monitor the application health of each instance in your scale set and perform instance repairs using Automatic Instance Repairs.
-    - Microsoft Entra ID and OpenSSH ([Windows](/entra/identity/devices/howto-vm-sign-in-azure-ad-windows), [Linux](/entra/identity/devices/howto-vm-sign-in-azure-ad-linux)) integrate with Microsoft Entra authentication. You can now use Microsoft Entra ID as a core authentication platform and a certificate authority to SSH into a Linux VM by using Microsoft Entra ID and OpenSSH certificate-based authentication. This functionality allows you to manage access to VMs with Azure role-based access control (RBAC) and Conditional Access policies.
+    - Microsoft Entra ID and OpenSSH ([Windows](/entra/identity/devices/howto-vm-sign-in-azure-ad-windows), [Linux](/entra/identity/devices/howto-vm-sign-in-azure-ad-linux)) integrate with Microsoft Entra authentication. You can now use Microsoft Entra ID as a core authentication platform and a certificate authority to SSH into a Linux VM by using Microsoft Entra ID and OpenSSH certificate-based authentication. This functionality allows you to manage access to VMs with Azure role-based access control (Azure RBAC) and Conditional Access policies.
 
 - **Agent-based configuration**. Linux VMs can use a lightweight native desired state configuration available through cloud-init on various Azure provided VM images. The configuration is specified and versioned with your IaC artifacts. Bringing your own configuration management solution is another way. Most solutions follow a declarative-first approach to bootstrapping, but do support custom scripts for flexibility. Popular choices include Desired State Configuration for Windows, Desired State Configuration for Linux, Ansible, Chef, Puppet, and others. All of these configuration solutions can be paired with VM extensions for a best-of-both experience. 
 
@@ -143,7 +143,7 @@ For more information about the disk options with metrics such as capacity, IOPS,
 
 Consider disk characteristics and performance expectations when selecting a disk.
 
-- **VM SKU limitations**. Disks operate within the VM they're attached to, which have IOPS and throughput limits. Ensure the disk doesn't cap the VM's limits and vice versa. Select the disk size, performance, and VM capabilities (core, CPU, memory) that optimally run the application component. Avoid overprovisioning because it impacts cost.
+- **VM SKU limitations**. Disks operate within the VM they're attached to, which have IOPS and throughput limits. Ensure the disk doesn't cap the VM's limits and vice versa. Select the disk size, performance, and VM capabilities (core, CPU, memory) that optimally run the application component. Avoid overprovisioning because it affects cost.
 
 - **Configuration changes**. You can change some disk performance and capacity configurations while a VM is running. However, many changes can require reprovisioning and rebuilding disk content, affecting workload availability. Therefore, carefully plan disk and VM SKU selection to minimize availability impact and rework.
 
@@ -185,7 +185,7 @@ This layout can be integrated with an enterprise topology. That example is shown
 
 One of your initial network layout decisions relates to the network address range. Keep in mind the anticipated network growth during the capacity planning phase. The network should be large enough to sustain the growth, which might need extra networking constructs. For instance, the virtual network should have the capacity to accommodate the other VMs that result from a scaling operation.
 
-Conversely, right-size your address space. An excessively large virtual network can lead to underutilization. It's important to note that once the virtual network is created, the address range can't be modified.
+Conversely, right-size your address space. An excessively large virtual network can lead to underutilization. After the virtual network is created, you can't modify the address range.
 
 In this architecture, the address space is set to */21*, a decision based on the projected growth.
 
@@ -219,7 +219,7 @@ This architecture uses standard SKU Load Balancer with outbound rules defined fr
 
 *Download a [Visio file](https://arch-center.azureedge.net/baseline-network-egress.vsdx) of this architecture.*
 
-This configuration lets you use the public IP(s) of your load balancer to provide outbound internet connectivity for the VMs. The outbound rules let you explicitly define source network address translation (SNAT) ports. The rules let you scale and tune this ability through manual port allocation. Manually allocating the SNAT port based on the back-end pool size and number of `frontendIPConfigurations` can help avoid SNAT exhaustion.
+This configuration lets you use the public IP addresses of your load balancer to provide outbound internet connectivity for the VMs. The outbound rules let you explicitly define SNAT ports. The rules let you scale and tune this ability through manual port allocation. Manually allocating the SNAT port based on the back-end pool size and number of `frontendIPConfigurations` can help avoid SNAT exhaustion.
 
 We recommend that you allocate ports based on the maximum number of back-end instances. If more instances are added than remaining SNAT ports allow, Virtual Machine Scale Sets scaling operations might be blocked, or the new VMs don't receive sufficient SNAT ports.
 
@@ -256,25 +256,25 @@ This image shows the monitoring stack for the baseline with components for colle
 
 ### Infrastructure-level monitoring
 
-This table links to logs and metrics collected by Azure Monitor. The available alerts help you proactively address issues before they impact users.
+This table links to logs and metrics collected by Azure Monitor. The available alerts help you proactively address issues before they affect users.
 
 | Azure resource | Metrics and logs | Alerts |
 | -------------- | ---------------- | ------ |
-|Application Gateway | [Application Gateway metrics and logs description](/azure/application-gateway/monitor-application-gateway-reference) | [Application Gateway alerts](/azure/application-gateway/high-traffic-support#alerts-for-application-gateway-v2-sku-standard_v2waf_v2) |
-| Application Insights | [Application Insights metrics and logging API](/azure/azure-monitor/app/api-custom-events-metrics) | [Application Insights alerts](/azure/azure-monitor/alerts/alerts-smart-detections-migration) |
-|Azure Bastion|[Azure Bastion metrics](/azure/bastion/howto-metrics-monitor-alert)|
+| Application Gateway | [Application Gateway metrics and logs description](/azure/application-gateway/monitor-application-gateway-reference) | [Application Gateway alerts](/azure/application-gateway/high-traffic-support#alerts-for-application-gateway-v2-sku-standard_v2waf_v2) |
+| Application Insights | [Application Insights metrics and the OpenTelemetry API](/azure/azure-monitor/app/opentelemetry-add-modify) | [Application Insights alerts](/azure/azure-monitor/alerts/alerts-smart-detections-migration) |
+| Azure Bastion |[Azure Bastion metrics](/azure/bastion/howto-metrics-monitor-alert)|
 | Key Vault | [Key Vault metrics and logs descriptions](/azure/key-vault/general/monitor-key-vault-reference) | [Key Vault alerts](/azure/key-vault/general/monitor-key-vault#alerts) |
-|Standard Load Balancer|[Load balancer logs and metrics](/azure/load-balancer/load-balancer-standard-diagnostics)|[Load Balancer alerts](/azure/load-balancer/load-balancer-standard-diagnostics#configure-alerts-for-multi-dimensional-metrics)
+| Standard Load Balancer |[Load balancer logs and metrics](/azure/load-balancer/load-balancer-standard-diagnostics) | [Load Balancer alerts](/azure/load-balancer/load-balancer-standard-diagnostics#configure-alerts-for-multi-dimensional-metrics)
 | Public IP address | [Public IP address metrics and logs description](/azure/virtual-network/ip-services/monitor-public-ip) | [Public IP address metrics alerts](/azure/virtual-network/ip-services/monitor-public-ip#alerts) |
 | Virtual Network | [Virtual network metrics and logs reference](/azure/virtual-network/monitor-virtual-network-reference) | [Virtual network alerts](/azure/virtual-network/monitor-virtual-network#alerts) |
 | Virtual Machines and Virtual Machine Scale Sets | [VM metrics and logs reference](/azure/virtual-machines/monitor-vm-reference) | [VM alerts and tutorials](/azure/virtual-machines/monitor-vm#alerts) |
 | Web Application Firewall | [Web Application Firewall metrics and logs description](/azure/web-application-firewall/ag/application-gateway-waf-metrics) | [Web Application Firewall alerts](/azure/web-application-firewall/ag/application-gateway-waf-metrics#configure-alerts-in-azure-portal) |
 
-For more information on the cost of collecting metrics and logs, see [Log Analytics cost calculations and options](/azure/azure-monitor/logs/cost-logs) and [Pricing for Log Analytics workspace](https://azure.microsoft.com/pricing/details/monitor/). The nature of the workload and the frequency and number of metrics and logs collected greatly impact the metric and log collection costs.
+For more information on the cost of collecting metrics and logs, see [Log Analytics cost calculations and options](/azure/azure-monitor/logs/cost-logs) and [Pricing for Log Analytics workspace](https://azure.microsoft.com/pricing/details/monitor/). The nature of the workload and the frequency and number of metrics and logs collected greatly affect the metric and log collection costs.
 
 ##### Virtual machines
 
-[Azure boot diagnostics](/azure/virtual-machines/boot-diagnostics) is enabled to observe the state of the VMs during boot by collecting serial log information and screenshots. In this architecture, that data can be accessed through Azure portal and the [Azure CLI vm boot-diagnostics get-boot-log command](/cli/azure/vm/boot-diagnostics?view=azure-cli-latest#az-vm-boot-diagnostics-get-boot-log). The data is managed by Azure and you have no control or access to the underlying storage resource. However, if your business requirements demand for more control, you can provision your own storage account to store boot diagnostics.
+[Azure boot diagnostics](/azure/virtual-machines/boot-diagnostics) is enabled to observe the state of the VMs during boot by collecting serial log information and screenshots. In this architecture, that data can be accessed through Azure portal and the [Azure CLI vm boot-diagnostics get-boot-log command](/cli/azure/vm/boot-diagnostics?view=azure-cli-latest#az-vm-boot-diagnostics-get-boot-log). Azure manages the data. You have no control or access to the underlying storage resource. But if your business requirements demand more control, you can provision your own storage account to store boot diagnostics.
 
 [VM insights](/azure/azure-monitor/vm/vminsights-overview) offers an efficient way to monitor VMs and scale sets. It gathers data from Log Analytics workspaces and provides predefined workbooks for performance data trending. This data can be viewed per VM or aggregated across multiple VMs.
 
@@ -294,7 +294,7 @@ Disk metrics depend on your workload, requiring a mix of key metrics. Monitoring
 
 ### Application-level monitoring
 
-Even though the reference implementation doesn't make use of it, [Application Insights](/azure/azure-monitor/app/app-insights-overview) is provisioned as an Application Performance Management (APM) for extensibility purposes. Application Insights  collects data from an application and sends that data to the Log Analytics workspace. It also can visualize that data from the workload applications.
+Even though the reference implementation doesn't make use of it, [Application Insights](/azure/azure-monitor/app/app-insights-overview) is provisioned as an APM for extensibility purposes. Use the [Azure Monitor OpenTelemetry Distro](/azure/azure-monitor/app/opentelemetry-enable) to instrument your application code and send data to the Log Analytics workspace. Application Insights can also visualize that data from the workload applications.
 
 The [application health extension](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension) is deployed to VMs to monitor the binary health state of each VM instance in the scale set, and perform instance repairs if necessary by using scale set automatic instance repair. It tests for the same file as the Application Gateway and the internal Azure load balancer health probe to check if the application is responsive.
 
@@ -304,9 +304,9 @@ VMs need to be updated and patched regularly so that they don't weaken the secur
 
 ### Infrastructure updates
 
-Azure updates its platform periodically to enhance the reliability, performance, and security of the host infrastructure for virtual machines. These updates include patching software components in the hosting environment, upgrading networking components or decommissioning hardware, and more. For information about the update process, see [Maintenance for virtual machines in Azure](/azure/virtual-machines/maintenance-and-updates).
+Azure updates its platform periodically to enhance the reliability, performance, and security of the host infrastructure for virtual machines. These updates include patching software components in the hosting environment, upgrading networking components or decommissioning hardware, and more. For more information about the update process, see [Maintenance for virtual machines in Azure](/azure/virtual-machines/maintenance-and-updates).
 
-If an update doesn’t require a reboot, the VM is paused while the host is updated, or the VM is live-migrated to an already updated host. If maintenance requires a reboot, you’re notified of the planned maintenance. Azure also provides a time window in which you can start the maintenance, at your convenience. For information about the self-maintenance window and how to configure the available options, see [Handling planned maintenance notifications](/azure/virtual-machines/maintenance-notifications).
+If an update doesn’t require a reboot, the VM is paused while the host is updated, or the VM is live-migrated to an already updated host. If maintenance requires a reboot, you’re notified of the planned maintenance. Azure also provides a time window in which you can start the maintenance, at your convenience. For more information about the self-maintenance window and how to configure the available options, see [Handling planned maintenance notifications](/azure/virtual-machines/maintenance-notifications).
 
 Some workloads might not tolerate even few seconds of a VM freezing or disconnection for maintenance. For greater control over all maintenance activities, including zero-impact and rebootless updates, see [Maintenance Configurations](/azure/virtual-machines/maintenance-configurations). Creating a Maintenance Configuration gives you the option to skip all platform updates and apply the updates at your convenience. When this custom configuration is set, Azure skips all non-zero-impact updates, including rebootless updates. For more information, see [Managing platform updates with Maintenance Configurations](/azure/virtual-machines/maintenance-configurations)
 
@@ -328,13 +328,13 @@ Only the patches that are classified as *critical* or *security* are applied aut
 
 For governance, consider the [Require automatic OS image patching on Virtual Machine Scale Sets](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F465f0161-0087-490a-9ad9-ad6217f4f43a) Azure Policy.
 
-Automatic patching can put a burden on the system and can be disruptive because VMs use resources and may reboot during updates. Over-provisioning is recommended for load management. Deploy VMs in different Availability Zones to avoid concurrent updates and maintain at least two instances per zone for high availability. VMs in the same region might receive different patches, which should be reconciled over time.
+Automatic patching can put a burden on the system and can be disruptive because VMs use resources and might reboot during updates. Over-provisioning is recommended for load management. Deploy VMs in different Availability Zones to avoid concurrent updates and maintain at least two instances per zone for high availability. VMs in the same region might receive different patches, which should be reconciled over time.
 
 Be aware of the tradeoff on cost associated with overprovisioning.
 
 Health checks are included as part of automatic VM guest patching. These checks verify successful patch application and detect issues.
 
-If there are custom processes for applying patches, use private repositories for patch sources. Doing so gives you better control in testing the patches to make sure the update doesn't negatively impact performance or security.
+If there are custom processes for applying patches, use private repositories for patch sources. Doing so gives you better control in testing the patches to make sure the update doesn't negatively affect performance or security.
 
 For more information, see [Automatic VM guest patching for Azure VMs](/azure/virtual-machines/automatic-vm-guest-patching).
 
@@ -364,7 +364,7 @@ Because no application is deployed, resiliency in application code is beyond the
 
 #### Prioritize the reliability assurances per user flow
 
-In most designs, there are multiple user flows, each with its own set of business requirements. Not all of these flows require the highest level of assurances, so segmentation is recommended as a reliability strategy. Each segment can be managed independently, ensuring that one segment doesn't impact others and providing the right level of resiliency in each tier. This approach also makes the system flexible.
+In most designs, there are multiple user flows, each with its own set of business requirements. Not all of these flows require the highest level of assurances, so segmentation is recommended as a reliability strategy. Each segment can be managed independently, ensuring that one segment doesn't affect others and providing the right level of resiliency in each tier. This approach also makes the system flexible.
 
 In this architecture, application tiers implement the segmentation. Separate scale sets are provisioned for the front-end and back-end tiers. This separation enables independent scaling of each tier, allowing for implementation of design patterns based on their specific requirements, among other benefits.
 
@@ -410,11 +410,11 @@ Here's an example calculation where the main goal is to provide an approximate c
 
 **Composite SLO: 99.34% | Downtime per year: 2d 9h 42m 18s**
 
-In the preceding example, reliability of VMs and the dependencies are included, such as disks associated with VMs. The SLAs associated with disk storage impact the overall reliability.
+In the preceding example, reliability of VMs and the dependencies are included, such as disks associated with VMs. The SLAs associated with disk storage affect the overall reliability.
 
-There are some challenges when calculating the composite SLO. It's important to note that different tiers of service might come with different SLAs, and these often include financially backed guarantees that set reliability targets. Finally, there might be components of the architecture that don't have SLAs defined. For example, in terms of networking, NICs and virtual networks don't have their own SLAs.
+There are some challenges when calculating the composite SLO. Different service tiers might have different SLAs, and these SLAs often include financially backed guarantees that set reliability targets. Finally, there might be components of the architecture that don't have SLAs defined. For example, in terms of networking, NICs and virtual networks don't have their own SLAs.
 
-The business requirements and their targets must be clearly defined and factored into the calculation. Be aware of the service limits and other constraints imposed by the organization. Sharing your subscription with other workloads could impact the resources available for your VMs. The workload might be allowed to use a limited number of cores available for the VMs. Understanding the resource usage of your subscription can help you design your VMs more effectively.
+The business requirements and their targets must be clearly defined and factored into the calculation. Be aware of the service limits and other constraints imposed by the organization. Sharing your subscription with other workloads could affect the resources available for your VMs. The workload might be allowed to use a limited number of cores available for the VMs. Understanding the resource usage of your subscription can help you design your VMs more effectively.
 
 > Refer to Well-Architected Framework: [RE:04 - Recommendations for defining reliability targets](/azure/well-architected/reliability/metrics).
 
@@ -424,13 +424,13 @@ This architecture uses zone-redundancy for several components. Each zone is made
 
 - Virtual Machine Scale Sets allocates a specified number of instances and distributes them evenly across availability zones and fault domains. This distribution is achieved through the *maximum spread* capability, which we recommend. Spreading VM instances across fault domains makes sure all VMs aren't updated at the same time.
 
-    Consider a scenario where there are three availability zones. If you have three instances, each instance is allocated to a different availability zone and placed in a different fault domain. Azure guarantees that only one fault domain is updated at a time in each availability zone. However, there could be a situation in which all three fault domains hosting your VMs across the three availability zones are updated simultaneously. All zones and domains are impacted. Having at least two instances in each zone provides a buffer during upgrades.
+  Consider a scenario where there are three availability zones in your Azure region. If you have three instances, each instance is allocated to a different availability zone and placed in a different fault domain. Azure guarantees that only one fault domain is updated at a time in each availability zone. However, there could be a situation in which all three fault domains hosting your VMs across the three availability zones are updated simultaneously. All zones and domains are affected. Having at least two instances in each zone provides a buffer during upgrades.
 
-- Managed disks can only be attached to a VM in the same region. Their availability typically impacts the availability of the VM. For single-region deployments, disks can be configured for redundancy to withstand zonal failures. In this architecture, data disks are configured zone-redundant storage (ZRS) on the back-end VMs. It requires a recovery strategy to take advantage of availability zones. The recovery strategy is to redeploy the solution. Ideally pre-provision compute in alternate availability zones ready to recover from a zonal failure.
+- Managed disks can only be attached to a VM in the same region. Their availability typically affects the availability of the VM. For single-region deployments, disks can be configured for redundancy to withstand zonal failures. In this architecture, data disks are configured zone-redundant storage (ZRS) on the back-end VMs. It requires a recovery strategy to take advantage of availability zones. The recovery strategy is to redeploy the solution. Ideally pre-provision compute in alternate availability zones ready to recover from a zonal failure.
 
 - A zone-redundant Application Gateway or standard load balancer can route traffic to VMs across zones using a single IP address, ensuring continuity even if zone failures occur. These services use health probes to check VM availability. As long as one zone in the region remains operational, routing continues despite potential failures in other zones. However, inter-zone routing might have higher latency compared to intra-zone routing.
 
-    All public IPs used in this architecture are zone redundant.
+  All public IPs used in this architecture are zone redundant.
 
 - Azure offers zone-resilient services for better reliability, such as Key Vault.
 
@@ -442,7 +442,7 @@ This architecture uses zone-redundancy for several components. Each zone is made
 
 To prevent service level degradation and failures, ensure reliable scaling operations. Scale the workload horizontally (scale out), vertically (scale up), or use a combination of both those approaches. Use [Azure Monitor Autoscale](/azure/azure-monitor/autoscale/autoscale-overview) to provision enough resources to support the demand on your application without allocating more capacity than needed and incurring unnecessary costs. 
 
-Autoscale allows you to define different profiles based on different event types, such as time, schedule, or metrics. Metrics-based profiles can use built-in metrics (host-based) or more detailed metrics (in-guest VM metrics) that requires installing the Azure Monitor Agent to collect them.  Every profile contains rules for scale-out (increase) and scale-in (decrease). Consider exploring all different scaling scenarios based on designed profiles and evaluate them for potential loop conditions that can cause a series of opposing scale events. Azure Monitor will attempt to mitigate this situation by waiting for the cooldown period before it scales again. 
+Autoscale allows you to define different profiles based on different event types, such as time, schedule, or metrics. Metrics-based profiles can use built-in metrics (host-based) or more detailed metrics (in-guest VM metrics) that requires installing the Azure Monitor Agent to collect them. Every profile contains rules for scale-out (increase) and scale-in (decrease). Consider exploring all different scaling scenarios based on designed profiles and evaluate them for potential loop conditions that can cause a series of opposing scale events. Azure Monitor will attempt to mitigate this situation by waiting for the cooldown period before it scales again. 
 
 Although Azure Virtual Machine Scale Sets in Flexible mode supports heterogeneous environments, autoscaling of multiple profiles isn't supported. Consider creating different scale sets to manage them separately if you plan to use autoscale with more than one type of VM. 
 
@@ -468,7 +468,7 @@ Security doesn't only refer to technical controls. We recommend that you follow 
 
 - **Network segmentation**. Workload resources are placed in a virtual network, which provides isolation from the internet. Within the virtual network, subnets can be used as trust boundaries. *Colocate related resources needed for handling a transaction in one subnet*. In this architecture, the virtual network is divided into subnets based on the logical grouping of the application and purpose of various Azure services used as part of the workload.
 
-    The advantage of subnet segmentation is that you can place security controls at the perimeter that controls traffic flowing in and out of the subnet, thereby restricting access to the workload resources.
+    The advantage of subnet segmentation is that you can place security controls at the subnet perimeter to manage the flow of traffic in and out, which restricts access to the workload resources.
 
 - **Identity segmentation**. Assign distinct roles to different identities with just-enough permissions to do their task. This architecture uses identities managed by [Microsoft Entra ID](/entra/fundamentals/whatis) to segment access to resources.
 

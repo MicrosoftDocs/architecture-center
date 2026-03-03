@@ -17,8 +17,6 @@ keywords:
   - "API standards"
 ---
 
-<!-- cSpell:ignore HATEOAS -->
-
 # Best practices for RESTful web API design
 
 A RESTful web API implementation is a web API that employs Representational State Transfer (REST) architectural principles to achieve a stateless, loosely coupled interface between a client and service. A web API that is RESTful supports the standard HTTP protocol to perform operations on resources and return representations of resources that contain hypermedia links and HTTP operation status codes.
@@ -635,19 +633,19 @@ GET https://api.contoso.com/tenants/adventureworks/orders/3
 
 ## Enable distributed tracing and trace context in APIs
 
-As distributed systems and microservice architectures become the standard, [the complexity of modern architectures increases](/azure/architecture/best-practices/monitoring). Using headers, such as `Correlation-ID`, `X-Request-ID`, or `X-Trace-ID`, to propagate trace context in API requests is a best practice to achieve end-to-end visibility. This approach enables seamless tracking of requests as they flow from the client to back-end services. It facilitates rapid identification of failures, monitors latency, and maps API dependencies across services.
+As distributed systems and microservice architectures become the standard, [the complexity of modern architectures increases](/azure/architecture/best-practices/monitoring). Using headers, such as `Correlation-ID`, `X-Request-ID`, or `X-Trace-ID`, to propagate trace context in API requests is a best practice to achieve end-to-end visibility. This approach enables tracking of requests as they flow from the client to back-end services. It facilitates rapid identification of failures, monitors latency, and maps API dependencies across services.
 
 APIs that support the inclusion of trace and context information enhance their observability level and debugging capabilities. By enabling distributed tracing, these APIs allow for a more granular understanding of system behavior and make it easier to track, diagnose, and resolve problems across complex, multiple-service environments.
 
 ```http
 GET https://api.contoso.com/orders/3
-Correlation-ID: 0f8fad5b-d9cb-469f-a165-70867728950e
+Correlation-ID: aaaa0000-bb11-2222-33cc-444444dddddd
 ```
 
 ```http
 HTTP/1.1 200 OK
 ...
-Correlation-ID: 0f8fad5b-d9cb-469f-a165-70867728950e
+Correlation-ID: aaaa0000-bb11-2222-33cc-444444dddddd
 
 {...}
 ```

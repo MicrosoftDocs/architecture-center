@@ -1,2 +1,37 @@
-<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="678" height="212.1" viewBox="0 0 678 212.1"><defs><style>
-text{font-family:segoe-ui_normal,Segoe UI,Segoe,Segoe WP,Helvetica Neue,Helvetica,sans-serif;}.cls-1{fill:none;stroke:#afafaf;stroke-miterlimit:10;stroke-width:6px;}.cls-2{fill:#afafaf;}.cls-3{fill:#3fa0ec;}.cls-4{font-size:18px;}.cls-4,.cls-5{fill:#fff;}.cls-5{font-size:17.98px;}</style></defs><title>event-driven</title><line class="cls-1" x1="191.53" y1="105.95" x2="244.77" y2="105.95"/><polygon class="cls-2" points="242.58 113.43 255.53 105.95 242.58 98.47 242.58 113.43"/><rect class="cls-3" x="486" width="192" height="60.1" rx="8" ry="8"/><text class="cls-4" transform="translate(513.56 34)">Event Consumers</text><rect class="cls-3" x="486" y="76" width="192" height="60.1" rx="8" ry="8"/><text class="cls-4" transform="translate(513.56 110)">Event Consumers</text><rect class="cls-3" x="486" y="152" width="192" height="60.1" rx="8" ry="8"/><text class="cls-4" transform="translate(513.56 186)">Event Consumers</text><line class="cls-1" x1="422.53" y1="105.95" x2="475.77" y2="105.95"/><polygon class="cls-2" points="473.58 113.42 486.53 105.94 473.58 98.47 473.58 113.42"/><line class="cls-1" x1="422.53" y1="105.95" x2="478.44" y2="42.05"/><polygon class="cls-2" points="482.63 48.62 485.53 33.95 471.37 38.77 482.63 48.62"/><line class="cls-1" x1="422.53" y1="105.95" x2="478.66" y2="173.66"/><polygon class="cls-2" points="471.51 176.75 485.53 181.95 483.02 167.2 471.51 176.75"/><rect class="cls-3" y="76" width="192" height="60.1" rx="8" ry="8"/><text class="cls-5" transform="translate(32.33 110.01)">Event Producers</text><rect class="cls-3" x="255.23" y="86.05" width="167.53" height="40" rx="8" ry="8"/><text class="cls-4" transform="translate(277.91 110)">Event Ingestion</text></svg>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="758" height="292.1" viewBox="0 0 758 292.1">
+  <defs>
+    <style>
+      text{font-family:segoe-ui_normal,Segoe UI,Segoe,Segoe WP,Helvetica Neue,Helvetica,sans-serif;}
+      .cls-1{fill:none;stroke:#afafaf;stroke-miterlimit:10;stroke-width:6px;}
+      .cls-2{fill:#afafaf;}
+      .cls-3{fill:#3fa0ec;}
+      .cls-4{font-size:18px;}
+      .cls-4,.cls-5{fill:#fff;}
+      .cls-5{font-size:17.98px;}
+    </style>
+  </defs>
+  <title>event-driven</title>
+
+  <!-- White background with padding -->
+  <rect x="0" y="0" width="758" height="292.1" fill="#ffffff"/>
+
+  <!-- Shifted all elements by +40px right and +40px down -->
+  <line class="cls-1" x1="231.53" y1="145.95" x2="284.77" y2="145.95"/>
+  <polygon class="cls-2" points="282.58 153.43 295.53 145.95 282.58 138.47 282.58 153.43"/>
+  <rect class="cls-3" x="526" y="40" width="192" height="60.1" rx="8" ry="8"/>
+  <text class="cls-4" transform="translate(553.56 74)">Event consumers</text>
+  <rect class="cls-3" x="526" y="116" width="192" height="60.1" rx="8" ry="8"/>
+  <text class="cls-4" transform="translate(553.56 150)">Event consumers</text>
+  <rect class="cls-3" x="526" y="192" width="192" height="60.1" rx="8" ry="8"/>
+  <text class="cls-4" transform="translate(553.56 226)">Event consumers</text>
+  <line class="cls-1" x1="462.53" y1="145.95" x2="515.77" y2="145.95"/>
+  <polygon class="cls-2" points="513.58 153.42 526.53 145.94 513.58 138.47 513.58 153.42"/>
+  <line class="cls-1" x1="462.53" y1="145.95" x2="518.44" y2="82.05"/>
+  <polygon class="cls-2" points="522.63 88.62 525.53 73.95 511.37 78.77 522.63 88.62"/>
+  <line class="cls-1" x1="462.53" y1="145.95" x2="518.66" y2="213.66"/>
+  <polygon class="cls-2" points="511.51 216.75 525.53 221.95 523.02 207.2 511.51 216.75"/>
+  <rect class="cls-3" x="40" y="116" width="192" height="60.1" rx="8" ry="8"/>
+  <text class="cls-5" transform="translate(72.33 150.01)">Event producers</text>
+  <rect class="cls-3" x="295.23" y="126.05" width="167.53" height="40" rx="8" ry="8"/>
+  <text class="cls-4" transform="translate(317.91 150)">Event ingestion</text>
+</svg>

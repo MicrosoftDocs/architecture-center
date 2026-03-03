@@ -7,27 +7,27 @@ items:
       - name: Network topology
         items: 
         - name: Hub-spoke network topology in Azure
+          displayName: Hub and spoke, star, spoke-hub, VNet
           href: architecture/hub-spoke.yml
-        - name: Hub-spoke topology with VWAN
-          href: architecture/hub-spoke-vwan-architecture.yml
-        - name: Update route tables with Route Server
-          href: architecture/manage-routing-azure-route-server.yml
-        - name: Massive-scale VWAN architecture design
-          href: architecture/massive-scale-azure-architecture.yml      
+        - name: Hub-spoke topology with Virtual WAN
+          displayName: VWAN
+          href: architecture/hub-spoke-virtual-wan-architecture.yml
+        - name: Massive-scale Virtual WAN architecture design
+          displayName: VWAN
+          href: architecture/massive-scale-azure-architecture.yml
         - name: Virtual WAN optimized for requirements
+          displayName: VWAN
           href: architecture/performance-security-optimized-vwan.yml
         - name: Azure DNS Private Resolver
+          displayName: DNS forwarding, hybrid DNS resolution
           href: architecture/azure-dns-private-resolver.yml
       - name: Network security
         items:        
         - name: TIC 3.0 compliance
-          href: architecture/trusted-internet-connections.yml          
+          displayName: Trusted Internet Connections, FedRAMP
+          href: architecture/trusted-internet-connections.yml
     - name: Apply guidance
       items:
-      - name: Network topology
-        items:
-        - name: Spoke-to-spoke networking
-          href: guide/spoke-to-spoke-networking.yml
       - name: Network security
         items:
         - name: Use a split-brain DNS configuration to host a web app
@@ -35,7 +35,7 @@ items:
       - name: Private link
         items:
         - name: Private Link in hub-and-spoke network
-          href: guide/private-link-hub-spoke-network.yml
+          href: guide/private-link-hub-spoke-network.md
         - name: Guide to Private Link and DNS with Azure Virtual WAN
           items:
           - name: Guide overview
@@ -55,6 +55,8 @@ items:
       - name: Resource organization
         items:
         - name: Deploy highly available NVAs
-          href: guide/network-virtual-appliance-high-availability.md       
+          displayName: firewall HA, network virtual appliance
+          href: guide/network-virtual-appliance-high-availability.md
         - name: SDWAN integration
+          displayName: Software-defined WAN, SD-WAN
           href: guide/sdwan-integration-in-hub-and-spoke-network-topologies.yml     

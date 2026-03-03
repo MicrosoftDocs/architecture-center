@@ -45,13 +45,13 @@ Applications that rely only on features provided by the Jakarta EE specification
 
 Use the following table to identify potential platforms for your application type.
 
-|   | Azure Spring Apps | App Service Java SE | App Service Tomcat | App Service JBoss EAP | Azure Container Apps | AKS | Virtual Machines |
-|-------------------------------------|----------|---------|---------|----------|----------|------------|----------|
-| **Spring Boot / JAR applications**  | &#x2714; | &#x2714; |          | &#x2714; | &#x2714; | &#x2714; | &#x2714; |
-| **Spring Cloud applications**       | &#x2714; |          |          |          | &#x2714; | &#x2714; | &#x2714; |
-| **Web applications**                | &#x2714; |          | &#x2714; | &#x2714; | &#x2714; | &#x2714; | &#x2714; |
-| **Jakarta EE applications**         |          |          |          | &#x2714; |          | &#x2714; | &#x2714; |
-| **Azure region availability**       | [Details][1] | [Details][2] | [Details][2] | [Details][2] | [Details][3] | [Details][4] | [Details][5] |
+|   | Azure App Service Java SE | App Service Tomcat | App Service JBoss EAP | Azure Container Apps | AKS | Azure Virtual Machines |
+|-------------------------------------|---------|---------|----------|----------|------------|----------|
+| **Spring Boot / JAR applications**  | &#x2714; |          | &#x2714; | &#x2714; | &#x2714; | &#x2714; |
+| **Spring Cloud applications**       |          |          |          | &#x2714; | &#x2714; | &#x2714; |
+| **Web applications**                |          | &#x2714; | &#x2714; | &#x2714; | &#x2714; | &#x2714; |
+| **Jakarta EE applications**         |          |          | &#x2714; |          | &#x2714; | &#x2714; |
+| **Azure region availability**       | [Details][1] | [Details][1] | [Details][1] | [Details][2] | [Details][3] | [Details][4] |
 
 Azure Kubernetes Service (AKS) and Virtual Machines support all application types, but they require that your team to take on more responsibilities, as described in the next section.
 
@@ -87,7 +87,7 @@ Containerization is the packaging together of software code with all its necessa
 
 ### CI/CD
 
-Continuous integration and continuous delivery (CI/CD) is a method to frequently deliver applications to customers by introducing automation into the stages of application development. The main concepts in CI/CD are *continuous integration*, *continuous delivery*, and *continuous deployment*. All of the Azure choices support most CI/CD tooling. For example, you might use solutions such as [Azure Pipelines][6] or [Jenkins][7].
+Continuous integration and continuous delivery (CI/CD) is a method to frequently deliver applications to customers by introducing automation into the stages of application development. The key concepts in CI/CD are *continuous integration*, *continuous delivery*, and *continuous deployment*. All of the Azure choices support most CI/CD tooling. For example, you might use solutions such as [Azure Pipelines][5] or [Jenkins][6].
 
 ### Open-source search engine
 
@@ -95,23 +95,25 @@ Searches are integral parts of any application. If speed, performance, and high 
 
 ### Big data tools
 
-Big data tools enable the automation of data flow among the software systems. They support scalable, robust, and streamlined data routing graphs along with system mediation logic. They're utilized to build live data flow pipelines and stream applications. Learn how [Apache Kafka][9] on Azure might be suitable for your needs.
+Big data tools enable the automation of data flow among the software systems. They support scalable, robust, and streamlined data routing graphs along with system mediation logic. They're used to build live data flow pipelines and stream applications. Learn how [Apache Kafka][7] on Azure might be suitable for your needs.
 
 ### Supportability options
 
 Use the following table to identify potential options for your application type. AKS and Virtual Machines support all application types, but they require your team to take on more responsibilities.
 
-|          | Azure Spring Apps | App Service Java SE | App Service Tomcat | App Service JBoss EAP | Azure Container Apps | AKS | Virtual Machines |
-|---------------------------------|----------|----------|----------|----------|----------|----------|----------|
-| **Batch or scheduled jobs**     | &#x2714; |          |          |          | &#x2714; | &#x2714; | &#x2714; |
-| **Virtual network integration** | &#x2714; | &#x2714; | &#x2714; | &#x2714; | &#x2714; | &#x2714; | &#x2714; |
-| **Serverless**                  | &#x2714; |          |          |          | &#x2714; | &#x2714; | &#x2714; |
-| **Containerization**            | &#x2714; | &#x2714; | &#x2714; | &#x2714; | &#x2714; | &#x2714; | &#x2714; |
-| **Azure region availability**   | [Details][1] | [Details][2]  | [Details][2] | [Details][2] | [Details][3] | [Details][4] | [Details][5] |
+|          | App Service Java SE | App Service Tomcat | App Service JBoss EAP | Azure Container Apps | AKS | Virtual Machines |
+|---------------------------------|----------|----------|----------|----------|----------|----------|
+| **Batch or scheduled jobs**     |          |          |          | &#x2714; | &#x2714; | &#x2714; |
+| **Virtual network integration** | &#x2714; | &#x2714; | &#x2714; | &#x2714; | &#x2714; | &#x2714; |
+| **Serverless**                  |          |          |          | &#x2714; | &#x2714; | &#x2714; |
+| **Containerization**            | &#x2714; | &#x2714; | &#x2714; | &#x2714; | &#x2714; | &#x2714; |
+| **Azure region availability**   | [Details][1]  | [Details][1] | [Details][1] | [Details][2] | [Details][3] | [Details][4] |
 
-Also, refer to this decision tree.
+Also, refer to the following decision tree.
 
-:::image type="content" source="images/java-application-tree.png" alt-text="Diagram shows a decision tree for Java on Azure services." border="false":::
+:::image type="complex" border="false" source="images/java-application-tree.png" alt-text="Diagram that shows a decision tree for Java on Azure services." lightbox="images/java-application-tree.png":::
+   The diagram has six key sections. A branching line points from Need infrastructure control to a Yes and a No section. These are two separate flows. In the Yes flow, a line points from Have technology preferences to four sections: VMs, Tanzu or PCF, Kubernetes, and OpenShift. Four lines point from these sections to the following sections: Azure IaaS, Tanzu application service on IaaS, Azure Kubernetes Service, and Azure Red Hat OpenShift. In the No flow, a line points to Build and manage your own container images. A line points from this section and splits into two flows. The first flow points from Yes to Azure Container Apps. The second flow points from App server or MicroProfile or Spring. Then it splits into two sections: App Service and Azure Container Apps. At the bottom of the image, an arrow spans the entire diagram with Control on the far left and Productivity on the far right.
+:::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/java-application-tree.vsdx) of this diagram.*
 
@@ -135,17 +137,17 @@ The MicroProfile project provides a collection of specifications designed to hel
 
 The following table provides build or migration information by application type and Azure service.
 
-|                              | Type             | Java SE  | MicroProfile | JarkartaSE |
-|------------------------------|------------------|----------|--------------|------------|
-| **Virtual Machine**          | IaaS             | &#x2714; | &#x2714;     | &#x2714;   |
-| **VMware Tanzu**             | IaaS             | &#x2714; |              |            |
-| **Azure Kubernetes Service** | Container        | &#x2714; | &#x2714;     | &#x2714;   |
-| **Red Hat OpenShift**        | Container        | &#x2714; | &#x2714;     | &#x2714;   |
-| **Azure Container App**      | PaaS             | &#x2714; | &#x2714;     |            |
-| **JBoss EAP**                | PaaS App Service | &#x2714; |              | &#x2714;   |
-| **Apache Tomcat**            | PaaS App Service | &#x2714; |              |            |
-| **Java SE**                  | PaaS App Service | &#x2714; | &#x2714;     |            |
-| **Azure Spring Apps**        | PaaS             | &#x2714; |              |            |
+|                              | Type             | Java SE  | MicroProfile | JakartaSE |
+|------------------------------|------------------|----------|--------------|-----------|
+| **Virtual Machine**          | IaaS             | &#x2714; | &#x2714;     | &#x2714;  |
+| **VMware Tanzu**             | IaaS             | &#x2714; |              |           |
+| **Azure Kubernetes Service** | Container        | &#x2714; | &#x2714;     | &#x2714;  |
+| **Red Hat OpenShift**        | Container        | &#x2714; | &#x2714;     | &#x2714;  |
+| **Azure Container App**      | PaaS             | &#x2714; | &#x2714;     |           |
+| **JBoss EAP**                | PaaS App Service | &#x2714; |              | &#x2714;  |
+| **Apache Tomcat**            | PaaS App Service | &#x2714; |              |           |
+| **Java SE**                  | PaaS App Service | &#x2714; | &#x2714;     |           |
+
 
 ## Contributors
 
@@ -163,20 +165,18 @@ Principal authors:
 
 - [Azure Container Apps overview](/azure/container-apps/overview)
 - [Azure Kubernetes Service](/azure/aks)
-- [Azure Spring Apps documentation](/azure/spring-apps)
 - [Azure Virtual network integration](/windows-server-essentials/get-started/azure-virtual-network-integration)
 - [Virtual machines in Azure](/azure/virtual-machines)
 
 ## Related resources
 
-- [Microservices architecture design](../../microservices/index.yml)
+- [Microservices architecture design](../architecture-styles/microservices.md)
 
 <!-- reference links, for use with tables -->
-[1]: https://azure.microsoft.com/global-infrastructure/services/?products=spring-apps
-[2]: https://azure.microsoft.com/global-infrastructure/services/?products=app-service-linux
-[3]: https://azure.microsoft.com/global-infrastructure/services/?products=container-apps
-[4]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
-[5]: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines
-[6]: /azure/devops/pipelines/?view=azure-devops
-[7]: /azure/developer/jenkins
-[9]: /azure/hdinsight/kafka/apache-kafka-introduction
+[1]: https://azure.microsoft.com/global-infrastructure/services/?products=app-service-linux
+[2]: https://azure.microsoft.com/global-infrastructure/services/?products=container-apps
+[3]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
+[4]: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines
+[5]: /azure/devops/pipelines/?view=azure-devops
+[6]: /azure/developer/jenkins
+[7]: /azure/hdinsight/kafka/apache-kafka-introduction

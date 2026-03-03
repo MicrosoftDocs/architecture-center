@@ -1,5 +1,5 @@
 <!---content for event-hubs-functions.yml--->
-Solutions that use Azure Event Hubs together with Azure Functions benefit from a [serverless](https://azure.microsoft.com/solutions/serverless/) architecture that is scalable, cost-effective, and capable of processing large volumes of data in near real time. As much as these services work seamlessly together, there are many features, settings, and intricacies that add complexity to their relationship. This article provides guidance on how to effectively take advantage of this integration by highlighting key considerations and techniques for performance, resiliency, security, observability, and scale.
+Solutions that use Azure Event Hubs together with Azure Functions benefit from a [serverless](https://azure.microsoft.com/solutions/serverless/) architecture that is scalable, cost-effective, and capable of processing large volumes of data in near real time. Although these services are commonly used together, there are many features, settings, and intricacies that add complexity to their relationship. This article provides guidance on how to effectively take advantage of this integration by highlighting key considerations and techniques for performance, resiliency, security, observability, and scale.
 
 ## Event Hubs core concepts
 
@@ -49,7 +49,7 @@ When your function is first enabled, there's only one instance of the function. 
 
     ![Event Hubs and Functions single instance](./images/event-hubs-functions.svg)
 
-- **An additional function instance is added**: event-based scaling or other automated or manual logic might determine that `Function_1` has more messages than it can process and then creates a new function app instance (`Function_2`). This new function also has an associated instance of  [EventProcessorHost]. As the underlying event hub detects that a new host instance is trying to read messages, it load balances the partitions across the host instances. For example, partitions 1-5 may be assigned to `Function_1` and partitions 6-10 to `Function_2`.
+- **An additional function instance is added**: event-based scaling or other automated or manual logic might determine that `Function_1` has more messages than it can process and then creates a new function app instance (`Function_2`). This new function also has an associated instance of  [EventProcessorHost]. As the underlying event hub detects that a new host instance is trying to read messages, it load balances the partitions across the host instances. For example, partitions 1-5 might be assigned to `Function_1` and partitions 6-10 to `Function_2`.
 
     ![Event Hubs and Functions with two instances](./images/event-hubs-functions-two-instances.svg)
 

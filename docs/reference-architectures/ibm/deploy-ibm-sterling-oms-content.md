@@ -29,7 +29,7 @@ The architecture meets infrastructure requirements in the following ways:
 
 - [Azure Files](/azure/well-architected/service-guides/azure-files) provides fully managed file shares in the cloud that are accessible via the SMB and NFS protocols. In this solution, Azure Files hosts the stateful data for the databases and systems that are inside the cluster.
 
-- [Azure Bastion](/azure/bastion/bastion-overview) is a fully managed service that provides seamless, enhanced security RDP and SSH access to VMs without any exposure through public IP addresses. In this solution, Azure Bastion is optional. You can use Azure Bastion and a subnet to provide enhanced-security access to any of the worker nodes or optional jump box machines.
+- [Azure Bastion](/azure/bastion/bastion-overview) is a fully managed service that provides RDP and SSH access to VMs without exposure through VM public IP addresses. In this solution, Azure Bastion is optional. You can use Azure Bastion and a subnet to provide enhanced-security access to any of the worker nodes or optional jump box machines.
 
 - [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a fully managed relational database service that's based on the PostgreSQL database engine. Azure Database for PostgreSQL offers predictable performance and dynamic scalability, and is appropriate for business-critical workloads. Its [flexible server deployment model](/azure/postgresql/flexible-server/overview) provides granular control and flexibility over database management functions and configuration settings.
 
@@ -116,7 +116,7 @@ We recommend that you use the latest *Ds* series VMs as your worker nodes. Examp
 Because Sterling OMS has various back-end database options, it's important to first decide which platform to host your database on. Then you can make decisions about the size of that platform. Keep the following general guidelines in mind during this process:
 
 - **Azure Database for PostgreSQL, flexible server deployment model**: Due to the nature of its scale and redundancy options, the flexible server model of Azure Database for PostgreSQL is the preferred method for hosting Sterling OMS workloads in Azure. When you deploy your instance:
-  - Select the compute tier that matches your usage patterns. We recommend that you start with a general purpose tier and select an appropriate number of cores. Also note that your CPU, memory, and IOPs are tied to your compute size selection.
+  - Select the compute tier that matches your usage patterns. We recommend that you start with a general purpose tier and select an appropriate number of cores. Your CPU, memory, and IOPs are determined by your compute size selection.
   - Add appropriate storage. Also remember that increased storage increases cost, and you can't shrink your provisioned storage. As a result, it's important to know your initial data size and predicted growth.
   - Adjust server parameters such as `max_connections` that affect your agents' ability to maintain connectivity to your database.
 - **Db2 on VMs**: When you run Db2 on Azure VMs, there are several complex factors that you need to address, such as performance and availability. For a detailed article about a high-performance Db2 deployment on Azure, see [High availability of IBM Db2 LUW on Azure VMs on Red Hat Enterprise Linux Server](/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-ibm-db2-luw). That article walks through sizing and performance considerations. It also shows you how to deploy a high availability Db2 cluster that uses Pacemaker.
@@ -179,7 +179,7 @@ Also consider these points:
 
 If you need access to your other, non–Azure Red Hat OpenShift nodes, you can optionally use [Azure Bastion](/azure/bastion/bastion-overview) to access your VMs. For security reasons, don't expose VMs to a network or the internet without configuring [network security groups](/azure/virtual-network/network-security-groups-overview) to control access to them.
 
-[Server-side encryption (SSE) of Azure disk storage](/azure/virtual-machines/disk-encryption) helps protect your data. SSE also helps you meet organizational security and compliance commitments. With Azure managed disks, SSE encrypts the data at rest when persisting it to the cloud. This behavior applies by default to both OS and data disks. OpenShift uses SSE by default. Azure Red Hat OpenShift also supports customer-managed encryption keys (CMEK) for the OS disks in your cluster.
+[Server-side encryption (SSE) of Azure disk storage](/azure/virtual-machines/disk-encryption) helps protect your data. SSE also helps you meet organizational security and compliance commitments. With Azure Managed Disks, SSE encrypts the data at rest when persisting it to the cloud. This behavior applies by default to both OS and data disks. OpenShift uses SSE by default. Azure Red Hat OpenShift also supports customer-managed encryption keys (CMEK) for the OS disks in your cluster.
 
 #### Authentication
 
@@ -271,7 +271,7 @@ Other contributors:
 - [Use Azure Key Vault Provider for Secrets Store CSI Driver on Azure Red Hat OpenShift](/azure/openshift/howto-use-key-vault-secrets)
 - [IBM MQ in Containers](https://www.ibm.com/docs/en/ibm-mq/9.1?topic=mq-in-containers)
 - [Azure Red Hat OpenShift](/azure/openshift/intro-openshift)
-- [What is Azure Database for PostgreSQL?](/azure/postgresql/single-server/overview)
+- [What is Azure Database for PostgreSQL?](/azure/postgresql/overview)
 - [Introduction to Red Hat on Azure](/training/modules/introduction-to-red-hat-azure)
 - [Work with Azure Database for PostgreSQL](/training/paths/microsoft-learn-azure-database-for-postgresql)
 
@@ -279,4 +279,3 @@ Other contributors:
 
 - [Deploy IBM Maximo Application Suite on Azure](../../example-scenario/apps/deploy-ibm-maximo-application-suite.yml)
 - [Deploy a Java application with JBoss EAP on an ARO cluster](/azure/developer/java/ee/jboss-eap-on-aro)
-

@@ -2,10 +2,11 @@
 metadata:
   title: Host name preservation
   description: Learn how to preserve the original HTTP host name between a reverse proxy and its back-end web application in common Azure services.
-  author: jelledruyts
-  ms.author: jelled
+  author: claytonsiemens77
+  ms.author: pnp
   ms.date: 01/16/2025
-  ms.topic: conceptual
+  ms.topic: concept-article
+  ms.update-cycle: 365-days # Excluding this article from the 730-day freshness tier applied to other best-practices articles, due to product-specific configurations.
   ms.subservice: architecture-guide
   ms.custom: arb-web
 azureCategories:

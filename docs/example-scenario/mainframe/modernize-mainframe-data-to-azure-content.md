@@ -50,7 +50,7 @@ The following dataflow corresponds to the previous diagram:
 1. Data is ingested and transformed. Mainframe and midrange systems store their file system data in EBCDIC-encoded format in file formats like:
 
    - Indexed [VSAM](https://www.ibm.com/docs/cobol-zos/6.3?topic=files-vsam) files.
-   - Nonindexed [GDG](https://www.ibm.com/support/knowledgecenter/zosbasics/com.ibm.zos.zconcepts/zconcepts_175.htm) files.
+   - Nonindexed [GDG](https://www.ibm.com/docs/zos-basic-skills?topic=vtoc-what-is-generation-data-group) files.
    - Flat files.
    
     COBOL, Programming Language One, and assembly language copybooks define the data structure of these files.
@@ -59,30 +59,30 @@ The following dataflow corresponds to the previous diagram:
    
    b. Data conversion is accomplished by developing custom programs by using the host file component of Host Integration Server or by using the built-in connector for IBM host files in Azure Logic Apps.
 
-      The Spark Notebook converter is developed by using open-source Spark frameworks. It's compatible with Spark environments such as Microsoft Fabric, Azure Synapse Analytics, and Azure Databricks.
+      The Spark Notebook converter is developed by using open-source Spark frameworks. It's compatible with Spark environments such as Microsoft Fabric and Azure Databricks.
 
    c. Relational database data is migrated.
 
       IBM mainframe and midrange systems store data in relational databases like:
 
-      - [Db2 for z/OS](https://www.ibm.com/analytics/db2/zos).
-      - [Db2 for Linux UNIX and Windows](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.kc.doc/welcome.html).
+      - [Db2 for z/OS](https://www.ibm.com/products/db2-for-zos).
+      - [Db2 for Linux UNIX and Windows](https://www.ibm.com/docs/db2/10.5.0).
       - [Db2 for IBM i](https://www.ibm.com/support/pages/db2-ibm-i).
      
       The following services migrate the database data:
 
      - Azure Data Factory uses a Db2 connector to extract and integrate data from the databases.
-     - SQL Server Integration Services handles various data [extract, transform, and load](https://www.ibm.com/cloud/learn/etl) tasks.
+     - SQL Server Integration Services handles various data [extract, transform, and load](https://www.ibm.com/think/topics/etl) tasks.
      - Fabric Data Factory uses the IBM Db2 connector to migrate Db2 data.
 
    d. Nonrelational database data is migrated.
       
       IBM mainframe and midrange systems store data in nonrelational databases like:
 
-      - [IDMS](https://www.broadcom.com/products/mainframe/databases-database-mgmt/idms), a [network model](https://web.archive.org/web/20060904190944/http:/coronet.iicm.edu/wbtmaster/allcoursescontent/netlib/ndm1.htm) database management system (DBMS).
-      - [IMS](https://www.ibm.com/it-infrastructure/z/ims), a [hierarchical model](https://www.ibm.com/support/knowledgecenter/SSEPH2_14.1.0/com.ibm.ims14.doc.apg/ims_comparehierandreldbs.htm) DBMS.
-      - [Adabas](https://www.softwareag.com/en_corporate/platform/adabas-natural.html).
-      - [Datacom](https://www.broadcom.com/products/mainframe/databases-database-mgmt/datacom).
+      - [IDMS](https://www.broadcom.com/products/mainframe/databases/idms), a [network model](https://web.archive.org/web/20060904190944/http:/coronet.iicm.edu/wbtmaster/allcoursescontent/netlib/ndm1.htm) database management system (DBMS).
+      - [IMS](https://www.ibm.com/products/ims), a [hierarchical model](https://www.ibm.com/docs/ims/14.1.0?topic=ims-comparison-hierarchical-relational-databases) DBMS.
+      - [Adabas](https://www.softwareag.com/en/adabas-natural).
+      - [Datacom](https://www.broadcom.com/products/mainframe/databases/datacom).
       
       Partner products integrate data from these databases.
 
@@ -104,48 +104,47 @@ This architecture uses the following components.
 
 This architecture describes how to migrate data to scalable, more secure cloud storage and managed databases for flexible, intelligent data management in Azure.
 
-- [SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is part of the [Azure SQL family](/azure/azure-sql/). It's designed for the cloud and provides all the benefits of a fully managed and evergreen platform as a service (PaaS). SQL Database also provides AI-powered automated features that optimize performance and durability. Serverless compute and [Hyperscale storage options](/azure/azure-sql/database/service-tier-hyperscale) automatically scale resources on demand.
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed [multiple-model](https://www.infoworld.com/article/2237677/the-rise-of-the-multimodel-database.html) [NoSQL](https://www.infoworld.com/article/2260280/what-is-nosql-databases-for-a-cloud-scale-future.html) database. In this architecture, Azure Cosmos DB serves as a scalable NoSQL target for modernizing nonrelational mainframe databases like IMS and IDMS.
 
-- [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a fully managed relational database service based on the community edition of the open-source [PostgreSQL](https://www.postgresql.org) database engine.
+- [Azure Database for MySQL](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) is a fully managed relational database service based on the community edition of the open-source [MySQL](https://www.mysql.com/products/community) database engine. In this architecture, Azure Database for MySQL provides another relational database target option for migrated mainframe data.
 
-- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed [multiple-model](https://www.infoworld.com/article/2861579/the-rise-of-the-multimodel-database.html) [NoSQL](https://www.infoworld.com/article/3240644/what-is-nosql-databases-for-a-cloud-scale-future.html) database.
+- [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a fully managed relational database service based on the community edition of the open-source [PostgreSQL](https://www.postgresql.org) database engine. In this architecture, Azure Database for PostgreSQL provides an alternative target database for mainframe relational data migration.
 
-- [Azure Database for MySQL](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) is a fully managed relational database service based on the community edition of the open-source [MySQL](https://www.mysql.com/products/community) database engine.
+- [SQL Database](/azure/well-architected/service-guides/azure-sql-database) is part of the [Azure SQL family](/azure/azure-sql/). It's designed for the cloud and provides all the benefits of a fully managed and evergreen platform as a service (PaaS). SQL Database also provides AI-powered automated features that optimize performance and durability. Serverless compute and [Hyperscale storage options](/azure/azure-sql/database/service-tier-hyperscale) automatically scale resources on demand. In this architecture, SQL Database serves as a target database for migrated relational data from mainframe Db2 systems.
 
-- [SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) is an intelligent, scalable cloud database service that provides all the benefits of a fully managed and evergreen PaaS. SQL Managed Instance has almost complete compatibility with the latest SQL Server Enterprise edition database engine. It also provides a native virtual network implementation that addresses common security concerns.
+- [Azure SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) is a cloud database service that provides all the benefits of a fully managed and evergreen PaaS. SQL Managed Instance has almost complete compatibility with the latest SQL Server Enterprise edition database engine. It also provides a native virtual network implementation that addresses common security concerns. In this architecture, SQL Managed Instance serves as a target for mainframe data that requires SQL Server compatibility and enterprise features.
 
-- [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a storage repository that holds large amounts of data in its native, raw format. Data lake stores are optimized for scaling to terabytes and petabytes of data. The data typically comes from multiple heterogeneous sources. It can be structured, semi-structured, or unstructured.
+- [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a storage repository that holds large amounts of data in its native, raw format. Data lake stores are optimized for scaling to terabytes and petabytes of data. The data typically comes from multiple heterogeneous sources. It can be structured, semi-structured, or unstructured. In this architecture, Data Lake Storage provides scalable storage for converted mainframe file system data and serves as a staging area for data transformation.
 
-- [SQL database in Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview) is a developer-friendly transactional database that's based on SQL Database. Use it to easily create your operational database in Fabric. A SQL database in Fabric uses the same SQL database engine as SQL Database.
+- [Microsoft Fabric Lakehouse](/fabric/data-engineering/lakehouse-overview) is a data architecture platform for storing, managing, and analyzing structured and unstructured data in a single location. In this architecture, Microsoft Fabric Lakehouse serves as a unified analytics platform for both raw mainframe data and processed datasets.
 
-- [Microsoft Fabric Lakehouse](/fabric/data-engineering/lakehouse-overview) is a data architecture platform for storing, managing, and analyzing structured and unstructured data in a single location.
+- [SQL database in Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview) is a developer-friendly transactional database that's based on SQL Database. You can use it to create your operational database in Fabric. A SQL database in Fabric uses the same SQL database engine as SQL Database. In this architecture, SQL database in Microsoft Fabric provides a modern transactional database option for migrated mainframe operational data.
 
 #### Compute
 
-- Azure Data Factory integrates data across different network environments by using an [integration runtime (IR)](/azure/data-factory/concepts-integration-runtime), which is a compute infrastructure. Azure Data Factory copies data between cloud data stores and data stores in on-premises networks by using [self-hosted IRs](/azure/data-factory/concepts-integration-runtime#self-hosted-integration-runtime).
+- [Azure Data Factory](/azure/data-factory/introduction) is Microsoft's cloud-based data integration service that integrates data across different network environments by using an [integration runtime (IR)](/azure/data-factory/concepts-integration-runtime), which is a compute infrastructure. Azure Data Factory copies data between cloud data stores and data stores in on-premises networks by using [self-hosted IRs](/azure/data-factory/concepts-integration-runtime#self-hosted-integration-runtime). In this architecture, Azure Data Factory orchestrates the entire data migration process from mainframe sources to Azure targets.
 
-- The [on-premises data gateway](/data-integration/gateway/service-gateway-onprem) is a locally installed Windows client application that acts as a bridge between your local on-premises data sources and services in the Microsoft Cloud.
+- The [on-premises data gateway](/data-integration/gateway/service-gateway-onprem) is a locally installed Windows client application that serves as a bridge between your local on-premises data sources and services in the Microsoft Cloud. In this architecture, the on-premises data gateway establishes secure connectivity between mainframe systems and Azure services.
 
-- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) provides on-demand, scalable computing resources. An Azure virtual machine (VM) provides the flexibility of virtualization but eliminates the maintenance demands of physical hardware. Azure VMs provide a choice of operating systems, including Windows and Linux.
+- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is an infrastructure as a service (IaaS) offering that provides on-demand, scalable computing resources. An Azure virtual machine (VM) provides the flexibility of virtualization but eliminates the maintenance demands of physical hardware. Azure VMs provide a choice of operating systems, including Windows and Linux. In this architecture, Azure Virtual Machines host migration tools like SQL Server Migration Assistant for Db2 and custom conversion applications.
 
 #### Data integrators
 
 This architecture outlines various Azure-native migration tools that you use depending on the mainframe source data and the target database.
 
-- [Azure Data Factory](/azure/data-factory/introduction) is a hybrid data integration service. In this solution, Azure Data Factory migrates data from Db2 sources to Azure database targets by using native connectors.
+- [Azure Data Factory](/azure/data-factory/introduction) is a hybrid data integration service. Azure Data Factory migrates data from Db2 sources to Azure database targets by using native connectors. In this architecture, Azure Data Factory serves as the primary data integration service for orchestrating mainframe data migration workflows.
 
-- [AzCopy](/azure/storage/common/storage-use-azcopy-v10) is a command-line utility that moves blobs or files into and out of storage accounts.
+- [AzCopy](/azure/storage/common/storage-use-azcopy-v10) is a command-line utility that moves blobs or files into and out of storage accounts. In this architecture, AzCopy transfers large volumes of mainframe file system data to Azure Storage during the migration process.
 
-- [SQL Server Integration Services](/sql/integration-services/sql-server-integration-services) is a platform for creating enterprise-level data integration and transformation solutions. You can use it to solve complex business problems by:
+- [SQL Server Integration Services](/sql/integration-services/sql-server-integration-services) is a platform for creating enterprise-level data integration and transformation solutions. In this architecture, you use it to orchestrate data transformation tasks during mainframe migration, such as:
 
    - Copying or downloading files.
    - Loading data warehouses.
    - Cleansing and mining data.
    - Managing SQL Server objects and data.
 
-- [Host Integration Server](/host-integration-server/what-is-his) technologies and tools can integrate existing IBM host systems, programs, messages, and data with Azure applications. The host file client component provides flexibility for data that was converted from EBCDIC to ASCII. For example, you can generate data in JSON or XML format from the data that was converted.
 
-- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) combines data integration, enterprise data warehousing, and big data analytics. This architecture uses the Azure Synapse Analytics conversion solution. It's based on Apache Spark and is a good candidate for large mainframe-dataset workload conversion. It supports a wide range of mainframe data structures and targets and requires minimal coding effort.
+- [Host Integration Server](/host-integration-server/what-is-his) technologies and tools can integrate existing IBM host systems, programs, messages, and data with Azure applications. The host file client component provides flexibility for data that's converted from EBCDIC to ASCII. For example, you can generate data in JSON or XML format from the data that's converted. In this architecture, Host Integration Server converts EBCDIC-encoded mainframe data to ASCII format for Azure consumption.
 
 - [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview) is an enterprise-ready, end-to-end analytics platform. It unifies data movement, data processing, ingestion, transformation, real-time event routing, and report building. It supports these capabilities by using the following integrated services:
 
@@ -156,22 +155,26 @@ This architecture outlines various Azure-native migration tools that you use dep
    - Fabric Data Warehouse
    - Fabric Databases
 
+In this architecture, Fabric provides a comprehensive analytics platform for end-to-end mainframe data modernization and business intelligence.
+
 #### Other tools
 
-- [SQL Server Migration Assistant for Db2](/sql/ssma/db2/sql-server-migration-assistant-for-db2-db2tosql) automates migration from Db2 to Microsoft database services. When this tool runs on a VM, it converts Db2 database objects into SQL Server database objects and creates those objects in SQL Server.
+- [SQL Server Migration Assistant for Db2](/sql/ssma/db2/sql-server-migration-assistant-for-db2-db2tosql) automates migration from Db2 to Microsoft database services. When this tool runs on a VM, it converts Db2 database objects into SQL Server database objects and creates those objects in SQL Server. In this architecture, SQL Server Migration Assistant for Db2 automates the conversion of mainframe Db2 database schemas and objects to Azure database targets.
 
 - [Data Provider for Host Files](/host-integration-server/core/data-for-host-files) is a component of [Host Integration Server](/host-integration-server/what-is-his) that uses offline, SNA, or TCP/IP connections.
 
    - With offline connections, Data Provider reads and writes records in a local binary file.
    - With SNA and TCP/IP connections, Data Provider reads and writes records stored in remote z/OS (IBM Z series mainframe) datasets or remote i5/OS (IBM AS/400 and iSeries systems) physical files. Only i5/OS systems use TCP/IP.
 
-- [Azure services](https://azurecharts.com/overview) provide environments, tools, and processes for developing and scaling new applications in the public cloud.
+   In this architecture, Data Provider for Host Files enables connectivity and data access between mainframe file systems and Azure applications.
+
+- [Azure services](https://azurecharts.com/overview) provide environments, tools, and processes for developing and scaling new applications in the public cloud. In this architecture, Azure services provide the target cloud platform for modernized mainframe applications and data analytics workloads.
 
 ## Scenario details
 
 Modern data storage solutions like the Azure data platform provide better scalability and performance than mainframe and midrange systems. By modernizing your systems, you can take advantage of these benefits. However, updating technology, infrastructure, and practices is complex. The process involves an exhaustive investigation of business and engineering activities. Data management is one consideration when you modernize your systems. You also need to look at data visualization and integration.
 
-Successful modernizations use a [data-first strategy](http://www.enterpriseappstoday.com/data-management/5-reasons-a-data-first-strategy-works.html). When you use this approach, you focus on the data rather than the new system. Data management is no longer just an item on the modernization checklist. Instead, the data is the centerpiece. Coordinated, quality-oriented data solutions replace fragmented, poorly governed ones.
+Successful modernizations use a [data-first strategy](https://www.enterpriseappstoday.com/data-management/5-reasons-a-data-first-strategy-works.html). When you use this approach, you focus on the data rather than the new system. Data management is no longer just an item on the modernization checklist. Instead, the data is the centerpiece. Coordinated, quality-oriented data solutions replace fragmented, poorly governed ones.
 
 This solution uses Azure data platform components in a data-first approach. Specifically, the solution involves:
 
@@ -213,15 +216,13 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 - SQL Server Migration Assistant is a free, supported tool that simplifies database migration from Db2 to SQL Server, SQL Database, and SQL Managed Instance. SQL Server Migration Assistant automates all aspects of migration, including migration assessment analysis, schema and SQL statement conversion, and data migration.
 
-- The Azure Synapse Analytics Spark-based solution is built from open-source libraries. It eliminates the financial burden of licensing conversion tools.
+- The Microsoft Fabric Lakehouse-based solution is built on open-source technologies (Delta Lake, Apache Spark). This approach eliminates the financial burden of licensing conversion tools and provides a unified SaaS experience for analytics.
 
 - Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the cost of implementing this solution.
 
 ### Performance Efficiency
 
 Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
-
-- The key pillars of Performance Efficiency are performance management, capacity planning, [scalability](https://azure.microsoft.com/product-categories/databases/), and choosing an appropriate performance pattern.
 
 - You can [scale out the self-hosted IR](/azure/data-factory/concepts-integration-runtime#self-hosted-ir-compute-resource-and-scaling) by associating the logical instance with multiple on-premises machines in active-active mode.
 
@@ -240,6 +241,7 @@ Principal author:
 Other contributors:
 
 - [Nithish Aruldoss](https://www.linkedin.com/in/nithish-aruldoss-b4035b2b) | Engineering Architect
+- [Rodrigo Rodríguez](https://www.linkedin.com/in/rod2k10/) | Senior Cloud Solution Architect, AI & Quantum
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
@@ -247,13 +249,6 @@ Other contributors:
 
 Review the [Azure Database Migration Guides](/data-migration). Contact [Azure Data Engineering - Mainframe & Midrange Modernization](mailto:datasqlninja@microsoft.com) for more information.
 
-See the following articles:
+## Related resource
 
-- [IBM workloads on Azure](/azure/virtual-machines/workloads/mainframe-rehosting/ibm/get-started)
-- [Mainframe rehosting on Azure VMs](/azure/virtual-machines/workloads/mainframe-rehosting/overview)
-- [Mainframe workloads supported on Azure](/azure/virtual-machines/workloads/mainframe-rehosting/partner-workloads)
-- [Move mainframe compute to Azure](/azure/virtual-machines/workloads/mainframe-rehosting/concepts/mainframe-compute-azure)
-
-## Related resources
-
-- [Analytics end to end with Azure Synapse Analytics](../../example-scenario/dataplate2e/data-platform-end-to-end.yml)
+- [Analytics end to end with Microsoft Fabric](../../example-scenario/dataplate2e/data-platform-end-to-end.yml)

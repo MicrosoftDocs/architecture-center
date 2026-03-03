@@ -7,6 +7,10 @@ metadata:
   ms.date: 06/07/2024
   ms.topic: example-scenario
   ms.subservice: example-scenario
+  ai-usage: ai-assisted
+  ms.collection:
+    - migration
+    - onprem-to-azure
 azureCategories:
   - developer-tools
   - migration

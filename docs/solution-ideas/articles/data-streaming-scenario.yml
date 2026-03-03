@@ -7,6 +7,7 @@ metadata:
   ms.date: 11/03/2024
   ms.topic: solution-idea
   ms.subservice: solution-idea
+  ai-usage: ai-assisted
   ms.category:
     - databases
   ms.custom:
@@ -25,7 +26,7 @@ products:
   - azure-app-service
   - azure-api-management
   - azure-container-registry
-  - azure-cache-redis
+  - azure-managed-redis
   - azure-cosmos-db
 thumbnailUrl: /azure/architecture/browse/thumbs/data-streaming-scenario.png
 content: |

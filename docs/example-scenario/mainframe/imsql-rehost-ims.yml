@@ -7,8 +7,12 @@ metadata:
   ms.date: 07/10/2024
   ms.topic: example-scenario
   ms.subservice: example-scenario
+  ai-usage: ai-assisted
   ms.custom:
     - devx-track-dotnet
+  ms.collection:
+    - migration
+    - onprem-to-azure
 azureCategories:
   - migration
 products:

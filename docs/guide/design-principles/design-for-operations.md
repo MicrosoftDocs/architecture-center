@@ -4,7 +4,7 @@ description: Learn about functions of the operations team for cloud-based applic
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 08/30/2018
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
 

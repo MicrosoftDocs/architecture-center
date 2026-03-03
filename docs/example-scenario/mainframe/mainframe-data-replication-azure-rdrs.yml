@@ -7,7 +7,10 @@ metadata:
   ms.date: 04/09/2025
   ms.topic: example-scenario
   ms.subservice: example-scenario
-  ms.custom: fcp
+  ai-usage: ai-assisted
+  ms.collection:
+    - migration
+    - onprem-to-azure
 azureCategories:
   - migration 
   - integration

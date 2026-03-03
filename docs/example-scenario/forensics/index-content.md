@@ -13,7 +13,7 @@ This scenario uses a hub-and-spoke network topology, which is shown in the follo
   This diagram shows the chain of custody architecture where production virtual machines reside in a spoke Azure virtual network. These machines have their disks encrypted by using Azure Disk Encryption, with BitLocker encryption keys stored in a production Azure Key Vault. A separate, secure Azure SOC subscription that's accessible only by the security operations center (SOC) team contains an Azure Storage account that holds disk snapshots in immutable blob storage. It also includes a dedicated Azure Key Vault that stores the hash values of the snapshots and copies of the VMs' encryption keys. When a request is made to capture digital evidence, a SOC team member logs in to the SOC subscription and uses an Azure Automation hybrid runbook worker VM to run the Copy-VmDigitalEvidence runbook. The runbook uses a system-assigned managed identity to access the target VM's resources and generates snapshots of its operating system and data disks. It transfers these snapshots to both the immutable blob storage and a temporary file share, computes their hash values, and stores the hash values and the VM's encryption key in the SOC key vault. Finally, it removes all temporary copies except for the immutable snapshot.
 :::image-end:::
 
-*Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/chain-of-custody.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/chain-of-custody.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -45,19 +45,19 @@ The `Copy-VmDigitalEvidence` runbook implements the following macro steps:
 
 ### Components
 
-- [Azure Automation](/azure/automation/overview) automates frequent, time-consuming, and error-prone cloud management tasks. It's used to automate the process of capturing and transferring VM disk snapshots to help ensure evidence integrity.
+- [Azure Automation](/azure/automation/overview) is a cloud-based service that automates operational tasks by using runbooks and scripts. In this architecture, it orchestrates the evidence capture process by running the `Copy-VmDigitalEvidence` runbook to snapshot and transfer VM disks securely. This process helps ensure evidence integrity.
 
-- [Storage](/azure/storage/common/storage-introduction) is a cloud storage solution that includes object, file, disk, queue, and table storage. It hosts disk snapshots in immutable blob storage to preserve evidence in a nonerasable and noneditable state.
+- [Azure Storage](/azure/storage/common/storage-introduction) is a scalable cloud storage solution for various data types, including object, file, disk, queue, and table storage. In this architecture, it stores VM disk snapshots in immutable blob containers to preserve digital evidence in a tamper-proof format.
 
-- [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) provides optimized cloud object storage that manages massive amounts of unstructured data. It provides optimized cloud object storage for storing disk snapshots as immutable blobs.
+- [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is a cloud-based solution that provides object storage optimized for unstructured data. In this architecture, it holds the immutable snapshots of VM disks to ensure the integrity and non-repudiation of digital evidence.
 
-- [Azure Files](/azure/well-architected/service-guides/azure-files) provides fully managed file shares in the cloud that are accessible via the industry-standard Server Message Block (SMB) protocol, Network File System (NFS) protocol, and Azure Files REST API. You can concurrently mount shares through cloud or on-premises deployments of Windows, Linux, and macOS. You can also cache file shares on Windows Server by using Azure File Sync for quick access near the data usage location. Azure Files is used as a temporary repository to calculate the hash values of disk snapshots.
+- [Azure Files](/azure/well-architected/service-guides/azure-files) is a fully managed cloud file storage service that provides shared file systems that can be accessed via the industry-standard Server Message Block (SMB) protocol, the Network File System (NFS) protocol, and the Azure Files REST API. You can concurrently mount shares through cloud or on-premises deployments of Windows, Linux, and macOS. You can also cache file shares on Windows Server by using Azure File Sync for quick access near the data usage location. In this architecture, Azure Files temporarily stores disk snapshots to compute hash values before transferring them to immutable storage.
 
-- [Key Vault](/azure/key-vault/general/overview) helps you safeguard cryptographic keys and other secrets that cloud apps and services use. You can use Key Vault to store the BEKs and hash values of disk snapshots to help ensure secure access and data integrity.
+- [Key Vault](/azure/key-vault/general/overview) is a secure cloud service for managing secrets, encryption keys, and certificates. In this architecture, it stores BEKs and hash values of disk snapshots to protect access and verify the integrity of digital evidence.
 
-- [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based identity service that helps you control access to Azure and other cloud apps. It's used to control access to Azure resources, which helps ensure secure identity management.
+- [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based identity service that helps you control access to Azure and other cloud apps. In this architecture, it ensures that only authorized SOC personnel can access and manage sensitive evidence-handling operations.
 
-- [Azure Monitor](/azure/azure-monitor/overview) supports your operations at scale by helping you to maximize the performance and availability of your resources, while proactively identifying potential problems. It archives activity logs to audit all relevant events for compliance and monitoring purposes.
+- [Azure Monitor](/azure/azure-monitor/overview) is a monitoring service that provides observability through metrics, logs, and alerts. It supports operations at scale by helping you maximize the performance and availability of your resources, while proactively identifying potential problems. In this architecture, it archives activity logs to support auditing, compliance, and monitoring of the evidence chain of custody. 
 
 #### Automation
 
@@ -75,7 +75,7 @@ To isolate the virtual network that the VM uses, avoid connecting the virtual ne
 
 The hybrid runbook worker uses the [Automation system-assigned managed identity](/azure/automation/enable-managed-identity-for-automation) to access the target VM's resources and the other Azure services that the solution requires.
 
-The minimum role-based access control (RBAC) permissions required for a system-assigned managed identity are divided into two categories:
+The minimum Azure role-based access control (Azure RBAC) permissions required for a system-assigned managed identity are divided into two categories:
 
 - Access permissions to the SOC Azure architecture that contains the solution core components
 - Access permissions to the target architecture that contains the target VM resources
@@ -89,7 +89,7 @@ Access to the target architecture includes the following roles:
 
 - **Contributor** on the target VM's resource group, which provides snapshot rights on VM disks
 
-- **Key Vault Secrets Officer** on the target VM's key vault that's used to store the BEK, only if RBAC is used to control the Key Vault access
+- **Key Vault Secrets Officer** on the target VM's key vault that's used to store the BEK, only if Azure RBAC is used to control the Key Vault access
 
 - Access policy to **Get Secret** on the target VM's key vault that's used to store the BEK, only if the access policy is used to control the Key Vault access
 
@@ -167,7 +167,7 @@ It's Cohasset's opinion that Azure Storage, with the immutable storage feature o
 
 #### Least privilege
 
-When the roles of the SOC team are assigned, only two individuals in the team, known as SOC team custodians, should have rights to modify the [RBAC](/azure/role-based-access-control/overview) configuration of the subscription and its data. Grant other individuals only bare minimum access rights to data subsets that they need to perform their work.
+When the roles of the SOC team are assigned, only two individuals in the team, known as SOC team custodians, should have rights to modify the [Azure RBAC](/azure/role-based-access-control/overview) configuration of the subscription and its data. Grant other individuals only bare minimum access rights to data subsets that they need to perform their work.
 
 #### Least access
 

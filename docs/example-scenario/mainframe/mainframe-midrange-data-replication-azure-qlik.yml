@@ -7,10 +7,12 @@ metadata:
   ms.date: 02/26/2025
   ms.topic: example-scenario
   ms.subservice: example-scenario
+  ai-usage: ai-assisted
   ms.category:
     - migration
-  ms.custom:
-    - fcp
+  ms.collection:
+    - migration
+    - onprem-to-azure
 name: Use Qlik to replicate mainframe and midrange data to Azure
 azureCategories:
   - migration

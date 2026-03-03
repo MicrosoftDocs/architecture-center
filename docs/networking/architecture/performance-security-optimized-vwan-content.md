@@ -13,7 +13,7 @@ Typical use cases for this architecture include:
 
 ## Architecture
 
-:::image type="content" source="./_images/performance-security-optimized-vwan-architecture-azure-main.png" alt-text="Diagram that shows an architecture optimized for either security or performance, depending the on department." lightbox="./_images/performance-security-optimized-vwan-architecture-azure-main.png":::
+:::image type="content" source="./_images/performance-security-optimized-vwan-architecture-azure-main.png" alt-text="Diagram that shows an architecture optimized for either security or performance, depending on the department." lightbox="./_images/performance-security-optimized-vwan-architecture-azure-main.png":::
 
 Download a [Visio file](https://arch-center.azureedge.net/Performance-security-optimized-VWAN-architecture-azure.vsdx) of this architecture.
 
@@ -100,7 +100,7 @@ Configure routes for the Virtual WAN hub as follows:
 
 ### Alternatives
 
-If self-hosting NVAs is not a requirement, a simpler solution exists where the NVA is hosted in an Azure VWAN secured hub and internal traffic inspection is modified for each virtual network connection. However, this solution does not allow you to discriminate between vnet-to-vnet and [vnet-to-cross-premises traffic](/azure/virtual-wan/how-to-routing-policies).
+If self-hosting NVAs isn't a requirement, a simpler solution exists where the NVA is hosted in an Azure VWAN secured hub and internal traffic inspection is modified for each virtual network connection. However, this solution doesn't allow you to discriminate between vnet-to-vnet and [vnet-to-cross-premises traffic](/azure/virtual-wan/how-to-routing-policies).
 
 To deploy only a high-security NVA environment, you can follow this model: [Route traffic through an NVA](/azure/virtual-wan/scenario-route-through-nva).
 
@@ -166,5 +166,5 @@ Principal author:
 
 ## Related resources
 
-- [Hub-spoke network topology with Azure Virtual WAN](/azure/architecture/networking/architecture/hub-spoke-vwan-architecture)
+- [Hub-spoke network topology with Azure Virtual WAN](/azure/architecture/networking/architecture/hub-spoke-virtual-wan-architecture)
 - [Choose between virtual network peering and VPN gateways](/azure/architecture/reference-architectures/hybrid-networking/vnet-peering)

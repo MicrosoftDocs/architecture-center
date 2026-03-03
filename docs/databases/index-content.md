@@ -63,7 +63,7 @@ Review these best practices when designing your solutions.
 
 | Best practices | Description |
 |--------------- |------------ |
-| [Transactional Outbox pattern with Azure Cosmos DB](../databases/guide/transactional-outbox-cosmos.yml) | Learn how to use the Transactional Outbox pattern for reliable messaging and guaranteed delivery of events. |
+| [Transactional Outbox pattern with Azure Cosmos DB](../databases/guide/transactional-out-box-cosmos.md) | Learn how to use the Transactional Outbox pattern for reliable messaging and guaranteed delivery of events. |
 | [Distribute your data globally with Azure Cosmos DB](/azure/cosmos-db/distribute-data-globally) | To achieve low latency and high availability, some applications need to be deployed in datacenters that are close to their users. |
 | [Security in Azure Cosmos DB](/azure/cosmos-db/database-security) | Security best practices help prevent, detect, and respond to database breaches. |
 | [Continuous backup with point-in-time restore in Azure Cosmos DB](/azure/cosmos-db/continuous-backup-restore-introduction) | Learn about Azure Cosmos DB point-in-time restore feature. |
@@ -75,7 +75,7 @@ Review these best practices when designing your solutions.
 There are many options for technologies to use with Azure Databases.
 These articles help you choose the best technologies for your needs.
 
-- [Choose a Data Store](/azure/architecture/guide/technology-choices/data-store-overview)
+- [Choose a Data Store](/azure/architecture/guide/technology-choices/data-stores-getting-started)
 - [Choose an analytical data store in Azure](../data-guide/technology-choices/analytical-data-stores.md)
 - [Choose a data analytics technology in Azure](../data-guide/technology-choices/analysis-visualizations-reporting.md)
 - [Choose a batch processing technology in Azure](../data-guide/technology-choices/batch-processing.md)
@@ -88,9 +88,17 @@ These articles help you choose the best technologies for your needs.
 
 Refer to [Azure updates](https://azure.microsoft.com/updates/?category=databases) to keep current with Azure Databases technology.
 
+## Contributors
+
+*Microsoft maintains this article. The following contributors wrote this article.*
+
+- [Mohit Agarwal](https://www.linkedin.com/in/mohitagarwal01/) |  Principal Cloud Solution Architect
+
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
+
 ## Related resources
 
-- [Adatum Corporation scenario for data management and analytics in Azure](/azure/cloud-adoption-framework/scenarios/data-management/architectures/reference-architecture-adatum)
+- [Adatum Corporation scenario for cloud-scale analytics in Azure](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/reference-architecture-adatum)
 - [Lamna Healthcare scenario for data management and analytics in Azure](/azure/cloud-adoption-framework/scenarios/data-management/architectures/reference-architecture-lamna)
 - [Optimize administration of SQL Server instances](../hybrid/azure-arc-sql-server.yml)
 - [Relecloud scenario for data management and analytics in Azure](/azure/cloud-adoption-framework/scenarios/data-management/architectures/reference-architecture-relecloud)

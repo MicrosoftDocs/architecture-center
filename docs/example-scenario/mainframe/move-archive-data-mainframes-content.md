@@ -41,9 +41,13 @@ To decide which method to use for moving data between the mainframe system and A
 
 ### Components
 
-- [Azure storage](/azure/well-architected/service-guides/storage-accounts/reliability) provides massively scalable, highly secure cloud storage for your data, apps, and workloads. [Azure Files](/azure/well-architected/service-guides/azure-files) provides simple and secure serverless cloud file shares. These components are used for synchronization and data retention.
-- [Azure Data Factory](/azure/data-factory/introduction) is a hybrid data integration service that you can use to create, schedule, and orchestrate your ETL and ELT workflows.
-- [Azure Data Box](/azure/databox/data-box-overview) is a physical device that you can use to move on-premises data to Azure.
+- [Azure Data Factory](/azure/data-factory/introduction) is a cloud-based hybrid data integration service that you can use to create, schedule, and orchestrate your extract, transform, load (ETL) and extract, load, transfer (ELT) workflows. In this architecture, Azure Data Factory orchestrates the movement of data from mainframe systems to Azure storage by using FTP connectors and copy activities.
+
+- [Azure Files](/azure/well-architected/service-guides/azure-files) is a cloud storage service that provides simple and secure serverless cloud file shares. These components are used for synchronization and data retention. In this architecture, Azure Files enables file-based data archiving and provides NFS/SMB access for mainframe systems to store and retrieve archived data.
+
+- [Azure storage](/azure/well-architected/service-guides/storage-accounts/reliability) is a cloud platform that provides scalable, secure cloud storage for your data, apps, and workloads. In this architecture, Azure storage serves as the primary destination for archived mainframe data and provides cost-effective, long-term storage and lifecycle management capabilities.
+
+- [Data Box](/azure/databox/data-box-overview) is a physical device that you can use to move on-premises data to Azure. In this architecture, Data Box provides an option for physically transferring large volumes of mainframe data to Azure when online methods take too long.
 
 ### Alternatives
 
@@ -82,11 +86,11 @@ Use the Azure [pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 ### Third-party archive solutions
 
-Some third-party solutions are available on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?filters=partners&page=1&search=mainframe%20data). Each of these solutions requires unique configuration. Setting up these solutions is one of the primary tasks of implementing this architecture.
+Some third-party solutions are available on the [Microsoft Marketplace](https://marketplace.microsoft.com/marketplace/apps?search=mainframe+data). Each of these solutions requires unique configuration. Setting up these solutions is one of the primary tasks of implementing this architecture.
 
 ### Azure storage
 
-Azure has a variety of options for different application and technical requirements, like frequent versus infrequent access, and structured versus unstructured data. You can set up various storage lifecycle configurations in Azure storage. You can define the rules to manage the lifecycle. For an overview, see [Configure a lifecycle management policy](/azure/storage/blobs/lifecycle-management-policy-configure).
+Azure has various options for different application and technical requirements, like frequent versus infrequent access, and structured versus unstructured data. You can set up various storage lifecycle configurations in Azure storage. You can define the rules to manage the lifecycle. For an overview, see [Configure a lifecycle management policy](/azure/storage/blobs/lifecycle-management-policy-configure).
 
 ### Data recall
 
@@ -102,7 +106,6 @@ Principal author:
 
 Other contributors:
 
-- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
 - [Ashish Khandelwal](https://www.linkedin.com/in/ashish-khandelwal-839a851a3) | Senior Engineering Architect Manager
 - [Ramanath Nayak](https://www.linkedin.com/in/ramanath-nayak-584a2685) | Engineering Architect
 

@@ -38,24 +38,27 @@ This article presents a solution for using Luminex products to transfer mainfram
 
 ### Components
 
-- [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) extends on-premises networks to the Microsoft cloud. ExpressRoute uses a connectivity provider to establish private connections between on-premises data and Microsoft cloud services.
+- [Azure Files](/azure/well-architected/service-guides/azure-files) is a service that's part of [Azure Storage](/azure/well-architected/service-guides/storage-accounts/reliability). Azure Files provides fully managed file shares in the cloud. Azure file shares are accessible via the industry-standard Server Message Block (SMB) protocol. In this architecture, Luminex MDI and MVT transfer mainframe files to Azure Files for cloud-based file storage and access.
 
-- [Azure Files](/azure/well-architected/service-guides/azure-files) is a service that's part of [Azure Storage](/azure/well-architected/service-guides/storage-accounts/reliability). Azure Files offers fully managed file shares in the cloud. Azure file shares are accessible via the industry-standard Server Message Block (SMB) protocol. This solution uses Luminex MDI and MVT to transfer mainframe files to Azure Files.
+- [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is a service that's part of Storage. Blob Storage provides optimized cloud object storage for unstructured data. In this architecture, Blob Storage provides a way to archive hot and cold mainframe data transferred from the mainframe systems.
 
-- [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is a service that's part of Storage. Blob Storage provides optimized cloud object storage for massive amounts of unstructured data. In this solution, Blob Storage provides a way to archive hot and cold mainstream data.
+- [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) is a connectivity service that extends on-premises networks to the Microsoft cloud by using a connectivity provider to establish private connections between on-premises data and Microsoft cloud services. In this architecture, ExpressRoute provides a private, secure connection to transfer mainframe data to Azure.
 
 - In this solution, Luminex products can transfer mainframe data to several Azure databases:
 
-  - [Azure SQL](/azure/azure-sql/) is a family of Azure databases that are powered by the SQL Server engine.
-  - [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a fully managed platform as a service (PaaS) database engine that's part of the Azure SQL family. With AI-powered, automated features, SQL Database handles database management functions like upgrading, patching, backups, and monitoring.
-  - [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a fully managed relational database service that's based on the community edition of the open-source PostgreSQL database engine.
-  - [Azure Database for MySQL](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) is a fully managed relational database service that's based on the community edition of the open-source MySQL database engine.
+  - [Azure SQL](/azure/azure-sql/) is a family of Azure databases that are powered by the SQL Server engine. In this architecture, Azure SQL serves as a destination database for structured mainframe data transferred by Luminex MDI and MVT platforms.
 
-- [Event Hubs](/azure/well-architected/service-guides/event-hubs) is a fully managed big data streaming platform. In this solution, Luminex zKonnect streams mainframe data to Event Hubs in near real time. Event Hubs provides an endpoint that's compatible with Apache Kafka producer and consumer APIs. Most existing Apache Kafka client applications use these APIs as an alternative to running their own Apache Kafka clusters.
+  - [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a platform as a service (PaaS) database engine that's part of the Azure SQL family. With AI-powered, automated features, SQL Database handles database management functions like upgrading, patching, backups, and monitoring. In this architecture, SQL Database serves as a managed database destination for structured mainframe data transferred by Luminex MDI and MVT platforms.
 
-- [Power BI](/power-bi/fundamentals/power-bi-overview) is a collection of software services and apps that display analytics information. This solution uses mainframe data that comes from various sources and has varying structures. Power BI is used to turn the data into coherent, visually immersive, and interactive insights.
+  - [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a managed relational database service that's based on the community edition of the open-source PostgreSQL database engine. In this architecture, Azure Database for PostgreSQL serves as an alternative managed database destination for structured mainframe data transferred by Luminex MDI and MVT platforms.
 
-- [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) provides a way to perform big data analytics with low-cost, tiered storage and high throughput.
+  - [Azure Database for MySQL](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) is a managed relational database service that's based on the community edition of the open-source MySQL database engine. In this architecture, Azure Database for MySQL serves as another managed database destination option for structured mainframe data transferred by Luminex MDI and MVT platforms.
+
+- [Event Hubs](/azure/well-architected/service-guides/event-hubs) is a managed big data streaming platform. In this architecture, Luminex zKonnect streams mainframe data to Event Hubs in near real time. It provides an endpoint that's compatible with Apache Kafka producer and consumer APIs for existing Apache Kafka client applications.
+
+- [Power BI](/power-bi/fundamentals/power-bi-overview) is a collection of software services and apps that display analytics information. In this architecture, Power BI is used to turn mainframe data from various sources with varying structures into coherent, visually immersive, and interactive insights.
+
+- [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a scalable data storage service designed for big data analytics that provides low-cost, tiered storage and high throughput. In this architecture, Data Lake Storage serves as a destination for mainframe tape data transferred by MVT CloudTAPE, which enables big data analytics on mainframe datasets.
 
 ### Alternatives
 

@@ -2,9 +2,9 @@ Use a gateway to aggregate multiple individual requests into a single request. T
 
 ## Context and problem
 
-To perform a single task, a client may have to make multiple calls to various backend services. An application that relies on many services to perform a task must expend resources on each request. When any new feature or service is added to the application, additional requests are needed, further increasing resource requirements and network calls. This chattiness between a client and a backend can adversely impact the performance and scale of the application.  Microservice architectures have made this problem more common, as applications built around many smaller services naturally have a higher amount of cross-service calls.
+To perform a single task, a client might have to make multiple calls to various backend services. An application that relies on many services to perform a task must expend resources on each request. When any new feature or service is added to the application, additional requests are needed, further increasing resource requirements and network calls. This chattiness between a client and a backend can adversely affect the performance and scale of the application. Microservice architectures have made this problem more common, as applications built around many smaller services naturally have a higher amount of cross-service calls.
 
-In the following diagram, the client sends requests to each service (1,2,3). Each service processes the request and sends the response back to the application (4,5,6). Over a cellular network with typically high latency, using individual requests in this manner is inefficient and could result in broken connectivity or incomplete requests. While each request may be done in parallel, the application must send, wait, and process data for each request, all on separate connections, increasing the chance of failure.
+In the following diagram, the client sends requests to each service (1,2,3). Each service processes the request and sends the response back to the application (4,5,6). Over a cellular network with typically high latency, using individual requests in this manner is inefficient and could result in broken connectivity or incomplete requests. While each request might be done in parallel, the application must send, wait, and process data for each request, all on separate connections, increasing the chance of failure.
 
 ![Problem diagram for the Gateway Aggregation pattern](./_images/gateway-aggregation-problem.png)
 
@@ -22,27 +22,27 @@ In the following diagram, the application sends a request to the gateway (1). Th
 
 - The gateway should not introduce service coupling across the backend services.
 - The gateway should be located near the backend services to reduce latency as much as possible.
-- The gateway service may introduce a single point of failure. Ensure the gateway is properly designed to meet your application's availability requirements.
-- The gateway may introduce a bottleneck. Ensure the gateway has adequate performance to handle load and can be scaled to meet your anticipated growth.
+- The gateway service might introduce a single point of failure. Ensure the gateway is properly designed to meet your application's availability requirements.
+- The gateway might introduce a bottleneck. Ensure the gateway has adequate performance to handle load and can be scaled to meet your anticipated growth.
 - Perform load testing against the gateway to ensure you don't introduce cascading failures for services.
 - Implement a resilient design, using techniques such as [bulkheads][bulkhead], [circuit breaking][circuit-breaker], [retry][retry], and timeouts.
-- If one or more service calls takes too long, it may be acceptable to time out and return a partial set of data. Consider how your application will handle this scenario.
+- If one or more service calls takes too long, it might be acceptable to time out and return a partial set of data. Consider how your application will handle this scenario.
 - Use asynchronous I/O to ensure that a delay at the backend doesn't cause performance issues in the application.
 - Implement distributed tracing using correlation IDs to track each individual call.
 - Monitor request metrics and response sizes.
 - Consider returning cached data as a failover strategy to handle failures.
-- Instead of building aggregation into the gateway, consider placing an aggregation service behind the gateway. Request aggregation will likely have different resource requirements than other services in the gateway and may impact the gateway's routing and offloading functionality.
+- Instead of building aggregation into the gateway, consider placing an aggregation service behind the gateway. Request aggregation will likely have different resource requirements than other services in the gateway and might affect the gateway's routing and offloading functionality.
 
 ## When to use this pattern
 
 Use this pattern when:
 
 - A client needs to communicate with multiple backend services to perform an operation.
-- The client may use networks with significant latency, such as cellular networks.
+- The client might use networks with significant latency, such as cellular networks.
 
-This pattern may not be suitable when:
+This pattern might not be suitable when:
 
-- You want to reduce the number of calls between a client and a single service across multiple operations. In that scenario, it may be better to add a batch operation to the service.
+- You want to reduce the number of calls between a client and a single service across multiple operations. In that scenario, it might be better to add a batch operation to the service.
 - The client or application is located near the backend services and latency isn't a significant factor.
 
 ## Workload design
@@ -60,7 +60,7 @@ As with any design decision, consider any tradeoffs against the goals of the oth
 
 ## Example
 
-The following example illustrates how to create a simple a gateway aggregation NGINX service using Lua.
+The following example illustrates how to create a simple gateway aggregation NGINX service using Lua.
 
 ```lua
 worker_processes  4;

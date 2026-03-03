@@ -1,10 +1,10 @@
 ### YamlMime:Architecture
 metadata:
-  title: Deploy microservices with Azure Container Apps
-  description: Deploy existing microservice applications with Azure Container Apps.
+  title: Deploy Microservices to Azure Container Apps
+  description: Learn how to replatform and deploy existing Kubernetes microservice applications workloads to run in Azure Container Apps.
   author: craigshoemaker
   ms.author: cshoe
-  ms.date: 11/21/2024
+  ms.date: 11/05/2025
   ms.topic: example-scenario
   ms.subservice: example-scenario
   ms.category:
@@ -14,7 +14,8 @@ metadata:
     - example-scenario
     - arb-web
     - arb-containers
-name: Deploy microservices with Azure Container Apps
+  ai-usage: ai-assisted
+name: Deploy Microservices to Azure Container Apps
 azureCategories:
   - developer-tools
   - containers
@@ -23,6 +24,6 @@ products:
   - azure-container-apps
   - azure-cosmos-db
   - azure-service-bus
-thumbnailUrl: /azure/architecture/browse/thumbs/microservices-with-container-apps-runtime-diagram.png
+thumbnailUrl: /azure/architecture/browse/thumbs/microservices-with-container-apps.png
 content: |
    [!INCLUDE[](microservices-with-container-apps-content.md)]

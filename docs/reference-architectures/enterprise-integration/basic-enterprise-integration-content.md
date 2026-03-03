@@ -2,7 +2,7 @@ This reference architecture uses [Azure Integration Services][integration-servic
 
 ## Architecture
 
-![Architecture diagram showing simple enterprise integration](./_images/simple-enterprise-integration.png)
+![Architecture diagram showing a simple enterprise integration](./_images/simple-enterprise-integration.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/simple-enterprise-integration.vsdx) of this architecture.*
 
@@ -18,17 +18,17 @@ This reference architecture uses [Azure Integration Services][integration-servic
 
    - **Developer portal**. The [developer portal][apim-dev-portal] is used by developers to discover and interact with the APIs. The developer portal can be customized to match your organization's branding.
 
-1. **Azure Logic Apps**.  Logic apps are used to orchestrate the calls to the backend services.  Logic apps can be triggered by a variety of events and can call a variety of services.  In this solution, Logic Apps is used to call the backend services and provide easy connectivity through [connectors][logic-apps-connectors] reducing the need for custom code.
+1. **Azure Logic Apps**.  Logic apps are used to orchestrate the calls to the backend services.  Logic apps can be triggered by various events and can call various services. In this solution, Logic Apps is used to call the backend services and provide connectivity through [connectors][logic-apps-connectors], reducing the need for custom code.
 
 1. **Backend services**. The backend services can be any service or line of business application, such as a database, a web service, or a SaaS application. The backend services can be hosted in Azure or on-premises.
 
 ### Components
 
 - [Integration Services](/azure/logic-apps/azure-integration-services-choose-capabilities) is a collection of services that you can use to integrate applications, data, and processes. In this solution, two of these services are used: Logic Apps and API Management. Logic Apps is used to facilitate message based integration between systems and facilitate connectivity with connectors. API Management is used to provide a façade  for the backend services, allowing for a consistent interface for clients to interact with.
-  - [Logic Apps](/azure/logic-apps/logic-apps-overview) is a serverless platform for building enterprise workflows that integrate applications, data, and services.  In this solution Logic Apps is used to orchestrate the calls to the backend services and provide easy connectivity through connectors reducing the need for custom code.
+  - [Logic Apps](/azure/logic-apps/logic-apps-overview) is a serverless platform for building enterprise workflows that integrate applications, data, and services.  In this solution Logic Apps is used to orchestrate the calls to the backend services and provide connectivity through connectors, reducing the need for custom code.
   - [API Management](/azure/well-architected/service-guides/api-management/reliability) is a managed service for publishing catalogs of HTTP APIs. You can use it to promote the reuse and discoverability of your APIs and to deploy an API gateway to proxy API requests. In this solution, API Management provides additional capabilities such as rate limiting, authentication, and caching to the backend services.  Additionally, API Management provides a developer portal for clients to discover and interact with the APIs.
 - [Azure DNS](/azure/dns/dns-overview) is a hosting service for DNS domains.  Azure DNS is hosting the public DNS records for the API Management service. This allows clients to resolve the DNS name to the IP address of the API Management service.
-- [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based identity and access management service. Enterprise employees can use Microsoft Entra ID to access external and internal resources. Here Entra ID is used to secure the API Management service using [OAuth 2.0](/azure/api-management/api-management-howto-protect-backend-with-aad) and the developer portal using [Entra B2C](/azure/api-management/api-management-howto-aad-b2c).
+- [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based identity and access management service. Enterprise employees can use Microsoft Entra ID to access external and internal resources. Here Entra ID is used to secure the API Management service using [OAuth 2.0](/azure/api-management/api-management-howto-protect-backend-with-aad) and the developer portal using [Microsoft Entra External ID](/azure/api-management/api-management-howto-entra-external-id).
 
 ## Scenario details
 
@@ -50,7 +50,7 @@ Your specific requirements might differ from the generic architecture shown here
 
 Use the API Management Basic, Standard, or Premium tiers. These tiers offer a production service level agreement (SLA) and support scale-out within the Azure region. Throughput capacity for API Management is measured in *units*. Each pricing tier has a maximum scale-out. The Premium tier also supports scale-out across multiple Azure regions. Choose your tier based on your feature set and the level of required throughput. For more information, see [API Management pricing][apim-pricing] and [Capacity of an Azure API Management instance][apim-capacity].
 
-The API Management Consumption tier is not recommended for this solution because it doesn't support the developer portal which is required for this architecture.  The Developer Tier is specifically for non-production environments and is not recommended for production workloads.  A feature matrix detailing the differences between the tiers can be found [here](/azure/api-management/api-management-features).
+The API Management Consumption tier isn't recommended for this solution because it doesn't support the developer portal which is required for this architecture. The Developer Tier is specifically for non-production environments and isn't recommended for production workloads. To see the differences between the tiers, see the [Feature-based comparison of the Azure API Management tiers](/azure/api-management/api-management-features).
 
 Each Azure API Management instance has a default domain name, which is a subdomain of `azure-api.net`, for example, `contoso.azure-api.net`. Consider configuring a [custom domain][apim-domain] for your organization.
 
@@ -138,7 +138,7 @@ When you assign resources to resource groups, consider these factors:
 
 - **Lifecycle**. In general, put resources that have the same lifecycle in the same resource group.
 
-- **Access**. To apply access policies to the resources in a group, you can use [Azure role-based access control (Azure RBAC)][rbac].
+- **Access**. To apply access policies to the resources in a group, you can use [Azure RBAC][rbac].
 
 - **Billing**. You can view rollup costs for the resource group.
 
@@ -146,11 +146,11 @@ When you assign resources to resource groups, consider these factors:
 
 ##### Deployment
 
-Use [Azure Resource Manager templates][arm] to deploy the Azure resources, follow the infrastructure as Code (IaC) Process. Templates make it easier to automate deployments using [Azure DevOps Services][az-devops], or other CI/CD solutions.
+Use [Azure Resource Manager templates][arm] to deploy the Azure resources and follow the infrastructure as Code (IaC) Process. Templates make it easier to automate deployments using [Azure DevOps Services][az-devops], or other CI/CD solutions.
 
 ##### Staging
 
-Consider staging your workloads, which means deploying to various stages and running validations at each stage before moving on to the next one. If you use this approach, you can push updates to your production environments in a highly controlled way and minimize unanticipated deployment issues. [Blue-green deployment][blue-green-dep] and [Canary releases][cannary-releases] are recommended deployment strategies for updating live production environments. Also consider having a good rollback strategy for when a deployment fails. For example, you could automatically redeploy an earlier, successful deployment from your deployment history. The `--rollback-on-error` flag parameter in Azure CLI is a good example.
+Consider staging your workloads, which means deploying to various stages and running validations at each stage before you continue to the next stage. If you use this approach, you can push updates to your production environments in a highly controlled way and minimize unanticipated deployment issues. [Blue-green deployment][blue-green-dep] and [Canary releases][canary-releases] are recommended deployment strategies for updating live production environments. Also consider having a good rollback strategy for when a deployment fails. For example, you could automatically redeploy an earlier, successful deployment from your deployment history. The `--rollback-on-error` flag parameter in Azure CLI is a good example.
 
 ##### Workload isolation
 
@@ -207,8 +207,6 @@ With the Premium tier, you can scale an API Management instance across multiple 
 
 The Logic Apps serverless model means administrators don't have to plan for service scalability. The service automatically scales to meet demand.
 
-
-
 ## Next steps
 
 - [Logic Apps][logic-apps]
@@ -224,12 +222,11 @@ For greater reliability and scalability, use message queues and events to decoup
 
 You might also be interested in these articles from the Azure Architecture Center:
 
-- [Azure API Management landing zone accelerator](../../example-scenario/integration/app-gateway-internal-api-management-function.yml)
+- [Azure API Management landing zone architecture](../../example-scenario/integration/app-gateway-internal-api-management-function.yml)
 - [On-premises data gateway for Azure Logic Apps](../../hybrid/gateway-logic-apps.yml)
 
 <!-- links -->
 
-[aad]: /azure/active-directory
 [aaf-cost]: /azure/architecture/framework/cost/overview
 [apim]: /azure/api-management
 [apim-autoscale]: /azure/api-management/api-management-howto-autoscale
@@ -238,7 +235,6 @@ You might also be interested in these articles from the Azure Architecture Cente
 [apim-capacity]: /azure/api-management/api-management-capacity
 [apim-dev-portal]: /azure/api-management/api-management-key-concepts#developer-portal
 [apim-domain]: /azure/api-management/configure-custom-domain
-[apim-jwt]: /azure/api-management/policies/authorize-request-based-on-jwt-claims
 [apim-logic-app]: /azure/api-management/import-logic-app-as-api
 [apim-monitor]: /azure/api-management/api-management-howto-use-azure-monitor
 [apim-oauth]: /azure/api-management/api-management-howto-protect-backend-with-aad
@@ -246,14 +242,13 @@ You might also be interested in these articles from the Azure Architecture Cente
 [apim-pbi]: https://azure.microsoft.com/updates/azure-api-management-analytics-powerbi-solution-template
 [apim-pricing]: https://azure.microsoft.com/pricing/details/api-management
 [apim-properties]: /azure/api-management/api-management-howto-properties
-[apim-sla]: https://azure.microsoft.com/support/legal/sla/api-management
 [apim-soap]: /azure/api-management/import-soap-api
 [apim-versions]: /azure/api-management/api-management-get-started-publish-versions
 [arm]: /azure/azure-resource-manager/resource-group-authoring-templates
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [az-devops]: /azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
 [blue-green-dep]: https://martinfowler.com/bliki/BlueGreenDeployment.html
-[cannary-releases]: https://martinfowler.com/bliki/CanaryRelease.html
+[canary-releases]: https://martinfowler.com/bliki/CanaryRelease.html
 [dns]: /azure/dns
 [integration-services]: https://azure.microsoft.com/product-categories/integration
 [logic-apps]: /azure/logic-apps/logic-apps-overview
@@ -262,6 +257,5 @@ You might also be interested in these articles from the Azure Architecture Cente
 [logic-apps-monitor]: /azure/logic-apps/logic-apps-monitor-your-logic-apps
 [logic-apps-restrict-ip]: /azure/logic-apps/logic-apps-securing-a-logic-app#restrict-inbound-ip-addresses
 [logic-apps-secure]: /azure/logic-apps/logic-apps-securing-a-logic-app
-[logic-apps-sla]: https://azure.microsoft.com/support/legal/sla/logic-apps
 [monitor]: /azure/azure-monitor/overview
 [rbac]: /azure/role-based-access-control/overview

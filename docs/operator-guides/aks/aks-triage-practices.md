@@ -4,7 +4,7 @@ description: Learn about the five articles that describe the triage practices fo
 author: francisnazareth
 ms.author: fnazaret
 ms.date: 01/20/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
   - e2e-aks
@@ -59,6 +59,5 @@ Other contributors:
 ## Next steps
 
 - [Day-2 operations](https://dzone.com/articles/defining-day-2-operations)
-- [AKS periscope](https://github.com/Azure/aks-periscope)
 - [AKS roadmap](https://aka.ms/aks/roadmap)
 - [AKS resources](/azure/aks)

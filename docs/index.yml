@@ -1,26 +1,26 @@
 ### YamlMime:Hub
 metadata:
   title: Azure Architecture Center
-  description: The Azure Architecture Center provides guidance for designing and building solutions on Azure using established patterns and practices.
+  description: The Azure Architecture Center provides guidance for designing and building solutions on Azure by using established patterns and practices.
   ms.topic: hub-page
-  ms.date: 12/09/2024
+  ms.date: 08/27/2025
   ms.collection: collection
   ms.author: pnp
   author: claytonsiemens77
   google-site-verification: b-xRLveOzJ9oSOh37wgRTRB2lMOoFY8HiHf9_0DIawE
 
 title: Azure Architecture Center
-summary: Design solutions on Azure using established patterns and practices. Azure Architecture Center is a catalog of solution ideas, example workloads, reference architectures, technology decision guides, and architecture guides for Azure workloads.
+summary: Design solutions on Azure by using established patterns and practices. Azure Architecture Center is a catalog of solution ideas, example workloads, reference architectures, technology decision guides, and architecture guides for Azure workloads.
 brand: azure
 
-# Ref: https://review.learn.microsoft.com/en-us/help/platform/navigation-how-create-hub-page?branch=main#hub-page-template
+# Ref: https://learn.microsoft.com/help/platform/navigation-how-create-hub-page#hub-page-template
 
 highlightedContent:
   items:
     - title: Browse Azure architectures
       itemType: architecture
       url: browse/index.yml
-    - title: Build using application architecture fundamentals
+    - title: Build by using application architecture fundamentals
       itemType: concept
       url: guide/index.md
     - title: Make technology choices
@@ -34,8 +34,8 @@ highlightedContent:
       itemType: whats-new
 
 productDirectory:
-  title: Architecting applications on Azure
-  summary: Explore best practices and patterns for building applications on Microsoft Azure.
+  title: Architect workloads on Azure
+  summary: Explore best practices and patterns for building workloads on Microsoft Azure.
   items:
     - title: Design for the cloud
       imageSrc: /media/common/i_design.svg
@@ -53,7 +53,7 @@ productDirectory:
     - title: Choose the right technology
       imageSrc: /media/common/i_overview.svg
       links:
-        - url: ./guide/technology-choices/compute-decision-tree.yml
+        - url: ./guide/technology-choices/compute-decision-tree.md
           text: Choose a compute service
         - url: /azure/architecture/guide/choose-azure-container-service
           text: Choose a container service
@@ -61,20 +61,16 @@ productDirectory:
           text: Choose a data store
         - url: /azure/architecture/data-guide/technology-choices/ai-services
           text: Choose AI services
-        - url: ./guide/technology-choices/messaging.yml
+        - url: ./guide/technology-choices/messaging.md
           text: Choose a messaging service
-    - title: Implement Azure landing zones
+    - title: Implement an Azure landing zone
       imageSrc: /media/common/i_architecture.svg
       links:
         - url: /azure/architecture/landing-zones/landing-zone-deploy
-          text: Deploy Azure landing zones
-        - url: /azure/architecture/landing-zones/bicep/landing-zone-bicep
-          text: Bicep-based landing zones
-        - url: /azure/architecture/landing-zones/terraform/landing-zone-terraform
-          text: Terraform-based landing zones
+          text: Deploy a platform landing zone
         - url: /azure/architecture/landing-zones/subscription-vending
           text: Automate through subscription vending
-        - url: /azure/architecture/landing-zones/landing-zone-deploy#application
+        - url: /azure/architecture/landing-zones/landing-zone-deploy#application-landing-zone-architectures
           text: Application landing zone solutions
     - title: Specialized scenarios
       imageSrc: /media/common/i_best-practices.svg
@@ -97,11 +93,14 @@ conceptualContent:
   items:
     - title: Popular articles
       links:
-      - text: AI Foundry chat baseline architecture
-        url: ./ai-ml/architecture/baseline-azure-ai-foundry-chat.yml
+      - text: Microsoft Foundry chat baseline architecture
+        url: ./ai-ml/architecture/baseline-microsoft-foundry-chat.yml
         itemType: architecture
       - text: Develop and optimize a RAG implementation
         url: /azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide
+        itemType: concept
+      - text: AI agent orchestration patterns
+        url: ./ai-ml/guide/ai-agent-design-patterns.md
         itemType: concept
       - text: Cloud design patterns
         url: ./patterns/index.md
@@ -113,23 +112,23 @@ conceptualContent:
         url: ./reference-architectures/containers/aks/baseline-aks.yml
         itemType: reference
       - text: Choose your Azure compute service
-        url: ./guide/technology-choices/compute-decision-tree.yml
+        url: ./guide/technology-choices/compute-decision-tree.md
         itemType: reference
-      - text: CQRS design pattern
-        url: ./patterns/cqrs.md
-        itemType: concept
 
     - title: AI & Machine Learning
       links:
       - text: AI architecture design
         itemType: overview
         url: /azure/architecture/ai-ml/
-      - text: AI Foundry chat baseline architecture
-        url: ./ai-ml/architecture/baseline-azure-ai-foundry-chat.yml
+      - text: Microsoft Foundry chat baseline architecture
+        url: ./ai-ml/architecture/baseline-microsoft-foundry-chat.yml
         itemType: architecture
       - text: Build a generative AI gateway
         url: /azure/architecture/ai-ml/guide/azure-openai-gateway-guide
         itemType: how-to-guide
+      - text: AI agent orchestration patterns
+        url: ./ai-ml/guide/ai-agent-design-patterns.md
+        itemType: concept
       - text: Develop and optimize a RAG implementation
         url: /azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide
         itemType: how-to-guide
@@ -144,16 +143,16 @@ conceptualContent:
       links:
         - text: Analytics architecture design
           itemType: overview
-          url: ./solution-ideas/articles/analytics-start-here.yml
+          url: ./solution-ideas/articles/analytics-get-started.md
         - text: Choose a data analytics technology
           itemType: quickstart
           url: ./data-guide/technology-choices/analysis-visualizations-reporting.md
-        - text: Analytics end-to-end with Azure Synapse 
+        - text: Analytics end-to-end with Microsoft Fabric 
           itemType: architecture
           url: ./example-scenario/dataplate2e/data-platform-end-to-end.yml
-        - text: Enterprise BI with Azure Synapse Analytics
+        - text: Enterprise BI with Microsoft Fabric
           itemType: architecture
-          url: /azure/architecture/example-scenario/analytics/enterprise-bi-synapse
+          url: /azure/architecture/example-scenario/analytics/enterprise-bi-microsoft-fabric
         - text: Near real-time lakehouse data processing
           itemType: architecture
           url: /azure/architecture/example-scenario/data/real-time-lakehouse-data-processing
@@ -249,9 +248,6 @@ conceptualContent:
         - text: Identity in multitenant architectures
           url: /azure/architecture/guide/multitenant/considerations/identity
           itemType: concept
-        - text: Building applications to work across Entra tenants
-          url: /azure/architecture/patterns/cross-tenant-communication-using-multitenanted-applications
-          itemType: concept
         - text: Integrate on-premises AD with Microsoft Entra ID
           itemType: architecture
           url: reference-architectures/identity/azure-ad.yml
@@ -306,9 +302,6 @@ conceptualContent:
         - text: Baseline zone-redundant web application
           itemType: architecture
           url: web-apps/app-service/architectures/baseline-zone-redundant.yml
-        - text: E-commerce product search
-          itemType: get-started
-          url:  ./databases/architecture/ecommerce-search.yml
         - text: Protect APIs with Application Gateway and API Management
           itemType: concept
           url:  /azure/architecture/web-apps/api-management/architectures/protect-apis

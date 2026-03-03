@@ -5,7 +5,7 @@ ms.author: pnp
 author: claytonsiemens77
 ms.date: 12/11/2024
 ms.topic: design-pattern
-ms.subservice: design-pattern
+ms.subservice: cloud-fundamentals
 ---
 
 # Cloud design patterns
@@ -76,11 +76,17 @@ Each pattern in this catalog describes the problem that it addresses, considerat
 | [Scheduler Agent Supervisor](./scheduler-agent-supervisor.yml) | Coordinate a set of actions across distributed services and resources. | - Reliability<br><br>- Performance&nbsp;Efficiency |
 | [Sequential Convoy](./sequential-convoy.yml) | Process a set of related messages in a defined order without blocking other message groups. | - Reliability |
 | [Sharding](./sharding.yml) | Divide a data store into a set of horizontal partitions or shards. | - Reliability<br><br>- Cost&nbsp;Optimization |
-| [Sidecar](./sidecar.yml) | Deploy components into a separate process or container to provide isolation and encapsulation. | - Security<br><br>- Operational&nbsp;Excellence |
+| [Sidecar](./sidecar.md) | Deploy components into a separate process or container to provide isolation and encapsulation. | - Security<br><br>- Operational&nbsp;Excellence |
 | [Static Content Hosting](./static-content-hosting.yml) | Deploy static content to a cloud-based storage service for direct client delivery. | - Cost&nbsp;Optimization |
 | [Strangler Fig](./strangler-fig.md) | Incrementally migrate a legacy system by gradually replacing pieces of functionality with new applications and services. | - Reliability<br><br>- Cost&nbsp;Optimization<br><br>- Operational&nbsp;Excellence |
 | [Throttling](./throttling.yml) | Control the consumption of resources from applications, tenants, or services. | - Reliability<br><br>- Security<br><br>- Cost&nbsp;Optimization<br><br>- Performance&nbsp;Efficiency |
 | [Valet Key](./valet-key.yml) | Use a token or key to provide clients with restricted, direct access to a specific resource or service. | - Security<br><br>- Cost&nbsp;Optimization<br><br>- Performance&nbsp;Efficiency |
+
+## AI agent orchestration patterns
+
+The preceding cloud design patterns address common challenges in distributed systems, but AI workloads that use multiple autonomous agents require specialized coordination approaches. Traditional patterns like Scheduler Agent Supervisor or Choreography provide foundational concepts. However, AI agents introduce unique challenges such as nondeterministic outputs, dynamic reasoning capabilities, and the need for intelligent handoffs between specialized components.
+
+For AI workloads that include multiple autonomous agents, see [AI agent orchestration patterns](/azure/architecture/ai-ml/guide/ai-agent-design-patterns). These patterns complement the cloud design patterns in this catalog by addressing the specific coordination requirements of intelligent, autonomous components that work together to accomplish complex outcomes.
 
 ## Next steps
 

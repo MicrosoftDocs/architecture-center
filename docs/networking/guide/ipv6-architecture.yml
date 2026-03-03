@@ -5,9 +5,10 @@ metadata:
   author: WernerRall147
   ms.author: weral
   ms.date: 2/09/2024
-  ms.topic: conceptual
+  ms.topic: concept-article
   ms.subservice: architecture-guide
   ms.custom: fcp
+  ai-usage: ai-assisted
 name: IPv6 hub-spoke network topology
 azureCategories:
   - networking

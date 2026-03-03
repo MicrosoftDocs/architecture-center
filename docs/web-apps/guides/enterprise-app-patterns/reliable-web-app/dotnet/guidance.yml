@@ -6,21 +6,24 @@ metadata:
   ms.author: nanil
   ms.reviewer: ssumner
   ms.date: 10/15/2024
-  ms.topic: conceptual
+  ms.topic: concept-article
   ms.subservice: architecture-guide
   ms.custom:
     - arb-web
     - devx-track-dotnet
+  ms.collection:
+    - migration
+    - onprem-to-azure
 azureCategories:
   - migration
   - web
 products:
   - azure-app-service
   - azure-front-door
-  - azure-cache-redis
+  - azure-managed-redis
   - dotnet
 name: Reliable Web App pattern for .NET
 summary: Implement the reliable web app pattern for .NET. Migrate (replatform) web apps to the cloud with prescriptive architecture, code, and configuration guidance.
-thumbnailUrl: /azure/architecture/browse/thumbs/reliable-web-app-dotnet-1.1.svg
+thumbnailUrl: /azure/architecture/browse/thumbs/reliable-web-app-dotnet.png
 content: |
    [!include[](guidance-content.md)]

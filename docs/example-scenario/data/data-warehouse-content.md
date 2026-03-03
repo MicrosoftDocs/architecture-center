@@ -27,19 +27,19 @@ The company has data sources on many different platforms:
 
 Data is loaded from these different data sources using several Azure components:
 
-- [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is used to stage source data before it's loaded into Azure Synapse.
-- [Data Factory](/azure/data-factory/introduction) orchestrates the transformation of staged data into a common structure in Azure Synapse. Data Factory [uses PolyBase when loading data into Azure Synapse](/azure/data-factory/connector-azure-sql-data-warehouse#use-polybase-to-load-data-into-azure-sql-data-warehouse) to maximize throughput.
-- [Azure Synapse](/azure/synapse-analytics/overview-what-is) is a distributed system for storing and analyzing large datasets. Its use of massive parallel processing (MPP) makes it suitable for running high-performance analytics. Azure Synapse can use [PolyBase](/sql/relational-databases/polybase/polybase-guide) to rapidly load data from Azure Data Lake Storage.
-- [Analysis Services](/azure/analysis-services/analysis-services-overview) provides a semantic model for your data. It can also increase system performance when analyzing your data.
-- [Power BI](/power-bi/fundamentals/power-bi-overview) is a suite of business analytics tools to analyze data and share insights. Power BI can query a semantic model stored in Analysis Services, or it can query Azure Synapse directly.
-- [Microsoft Entra ID](/entra/fundamentals/whatis) authenticates users who connect to the Analysis Services server through Power BI. Data Factory can also use Microsoft Entra ID to authenticate to Azure Synapse via a service principal or [Managed identity for Azure resources](/entra/identity/managed-identities-azure-resources/overview).
+- [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a scalable data storage service for structured and unstructured data. In this architecture, it stages source data before Azure Synapse Analytics loads the data. It serves as the initial landing zone for raw data.
+- [Azure Data Factory](/azure/data-factory/introduction) is a cloud-based data integration service. In this architecture, it orchestrates the transformation of staged data into a common structure in Azure Synapse Analytics. Azure Data Factory [uses PolyBase when it loads data into Azure Synapse Analytics](/azure/data-factory/connector-azure-sql-data-warehouse#use-polybase-to-load-data-into-azure-sql-data-warehouse) to maximize throughput.
+- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) is a distributed analytics system that combines big data and data warehousing. In this architecture. it stores and analyzes large datasets by using massive parallel processing (MPP). It serves as the core analytical engine. Azure Synapse Analytics can use [PolyBase](/sql/relational-databases/polybase/polybase-guide) to rapidly load data from Data Lake Storage.
+- [Analysis Services](/azure/analysis-services/analysis-services-overview) is a fully managed platform for building semantic data models. In this architecture, it provides a tabular semantic model that simplifies data analysis and improves query performance. It can be configured to refresh after each data load into Azure Synapse Analytics to ensure up-to-date insights.
+- [Power BI](/power-bi/fundamentals/power-bi-overview) is a suite of business analytics tools to analyze data and share insights. In this architecture, Power BI enables business analysts to explore and visualize data. It connects to Analysis Services for semantic querying or directly to Azure Synapse Analytics for raw data access.
+- [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based identity and access management service. In this architecture, it authenticates users who connect to the Analysis Services server through Power BI. Azure Data Factory can also use Microsoft Entra ID to authenticate to Azure Synapse Analytics via a service principal or [managed identity for Azure resources](/entra/identity/managed-identities-azure-resources/overview).
 
 ### Alternatives
 
-- The example pipeline includes several different kinds of data sources. This architecture can handle a wide variety of relational and non-relational data sources.
+- The example pipeline includes several different kinds of data sources. This architecture can handle a wide range of relational and non-relational data sources.
 - Data Factory orchestrates the workflows for your data pipeline. If you want to load data only one time or on demand, you could use tools like SQL Server bulk copy (bcp) and AzCopy to copy data into Azure Data Lake Storage. You can then load the data directly into Azure Synapse using PolyBase.
-- If you have very large datasets, consider using [Data Lake Storage](/azure/storage/data-lake-storage/introduction), which provides limitless storage for analytics data.
-- Azure Synapse is not a good fit for OLTP workloads or data sets smaller than 250 GB. For those cases you should use Azure SQL Database or SQL Server.
+- If you have large-scale datasets, consider using [Data Lake Storage](/azure/storage/data-lake-storage/introduction), which provides limitless storage for analytics data.
+- Azure Synapse isn't a good fit for OLTP workloads or data sets smaller than 250 GB. For those cases you should use Azure SQL Database or SQL Server.
 - For comparisons of other alternatives, see:
 
   - [Choosing a data pipeline orchestration technology in Azure](../../data-guide/technology-choices/pipeline-orchestration-data-movement.md)
@@ -51,7 +51,7 @@ Data is loaded from these different data sources using several Azure components:
 
 This example demonstrates a sales and marketing company that creates incentive programs. These programs reward customers, suppliers, salespeople, and employees. Data is fundamental to these programs, and the company wants to improve the insights gained through data analytics using Azure.
 
-The company needs a modern approach to analysis data, so that decisions are made using the right data at the right time. The company's goals include:
+The company needs a modern approach to analyze data, so that decisions are made using the right data at the right time. The company's goals include:
 
 - Combining different kinds of data sources into a cloud-scale platform.
 - Transforming source data into a common taxonomy and structure, to make the data consistent and easily compared.
@@ -73,10 +73,10 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 The technologies in this architecture were chosen because they met the company's requirements for scalability and availability, while helping them control costs.
 
 - The [massively parallel processing architecture](/azure/sql-data-warehouse/massively-parallel-processing-mpp-architecture) of Azure Synapse provides scalability and high performance.
-- Azure Synapse has [guaranteed service-level agreements (SLAs)](https://azure.microsoft.com/support/legal/sla/sql-data-warehouse) and [recommended practices for achieving high availability](/azure/sql-data-warehouse/sql-data-warehouse-best-practices).
+- Azure Synapse has [guaranteed SLAs](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services) and [recommended practices for achieving high availability](/azure/sql-data-warehouse/sql-data-warehouse-best-practices).
 - When analysis activity is low, the company can [scale Azure Synapse on demand](/azure/sql-data-warehouse/sql-data-warehouse-manage-compute-overview), reducing or even pausing compute to lower costs.
 - Azure Analysis Services can be [scaled out](/azure/analysis-services/analysis-services-scale-out) to reduce response times during high query workloads. You can also separate processing from the query pool, so that client queries aren't slowed down by processing operations.
-- Azure Analysis Services also has [guaranteed SLAs](https://azure.microsoft.com/support/legal/sla/analysis-services) and [recommended practices for achieving high availability](/azure/analysis-services/analysis-services-bcdr).
+- Azure Analysis Services also has [guaranteed SLAs](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services) and [recommended practices for achieving high availability](/azure/analysis-services/analysis-services-bcdr).
 - The [Azure Synapse security model](/azure/sql-data-warehouse/sql-data-warehouse-overview-manage-security) provides connection security, [authentication and authorization](/azure/sql-data-warehouse/sql-data-warehouse-authentication) via Microsoft Entra ID or SQL Server authentication, and encryption. [Azure Analysis Services](/azure/analysis-services/analysis-services-manage-users) uses Microsoft Entra ID for identity management and user authentication.
 
 ### Cost Optimization

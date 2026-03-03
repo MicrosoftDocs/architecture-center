@@ -4,7 +4,7 @@ description: Get an overview of Azure management and governance technologies, gu
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 06/16/2023
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
 
@@ -60,7 +60,7 @@ The following sections provide links to reference architectures in some key mana
 
 ### High availability
 
-- [High availability enterprise deployment using App Service Environment](../../web-apps/app-service-environment/architectures/ase-high-availability-deployment.yml)
+- [High availability enterprise deployment using App Service Environment](../../web-apps/app-service-environment/architectures/app-service-environment-high-availability-deployment.yml)
 - [Baseline zone-redundant web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml)
 - [Deploy highly available NVAs](../../networking/guide/network-virtual-appliance-high-availability.md)
 - [Highly available SharePoint farm](../../solution-ideas/articles/highly-available-sharepoint-farm.yml)
@@ -69,7 +69,6 @@ The following sections provide links to reference architectures in some key mana
 ### Compliance and governance
 
 - [Manage virtual machine compliance](../../example-scenario/security/virtual-machine-compliance.yml)
-- [Introduction of an AKS regulated cluster for PCI-DSS 3.2.1](../../reference-architectures/containers/aks-pci/aks-pci-intro.yml)
 
 ### Hybrid management
 
@@ -89,7 +88,7 @@ The Azure Well-Architected Framework is a set of guiding tenets that you can use
 - [Regulatory compliance](/azure/architecture/framework/security/design-regulatory-compliance)
 - [Administrative account security](/azure/architecture/framework/security/design-admins)
 
-For additional guidance, see:
+For more information, see:
 
 - [Design area: Management for Azure environments](/azure/cloud-adoption-framework/ready/landing-zone/design-area/management?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [Governance best practices](/security/compass/governance)

@@ -1,17 +1,14 @@
 ---
 title: Natural Language Processing Technology
 description: Choose a natural language processing service for sentiment analysis, topic and language detection, key phrase extraction, and document categorization.
-author: FreddyAyala
-ms.author: freddyayala
+author: jessica-writes-code
+ms.author: moorejessica
 ms.date: 02/10/2025
-ms.topic: conceptual
+ms.update-cycle: 180-days
+ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
-ms.custom:
-  - fcp
-  - build-2023
-  - build-2023-dataai
-  - arb-aiml
+ms.custom: arb-aiml
 ---
 
 # Natural language processing technology
@@ -65,7 +62,7 @@ Business scenarios that can benefit from custom natural language processing incl
 
 ## Apache Spark as a customized natural language processing framework
 
-Apache Spark is a powerful parallel processing framework that enhances the performance of big-data analytic applications by using in-memory processing. [Azure Synapse Analytics](/azure/synapse-analytics), [Azure HDInsight](/azure/hdinsight/spark/apache-spark-overview), and [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) provide robust access to Spark's processing capabilities. This access helps you run large-scale data operations seamlessly.
+Apache Spark is a powerful parallel processing framework that enhances the performance of big-data analytic applications by using in-memory processing. [Microsoft Fabric](/fabric/data-engineering/spark-compute), [Azure HDInsight](/azure/hdinsight/spark/apache-spark-overview), and [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) provide robust access to Spark's processing capabilities. This access helps you run large-scale data operations.
 
 Spark NLP is an efficient framework that can process large volumes of text for customized natural language processing workloads. This open-source library provides extensive functionality by using Python, Java, and Scala libraries. These libraries deliver the sophistication that you can find in prominent natural language processing libraries like spaCy and Natural Language Toolkit. Spark NLP includes advanced features like spell check, sentiment analysis, and document classification. These features help you consistently ensure optimal accuracy and scalability.
 
@@ -87,19 +84,19 @@ Spark NLP's infrastructure scales by using optimized builds for CPUs, GPUs, and 
 
 - **Standardization**: Without a standardized document format, it can be difficult to achieve consistently accurate results when you use free-form text processing to extract specific facts from a document. For example, extracting the invoice number and date from various invoices poses challenges. The integration of adaptable natural language processing models like M2M100 improves processing accuracy across multiple languages and formats. This improved accuracy leads to more consistent results.
 
-- **Data variety and complexity**: Addressing the variety of document structures and linguistic nuances remains complex. Innovations such as MPNet embeddings provide enhanced contextual understanding, which leads to more intuitive handling of diverse textual formats and more reliable data processing.
+- **Data variety and complexity**: Addressing the various document structures and linguistic nuances remains complex. Innovations such as MPNet embeddings provide enhanced contextual understanding, which leads to more intuitive handling of diverse textual formats and more reliable data processing.
 
 ## Key selection criteria
 
-In Azure, Spark services like Azure Databricks, Microsoft Fabric, and HDInsight provide natural language processing functionality when you use them with Spark NLP. Azure AI services is another option for natural language processing functionality. To help you decide which service to use, consider the following aspects:
+In Azure, Spark services like Azure Databricks, Microsoft Fabric, and HDInsight provide natural language processing functionality when you use them with Spark NLP. Foundry Tools is another option for natural language processing functionality. To help you decide which service to use, consider the following aspects:
 
-- If you want to use prebuilt or pretrained models, consider using the APIs that AI services provides. Or you can download your model of choice through Spark NLP, which includes advanced models like Llama 2 and MPNet for enhanced capabilities.
+- If you want to use prebuilt or pretrained models, consider using the APIs that Foundry Tools provides. Or you can download your model of choice through Spark NLP, which includes advanced models like Llama 2 and MPNet for enhanced capabilities.
 
 - If you need to train custom models against a large collection of text data, consider using Azure Databricks, Fabric, or HDInsight with Spark NLP. These platforms provide the computational power and flexibility that you need for extensive model training.
 
 - If you need low-level natural language processing capabilities like tokenization, stemming, lemmatization, and term frequency/inverse document frequency (TF/IDF), consider using Azure Databricks, Fabric, or HDInsight with Spark NLP. Alternatively, use an open-source software library in your processing tool of choice.
 
-- If you need simple, high-level natural language processing capabilities like entity and intent identification, topic detection, spell check, or sentiment analysis, consider using the APIs that AI services provides. Or download your model of choice through Spark NLP to use prebuilt functions for these tasks.
+- If you need straightforward, high‑level natural language processing capabilities like entity and intent identification, topic detection, spell check, or sentiment analysis, consider using the APIs that Foundry Tools provide. Or download your model of choice through Spark NLP and apply its prebuilt functions for these tasks.
 
 ## Capability matrix
 
@@ -107,7 +104,7 @@ The following tables summarize the key differences in the capabilities of natura
 
 ### General capabilities
 
-| Capability | Spark service (Azure Databricks, Fabric, HDInsight) with Spark NLP | AI services |
+| Capability | Spark service (Azure Databricks, Fabric, HDInsight) with Spark NLP | Foundry Tools |
 | --- | --- | --- |
 | Provides pretrained models as a service | Yes | Yes |
 | REST API | Yes | Yes |
@@ -116,7 +113,7 @@ The following tables summarize the key differences in the capabilities of natura
 
 ### Annotator capabilities
 
-| Capability | Spark service (Azure Databricks, Fabric, HDInsight) with Spark NLP | AI services |
+| Capability | Spark service (Azure Databricks, Fabric, HDInsight) with Spark NLP | Foundry Tools |
 | --- | --- | --- |
 | Sentence detector | Yes | No |
 | Deep sentence detector | Yes | Yes |
@@ -137,12 +134,9 @@ The following tables summarize the key differences in the capabilities of natura
 | Date matcher | Yes | Possible in CLU through DateTime recognizers |
 | Chunker | Yes | No |
 
-> [!NOTE]
-> Language Understanding (LUIS) will be retired on October 1, 2025. You should migrate existing LUIS applications to the conversational language understanding (CLU) feature of Azure AI Language, which enhances language understanding capabilities and provides new features.
-
 ### High-level natural language processing capabilities
 
-| Capability | Spark service (Azure Databricks, Fabric, HDInsight) with Spark NLP | AI services |
+| Capability | Spark service (Azure Databricks, Fabric, HDInsight) with Spark NLP | Foundry Tools |
 | --- | --- | --- |
 | Spell check | Yes | No |
 | Summarization | Yes | Yes |
@@ -159,27 +153,7 @@ The following tables summarize the key differences in the capabilities of natura
 
 ## Set up Spark NLP in Azure
 
-To install Spark NLP, use the following code, but replace `<version>` with the latest version number. For more information, see [Spark NLP documentation](https://sparknlp.org/docs/en/quickstart).
-
-```bash
-# Install Spark NLP from PyPI.
-pip install spark-natural language processing==<version>
-
-# Install Spark NLP from Anaconda or Conda.
-conda install -c johnsnowlabs spark-natural language processing
-
-# Load Spark NLP with Spark Shell.
-spark-shell --packages com.johnsnowlabs.natural language processing:spark-natural language processing_<version>
-
-# Load Spark NLP with PySpark.
-pyspark --packages com.johnsnowlabs.natural language processing:spark-natural language processing_<version>
-
-# Load Spark NLP with Spark Submit.
-spark-submit --packages com.johnsnowlabs.natural language processing:spark-natural language processing_<version>
-
-# Load Spark NLP as an external JAR after compiling and building Spark NLP by using SBT assembly.
-spark-shell --jars spark-natural language processing-assembly-3 <version>.jar
-```
+To install Spark NLP, follow the [Install Spark NLP](https://sparknlp.org/docs/en/install) instructions in the Spark NLP documentation.
 
 ## Develop natural language processing pipelines
 
@@ -222,15 +196,18 @@ Principal authors:
 - [Freddy Ayala](https://www.linkedin.com/in/freddyayala/) |  Cloud Solution Architect
 - [Moritz Steller](https://www.linkedin.com/in/moritz-steller-426430116) | Senior Cloud Solution Architect
 
+Other contributors:
+
+- [Tincy Elias](https://www.linkedin.com/in/tincy-elias/) | Senior Cloud Solution Architect
+
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
 - Spark NLP documentation:
 
-  - [Spark NLP](https://nlp.johnsnowlabs.com/)
+  - [Spark NLP](https://sparknlp.org/)
   - [Spark NLP general documentation](https://sparknlp.org/docs/en/quickstart)
-  - [Spark NLP GitHub](https://github.com/JohnSnowLabs/spark-nlp)
   - [Spark NLP demo](https://github.com/JohnSnowLabs/spark-nlp-workshop)
   - [Spark NLP pipelines](https://sparknlp.org/docs/en/pipelines)
   - [Spark NLP annotators](https://sparknlp.org/docs/en/annotators#available-annotators)
@@ -241,12 +218,12 @@ Principal authors:
   - [Fabric](/fabric/)
   - [HDInsight](/azure/hdinsight/spark/apache-spark-overview)
   - [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks)
-  - [AI services](/azure/ai-services/what-are-ai-services)
+  - [Foundry Tools](/azure/ai-services/what-are-ai-services)
 
 - Learn resources:
 
   - [Microsoft Azure AI fundamentals: Explore natural language processing](/training/paths/explore-natural-language-processing)
-  - [Develop natural language processing solutions with AI Services](/training/paths/develop-language-solutions-azure-ai)
+  - [Develop natural language processing solutions with Foundry Tools](/training/paths/develop-language-solutions-azure-ai)
 
 ## Related resources
 
