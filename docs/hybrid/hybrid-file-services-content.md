@@ -15,7 +15,7 @@ The architecture consists of the following components:
 - **Sync groups**. Logical groupings of Azure file shares and servers that run Windows Server. Sync groups are deployed into Storage Sync Service, which registers servers for use with Azure File Sync and contains the sync group relationships.
 - **Azure File Sync agent**. This is installed on Windows Server machines to enable and configure sync with cloud endpoints.
 - **Windows Servers**. On-premises or cloud-based Windows Server machines that host a file share that syncs with an Azure file share.
-- **[Microsoft Entra ID][Azure Active Directory]**. The Microsoft Entra tenant that's used for identity synchronization across Azure and on-premises environments.
+- **[Microsoft Entra ID][Microsoft Entra ID]**. The Microsoft Entra tenant that's used for identity synchronization across Azure and on-premises environments.
 
 ### Components
 
@@ -186,7 +186,7 @@ Related architectures:
 [Visio diagram]: https://arch-center.azureedge.net/hybrid-file-services.vsdx
 [Storage Account]: /azure/storage/common/storage-account-overview
 [Azure Files]: /azure/storage/files/storage-files-planning
-[Azure Active Directory]: /entra/fundamentals/whatis
+[Microsoft Entra ID]: /entra/fundamentals/whatis
 [Azure File Sync proxy and firewall settings]: /azure/storage/files/storage-sync-files-firewall-and-proxy
 [Windows file server considerations]: /azure/storage/files/storage-sync-files-planning#windows-file-server-considerations
 [Azure File Sync Agent Download]: https://go.microsoft.com/fwlink/?linkid=858257
