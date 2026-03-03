@@ -51,7 +51,7 @@ This antipattern typically occurs because:
 
 - Not using a cache is simpler to implement and works adequately under low loads. Caching complicates the code.
 - The benefits and drawbacks of using a cache aren't clearly understood.
-- There are concerns about the costs of maintaining the accuracy and freshness of cached data.
+- There are concerns about the overhead of maintaining the accuracy and freshness of cached data.
 - An application was migrated from an on-premises system, where network latency wasn't an issue, and the system ran on expensive high-performance hardware, so caching wasn't considered in the original design.
 - Developers aren't aware that caching is possible. For example, developers might not think of using ETags when implementing a web API.
 
