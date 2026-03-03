@@ -27,21 +27,17 @@ This solution has the following benefits:
 
 - It can improve resiliency if the message queue provides transactional read operations. If a consumer service instance reads and processes the message as part of a transactional operation, and the consumer service instance fails, this pattern can ensure that the message will be returned to the queue to be picked up and handled by another instance of the consumer service. In order to mitigate the risk of a message continuously failing, we recommend you make use of [dead-letter queues](/azure/service-bus-messaging/service-bus-dead-letter-queues).
 
-## Issues and considerations
+## Problems and considerations
 
-Consider the following points when deciding how to implement this pattern:
+Consider the following points as you decide how to implement this pattern:
 
-- **Message ordering**. The order in which consumer service instances receive messages isn't guaranteed, and doesn't necessarily reflect the order in which the messages were created. Design the system to ensure that message processing is [idempotent](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing) because this will help to eliminate any dependency on the order in which messages are handled. For more information, see [Idempotency Patterns](https://blog.jonathanoliver.com/idempotency-patterns/) on Jonathon Oliver's blog.
-
-    > Microsoft Azure Service Bus Queues can implement guaranteed first-in-first-out ordering of messages by using message sessions. For more information, see [Messaging Patterns Using Sessions](/archive/msdn-magazine/2012/december/azure-insider-microsoft-azure-service-bus-messaging-patterns-using-sessions).
+- **Message ordering**. The order in which consumer service instances receive messages isn't guaranteed, and doesn't necessarily reflect the order in which the messages were created. Design the system to ensure that message processing is [idempotent](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing) because this will help to eliminate any dependency on the order in which messages are handled.
 
 - **Designing services for resiliency**. If the system is designed to detect and restart failed service instances, it might be necessary to implement the processing performed by the service instances as idempotent operations to minimize the effects of a single message being retrieved and processed more than once.
 
-- **Detecting poison messages**. A malformed message, or a task that requires access to resources that aren't available, can cause a service instance to fail. The system should prevent such messages being returned to the queue indefinitely, and instead capture and store the details of these messages elsewhere so that they can be analyzed if necessary. An example of this logic can be found in the [NServiceBus recoverability documentation](https://docs.particular.net/nservicebus/recoverability/).
+- **Detecting poison messages**. A malformed message, or a task that requires access to resources that aren't available, can cause a service instance to fail. The system should prevent such messages being returned to the queue indefinitely, and instead capture and store the details of these messages elsewhere so that they can be analyzed if necessary.
 
-- **Handling results**. The service instance handling a message is fully decoupled from the application logic that generates the message, and they might not be able to communicate directly. If the service instance generates results that must be passed back to the application logic, this information must be stored in a location that's accessible to both. In order to prevent the application logic from retrieving incomplete data the system must indicate when processing is complete.
-
-     > If you're using Azure, a worker process can pass results back to the application logic by using a dedicated message reply queue. The application logic must be able to correlate these results with the original message. This scenario is described in more detail in the [Asynchronous Messaging Primer](/previous-versions/msp-n-p/dn589781(v=pandp.10)).
+- **Handling results**. The service instance handling a message is fully decoupled from the application logic that generates the message, and they might not be able to communicate directly. If the service instance generates results that must be passed back to the application logic, this information must be stored in a location that's accessible to both. In order to prevent the application logic from retrieving incomplete data the system must indicate when processing is complete. A worker process can pass results back to the application logic by using a dedicated message reply queue. The application logic must be able to correlate these results with the original message.
 
 - **Scaling the messaging system**. In a large-scale solution, a single message queue could be overwhelmed by the number of messages and become a bottleneck in the system. In this situation, consider partitioning the messaging system to send messages from specific producers to a particular queue, or use load balancing to distribute messages across multiple message queues.
 
@@ -56,7 +52,7 @@ Use this pattern when:
 - The volume of work is highly variable, requiring a scalable solution.
 - The solution must provide high availability, and must be resilient if the processing for a task fails.
 
-This pattern might not be useful when:
+This pattern might not be suitable when:
 
 - It's not easy to separate the application workload into discrete tasks, or there's a high degree of dependence between tasks.
 - Tasks must be performed synchronously, and the application logic must wait for a task to complete before continuing.
@@ -70,19 +66,19 @@ An architect should evaluate how the Competing Consumers pattern can be used in 
 
 | Pillar | How this pattern supports pillar goals |
 | :----- | :------------------------------------- |
-| [Reliability](/azure/well-architected/reliability/checklist) design decisions help your workload become **resilient** to malfunction and to ensure that it **recovers** to a fully functioning state after a failure occurs. | This pattern builds redundancy in queue processing by treating consumers as replicas, so an instance failure doesn't prevent other consumers from processing queue messages.<br/><br/> - [RE:05 Redundancy](/azure/well-architected/reliability/redundancy)<br/> - [RE:07 Background jobs](/azure/well-architected/reliability/background-jobs) |
-| [Cost Optimization](/azure/well-architected/cost-optimization/checklist) is focused on **sustaining and improving** your workload's **return on investment**. | This pattern can help you optimize costs by enabling scaling that's based on queue depth, down to zero when the queue is empty. It can also optimize costs by enabling you to limit the maximum number of concurrent consumer instances.<br/><br/> - [CO:05 Rate optimization](/azure/well-architected/cost-optimization/get-best-rates)<br/> - [CO:07 Component costs](/azure/well-architected/cost-optimization/optimize-component-costs) |
-| [Performance Efficiency](/azure/well-architected/performance-efficiency/checklist) helps your workload **efficiently meet demands** through optimizations in scaling, data, code. | Distributing load across all consumer nodes increases utilization and dynamic scaling based on queue depth minimize overprovisioning.<br/><br/> - [PE:05 Scaling and partitioning](/azure/well-architected/performance-efficiency/scale-partition)<br/> - [PE:07 Code and infrastructure](/azure/well-architected/performance-efficiency/optimize-code-infrastructure) |
+| [Reliability](/azure/well-architected/reliability/checklist) design decisions help your workload become **resilient** to malfunction and ensure that it **recovers** to a fully functioning state after a failure occurs. | This pattern builds redundancy in queue processing by treating consumers as replicas, so an instance failure doesn't prevent other consumers from processing queue messages.<br/><br/> - [RE:05 Redundancy](/azure/well-architected/reliability/redundancy)<br/> - [RE:07 Background jobs](/azure/well-architected/reliability/background-jobs) |
+| [Cost Optimization](/azure/well-architected/cost-optimization/checklist) focuses on **sustaining and improving** your workload's **return on investment**. | This pattern can help you optimize costs by enabling scaling that's based on queue depth, down to zero when the queue is empty. It can also optimize costs by enabling you to limit the maximum number of concurrent consumer instances.<br/><br/> - [CO:05 Rate optimization](/azure/well-architected/cost-optimization/get-best-rates)<br/> - [CO:07 Component costs](/azure/well-architected/cost-optimization/optimize-component-costs) |
+| [Performance Efficiency](/azure/well-architected/performance-efficiency/checklist) helps your workload **efficiently meet demands** through optimizations in scaling, data, and code. | Distributing load across all consumer nodes increases utilization and dynamic scaling based on queue depth minimize overprovisioning.<br/><br/> - [PE:05 Scaling and partitioning](/azure/well-architected/performance-efficiency/scale-partition)<br/> - [PE:07 Code and infrastructure](/azure/well-architected/performance-efficiency/optimize-code-infrastructure) |
 
 As with any design decision, consider any tradeoffs against the goals of the other pillars that might be introduced with this pattern.
 
 ## Example
 
-Azure provides Service Bus Queues and Azure Function queue triggers that, when combined, are a direct implementation of this cloud design pattern. Azure Functions integrate with Azure Service Bus via triggers and bindings. Integrating with Service Bus allows you to build functions that consume queue messages sent by publishers. The publishing application(s) will post messages to a queue, and consumers, implemented as Azure Functions, can retrieve messages from this queue and handle them.
+Azure provides Service Bus Queues and Azure Function queue triggers that, when combined, are a direct implementation of this cloud design pattern. Azure Functions integrate with Azure Service Bus via triggers and bindings. Integrating with Service Bus allows you to build functions that consume queue messages sent by publishers. The publishing application(s) will post messages to a queue, and consumers, implemented as Azure Functions, can retrieve messages from this queue and handle them. 
 
-For resiliency, a Service Bus queue enables a consumer to use `PeekLock` mode when it retrieves a message from the queue. This mode doesn't remove the message, but hides it from other consumers. The Azure Functions runtime receives a message in PeekLock mode, if the function finishes successfully it calls Complete on the message, or it might call Abandon if the function fails, and the message will become visible again, allowing another consumer to retrieve it. If the function runs for a period longer than the PeekLock timeout, the lock is automatically renewed as long as the function is running.
+For resiliency, a Service Bus queue enables a consumer to use [`PeekLock`](/azure/service-bus-messaging/message-transfers-locks-settlement#peek-lock) mode when it retrieves a message from the queue. This mode doesn't remove the message, but hides it from other consumers. The Azure Functions runtime receives a message in PeekLock mode, if the function finishes successfully it calls Complete on the message, or it might call Abandon if the function fails, and the message will become visible again, allowing another consumer to retrieve it. If the function runs for a period longer than the PeekLock timeout, the lock is automatically renewed as long as the function is running.
 
-Azure Functions can scale out/in based on the depth of the queue, all acting as competing consumers of the queue. If multiple instances of the functions are created they all compete by independently pulling and processing the messages.
+[Azure Functions automatically scale](/azure/azure-functions/functions-scale) the number of consumer instances based on queue depth and traffic, allowing the solution to handle bursts of work while minimizing cost during low‑volume periods. If multiple instances of the functions are created they all compete by independently pulling and processing the messages.
 
 For detailed information on using Azure Service Bus queues, see [Service Bus queues, topics, and subscriptions](/azure/service-bus-messaging/service-bus-queues-topics-subscriptions).
 
@@ -92,9 +88,11 @@ To see how you can use the Azure Service Bus client library for .NET to send mes
 
 ## Next steps
 
-- [Asynchronous Messaging Primer](/previous-versions/msp-n-p/dn589781(v=pandp.10)). Message queues are an asynchronous communications mechanism. If a consumer service needs to send a reply to an application, it might be necessary to implement some form of response messaging. The Asynchronous Messaging Primer provides information on how to implement request/reply messaging using message queues.
+- [Choosing a messaging service in Azure](/azure/architecture/guide/technology-choices/messaging).  
+  Learn how different Azure messaging services such as Azure Service Bus, Storage Queues, Event Hubs, and Event Grid support asynchronous communication patterns, and how to choose the right service and messaging model for your scenario.
 
-- [Autoscaling Guidance](/previous-versions/msp-n-p/dn589774(v=pandp.10)). It might be possible to start and stop instances of a consumer service since the length of the queue applications post messages on varies. Autoscaling can help to maintain throughput during times of peak processing.
+- [Autoscaling best practices](/azure/architecture/best-practices/auto-scaling).  
+  Understand how to design solutions that scale out consumer instances based on workload, such as queue length or message throughput, so you can handle peak load while controlling cost during periods of low activity.
 
 ## Related resources
 
