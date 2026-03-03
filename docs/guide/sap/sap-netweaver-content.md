@@ -361,7 +361,10 @@ The placement of a network virtual appliance (NVA) between the application and t
 
 SAP application servers usually require frequent communication with the database. The physical proximity of the application server layer and the database layers affects network latency, which can adversely affect application performance.
 
-To optimize network latency, you can use [proximity placement groups](/azure/sap/workloads/proximity-placement-scenarios), which set a logical constraint on the VMs that are deployed in availability sets. Proximity placement groups favor colocation and performance over scalability, availability, or cost. They can greatly improve the user experience for most SAP applications. For scripts that are available on GitHub from the SAP deployment team, see [Scripts](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities).
+To optimize network latency, you can use [proximity placement groups](/azure/sap/workloads/proximity-placement-scenarios#), which set a logical constraint on the VMs that are deployed in availability sets. Proximity placement groups favor colocation and performance over scalability, availability, or cost. They can greatly improve the user experience for most SAP applications. For scripts that help measure latency, see [Scripts](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities) on GitHub.
+
+> [!NOTE]
+> Not all scenarios require the use of proximity placement groups, see the scenarios listed in [proximity placement groups](/azure/sap/workloads/proximity-placement-scenarios#proximity-placement-groupsscenarios) for additional recommendations on when to use or avoid proximity placement groups.
 
 #### Availability zones
 
