@@ -26,7 +26,7 @@ Hub-spoke network topologies typically include many of the following architectur
 
   - **Remote access** - Remote access is how individual workloads in spoke networks are accessed from a network location other than the spoke's own network. This could be for the workload's data or control plane.
 
-  - **Remote spoke access for virtual machines** - The hub can be a convenient location to build out a cross-organization remote connectivity solution for RDP and SSH access to virtual machines distributed throughout spoke networks.
+  - **Remote spoke access for virtual machines** - The hub can be a convenient location to build out a cross-organization remote connectivity solution for Remote Desktop Protocol (RDP) and Secure Shell Protocol (SSH) access to virtual machines distributed throughout spoke networks.
 
   - **Routing** - Manages and directs traffic between the hub and the connected spokes to enable secure and efficient communication.
 
@@ -46,11 +46,11 @@ Hub-spoke network topologies typically include many of the following architectur
 
    This architecture connects virtual networks to the hub by using [peering connections](/azure/virtual-network/virtual-network-peering-overview) which are non-transitive, low-latency connections between virtual networks. Peered virtual networks can exchange traffic over the Azure backbone without needing a router. In a hub-spoke architecture, directly peering virtual networks to each other is minimal and reserved for special case scenarios.
 
-- [Azure Bastion](/azure/bastion/bastion-overview) is a fully managed service that provides more secure and seamless Remote Desktop Protocol (RDP) and Secure Shell Protocol (SSH) access to VMs without exposing their public IP addresses. In this architecture, Azure Bastion is used as a managed offering to support direct VM access across connected spokes.
+- [Azure Bastion](/azure/bastion/bastion-overview) is a fully managed service that provides more secure and seamless RDP and SSH access to VMs without exposing their public IP addresses. In this architecture, Azure Bastion is used as a managed offering to support direct VM access across connected spokes.
 
 - [Azure Firewall](/azure/well-architected/service-guides/azure-firewall) is a managed cloud-based network security service that protects Virtual Network resources. This stateful firewall service has built-in high availability and unrestricted cloud scalability to help you create, enforce, and log application and network connectivity policies across subscriptions and virtual networks.
 
-   In this architecture, Azure Firewall has multiple potential roles. The firewall is the primary egress point for Internet-destined traffic from the peered spoke virtual networks. The firewall can also be used to inspect inbound traffic, using IDPS rules. And finally, the Firewall can also be used as a DNS proxy server to support FQDN traffic rules.
+   In this architecture, Azure Firewall has multiple potential roles. The firewall is the primary egress point for Internet-destined traffic from the peered spoke virtual networks. The firewall can also be used to inspect inbound traffic, using network intrusion detection and prevention system (IDPS) rules. And finally, the Firewall can also be used as a DNS proxy server to support FQDN traffic rules.
 
 - [VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) is a specific type of virtual network gateway that sends encrypted traffic between a virtual network on Azure and different network over the public internet. You can also use VPN Gateway to send encrypted traffic between other hubs virtual networks over the Microsoft network.
 
@@ -89,7 +89,7 @@ Typical uses for a hub and spoke architecture include workloads that:
 
 - Have several environments that require shared services. For example, a workload might have development, testing, and production environments. Shared services might include DNS IDs, Network Time Protocol (NTP), or Active Directory Domain Services (AD DS). Shared services are placed in the hub virtual network, and each environment deploys to a different spoke to maintain isolation.
 - Don't require connectivity to each other, but require access to shared services.
-- Require central control over security, like a perimeter network (also known as DMZ) firewall in the hub with segregated workload management in each spoke.
+- Require central control over security, like a perimeter network (also known as demilitarized zone (DMZ)) firewall in the hub with segregated workload management in each spoke.
 - Require central control over connectivity, such as selective connectivity or isolation between spokes of certain environments or workloads.
 
 ## Recommendations
@@ -213,11 +213,11 @@ To protect against DDoS attacks, enable [Azure DDOS Protection](/azure/ddos-prot
 
 To minimize the risk of unauthorized access and to enforce strict security policies, always set explicit deny rules in network security groups (NSGs).
 
-Use the [Azure Firewall Premium](/azure/firewall/premium-portal) version to enable TLS inspection, network intrusion detection and prevention system (IDPS), and URL filtering.
+Use the [Azure Firewall Premium](/azure/firewall/premium-portal) version to enable TLS inspection, IDPS, and URL filtering.
 
 #### Virtual Network Manager security
 
-To ensure a baseline set of security rules, make sure to associate [security admin rules](/azure/virtual-network-manager/concept-security-admins) with virtual networks in network groups. Security admin rules take precedence over and are evaluated before NSG rules. Like NSG rules, security admin rules support prioritization, service tags, and L3-L4 protocols. For more information, see [Security admin rules in Virtual Network Manager](/azure/virtual-network-manager/concept-security-admins).
+To ensure a baseline set of security rules, make sure to associate [security admin rules](/azure/virtual-network-manager/concept-security-admins) with virtual networks in network groups. Security admin rules take precedence over and are evaluated before NSG rules. Like NSG rules, security admin rules support prioritization, service tags, and network layer (L3) - transport layer (L4) protocols. For more information, see [Security admin rules in Virtual Network Manager](/azure/virtual-network-manager/concept-security-admins).
 
 Use Virtual Network Manager [deployments](/azure/virtual-network-manager/concept-deployments) to facilitate controlled rollout of potentially breaking changes to network group security rules.
 
