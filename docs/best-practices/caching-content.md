@@ -1,6 +1,6 @@
 <!-- cSpell:ignore BSON keyspace INCRBY DECR DECRBY GETSET MGET MSET SADD SMEMBERS SDIFF SUNION ZADD LPUSH RPUSH LPOP RPOP LRANGE RRANGE -->
 
-Caching is a common technique that aims to improve the performance and scalability of a system. It caches data by temporarily copying frequently accessed data to fast storage located close to the application. If this fast data storage is located closer to the application than the original source, then caching can significantly improve response times for client applications by serving data more quickly.
+Caching is a common technique that aims to improve the performance and scalability of a system. It caches data by temporarily copying frequently accessed data to fast storage that's located close to the application. If this fast data storage is located closer to the application than the original source, then caching can significantly improve response times for client applications by serving data more quickly.
 
 Caching is most effective when a client instance repeatedly reads the same data, especially if all the following conditions apply to the original data store:
 
@@ -53,7 +53,7 @@ The following sections describe in more detail the considerations for designing 
 
 ### Decide when to cache data
 
-Caching can dramatically improve performance, scalability, and availability. The more data that you have and the larger the number of users that need to access this data, the greater the benefits of caching become. Caching reduces the latency and contention associated with handling large volumes of concurrent requests in the original data store.
+Caching can dramatically improve performance, scalability, and availability. The more data that you have and the larger the number of users that need to access this data, the greater the benefits of caching become. Caching reduces the latency and contention that are associated with handling large volumes of concurrent requests in the original data store.
 
 For example, a database might support a limited number of concurrent connections. Retrieving data from a shared cache, however, rather than the underlying database, makes it possible for a client application to access this data even if the number of available connections is currently exhausted. Additionally, if the database becomes unavailable, client applications might be able to continue by using the data that's held in the cache.
 
@@ -225,7 +225,7 @@ Redis enables a client application to submit a series of operations that read an
 
 However, these aren't true transactions as a relational database would perform them. Transaction processing consists of two stages--the first is when the commands are queued, and the second is when the commands are run. During the command queuing stage, the client submits the commands that comprise the transaction. If some sort of error occurs at this point (such as a syntax error, or the wrong number of parameters) then Redis refuses to process the entire transaction and discards it.
 
-During the run phase, Redis performs each queued command in sequence. If a command fails during this phase, Redis continues with the next queued command and doesn't roll back the effects of any commands that have already been run. This simplified form of transaction helps to maintain performance and avoid performance problems caused by contention.
+During the run phase, Redis performs each queued command in sequence. If a command fails during this phase, Redis continues with the next queued command and doesn't roll back the effects of any commands that have already been run. This simplified form of transaction helps to maintain performance and avoid performance problems that are caused by contention.
 
 Redis does implement a form of optimistic locking to help maintain consistency. For detailed information about transactions and locking with Redis, visit the [Transactions page](https://redis.io/topics/transactions) on the Redis website.
 

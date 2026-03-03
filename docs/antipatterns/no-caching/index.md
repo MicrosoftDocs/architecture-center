@@ -127,7 +127,7 @@ Notice that the `GetAsync` method now calls the `CacheService` class, rather tha
 
 - Always include instrumentation that detects cache hits and cache misses. Use this information to tune caching policies, like what data to cache, and how long to hold data in the cache before it expires.
 
-- If the lack of caching is a bottleneck, adding caching might increase the volume of requests so much that the web front end becomes overloaded. Clients might start to receive HTTP 503 (Service Unavailable) errors. These indicate that you should scale out the front end.
+- If the lack of caching is a bottleneck, adding caching might increase the volume of requests so much that the web front end becomes overloaded. Clients might start to receive HTTP 503 (Service Unavailable) errors. These scenarios indicate that you should scale out the front end.
 
 ## How to detect a No-Caching antipattern
 
@@ -137,9 +137,9 @@ To help identify whether lack of caching is causing performance problems:
 
 2. Instrument the application and monitor the live system to find out how frequently the application retrieves data or calculates information.
 
-3. Profile the application in a test environment to capture low-level metrics about the costs associated with data-access operations or other frequently performed calculations.
+3. Profile the application in a test environment to capture low-level metrics about the overhead associated with data-access operations or other frequently performed calculations.
 
-4. Run load testing in a test environment to identify how the system responds under normal and heavy workloads. Load testing should simulate the pattern of data access observed in the production environment using realistic workloads.
+4. Run load testing in a test environment to identify how the system responds under normal and heavy loads. Load testing should simulate the pattern of data access observed in the production environment using realistic workloads.
 
 5. Examine the data-access statistics for the underlying data stores and review how often the same data requests are repeated.
 
