@@ -136,8 +136,8 @@ Many managed machine learning services don't require model training or data, so 
 - [Azure custom voice](/azure/ai-services/speech-service/custom-neural-voice)
 - [Automated ML (AutoML) in Azure Machine Learning](/azure/machine-learning/concept-automated-ml)
 - [Face API](/azure/ai-services/computer-vision/how-to/add-faces)
-- [Document Intelligence custom models](/azure/ai-services/document-intelligence/concept-custom)
-- [Azure OpenAI models that support customization and fine-tuning](/azure/ai-services/openai/how-to/fine-tuning)
+- [Document Intelligence custom models](/azure/ai-services/document-intelligence/train/custom-model)
+[Customize a model with fine-tuning](/azure/foundry/openai/how-to/fine-tuning)
 
 When you work with these services, it's important to consider the [isolation requirements](#tenant-isolation) for your tenants' data.
 
@@ -147,7 +147,7 @@ Consider the scale requirements for the components in your solution. For example
 
 If your solution requires custom models or operates in a domain that isn't covered by a managed machine learning service, then consider building your own AI and machine learning architecture. [Machine Learning](/azure/machine-learning) provides a suite of capabilities to orchestrate the training and deployment of machine learning models:
 
-- Use various open-source machine learning libraries, including [PyTorch](https://azure.microsoft.com/develop/pytorch), [TensorFlow](/azure/machine-learning/how-to-train-tensorflow), [Scikit](/azure/machine-learning/how-to-train-scikit-learn), and [Keras](/azure/machine-learning/how-to-train-keras).
+- Use various open-source machine learning libraries, including [PyTorch](https://azure.microsoft.com/resources/developers/pytorch/), [TensorFlow](/azure/machine-learning/how-to-train-tensorflow), [Scikit](/azure/machine-learning/how-to-train-scikit-learn), and [Keras](/azure/machine-learning/how-to-train-keras).
 
 - Monitor models' performance metrics continuously.
 
