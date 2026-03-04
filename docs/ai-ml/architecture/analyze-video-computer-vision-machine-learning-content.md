@@ -50,9 +50,9 @@ The following workflow corresponds to the previous diagram:
 
 - [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a scalable, secure, and cost-effective cloud storage solution for analytics workloads. In this architecture, it stores the extracted video frames for downstream image analysis and processing.
 
-- [Azure AI Vision](/azure/ai-services/computer-vision/overview) is part of [Azure AI services](/azure/ai-services/what-are-ai-services). It provides tools to extract information from images. In this architecture, it analyzes the extracted frames and identifies objects and features. It can also retrieve text via OCR.
+- [Azure Vision](/azure/ai-services/computer-vision/overview) is part of [Foundry Tools](/azure/ai-services/what-are-ai-services). It provides tools to extract information from images. In this architecture, it analyzes the extracted frames and identifies objects and features. It can also retrieve text via OCR.
 
-- [Custom Vision](/azure/ai-services/custom-vision-service/overview) is a cloud-based AI service that you can use to customize and embed advanced computer vision image analysis for your specific domains. In this architecture, it identifies domain-specific objects or qualities in the extracted video frames.
+- [Custom Vision](/azure/ai-services/custom-vision-service/overview) is a cloud-based Foundry Tool that you can use to customize and embed advanced computer vision image analysis for your specific domains. In this architecture, it identifies domain-specific objects or qualities in the extracted video frames.
 
 - [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) is a cloud-based service that automates workflows by connecting apps and data across environments. It provides a way to access and process data in real time. In this architecture, it monitors storage locations, initiates analysis workflows, processes results, and coordinates the movement and transformation of data.
 

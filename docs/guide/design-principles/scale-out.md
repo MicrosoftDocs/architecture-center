@@ -39,7 +39,7 @@ Scalability is measured by the ratio of throughput gain to resource increase. Id
 **Design for scale in**. Remember that with elastic scale, the application will have periods of scale in, when instances get removed. The application must gracefully handle instances being removed. Here are some ways to handle scalein:
 
 - Listen for shutdown events (when available) and shut down cleanly.
-- Clients/consumers of a service should support transient fault handling and retry.
+- Clients/consumers of a service should support [transient fault handling](/azure/well-architected/design-guides/handle-transient-faults) and retry.
 - For long-running tasks, consider breaking up the work, using checkpoints or the [Pipes and Filters][pipes-filters-pattern] pattern.
 - Put work items on a queue so that another instance can pick up the work, if an instance is removed in the middle of processing.
 

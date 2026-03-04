@@ -86,7 +86,7 @@ You can use a [WAF policy](/azure/web-application-firewall/ag/create-waf-policy-
 
 - [Virtual network interfaces](/azure/virtual-network/virtual-network-network-interface) help establish communication between Azure VMs and the internet, Azure, and on-premises resources. You can add several network interface cards to one Azure VM so that child VMs can have their own dedicated network interface devices and IP addresses.
 
-- [Azure managed disks](/azure/virtual-machines/windows/managed-disks-overview) are block-level storage volumes that Azure manages on Azure VMs. The disk types include Azure Ultra Disk Storage, Azure Premium SSD, and Azure Standard SSD.
+- [Azure Managed Disks](/azure/virtual-machines/managed-disks-overview) are block-level storage volumes that Azure manages on Azure VMs. The disk types include Azure Ultra Disk Storage, Azure Premium SSD, and Azure Standard SSD.
 
 - [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is a Microsoft object storage solution for the cloud. Blob Storage is optimized for storing massive amounts of unstructured data. Unstructured data is data that doesn't adhere to a particular data model or definition, such as text data or binary data.
 

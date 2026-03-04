@@ -136,7 +136,7 @@ If you run workloads that use CSI persistent volumes on your AKS cluster, consid
 
 - [Azure Files](/azure/aks/azure-files-csi) mounts Server Message Block (SMB) 3.0 and 3.1 file shares to your AKS pods. The file shares are backed by an Azure Storage account. You can share data across multiple nodes and pods. Azure Files can use premium storage that's backed by Premium SSDs. Azure Files uses a Storage account and accrues charges based on the following factors:
 
-  - The service, such as Azure Blob Storage, Azure Files, Azure Queue Storage, Azure Table Storage, or unmanaged disks
+  - The service, such as Azure Blob Storage, Azure Files, Azure Queue Storage, Azure Table Storage, or managed disks
 
   - The Storage account type, such as GPv1, GPv2, blob, or premium blob
   - The level of resiliency, such as locally redundant storage (LRS), zone-redundant storage (ZRS), geo-redundant storage (GRS), or read-access geo-redundant storage (RA-GRS)

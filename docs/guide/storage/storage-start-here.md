@@ -51,9 +51,10 @@ Depending on the storage technology you use, see the following best practices re
 - [Solution architectures using Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-solution-architectures)
 - [Performance considerations for Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-performance-considerations)
 
-
 ## Blob Storage
+
 See the following guides for information about Blob Storage:
+
 - [Authorize access to blobs using Microsoft Entra ID](/azure/storage/blobs/authorize-access-azure-active-directory)
 - [Security recommendations for Blob Storage](/azure/storage/blobs/security-recommendations)
 
@@ -61,11 +62,13 @@ See the following guides for information about Blob Storage:
 
 See the following guides for information about Data Lake Storage:
 
-- [Best practices for using Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-best-practices?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
-- [Azure Policy Regulatory Compliance controls for Azure Data Lake Storage Gen1](/azure/data-lake-store/security-controls-policy?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [Best practices for using Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-best-practices)
+- [Azure Policy Regulatory Compliance controls for Azure Data Lake Storage](/azure/storage/common/security-controls-policy)
 
 ## Azure Files
-See the following guides for information about Azure Files: 
+
+See the following guides for information about Azure Files:
+
 - [Planning for an Azure Files deployment](/azure/storage/files/storage-files-planning?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [Overview of Azure Files identity-based authentication options for SMB access](/azure/storage/files/storage-files-active-directory-overview?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [Disaster recovery and storage account failover](/azure/storage/common/storage-disaster-recovery-guidance?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
@@ -95,7 +98,7 @@ See the following guides for information about Table Storage:
 - [Design for querying](/azure/storage/tables/table-storage-design-for-query?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 
 ## Azure Disk Storage
-See the following guides for information about Azure managed disks:
+See the following guides for information about Azure Managed Disks:
 - [Server-side encryption of Azure Disk Storage](/azure/virtual-machines/disk-encryption?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [Azure Disk Encryption for Windows VMs](/azure/virtual-machines/windows/disk-encryption-overview?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [Azure premium storage: design for high performance](/azure/virtual-machines/premium-storage-performance?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)

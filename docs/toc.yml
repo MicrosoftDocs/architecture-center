@@ -43,10 +43,11 @@ items:
             href: microservices/ci-cd.yml
           - name: Domain modeling for microservices
             items:
-            - name: Domain analysis
+            - name: Use domain analysis to model microservices
+              displayName: DDD
               href: microservices/model/domain-analysis.md
-            - name: Tactical DDD
-              href: microservices/model/tactical-ddd.yml
+            - name: Use tactical DDD to design microservices
+              href: microservices/model/tactical-domain-driven-design.md
             - name: Identify microservice boundaries
               href: microservices/model/microservice-boundaries.yml
           - name: Design a microservices architecture
@@ -899,7 +900,7 @@ items:
           href: reference-architectures/hybrid-networking/index.yml
         - name: Connect on-premises with ExpressRoute
           href: reference-architectures/hybrid-networking/expressroute-vpn-failover.yml
-        - name: Design a hybrid Domain Name System
+        - name: Design a hybrid Domain Name System (DNS) solution by using Azure
           href: hybrid/hybrid-dns-infra.yml
         - name: Implement a secure hybrid network
           href: reference-architectures/dmz/secure-vnet-dmz.yml
