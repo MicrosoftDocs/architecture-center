@@ -838,7 +838,7 @@ items:
         href: guide/technology-choices/data-stores-getting-started.md
       - name: Understand data store models
         href: data-guide/technology-choices/understand-data-store-models.md
-      - name: Selecting a specialized data store model
+      - name: Select a specialized data store model
         items:
         - name: Big data storage
           href: data-guide/technology-choices/data-storage.md
@@ -878,7 +878,7 @@ items:
           href: databases/guide/data-obfuscation-with-delphix-in-azure-data-factory.yml
         - name: Data scrambling for SAP with Delphix
           href: databases/guide/data-scrambling-for-sap-using-delphix-and-azure-data-factory.yml
-        - name: Collection structure for a federated Purview catalog
+        - name: Collection structure for a federated Microsoft Purview catalog
           href: guide/data/collection-structure-federated-catalog.md
     - name: Architectures
       items:
@@ -920,7 +920,7 @@ items:
           href: example-scenario/mainframe/mainframe-data-replication-azure-data-platform.yml
         - name: Modernize mainframe midrange data
           href: example-scenario/mainframe/modernize-mainframe-data-to-azure.yml
-        - name: Re-engineer mainframe batch apps
+        - name: Reengineer mainframe batch apps
           href: example-scenario/mainframe/reengineer-mainframe-batch-apps-azure.yml
         - name: Rehost IMS DC and IMS DB
           href: example-scenario/mainframe/rehost-ims-raincode-imsql.yml
@@ -930,7 +930,7 @@ items:
         items:
         - name: Oracle Database with Azure NetApp Files
           href: example-scenario/file-storage/oracle-azure-netapp-files.yml
-        - name: SAP deployment using an Oracle database
+        - name: SAP deployment by using an Oracle database
           href: example-scenario/apps/sap-production.yml 
       - name: Big data
         items:
