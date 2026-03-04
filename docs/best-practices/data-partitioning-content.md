@@ -45,7 +45,7 @@ The shards don't have to be the same size. It's more important to balance the nu
 
 Avoid creating "hot" partitions that can affect performance and availability. For example, using the first letter of a customer's name causes an unbalanced distribution, because some letters are more common. Instead, use a hash of a customer identifier to distribute data more evenly across partitions.
 
-Choose a sharding key that minimizes any future requirements to split large shards, coalesce small shards into larger partitions, or change the schema. These operations can be very time consuming, and might require taking one or more shards offline while they are performed.
+Choose a sharding key that minimizes any future requirements to split large shards, coalesce small shards into larger partitions, or change the schema. These operations can be very time consuming, and might require taking one or more shards offline while they're performed.
 
 If shards are replicated, it might be possible to keep some of the replicas online while others are split, merged, or reconfigured. However, the system might need to limit the operations that can be performed during the reconfiguration. For example, the data in the replicas might be marked as read-only to prevent data inconsistencies.
 
@@ -65,11 +65,11 @@ Other advantages of vertical partitioning:
 
 - Relatively slow-moving data (product name, description, and price) can be separated from the more dynamic data (stock level and last ordered date). Slow-moving data is a good candidate for an application to cache in memory.
 
-- Sensitive data can be stored in a separate partition with additional security controls.
+- Sensitive data can be stored in a separate partition with extra security controls.
 
 - Vertical partitioning can reduce the amount of concurrent access that's needed.
 
-Vertical partitioning operates at the entity level within a data store, partially normalizing an entity to break it down from a *wide* item to a set of *narrow* items. It is ideally suited for column-oriented data stores such as HBase and Cassandra. If the data in a collection of columns is unlikely to change, you can also consider using column stores in SQL Server.
+Vertical partitioning operates at the entity level within a data store, partially normalizing an entity to break it down from a *wide* item to a set of *narrow* items. It's ideally suited for column-oriented data stores such as HBase and Cassandra. If the data in a collection of columns is unlikely to change, you can also consider using column stores in SQL Server.
 
 ### Functional partitioning
 
@@ -94,7 +94,7 @@ Follow these steps when designing partitions for scalability:
 
 Some cloud environments allocate resources in terms of infrastructure boundaries. Ensure that the limits of your selected boundary provide enough room for any anticipated growth in the volume of data, in terms of data storage, processing power, and bandwidth.
 
-For example, if you use Azure table storage, there's a limit to the volume of requests that can be handled by a single partition in a particular period of time. (For more information, see [Azure storage scalability and performance targets](/azure/storage/storage-scalability-targets).) A busy shard might require more resources than a single partition can handle. If so, the shard might need to be repartitioned to spread the load. If the total size or throughput of these tables exceeds the capacity of a storage account, you might need to create additional storage accounts and spread the tables across these accounts.
+For example, if you use Azure table storage, there's a limit to the volume of requests that can be handled by a single partition in a particular period of time. (For more information, see [Azure storage scalability and performance targets](/azure/storage/storage-scalability-targets).) A busy shard might require more resources than a single partition can handle. If so, the shard might need to be repartitioned to spread the load. If the total size or throughput of these tables exceeds the capacity of a storage account, you might need to create more storage accounts and spread the tables across these accounts.
 
 ## Designing partitions for query performance
 
@@ -108,14 +108,14 @@ Follow these steps when designing partitions for query performance:
    - Monitor the system to identify any queries that perform slowly.
    - Find which queries are performed most frequently. Even if a single query has a minimal cost, the cumulative resource consumption could be significant.
 
-1. Partition the data that is causing slow performance:
+1. Partition the data that's causing slow performance:
    - Limit the size of each partition so that the query response time is within target.
    - If you use horizontal partitioning, design the shard key so that the application can easily select the right partition. This prevents the query from having to scan through every partition.
    - Consider the location of a partition. If possible, try to keep data in partitions that are geographically close to the applications and users that access it.
 
 1. If an entity has throughput and query performance requirements, use functional partitioning based on that entity. If this still doesn't satisfy the requirements, apply horizontal partitioning as well. In most cases, a single partitioning strategy suffices, but in some cases it's more efficient to combine both strategies.
 
-1. Consider running queries in parallel across partitions to improve performance.
+1. To improve performance, consider running queries in parallel across partitions.
 
 ## Designing partitions for availability
 
@@ -149,15 +149,15 @@ Partitioning adds complexity to the design and development of your system. Consi
 
 In some cases, partitioning isn't considered important because the initial dataset is small and easily handled by a single server. This might be true for some workloads, but many commercial systems need to expand as the number of users increases.
 
-Moreover, it's not only large data stores that benefit from partitioning. For example, a small data store might be heavily accessed by hundreds of concurrent clients. Partitioning the data in this situation can help to reduce contention and improve throughput.
+Moreover, it's not only large data stores that benefit from partitioning. For example, hundreds of concurrent clients might heavily access a small data store. Partitioning the data in this situation can help to reduce contention and improve throughput.
 
 Consider the following points when you design a data partitioning scheme:
 
 **Minimize cross-partition data access operations**. Where possible, keep data for the most common database operations together in each partition to minimize cross-partition data access operations. Querying across partitions can be more time-consuming than querying within a single partition, but optimizing partitions for one set of queries might adversely affect other sets of queries. If you must query across partitions, minimize query time by running parallel queries and aggregating the results within the application. (This approach might not be possible in some cases, such as when the result from one query is used in the next query.)
 
-**Consider replicating static reference data.** If queries use relatively static reference data, such as postal code tables or product lists, consider replicating this data in all of the partitions to reduce separate lookup operations in different partitions. This approach can also reduce the likelihood of the reference data becoming a "hot" dataset, with heavy traffic from across the entire system. However, there's an additional cost associated with synchronizing any changes to the reference data.
+**Consider replicating static reference data.** If queries use relatively static reference data, such as postal code tables or product lists, consider replicating this data in all of the partitions to reduce separate lookup operations in different partitions. This approach can also reduce the likelihood of the reference data becoming a "hot" dataset, with heavy traffic from across the entire system. However, there's an extra cost associated with synchronizing any changes to the reference data.
 
-**Minimize cross-partition joins.** Where possible, minimize requirements for referential integrity across vertical and functional partitions. In these schemes, the application is responsible for maintaining referential integrity across partitions. Queries that join data across multiple partitions are inefficient because the application typically needs to perform consecutive queries based on a key and then a foreign key. Instead, consider replicating or de-normalizing the relevant data. If cross-partition joins are necessary, run parallel queries over the partitions and join the data within the application.
+**Minimize cross-partition joins.** Where possible, minimize requirements for referential integrity across vertical and functional partitions. In these schemes, the application is responsible for maintaining referential integrity across partitions. Queries that join data across multiple partitions are inefficient because the application typically needs to perform consecutive queries based on a key and then a foreign key. Instead, consider replicating or denormalizing the relevant data. If cross-partition joins are necessary, run parallel queries over the partitions and join the data within the application.
 
 **Embrace eventual consistency**. Evaluate whether strong consistency is actually a requirement. A common approach in distributed systems is to implement eventual consistency. The data in each partition is updated separately, and the application logic ensures that the updates are all completed successfully. It also handles the inconsistencies that can arise from querying data while an eventually consistent operation is running.
 
@@ -165,11 +165,11 @@ Consider the following points when you design a data partitioning scheme:
 
 **Consider periodically rebalancing shards**. With horizontal partitioning, rebalancing shards can help distribute the data evenly by size and by workload to minimize hotspots, maximize query performance, and work around physical storage limitations. However, this is a complex task that often requires the use of a custom tool or process.
 
-**Replicate partitions.** If you replicate each partition, it provides additional protection against failure. If a single replica fails, queries can be directed toward a working copy.
+**Replicate partitions.** If you replicate each partition, it provides more protection against failure. If a single replica fails, queries can be directed toward a working copy.
 
 **If you reach the physical limits of a partitioning strategy, you might need to extend the scalability to a different level**. For example, if partitioning is at the database level, you might need to locate or replicate partitions in multiple databases. If partitioning is already at the database level, and physical limitations are an issue, it might mean that you need to locate or replicate partitions in multiple hosting accounts.
 
-**Avoid transactions that access data in multiple partitions**. Some data stores implement transactional consistency and integrity for operations that modify data, but only when the data is located in a single partition. If you need transactional support across multiple partitions, you probably need to implement it as part of your application logic because most partitioning systems do not provide native support.
+**Avoid transactions that access data in multiple partitions**. Some data stores implement transactional consistency and integrity for operations that modify data, but only when the data is located in a single partition. If you need transactional support across multiple partitions, you probably need to implement it as part of your application logic because most partitioning systems don't provide native support.
 
 All data stores require some operational management and monitoring activity. The tasks can range from loading data, backing up and restoring data, reorganizing data, and ensuring that the system is performing correctly and efficiently.
 
@@ -179,13 +179,13 @@ Consider the following factors that affect operational management:
 
 - **How to load the data into multiple partitions and add new data that's arriving from other sources**. Some tools and utilities might not support sharded data operations such as loading data into the correct partition.
 
-- **How to archive and delete the data on a regular basis**. To prevent the excessive growth of partitions, you need to archive and delete data on a regular basis (such as monthly). It might be necessary to transform the data to match a different archive schema.
+- **How to archive and delete the data on a regular basis**. To prevent the excessive growth of partitions, you need to archive and delete data regularly (such as monthly). It might be necessary to transform the data to match a different archive schema.
 
 - **How to locate data integrity issues**. Consider running a periodic process to locate any data integrity issues, such as data in one partition that references missing information in another. The process can either attempt to fix these issues automatically or generate a report for manual review.
 
 ## Rebalancing partitions
 
-As a system matures, you might have to adjust the partitioning scheme. For example, individual partitions might start getting a disproportionate volume of traffic and become hot, leading to excessive contention. Or you might have underestimated the volume of data in some partitions, causing some partitions to approach capacity limits.
+As a system matures, you might have to adjust the partitioning scheme. For example, individual partitions might start getting a disproportionate volume of traffic and become hot, leading to excessive contention. Or you might underestimate the volume of data in some partitions, causing some partitions to approach capacity limits.
 
 Some data stores, such as Azure Cosmos DB, can automatically rebalance partitions. In other cases, rebalancing is an administrative task that consists of two stages:
 
@@ -227,6 +227,6 @@ The following design patterns might be relevant to your scenario:
 
 - The [sharding pattern](../patterns/sharding.yml) describes some common strategies for sharding data.
 
-- The [index table pattern](../patterns/index-table.yml) shows how to create secondary indexes over data. An application can quickly retrieve data with this approach, by using queries that do not reference the primary key of a collection.
+- The [index table pattern](../patterns/index-table.yml) shows how to create secondary indexes over data. An application can quickly retrieve data with this approach, by using queries that don't reference the primary key of a collection.
 
 - The [materialized view pattern](../patterns/materialized-view.yml) describes how to generate prepopulated views that summarize data to support fast query operations. This approach can be useful in a partitioned data store if the partitions that contain the data being summarized are distributed across multiple sites.
