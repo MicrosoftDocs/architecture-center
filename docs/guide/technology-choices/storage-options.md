@@ -6,7 +6,6 @@ ms.author: pnp
 ms.date: 10/11/2024
 ms.topic: concept-article
 ms.subservice: architecture-guide
-ms.custom: fcp
 ---
 
 # Review your storage options
@@ -51,8 +50,6 @@ Answer the following questions about your workloads to help make decisions about
 Azure offers multiple products and services for different storage capabilities. The following table describes potential storage scenarios and the recommended Azure services.
 
 ### Block storage scenarios
-
-<!-- docutune:ignore M-series -->
 
 | Scenario | Suggested Azure services | Considerations for suggested services |
 | :------- | :----------------------- | :------------------------------------ |
