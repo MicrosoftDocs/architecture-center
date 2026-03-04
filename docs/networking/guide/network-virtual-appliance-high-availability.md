@@ -146,7 +146,6 @@ This NVA injection method provides the following benefits:
 
 - You can use the same NVAs to inspect traffic to and from different virtual networks, which provides multitenancy from the NVA perspective.
 - Virtual network peering isn't required between the NVA virtual network and the workload virtual networks, which simplifies configuration.
-
 - UDRs aren't required in the workload virtual network, which also simplifies configuration.
 
 You can use service injection via Gateway Load Balancer for inbound traffic to an Azure public load balancer, its return traffic, and outbound traffic from Azure. East-West traffic between Azure virtual machines can't use Gateway Load Balancer for NVA injection.
