@@ -170,8 +170,6 @@ Review the following best practices when you design your database solutions.
 
 Azure database services evolve to address modern data challenges. Stay informed about the latest [updates and features](https://azure.microsoft.com/updates/?category=databases)).
 
-Get the latest updates on [Azure products and features](https://azure.microsoft.com/updates/?category=databases).
-
 To stay current with key database services, see the following articles:
 
 - [What's new in Azure SQL Database](/azure/azure-sql/database/doc-changes-updates-release-notes-whats-new)
@@ -196,7 +194,7 @@ Review the following key hybrid database scenarios:
 
 ### Mainframe data modernization
 
-Modernize mainframe data tier workloads to Azure:
+Organizations that use legacy mainframe systems can modernize their data workloads by migrating to Azure database services. Azure provides multiple migration patterns and replication strategies to help you transition mainframe data while maintaining business continuity.
 
 - [Modernize mainframe midrange data](../example-scenario/mainframe/modernize-mainframe-data-to-azure.yml): Migrate legacy data sources to modern platforms.
 - [Replicate and sync mainframe data](../reference-architectures/migration/sync-mainframe-data-with-azure.yml): Keep mainframe and cloud data synchronized.
