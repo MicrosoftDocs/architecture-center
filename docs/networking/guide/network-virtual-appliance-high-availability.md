@@ -17,6 +17,7 @@ This article assumes that you have a basic understanding of Azure networking, [A
 Many design patterns use NVAs to inspect traffic between different security zones. These patterns might use NVAs for the following purposes:
 
 - To inspect egress traffic from virtual machines to the internet and prevent data exfiltration.
+
 - To inspect ingress traffic from the internet to virtual machines and prevent attacks.
 - To filter traffic between virtual machines in Azure to prevent lateral moves of compromised systems.
 - To filter traffic between on-premises systems and Azure virtual machines, especially if they belong to different security levels. For example, Azure hosts the perimeter network, while the on-premises environment hosts the internal applications.
@@ -39,6 +40,7 @@ NVAs often require high availability because they control the communication betw
 When you choose the best option to deploy an NVA into an Azure virtual network, the most important aspect is whether the NVA vendor has evaluated and validated their design. The vendor must also provide the required NVA configuration to integrate the NVA into Azure. If the NVA vendor provides multiple supported design options, consider the following factors to make your decision:
 
 - **Convergence time:** The time that it takes each design to reroute traffic away from a failed NVA instance
+
 - **Topology support:** The NVA configurations that each design option supports, such as active/active, active/standby, or scale-out NVA clusters that have an extra unit for redundancy
 - **Traffic symmetry:** Whether a particular design forces the NVA to perform Source Network Address Translation (SNAT) on the packets to avoid asymmetric routing, or if the design enforces traffic symmetry by other means
 
@@ -58,7 +60,7 @@ The following sections describe common architectures that you can use to integra
 
 ## Common high availability patterns
 
-Before discussing each of the individual designs, there are some common patterns applicable to all of them that you should consider:
+Before discussing each of the individual designs, there are some common recommendations and considerations applicable to all of them:
 
 - Deploy the NVA instances across multiple availability zones if available in your Azure region. Multiple availability zones will increase the resiliency of your NVA and protect your network against failures of a single zone.
 - For egress traffic to the public Internet, consider using an Azure NAT Gateway v2 Standard with availabilty zone support for best resiliency and scalability. Resiliency concepts for Azure NAT Gateway are explained in [Reliability in Azure NAT Gateway][natgw_reliability].
@@ -69,6 +71,7 @@ Before discussing each of the individual designs, there are some common patterns
 The Load Balancer design pattern uses two Azure load balancers to expose a cluster of NVAs to the rest of the network. The approach suits both stateful and stateless NVAs.
 
 - An internal load balancer redirects internal traffic from Azure and on-premises to the NVAs. This internal load balancer is configured with [high availability ports rules][alb_haports] so that every Transmission Control Protocol (TCP) and User Datagram Protocol (UDP) port is redirected to the NVA instances.
+
 - A public load balancer exposes the NVAs to the internet. High availability ports are for inbound traffic, so each TCP/UDP port needs to be opened in a dedicated load-balancing rule.
 
 The following diagram shows the sequence of hops that packets take from the internet to an application server in a spoke virtual network. These packets traverse a firewall NVA to control traffic to and from the public internet, also called *North-South traffic*.
@@ -171,8 +174,8 @@ This design doesn't require SNAT to guarantee traffic symmetry because only one 
 
 Authors:
 
-- [Jose Moreno](https://www.linkedin.com/in/erjosito) | Solutions Engineer
-- [Keith Mayer](https://www.linkedin.com/in/keithm) | Principal Cloud Solution Architec
+- [Jose Moreno](https://www.linkedin.com/in/erjosito/) | Solutions Engineer
+- [Keith Mayer](https://www.linkedin.com/in/keithm/) | Principal Cloud Solution Architect
  
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
