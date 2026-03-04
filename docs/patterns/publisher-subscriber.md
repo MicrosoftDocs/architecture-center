@@ -11,13 +11,13 @@ ms.subservice: cloud-fundamentals
 
 # Publisher-Subscriber pattern
 
-The Publisher-Subscriber pattern lets applications broadcast events asynchronously to multiple interested consumers without coupling the senders to the receivers. This approach is known as *pub/sub messaging*.
+The Publisher-Subscriber pattern lets applications broadcast events asynchronously to multiple interested consumers without coupling the senders and the receivers. This approach is known as *pub/sub messaging*.
 
 ## Context and problem
 
 Cloud-based and distributed applications often include system components that send information to other components as events occur. When a sender communicates directly with its consumers, it must know the identity and endpoint of every consumer, deliver messages to each consumer, and manage failures individually. Adding or removing a consumer requires changes to the sender, which limits how independently teams can develop and deploy components.
 
-Message queues decouple senders from consumers and prevent the sender from blocking while it waits for a response. A standard queue creates a direct relationship between a sender and a single consumer. To support multiple consumers, the sender must create a separate queue for each consumer, which increases routing complexity and doesn't scale well. Some consumers need only a subset of the information that the sender produces, but queues provide no built-in way to filter messages by content or category.
+Message queues decouple senders from consumers and prevent the sender from blocking a process while it waits for a response. A standard queue creates a direct relationship between a sender and a single consumer. To support multiple consumers, the sender must create a separate queue for each consumer, which increases routing complexity and doesn't scale well. Some consumers need only a subset of the information that the sender produces, but queues don't provide built-in ways to filter messages by content or category.
 
 Many scenarios require a sender to announce events to many interested consumers without knowing who those consumers are. Each consumer also needs a way to decide independently which events to receive.
 
@@ -96,11 +96,11 @@ Consider the following points as you decide how to implement this pattern:
 
 - **Delivery guarantees and duplicate messages:** Messaging systems provide different delivery guarantees that each have trade-offs.
 
-- *At-most-once delivery* minimizes overhead but can lose messages if the broker or subscriber fails.
+  - *At-most-once delivery* minimizes overhead but can lose messages if the broker or subscriber fails.
 
-- *At-least-once delivery* ensures message delivery but can result in duplicates, like when a sender fails after it posts a message and a new instance repeats the post.
+  - *At-least-once delivery* ensures message delivery but can result in duplicates, like when a sender fails after it posts a message and a new instance repeats the post.
 
-- *Exactly-once delivery* removes duplicates but adds coordination overhead and latency, and its availability depends on the messaging infrastructure.
+  - *Exactly-once delivery* removes duplicates but adds coordination overhead and latency, and its availability depends on the messaging infrastructure.
 
   If your broker doesn't provide deduplication, design subscribers to [handle messages idempotently](../reference-architectures/containers/aks-mission-critical/mission-critical-data-platform.md#idempotent-message-processing). Different subscribers in the same workload might require different guarantees.
 
