@@ -49,7 +49,7 @@ Evaluate performance and scalability expectations:
 
 Factor in operational overhead and budget:
 
-- **Managed versus self-hosted:** Platform as a service (PaaS) versus infrastructure as a service (IaaS) trade-offs
+- **Managed versus self-hosted:** Software as a service (SaaS), platform as a service (PaaS), and infrastructure as a service (IaaS) trade-offs across control, operational overhead, and flexibility
 - **Region availability:** Data residency and compliance needs
 - **Cost optimization:** Tiered storage, partitioning, and caching
 - **Licensing and portability:** Vendor lock-in and open-source compatibility
@@ -81,6 +81,8 @@ Answer the following questions about your workloads to make decisions based on t
 
 - **Will your workloads use SQL Server?** In Azure, your workloads can run on IaaS-based [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/) or on the PaaS-based [SQL Database hosted service](/azure/azure-sql/database/sql-database-paas-overview). Your choice depends on whether you want to manage your database, apply patches, and take backups, or delegate these operations to Azure. Some scenarios require IaaS-hosted SQL Server because of capability requirements. For more information, see [Choose the right SQL Server option in Azure](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview).
 
+- **Does your Azure solution include Power Platform or Dynamics 365 workloads?** [Microsoft Dataverse](/power-apps/maker/data-platform/data-platform-intro) is the SaaS data platform for Power Platform and Dynamics 365 business applications. Unlike the PaaS and IaaS database services in this article, Dataverse abstracts away all infrastructure and engine management. It provides a relational data store with built-in business rules, granular security (role-based, row-level, and column-level), and a standardized [Common Data Model](/common-data-model/). All data access goes through the Dataverse API rather than direct SQL, which limits query flexibility and throughput compared to Azure-native database services. Evaluate Dataverse for the portions of your solution that use Power Apps, Power Automate, Power Pages, or Dynamics 365. For components of the same solution that require high-throughput processing, complex analytical queries, or direct database control, use an Azure-native database service alongside Dataverse. You can synchronize data between Dataverse and Azure services by using tools such as [Azure Synapse Link for Dataverse](/power-apps/maker/data-platform/export-to-data-lake) and [Microsoft Fabric](/power-apps/maker/data-platform/azure-synapse-link-view-in-fabric).
+
 - **Will your workloads use key-value database storage?** [Azure Managed Redis](/azure/redis/overview) is a managed in-memory data store based on the latest Redis Enterprise version. It provides low latency and high throughput. [Azure Cosmos DB](/azure/cosmos-db/introduction) also provides key-value storage capabilities.
 
 - **Will your workloads use document or graph data?** [Azure Cosmos DB](/azure/cosmos-db/introduction) is a multimodel database service that supports various data types and APIs. It also provides document and graph database capabilities. [Azure DocumentDB](/azure/documentdb/overview) is a fully managed, open-source, MongoDB-compatible database service.
@@ -101,7 +103,7 @@ Answer the following questions about your workloads to make decisions based on t
 The following table lists common use scenario requirements and the recommended database services to handle them.
 
 | Your goal | Recommended database service |
-|---|---|
+| :-------- | :--------------------------- |
 | Build apps that scale with a managed and intelligent SQL database in the cloud. | [SQL Database](/azure/azure-sql/database/sql-database-paas-overview) |
 | Modernize SQL Server applications by using a managed, up-to-date SQL instance in the cloud. | [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview?view=azuresqland&preserve-view=true) |
 | Migrate your SQL workloads to Azure while maintaining complete SQL Server compatibility and OS-level access. | [SQL Server on Virtual Machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview?view=azuresqland&preserve-view=true) |
@@ -111,17 +113,18 @@ The following table lists common use scenario requirements and the recommended d
 | Migrate MongoDB workloads to the cloud, or build hybrid and multicloud applications with high-capacity vertical and horizontal scaling | [Azure DocumentDB](/azure/documentdb/overview)|
 | Modernize existing Cassandra data clusters and apps, and gain flexibility by using a managed instance service. | [Azure Managed Instance for Apache Cassandra](/azure/managed-instance-apache-cassandra/introduction) |
 | Deliver fast, scalable applications by using an open-source-compatible in-memory data store. | [Azure Managed Redis](/azure/redis/overview) |
+| Build or extend business applications by using Power Platform or Dynamics 365 with built-in data modeling, business logic, and security. | [Microsoft Dataverse](/power-apps/maker/data-platform/data-platform-intro) |
 
 ## Database feature comparison
 
 The following table lists features available in Azure database services.
 
-| Feature | SQL Database | SQL Managed Instance | Azure Database for PostgreSQL | Azure Database for MySQL | Azure Managed Instance for Apache Cassandra | Azure Cosmos DB | Azure Managed Redis | Azure DocumentDB
-|------------------|---------|--------|--------|--------|--------|--------|--------|--------|
-|Database type|Relational |Relational |Relational |Relational |NoSQL |NoSQL |In-memory |NoSQL
-|Data model|Relational |Relational |Relational |Relational |Wide-column |Multimodel: Document, wide-column, key-value, graph |Key-value |Document |
-|Distributed multiprimary writes|No |No |No |No |Yes |Yes |Yes  |Yes 
-|Virtual network connectivity support|Virtual network service endpoint |Native virtual network implementation |Virtual network injection (Flexible Server only) |Virtual network injection (Flexible Server only) |Native virtual network implementation |Virtual network service endpoint |Virtual network service endpoint |Virtual network service endpoint |
+| Feature | SQL Database | SQL Managed Instance | Azure Database for PostgreSQL | Azure Database for MySQL | Azure Managed Instance for Apache Cassandra | Azure Cosmos DB | Azure Managed Redis | Azure DocumentDB | Microsoft Dataverse |
+| :------ | :----------- | :------------------- | :---------------------------- | :----------------------- | :---------------------------- | :-------------- | :------------------ | :--------------- | :------------------ |
+| Database type | Relational | Relational | Relational | Relational | NoSQL | NoSQL | In-memory | NoSQL | Relational (managed) |
+| Data model | Relational | Relational | Relational | Relational | Wide-column | Multimodel: Document, wide-column, key-value, graph | Key-value | Document | Relational |
+| Distributed multiprimary writes | No | No | No | No | Yes | Yes | Yes | Yes | No |
+| Virtual network connectivity support | Virtual network service endpoint | Native virtual network implementation | Virtual network injection (Flexible Server only) | Virtual network injection (Flexible Server only) | Native virtual network implementation | Virtual network service endpoint | Virtual network service endpoint | Virtual network service endpoint | [Managed virtual network support](/power-platform/admin/vnet-support-overview) |
 
 > [!NOTE]
 > [Azure Private Link service](/azure/private-link/private-link-service-overview) simplifies networking design by enabling Azure services to communicate over private networking. All Azure database services support Azure Private Link service. For managed instance database services, these instances are deployed in virtual networks, so you don't need to deploy [private endpoints](/azure/private-link/create-private-endpoint-portal) for them.
