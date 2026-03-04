@@ -25,7 +25,7 @@ In this article, we review how you can configure Private Link for an Azure-hoste
 
 When you use Private Link, it's important to consider the service that you want to allow inbound connectivity to.
 
-*Azure Private Link service* is used with virtual machines behind an Azure load balancer.
+*Azure Private Link service* is used with virtual machines behind an internal Azure load balancer.
 
 You can also use Private Link with other Azure services. These services include application hosting platforms like Azure App Service. They also include Azure Application Gateway or Azure API Management, which are network and API gateways.
 
