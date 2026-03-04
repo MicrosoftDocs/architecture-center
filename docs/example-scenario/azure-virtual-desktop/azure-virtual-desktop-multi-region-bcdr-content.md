@@ -91,7 +91,7 @@ For BCDR deployments, regional host pools offer the following advantages:
 
 Regional host pools are currently in public preview. During the preview, geographical and regional Azure Virtual Desktop objects (host pools, workspaces, application groups) are not interoperable. Only objects of the same deployment scope can be associated together. When you plan your BCDR architecture, ensure that both the primary and secondary host pools, workspaces, and application groups use the same deployment scope. For the latest information on supported regions, preview limitations, and migration guidance, see [Regional host pools](/azure/virtual-desktop/regional-host-pools).
 
-> [!NOTE]
+> [!IMPORTANT]
 > Microsoft recommends creating all new host pools as regional host pools to benefit from the improved resiliency and data sovereignty. Plan the transition of existing geographical host pools to regional. Microsoft will provide migration tooling and announce deprecation timelines for geographical host pools.
 
 [Data locations for Virtual Desktop](/azure/virtual-desktop/data-locations) are independent of session host VM locations. You can place Azure Virtual Desktop metadata in one supported region and deploy VMs in another.
