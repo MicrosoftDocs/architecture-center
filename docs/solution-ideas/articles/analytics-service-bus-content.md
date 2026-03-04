@@ -5,7 +5,7 @@ This article describes how to use Azure Data Explorer to add near real-time anal
 ## Architecture
 
 :::image type="complex" source="../media/analytics-service-bus.png" alt-text="Diagram that illustrates an architecture for implementing near real-time analytics." lightbox="../media/analytics-service-bus.png" border="false":::
-   Diagram that shows two data paths: a dotted line for the existing online transaction processing (OLTP) flow and a solid line for the new near real-time analytics flow. An OLTP application hosted in Azure App Service sends data to Azure Service Bus. From Azure Service Bus, the dotted line path shows data triggering an Azure Functions app, which sends processed data to an operational database like Azure SQL Database or Azure Cosmos DB. The solid line path shows data that flows from Azure Service Bus to Azure Data Explorer, either through an Azure Functions app or through a polling service hosted on Azure Kubernetes Service (AKS). Azure Data Explorer also ingests or references data from SQL Database and Azure Data Lake Storage. Applications and reporting services, including Azure Data Explorer dashboards, Power BI, and Azure Managed Grafana, query data from Azure Data Explorer for near real-time analytics.
+   Diagram that shows two data paths: a dotted line for the existing online transaction processing (OLTP) flow and a solid line for the new near real-time analytics flow. An OLTP application hosted in App Service sends data to Service Bus. From Service Bus, the dotted line path shows data triggering an Azure Functions app, which sends processed data to an operational database like Azure SQL Database or Azure Cosmos DB. The solid line path shows data that flows from Service Bus to Azure Data Explorer, either through an Azure Functions app or through a polling service hosted on Azure Kubernetes Service (AKS). Azure Data Explorer also ingests or references data from SQL Database and Azure Data Lake Storage. Applications and reporting services, including Azure Data Explorer dashboards, Power BI, and Azure Managed Grafana, query data from Azure Data Explorer for near real-time analytics.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/analytics-service-bus.vsdx) of this architecture.*
@@ -17,13 +17,13 @@ This article describes how to use Azure Data Explorer to add near real-time anal
 The diagram shows two data paths. The dotted line path represents the existing architecture of the Online Transaction Processing (OLTP) application, while the solid line path represents the new architecture that adds near real-time analytics capabilities to the existing OLTP application.
 
 
-1. The OLTP application (the data source), hosted in **Azure App Service**, sends data to **Azure Service Bus**. 
+1. The OLTP application (the data source), hosted in **App Service**, sends data to **Service Bus**. 
 
-1. Data flows from Azure Service Bus in two directions: 
+1. Data flows from Service Bus in two directions: 
 
-    a. In the existing OLTP application flow, the data triggers an **Azure Functions** app that processes data from Azure Service Bus. The Functions app then sends the processed data to an operational database, like an **Azure SQL database** or an **Azure Cosmos DB** database. The dotted line in the diagram represents this flow.
+    a. In the existing OLTP application flow, the data triggers an **Azure Functions** app that processes data from Service Bus. The Functions app then sends the processed data to an operational database, like an **Azure SQL database** or an **Azure Cosmos DB** database. The dotted line in the diagram represents this flow.
 
-    b. In the near real-time analytics flow, data from Azure Service Bus is sent to **Azure Data Explorer** for analytics. The solid line in the diagram represents this flow.
+    b. In the near real-time analytics flow, data from Service Bus is sent to **Azure Data Explorer** for analytics. The solid line in the diagram represents this flow.
 
 1. The orchestration flow sends data to **Azure Data Explorer** for near real-time analytics by using one of the following approaches:
 
@@ -37,13 +37,13 @@ The diagram shows two data paths. The dotted line path represents the existing a
 
 ### Components
 
-- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) provides a managed platform to build and host web apps, mobile back ends, and RESTful APIs in the programming language of your choice, without managing infrastructure. In this architecture, Azure App Service hosts the source OLTP application that generates the data that Azure Service Bus ingests.
+- [App Service](/azure/well-architected/service-guides/app-service-web-apps) provides a managed platform to build and host web apps, mobile back ends, and RESTful APIs in the programming language of your choice, without managing infrastructure. In this architecture, App Service hosts the source OLTP application that generates the data that Service Bus ingests.
 
-- [Azure Service Bus](/azure/well-architected/service-guides/service-bus/reliability) provides reliable cloud messaging as a service. In this architecture, Azure Service Bus captures data generated at the source and triggers the orchestration flow.
+- [Service Bus](/azure/well-architected/service-guides/service-bus/reliability) provides reliable cloud messaging as a service. In this architecture, Service Bus captures data generated at the source and triggers the orchestration flow.
 
 - [SQL Database](/azure/well-architected/service-guides/azure-sql-database) is a fully managed SQL database that's built for the cloud. SQL Database provides automatic updates, provisioning, scaling, and backups. In this architecture, SQL Database is an operational database that stores data output from the Functions app.
 
-- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, multimodel database for applications of any scale. Azure Cosmos DB, like SQL Database, can also be used as an operational database to store data output from the Functions app.
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, multimodel database for applications of any scale. Azure Cosmos DB, like SQL Database, can also serve as an operational database that stores data output from the Functions app.
 
 - [Azure Functions](/azure/well-architected/service-guides/azure-functions) is an event-driven, serverless compute platform. With Functions, you can deploy and operate at scale in the cloud and use triggers and bindings to integrate services. In this architecture, Azure Functions sends data to an operational database via an orchestration flow or directly to Azure Data Explorer.
 
@@ -97,7 +97,7 @@ Other contributors:
 
 ## Next steps
 
-- [Azure Service Bus samples](/azure/service-bus-messaging/service-bus-samples)
+- [Service Bus samples](/azure/service-bus-messaging/service-bus-samples)
 - [Azure Data Explorer data ingestion samples](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-ingest/tests/sample.py)
 
 ## Related resource
