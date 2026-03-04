@@ -3,7 +3,7 @@ title: Publisher-Subscriber Pattern
 description: Use an intermediary message broker or event bus to decouple senders from consumers and distribute messages to interested subscribers asynchronously.
 ms.author: pnp
 author: claytonsiemens77
-ms.date: 03/02/2026
+ms.date: 03/04/2026
 ms.topic: design-pattern
 ms.subservice: cloud-fundamentals
 
