@@ -203,11 +203,10 @@ Organizations that use legacy mainframe systems can modernize their data workloa
 
 ### Analytics integration
 
-For analytics workloads that depend on robust database foundations, see the following articles:
+For analytics workloads that depend on well-architected database foundations, see the following articles:
 
 - [Analytics architecture design](../solution-ideas/articles/analytics-get-started.md): See an overview of analytics solutions on Azure.
 - [Data warehousing and analytics](../example-scenario/data/data-warehouse.yml): Integrate databases with analytics platforms.
-
 
 ## Amazon Web Services (AWS) or Google Cloud professionals
 
