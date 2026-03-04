@@ -28,7 +28,7 @@ Introduce an asynchronous messaging subsystem that includes the following compon
 - An input messaging channel that the sender uses. The sender packages events into messages by using a known message format and sends these messages via the input channel. The sender in this pattern is also known as the *publisher*.
 
   > [!NOTE]
-  > A *message* is a packet of data. An *event* is a message that notifies other components about a change or an action that occurs. This pattern often works with events, but it also carries any type of message, including commands and state notifications.
+  > A *message* is a packet of data. An *event* is a message that notifies other components about a change or an action that occurs. This pattern typically works with events, but it also carries any type of message, including commands and state notifications.
 
 - One output messaging channel for each consumer. The consumers are known as *subscribers*.
 
@@ -54,7 +54,7 @@ Pub/sub messaging has the following benefits:
 
 - Improves testability. Channels support monitoring, and messages are available for inspection or logging as part of an integration test strategy.
 
-- Provides separation of concerns for applications. Each application can focus on its core capabilities, while the messaging infrastructure handles the work required to reliably route messages to multiple consumers.
+- Provides separation of concerns for applications. Each application can focus on its core capabilities while the messaging infrastructure handles the work required to reliably route messages to multiple consumers.
 
 ## Problems and considerations
 
@@ -84,7 +84,7 @@ Consider the following points as you decide how to implement this pattern:
 
   Choose topic granularity deliberately. Broad topics are simpler to manage but require subscribers to filter out messages that they don't need. Narrow topics reduce subscriber-side filtering but increase the number of topics to manage. Some brokers support wildcard subscriptions, like `orders.*`, which let subscribers match multiple topics without enumerating each one.
 
-- **Bi-directional communication:** Channels in a publish-subscribe system are unidirectional. If a subscriber needs to send acknowledgment or communicate status back to the publisher, use the [Request-Reply pattern](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RequestReply.html). This pattern uses one channel to send a message to the subscriber and a separate reply channel to communicate back to the publisher.
+- **Bidirectional communication:** Channels in a publish-subscribe system are unidirectional. If a subscriber needs to acknowledge or communicate status back to the publisher, use the [Request-Reply pattern](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RequestReply.html). This pattern uses one channel to send a message to the subscriber and a separate reply channel to communicate back to the publisher.
 
 - **Message ordering:** The order in which subscribers receive messages isn't guaranteed and doesn't necessarily reflect the order in which the sender created them. If ordering matters, the broker might support ordered delivery within a partition or session, but that constrains scalability. Design subscribers to handle messages independently of arrival order.
 
@@ -92,7 +92,7 @@ Consider the following points as you decide how to implement this pattern:
 
 - **Poison messages:** A malformed message, or a task that requires access to unavailable resources, can cause a service instance to fail. Capture and store these message details elsewhere for analysis. Some message brokers, like Service Bus, support this process through [dead-letter queues](/azure/service-bus-messaging/service-bus-dead-letter-queues).
 
-- **Message size:** Brokers enforce message size limits. When payloads are large, like files or images, store the content in an external data store and include a reference in the message. The [Claim-Check pattern](claim-check.yml) describes this approach.
+- **Message size:** Brokers enforce message size limits. When payloads are large, store the content, like files or images, in an external data store and include a reference in the message. The [Claim-Check pattern](claim-check.yml) describes this approach.
 
 - **Delivery guarantees and duplicate messages:** Messaging systems provide different delivery guarantees that each have trade-offs.
 
@@ -108,7 +108,7 @@ Consider the following points as you decide how to implement this pattern:
 
 - **Message scheduling:** A message might be embargoed and unavailable for processing until a specific date and time. Set a release timestamp so that the messaging system withholds the message until that point.
 
-- **Message schema evolution:** Publishers and subscribers deploy independently, so message schemas change over time. Prefer backward-compatible changes, like adding optional fields, so that existing subscribers continue to work. For breaking changes, version through topic names like `orders.v1` and `orders.v2`, or through a version field in message metadata. Subscribers should ignore fields that they don't recognize.
+- **Message schema evolution:** Publishers and subscribers deploy independently, so message schemas change over time. Prefer backward-compatible changes, like adding optional fields, so that existing subscribers continue to work. For breaking changes, version through topic names, like `orders.v1` and `orders.v2`, or through a version field in message metadata. Subscribers should ignore fields that they don't recognize.
 
 - **Correlation:** The broker decouples publishers from subscribers, which makes it harder to trace the end-to-end flow of a message. Include a correlation ID in every message so that subscribers and logging systems can connect related operations into a single trace.
 
@@ -130,9 +130,9 @@ Use this pattern when:
 
 This pattern might not be suitable when:
 
-- An application has only a few consumers who need significantly different information from the producing application. The overhead of a broker adds complexity without any scaling benefit. Direct communication or separate queues might be more suitable.
+- An application has only a few consumers that need significantly different information from the producing application. The overhead of a broker adds complexity without any scaling benefit. Direct communication or separate queues might be more suitable.
 
-- An application requires near real-time interaction with consumers. Pub/sub introduces latency through the broker. Use a request-reply pattern when the publisher requires a synchronous response.
+- An application requires near real-time interaction with consumers. The pub/sub model introduces latency through the broker. Use a request-reply pattern when the publisher requires a synchronous response.
 
 - Consumers must process messages in a specific, guaranteed order. Pub/sub systems generally don't guarantee ordering across subscribers, and maintaining order adds significant constraints to the broker and consumer design.
 
@@ -146,7 +146,7 @@ Evaluate how to use the Publisher-Subscriber pattern in a workload's design to a
 | :----- | :------------------------------------- |
 | [Reliability](/azure/well-architected/reliability/checklist) design decisions help your workload become **resilient** to malfunction and ensure that it **recovers** to a fully functioning state after a failure occurs. | This pattern decouples components so that you can set independent reliability targets and remove direct dependencies. <br/><br/> - [RE:03 Failure mode analysis](/azure/well-architected/reliability/failure-mode-analysis)<br/> - [RE:07 Background jobs](/azure/well-architected/design-guides/background-jobs) |
 | [Security](/azure/well-architected/security/checklist) design decisions help ensure the **confidentiality**, **integrity**, and **availability** of your workload's data and systems. | This pattern introduces a clear security segmentation boundary. Use it to isolate queue subscribers from the publisher at the network level. <br/><br/> - [SE:04 Segmentation](/azure/well-architected/security/segmentation) |
-| [Cost Optimization](/azure/well-architected/cost-optimization/checklist) focuses on **sustaining and improving** your workload's **return on investment**. | This decoupled design supports event-driven architectures that align with consumption-based billing models and help avoid overprovisioning. <br/><br/> - [CO:05 Rate optimization](/azure/well-architected/cost-optimization/get-best-rates) <br/> - [CO:12 Scaling costs](/azure/well-architected/cost-optimization/optimize-scaling-costs) |
+| [Cost Optimization](/azure/well-architected/cost-optimization/checklist) focuses on **sustaining** and **improving** your workload's **return on investment (ROI)**. | This decoupled design supports event-driven architectures that align with consumption-based billing models and help avoid overprovisioning. <br/><br/> - [CO:05 Rate optimization](/azure/well-architected/cost-optimization/get-best-rates) <br/> - [CO:12 Scaling costs](/azure/well-architected/cost-optimization/optimize-scaling-costs) |
 | [Operational Excellence](/azure/well-architected/operational-excellence/checklist) helps deliver **workload quality** through **standardized processes** and team cohesion. | The broker as an intermediary lets you change the implementation on either the publisher or subscriber side without coordinating changes across both components. <br/><br/> - [OE:06 Workload development](/azure/well-architected/operational-excellence/workload-supply-chain) <br/> - [OE:11 Safe deployment practices](/azure/well-architected/operational-excellence/safe-deployments) |
 | [Performance Efficiency](/azure/well-architected/performance-efficiency/checklist) helps your workload **efficiently meet demands** through optimizations in scaling, data, and code. | Decoupling publishers from consumers lets you optimize compute and code for the specific tasks that each consumer handles for a given message type. <br/><br/> - [PE:02 Capacity planning](/azure/well-architected/performance-efficiency/capacity-planning)<br/> - [PE:05 Scaling and partitioning](/azure/well-architected/performance-efficiency/scale-partition) |
 
@@ -156,8 +156,8 @@ If this pattern introduces trade-offs within a pillar, consider them against the
 
 The following diagram shows an enterprise integration architecture that uses Service Bus to coordinate workflows and Event Grid to notify subsystems of events that occur. For more information, see [Enterprise integration on Azure by using message queues and events](../example-scenario/integration/queues-events.yml).
 
-:::image type="complex" source="../example-scenario/integration/media/enterprise-integration-message-broker-events.svg" alt-text="Architecture diagram of an enterprise integration pattern that uses a message broker and events." lightbox="../example-scenario/integration/media/enterprise-integration-message-broker-events.svg":::
-   On the far left, a solid arrow labeled HTTPS points right from the client apps to an API Gateway icon. Client apps connects to Microsoft Entra ID via an arrow labeled authentication. A solid arrow points from API Gateway via an arrow labeled HTTPS to REST or simple object access protocol (SOAP) web service. Two regions are to the right of the API Gateway. The top-middle region, labeled workflow and orchestration, includes three Logic app icons. A dotted arrow points from one Logic app icon to Service Bus. A solid arrow points from this Logic app to software as a service (SaaS) service. An unlabeled arrow splits from this line and points to Azure services. A dotted arrow points from Service Bus to the second Logic app icon. A dotted arrow labeled HTTPS points from Event Grid to the third Logic app. A solid arrow labeled HTTPS points from this Logic app to SaaS service. An unlabeled arrow splits from this line and points to Azure services. The lower-middle region labeled queues, topics, subscriptions, and events includes Service Bus and Event Grid. A dotted arrow labeled messages points to message-based service. On the far right, a box labeled back-end systems contains three icons: SaaS service, Azure services, and message-based service. A dotted arrow labeled events points from Azure services to Event Grid. A dotted arrow labeled send or pull messages points from message-based service to Service Bus.
+:::image type="complex" source="../example-scenario/integration/media/enterprise-integration-message-broker-events.svg" border="false" alt-text="Architecture diagram of an enterprise integration pattern that uses a message broker and events." lightbox="../example-scenario/integration/media/enterprise-integration-message-broker-events.svg":::
+   On the far left, a solid arrow labeled HTTPS points right from the client apps to an API gateway icon. Client apps connects to Microsoft Entra ID via an arrow labeled authentication. A solid arrow labeled HTTPS points from the API gateway to REST or simple object access protocol (SOAP) web service. Two regions are to the right of the API gateway. The top-middle region, labeled workflow and orchestration, includes three logic app icons. A dotted arrow points from one logic app icon to Service Bus.  A dotted arrow points from Service Bus to the second Logic app icon. A solid arrow labeled HTTPS points from this logic app to software as a service (SaaS) service. An unlabeled arrow splits from this line and points to Azure services. Another dotted arrow points from Event Grid to the third logic app. A solid arrow labeled HTTPS points from this logic app to SaaS service. An unlabeled arrow splits from this line and points to Azure services. The lower-middle region labeled queues, topics, subscriptions, and events includes Service Bus and Event Grid. A dotted arrow labeled messages points to message-based service. On the far right, a section labeled back-end systems contains three icons: SaaS service, Azure services, and message-based service. A dotted arrow labeled events points from Azure services to Event Grid. A dotted arrow labeled send or pull messages points from message-based service to Service Bus.
 :::image-end:::
 
 ## Next step
