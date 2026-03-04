@@ -46,7 +46,7 @@ Every component of BMC AMI Cloud Data is designed to optimize various aspects of
 
 #### Networking and identity
 
-Secure and reliable connectivity between on-premises mainframe systems and Azure cloud services is crucial for the success of any modernization effort.
+Secure and reliable connectivity between on-premises mainframe systems and Azure is crucial for the success of any modernization effort.
 
 - [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) is a connectivity service that provides a private and reliable connection to Azure services. This connection delivers superior performance and enhanced security compared to public internet connections. In this architecture, ExpressRoute helps you transfer mainframe data from on-premises environments to Azure via a private connection. This approach is ideal for organizations that have stringent data sovereignty requirements.
 

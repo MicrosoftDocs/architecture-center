@@ -65,7 +65,7 @@ The workload uses the following Azure services in coordination with each other:
 
 - [Azure Monitor](/azure/azure-monitor/fundamentals/overview) is a comprehensive monitoring solution that collects and analyzes telemetry data. In this architecture, it collects and stores metrics and logs from all application components through a Log Analytics workspace. You use this data to monitor the application, set up alerts and dashboards, and perform root cause analysis of failures.
 
-  - [Application Insights](/azure/well-architected/service-guides/application-insights) is an application performance management service that provides extensible monitoring capabilities. In this architecture, each service is instrumented with the Application Insights SDK to monitor application performance.
+  - [Application Insights](/azure/well-architected/service-guides/application-insights) is an application performance management service that provides extensible monitoring capabilities. In this architecture, each service is instrumented with the [Azure Monitor OpenTelemetry Distro](/azure/azure-monitor/app/opentelemetry-enable) to monitor application performance.
 
 ### Alternatives
 

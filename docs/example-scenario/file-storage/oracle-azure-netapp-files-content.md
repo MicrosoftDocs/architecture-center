@@ -179,7 +179,7 @@ Using Azure NetApp Files instead of block storage can reduce costs:
 
 - You can use smaller VMs:
 
-  - Azure NetApp Files provides low-latency storage access. With smaller VMs, you get the same performance that larger VMs deliver with ultra disk storage.
+  - Azure NetApp Files provides low-latency storage access. With smaller VMs, you get the same performance that larger VMs deliver with Ultra Disk Storage.
   - Cloud resources usually place limits on I/O operations. This practice prevents sudden slowdowns that resource exhaustion or unexpected outages can cause. As a result, VMs have disk throughput limitations and network bandwidth limitations. The network limitations are typically higher than disk throughput limitations. With network-attached storage, only network bandwidth limits are relevant, and they only apply to data egress. In other words, VM-level disk I/O limits don't affect Azure NetApp Files. Because of these factors, network-attached storage can achieve better performance than disk I/O. This fact is true even when Azure NetApp Files runs on smaller VMs.
 
   Smaller VMs offer these pricing advantages over larger ones:
@@ -252,7 +252,7 @@ Fully deployable architectures that use Azure NetApp Files:
 [Proximity placement groups]: /azure/virtual-machines/co-location
 [Run SAP BW/4HANA with Linux virtual machines on Azure]: ../../reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines.yml
 [Run SAP NetWeaver in Windows on Azure]: /azure/architecture/guide/sap/sap-netweaver
-[SLA for Azure NetApp Files]: https://azure.microsoft.com/support/legal/sla/netapp/v1_1
-[SLA for Virtual Machines]: https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/
+[SLA for Azure NetApp Files]: https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services
+[SLA for Virtual Machines]: https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services
 [Solution architectures using Azure NetApp Files - Oracle]: /azure/azure-netapp-files/azure-netapp-files-solution-architectures#oracle
 [What is Azure NetApp Files]: /azure/azure-netapp-files/azure-netapp-files-introduction

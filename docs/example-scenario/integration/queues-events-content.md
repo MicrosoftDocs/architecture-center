@@ -10,13 +10,13 @@ The back-end systems that this design references include software as a service (
 
 ### Scenario details
 
-The preceding architecture builds on the simpler [basic enterprise integration architecture][basic-enterprise-integration] that uses [Azure Logic Apps][logic-apps] to orchestrate workflows directly with back-end systems and uses [Azure API Management][apim] to create catalogs of APIs.
+The preceding architecture builds on the simpler [basic enterprise integration architecture][basic-enterprise-integration] that uses [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) to orchestrate workflows directly with back-end systems and uses [Azure API Management](/azure/api-management) to create catalogs of APIs.
 
 This version of the architecture adds two components that help make the system more reliable and scalable:
 
-- [Azure Service Bus][service-bus] is a secure, reliable message broker.
+- [Azure Service Bus](/azure/service-bus-messaging) is a secure, reliable message broker.
 
-- [Azure Event Grid][event-grid] is an event-routing service. It uses a [publish and subscribe](../../patterns/publisher-subscriber.yml) eventing model.
+- [Azure Event Grid](/azure/event-grid) is an event-routing service. It uses a [publish and subscribe](../../patterns/publisher-subscriber.yml) eventing model.
 
 This architecture uses asynchronous communication via a message broker instead of making direct, synchronous calls to back-end services. Asynchronous communication provides the following advantages:
 
@@ -67,7 +67,7 @@ Reliability helps ensure that your application can meet the commitments that you
 - **Event Grid** resource definitions for topics, system topics, domains, and event subscriptions and event data are automatically replicated across [availability zones](/azure/reliability/availability-zones-overview) in a region. When there's a failure in one of the availability zones, Event Grid resources automatically fail over to another availability zone without any human intervention. For more information, see [Cross-region disaster recovery and business continuity](/azure/reliability/reliability-event-grid#cross-region-disaster-recovery-and-business-continuity).
 - **Service Bus** Premium supports [geo-disaster recovery](/azure/service-bus-messaging/service-bus-outages-disasters#geo-disaster-recovery) and [availability zones](/azure/service-bus-messaging/service-bus-outages-disasters#availability-zones). Service Bus Standard supports [replication](/azure/service-bus-messaging/service-bus-outages-disasters#protection-against-outages-and-disasters). 
 
-For information about guaranteed availability details of each service, see [SLAs for online services][apim-sla].
+For information about guaranteed availability details of each service, see [SLAs for online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
 ### Security
 
@@ -94,11 +94,11 @@ Consider network security throughout your design.
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Here are some other considerations.
+Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs. Here are some other considerations.
 
 #### API Management
 
-You're charged for all API Management instances when they run. If you scale up, and then you no longer need that level of performance, manually scale down or configure [autoscaling][apim-autoscale].
+You're charged for all API Management instances when they run. If you scale up, and then you no longer need that level of performance, manually scale down or configure [autoscaling](/azure/api-management/api-management-howto-autoscale).
 
 For light usage workloads, consider the [Consumption tier](/azure/api-management/api-management-features), which is a low-cost, serverless option. The Consumption tier is billed per API call. Other tiers are billed per hour.
 
@@ -110,13 +110,13 @@ Logic Apps uses a [serverless model](/azure/logic-apps/logic-apps-serverless-ove
 
 Service Bus queues and subscriptions support both proxied push and pull models to deliver messages. In the pull model, every polling request is metered as an action. Even if you set long polling to the default of 30 seconds, cost can be high. Unless you need real-time message delivery, consider using the proxied push model.
 
-Service Bus queues are included in all tiers: Basic, Standard, and Premium. Service Bus topics and subscriptions are available in Standard and Premium tiers. For more information, see [Service Bus pricing][service-bus-pricing].
+Service Bus queues are included in all tiers: Basic, Standard, and Premium. Service Bus topics and subscriptions are available in Standard and Premium tiers. For more information, see [Service Bus pricing](https://azure.microsoft.com/pricing/details/service-bus).
 
 #### Event Grid
 
 Event Grid uses a serverless model. Billing is calculated based on the number of operations. Operations include events that go to domains or topics, advanced matches, delivery attempts, and management calls. Usage of up to 100,000 operations is free of charge.
 
-For more information, see [Event Grid pricing](https://azure.microsoft.com/pricing/details/event-grid/) and [Well-Architected Framework Cost Optimization][aaf-cost].
+For more information, see [Event Grid pricing](https://azure.microsoft.com/pricing/details/event-grid/) and [Well-Architected Framework Cost Optimization](/azure/architecture/framework/cost/overview).
 
 ### Operational Excellence
 
@@ -144,17 +144,4 @@ For more Service Bus recommendations, see [Best practices for performance improv
 - [Basic enterprise integration on Azure](../../reference-architectures/enterprise-integration/basic-enterprise-integration.yml)
 - [Use Microsoft Fabric to design an enterprise BI solution](../../example-scenario/analytics/enterprise-bi-microsoft-fabric.yml)
 
-
-[aaf-cost]: /azure/architecture/framework/cost/overview
-[apim]: /azure/api-management
-[apim-sla]: https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services
-[apim-autoscale]: /azure/api-management/api-management-howto-autoscale
-[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
-[event-grid]: /azure/event-grid
-[event-grid-sla]: https://azure.microsoft.com/support/legal/sla/event-grid
-[logic-apps]: /azure/logic-apps/logic-apps-overview
-[logic-apps-sla]: https://azure.microsoft.com/support/legal/sla/logic-apps
-[sb-sla]: https://azure.microsoft.com/support/legal/sla/service-bus
-[service-bus]: /azure/service-bus-messaging
-[service-bus-pricing]: https://azure.microsoft.com/pricing/details/service-bus
 [basic-enterprise-integration]: ../../reference-architectures/enterprise-integration/basic-enterprise-integration.yml

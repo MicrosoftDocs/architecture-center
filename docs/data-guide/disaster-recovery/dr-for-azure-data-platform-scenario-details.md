@@ -161,7 +161,7 @@ The following sections present a breakdown of Contoso activity necessary across 
         - Azure regional failure: Contoso would need to redeploy the Event Hubs instance into the secondary region.
     - Notes:
         - When you use the Azure portal, zone redundancy via support for availability zones is [automatically enabled](/azure/event-hubs/event-hubs-geo-dr#availability-zones), this can be disabled via using the Azure CLI or PowerShell commands.
-        - Zone redundancy provides local resilience (continued operation during a zonal outage). For region-wide disruptions, you should use Event Hubs geo-disaster recovery feature to restore operations in a secondary region. See [Geo-disaster recovery](/azure/event-hubs/event-hubs-geo-dr).
+        - Zone redundancy provides local resilience (continued operation during a zone outage). For region-wide disruptions, you should use Event Hubs geo-disaster recovery feature to restore operations in a secondary region. See [Geo-disaster recovery](/azure/event-hubs/event-hubs-geo-dr).
 
 - **Azure IoT Hubs**
     - Contoso SKU selection: Standard
