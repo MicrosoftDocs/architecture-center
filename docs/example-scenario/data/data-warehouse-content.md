@@ -102,7 +102,7 @@ Principal author:
 
 ## Next steps
 
-- Review [Databases architecture design](../../databases/index.yml).
+- [Get started with database architecture design](../../databases/database-get-started.md)
 
 - Learn more about the services used in this scenario:
    - [Introduction to Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)

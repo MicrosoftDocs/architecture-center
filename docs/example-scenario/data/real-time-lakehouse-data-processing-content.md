@@ -185,5 +185,5 @@ Other contributor:
 
 ## Related resources
 
-- [Databases architecture design](../../databases/index.yml)
+- [Get started with database architecture design](../../databases/database-get-started.md)
 - [Analytics architecture design](../../solution-ideas/articles/analytics-get-started.md)
