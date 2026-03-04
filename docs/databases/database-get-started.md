@@ -17,7 +17,7 @@ The right database for your scenario depends on your data model, consistency req
 
 ## Architecture
 
-:::image type="complex" border="false" source="media/get-started-databases.svg" alt-text="Diagram that shows the analytics solution journey on Azure." lightbox="media/get-started-databases.svg":::
+:::image type="complex" border="false" source="media/get-started-databases.svg" alt-text="Diagram that shows the database solution journey on Azure." lightbox="media/get-started-databases.svg":::
    Architecture diagram of an Azure workload within a virtual network. Client traffic enters through network ingress services like Azure Front Door, Azure Application Gateway, or Azure Load Balancer and reaches a compute layer. The workload uses managed Azure database services, including relational databases such as Azure SQL, Azure Database for MySQL, Azure SQL virtual machine (VM), and Azure Database for PostgreSQL, and NoSQL services like Azure Cosmos DB, Azure Managed Instance for Apache Cassandra, Azure Managed Redis, and Azure DocumentDB. The architecture also includes private endpoints, user-defined routes (UDRs), network security groups (NSGs), virtual private network (VPN) or Azure ExpressRoute connectivity, and platform services such as managed identities, Azure Monitor, Azure Data Factory, Microsoft Entra ID, and Azure DNS.
 :::image-end:::
 
@@ -162,8 +162,8 @@ Review the following best practices when you design your database solutions.
 | [The Transactional Outbox pattern with Azure Cosmos DB](../databases/guide/transactional-out-box-cosmos.md) | Learn how to use the Transactional Outbox pattern for reliable messaging and guaranteed event delivery. |
 | [Distribute your data globally by using Azure Cosmos DB](/azure/cosmos-db/distribute-data-globally) | To achieve low latency and high availability, some applications must be deployed in datacenters that are close to their users. |
 | [Security in Azure Cosmos DB](/azure/cosmos-db/security) | Security best practices help prevent, detect, and respond to database breaches. |
-| [Continuous backup with point-in-time restore (PITR) in Azure Cosmos DB](/azure/cosmos-db/continuous-backup-restore-introduction) | Learn about Azure Cosmos DB PITR . |
-| [Achieve high availability by using Azure Cosmos DB](/azure/reliability/reliability-cosmos-db-nosql) | Azure Cosmos DB provides multiple s and configuration options to achieve high availability. |
+| [Continuous backup with point-in-time restore (PITR) in Azure Cosmos DB](/azure/cosmos-db/continuous-backup-restore-introduction) | Learn about Azure Cosmos DB PITR. |
+| [Achieve high availability by using Azure Cosmos DB](/azure/reliability/reliability-cosmos-db-nosql) | Azure Cosmos DB provides multiple features and configuration options to achieve high availability. |
 | [High availability for Azure SQL Database and Azure SQL Managed Instance](/azure/azure-sql/database/high-availability-sla-local-zone-redundancy) | The database shouldn't be a single point of failure in your architecture. |
 
 ## Stay current with databases
