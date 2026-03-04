@@ -49,7 +49,7 @@ Consider the following points as you decide how to implement this pattern:
 
 Use this pattern when:
 
-- Isolate resources used to consume a set of backend services, especially if the application can provide some level of functionality even when one of the services isn't responding.
+- Isolate resources for specific dependencies so that a disruption in one service doesn’t affect the entire application.
 - Isolate critical consumers from standard consumers.
 - Protect the application from cascading failures.
 
