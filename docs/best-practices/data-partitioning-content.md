@@ -149,7 +149,7 @@ Partitioning adds complexity to the design and development of your system. Consi
 
 In some cases, partitioning isn't considered important because the initial dataset is small and easily handled by a single server. This might be true for some workloads, but many commercial systems need to expand as the number of users increases.
 
-Moreover, it's not only large data stores that benefit from partitioning. For example, hundreds of concurrent clients might regularly access a small data store. Partitioning the data in this situation can help to reduce contention and improve throughput.
+Moreover, it's not only large data stores that benefit from partitioning. For example, hundreds of concurrent clients might heavily access a small data store. Partitioning the data in this situation can help to reduce contention and improve throughput.
 
 Consider the following points when you design a data partitioning scheme:
 

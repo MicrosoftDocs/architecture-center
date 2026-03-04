@@ -88,7 +88,7 @@ To prevent objects from being available on the CDN, you can delete them from the
 
 ### Security
 
-The CDN can deliver content over HTTPS (SSL) by using the certificate provided by the CDN and over standard HTTP. To avoid browser warnings about mixed content, you might need to use HTTPS to request static content that is displayed in pages loaded through HTTPS.
+The CDN can deliver content over HTTPS (SSL) by using the certificate provided by the CDN. It can also deliver content over standard HTTP. To avoid browser warnings about mixed content, you might need to use HTTPS to request static content that is displayed in pages loaded through HTTPS.
 
 If you deliver static assets such as font files by using the CDN, you might encounter same-origin policy issues if you use an *XMLHttpRequest* call to request these resources from a different domain. Many web browsers prevent cross-origin resource sharing (CORS) unless the web server is configured to set the appropriate response headers. You can configure the CDN to support CORS by using one of the following methods:
 
