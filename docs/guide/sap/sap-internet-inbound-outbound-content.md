@@ -44,7 +44,7 @@ In the architecture, Application Gateway, using a public IP address, allows inbo
 
 For optimal performance, enable [HTTP/2 support](/azure/application-gateway/configuration-listeners#http2-support) for Application Gateway, [SAP Web Dispatcher](https://help.sap.com/docs/SAP_NETWEAVER_AS_ABAP_751_IP/683d6a1797a34730a6e005d1e8de6f22/c7b46000a76445f489e86f4c5814c7e8.html), and SAP NetWeaver.
 
-**[Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer).** Azure [Standard Load Balancer](/azure/load-balancer/load-balancer-overview) provides networking elements for the high-availability design of your SAP systems. For clustered systems, Standard Load Balancer provides the virtual private IP address for the cluster service, like ASCS/SCS instances and databases running on VMs. You also can use Standard Load Balancer to provide the IP address for the virtual SAP host name of non-clustered systems when [secondary IPs on Azure network cards](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/use-sap-virtual-host-names-with-linux-in-azure/ba-p/3251593) aren't an option. The use of Standard Load Balancer instead of Application Gateway to address outbound internet access is covered later in this article.
+**[Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer).** An internal [Azure Load Balancer](/azure/load-balancer/load-balancer-overview) provides networking elements for the high-availability design of your SAP systems. For clustered systems, Load Balancer provides the virtual private IP address for the cluster service, like ASCS/SCS instances and databases running on VMs. You also can use Load Balancer to provide the IP address for the virtual SAP host name of non-clustered systems when [secondary IPs on Azure network cards](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/use-sap-virtual-host-names-with-linux-in-azure/ba-p/3251593) aren't an option. The use of Load Balancer instead of Application Gateway to address outbound internet access is covered later in this article.
 
 ## Network design
 
@@ -155,7 +155,7 @@ This architecture focuses on internet-facing applications. There are various opt
 
 You can use a similar configuration with a private IP address on Application Gateway for private-only network access to the SAP landscape. The public IP address in this case is used only for management purposes and doesn't have a listener associated with it.
 
-As an alternative to using Application Gateway, you can use a load balancer internally. You can use a standard internal load balancer with Web Dispatcher VMs configured as a round-robin back end. In this scenario, the standard load balancer is placed with the Web Dispatcher VMs in the SAP production application subnet and provides [active/active](https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/683d6a1797a34730a6e005d1e8de6f22/489a9a6b48c673e8e10000000a42189b.html) load balancing between Web Dispatcher VMs.
+As an alternative to using Application Gateway, you can use a load balancer internally. You can use an internal load balancer with Web Dispatcher VMs configured as a round-robin back end. In this scenario, the load balancer is placed with the Web Dispatcher VMs in the SAP production application subnet and provides [active/active](https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/683d6a1797a34730a6e005d1e8de6f22/489a9a6b48c673e8e10000000a42189b.html) load balancing between Web Dispatcher VMs.
 
 For internet-facing deployments, we recommend Application Gateway with Web Application Firewall, instead of a load balancer with a public IP.
 
@@ -192,7 +192,7 @@ If SAP operates your SAP system under an SAP RISE/ECS contract, SAP is the manag
 
 Additional considerations regarding internet-bound communications might apply to an SAP landscape operating on Azure. Traffic flow in this architecture uses a central Azure firewall for this outbound traffic. User-defined rules in the spoke virtual networks route internet-bound traffic requests to the firewall. Alternatively, you can use NAT gateways on specific subnets, public IP addresses on VMs (not recommended), or a public load balancer with outbound rules. Your subnets might not have [default Azure outbound](/azure/virtual-network/ip-services/default-outbound-access) enabled. Typical scenarios reach public endpoints of Microsoft Entra ID, Azure management APIs at management.azure.com, and services of third-party applications or government applications via outbound network access.
 
-Because of changes to default outbound access in Azure, ensure a scalable outbound access is defined. For VMs that are behind a standard internal load balancer, like those in clustered environments, keep in mind that Standard Load Balancer modifies the behavior for public connectivity. For more information, see [Public endpoint connectivity for VMs using Azure Standard Load Balancer in SAP high-availability scenarios](/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).
+Because of changes to default outbound access in Azure, ensure a scalable outbound access is defined. For VMs that are behind an internal load balancer, like those in clustered environments, keep in mind that Load Balancer modifies the behavior for public connectivity. For more information, see [Public endpoint connectivity for VMs using Azure Load Balancer in SAP high-availability scenarios](/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).
 
 For more information about default outbound connectivity from VMs, see [Routing options for VMs from Private Subnets](https://techcommunity.microsoft.com/t5/azure-networking-blog/routing-options-for-vms-from-private-subnets/ba-p/4271244) on the Azure Networking blog.
 
@@ -240,7 +240,7 @@ Consider using these communities to get answers to questions and for help with s
 - [SAP Documentation | What is Cloud Connector?](https://help.sap.com/docs/CP_CONNECTIVITY/cca91383641e40ffbe03bdc78f00f681/e6c7616abb5710148cfcf3e75d96d596.html)
 - [SAP Documentation | What is SAP Analytics Cloud Agent?](https://help.sap.com/docs/SAP_ANALYTICS_CLOUD/00f68c2e08b941f081002fd3691d86a7/7cb6ffb38c294a5c871d6cc6ad5b1b36.html)
 - [Default outbound access in Azure](/azure/virtual-network/ip-services/default-outbound-access)
-- [Public endpoint connectivity for virtual machines using Azure Standard Load Balancer in SAP high-availability scenarios](/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections)
+- [Public endpoint connectivity for virtual machines using Azure Load Balancer in SAP high-availability scenarios](/azure/sap/workloads/high-availability-guide-standard-load-balancer-outbound-connections)
 - [Subscription decision guide](/azure/cloud-adoption-framework/decision-guides/subscriptions)
 - [YouTube | Deploying Fiori at Scale](https://www.youtube.com/watch?v=IJQlSjxb8pE)
 
