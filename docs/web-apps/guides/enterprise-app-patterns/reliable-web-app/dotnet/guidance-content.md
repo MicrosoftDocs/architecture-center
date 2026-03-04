@@ -126,6 +126,10 @@ For example, before it was moved to the cloud, Relecloud's ticketing web app was
 
 - *Network security.* Use [Azure Firewall](/azure/firewall/overview) to control inbound and outbound traffic at the network level. Use [Azure Bastion](/azure/bastion/bastion-overview) to connect to virtual machines with enhanced security, without exposing RDP/SSH ports. Relecloud adopted a hub-and-spoke network topology and wanted to put shared network security services in the hub. Azure Firewall improves security by inspecting all outbound traffic from the spokes to increase network security. Relecloud needed Azure Bastion for enhanced-security deployments from a jump host in the DevOps subnet.
 
+## Architecture cost estimate
+
+You can find a cost estimate for the components used in this architecture in the [Azure pricing calculator](https://azure.com/e/a8aa90b9851f434885cc7a322c96c36b). Modify your estimate to include the components required for your use case.
+
 ## Code guidance
 
 [!INCLUDE [Code updates](../includes/code-updates.md)]
