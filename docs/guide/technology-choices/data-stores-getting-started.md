@@ -6,7 +6,6 @@ ms.author: pnp
 ms.date: 09/02/2025
 ms.topic: concept-article
 ms.subservice: architecture-guide
-ms.custom: fcp
 keyword: Azure
 ---
 
@@ -29,6 +28,7 @@ Consider the nature of your data and how you plan to use it:
 - **Purpose:** Online transactional processing (OLTP) for transactional data or online analytical processing (OLAP) for complex, ad-hoc data analysis
 - **Search needs:** Indexing capability or full-text search capability
 - **Specialized:** Vector stores for highly dimensional data or graph databases for highly interconnected data
+- **Data access method:** Direct query language (such as SQL or Gremlin), REST API, SDK, or a combination. Some platforms restrict access to a proprietary API layer, which affects query flexibility and integration options.
 - **Data relationships:** Joins, graph traversal, or hierarchical structures
 - **Consistency model:** Strong, eventual, or configurable consistency
 - **Schema flexibility:** Schema-on-write (rigid) versus schema-on-read (flexible)
@@ -135,6 +135,8 @@ Azure helps you deliver services at the scale needed to reach customers and part
 
 Most Azure regions support most database services. A few regions support only a subset of these products, but they mostly target governmental customers. Before you decide which regions to deploy your database resources to, see [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/) to check the latest status of regional availability.
 
+Microsoft Dataverse environments are deployed to a [Power Platform geography](/power-platform/admin/regions-overview) (such as United States, Europe, or Australia) rather than to a specific Azure region. Data stays within the chosen geography, but you don't control which Azure region within that geography hosts your environment. Consider this coarser region granularity when you plan colocation with other Azure services or when you have specific latency or [data residency requirements](#data-residency-and-compliance-requirements).
+
 For more information about Azure global infrastructure, see [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/).
 
 ## Data residency and compliance requirements
@@ -157,7 +159,9 @@ After you identify and document your landing zone's requirements, you can use [A
 
 For example, you might restrict users to creating only SQL Database resources. Use policies to control the options that users can select when they create resources. For example, you can restrict SQL Database SKUs that users can provision by allowing only specific versions of SQL Server to be installed on an IaaS VM. For more information, see [Azure Policy built-in policy definitions](/azure/governance/policy/samples/built-in-policies).
 
-You can apply policies to resources, resource groups, subscriptions, and management groups. Include your policies in [Azure Blueprints](/azure/governance/blueprints/overview) definitions, and apply them repeatedly throughout your cloud estate.
+You should apply policies to resources, resource groups, subscriptions, and management groups throughout your cloud estate.
+
+Microsoft Dataverse environments are governed separately through the [Power Platform admin center](/power-platform/admin/admin-documentation), not through Azure Policy. Use [Managed Environments](/power-platform/admin/managed-environment-overview) and [data loss prevention policies](/power-platform/admin/wp-data-loss-prevention) to control environment creation, connector usage, and data movement. If your solution spans both Azure-native databases and Dataverse, plan for governance across both control planes.
 
 ## Next steps
 
