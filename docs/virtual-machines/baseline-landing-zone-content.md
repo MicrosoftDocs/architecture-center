@@ -53,7 +53,7 @@ The workload team maintains and fulfills the following resources and responsibil
 
 The platform team owns and maintains these centralized resources. This architecture assumes that these resources are preprovisioned and considers them dependencies.
 
-- **Azure Firewall in the hub network** is a stateful network security service for filtering and logging traffic. In this architecture, it centrally inspects and restricts egress from the spoke via forced tunneling. This component replaces the standard load balancer in the baseline architecture, which doesn't provide restrictions on outbound traffic to the internet.
+- **Azure Firewall in the hub network** is a stateful network security service for filtering and logging traffic. In this architecture, it centrally inspects and restricts egress from the spoke via forced tunneling. This component replaces the public Azure Load Balancer in the baseline architecture, which doesn't provide restrictions on outbound traffic to the internet.
 
 - **Azure Bastion in the hub network** is an architectural approach that provides Remote Desktop Protocol (RDP) and Secure Shell (SSH) connectivity to VMs over TLS without exposing public IP addresses. In this architecture, it supplies shared, audited operational access to workload VMs. In the baseline architecture, the workload team owns this component.
 - The **spoke virtual network** is an isolated address space peered to a hub for shared services. In this architecture, it hosts the workload's compute, ingress, and related resources under workload team ownership.
