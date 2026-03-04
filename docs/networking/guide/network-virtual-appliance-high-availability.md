@@ -145,7 +145,6 @@ This NVA injection method provides the following benefits:
 - This method doesn't require SNAT to guarantee traffic symmetry.
 
 - You can use the same NVAs to inspect traffic to and from different virtual networks, which provides multitenancy from the NVA perspective.
-
 - Virtual network peering isn't required between the NVA virtual network and the workload virtual networks, which simplifies configuration.
 
 - UDRs aren't required in the workload virtual network, which also simplifies configuration.
