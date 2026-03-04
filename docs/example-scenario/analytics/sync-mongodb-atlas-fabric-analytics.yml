@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
-  title: Enable real-time sync of MongoDB Atlas data changes to Fabric Analytics
-  description: Learn how to keep Azure Synapse Analytics data pools synchronized with operational data changes in MongoDB Atlas.
+  title: Set up real-time sync of MongoDB Atlas data changes to Microsoft Fabric
+  description: Learn how to integrate MongoDB Atlas with Microsoft Fabric by using open mirroring to keep data pools in sync with operational data changes.
   author: rod2k24
   ms.author: rodrigr
   ms.date: 01/29/2026
@@ -13,8 +13,8 @@ azureCategories:
   - analytics
 products:
   - fabric
-name: Enable real-time sync of MongoDB Atlas data changes to Fabric Analytics
-summary: Learn how to keep Fabric Analytics data pools in sync with operational data changes in MongoDB Atlas.
+name: Set up real-time sync of MongoDB Atlas data changes to Microsoft Fabric
+summary: Learn how to integrate MongoDB Atlas with Microsoft Fabric by using open mirroring to keep data pools in sync with operational data changes.
 thumbnailUrl: /azure/architecture/browse/thumbs/mongodb-atlas-fabric.png
 content: |
   [!INCLUDE[](sync-mongodb-atlas-azure-fabric-analytics-content.md)]
