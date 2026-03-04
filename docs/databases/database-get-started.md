@@ -1,6 +1,6 @@
 ---
 title: Get Started with Database Architecture Design
-description: Learn about database architecture design on Azure including technology choices, solution ideas, and reference architectures for your workloads.
+description: Learn about database architecture design on Azure, including technology choices, solution ideas, and reference architectures for your workloads.
 author: anaharris-ms
 ms.author: anaharris
 ms.date: 03/05/2026
@@ -11,14 +11,14 @@ ai-usage: ai-assisted
 
 # Get started with database architecture design
 
-Data is central to every application. One of your most important architectural decisions is choosing the right database solution. Azure provides a comprehensive portfolio of database services that span relational databases, NoSQL databases, in-memory caches, and managed database instances. Whether you build transactional applications, analytical workloads, or globally distributed systems, Azure database services provide the performance, scalability, and reliability that your organization needs.
+Data is central to all applications. One of your most important architectural decisions is choosing the right database solution. Azure provides a comprehensive portfolio of database services that span relational databases, NoSQL databases, in-memory caches, and managed database instances. Whether you build transactional applications, analytical workloads, or globally distributed systems, Azure database services provide the performance, scalability, and reliability that your organization needs.
 
 The right database for your scenario depends on your data model, consistency requirements, query patterns, and operational preferences. Key considerations include data structure like relational versus nonrelational, transaction requirements, scalability needs, and your desired level of management overhead. The Azure database portfolio spans fully managed platform as a service (PaaS) offerings, infrastructure as a service (IaaS) options, and specialized services for specific workload patterns.
 
 ## Architecture
 
 :::image type="complex" border="false" source="media/get-started-databases.svg" alt-text="Diagram that shows the analytics solution journey on Azure." lightbox="media/get-started-databases.svg":::
-   Architecture diagram of an Azure workload within a virtual network. Client traffic enters through network ingress services like Azure Front Door, Application Gateway, or Azure Load Balancer and reaches a compute layer. The workload uses managed Azure database services, including relational databases such as Azure SQL, Azure Database for MySQL, Azure SQL virtual machine (VM), and Azure Database for PostgreSQL, and NoSQL services like Azure Cosmos DB, Azure Managed Instance for Apache Cassandra, Azure Managed Redis, and Azure DocumentDB. The architecture also includes private endpoints, user-defined routes, network security groups (NSGs), virtual private network (VPN) or Azure ExpressRoute connectivity, and platform services such as managed identities, Azure Monitor, Azure Data Factory, Microsoft Entra ID, and Azure DNS.
+   Architecture diagram of an Azure workload within a virtual network. Client traffic enters through network ingress services like Azure Front Door, Azure Application Gateway, or Azure Load Balancer and reaches a compute layer. The workload uses managed Azure database services, including relational databases such as Azure SQL, Azure Database for MySQL, Azure SQL virtual machine (VM), and Azure Database for PostgreSQL, and NoSQL services like Azure Cosmos DB, Azure Managed Instance for Apache Cassandra, Azure Managed Redis, and Azure DocumentDB. The architecture also includes private endpoints, user-defined routes (UDRs), network security groups (NSGs), virtual private network (VPN) or Azure ExpressRoute connectivity, and platform services such as managed identities, Azure Monitor, Azure Data Factory, Microsoft Entra ID, and Azure DNS.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/databases-get-started-diagram.vsdx) of this architecture.*
@@ -27,7 +27,7 @@ The right database for your scenario depends on your data model, consistency req
 
 The previous diagram demonstrates a typical basic or baseline database implementation. For real-world solutions that you can build in Azure, see [Database architectures](#database-architectures).
 
-Azure database solutions include traditional relational database management systems (RDBMS) and online transaction processing (OLTP) systems, big data and analytics workloads including online analytical processing (OLAP) systems, and NoSQL workloads. To find real-world solutions that you can build in Azure, see the [architectures](#explore-database-architectures-and-guides) in this section.
+Azure database solutions include traditional relational database management systems (RDBMS) and online transaction processing (OLTP) systems, big data and analytics workloads including online analytical processing (OLAP) systems, and NoSQL workloads. To find real-world solutions that you can build in Azure, see [Database architectures](#explore-database-architectures-and-guides).
 
 ## Explore database architectures and guides
 
@@ -95,7 +95,7 @@ The following production-ready architectures demonstrate end-to-end database sol
 - [Mainframe data replication by using Rocket® Data Replicate and Sync (RDRS)](../example-scenario/mainframe/mainframe-data-replication-azure-rdrs.yml)
 - [Migrate mainframe data tier to Azure by using mLogica LIBER*IRIS](../example-scenario/mainframe/mainframe-data-replication-azure-data-platform.yml)
 - [Modernize mainframe midrange data](../example-scenario/mainframe/modernize-mainframe-data-to-azure.yml)
-- [Re-engineer mainframe batch apps](../example-scenario/mainframe/reengineer-mainframe-batch-apps-azure.yml)
+- [Reengineer mainframe batch apps](../example-scenario/mainframe/reengineer-mainframe-batch-apps-azure.yml)
 - [Rehost IMS Data Communication (IMS DC) and IMS Database (IMS DB)](../example-scenario/mainframe/rehost-ims-raincode-imsql.yml)
 - [Implement SMA OpCon in Azure](../example-scenario/integration/sma-opcon-azure.yml)
 
@@ -123,7 +123,7 @@ The following production-ready architectures demonstrate end-to-end database sol
 
 ## Learn about databases on Azure
 
-[Microsoft Learn](/training/?WT.mc_id=learnaka) provides free online training resources for Azure database technologies. The platform offers videos, tutorials, and hands-on labs for specific products and services, along with learning paths organized by job role.
+[Microsoft Learn](/training/?WT.mc_id=learnaka) provides free online training resources for Azure database technologies. The platform offers videos, tutorials, and interactive labs for specific products and services, along with learning paths organized by job role.
 
 The following resources provide foundational knowledge for database implementations on Azure:
 
