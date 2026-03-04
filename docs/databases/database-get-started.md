@@ -3,7 +3,7 @@ title: Get Started with Database Architecture Design
 description: Learn about database architecture design on Azure including technology choices, solution ideas, and reference architectures for your workloads.
 author: anaharris-ms
 ms.author: anaharris
-ms.date: 02/25/2026
+ms.date: 03/05/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ai-usage: ai-assisted
@@ -31,7 +31,7 @@ Azure database solutions include traditional relational database management syst
 
 ## Explore database architectures and guides
 
-The articles in this section include solution ideas, fully developed architectures, and guidance that address database scenarios on Azure. Solution ideas demonstrate implementation patterns and possibilities to consider. You can deploy and expand architectures to production-grade solutions. Use the following guides to help determine how to use database technologies in Azure.
+The articles in this section include fully developed architectures that you can deploy in Azure and expand to production-grade solutions and guides. These articles can help you decide how to use database technologies in Azure. Solution ideas demonstrate implementation patterns and possibilities to consider as you plan your database proof-of-concept (POC) development.
 
 ### Database guides
 
@@ -127,18 +127,18 @@ The following production-ready architectures demonstrate end-to-end database sol
 
 The following resources provide foundational knowledge for database implementations on Azure:
 
-- [Explore Azure database and analytics services](/training/modules/azure-database-fundamentals/)
+- [Explore Azure database and analytics services](/training/paths/azure-fundamentals-describe-azure-architecture-services/)
 - [Choose a data storage approach in Azure](/azure/storage/common/storage-account-overview)
-- [Deploy Azure SQL Database](/training/modules/deploy-azure-sql-database/)
-- [Secure your Azure SQL Database](/training/modules/secure-your-azure-sql-database/)
+- [Deploy Azure SQL Database](/training/modules/deploy-paas-solutions-with-azure-sql/)
+- [Secure your Azure SQL Database](/training/paths/secure-your-cloud-data/)
 - [Design your migration to Azure](/data-migration/sql-server/database/guide)
 - [Browse Azure database modules](/training/browse/?products=azure&terms=database)
 
 ### Learning paths by role
 
-- **Data engineer**: [Azure data fundamentals: Explore relational data in Azure](/training/paths/azure-data-fundamentals-explore-relational-data/)
-- **Database administrator**: [Implement scalable database solutions by using Azure SQL](/training/courses/dp-300t00)
-- **Developer**: [Work with Azure Cosmos DB](/training/paths/work-with-nosql-data-in-azure-cosmos-db/)
+- **Data engineer:** [Azure data fundamentals: Explore relational data in Azure](/training/paths/azure-data-fundamentals-explore-relational-data/)
+- **Database administrator:** [Implement scalable database solutions by using Azure SQL](/training/courses/dp-300t00)
+- **Developer:** [Develop solutions that use Azure Cosmos DB](/training/paths/az-204-develop-solutions-that-use-azure-cosmos-db/)
 
 For more role-based training, [browse other learning paths](/training/browse/?resource_type=learning%20path).
 
@@ -146,9 +146,9 @@ For more role-based training, [browse other learning paths](/training/browse/?re
 
 Organizations that are beginning their cloud adoption can use the [Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/) for proven guidance designed to accelerate cloud adoption. For cloud-scale analytics and data management guidance, see [Cloud-scale analytics](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics).
 
-To help assure the quality of your database solution on Azure, we recommend that you follow the [Azure Well-Architected Framework](/azure/well-architected/). The Well-Architected Framework provides prescriptive guidance for organizations that seek architectural excellence and discusses how to design, provision, and monitor cost-optimized Azure solutions.
+To help ensure the quality of your database solution on Azure, follow the [Azure Well-Architected Framework](/azure/well-architected/). The Well-Architected Framework provides prescriptive guidance for organizations that seek architectural excellence and describes how to design, provision, and monitor cost-optimized Azure solutions.
 
-For database-specific guidance, see the Well-Architected Framework service guides for:
+For database-specific guidance, see the following Well-Architected Framework service guides:
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db)
 - [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database)
@@ -159,11 +159,11 @@ Review the following best practices when you design your database solutions.
 
 | Best practice | Description |
 |---------------|-------------|
-| [The Transactional Outbox pattern with Azure Cosmos DB](../databases/guide/transactional-out-box-cosmos.md) | Learn how to use the Transactional Outbox pattern for reliable messaging and guaranteed delivery of events. |
-| [Distribute your data globally by using Azure Cosmos DB](/azure/cosmos-db/distribute-data-globally) | To achieve low latency and high availability, some applications need to be deployed in datacenters that are close to their users. |
-| [Security in Azure Cosmos DB](/azure/cosmos-db/database-security) | Security best practices help prevent, detect, and respond to database breaches. |
+| [The Transactional Outbox pattern with Azure Cosmos DB](../databases/guide/transactional-out-box-cosmos.md) | Learn how to use the Transactional Outbox pattern for reliable messaging and guaranteed event delivery. |
+| [Distribute your data globally by using Azure Cosmos DB](/azure/cosmos-db/distribute-data-globally) | To achieve low latency and high availability, some applications must be deployed in datacenters that are close to their users. |
+| [Security in Azure Cosmos DB](/azure/cosmos-db/security) | Security best practices help prevent, detect, and respond to database breaches. |
 | [Continuous backup with point-in-time restore in Azure Cosmos DB](/azure/cosmos-db/continuous-backup-restore-introduction) | Learn about Azure Cosmos DB point-in-time restore feature. |
-| [Achieve high availability by using Azure Cosmos DB](/azure/cosmos-db/high-availability) | Azure Cosmos DB provides multiple features and configuration options to achieve high availability. |
+| [Achieve high availability by using Azure Cosmos DB](/azure/reliability/reliability-cosmos-db-nosql) | Azure Cosmos DB provides multiple features and configuration options to achieve high availability. |
 | [High availability for Azure SQL Database and Azure SQL Managed Instance](/azure/azure-sql/database/high-availability-sla) | The database shouldn't be a single point of failure in your architecture. |
 
 ## Stay current with databases
@@ -172,10 +172,10 @@ Azure database services are evolving to address modern data challenges. Stay inf
 
 Get the latest updates on [Azure products and features](https://azure.microsoft.com/updates/?category=databases).
 
-To stay current with key database services, see:
+To stay current with key database services, see the following articles:
 
 - [What's new in Azure SQL Database](/azure/azure-sql/database/doc-changes-updates-release-notes-whats-new)
-- [What's new in Azure Database for PostgreSQL](/azure/postgresql/flexible-server/release-notes)
+- [What's new in Azure Database for PostgreSQL](/azure/postgresql/release-notes/release-notes)
 - [What's new in Azure Database for MySQL](/azure/mysql/flexible-server/whats-new)
 
 ## Other resources
@@ -184,12 +184,12 @@ Databases is a broad category and covers a range of solutions. The following res
 
 ### Hybrid [and multicloud]
 
-Many organizations need a hybrid approach to databases because they have workloads that run both on-premises and in the cloud. Azure provides services to extend your database platforms across environments:
+Most organizations need a hybrid approach to databases because they have workloads that run both on-premises and in the cloud. Organizations typically [extend on-premises database solutions to the cloud](/azure/architecture/databases/guide/hybrid-on-premises-and-cloud). To connect environments, organizations must [choose a hybrid network architecture](/azure/architecture/reference-architectures/hybrid-networking/index).
 
 - [Azure Arc-enabled PostgreSQL](/azure/azure-arc/data/what-is-azure-arc-enabled-postgres-hyperscale): Run Azure-managed PostgreSQL on your infrastructure.
 - [Azure hybrid and multicloud patterns](/azure/architecture/hybrid/hybrid-start-here): Connect on-premises databases to cloud services.
 
-Key hybrid database scenarios:
+Review the following key hybrid database scenarios:
 
 - [Azure Arc hybrid management for SQL Server](../hybrid/azure-arc-sql-server.yml): Use Azure Arc to manage SQL Server across environments.
 - [Hybrid architecture design](../hybrid/hybrid-start-here.md): Connect on-premises environments to Azure.
@@ -231,5 +231,5 @@ Principal authors:
 ## Related resources
 
 - [Adatum Corporation scenario for cloud-scale analytics in Azure](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/reference-architecture-adatum)
-- [Lamna Healthcare scenario for data management and analytics in Azure](/azure/cloud-adoption-framework/scenarios/data-management/architectures/reference-architecture-lamna)
-- [Relecloud scenario for data management and analytics in Azure](/azure/cloud-adoption-framework/scenarios/data-management/architectures/reference-architecture-relecloud)
+- [Lamna Healthcare scenario for data management and analytics in Azure](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/reference-architecture-lamna)
+- [Relecloud scenario for data management and analytics in Azure](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/reference-architecture-multizone)
