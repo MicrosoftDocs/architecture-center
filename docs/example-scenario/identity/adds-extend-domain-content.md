@@ -101,7 +101,7 @@ Security provides assurances against deliberate attacks and the misuse of your v
 
 AD DS servers provide authentication services and are an appealing target for attacks. To help secure them, prevent direct internet connectivity by placing the AD DS servers in a separate subnet with an NSG as a firewall. Close all ports on the AD DS servers except the ports that are necessary for authentication, authorization, and server synchronization. For more information, see [Configure a firewall for Active Directory domains and trusts][ad-ds-ports].
 
-Enable [encryption at host](/azure/virtual-machines/disk-encryption#encryption-at-host---end-to-end-encryption-for-your-vm-data) to encrypt the disks that host the AD DS database.
+Azure managed disks are encrypted at rest by default. For domain controller VMs that host the AD DS database, enable [encryption at host](/azure/virtual-machines/disk-encryption#encryption-at-host---end-to-end-encryption-for-your-vm-data) on supported VM sizes to add end-to-end encryption between the VM and the storage service, and use in-guest BitLocker encryption when your compliance requirements call for guest-OS-controlled disk encryption.
 
 [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to help defend against DDoS attacks. You should enable [DDoS Protection](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
 
