@@ -4,7 +4,7 @@ metadata:
   description: Learn how to create an infrastructure and workflow to automate the renewal process for certificates issued by a nonintegrated certification authority (CA).
   author: fabmas
   ms.author: fabmas
-  ms.date: 03/12/2025
+  ms.date: 03/05/2026
   ms.topic: example-scenario
   ms.subservice: example-scenario
   ai-usage: ai-assisted
