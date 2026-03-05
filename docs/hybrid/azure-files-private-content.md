@@ -50,7 +50,7 @@ The solution in this architecture correctly sets up on-premises DNS settings so 
 
 - The on-premises DNS server (component **3**) is configured with conditional forwarders that send DNS queries for `afs.azure.net` and `file.core.windows.net` to the DNS server in the Azure virtual network (component **8**).
 
-- The DNS server in the Azure virtual network (component **8**) receives the forwarded DNS query from the on-premises DNS server, uses the Azure DNS recursive resolver to resolve private domain names, and returns private IP addresses to the client.
+- The DNS server (component **8**) in the Azure virtual network receives the forwarded DNS query from the on-premises DNS server, uses the Azure DNS recursive resolver to resolve private domain names, and returns the private IP addresses to the client.
 
 ### Components
 
