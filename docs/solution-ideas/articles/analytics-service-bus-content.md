@@ -4,7 +4,7 @@ This article describes how to extend existing Azure Service Bus–based message 
 
 ## Architecture
 
-:::image type="complex" source="../media/analytics-service-bus.png" alt-text="Diagram that illustrates an architecture for implementing near real-time analytics." lightbox="../media/analytics-service-bus.png" border="false":::
+:::image type="complex" source="../media/analytics-service-bus.svg" alt-text="Diagram that illustrates an architecture for implementing near real-time analytics." lightbox="../media/analytics-service-bus.svg" border="false":::
    Diagram that shows two data paths: a dotted line for the existing OLTP flow and a solid line for the new near real-time analytics flow. An OLTP application hosted in Azure App Service sends data to Azure Service Bus. From Azure Service Bus, the dotted line path shows data triggering an Azure Functions app, which sends processed data to an operational database like SQL Database or Azure Cosmos DB. The solid line path shows data flowing from Azure Service Bus to Azure Data Explorer, either through an Azure Functions app or through a polling service hosted on AKS or an Azure VM. Azure Data Explorer also ingests or references data from SQL Database and Azure Data Lake Storage. Applications and reporting services, including Azure Data Explorer dashboards, Power BI, and Azure Managed Grafana, query data from Azure Data Explorer for near real-time analytics.
 :::image-end:::
 
