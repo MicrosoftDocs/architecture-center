@@ -108,9 +108,9 @@ Private domain name resolution queries go through components **3**, **5**, **6**
 
 1. The on-premises DNS server has a conditional forwarder that points Azure File and Azure File Sync DNS name resolution to a DNS server in the Azure virtual network.
 
-1. The query is redirected to a DNS server or DNS private resolver in the Azure virtual network.
+1. The on-premises DNS server forwards the query to a DNS server or DNS private resolver in the Azure virtual network.
 
-1. The behavior of name resolution depends on the virtual network's DNS configuration:
+1. The name resolution behavior depends on the virtual network's DNS configuration:
 
    - If a custom DNS server is configured, the DNS server in the Azure virtual network sends a name query to the Azure provided DNS (`168.63.129.16`) recursive resolver.
 
@@ -141,7 +141,7 @@ For more information, see [Private resolver architecture](/azure/dns/private-res
 
 ### Distributed File System
 
-For an on-premises file sharing solution, admins might choose a distributed file system (DFS) instead of relying on a single standalone file server. DFS lets admins consolidate file shares that reside on multiple servers so that they appear to users as if they all reside in a single location, which allows access from one point on the network. During migration to a cloud file share solution, Azure File Sync can replace traditional DFS Replication (DFS‑R). For more information, see [Migrate a DFS-R deployment to Azure File Sync](/azure/storage/file-sync/file-sync-deployment-guide#migrate-a-dfs-r-deployment-to-azure-file-sync).
+For an on-premises file sharing solution, admins might choose a distributed file system (DFS) instead of relying on a single standalone file server. DFS lets admins consolidate file shares that reside on multiple servers so that they appear to users as if they all reside in a single location. This setup allows users to access those shares from one point on the network. During migration to a cloud file share solution, Azure File Sync can replace traditional DFS Replication (DFS‑R). For more information, see [Migrate a DFS-R deployment to Azure File Sync](/azure/storage/file-sync/file-sync-deployment-guide#migrate-a-dfs-r-deployment-to-azure-file-sync).
 
 ## Considerations
 
@@ -183,7 +183,7 @@ This article describes how to use Active Directory to authenticate access to Azu
 
 #### File access auditing
 
-You can set up [file access auditing](/windows-server/identity/solution-guides/plan-for-file-access-auditing) locally by using Dynamic Access Control or remotely by using Azure Storage logs in Azure Monitor for Azure Files. Azure Storage logs capture `StorageRead`, `StorageWrite`, `StorageDelete`, and `Transaction` events. You can send Azure file access logs to a storage account, a Log Analytics workspace, or stream them to an event hub. For more information, see [Monitor Azure Files](/azure/storage/files/storage-files-monitoring).
+You can set up [file access auditing](/windows-server/identity/solution-guides/plan-for-file-access-auditing) locally by using Dynamic Access Control or remotely by using Azure Storage logs in Azure Monitor on Azure Files. Azure Storage logs capture `StorageRead`, `StorageWrite`, `StorageDelete`, and `Transaction` events. You can log Azure file access to a storage account, a Log Analytics workspace, or stream it to an event hub separately. For more information, see [Monitor Azure Files](/azure/storage/files/storage-files-monitoring).
 
 ### Cost Optimization
 
