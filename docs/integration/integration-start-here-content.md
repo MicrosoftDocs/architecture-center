@@ -157,5 +157,5 @@ The following resources provide practical recommendations and information for sp
 [Patterns and implementations for a banking cloud transformation]: ../example-scenario/banking/patterns-and-implementations.yml
 [Performance and scale for Event Hubs and Azure Functions]: ../serverless/event-hubs-functions/performance-scale.yml
 [Service Bus ACOM page]: https://azure.microsoft.com/services/service-bus
-[Transactional Outbox pattern with Azure Cosmos DB]: ../databases/guide/transactional-outbox-cosmos.yml
+[Transactional Outbox pattern with Azure Cosmos DB]: ../databases/guide/transactional-out-box-cosmos.md
 [Web and mobile front ends]: ../solution-ideas/articles/front-end.yml

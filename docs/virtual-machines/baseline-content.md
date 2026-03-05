@@ -213,7 +213,7 @@ Two public IP addresses are used for ingress flows. One address is for Applicati
 
 #### Egress traffic
 
-This architecture uses standard SKU Load Balancer with outbound rules defined from the VM instances. Load Balancer was chosen because it's zone redundant.
+This architecture uses a public Load Balancer with outbound rules defined from the VM instances. Load Balancer was chosen because it's zone redundant.
 
 :::image type="content" source="./media/baseline-network-egress.svg" alt-text="Diagram of a virtual machine baseline that shows ingress flow." lightbox="./media/baseline-network-egress.svg" border="false":::
 
@@ -262,9 +262,9 @@ This table links to logs and metrics collected by Azure Monitor. The available a
 | -------------- | ---------------- | ------ |
 | Application Gateway | [Application Gateway metrics and logs description](/azure/application-gateway/monitor-application-gateway-reference) | [Application Gateway alerts](/azure/application-gateway/high-traffic-support#alerts-for-application-gateway-v2-sku-standard_v2waf_v2) |
 | Application Insights | [Application Insights metrics and the OpenTelemetry API](/azure/azure-monitor/app/opentelemetry-add-modify) | [Application Insights alerts](/azure/azure-monitor/alerts/alerts-smart-detections-migration) |
-| Azure Bastion |[Azure Bastion metrics](/azure/bastion/howto-metrics-monitor-alert)|
+| Azure Bastion | [Azure Bastion metrics](/azure/bastion/howto-metrics-monitor-alert) |
 | Key Vault | [Key Vault metrics and logs descriptions](/azure/key-vault/general/monitor-key-vault-reference) | [Key Vault alerts](/azure/key-vault/general/monitor-key-vault#alerts) |
-| Standard Load Balancer |[Load balancer logs and metrics](/azure/load-balancer/load-balancer-standard-diagnostics) | [Load Balancer alerts](/azure/load-balancer/load-balancer-standard-diagnostics#configure-alerts-for-multi-dimensional-metrics)
+| Load Balancer | [Load balancer logs and metrics](/azure/load-balancer/load-balancer-standard-diagnostics) | [Load Balancer alerts](/azure/load-balancer/load-balancer-standard-diagnostics#configure-alerts-for-multi-dimensional-metrics)
 | Public IP address | [Public IP address metrics and logs description](/azure/virtual-network/ip-services/monitor-public-ip) | [Public IP address metrics alerts](/azure/virtual-network/ip-services/monitor-public-ip#alerts) |
 | Virtual Network | [Virtual network metrics and logs reference](/azure/virtual-network/monitor-virtual-network-reference) | [Virtual network alerts](/azure/virtual-network/monitor-virtual-network#alerts) |
 | Virtual Machines and Virtual Machine Scale Sets | [VM metrics and logs reference](/azure/virtual-machines/monitor-vm-reference) | [VM alerts and tutorials](/azure/virtual-machines/monitor-vm#alerts) |
@@ -428,7 +428,7 @@ This architecture uses zone-redundancy for several components. Each zone is made
 
 - Managed disks can only be attached to a VM in the same region. Their availability typically affects the availability of the VM. For single-region deployments, disks can be configured for redundancy to withstand zonal failures. In this architecture, data disks are configured zone-redundant storage (ZRS) on the back-end VMs. It requires a recovery strategy to take advantage of availability zones. The recovery strategy is to redeploy the solution. Ideally pre-provision compute in alternate availability zones ready to recover from a zonal failure.
 
-- A zone-redundant Application Gateway or standard load balancer can route traffic to VMs across zones using a single IP address, ensuring continuity even if zone failures occur. These services use health probes to check VM availability. As long as one zone in the region remains operational, routing continues despite potential failures in other zones. However, inter-zone routing might have higher latency compared to intra-zone routing.
+- A zone-redundant Application Gateway or Azure Load Balancer can route traffic to VMs across zones using a single IP address, ensuring continuity even if zone failures occur. These services use health probes to check VM availability. As long as one zone in the region remains operational, routing continues despite potential failures in other zones. However, inter-zone routing might have higher latency compared to intra-zone routing.
 
   All public IPs used in this architecture are zone redundant.
 

@@ -4429,6 +4429,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/databases/guide/transactional-outbox-cosmos.md",
+      "redirect_url": "/azure/architecture/databases/guide/transactional-out-box-cosmos",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/solution-ideas/articles/loan-credit-risk-with-sql-server.yml",
       "redirect_url": "/azure/architecture/databases",
       "redirect_document_id": false
@@ -7653,6 +7658,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/high-availability/reference-architecture-traffic-manager-application-gateway.yml",
+      "redirect_url": "/azure/architecture/high-availability/traffic-manager-application-gateway",
+      "redirect_document_id": true      
+    },
+    {
       "source_path": "docs/guide/technology-choices/data-store-decision-tree.md",
       "redirect_url": "/azure/architecture/guide/technology-choices/data-stores-getting-started",
       "redirect_document_id": false
@@ -7713,9 +7723,9 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "docs/high-availability/reference-architecture-traffic-manager-application-gateway.yml",
-      "redirect_url": "/azure/architecture/high-availability/traffic-manager-application-gateway",
-      "redirect_document_id": true
+      "source_path": "docs/microservices/model/tactical-ddd.yml",
+      "redirect_url": "/azure/architecture/microservices/model/tactical-domain-driven-design",
+      "redirect_document_id": false
     },
     {      
       "source_path": "docs/solution-ideas/articles/analytics-start-here.yml",
