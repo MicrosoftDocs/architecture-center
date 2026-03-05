@@ -80,9 +80,15 @@ All Fabric deployment patterns:
 
 This article uses the following scenarios to describe how each deployment pattern can address various business requirements:
 
-- **Scenario 1**: For organizations that want to have faster (or slower) time to market by organizing teams that can cross-collaborate, with lower restrictions on data usage. In this scenario, an organization can benefit by using a *monolithic* deployment pattern. The organization operates in and manages a single workspace. For more information, see [Pattern 1: Monolithic deployment](#pattern-1-monolithic-deployment).
-- **Scenario 2**: For organizations that want to provide isolated environments for teams to work in, with a central team that is responsible for providing and managing infrastructure. This scenario also suits organizations that want to implement data mesh. In this scenario, an organization can implement *multiple workspaces* that either use a shared capacity or have separate capacities. For more information, see [Pattern 2: Multiple workspaces backed by a single Fabric capacity](#pattern-2-multiple-workspaces-backed-by-a-single-fabric-capacity) and [Pattern 3: Multiple workspaces backed by separate capacities](#pattern-3-multiple-workspaces-backed-by-separate-capacities).
-- **Scenario 3**: For organizations that want an entirely decentralized model that gives business units or teams the freedom to control and manage their own data platforms. In this scenario, an organization can choose a deployment model in which it uses *separate workspaces*, each with dedicated capacity, or possibly with multiple Fabric tenants. For more information, see [Pattern 3: Multiple workspaces backed by separate capacities](#pattern-3-multiple-workspaces-backed-by-separate-capacities) and [Pattern 4: Multiple Fabric tenants](#pattern-4-multiple-fabric-tenants).
+- **Scenario 1**: For organizations that want to have faster (or slower) time to market by organizing teams that can cross-collaborate, with lower restrictions on data usage. In this scenario, an organization can benefit by using a *monolithic* deployment pattern. The organization operates in and manages a single workspace.
+
+  For more information, see [Pattern 1: Monolithic deployment](#pattern-1-monolithic-deployment).
+- **Scenario 2**: For organizations that want to provide isolated environments for teams to work in, with a central team that is responsible for providing and managing infrastructure. This scenario also suits organizations that want to implement data mesh. In this scenario, an organization can implement *multiple workspaces* that either use a shared capacity or have separate capacities.
+
+  For more information, see [Pattern 2: Multiple workspaces backed by a single Fabric capacity](#pattern-2-multiple-workspaces-backed-by-a-single-fabric-capacity) and [Pattern 3: Multiple workspaces backed by separate capacities](#pattern-3-multiple-workspaces-backed-by-separate-capacities).
+- **Scenario 3**: For organizations that want an entirely decentralized model that gives business units or teams the freedom to control and manage their own data platforms. In this scenario, an organization can choose a deployment model in which it uses *separate workspaces*, each with dedicated capacity, or possibly with multiple Fabric tenants.
+
+  For more information, see [Pattern 3: Multiple workspaces backed by separate capacities](#pattern-3-multiple-workspaces-backed-by-separate-capacities) and [Pattern 4: Multiple Fabric tenants](#pattern-4-multiple-fabric-tenants).
 - **Scenario 4**: An organization might choose to use a hybrid approach in which it combines multiple patterns to achieve its requirements. For example, an organization might set up a single workspace for specific business units (a monolithic deployment pattern) while using separate, dedicated workspaces and separate capacities for other business units.
 
 ## Pattern 1: Monolithic deployment
@@ -123,7 +129,7 @@ The following table presents considerations that might influence your decision t
 | **DevOps** | DevOps benefits from:<br/><br/>- A single release for the entire platform. <br/>- Less complicated release pipelines. |
 | **Usability - Administrators** | - It's easier for administrators to manage because they have fewer items to manage. <br/>- There's no need for other provisioning or to handle requests from teams for new capacities or workspaces. <br/>- Capacity administrators can be tenant administrators, so there's no need to create or manage other groups or teams. |
 |  **Usability - Other roles** | - It's acceptable to share the workspace with other users. <br/>- Collaboration among users is encouraged. |
-| **Performance** | - Isolation of workloads isn't mandatory. <br/>- No strict performance service-level agreements (SLAs) need to be met. <br/>- Throttling isn't likely. |
+| **Performance** | - Isolation of workloads isn't mandatory. <br/>- No strict performance service-level objectives (SLOs) need to be met. <br/>- Throttling isn't likely. |
 | **Billing and cost management** | - One, single team can handle costs. <br/>- There's no need to chargeback to different teams. |
 
 ## Pattern 2: Multiple workspaces backed by a single Fabric capacity
@@ -139,7 +145,7 @@ When you provision a single Fabric capacity and attach multiple workspaces to it
 - Features that are scoped to a workspace apply across all business units that share that workspace.
 - All workspace items and data are in one region. You can't use this pattern for multi-geo scenarios.
 - You can use DevOps features that require separate workspaces, like for deployment pipelines and lifecycle management.
-- [Limitations](/fabric/get-started/workspaces#considerations-and-limitations) that are associated with a single workspace apply.
+- [Limitations](/fabric/fundamentals/workspaces#considerations-and-limitations) that are associated with a single workspace apply.
 - [Capacity limitations](/fabric/enterprise/licenses#capacity-license) that are associated with a specific SKU apply.
 
 You might choose to implement this deployment pattern for one or more of the following reasons:
@@ -166,7 +172,7 @@ The following table presents considerations that might influence your decision t
 | **DevOps** | - You can do independent releases per department, team, or workload. <br/>- It's easier to meet development, testing, acceptance, and production (DTAP) requirements for teams when multiple workspaces are provisioned to address each release environment. |
 | **Usability - Administrators** | - You don't need to provision multiple capacities. <br/>- Tenant administrators typically administer capacity, so you don't need to manage other groups or teams. |
 | **Usability - Other roles** | - Workspaces are available for each medallion layer. <br/>- Fabric items are isolated per workspace, which helps to prevent accidental corruption. |
-| **Performance** | - Strict performance SLAs don't need to be met. <br/>- Throttling is acceptable during peak periods. |
+| **Performance** | - Strict performance SLOs don't need to be met. <br/>- Throttling is acceptable during peak periods. |
 | **Billing and cost management** | - You don't have a specific requirement to chargeback per team. <br/>- A central team bears all costs. <br/>- Infrastructure teams are owners of Fabric capacities in the organization. |
 
 ## Pattern 3: Multiple workspaces backed by separate capacities
@@ -181,7 +187,7 @@ When you provision multiple Fabric capacities with their own workspaces, the fol
 - Organizational and management decentralization is achieved by provisioning separate workspaces.
 - Organizations can scale beyond one region by provisioning capacities and workspaces in different geographical regions.
 - You can use the full capabilities of Fabric because business units can have one or more workspaces that are in separate capacities and grouped together through Fabric domains.
-- [Limitations](/fabric/get-started/workspaces#considerations-and-limitations) that are associated with a single workspace apply, but you can scale beyond these limits by creating new workspaces.
+- [Limitations](/fabric/fundamentals/workspaces#considerations-and-limitations) that are associated with a single workspace apply, but you can scale beyond these limits by creating new workspaces.
 - [Capacity limitations](/fabric/enterprise/licenses#capacity-license) that are associated with a specific SKU apply, but you can scale CUs by provisioning separate capacities.
 - All Fabric items in all workspaces in the tenant and their certification statuses can be discovered by using a OneLake data hub.
 - Domains can group workspaces together so that a single business unit can operate and manage multiple workspaces.
