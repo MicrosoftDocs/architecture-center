@@ -44,7 +44,7 @@ Before you upgrade your AKS worker nodes and Kubernetes versions, consider the f
 
 - Blue-green update strategies don't affect cluster performance, but they increase cost and complexity. For detailed blue‑green patterns at the cluster and node‑pool levels, including deployments that use Azure DNS, Azure Traffic Manager, and Azure Front Door, see [Blue-green deployment of AKS clusters](/azure/architecture/guide/aks/blue-green-deployment-for-aks).
 
-Regardless of your [upgrade and patching strategy](/azure/aks/aks-production-upgrade-strategies), use a robust testing and validation process for your cluster. First, patch and upgrade lower environments, then perform a post-maintenance validation to check the health of  [clusters](/azure/architecture/operator-guides/aks/aks-triage-cluster-health), [nodes](/azure/architecture/operator-guides/aks/aks-triage-node-health), [the deployment](/azure/architecture/operator-guides/aks/aks-triage-deployment), and the application.
+Regardless of your [upgrade and patching strategy](/azure/aks/aks-production-upgrade-strategies), use a robust testing and validation process for your cluster. First, patch and upgrade lower environments, then perform a post-maintenance validation to check the health of [clusters](/azure/architecture/operator-guides/aks/aks-triage-cluster-health), [nodes](/azure/architecture/operator-guides/aks/aks-triage-node-health), the [deployment](/azure/architecture/operator-guides/aks/aks-triage-deployment), and the application.
 
 #### AKS workload best practices
 
@@ -271,7 +271,7 @@ As a best practice, upgrade and test in lower environments to minimize the risk 
 
 - [**AKS components breaking changes by version:**](/azure/aks/supported-kubernetes-versions#aks-components-breaking-changes-by-version) This table provides a comprehensive overview of breaking changes in AKS components by version. Proactively address any potential compatibility problems before the upgrade process by referring to this guide.
 
-In addition to these Microsoft resources, consider using open-source tools to optimize your cluster upgrade process. For example, [Fairwinds pluto](https://github.com/FairwindsOps/pluto) scans your deployments and Helm charts for deprecated Kubernetes APIs. Such tools can help you ensure that your applications remain compatible with the latest Kubernetes versions.
+In addition to these Microsoft resources, consider using open-source tools to optimize your cluster upgrade process. For example, [Fairwinds pluto](https://pluto.docs.fairwinds.com) scans your deployments and Helm charts for deprecated Kubernetes APIs. Such tools can help you ensure that your applications remain compatible with the latest Kubernetes versions.
 
 ### Upgrade process
 
@@ -311,7 +311,7 @@ usernodepool  1.32.4
 
 #### Manual upgrades
 
-To minimize disruptions and help ensure a smooth upgrade for your AKS cluster:
+To minimize disruptions and help ensure a smooth upgrade for your AKS cluster, take this upgrade approach:
 
 1. **Upgrade the AKS control plane.** Upgrade the control plane components that are responsible for managing and orchestrating your cluster. Upgrade the control plane first to help ensure compatibility and stability before you upgrade the individual node pools.
 
