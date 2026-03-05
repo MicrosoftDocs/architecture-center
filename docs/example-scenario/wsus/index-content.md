@@ -22,7 +22,7 @@ In this image:
 - **snet-workload** is an example of a subnet in a peered spoke virtual network containing Windows virtual machines.
 - **nsg-ms** is a network security group policy that allows traffic to the WSUS VM but denies other internet traffic.
 
-You can reuse an existing server or deploy a new one that becomes the WSUS server. Your WSUS VM must meet the documented [system requirements](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment#system-requirements).  As this is a security sensitive capability, you should plan on accessing this virtual machine by using just-in-time (JIT). See [Manage virtual machine access by using just-in-time](/azure/security-center/security-center-just-in-time).
+You can reuse an existing server or deploy a new one that becomes the WSUS server. Your WSUS VM must meet the documented [system requirements](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment#system-requirements).  As this is a security sensitive capability, you should plan on accessing this virtual machine by using just-in-time (JIT). See [Manage virtual machine access by using just-in-time](/azure/defender-for-cloud/enable-just-in-time-access).
 
 Your network will have more than one Azure virtual network, which can be in the same region or in different regions. You need to evaluate all Windows Server VMs to see if one can be used as a WSUS server. If you have thousands of VMs to update, we recommend dedicating a Windows Server VM to the WSUS role. We also encourage that VMs don't use a WSUS server in a different region as their primary source.
 

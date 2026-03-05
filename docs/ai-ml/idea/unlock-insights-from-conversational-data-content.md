@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This architecture describes a conversation knowledge mining solution that extracts actionable insights from large volumes of conversational data, like from a call center. The solution uses Azure Content Understanding, Foundry IQ, Microsoft Foundry, and supporting Azure services. These services analyze unstructured dialogue and transform it into meaningful, structured insights through natural language processing and vector-based search capabilities.
+This architecture describes a conversation knowledge mining solution that extracts actionable insights from large volumes of conversational data, like from a call center. The solution uses Azure Content Understanding in Foundry Tools, Foundry IQ, Microsoft Foundry, and supporting Azure services. These services analyze unstructured dialogue and transform it into meaningful, structured insights through natural language processing and vector-based search capabilities.
 
 The architecture demonstrates how to do the following capabilities:
 

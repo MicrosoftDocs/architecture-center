@@ -35,7 +35,7 @@ This article describes an end-to-end solution for near real-time data processing
 
 1. Power BI uses the data that's exposed through the dedicated SQL pool to build enterprise-grade dashboards and reports.
 
-1. You can also use captured raw data in Data Lake Store and the validated data in the Delta format for the following tasks:
+1. You can also use captured raw data in Data Lake Storage and the validated data in the Delta format for the following tasks:
 
    - Unplanned and exploratory analysis through Azure Synapse Analytics serverless SQL pools
 

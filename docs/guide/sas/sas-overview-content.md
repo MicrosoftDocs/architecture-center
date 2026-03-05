@@ -344,7 +344,7 @@ Use [network security groups](/azure/virtual-network/security-overview) to filte
 
 You can use [Azure Disk Encryption](/azure/security/azure-security-disk-encryption-faq) for encryption within the operating system. This solution uses the DM-Crypt feature of Linux. But we currently don't recommend using Azure Disk Encryption. It can severely degrade performance, especially when you use `SASWORK` files locally.
 
-[Server-side encryption (SSE) of Azure Disk Storage](/azure/virtual-machines/disk-encryption) protects your data. It also helps you meet organizational security and compliance commitments. With Azure managed disks, SSE encrypts the data at rest when persisting it to the cloud. This behavior applies by default to both OS and data disks. You can use platform-managed keys or your own keys to encrypt your managed disk.
+[Server-side encryption (SSE) of Azure Disk Storage](/azure/virtual-machines/disk-encryption) protects your data. It also helps you meet organizational security and compliance commitments. With Azure Managed Disks, SSE encrypts the data at rest when persisting it to the cloud. This behavior applies by default to both OS and data disks. You can use platform-managed keys or your own keys to encrypt your managed disk.
 
 #### Protect your infrastructure
 
