@@ -49,13 +49,13 @@ The following dataflow corresponds to the previous diagram:
 
 - [Terraform](/azure/developer/terraform/overview) is an infrastructure as code (IaC) tool used to declaratively provision cloud resources. In this architecture, the [templates](https://github.com/mongodb-partners/MongoDB_Fabric_Mirroring/tree/main/terraform) automate deployment of the required Azure and Fabric resources.
 
-- [Power BI](/power-bi/fundamentals/power-bi-overview) is a business intelligence platform for creating interactive dashboards and reports. In this architecture, it visualizes the mirrored Delta tables by using Direct Lake for high-performance, near-real-time analytics.
+- [Power BI](/power-bi/fundamentals/power-bi-overview) is a business intelligence platform for creating interactive dashboards and reports. In this architecture, it visualizes the mirrored Delta tables by using Direct Lake for high-performance, near real-time analytics.
 
 The following diagram shows the mirroring integration architecture:
 
 :::image type="content" source="media/mongodb-mirroring-integrated-arch.png" alt-text="Diagram that shows the mirroring integration architecture." border="false" lightbox="media/mongodb-mirroring-integrated-arch.png":::
 
-Open mirroring allows MongoDB change data to be written directly into Fabric, where it's automatically converted to Delta format and made immediately available for a lakehouse, Data Warehouse, real-time anaytics, and Power BI.
+Open mirroring allows MongoDB change data to be written directly into Fabric. Then it's automatically converted to Delta format and immediately available for a lakehouse, Data Warehouse, real-time analytics, and Power BI.
 
 ### Alternatives
 
@@ -65,7 +65,7 @@ The following sections describe alternative ingestion approaches for various ope
 
 #### Real-Time Intelligence with eventstreams and eventhouses
 
-Real-Time Intelligence provides a native, code-free ingestion path by using the [MongoDB change data capture (CDC) connector](/fabric/real-time-intelligence/event-streams/add-source-mongodb-change-data-capture) for an eventstream. The connector streams change events from MongoDB Atlas directly into Fabric.
+Fabric Real-Time Intelligence provides a native, code-free ingestion path by using the [MongoDB change data capture (CDC) connector](/fabric/real-time-intelligence/event-streams/add-source-mongodb-change-data-capture) for an eventstream. The connector streams change events from MongoDB Atlas directly into Fabric.
 
 Eventstreams route CDC events to:
 
@@ -80,140 +80,136 @@ Use this approach when you need:
 - KQL-based monitoring and detections.
 - Low-latency scenarios without custom code.
 
-#### Atlas triggers, Azure Functions, and OneLake (push model)
+#### Atlas triggers, functions, and OneLake (push model)
 
-This approach uses [MongoDB Atlas triggers](https://github.com/mongodb/atlas-functions-triggers-examples) to invoke a **Fabric Function** (or Azure Function when Fabric Function isn't available). The function writes the updated document into OneLake using the **Azure Data Lake Storage (ADLS)** Gen2-compatible API.
+This approach uses [MongoDB Atlas triggers](https://github.com/mongodb/atlas-functions-triggers-examples) to invoke Fabric user data functions or Azure Functions. The function writes the updated document into OneLake by using the Azure Data Lake Storage-compatible API.
 
-:::image type="content" source="media/azure-fabric-analytics-mongodb.svg" alt-text="Architecture diagram showing MongoDB CDC ingestion using Fabric Real-Time Intelligence." lightbox="media/azure-fabric-analytics-mongodb.svg" border="false":::
+:::image type="content" source="media/azure-fabric-analytics-mongodb.svg" alt-text="Architecture diagram that shows MongoDB CDC ingestion by using Real-Time Intelligence." lightbox="media/azure-fabric-analytics-mongodb.svg" border="false":::
 
-**Dataflow**
+##### Dataflow
 
-1. Atlas trigger detects inserts/updates/deletes.  
-2. Trigger invokes an Atlas Function.  
-3. Atlas Function posts a payload to a Fabric Function/Azure Function.  
-4. Function writes the JSON document to OneLake.  
-5. Optional: A Fabric pipeline transforms and loads the document into Lakehouse or Data Warehouse.
+1. The Atlas trigger detects an insert, update, or delete operation.
 
-This push model is useful when you need near real-time ingestion but can't deploy the mirroring accelerator, or when you prefer a serverless, event-driven integration.
+1. The trigger invokes an Atlas Function.
 
-#### Fabric Pipelines and MongoDB Connector (pull model)
+1. The Atlas Function posts a payload to a Fabric user data function or Azure Functions.
 
-Fabric pipelines include a [**MongoDB connector**](/fabric/data-factory/connector-mongodb-overview) that supports on-premises MongoDB and MongoDB Atlas.
+1. The Fabric user data function or Azure Functions writes the JSON document to OneLake.
 
-**Typical uses**
+1. Optionally, a Fabric pipeline transforms and loads the document into a lakehouse or Data Warehouse.
+
+Use the push model when you need near real-time ingestion but can't deploy the mirroring accelerator, or when you prefer a serverless, event-driven integration.
+
+#### Fabric pipelines and MongoDB Connector (pull model)
+
+Fabric pipelines include a [MongoDB Connector](/fabric/data-factory/connector-mongodb-overview) that supports on-premises MongoDB and MongoDB Atlas.
+
+You typically use connectors for the following tasks:
 
 - Historical data loads  
-- Daily/hourly scheduled syncs  
-- Incremental ingestion using MongoDB queries  
+- Daily or hourly scheduled syncs  
+- Incremental ingestion by using MongoDB queries  
 - Multicloud or hybrid integration
 
-Pipelines can load documents into:
+Pipelines can load documents into a lakehouse that uses Delta, Parquet, Avro, JSON, or CSV. They can also load documents into Data Warehouse.  
 
-- **Lakehouse** (Delta/Parquet/Avro/JSON/CSV)  
-- **Fabric Data Warehouse**
-
-This model is recommended for batch workloads or scenarios where real-time ingestion isn't required. For example, you can use a Fabric pipeline to run a nightly copy from MongoDB Atlas into a Fabric Data Warehouse for executive reporting. Because the data only needs to reflect end‑of‑day state, a scheduled pipeline using the MongoDB connector is sufficient, avoiding the complexity of continuous ingestion.
+We recommend this model for batch workloads or scenarios in which real-time ingestion isn't required. For example, you can use a Fabric pipeline to run a nightly copy from MongoDB Atlas into Data Warehouse for executive reporting. The data only needs to reflect end‑of‑day state, so a MongoDB Connector-scheduled pipeline is sufficient and avoids the complexity of continuous ingestion.
 
 :::image type="content" source="media/azure-fabric-mongodb-connectors.svg" alt-text="Connector architecture for integrating MongoDB with Fabric pipelines." lightbox="media/azure-fabric-mongodb-connectors.svg" border="false":::
 
-Using Dataflow Gen2 (Power BI / self‑service pull model)
+You can also use dataflows in Fabric to integrate with MongoDB Atlas. The pull model suits analyst‑driven or self‑service business intelligence (BI) scenarios.
 
-Dataflow Gen2 provides a no‑code, Power BI–centric option to ingest MongoDB Atlas data into OneLake. If you use Power BI as your primary analytics tool you can use the Dataflow Gen2 MongoDB connector to:
+Dataflows provide a no‑code, Power BI–centric option to ingest MongoDB Atlas data into OneLake. If you use Power BI as your primary analytics tool, then you can use the Dataflow Gen2 MongoDB Connector to:
 
-- Perform scheduled ingestion
-- Retrieve filtered historical data
-- Shape and transform documents without code
-- Land results directly into OneLake via standard Dataflows Gen2 output
-
-This option is especially suitable for analyst‑driven or self‑service BI scenarios.
+- Perform scheduled ingestion.
+- Retrieve filtered historical data.
+- Shape and transform documents without code.
+- Land results directly into OneLake via a standard Dataflows Gen2 output.
 
 #### Batch integration
 
-You can use batch or micro‑batch integration to move historical or filtered data from MongoDB Atlas into OneLake.
-In addition to Fabric Pipelines, organizations can leverage the MongoDB Spark Connector (v10.x), which supports both batch and streaming ingestion patterns.
+You can use batch or micro‑batch integration to move historical or filtered data from MongoDB Atlas into OneLake. Organizations can use Fabric pipelines and the MongoDB Spark Connector v10.x, which supports batch and streaming ingestion patterns.
 
-**Spark Connector (batch and streaming)**
+- **Use Spark Connector for batch integration and streaming.** The MongoDB Spark Connector allows scalable DataFrame‑based ingestion into the Fabric lakehouse. It supports:
 
-The MongoDB Spark Connector allows scalable DataFrame‑based ingestion into the Fabric Lakehouse. It supports:
+   - Full historical batch loads.
+   - Filtered or incremental loads by using MongoDB queries.
+   - Micro‑batch or continuous streaming by using Spark Structured Streaming.
+   - Writing into Delta or Parquet tables in OneLake.
 
-- Full historical batch loads
-- Filtered or incremental loads using MongoDB queries
-- Micro‑batch or continuous streaming using Spark Structured Streaming
-- Writing into Delta/Parquet tables in OneLake
+   This approach is optimal for Spark‑centric engineering teams or workloads that require transformations as part of ingestion.
 
-This approach is optimal for Spark‑centric engineering teams or workloads that require transformations as part of ingestion.
-
-**Fabric Pipelines (optional orchestration)**
-
-Fabric Pipelines can orchestrate MongoDB batch ingestion through the MongoDB connector, but the Spark Connector provides more flexibility for batch and streaming scenarios.
+- **Optionally, use Fabric pipelines for batch ingestion.** Fabric pipelines can orchestrate MongoDB batch ingestion through the MongoDB Connector, but the Spark Connector provides more flexibility for batch and streaming scenarios.
 
 ## Scenario details
 
-MongoDB Atlas is a common operational store for internal applications, customer-facing services, and third‑party integrations. With Fabric, organizations can unify Atlas data with relational, streaming, and unstructured sources to power analytics, BI, and machine learning at scale.
+MongoDB Atlas is a common operational store for internal applications, customer-facing services, and non-Microsoft integrations. Organizations can use Fabric to unify Atlas data with relational, streaming, and unstructured sources to power analytics, BI, and machine learning at scale.
 
 ### Potential use cases
 
 **Retail**
 
-- Product bundling and promotion optimization  
-- Customer 360 and hyper-personalization  
-- Demand sensing and stockout prediction  
+- Product bundling and promotion optimization
+- Customer 360 and hyper-personalization
+- Demand sensing and stockout prediction
 - Smart search and recommendations
 
 **Banking and finance**
 
-- Fraud detection and prevention  
+- Fraud detection and prevention
 - Personalized financial products and offers
 
 **Telecommunications**
 
-- Network quality analytics and optimization  
+- Network quality analytics and optimization
 - Edge telemetry aggregation
 
 **Automotive**
 
-- Connected vehicle intelligence  
-- Anomaly detection in IoT communication
+- Connected vehicle intelligence
+- Anomaly detection in Internet of Things (IoT) communication
 
 **Manufacturing**
 
-- Predictive maintenance  
+- Predictive maintenance
 - Inventory and warehouse optimization
 
-#### Example: Product bundling (retail)
+#### Example: Bundle products for retail
 
 Use sales pattern data to design bundles that increase basket size and margin.
 
 **Data sources**
 
-- Product catalog in **MongoDB Atlas**  
-- Sales facts in **Azure SQL**
+- Product catalog in MongoDB Atlas
+- Sales facts in Azure SQL
 
 **Flow**
 
-1. Use a Fabric pipeline to ingest product and sales data into **Fabric Data Warehouse** (or Lakehouse).  
-2. Apply **CDC** or event-driven updates for near real-time sync on top of the initial load.  
-3. Model affinity and co‑purchase patterns (e.g., Market Basket Analysis) and expose metrics via **Power BI**.
+1. Use a Fabric pipeline to ingest product and sales data into Data Warehouse or a lakehouse.
+
+1. Apply CDC or event-driven updates for near real-time sync on top of the initial load.
+
+1. Model affinity and copurchase patterns, like market basket analysis, and expose metrics via Power BI.
 
 :::image type="content" source="media/product-bundling-use-case-visualization.png" alt-text="Pipeline stages and charts for product bundling, including sales by product, year, region, and affinity." border="false" lightbox="media/product-bundling-use-case-visualization.png":::
 
 **Recommendations from analysis**
 
-- Bundle **pen + ink refill**  
-- Promote the bundle in high‑affinity regions
+- Bundle products, such as *pen* and *ink refill*.  
+- Promote the bundle in high‑affinity regions.
 
-#### Example: Product promotion (retail)
+#### Example: Promote products for retail
 
-Recommend complementary products using customer behavior, profitability, and product affinity.
+Recommend complementary products by using customer behavior, profitability, and product affinity.
 
 **Approach**
 
-- Train **machine learning models** in Fabric **Spark notebooks** or integrate with **Azure Machine Learning**.  
-- Use OneLake as the feature store and serve predictions to **Power BI** or downstream apps.
+- Train machine learning models in Fabric Spark notebooks or integrate with Azure Machine Learning.  
+- Use OneLake as the feature store and serve predictions to Power BI or downstream apps.
 
-:::image type="content" source="media/product-promotion-use-case-visualization.png" alt-text="Data pipeline and machine learning workflow for product promotion using customer and product features." border="false" lightbox="media/product-promotion-use-case-visualization.png":::
+:::image type="content" source="media/product-promotion-use-case-visualization.png" alt-text="Data pipeline and machine learning workflow for product promotion by using customer and product features." border="false" lightbox="media/product-promotion-use-case-visualization.png":::
 
-If the model achieves high accuracy, it yields a prioritized set of alternative product recommendations per customer or segment.
+If the model achieves high accuracy, it yields a prioritized set of alternative product recommendations for each customer or segment.
 
 ## Considerations
 
@@ -223,62 +219,62 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-- Use HTTPS and the latest TLS versions for Fabric Function/Azure Function endpoints.  
-- Validate inbound payloads as MongoDB change events.  
-- Configure **Microsoft Entra ID** authentication and least‑privilege RBAC for Fabric.  
-- OneLake inherits ADLS Gen2 security and authentication models.  
+- Use HTTPS and the latest Transport Layer Security (TLS) versions for Fabric user data functions and Azure Functions endpoints.
+- Validate inbound payloads as MongoDB change events.
+- Configure Microsoft Entra ID authentication and least‑privilege role-based access control (RBAC) for Fabric.
+- OneLake inherits Data Lake Storage security and authentication models.
 - MongoDB Atlas provides built‑in controls for access, network isolation, encryption, and auditing.
 
 ### Cost Optimization
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-- Right‑size Fabric capacity and consolidate workloads where reasonable.  
-- Batch change documents to reduce function invocations and small files.  
-- Compact and OPTIMIZE Lakehouse tables; schedule heavy transforms off‑peak.  
-- Use Parquet/Delta compression (Snappy) to lower storage and improve scan performance.  
-- Size Atlas clusters appropriately; evaluate sharding and storage tiers.
+- Right‑size Fabric capacity and consolidate workloads where reasonable.
+- Batch change documents to reduce function invocations and small files.
+- Compact and optimize lakehouse tables and schedule heavy transforms during off‑peak periods.
+- Use Parquet or Delta compression, like Snappy, to reduce storage utilization and improve scan performance.
+- Size Atlas clusters optimally and evaluate sharding and storage tiers.
 
 ### Performance Efficiency
 
 Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-- Batch multiple change events to reduce small‑file overhead.  
-- Use **Delta** for optimized Spark, SQL, and BI queries.  
-- Choose partitioning and distribution strategies appropriate for large warehouses.  
-- Tune pipeline parallelism; apply **pushdown filters** on MongoDB connectors.  
-- Monitor ingestion lag; implement retries and idempotent upserts.  
-- Schedule **OPTIMIZE** and **VACUUM** for Lakehouse maintenance.
-- Push (Mirroring accelerator, triggers → Functions, RTI) – Best for near real-time, event-driven ingestion.
-- Pull (pipelines) – Best for scheduled, batch, or micro-batch workloads.
-- Data Warehouse – Use for governed relational models and enterprise BI.
-- Lakehouse SQL endpoint – Use for lightweight SQL over Delta without warehouse provisioning.
+- Batch multiple change events to reduce small‑file overhead.
+- Use Delta for optimized Spark, SQL, and BI queries.
+- Choose partitioning and distribution strategies that suit large warehouses.
+- Tune pipeline parallelism and apply pushdown filters on MongoDB connectors.
+- Monitor ingestion lag and implement retries and idempotent upserts.
+- Schedule `OPTIMIZE` and `VACUUM` operations for lakehouse maintenance.
+- Use the push model for near real-time, event-driven ingestion.
+- Use the pull model for scheduled, batch, or micro-batch workloads.
+- Use Data Warehouse for governed relational models and enterprise BI.
+- Use lakehouse SQL endpoints for lightweight SQL over Delta without warehouse provisioning.
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
+*Microsoft maintains this article. The following contributors wrote this article.*
 
 Principal authors:
 
-- [Rodrigo Rodríguez](https://www.linkedin.com/in/rod2k10/) | Senior Cloud Solution Architect, AI & Quantum
 - [Diana Annie Jenosh](https://www.linkedin.com/in/diana-jenosh-0b014814) | Advisory Solutions Architect - MongoDB Partners team
+- [Rodrigo Rodríguez](https://www.linkedin.com/in/rod2k10/) | Senior Cloud Solution Architect, AI & Quantum
 
 Other contributors:
 
-- [Sunil Sabat](https://www.linkedin.com/in/sunilsabat/) | Principal Program Manager - ADF team
+- [Sunil Sabat](https://www.linkedin.com/in/sunilsabat/) | Principal Program Manager - Azure Data Factory team
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
 - [Fabric overview](/fabric/fundamentals/microsoft-fabric-overview)
-- [MongoDB mirroring accelerator for Microsoft Fabric](https://mongodb.com/company/blog/technical/near-real-time-analytics-mirroring-microsoft-fabric-for-mongodb-atlas)
-- [MongoDB Atlas on Azure Marketplace](https://marketplace.microsoft.com/en-us/product/mongodb.mongodb_atlas_azure_native_prod?tab=Overview)
-- [MongoDB horizontal use cases](https://www.mongodb.com/use-cases)
-- [MongoDB industry-specific use cases](https://www.mongodb.com/industries)
+- [MongoDB mirroring accelerator for Fabric](https://www.mongodb.com/company/blog/technical/near-real-time-analytics-mirroring-microsoft-fabric-for-mongodb-atlas)
+- [MongoDB Atlas on Microsoft Marketplace](https://marketplace.microsoft.com/product/mongodb.mongodb_atlas_azure_native_prod?tab=Overview)
+- [MongoDB use cases](https://www.mongodb.com/solutions/use-cases)
+- [MongoDB industry-specific use cases](https://www.mongodb.com/solutions/industries)
 - [App Service overview](/azure/app-service/overview)
-- [What is Power BI?](https://powerbi.microsoft.com/what-is-power-bi)
+- [Power BI overview](https://www.microsoft.com/power-platform/products/power-bi)
 
 ## Related resource
 
-- [Real-time analytics on data with Azure Service Bus and Azure Data Explorer](../../solution-ideas/articles/analytics-service-bus.yml)
+- [Real-time data analytics by using Azure Service Bus and Azure Data Explorer](../../solution-ideas/articles/analytics-service-bus.yml)
