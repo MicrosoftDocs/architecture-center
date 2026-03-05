@@ -327,7 +327,7 @@ Consider the following points for some of the services used in this architecture
 
 #### Azure Load Balancer
 
-You're charged only for the number of configured load-balancing and outbound rules. Inbound network address translation rules are free. There's no hourly charge for the Standard Load Balancer when no rules are configured. For more information, see [Azure Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer).
+You're charged only for the number of configured load-balancing and outbound rules. Inbound network address translation rules are free. There's no hourly charge for Load Balancer when no rules are configured. For more information, see [Azure Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer).
 
 #### Azure Pipelines
 
