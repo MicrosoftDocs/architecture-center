@@ -42,6 +42,18 @@ A modern data lake solution comprises two core elements:
 
 Additionally, mature solutions incorporate metadata management, security, and governance to ensure data quality, discoverability, and compliance.
 
+## Typical Data Lake Architecture
+
+A typical Azure data lake architecture consists of multiple layers that organize data as it moves through ingestion, transformation, and consumption stages.
+
+Common layers include:
+
+- **Raw (Bronze) layer**: Stores ingested data in its original format with minimal transformation.
+- **Cleansed (Silver) layer**: Contains validated and transformed data optimized for analytics and machine learning workloads.
+- **Curated (Gold) layer**: Stores aggregated and business-ready datasets used for reporting, dashboards, and downstream data applications.
+
+This layered architecture is commonly referred to as the Medallion Architecture and helps improve data quality, governance, and performance.
+
 ## When you should use a data lake
 
 We recommend using a data lake for exploratory analytics, advanced data science, and machine learning workloads. Because lakes retain data in its raw state and support schema-on-read, they allow teams to experiment with diverse data types and uncover insights that traditional warehouses might not capture.
@@ -59,12 +71,12 @@ The following table compares data lakes and data warehouses.
 
 | **Feature**                  | **Data Lake**                                                                 | **Data Warehouse**                                                             |
 |-----------------------------|-------------------------------------------------------------------------------|--------------------------------------------------------------------------------|
-| **Data type**               | Raw, unstructured, semi-structured, and structured                           | Structured and highly organized                                                |
-| **Query performance**       | Slower, especially for complex queries; depends on data format and tools     | Fast and optimized for analytical queries                                      |
+| **Data type**               | Raw, unstructured, semi-structured, and structured                           | Structured and curated data organized into relational schemas                                                |
+| **Query performance**       | Query performance depends on processing engines; transformation may occur at query time (schema-on-read)    | Optimized for high-performance analytical queries on structured data (schema-on-write) |
 | **Latency**                 | Higher latency due to on-the-fly processing                                  | Low latency with pre-processed, structured data                                |
 | **Data transformation stage**         | Transformation happens at query time, affecting overall processing time               | Transformation happens during the ETL or ELT process              |
 | **Scalability**             | Highly scalable and cost-effective for large volumes of diverse data         | Scalable but more expensive, especially at large scale                         |
-| **Cost**                    | Lower storage costs; compute costs vary based on usage                       | Higher storage and compute costs due to performance optimizations              |
+| **Cost**                    | Lower storage cost due to low-cost storage for raw data; compute costs are incurred when data is processed or queried                      | Higher cost due to dedicated compute and performance optimizations for analytical workloads              |
 | **Use case fit**            | Best for big data, machine learning, and exploratory analytics. In medallion architectures, the Gold layer is leveraged for reporting purposes               | Ideal for business intelligence, reporting, and structured data analysis       |
 
 ## Challenges of data lakes
@@ -115,6 +127,7 @@ Contributors:
 - [Connect to Data Lake Storage and Blob Storage](/azure/databricks/connect/storage/azure-storage)
 - [Load data into Data Lake Storage with Azure Data Factory](/azure/data-factory/load-azure-data-lake-storage-gen2)
 - [Connect to Azure Data Lake Storage in Microsoft Purview](https://learn.microsoft.com/en-us/purview/register-scan-adls-gen2)
+- [Best practices for using Azure Data Lake Storage](https://learn.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-best-practices)
 
 ## Related resources
 
