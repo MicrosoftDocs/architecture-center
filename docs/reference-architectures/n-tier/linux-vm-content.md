@@ -36,7 +36,7 @@ For best disk I/O performance, we recommend [Premium Storage](/azure/virtual-mac
 
 By default, the OS disk is a managed disk stored in [Azure Storage](/azure/storage/common/storage-introduction), so it persists even when the host machine is down. As an alternative, [ephemeral OS disks](/azure/virtual-machines/ephemeral-os-disks) place the OS image on the VM host's local storage instead of remote Azure Storage, which lowers read latency, speeds up reimaging, and eliminates the managed disk cost. However, all data on an ephemeral OS disk is lost on stop-deallocate, reimage, or host maintenance healing events, and ephemeral OS disks don't support snapshots or Azure Backup. Use ephemeral OS disks only when VMs are fully redeployable from automation.
 
-The VM also has a temporary disk stored on a physical drive on the host machine. The temp disk isn't persisted to Azure Storage and can be deleted during reboots and other VM lifecycle events. Use the temp disk only for scratch data that doesn't need to survive a reboot, such as application-specific temporary files.
+The VM also has a temporary disk stored on a physical drive on the host machine. The temp disk isn't persisted to Azure Storage and can be deleted during reboots and other VM lifecycle events. Use the temp disk only for scratch data that doesn't need to survive a reboot, such as application-specific temporary files or swap space.
 
 Many Linux images don't configure swap space by default. If your workload requires swap, create it on the temp disk by using [cloud-init](/azure/virtual-machines/linux/cloudinit-configure-swapfile) rather than on the OS disk or a data disk.
 
