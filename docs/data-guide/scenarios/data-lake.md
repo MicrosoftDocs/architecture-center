@@ -114,6 +114,7 @@ Contributors:
 - [Integration of Hadoop and Azure Data Lake Storage](/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2)
 - [Connect to Data Lake Storage and Blob Storage](/azure/databricks/connect/storage/azure-storage)
 - [Load data into Data Lake Storage with Azure Data Factory](/azure/data-factory/load-azure-data-lake-storage-gen2)
+- [Connect to Azure Data Lake Storage in Microsoft Purview](https://learn.microsoft.com/en-us/purview/register-scan-adls-gen2)
 
 ## Related resources
 
