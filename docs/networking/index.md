@@ -93,7 +93,7 @@ The following sections, organized by category, provide links to sample networkin
 
 ### Multi-region networking
 
-- [Multi-region load balancing with Azure Traffic Manager and Application Gateway](../high-availability/reference-architecture-traffic-manager-application-gateway.yml)
+- [Multi-region load balancing with Azure Traffic Manager and Application Gateway](../high-availability/traffic-manager-application-gateway.yml)
 
 ## Stay current with networking
 

@@ -20,4 +20,4 @@ name: Multi-region load balancing with Traffic Manager, Azure Firewall, and Appl
 summary: Multi-region load balancing with Traffic Manager, Azure Firewall, and Application Gateway.
 thumbnailUrl: /azure/architecture/browse/thumbs/high-availability-multi-region-v-10.png
 content: |
-  [!INCLUDE[](reference-architecture-traffic-manager-application-gateway-content.md)]
+  [!INCLUDE[](traffic-manager-application-gateway-content.md)]
