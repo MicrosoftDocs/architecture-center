@@ -24,7 +24,7 @@ The enterprise-level cloud file sharing solution uses the following methods to r
 
 - Accesses file share and file sync services via a private IP address by using Private Link and Azure private endpoints over an ExpressRoute private peering or VPN tunnel
 
-An Azure private endpoint on Azure Files and Azure File Sync turns off the public endpoint and restricts access to these services to traffic from the Azure virtual network.
+Implementing an Azure private endpoint on Azure Files and Azure File Sync turns off the public endpoint and restricts access to these services to traffic from the Azure virtual network.
 
 The ExpressRoute private peering VPN site-to-site tunnel extends the on-premises network to the Azure virtual network. Azure File Sync and Server Message Block (SMB) traffic from on-premises to Azure Files and Azure File Sync private endpoints travels over private connections only. During this transition, Azure Files allows only connections that use SMB 3.0 or later. The Azure File Sync agent encrypts every connection to an Azure file share or the Storage Sync service. Azure Storage and Azure Files encrypt data at rest automatically as it persists to the cloud.
 
