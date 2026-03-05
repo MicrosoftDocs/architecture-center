@@ -51,7 +51,7 @@ This image shows the automatic workflow for certificate renewal within the Azure
 1. **Key Vault extension configuration:** You must equip the servers that need to use the certificates with the Key Vault extension, a versatile tool compatible with [Windows](/azure/virtual-machines/extensions/key-vault-windows) and [Linux](/azure/virtual-machines/extensions/key-vault-linux) systems. Azure infrastructure as a service (IaaS) servers and on-premises or other cloud servers that integrate through [Azure Arc](/azure/azure-arc/overview) are supported. Configure the Key Vault extension to periodically poll Key Vault for any updated certificates. The polling interval is customizable and flexible so it can align with specific operational requirements.
 
    > [!NOTE]
-   > The Key Vault extension is unavailable on Linux RedHat and CentOS. To extend the solution to these systems, schedule the [**script_for_not_supported_ARC_on_Linux_distro script**](https://github.com/Azure/certlc/tree/main/.scripts) that periodically checks Key Vault for certificate updates and applies them to the server. The script can run on both Azure native VMs (IaaS) and on-premises servers integrated with Azure Arc.
+   > On some Linux distributions or hardened enterprise images, the Key Vault extension might not be available or supported. In these cases, schedule the [**script_for_not_supported_ARC_on_Linux_distro script**](https://github.com/Azure/certlc/tree/main/.scripts) as a recommended fallback. The script periodically checks Key Vault for certificate updates and applies them to the server. It can run on both Azure native VMs (IaaS) and on-premises servers integrated with Azure Arc.
 
 1. **Event Grid integration:** As a certificate approaches expiration, two Event Grid subscriptions intercept this important lifetime event from the key vault.
 
@@ -187,6 +187,9 @@ This solution caters to organizations across various industries that:
 
 This architecture serves as a foundational deployment approach across application landing zone subscriptions.
 
+> [!NOTE]
+> The same lifecycle pattern can be extended to Azure App Service, Application Gateway, and Kubernetes workloads that integrate with Key Vault.
+
 ## Considerations
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
@@ -196,6 +199,9 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 Within the Key Vault system, certificates are securely stored as encrypted secrets, protected by Azure role-based access control (RBAC).
+
+> [!TIP]
+> In environments with strict compliance requirements, such as NIS2 or public-sector regulations, consider evaluating [Azure Key Vault Managed HSM](/azure/key-vault/managed-hsm/overview) for key protection while keeping the same renewal workflow.
 
 Throughout the certificate renewal process, components that use identities are:
 
@@ -235,7 +241,7 @@ The automatic certificate renewal procedure securely stores certificates by way 
 
 Integrating with Event Grid triggers supplementary actions, such as notifying Microsoft Teams or Microsoft 365 and streamlining the renewal process. This integration significantly reduces certificate renewal time and mitigates the potential for errors that could lead to business disruptions and violations of SLAs.
 
-Also, seamless integration with Azure Monitor, Microsoft Sentinel, Microsoft Copilot for Security, and Microsoft Defender for Cloud facilitates continuous monitoring of the certificate renewal process. It supports anomaly detection and ensures that robust security measures are maintained.
+Also, seamless integration with Azure Monitor, Microsoft Sentinel, Microsoft Copilot for Security, and Microsoft Defender for Cloud facilitates continuous monitoring of the certificate renewal process. It supports anomaly detection and ensures that robust security measures are maintained. Microsoft Defender for Cloud contributes primarily through posture management and alert correlation rather than direct certificate renewal event handling.
 
 ## Deploy this scenario
 
