@@ -161,7 +161,7 @@ Several Azure networking tools can provide access to your applications that run 
 
   - The number of configured load-balancing and outbound rules. The total number of rules doesn't include inbound network address translation (NAT) rules.
 
-  - The amount of inbound and outbound processed data, independent of rules. There's no hourly charge for a standard load balancer that has no rules configured.
+  - The amount of inbound and outbound processed data, independent of rules. There's no hourly charge for a load balancer that has no rules configured.
 
 - [Azure Application Gateway](https://azure.microsoft.com/pricing/details/application-gateway): AKS often uses Application Gateway through [Application Gateway Ingress Controller](/azure/application-gateway/ingress-controller-overview). Or you can front a different ingress controller with a manually managed Application Gateway instance. Application Gateway supports gateway routing, Transport Layer Security (TLS) termination, and Web Application Firewall functionality. Application Gateway charges are based on:
 

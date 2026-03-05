@@ -410,7 +410,7 @@ items:
     displayName: legacy system integration, system boundary translation
     href: patterns/anti-corruption-layer.yml
   - name: Asynchronous Request-Reply
-    href: patterns/async-request-reply.yml
+    href: patterns/asynchronous-request-reply.md
   - name: Backends for Frontends
     displayName: BFF pattern, frontend-specific API
     href: patterns/backends-for-frontends.md
@@ -484,9 +484,9 @@ items:
     href: patterns/pipes-and-filters.yml
   - name: Priority Queue
     href: patterns/priority-queue.yml
-  - name: Publisher/Subscriber
+  - name: Publisher-Subscriber
     displayName: Pub/sub, pub sub, topic messaging
-    href: patterns/publisher-subscriber.yml
+    href: patterns/publisher-subscriber.md
   - name: Quarantine
     displayName: Deployment validation, input verification, security gate
     href: patterns/quarantine.yml
