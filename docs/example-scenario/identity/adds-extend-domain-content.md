@@ -48,7 +48,9 @@ You can apply the following recommendations to most scenarios. Follow these reco
 
 Determine your [VM size][vm-windows-sizes] requirements based on the expected volume of authentication requests. Use the specifications of the machines that host AD DS on-premises as a starting point and match them with the Azure VM sizes. After you deploy your application, monitor usage and scale up or down based on the actual load on the VMs. For more information, see [Capacity planning for AD DS][capacity-planning-for-adds].
 
-Create a separate virtual data disk to store the database, logs, and system volume (sysvol) folder for Active Directory. Don't store these items on the same disk as the operating system. By default, data disks are attached to a VM by using write-through caching. However, this form of caching can conflict with the requirements of AD DS. For this reason, set the *Host Cache Preference* setting on the data disk to *None*.
+Create a separate persistent data disk to store the Active Directory database (NTDS.dit), logs, and sysvol folder. Don't store these items on the same disk as the operating system. The ESE database engine that AD DS uses manages its own write ordering, so set *Host Cache Preference* on this data disk to *None* to avoid interference with database consistency.
+
+Use persistent managed disks for the OS disk on domain controller VMs. Don't use [ephemeral OS disks](/azure/virtual-machines/ephemeral-os-disks) for domain controllers. A persistent OS disk allows the domain controller to recover automatically from host maintenance events without requiring re-promotion.
 
 Deploy at least two VMs that run AD DS as domain controllers and add them to different [availability zones](/azure/reliability/availability-zones-overview). If availability zones aren't available in the region, deploy the VMs in an [availability set][availability-set].
 
