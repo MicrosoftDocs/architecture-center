@@ -414,7 +414,7 @@ Principal author:
 
 ## Related resources
 
-- [Baseline OpenAI end-to-end chat reference architecture](../../ai-ml/architecture/baseline-openai-e2e-chat.yml)
+[Baseline Microsoft Foundry chat reference architecture](../../ai-ml/architecture/baseline-microsoft-foundry-chat.yml)
 - [Multimodal and multilingual translation with Azure AI](../../ai-ml/guide/multimodal-multilingual-translation.yml)
 - [Azure OpenAI chat baseline architecture in an Azure landing zone](../../ai-ml/architecture/azure-openai-baseline-landing-zone.yml)
 - [Intelligent product search engine for e-commerce](../../example-scenario/apps/ecommerce-search.yml)
