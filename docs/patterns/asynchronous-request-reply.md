@@ -56,7 +56,7 @@ The following steps describe the solution:
 
 The following diagram shows a typical flow.
 
-:::image type="complex" border="false" source="./_images/async-request.png" alt-text="Image that shows the request and response flow for asynchronous HTTP requests." lightbox="./_images/async-request.png":::
+:::image type="complex" border="false" source="./_images/async-request.png" alt-text="Diagram that shows the request and response flow for asynchronous HTTP requests." lightbox="./_images/async-request.png":::
    A sequence diagram that shows a client, an API endpoint, a status endpoint, and a resource URI. The client sends a POST request to the API endpoint, which returns HTTP 202. The client then sends repeated GET requests to the status endpoint. The first response returns HTTP 200, and a later response returns HTTP 302 (Found). The client follows the redirect with a GET request to the resource URI, which returns HTTP 200. The diagram shows an asynchronous request pattern with polling and a final redirect to the completed resource.
 :::image-end:::
 
@@ -137,11 +137,11 @@ The following code shows excerpts from an application that uses Azure Functions 
 - The status endpoint
 - A back-end function that takes queued work items and runs them
 
-:::image type="complex" border="false" source="_images/async-request-fn.png" alt-text="Image of the structure of the Asynchronous Request Reply pattern in Functions." lightbox="_images/async-request-fn.png":::
+:::image type="complex" border="false" source="_images/async-request-fn.png" alt-text="Diagram of the structure of the Asynchronous Request Reply pattern in Functions." lightbox="_images/async-request-fn.png":::
    In step 1, a client calls an API. In step 2, the API places a message in a queue. In step 3, the API returns a status endpoint to the client. In step 4, a worker receives the message from the queue. In step 5, the worker processes the message and writes the result to blob storage. In step 6, the client calls the status endpoint. In step 7, the status endpoint checks for the result in blob storage.
 :::image-end:::
 
-![GitHub logo](../_images/github.png) This sample is available on [GitHub](https://github.com/mspnp/cloud-design-patterns/blob/main/async-request-reply/README.md).
+![GitHub logo.](../_images/github.png) This sample is available on [GitHub](https://github.com/mspnp/cloud-design-patterns/blob/main/async-request-reply/README.md).
 
 ### AsyncProcessingWorkAcceptor function
 
@@ -215,7 +215,7 @@ The `AsyncOperationStatusChecker` function implements the status endpoint. This 
 
 - If the request completes, the function returns a [valet key](./valet-key.yml) to the response or redirects the call immediately to the valet-key URL.
 
-- If the request is pending, the function returns a [HTTP 200 code that includes the current state](/azure/architecture/best-practices/api-design#implement-asynchronous-methods).
+- If the request is pending, the function returns an [HTTP 200 code that includes the current state](/azure/architecture/best-practices/api-design#implement-asynchronous-methods).
 
 ```csharp
     public class AsyncOperationStatusChecker(ILogger<AsyncOperationStatusChecker> _logger)
