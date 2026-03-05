@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This article describes how to use Azure Data Explorer to add near real-time analytics capabilities to an existing Azure Service Bus–based message broker architecture. The solution keeps operational systems optimized for transactional workloads while analytics queries run independently with minimal latency. This architecture is intended for IT administrators, cloud architects, and operations and monitoring teams.
+This article describes how to use Azure Data Explorer to add near real-time analytics capabilities to an existing message broker architecture that's based on Azure Service Bus. The solution keeps operational systems optimized for transactional workloads while analytics queries run independently with minimal latency. This architecture is intended for IT administrators, cloud architects, and operations and monitoring teams.
 
 ## Architecture
 
@@ -37,7 +37,7 @@ The diagram shows two data paths. The dotted line path represents the existing a
 
 ### Components
 
-- [App Service](/azure/well-architected/service-guides/app-service-web-apps) provides a managed platform to build and host web apps, mobile back ends, and RESTful APIs in the programming language of your choice, without managing infrastructure. In this architecture, App Service hosts the source OLTP application that generates the data that Service Bus ingests.
+- [App Service](/azure/well-architected/service-guides/app-service-web-apps) provides a managed platform where you can build and host web apps, mobile back ends, and RESTful APIs in the programming language of your choice, without managing infrastructure. In this architecture, App Service hosts the source OLTP application that generates the data that Service Bus ingests.
 
 - [Service Bus](/azure/well-architected/service-guides/service-bus/reliability) provides reliable cloud messaging as a service. In this architecture, Service Bus captures data generated at the source and triggers the orchestration flow.
 
