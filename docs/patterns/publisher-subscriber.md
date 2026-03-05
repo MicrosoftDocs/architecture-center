@@ -144,7 +144,7 @@ Evaluate how to use the Publisher-Subscriber pattern in a workload's design to a
 
 | Pillar | How this pattern supports pillar goals |
 | :----- | :------------------------------------- |
-| [Reliability](/azure/well-architected/reliability/checklist) design decisions help your workload become **resilient** to malfunction and ensure that it **recovers** to a fully functioning state after a failure occurs. | This pattern decouples components so that you can set independent reliability targets and remove direct dependencies. <br/><br/> - [RE:03 Failure mode analysis](/azure/well-architected/reliability/failure-mode-analysis)<br/> - [RE:07 Background jobs](/azure/well-architected/design-guides/background-jobs) |
+| [Reliability](/azure/well-architected/reliability/checklist) design decisions help your workload become **resilient** to malfunction and ensure that it **recovers** to a fully functioning state after a failure occurs. | This pattern decouples components so that you can set independent reliability targets and remove direct dependencies. <br/><br/> - [RE:03 Failure mode analysis](/azure/well-architected/reliability/failure-mode-analysis)<br/> - [RE:07 Background jobs](/azure/well-architected/reliability/background-jobs) |
 | [Security](/azure/well-architected/security/checklist) design decisions help ensure the **confidentiality**, **integrity**, and **availability** of your workload's data and systems. | This pattern introduces a clear security segmentation boundary. Use it to isolate queue subscribers from the publisher at the network level. <br/><br/> - [SE:04 Segmentation](/azure/well-architected/security/segmentation) |
 | [Cost Optimization](/azure/well-architected/cost-optimization/checklist) focuses on **sustaining** and **improving** your workload's **return on investment (ROI)**. | This decoupled design supports event-driven architectures that align with consumption-based billing models and help avoid overprovisioning. <br/><br/> - [CO:05 Rate optimization](/azure/well-architected/cost-optimization/get-best-rates) <br/> - [CO:12 Scaling costs](/azure/well-architected/cost-optimization/optimize-scaling-costs) |
 | [Operational Excellence](/azure/well-architected/operational-excellence/checklist) helps deliver **workload quality** through **standardized processes** and team cohesion. | The broker as an intermediary lets you change the implementation on either the publisher or subscriber side without coordinating changes across both components. <br/><br/> - [OE:06 Workload development](/azure/well-architected/operational-excellence/workload-supply-chain) <br/> - [OE:11 Safe deployment practices](/azure/well-architected/operational-excellence/safe-deployments) |
@@ -162,11 +162,11 @@ The following diagram shows an enterprise integration architecture that uses Ser
 
 ## Next step
 
+- [Asynchronous messaging options](../guide/technology-choices/messaging.md)
 - [You don't need ordered delivery](https://particular.net/blog/you-dont-need-ordered-delivery)
 
 ## Related resources
 
-- [Asynchronous messaging options](../guide/technology-choices/messaging.md)
 - [Event-driven architecture style](../guide/architecture-styles/event-driven.md)
 - [Idempotent message processing](../reference-architectures/containers/aks-mission-critical/mission-critical-data-platform.md#idempotent-message-processing)
 - [Enterprise integration on Azure by using message queues and events](../example-scenario/integration/queues-events.yml)
