@@ -2,7 +2,7 @@
 metadata:
   title: Deployment Patterns for Microsoft Fabric
   description: Learn about common deployment scenarios for Microsoft Fabric.
-  ms.author: pnp
+  ms.author: lferdinand
   author: lferdinand
   ms.date: 03/01/2026
   ms.topic: concept-article
