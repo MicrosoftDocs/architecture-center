@@ -141,7 +141,7 @@ Many managed machine learning services don't require model training or data, so 
 
 When you work with these services, it's important to consider the [isolation requirements](#tenant-isolation) for your tenants' data.
 
-Consider the scale requirements for the components in your solution. For example, many of the APIs within Foundry Tools support a maximum number of requests per second. If you deploy a single Foundry Tool resource to share across your tenants, then as the number of tenants increases, you might need to [scale to multiple resources](resource-organization.md).
+Consider the scale requirements for the components in your solution. For example, many of the APIs within Foundry Tools support a maximum number of requests per second. If you deploy a single Foundry tool resource to share across your tenants, then as the number of tenants increases, you might need to [scale to multiple resources](resource-organization.md).
 
 ### Custom AI and machine learning architecture
 
