@@ -94,7 +94,7 @@ Use [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-
 
 **Audit logs**. Use [audit logs](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) to see provisioning actions and other VM events.
 
-**Data encryption**. Use [Azure Disk Encryption](/azure/security/fundamentals/azure-disk-encryption-vms-vmss) if you need to encrypt the OS and data disks.
+**Data encryption**. Enable [encryption at host](/azure/virtual-machines/disk-encryption#encryption-at-host---end-to-end-encryption-for-your-vm-data) to achieve end-to-end encryption for your VM data, including temp disks and disk caches. Encryption at host handles encryption on the VM host infrastructure and doesn't consume VM CPU resources, unlike guest-based encryption. You can use platform-managed keys or [customer-managed keys](/azure/virtual-machines/disk-encryption#customer-managed-keys) with Azure Key Vault. Verify that your selected [VM size supports encryption at host](/azure/virtual-machines/windows/disks-enable-host-based-encryption-powershell#finding-supported-vm-sizes) before provisioning.
 
 ### Cost Optimization
 
