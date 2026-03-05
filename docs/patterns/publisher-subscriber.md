@@ -160,7 +160,7 @@ The following diagram shows an enterprise integration architecture that uses Ser
    On the far left, a solid arrow labeled HTTPS points right from the client apps to an API gateway icon. Client apps connects to Microsoft Entra ID via an arrow labeled authentication. A solid arrow labeled HTTPS points from the API gateway to REST or simple object access protocol (SOAP) web service. Two regions are to the right of the API gateway. The top-middle region, labeled workflow and orchestration, includes three logic app icons. A dotted arrow points from one logic app icon to Service Bus.  A dotted arrow points from Service Bus to the second Logic app icon. A solid arrow labeled HTTPS points from this logic app to software as a service (SaaS) service. An unlabeled arrow splits from this line and points to Azure services. Another dotted arrow points from Event Grid to the third logic app. A solid arrow labeled HTTPS points from this logic app to SaaS service. An unlabeled arrow splits from this line and points to Azure services. The lower-middle region labeled queues, topics, subscriptions, and events includes Service Bus and Event Grid. A dotted arrow labeled messages points to message-based service. On the far right, a section labeled back-end systems contains three icons: SaaS service, Azure services, and message-based service. A dotted arrow labeled events points from Azure services to Event Grid. A dotted arrow labeled send or pull messages points from message-based service to Service Bus.
 :::image-end:::
 
-## Next step
+## Next steps
 
 - [Asynchronous messaging options](../guide/technology-choices/messaging.md)
 - [You don't need ordered delivery](https://particular.net/blog/you-dont-need-ordered-delivery)
