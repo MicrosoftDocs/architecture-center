@@ -13,7 +13,7 @@ You can use a [WAF policy](/azure/web-application-firewall/ag/create-waf-policy-
 - This architecture uses a companion Azure Resource Manager template (ARM template) to deploy a new virtual network that has four subnets:
 
   - **AksSubnet** hosts the AKS cluster.
-  - **VmSubnet** hosts a jumpbox virtual machine (VM) and private endpoints.
+  - **VmSubnet** hosts a jump box virtual machine (VM) and private endpoints.
   - **AppGatewaySubnet** hosts Application Gateway WAF2 tier.
   - **AzureBastionSubnet** hosts Azure Bastion.
 
@@ -36,7 +36,7 @@ You can use a [WAF policy](/azure/web-application-firewall/ag/create-waf-policy-
 
 - A VM is deployed in the same virtual network that hosts the AKS cluster. When you deploy AKS as a private cluster, system administrators can use this VM to manage the cluster via the [Kubernetes command-line tool](https://kubernetes.io/docs/tasks/tools/). The boot diagnostics logs of the VM are stored in an Azure Storage account.
 
-- An Azure Bastion host provides secure and seamless Secure Shell (SSH) connectivity to the jumpbox VM, directly in the Azure portal via Secure Sockets Layer (SSL). This solution uses Azure Container Registry to build, store, and manage container images and artifacts, such as Helm charts.
+- An Azure Bastion host provides secure Secure Shell (SSH) connectivity to the jump box VM, directly in the Azure portal via Secure Sockets Layer (SSL). This solution uses Azure Container Registry to build, store, and manage container images and artifacts, such as Helm charts.
 
 - The architecture includes an application gateway that the ingress controller uses. The application gateway is deployed to a dedicated subnet and exposed to the public internet via a public IP address that all tenant workloads share. A WAF policy helps protect tenant workloads from malicious attacks.
 
@@ -61,7 +61,7 @@ You can use a [WAF policy](/azure/web-application-firewall/ag/create-waf-policy-
 - A virtual network link exists between the virtual network that hosts the AKS cluster and the preceding private DNS zones. A Log Analytics workspace collects the diagnostics logs and metrics from the following sources:
 
   - The AKS cluster
-  - The jumpbox VM
+  - The jump box VM
   - Application Gateway
   - Key Vault
   - Azure network security groups
@@ -78,7 +78,7 @@ You can use a [WAF policy](/azure/web-application-firewall/ag/create-waf-policy-
 
 - [WAF](/azure/application-gateway/waf-overview) is a service that helps provide centralized protection of web applications from common exploits and vulnerabilities. WAF is based on rules from the [OWASP CRS](https://owasp.org/www-project-modsecurity-core-rule-set). You can use WAF to create custom rules that are evaluated for each request that passes through a policy. These rules hold a higher priority than the rest of the rules in the managed rule sets. The custom rules contain a rule name, rule priority, and an array of matching conditions. If the request meets these conditions, WAF allows or blocks the request based on the rule.
 
-- [Azure Bastion](/azure/bastion/bastion-overview) is a fully managed PaaS that you provision inside your virtual network. Azure Bastion helps provide secure and seamless Remote Desktop Protocol (RDP) and SSH connectivity to the VMs in your virtual network, directly from the Azure portal over TLS.
+- [Azure Bastion](/azure/bastion/bastion-overview) is a fully managed PaaS that you provision inside your virtual network. Azure Bastion provides Remote Desktop Protocol (RDP) and SSH connectivity to the VMs in your virtual network, directly from the Azure portal over TLS.
 
 - [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) provides on-demand, scalable computing resources that give you the flexibility of virtualization without having to buy and maintain the physical hardware.
 
@@ -86,7 +86,7 @@ You can use a [WAF policy](/azure/web-application-firewall/ag/create-waf-policy-
 
 - [Virtual network interfaces](/azure/virtual-network/virtual-network-network-interface) help establish communication between Azure VMs and the internet, Azure, and on-premises resources. You can add several network interface cards to one Azure VM so that child VMs can have their own dedicated network interface devices and IP addresses.
 
-- [Azure managed disks](/azure/virtual-machines/windows/managed-disks-overview) are block-level storage volumes that Azure manages on Azure VMs. The disk types include Azure Ultra Disk Storage, Azure Premium SSD, Azure Standard SSD, and Azure Standard HDD.
+- [Azure Managed Disks](/azure/virtual-machines/managed-disks-overview) are block-level storage volumes that Azure manages on Azure VMs. The disk types include Azure Ultra Disk Storage, Azure Premium SSD, and Azure Standard SSD.
 
 - [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is a Microsoft object storage solution for the cloud. Blob Storage is optimized for storing massive amounts of unstructured data. Unstructured data is data that doesn't adhere to a particular data model or definition, such as text data or binary data.
 
@@ -176,12 +176,12 @@ These availability and reliability considerations don't fully pertain to multite
 
 - Scan your container images for vulnerabilities. Only deploy images that pass validation. Regularly update the base images and application runtime, and then redeploy your workloads in the AKS cluster.
 - Limit the image registries that pods and deployments can use. Restrict access to trusted registries where you can validate and control the images that are available.
-- Scan container images for vulnerabilities as part of a continuous integration and continuous delivery (CI/CD) pipeline before you publish images to Container Registry. As you use base images for application images, use automation to build new images when you update the base image. The base images typically include security fixes, so you must update any downstream application container images. We recommend that you integrate [Azure Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) into CI/CD workflows. For more information, see [Automate container image builds](/azure/container-registry/container-registry-tutorial-base-image-update).
+- Scan container images for vulnerabilities as part of a continuous integration and continuous delivery (CI/CD) pipeline before you publish images to Container Registry. As you use base images for application images, use automation to build new images when you update the base image. The base images typically include security fixes, so you must update any downstream application container images. We recommend that you integrate [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) into CI/CD workflows. For more information, see [Automate container image builds](/azure/container-registry/container-registry-tutorial-base-image-update).
 - Use [Container Registry tasks](/azure/container-registry/container-registry-tasks-overview) to automate OS and framework patching for your Docker containers. Container Registry tasks support an automated build process when you update a container's base image. For example, you might patch the OS or application framework in one of your base images.
 
 #### Intra-region resiliency
 
-- Consider deploying the node pools of your AKS cluster across all the [availability zones](/azure/aks/availability-zones) within a region. Use [Azure Standard Load Balancer](/azure/load-balancer/load-balancer-overview) or [Application Gateway](/azure/application-gateway/overview) in front of your node pools. This topology provides better resiliency if a single datacenter outage occurs. This method distributes cluster nodes across multiple datacenters that reside in three separate availability zones within a region.
+- Consider deploying the node pools of your AKS cluster across all the [availability zones](/azure/aks/availability-zones) within a region. Use [Azure Load Balancer](/azure/load-balancer/load-balancer-overview) or [Application Gateway](/azure/application-gateway/overview) in front of your node pools. This topology provides better resiliency if a single datacenter outage occurs. This method distributes cluster nodes across multiple datacenters that reside in three separate availability zones within a region.
 
 - Enable [zone redundancy in Container Registry](/azure/container-registry/zone-redundancy) for intra-region resiliency and high availability.
 - Use [pod topology spread constraints](https://kubernetes.io/docs/concepts/workloads/pods/pod-topology-spread-constraints) to control how you spread pods across your AKS cluster among failure domains, such as regions, availability zones, and nodes.
@@ -229,7 +229,7 @@ The security considerations don't fully pertain to multitenancy in AKS, but they
 - Configure [Application Gateway](/azure/application-gateway/overview) to use a [WAF policy](/azure/application-gateway/waf-overview) to help protect public-facing workloads that run on AKS from malicious attacks.
 - Use Azure CNI networking in AKS to integrate with existing virtual networks or on-premises networks. This network model also allows greater separation of resources and controls in an enterprise environment.
 - Use network policies to segregate and secure intra-service communications by controlling which components can communicate with each other. By default, all pods in a Kubernetes cluster can send and receive traffic without limitations. To improve security, you can use Azure network policies or Calico network policies to define rules that control the traffic flow between various microservices. For more information, see [Network policy](/azure/aks/use-network-policies).
-- Don't expose remote connectivity to your AKS nodes. Create a bastion host, or jumpbox, in a management virtual network. Use the bastion host to securely route traffic into your AKS cluster to remote management tasks.
+- Don't expose remote connectivity to your AKS nodes. Create a bastion host, or jump box, in a management virtual network. Use the bastion host to securely route traffic into your AKS cluster to remote management tasks.
 - Consider using [authorized IP address ranges](/azure/aks/api-server-authorized-ip-ranges) in AKS to create a [private AKS cluster](/azure/aks/private-clusters) in your production environment. If you can't use a private AKS cluster, at least secure access to the API server.
 - Combine [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) with application-design best practices to provide enhanced DDoS mitigation features and extra defense against DDoS attacks. Enable [DDoS Protection](/azure/ddos-protection/ddos-protection-overview) on perimeter virtual networks.
 
@@ -251,7 +251,7 @@ The security considerations don't fully pertain to multitenancy in AKS, but they
 - Avoid running containers as a root user whenever possible.
 - Use the [AppArmor](https://kubernetes.io/docs/tutorials/clusters/apparmor) Linux kernel security module to limit the actions that containers can do.
 - Upgrade your AKS clusters to the latest Kubernetes version regularly to take advantage of new features and bug fixes.
-- Use the [kured](https://github.com/kubereboot/kured) daemonset to watch for pending reboots, cordon and drain nodes, and apply updates. AKS automatically downloads and installs security fixes on each Linux node, but it doesn't automatically reboot the node if necessary. For Windows Server nodes, regularly run an AKS upgrade operation to safely cordon and drain pods and to deploy any updated nodes.
+- Use the [kured](https://kured.dev/) daemonset to watch for pending reboots, cordon and drain nodes, and apply updates. AKS automatically downloads and installs security fixes on each Linux node, but it doesn't automatically reboot the node if necessary. For Windows Server nodes, regularly run an AKS upgrade operation to safely cordon and drain pods and to deploy any updated nodes.
 - Consider using HTTPS and gRPC secure transport protocols for all intra-pod communications. And use a more advanced authentication mechanism that doesn't require you to send the plain credentials on every request, like Open Authorization (OAuth) or JSON Web Tokens (JWTs). Establish more secure intra-service communication by using a service mesh, like [Istio](https://istio.io/), [Linkerd](https://linkerd.io), or [Consul](https://www.consul.io). Or you can use [Dapr](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/service-invocation-overview).
 
 #### Container Registry
@@ -329,22 +329,6 @@ The source code for this scenario is available on [GitHub](https://github.com/Az
 :::image type="content" border="false" source="./media/aks-agic-sample.svg" alt-text="Diagram that shows the deployment of this AGIC with AKS architecture." lightbox="./media/aks-agic-sample.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/aks-agic-multitenant.vsdx) of this architecture.*
-
-### Prerequisites
-
-For online deployments, you must have an existing Azure account. If you don't have one, create a [free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-### Deploy to Azure
-
-1. Make sure you have your Azure subscription information handy.
-
-1. Clone the [workbench GitHub repository](https://github.com/Azure-Samples/aks-agic):
-
-   ```git
-   git clone https://github.com/Azure-Samples/aks-agic.git
-   ```
-
-1. Follow the instructions provided in the [README.md file](https://github.com/Azure-Samples/aks-agic/blob/main/README.md).
 
 ## Contributors
 

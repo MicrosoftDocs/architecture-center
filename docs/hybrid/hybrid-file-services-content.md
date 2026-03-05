@@ -15,13 +15,15 @@ The architecture consists of the following components:
 - **Sync groups**. Logical groupings of Azure file shares and servers that run Windows Server. Sync groups are deployed into Storage Sync Service, which registers servers for use with Azure File Sync and contains the sync group relationships.
 - **Azure File Sync agent**. This is installed on Windows Server machines to enable and configure sync with cloud endpoints.
 - **Windows Servers**. On-premises or cloud-based Windows Server machines that host a file share that syncs with an Azure file share.
-- **[Microsoft Entra ID][Azure Active Directory]**. The Microsoft Entra tenant that's used for identity synchronization across Azure and on-premises environments.
+- **[Microsoft Entra ID][Microsoft Entra ID]**. The Microsoft Entra tenant that's used for identity synchronization across Azure and on-premises environments.
 
 ### Components
 
-- [Azure Storage accounts](/azure/well-architected/service-guides/storage-accounts/reliability)
-- [Azure Files](/azure/well-architected/service-guides/azure-files)
-- [Microsoft Entra ID](/entra/fundamentals/whatis)
+- [Azure Files](/azure/well-architected/service-guides/azure-files) is a fully managed cloud file sharing service from Microsoft Azure that lets you create file shares accessible via SMB or network file system (NFS) protocols, with the scalability, security, and flexibility of the cloud. In this architecture, it enables scalable, secure file storage for applications and users and supports lift-and-shift scenarios and hybrid access.
+
+- [Azure Storage accounts](/azure/well-architected/service-guides/storage-accounts/reliability) are the foundational containers in Microsoft Azure that hold all your cloud storage data and provide a unified namespace for storing blobs, files, queues, tables, and disks. In this architecture, they serve as the foundational storage layer and ensure high availability, durability, and performance across workloads.
+
+- [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based identity and access management service. In this architecture, it governs authentication, authorization, and conditional access for users, apps, and services across the environment.
 
 ## Scenario details
 
@@ -108,13 +110,12 @@ For more information on how to configure Azure File Sync with a proxy server, se
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
+Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-- You should consider the type and performance of the storage account that you use to host Azure file shares. All storage resources that are deployed into a storage account share the limits that apply to that storage account. To find out more about determining the current limits for a storage account, see [Azure Files scalability and performance targets][Azure Files scalability and performance targets].
 - There are two main types of storage accounts for Azure Files deployments:
   - General purpose version 2 (GPv2) storage accounts. GPv2 storage accounts allow you to deploy Azure file shares on standard, hard disk-based (HDD-based) hardware. In addition to storing Azure file shares, GPv2 storage accounts can store other storage resources such as blob containers, queues, and tables.
   - FileStorage storage accounts: FileStorage storage accounts make it possible for you to deploy Azure file shares on premium, solid-state disk-based (SSD-based) hardware. FileStorage accounts can only be used to store Azure file shares. You can't deploy other storage resources such as blob containers, queues, and tables in a FileStorage account.
@@ -125,7 +126,7 @@ Reliability ensures your application can meet the commitments you make to your c
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
+Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 - Azure File Sync works with your standard Active Directory Domain Services (AD DS) identity without any special setup beyond setting up Azure File Sync. When you use Azure File Sync, file access typically goes through the Azure File Sync caching servers rather than through the Azure file share. Because the server endpoints are located on Windows Server machines, the only requirement for identity integration is to use domain-joined Windows file servers to register with the Storage Sync Service. Azure File Sync stores access control lists (ACLs) for the files in the Azure file share, and replicates them to all server endpoints.
 - Even though changes that are made directly to the Azure file share take longer to sync to the server endpoints in the sync group, you might want to ensure that you can enforce your AD DS permissions on your file share directly in the cloud also. To do this, you must domain join your storage account to your on-premises AD DS domain, just as your Windows file servers are domain joined. To learn more about domain joining your storage account to a customer-owned AD DS instance, see [Overview of Azure Files identity-based authentication options for SMB access][Overview of Azure Files identity-based authentication options for SMB access].
@@ -136,9 +137,8 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 ### Cost Optimization
 
-Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-- Consult the [Principles of cost optimization][Principles of cost optimization] page in the Azure Well-Architected Framework for cost optimization recommendations.
 - The [Azure Storage Pricing][Azure Storage Overview pricing] page provides detailed pricing information based on account type, storage capacity, replication, and transactions.
 - The [Data Transfers Pricing Details][Bandwidth Pricing Details] article provides detailed pricing information for data egress.
 - You can use the [Azure Storage Pricing Calculator][Pricing calculator] to help estimate your costs.
@@ -150,6 +150,12 @@ Operational Excellence covers the operations processes that deploy an applicatio
 - The Azure File Sync agent is updated on a regular basis to add new functionality and to address issues. Microsoft recommends that you configure Microsoft Update to provide updates for the Azure File Sync agent as they become available. For more information, see [Azure File Sync agent update policy][Azure File Sync agent update policy].
 - Azure Storage offers soft delete for file shares so that you can recover your data when it's mistakenly deleted by an application or by another storage account user. To learn more about soft delete, see [Enable soft delete on Azure file shares][Enable soft delete on Azure file shares].
 - Cloud tiering is an optional feature of Azure File Sync that caches frequently accessed files locally on the server and tiers the others to Azure Files based on policy settings. When a file is tiered, the Azure File Sync file system filter (StorageSync.sys) replaces the file locally with a pointer to the file in Azure Files. A tiered file has both the **offline** attribute and the **FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS** attribute set in NTFS so that third-party applications can securely identify tiered files. For more information, see [Cloud Tiering Overview][Cloud Tiering Overview].
+
+### Performance Efficiency
+
+Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+
+- You should consider the type and performance of the storage account that you use to host Azure file shares. All storage resources that are deployed into a storage account share the limits that apply to that storage account. To find out more about determining the current limits for a storage account, see [Azure Files scalability and performance targets][Azure Files scalability and performance targets].
 
 ## Next steps
 
@@ -174,14 +180,13 @@ Related architectures:
 
 - [Azure enterprise cloud file share](azure-files-private.yml)
 - [Azure Files accessed on-premises and secured by AD DS](../example-scenario/hybrid/azure-files-on-premises-authentication.yml)
-- [Hybrid file share with disaster recovery for remote and local branch workers](../example-scenario/hybrid/hybrid-file-share-dr-remote-local-branch-workers.yml)
 - [Use Azure file shares in a hybrid environment](azure-file-share.yml)
 
 [Architecture diagram]: ./images/hybrid-file-services.svg
 [Visio diagram]: https://arch-center.azureedge.net/hybrid-file-services.vsdx
 [Storage Account]: /azure/storage/common/storage-account-overview
 [Azure Files]: /azure/storage/files/storage-files-planning
-[Azure Active Directory]: /azure/active-directory/fundamentals/active-directory-whatis
+[Microsoft Entra ID]: /entra/fundamentals/whatis
 [Azure File Sync proxy and firewall settings]: /azure/storage/files/storage-sync-files-firewall-and-proxy
 [Windows file server considerations]: /azure/storage/files/storage-sync-files-planning#windows-file-server-considerations
 [Azure File Sync Agent Download]: https://go.microsoft.com/fwlink/?linkid=858257
@@ -193,7 +198,6 @@ Related architectures:
 [Azure File Sync agent update policy]: /azure/storage/files/storage-sync-files-planning#azure-file-sync-agent-update-policy
 [Cloud Tiering Overview]: /azure/storage/files/storage-sync-cloud-tiering
 [Self-service restore through Previous Versions and VSS (Volume Shadow Copy Service)]: /azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service
-[Principles of cost optimization]: /azure/architecture/framework/cost/overview
 [Azure Storage Overview pricing]: https://azure.microsoft.com/pricing/details/storage/
 [Bandwidth Pricing Details]: https://azure.microsoft.com/pricing/details/data-transfers/
 [Pricing calculator]: https://azure.microsoft.com/pricing/calculator/?scenario=data-management

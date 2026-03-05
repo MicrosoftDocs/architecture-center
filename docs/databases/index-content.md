@@ -42,14 +42,14 @@ Here are some Learn modules you might find useful:
 To find options helpful for dealing with relational data, consider these resources:
 
 - To learn about resources for gathering data from multiple sources and how to and apply data transformations within the data pipelines, see [Analytics in Azure](/azure/architecture/solution-ideas/articles/analytics-start-here).
-- To learn about OLAP, which organizes large business databases and supports complex analysis, see [Online analytical processing](../data-guide/relational-data/online-analytical-processing.yml).
+- To learn about OLAP, which organizes large business databases and supports complex analysis, see [Online analytical processing](../data-guide/relational-data/online-analytical-processing.md).
 - To learn about OLTP systems record business interactions as they occur, see [Online transaction processing](../data-guide/relational-data/online-transaction-processing.md).
 
 A *nonrelational database* doesn't use the tabular schema of rows and columns. For more information, see [Nonrelational data and NoSQL](../data-guide/big-data/non-relational-data.yml).
 
 To learn about data lakes, which hold a large amount of data in its native, raw format, see [Data lakes](../data-guide/scenarios/data-lake.md).
 
-A big data architecture can handle ingestion, processing, and analysis of data that is too large or too complex for traditional database systems. For more information, see [Big data architectures](../databases/guide/big-data-architectures.yml) and [Analytics](/azure/architecture/solution-ideas/articles/analytics-start-here).
+A big data architecture can handle ingestion, processing, and analysis of data that is too large or too complex for traditional database systems. For more information, see [Big data architectures](../databases/guide/big-data-architectures.md) and [Analytics](/azure/architecture/solution-ideas/articles/analytics-start-here).
 
 A hybrid cloud is an IT environment that combines public cloud and on-premises datacenters. For more information, consider [Azure Arc](/azure/azure-arc/overview) combined with Azure databases.
 
@@ -63,7 +63,7 @@ Review these best practices when designing your solutions.
 
 | Best practices | Description |
 |--------------- |------------ |
-| [Transactional Outbox pattern with Azure Cosmos DB](../databases/guide/transactional-outbox-cosmos.yml) | Learn how to use the Transactional Outbox pattern for reliable messaging and guaranteed delivery of events. |
+| [Transactional Outbox pattern with Azure Cosmos DB](../databases/guide/transactional-out-box-cosmos.md) | Learn how to use the Transactional Outbox pattern for reliable messaging and guaranteed delivery of events. |
 | [Distribute your data globally with Azure Cosmos DB](/azure/cosmos-db/distribute-data-globally) | To achieve low latency and high availability, some applications need to be deployed in datacenters that are close to their users. |
 | [Security in Azure Cosmos DB](/azure/cosmos-db/database-security) | Security best practices help prevent, detect, and respond to database breaches. |
 | [Continuous backup with point-in-time restore in Azure Cosmos DB](/azure/cosmos-db/continuous-backup-restore-introduction) | Learn about Azure Cosmos DB point-in-time restore feature. |
@@ -75,7 +75,7 @@ Review these best practices when designing your solutions.
 There are many options for technologies to use with Azure Databases.
 These articles help you choose the best technologies for your needs.
 
-- [Choose a Data Store](/azure/architecture/guide/technology-choices/data-store-overview)
+- [Choose a Data Store](/azure/architecture/guide/technology-choices/data-stores-getting-started)
 - [Choose an analytical data store in Azure](../data-guide/technology-choices/analytical-data-stores.md)
 - [Choose a data analytics technology in Azure](../data-guide/technology-choices/analysis-visualizations-reporting.md)
 - [Choose a batch processing technology in Azure](../data-guide/technology-choices/batch-processing.md)
@@ -88,9 +88,17 @@ These articles help you choose the best technologies for your needs.
 
 Refer to [Azure updates](https://azure.microsoft.com/updates/?category=databases) to keep current with Azure Databases technology.
 
+## Contributors
+
+*Microsoft maintains this article. The following contributors wrote this article.*
+
+- [Mohit Agarwal](https://www.linkedin.com/in/mohitagarwal01/) |  Principal Cloud Solution Architect
+
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
+
 ## Related resources
 
-- [Adatum Corporation scenario for data management and analytics in Azure](/azure/cloud-adoption-framework/scenarios/data-management/architectures/reference-architecture-adatum)
+- [Adatum Corporation scenario for cloud-scale analytics in Azure](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/reference-architecture-adatum)
 - [Lamna Healthcare scenario for data management and analytics in Azure](/azure/cloud-adoption-framework/scenarios/data-management/architectures/reference-architecture-lamna)
 - [Optimize administration of SQL Server instances](../hybrid/azure-arc-sql-server.yml)
 - [Relecloud scenario for data management and analytics in Azure](/azure/cloud-adoption-framework/scenarios/data-management/architectures/reference-architecture-relecloud)

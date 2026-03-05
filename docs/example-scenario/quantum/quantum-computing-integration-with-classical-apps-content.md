@@ -12,7 +12,7 @@ You can integrate this orchestration with classical applications in one of two w
 * **Integration via tight coupling.** Logic for the orchestration of quantum resources is integrated into the classical component or components.
 * **Integration via loose coupling.** Logic for the orchestration of quantum resources is exposed as an API that can be called by various classical software components.
 
-This article describes how to implement quantum applications in each of these designs. Each implementation utilizes Azure Quantum as the quantum computing engine but they differ slightly in other aspects as detailed below.
+This article describes how to implement quantum applications in each of these designs. Each implementation uses Azure Quantum as the quantum computing engine but they differ slightly in other aspects as detailed in the following sections.
 
 ## Tightly coupled approach
 
@@ -23,7 +23,7 @@ The tightly coupled approach is preferred in these cases:
 * One team owns both the quantum code and the classical code, and the code is integrated.
 * Quantum components share the same lifecycle as the classical components.
 * Use of the quantum components is limited to a single application or small set of related applications.
-* The quantum job represents a specialized solution (for example, a molecular simulation) that will be used only by one specialized classical application.
+* The quantum job represents a specialized solution (for example, a molecular simulation) that gets used only by one specialized classical application.
 * The implemented algorithm is hybrid quantum-classical by nature, for example, Variational Quantum Eigensolvers (VQE) and Quantum Approximate Optimization Algorithms (QAOA).
 
 ### Architecture
@@ -36,7 +36,7 @@ The tightly coupled approach is preferred in these cases:
 
 1. A signed-in user triggers quantum job execution via a classical client application.
 1. The client application puts input data into Azure Storage.
-1. The client application submits the job to an Azure Quantum workspace, specifying the execution target or targets. The client identifies the workspace via data that's stored in Key Vault and authenticates to the workspace via [managed identity](/azure/active-directory/managed-identities-azure-resources/overview).
+1. The client application submits the job to an Azure Quantum workspace, specifying the execution target or targets. The client identifies the workspace via data that's stored in Key Vault and authenticates to the workspace via [managed identity](/entra/identity/managed-identities-azure-resources/overview).
 1. A quantum provider runs the job on a target environment.
 1. The client application monitors job execution by polling job status.
 1. As soon as the quantum job finishes, the client application gets the compute result from Storage.
@@ -71,7 +71,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 Unlike the architecture for the [loosely coupled alternative](/azure/architecture/example-scenario/quantum/quantum-computing-integration-with-classical-apps), the architecture presented here is based on the assumption that only one client accesses the Azure Quantum workspace. This scenario leads to the following configurations:
 
-* Because the client is known, you can implement authentication via [managed identity](/azure/active-directory/managed-identities-azure-resources/overview), associated to the application.
+* Because the client is known, you can implement authentication via [managed identity](/entra/identity/managed-identities-azure-resources/overview), associated to the application.
 * You can implement throttling of requests and caching of results in the client itself.
 
 In general, consider applying the [typical design patterns for security](/azure/architecture/framework/security/security-patterns) when appropriate.
@@ -97,7 +97,7 @@ The loosely coupled approach is preferred in these cases:
 1. The classical application calls the custom job API to submit the job.
 1. The API gateway triggers the job submission Azure function, which passes job input data.
 1. The function puts the input data into Azure Storage.
-1. The function submits the job to an Azure Quantum workspace, specifying the execution target or targets. The function identifies the workspace via data stored in Azure Key Vault and authenticates to the workspace via [managed identity](/azure/active-directory/managed-identities-azure-resources/overview).
+1. The function submits the job to an Azure Quantum workspace, specifying the execution target or targets. The function identifies the workspace via data stored in Azure Key Vault and authenticates to the workspace via [managed identity](/entra/identity/managed-identities-azure-resources/overview).
 1. A quantum provider runs the job on a target environment.
 1. The client application monitors job execution by polling job status via API calls.
 1. The API gateway monitors job execution by polling job status from the quantum provider.
@@ -130,7 +130,7 @@ For the surrounding Azure services, the usual availability considerations apply:
 Unlike the architecture for the [tightly coupled alternative](/azure/architecture/example-scenario/quantum/quantum-computing-integration-with-classical-apps), the architecture presented here is based on the assumption that multiple clients access the Azure Quantum workspace via the API. This scenario leads to the following configurations:
 
 * Clients must authenticate to the API. You can implement this authentication by using [authentication policies](/azure/api-management/api-management-authentication-policies).
-* You can implement authentication of the Azure functions via [managed identities](/azure/active-directory/managed-identities-azure-resources/overview) associated with the functions. You can use these identities to authenticate to the Azure Quantum workspace.
+* You can implement authentication of the Azure functions via [managed identities](/entra/identity/managed-identities-azure-resources/overview) associated with the functions. You can use these identities to authenticate to the Azure Quantum workspace.
 * Multiple clients access the API. You can implement request throttling by using [API Management request throttling](/azure/api-management/api-management-sample-flexible-throttling) to protect the quantum back end and limit the use of quantum resources.
 * Depending on the request pattern, you might be able to implement the caching of quantum computing results by using [API Management caching policies](/azure/api-management/api-management-caching-policies).
 
@@ -152,13 +152,13 @@ The architectures presented here are for business problems that require quantum 
 
 ### Considerations
 
-Some of the Azure quantum targets (especially quantum hardware) will be a limited resource for the foreseeable future. Access to these resources is implemented via a queueing mechanism. When you submit a quantum job to Azure Quantum, this job is added to a job queue. The job will be executed, once the target completes processing earlier queue entries. You can obtain the expected waiting time by [listing available targets](/azure/quantum/how-to-submit-jobs). To calculate the full response time, you need to add the time spent waiting for an available resource to the job execution time.
+Some of the Azure quantum targets (especially quantum hardware) are a limited resource for the foreseeable future. Access to these resources is implemented via a queueing mechanism. When you submit a quantum job to Azure Quantum, this job is added to a job queue. The job runs after the target completes processing earlier queue entries. You can obtain the expected waiting time by [listing available targets](/azure/quantum/how-to-submit-jobs). To calculate the full response time, you need to add the time spent waiting for an available resource to the job execution time.
 
 #### Reliability
 
-As quantum target environments like Azure Quantum typically provide limited error-correction (limited to the quantum processor in the case of Azure Quantum), other errors such as quantum machine timeout may still occur so it is recommended to monitor job execution so you can inform the user about job status. When job execution fails because of a transient error, implement a [retry pattern](/azure/architecture/patterns/retry). Submit the jobs via asynchronous calls, with polling for the result, to avoid unnecessarily blocking the calling client.
+As quantum target environments like Azure Quantum typically provide limited error-correction (limited to the quantum processor in the case of Azure Quantum), other errors such as quantum machine timeout might still occur so it is recommended to monitor job execution so you can inform the user about job status. When job execution fails because of a transient error, implement a [retry pattern](/azure/architecture/patterns/retry). Submit the jobs via asynchronous calls, with polling for the result, to avoid unnecessarily blocking the calling client.
 
-As quantum computing resources are typically limited, resiliency expectations should consider this factor.  As such, the suggestions offered in this article may provide additional measures of resiliency.
+As quantum computing resources are typically limited, resiliency expectations should consider this factor. As such, the suggestions offered in this article might provide additional measures of resiliency.
 
 #### Cost Optimization
 
@@ -166,13 +166,13 @@ Cost Optimization is about looking at ways to reduce unnecessary expenses and im
 
 The overall cost of this solution depends on the quantum computing target that you select to run the quantum job. Calculating estimated costs for the classic components is straightforward. You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
 
-For the Azure Quantum service, consider that Quantum computing providers can be consumed via an Azure Marketplace offering. Pricing depends on the type of resource (simulator or hardware), the SKU, and your usage. For details, see the reference page for the provider needed for your scenario. These reference pages are listed in [Quantum computing providers on Azure Quantum](/azure/quantum/qc-target-list).
+For the Azure Quantum service, consider that Quantum computing providers can be consumed via a [Microsoft Marketplace](https://marketplace.microsoft.com/marketplace/apps?search=quantum) offering. Pricing depends on the type of resource (simulator or hardware), the SKU, and your usage. For more information, see the reference page for the provider needed for your scenario. These reference pages are listed in [Quantum computing providers on Azure Quantum](/azure/quantum/qc-target-list).
 
 #### Operational Excellence
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-Incorporating quantum jobs into classical CI/CD pipelines can be accomplished using Azure DevOps with minor changes to a typical design. The design below illustrates a DevOps pipeline workflow that can be applied to the tightly coupled and loosely coupled architectures.
+Incorporating quantum jobs into classical CI/CD pipelines can be accomplished using Azure DevOps with minor changes to a typical design. The following design illustrates a DevOps pipeline workflow that can be applied to the tightly coupled and loosely coupled architectures.
 
 ##### Architecture
 

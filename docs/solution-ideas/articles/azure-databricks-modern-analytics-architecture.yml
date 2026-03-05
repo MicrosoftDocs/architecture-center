@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: Create a Modern Analytics Architecture by Using Azure Databricks
-  titleSuffix: Azure Architecture Center
   description: Learn how to create a modern analytics architecture by using Azure Databricks and Data Lake Storage. Unify data, analytics, and AI workloads at any scale.
   author: josearper
   ms.author: agarrido
@@ -10,7 +9,6 @@ metadata:
   ms.custom:
     - arb-data
     - arb-aiml
-  ms.service: azure-architecture-center
   ms.subservice: solution-idea
 azureCategories:
   - ai-machine-learning

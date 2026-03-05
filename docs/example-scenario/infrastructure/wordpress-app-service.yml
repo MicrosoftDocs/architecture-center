@@ -1,14 +1,13 @@
 ### YamlMime:Architecture
 metadata:
   title: WordPress on App Service
-  titleSuffix: Azure Architecture Center
   description: Use Azure Front Door, Azure App Service, and other Azure services to deploy a highly scalable and secure installation of WordPress.
-  author: kyleburnsdev
-  ms.author: kyburns
+  author: claytonsiemens77
+  ms.author: pnp
   ms.date: 06/30/2023
-  ms.topic: conceptual
-  ms.service: azure-architecture-center
+  ms.topic: example-scenario
   ms.subservice: example-scenario
+  ai-usage: ai-assisted
   ms.category:
     - web
   ms.custom:

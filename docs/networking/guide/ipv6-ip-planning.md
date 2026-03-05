@@ -4,16 +4,8 @@ description: Learn strategies for transitioning an IPv4 network environment on A
 author: brsteph
 ms.author: leuthaeusern
 ms.date: 01/17/2025
-ms.topic: conceptual
-ms.service: azure-architecture-center
+ms.topic: concept-article
 ms.subservice: architecture-guide
-products:
-  - azure-virtual-network
-  - azure-firewall
-  - azure-expressroute
-  - azure-dns
-categories:
-  - networking
 ---
 
 # Conceptual planning for IPv6 networking

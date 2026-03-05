@@ -78,13 +78,15 @@
       "titleSuffix": "Azure Architecture Center",
       "ms.author": "pnp",
       "ms.service": "azure-architecture-center",
+      "ms.update-cycle": "365-days",
+      "manager": "lnyswonger",
       "_op_documentIdPathDepotMapping": {
         "./": {
           "depot_name": "MSDN.azure-architecture-center",
           "folder_relative_path_in_docset": "./"
         }
       },
-      "ms.topic": "conceptual",
+      "ms.topic": "concept-article",
       "searchScope": [ "Azure", "Azure Architecture Center" ]
     },
     "fileMetadata": {
@@ -112,6 +114,30 @@
         "reference-architectures/**/*.md": [ "Azure", "Azure Architecture Center", "Reference Architectures" ],
         "example-scenario/**/*.md": [ "Azure", "Azure Architecture Center", "Reference Architectures" ],
         "solution-ideas/**/*.md": [ "Azure", "Azure Architecture Center", "Reference Architectures" ]
+      },
+      "ms.update-cycle": {
+        "guide/multitenant/considerations/*.md": "1095-days",
+        "guide/multitenant/considerations/*.yml": "1095-days",
+        "ai-ml/**/*.md": "180-days",
+        "ai-ml/**/*.yml": "180-days",
+        "landing-zones/*.md": "1095-days",
+        "landing-zones/*.yml": "1095-days",
+        "guide/architecture-styles/**/*.md": "1095-days",
+        "guide/architecture-styles/**/*.yml": "1095-days",
+        "guide/design-principles/*.md": "1095-days",
+        "guide/design-principles/*.yml": "1095-days",
+        "microservices/design/*.md": "1095-days",
+        "microservices/design/*.yml": "1095-days",
+        "microservices/model/*.md": "1095-days",
+        "microservices/model/*.yml": "1095-days",
+        "best-practices/*.yml": "1095-days",
+        "best-practices/*.md": "1095-days",
+        "antipatterns/**/*.md": "1095-days",
+        "antipatterns/**/*.yml": "1095-days",
+        "guide/responsible-innovation/**/*.yml": "1095-days",
+        "guide/responsible-innovation/**/*.md": "1095-days",
+        "patterns/*.yml": "1095-days",
+        "patterns/*.md": "1095-days"
       }
     },
     "template": [

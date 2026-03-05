@@ -1,24 +1,16 @@
 ---
-title: "High-performance computing (HPC) on Azure"
+title: "High-Performance Computing (HPC) on Azure"
 description: Learn about high-performance computing (HPC) on Azure, which uses many CPU or GPU-based computers to solve complex mathematical tasks.
-author: RobBagby
+author: claytonsiemens77
 ms.author: pnp
 ms.date: 08/08/2022
 ms.topic: reference-architecture
-ms.service: azure-architecture-center
 ms.subservice: reference-architecture
-products: azure
-categories: 
-  - compute
-  - storage
-ms.category:
-  - compute
-  - storage
 ms.custom:
   - fcp
 ---
 
-<!-- cSpell:ignore fullheight neuro milliman hymans netapp gluster tibco cyclecloud hpcpack radioss ansys axioma alces slurm mdcs cntk -->
+<!-- cSpell:ignore fullheight netapp gluster cyclecloud hpcpack alces slurm mdcs cntk -->
 
 # High-performance computing (HPC) on Azure
 
@@ -30,9 +22,9 @@ ms.custom:
 
 <!-- markdownlint-enable MD034 -->
 
-High-performance computing (HPC), also called "big compute", uses a large number of CPU or GPU-based computers to solve complex mathematical tasks.
+High-performance computing (HPC), also called *big compute*, uses a large number of CPU or GPU-based computers to solve complex mathematical tasks.
 
-Many industries use HPC to solve some of their most difficult problems.  These include workloads such as:
+Many industries use HPC to solve some of their most difficult problems. These include workloads such as:
 
 - Genomics
 - Oil and gas simulations
@@ -43,16 +35,16 @@ Many industries use HPC to solve some of their most difficult problems.  These i
 
 ### How is HPC different on the cloud?
 
-One of the primary differences between an on-premises HPC system and one in the cloud is the ability for resources to dynamically be added and removed as they're needed.  Dynamic scaling removes compute capacity as a bottleneck and instead allow customers to right size their infrastructure for the requirements of their jobs.
+One of the primary differences between an on-premises HPC system and one in the cloud is the ability for resources to dynamically be added and removed as they're needed. Dynamic scaling removes compute capacity as a bottleneck and instead allow customers to right size their infrastructure for the requirements of their jobs.
 
 The following articles provide more detail about this dynamic scaling capability.
 
-- [Big Compute Architecture Style](../guide/architecture-styles/big-compute.yml)
+- [Big Compute Architecture Style](../guide/architecture-styles/big-compute.md)
 - [Autoscaling best practices](../best-practices/auto-scaling.md)
 
 ## Implementation checklist
 
-As you're looking to implement your own HPC solution on Azure, ensure you're reviewed the following topics:
+As you're looking to implement your own HPC solution on Azure, ensure you've reviewed the following topics:
 
 > [!div class="checklist"]
 >
@@ -91,6 +83,7 @@ Large-scale Batch and HPC workloads have demands for data storage and access tha
 - [Storage Optimized Virtual Machines](/azure/virtual-machines/windows/sizes-storage)
 - [Blob, table, and queue storage](/azure/storage/common/storage-introduction)
 - [Azure SMB File storage](/azure/storage/files/storage-files-introduction)
+- [Azure Managed Lustre](/azure/azure-managed-lustre/amlfs-overview)
 
 For more information comparing Lustre, GlusterFS, and BeeGFS on Azure, review the [Parallel Files Systems on Azure](/archive/blogs/azurecat/azurecat-ebook-parallel-virtual-file-systems-on-microsoft-azure) e-book and the [Lustre on Azure](https://techcommunity.microsoft.com/t5/azurecat/lustre-on-azure/ba-p/1052536) blog.
 
@@ -162,13 +155,11 @@ Once network connectivity is securely established, you can start using cloud com
 
 ### Marketplace solutions
 
-There are many workload managers offered in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace).
+There are many workload managers offered in the [Microsoft Marketplace](https://marketplace.microsoft.com).
 
 - [SUSE Linux Enterprise Server for HPC](https://www.suse.com/products/server/hpc/)
-- [TIBCO DataSynapse GridServer](https://azuremarketplace.microsoft.com/marketplace/apps/tibco-software.tibco_datasynapse_gridserver)
 - [Azure Data Science VM for Windows and Linux](/azure/machine-learning/data-science-virtual-machine/overview)
-- [D3View](https://azuremarketplace.microsoft.com/marketplace/apps/xfinityinc.d3view-v5?tab=Overview)
-- [UberCloud](https://azuremarketplace.microsoft.com/marketplace/apps/ubercloud.ansys_182_test)
+- [UberCloud](https://marketplace.microsoft.com/product/ubercloud.ubercloud_platform_subscription_vm)
 
 ### Azure Batch
 
@@ -176,10 +167,9 @@ There are many workload managers offered in the [Azure Marketplace](https://azur
 
 SaaS providers or developers can use the Batch SDKs and tools to integrate HPC applications or container workloads with Azure, stage data to Azure, and build job execution pipelines.
 
-In Azure Batch all the services are running on the Cloud, the image below shows how the architecture looks with Azure Batch, having the scalability and job schedule configurations running in the Cloud while the results and reports can be sent to your on-premises environment.
+In Azure Batch all the services are running on the Cloud. The following image shows how the architecture looks with Azure Batch, having the scalability and job schedule configurations running in the Cloud while the results and reports can be sent to your on-premises environment.
 
 ![Diagram shows example HPC architecture for Azure Batch.](images/cloud-native-job-scheduler-azure-batch.jpg)
-
 
 ### Azure CycleCloud
 
@@ -199,10 +189,10 @@ In this Hybrid example diagram, we can see clearly how these services are distri
 ![Diagram shows example HPC architecture for CycleCloud on Azure in a Hybrid.](images/industry-standard-high-performance-computing-job-scheduler-hybrid-cloudbursting-model-azure-cyclecloud.jpg)
 
 ##### Cloud native model
-The cloud native model example diagram below, shows how the workload in the cloud will handle everything while still conserving the connection to the on-premises environment.
 
-![Diagram shows example HPC architecture for CycleCloud on Azure in Cloud native model
-.](images/industry-standard-high-performance-computing-job-scheduler-cloud-native-model-azure-cyclecloud.jpg)
+The following cloud native model example diagram shows how the workload in the cloud will handle everything while still conserving the connection to the on-premises environment.
+
+![Diagram shows example HPC architecture for CycleCloud on Azure in Cloud native model.](images/industry-standard-high-performance-computing-job-scheduler-cloud-native-model-azure-cyclecloud.jpg)
 
 ### Comparison chart
 
@@ -212,7 +202,7 @@ The cloud native model example diagram below, shows how the workload in the clou
 |Compute Resources |Software as a Service Nodes – Platform as a Service |Platform as a Service Software – Platform as a Service |
 |Monitor Tools |Azure Monitor |Azure Monitor, Grafana |
 |Customization |Custom image pools, Third Party images, Batch API access. |Use the comprehensive RESTful API to customize and extend functionality, deploy your own scheduler, and support into existing workload managers |
-|Integration | Synapse Pipelines, Azure Data Factory, Azure CLI |Built-In CLI for Windows and Linux |
+|Integration | Data Factory in Microsoft Fabric, Azure Data Factory, Azure CLI |Built-In CLI for Windows and Linux |
 |User type |Developers |Classic HPC administrators and users |
 |Work Type |Batch, Workflows |Tightly coupled (Message Passing Interface/MPI).|
 |Windows Support |Yes |Varies, depending on scheduler choice |
@@ -222,9 +212,6 @@ The cloud native model example diagram below, shows how the workload in the clou
 The following are examples of cluster and workload managers that can run in Azure infrastructure. Create stand-alone clusters in Azure VMs or burst to Azure VMs from an on-premises cluster.
 
 - Alces Flight Compute
-- [TIBCO DataSynapse GridServer](https://azure.microsoft.com/blog/tibco-datasynapse-comes-to-the-azure-marketplace)
-- [Bright Cluster Manager](http://www.brightcomputing.com/technology-partners/microsoft)
-- [IBM Spectrum Symphony and Symphony LSF](https://azure.microsoft.com/blog/ibm-and-microsoft-azure-support-spectrum-symphony-and-spectrum-lsf)
 - [Altair PBS Works](https://www.altair.com/pbs-works)
 - [Rescale](https://www.rescale.com/azure)
 - [Altair Grid Engine](https://www.altair.com/grid-engine)
@@ -234,14 +221,14 @@ The following are examples of cluster and workload managers that can run in Azur
 
 #### Containers
 
-Containers can also be used to manage some HPC workloads.  Services like the Azure Kubernetes Service (AKS) makes it simple to deploy a managed Kubernetes cluster in Azure.
+Containers can also be used to manage some HPC workloads. Services like the Azure Kubernetes Service (AKS) make it simple to deploy a managed Kubernetes cluster in Azure.
 
 - [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)
 - [Container Registry](/azure/container-registry/container-registry-intro)
 
 ## Cost management
 
-Managing your HPC cost on Azure can be done through a few different ways.  Ensure you've reviewed the [Azure purchasing options](https://azure.microsoft.com/pricing/purchase-options) to find the method that works best for your organization.
+Managing your HPC cost on Azure can be done through a few different ways. Ensure you've reviewed the [Azure purchasing options](https://azure.microsoft.com/pricing/purchase-options) to find the method that works best for your organization.
 
 ## Security
 
@@ -290,15 +277,13 @@ In addition to the network configurations available in the [Cloud Bursting](#hyb
 
 ## HPC applications
 
-Run custom or commercial HPC applications in Azure. Several examples in this section are benchmarked to scale efficiently with additional VMs or compute cores. Visit the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace) for ready-to-deploy solutions.
+Run custom or commercial HPC applications in Azure. Several examples in this section are benchmarked to scale efficiently with additional VMs or compute cores. Visit the [Microsoft Marketplace](https://marketplace.microsoft.com) for ready-to-deploy solutions.
 
 > [!NOTE]
 > Check with the vendor of any commercial application for licensing or other restrictions for running in the cloud. Not all vendors offer pay-as-you-go licensing. You might need a licensing server in the cloud for your solution, or connect to an on-premises license server.
 
 ### Engineering applications
 
-- [Altair RADIOSS](https://azure.microsoft.com/blog/availability-of-altair-radioss-rdma-on-microsoft-azure)
-- [ANSYS CFD](https://azure.microsoft.com/blog/ansys-cfd-and-microsoft-azure-perform-the-best-hpc-scalability-in-the-cloud)
 - [MATLAB Distributed Computing Server](/azure/virtual-machines/windows/matlab-mdcs-cluster)
 - [StarCCM+](/archive/blogs/azurecat/run-star-ccm-in-an-azure-hpc-cluster)
 
@@ -321,47 +306,9 @@ Run GPU-powered virtual machines in Azure in the same region as the HPC output f
 - [GPU-optimized virtual machine sizes](/azure/virtual-machines/sizes-gpu)
 - [Configure GPU acceleration for Azure Virtual Desktop](/azure/virtual-desktop/configure-vm-gpu)
 
-<ul class="columns is-multiline has-margin-left-none has-margin-bottom-none has-padding-top-medium">
-    <li class="column is-one-third has-padding-top-small-mobile has-padding-bottom-small">
-        <a class="is-undecorated is-full-height is-block"
-            href="../example-scenario/azure-virtual-desktop/azure-virtual-desktop.yml">
-            <article class="card has-outline-hover is-relative is-fullheight">
-                    <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
-                        <img role="presentation" alt="Diagram of an architecture for Azure Virtual Desktops on Azure." src="../example-scenario/azure-virtual-desktop/images/azure-virtual-desktop.png">
-                    </figure>
-                <div class="card-content has-text-overflow-ellipsis">
-                    <div class="has-padding-bottom-none">
-                        <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">Windows desktops using Azure Virtual Desktop on Azure</h3>
-                    </div>
-                    <div class="is-size-7 has-margin-top-small has-line-height-reset">
-                        <p>Build a VDI environment for Windows desktops using Azure Virtual Desktop on Azure.</p>
-                    </div>
-                </div>
-            </article>
-        </a>
-    </li>
-</ul>
-
 ## Performance benchmarks
 
 - [Compute benchmarks](/azure/virtual-machines/windows/compute-benchmark-scores)
-
-## Customer stories
-
-There are many customers who have seen great success by using Azure for their HPC workloads.  You can find a few of these customer case studies below:
-
-- [AXA Global P&C](https://customers.microsoft.com/story/axa-global-p-and-c)
-- [Axioma](https://customers.microsoft.com/story/772585-axioma-banking-and-capital-markets-azure-united-states)
-- [d3View](https://customers.microsoft.com/story/big-data-solution-provider-adopts-new-cloud-gains-thou)
-- [EFS](https://customers.microsoft.com/story/efs-professionalservices-azure)
-- [Hymans Robertson](https://customers.microsoft.com/story/hymans-robertson)
-- [MetLife](https://enterprise.microsoft.com/customer-story/industries/insurance/metlife)
-- [Microsoft Research](https://customers.microsoft.com/doclink/fast-lmm-and-windows-azure-put-genetics-research-on-fa)
-- [Milliman](https://customers.microsoft.com/story/actuarial-firm-works-to-transform-insurance-industry-w)
-- [Mitsubishi UFJ Securities International](https://customers.microsoft.com/story/powering-risk-compute-grids-in-the-cloud)
-- [NeuroInitiative](https://customers.microsoft.com/story/neuroinitiative-health-provider-azure)
-- [Schlumberger](https://azure.microsoft.com/blog/big-compute-for-large-engineering-simulations)
-- [Towers Watson](https://customers.microsoft.com/story/insurance-tech-provider-delivers-disruptive-solutions)
 
 ## Other important information
 
@@ -372,17 +319,16 @@ There are many customers who have seen great success by using Azure for their HP
 For the latest announcements, see the following resources:
 
 - [Microsoft HPC and Batch team blog](/archive/blogs/windowshpc)
-- Visit the [Azure blog](https://azure.microsoft.com/blog/tag/hpc).
+- Visit the [Azure blog](https://azure.microsoft.com/blog/tag/high-performance-computing/).
 
 ### Microsoft Batch Examples
 
 These tutorials will provide you with details on running applications on Microsoft Batch:
 
 - [Get started developing with Batch](/azure/batch/quick-run-dotnet)
-- [Use Azure Batch code samples](https://github.com/Azure/azure-batch-samples)
 - [Use low-priority VMs with Batch](/azure/batch/batch-low-pri-vms)
 - [Use compute-intensive VMs in Batch pools](/azure/batch/batch-pool-compute-intensive-sizes)
 
 ## Related resources
 
-- [Big compute architecture style](../guide/architecture-styles/big-compute.yml)
+- [Big compute architecture style](../guide/architecture-styles/big-compute.md)

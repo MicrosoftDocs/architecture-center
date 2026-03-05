@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Project 15 Open Platform was developed in partnership with the GEF Small Grants Programme, which the United Nations Development Programme implemented. For more information, see [Project 15 from Microsoft – A story in five parts](http://aka.ms/project15story).
+Project 15 Open Platform was developed in partnership with the GEF Small Grants Programme, which the United Nations Development Programme implemented. For more information, see [Project 15 from Microsoft – A story in five parts](https://techcommunity.microsoft.com/blog/greentechblog/project-15-from-microsoft-%e2%80%93-a-story-in-five-parts/2323531).
 
 ## Architecture
 
@@ -47,43 +47,39 @@ The following Azure services and configurations make up Project 15 Open Platform
 
 ### Components
 
-- [IoT Hub][IoT Hub] connects devices to Azure cloud resources. By using this managed service, you can use queries to filter data that you send to the cloud.
+- [IoT Hub][IoT Hub] is a managed service for secure and scalable device-to-cloud communication. In this architecture, it connects devices to Azure cloud resources and enables zero-touch provisioning through its [device provisioning service][device provisioning service of IoT Hub]. You can use IoT Hub queries to filter data that you send to the cloud.
 
-- The [device provisioning service of IoT Hub][device provisioning service of IoT Hub] makes zero-touch, just-in-time provisioning possible. Use this IoT Hub service to provision devices in a secure and scalable manner.
+- [Event Hubs][Event Hubs] is a managed big data streaming platform. In this architecture, Event Hubs ingests telemetry and event data from IoT devices to support real-time analytics and processing.
 
-- [Event Hubs][Event Hubs] is a fully managed, big data streaming platform.
+- [Event Grid][Event Grid] is a service that enables event-based architectures. In this architecture, it routes events from sources to destinations and decouples event publishers from event subscribers.
 
-- [Event Grid][Event Grid] simplifies event-based apps. This service routes events from sources to destinations and decouples event publishers from event subscribers.
+- [Stream Analytics][Stream Analytics] is a real-time serverless stream processing service that can run queries in the cloud and on devices on the edge of the network. In this architecture, it filters and aggregates telemetry data from IoT devices for further processing or storage.
 
-- [Stream Analytics][Stream Analytics] provides real-time serverless stream processing that can run queries in the cloud and on devices on the edge of the network. Stream Analytics on IoT Edge can filter or aggregate data that you send to the cloud for further processing or storage.
+- [Functions][Functions] is an event-driven serverless compute platform that you can use to build and debug locally without extra setup. In this architecture, Functions processes incoming data and integrates services by using triggers and bindings.
 
-- [Functions][Functions] is an event-driven serverless compute platform that you can use to build and debug locally without extra setup. By using Functions, you can deploy and operate at scale in the cloud and use triggers and bindings to integrate services.
+- [Azure SignalR Service][Azure SignalR Service] is an open-source software library that provides a way to send notifications to web apps in real time. In this architecture, SignalR enables live data visualization in the presentation layer.
 
-- [Azure SignalR Service][Azure SignalR Service] is an open-source software library that provides a way to send notifications to web apps in real time.
+- [App Service][App Service] and its [Web Apps](/azure/well-architected/service-guides/app-service-web-apps) feature are managed platforms for building, deploying, and scaling web apps. In this architecture, they support the deployment and scaling of web interfaces for interacting with IoT data.
 
-- [App Service][App Service] and its [Web Apps](/azure/well-architected/service-guides/app-service-web-apps) feature are fully managed platforms for building, deploying, and scaling web apps.
+- [Power BI][Power BI] is a collection of software services and apps that you use to connect and visualize unrelated sources of data. In this architecture, Power BI visualizes telemetry and event data from IoT devices in dashboards and reports.
 
-- [Power BI][Power BI] is a collection of software services and apps that you use to connect and visualize unrelated sources of data.
+- [Blob Storage][Blob Storage] is a service that provides optimized cloud object storage for unstructured data. In this architecture, Blob Storage stores telemetry and file data collected from field devices.
 
-- [Blob Storage][Blob Storage] provides optimized cloud object storage that manages massive amounts of unstructured data.
+- The [API Apps][API Apps] feature of App Service enables you to use to build and consume APIs in the cloud by using the language of your choice. In this architecture, API Apps exposes device management events and data to external systems.
 
-- [API Apps][API Apps] is a feature of App Service that you can use to build and consume APIs in the cloud while you use the language of your choice.
+- [Azure Digital Twins][Azure Digital Twins] is a modeling service for digital representations of physical environments. In this architecture, Azure Digital Twins models IoT devices and ecosystems to optimize operations, minimize costs, and improve insights.
 
-- [Microsoft Entra ID][Azure AD] is a multitenant, cloud-based identity service that controls access to Azure and other cloud apps.
+- [Defender for Cloud][Defender for Cloud] is a security management service for hybrid cloud environments. In this architecture, it enforces security policies and protects workloads from threats.
 
-- [Azure Digital Twins][Azure Digital Twins] creates models of IoT devices and environments. You can use these digital representations to develop better products, optimize operations, minimize costs, and improve customer experiences.
+- [Notification Hubs][Notification Hubs] is a push notification service that provides a push engine that you can use to send notifications to any platform from any back end. In this architecture, it sends alerts and updates to users across platforms.
 
-- [Defender for Cloud][Azure Defender] provides extended detection and response (XDR) capabilities that protect hybrid cloud workloads from threats.
+- [Logic Apps][Logic Apps] is a service that automates workflows and integrates systems, services, and data across organizations by using a visual designer and prebuilt connectors. In this architecture, it orchestrates data flows and integrates services without requiring custom code.
 
-- [Notification Hubs][Notification Hubs] provides a push engine that you can use to send notifications to any platform from any back end.
+- [Machine Learning][Machine Learning] is a cloud-based environment that you can use to train, deploy, automate, manage, and track machine learning models. You can use these models to forecast future behavior, outcomes, and trends. In this architecture, Machine Learning predicts device behavior and trends to support proactive decision-making.
 
-- [Logic Apps][Logic Apps] automates workflows. By using this service, you can connect apps and data across clouds without writing code.
+- [Azure Maps][Azure Maps] is a service that provides geospatial capabilities, including mapping, routing, traffic, and location data, to power applications with real-time geographic context. In this architecture, Azure Maps tracks geofencing data and supports location-based insights.
 
-- [Machine Learning][Machine Learning] is a cloud-based environment that you can use to train, deploy, automate, manage, and track machine learning models. You can use these models to forecast future behavior, outcomes, and trends.
-
-- [Azure Maps][Azure Maps] provides geospatial APIs for adding maps, spatial analytics, and mobility solutions to apps.
-
-- [Microsoft Power Platform][Microsoft Power Platform] provides a low-code development platform for analyzing data, automating processes, and building apps, websites, and virtual agents.
+- [Microsoft Power Platform][Microsoft Power Platform] is a low-code development suite for analyzing data, automating processes, and building apps, websites, and virtual agents. In this architecture, it enables rapid development of custom apps and workflows for interacting with IoT data.
 
 ## Scenario details
 
@@ -153,38 +149,35 @@ Principal authors:
 - [Introduction to Azure IoT][Introduction to Azure IoT]
 - [Internet of Things event learning path][Internet of Things Learning Path]
 - [Microsoft and sustainability][Microsoft & Sustainability]
-- [Seeed Studio's IoT into the wild][Seeed Studio’s IoT Into the Wild]
+- [Seeed Studio's IoT into the wild][Seeed Studio's IoT Into the Wild]
 
 ## Related resources
 
 - [IoT architectures](/azure/architecture/browse/?azure_categories=iot)
 
-[API Apps]: https://azure.microsoft.com/services/app-service/api
-[App Service]: https://azure.microsoft.com/services/app-service
-[Azure AD]: /azure/active-directory/fundamentals/active-directory-whatis
-[Azure Defender]: https://azure.microsoft.com/services/azure-defender
-[Azure Digital Twins]: https://azure.microsoft.com/services/digital-twins
-[Azure Maps]: https://azure.microsoft.com/services/azure-maps
+[API Apps]: /azure/app-service/overview
+[App Service]: /azure/well-architected/service-guides/app-service-web-apps
+[Defender for Cloud]: /azure/defender-for-cloud/defender-for-cloud-introduction
+[Azure Digital Twins]: /azure/digital-twins/overview
+[Azure Maps]: /azure/azure-maps/about-azure-maps
 [Azure SignalR Service]: /aspnet/signalr/overview/getting-started/introduction-to-signalr
-[Blob Storage]: /azure/storage/blobs/storage-blobs-introduction
+[Blob Storage]: /azure/well-architected/service-guides/azure-blob-storage
 [Deploying Project 15 from Microsoft Open Platform]: https://microsoft.github.io/project15/Deploy/Deployment.html
 [device provisioning service of IoT Hub]: /azure/iot-dps
-[Event Hubs]: /azure/event-hubs/event-hubs-about
-[Event Grid]: https://azure.microsoft.com/services/event-grid
-[Functions]: https://azure.microsoft.com/services/functions
-[IoT Hub]: https://azure.microsoft.com/services/iot-hub
-[Logic Apps]: https://azure.microsoft.com/services/logic-apps
-[Machine Learning]: /azure/machine-learning/overview-what-is-azure-ml
+[Event Hubs]: /azure/well-architected/service-guides/event-hubs
+[Event Grid]: /azure/well-architected/service-guides/event-grid/reliability
+[Functions]: /azure/well-architected/service-guides/azure-functions
+[IoT Hub]: /azure/well-architected/service-guides/azure-iot-hub
+[Logic Apps]: /azure/logic-apps/logic-apps-overview
+[Machine Learning]: /azure/well-architected/service-guides/azure-machine-learning
 [Microsoft & Sustainability]: https://www.microsoft.com/sustainability
 [Notification Hubs]: /azure/notification-hubs/notification-hubs-push-notification-overview
 [Power BI]: /power-bi/fundamentals/power-bi-overview
-[Project 15 on GitHub]: https://aka.ms/project15code
+[Project 15 on GitHub]: https://microsoft.github.io/project15/
 [Project 15 from Microsoft]: /shows/Azure-Videos/project-15
 [Project 15 Open Platform Developer Guide]: https://microsoft.github.io/project15/Developer-Guide/DeveloperGuide.html
-[Project 15 YouTube Channel]: https://aka.ms/project15video
-[Solution details]: #solution-details
-[Stream Analytics]: https://azure.microsoft.com/services/stream-analytics
-[Microsoft Power Platform]: https://powerplatform.microsoft.com
-[Internet of Things Learning Path]: https://aka.ms/iotlp
-[Introduction to Azure IoT]: https://learn.microsoft.com/training/modules/introduction-to-azure-iot/
-[Seeed Studio’s IoT Into the Wild]: https://www.seeedstudio.com/iot_into_the_wild.html
+[Stream Analytics]: /azure/stream-analytics/stream-analytics-introduction
+[Microsoft Power Platform]: /power-platform
+[Internet of Things Learning Path]: https://techcommunity.microsoft.com/blog/iotblog/internet-of-things---event-learning-path-learn-to-build-iot-solutions-on-microso/1636151
+[Introduction to Azure IoT]: /training/modules/introduction-to-azure-iot/
+[Seeed Studio's IoT Into the Wild]: https://www.seeedstudio.com/iot_into_the_wild.html

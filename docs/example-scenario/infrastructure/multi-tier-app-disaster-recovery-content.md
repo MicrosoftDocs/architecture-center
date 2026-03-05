@@ -1,5 +1,3 @@
-<!-- cSpell:ignore sujayt -->
-
 This example scenario is applicable to any industry that needs to deploy resilient multitier applications built for high availability and disaster recovery. In this scenario, the application consists of three layers.
 
 - Web tier: The top layer including the user interface. This layer parses user interactions and passes the actions to next layer for processing.
@@ -38,11 +36,15 @@ Other relevant use cases include:
 
 ### Components
 
-- [Availability sets][docs-availability-sets] ensure that the VMs you deploy on Azure are distributed across multiple isolated hardware nodes in a cluster. If a hardware or software failure occurs within Azure, only a subset of your VMs are affected and your entire solution remains available and operational.
-- [Availability zones][docs-availability-zones] protect your applications and data from datacenter failures. Availability zones are separate physical locations within an Azure region. Each zone consists of one or more datacenters equipped with independent power, cooling, and networking.
-- [Azure Site Recovery][docs-azure-site-recovery] allows you to replicate VMs to another Azure region for business continuity and disaster recovery needs. You can conduct periodic disaster recovery drills to ensure you meet the compliance needs. The VM will be replicated with the specified settings to the selected region so that you can recover your applications in the event of outages in the source region.
-- [Azure Traffic Manager][docs-traffic-manager] is a DNS-based traffic load balancer that distributes traffic optimally to services across global Azure regions while providing high availability and responsiveness.
-- [Azure Load Balancer][docs-load-balancer] distributes inbound traffic according to defined rules and health probes. A load balancer provides low latency and high throughput, scaling up to millions of flows for all TCP and UDP applications. A public load balancer is used in this scenario to distribute incoming client traffic to the web tier. An internal load balancer is used in this scenario to distribute traffic from the business tier to the back-end SQL Server cluster.
+- [Availability sets][docs-availability-sets] are a fault-tolerance feature that ensures VMs are distributed across multiple isolated hardware nodes in a cluster. In this architecture, availability sets protect against hardware and software failures by ensuring that only a subset of VMs are affected during an outage. This approach maintains application availability and operational continuity across the multi-tier application.
+
+- [Availability zones][docs-availability-zones] are separate physical locations within an Azure region that protect applications and data from datacenter failures. In this architecture, availability zones provide higher resilience by distributing VMs across multiple datacenters with independent power, cooling, and networking infrastructure.
+
+- [Azure Load Balancer][docs-load-balancer] is a layer 4 load balancer that distributes inbound traffic according to defined rules and health probes for high throughput and low latency. In this architecture, a public load balancer distributes incoming client traffic across web tier VMs, while internal load balancers route traffic from the web tier to the business tier and from the business tier to the back-end SQL Server cluster.
+
+- [Azure Traffic Manager][docs-traffic-manager] is a Domain Name System (DNS)-based traffic load balancer that distributes traffic across global Azure regions. In this architecture, Traffic Manager provides global load balancing by routing user traffic to the primary region during normal operations and automatically redirecting traffic to the disaster recovery region during outages.
+
+- [Site Recovery][docs-azure-site-recovery] is a disaster recovery service that allows VM replication to another Azure region for business continuity and disaster recovery. In this architecture, Site Recovery enables disaster recovery capabilities by replicating VMs to a target region for application recovery during source region outages. It also supports compliance requirements through periodic disaster recovery drills.
 
 ### Alternatives
 
@@ -63,7 +65,7 @@ When choosing a load balancer, consider your requirements and the feature set of
 
 Front Door has Layer 7 capabilities: SSL offload, path-based routing, fast failover, caching, and others to improve performance and high-availability of your applications. You might experience faster packet travel times because the infrastructure is onboarded on Azure network sooner.
 
-Because Front Door adds a new hop, there are added security operations. If the architecture complies with regulatory requirements, there might be restrictions about the additional traffic TLS termination point. The TLS cipher suites selected by Front Door must meet your organization's security bar. Also, Front Door expects the backend services to use [certificates used by Microsoft](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT).
+Because Front Door adds a new hop, there are added security operations. If the architecture complies with regulatory requirements, there might be restrictions about the additional traffic TLS termination point. The TLS cipher suites selected by Front Door must meet your organization's security bar. Also, Front Door expects the backend services to use certificates that are [part of the Microsoft Trusted CA list](/azure/frontdoor/end-to-end-tls#supported-certificates).
 
 Another consideration is cost. The architecture should take advantage of the extensive feature set (not just failover) to justify the added cost.
 
@@ -75,19 +77,19 @@ This architecture uses Traffic Manager because it's lightweight. The failover ti
 
 ## Considerations
 
-### Scalability
-
-You can add or remove VMs in each tier based on your scaling requirements. Because this scenario uses load balancers, you can add more VMs to a tier without affecting application uptime.
-
-For other scalability topics, see the [performance efficiency checklist][scalability] in the Azure Architecture Center.
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
 
 ### Security
+
+Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 All the virtual network traffic into the front-end application tier is protected by network security groups. Rules limit the flow of traffic so that only the front-end application tier VM instances can access the back-end database tier. No outbound internet traffic is allowed from the business tier or database tier. To reduce the attack footprint, no direct remote management ports are open. For more information, see [Azure network security groups][docs-nsg].
 
 For general guidance on designing secure scenarios, see the [Azure Security Documentation][security].
 
-## Pricing
+## Cost Optimization
+
+Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 Configuring disaster recovery for Azure VMs using Azure Site Recovery will incur the following charges on an ongoing basis.
 
@@ -96,6 +98,12 @@ Configuring disaster recovery for Azure VMs using Azure Site Recovery will incur
 - Storage costs on the recovery site. This is typically the same as the source region storage plus any additional storage needed to maintain the recovery points as snapshots for recovery.
 
 We've provided a [sample cost calculator][calculator] for configuring disaster recovery for a three-tier application using six virtual machines. All of the services are pre-configured in the cost calculator. To see how the pricing would change for your particular use case, change the appropriate variables to estimate the cost.
+
+### Performance Efficiency
+
+Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+
+You can add or remove VMs in each tier based on your scaling requirements. Because this scenario uses load balancers, you can add more VMs to a tier without affecting application uptime.
 
 ## Contributors
 
@@ -120,15 +128,14 @@ For additional high availability and disaster recovery reference architectures, 
 
 [architecture]: ./media/architecture-disaster-recovery-multi-tier-app.png
 [security]: /azure/security
-[scalability]: /azure/architecture/framework/scalability/performance-efficiency
 [docs-availability-zones]: /azure/well-architected/service-guides/azure-load-balancer/reliability
-[docs-load-balancer]: /azure/load-balancer/load-balancer-overview
+[docs-load-balancer]: /azure/well-architected/service-guides/azure-load-balancer
 [docs-nsg]: /azure/virtual-network/security-overview
 [docs-sql-always-on]: /sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server
 [docs-sql-server-linux]: /sql/linux/sql-server-linux-overview?view=sql-server-linux-2017
-[docs-traffic-manager]: /azure/well-architected/service-guides/traffic-manager/reliability
+[docs-traffic-manager]: /azure/well-architected/service-guides/azure-traffic-manager
 [docs-azure-site-recovery]: /azure/site-recovery/site-recovery-overview
-[docs-availability-sets]: /azure/virtual-machines/windows/manage-availability
+[docs-availability-sets]: /azure/virtual-machines/availability-set-overview
 [calculator]: https://azure.com/e/6835332265044d6d931d68c917979e6d
 [Multi-region-load-balancing]: /azure/architecture/high-availability/reference-architecture-traffic-manager-application-gateway
 [Set-up-disaster-recovery-for-Azure-VMs]: /azure/site-recovery/azure-to-azure-tutorial-enable-replication

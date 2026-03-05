@@ -36,19 +36,19 @@ J. The Processor Resource / System Manager (PR/SM) hypervisor performs direct ha
 
 ### Workflow
 
-1. Data is typically input either via Azure ExpressRoute from remote clients or from other applications currently running Azure. In either case, TCP/IP is the primary means of connection to the system. TLS port 443 provides user access to web-based applications. You can use the web application presentation layer virtually unchanged to minimize the need for training. Or you can update the web application presentation layer with modern UX frameworks as needed. You can use Azure VM bastion hosts to provide admin access to the VMs. Doing so improves security by minimizing open ports.
+1. Data is typically input either via Azure ExpressRoute from remote clients or from other applications currently running Azure. In either case, TCP/IP is the primary means of connection to the system. TLS port 443 provides user access to web-based applications. You can use the web application presentation layer with minimal changes to reduce the need for training. Or you can update the web application presentation layer with modern UX frameworks as needed. You can use Azure VM bastion hosts to provide admin access to the VMs. Doing so improves security by minimizing open ports.
 
 2. In Azure, Azure load balancers manage access to the application compute clusters to provide high availability. This approach enables scale-out of compute resources to process the input work. Layer 7 (application layer) and Layer 4 (transport layer) load balancers are available. The type used depends on the application architecture and API payloads at the entry point of the compute cluster.
 
-3. You can deploy to a VM in a compute cluster or in a pod that can be deployed in a Kubernetes cluster. Java Business Services and applications created via Renovate run equally well on Azure VMs and Azure Kubernetes containers. For a more detailed analysis  of compute options, see [this Azure compute service decision tree](../../guide/technology-choices/compute-decision-tree.yml).
+3. You can deploy to a VM in a compute cluster or in a pod that can be deployed in a Kubernetes cluster. Java Business Services and applications created via Renovate run equally well on Azure VMs and Azure Kubernetes containers. For a more detailed analysis  of compute options, see [this Azure compute service decision tree](../../guide/technology-choices/compute-decision-tree.md).
 
-4. Application servers receive the input in the compute clusters and share application state and data by using Azure Cache for Redis or Remote Direct Memory Access (RDMA).
+4. Application servers receive the input in the compute clusters and share application state and data by using Azure Managed Redis or Remote Direct Memory Access (RDMA).
 
 5. Business services and applications in the application clusters allow for multiple connections to persistent data sources. These data sources can include PaaS services like Azure SQL Database and Azure Cosmos DB, databases on VMs, such as Oracle or Db2, and big data repositories like Azure Databricks and Azure Data Lake. Application data services can also connect to streaming data services like Kafka and Azure Stream Analytics.
 
 6. Renovate runtime services provide backward compatibility with mainframe data architectures and emulation of mainframe QSAM and VSAM file systems, decoupling data migration to UTF-8 from refactoring to Java and rehosting in Azure. Additional runtime services include compatibility with SORT, IDCAMS, IE utilities, GDG retention management, and more.
 
-7. Data services use a combination of high-performance storage (Ultra SSD / Premium SSD), file storage (Azure NetApp Files / Azure Files) and standard storage (blob, archive, backup) that can be either locally redundant or geo-redundant, depending on the use.
+7. Data services use a combination of high-performance storage (Ultra Disk / Premium SSD), file storage (Azure NetApp Files / Azure Files) and standard storage (blob, archive, backup) that can be either locally redundant or geo-redundant, depending on the use.
 
 8. Azure platform as a service (PaaS) data services provide scalable, highly available geo-redundant data storage that's shared across compute resources in a cluster.
 
@@ -58,14 +58,21 @@ J. The Processor Resource / System Manager (PR/SM) hypervisor performs direct ha
 
 ### Components
 
-- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is one of several types of on-demand, scalable computing resources that Azure provides. An Azure VM gives you the flexibility of virtualization, and you don't have to buy and maintain the physical hardware that runs it.
-- [Azure Kubernetes Service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) can help you start developing and deploying cloud-native apps, with built-in code-to-cloud pipelines and guardrails.
-- [Azure SSD managed disks](/azure/virtual-machines/managed-disks-overview) are block-level storage volumes that are managed by Azure and used with Azure VMs. The available types of disks are Ultra Disk, Premium SSD, Standard SSD, and Standard HDD. For this architecture, we recommend either Premium SSDs or Ultra Disk SSDs.
-- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block for your private network on Azure. Virtual Network enables many types of Azure resources, like Azure VMs, to communicate with each other, the internet, and on-premises networks, all with enhanced security. Virtual Network is like a traditional network that you'd operate in your own datacenter, but it provides additional benefits like scale, availability, and isolation.
-- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a fully managed PaaS database engine that handles most database management functions, like upgrading, patching, backups, and monitoring, without your involvement. SQL Database always runs on the latest stable version of the SQL Server database engine and a patched OS.
-- [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is a distributed, managed cache that helps you build highly scalable and responsive applications by providing fast access to your data.
-- [Data Factory](/azure/data-factory/introduction) is a cloud-based data integration service that orchestrates and automates the movement and transformation of data.
-- [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating and automating replication of Azure VMs between regions, on-premises VMs, and physical servers to Azure, and by replicating on-premises machines to a secondary datacenter.
+- [Azure Managed Redis](/azure/redis/overview) is a distributed, managed cache that helps you build scalable and responsive applications by providing fast access to your data. In this architecture, Azure Managed Redis enables application servers in the compute clusters to share application state and data.
+
+- [Azure Kubernetes Service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed Kubernetes service that simplifies the deployment, management, and scaling of containerized applications by using Kubernetes. In this architecture, AKS provides a container orchestration platform where Java applications created via Renovate can be deployed in pods as an alternative to VMs. It provides benefits such as improved resource utilization, faster deployment times, and enhanced scalability.
+
+- [Azure Managed Disks](/azure/virtual-machines/managed-disks-overview) are block-level storage volumes that Azure manages and you use with Azure VMs. In this architecture, Azure Managed Disks provide high-performance storage for the data services layer and we recommend Premium SSDs or Ultra Disks.
+
+- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is a compute service that provides on-demand, scalable computing resources with the flexibility of virtualization without having to buy and maintain physical hardware. In this architecture, Virtual Machines hosts the Java Business Services and applications created via Renovate in compute clusters and provides the primary execution environment for the migrated mainframe workloads.
+
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is a networking service that creates private networks in Azure and enables secure communication between Azure resources, the internet, and on-premises networks. In this architecture, Virtual Network provides the networking foundation and secure communication channels for all Azure resources in the migrated environment.
+
+- [Data Factory](/azure/data-factory/introduction) is a cloud-based data integration service that orchestrates and automates the movement and transformation of data. In this architecture, Data Factory enables data ingestion and synchronization with multiple data sources both within Azure and from external sources, while Blob Storage serves as a common landing zone for external data sources.
+
+- [Site Recovery](/azure/site-recovery/site-recovery-overview) is a disaster recovery service that replicates VMs and physical servers to provide business continuity during outages. In this architecture, Site Recovery provides disaster recovery for the VM and container cluster components.
+
+- [SQL Database](/azure/well-architected/service-guides/azure-sql-database) is a fully managed PaaS database engine that handles most database management functions, like upgrading, patching, backups, and monitoring, without your involvement. SQL Database always runs on the latest stable version of the SQL Server database engine and a patched OS. In this architecture, SQL Database serves as one of the persistent data sources that business services and applications can connect to for data storage and retrieval.
 
 ## Scenario details
 
@@ -92,23 +99,23 @@ Refactoring to Azure by using Renovate can help organizations and teams that wan
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
-Reliability ensures that your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 High availability and performance are built into this solution because of the load balancers and compute autoscaling. If one presentation, transaction, or batch server fails, the other server behind the load balancer handles the workload. The architecture uses [Site Recovery](/azure/site-recovery/site-recovery-overview) to mirror Azure VMs. It uses PaaS storage and database services for replication to a secondary Azure region for quick failover and disaster recovery if an Azure datacenter fails. Finally, you can fully automate the deployment and operational architecture.
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 Security in Azure is achieved through a layered approach of policy, process, automated governance and incident reporting, training, network vulnerability analysis, penetration testing, encryption, and DevSecOps operating models. Services like Microsoft Entra ID, Azure Virtual Network, Azure Private Link, and network security groups are fundamental to achieving this enhanced security.
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 Azure provides cost optimization by running VMs and Kubernetes pods on commodity hardware, scripting a schedule to turn off VMs that aren't in use, and using Kubernetes pods to increase deployment density. Reserved and spot instances can further reduce costs. Microsoft Cost Management provides cost transparency by giving you a single, unified view of costs versus budgets. [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) and [Azure savings plan for compute](https://azure.microsoft.com/pricing/offers/savings-plan-compute/#benefits-and-features) generate significant discounts off of pay-as-you-go pricing. You can use these offerings separately or together to compound the savings. Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the cost of implementing the solution.
 
@@ -122,7 +129,6 @@ Principal author:
 
 Other contributors:
 
-- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
 - [Bhaskar Bandam](https://www.linkedin.com/in/bhaskar-bandam-75202a9) | Senior TPM
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
@@ -142,4 +148,3 @@ Other contributors:
 
 - [Mainframe migration overview](/azure/cloud-adoption-framework/infrastructure/mainframe-migration)
 - [Make the switch from mainframes to Azure](/azure/cloud-adoption-framework/infrastructure/mainframe-migration/migration-strategies)
-- [Mainframe access to Azure databases](../../solution-ideas/articles/mainframe-access-azure-databases.yml)

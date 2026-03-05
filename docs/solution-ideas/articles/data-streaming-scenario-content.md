@@ -2,7 +2,7 @@
 
 This article presents a solution for using Azure Kubernetes Service (AKS) to quickly process and analyze a large volume of streaming data from devices.
 
-*Apache®, [Apache Kafka](https://kafka.apache.org/), and [Apache Spark](https://spark.apache.org) are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks. Splunk is a registered trademark of Cisco. *
+*Apache®, [Apache Kafka](https://kafka.apache.org/), and [Apache Spark](https://spark.apache.org) are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks. Splunk is a registered trademark of Cisco.*
 
 ## Architecture
 
@@ -17,22 +17,32 @@ This article presents a solution for using Azure Kubernetes Service (AKS) to qui
 1. An ingest service in AKS stores data in Azure Cosmos DB.
 1. Asynchronously, an analysis service in AKS receives the data and streams it to Apache Kafka on Azure HDInsight.
 1. Data scientists use [machine learning models on Azure HDInsights](/azure/hdinsight/spark/apache-spark-run-machine-learning-automl) and the Splunk platform to analyze the data.
-1. A processing service in AKS processes the data and stores the results in Azure Database for PostgreSQL. The service also caches the data in Azure Cache for Redis.
+1. A processing service in AKS processes the data and stores the results in Azure Database for PostgreSQL. The service also caches the data in Azure Managed Redis.
 1. A web app that runs in Azure App Service creates visualizations of the results.
 
 ### Components
 
-The solution uses the following key technologies:
+- [AKS](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed Kubernetes container orchestration service. In this architecture, it hosts containerized microservices that ingest, process, and route streaming data from sensors to various storage and analytics layers.
 
-- [API Management](https://azure.microsoft.com/services/api-management)
-- [App Service](/azure/well-architected/service-guides/app-service-web-apps)
-- [Azure Cache for Redis](https://azure.microsoft.com/services/cache)
-- [Container Registry](https://azure.microsoft.com/services/container-registry)
-- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db)
-- [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql)
-- [HDInsight](https://azure.microsoft.com/services/hdinsight)
-- [AKS](https://azure.microsoft.com/services/kubernetes-service)
-- [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines)
+- [Apache Kafka](https://kafka.apache.org) is a distributed event streaming platform designed for high-throughput, low-latency data feeds. In this architecture, it receives real-time data from AKS microservices and streams it to Azure HDInsight for large-scale analytics.
+
+- [API Management](/azure/well-architected/service-guides/azure-api-management) is a gateway for publishing, securing, and analyzing APIs. In this architecture, it receives incoming data from sensors and routes it to the AKS cluster for processing.
+
+- [App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed platform for building and hosting web applications. In this architecture, it runs a web app that visualizes processed results from the PostgreSQL database.
+
+- [Azure Managed Redis](/azure/redis/overview) provides an in-memory data store based on Redis Enterprise software. In this architecture, it temporarily stores processed data from AKS microservices to accelerate access and reduce latency.
+
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed NoSQL database service. In this architecture, it stores ingested data from AKS microservices.
+
+- [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a managed relational database service based on PostgreSQL. In this architecture, it stores processed results from AKS microservices for downstream reporting and visualization.
+
+- [Azure HDInsight](/azure/hdinsight/hdinsight-overview) is a cloud-based service for big data analytics using open-source frameworks. In this architecture, it runs Apache Spark jobs to analyze streamed data from Kafka and supports machine learning workloads.
+
+- [Azure Pipelines](/azure/devops/pipelines/overview) is a continuous integration and continuous delivery (CI/CD) service within Azure DevOps. In this architecture, it builds and deploys containerized microservices to AKS to enable automated and repeatable delivery workflows.
+
+- [Container Registry](/azure/container-registry/container-registry-intro) is a managed Docker container registry service. In this architecture, it stores container images containing the microservices.
+
+- [Splunk](https://www.splunk.com) is a data analytics and visualization platform for machine-generated data. In this architecture, it analyzes real-time data from Azure HDInsight and creates visual dashboards for business intelligence.
 
 ## Scenario details
 
@@ -59,11 +69,11 @@ This solution benefits the following areas:
 
 Product documentation:
 
-- [About Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview)
+- [About Azure Managed Redis](/azure/redis/overview)
 - [What is Azure API Management?](/azure/api-management/api-management-key-concepts)
 - [App Service overview](/azure/app-service/overview)
 - [Azure Kubernetes Service](/azure/aks/intro-kubernetes)
-- [Introduction to Azure container registry](/azure/container-registry/container-registry-intro)
+- [Introduction to Azure Container Registry](/azure/container-registry/container-registry-intro)
 - [Welcome to Azure Cosmos DB](/azure/cosmos-db/introduction)
 - [What is Azure Database for PostgreSQL?](/azure/postgresql/overview)
 - [What is Azure HDInsight?](/azure/hdinsight/hdinsight-overview)
@@ -75,7 +85,6 @@ Microsoft training modules:
 - [Configure Azure App Service plans](/training/modules/configure-app-service-plans)
 - [Work with Azure Cosmos DB](/training/modules/work-with-cosmos-db)
 - [Create and connect to an Azure Database for PostgreSQL](/training/modules/create-connect-to-postgres)
-- [Develop for Azure Cache for Redis](/training/modules/develop-for-azure-cache-for-redis)
 - [Explore API Management](/training/modules/explore-api-management)
 - [Introduction to Azure HDInsight](/training/modules/intro-to-azure-hdinsight)
 

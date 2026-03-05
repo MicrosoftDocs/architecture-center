@@ -2,11 +2,11 @@
 metadata:
   title: Saga Design Pattern
   description: Learn how to use the Saga design pattern to help ensure data consistency on distributed transactions in microservices architectures.
-  author: martinekuan
+  author: claytonsiemens77
   ms.author: pnp
   ms.date: 02/25/2025
   ms.topic: design-pattern
-  ms.subservice: design-pattern
+  ms.subservice: cloud-fundamentals
   ms.category:
     - databases
     - event-driven

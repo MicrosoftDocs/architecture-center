@@ -1,7 +1,7 @@
 This article describes considerations and recommendations that you can use to migrate on-premises Oracle Database workloads to Azure. This article assumes that you have a basic understanding of Oracle Database technologies and Azure networking. This guidance covers the following scenarios:
 
 - Physical migration of Oracle databases to Azure Virtual Machines
-- Physical migration of Oracle databases to Oracle Database@Azure (OD@A) Exadata Database Service
+- Physical migration of Oracle databases to Oracle Database@Azure (ODAA) Exadata Database Service
 
 ## Architecture
 
@@ -22,7 +22,7 @@ Consider the following initial scenario details:
 - You need to migrate the databases to Azure with the minimum amount of downtime.
 - You also want to migrate application services that depend on the databases.
 - You established network connectivity to Azure through Azure ExpressRoute, and you use a hub-and-spoke network topology in Azure.
-- In the hub virtual network, the traffic has to traverse a non-Microsoft network virtual appliance (NVA), such as FortiGate, Check Point, or Cisco. The NVA functions as a routing device, which helps ensure that traffic to and from Azure undergoes traffic inspection and is also fully routable.
+- In the hub virtual network, the traffic has to traverse a network virtual appliance (NVA), such as Azure Firewall or a non-Microsoft network virtual appliance. The NVA functions as a routing device, which helps ensure that traffic to and from Azure undergoes traffic inspection and is also fully routable.
 
 ## Implementation checklist
 

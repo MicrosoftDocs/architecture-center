@@ -49,11 +49,11 @@ For more information, see:
 - [Azure virtual WAN](/azure/virtual-wan/virtual-wan-about)
 - [S2S VPN as a backup for ExpressRoute private peering](/azure/expressroute/use-s2s-vpn-as-backup-for-expressroute-privatepeering)
 
-**Use one virtual network per environment.** We recommend using one virtual network per environment (SAP deployment tier). The architecture uses a different virtual network for production, development, quality assurance, and sandbox. This network design is ideal for large enterprise architectures.
+**Use one virtual network per environment.** We recommend using one virtual network per SAP environment (deployment tier). The architecture uses a different virtual network for production, development, quality assurance, and sandbox. This network design is ideal for large enterprise architectures.
 
-**Use a central firewall.** All the network traffic to the spoke virtual networks, including remote function call (RFC) connections, should pass through a central firewall in the Hub virtual network. Network communication between the spoke virtual networks (spoke-to-spoke communication) passes through the hub virtual network firewall in the Azure Firewall subnet of the Hub virtual network. Similarly, network communication between the spoke virtual networks and on-premises network also pass through the hub virtual network firewall. We used virtual network peering to connect the various spoke virtual networks to the hub virtual network. All the communication between the spoke virtual networks passes through the Hub virtual network firewall. You could also use a network virtual appliance instead of a firewall. For more information, see [network virtual appliance](https://azure.microsoft.com/solutions/network-appliances/).
+**Use a central firewall.** All the network traffic to the spoke virtual networks, including remote function call (RFC) connections, should pass through a central firewall in the Hub virtual network. All the communication between the spoke virtual networks passes through the Hub virtual network firewall. Network communication between the spoke virtual networks (spoke-to-spoke communication) passes through the hub virtual network firewall in the Azure Firewall subnet of the Hub virtual network. Similarly, network communication between the spoke virtual networks and on-premises network also pass through the hub virtual network firewall. We used virtual network peering to connect the various spoke virtual networks to the hub virtual network. You could also use a network virtual appliance instead of a firewall. For more information, see [network virtual appliance](https://azure.microsoft.com/solutions/network-appliances/).
 
-Network traffic that stays in a virtual network shouldn't pass through a firewall. For example, don't put a firewall between the SAP application subnet and SAP database subnet. It isn't supported to place a firewall or network virtual appliances (NVAs) between the SAP application and the database management system (DBMS) layer of SAP systems running the SAP kernel. Doing so will negatively affect network latency for all database accesses and heavily impact SAP performance.
+Network traffic that stays within a virtual network shouldn't pass through a firewall. For example, don't put a firewall between the SAP application subnet and SAP database subnet. It isn't supported to place a firewall or network virtual appliances (NVAs) between the SAP application and the database management system (DBMS) layer of SAP systems running the SAP kernel. Doing so will negatively affect network latency for all database accesses and negatively affect SAP performance.
 
 **Avoid peering spoke virtual networks.** Virtual network peering between the spoke virtual networks should be avoided if possible. Spoke-to-spoke virtual network peering allows spoke-to-spoke communication to bypass the Hub virtual network firewall. You should only configure spoke-to-spoke virtual network peering when you have high-bandwidth requirements, for example, with database replication between SAP environments. All other network traffic should run through the Hub virtual network and firewall. For more information, see [inbound and outbound internet connections for SAP on Azure](./sap-internet-inbound-outbound.yml).
 
@@ -67,7 +67,7 @@ The production virtual network in the architecture has five subnets. This design
 
 ##### Subnet sizing
 
-Ensure the subnets have sufficient network address space. If you use SAP virtual host names, you need more address space in your SAP subnets. Often each SAP instance requires 2-3 IP addresses and includes one IP address for the virtual machine hostname. Other Azure services might require their own dedicated subnet when deployed in the SAP workload virtual networks.
+Ensure the subnets have sufficient network address space. If you use SAP virtual host names, you need more address space in your SAP subnets. Often each SAP instance requires 2, 3 or more IP addresses and includes one IP address for the virtual machine hostname. Other Azure services might require their own dedicated subnet when deployed in the SAP workload virtual networks.
 
 ##### Application subnet
 
@@ -75,7 +75,7 @@ The application subnet contains virtual machines running SAP application servers
 
 ##### Database subnet
 
-The database subnet holds virtual machines running databases. In the diagram, a pair of virtual machines with synchronous replication represent all the database virtual machines of one SAP environment.
+The database subnet holds virtual machines running databases. In the diagram, a pair of virtual machines with synchronous replication represents all the database virtual machines of one SAP environment.
 
 ##### Perimeter subnets
 
@@ -121,14 +121,13 @@ We recommend using Azure Private Link to improve the security of network communi
 
 **Use private endpoints in the application subnet**: We recommend using private endpoints to connect the application subnet to supported Azure services. In the architecture, there's a private endpoint for Azure Files in the Application subnet of each virtual network. You can extend this concept to any supported Azure service.
 
-**Use Azure Private Link for SAP Business Technology Platform (BTP)**: Azure Private Link for SAP Business Technology Platform (BTP) is now generally available. SAP Private Link Service supports connections from SAP BTP, the Cloud Foundry runtime, and other services. Example scenarios include SAP S/4HANA or SAP ERP running on the virtual machine. They can connect to Azure native services such as Azure Database for MariaDB and Azure Database for MySQL.
+**Use Azure Private Link for SAP Business Technology Platform (BTP)**: Azure Private Link for SAP Business Technology Platform (BTP) is now generally available. SAP Private Link Service supports connections from SAP BTP, the Cloud Foundry runtime, and other services. Example scenarios include SAP S/4HANA or SAP ERP running on the virtual machine. They can connect to Azure native services such as Azure Database for MySQL.
 
 The architecture depicts an SAP Private Link Service connection from SAP BTP environments. SAP Private Link Service establishes a private connection between specific SAP BTP services and specific services in each network as service provider accounts. Private link allows BTP services to access your SAP environment through private network connections. It improves security by not using the public internet to communicate.
 
 For more information, see:
 
 - [Azure Private Link resources](https://help.sap.com/docs/PRIVATE_LINK/42acd88cb4134ba2a7d3e0e62c9fe6cf/e8bc0c6440834a47a0ff57cb4efc0dc2.html?locale=en-US)
-- [Azure Database for MariaDB](https://help.sap.com/docs/PRIVATE_LINK/42acd88cb4134ba2a7d3e0e62c9fe6cf/862fa2958c574c3cbfa12a927ce1d5fe.html?locale=en-US)
 - [Azure Database for MySQL](https://help.sap.com/docs/PRIVATE_LINK/42acd88cb4134ba2a7d3e0e62c9fe6cf/5c70499ee70b415d954145a795e43355.html?locale=en-US)
 - [Internet connection for SAP on Azure](/azure/architecture/guide/sap/sap-internet-inbound-outbound)
 
@@ -160,10 +159,11 @@ The corporate security policies will drive the architecture and separation of vo
 
 ### Data services
 
-The architecture contains Azure data services that help you extend and improve your SAP data platform. To help unlock business insights, we recommend you use services such as Azure Synapse Analytics, Azure Data Factory, and Azure Data Lake Storage. These data services help you analyze and visualize SAP data and non-SAP data.
+The architecture contains Azure data services that help you extend and improve your SAP data platform. To help unlock business insights, we recommend you use services such as Microsoft Fabric, Azure Data Factory, and Azure Data Lake Storage. These data services help you analyze and visualize SAP data and non-SAP data.
 
-For many data integration scenarios, an integration runtime is required. The Azure integration runtime is the compute infrastructure that Azure Data Factory and Azure Synapse Analytics pipelines use to provide data integration capabilities. We recommend the deployment of runtime virtual machines for these services for each environment separately. For more information, see:
+For many data integration scenarios, an integration runtime or an on-premises data gateway is required. The Azure integration runtime is the compute infrastructure that Azure Data Factory  uses to provide data integration capabilities, while an on-premises data gateway provides data integration capabilities for Microsoft Fabric data pipelines, shortcuts, and other Fabric integration and reporting tools.  We recommend the deployment of runtime virtual machines for these services for each environment separately. For more information, see:
 
+- [On premises data gateway](/data-integration/gateway/service-gateway-onprem)
 - [Azure integration runtime](/azure/data-factory/concepts-integration-runtime)
 - [Set up a self-hosted integration runtime to use in the SAP CDC solution](/azure/data-factory/sap-change-data-capture-shir-preparation)
 - [Copy data from SAP HANA](/azure/data-factory/connector-sap-hana?tabs=data-factory)
@@ -173,7 +173,7 @@ For many data integration scenarios, an integration runtime is required. The Azu
 
 SAP solutions rely on shared services. Load balancer and application gateways are examples of services that multiple SAP systems use. The architecture but your organizational needs should determine how you architect your shared services. Here's general guidance you should follow.
 
-**Load balancers**: We recommend one load balancer per SAP system. This configuration helps minimize complexity. You want to avoid too many pools and rules on a single load balancer. This configuration also ensures naming and placement aligns with the SAP system and resource group. Each SAP system with a clustered high-availability (HA) architecture should have at least one load balancer. The architecture uses one load balancer for the ASCS virtual machines and a second load balancer for the database virtual machines. Some databases might not require load balancers to create a high-availability deployment. SAP HANA does. Check the database-specific documentation for more details.
+**Load balancers**: We recommend one load balancer per SAP system. This configuration helps minimize complexity. You want to avoid too many pools and rules on a single load balancer. This configuration also ensures naming and placement aligns with the SAP system and resource group. Each SAP system with a clustered high-availability (HA) architecture should have at least one internal load balancer. The architecture uses one load balancer for the ASCS virtual machines and a second load balancer for the database virtual machines. Some databases might not require load balancers to create a high-availability deployment. SAP HANA does. For more information, see the database-specific documentation.
 
 **Application Gateway**: We recommend at least one application gateway per SAP environment (production, non-production, and sandbox) unless the complexity and number of connected systems is too high. You could use an application gateway for multiple SAP systems to reduce complexity since not all SAP systems in the environment require inbound access from the Internet. A single application gateway could serve multiple web dispatcher ports for a single SAP S/4HANA system or be used by different SAP systems.
 
@@ -201,7 +201,7 @@ For more information, see [disaster recovery overview and infrastructure guideli
 
 For smaller SAP solutions, it might be beneficial to simplify the network design. Each SAP environment's virtual network would then be subnets inside such combined virtual network. Any simplification of the network and subscription design needs can affect security. You should reevaluate the network routing, access to and from public networks, access to shared services (file shares), and access other Azure services. Here are some options for shrinking the architecture to better meet organizational needs.
 
-**Combine the SAP application and database subnets into one.** You can combine the application and database subnets to create one large SAP network. This network design mirrors many on-premises SAP networks. The combination of these two subnets requires higher attention to subnet security and network-security-group rules. Application security groups are important when using a single subnet for SAP application and database subnets.
+**Combine the SAP application and database subnets into one.** You can combine the application and database subnets to create one large SAP network. This network design mirrors many on-premises SAP networks. The combination of these two subnets requires higher attention to subnet security and network-security-group rules. Application security groups are important when you use a single subnet for SAP application and database subnets.
 
 **Combine SAP perimeter subnet and application subnet.** You can combine the perimeter subnet and SAP application subnet. A heightened attention must be placed on network-security-group rules and application security group use. We only recommend this simplification approach for small SAP estates.
 
@@ -216,9 +216,13 @@ Principal authors:
 - [Robert Biro](https://www.linkedin.com/in/robert-biro-38991927) | Senior Architect
 - [Pankaj Meshram](https://www.linkedin.com/in/pankaj-meshram-6922981a) | Principal Program Manager
 
+Contributing author:
+
+- [Daniel Crawford](https://www.linkedin.com/in/daniel-crawford-b661373) | Senior Program Manager
+
 ## Next steps
 
-- [SAP S/4HANA in Linux on Azure](./sap-s4hana.yml)
+- [SAP S/4HANA in Linux on Azure](./sap-s4hana.md)
 - [Run SAP NetWeaver in Windows on Azure](./sap-netweaver.yml)
 - [Run SAP HANA in a scale-up architecture on Azure](/azure/architecture/reference-architectures/sap/run-sap-hana-for-linux-virtual-machines)
 - [Cloud Adoption Framework - SAP scenario](/azure/cloud-adoption-framework/scenarios/sap/)

@@ -1,20 +1,14 @@
 ---
 title: Azure Kubernetes Service (AKS) operations triage
-titleSuffix: Azure Architecture Center
 description: Learn about the five articles that describe the triage practices for AKS operations. Get an overview of the top-down triage approach.
-author: paolosalvatori
-ms.author: paolos
+author: francisnazareth
+ms.author: fnazaret
 ms.date: 01/20/2025
-ms.topic: conceptual
-ms.service: azure-architecture-center
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
   - e2e-aks
   - arb-containers
-azureCategories: compute
-categories: compute
-products:
-  - azure-kubernetes-service
 ---
 
 # Triage practices for AKS operations
@@ -65,6 +59,5 @@ Other contributors:
 ## Next steps
 
 - [Day-2 operations](https://dzone.com/articles/defining-day-2-operations)
-- [AKS periscope](https://github.com/Azure/aks-periscope)
 - [AKS roadmap](https://aka.ms/aks/roadmap)
 - [AKS resources](/azure/aks)

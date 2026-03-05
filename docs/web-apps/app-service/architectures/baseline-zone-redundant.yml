@@ -1,24 +1,22 @@
 ### YamlMime:Architecture
 metadata:
-  title: Baseline highly available zone-redundant app services web application
-  description: A baseline reference architecture for a network secured, highly available, and zone-redundant App Service web application.
-  author: robbagby
-  ms.author: robbag
-  ms.date: 7/12/2024
+  title: Baseline Highly Available Zone-Redundant App Services Web Application
+  description: Learn about a baseline reference architecture for a network secured, highly available, and zone-redundant Azure App Service web application.
+  author: claytonsiemens77
+  ms.author: pnp
+  ms.date: 12/12/2025
   ms.topic: reference-architecture
-  ms.service: azure-architecture-center
   ms.subservice: reference-architecture
   ms.category:
     - web
     - management-and-governance
-  ms.custom:
-    - reference-architecture
-    - arb-web
+  ms.custom: arb-web
+  ai-usage: ai-assisted
 name: Baseline highly available zone-redundant web application
 azureCategories:
   - web
   - management-and-governance
-summary: A baseline reference architecture for a network secured, highly available, and zone-redundant App Service web application.
+summary: Learn about a baseline reference architecture for a network secured, highly available, and zone-redundant Azure App Service web application.
 products:
   - azure-app-service
   - azure-application-gateway
@@ -29,4 +27,4 @@ products:
   - azure-monitor
 thumbnailUrl: /azure/architecture/browse/thumbs/baseline-app-service-architecture.png
 content: |
-   [!include[](baseline-zone-redundant-content.md)]
+   [!INCLUDE[](baseline-zone-redundant-content.md)]

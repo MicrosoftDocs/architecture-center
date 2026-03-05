@@ -6,7 +6,6 @@ metadata:
   ms.author: ythuang
   ms.date: 01/24/2025
   ms.topic: reference-architecture
-  ms.service: azure-architecture-center
   ms.subservice: reference-architecture
   ms.category:
     - hybrid
@@ -15,6 +14,7 @@ metadata:
     - fcp
     - e2e-hybrid
     - arb-hybrid
+  ai-usage: ai-assisted
 name: Azure enterprise cloud file share
 azureCategories:
   - hybrid

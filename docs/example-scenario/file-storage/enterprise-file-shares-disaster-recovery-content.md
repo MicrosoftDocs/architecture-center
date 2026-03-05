@@ -18,7 +18,7 @@ This architecture applies to businesses that want to provide file shares for cli
 - There are two Azure regions, a primary and a secondary.
 - The Azure subscription includes a virtual network and an Azure NetApp Files account for each region.
 - The  cross-region replication feature of Azure NetApp Files replicates the files and folders from the primary region to the secondary region. This technique doesn't need virtual machines.
-- Access to the file shares is managed by DFS Namespaces, a feature of Windows Server. You can think of it as Domain Name Server (DNS) for file shares.
+- DFS Namespaces manages access to the file shares, a feature of Windows Server. You can think of it as Domain Name Server (DNS) for file shares.
 - The Windows servers and Active Directory Domain servers can be hosted on Azure or on-premises.
 
 ### Components
@@ -33,32 +33,34 @@ This architecture applies to businesses that want to provide file shares for cli
 
 ## Considerations
 
-The [Azure Well-Architected Framework](/azure/well-architected/) provides reference guidance and best practices to apply to your architecture.
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
 
-### Availability
+### Reliability
+
+Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 Replicating to a second region increases availability by protecting against regional service interruptions.
 
-### Performance efficiency
+- This solution has more recovery options than a single-region deployment due to having failover capabilities.
+- The secondary volume is read-only. It can be verified at any given time, increasing reliability.
+- You can run a disaster recovery test in isolation without interfering with the production deployment. The test uses the space-efficient volume clone feature to get a read/write copy of a volume in seconds.
+
+### Cost Optimization
+
+Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+
+The cost of the solution depends on the size of the volume that's replicated, the rate of change, and the destination tier of the Azure NetApp Files capacity pool. For more information, see [Azure NetApp Files pricing](https://azure.microsoft.com/pricing/details/netapp) or use the Azure [Pricing calculator](https://azure.microsoft.com/pricing/calculator).
+
+See [Cost model for cross-region replication](/azure/azure-netapp-files/cross-region-replication-introduction#cost-model-for-cross-region-replication) for more examples.
+
+### Performance Efficiency
+
+Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 - Azure NetApp Files comes with three performance tiers: Standard, Premium, and Ultra. Cross-region replication can replicate between different tiers. When the primary region uses the Premium or Ultra tier, you can replicate to a lower tier, for example Standard. In case of a failover, you can then upgrade the tier of the secondary as required.
 - The replication of the data is performed at the incremental block level—only changed data blocks are transferred—which minimizes data transfer.
 
-### Scalability
-
 This solution can be used for file shares ranging from 4 tebibytes (TiB) to a total volume of 12.5 pebibytes (PiB) on a single Azure NetApp Files account.
-
-### Resiliency
-
-- This solution has greater resiliency than a single-region deployment, and has failover capabilities.
-- The secondary volume is read-only. It can be verified at any given time, increasing resiliency.
-- You can run a disaster recovery test in isolation without interfering with the production deployment. The test uses the space-efficient volume clone feature to get a read/write copy of a volume in seconds.
-
-### Cost optimization
-
-The cost of the solution depends on the size of the volume that's replicated, the rate of change, and the destination tier of the Azure NetApp Files capacity pool. For details, see [Azure NetApp Files pricing](https://azure.microsoft.com/pricing/details/netapp) or use the Azure [Pricing calculator](https://azure.microsoft.com/pricing/calculator).
-
-See [Cost model for cross-region replication](/azure/azure-netapp-files/cross-region-replication-introduction#cost-model-for-cross-region-replication) for more examples.
 
 ### Deploy this scenario
 
@@ -96,4 +98,4 @@ Principal authors:
 
 ## Related resources
 
-- [Hybrid file share with disaster recovery for remote and local branch workers](/azure/architecture/example-scenario/hybrid/hybrid-file-share-dr-remote-local-branch-workers)
+- [Hybrid file services](/azure/architecture/hybrid/hybrid-file-services)

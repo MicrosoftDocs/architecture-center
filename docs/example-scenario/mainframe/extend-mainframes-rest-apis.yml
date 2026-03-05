@@ -1,0 +1,24 @@
+### YamlMime:Architecture
+metadata:
+  title: Extend Mainframes to Digital Channels by Using Standards-Based REST APIs
+  description: Learn how the digital transformation architecture extends mainframe applications to Azure without disruptions or modifications to existing applications.
+  author: bhbandam
+  ms.author: bhbandam
+  ms.date: 03/20/2025
+  ms.topic: example-scenario
+  ms.subservice: example-scenario
+  ms.custom:
+    - linux-related-content
+azureCategories:
+  - integration
+products:
+  - entra-id
+  - azure-expressroute
+  - azure-monitor
+  - azure-redhat-openshift
+  - power-apps
+name: Extend mainframes to digital channels by using standards-based REST APIs
+summary: Learn how the digital transformation architecture extends mainframe applications to Azure without disruptions or modifications to existing applications.
+thumbnailUrl: /azure/architecture/browse/thumbs/extend-mainframes-rest-apis.png
+content: |
+  [!INCLUDE[](extend-mainframes-rest-apis-content.md)]

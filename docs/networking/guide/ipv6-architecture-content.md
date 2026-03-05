@@ -32,17 +32,17 @@ In a hub-and-spoke network, the hub virtual network is a central point of connec
 
 ### Components
 
-- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block for private networks in Azure. Virtual Network enables many Azure resources, such as Azure Virtual Machines, to securely communicate with each other, cross-premises networks, and the internet.
-- A [virtual network interface](/azure/virtual-network/virtual-network-network-interface) is required for virtual-machine communication. You can set up virtual machines and other resources to have multiple network interfaces, which allows you to create dual-stack (IPv4 and IPv6) configurations.
-- [A public IP address](/azure/virtual-network/ip-services/public-ip-addresses) is used for inbound IPv4 and IPv6 connectivity to Azure resources.
-- [Virtual Network Manager](/azure/virtual-network-manager/overview) is used to create and manage [network groups](/azure/virtual-network-manager/concept-network-groups) and their connections.
-- [Azure Firewall](/azure/firewall/overview) is a managed, cloud-based network security service. It protects your Azure Virtual Network resources. An Azure Firewall managed firewall instance is in its own subnet.
-- [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) or [Azure ExpressRoute](/azure/expressroute/expressroute-introduction) can be used to create a virtual network gateway to connect a virtual network to a virtual private network (VPN) device or an ExpressRoute circuit. The gateway provides cross-premises network connectivity.
-- [Azure Load Balancer](/azure/load-balancer/load-balancer-overview) is used to enable multiple machines that have the same purpose to share traffic. In this architecture, the load balancers distribute traffic among multiple subnets that support IPv6.
-- A [route table](/azure/virtual-network/manage-route-table) in Azure is a set of UDRs that provide custom path definitions for network traffic.
-- [Azure Virtual Machines](/azure/virtual-machines/overview) is an infrastructure as a service (IaaS) computing solution that supports IPv6.
-- [Azure Bastion](/azure/bastion/bastion-overview) is a fully managed platform as a service (PaaS) offering that Microsoft provides and maintains. It provides secure and seamless remote desktop protocol and SSH access to virtual machines without public IP address exposure.
-- [Monitor](/azure/azure-monitor/overview) is a comprehensive monitoring solution for collecting, analyzing, and responding to monitoring data from cloud and on-premises environments. You can use Monitor to maximize the availability and performance of your applications and services.
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the foundational networking layer in Azure that enables secure communication between Azure resources, the internet, and on-premises networks. In this architecture, it forms the hub-and-spoke topology, which supports dual-stack (IPv4 and IPv6) configurations for centralized and isolated connectivity.
+- A [virtual network interface](/azure/virtual-network/virtual-network-network-interface) is a logical interface that connects Azure resources to a virtual network. In this architecture, it enables virtual machines to communicate over both IPv4 and IPv6. You can set up virtual machines and other resources to have multiple network interfaces, which allows you to create dual-stack (IPv4 and IPv6) configurations.
+- [A public IP address](/azure/virtual-network/ip-services/public-ip-addresses) provides inbound connectivity to Azure resources over the internet. In this architecture, it supports both IPv4 and IPv6 access to services hosted in the virtual network.
+- [Virtual Network Manager](/azure/virtual-network-manager/overview) is a centralized management service for organizing and configuring virtual networks and their connectivity. In this architecture, it manages [network groups](/azure/virtual-network-manager/concept-network-groups) and connections across both the hub and the spoke networks.
+- [Azure Firewall](/azure/well-architected/service-guides/azure-firewall) is a network security service that protects Azure resources by inspecting and filtering traffic. In this architecture, it enforces traffic control between the hub and the public internet and supports forced tunneling for outbound traffic from spokes. It protects your Virtual Network resources. An Azure Firewall managed firewall instance resides in its own subnet.
+- [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) and [Azure ExpressRoute](/azure/expressroute/expressroute-introduction) are services that provide secure cross-premises connectivity between Azure and on-premises networks. They can create virtual network gateways that connect Azure virtual networks to virtual private network (VPN) devices or ExpressRoute circuits, which enables encrypted or private communication. In this architecture, you can use either service to connect the hub network to external networks and support IPv6 routing.
+- [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer) is a layer-4 load balancing service that distributes incoming network traffic across multiple back-end resources to ensure high availability and scalability. In this architecture, it balances IPv6 traffic across virtual machines deployed in spoke subnets.
+- A [route table](/azure/virtual-network/manage-route-table) is a set of UDRs that provide custom control over how traffic flows within and between Azure virtual networks. In this architecture, UDRs direct IPv6 traffic across hub-and-spoke subnets to enforce traffic flow and security policies.
+- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is an infrastructure as a service (IaaS) solution that provides flexible, scalable compute resources. In this architecture, virtual machines are deployed in spoke subnets configured by using dual-stack network interfaces, which enable support for both IPv4 and IPv6 workloads.
+- [Azure Bastion](/azure/bastion/bastion-overview) is a managed platform as a service (PaaS) that provides secure RDP and SSH access to virtual machines without exposing them to the public internet. In this architecture, it enables TLS-secured remote access to virtual machines in the hub network.
+- [Azure Monitor](/azure/azure-monitor/overview) is an observability platform that collects, analyzes, and acts on telemetry data from Azure and hybrid environments. In this architecture, it gathers diagnostics and metrics from hub services to support performance monitoring and operational visibility.
 
 ## Transition a hub virtual network to IPv6
 
@@ -163,6 +163,6 @@ Other contributors:
 ## Related resources
 
 - [Transition to IPv6](ipv6-ip-planning.md)
-- [Choose between virtual network peering and VPN gateways](../../reference-architectures/hybrid-networking/vnet-peering.yml)
+- [Virtual network connectivity options and spoke-to-spoke communication](../../reference-architectures/hybrid-networking/virtual-network-peering.yml)
 - [Firewall and Application Gateway for virtual networks](../../example-scenario/gateway/firewall-application-gateway.yml)
 - [Deploy AD DS in an Azure virtual network](../../example-scenario/identity/adds-extend-domain.yml)

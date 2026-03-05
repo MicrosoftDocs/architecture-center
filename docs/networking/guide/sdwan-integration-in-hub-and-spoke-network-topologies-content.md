@@ -30,7 +30,7 @@ The architecture described in this article supports all the scopes listed previo
 
 - SD-WAN devices are deployed as Network Virtual Appliances (NVAs) in each Azure region's hub and spoke network and configured as SD-WAN hubs that terminate tunnels from on-premises sites.
 - SD-WAN devices in Azure are configured to establish tunnels with each other, thus creating a fully meshed hub-to-hub overlay that can efficiently transport traffic among Azure regions, and relay traffic between geographically distant on-premises sites, on top of the Microsoft backbone.
-- SD-WAN devices are deployed in all on-premises sites covered by the SD-WAN solution and configured to establish tunnels to the SD-WAN NVAs in the closest Azure regions. Different sites can use different transport services as an underlay for the tunnels, such as public internet, ExpressRoute connectivity, and so on.
+- SD-WAN devices are deployed in all on-premises sites covered by the SD-WAN solution and configured to establish tunnels to the SD-WAN NVAs in the closest Azure regions. Different sites can use different transport services as an underlay for the tunnels, such as public internet and ExpressRoute connectivity.
 - Traffic from a site to any destination, whether in Azure or in another on-premises site, is routed to the SD-WAN NVAs in the closest Azure region. Then it routes through the hub-to-hub overlay.
 
 SD-WAN products can use proprietary protocols and features to detect, once dynamically established, direct tunnels between two sites can provide better performance than relaying traffic via SD-WAN NVAs in Azure.
@@ -98,7 +98,7 @@ The resulting HA architecture is shown in the following figure:
 
 #### N-active versus active stand-by high availability
 
-When you use multiple SD-WAN NVAs and peer them with Route Server, BGP drives the failover. If an SD-WAN NVA goes offline, it stops advertising routes to Route Server. The routes learned from the failed device are then withdrawn from the virtual network's route table. So, if an SD-WAN NVA no longer provides connectivity to remote SD-WAN sites because of a fault, in the device itself or in the underlay, it no longer shows up as a possible next hop toward the remote sites in the virtual network's route table. All the traffic goes to the remaining healthy devices. For more information on route propagation between SD-WAN NVAs and Route Server, see [Routes advertised by a BGP peer to Route Server](#routes-advertised-by-a-bgp-peer-to-route-server).
+When you use multiple SD-WAN NVAs and peer them with Route Server, BGP drives the failover. If an SD-WAN NVA goes offline, it stops advertising routes to Route Server. The routes learned from the failed device are then withdrawn from the virtual network's route table. So, if an SD-WAN NVA no longer provides connectivity to remote SD-WAN sites because of a fault, in the device itself or in the underlay network, it no longer shows up as a possible next hop toward the remote sites in the virtual network's route table. All the traffic goes to the remaining healthy devices. For more information on route propagation between SD-WAN NVAs and Route Server, see [Routes advertised by a BGP peer to Route Server](#routes-advertised-by-a-bgp-peer-to-route-server).
 
 :::image type="content" source="images/sdwan-integration-route-server-bgp-failover.png" alt-text="Diagram that shows the Route Server BGP-driven failover." border="false" lightbox="images/sdwan-integration-route-server-bgp-failover.png#lightbox":::
 *Figure 4. BGP-driven failover. If SD-WAN NVA #0 goes offline, its BGP sessions with Route Server close. SD-WAN NVA #0 is removed from the virtual network's route table as a possible next hop for traffic going from Azure to on-premises site.*
@@ -117,7 +117,7 @@ We recommend N-active HA architectures because they enable optimal resource use 
 :::image type="content" source="images/sdwan-integration-asymmetric-routing-with-active-active-ha.png" alt-text="Diagram that shows asymmetric routing in active/active configurations." border="false" lightbox="images/sdwan-integration-asymmetric-routing-with-active-active-ha.png#lightbox":::
 *Figure 5. Asymmetric routing in active/active HA architectures. SD-WAN NVA #0 and SD-WAN NVA #1 announce the same route for destination 192.168.1.0/24 (remote SD-WAN site) with the same AS Path length to Route Server. The ORIGINAL flow (from SD-WAN remote site to Azure, red path) is routed via the tunnel terminated, on the Azure side, by SD-WAN NVA #1. The on-premises SD-WAN CPE selects this tunnel. The Azure SDN stack routes the REPLY flow (from Azure to remote SD-WAN site, green path) to SD-WAN NVA #0, which is one of the possible next hops for 192.168.1.0/24, according to the virtual network's route table. It isn't possible to guarantee that the next hop chosen by the Azure SDN stack is always the same SD-WAN CPE that received the ORIGINAL flow.*
 
-Active and passive HA architectures should only be considered when SD-WAN NVAs in Azure perform other network functions that require routing symmetry, such as stateful firewalling. We don't recommend this approach because of its implications on scalability. Running more network functions on SD-WAN NVAs increases resource consumption. At the same time, the active and passive HA architecture allows having one single NVA processing traffic at any point in time. That is, the whole SD-WAN layer can only be scaled up to the maximum Azure VM size it supports, not scaled out. Run stateful network functions that require routing symmetry on separate NVA clusters that rely on Standard Load Balancer for n-active HA.
+Active and passive HA architectures should only be considered when SD-WAN NVAs in Azure perform other network functions that require routing symmetry, such as stateful firewalling. We don't recommend this approach because of its implications on scalability. Running more network functions on SD-WAN NVAs increases resource consumption. At the same time, the active and passive HA architecture allows having one single NVA processing traffic at any point in time. That is, the whole SD-WAN layer can only be scaled up to the maximum Azure VM size it supports, not scaled out. Run stateful network functions that require routing symmetry on separate NVA clusters that rely on Azure Load Balancer for n-active HA.
 
 ## ExpressRoute connectivity considerations
 
@@ -137,24 +137,23 @@ This coexistence scenario requires SD-WAN NVAs deployed in Azure to be capable o
 
 This SD-WAN and ExpressRoute coexistence scenario enables migrations from MPLS networks to SD-WAN. It offers a path between legacy MPLS sites and newly migrated SD-WAN sites, eliminating the need to route traffic through on-premises datacenters. This pattern can be used not only during migrations but also in scenarios arising from company mergers and acquisitions, providing a seamless interconnection of disparate networks.
 
-### Scenario #2: Expressroute as an SD-WAN underlay
+### Scenario #2: Expressroute as an SD-WAN underlay network
 
 If your on-premises sites have ExpressRoute connectivity, you can configure SD-WAN devices to set up tunnels to the SD-WAN hub NVAs running in Azure on top of the ExpressRoute circuit or circuits. ExpressRoute connectivity can be done through point-to-point circuits or an MPLS network. You can use both ExpressRoute private peering and the Microsoft peering.
 
 #### Private peering
 
-When you use the ExpressRoute private peering as the underlay, all on-premises SD-WAN sites establish tunnels to the SD-WAN hub NVAs in Azure. No route propagation between the SD-WAN NVAs and the ExpressRoute virtual network gateway is needed in this scenario (that is, Route Server must be configured with the *"AllowBranchToBranch"* flag set to false).
+When you use the ExpressRoute private peering as the underlay network, all on-premises SD-WAN sites establish tunnels to the SD-WAN hub NVAs in Azure. No route propagation between the SD-WAN NVAs and the ExpressRoute virtual network gateway is needed in this scenario (that is, Route Server must be configured with the *"AllowBranchToBranch"* flag set to false).
 
 This approach requires proper BGP configuration on the customer- or provider-side routers that terminate the ExpressRoute connection. In fact, the Microsoft Enterprise Edge Routers (MSEEs) announce all the routes for the virtual networks connected to the circuit (either directly or via [virtual network peering](/azure/virtual-network/virtual-network-peering-overview)). But in order to forward traffic destined to virtual networks through an SD-WAN tunnel, the on-premises site should learn those routes from the SD-WAN device - not the ER circuit. 
 
-Therefore, the customer-side or provider-side routers that terminate the ExpressRoute connection must filter out the routes received from Azure. The only routes configured in the underlay should be ones that allow the on-premises SD-WAN devices to reach the SD-WAN hub NVAs in Azure. Customers that want to use the ExpressRoute private peering as an SD-WAN underlay should verify that they can configure their routing devices accordingly. Doing so is especially relevant for customers who don't have direct control over their edge devices for ExpressRoute. An example is when the ExpressRoute circuit is provided by an MPLS carrier on top of an IPVPN service.
+Therefore, the customer-side or provider-side routers that terminate the ExpressRoute connection must filter out the routes received from Azure. The only routes configured in the underlay network should be ones that allow the on-premises SD-WAN devices to reach the SD-WAN hub NVAs in Azure. Customers that want to use the ExpressRoute private peering as an SD-WAN underlay network should verify that they can configure their routing devices accordingly. Doing so is especially relevant for customers who don't have direct control over their edge devices for ExpressRoute. An example is when the ExpressRoute circuit is provided by an MPLS carrier on top of an IPVPN service.
 
-:::image type="content" source="images/sdwan-integration-private-peering-sdwan-underlay.png" alt-text="Diagram that shows expressRoute private peering as an SD-WAN underlay." border="false" lightbox="images/sdwan-integration-private-peering-sdwan-underlay.png#lightbox":::
-*Figure 8. ExpressRoute private peering as an SD-WAN underlay. In this scenario, the customer and provider-side routers receive the routes for the virtual network that terminate the ExpressRoute connection, in the ER private peering BGP sessions, and the SD-WAN CPE. Only the SD-WAN CPE should propagate the Azure routes into the site's LAN.*
+:::image type="content" source="images/sdwan-integration-private-peering-sdwan-underlay.png" alt-text="Diagram that shows expressRoute private peering as an SD-WAN underlay network." border="false" lightbox="images/sdwan-integration-private-peering-sdwan-underlay.png#lightbox":::
 
 #### Microsoft peering
 
-You can also use the ExpressRoute Microsoft peering as an underlay for SD-WAN tunnels. In this scenario, the SD-WAN hub NVAs in Azure only expose public tunnel endpoints, which are used by both SD-WAN CPEs in internet-connected sites, if any, and by SD-WAN CPEs in Expressroute-connected sites. Although the ExpressRoute Microsoft peering has more complex prerequisites than the private peering, we recommend using this option as an underlay because of these two advantages:
+You can also use the ExpressRoute Microsoft peering as an underlay network for SD-WAN tunnels. In this scenario, the SD-WAN hub NVAs in Azure only expose public tunnel endpoints, which are used by both SD-WAN CPEs in internet-connected sites, if any, and by SD-WAN CPEs in Expressroute-connected sites. Although the ExpressRoute Microsoft peering has more complex prerequisites than the private peering, we recommend using this option as an underlay network because of the following two advantages:
 
 - It doesn't require Expressroute virtual network gateways in the hub virtual network. It removes complexity, reduces cost, and lets the SD-WAN solution scale beyond the bandwidth limits of the gateway itself when you don't use [ExpressRoute FastPath](/azure/expressroute/about-fastpath).
 
@@ -179,10 +178,9 @@ Organizations that don't trust public and shared networks to provide the desired
 - A subset of sites like datacenters or large branch offices.
 - A subset of connections, typically latency-sensitive or mission-critical traffic.
 
-The scenario [Expressroute as an SD-WAN underlay](#scenario-2-expressroute-as-an-sd-wan-underlay) described earlier enables SD-WAN and MPLS integration. The ExpressRoute Microsoft peering should be preferred over the private peering for the reasons discussed previously. Also, when the Microsoft peering is used, the MPLS network and the public internet become functionally equivalent underlays. They provide access to all of the SD-WAN tunnel endpoints exposed by SD-WAN hub NVAs in Azure. An SD-WAN CPE deployed in a site with both internet and MPLS connectivity can establish multiple tunnels to the SD-WAN hubs in Azure on both underlays. They can then route different connections through different tunnels, based on application-level policies managed by the SD-WAN control plane.
+The scenario [Expressroute as an SD-WAN underlay](#scenario-2-expressroute-as-an-sd-wan-underlay-network) described earlier enables SD-WAN and MPLS integration. The ExpressRoute Microsoft peering should be preferred over the private peering for the reasons discussed previously. Also, when the Microsoft peering is used, the MPLS network and the public internet become functionally equivalent underlays. They provide access to all of the SD-WAN tunnel endpoints exposed by SD-WAN hub NVAs in Azure. An SD-WAN CPE deployed in a site with both internet and MPLS connectivity can establish multiple tunnels to the SD-WAN hubs in Azure on both underlays. They can then route different connections through different tunnels, based on application-level policies managed by the SD-WAN control plane.
 
 :::image type="content" source="images/sdwan-integration-mpls-integration.png" alt-text="Diagram that shows the MPLS integration architecture." border="false" lightbox="images/sdwan-integration-mpls-integration.png#lightbox":::
-*Figure 10. The "ExpressRoute as an SD-WAN underlay" scenario enables SD-WAN and MPLS integration.*
 
 ### Route Server routing preference
 
@@ -232,4 +230,4 @@ Principal authors:
 ## Related resources
 
 - [Connect an on-premises network to Azure using ExpressRoute](/azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover)
-- [Deploy highly available NVAs](/azure/architecture/networking/guide/nva-ha)
+- [Deploy highly available NVAs](/azure/architecture/networking/guide/network-virtual-appliance-high-availability)

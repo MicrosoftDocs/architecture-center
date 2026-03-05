@@ -4,14 +4,12 @@ metadata:
   description: Learn about the infrastructure and DevOps considerations to deploy and run a microservices architecture on Azure Kubernetes Service (AKS).
   author: francisnazareth
   ms.author: fnazaret
-  ms.date: 07/28/2022
+  ms.date: 03/10/2025
   ms.topic: reference-architecture
   ms.subservice: reference-architecture
   ms.category:
     - containers
   ms.custom:
-    - microservices
-    - reference-architecture
     - e2e-aks
     - arb-containers
 name: Microservices architecture on Azure Kubernetes Service
@@ -22,7 +20,7 @@ products:
   - entra-id
   - azure-container-registry
   - azure-kubernetes-service
-  - azure-load-balancer
+  - azure-managed-redis
   - azure-pipelines
   - azure-monitor
 thumbnailUrl: /azure/architecture/browse/thumbs/microservices-architecture.png

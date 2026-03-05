@@ -3,26 +3,22 @@ title: Choose a search data store
 description: Learn about the capabilities of search data stores in Azure and the key criteria for choosing one that best matches your needs.
 author: josearper
 ms.author: joaria
-categories: azure
 ms.custom: arb-data
 ms.date: 07/25/2022
-ms.topic: conceptual
-ms.service: azure-architecture-center
+ms.topic: concept-article
 ms.subservice: architecture-guide
-products:
-  - azure-cognitive-search
 ---
 
 # Choose a search data store in Azure
 
-This article compares technology choices for search data stores in Azure. A search data store is used to create and store specialized indexes for performing searches on free-form text. The text that is indexed may reside in a separate data store, such as blob storage. An application submits a query to the search data store, and the result is a list of matching documents. For more information about this scenario, see [Processing free-form text for search](../scenarios/search.yml).
+This article compares technology choices for search data stores in Azure. A search data store is used to create and store specialized indexes for performing searches on free-form text. The text that is indexed might reside in a separate data store, such as blob storage. An application submits a query to the search data store, and the result is a list of matching documents. For more information about this scenario, see [Processing free-form text for search](../scenarios/search.yml).
 
 ## What are your options when choosing a search data store?
 
 In Azure, all of the following data stores will meet the core requirements for search against free-form text data by providing a search index:
 
-- [Azure Cognitive Search](/azure/search/search-what-is-azure-search)
-- [Elasticsearch](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.ec-azure-pp)
+- [Azure AI Search](/azure/search/search-what-is-azure-search)
+- [Elasticsearch](https://marketplace.microsoft.com/product/elastic.ec-azure-pp)
 - [Azure SQL Database with full text search](/sql/relational-databases/search/full-text-search)
 
 ## Key selection criteria
@@ -39,7 +35,7 @@ For search scenarios, begin choosing the appropriate search data store for your 
 
 - Do you need to index data in common document formats such as PDF, Word, PowerPoint, and Excel? If yes, choose an option that provides document indexers.
 
-- Does your database have specific security needs? If yes, consider the security features listed below.
+- Does your database have specific security needs? If yes, consider the following security features.
 
 ## Capability matrix
 
@@ -47,23 +43,23 @@ The following tables summarize the key differences in capabilities.
 
 ### General capabilities
 
-| Capability | Cognitive Search | Elasticsearch | SQL Database |
+| Capability | AI Search | Elasticsearch | SQL Database |
 | --- | --- | --- | --- |
 | Is managed service | Yes | No | Yes |
 | REST API | Yes | Yes | No |
 | Programmability | .NET, Java, Python, JavaScript | Java | T-SQL |
-| Document indexers for common file types (PDF, DOCX, TXT, and so on) | Yes | No | No |
+| Document indexers for common file types (for example, PDF, DOCX, and TXT) | Yes | No | No |
 
 ### Manageability capabilities
 
-| Capability | Cognitive Search | Elasticsearch | SQL Database |
+| Capability | AI Search | Elasticsearch | SQL Database |
 | --- | --- | --- | --- |
 | Updateable schema | Yes | Yes | Yes |
-| Supports scale out  | Yes | Yes | No |
+| Supports scale-out  | Yes | Yes | No |
 
 ### Analytic workload capabilities
 
-| Capability | Cognitive Search | Elasticsearch | SQL Database |
+| Capability | AI Search | Elasticsearch | SQL Database |
 | --- | --- | --- | --- |
 | Supports analytics beyond full text search | No | Yes | Yes |
 | Part of a Log Analytics stack | No | Yes (ELK) | No |
@@ -71,7 +67,7 @@ The following tables summarize the key differences in capabilities.
 
 ### Security capabilities
 
-| Capability | Cognitive Search | Elasticsearch | SQL Database |
+| Capability | AI Search | Elasticsearch | SQL Database |
 | --- | --- | --- | --- |
 | Row-level security | Partial (requires application query to filter by group ID) | Partial (requires application query to filter by group ID) | Yes |
 | Transparent data encryption | No | No | Yes |
@@ -89,9 +85,9 @@ Principal author:
 
 ## Next steps
 
-- [What is Azure Cognitive Search?](/azure/search/search-what-is-azure-search)
+- [What is AI Search?](/azure/search/search-what-is-azure-search)
 - [Full-Text Search in SQL Server and Azure SQL Database](/sql/relational-databases/search/full-text-search)
-- [Elastic Cloud (Elasticsearch Service)](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.ec-azure-pp)
+- [Elastic Cloud (Elasticsearch Service)](https://marketplace.microsoft.com/product/elastic.ec-azure-pp)
 
 ## Related resources
 

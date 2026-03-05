@@ -1,24 +1,17 @@
 ---
-title: Azure Private Link service considerations for multitenancy
-titleSuffix: Azure Architecture Center
-description: This article describes the features of Azure Private Link that are useful when working with multitenanted systems, and it provides links to guidance and examples.
+title: Guidance for using Azure Private Link service in a multitenant solution
+description: This article describes the features of Azure Private Link that are useful when you work with multitenanted systems, and it provides links to guidance and examples.
 author: johndowns
-ms.author: jodowns
-ms.date: 07/11/2024
-ms.topic: conceptual
-ms.service: azure-architecture-center
+ms.author: pnp
+ms.date: 12/16/2025
+ms.topic: concept-article
 ms.subservice: architecture-guide
-products:
-  - azure
-  - azure-virtual-network
-  - azure-private-link
-categories:
-  - networking
 ms.custom:
   - arb-saas
+  - sfi-image-nochange
 ---
 
-# Multitenancy and Azure Private Link
+# Guidance for using Azure Private Link in a multitenant solution
 
 Azure Private Link provides private IP addressing for Azure platform services, and for your own applications that are hosted on Azure virtual machines. You can use Private Link to enable private connectivity from your tenants' Azure environments. Tenants can also use Private Link to access your solution from their on-premises environments, when they're connected through virtual private network gateways (VPN Gateway) or ExpressRoute.
 
@@ -27,6 +20,16 @@ Azure Private Link is used by many large SaaS providers, including [Snowflake](/
 In this article, we review how you can configure Private Link for an Azure-hosted multitenant solution.
 
 ## Key considerations
+
+### Service selection
+
+When you use Private Link, it's important to consider the service that you want to allow inbound connectivity to.
+
+*Azure Private Link service* is used with virtual machines behind an internal Azure load balancer.
+
+You can also use Private Link with other Azure services. These services include application hosting platforms like Azure App Service. They also include Azure Application Gateway or Azure API Management, which are network and API gateways.
+
+The application platform you use determines many aspects of your Private Link configuration, and the limits that apply. Additionally, some services don't support Private Link for inbound traffic. Review the documentation for the Azure services you use to understand their support for Private Link.
 
 ### Overlapping IP address spaces
 
@@ -38,21 +41,21 @@ When you use Private Link to enable connectivity from each tenant to the multite
 
 ![Diagram showing connectivity between two tenants and a multitenant service, all of which use the same IP address space.](media/private-link/overlapping-ranges.png)
 
-When traffic arrives into the multitenant solution, it has already been translated. This means traffic appears to originate from within the multitenant service's own virtual network IP address space. Private Link provides the [TCP Proxy Protocol v2](#proxy-protocol-v2) feature, which enables a multitenant service to know the tenant that sent the request, and even the original IP address from the source network.
+When traffic arrives into the multitenant solution, it has already been translated. This means traffic appears to originate from within the multitenant service's own virtual network IP address space. Some Private Link services provide metadata for each socket through the [TCP Proxy Protocol v2](#proxy-protocol-v2) feature. This feature enables your workload component to know which private endpoint connection the request has come through, and therefore determine the tenant that sent the request. It also provides the original IP address from the source network. However, the availability of this metadata depends on the Azure service you're connecting to.
 
-### Service selection
+### Provisioning process
 
-When you use Private Link, it's important to consider the service that you want to allow inbound connectivity to.
+When working across different customers or tenants, Private Link typically requires both sides to take explicit action to provision and establish the connection. The same general process applies whether a tenant is connecting to a service provider or vice versa. There can be multiple phases involved, each of which requires distinct permissions:
 
-*Azure Private Link service* is used with virtual machines behind a standard load balancer.
+- Create the private endpoint in the destination virtual network. This action must be performed by a user or principal with the [necessary permissions](/azure/private-link/rbac-permissions).
+- Establish a connection to the private endpoint. This action also requires permissions.
+- Approve the connection. For more information about connection approvals in a multitenant solution, see [Connection approvals](#connection-approvals).
 
-You can also use Private Link with other Azure services. These services include application hosting platforms like Azure App Service. They also include Azure Application Gateway or Azure API Management, which are network and API gateways.
-
-The application platform you use determines many aspects of your Private Link configuration, and the limits that apply. Additionally, some services don't support Private Link for inbound traffic. Review the documentation for the Azure services you use to understand their support for Private Link.
+If you expect large number of private endpoints or connections, consider building self-service or automated tooling to provision and approve the connections.
 
 ### Limits
 
-Carefully consider the number of private endpoints that you can create, based on your solution's architecture. If you use a platform as a service (PaaS) application platform, it's important be aware of the maximum number of private endpoints that a single resource can support. If you run virtual machines, you can attach a Private Link service instance to a standard load balancer (SLB). In this configuration, you can generally connect a higher number of private endpoints, but limits still apply. These limits might determine how many tenants you can connect to your resources by using Private Link. Review [Azure subscription and service limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits) to understand the limits to the number of endpoints and connections.
+Carefully consider the number of private endpoints that you can create, based on your solution's architecture. If you use a platform as a service (PaaS) application platform, it's important to be aware of the maximum number of private endpoints that a single resource can support. If you run virtual machines, you can attach a Private Link service instance to an Azure Load Balancer. In this configuration, you can generally connect a higher number of private endpoints, but limits still apply. These limits might determine how many tenants you can connect to your resources by using Private Link. Review [Azure subscription and service limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits) to understand the limits to the number of endpoints and connections.
 
 Additionally, some services require a specialized networking configuration to use Private Link. For example, if you use Private Link with Azure Application Gateway, you must [provision a dedicated subnet](/azure/application-gateway/private-link-configure), in addition to the standard subnet for the Application Gateway resource.
 
@@ -62,7 +65,7 @@ Carefully test your solution, including your deployment and diagnostic configura
 
 You might choose to deploy your solution to be both internet-facing and also to be exposed through private endpoints. For example, some of your tenants might require private connectivity while others rely on public internet connectivity. Consider your overall network topology and the paths that each tenant's traffic follows.
 
-When your solution is based on virtual machines that are behind a standard load balancer, you can expose your endpoint via the Private Link service. In this case, a web application firewall and application routing are likely already part of your virtual machine-based workload.
+When your solution is based on virtual machines that are behind a load balancer, you can expose your endpoint via the Private Link service. In this case, a web application firewall and application routing are likely already part of your virtual machine-based workload.
 
 Many Azure PaaS services support Private Link for inbound connectivity, even across different Azure subscriptions and Microsoft Entra tenants. You can use that service's Private Link capabilities to expose your endpoint.
 
@@ -78,30 +81,30 @@ Private Link is designed to support scenarios where a single application tier ca
 
 ### Isolation models for Private Link service
 
-If you use Private Link service with virtual machines behind a standard load balancer, there are several isolation models that you can consider.
+If you use Private Link service with virtual machines behind an Azure Load Balancer, there are several isolation models that you can consider.
 
 | Consideration | Shared Private Link service and shared load balancer | Dedicated Private Link service and dedicated load balancer | Dedicated Private Link service and shared load balancer |
 |-|-|-|-|
 | **Deployment complexity** | Low | Medium-high, depending on the number of tenants | Medium-high, depending on the number of tenants |
 | **Operational complexity** | Low | Medium-high, depending on the number of resources | Medium-high, depending on the number of resources |
-| **Limits to consider** | Number of private endpoints on the same Private Link service | Number of Private Link services per subscription | Number of Private Link services per standard load balancer | 
+| **Limits to consider** | Number of private endpoints on the same Private Link service | Number of Private Link services per subscription | Number of Private Link services per load balancer |
 | **Example scenario** | Large multitenant solution with shared application tier | Separate deployment stamps for each tenant | Shared application tier in a single stamp, with large numbers of tenants |
 
 In all three models, the level of data isolation and performance depends on the other elements of your solution, and the Private Link service deployment doesn't materially affect these factors.
 
-### Shared Private Link service and shared standard load balancer
+### Shared Private Link service and shared load balancer
 
-You might consider deploying a shared Private Link service, which is connected to a standard load balancer. Each of your tenants can create a private endpoint and use it to connect to your solution.
+You might consider deploying a shared Private Link service, which is connected to a load balancer. Each of your tenants can create a private endpoint and use it to connect to your solution.
 
 A single Private Link service instance supports a large number of private endpoints. If you exhaust the limit, you can deploy more Private Link service instances, although there are also limits to the number of Private Link services you can deploy on a single load balancer. If you expect that you'll approach these limits, consider using a Deployment Stamps-based approach, and deploy shared load balancers and Private Link service instances into each stamp.
 
-### Dedicated Private Link service and dedicated standard load balancer per tenant
+### Dedicated Private Link service and dedicated load balancer per tenant
 
 You can deploy a dedicated Private Link service and dedicated load balancer for each tenant. This approach makes sense when you have a dedicated set of virtual machines for each tenant, such as when your tenants have strict compliance requirements.
 
-### Dedicated Private Link service per tenant and shared standard load balancer
+### Dedicated Private Link service per tenant and shared load balancer
 
-You can also deploy dedicated Private Link service instances for each tenant, with a shared standard load balancer. However, this model is unlikely to provide much benefit. Additionally, because there's a limit to the number of Private Link services that you can deploy on a single standard load balancer, this model isn't likely to scale beyond a small multitenant solution.
+You can also deploy dedicated Private Link service instances for each tenant, with a shared load balancer. However, this model is unlikely to provide much benefit. Additionally, because there's a limit to the number of Private Link services that you can deploy on a single load balancer, this model isn't likely to scale beyond a small multitenant solution.
 
 More commonly, you can deploy multiple shared Private Link services. This approach enables you to expand the number of private endpoints that your solution can support on one shared load balancer.
 
@@ -115,7 +118,7 @@ When you share application tier resources between tenants, you might consider de
 
 ## Features of Azure Private Link that support multitenancy
 
-Private Link has several features that are helpful in a multitenant environment. However, the specific features available to you depend on the service you use. The foundational Azure Private Link service, for virtual machines and load balancers, supports all of the features described below. Other services with Private Link support might provide only a subset of these features.
+Private Link has several features that are helpful in a multitenant environment. However, the specific features available to you depend on the service you use. The foundational Azure Private Link service, for virtual machines and load balancers, supports all of the features described in the following sections. Other services with Private Link support might provide only a subset of these features.
 
 ### Service aliases
 
@@ -145,9 +148,11 @@ For more information, see [Control service access](/azure/private-link/private-l
 
 When you use the Private Link service, by default your application only has visibility of an IP address that has been through network address translation (NAT). This behavior means that traffic appears to flow from within your own virtual network.
 
-Private Link enables you to get access to the original client IP address, in the tenant's virtual network. This feature uses the [TCP Proxy Protocol v2](/azure/private-link/private-link-service-overview#getting-connection-information-using-tcp-proxy-v2).
+In some situations, Private Link enables you to get access to the original client IP address, in the tenant's virtual network. This feature uses the [TCP Proxy Protocol v2](/azure/private-link/private-link-service-overview#getting-connection-information-using-tcp-proxy-v2).
 
 For example, suppose your tenants' administrators need to add IP address-based access restrictions, such as *host 10.0.0.10 can access the service, but host 10.0.0.20 can't*. When you use Proxy Protocol v2, you can enable your tenants to configure these types of access restrictions in your application. However, your application code needs to inspect the client's original IP address and enforce the restrictions.
+
+When you use Azure Private Link service, you can use the TCP Proxy Protocol v2. However, when you use Private Link to connect to other Azure services, TCP sockets from clients might terminate within service-managed infrastructure that you don't see. Consult the service's documentation to understand whether they propagate the TCP socket metadata to your application.
 
 ## Related resources
 
@@ -159,11 +164,12 @@ For example, suppose your tenants' administrators need to add IP address-based a
 
 Principal authors:
 
-- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer
+- [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
 - [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv/) | Principal Customer Engineer, FastTrack for Azure
 
 Other contributor:
 
+- [Daniel Scott-Raynsford](https://www.linkedin.com/in/dscottraynsford) | Partner Solution Architect, Data & AI
 - [Sumeet Mittal](https://www.linkedin.com/in/mittalsumeet) | Principal Product Manager, Azure Private Link
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*

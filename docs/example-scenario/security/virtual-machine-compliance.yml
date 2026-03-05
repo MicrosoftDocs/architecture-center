@@ -1,13 +1,11 @@
 ### YamlMime:Architecture
 metadata:
   title: Manage virtual machine compliance
-  titleSuffix: Azure Architecture Center
   description: Manage virtual machine compliance without impairing DevOps practices. Use Azure VM Image Builder and Azure Compute Gallery to minimize risk from system images.
   author: yemrea
   ms.author: yemrea
   ms.date: 05/24/2024
   ms.topic: example-scenario
-  ms.service: azure-architecture-center
   ms.subservice: example-scenario
   ms.custom:
     - fcp

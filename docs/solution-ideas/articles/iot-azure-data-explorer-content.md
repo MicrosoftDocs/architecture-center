@@ -6,13 +6,13 @@ Jupyter is a trademark of its respective company. No endorsement is implied by t
 
 ## Architecture
 
-:::image type="content" source="../media/iot-azure-data-explorer-new.svg" alt-text="Diagram showing IoT telemetry analytics with Azure Data Explorer." lightbox="../media/iot-azure-data-explorer-new.svg" border="false":::
+:::image type="content" source="../media/iot-azure-data-explorer-new.svg" alt-text="Diagram showing an IoT telemetry analytics architecture with Azure Data Explorer processing data from Event Hubs and IoT Hub." lightbox="../media/iot-azure-data-explorer-new.svg" border="false":::
 
-*Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/iot-azure-data-explorer.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/iot-azure-data-explorer.vsdx) of this architecture.*
 
 ### Dataflow
 
-1. Azure Event Hubs, Azure IoT Hub, or Kafka ingest a wide variety of fast-flowing streaming data such as logs, business events, and user activities.
+1. Azure Event Hubs, Azure IoT Hub, or Kafka ingest a wide range of fast-flowing streaming data such as logs, business events, and user activities.
 
 1. Azure Functions or Azure Stream Analytics process the data in near real time.
 
@@ -22,11 +22,11 @@ Jupyter is a trademark of its respective company. No endorsement is implied by t
 
    Alternatively, you can ingest blobs from your [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) or [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) account into Azure Data Explorer by using an [Event Grid data connection](/azure/data-explorer/ingest-data-event-grid).
 
-   You can also continuously export data to Azure Storage in compressed, partitioned [Apache Parquet](https://parquet.apache.org) format, and seamlessly query the data with Azure Data Explorer. For details, see [Continuous data export overview](/azure/data-explorer/kusto/management/data-export/continuous-data-export).
+   You can also continuously export data to Azure Storage in compressed, partitioned [Apache Parquet](https://parquet.apache.org) format, and seamlessly query the data with Azure Data Explorer. For more information, see [Continuous data export overview](/azure/data-explorer/kusto/management/data-export/continuous-data-export).
 
-1. To serve both the operational and analytical use cases, data can either route to Azure Data Explorer and Azure Cosmos DB in parallel, or from Azure Cosmos DB to Azure Data Explorer.
+1. To serve both the operational and analytical use cases, route data either to Azure Data Explorer and Azure Cosmos DB in parallel, or from Azure Cosmos DB to Azure Data Explorer.
 
-   - Azure Cosmos DB transactions can trigger Azure Functions via change feed. Functions will stream data to Event Hubs for ingestion into Azure Data Explorer.
+   - Azure Cosmos DB transactions can trigger Azure Functions via change feed. Functions stream data to Event Hubs for ingestion into Azure Data Explorer.
 
      -or-
 
@@ -43,39 +43,43 @@ Jupyter is a trademark of its respective company. No endorsement is implied by t
 
 ### Components
 
-This solution idea uses the following Azure components:
+This solution idea uses the following Azure components.
 
 #### Azure Data Explorer
 
-[Azure Data Explorer](https://azure.microsoft.com/services/data-explorer) is a fast, fully managed, and highly scalable big data analytics service. Azure Data Explorer can analyze large volumes of streaming data from applications, websites, and IoT devices in near real-time to serve analytics applications and dashboards.
+- [Anomaly detection and forecasting](/azure/data-explorer/anomaly-detection) is a built-in analytics feature in [Azure Data Explorer](/azure/data-explorer/data-explorer-overview). It detects outliers and predicts future values to support proactive monitoring and decision-making. In this architecture, it identifies unusual patterns in IoT telemetry and forecasts expected behavior over time.
 
-Azure Data Explorer provides native advanced analytics for:
+- [Anomaly diagnosis for root analysis](/kusto/query/anomaly-diagnosis) is a Kusto Query Language (KQL) capability that helps identify the root causes of anomalies. It analyzes contributing dimensions and metrics to streamline troubleshooting. In this architecture, it isolates the source of anomalies detected in device data.
 
-- [Time series analysis](/azure/data-explorer/time-series-analysis).
-- Pattern recognition.
-- [Anomaly detection and forecasting](/azure/data-explorer/anomaly-detection).
-- [Anomaly diagnosis for root analysis](/kusto/query/anomaly-diagnosis).
+- [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) is a fully managed, high-performance analytics service. It processes large volumes of streaming data from applications, websites, and IoT devices in near real-time. In this architecture, it serves as the central analytics engine for ingesting, querying, and visualizing IoT data.
 
-The [Azure Data Explorer Web UI](/azure/data-explorer/web-query-data) connects to Azure Data Explorer clusters to help write, run, and share Kusto Query Language commands and queries. [Azure Data Explorer Dashboards](/azure/data-explorer/azure-data-explorer-dashboards) are a feature in the Data Explorer Web UI that natively exports Kusto queries to optimized dashboards.
+- [Azure Data Explorer dashboards](/azure/data-explorer/azure-data-explorer-dashboards) are a visualization feature within the Web UI. They allow users to export Kusto queries into interactive dashboards for real-time data exploration. In this architecture, they display insights from IoT data streams and anomaly detection results.
+
+- [Azure Data Explorer web UI](/azure/data-explorer/web-query-data) is a browser-based interface for working with Azure Data Explorer clusters. It supports writing, running, and sharing KQL commands and queries. In this architecture, it provides a workspace for analysts to query and explore IoT telemetry.
+
+- [Time series analysis](/azure/data-explorer/time-series-analysis) is a built-in capability in Azure Data Explorer. It enables users to explore temporal patterns, trends, and seasonality in time-based data. In this architecture, it reveals long-term trends and cyclical behavior in IoT sensor readings.
 
 #### Other Azure components
 
-- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) is a fully managed, fast NoSQL database service for modern app development with open APIs for any scale.
-- [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins) stores digital models of physical environments, to help create next-generation IoT solutions that model the real world.
-- [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs) is a fully managed, real-time data ingestion service.
-- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) enables bi-directional communication between IoT devices and the Azure cloud.
-- [Azure Synapse Link for Azure Cosmos DB](/azure/cosmos-db/synapse-link) runs near real-time analytics over operational data in Azure Cosmos DB, without any performance or cost impact on transactional workloads. Synapse Link uses the [SQL Serverless](/azure/synapse-analytics/sql/on-demand-workspace-overview) and [Spark Pools](/azure/synapse-analytics/spark/apache-spark-overview) analytics engines from the Azure Synapse workspace.
-- [Kafka on HDInsight](/azure/hdinsight/kafka/apache-kafka-introduction) is an easy, cost-effective, enterprise-grade service for open-source analytics with Apache Kafka.
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a fully managed, fast NoSQL database service for modern app development with open APIs for any scale. In this architecture, it stores operational data from IoT devices for scalable, low-latency access.
+
+- [Azure Digital Twins](/azure/digital-twins/overview) is a platform for modeling physical environments as digital representations. In this architecture, it maintains digital models of IoT-connected assets to support spatial analysis and contextual insights.
+
+- [Azure IoT Hub](/azure/well-architected/service-guides/iot-hub) enables bi-directional communication between IoT devices and the Azure cloud. In this architecture, it serves as the central messaging hub for device telemetry and command-and-control operations.
+
+- [Event Hubs](/azure/well-architected/service-guides/event-hubs) is a fully managed, real-time data ingestion service. In this architecture, it ingests telemetry from IoT devices and streams it into the analytics pipeline.
+
+- [Kafka on HDInsight](/azure/hdinsight/kafka/apache-kafka-introduction) is an enterprise-grade, cost-effective service for running Apache Kafka on Azure. In this architecture, it provides an alternative streaming backbone for ingesting and distributing IoT data.
 
 ## Scenario details
 
-This solution uses Azure Data Explorer to get near real-time IoT telemetry analytics on fast-flowing, high-volume streaming data from a wide variety of IoT devices.
+This solution uses Azure Data Explorer to get near real-time IoT telemetry analytics on fast-flowing, high-volume streaming data from a wide range of IoT devices.
 
 ### Potential use cases
 
 - Fleet management, for predictive maintenance of vehicle parts. This solution is ideal for the automotive and transportation industry.
 - Facilities management, for energy and environment optimization.
-- [Combining real-time road conditions with weather data for safer autonomous driving](https://customers.microsoft.com/story/816933-bosch-automotive-azure-germany).
+- Combining real-time road conditions with weather data for safer autonomous driving.
 
 ## Contributors
 
@@ -92,4 +96,4 @@ Principal author:
 
 ## Related resource
 
-- [Big data analytics with Azure Data Explorer](big-data-azure-data-explorer.yml)
+- [Analytics architecture design](analytics-get-started.md)

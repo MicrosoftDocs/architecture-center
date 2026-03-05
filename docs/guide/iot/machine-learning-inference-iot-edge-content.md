@@ -25,7 +25,7 @@ The solution described in this article can help you in these ways:
 2. Azure IoT Hub syncs device module twins automatically with AI model information. The sync occurs even if IoT Edge has been offline. (In some cases, IoT devices are connected to networks at scheduled hourly, daily, or weekly times to save power or reduce network traffic.)
 3. The loader module monitors the updates of the module twins via API. When it detects an update, it gets the machine learning model SAS token and then downloads the AI model.
     - For more information, see [Create SAS token for a container or blob](/azure/storage/blobs/sas-service-create).
-    - You can use the **ExpiresOn** property to set the expiration date of resources. If your device will be offline for a long time, you can extend the expiration time.
+    - You can use the **ExpiresOn** property to set the expiration date of resources. If your device is expected to be offline for a long time, you can extend the expiration time.
 4. The loader module saves the AI model in the shared local storage of the IoT Edge module. You need to configure the shared local storage in the IoT Edge deployment JSON file.
 5. The loader module loads the AI model from local storage via the LiteRT or ONNX API.
 6. The loader module starts a web API that receives the binary photo via POST request and returns the results in a JSON file.
@@ -57,9 +57,9 @@ The ONNX community [provides tools](https://onnx.ai/supported-tools.html) to hel
 
 ## Download trained AI models
 
-To download trained AI models, we recommend that you use device twins to receive notifications when a new model is ready. Even if the device is offline, the message can be cached in IoT Hub until the edge device comes back online. The message will be synchronized automatically.
+To download trained AI models, we recommend that you use device twins to receive notifications when a new model is ready. Even if the device is offline, the message can be cached in IoT Hub until the edge device comes back online. The message is synchronized automatically.
 
-Following is an example of Python code that registers notifications for the device twins and then downloads the AI model in a ZIP file. It also performs further operations on the downloaded file.
+The following Python code example registers notifications for the device twins and then downloads the AI model in a ZIP file. It also performs further operations on the downloaded file.
 
 The code performs these tasks:
 
@@ -188,7 +188,7 @@ class InferenceProcedure():
         return json.dumps(results)
 ```
 
-Following is the ONNX version of the preceding code. The steps are mostly the same. The only difference is how the detection score is handled, because the `Labelmap` and model output parameters are different.
+The following example is the ONNX version of the preceding code. The steps are mostly the same. The only difference is how the detection score is handled, because the `Labelmap` and model output parameters are different.
 
 ```python
 class InferenceProcedure():

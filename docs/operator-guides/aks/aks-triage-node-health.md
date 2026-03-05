@@ -1,21 +1,15 @@
 ---
 title: AKS triage—Node health
-titleSuffix: Azure Architecture Center
 description: Learn about the triage step in which you examine the health of Azure Kubernetes Service (AKS) worker nodes and pods and resolve issues.
-author: paolosalvatori
-ms.author: paolos
+author: francisnazareth
+ms.author: fnazaret
 ms.date: 01/20/2025
-ms.topic: conceptual
-ms.service: azure-architecture-center
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
   - e2e-aks
   - arb-containers
-categories:
-  - containers
-products:
-  - azure-kubernetes-service
-  - azure-monitor
+  - sfi-image-nochange
 ---
 
 # Examine node and pod health
@@ -70,7 +64,7 @@ In the dashboard, select **Node conditions** to see metrics about the health and
 
 ### Monitor managed service for Prometheus and Azure Managed Grafana
 
-You can use prebuilt dashboards to visualize and analyze Prometheus metrics. To do so, you must set up your AKS cluster to collect Prometheus metrics in [Monitor managed service for Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview), and connect your [Monitor workspace](/azure/azure-monitor/essentials/azure-monitor-workspace-manage#link-a-grafana-workspace) to an [Azure Managed Grafana](/azure/managed-grafana/overview) workspace. [These dashboards](https://aka.ms/azureprometheus-mixins) provide a comprehensive view of your Kubernetes cluster's performance and health.
+You can use prebuilt dashboards to visualize and analyze Prometheus metrics. To do so, you must set up your AKS cluster to collect Prometheus metrics in [Monitor managed service for Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview), and connect your [Monitor workspace](/azure/azure-monitor/essentials/azure-monitor-workspace-manage#link-a-grafana-workspace) to an [Azure Managed Grafana](/azure/managed-grafana/overview) workspace. [These dashboards](https://github.com/Azure/prometheus-collector/tree/main/mixins) provide a comprehensive view of your Kubernetes cluster's performance and health.
 
 The dashboards are provisioned in the specified Azure Managed Grafana instance in the *Managed Prometheus* folder. Some dashboards include:
 
@@ -97,7 +91,7 @@ You can use the *Kubernetes / Compute Resources / Node (Pods)* dashboard to see 
 
 If your cluster includes Windows agent nodes, you can use the *Kubernetes / USE Method / Node (Windows)* dashboard to visualize the Prometheus metrics that are collected from these nodes. This dashboard provides a comprehensive view of resource consumption and performance for Windows nodes within your cluster.
 
-Take advantage of these dedicated dashboards so you can easily monitor and analyze important metrics related to CPU, memory, and other resources in both Linux and Windows agent nodes. This visibility enables you to identify potential bottlenecks, optimize resource allocation, and ensure efficient operation across your AKS cluster.
+Take advantage of these dedicated dashboards so you can monitor and analyze important metrics related to CPU, memory, and other resources in both Linux and Windows agent nodes. This visibility enables you to identify potential bottlenecks, optimize resource allocation, and ensure efficient operation across your AKS cluster.
 
 ## Step 2: Verify the control plane and worker node connectivity
 

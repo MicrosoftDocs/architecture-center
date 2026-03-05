@@ -8,17 +8,12 @@ metadata:
   ms.reviewer: jonfan, estfan, LADocs
   ms.date: 11/22/2024
   ms.topic: reference-architecture
-  ms.service: azure-architecture-center
   ms.subservice: reference-architecture
   ms.category:
     - integration
     - developer-tools
     - management-and-governance
-  ms.custom:
-    - integration-services
-    - reference-architecture
-    - internal-intro
-    - arb-integrations
+  ms.custom: arb-integrations
 name: Basic enterprise integration on Azure
 azureCategories:
   - integration
@@ -33,4 +28,4 @@ products:
   - azure-monitor
 thumbnailUrl: /azure/architecture/browse/thumbs/simple-enterprise-integration.png
 content: |
-   [!include[](basic-enterprise-integration-content.md)]
+   [!INCLUDE[](basic-enterprise-integration-content.md)]

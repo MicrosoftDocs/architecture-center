@@ -4,18 +4,20 @@ metadata:
   description: Learn more about Azure options for orchestrating, storing, building, deploying, and using custom document processing models.
   author: jyravi
   ms.author: jyravi
-  ms.date: 01/22/2025
+  ms.date: 09/16/2025
   ms.topic: example-scenario
   ms.collection: ce-skilling-ai-copilot
   ms.subservice: example-scenario
+  ai-usage: ai-assisted
   ms.custom: arb-aiml
 azureCategories:
   - ai-machine-learning
 products:
   - document-intelligence
-  - ai-services
+  - foundry-tools
   - azure-logic-apps
   - azure-machine-learning-studio
+  - microsoft-foundry
   - azure-storage
 name: Build and deploy custom document processing models on Azure
 summary: Learn more about Azure options for orchestrating, storing, building, deploying, and using custom document processing models.

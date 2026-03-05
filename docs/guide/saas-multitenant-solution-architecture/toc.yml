@@ -4,26 +4,14 @@ items:
   items:
       - name: SaaS
         items:
-        - name: Plan your journey to SaaS
-          href: ../saas/plan-journey-saas.md
         - name: Case studies
           items:
           - name: Dynamics 365
             href: ../saas/case-studies/dynamics-365-journey-saas.md
           - name: Microsoft SaaS stories
             href: ../saas/case-studies/saas-stories.md
-        - name: Resources
-          items:
-          - name: SaaS starter web app reference architecture
-            href: ../../example-scenario/apps/saas-starter-web-app.yml
-          - name: Multitenant SaaS reference architecture
-            href: ../../example-scenario/multi-saas/multitenant-saas.yml
       - name: Startups
-        items:
-        - name: Overview
-          href: ../startups/startup-architecture.md
-        - name: Core startup stack architecture
-          href: ../../example-scenario/startups/core-startup-stack.yml
+        href: ../startups/startup-architecture.md
       - name: Multitenant applications
         items:
         - name: Overview
@@ -33,35 +21,39 @@ items:
           - name: Overview
             href: ../multitenant/considerations/overview.yml
           - name: Tenancy models
-            href: ../multitenant/considerations/tenancy-models.yml
-          - name: Tenant lifecycle
-            href: ../multitenant/considerations/tenant-lifecycle.md
+            displayName: Single tenant vs multi-tenant, tenant isolation
+            href: ../multitenant/considerations/tenancy-models.md
+          - name: Tenant life cycle
+            href: ../multitenant/considerations/tenant-life-cycle.md
           - name: Pricing models
             href: ../multitenant/considerations/pricing-models.md
           - name: Control planes
-            href: ../multitenant/considerations/control-planes.yml
+            displayName: Tenant provisioning, management plane, admin API
+            href: ../multitenant/considerations/control-planes.md
           - name: Measure consumption
+            displayName: Usage metering, tenant billing, consumption tracking
             href: ../multitenant/considerations/measure-consumption.md
           - name: Deploy updates
             href: ../multitenant/considerations/updates.md
           - name: Map requests to tenants
+            displayName: Tenant resolution, tenant identification, tenant routing
             href: ../multitenant/considerations/map-requests.yml
           - name: Identity
             href: ../multitenant/considerations/identity.md
           - name: Domain names
-            href: ../multitenant/considerations/domain-names.yml
+            href: ../multitenant/considerations/domain-names.md
         - name: Approaches
           items:
           - name: Overview
-            href: ../multitenant/approaches/overview.yml
+            href: ../multitenant/approaches/overview.md
           - name: Resource organization
-            href: ../multitenant/approaches/resource-organization.yml
+            href: ../multitenant/approaches/resource-organization.md
           - name: Governance and compliance
             href: ../multitenant/approaches/governance-compliance.md
           - name: Cost management and allocation
-            href: ../multitenant/approaches/cost-management-allocation.yml
+            href: ../multitenant/approaches/cost-management-allocation.md
           - name: Deployment and configuration
-            href: ../multitenant/approaches/deployment-configuration.yml
+            href: ../multitenant/approaches/deployment-configuration.md
           - name: Compute
             href: ../multitenant/approaches/compute.md
           - name: Control planes
@@ -69,7 +61,7 @@ items:
           - name: Networking
             href: ../multitenant/approaches/networking.md
           - name: Storage and data
-            href: ../multitenant/approaches/storage-data.yml
+            href: ../multitenant/approaches/storage-data.md
           - name: Messaging
             href: ../multitenant/approaches/messaging.md
           - name: Identity
@@ -78,8 +70,8 @@ items:
             href: ../multitenant/approaches/integration.md
           - name: IoT
             href: ../multitenant/approaches/iot.md
-          - name: AI and ML
-            href: ../multitenant/approaches/ai-ml.md
+          - name: AI and machine learning
+            href: ../multitenant/approaches/ai-machine-learning.md
         - name: Service-specific guidance
           items:
           - name: Overview
@@ -93,14 +85,15 @@ items:
           - name: Compute
             items:
             - name: App Service and Functions
-              href: ../multitenant/service/app-service.yml
+              href: ../multitenant/service/app-service.md
             - name: Azure Container Apps
               href: ../multitenant/service/container-apps.md
             - name: Azure Kubernetes Service (AKS)
-              href: ../multitenant/service/aks.yml
+              href: ../multitenant/service/aks.md
           - name: Networking
             items:
             - name: Azure Front Door
+              displayName: AFD
               href: ../multitenant/service/front-door.md
             - name: Azure NAT Gateway
               href: ../multitenant/service/nat-gateway.md
@@ -132,13 +125,10 @@ items:
             items:
             - name: Azure Key Vault
               href: ../multitenant/service/key-vault.md
-          - name: Identity
-            items:
-            - name: Azure Active Directory B2C
-              href: ../multitenant/service/azure-ad-b2c.md
           - name: Integration
             items:
             - name: Azure API Management
+              displayName: APIM
               href: ../multitenant/service/api-management.md
           - name: AI and ML
             items:

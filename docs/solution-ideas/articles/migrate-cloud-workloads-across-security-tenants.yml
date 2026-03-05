@@ -1,25 +1,24 @@
 ### YamlMime:Architecture
 metadata:
-  title: Migrate cloud workloads across security tenants
-  titleSuffix: Azure Architecture Center
-  description: Learn how to define and implement a cross-tenant workload migration strategy to address business transformations like acquisitions or divestiture.
+  title: Migrate Cloud Workloads Across Security Tenants
+  description: Learn how to define and implement a cross-tenant workload migration strategy to address business transformations like acquisitions or divestitures.
   author: lapate
   ms.author: lapate
   ms.date: 06/07/2024
-  ms.topic: conceptual
-  ms.service: azure-architecture-center
+  ms.topic: solution-idea
   ms.subservice: solution-idea
+  ai-usage: ai-assisted
 azureCategories:
-  - "migration"
-  - "management-and-governance"
-  - "security"
+  - migration
+  - management-and-governance
+  - security
 products:
   - entra-id
-  - "azure-devops"
-  - "azure-resource-manager"
-  - "azure-backup"
+  - azure-devops
+  - azure-resource-manager
+  - azure-backup
 name: Migrate cloud workloads across security tenants
-summary: Learn how to define and implement a cross-tenant workload migration strategy.
+summary: Learn how to define and implement a cross-tenant workload migration strategy to address business transformations like acquisitions or divestitures.
 thumbnailUrl: /azure/architecture/browse/thumbs/migrate-across-security-tenants-thumb.png
 content: |
-  [!include[](migrate-cloud-workloads-across-security-tenants-content.md)]
+  [!INCLUDE[](migrate-cloud-workloads-across-security-tenants-content.md)]

@@ -41,7 +41,7 @@ Consider the following points when implementing the Messaging Bridge pattern:
 
 - In order to meet the desired availability service-level agreements (SLAs), you might need to scale out the Messaging Bridge by using the [Competing consumers](./competing-consumers.yml) approach.
 
-- Regular message-processing components use the [Retry pattern](./retry.yml) to handle transient failures. The retry counter limit enables components to detect *poison* messages and remove them from the queue to unblock processing. The bridge might require a different retry policy to prevent falsely identifying messages as poison if an infrastructure failure occurs. You might use the [Circuit Breaker](./circuit-breaker.yml) pattern to pause forwarding.
+- Regular message-processing components use the [Retry pattern](./retry.yml) to handle transient failures. The retry counter limit enables components to detect *poison* messages and remove them from the queue to unblock processing. The bridge might require a different retry policy to prevent falsely identifying messages as poison if an infrastructure failure occurs. You might use the [Circuit Breaker](./circuit-breaker.md) pattern to pause forwarding.
 
 ## When to use this pattern
 
@@ -89,12 +89,12 @@ When the implementation team uses this approach, they utilize existing infrastru
 
 Principal authors:
 
-- [Rob Bagby](https://www.linkedin.com/in/robbagby) | Principal Architecture Content Lead
-- [Kyle Baley](https://www.linkedin.com/in/kylebaley) | Software Engineer
-- [Udi Dahan](https://www.linkedin.com/in/udidahan) | Founder & CEO of Particular Software
-- [Chad Kittel](https://www.linkedin.com/in/chadkittel) | Principal Software Engineer
-- [Bryan Lamos](https://www.linkedin.com/in/bryanlamos) | Developer Relations
-- [Szymon Pobiega](https://www.linkedin.com/in/szymonpobiega) | Engineer
+- [Rob Bagby](https://www.linkedin.com/in/robbagby/) | Principal Content Developer - Azure Patterns & Practices
+- [Kyle Baley](https://www.linkedin.com/in/kylebaley/) | Software Engineer
+- [Udi Dahan](https://www.linkedin.com/in/udidahan/) | Founder & CEO of Particular Software
+- [Chad Kittel](https://www.linkedin.com/in/chadkittel/) | Principal Software Engineer - Azure Patterns & Practices
+- [Bryan Lamos](https://www.linkedin.com/in/bryanlamos/) | Content Developer - Azure Patterns & Practices
+- [Szymon Pobiega](https://www.linkedin.com/in/szymonpobiega/) | Engineer
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
@@ -110,4 +110,4 @@ Principal authors:
 
 - The [Competing Consumers](./competing-consumers.yml) pattern ensures the implementation of the Messaging Bridge can handle the load.
 - The [Retry](./retry.yml) pattern allows the Messaging Bridge to handle transient failures.
-- The [Circuit Breaker](./circuit-breaker.yml) pattern conserves resources when either side of the bridge experiences downtime.
+- The [Circuit Breaker](./circuit-breaker.md) pattern conserves resources when either side of the bridge experiences downtime.

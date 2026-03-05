@@ -2,11 +2,10 @@
 metadata:
   title: AKS baseline for multiregion clusters
   description: Run Azure Kubernetes Service (AKS) cluster in multiple regions to achieve high availability.
-  author: RobBagby
+  author: claytonsiemens77
   ms.author: pnp
-  ms.date: 08/12/2024
+  ms.date: 06/19/2025
   ms.topic: example-scenario
-  ms.service: azure-architecture-center
   ms.category:
     - containers
     - kubernetes

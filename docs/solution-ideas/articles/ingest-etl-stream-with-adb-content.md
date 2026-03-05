@@ -32,20 +32,19 @@ With the medallion pattern, consisting of Bronze, Silver, and Gold storage layer
   - The **COPY INTO** command. Use the command to copy data directly from a source file or directory into Delta Lake.
   - The Azure Databricks Auto Loader. The Auto Loader grabs files when they arrive in the data lake and writes them to the Delta Lake format.
   - The Data Factory Copy Activity. Customers can use this option to convert the data from any of its supported formats into the Delta Lake format.
-- **Silver** tables store data while it's being optimized for BI and data science use cases. The Bronze layer ingests raw data, and then more ETL and stream processing tasks are done to filter, clean, transform, join, and aggregate the data into Silver curated datasets. Companies can use a consistent compute engine, like the open-standards [Delta Engine](/azure/databricks/optimizations), when using Azure Databricks as the initial service for these tasks. They can then use familiar programming languages like SQL, Python, R, or Scala.  Companies can also use repeatable DevOps processes and ephemeral compute clusters sized to their individual workloads.
+- **Silver** tables store data while it's being optimized for BI and data science use cases. The Bronze layer ingests raw data, and then more ETL and stream processing tasks are done to filter, clean, transform, join, and aggregate the data into Silver curated datasets. Companies can use a consistent compute engine, like the open-standards [Delta Engine](/azure/databricks/optimizations), when you use Azure Databricks as the initial service for these tasks. They can then use familiar programming languages like SQL, Python, R, or Scala.  Companies can also use repeatable DevOps processes and ephemeral compute clusters sized to their individual workloads.
 - **Gold** tables contain enriched data, ready for analytics and reporting. Analysts can use their method of choice, such as PySpark, Koalas, SQL, Power BI, and Excel to gain new insights and formulate queries.
 
 ### Components
 
-- [Event Hubs](https://azure.microsoft.com/services/event-hubs) parses and scores streaming messages from various sources, including on-premises systems, and provides real-time information.
-- [Data Factory](https://azure.microsoft.com/services/data-factory) orchestrates data pipelines for ingestion, preparation, and transformation of all your data at any scale.
-- [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) brings together streaming and batch data, including structured, unstructured, and semi-structured data like logs, files, and media.
-- [Azure Databricks](/azure/azure-databricks) cleans and transforms the structureless data sets and combines them with structured data from operational databases or data warehouses.
-- [IoT Hub](https://azure.microsoft.com/services/iot-hub) gives you highly secure and reliable communication between your IoT application and devices.
-- [Delta Lake](https://delta.io) on Data Lake Storage supports ACID transactions for reliability and is optimized for efficient ingestion, processing, and queries.
+- [Event Hubs](/azure/well-architected/service-guides/event-hubs) is a big data streaming platform and event ingestion service designed to handle millions of events per second. In this architecture, it parses and scores streaming messages from various sources, including on-premises systems, and provides real-time data to Azure Databricks for processing.
+- [Azure Data Factory](/azure/data-factory/introduction) is a data integration service that orchestrates and automates data movement and transformation. In this architecture, it manages scheduled or triggered pipelines that ingest, prepare, and transform data from diverse sources into the data lake.
+- [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a scalable data storage service for structured and unstructured data. In this architecture, it serves as the underlying infrastructure for Delta Lake. It stores raw, curated, and enriched data across Bronze, Silver, and Gold layers.
+- [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security) is an Apache Spark–based analytics platform optimized for Azure that supports collaborative data engineering, data science, and machine learning. In this architecture, Azure Databricks processes incoming data from Event Hubs and Azure Data Factory, cleans and transforms it, and loads it into Delta Lake tables.
+- [IoT Hub](/azure/well-architected/service-guides/iot-hub) is a managed service that enables secure and reliable communication between IoT applications and devices. In this architecture, it streams telemetry data from connected devices into Azure Databricks for real-time processing and enrichment.
+- [Delta Lake](/azure/databricks/delta/) is an open-source storage layer that provides reliability to data lakes through ACID transactions and scalable metadata handling. In this architecture, Delta Lake on Data Lake Storage ensures consistent, efficient ingestion and querying of data across the Bronze, Silver, and Gold layers.
 
 ## Scenario details
-
 
 Ingestion, ETL, and stream processing with Azure Databricks is simple, open, and collaborative:
 
@@ -66,7 +65,7 @@ This solution is inspired by the system that Providence Health Care built for re
 
 ## Next steps
 
-- [Spanish Point Technologies](https://customers.microsoft.com/story/861222-spanish-point-technologies-professional-services-azure) builds its Matching Engine using Azure Databricks and Azure Data Factory to ingest data at scale to help musicians get paid fairly.
+- [Build an ETL pipeline with Lakeflow Declarative Pipelines](/azure/databricks/getting-started/data-pipeline-get-started)
 
 ## Related resources
 
@@ -74,4 +73,4 @@ Guides and fully deployable architectures:
 
 - [Choose an analytical data store in Azure](../../data-guide/technology-choices/analytical-data-stores.md)
 - [Stream processing with Azure Databricks](../../reference-architectures/data/stream-processing-databricks.yml)
-- [Automated enterprise BI](../../reference-architectures/data/enterprise-bi-adf.yml)
+- [Databases architecture design](../../databases/index.yml)

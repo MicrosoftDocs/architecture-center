@@ -6,34 +6,24 @@ This architecture shows how to include Azure file shares in your hybrid environm
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
-### Workflow
+### Components
 
 The architecture consists of the following components:
 
-- **Microsoft Entra tenant**. This component is an instance of Microsoft Entra that's created by your organization. It acts as a directory service for cloud applications, by storing objects that are copied from the on-premises Active Directory. It also provides identity services when accessing Azure file shares.
-- **AD DS server**. This component is an on-premises directory and identity service. The AD DS directory is synchronized with Microsoft Entra ID to enable it to authenticate on-premises users.
-- **Microsoft Entra Connect Sync server**. This component is an on-premises server that runs the Microsoft Entra Connect Sync service. This service synchronizes information held in the on-premises Active Directory to Microsoft Entra ID.
-- **Virtual network gateway**. This optional component is used to send encrypted traffic between an Azure Virtual Network and an on-premises location over the internet.
-- **Azure file shares**. Azure file shares provide storage for files and folders that you can access over Server Message Block (SMB), Network File System (NFS), and Hypertext Transfer Protocol (HTTP) protocols. File shares are deployed into Azure storage accounts.
-- **Recovery Services Vault**. This optional component provides Azure file shares backup.
-- **Clients**. These components are AD DS member computers, from which users can access Azure file shares.
+- [Microsoft Entra ID](/entra/fundamentals/whatis) is an enterprise identity service that provides features to protect against cybersecurity threats. In this architecture, it serves as the cloud-based directory that stores synchronized objects from on-premises AD DS and authenticates users that access Azure file shares.
+- [AD DS](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) is an on-premises identity and directory service. In this architecture, it authenticates domain-joined clients and integrates with Azure Files to enforce access controls by using Windows access control lists (ACLs). The AD DS directory synchronizes with Microsoft Entra ID to authenticate on-premises users.
+- [Microsoft Entra Connect Sync](/entra/identity/hybrid/connect/how-to-connect-sync-whatis) is a synchronization service that runs on an on-premises server. In this architecture, it ensures identity consistency by syncing AD DS objects to Microsoft Entra ID.
+- [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) is a networking service that sends encrypted traffic between Azure and on-premises networks over the public internet. In this architecture, this optional component provides secure connectivity for accessing Azure file shares when Server Message Block (SMB) port 445 is blocked by internet service providers (ISPs) or firewalls.
+- [Azure Files](/azure/well-architected/service-guides/azure-files) provides managed cloud-based file shares that can be accessed via SMB, Network File System (NFS), and HTTP protocols. In this architecture, it replaces traditional file servers by providing scalable, secure, and highly available storage integrated with AD DS authentication. File shares are deployed into Azure storage accounts.
+- [Azure Recovery Services](/azure/backup/backup-azure-recovery-services-vault-overview) is a suite of services designed to support data protection, backup, and disaster recovery. In this architecture, an optional Recovery Services vault protects Azure file shares by enabling backup and recovery through incremental share snapshots.
+- **Clients** are user computing devices, such as desktops, laptops, or mobile devices, that access resources within the network. In this architecture, clients refer to AD DS domain-joined computers for users. These clients access Azure file shares by using their existing credentials, which maintains a familiar experience while taking advantage of cloud-based storage.
 
-### Components
-
-Key technologies used to implement this architecture:
-
-- [Microsoft Entra ID](/entra/fundamentals/whatis) is an enterprise identity service that provides single sign-on, multifactor authentication, and conditional access.
-- [Azure Files](/azure/well-architected/service-guides/azure-files) offers fully managed file shares in the cloud that are accessible by using the industry standard protocols.
-- [VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) VPN Gateway sends encrypted traffic between an Azure virtual network and an on-premises location over the public Internet.
-
-## Scenario details
-
-### Potential use cases
+## Potential use cases
 
 Typical uses for this architecture include:
 
 - **Replace or supplement on-premises file servers**. Azure Files can completely replace or supplement traditional on-premises file servers or network-attached storage devices. With Azure file shares and AD DS authentication, you can migrate data to Azure Files. This migration can take the advantage of high availability and scalability while minimizing client changes.
-- **Lift and shift**. Azure Files makes it easy to "lift and shift" applications that expect a file share to store application or user data to the cloud.
+- **Lift and shift**. Azure Files supports "lift and shift" of applications that expect a file share to store application or user data to the cloud.
 - **Backup and disaster recovery**. You can use Azure Files as storage for backups or for disaster recovery to improve business continuity. You can use Azure Files to back up your data from existing file servers while preserving configured Windows discretionary access control lists. Data that's stored on Azure file shares isn't affected by disasters that might affect on-premises locations.
 - **Azure File Sync**. With Azure File Sync, Azure file shares can replicate to Windows Server, either on-premises or in the cloud. This replication improves performance and distributes caching of data to where it's being used.
 
@@ -58,7 +48,7 @@ Premium file shares are deployed to FileStorage storage accounts and are stored 
 
 ### Always require encryption when accessing SMB Azure file shares
 
-Always use encryption in transit when accessing data in SMB Azure file shares. Encryption in transit is enabled by default. Azure Files will only allow the connection if it's made with a protocol that uses encryption, such as SMB 3.0. Clients that don't support SMB 3.0 will be unable to mount the Azure file share if encryption in transit is required.
+Always use encryption in transit when accessing data in SMB Azure file shares. Encryption in transit is enabled by default. Azure Files only allows the connection if it's made with a protocol that uses encryption, such as SMB 3.0. Clients that don't support SMB 3.0 are unable to mount the Azure file share if encryption in transit is required.
 
 ### Use VPN if port that SMB uses (port 445) is blocked
 
@@ -110,7 +100,7 @@ For more information, see [Azure Files scalability and performance targets][Azur
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-- Use AD DS authentication over SMB for accessing Azure file shares. This setup provides the same seamless single sign-on (SSO) experience when accessing Azure file shares as accessing on-premises file shares. For more information, see [How it works][Azure-files-How-it-works] and feature [enablement steps][Azure-files-Enablement-steps]. Your client needs to be domain joined to AD DS, because the authentication is still done by the AD DS domain controller. Also, you need to assign both share level and file/directory level permissions to get access to the data. [Share level permission assignment][Azure-files-share-permissions] goes through Azure RBAC model. [File/directory level permission][Azure-files-file-level-permissions] is managed as Windows ACLs.
+- Use AD DS authentication over SMB for accessing Azure file shares. This setup provides the same single sign-on (SSO) experience when accessing Azure file shares as accessing on-premises file shares. For more information, see [How it works][Azure-files-How-it-works] and feature [enablement steps][Azure-files-Enablement-steps]. Your client needs to be domain joined to AD DS, because the authentication is still done by the AD DS domain controller. Also, you need to assign both share level and file/directory level permissions to get access to the data. [Share level permission assignment][Azure-files-share-permissions] goes through Azure role-based access control (Azure RBAC) model. [File/directory level permission][Azure-files-file-level-permissions] is managed as Windows ACLs.
 
   > [!NOTE]
   > Access to Azure file shares is always authenticated. Azure file shares don't support anonymous access. Besides identity-based authentication over SMB, users can authenticate to Azure file share also by using storage access key and Shared Access Signature.
@@ -125,8 +115,8 @@ Cost Optimization is about looking at ways to reduce unnecessary expenses and im
 
 - Azure Files has two storage tiers and two pricing models:
   - **Standard storage**: Uses HDD-based storage. There's no minimum file share size, and you pay only for used storage space. Also, you pay for file operations, such as enumerating a directory or reading a file.
-  - **Premium storage**: Uses SSD-based storage. The minimum size for a premium file share is 100 gibibytes, and you pay per provisioned storage space. When using premium storage, all file operations are free.
-- Extra costs are associated with file share snapshots and outbound data transfers. (When you transfer data from Azure file shares, inbound data transfer is free.) Data transfer costs depend on the amount of transferred data and the stock keeping unit (SKU) of your virtual network gateway, if you use one. For more information about costs, see [Azure Files Pricing][Azure-Files-Pricing] and [Azure Pricing calculator][Azure-Pricing-calculator]. The actual cost varies by Azure region and your individual contract. Contact a Microsoft sales representative for additional information on pricing.
+  - **Premium storage**: Uses SSD-based storage. The minimum size for a premium file share is 100 gibibytes, and you pay per provisioned storage space. When you use premium storage, all file operations are free.
+- Extra costs are associated with file share snapshots and outbound data transfers. (When you transfer data from Azure file shares, inbound data transfer is free.) Data transfer costs depend on the amount of transferred data and the stock keeping unit (SKU) of your virtual network gateway, if you use one. For more information about costs, see [Azure Files Pricing][Azure-Files-Pricing] and [Azure Pricing calculator][Azure-Pricing-calculator]. The actual cost varies by Azure region and your individual contract. For more information about pricing, contact a Microsoft sales representative.
 
 ## Next steps
 
@@ -141,8 +131,6 @@ Explore related architectures:
 
 - [Azure enterprise cloud file share](./azure-files-private.yml)
 - [Hybrid file services](./hybrid-file-services.yml)
-- [Multiple forests with AD DS and Microsoft Entra ID](../example-scenario/azure-virtual-desktop/multi-forest.yml)
-- [Azure Virtual Desktop for the enterprise](../example-scenario/azure-virtual-desktop/azure-virtual-desktop.yml)
 
 [architectural-diagram]: ./images/azure-file-share.svg
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-file-share.vsdx

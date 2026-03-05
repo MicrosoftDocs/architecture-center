@@ -1,22 +1,11 @@
 ---
 title: Synchronous I/O antipattern
-titleSuffix: Performance antipatterns for cloud apps
 description: Blocking the calling thread while I/O completes can reduce performance and affect vertical scalability.
-ms.author: robbag
-author: RobBagby
-categories: azure
+ms.author: pnp
+author: claytonsiemens77
 ms.date: 06/05/2017
 ms.topic: design-pattern
-ms.service: azure-architecture-center
 ms.subservice: best-practice
-azureCategories:
-  - analytics
-  - storage
-  - web
-products:
-  - azure-blob-storage
-ms.custom:
-  - article
 ---
 
 <!-- cSpell:ignore uploadedfiles myblob -->
@@ -84,8 +73,6 @@ public class SyncController : ApiController
 }
 ```
 
-You can find the complete code for both of these examples [here][sample-app].
-
 ## How to fix the problem
 
 Replace synchronous I/O operations with asynchronous operations. This frees the current thread to continue performing meaningful work rather than blocking, and helps improve the utilization of compute resources. Performing I/O asynchronously is particularly efficient for handling an unexpected surge in requests from client applications.
@@ -134,7 +121,7 @@ public class AsyncController : ApiController
 }
 ```
 
-For libraries that don't provide asynchronous versions of operations, it may be possible to create asynchronous wrappers around selected synchronous methods. Follow this approach with caution. While it may improve responsiveness on the thread that invokes the asynchronous wrapper, it actually consumes more resources. An extra thread may be created, and there is overhead associated with synchronizing the work done by this thread. Some tradeoffs are discussed in this blog post: [Should I expose asynchronous wrappers for synchronous methods?][async-wrappers]
+For libraries that don't provide asynchronous versions of operations, it might be possible to create asynchronous wrappers around selected synchronous methods. Follow this approach with caution. While it might improve responsiveness on the thread that invokes the asynchronous wrapper, it actually consumes more resources. It can create an extra thread and more overhead associated with synchronizing the work the thread does. Some tradeoffs are discussed in this blog post: [Should I expose asynchronous wrappers for synchronous methods?][async-wrappers]
 
 Here is an example of an asynchronous wrapper around a synchronous method.
 
@@ -155,19 +142,19 @@ await LibraryIOOperationAsync();
 
 ## Considerations
 
-- I/O operations that are expected to be very short lived and are unlikely to cause contention might be more performant as synchronous operations. An example might be reading small files on a solid-state drive (SSD) drive. The overhead of dispatching a task to another thread, and synchronizing with that thread when the task completes, might outweigh the benefits of asynchronous I/O. However, these cases are relatively rare, and most I/O operations should be done asynchronously.
+- I/O operations that are expected to be short lived and unlikely to cause contention might be more performant as synchronous operations. An example might be reading small files on a solid-state drive (SSD) drive. The overhead of dispatching a task to another thread, and synchronizing with that thread when the task completes, might outweigh the benefits of asynchronous I/O. However, these cases are relatively rare, and most I/O operations should be done asynchronously.
 
-- Improving I/O performance may cause other parts of the system to become bottlenecks. For example, unblocking threads might result in a higher volume of concurrent requests to shared resources, leading in turn to resource starvation or throttling. If that becomes a problem, you might need to scale out the number of web servers or partition data stores to reduce contention.
+- Improving I/O performance might cause other parts of the system to become bottlenecks. For example, unblocking threads might result in a higher volume of concurrent requests to shared resources, leading in turn to resource starvation or throttling. If that becomes a problem, you might need to scale out the number of web servers or partition data stores to reduce contention.
 
 ## How to detect the problem
 
-For users, the application may seem unresponsive periodically. The application might fail with timeout exceptions. These failures could also return HTTP 500 (Internal Server) errors. On the server, incoming client requests might be blocked until a thread becomes available, resulting in excessive request queue lengths, manifested as HTTP 503 (Service Unavailable) errors.
+For users, the application might seem unresponsive periodically. The application might fail with timeout exceptions. These failures could also return HTTP 500 (Internal Server) errors. On the server, incoming client requests might be blocked until a thread becomes available, resulting in excessive request queue lengths, manifested as HTTP 503 (Service Unavailable) errors.
 
 You can perform the following steps to help identify the problem:
 
 1. Monitor the production system and determine whether blocked worker threads are constraining throughput.
 
-2. If requests are being blocked due to lack of threads, review the application to determine which operations may be performing I/O synchronously.
+2. If requests are being blocked due to lack of threads, review the application to determine which operations are performing I/O synchronously.
 
 3. Perform controlled load testing of each operation that is performing synchronous I/O, to find out whether those operations are affecting system performance.
 
@@ -177,7 +164,7 @@ The following sections apply these steps to the sample application described ear
 
 ### Monitor web server performance
 
-For Azure web applications and web roles, it's worth monitoring the performance of the Internet Information Services (IIS) web server. In particular, pay attention to the request queue length to establish whether requests are being blocked waiting for available threads during periods of high activity. You can gather this information by enabling Azure Diagnostics. For more information, see:
+For Azure web applications, it's worth monitoring the performance of the Internet Information Services (IIS) web server. In particular, pay attention to the request queue length to establish whether requests are being blocked waiting for available threads during periods of high activity. You can gather this information by enabling Azure Diagnostics. For more information, see:
 
 - [Monitor Apps in Azure App Service][web-sites-monitor]
 - [Create and use performance counters in an Azure application][performance-counters]
@@ -186,13 +173,13 @@ Instrument the application to see how requests are handled once they have been a
 
 ### Load test the application
 
-The following graph shows the performance of the synchronous `GetUserProfile` method shown earlier, under varying loads of up to 4000 concurrent users. The application is an ASP.NET application running in an Azure Cloud Service web role.
+The following graph shows the performance of the synchronous `GetUserProfile` method shown earlier, under varying loads of up to 4000 concurrent users. The application is an ASP.NET application running in Azure App Service.
 
 ![Performance chart for the sample application performing synchronous I/O operations][sync-performance]
 
-The synchronous operation is hard-coded to sleep for 2 seconds, to simulate synchronous I/O, so the minimum response time is slightly over 2 seconds. When the load reaches approximately 2500 concurrent users, the average response time reaches a plateau, although the volume of requests per second continues to increase. Note that the scale for these two measures is logarithmic. The number of requests per second doubles between this point and the end of the test.
+The synchronous operation is hard-coded to sleep for 2 seconds, to simulate synchronous I/O, so the minimum response time is slightly over 2 seconds. When the load reaches approximately 2500 concurrent users, the average response time reaches a plateau, although the volume of requests per second continues to increase. The scale for these two measures is logarithmic. The number of requests per second doubles between this point and the end of the test.
 
-In isolation, it's not necessarily clear from this test whether the synchronous I/O is a problem. Under heavier load, the application may reach a tipping point where the web server can no longer process requests in a timely manner, causing client applications to receive time-out exceptions.
+In isolation, it's not necessarily clear from this test whether the synchronous I/O is a problem. Under heavier load, the application might reach a tipping point where the web server can no longer process requests in a timely manner, causing client applications to receive time-out exceptions.
 
 Incoming requests are queued by the IIS web server and handed to a thread running in the ASP.NET thread pool. Because each operation performs I/O synchronously, the thread is blocked until the operation completes. As the workload increases, eventually all of the ASP.NET threads in the thread pool are allocated and blocked. At that point, any further incoming requests must wait in the queue for an available thread. As the queue length grows, requests start to time out.
 
@@ -204,7 +191,6 @@ The next graph shows the results from load testing the asynchronous version of t
 
 Throughput is far higher. Over the same duration as the previous test, the system successfully handles a nearly tenfold increase in throughput, as measured in requests per second. Moreover, the average response time is relatively constant and remains approximately 25 times smaller than the previous test.
 
-[sample-app]: https://github.com/mspnp/performance-optimization/tree/main/SynchronousIO
 [async-wrappers]: https://blogs.msdn.microsoft.com/pfxteam/2012/03/24/should-i-expose-asynchronous-wrappers-for-synchronous-methods
 [performance-counters]: /azure/cloud-services/cloud-services-dotnet-diagnostics-performance-counters
 [web-sites-monitor]: /azure/app-service-web/web-sites-monitor

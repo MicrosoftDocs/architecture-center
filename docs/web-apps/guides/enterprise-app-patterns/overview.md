@@ -1,21 +1,12 @@
 ---
 title: Enterprise Web App Patterns
 description: Learn about enterprise web app patterns, which provide a structured approach to guide developers and architects through the cloud journey.
-author: stephen-sumner    
-ms.author: ssumner
+author: claytonsiemens77
+ms.author: pnp
 ms.reviewer: ssumner
 ms.date: 10/15/2024
-ms.topic: conceptual
-ms.service: azure-architecture-center
+ms.topic: concept-article
 ms.subservice: architecture-guide
-azureCategories:
-    - web
-    - developer-tools
-    - devops
-products:
-  - azure
-categories:
-  - web
 ---
 
 # Enterprise web app patterns
@@ -38,7 +29,7 @@ This pattern assumes that your organization has an established [landing zone](/a
 >[Reliable Web App pattern for .NET](./reliable-web-app/dotnet/guidance.yml)
 
 >[!div class="nextstepaction"]
->[Reliable Web App pattern for Java](./reliable-web-app/java/guidance.yml)
+>[Reliable Web App pattern for Java](reliable-web-app/java/guidance.md)
 
 ## Modern Web App pattern
 
@@ -52,4 +43,4 @@ By facilitating independent development and flexible deployments, this pattern a
 >[Modern Web App pattern for .NET](./modern-web-app/dotnet/guidance.yml)
 
 >[!div class="nextstepaction"]
->[Modern Web App pattern for Java](./modern-web-app/java/guidance.yml)
+>[Modern Web App pattern for Java](./modern-web-app/java/guidance.md)

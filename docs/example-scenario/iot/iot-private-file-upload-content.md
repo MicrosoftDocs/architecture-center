@@ -18,7 +18,7 @@ The following workflow corresponds to the preceding diagram.
 
 1. A hub-spoke network topology has a hub virtual network that peers to each resource virtual network, also called a *spoke*. All traffic goes through Azure Firewall for traffic inspection.
 
-1. An Azure Blob Storage account denies public internet access. It only allows connections from other virtual networks. A [resource instance rule](/azure/storage/common/storage-network-security#grant-access-from-azure-resource-instances) allows a chosen Azure IoT Hub service to connect via a managed identity. The Blob Storage account only supports Azure role-based access control (RBAC) for data plane access.
+1. An Azure Blob Storage account denies public internet access. It only allows connections from other virtual networks. A [resource instance rule](/azure/storage/common/storage-network-security#grant-access-from-azure-resource-instances) allows a chosen Azure IoT Hub service to connect via a managed identity. The Blob Storage account only supports Azure role-based access control (Azure RBAC) for data plane access.
 1. The application gateway has custom Domain Name System (DNS) and terminates Transport Layer Security (TLS) traffic. It resides within a virtual network. This virtual network peers with the virtual network that the Blob Storage account's private link uses. A forced tunnel via the hub virtual network establishes the connection.
 1. The IoT client device that uses the IoT Hub SDK requests a shared access signature (SAS) URI for file uploads to IoT Hub. The IoT client device sends the request through the public internet.
 1. IoT Hub handles this request for the device. It connects directly to the Blob Storage account via managed identity authentication, which has *Storage Blob Data Contributor* permissions for user-delegation key requests.
@@ -49,7 +49,7 @@ For regular deployments, an Azure IoT client device needs to communicate directl
 
 In this scenario, communication between IoT Hub and the Storage account still goes through the public endpoint. This exception is possible through Storage networking configurations for resource instances. You can disable public internet access to the Storage account and allow Azure services and specific instances of resources to connect through the Azure backbone. This network perimeter is paired with a Microsoft Entra ID-based identity perimeter that uses Azure RBAC to restrict data plane access.
 
-This architecture assigns a managed identity to IoT Hub. The managed identity is assigned the role of *Storage Blob Data Contributor* to the specified Storage account. With this permission, IoT Hub can request a user-delegation key to construct a SAS token. The IoT client device receives the SAS token for the file-upload process.
+This architecture assigns a managed identity to IoT Hub. The managed identity is assigned the role of *Storage Blob Data Contributor* to the specified Storage account. With this permission, IoT Hub can request a user-delegation key to construct a short-lived SAS token. The IoT client device receives the SAS token for the file-upload process.
 
 Application Gateway acts as the entry point for requests that go to the private endpoint of the Storage account, which is configured as the only back end. Application Gateway uses a public IP address. A custom DNS provider can be configured to map the public IP address to an *A* record or *CNAME* record.
 
@@ -75,7 +75,7 @@ For a sample that deploys a similar architecture, see [Set up IoT Hub file uploa
 
 Principal authors:
 
-- [Katrien De Graeve](https://linkedin.com/in/katriendg/) | Software Engineer
+- [Katrien De Graeve](https://www.linkedin.com/in/katriendg/) | Software Engineer
 - [Vincent Misson](https://www.linkedin.com/in/vmisson/) | Cloud Solution Architect
 
 Other contributor:

@@ -1,21 +1,13 @@
 ---
 title: AKS triage—Workload deployments
-titleSuffix: Azure Architecture Center
 description: Learn how to check whether workload deployments and DaemonSet features are running properly. This step is part of the triage practices for an AKS cluster.
-author: paolosalvatori
-ms.author: paolos
+author: francisnazareth
+ms.author: fnazaret
 ms.date: 01/20/2025
-ms.topic: conceptual
-ms.service: azure-architecture-center
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
   - e2e-aks
-  - arb-containers
-azureCategories: compute
-categories: compute
-products:
-  - azure-kubernetes-service
-  - azure-monitor
 ---
 
 # Monitor workload deployments
@@ -110,7 +102,7 @@ The first number signifies the count of containers that are currently in a *read
 
 Ensure that the first number (ready containers) matches the second number (total containers) for the pod. If they differ, some containers might not be ready or there might be issues preventing them from reaching the *ready* state.
 
-#### Deployment, `StatefulSet`, `DaemonSet`, and `StatefulSet`
+#### Deployment, `StatefulSet`, `DaemonSet`, and `ReplicaSet`
 
 Run the following command to retrieve the [deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment) in all namespaces:
 
@@ -184,7 +176,7 @@ To ensure the health and performance of your deployments, jobs, pods, and contai
 
 You can use prebuilt dashboards to visualize and analyze Prometheus metrics. To do so, you must set up your AKS cluster to collect Prometheus metrics in [Monitor managed service for Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview), and connect your [Monitor workspace](/azure/azure-monitor/essentials/azure-monitor-workspace-manage#link-a-grafana-workspace) to an [Azure Managed Grafana](/azure/managed-grafana/overview) workspace.
 
-Install the [prebuilt dashboards](https://aka.ms/azureprometheus-mixins) to get a comprehensive view of your Kubernetes cluster's performance and health. For detailed installation instructions, see [Prometheus monitoring mixin for Kubernetes](https://github.com/Azure/prometheus-collector/tree/main/mixins/kubernetes#how-to-use). The dashboards are provisioned in the specified Azure Managed Grafana instance in the *Managed Prometheus* folder. Some dashboards include:
+Install the [prebuilt dashboards](https://github.com/Azure/prometheus-collector/tree/main/mixins) to get a comprehensive view of your Kubernetes cluster's performance and health. For detailed installation instructions, see [Prometheus monitoring mixin for Kubernetes](https://github.com/Azure/prometheus-collector/tree/main/mixins/kubernetes#how-to-use). The dashboards are provisioned in the specified Azure Managed Grafana instance in the *Managed Prometheus* folder. Some dashboards include:
 
 - *Kubernetes / Compute Resources / Cluster*
 - *Kubernetes / Compute Resources / Namespace (Pods)*

@@ -1,20 +1,14 @@
 ---
 title: AKS triage—Container registry connectivity
-titleSuffix: Azure Architecture Center
 description: Learn about verifying the connection to a container registry. This step is part of the triage practice for Azure Kubernetes Service (AKS) clusters.
-author: paolosalvatori
-ms.author: paolos
+author: francisnazareth
+ms.author: fnazaret
 ms.date: 01/20/2025
-ms.topic: conceptual
-ms.service: azure-architecture-center
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
   - e2e-aks
   - arb-containers
-azureCategories: compute
-categories: compute
-products:
-  - azure-kubernetes-service
 ---
 
 # Verify the connection to the container registry
@@ -52,11 +46,11 @@ az role assignment create --assignee $ASSIGNEE --scope $AZURE_CONTAINER_REGISTRY
 
 ## Troubleshoot Container Registry problems
 
-The following sections provide guides that you can refer to if you encounter networking, sign-in, or performance problems with an Azure container registry.
+The following sections provide guides that you can refer to if you encounter networking, sign-in, or performance problems with an Azure Container Registry.
 
 ### Troubleshoot networking problems
 
-If you encounter problems that are related to accessing an Azure container registry in a virtual network or behind a firewall or proxy server, consider the following solutions:
+If you encounter problems that are related to accessing an Azure Container Registry in a virtual network or behind a firewall or proxy server, consider the following solutions:
 
 - [Configure client firewall access](/azure/container-registry/container-registry-troubleshoot-access#configure-client-firewall-access).
 - [Configure public access to the registry](/azure/container-registry/container-registry-troubleshoot-access#configure-public-access-to-registry).
@@ -65,7 +59,7 @@ If you encounter problems that are related to accessing an Azure container regis
 
 ### Troubleshoot sign-in problems
 
-If you encounter authentication and authorization problems when you sign in to an Azure container registry, consider the following solutions:
+If you encounter authentication and authorization problems when you sign in to an Azure Container Registry, consider the following solutions:
 
 - [Check the Docker configuration in your environment](/azure/container-registry/container-registry-troubleshoot-login#check-docker-configuration).
 - [Specify the correct registry name](/azure/container-registry/container-registry-troubleshoot-login#specify-correct-registry-name).
@@ -76,7 +70,7 @@ If you encounter authentication and authorization problems when you sign in to a
 
 ### Troubleshoot performance problems
 
-If you encounter performance issues with an Azure container registry, consider the following solutions:
+If you encounter performance issues with an Azure Container Registry, consider the following solutions:
 
 - [Enable the artifact cache](/azure/container-registry/tutorial-artifact-cache).
 - [Check the network connection speed](/azure/container-registry/container-registry-troubleshoot-performance#check-expected-network-speed).
@@ -85,7 +79,7 @@ If you encounter performance issues with an Azure container registry, consider t
 - [Configure the geo-replicated registry for optimal performance with replicas in nearby regions](/azure/container-registry/container-registry-troubleshoot-performance#configure-geo-replicated-registry).
 - [Optimize DNS configuration for pulling from a geographically distant registry replica](/azure/container-registry/container-registry-troubleshoot-performance#configure-dns-for-geo-replicated-registry).
 
-These guides can help you ensure seamless image retrieval for your AKS cluster and ensure smooth operation of your workloads.
+These guides can help you achieve reliable image retrieval for your AKS cluster and support stable operation of your workloads.
 
 ## Integrate a third-party container registry
 

@@ -2,11 +2,11 @@ The goal of microservices is to increase the velocity of application releases, b
 
 ![Microservices design patterns](../images/microservices-patterns.png)
 
-[**Ambassador**](../../patterns/ambassador.yml) can be used to offload common client connectivity tasks such as monitoring, logging, routing, and security (such as TLS) in a language agnostic way. Ambassador services are often deployed as a sidecar (see below).
+[**Ambassador**](../../patterns/ambassador.yml) can be used to offload common client connectivity tasks such as monitoring, logging, routing, and security (such as TLS) in a language agnostic way. Ambassador services are often deployed as a [sidecar](../../patterns/sidecar.md).
 
-[**Anti-corruption layer**](../../patterns/anti-corruption-layer.yml) implements a façade between new and legacy applications, to ensure that the design of a new application is not limited by dependencies on legacy systems.
+[**Anti-corruption layer**](../../patterns/anti-corruption-layer.yml) implements a façade between new and legacy applications, to ensure that the design of a new application isn't limited by dependencies on legacy systems.
 
-[**Backends for Frontends**](../../patterns/backends-for-frontends.yml) creates separate backend services for different types of clients, such as desktop and mobile. That way, a single backend service doesn't need to handle the conflicting requirements of various client types. This pattern can help keep each microservice simple, by separating client-specific concerns.
+[**Backends for Frontends**](../../patterns/backends-for-frontends.md) creates separate backend services for different types of clients, such as desktop and mobile. That way, a single backend service doesn't need to handle the conflicting requirements of various client types. This pattern can help keep each microservice simple, by separating client-specific concerns.
 
 [**Bulkhead**](../../patterns/bulkhead.yml) isolates critical resources, such as connection pool, memory, and CPU, for each workload or service. By using bulkheads, a single workload (or service) can't consume all of the resources, starving others. This pattern increases the resiliency of the system by preventing cascading failures caused by one service.
 
@@ -18,7 +18,7 @@ The goal of microservices is to increase the velocity of application releases, b
 
 [**Messaging Bridge**](../../patterns/messaging-bridge.yml) integrates disparate systems built with different messaging infrastructures.
 
-[**Sidecar**](../../patterns/sidecar.yml) deploys helper components of an application as a separate container or process to provide isolation and encapsulation.
+[**Sidecar**](../../patterns/sidecar.md) deploys helper components of an application as a separate container or process to provide isolation and encapsulation.
 
 [**Strangler Fig**](../../patterns/strangler-fig.md) supports incremental refactoring of an application, by gradually replacing specific pieces of functionality with new services.
 
@@ -28,12 +28,12 @@ For the complete catalog of cloud design patterns on the Azure Architecture Cent
 
 - [Training: Decompose a monolithic application into a microservices architecture](/training/modules/microservices-architecture)
 - [What are microservices?](/devops/deliver/what-are-microservices)
-- [Why use a microservices approach to building applications](/azure/service-fabric/service-fabric-overview-microservices)
+- [Why use a microservices approach to building applications](/azure/architecture/guide/architecture-styles/microservices)
 - [Microservices architecture](/dotnet/architecture/microservices/architect-microservice-container-applications/microservices-architecture)
 
 ## Related resources
 
-- [Microservice architecture style](../../guide/architecture-styles/microservices.yml)
-- [Design a microservices architecture](index.yml)
+- [Microservice architecture style](../../guide/architecture-styles/microservices.md)
+- [Design a microservices architecture](index.md)
 - [Using domain analysis to model microservices](../model/domain-analysis.md)
-- [Data considerations for microservices](data-considerations.yml)
+- [Data considerations for microservices](data-considerations.md)

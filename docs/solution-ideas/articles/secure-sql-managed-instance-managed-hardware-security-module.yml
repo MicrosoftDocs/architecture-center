@@ -1,0 +1,20 @@
+### YamlMime:Architecture
+metadata:
+  title: Cross-Region Resiliency for SQL TDE with Azure Key Vault Managed HSM
+  description: This solution describes a secure and resilient deployment pattern for Azure SQL Managed Instance. It highlights how Azure Key Vault Managed HSM stores customer-managed TDE protector keys.
+  author: kriation
+  ms.author: akaleshian
+  ms.date: 04/25/2025
+  ms.topic: solution-idea
+  ms.subservice: solution-idea
+azureCategories:
+  - databases
+  - security
+products:
+  - azure-sql-managed-instance
+  - azure-key-vault
+name: Cross-region resiliency for SQL TDE with Azure Key Vault Managed HSM
+summary: This solution describes a secure and resilient deployment pattern for Azure SQL Managed Instance. It highlights how Azure Key Vault Managed HSM stores customer-managed TDE protector keys.
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-sql-managed-instance-architecture.png
+content: |
+  [!INCLUDE[](secure-sql-managed-instance-managed-hardware-security-module-content.md)]

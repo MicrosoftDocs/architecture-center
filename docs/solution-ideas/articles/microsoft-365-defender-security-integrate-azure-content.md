@@ -45,13 +45,13 @@ The diagram shows the following services in **Core Monitoring Services** and in 
 
 4.  **Microsoft Sentinel** works like a façade for Log Analytics. While Log Analytics stores logs and alerts from various sources, Microsoft Sentinel offers APIs that help with ingestion of logs from various sources. Those sources include on-premises VMs, Azure VMs, alerts from Microsoft Defender XDR and other services. Microsoft Sentinel correlates the logs to provide insights about what is going on in your IT environment, avoiding false positives. Microsoft Sentinel is the core of security and monitoring for Microsoft cloud services. For more information about Microsoft Sentinel, see [What is Microsoft Sentinel?](/azure/sentinel/overview).
 
-The preceding services in this list are core services that work throughout Azure, Office 365, and on-premises environments. The following services focus on specific resources:
+The preceding services in this list are core services that work throughout Azure, Microsoft 365, and on-premises environments. The following services focus on specific resources:
 
 5.  **Network Watcher** provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network. For more information, see [What is Azure Network Watcher?](/azure/network-watcher/network-watcher-monitoring-overview).
 
 6.  **Traffic Analytics** is part of Network Watcher and works on top of logs from network security groups (NSGs). Traffic Analytics offers many dashboards that are capable of aggregating metrics from outbound and inbound connection in Azure Virtual Network. For more information, see [Traffic Analytics](/azure/network-watcher/traffic-analytics).
 
-7.  **Application Insights** focuses on applications and provides extensible performance management and monitoring for live web apps, including support for a wide variety of platform such as .NET, Node.js, Java, and Python. Application Insights is a feature of Azure Monitor. For more information, see [Application Insights overview](/azure/azure-monitor/app/app-insights-overview).
+7.  **Application Insights** focuses on applications and provides extensible performance management and monitoring for live web apps, including support for a wide range of platforms like .NET, Node.js, Java, and Python. Application Insights is a feature of Azure Monitor. For more information, see [Application Insights overview](/azure/azure-monitor/app/app-insights-overview).
 
 8.  **Azure Storage Analytics** performs logging and provides metrics for a storage account. You can use its data to trace requests, analyze usage trends, and diagnose issues with your storage account. For more information, see [Use Azure Storage analytics to collect logs and metrics data](/azure/storage/common/storage-analytics).
 
@@ -97,23 +97,23 @@ The following list provides information about how to access each of the services
 
 The example architecture in this article uses the following Azure components:
 
-- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) is a cloud-based identity and access management service. Microsoft Entra ID helps your users to access external resources, such as Microsoft 365, the Azure portal, and thousands of other SaaS applications. It also helps them access internal resources, like apps on your corporate intranet network.
+- [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based identity and access management service that helps users access external and internal resources. In this architecture, it authenticates users that access Microsoft 365, Azure, and software as a service (SaaS) applications, and supports identity-based threat detection and response.
 
-- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is the fundamental building block for your private network in Azure. Virtual Network enables many types of Azure resources to securely communicate with each other, the internet, and on-premises networks. Virtual Network provides a virtual network that benefits from Azure's infrastructure, such as scale, availability, and isolation.
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is a networking service in Azure that enables secure communication between Azure resources, the internet, and on-premises networks. In this architecture, it provides the private network infrastructure for hosting workloads and collecting network-level telemetry.
 
-- [Azure Load Balancer](https://azure.microsoft.com/services/load-balancer) is a high-performance, low-latency Layer 4 load-balancing service (inbound and outbound) for all UDP and TCP protocols. It's built to handle millions of requests per second while ensuring that your solution is highly available. Azure Load Balancer is zone-redundant, ensuring high availability across Availability Zones.
+- [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer) is a high-performance layer-4 load balancing service for Transmission Control Protocol (TCP) and User Datagram Protocol (UDP) traffic. In this architecture, it distributes traffic across VMs and services to ensure high availability and resilience.
 
-- [Virtual machines](https://azure.microsoft.com/services/virtual-machines) is one of several types of on-demand, scalable computing resources that Azure offers. An Azure virtual machine (VM) gives you the flexibility of virtualization without having to buy and maintain the physical hardware that runs it.
+- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is an infrastructure as a service (IaaS) offering that provides scalable compute resources. In this architecture, VMs run workloads and applications that require full control over the operating system and environment.
 
-- [Azure Kubernetes service (AKS)](https://azure.microsoft.com/services/kubernetes-service) is a fully managed Kubernetes service for deploying and managing containerized applications. AKS provides serverless Kubernetes, continuous integration/continuous delivery (CI/CD), and enterprise-grade security and governance.
+- [Azure Kubernetes Service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed Kubernetes service for deploying and managing containerized applications. In this architecture, AKS orchestrates container deployment and scaling, which supports microservices and continuous integration and continuous delivery (CI/CD) pipelines.
 
-- [Azure Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop) is a desktop and app virtualization service that runs on the cloud to provide desktops for remote users.
+- [Azure Virtual Desktop](/azure/virtual-desktop/overview) is a desktop and app virtualization service. In this architecture, it provides secure remote access to desktops and applications for distributed users.
 
-- [Web Apps](/azure/well-architected/service-guides/app-service-web-apps) is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. You can develop in your favorite language, and applications run and scale with ease on both Windows and Linux-based environments.
+- The [Web Apps feature of Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) hosts web applications, REST APIs, and mobile back ends. You can develop in your chosen language. Applications run and scale with ease on both Windows and Linux-based environments. In this architecture, Web Apps enables scalable and language-flexible deployment of web-based services.
 
-- [Azure Storage](https://azure.microsoft.com/product-categories/storage) is highly available, massively scalable, durable, and secure storage for various data objects in the cloud, including object, blob, file, disk, queue, and table storage. All data written to an Azure storage account is encrypted by the service. Azure Storage provides you with fine-grained control over who has access to your data.
+- [Azure Storage](/azure/storage/common/storage-introduction) is scalable and secure storage for various data objects in the cloud, including object, blob, file, disk, queue, and table storage. In this architecture, it stores application data, logs, and backups with encryption and access control.
 
-- [Azure SQL database](https://azure.microsoft.com/products/azure-sql/database) is a fully managed PaaS database engine that handles most of the database management functions such as upgrading, patching, backups, and monitoring. It provides these functions without user involvement. SQL Database provides a range of built-in security and compliance features to help your application meet security and compliance requirements.
+- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database) is a managed relational database engine that automates upgrading, patching, backups, and monitoring. In this architecture, it provides secure, scalable, and compliant data storage for structured application data.
 
 ## Solution details
 
@@ -158,7 +158,7 @@ Other contributors:
 
 ## Related resources
 
-For more details about this reference architecture, see the other articles in this series:
+For more information about this reference architecture, see the other articles in this series:
 
 - Part 1: [Map threats to your IT environment](./map-threats-it-environment.yml)
 - Part 2: [Build the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml)

@@ -32,30 +32,25 @@ The solution presents two options for triggering the pipelines that capture the 
 
 ### Components
 
-- [MongoDB Atlas](https://www.mongodb.com/atlas/database) is a database-as-a-service offering from MongoDB. This multicloud application data platform offers transactional processing, relevance-based search, real-time analytics, and mobile-to-cloud data synchronization. MongoDB also offers an on-premises solution, MongoDB Enterprise Advanced.
+- [App Service](/azure/well-architected/service-guides/app-service-web-apps) is a managed platform for building, deploying, and scaling web apps, mobile apps, and REST APIs. In this architecture, it hosts ASP.NET web apps that subscribe to MongoDB Atlas change streams, detect data changes, and write updated documents to Data Lake Storage. The Event Grid version also publishes events to Event Grid to trigger downstream pipelines.
 
-- [Change streams](https://www.mongodb.com/docs/manual/changeStreams) in MongoDB Atlas give applications access to real-time data changes so that the apps can immediately react to those changes. The change streams provide a way for applications to receive notifications about changes to a particular collection, database, or entire deployment cluster.
+- [Azure Synapse Analytics](/azure/synapse-analytics) is an integrated analytics service that combines big data and data warehousing. In this architecture, it serves as the central platform for ingesting, processing, and analyzing both batch and real-time data from MongoDB Atlas.
 
-- [App Service](/azure/well-architected/service-guides/app-service-web-apps) and its Web Apps, Mobile Apps, and API Apps features provide a framework for building, deploying, and scaling web apps, mobile apps, and REST APIs. This solution uses web apps that are programmed in ASP.NET. The code is available on GitHub:
+  - [Azure Synapse Analytics pipelines](/azure/synapse-analytics/get-started-pipelines) are data orchestration workflows used to perform extract, transform, and load (ETL) operations. You can use multiple activities within the same pipeline. You can also create dependency endpoints to connect one activity with another activity in the pipeline. In this architecture, Azure Synapse Analytics pipelines copy changed documents from Data Lake Storage into the dedicated SQL pool and keep warehouse tables synchronized with MongoDB Atlas collections.
 
-  - [Event Grid version](https://github.com/Azure/SynapseRTSEventGrid)
-  - [Storage version](https://github.com/Azure/SynapseRTSStorage)
+  - [Azure Synapse Analytics triggers](/azure/data-factory/concepts-pipeline-execution-triggers) are mechanisms for automating pipeline execution, including scheduled and event-based triggers such as [storage event triggers](/azure/data-factory/how-to-create-event-trigger) and [custom event triggers](/azure/data-factory/how-to-create-custom-event-trigger). In this architecture, they activate pipelines based on either storage events (like new blob detection) or custom Event Grid events.
 
-- [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) is the core service that this solution uses for data ingestion, processing, and analytics.
+  - [Dedicated SQL pool](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is) is the enterprise data warehousing feature of Azure Synapse Analytics that provides data warehousing capabilities for data after the data is processed and normalized. In this architecture, it stores the final processed data copied from Data Lake Storage through upsert operations. This storage provides a structured layer for querying and reporting that stays synchronized with MongoDB Atlas collections.
 
-- [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) provides capabilities for storing and processing data. As a data lake that's built on top of [Blob Storage](https://azure.microsoft.com/services/storage/blobs), Data Lake Storage provides a scalable solution for managing large volumes of data from multiple, heterogeneous sources.
+- [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a scalable data lake built on top of [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage). Data Lake Storage provides a scalable solution for managing large volumes of data from multiple, heterogeneous sources. In this architecture, Data Lake Storage stores the changed documents received from MongoDB Atlas as blobs, which serve as input for Azure Synapse Analytics pipelines.
 
-- [Azure Synapse Analytics pipelines](/azure/synapse-analytics/get-started-pipelines) are used to perform extract, transform, load (ETL) operations on data. Azure Data Factory provides a similar service, but you can create Azure Synapse Analytics pipelines within Synapse Studio. You can use multiple activities within the same pipeline. You can also create dependency endpoints to connect one activity with another activity in the pipeline.
+- [Event Grid](/azure/event-grid/overview) is a highly scalable, serverless event broker that routes events to subscriber endpoints. In this architecture, Event Grid receives events from the App Service code and triggers Azure Synapse Analytics pipelines via custom event-based triggers.
 
-- [Mapping data flows](/azure/data-factory/concepts-data-flow-overview) are visually designed data transformations in Azure Synapse Analytics. Data flows provide a way for data engineers to develop data transformation logic without writing code. You can run the resulting data flows as activities within Azure Synapse Analytics pipelines that use scaled-out Apache Spark clusters. You can put data flow activities into operation by using existing Azure Synapse Analytics scheduling, control, flow, and monitoring capabilities.
+- [MongoDB Atlas](https://www.mongodb.com/atlas/database) is a multicloud database as a service (DaaS) platform that supports transactional processing, relevance-based search, real-time analytics, and mobile-to-cloud data synchronization. MongoDB also provides MongoDB Enterprise Advanced, which is an on-premises solution. In this architecture, MongoDB Atlas serves as the operational data source that generates change events.
 
-- [Dedicated SQL pool](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is) provides data warehousing capabilities for data after the data is processed and normalized. This feature of Azure Synapse Analytics was formerly known as SQL Data Warehouse. Dedicated SQL pools make the refined data available to your end users and applications.
+  - [Change streams](https://www.mongodb.com/docs/manual/changeStreams) are a MongoDB Atlas feature that allows applications to receive real-time notifications about data changes so that the apps can immediately react to those changes. In this architecture, change streams enable App Service web apps to detect insert, update, and delete operations in MongoDB Atlas and respond immediately.
 
-- [Azure Synapse Analytics triggers](/azure/data-factory/concepts-pipeline-execution-triggers) provide an automated way to run pipelines. You can schedule these triggers. You can also set up event-based triggers, such as [storage event triggers](/azure/data-factory/how-to-create-event-trigger) and [custom event triggers](/azure/data-factory/how-to-create-custom-event-trigger). The solution uses both types of event-based triggers.
-
-- [Event Grid](https://azure.microsoft.com/services/event-grid) is a highly scalable, serverless event broker. You can use Event Grid to deliver events to subscriber destinations.
-
-- [Power BI](https://powerbi.microsoft.com) is a collection of software services and apps that display analytics information. In this solution, Power BI provides a way to use the processed data to perform advanced analysis and to derive insights.
+- [Power BI](/power-bi/fundamentals/power-bi-overview) is a business intelligence platform for creating interactive reports and dashboards. In this architecture, Power BI provides a way to use the processed data to perform advanced analysis and to derive insights.
 
 ## Scenario details
 
@@ -78,7 +73,7 @@ The source connector provides a convenient way to run Azure Synapse Analytics on
 
 You can use the data that you retrieve from MongoDB Enterprise Advanced or MongoDB Atlas in the following scenarios:
 
-- To retrieve all data from a particular date from MongoDB in a batch. You then load the data into Data Lake Storage. From there, you use a serverless SQL pool or Spark pool for analysis, or you copy the data into a dedicated SQL pool. After you retrieve this batch, you can apply changes to the data as they occur, as described in [Dataflow](#dataflow). A [Storage-CopyPipeline_mdb_synapse_ded_pool_RTS sample pipeline](https://github.com/Azure/RealTimeSync_Synapse-MongoDB/blob/main/Storage-CopyPipeline_mdb_synapse_ded_pool_RTS.zip) is available as part of this solution. You can export the pipeline from GitHub for this one-time load purpose.
+- To retrieve all data from a particular date from MongoDB in a batch. You then load the data into Data Lake Storage. From there, you use a serverless SQL pool or Spark pool for analysis, or you copy the data into a dedicated SQL pool. After you retrieve this batch, you can apply changes to the data as they occur, as described in [Dataflow](#dataflow).
 
 - To produce insights at a particular frequency, for instance, for a daily or hourly report. For this scenario, you schedule a pipeline to retrieve data on a regular basis before you run the analytics pipelines. You can use a MongoDB query to apply filter criteria and only retrieve a certain subset of data.
 
@@ -202,10 +197,6 @@ When there's a high volume of changes, running thousands of pipelines in Azure S
 
 For more information on improving the performance and scalability of Azure Synapse Analytics pipeline copy activity, see [Copy activity performance and scalability guide](/azure/data-factory/copy-activity-performance).
 
-## Deploy this scenario
-
-For information about implementing this solution, see [Real-Time Sync Solution for MongoDB Atlas Integration with Synapse](https://github.com/Azure/RealTimeSync_Synapse-MongoDB).
-
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
@@ -229,14 +220,14 @@ Other contributors:
 
 For more information about the solution, contact [partners@mongodb.com](mailto:partners@mongodb.com).
 
-For information about MongoDB, see these resources:
+For more information about MongoDB, see these resources:
 
 - [MongoDB](https://www.mongodb.com)
 - [MongoDB Atlas](https://www.mongodb.com/atlas/database)
 - [MongoDB horizontal use cases](https://www.mongodb.com/use-cases)
 - [MongoDB industry-specific use cases](https://www.mongodb.com/industries)
 
-For information about Azure solution components, see these resources:
+For more information about Azure solution components, see these resources:
 
 - [What is Azure Synapse Analytics?](/azure/synapse-analytics/overview-what-is)
 - [Azure Synapse Analytics use cases](https://azure.microsoft.com/services/synapse-analytics/#use-cases)
@@ -249,5 +240,5 @@ For information about Azure solution components, see these resources:
 
 ## Related resources
 
-- [Enterprise business intelligence](../../example-scenario/analytics/enterprise-bi-synapse.yml)
-- [Automated enterprise BI](../../reference-architectures/data/enterprise-bi-adf.yml)
+- [Use Microsoft Fabric to design an enterprise BI solution](../../example-scenario/analytics/enterprise-bi-microsoft-fabric.yml)
+- [Databases architecture design](../../databases/index.yml)

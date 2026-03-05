@@ -49,7 +49,7 @@ The following sections provide an overview of Azure Virtual Desktop for Azure Lo
 
 ### Azure Virtual Desktop for Azure Local
 
-Azure Virtual Desktop for Azure Local is a robust desktop and application virtualization solution that combines the flexibility of Azure Virtual Desktop with the performance and reliability of Azure Local. You can use this setup to deliver highly secure, scalable virtual desktops and applications via your existing on-premises infrastructure.
+Azure Virtual Desktop for Azure Local is a desktop and application virtualization solution that combines the flexibility of Azure Virtual Desktop with the performance and reliability of Azure Local. You can use this setup to deliver secure, scalable virtual desktops and applications via your existing on-premises infrastructure.
 
 ### VMs in Azure Virtual Desktop
 
@@ -58,7 +58,7 @@ Azure Virtual Desktop uses Azure Arc VMs that run Windows to host remote end use
 > [!NOTE]
 > In this article, all references to VMs refer to [Azure Arc VMs](/azure-stack/hci/manage/azure-arc-vm-management-overview).
 
-Importantly, Azure Arc VMs maintain full compliance with Azure Virtual Desktop, which helps ensure that you can run these workloads without any compatibility problems. Azure Arc VMs also offer enhanced capabilities such as hybrid management, centralized policy enforcement, and seamless integration with Azure services. You can create non-Azure Arc VMs, but they lack advanced management features and integration benefits.
+Importantly, Azure Arc VMs maintain full compliance with Azure Virtual Desktop, which helps ensure that you can run these workloads without any compatibility problems. Azure Arc VMs also offer enhanced capabilities such as hybrid management, centralized policy enforcement, and integration with Azure services. You can create non-Azure Arc VMs, but they lack advanced management features and integration benefits.
 
 ### Benefits
 
@@ -71,7 +71,7 @@ Use Azure Virtual Desktop for Azure Local to take advantage of the following ben
 - **Reduce cost and improve user experience** by using Windows 10 and Windows 11 Enterprise multi-session, which provides multiple concurrent interactive sessions.
 - **Simplify your virtual desktop infrastructure (VDI) deployment and management**, compared to traditional on-premises VDI solutions, by using the Azure portal.
 - **Achieve the best performance** by using [RDP Shortpath](/azure/virtual-desktop/rdp-shortpath) for low-latency user access.
-- **Deploy the latest fully patched images quickly and easily** by using [Azure Marketplace images](/azure-stack/hci/manage/virtual-machine-image-azure-marketplace).
+- **Deploy the latest fully patched images efficiently** by using [Microsoft Marketplace images](/azure-stack/hci/manage/virtual-machine-image-azure-marketplace).
 
 ### Key considerations
 
@@ -110,21 +110,21 @@ Session host VMs in an Azure Virtual Desktop for Azure Local environment can acc
 
 ## Manage user profiles and storage
 
-Manage user profiles and storage efficiently in Azure Virtual Desktop to help ensure a seamless user experience. A user profile contains data elements about the individual, including configuration information like desktop settings, persistent network connections, and application settings.
+Manage user profiles and storage efficiently in Azure Virtual Desktop to help ensure a consistent user experience. A user profile contains data elements about the individual, including configuration information like desktop settings, persistent network connections, and application settings.
 
-[FSLogix](/azure/virtual-desktop/fslogix-profile-containers) is a Microsoft-recommended solution for profile management in virtual desktop environments. It helps simplify and enhance the user experience. FSLogix provides a robust and scalable approach to handle user profiles and helps ensure fast sign-in times and consistent user experience across sessions. [FSLogix](/fslogix/overview-what-is-fslogix) uses profile containers to store user profiles in virtual hard disk files that are located either on the Azure Local instance itself or on a separate Azure or SMB-compatible file share. This method isolates user profiles, which helps prevent conflicts and helps ensure a personalized experience for each user. It also enhances security and performance. FSLogix integrates seamlessly with Azure Virtual Desktop, which optimizes the management and performance of user profiles in single-session and multi-session environments.
+[FSLogix](/azure/virtual-desktop/fslogix-profile-containers) is a Microsoft-recommended solution for profile management in virtual desktop environments. It helps simplify and enhance the user experience. FSLogix provides a robust and scalable approach to handle user profiles and helps ensure fast sign-in times and a consistent user experience across sessions. [FSLogix](/fslogix/overview-what-is-fslogix) uses profile containers to store user profiles in virtual hard disk files that are located either on the Azure Local instance itself or on a separate Azure or SMB-compatible file share. This method isolates user profiles, which helps prevent conflicts and helps ensure a personalized experience for each user. It also enhances security and performance. FSLogix integrates with Azure Virtual Desktop, which optimizes the management and performance of user profiles in single-session and multi-session environments.
 
 When you deploy Azure Virtual Desktop for Azure Local, you can install FSLogix in one of two configurations to effectively manage user profiles.
 
 ### Use a separate file share
 
-  - **Location:** You can store FSLogix profiles on a dedicated file share within your on-premises environment. You can host this file share on an existing file server, NAS, or a dedicated storage solution that you configure to serve the Azure Local instance.
+- **Location:** You can store FSLogix profiles on a dedicated file share within your on-premises environment. You can host this file share on an existing file server, NAS, or a dedicated storage solution that you configure to serve the Azure Local instance.
 
-  - **Benefits:** A separate file share provides centralized and scalable profile management. This approach is ideal for larger environments in which centralizing profile storage helps ensure easier management and scalability.
+- **Benefits:** A separate file share provides centralized and scalable profile management. This approach is ideal for larger environments in which centralizing profile storage helps simplify management and improve scalability.
 
-  - **Considerations:** Network performance and latency are crucial. The file share must be highly accessible and have minimal latency to ensure quick sign-in times and seamless user experience. A robust network infrastructure helps support this setup.
+- **Considerations:** Network performance and latency are crucial. The file share must be highly accessible and have minimal latency to help ensure quick sign-in times and a consistent user experience. A robust network infrastructure helps support this setup.
 
-  - **Recommendation for large deployments:** If you want to scale beyond on-premises storage capacities, you can use cloud-based storage solutions like [Azure Files](/azure/storage/files/storage-files-introduction) or [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction). These options provide high availability, robust performance, and simplified management. They also alleviate storage constraints on the Azure Local instance. They can offer better scalability and flexibility compared to on-premises file share solutions. When you use a cloud-based storage solution, consider network latency and bandwidth and throughput requirements and considerations.
+- **Recommendation for large deployments:** If you want to scale beyond on-premises storage capacities, you can use cloud-based storage solutions like [Azure Files](/azure/storage/files/storage-files-introduction) or [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction). These options provide high availability, consistent performance, and simpler management. They also alleviate storage constraints on the Azure Local instance. They can offer better scalability and flexibility compared to on-premises file share solutions. When you use a cloud-based storage solution, consider network latency and bandwidth and throughput requirements and considerations.
 
 ### Use the same Azure Local instance
 
@@ -215,7 +215,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 Use this guidance to help safeguard valuable data and maintain user trust. Implement robust identity protection, network controls, and data encryption to help create a secure virtual desktop environment.
 
-- **Enable Microsoft Entra multifactor authentication (MFA):**  When users access Azure Virtual Desktop resources, MFA adds an extra layer of security. Users must provide verification methods beyond just a password. MFA reduces the risk of unauthorized access because of compromised credentials. Microsoft Entra ID offers built-in MFA capabilities that integrate seamlessly with Azure Virtual Desktop, including deployments on Azure Local. For more information, see [Recommendations for identity and access management](/azure/well-architected/security/identity-access).
+- **Enable Microsoft Entra multifactor authentication (MFA):**  When users access Azure Virtual Desktop resources, MFA adds an extra layer of security. Users must provide verification methods beyond just a password. MFA reduces the risk of unauthorized access because of compromised credentials. Microsoft Entra ID offers built-in MFA capabilities that integrate with Azure Virtual Desktop, including deployments on Azure Local. For more information, see [Recommendations for identity and access management](/azure/well-architected/security/identity-access).
 
 - **Regularly update and patch Azure Virtual Desktop:** To help mitigate security vulnerabilities, keep VMs, operating systems, and software up to date. Use tools like Azure Update Manager to automate patching for your Azure Local instance and Azure Virtual Desktop session host VMs. Regular updates should include operating systems, applications, and security solutions to maintain a strong defense against threats. For more information, see [Recommendations for establishing a security baseline](/azure/well-architected/security/establish-baseline).
 
@@ -266,7 +266,7 @@ Use this guidance to create reliable processes to deploy, manage, and monitor Az
 
 Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-- **Use load balancing for optimal performance:** To prevent any single VM from being a bottleneck, distribute network traffic evenly across Azure Virtual Desktop instances. Load balancers help improve responsiveness by evenly distributing user sessions, which is especially important during peak times. Azure Virtual Desktop supports built-in load balancing algorithms that manage user session distribution effectively. *Breadth-first* load balancing assigns new user sessions to the session host that has the least number of connections, which helps create an even distribution. *Depth-first* load balancing fills up one session host before moving on to the next, which can provide efficiency during low-usage periods. For more information, see [Configure host pool load balancing in Azure Virtual Desktop](/azure/virtual-desktop/configure-host-pool-load-balancing).
+- **Use load balancing for optimal performance:** To prevent any single VM from being a bottleneck, distribute network traffic evenly across Azure Virtual Desktop instances. Load balancers help improve responsiveness by evenly distributing user sessions, which is especially important during peak times. Azure Virtual Desktop supports built-in load balancing algorithms that manage user session distribution effectively. *Breadth-first* load balancing assigns new user sessions to the session host that has the least number of connections, which helps create an even distribution. *Depth-first* load balancing fills one session host to capacity before it moves to the next. This approach can improve efficiency during periods of low usage. For more information, see [Configure host pool load balancing in Azure Virtual Desktop](/azure/virtual-desktop/configure-host-pool-load-balancing).
 
 - **Optimize performance for Azure Virtual Desktop:**
 
@@ -299,7 +299,7 @@ To use session hosts on Azure Local with Azure Virtual Desktop, you also need to
 
 1. **Install the Azure Connected Machine agent on the VMs** so they can communicate with [Azure Instance Metadata Service](/azure/virtual-machines/instance-metadata-service), which is a [required endpoint for Azure Virtual Desktop](/azure/virtual-desktop/required-fqdn-endpoint). The [Azure Connected Machine agent](/azure/azure-arc/servers/agent-overview) automatically installs when you add session hosts via the Azure portal, as part of the process to [deploy Azure Virtual Desktop](/azure/virtual-desktop/deploy-azure-virtual-desktop) or [add session hosts to a host pool](/azure/virtual-desktop/add-session-hosts-host-pool).
 
-After you complete these steps, users can connect to the session hosts via the same [Remote Desktop clients](/azure/virtual-desktop/users/remote-desktop-clients-overview) that they use for Azure Virtual Desktop.
+After you complete these steps, users can connect to the session hosts via the same [Remote Desktop clients](/azure/virtual-desktop/connect-azure-virtual-desktop) that they use for Azure Virtual Desktop.
 
 ### Deployment methods
 

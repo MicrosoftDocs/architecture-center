@@ -24,13 +24,13 @@ This guide presents an architecture that uses the private endpoint option. The p
 
 ### Components
 
-- [App Service](https://learn.microsoft.com/en-us/azure/app-service/overview) and its Web Apps feature provide a framework for building, deploying, and scaling web apps.
-- [Functions](https://azure.microsoft.com/products/functions) is an event-driven serverless compute platform.
-- [Azure Virtual Network](https://azure.microsoft.com/products/virtual-network) is the fundamental building block for private networks in Azure. Azure resources like VMs can securely communicate with each other, the internet, and on-premises networks through Virtual Network.
-- [Private Link](https://azure.microsoft.com/products/private-link) provides a private endpoint in a virtual network. You can use the private endpoint to connect to Azure PaaS services or to customer or partner services.
-- [Azure DNS](https://azure.microsoft.com/products/dns) is a hosting service for DNS domains. Azure DNS uses Azure infrastructure to provide name resolution. The private Azure DNS service manages and resolves domain names in a virtual network and in connected virtual networks. When you use this service, you don't need to configure a custom DNS solution.
-- An [Azure DNS private zone](https://azure.microsoft.com/products/dns) contains records that you can't resolve from the internet. DNS resolution only works from virtual networks that are linked to the private zone.
-- [Azure Virtual Machines](https://azure.microsoft.com/products/virtual-machines) offers many sizes and types of on-demand, scalable computing resources.
+- [App Service](/azure/well-architected/service-guides/app-service-web-apps) and its Web Apps feature provide a managed platform for building, deploying, and scaling web applications. In this architecture, Web Apps hosts the application in the provider tenant and is secured via private endpoints to restrict public access.
+- [Functions](/azure/well-architected/service-guides/azure-functions) is an event-driven serverless compute service. In this architecture, Functions can serve as an alternative to Web Apps. Functions is also secured via private endpoints to ensure that cross-tenant access remains private.
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the foundational networking layer in Azure that enables secure communication between Azure resources, the internet, and on-premises networks. In this architecture, virtual networks host the private endpoints and DNS zones, which facilitates secure connectivity between provider and consumer tenants.
+- [Private Link](/azure/private-link/private-link-overview) enables secure, private connectivity between Azure services and virtual networks by mapping service endpoints to private IP addresses within a virtual network. You can use the private endpoint to connect to Azure PaaS services or to customer or partner services. In this architecture, Private Link exposes the web app or function app securely to another tenant without traversing the public internet.
+- [Azure DNS](/azure/dns/dns-overview) is a scalable DNS hosting service that uses Azure infrastructure to provide name resolution. The private Azure DNS service manages and resolves domain names in a virtual network and in connected virtual networks. This service doesn't require configuration of a custom DNS solution. In this architecture, Azure DNS handles public DNS queries and integrates with private DNS zones to resolve private endpoint addresses.
+- [Azure DNS private zones](/azure/dns/private-dns-overview) allow DNS resolution within virtual networks without exposing records to the public internet. In this architecture, private DNS zones manage internal name resolution for private endpoints, which ensures secure and accurate routing within and across tenants.
+- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) provides scalable compute resources to run applications and services. In this architecture, a VM in the consumer tenant initiates DNS and HTTPS requests to the provider's web app via the private endpoint.
 
 ## Provider setup
 
@@ -63,7 +63,7 @@ The next step is to enable a client in another tenant to reach the Azure web app
 
 On the consumer side, the setup process starts by creating a private endpoint resource. As with the provider, the consumer needs to have a virtual network and subnet ready where the NIC of the private endpoint can be deployed. This step consumes an IP address of the subnet. There are no constraints on the private IP range of that virtual network. It's okay to have overlapping IP ranges in the provider and consumer tenants.
 
-The consumer doesn't own the target resource, so the full resource ID of the Azure web app in the provider tenant must be used. That resource ID contains the provider's subscription ID, the name of the resource group, and the name of the Azure web app resource. As a result, we recommend that the provider share this information with the consumer in a secure way. Currently it's not possible to use an alias. Some Azure resources have multiple subresources. For instance, an Azure Storage resource has *blob*, *table*, *queue*, *file*, *web*, and *Dfs* subresources. The provider must also provide information about the subresources. Azure web apps and function apps have only one subresource, *sites*. For more information about private endpoint subresources and their values, see [Private-link resource](/azure/private-link/private-endpoint-overview#private-link-resource). Because the connection of the private endpoint isn't automatically approved, the consumer can provide a message for the provider to read.
+The consumer doesn't own the target resource, so the full resource ID of the Azure web app in the provider tenant must be used. That resource ID contains the provider's subscription ID, the name of the resource group, and the name of the Azure web app resource. As a result, we recommend that the provider share this information with the consumer in a secure way. Currently it's not possible to use an alias. Some Azure resources have multiple subresources. For instance, an [Azure Storage resource](/azure/storage/common/storage-private-endpoints#dns-changes-for-private-endpoints) has *blob*, *table*, *queue*, *file*, *web*, and *dfs* subresources. The provider must also provide information about the subresources. Azure web apps and function apps have only one subresource, *sites*. For more information about private endpoint subresources and their values, see [Private-link resource](/azure/private-link/private-endpoint-overview#private-link-resource). Because the connection of the private endpoint isn't automatically approved, the consumer can provide a message for the provider to read.
 
 It's not possible to automate the DNS zone integration setup. As a result, the consumer needs to manually configure the DNS records as explained in [Step 3](#step-3-consumer-dns-setup).
 
@@ -155,7 +155,7 @@ Other contributor:
 
 ## Next steps
 
-- [Azure RBAC permissions for Azure Private Link](/azure/private-link/rbac-permissions)
+- [Azure role-based access control (Azure RBAC) permissions for Azure Private Link](/azure/private-link/rbac-permissions)
 - [Restrict your storage account to a virtual network (for Functions))](/azure/azure-functions/configure-networking-how-to#restrict-your-storage-account-to-a-virtual-network)
 - [Microsoft Azure Well-Architected Framework - Security](/azure/architecture/framework/security)
 - [Set up Azure App Service access restrictions](/azure/app-service/app-service-ip-restrictions)
@@ -170,5 +170,5 @@ Other contributor:
 
 - [Improved-security access to multitenant web apps from an on-premises network](../../web-apps/guides/networking/access-multitenant-web-app-from-on-premises.yml)
 - [Multi-tier app service with private endpoint](../../example-scenario/web/multi-tier-app-service-private-endpoint.yml)
-- [Azure Private Link in a hub-and-spoke network](../guide/private-link-hub-spoke-network.yml)
+- [Azure Private Link in a hub-and-spoke network](../guide/private-link-hub-spoke-network.md)
 - [Limit cross-tenant private endpoint connections in Azure](/azure/cloud-adoption-framework/ready/azure-best-practices/limit-cross-tenant-private-endpoint-connections)

@@ -155,16 +155,13 @@ To learn about related solutions, see the following guides and architectures.
 
 ### Related architecture guides
 
-- [Monitor Azure Databricks by using Azure Monitor][Monitoring Azure Databricks]
 - [Compare machine learning products from Microsoft][Compare the machine learning products and technologies from Microsoft]
 - [Choose a natural language processing technology][Choosing a natural language processing technology in Azure]
 - [Choose a stream processing technology][Choosing a stream processing technology in Azure]
 
-### Related architectures
+### Related architecture
 
 - [Stream processing with Azure Databricks][Stream processing with Azure Databricks]
-- [Batch scoring of Spark models on Azure Databricks][Batch scoring of Spark models on Azure Databricks]
-- [Observability patterns and metrics for performance tuning][Observability patterns and metrics for performance tuning]
 
 [Microsoft Entra ID]: /entra/fundamentals/whatis
 [Microsoft Cost Management]: /azure/cost-management-billing/costs/overview-cost-management
@@ -174,19 +171,15 @@ To learn about related solutions, see the following guides and architectures.
 [Azure Kubernetes Service]: /azure/well-architected/service-guides/azure-kubernetes-service
 [Azure Machine Learning]: /azure/well-architected/service-guides/azure-kubernetes-service
 [Azure Monitor]: /azure/azure-monitor/overview
-[Batch scoring of Spark models on Azure Databricks]: ../../ai-ml/architecture/batch-scoring-databricks.yml
 [Compare the machine learning products and technologies from Microsoft]: ../../ai-ml/guide/data-science-and-machine-learning.md
 [Choosing a natural language processing technology in Azure]: ../../data-guide/technology-choices/natural-language-processing.md
 [Choosing a stream processing technology in Azure]: ../../data-guide/technology-choices/stream-processing.md
-[Databricks Delta Lake]: https://databricks.com/product/delta-lake-on-databricks
+[Databricks Delta Lake]: /azure/databricks/delta/
 [Event Hubs]: /azure/well-architected/service-guides/event-hubs
-[Key Vault]: /azure/key-vault/general/basic-concepts
+[Key Vault]: /azure/key-vault/general/overview
 [Medallion model]: /azure/databricks/lakehouse/medallion
 [MLflow]: https://mlflow.org
 [MLflow Model Registry]: https://www.mlflow.org/docs/latest/registry.html
-[Monitoring Azure Databricks]: ../../databricks-monitoring/index.md
-[Native connectors]: /azure/databricks/data/data-sources/azure/synapse-analytics
-[Observability patterns and metrics for performance tuning]: ../../databricks-monitoring/databricks-observability.yml
 [Photon improves performance]: /azure/databricks/compute/photon
 [Power BI connector for Azure Databricks]: /azure/databricks/integrations/bi/power-bi
 [Stream processing with Azure Databricks]: ../../reference-architectures/data/stream-processing-databricks.yml
@@ -202,4 +195,3 @@ To learn about related solutions, see the following guides and architectures.
 [Microsoft Fabric]: /fabric/get-started/microsoft-fabric-overview
 [Data Factory in Microsoft Fabric]: /fabric/data-factory/data-factory-overview
 [Direct Lake]: /fabric/get-started/direct-lake-overview
-

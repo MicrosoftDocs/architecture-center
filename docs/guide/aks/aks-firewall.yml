@@ -1,17 +1,16 @@
 ### YamlMime:Architecture
 metadata:
   title: Use Azure Firewall to help protect an AKS cluster
-  titleSuffix: Azure Architecture Center
   description: Deploy an AKS cluster in a hub-and-spoke network topology by using Terraform and Azure DevOps. Help protect inbound and outbound traffic by using Azure Firewall.
-  author: paolosalvatori
-  ms.author: paolos
+  author: francisnazareth
+  ms.author: fnazaret
   ms.date: 10/09/2024
-  ms.topic: conceptual
-  ms.service: azure-architecture-center
+  ms.topic: concept-article
   ms.subservice: architecture-guide
   ms.custom:
     - arb-containers
     - devx-track-terraform
+  ai-usage: ai-assisted
 name: Use Azure Firewall to help protect an Azure Kubernetes Service (AKS) cluster
 azureCategories:
   - containers
@@ -26,4 +25,4 @@ products:
 - azure-devops
 thumbnailUrl: /azure/architecture/browse/thumbs/aks-firewall.png
 content: |
-   [!include[](aks-firewall-content.md)]
+   [!INCLUDE[](aks-firewall-content.md)]

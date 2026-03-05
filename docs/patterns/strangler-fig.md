@@ -5,12 +5,7 @@ author: OvaisMehboob
 ms.author: ovmehboo
 ms.date: 02/13/2025
 ms.topic: design-pattern
-ms.service: azure-architecture-center
-ms.subservice: design-pattern
-products:
-  - azure-migrate
-categories:
-  - migration
+ms.subservice: cloud-fundamentals
 ---
 
 # Strangler Fig pattern

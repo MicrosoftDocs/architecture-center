@@ -28,7 +28,7 @@ There are several hosting options for function apps and it is important to revie
 
 The Consumption plan is the default. Function apps in the Consumption plan scale independently and are most effective when they avoid long-running tasks.
 
-The Premium and Dedicated plans are often used to host multiple function apps and functions that are more CPU and memory intensive. With the Dedicated plan, you run your functions in an Azure App Service plan at regular App Service plan rates. It's important to note that all the function apps in these plans share the resources that are allocated to the plan. If functions have different load profiles or unique requirements, it's best to host them in different plans, especially in stream processing applications.
+The Premium and Dedicated plans are often used to host multiple function apps and functions that are more CPU and memory intensive. With the Dedicated plan, you run your functions in an Azure App Service plan at regular App Service plan rates. All the function apps in these plans share the resources that are allocated to the plan. If functions have different load profiles or unique requirements, it's best to host them in different plans, especially in stream processing applications.
 
 Azure Container Apps provides integrated support for developing, deploying, and managing containerized function apps on Azure Functions. This allows you to run your event-driven functions in a fully managed, Kubernetes-based environment with built-in support for open-source monitoring, mTLS, Dapr, and KEDA.
 
@@ -127,7 +127,7 @@ Understanding checkpointing becomes critical when you consider best practices fo
 
 Functions provides built-in support for Application Insights, an extension of Azure Monitor that provides application performance monitoring capabilities. With this feature, you can log information about function activities, performance, runtime exceptions, and more. For more information, see [Application Insights overview](/azure/azure-monitor/app/app-insights-overview).
 
-This powerful capability offers some key configuration choices that affect performance. Some of the notable settings and considerations for monitoring and performance are:
+This capability offers key configuration choices that affect performance. Some of the notable settings and considerations for monitoring and performance are:
 
 - **Enable telemetry sampling:** For high-throughput scenarios, you should evaluate the amount of telemetry and information that you need. Consider using the telemetry [sampling](/azure/azure-monitor/app/sampling) feature in Application Insights to avoid degrading the performance of your function with unnecessary telemetry and metrics.
 - **Configure aggregation settings:** Examine and configure the frequency of aggregating and sending data to Application Insights. This configuration setting is in the [host.json](/azure/azure-functions/functions-host-json) file along with many other sampling and logging related options. For more information, see [Configure the aggregator](/azure/azure-functions/configure-monitoring?tabs=v2#configure-the-aggregator).
@@ -142,7 +142,7 @@ Taking advantage of sampling and continually assessing the appropriate amount of
 Use the [Event Hubs output binding for Azure Functions](/azure/azure-functions/functions-bindings-event-hubs-output) to simplify publishing to an event stream from a function. The benefits of using this binding include:
 
 - **Resource management:** The binding handles both the client and connection lifecycles for you, and reduces the potential for issues that can arise with port exhaustion and connection pool management.
-- **Less code:** The binding abstracts the underlying SDK and reduces the amount of code that you need to publish events. It helps you write code that's easier to write and maintain.
+- **Less code:** The binding abstracts the underlying SDK and reduces the amount of code that you need to publish events. It helps you write and maintain code with fewer boilerplate lines.
 - **Batching:** For several languages, batching is supported to efficiently publish to an event stream. Batching can improve performance and help streamline the code that sends the events.
 
 We strongly recommend that you review the list of [Languages that Functions supports](/azure/azure-functions/supported-languages) and the developer guides for those languages. The **Bindings** section for each language provides detailed examples and documentation.

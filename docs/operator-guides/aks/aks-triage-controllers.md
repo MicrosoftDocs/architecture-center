@@ -1,20 +1,14 @@
 ---
 title: AKS triage—Admission controllers
-titleSuffix: Azure Architecture Center
 description: Learn how to verify that the admission controllers are working as expected. This step is part of the triage practices for AKS clusters.
-author: paolosalvatori
-ms.author: paolos
+author: francisnazareth
+ms.author: fnazaret
 ms.date: 01/20/2025
-ms.topic: conceptual
-ms.service: azure-architecture-center
+ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
   - e2e-aks
   - arb-containers
-azureCategories: compute
-categories: compute
-products:
-  - azure-kubernetes-service
 ---
 
 # Validate admission controllers
@@ -25,7 +19,7 @@ Admission controllers rarely cause problems, but it's crucial to ensure their pr
 
 ## Admission controller
 
-An [admission controller](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers) is a piece of code that intercepts requests to a Kubernetes API server prior to the persistence of an object but after a request is authenticated and authorized.
+An [admission controller](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers) is code that intercepts requests to the Kubernetes API server after authentication and authorization, but before an object is persisted.
 
 Admission controllers can be *validating*, *mutating*, or a combination of both. *Mutating* controllers can modify related objects before admitting a request. *Validating* controllers solely ensure that requests meet specific predefined criteria.
 
@@ -37,7 +31,7 @@ Some components can affect admission controllers, such as *mutating and validati
   
 - [Kyverno](https://kyverno.io), which runs as a dynamic admission controller in a Kubernetes cluster. Kyverno receives validating and mutating admission webhook HTTP callbacks from the Kubernetes API server and applies matching policies to return results that enforce admission policies or reject requests. For troubleshooting reference (such as *APIServer failing webhook calls*), see the [Kyverno troubleshooting documentation](https://kyverno.io/docs/troubleshooting/#api-server-is-blocked).
 
-Alternatively, admission controllers that aren't functioning properly can affect various components, such as *service meshes*. Service meshes, such as [Istio](https://istio.io) and [Linkerd](https://linkerd.io), use admission controllers to automate the injection of sidecar containers inside a pod, among other functionalities. It's important to evaluate and verify that admission controllers function properly to ensure the seamless operation of a service mesh.
+Alternatively, admission controllers that aren't functioning properly can affect various components, such as *service meshes*. Service meshes, such as [Istio](https://istio.io) and [Linkerd](https://linkerd.io), use admission controllers to automate the injection of sidecar containers inside a pod, among other functionalities. It's important to evaluate and verify that admission controllers function properly to support the consistent operation of a service mesh.
 
 ## Check the status of the Azure Policy add-on for AKS clusters
 

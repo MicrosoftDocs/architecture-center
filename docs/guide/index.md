@@ -1,23 +1,16 @@
 ---
 title: Azure Application Architecture Fundamentals
 description: Learn about structured approaches to designing scalable, resilient, and highly available applications on Azure. Follow best practices for cloud applications.
-author: RobBagby
+author: claytonsiemens77
 ms.author: pnp
-ms.date: 01/03/2025
-ms.topic: conceptual
-ms.service: azure-architecture-center
+ms.date: 01/30/2026
+ms.topic: concept-article
 ms.subservice: architecture-guide
-ms.custom:
-  - guide
-products:
-  - azure
-categories:
-  - management-and-governance
 ---
 
 # Azure application architecture fundamentals
 
-An application that's designed for cloud-hosted workloads addresses the solution's business requirements and incorporates cloud-native components and functionality. A well-designed cloud application addresses reliability, security, cost, operations, and performance considerations. These considerations align with the business requirements, the specific characteristics of the cloud hosting platform, and the functionality that the platform provides.
+A well-designed cloud application addresses reliability, security, cost, operations, and performance considerations. These considerations align with the business requirements, the specific characteristics of the cloud hosting platform, and the functionality that the platform provides.
 
 You don't need to use a specific application style, such as microservices, to design an application for cloud workloads. However, cloud hosting makes many application design patterns more approachable than hosting solutions that don't natively provide a diverse selection of application and data platform options, scaling capabilities, security controls, and messaging options. Cloud workloads benefit from applications that are decomposed into smaller, decentralized services by design. These services communicate through APIs or by using asynchronous messaging or eventing. Applications scale horizontally by adding new instances when demand increases.
 
@@ -28,7 +21,7 @@ The following columns list some common characteristics of on-premises design and
 :::row:::
     :::column:::
         **Typical on-premises design**
-        
+
         - Monolithic and colocated functionality and data
         - Designed for predictable scale or is overprovisioned
         - Relational database
@@ -67,7 +60,7 @@ You can use Azure to host and rehost applications that aren't designed for the c
 
 ## Align to organizational cloud adoption standards
 
-Your application is part of a workload that likely needs to meet organizational standards and governance. Organizations of any size and cloud maturity can use the [Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/) to formalize their Azure-wide adoption strategy, readiness, innovation, management, governance, and security initiatives. Part of that approach is to standardize a consistent approach across workloads, such as using [Azure landing zones](/azure/cloud-adoption-framework/ready/landing-zone/). Azure landing zones provide organization-wide governance and gives workload teams and architects democratized access to resources to fulfill localized business objectives. As an architect who designs applications, it's crucial that you understand the macro environment and expectations for workload operations, such as application landing zones.
+Your application is part of a workload that likely needs to meet organizational standards and governance. Organizations of any size and cloud maturity should use the [Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/) to formalize their Azure-wide adoption strategy, readiness, innovation, management, governance, and security initiatives. Part of that approach is to standardize a consistent approach across workloads, such as using [Azure landing zones](/azure/cloud-adoption-framework/ready/landing-zone/). The Azure landing zone pattern provides organization-wide governance and gives workload teams and architects democratized access to resources to fulfill localized business objectives. As an architect who designs applications, it's crucial that you understand the macro environment and expectations for workload operations, such as application landing zones.
 
 Your organization's Azure adoption strategy shouldn't affect the architectural style that you choose, but it might constrain technology choices or security boundaries.
 
@@ -83,17 +76,17 @@ You can evaluate any workload's design and implementation through various lenses
 
 By following these principles and evaluating the tradeoffs between these architectural pillars, you can produce a design that meets business requirements and is sufficiently durable, maintainable, secure, and cost optimized to run in Azure. These decisions should inform your architectural style choice and help narrow your technology choices or security boundaries as they relate to your specific workload's needs.
 
-Your team or organization might have other design principles, such as [sustainability](/azure/well-architected/sustainability/sustainability-get-started) and ethics, that you can use to evaluate your workload.
+Your team or organization might have other design principles, such as [sustainability](/azure/well-architected/sustainability/sustainability-get-started) and [responsible engineering](./responsible-innovation/index.md), that you can use to evaluate your workload.
 
 ## Understand typical architecture styles
 
-After you understand the organizational environment that your application will exist in and the foundation of good architecture design based on the Well-Architected Framework, you need to decide what kind of architecture to build. It might be a microservices architecture, a more traditional N-tier application, or a big data solution. These architectural styles are distinct and designed for different outcomes. When you evaluate architectural styles, you should also select data store models to address state management. 
+After you understand the organizational environment that your application will exist in and the foundation of good architecture design based on the Well-Architected Framework, you need to decide what kind of architecture to build. It might be a microservices architecture, a more traditional N-tier application, or a big data solution. These architectural styles are distinct and designed for different outcomes. When you evaluate architectural styles, you should also select data store models to address state management.
 
 Evaluate the various [architecture styles](./architecture-styles/index.md) and [data store models](./technology-choices/data-store-overview.md) to understand the benefits and challenges that each option presents.
 
 ### Workloads in the Well-Architected Framework
 
-The article [Well-Architected Framework workloads](/azure/well-architected/workloads) describes different workload classifications or types. You can find articles about [mission-critical workloads](/azure/well-architected/mission-critical/mission-critical-overview), [AI and machine learning workloads](/azure/well-architected/ai/get-started), or [software-as-a-service workloads](/azure/well-architected/saas/get-started). These workload-specific articles apply the five core pillars of the Well-Architected Framework to the specific domain. If your application is part of a workload that aligns with one of these documented patterns, review the respective guidance to help you approach your design by following a set of workload-specific design principles and recommendations across common design areas like application platform, data platform, and networking. Some workload types might benefit from selecting a specific architectural style or data store model.
+The [Well-Architected Framework workloads](/azure/well-architected/workloads) provides perspectives of different workload classifications or types. For example, you can find articles about [mission-critical workloads](/azure/well-architected/mission-critical/mission-critical-overview), [AI and machine learning workloads](/azure/well-architected/ai/get-started), or [software-as-a-service workloads](/azure/well-architected/saas/get-started). These workload-specific articles apply the five core pillars of the Well-Architected Framework to the specific domain. If your application is part of a workload that aligns with one of these documented patterns, review the respective guidance to help you approach your design by following a set of workload-specific design principles and recommendations across common design areas like application platform, data platform, and networking. Some workload types might benefit from selecting a specific architectural style or data store model.
 
 ### Best practices
 
@@ -103,19 +96,19 @@ For more information about various design considerations, including API design, 
 
 Your application has specific business requirements, goals, and measurements of success. You should decompose those functional and nonfunctional requirements into discrete activities that work together to achieve a solution that meets your and your customers' expectations. These activities typically follow patterns that the software industry has established. Software design patterns are named and repeatable approaches that you can apply to processing or data storage. These patterns are proven to solve specific problems with known tradeoffs.
 
-Azure's [catalog of cloud design patterns](../patterns/index.md) addresses specific challenges in distributed systems.
+The [catalog of cloud design patterns](../patterns/index.md) in Azure addresses specific challenges in distributed systems. For AI workloads that include multiple autonomous agents, see [AI agent orchestration patterns](../ai-ml/guide/ai-agent-design-patterns.md). It includes specialized coordination approaches that complement traditional design patterns by addressing the unique challenges of orchestrating intelligent, autonomous components.
 
 ## Make informed technology choices
 
 After you determine the type of architecture that you want to build and the design patterns that you expect to use, you can choose the main technology components for the architecture. The following technology choices are essential:
 
-- *Compute* refers to the hosting model for the computing resources, or application platform, that your applications run on. For more information, see [Choose a compute service](./technology-choices/compute-decision-tree.yml). See specialized guidance, like [Choose an Azure container service](./choose-azure-container-service.md) and [Azure hybrid options](./technology-choices/hybrid-considerations.yml), for specific application platforms.
+- *Compute* refers to the hosting model for the computing resources, or application platform, that your applications run on. For more information, see [Choose a compute service](./technology-choices/compute-decision-tree.md). See specialized guidance, like [Choose an Azure container service](./choose-azure-container-service.md) and [Azure hybrid options](./technology-choices/hybrid-considerations.yml), for specific application platforms.
 
-- *Data stores* include databases and storage for files, caches, logs, and anything else that an application might persist to storage. For more information, see [Data store classification](../data-guide/technology-choices/data-store-classification.md) and [Review your storage options](./technology-choices/storage-options.md).
+- *Data stores* include databases and storage for files, caches, logs, and anything else that an application might persist to storage. For more information, see [Understand data store models](../data-guide/technology-choices/understand-data-store-models.md) and [Review your storage options](./technology-choices/storage-options.md).
 
-- *Messaging* technologies enable asynchronous messaging between components of the system. For more information, see [Asynchronous messaging options](./technology-choices/messaging.yml).
+- *Messaging* technologies enable asynchronous messaging between components of the system. For more information, see [Asynchronous messaging options](./technology-choices/messaging.md).
 
-- *AI* technologies solve problems that are computationally complex to implement in traditional application code. For more information, see [Choose an Azure AI services technology](../data-guide/technology-choices/ai-services.md).
+- *AI* technologies solve problems that are computationally complex to implement in traditional application code. For more information, see [Choose an AI services technology](../data-guide/technology-choices/ai-services.md).
 
 You'll probably make other technology choices along the way, but compute, data, messaging, and AI are central to most cloud applications and determine many aspects of your design.
 
@@ -139,6 +132,8 @@ If you're familiar with how to design applications in another cloud provider, ma
 
 - [Azure for AWS professionals](../aws-professional/index.md)
 - [Azure for Google Cloud professionals](../gcp-professional/index.md)
+
+For additional migration guidance, see the [Azure Migration Hub](/azure/migration/).
 
 ## Next step
 
