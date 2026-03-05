@@ -14,14 +14,14 @@
 	<style type="text/css">
 	<![CDATA[
 		.st1 {fill:#ffffff;stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
-		.st2 {fill:#4bacc6;stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
-		.st3 {fill:#ffffff;font-family:Segoe UI;font-size:1.16666em;font-weight:bold}
-		.st4 {fill:#3955a3;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
-		.st5 {marker-end:url(#mrkr4-21);stroke:#3f3f3f;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.25}
-		.st6 {fill:#3f3f3f;fill-opacity:1;stroke:#3f3f3f;stroke-opacity:1;stroke-width:0.47169811320755}
-		.st7 {fill:#ffffff;stroke:none;stroke-linecap:butt;stroke-width:7.2}
-		.st8 {fill:#000000;font-family:Segoe UI;font-size:1.00001em;font-weight:bold}
-		.st9 {fill:#ffffff;stroke:none;stroke-linecap:butt}
+		.st2 {marker-end:url(#mrkr4-8);stroke:#3f3f3f;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.25}
+		.st3 {fill:#3f3f3f;fill-opacity:1;stroke:#3f3f3f;stroke-opacity:1;stroke-width:0.47169811320755}
+		.st4 {fill:#ffffff;stroke:none;stroke-linecap:butt}
+		.st5 {fill:#000000;font-family:Segoe UI;font-size:1.00001em;font-weight:bold}
+		.st6 {fill:#4bacc6;stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st7 {fill:#ffffff;font-family:Segoe UI;font-size:1.16666em;font-weight:bold}
+		.st8 {fill:#3955a3;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st9 {fill:#ffffff;stroke:none;stroke-linecap:butt;stroke-width:7.2}
 		.st10 {fill:none;stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
 		.st11 {fill:#000000;font-family:Segoe UI;font-size:1.00001em}
 		.st12 {font-size:1em}
@@ -55,11 +55,11 @@
 		<g id="lend4">
 			<path d="M 2 1 L 0 0 L 2 -1 L 2 1 " style="stroke:none"/>
 		</g>
-		<marker id="mrkr4-21" class="st6" v:arrowType="4" v:arrowSize="2" v:setback="4.08" refX="-4.08" orient="auto"
+		<marker id="mrkr4-8" class="st3" v:arrowType="4" v:arrowSize="2" v:setback="4.08" refX="-4.08" orient="auto"
 				markerUnits="strokeWidth" overflow="visible">
 			<use xlink:href="#lend4" transform="scale(-2.12,-2.12) "/>
 		</marker>
-		<marker id="mrkr4-138" class="st6" v:arrowType="4" v:arrowSize="2" v:setback="0" refX="-0" orient="auto"
+		<marker id="mrkr4-138" class="st3" v:arrowType="4" v:arrowSize="2" v:setback="0" refX="-0" orient="auto"
 				markerUnits="strokeWidth" overflow="visible">
 			<use xlink:href="#lend4" transform="scale(-2.12,-2.12) "/>
 		</marker>
@@ -67,7 +67,7 @@
 				markerUnits="strokeWidth" overflow="visible">
 			<use xlink:href="#lend4" transform="scale(-2.12,-2.12) "/>
 		</marker>
-		<marker id="mrkr4-160" class="st6" v:arrowType="4" v:arrowSize="2" v:setback="4.24" refX="-4.24" orient="auto"
+		<marker id="mrkr4-160" class="st3" v:arrowType="4" v:arrowSize="2" v:setback="4.24" refX="-4.24" orient="auto"
 				markerUnits="strokeWidth" overflow="visible">
 			<use xlink:href="#lend4" transform="scale(-2.12,-2.12) "/>
 		</marker>
@@ -109,7 +109,18 @@
 		<v:layer v:name="Connector" v:index="0"/>
 		<v:layer v:name="Flowchart" v:index="1"/>
 		<v:layer v:name="Container" v:index="2"/>
-		<g id="shape1-3" v:mID="1" v:groupContext="shape" v:layerMember="1" transform="translate(38.2425,-652)">
+		<g id="shape9-3" v:mID="9" v:groupContext="shape" v:layerMember="0" transform="translate(83.2425,-418)">
+			<title>Dynamic connector.13</title>
+			<desc>No</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(9000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:verticalAlign="2"/>
+			<v:textRect cx="0" cy="684" width="60.06" height="22.4037"/>
+			<path d="M0 666 L0 692.46 L0 692.46 L0 692.82" class="st2"/>
+			<rect v:rectContext="textBkgnd" x="-8.40836" y="676.802" width="16.8168" height="14.4001" class="st4"/>
+			<text x="-8.41" y="687.6" class="st5" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>No</text>		</g>
+		<g id="shape1-11" v:mID="1" v:groupContext="shape" v:layerMember="1" transform="translate(38.2425,-652)">
 			<title>Start/End.3</title>
 			<desc>Start</desc>
 			<v:custProps>
@@ -138,9 +149,9 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(2,2,2,2)"/>
 			<v:textRect cx="45" cy="684" width="90" height="36"/>
-			<path d="M18 702 L72 702 A18 18 -180 0 0 72 666 L18 666 A18 18 -180 1 0 18 702 Z" class="st2"/>
-			<text x="29.08" y="688.2" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Start</text>		</g>
-		<g id="shape2-6" v:mID="2" v:groupContext="shape" v:layerMember="1" transform="translate(47.2425,-544)">
+			<path d="M18 702 L72 702 A18 18 -180 0 0 72 666 L18 666 A18 18 -180 1 0 18 702 Z" class="st6"/>
+			<text x="29.08" y="688.2" class="st7" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Start</text>		</g>
+		<g id="shape2-14" v:mID="2" v:groupContext="shape" v:layerMember="1" transform="translate(47.2425,-544)">
 			<title>Decision.4</title>
 			<v:custProps>
 				<v:cp v:nameU="Cost" v:lbl="Cost" v:prompt="" v:type="7" v:format="@" v:sortKey="" v:invis="false" v:ask="false"
@@ -166,9 +177,9 @@
 				<v:ud v:nameU="ResizeTxtHeight" v:prompt="" v:val="VT0(0.75):0"/>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(2000):26"/>
 			</v:userDefs>
-			<path d="M0 675 L36 648 L72 675 L36 702 L0 675 Z" class="st4"/>
+			<path d="M0 675 L36 648 L72 675 L36 702 L0 675 Z" class="st8"/>
 		</g>
-		<g id="shape3-8" v:mID="3" v:groupContext="shape" v:layerMember="1" transform="translate(47.2425,-454)">
+		<g id="shape3-16" v:mID="3" v:groupContext="shape" v:layerMember="1" transform="translate(47.2425,-454)">
 			<title>Decision.7</title>
 			<v:custProps>
 				<v:cp v:nameU="Cost" v:lbl="Cost" v:prompt="" v:type="7" v:format="@" v:sortKey="" v:invis="false" v:ask="false"
@@ -194,9 +205,9 @@
 				<v:ud v:nameU="ResizeTxtHeight" v:prompt="" v:val="VT0(0.75):0"/>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(3000):26"/>
 			</v:userDefs>
-			<path d="M0 675 L36 648 L72 675 L36 702 L0 675 Z" class="st4"/>
+			<path d="M0 675 L36 648 L72 675 L36 702 L0 675 Z" class="st8"/>
 		</g>
-		<g id="shape4-10" v:mID="4" v:groupContext="shape" v:layerMember="1" transform="translate(47.2425,-364)">
+		<g id="shape4-18" v:mID="4" v:groupContext="shape" v:layerMember="1" transform="translate(47.2425,-364)">
 			<title>Decision.8</title>
 			<v:custProps>
 				<v:cp v:nameU="Cost" v:lbl="Cost" v:prompt="" v:type="7" v:format="@" v:sortKey="" v:invis="false" v:ask="false"
@@ -222,9 +233,9 @@
 				<v:ud v:nameU="ResizeTxtHeight" v:prompt="" v:val="VT0(0.75):0"/>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(4000):26"/>
 			</v:userDefs>
-			<path d="M0 675 L36 648 L72 675 L36 702 L0 675 Z" class="st4"/>
+			<path d="M0 675 L36 648 L72 675 L36 702 L0 675 Z" class="st8"/>
 		</g>
-		<g id="shape5-12" v:mID="5" v:groupContext="shape" v:layerMember="1" transform="translate(47.2425,-274)">
+		<g id="shape5-20" v:mID="5" v:groupContext="shape" v:layerMember="1" transform="translate(47.2425,-274)">
 			<title>Decision.9</title>
 			<v:custProps>
 				<v:cp v:nameU="Cost" v:lbl="Cost" v:prompt="" v:type="7" v:format="@" v:sortKey="" v:invis="false" v:ask="false"
@@ -250,9 +261,9 @@
 				<v:ud v:nameU="ResizeTxtHeight" v:prompt="" v:val="VT0(0.75):0"/>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(5000):26"/>
 			</v:userDefs>
-			<path d="M0 675 L36 648 L72 675 L36 702 L0 675 Z" class="st4"/>
+			<path d="M0 675 L36 648 L72 675 L36 702 L0 675 Z" class="st8"/>
 		</g>
-		<g id="shape6-14" v:mID="6" v:groupContext="shape" v:layerMember="1" transform="translate(47.2425,-184)">
+		<g id="shape6-22" v:mID="6" v:groupContext="shape" v:layerMember="1" transform="translate(47.2425,-184)">
 			<title>Decision.10</title>
 			<v:custProps>
 				<v:cp v:nameU="Cost" v:lbl="Cost" v:prompt="" v:type="7" v:format="@" v:sortKey="" v:invis="false" v:ask="false"
@@ -278,16 +289,16 @@
 				<v:ud v:nameU="ResizeTxtHeight" v:prompt="" v:val="VT0(0.75):0"/>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(6000):26"/>
 			</v:userDefs>
-			<path d="M0 675 L36 648 L72 675 L36 702 L0 675 Z" class="st4"/>
+			<path d="M0 675 L36 648 L72 675 L36 702 L0 675 Z" class="st8"/>
 		</g>
-		<g id="shape7-16" v:mID="7" v:groupContext="shape" v:layerMember="0" transform="translate(83.2425,-598)">
+		<g id="shape7-24" v:mID="7" v:groupContext="shape" v:layerMember="0" transform="translate(83.2425,-598)">
 			<title>Dynamic connector.11</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(7000):26"/>
 			</v:userDefs>
-			<path d="M0 648 L0 692.46 L0 692.46 L0 692.82" class="st5"/>
+			<path d="M0 648 L0 692.46 L0 692.46 L0 692.82" class="st2"/>
 		</g>
-		<g id="shape8-22" v:mID="8" v:groupContext="shape" v:layerMember="0" transform="translate(83.2425,-508)">
+		<g id="shape8-29" v:mID="8" v:groupContext="shape" v:layerMember="0" transform="translate(83.2425,-508)">
 			<title>Dynamic connector.12</title>
 			<desc>No</desc>
 			<v:userDefs>
@@ -295,20 +306,9 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:verticalAlign="2"/>
 			<v:textRect cx="0" cy="684" width="60.06" height="22.4037"/>
-			<path d="M0 666 L0 692.46 L0 692.46 L0 692.82" class="st5"/>
-			<rect v:rectContext="textBkgnd" x="-8.40836" y="676.802" width="16.8168" height="14.4001" class="st7"/>
-			<text x="-8.41" y="687.6" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>No</text>		</g>
-		<g id="shape9-29" v:mID="9" v:groupContext="shape" v:layerMember="0" transform="translate(83.2425,-418)">
-			<title>Dynamic connector.13</title>
-			<desc>No</desc>
-			<v:userDefs>
-				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(9000):26"/>
-			</v:userDefs>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:verticalAlign="2"/>
-			<v:textRect cx="0" cy="684" width="60.06" height="22.4037"/>
-			<path d="M0 666 L0 692.46 L0 692.46 L0 692.82" class="st5"/>
+			<path d="M0 666 L0 692.46 L0 692.46 L0 692.82" class="st2"/>
 			<rect v:rectContext="textBkgnd" x="-8.40836" y="676.802" width="16.8168" height="14.4001" class="st9"/>
-			<text x="-8.41" y="687.6" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>No</text>		</g>
+			<text x="-8.41" y="687.6" class="st5" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>No</text>		</g>
 		<g id="shape10-36" v:mID="10" v:groupContext="shape" v:layerMember="0" transform="translate(83.2425,-328)">
 			<title>Dynamic connector.14</title>
 			<desc>No</desc>
@@ -317,9 +317,9 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:verticalAlign="2"/>
 			<v:textRect cx="0" cy="684" width="60.06" height="22.4037"/>
-			<path d="M0 666 L0 692.46 L0 692.46 L0 692.82" class="st5"/>
-			<rect v:rectContext="textBkgnd" x="-8.40836" y="676.802" width="16.8168" height="14.4001" class="st7"/>
-			<text x="-8.41" y="687.6" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>No</text>		</g>
+			<path d="M0 666 L0 692.46 L0 692.46 L0 692.82" class="st2"/>
+			<rect v:rectContext="textBkgnd" x="-8.40836" y="676.802" width="16.8168" height="14.4001" class="st9"/>
+			<text x="-8.41" y="687.6" class="st5" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>No</text>		</g>
 		<g id="shape11-43" v:mID="11" v:groupContext="shape" v:layerMember="0" transform="translate(83.2425,-238)">
 			<title>Dynamic connector.15</title>
 			<desc>No</desc>
@@ -328,9 +328,9 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="0" cy="684" width="60.06" height="22.4037"/>
-			<path d="M0 666 L0 692.46 L0 692.46 L0 692.82" class="st5"/>
+			<path d="M0 666 L0 692.46 L0 692.46 L0 692.82" class="st2"/>
 			<rect v:rectContext="textBkgnd" x="-8.40836" y="676.8" width="16.8168" height="14.4001" class="st9"/>
-			<text x="-8.41" y="687.6" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>No</text>		</g>
+			<text x="-8.41" y="687.6" class="st5" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>No</text>		</g>
 		<g id="shape12-50" v:mID="12" v:groupContext="shape" v:layerMember="1" transform="translate(326.242,-544)">
 			<title>Decision.16</title>
 			<v:custProps>
@@ -357,7 +357,7 @@
 				<v:ud v:nameU="ResizeTxtHeight" v:prompt="" v:val="VT0(0.75):0"/>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(12000):26"/>
 			</v:userDefs>
-			<path d="M0 675 L36 648 L72 675 L36 702 L0 675 Z" class="st4"/>
+			<path d="M0 675 L36 648 L72 675 L36 702 L0 675 Z" class="st8"/>
 		</g>
 		<g id="shape13-52" v:mID="13" v:groupContext="shape" v:layerMember="1" transform="translate(452.242,-544)">
 			<title>Decision.17</title>
@@ -385,7 +385,7 @@
 				<v:ud v:nameU="ResizeTxtHeight" v:prompt="" v:val="VT0(0.75):0"/>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(13000):26"/>
 			</v:userDefs>
-			<path d="M0 675 L36 648 L72 675 L36 702 L0 675 Z" class="st4"/>
+			<path d="M0 675 L36 648 L72 675 L36 702 L0 675 Z" class="st8"/>
 		</g>
 		<g id="shape14-54" v:mID="14" v:groupContext="shape" v:layerMember="1" transform="translate(650.242,-544)">
 			<title>Decision.18</title>
@@ -413,7 +413,7 @@
 				<v:ud v:nameU="ResizeTxtHeight" v:prompt="" v:val="VT0(0.75):0"/>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(14000):26"/>
 			</v:userDefs>
-			<path d="M0 675 L36 648 L72 675 L36 702 L0 675 Z" class="st4"/>
+			<path d="M0 675 L36 648 L72 675 L36 702 L0 675 Z" class="st8"/>
 		</g>
 		<g id="shape15-56" v:mID="15" v:groupContext="shape" v:layerMember="0" transform="translate(119.242,-571)">
 			<title>Dynamic connector.27</title>
@@ -423,9 +423,9 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:verticalAlign="2"/>
 			<v:textRect cx="100.5" cy="701.25" width="60.01" height="22.4037"/>
-			<path d="M0 702 L197.46 702 L197.46 702 L197.82 702" class="st5"/>
-			<rect v:rectContext="textBkgnd" x="90.9727" y="694.052" width="19.055" height="14.4001" class="st7"/>
-			<text x="90.97" y="704.85" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Yes</text>		</g>
+			<path d="M0 702 L197.46 702 L197.46 702 L197.82 702" class="st2"/>
+			<rect v:rectContext="textBkgnd" x="90.9727" y="694.052" width="19.055" height="14.4001" class="st9"/>
+			<text x="90.97" y="704.85" class="st5" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Yes</text>		</g>
 		<g id="shape16-63" v:mID="16" v:groupContext="shape" v:layerMember="0" transform="translate(398.242,-571)">
 			<title>Dynamic connector.28</title>
 			<desc>Yes</desc>
@@ -434,9 +434,9 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="27" cy="702" width="60.02" height="22.4037"/>
-			<path d="M0 702 L44.46 702 L44.46 702 L44.82 702" class="st5"/>
-			<rect v:rectContext="textBkgnd" x="17.4727" y="694.8" width="19.055" height="14.4001" class="st7"/>
-			<text x="17.47" y="705.6" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Yes</text>		</g>
+			<path d="M0 702 L44.46 702 L44.46 702 L44.82 702" class="st2"/>
+			<rect v:rectContext="textBkgnd" x="17.4727" y="694.8" width="19.055" height="14.4001" class="st9"/>
+			<text x="17.47" y="705.6" class="st5" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Yes</text>		</g>
 		<g id="shape17-70" v:mID="17" v:groupContext="shape" v:layerMember="0" transform="translate(524.242,-571)">
 			<title>Dynamic connector.29</title>
 			<desc>Yes</desc>
@@ -445,9 +445,9 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="63" cy="702" width="60.01" height="22.4037"/>
-			<path d="M0 702 L116.46 702 L116.46 702 L116.82 702" class="st5"/>
-			<rect v:rectContext="textBkgnd" x="53.4727" y="694.8" width="19.055" height="14.4001" class="st7"/>
-			<text x="53.47" y="705.6" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Yes</text>		</g>
+			<path d="M0 702 L116.46 702 L116.46 702 L116.82 702" class="st2"/>
+			<rect v:rectContext="textBkgnd" x="53.4727" y="694.8" width="19.055" height="14.4001" class="st9"/>
+			<text x="53.47" y="705.6" class="st5" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Yes</text>		</g>
 		<g id="shape18-77" v:mID="18" v:groupContext="shape" transform="translate(713.242,-523.207)">
 			<title>Sheet.18</title>
 			<desc>Does your workload need a massively parallel processing (MPP)...</desc>
@@ -475,7 +475,7 @@
 				<v:textBlock v:margins="rect(4,4,4,4)"/>
 				<v:textRect cx="62.7732" cy="682.471" width="125.56" height="39.0585"/>
 				<rect x="0" y="662.941" width="125.546" height="39.0585" class="st13"/>
-				<text x="12.98" y="678.87" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Cosmos DB<v:newlineChar/><v:paragraph
+				<text x="12.98" y="678.87" class="st5" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Cosmos DB<v:newlineChar/><v:paragraph
 							v:horizAlign="1"/><tspan x="20.1" dy="1.2em" class="st12">for PostgreSQL</tspan></text>			</g>
 		</g>
 		<g id="group22-89" transform="translate(920.262,-472.004)" v:mID="22" v:groupContext="group">
@@ -494,7 +494,7 @@
 				<v:textBlock v:margins="rect(4,4,4,4)"/>
 				<v:textRect cx="62.7732" cy="682.468" width="125.56" height="39.0637"/>
 				<rect x="0" y="662.936" width="125.546" height="39.0637" class="st13"/>
-				<text x="18.71" y="671.67" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Database <v:newlineChar/><v:paragraph
+				<text x="18.71" y="671.67" class="st5" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Database <v:newlineChar/><v:paragraph
 							v:horizAlign="1"/><tspan x="20.1" dy="1.2em" class="st12">for PostgreSQL </tspan><tspan x="23.02"
 							dy="1.2em" class="st12">flexible server</tspan></text>			</g>
 		</g>
@@ -506,9 +506,9 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="99.0049" cy="702" width="60.02" height="22.4037"/>
-			<path d="M0 702 L188.47 702 L188.47 702 L188.83 702" class="st5"/>
+			<path d="M0 702 L188.47 702 L188.47 702 L188.83 702" class="st2"/>
 			<rect v:rectContext="textBkgnd" x="89.4776" y="694.8" width="19.055" height="14.4001" class="st9"/>
-			<text x="89.48" y="705.6" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Yes</text>		</g>
+			<text x="89.48" y="705.6" class="st5" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Yes</text>		</g>
 		<g id="shape26-104" v:mID="26" v:groupContext="shape" v:layerMember="0" transform="translate(686.242,-499.01)">
 			<title>Dynamic connector.51</title>
 			<desc>No</desc>
@@ -517,9 +517,9 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="135.75" cy="699.76" width="60.02" height="22.4037"/>
-			<path d="M0 657.01 L0 702 L224.48 702 L224.48 702 L224.84 702" class="st5"/>
-			<rect v:rectContext="textBkgnd" x="127.342" y="692.56" width="16.8168" height="14.4001" class="st7"/>
-			<text x="127.34" y="703.36" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>No</text>		</g>
+			<path d="M0 657.01 L0 702 L224.48 702 L224.48 702 L224.84 702" class="st2"/>
+			<rect v:rectContext="textBkgnd" x="127.342" y="692.56" width="16.8168" height="14.4001" class="st9"/>
+			<text x="127.34" y="703.36" class="st5" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>No</text>		</g>
 		<g id="group27-111" transform="translate(920.262,-400.007)" v:mID="27" v:groupContext="group">
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(23000):26"/>
@@ -536,7 +536,7 @@
 				<v:textBlock v:margins="rect(4,4,4,4)"/>
 				<v:textRect cx="62.7732" cy="682.471" width="125.56" height="39.0585"/>
 				<rect x="0" y="662.941" width="125.546" height="39.0585" class="st13"/>
-				<text x="6.07" y="686.07" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure SQL Database</text>			</g>
+				<text x="6.07" y="686.07" class="st5" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure SQL Database</text>			</g>
 		</g>
 		<g id="shape30-117" v:mID="30" v:groupContext="shape" v:layerMember="0" transform="translate(488.242,-425.34)">
 			<title>Dynamic connector.56</title>
@@ -546,9 +546,9 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="156.677" cy="702.004" width="60.01" height="22.4037"/>
-			<path d="M0 583.34 L0 702 L422.48 702 L422.48 702 L422.84 702" class="st5"/>
-			<rect v:rectContext="textBkgnd" x="148.269" y="694.804" width="16.8168" height="14.4001" class="st7"/>
-			<text x="148.27" y="705.6" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>No</text>		</g>
+			<path d="M0 583.34 L0 702 L422.48 702 L422.48 702 L422.84 702" class="st2"/>
+			<rect v:rectContext="textBkgnd" x="148.269" y="694.804" width="16.8168" height="14.4001" class="st9"/>
+			<text x="148.27" y="705.6" class="st5" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>No</text>		</g>
 		<g id="group31-124" transform="translate(920.262,-310)" v:mID="31" v:groupContext="group">
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(25000):26"/>
@@ -565,7 +565,7 @@
 				<v:textBlock v:margins="rect(4,4,4,4)"/>
 				<v:textRect cx="62.7732" cy="682.471" width="125.56" height="39.0585"/>
 				<rect x="0" y="662.941" width="125.546" height="39.0585" class="st13"/>
-				<text x="12.98" y="678.87" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Cosmos DB<v:newlineChar/><v:paragraph
+				<text x="12.98" y="678.87" class="st5" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Cosmos DB<v:newlineChar/><v:paragraph
 							v:horizAlign="1"/><tspan x="33.37" dy="1.2em" class="st12">for NoSQL</tspan></text>			</g>
 		</g>
 		<g id="shape34-131" v:mID="34" v:groupContext="shape" v:layerMember="1" transform="translate(472.492,-310)">
@@ -594,7 +594,7 @@
 				<v:ud v:nameU="ResizeTxtHeight" v:prompt="" v:val="VT0(0.75):0"/>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(26000):26"/>
 			</v:userDefs>
-			<path d="M0 675 L36 648 L72 675 L36 702 L0 675 Z" class="st4"/>
+			<path d="M0 675 L36 648 L72 675 L36 702 L0 675 Z" class="st8"/>
 		</g>
 		<g id="shape35-133" v:mID="35" v:groupContext="shape" v:layerMember="0" transform="translate(543.292,-337)">
 			<title>Dynamic connector.86</title>
@@ -605,8 +605,8 @@
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="72.6" cy="702" width="30.48" height="22.4037"/>
 			<path d="M0 702 L140.35 702 L145.2 702" class="st14"/>
-			<rect v:rectContext="textBkgnd" x="63.0726" y="694.8" width="19.055" height="14.4001" class="st7"/>
-			<text x="63.07" y="705.6" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Yes</text>		</g>
+			<rect v:rectContext="textBkgnd" x="63.0726" y="694.8" width="19.055" height="14.4001" class="st9"/>
+			<text x="63.07" y="705.6" class="st5" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Yes</text>		</g>
 		<g id="shape36-141" v:mID="36" v:groupContext="shape" v:layerMember="0" transform="translate(362.242,-337)">
 			<title>Dynamic connector.87</title>
 			<desc>No</desc>
@@ -616,8 +616,8 @@
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="0.852273" cy="599.88" width="34.1" height="20.6114"/>
 			<path d="M0 495 L0 702 L107.08 702 L112.5 702" class="st15"/>
-			<rect v:rectContext="textBkgnd" x="-7.5561" y="592.68" width="16.8168" height="14.4001" class="st7"/>
-			<text x="-7.56" y="603.48" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>No</text>		</g>
+			<rect v:rectContext="textBkgnd" x="-7.5561" y="592.68" width="16.8168" height="14.4001" class="st9"/>
+			<text x="-7.56" y="603.48" class="st5" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>No</text>		</g>
 		<g id="group37-149" transform="translate(920.247,-189.625)" v:mID="37" v:groupContext="group">
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(29000):26"/>
@@ -634,7 +634,7 @@
 				<v:textBlock v:margins="rect(4,4,4,4)"/>
 				<v:textRect cx="62.7732" cy="682.471" width="125.56" height="39.0585"/>
 				<rect x="0" y="662.941" width="125.546" height="39.0585" class="st13"/>
-				<text x="7.18" y="678.87" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure DocumentDB<v:newlineChar/></text>			</g>
+				<text x="7.18" y="678.87" class="st5" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure DocumentDB<v:newlineChar/></text>			</g>
 		</g>
 		<g id="shape40-155" v:mID="40" v:groupContext="shape" v:layerMember="0" transform="translate(508.492,-211)">
 			<title>Dynamic connector.91</title>
@@ -645,8 +645,8 @@
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="230.652" cy="705.172" width="76.27" height="47.6879"/>
 			<path d="M0 603 L0 702 L399.66 702 L402.24 702" class="st17"/>
-			<rect v:rectContext="textBkgnd" x="222.243" y="697.972" width="16.8168" height="14.4001" class="st9"/>
-			<text x="222.24" y="708.77" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>No</text>		</g>
+			<rect v:rectContext="textBkgnd" x="220.588" y="697.972" width="20.1272" height="14.4001" class="st4"/>
+			<text x="223.9" y="708.77" class="st5" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>No</text>		</g>
 		<g id="group41-163" transform="translate(920.252,-58.0114)" v:mID="41" v:groupContext="group">
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(31000):26"/>
@@ -663,7 +663,7 @@
 				<v:textBlock v:margins="rect(4,4,4,4)"/>
 				<v:textRect cx="62.7732" cy="682.471" width="125.56" height="39.0585"/>
 				<rect x="0" y="662.941" width="125.546" height="39.0585" class="st13"/>
-				<text x="18.27" y="686.07" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure AI Search</text>			</g>
+				<text x="18.27" y="686.07" class="st5" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure AI Search</text>			</g>
 		</g>
 		<g id="shape44-169" v:mID="44" v:groupContext="shape" v:layerMember="0" transform="translate(119.237,-148)">
 			<title>Dynamic connector.95</title>
@@ -673,9 +673,9 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:verticalAlign="2"/>
 			<v:textRect cx="98.25" cy="459" width="60.02" height="23.2654"/>
-			<path d="M0 459 L182.51 459 L182.51 702 L791.47 702 L791.47 702 L791.83 702" class="st5"/>
+			<path d="M0 459 L182.51 459 L182.51 702 L791.47 702 L791.47 702 L791.83 702" class="st2"/>
 			<rect v:rectContext="textBkgnd" x="88.7227" y="452.233" width="19.055" height="14.4001" class="st9"/>
-			<text x="88.72" y="463.03" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Yes</text>		</g>
+			<text x="88.72" y="463.03" class="st5" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Yes</text>		</g>
 		<g id="shape45-176" v:mID="45" v:groupContext="shape" v:layerMember="0" transform="translate(119.237,-148)">
 			<title>Dynamic connector.96</title>
 			<desc>Yes</desc>
@@ -685,8 +685,8 @@
 			<v:textBlock v:margins="rect(4,4,4,4)" v:verticalAlign="2"/>
 			<v:textRect cx="96.7494" cy="548.203" width="60.01" height="23.8023"/>
 			<path d="M0 549 L182.51 549 L182.51 702 L791.47 702 L801.01 702" class="st14"/>
-			<rect v:rectContext="textBkgnd" x="87.222" y="541.704" width="19.055" height="14.4001" class="st7"/>
-			<text x="87.22" y="552.5" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Yes</text>		</g>
+			<rect v:rectContext="textBkgnd" x="87.222" y="541.704" width="19.055" height="14.4001" class="st4"/>
+			<text x="87.22" y="552.5" class="st5" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Yes</text>		</g>
 		<g id="shape46-183" v:mID="46" v:groupContext="shape" v:layerMember="0" transform="translate(119.237,-148)">
 			<title>Dynamic connector.97</title>
 			<desc>Yes</desc>
@@ -695,9 +695,9 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="96.75" cy="639" width="60.02" height="26.1328"/>
-			<path d="M0 639 L182.51 639 L182.51 702 L791.47 702 L791.47 702 L791.83 702" class="st5"/>
-			<rect v:rectContext="textBkgnd" x="87.2227" y="631.8" width="19.055" height="14.4001" class="st7"/>
-			<text x="87.22" y="642.6" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Yes</text>		</g>
+			<path d="M0 639 L182.51 639 L182.51 702 L791.47 702 L791.47 702 L791.83 702" class="st2"/>
+			<rect v:rectContext="textBkgnd" x="87.2227" y="631.8" width="19.055" height="14.4001" class="st9"/>
+			<text x="87.22" y="642.6" class="st5" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Yes</text>		</g>
 		<g id="shape47-190" v:mID="47" v:groupContext="shape" transform="translate(509.572,-503.25)">
 			<title>Sheet.47</title>
 			<desc>Do you need support for a vector data type with approximate n...</desc>
@@ -753,9 +753,9 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:verticalAlign="2"/>
 			<v:textRect cx="102" cy="702" width="60.01" height="22.4037"/>
-			<path d="M0 702 L183.43 702 L183.43 612 L197.46 612 L197.46 612 L197.82 612" class="st5"/>
-			<rect v:rectContext="textBkgnd" x="92.4727" y="694.802" width="19.055" height="14.4001" class="st7"/>
-			<text x="92.47" y="705.6" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Yes</text>		</g>
+			<path d="M0 702 L183.43 702 L183.43 612 L197.46 612 L197.46 612 L197.82 612" class="st2"/>
+			<rect v:rectContext="textBkgnd" x="92.4727" y="694.802" width="19.055" height="14.4001" class="st4"/>
+			<text x="92.47" y="705.6" class="st5" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Yes</text>		</g>
 		<g id="shape52-220" v:mID="52" v:groupContext="shape" transform="translate(110.242,-342.04)">
 			<title>Sheet.52</title>
 			<desc>Do you need built-in advanced search features with high quali...</desc>
@@ -943,7 +943,7 @@
 						/wOfSgmeeQe/agAAAABJRU5ErkJggg=="/>
 			<rect v:rectContext="foreign" x="0" y="648.014" width="53.9856" height="53.9856" class="st18"/>
 		</g>
-		<g id="shape58-241" v:mID="58" v:groupContext="shape" v:layerMember="2" transform="translate(920.282,-544.014)">
+		<g id="shape58-241" v:mID="58" v:groupContext="shape" v:layerMember="2" transform="translate(920.882,-544.014)">
 			<title>Sheet.58</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(46000):26"/>
@@ -1034,7 +1034,7 @@
 			</v:userDefs>
 			<path d="M0 702 L0 689.52 L0 684" class="st19"/>
 		</g>
-		<g id="shape60-251" v:mID="60" v:groupContext="shape" v:layerMember="2" transform="translate(920.282,-310)">
+		<g id="shape60-251" v:mID="60" v:groupContext="shape" v:layerMember="2" transform="translate(923.4,-310.8)">
 			<title>Sheet.60</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(48000):26"/>
@@ -1118,7 +1118,7 @@
 						hpvBf2PKR4+nkGTgPHLcM5oeTyGFHw7+B3pu3FLlXHUQAAAAAElFTkSuQmCC"/>
 			<rect v:rectContext="foreign" x="0" y="648.014" width="53.9856" height="53.9856" class="st18"/>
 		</g>
-		<g id="shape62-255" v:mID="62" v:groupContext="shape" v:layerMember="2" transform="translate(920.282,-58)">
+		<g id="shape62-255" v:mID="62" v:groupContext="shape" v:layerMember="2" transform="translate(926.993,-58.8)">
 			<title>Sheet.62</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(50000):26"/>
@@ -1308,60 +1308,59 @@
 				<v:textBlock v:margins="rect(4,4,4,4)"/>
 				<v:textRect cx="62.7732" cy="682.471" width="125.56" height="39.0585"/>
 				<rect x="0" y="662.941" width="125.546" height="39.0585" class="st13"/>
-				<text x="18.26" y="678.87" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Managed <tspan
+				<text x="18.26" y="678.87" class="st5" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Managed <tspan
 							x="47.55" dy="1.2em" class="st12">Redis</tspan></text>			</g>
 		</g>
-		<g id="group70-270" transform="translate(920.242,-127.75)" v:mID="70" v:groupContext="group">
+		<g id="group70-270" transform="translate(925.8,-128.85)" v:mID="70" v:groupContext="group">
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(54000):26"/>
 			</v:userDefs>
 			<title>Sheet.70</title>
 			<g id="shape71-271" v:mID="71" v:groupContext="shape">
 				<title>Sheet.71</title>
-				<path d="M25.87 650.25 C26.72 650.25 27.4 650.93 27.4 651.77 L27.4 654.82 L33.49 654.82 L33.49 651.77 C33.49 650.93
-							 34.17 650.25 35.01 650.25 C35.85 650.25 36.53 650.93 36.53 651.77 L36.53 654.82 L41.1 654.82 C44.46
-							 654.82 47.18 657.54 47.18 660.9 L47.18 665.47 L50.23 665.47 C51.07 665.47 51.75 666.15 51.75 666.99
-							 C51.75 667.83 51.07 668.51 50.23 668.51 L47.18 668.51 L47.18 674.6 L50.23 674.6 C51.07 674.6 51.75 675.28
-							 51.75 676.12 C51.75 676.97 51.07 677.65 50.23 677.65 L47.18 677.65 L47.18 683.74 L50.23 683.74 C51.07
-							 683.74 51.75 684.42 51.75 685.26 C51.75 686.1 51.07 686.78 50.23 686.78 L47.18 686.78 L47.18 691.35
-							 C47.18 694.71 44.46 697.43 41.1 697.43 L36.53 697.43 L36.53 700.48 C36.53 701.32 35.85 702 35.01 702
-							 C34.17 702 33.49 701.32 33.49 700.48 L33.49 697.43 L27.4 697.43 L27.4 700.48 C27.4 701.32 26.72 702
-							 25.87 702 C25.03 702 24.35 701.32 24.35 700.48 L24.35 697.43 L18.26 697.43 L18.26 700.48 C18.26 701.32
-							 17.58 702 16.74 702 C15.9 702 15.22 701.32 15.22 700.48 L15.22 697.43 L10.65 697.43 C7.29 697.43 4.57
-							 694.71 4.57 691.35 L4.57 686.78 L1.52 686.78 C0.68 686.78 0 686.1 0 685.26 C0 684.42 0.68 683.74 1.52
-							 683.74 L4.57 683.74 L4.57 677.65 L1.52 677.65 C0.68 677.65 0 676.97 0 676.12 C0 675.28 0.68 674.6 1.52
-							 674.6 L4.57 674.6 L4.57 668.51 L1.52 668.51 C0.68 668.51 0 667.83 0 666.99 C0 666.15 0.68 665.47 1.52
-							 665.47 L4.57 665.47 L4.57 660.9 C4.57 657.54 7.29 654.82 10.65 654.82 L15.22 654.82 L15.22 651.77 C15.22
-							 650.93 15.9 650.25 16.74 650.25 C17.58 650.25 18.26 650.93 18.26 651.77 L18.26 654.82 L24.35 654.82
-							 L24.35 651.77 C24.35 650.93 25.03 650.25 25.87 650.25 ZM25.83 657.86 L16.79 657.86 C16.78 657.86 16.76
-							 657.86 16.74 657.86 C16.72 657.86 16.71 657.86 16.69 657.86 L10.65 657.86 C8.97 657.86 7.61 659.22 7.61
-							 660.9 L7.61 691.35 C7.61 693.03 8.97 694.39 10.65 694.39 L16.69 694.39 C16.71 694.39 16.72 694.39 16.74
-							 694.39 C16.76 694.39 16.78 694.39 16.79 694.39 L25.83 694.39 C25.84 694.39 25.86 694.39 25.87 694.39
-							 C25.89 694.39 25.91 694.39 25.92 694.39 L34.96 694.39 C34.97 694.39 34.99 694.39 35.01 694.39 C35.02
-							 694.39 35.04 694.39 35.06 694.39 L41.1 694.39 C42.78 694.39 44.14 693.03 44.14 691.35 L44.14 685.32
-							 C44.14 685.3 44.14 685.28 44.14 685.26 C44.14 685.24 44.14 685.21 44.14 685.19 L44.14 676.19 C44.14
-							 676.17 44.14 676.15 44.14 676.13 C44.14 676.11 44.14 676.08 44.14 676.06 L44.14 667.07 C44.14 667.04
-							 44.14 667.02 44.14 667 C44.14 666.98 44.14 666.95 44.14 666.93 L44.14 660.91 C44.14 659.23 42.78 657.87
-							 41.1 657.87 L35.06 657.87 C35.04 657.87 35.03 657.87 35.01 657.87 C34.99 657.87 34.97 657.87 34.96 657.87
-							 L25.92 657.87 C25.91 657.87 25.89 657.87 25.87 657.87 C25.86 657.87 25.84 657.87 25.83 657.87 L25.83
-							 657.86 Z" class="st21"/>
+				<path d="M24.75 652.5 C25.55 652.5 26.21 653.15 26.21 653.96 L26.21 656.87 L32.03 656.87 L32.03 653.96 C32.03 653.15
+							 32.68 652.5 33.49 652.5 C34.29 652.5 34.94 653.15 34.94 653.96 L34.94 656.87 L39.31 656.87 C42.53 656.87
+							 45.13 659.47 45.13 662.69 L45.13 667.06 L48.04 667.06 C48.85 667.06 49.5 667.71 49.5 668.51 C49.5 669.32
+							 48.85 669.97 48.04 669.97 L45.13 669.97 L45.13 675.79 L48.04 675.79 C48.85 675.79 49.5 676.45 49.5 677.25
+							 C49.5 678.05 48.85 678.71 48.04 678.71 L45.13 678.71 L45.13 684.53 L48.04 684.53 C48.85 684.53 49.5
+							 685.18 49.5 685.99 C49.5 686.79 48.85 687.44 48.04 687.44 L45.13 687.44 L45.13 691.81 C45.13 695.03
+							 42.53 697.63 39.31 697.63 L34.94 697.63 L34.94 700.54 C34.94 701.35 34.29 702 33.49 702 C32.68 702 32.03
+							 701.35 32.03 700.54 L32.03 697.63 L26.21 697.63 L26.21 700.54 C26.21 701.35 25.55 702 24.75 702 C23.95
+							 702 23.29 701.35 23.29 700.54 L23.29 697.63 L17.47 697.63 L17.47 700.54 C17.47 701.35 16.82 702 16.01
+							 702 C15.21 702 14.56 701.35 14.56 700.54 L14.56 697.63 L10.19 697.63 C6.97 697.63 4.37 695.03 4.37 691.81
+							 L4.37 687.44 L1.46 687.44 C0.65 687.44 0 686.79 0 685.99 C0 685.18 0.65 684.53 1.46 684.53 L4.37 684.53
+							 L4.37 678.71 L1.46 678.71 C0.65 678.71 0 678.05 0 677.25 C0 676.45 0.65 675.79 1.46 675.79 L4.37 675.79
+							 L4.37 669.97 L1.46 669.97 C0.65 669.97 0 669.32 0 668.51 C0 667.71 0.65 667.06 1.46 667.06 L4.37 667.06
+							 L4.37 662.69 C4.37 659.47 6.97 656.87 10.19 656.87 L14.56 656.87 L14.56 653.96 C14.56 653.15 15.21 652.5
+							 16.01 652.5 C16.82 652.5 17.47 653.15 17.47 653.96 L17.47 656.87 L23.29 656.87 L23.29 653.96 C23.29
+							 653.15 23.95 652.5 24.75 652.5 ZM24.7 659.78 L16.06 659.78 C16.05 659.78 16.03 659.78 16.01 659.78 C16
+							 659.78 15.98 659.78 15.97 659.78 L10.19 659.78 C8.58 659.78 7.28 661.08 7.28 662.69 L7.28 691.81 C7.28
+							 693.42 8.58 694.72 10.19 694.72 L15.97 694.72 C15.98 694.72 16 694.72 16.01 694.72 C16.03 694.72 16.05
+							 694.72 16.06 694.72 L24.7 694.72 C24.72 694.72 24.73 694.72 24.75 694.72 C24.77 694.72 24.78 694.72
+							 24.8 694.72 L33.44 694.72 C33.45 694.72 33.47 694.72 33.49 694.72 C33.5 694.72 33.51 694.72 33.53 694.72
+							 L39.31 694.72 C40.92 694.72 42.22 693.42 42.22 691.81 L42.22 686.05 C42.22 686.03 42.22 686.01 42.22
+							 685.99 C42.22 685.96 42.22 685.94 42.22 685.92 L42.22 677.32 C42.22 677.3 42.22 677.27 42.22 677.25
+							 C42.22 677.23 42.22 677.21 42.22 677.19 L42.22 668.58 C42.22 668.56 42.22 668.54 42.22 668.52 C42.22
+							 668.5 42.22 668.48 42.22 668.46 L42.22 662.7 C42.22 661.09 40.92 659.79 39.31 659.79 L33.53 659.79 C33.52
+							 659.79 33.5 659.79 33.49 659.79 C33.47 659.79 33.45 659.79 33.44 659.79 L24.8 659.79 C24.78 659.79 24.77
+							 659.79 24.75 659.79 C24.73 659.79 24.72 659.79 24.7 659.79 L24.7 659.78 Z" class="st21"/>
 			</g>
-			<g id="shape72-275" v:mID="72" v:groupContext="shape" transform="translate(10.6544,-10.6544)">
+			<g id="shape72-275" v:mID="72" v:groupContext="shape" transform="translate(10.1912,-10.1912)">
 				<title>Sheet.72</title>
-				<path d="M0 700.48 A1.52209 1.52209 -180 0 0 1.52 702 L28.92 702 A1.52209 1.52209 -180 0 0 30.44 700.48 L30.44 673.08
-							 A1.52209 1.52209 -180 0 0 28.92 671.56 L1.52 671.56 A1.52209 1.52209 -180 0 0 -0 673.08 L0 700.48 Z"
+				<path d="M0 700.54 A1.45592 1.45592 -180 0 0 1.46 702 L27.66 702 A1.45592 1.45592 -180 0 0 29.12 700.54 L29.12 674.34
+							 A1.45592 1.45592 -180 0 0 27.66 672.88 L1.46 672.88 A1.45592 1.45592 -180 0 0 0 674.34 L0 700.54 Z"
 						class="st22"/>
 			</g>
-			<g id="shape73-279" v:mID="73" v:groupContext="shape" transform="translate(15.2206,-16.7457)">
+			<g id="shape73-279" v:mID="73" v:groupContext="shape" transform="translate(14.5588,-16.0176)">
 				<title>Sheet.73</title>
-				<path d="M20.16 693.81 C18.69 695.54 17.1 697.51 13.91 697.51 C11.07 697.51 10.01 695.18 9.94 693.29 C10.56 694.51
-							 11.78 695.5 13.68 695.46 C17.33 695.35 19.84 692.28 19.84 689.49 C19.84 686.15 17.16 683.74 12.5 683.74
-							 C9.17 683.74 5.04 684.92 2.33 686.78 C2.3 688.69 3.45 691.18 3.86 690.91 C6.21 689.34 8.08 688.33 9.89
-							 687.82 C7.21 690.6 0.79 697.04 0 698.17 C0.09 699.21 1.47 702 2.15 702 C2.36 702 2.54 701.89 2.74 701.7
-							 C4.68 699.68 6.26 697.87 7.66 696.12 C7.86 698.68 9.21 701.81 13 701.81 C16.39 701.81 19.75 699.53 21.28
-							 694.41 C21.46 693.78 20.64 693.29 20.16 693.81 L20.16 693.81 ZM16.3 689.68 C16.3 691.3 14.59 692.09
-							 13.03 692.09 C12.19 692.09 11.55 691.89 11.04 691.62 C11.98 690.31 12.9 688.96 13.89 687.52 C15.64 687.8
-							 16.3 688.7 16.3 689.68 L16.3 689.68 Z" class="st23"/>
+				<path d="M19.29 694.17 C17.88 695.82 16.36 697.71 13.31 697.71 C10.59 697.71 9.58 695.48 9.5 693.67 C10.1 694.84
+							 11.27 695.79 13.08 695.74 C16.58 695.64 18.98 692.71 18.98 690.03 C18.98 686.84 16.41 684.53 11.96 684.53
+							 C8.77 684.53 4.82 685.66 2.23 687.44 C2.2 689.27 3.3 691.65 3.7 691.39 C5.94 689.89 7.73 688.92 9.46
+							 688.44 C6.9 691.09 0.75 697.25 0 698.33 C0.08 699.33 1.41 702 2.06 702 C2.26 702 2.43 701.9 2.62 701.71
+							 C4.48 699.78 5.99 698.05 7.33 696.37 C7.52 698.82 8.81 701.82 12.44 701.82 C15.68 701.82 18.89 699.64
+							 20.36 694.74 C20.53 694.14 19.74 693.67 19.29 694.17 L19.29 694.17 ZM15.59 690.22 C15.59 691.76 13.96
+							 692.52 12.46 692.52 C11.66 692.52 11.05 692.33 10.56 692.07 C11.46 690.82 12.34 689.53 13.29 688.15
+							 C14.96 688.41 15.59 689.28 15.59 690.22 L15.59 690.22 Z" class="st23"/>
 			</g>
 		</g>
 		<g id="group75-281" transform="translate(920.242,-251.5)" v:mID="75" v:groupContext="group">
@@ -1380,59 +1379,60 @@
 				<v:textBlock v:margins="rect(4,4,4,4)"/>
 				<v:textRect cx="62.7732" cy="682.471" width="125.56" height="39.0585"/>
 				<rect x="0" y="662.941" width="125.546" height="39.0585" class="st13"/>
-				<text x="18.26" y="678.87" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Managed <tspan
+				<text x="18.26" y="678.87" class="st5" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Managed <tspan
 							x="47.55" dy="1.2em" class="st12">Redis</tspan></text>			</g>
 		</g>
-		<g id="group78-288" transform="translate(923.612,-251.5)" v:mID="78" v:groupContext="group">
+		<g id="group78-288" transform="translate(925.8,-252.6)" v:mID="78" v:groupContext="group">
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(57000):26"/>
 			</v:userDefs>
 			<title>Sheet.78</title>
 			<g id="shape79-289" v:mID="79" v:groupContext="shape">
 				<title>Sheet.79</title>
-				<path d="M27 648 C27.88 648 28.59 648.71 28.59 649.59 L28.59 652.76 L34.94 652.76 L34.94 649.59 C34.94 648.71 35.65
-							 648 36.53 648 C37.41 648 38.12 648.71 38.12 649.59 L38.12 652.76 L42.88 652.76 C46.39 652.76 49.24 655.61
-							 49.24 659.12 L49.24 663.88 L52.41 663.88 C53.29 663.88 54 664.59 54 665.47 C54 666.35 53.29 667.06 52.41
-							 667.06 L49.24 667.06 L49.24 673.41 L52.41 673.41 C53.29 673.41 54 674.12 54 675 C54 675.88 53.29 676.59
-							 52.41 676.59 L49.24 676.59 L49.24 682.94 L52.41 682.94 C53.29 682.94 54 683.65 54 684.53 C54 685.41
-							 53.29 686.12 52.41 686.12 L49.24 686.12 L49.24 690.88 C49.24 694.39 46.39 697.24 42.88 697.24 L38.12
-							 697.24 L38.12 700.41 C38.12 701.29 37.41 702 36.53 702 C35.65 702 34.94 701.29 34.94 700.41 L34.94 697.24
-							 L28.59 697.24 L28.59 700.41 C28.59 701.29 27.88 702 27 702 C26.12 702 25.41 701.29 25.41 700.41 L25.41
-							 697.24 L19.06 697.24 L19.06 700.41 C19.06 701.29 18.35 702 17.47 702 C16.59 702 15.88 701.29 15.88 700.41
-							 L15.88 697.24 L11.12 697.24 C7.61 697.24 4.76 694.39 4.76 690.88 L4.76 686.12 L1.59 686.12 C0.71 686.12
-							 0 685.41 0 684.53 C0 683.65 0.71 682.94 1.59 682.94 L4.76 682.94 L4.76 676.59 L1.59 676.59 C0.71 676.59
-							 0 675.88 0 675 C0 674.12 0.71 673.41 1.59 673.41 L4.76 673.41 L4.76 667.06 L1.59 667.06 C0.71 667.06
-							 0 666.35 0 665.47 C0 664.59 0.71 663.88 1.59 663.88 L4.76 663.88 L4.76 659.12 C4.76 655.61 7.61 652.76
-							 11.12 652.76 L15.88 652.76 L15.88 649.59 C15.88 648.71 16.59 648 17.47 648 C18.35 648 19.06 648.71 19.06
-							 649.59 L19.06 652.76 L25.41 652.76 L25.41 649.59 C25.41 648.71 26.12 648 27 648 ZM26.95 655.94 L17.52
-							 655.94 C17.51 655.94 17.49 655.94 17.47 655.94 C17.45 655.94 17.44 655.94 17.42 655.94 L11.12 655.94
-							 C9.36 655.94 7.94 657.36 7.94 659.12 L7.94 690.88 C7.94 692.64 9.36 694.06 11.12 694.06 L17.42 694.06
-							 C17.44 694.06 17.45 694.06 17.47 694.06 C17.49 694.06 17.51 694.06 17.52 694.06 L26.95 694.06 C26.97
-							 694.06 26.98 694.06 27 694.06 C27.02 694.06 27.03 694.06 27.05 694.06 L36.48 694.06 C36.49 694.06 36.51
-							 694.06 36.53 694.06 C36.55 694.06 36.56 694.06 36.58 694.06 L42.88 694.06 C44.64 694.06 46.06 692.64
-							 46.06 690.88 L46.06 684.6 C46.06 684.58 46.06 684.55 46.06 684.53 C46.06 684.51 46.06 684.48 46.06 684.46
-							 L46.06 675.07 C46.06 675.05 46.06 675.03 46.06 675 C46.06 674.98 46.06 674.96 46.06 674.93 L46.06 665.55
-							 C46.06 665.52 46.06 665.5 46.06 665.48 C46.06 665.45 46.06 665.43 46.06 665.41 L46.06 659.12 C46.06
-							 657.37 44.64 655.95 42.88 655.95 L36.58 655.95 C36.56 655.95 36.55 655.95 36.53 655.95 C36.51 655.95
-							 36.49 655.95 36.48 655.95 L27.05 655.95 C27.03 655.95 27.02 655.95 27 655.95 C26.98 655.95 26.97 655.95
-							 26.95 655.95 L26.95 655.94 Z" class="st21"/>
+				<path d="M25.31 651.37 C26.13 651.37 26.8 652.04 26.8 652.86 L26.8 655.84 L32.76 655.84 L32.76 652.86 C32.76 652.04
+							 33.42 651.37 34.25 651.37 C35.07 651.37 35.74 652.04 35.74 652.86 L35.74 655.84 L40.2 655.84 C43.49
+							 655.84 46.16 658.51 46.16 661.8 L46.16 666.26 L49.14 666.26 C49.96 666.26 50.62 666.93 50.62 667.75
+							 C50.62 668.58 49.96 669.24 49.14 669.24 L46.16 669.24 L46.16 675.2 L49.14 675.2 C49.96 675.2 50.62 675.87
+							 50.62 676.69 C50.62 677.51 49.96 678.18 49.14 678.18 L46.16 678.18 L46.16 684.13 L49.14 684.13 C49.96
+							 684.13 50.62 684.8 50.62 685.62 C50.62 686.44 49.96 687.11 49.14 687.11 L46.16 687.11 L46.16 691.58
+							 C46.16 694.87 43.49 697.53 40.2 697.53 L35.74 697.53 L35.74 700.51 C35.74 701.33 35.07 702 34.25 702
+							 C33.42 702 32.76 701.33 32.76 700.51 L32.76 697.53 L26.8 697.53 L26.8 700.51 C26.8 701.33 26.13 702
+							 25.31 702 C24.49 702 23.82 701.33 23.82 700.51 L23.82 697.53 L17.87 697.53 L17.87 700.51 C17.87 701.33
+							 17.2 702 16.38 702 C15.56 702 14.89 701.33 14.89 700.51 L14.89 697.53 L10.42 697.53 C7.13 697.53 4.47
+							 694.87 4.47 691.58 L4.47 687.11 L1.49 687.11 C0.67 687.11 0 686.44 0 685.62 C0 684.8 0.67 684.13 1.49
+							 684.13 L4.47 684.13 L4.47 678.18 L1.49 678.18 C0.67 678.18 0 677.51 0 676.69 C0 675.87 0.67 675.2 1.49
+							 675.2 L4.47 675.2 L4.47 669.24 L1.49 669.24 C0.67 669.24 0 668.58 0 667.75 C0 666.93 0.67 666.26 1.49
+							 666.26 L4.47 666.26 L4.47 661.8 C4.47 658.51 7.13 655.84 10.42 655.84 L14.89 655.84 L14.89 652.86 C14.89
+							 652.04 15.56 651.37 16.38 651.37 C17.2 651.37 17.87 652.04 17.87 652.86 L17.87 655.84 L23.82 655.84
+							 L23.82 652.86 C23.82 652.04 24.49 651.37 25.31 651.37 ZM25.26 658.82 L16.43 658.82 C16.41 658.82 16.4
+							 658.82 16.38 658.82 C16.36 658.82 16.35 658.82 16.33 658.82 L10.42 658.82 C8.78 658.82 7.44 660.15 7.44
+							 661.8 L7.44 691.58 C7.44 693.22 8.78 694.56 10.42 694.56 L16.33 694.56 C16.35 694.56 16.36 694.56 16.38
+							 694.56 C16.4 694.56 16.41 694.56 16.43 694.56 L25.26 694.56 C25.28 694.56 25.29 694.56 25.31 694.56
+							 C25.33 694.56 25.35 694.56 25.36 694.56 L34.2 694.56 C34.21 694.56 34.23 694.56 34.25 694.56 C34.26
+							 694.56 34.28 694.56 34.29 694.56 L40.2 694.56 C41.85 694.56 43.18 693.22 43.18 691.58 L43.18 685.69
+							 C43.18 685.67 43.18 685.64 43.18 685.62 C43.18 685.6 43.18 685.58 43.18 685.56 L43.18 676.76 C43.18
+							 676.74 43.18 676.71 43.18 676.69 C43.18 676.67 43.18 676.65 43.18 676.62 L43.18 667.83 C43.18 667.8
+							 43.18 667.78 43.18 667.76 C43.18 667.74 43.18 667.71 43.18 667.69 L43.18 661.8 C43.18 660.16 41.85 658.83
+							 40.2 658.83 L34.29 658.83 C34.28 658.83 34.26 658.83 34.25 658.83 C34.23 658.83 34.21 658.83 34.2 658.83
+							 L25.36 658.83 C25.35 658.83 25.33 658.83 25.31 658.83 C25.29 658.83 25.28 658.83 25.26 658.83 L25.26
+							 658.82 Z" class="st21"/>
 			</g>
-			<g id="shape80-292" v:mID="80" v:groupContext="shape" transform="translate(11.1176,-11.1176)">
+			<g id="shape80-292" v:mID="80" v:groupContext="shape" transform="translate(10.4228,-10.4228)">
 				<title>Sheet.80</title>
-				<path d="M0 700.41 A1.58827 1.58827 -180 0 0 1.59 702 L30.18 702 A1.58827 1.58827 -180 0 0 31.76 700.41 L31.76 671.82
-							 A1.58827 1.58827 -180 0 0 30.18 670.24 L1.59 670.24 A1.58827 1.58827 -180 0 0 0 671.82 L0 700.41 Z"
+				<path d="M0 700.51 A1.48901 1.48901 -180 0 0 1.49 702 L28.29 702 A1.48901 1.48901 -180 0 0 29.78 700.51 L29.78 673.71
+							 A1.48901 1.48901 -180 0 0 28.29 672.22 L1.49 672.22 A1.48901 1.48901 -180 0 0 0 673.71 L0 700.51 Z"
 						class="st22"/>
 			</g>
-			<g id="shape81-295" v:mID="81" v:groupContext="shape" transform="translate(15.8824,-17.4738)">
+			<g id="shape81-295" v:mID="81" v:groupContext="shape" transform="translate(14.8897,-16.3817)">
 				<title>Sheet.81</title>
-				<path d="M21.04 693.46 C19.5 695.26 17.84 697.31 14.52 697.31 C11.55 697.31 10.45 694.88 10.37 692.91 C11.02 694.19
-							 12.29 695.22 14.27 695.17 C18.09 695.06 20.7 691.86 20.7 688.94 C20.7 685.46 17.9 682.94 13.04 682.94
-							 C9.57 682.94 5.26 684.17 2.43 686.11 C2.4 688.12 3.6 690.71 4.03 690.43 C6.48 688.79 8.43 687.73 10.32
-							 687.21 C7.53 690.1 0.82 696.82 0 698 C0.09 699.09 1.54 702 2.25 702 C2.46 702 2.65 701.89 2.86 701.69
-							 C4.88 699.58 6.53 697.69 8 695.86 C8.2 698.53 9.62 701.8 13.57 701.8 C17.11 701.8 20.61 699.43 22.21
-							 694.08 C22.39 693.43 21.53 692.91 21.04 693.46 L21.04 693.46 ZM17.01 689.14 C17.01 690.83 15.22 691.66
-							 13.6 691.66 C12.72 691.66 12.05 691.45 11.52 691.17 C12.5 689.8 13.46 688.4 14.5 686.89 C16.32 687.18
-							 17.01 688.12 17.01 689.14 L17.01 689.14 Z" class="st23"/>
+				<path d="M19.73 693.99 C18.28 695.68 16.73 697.61 13.61 697.61 C10.83 697.61 9.79 695.33 9.72 693.48 C10.33 694.67
+							 11.52 695.65 13.38 695.6 C16.96 695.49 19.41 692.49 19.41 689.76 C19.41 686.49 16.78 684.14 12.23 684.14
+							 C8.97 684.14 4.93 685.29 2.28 687.11 C2.25 688.98 3.37 691.42 3.78 691.15 C6.08 689.61 7.9 688.63 9.67
+							 688.13 C7.05 690.84 0.77 697.14 0 698.25 C0.09 699.27 1.44 702 2.11 702 C2.31 702 2.48 701.89 2.68 701.71
+							 C4.58 699.73 6.12 697.96 7.5 696.25 C7.69 698.75 9.01 701.81 12.72 701.81 C16.04 701.81 19.32 699.59
+							 20.82 694.58 C20.99 693.96 20.19 693.48 19.73 693.99 L19.73 693.99 ZM15.95 689.95 C15.95 691.53 14.27
+							 692.31 12.75 692.31 C11.93 692.31 11.3 692.11 10.8 691.85 C11.72 690.56 12.62 689.25 13.59 687.84 C15.3
+							 688.1 15.94 688.99 15.94 689.95 L15.95 689.95 Z" class="st23"/>
 			</g>
 		</g>
 		<g id="shape85-297" v:mID="85" v:groupContext="shape" transform="translate(105.764,-159.52)">
@@ -1466,8 +1466,8 @@
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="110.276" cy="703.946" width="36.47" height="29.2631"/>
 			<path d="M0 641.25 L0 702 L191.08 702 L196.88 702" class="st14"/>
-			<rect v:rectContext="textBkgnd" x="100.749" y="696.746" width="19.055" height="14.4001" class="st7"/>
-			<text x="100.75" y="707.55" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Yes</text>		</g>
+			<rect v:rectContext="textBkgnd" x="100.749" y="696.746" width="19.055" height="14.4001" class="st9"/>
+			<text x="100.75" y="707.55" class="st5" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Yes</text>		</g>
 		<g id="shape1002-314" v:mID="1002" v:groupContext="shape" v:layerMember="1" transform="translate(687.576,-310)">
 			<title>Decision.1002</title>
 			<v:custProps>
@@ -1494,7 +1494,7 @@
 				<v:ud v:nameU="ResizeTxtHeight" v:prompt="" v:val="VT0(0.75):0"/>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(66000):26"/>
 			</v:userDefs>
-			<path d="M0 675 L36 648 L72 675 L36 702 L0 675 Z" class="st4"/>
+			<path d="M0 675 L36 648 L72 675 L36 702 L0 675 Z" class="st8"/>
 		</g>
 		<g id="shape1003-316" v:mID="1003" v:groupContext="shape" v:layerMember="0" transform="translate(758.242,-337)">
 			<title>Dynamic connector.1003</title>
@@ -1506,14 +1506,14 @@
 			<v:textRect cx="81" cy="702" width="34.01" height="22.4037"/>
 			<path d="M0 702 L156.59 702 L162 702" class="st14"/>
 			<rect v:rectContext="textBkgnd" x="72.5917" y="694.8" width="16.8168" height="14.4001" class="st9"/>
-			<text x="72.59" y="705.6" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>No</text>		</g>
+			<text x="72.59" y="705.6" class="st5" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>No</text>		</g>
 		<g id="group1004-323" transform="translate(219.474,40)" v:mID="1004" v:groupContext="group">
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(68000):26"/>
 			</v:userDefs>
 			<title>Sheet.1004</title>
 		</g>
-		<g id="shape91-324" v:mID="91" v:groupContext="shape" transform="translate(929.243,-190.134)">
+		<g id="shape91-324" v:mID="91" v:groupContext="shape" transform="translate(929.243,-191.334)">
 			<title>Sheet.91</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(69000):26"/>
@@ -1578,7 +1578,7 @@
 						pFrQtIsAAAAASUVORK5CYII="/>
 			<rect v:rectContext="foreign" x="0" y="651.268" width="38.25" height="50.7316" class="st10"/>
 		</g>
-		<g id="shape90-328" v:mID="90" v:groupContext="shape" v:layerMember="0" transform="translate(83.2425,-78.25)">
+		<g id="shape90-328" v:mID="90" v:groupContext="shape" v:layerMember="0" transform="translate(87.3,-81)">
 			<title>Dynamic connector.90</title>
 			<desc>No</desc>
 			<v:userDefs>
@@ -1588,6 +1588,6 @@
 			<v:textRect cx="6.30682" cy="649.83" width="252.32" height="10.5297"/>
 			<path d="M0 596.25 L0 702 L792.39 702 L822.96 702" class="st24"/>
 			<rect v:rectContext="textBkgnd" x="-115.85" y="642.63" width="122.751" height="14.4001" class="st9"/>
-			<text x="-9.92" y="653.43" class="st8" v:langID="1033"><v:paragraph/><v:tabList/>No          </text>		</g>
+			<text x="-9.92" y="653.43" class="st5" v:langID="1033"><v:paragraph/><v:tabList/>No          </text>		</g>
 	</g>
 </svg>
