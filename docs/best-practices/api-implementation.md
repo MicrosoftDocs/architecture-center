@@ -25,7 +25,7 @@ Consider the following points when you implement the code to handle requests.
 The code that implements these requests should not impose any side-effects. The same request repeated over the same resource should result in the same state. For example, sending multiple DELETE requests to the same URI should have the same effect, although the HTTP status code in the response messages might be different. The first DELETE request might return status code 204 (No Content), while a subsequent DELETE request might return status code 404 (Not Found).
 
 > [!NOTE]
-> The article [Idempotency Patterns](https://blog.jonathanoliver.com/idempotency-patterns) on Jonathan Oliver's blog provides an overview of idempotency and how it relates to data management operations.
+> For implementation guidance, see [Idempotent message processing](../reference-architectures/containers/aks-mission-critical/mission-critical-data-platform.md#idempotent-message-processing). In practice, first identify whether an operation is naturally idempotent, and if not, apply artificial idempotency by tracking processed message IDs and handling duplicates proactively or reactively.
 
 ### POST actions that create new resources should not have unrelated side-effects
 
@@ -811,7 +811,7 @@ You can use this information to determine whether a particular web API or operat
 
 - [ASP.NET Web API OData](https://www.asp.net/web-api/overview/odata-support-in-aspnet-web-api) contains examples and further information on implementing an OData web API by using ASP.NET.
 - [Introducing batch support in Web API and Web API OData](https://blogs.msdn.microsoft.com/webdev/2013/11/01/introducing-batch-support-in-web-api-and-web-api-odata) describes how to implement batch operations in a web API by using OData.
-- [Idempotency patterns](https://blog.jonathanoliver.com/idempotency-patterns) on Jonathan Oliver's blog provides an overview of idempotency and how it relates to data management operations.
+- [Idempotent message processing](../reference-architectures/containers/aks-mission-critical/mission-critical-data-platform.md#idempotent-message-processing) provides implementation guidance for tracking processed message IDs and handling duplicate delivery.
 - [Status code definitions](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) on the W3C website contains a full list of HTTP status codes and their descriptions.
 - [Run background tasks with WebJobs](/azure/app-service-web/web-sites-create-web-jobs) provides information and examples on using WebJobs to perform background operations.
 - [Azure Notification Hubs notify users](/azure/notification-hubs/notification-hubs-aspnet-backend-windows-dotnet-wns-notification) shows how to use an Azure Notification Hub to push asynchronous responses to client applications.
