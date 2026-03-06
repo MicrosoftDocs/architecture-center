@@ -58,7 +58,7 @@ public class UserProfileController : ApiController
 
 - The `Get` method in the `UserProfile` controller implements an HTTP GET operation. This method is much less CPU intensive.
 
-The primary concern is the resource requirements of the `Post` method. Although it puts the work onto a background thread, the work can still consume considerable CPU resources. These resources are shared with other operations being performed by other concurrent users. If a moderate number of users send this request at the same time, overall performance is likely to suffer, slowing down all operations. Users might experience significant latency in the `Get` method, for example.
+The primary concern is the resource requirements of the `Post` method. Although it puts the work onto a background thread, the work can still consume considerable CPU resources. These resources are shared with other operations being performed by other concurrent users. If a moderate number of users send this request at the same time, overall performance is likely to degrade, slowing down all operations. Users might experience significant latency in the `Get` method, for example.
 
 ## How to fix the problem
 
