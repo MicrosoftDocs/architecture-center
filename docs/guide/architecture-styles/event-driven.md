@@ -51,7 +51,7 @@ In the preceding diagram, each type of consumer is shown as a single box. To avo
 
 There are two primary topologies within many event-driven architectures:
 
-- **Broker topology:** Components broadcast events to the entire system. Other components either act on the event or ignore the event. This topology is useful when the event processing flow is relatively simple. There's no central coordination or orchestration, so this topology can be dynamic. 
+- **Broker topology:** Components broadcast events to the entire system. Other components either act on the event or ignore the event. This topology is useful when the event processing flow is relatively simple. There's no central coordination or orchestration, so this topology can be dynamic.
 
   This topology is highly decoupled, which helps provide scalability, responsiveness, and component fault tolerance. No component owns or is aware of the state of any multistep business transaction, and actions are taken asynchronously. As a result, distributed transactions are risky because there's no built-in mechanism for restarting or replaying them. You need to carefully consider error handling and manual intervention strategies because this topology can be a source of data inconsistency.
 
@@ -72,6 +72,14 @@ You should use this architecture when the following conditions are true:
 - High volume and high velocity of data is required, such as with IoT.
 
 - You need to decouple producers and consumers for independent scalability and reliability goals.
+
+This architecture might not be suitable when:
+
+- The workload has simple request-response workflows where synchronous calls meet your latency and throughput requirements. The operational overhead of event brokers, asynchronous error handling, and eventual consistency isn't justified for straightforward interactions.
+
+- Business transactions require strong consistency across services. If you can't tolerate windows where different parts of the system disagree on the current state, the eventual consistency that EDA introduces works against you.
+
+- Your team doesn't have experience operating distributed asynchronous systems. The debugging, monitoring, and error-recovery patterns that EDA demands are meaningfully different from those in synchronous architectures, and the learning curve affects delivery timelines.
 
 ## Benefits
 
