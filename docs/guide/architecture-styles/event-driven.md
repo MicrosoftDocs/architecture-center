@@ -89,6 +89,12 @@ This architecture provides the following benefits:
 
   In some systems, especially in IoT scenarios, it's crucial to guarantee that events are delivered.
 
+- Eventual consistency
+
+  Because producers and consumers are decoupled through asynchronous event channels, data across services isn't immediately consistent after an event is published. Consumers process events at their own pace, and there can be measurable delay between the time a producer emits a state change and the time all consumers reflect that change. During this window, different parts of the system have a different view of the current state.
+
+  This behavior is a deliberate architectural tradeoff. Event-driven systems favor availability and partition tolerance over strong consistency. Architects must design consumers and downstream reads to tolerate stale or partially updated data. For more information, see [Minimize coordination](/azure/architecture/guide/design-principles/minimize-coordination).
+
 - Processing events in order or only one time
 
   For resiliency and scalability, each consumer type typically runs in multiple instances. This process can create a challenge if the events must be processed in order within a consumer type or if [idempotent message processing](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing) logic isn't implemented.
@@ -102,6 +108,8 @@ This architecture provides the following benefits:
   Event-driven architecture primarily relies on asynchronous communication. A common challenge that asynchronous communication presents is error handling. One way to address this problem is to use a dedicated error-handler processor.
 
   When an event consumer encounters an error, it immediately and asynchronously sends the problematic event to the error-handler processor and continues processing other events. The error-handler processor attempts to resolve the problem. If it's successful, the error-handler processor resubmits the event to the original ingestion channel. If it fails, the processor can forward the event to an administrator for further inspection. When you use an error-handler processor, resubmitted events are processed out of sequence.
+
+  When a business process spans multiple services, consider using a [Compensating Transaction](/azure/architecture/patterns/compensating-transaction) to logically reverse completed steps if a later step fails.
 
 - Data loss
 
