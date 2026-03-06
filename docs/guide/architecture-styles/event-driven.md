@@ -123,6 +123,12 @@ This architecture provides the following benefits:
 
   Another challenge that asynchronous communication presents is data loss. If any of the components crashes before successfully processing and handing over the event to its next component, then the event is dropped and never reaches the final destination. To minimize the chance of data loss, persist in-transit events and remove or dequeue the events only when the next component acknowledges the receipt of the event. These features are known as *client acknowledge mode* and *last participant support*.
 
+- Observability across decoupled components
+
+  In synchronous architectures, you can trace a request through a call stack. In event-driven architectures, a single business transaction can span multiple producers, channels, and consumers that run independently and asynchronously. When something fails or behaves unexpectedly, determining which component misbehaved and why is harder because there's no shared call context.
+
+  To maintain visibility, include a correlation ID in every event so that all downstream consumers and logging systems can connect related operations into a single trace. Plan for this instrumentation from the start of the design, because retrofitting observability into a decoupled system is substantially more difficult than building it in. For more information, see [Design for operations](/azure/architecture/guide/design-principles/design-for-operations).
+
 - Implementation of a traditional request-response pattern
 
   Sometimes the event producer requires an immediate response from the event consumer, such as obtaining customer eligibility before proceeding with an order. In an event-driven architecture, synchronous communication can be achieved by using [request-response messaging](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RequestReply.html).
