@@ -43,9 +43,9 @@ The source of the events might be external to the system, such as physical devic
 
 There are two primary approaches to structure event payloads. When you have control over your event consumers, you can decide on the payload structure for each consumer. This strategy allows you to mix approaches as needed within a single workload.
 
-- **Include all required attributes in the payload:** Use this approach when you want consumers to have all available information without needing to query an external data source. However, it can lead to data consistency problems because of multiple [systems of record](https://wikipedia.org/wiki/System_of_record), especially after updates. Contract management and versioning can also become complex.
+- **Include all required attributes in the payload:** Use this approach when you want consumers to have all available information without needing to query an external data source. Larger payloads increase transport cost and bandwidth consumption, and can lead to data consistency problems because of multiple [systems of record](https://wikipedia.org/wiki/System_of_record), especially after updates. Contract management and versioning can also become complex.
 
-- **Include only keys in the payload:** In this approach, consumers retrieve the necessary attributes, such as a primary key, to independently fetch the remaining data from a data source. This method provides better data consistency because it has a single system of record. However, it can perform poorer than the first approach because consumers must query the data source frequently. You have fewer concerns regarding coupling, bandwidth, contract management, or versioning because smaller events and simpler contracts reduce complexity.
+- **Include only keys in the payload:** In this approach, consumers retrieve the necessary attributes, such as a primary key, to independently fetch the remaining data from a data source. This method provides better data consistency because it has a single system of record. However, it can perform poorer than the first approach because consumers must query the data source frequently. You have fewer concerns regarding coupling, bandwidth, contract management, or versioning because smaller events and simpler contracts reduce complexity. For more information, see [Put your events on a diet](https://particular.net/blog/putting-your-events-on-a-diet).
 
 In the preceding diagram, each type of consumer is shown as a single box. To avoid having the consumer become a single point of failure in the system, it's typical to have multiple instances of a consumer. Multiple instances might also be required to handle the volume and frequency of events. A single consumer can process events on multiple threads. This setup can create challenges if events must be processed in order or require exactly-once semantics. For more information, see [Minimize coordination](/azure/architecture/guide/design-principles/minimize-coordination).
 
@@ -145,9 +145,7 @@ This architecture provides the following benefits:
 
   Producers and consumers are deployed independently, so you can't update all of them at the same time. When a producer changes the structure of an event, consumers that don't yet understand the new schema can break. Define a schema versioning strategy early and design consumers to handle event versions that they don't recognize.
   
-### Other considerations
-
-- The amount of data to include in an event can be a significant consideration that affects performance and cost. You can simplify the processing code and eliminate extra lookups by placing all the relevant information needed for processing directly in the event. When you add only a minimal amount of information to an event, such as a few identifiers, you reduce transport time and cost. However, this approach requires the processing code to retrieve any extra information that it needs. For more information, see [Put your events on a diet](https://particular.net/blog/putting-your-events-on-a-diet).
+## Other considerations
 
 - A request is only visible to the request-handling component. But events are often visible to multiple components in a workload, even if those components don't consume them or aren't meant to consume them. To operate with an "assume breach" mindset, be mindful of what information you include in events to prevent unintended information exposure.
 
