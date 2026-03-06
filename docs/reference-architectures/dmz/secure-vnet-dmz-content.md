@@ -195,7 +195,7 @@ When prompted, enter values for an admin user name and password. These values ar
 
 ```azurecli
 az deployment sub create --location eastus \
-    --template-uri https://raw.githubusercontent.com/mspnp/samples/master/solutions/secure-hybrid-network/azuredeploy.json
+    --template-uri https://raw.githubusercontent.com/mspnp/samples/main/solutions/secure-hybrid-network/azuredeploy.json
 ```
 
 #### [PowerShell](#tab/powershell)
@@ -206,7 +206,7 @@ When prompted, enter values for an admin user name and password. These values ar
 
 ```azurepowershell
 New-AzSubscriptionDeployment -Location eastus `
-    -TemplateUri https://raw.githubusercontent.com/mspnp/samples/master/solutions/secure-hybrid-network/azuredeploy.json
+    -TemplateUri https://raw.githubusercontent.com/mspnp/samples/main/solutions/secure-hybrid-network/azuredeploy.json
 ```
 
 ---
