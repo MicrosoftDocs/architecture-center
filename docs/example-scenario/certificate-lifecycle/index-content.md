@@ -259,9 +259,9 @@ Principal authors:
 
 ## Related resources
 
-[Key Vault](/azure/key-vault/general/overview)</BR>
-[Key Vault extension for Windows](/azure/virtual-machines/extensions/key-vault-windows?tabs=version3)</BR>
-[Key Vault extension for Linux](/azure/virtual-machines/extensions/key-vault-linux)</BR>
-[What is Azure Automation?](/azure/automation/overview)</BR>
-[Azure Automation hybrid runbook worker](/azure/automation/automation-hybrid-runbook-worker)</BR>
+- [Key Vault](/azure/key-vault/general/overview)
+- [Key Vault extension for Windows](/azure/virtual-machines/extensions/key-vault-windows?tabs=version3)
+- [Key Vault extension for Linux](/azure/virtual-machines/extensions/key-vault-linux)
+- [What is Azure Automation?](/azure/automation/overview)
+- [Azure Automation hybrid runbook worker](/azure/automation/automation-hybrid-runbook-worker)
 [Azure Event Grid](/azure/event-grid/overview)
