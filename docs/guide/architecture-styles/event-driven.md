@@ -140,6 +140,10 @@ This architecture provides the following benefits:
   Generating an excessive number of fine-grained events can saturate and overwhelm the system. An excessive volume of events makes it difficult to effectively analyze the overall flow of events. This problem is exacerbated when changes need to be rolled back. Conversely, overly consolidating events can also create problems, which results in unnecessary processing and responses from event consumers.
 
   To achieve the right balance, consider the consequences of events and whether consumers need to inspect the event payloads to determine their responses. For example, if you have a compliance check component, it might be sufficient to publish only two types of events: *compliant* and *noncompliant*. This approach helps ensure that only relevant consumers process each event, which prevents unnecessary processing.
+
+- Event schema evolution
+
+  Producers and consumers are deployed independently, so you can't update all of them at the same time. When a producer changes the structure of an event, consumers that don't yet understand the new schema can break. Define a schema versioning strategy early and design consumers to handle event versions that they don't recognize.
   
 ### Other considerations
 
