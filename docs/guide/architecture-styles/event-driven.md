@@ -3,7 +3,7 @@ title: Event-Driven Architecture Style
 description: Explore the benefits, challenges, and best practices for event-driven architectures on Azure.
 author: claytonsiemens77
 ms.author: pnp
-ms.date: 08/06/2025
+ms.date: 03/06/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-web
