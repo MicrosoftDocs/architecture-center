@@ -1,6 +1,6 @@
 ---
 title: Event-Driven Architecture Style
-description: Explore the benefits, challenges, and best practices for event-driven and IoT architectures on Azure that use messaging patterns and microservices.
+description: Explore the benefits, challenges, and best practices for event-driven architectures on Azure.
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 08/06/2025
@@ -45,11 +45,11 @@ There are two primary approaches to structure event payloads. When you have cont
 
 - **Include all required attributes in the payload:** Use this approach when you want consumers to have all available information without needing to query an external data source. Larger payloads increase transport cost and bandwidth consumption, and can lead to data consistency problems because of multiple [systems of record](https://wikipedia.org/wiki/System_of_record), especially after updates. Contract management and versioning can also become complex.
 
-- **Include only keys in the payload:** In this approach, consumers retrieve the necessary attributes, such as a primary key, to independently fetch the remaining data from a data source. This method provides better data consistency because it has a single system of record. However, it can perform poorer than the first approach because consumers must query the data source frequently. You have fewer concerns regarding coupling, bandwidth, contract management, or versioning because smaller events and simpler contracts reduce complexity. For more information, see [Put your events on a diet](https://particular.net/blog/putting-your-events-on-a-diet).
+- **Include only keys in the payload:** In this approach, consumers retrieve the necessary attributes, such as a primary key, to independently fetch the remaining data from a data source. This method provides better data consistency because it has a single system of record. However, it can have worse performance than the first approach because consumers must query the data source frequently. You have fewer concerns regarding coupling, bandwidth, contract management, or versioning because smaller events and simpler contracts reduce complexity. For more information, see [Put your events on a diet](https://particular.net/blog/putting-your-events-on-a-diet).
 
 In the preceding diagram, each type of consumer is shown as a single box. To avoid having the consumer become a single point of failure in the system, it's typical to have multiple instances of a consumer. Multiple instances might also be required to handle the volume and frequency of events. A single consumer can process events on multiple threads. This setup can create challenges if events must be processed in order or require exactly-once semantics. For more information, see [Minimize coordination](/azure/architecture/guide/design-principles/minimize-coordination).
 
-There are two primary topologies within many event-driven architectures:
+There are two primary topologies in event-driven architectures:
 
 - **Broker topology:** Components broadcast events to the entire system. Other components either act on the event or ignore the event. This topology is useful when the event processing flow is relatively simple. There's no central coordination or orchestration, so this topology can be dynamic.
 
@@ -69,7 +69,7 @@ You should use this architecture when the following conditions are true:
 
 - Complex event processing, such as pattern matching or aggregation over time windows, is required.
 
-- High volume and high velocity of data is required, such as with IoT.
+- High volume and high velocity of data are required, such as with IoT.
 
 - You need to decouple producers and consumers for independent scalability and reliability goals.
 
@@ -86,7 +86,7 @@ This architecture might not be suitable when:
 This architecture provides the following benefits:
 
 - Producers and consumers are decoupled.
-- There are no point-to-point integrations. It's easy to add new consumers to the system.
+- There are no point-to-point integrations. New consumers can be added without modifying producers or other consumers.
 - Consumers can respond to events immediately as they occur.
 - It's highly scalable, elastic, and distributed.
 - Subsystems have independent views of the event stream.
@@ -105,7 +105,7 @@ This architecture provides the following benefits:
 
 - Processing events in order or only one time
 
-  For resiliency and scalability, each consumer type typically runs in multiple instances. This process can create a challenge if the events must be processed in order within a consumer type or if [idempotent message processing](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing) logic isn't implemented.
+  For resiliency and scalability, each consumer type typically runs in multiple instances. Running multiple instances can create a challenge if the events must be processed in order within a consumer type or if [idempotent message processing](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing) logic isn't implemented.
 
 - Message coordination across services
 
@@ -133,7 +133,7 @@ This architecture provides the following benefits:
 
 - Implementation of a traditional request-response pattern
 
-  Sometimes the event producer requires an immediate response from the event consumer, such as obtaining customer eligibility before proceeding with an order. In an event-driven architecture, synchronous communication can be achieved by using [request-response messaging](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RequestReply.html).
+  Sometimes the event producer requires an immediate response from the event consumer, such as obtaining customer eligibility before proceeding with an order. In an event-driven architecture, you can achieve synchronous communication by using [request-response messaging](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RequestReply.html).
 
   This pattern is implemented with a request queue and a response queue. The event producer sends an asynchronous request to a request queue, pauses other operations on that task, and awaits a response in the reply queue. This approach effectively turns this pattern into a synchronous process. Event consumers then process the request and send the reply back through a response queue. This approach usually uses a session ID for tracking, so the event producer knows which message in the response queue is related to the specific request. The original request can also specify the name of the response queue, potentially ephemeral, in a [reply-to header](/dotnet/api/azure.messaging.servicebus.servicebusmessage.replyto), or another mutually agreed-upon custom attribute.
 
