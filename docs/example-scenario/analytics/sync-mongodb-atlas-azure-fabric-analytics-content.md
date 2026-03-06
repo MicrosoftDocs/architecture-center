@@ -229,7 +229,7 @@ Security provides assurances against deliberate attacks and the misuse of your v
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-- Right‑size Fabric capacity and consolidate workloads where reasonable.
+- Rightsize Fabric capacity and consolidate workloads where reasonable.
 - Batch change documents to reduce function invocations and small files.
 - Compact and optimize lakehouse tables and schedule heavy transforms during off‑peak periods.
 - Use Parquet or Delta compression, like Snappy, to reduce storage utilization and improve scan performance.
