@@ -157,4 +157,12 @@ This architecture provides the following benefits:
 
 ## Next step
 
-- [Community discussion video](https://particular.net/webinars/2023-orchestration-choreography-qa)
+> [!div class="nextstepaction"]
+> [Asynchronous messaging options](../technology-choices/messaging.md)
+
+## Related resources
+
+- [Publisher-Subscriber](../../patterns/publisher-subscriber.md)
+- [Competing Consumers](../../patterns/competing-consumers.yml)
+- [Event Sourcing](../../patterns/event-sourcing.yml)
+- [Compensating Transaction](../../patterns/compensating-transaction.yml)
