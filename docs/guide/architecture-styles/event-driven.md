@@ -77,7 +77,7 @@ This architecture might not be suitable when:
 
 - The workload has simple request-response workflows where synchronous calls meet your latency and throughput requirements. The operational overhead of event brokers, asynchronous error handling, and eventual consistency isn't justified for straightforward interactions.
 
-- Business transactions require strong consistency across services. If you can't tolerate windows where different parts of the system disagree on the current state, the eventual consistency that EDA introduces works against you.
+- Business transactions require strong consistency across services. If you can't tolerate windows where different parts of the system disagree on the current state, the eventual consistency that event-driven architecture (EDA) introduces works against you.
 
 - Your team doesn't have experience operating distributed asynchronous systems. The debugging, monitoring, and error-recovery patterns that EDA demands are meaningfully different from those in synchronous architectures, and the learning curve affects delivery timelines.
 
@@ -101,7 +101,7 @@ This architecture provides the following benefits:
 
   Because producers and consumers are decoupled through asynchronous event channels, data across services isn't immediately consistent after an event is published. Consumers process events at their own pace, and there can be measurable delay between the time a producer emits a state change and the time all consumers reflect that change. During this window, different parts of the system have a different view of the current state.
 
-  This behavior is a deliberate architectural tradeoff. Event-driven systems favor availability and partition tolerance over strong consistency. Architects must design consumers and downstream reads to tolerate stale or partially updated data. For more information, see [Minimize coordination](/azure/architecture/guide/design-principles/minimize-coordination).
+  This behavior is a deliberate architectural tradeoff. In many event-driven designs, architects choose to favor availability and partition tolerance for certain workflows, accepting eventual consistency as a tradeoff, while other workflows might still prioritize stronger consistency. Architects must design consumers and downstream reads to tolerate stale or partially updated data where eventual consistency is in effect. For more information, see [Minimize coordination](/azure/architecture/guide/design-principles/minimize-coordination).
 
 - Processing events in order or only one time
 
@@ -115,7 +115,7 @@ This architecture provides the following benefits:
 
   Event-driven architecture primarily relies on asynchronous communication. A common challenge that asynchronous communication presents is error handling. One way to address this problem is to use a dedicated error-handler processor.
 
-  When an event consumer encounters an error, it immediately and asynchronously sends the problematic event to the error-handler processor and continues processing other events. The error-handler processor attempts to resolve the problem. If it's successful, the error-handler processor resubmits the event to the original ingestion channel. If it fails, the processor can forward the event to a dead letter queue for administrator inspection. When you use an error-handler processor, resubmitted events are processed out of sequence.
+  When an event consumer encounters an error, it immediately and asynchronously sends the problematic event to the error-handler processor and continues processing other events. The error-handler processor attempts to resolve the problem. If it's successful, the error-handler processor resubmits the event to the original ingestion channel. If it fails, the processor can forward the event to a dead-letter queue (DLQ) for administrator inspection. When you use an error-handler processor, resubmitted events are processed out of sequence.
 
   When a business process spans multiple services, consider using a [Compensating Transaction](/azure/architecture/patterns/compensating-transaction) to logically reverse completed steps if a later step fails.
 
@@ -146,7 +146,7 @@ This architecture provides the following benefits:
 - Event schema evolution
 
   Producers and consumers are deployed independently, so you can't update all of them at the same time. When a producer changes the structure of an event, consumers that don't yet understand the new schema can break. Define a schema versioning strategy early and design consumers to handle event versions that they don't recognize.
-  
+
 ## Other considerations
 
 - A request is only visible to the request-handling component. But events are often visible to multiple components in a workload, even if those components don't consume them or aren't meant to consume them. To operate with an "assume breach" mindset, be mindful of what information you include in events to prevent unintended information exposure.
