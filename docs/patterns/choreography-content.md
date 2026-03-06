@@ -50,7 +50,8 @@ Consider the following points as you decide how to implement this pattern:
 
 - The pattern becomes challenging if the number of services grows rapidly. With many independent moving parts, the workflow between services can become complex. Maintaining end-to-end visibility requires consistent use of [distributed tracing](/dotnet/core/diagnostics/distributed-tracing) and correlation identifiers to maintain observability.
 
-- In an orchestrator-led design, the central component can partially participate and delegate resiliency logic to another component that retries transient, nontransient, and time-out failures, consistently. With the dissolution of the orchestrator in the choreography pattern, the downstream components shouldn't pick up those resiliency tasks. Those must still be handled by the resiliency handler. But now, the downstream components must directly communicate with the resiliency handler, increasing point-to-point communication. 
+- In an orchestrator‑led design, the central component can delegate resiliency responsibilities, such as retry handling for transient, nontransient, and timeout failures, to a dedicated resiliency handler.
+When the orchestrator is removed in a choreography‑based design, those responsibilities don’t move into the downstream components. They remain centralized in the resiliency handler. However, downstream components must communicate with that handler directly, which increases point‑to‑point communication. 
 
 - Event schema drift can break consumers over time. In this pattern, multiple independent services consume the same events. If a producer changes the data structure of an event, it can break downstream consumers that depend on the old schema. Use a schema registry to manage event contracts and use versioning to maintain compatibility as services evolve independently.
 
