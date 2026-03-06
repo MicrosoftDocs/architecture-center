@@ -77,15 +77,15 @@ All Fabric deployment patterns share the following foundational characteristics:
 The following scenarios describe common business requirements and show which deployment patterns address them. Use these scenarios as a starting point to identify the pattern that best fits your organization.
 
 - **Scenario 1: Faster time to market with cross-team collaboration.** If your organization wants faster time to market by organizing teams that can cross-collaborate, with lower restrictions on data usage, a *monolithic* deployment pattern can be a good fit. In this scenario, your organization operates in and manages a single workspace.
-  For more information, see [Compare Pattern 1: monolithic deployment](#compare-pattern-1--monolithic-deployment).
+  For more information, see [Pattern 1: monolithic deployment](#compare-pattern-1--monolithic-deployment).
 
 - **Scenario 2: Isolated team environments with central infrastructure management.** If your organization wants to provide isolated environments for teams to work in, with a central team that is responsible for providing and managing infrastructure, you can implement *multiple workspaces* that either use a shared capacity or have separate capacities. This scenario also suits organizations that want to implement a data mesh architecture.
 
-  For more information, see [Compare Pattern 2: multiple workspaces, single capacity](#compare-pattern-2--multiple-workspaces-single-capacity) and [Compare Pattern 3: multiple workspaces, separate capacities](#compare-pattern-3--multiple-workspaces-separate-capacities).
+  For more information, see [Pattern 2: multiple workspaces, single capacity](#compare-pattern-2--multiple-workspaces-single-capacity) and [ Pattern 3: multiple workspaces, separate capacities](#compare-pattern-3--multiple-workspaces-separate-capacities).
 
 - **Scenario 3: Full business-unit autonomy over data platforms.** If your organization wants an entirely decentralized model that gives business units or teams the freedom to control and manage their own data platforms, you can choose a deployment model that uses *separate workspaces* with dedicated capacity, or possibly multiple Fabric tenants.
 
-  For more information, see [Compare Pattern 3: multiple workspaces, separate capacities](#compare-pattern-3--multiple-workspaces-separate-capacities) and [Compare Pattern 4: multiple Fabric tenants](#compare-pattern-4--multiple-fabric-tenants).
+  For more information, see [ Pattern 3: multiple workspaces, separate capacities](#compare-pattern-3--multiple-workspaces-separate-capacities) and [ Pattern 4: multiple Fabric tenants](#compare-pattern-4--multiple-fabric-tenants).
 
 - **Scenario 4: Hybrid approach combining multiple patterns.** Your organization might choose to combine multiple patterns to meet its requirements. For example, you might set up a single workspace for specific business units (a monolithic deployment pattern) while using separate, dedicated workspaces and separate capacities for other business units.
 
@@ -95,7 +95,7 @@ The following scenarios describe common business requirements and show which dep
 
 In this deployment pattern, you provision a single workspace to cater to all your use cases. All business units work within the same, single workspace.
 
-:::image type="content" source="../_images/fabric-deployment-pattern-1-monolithic-deployment.svg" alt-text="Diagram showing a single Fabric tenant with a single capacity and a single workspace." lightbox="../_images/fabric-deployment-pattern-1-monolithic-deployment.svg" border="false":::
+:::image type="content" source="../../analytics/_images/fabric-deployment-pattern-1-monolithic-deployment.svg" alt-text="Diagram showing a single Fabric tenant with a single capacity and a single workspace." lightbox=""../../analytics/_images/fabric-deployment-pattern-1-monolithic-deployment.svg" border="false":::
 
 When you provision a single Fabric capacity and attach a single workspace to it, the following constraints and characteristics apply:
 
@@ -140,7 +140,7 @@ The following table presents considerations that might influence your decision t
 
 In this deployment pattern, you provision multiple workspaces on a single shared capacity. Because that capacity is shared across workspaces, workloads that run concurrently can affect the performance of jobs and interactive queries.
 
-:::image type="content" source="../_images/fabric-deployment-pattern-2-multiple-workspaces-single-capacity.svg" alt-text="Diagram showing a single Fabric tenant with a single capacity and two workspaces." lightbox="../_images/fabric-deployment-pattern-2-multiple-workspaces-single-capacity.svg" border="false":::
+:::image type="content" source="../../analytics/_images/fabric-deployment-pattern-2-multiple-workspaces-single-capacity.svg" alt-text="Diagram showing a single Fabric tenant with a single capacity and two workspaces." lightbox=""../../analytics/_images/fabric-deployment-pattern-2-multiple-workspaces-single-capacity.svg" border="false":::
 
 When you provision a single Fabric capacity and attach multiple workspaces to it, the following characteristics apply:
 
@@ -186,7 +186,7 @@ The following table presents considerations that might influence your decision t
 
 In this deployment pattern, you provision multiple workspaces across separate Fabric capacities, which provides governance and performance isolation between business units.
 
-:::image type="content" source="../_images/fabric-deployment-pattern-3-multiple-workspaces-multiple-capacites.svg" alt-text="Diagram showing a single Fabric tenant with two capacities, where the first capacity has two workspaces and the second capacity has one workspace." lightbox="../_images/fabric-deployment-pattern-3-multiple-workspaces-multiple-capacites.svg" border="false":::
+:::image type="content" source="../../analytics/fabric-deployment-pattern-3-multiple-workspaces-multiple-capacites.svg" alt-text="Diagram showing a single Fabric tenant with two capacities, where the first capacity has two workspaces and the second capacity has one workspace." lightbox="../../analytics/_images/fabric-deployment-pattern-3-multiple-workspaces-multiple-capacites.svg" border="false":::
 
 When you provision multiple Fabric capacities with their own workspaces, the following characteristics apply:
 
@@ -266,8 +266,8 @@ Reliability helps ensure that your application can meet the commitments that you
 
 - **Disaster recovery requires opt-in and has caveats.** Cross-region recovery is available through an opt-in disaster recovery setting on the capacity settings page. Enabling the disaster recovery capacity setting replicates OneLake data across Azure paired regions using asynchronous replication.
 
-> [!IMPORTANT]
-> Some Azure regions lack paired regions that support Fabric, which may compromise disaster recovery capabilities even if data is replicated. Additionally, data replication is asynchronous, meaning data written immediately before a regional disaster may be lost. For more information, see [Reliability in Fabric](/azure/reliability/reliability-fabric).
+    > [!IMPORTANT]
+    > Some Azure regions lack paired regions that support Fabric, which may compromise disaster recovery capabilities even if data is replicated. Additionally, data replication is asynchronous, meaning data written immediately before a regional disaster may be lost. For more information, see [Reliability in Fabric](/azure/reliability/reliability-fabric).
 
 - **Single-capacity patterns (1 and 2) concentrate risk in one region.** All workloads are in one Azure region. If the region experiences an outage, all workspaces are affected simultaneously. To protect against regional failure, configure the capacity setting to replicate OneLake data to a paired region. Plan for the recovery time needed to restore service in the paired region.
 
