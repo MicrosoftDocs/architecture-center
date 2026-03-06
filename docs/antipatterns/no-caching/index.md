@@ -155,7 +155,7 @@ The following image shows monitoring data captured by [New Relic][NewRelic] duri
 
 ![New Relic showing server requests for the CachingDemo application][NewRelic-server-requests]
 
-If you need a deeper analysis, you can use a profiler to capture low-level performance data in a test environment (not the production system). Look at metrics like I/O request rates, memory usage, and CPU utilization. These metrics might show a large number of requests to a data store or service, or repeated processing that performs the same calculation.
+If you need a deeper analysis, you can use a profiler to capture low-level performance data in a test environment (not the production system). Review metrics like I/O request rates, memory usage, and CPU utilization. These metrics might show a large number of requests to a data store or service, or repeated processing that performs the same calculation.
 
 ### Load test the application
 
