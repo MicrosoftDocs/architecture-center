@@ -25,7 +25,7 @@ This process differs from a [Competing Consumers pattern](/azure/architecture/pa
 
 An event-driven architecture can use a [publish-subscribe model](../../patterns/publisher-subscriber.md) or an event stream model.
 
-- **Publish-subscribe:** The publish-subscribe messaging infrastructure tracks subscriptions. When an event is published, it sends the event to each subscriber. After the event is delivered, it can't be replayed, and new subscribers don't see the event. We recommend that you use [Azure Event Grid](/azure/event-grid/overview) for publish-subscribe scenarios.
+- **Publish-subscribe:** The publish-subscribe messaging infrastructure tracks subscriptions. When an event is published, it sends the event to each subscriber. After the event is received, it isn't stored in a durable log, so new subscribers don't see past events. We recommend that you use [Azure Event Grid](/azure/event-grid/overview) for publish-subscribe scenarios.
 
 - **Event streaming:** Events are written to a log. Events are strictly ordered within a partition and are durable. Clients don't subscribe to the stream. Instead, a client can read from any part of the stream. The client is responsible for advancing their position in the stream, which means that a client can join at any time and can replay events. This replayability supports recovery scenarios, late-arriving consumers, and reprocessing after a bug fix. [Azure Event Hubs](/azure/event-hubs/event-hubs-about) is designed for high-throughput event streaming.
 
@@ -55,7 +55,7 @@ There are two primary topologies in event-driven architectures:
 
   This topology is highly decoupled, which helps provide scalability, responsiveness, and component fault tolerance. No component owns or is aware of the state of any multistep business transaction, and actions are taken asynchronously. As a result, distributed transactions are risky because there's no built-in mechanism for restarting or replaying them. You need to carefully consider error handling and manual intervention strategies because this topology can be a source of data inconsistency.
 
-- **Mediator topology:** This topology addresses some of the shortcomings of broker topology. There's an event mediator that manages and controls the flow of events. The event mediator maintains the state and manages error handling and restart capabilities. In contrast to the broker topology, the components in the mediator topology broadcast occurrences as commands, and only to designated channels. These channels are often message queues. Consumers are expected to process these commands.
+- **Mediator topology:** This topology addresses some of the shortcomings of broker topology. There's an event mediator that manages and controls the flow of events. The event mediator maintains the state and manages error handling and restart capabilities. In contrast to the broker topology, the mediator dispatches commands to designated channels rather than broadcasting to the entire system. These channels are often message queues. Consumers are expected to process these commands.
 
   This topology provides more control, better distributed error handling, and potentially better data consistency. However, this topology introduces increased coupling between components, and the event mediator can become a bottleneck or a reliability concern.
 
