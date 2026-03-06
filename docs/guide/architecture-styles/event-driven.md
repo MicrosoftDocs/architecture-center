@@ -53,11 +53,11 @@ There are two primary topologies within many event-driven architectures:
 
 - **Broker topology:** Components broadcast events to the entire system. Other components either act on the event or ignore the event. This topology is useful when the event processing flow is relatively simple. There's no central coordination or orchestration, so this topology can be dynamic. 
 
-   This topology is highly decoupled, which helps provide scalability, responsiveness, and component fault tolerance. No component owns or is aware of the state of any multistep business transaction, and actions are taken asynchronously. As a result, distributed transactions are risky because there's no built-in mechanism for restarting or replaying them. You need to carefully consider error handling and manual intervention strategies because this topology can be a source of data inconsistency.
+  This topology is highly decoupled, which helps provide scalability, responsiveness, and component fault tolerance. No component owns or is aware of the state of any multistep business transaction, and actions are taken asynchronously. As a result, distributed transactions are risky because there's no built-in mechanism for restarting or replaying them. You need to carefully consider error handling and manual intervention strategies because this topology can be a source of data inconsistency.
 
 - **Mediator topology:** This topology addresses some of the shortcomings of broker topology. There's an event mediator that manages and controls the flow of events. The event mediator maintains the state and manages error handling and restart capabilities. In contrast to the broker topology, the components in the mediator topology broadcast occurrences as commands, and only to designated channels. These channels are often message queues. Consumers are expected to process these commands.
 
-   This topology provides more control, better distributed error handling, and potentially better data consistency. However, this topology introduces increased coupling between components, and the event mediator can become a bottleneck or a reliability concern.
+  This topology provides more control, better distributed error handling, and potentially better data consistency. However, this topology introduces increased coupling between components, and the event mediator can become a bottleneck or a reliability concern.
 
 ## When to use this architecture
 
@@ -99,9 +99,9 @@ This architecture provides the following benefits:
 
 - Error handling
 
-  Event-driven architecture primarily relies on asynchronous communication. A common challenge that asynchronous communication presents is error handling. One way to address this problem is to use a dedicated error-handler processor. 
-   
-   When an event consumer encounters an error, it immediately and asynchronously sends the problematic event to the error-handler processor and continues processing other events. The error-handler processor attempts to resolve the problem. If it's successful, the error-handler processor resubmits the event to the original ingestion channel. If it fails, the processor can forward the event to an administrator for further inspection. When you use an error-handler processor, resubmitted events are processed out of sequence.
+  Event-driven architecture primarily relies on asynchronous communication. A common challenge that asynchronous communication presents is error handling. One way to address this problem is to use a dedicated error-handler processor.
+
+  When an event consumer encounters an error, it immediately and asynchronously sends the problematic event to the error-handler processor and continues processing other events. The error-handler processor attempts to resolve the problem. If it's successful, the error-handler processor resubmits the event to the original ingestion channel. If it fails, the processor can forward the event to an administrator for further inspection. When you use an error-handler processor, resubmitted events are processed out of sequence.
 
 - Data loss
 
