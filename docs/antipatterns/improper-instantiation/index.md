@@ -125,7 +125,7 @@ You can do the following steps to help identify this problem:
 3. Load test each suspected operation, in a controlled test environment rather than the production system.
 4. Review the source code and examine how the broker objects are managed.
 
-Look at stack traces for operations that are slow-running or that generate exceptions when the system is under load. This information can help to identify how these operations are using resources. Exceptions can help to determine whether errors are caused by shared resources being exhausted.
+Examine stack traces for operations that are slow-running or that generate exceptions when the system is under load. This information can help to identify how these operations are using resources. Exceptions can help to determine whether errors are caused by shared resources being exhausted.
 
 ## Example diagnosis
 
