@@ -127,7 +127,7 @@ This architecture provides the following benefits:
 
   In synchronous architectures, you can trace a request through a call stack. In event-driven architectures, a single business transaction can span multiple producers, channels, and consumers that run independently and asynchronously. When something fails or behaves unexpectedly, determining which component misbehaved and why is harder because there's no shared call context.
 
-  To maintain visibility, include a correlation ID in every event so that all downstream consumers and logging systems can connect related operations into a single trace. Plan for this instrumentation from the start of the design, because retrofitting observability into a decoupled system is substantially more difficult than building it in. For more information, see [Design for operations](/azure/architecture/guide/design-principles/design-for-operations).
+  To maintain visibility, include a correlation ID in every event so that all downstream consumers and logging systems can connect related operations into a single trace. Plan for this instrumentation from the start of the design, because retrofitting observability into a decoupled system is substantially more difficult than building it in.
 
 - Implementation of a traditional request-response pattern
 
