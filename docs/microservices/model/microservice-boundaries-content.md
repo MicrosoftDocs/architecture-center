@@ -23,7 +23,7 @@ Now we're ready to go from domain model to application design. Here's an approac
 
 1. Domain services are also good candidates for microservices. Domain services are stateless operations across multiple aggregates. A typical example is a workflow that includes several microservices. The Drone Delivery application shows an example.
 
-1. Consider nonfunctional requirements. Consider factors such as team size, data types, technologies, scalability requirements, availability requirements, and security requirements. These factors might cause you to break a microservice into multiple smaller services. In other cases, they might cause you to merge several microservices into a single microservice.
+1. Consider nonfunctional requirements. Use factors such as team size, data types, technologies, scalability requirements, availability requirements, and security requirements. These factors might cause you to break a microservice into multiple smaller services. In other cases, they might cause you to merge several microservices into a single microservice.
 
 After you identify the microservices in your application, validate your design against the following criteria:
 
