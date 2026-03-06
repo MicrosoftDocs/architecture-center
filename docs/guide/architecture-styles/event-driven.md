@@ -27,7 +27,7 @@ An event-driven architecture can use a [publish-subscribe model](../../patterns/
 
 - **Publish-subscribe:** The publish-subscribe messaging infrastructure tracks subscriptions. When an event is published, it sends the event to each subscriber. After the event is delivered, it can't be replayed, and new subscribers don't see the event. We recommend that you use [Azure Event Grid](/azure/event-grid/overview) for publish-subscribe scenarios.
 
-- **Event streaming:** Events are written to a log. Events are strictly ordered within a partition and are durable. Clients don't subscribe to the stream. Instead, a client can read from any part of the stream. The client is responsible for advancing their position in the stream, which means that a client can join at any time and can replay events. [Azure Event Hubs](/azure/event-hubs/event-hubs-about) is designed for high-throughput event streaming.
+- **Event streaming:** Events are written to a log. Events are strictly ordered within a partition and are durable. Clients don't subscribe to the stream. Instead, a client can read from any part of the stream. The client is responsible for advancing their position in the stream, which means that a client can join at any time and can replay events. This replayability supports recovery scenarios, late-arriving consumers, and reprocessing after a bug fix. [Azure Event Hubs](/azure/event-hubs/event-hubs-about) is designed for high-throughput event streaming.
 
 On the consumer side, there are some common variations:
 
