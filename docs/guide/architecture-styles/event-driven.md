@@ -129,6 +129,8 @@ This architecture provides the following benefits:
 
   To maintain visibility, include a correlation ID in every event so that all downstream consumers and logging systems can connect related operations into a single trace. Plan for this instrumentation from the start of the design, because retrofitting observability into a decoupled system is substantially more difficult than building it in.
 
+  This same complexity affects testing. Verifying end-to-end behavior across asynchronous, decoupled components requires more deliberate test strategies than synchronous call chains do.
+
 - Implementation of a traditional request-response pattern
 
   Sometimes the event producer requires an immediate response from the event consumer, such as obtaining customer eligibility before proceeding with an order. In an event-driven architecture, synchronous communication can be achieved by using [request-response messaging](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RequestReply.html).
