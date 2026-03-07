@@ -1,10 +1,10 @@
 ### YamlMime:Architecture
 metadata:
-  title: Multi-region load balancing
-  description: Learn how to build an Azure system that serves web and non-web workloads with resilient multi-tier applications in multiple Azure regions.
+  title: Multi-Region Load Balancing
+  description: Learn how to build an Azure system that serves web and nonweb workloads with resilient multi-tier applications in multiple Azure regions.
   author: claytonsiemens77
   ms.author: pnp
-  ms.date: 02/19/2026
+  ms.date: 03/09/2026
   ms.topic: reference-architecture
   ms.subservice: reference-architecture
   ai-usage: ai-assisted
@@ -16,8 +16,8 @@ products:
   - azure-application-gateway
   - azure-load-balancer
   - azure-traffic-manager
-name: Multi-region load balancing with Traffic Manager, Azure Firewall, and Application Gateway
-summary: Multi-region load balancing with Traffic Manager, Azure Firewall, and Application Gateway.
+name: Multi-region load balancing
+summary: Learn how to build an Azure system that serves web and nonweb workloads with resilient multi-tier applications in multiple Azure regions.
 thumbnailUrl: /azure/architecture/browse/thumbs/high-availability-multi-region-v-10.png
 content: |
   [!INCLUDE[](traffic-manager-application-gateway-content.md)]
