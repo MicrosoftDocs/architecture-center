@@ -48,7 +48,7 @@
 		.st33 {fill:url(#grad0-188);stroke:none;stroke-linecap:butt;stroke-width:0.75}
 		.st34 {marker-end:url(#mrkr4-267);marker-start:url(#mrkr4-265);stroke:#595959;stroke-dasharray:4.5,4.5;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5}
 		.st35 {fill:#595959;fill-opacity:1;stroke:#595959;stroke-opacity:1;stroke-width:0.37313432835821}
-		.st36 {fill:#ffffff;stroke:none;stroke-linecap:butt;stroke-width:7.2}
+		.st36 {fill:#ffffff;stroke:none;stroke-linecap:butt}
 		.st37 {fill:none;stroke:#000000;stroke-dasharray:0,4.5;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5}
 		.st38 {marker-end:url(#mrkr6-280);marker-start:url(#mrkr6-278);stroke:#5f91f8;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
 		.st39 {fill:#5f91f8;fill-opacity:1;stroke:#5f91f8;stroke-opacity:1;stroke-width:0.22935779816514}
@@ -67,7 +67,7 @@
 		.st52 {fill:url(#grad0-370);stroke:none;stroke-linecap:butt;stroke-width:0.75}
 		.st53 {fill:#f2f2f2;fill-opacity:0.55;stroke:none;stroke-linecap:butt;stroke-width:0.75}
 		.st54 {fill:none;stroke:none;stroke-linecap:butt;stroke-width:0.75}
-		.st55 {fill:#000000;font-family:Segoe UI;font-size:0.75em;font-weight:bold}
+		.st55 {fill:#000000;font-family:Segoe UI;font-size:0.583328em;font-weight:bold}
 		.st56 {fill:#f2f2f2;stroke:#f2f2f2;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.25}
 		.st57 {marker-end:url(#mrkr6-413);stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5}
 		.st58 {fill:#007735;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.24}
@@ -1430,14 +1430,14 @@
 				</g>
 			</g>
 		</g>
-		<g id="shape458-383" v:mID="458" v:groupContext="shape" transform="translate(298.974,-593.419)">
+		<g id="shape458-383" v:mID="458" v:groupContext="shape" transform="translate(314.031,-593.419)">
 			<title>Sheet.458</title>
-			<desc>App Gateway</desc>
+			<desc>Application Gateway</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
-			<v:textRect cx="40.7969" cy="702.467" width="81.6" height="28.7535"/>
-			<rect x="0" y="688.09" width="81.5937" height="28.7535" class="st22"/>
-			<text x="32.05" y="699.77" class="st55" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>App<v:newlineChar/><v:paragraph
-						v:horizAlign="1"/><tspan x="22.56" dy="1.2em" class="st29">Gateway</tspan></text>		</g>
+			<v:textRect cx="26.0156" cy="702.467" width="52.04" height="28.7535"/>
+			<rect x="0" y="688.09" width="52.0312" height="28.7535" class="st22"/>
+			<text x="7.05" y="700.37" class="st55" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Application<v:newlineChar/><v:paragraph
+						v:horizAlign="1"/><tspan x="11.83" dy="1.2em" class="st29">Gateway</tspan></text>		</g>
 		<g id="shape459-387" v:mID="459" v:groupContext="shape" transform="translate(299.578,-540.73)">
 			<title>Sheet.459</title>
 			<desc>WAF</desc>
@@ -1534,14 +1534,14 @@
 			<text x="29.4" y="694.37" class="st28" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure<v:newlineChar/><v:paragraph
 						v:horizAlign="1"/><tspan x="25.87" dy="1.2em" class="st29">Firewall<v:newlineChar/><v:paragraph
 							v:horizAlign="1"/></tspan><tspan x="27.27" dy="1.2em" class="st29">subnet</tspan></text>		</g>
-		<g id="shape572-438" v:mID="572" v:groupContext="shape" transform="translate(378.571,-593.661)">
+		<g id="shape572-438" v:mID="572" v:groupContext="shape" transform="translate(377.333,-593.333)">
 			<title>Sheet.572</title>
 			<desc>Azure Firewall</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="25.4105" cy="702.467" width="50.83" height="28.7535"/>
 			<rect x="0" y="688.09" width="50.8209" height="28.7535" class="st22"/>
-			<text x="13.14" y="699.77" class="st55" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure<v:newlineChar/><v:paragraph
-						v:horizAlign="1"/><tspan x="9" dy="1.2em" class="st29">Firewall</tspan></text>		</g>
+			<text x="15.87" y="700.37" class="st55" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure<v:newlineChar/><v:paragraph
+						v:horizAlign="1"/><tspan x="12.65" dy="1.2em" class="st29">Firewall</tspan></text>		</g>
 		<g id="shape590-442" v:mID="590" v:groupContext="shape" v:layerMember="0"
 				transform="translate(400.008,-448.258) rotate(-0.000828819) scale(-1,1)">
 			<title>Line connector.590</title>
@@ -1560,7 +1560,7 @@
 				<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
 			</v:userDefs>
 			<title>User.593</title>
-			<desc>Nonweb client</desc>
+			<desc>Non-web client</desc>
 			<g id="shape594-450" v:mID="594" v:groupContext="shape">
 				<title>Sheet.594</title>
 				<v:userDefs>
@@ -1580,7 +1580,7 @@
 			<g id="shape593-454" v:mID="593" v:groupContext="groupContent">
 				<v:textBlock v:margins="rect(4,4,4,4)"/>
 				<v:textRect cx="13.4547" cy="735.245" width="72" height="36.8038"/>
-				<text x="-8.95" y="731.65" class="st62" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Nonweb<v:newlineChar/><v:paragraph
+				<text x="-11.35" y="731.65" class="st62" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Non-web<v:newlineChar/><v:paragraph
 							v:horizAlign="1"/><tspan x="-0.79" dy="1.2em" class="st29">client</tspan></text>			</g>
 		</g>
 		<g id="shape596-457" v:mID="596" v:groupContext="shape" transform="translate(318.867,-168.912)">
@@ -2578,8 +2578,8 @@
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="40.7969" cy="702.467" width="81.6" height="28.7535"/>
 			<rect x="0" y="688.09" width="81.5937" height="28.7535" class="st22"/>
-			<text x="28.53" y="699.77" class="st55" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure<v:newlineChar/><v:paragraph
-						v:horizAlign="1"/><tspan x="24.39" dy="1.2em" class="st29">Firewall</tspan></text>		</g>
+			<text x="31.26" y="700.37" class="st55" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure<v:newlineChar/><v:paragraph
+						v:horizAlign="1"/><tspan x="28.03" dy="1.2em" class="st29">Firewall</tspan></text>		</g>
 		<g id="shape793-762" v:mID="793" v:groupContext="shape" v:layerMember="0"
 				transform="translate(1127.11,756.109) rotate(-66.9039) scale(1,-1)">
 			<title>Line connector.793</title>
@@ -2678,12 +2678,12 @@
 						x="16.01" dy="1.2em" class="st29">endpoint</tspan></text>		</g>
 		<g id="shape822-812" v:mID="822" v:groupContext="shape" transform="translate(297.92,-288.88)">
 			<title>Sheet.822</title>
-			<desc>App Gateway</desc>
+			<desc>Application Gateway</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="40.7969" cy="702.467" width="81.6" height="28.7535"/>
 			<rect x="0" y="688.09" width="81.5937" height="28.7535" class="st22"/>
-			<text x="32.05" y="699.77" class="st55" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>App<v:newlineChar/><v:paragraph
-						v:horizAlign="1"/><tspan x="22.56" dy="1.2em" class="st29">Gateway</tspan></text>		</g>
+			<text x="21.83" y="699.17" class="st55" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Application<v:newlineChar/><v:paragraph
+						v:horizAlign="1"/><tspan x="26.61" dy="1.457em" class="st29">Gateway</tspan></text>		</g>
 		<g id="shape825-816" v:mID="825" v:groupContext="shape" transform="translate(1159.25,404.032) rotate(90)">
 			<title>Round Corner Rectangle.825</title>
 			<v:userDefs>
@@ -3802,7 +3802,7 @@
 			<v:textRect cx="9.3125" cy="707.531" width="16.3" height="13.9687"/>
 			<path d="M0 707.53 A9.3125 9.3125 0 0 1 18.62 707.53 A9.3125 9.3125 0 1 1 0 707.53 Z" class="st58"/>
 			<text x="6.44" y="710.53" class="st59" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>6</text>		</g>
-		<g id="group1084-1152" transform="translate(356.357,-609.704)" v:mID="1084" v:groupContext="group">
+		<g id="group1084-1152" transform="translate(360.333,-612.667)" v:mID="1084" v:groupContext="group">
 			<v:userDefs>
 				<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
 			</v:userDefs>

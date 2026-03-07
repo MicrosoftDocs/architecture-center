@@ -34,8 +34,8 @@ HTTP(S) traffic passes through the Application Gateway web application firewall 
 
 Some workloads accept traffic over protocols other than HTTP(S), like SSH File Transfer Protocol (SFTP) for file-based data ingestion from business partners or legacy Transmission Control Protocol (TCP)-based integrations. Non-HTTP(S) traffic routes directly to Azure Firewall for destination network address translation (DNAT) and inspection, which bypasses Application Gateway.
 
-:::image type="complex" border="false" source="images/high-availability-multi-region-nonweb-v-10.svg" alt-text="Diagram that shows multi-region load balancing with Azure Firewall, Application Gateway, and Traffic Manager for nonweb traffic." lightbox="images/high-availability-multi-region-nonweb-v-10.svg":::
-  In step 1, at the top center of the diagram, an arrow points from a nonweb client to a box labeled recursive DNS service, and another arrow points from that box to Traffic Manager. A double-sided arrow labeled health check connects the Application Gateway endpoints. There are two mirrored regions connected by virtual network peering. In these regions, steps 2 through 7 show Azure Firewall subnet, internal load balancer, web tier subnet, the second internal load balancer, business tier subnet, and data tier subnets. The Application Gateway subnet includes App Gateway and a layer-7 load balancer. The Azure Firewall subnet includes the Azure Firewall. These sections span three zones. The resource group encloses both regions and includes DDoS Protection and Private DNS zone.
+:::image type="complex" border="false" source="images/high-availability-multi-region-non-web-v-10.svg" alt-text="Diagram that shows multi-region load balancing with Azure Firewall, Application Gateway, and Traffic Manager for non-web traffic." lightbox="images/high-availability-multi-region-non-web-v-10.svg":::
+  In step 1, at the top center of the diagram, an arrow points from a non-web client to a box labeled recursive DNS service, and another arrow points from that box to Traffic Manager. A double-sided arrow labeled health check connects the Application Gateway endpoints. There are two mirrored regions connected by virtual network peering. In these regions, steps 2 through 7 show Azure Firewall subnet, internal load balancer, web tier subnet, the second internal load balancer, business tier subnet, and data tier subnets. The Application Gateway subnet includes App Gateway and a layer-7 load balancer. The Azure Firewall subnet includes the Azure Firewall. These sections span three zones. The resource group encloses both regions and includes DDoS Protection and Private DNS zone.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/high-availability-multi-region-v-10.vsdx) of this architecture.*
@@ -60,7 +60,7 @@ Outbound traffic flows for VM patch updates or other internet-bound traffic go f
 
 ### Components
 
-- [Azure Firewall](/azure/well-architected/service-guides/azure-firewall) is a cloud service from Microsoft that provides next-generation firewall capabilities, including deep packet inspection for north-south and east-west traffic flows. In this architecture, Azure Firewall provides network security for both web and nonweb traffic. It uses TLS inspection to inspect inbound HTTP(S) flows from Application Gateway, handles inbound non-HTTP(S) flows from the public internet, and inspects outbound flows from VMs to prevent data exfiltration.
+- [Azure Firewall](/azure/well-architected/service-guides/azure-firewall) is a cloud service from Microsoft that provides next-generation firewall capabilities, including deep packet inspection for north-south and east-west traffic flows. In this architecture, Azure Firewall provides network security for both web and non-web traffic. It uses TLS inspection to inspect inbound HTTP(S) flows from Application Gateway, handles inbound non-HTTP(S) flows from the public internet, and inspects outbound flows from VMs to prevent data exfiltration.
 
 - [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is a layer-7 load balancer that provides WAF functionality. In this architecture, Application Gateway provides regional load balancing for HTTP(S) traffic, helps detect and prevent web attacks, and provides TLS termination and path-based routing. It functions as the back-end endpoint for Traffic Manager.
 
@@ -230,7 +230,7 @@ This architecture follows zero-trust principles and assumes no implicit trust be
 
 - **WAF:** The WAF functionality of Application Gateway detects and prevents attacks at the HTTP level, like SQL injection (SQLi) or cross-site scripting (XSS).
 
-- **Next-generation firewall:** Azure Firewall Premium provides an extra layer of defense by inspecting content for nonweb attacks like malicious files uploaded via HTTP(S) or other protocols.
+- **Next-generation firewall:** Azure Firewall Premium provides an extra layer of defense by inspecting content for non-web attacks like malicious files uploaded via HTTP(S) or other protocols.
 
 - **End-to-end encryption:** Traffic is always encrypted when it traverses the Azure network. Both Application Gateway and Azure Firewall encrypt traffic before they send it to the corresponding back-end system.
 
