@@ -74,7 +74,7 @@ All Fabric deployment patterns:
 - Use Fabric capacities to scale compute resources while provisioning dedicated capacities per workspace when specific performance levels must be met.
 - Extend to use equivalent features from a Microsoft Cloud (Microsoft Azure, Microsoft 365, and others) when a feature isn't available in Fabric.
 - Use a [OneLake catalog](/fabric/governance/onelake-catalog-overview) to promote discovery and the use of data assets.
-- Use [OneLake security](fabric/onelake/security/get-started-security) to set up data security policies for data assets.
+- Use [OneLake security](/fabric/onelake/security/get-started-security) to set up data security policies for data assets.
 
 ### Scenarios based on business requirements
 
