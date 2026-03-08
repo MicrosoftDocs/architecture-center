@@ -16,7 +16,7 @@ The reliability of the workload depends on several factors, including its capaci
 
 - **Load balancing or Redundancy:** Failing over between multiple Foundry resources or model instances based on service availability is a client responsibility that you need to control through configuration and custom logic.
 
-  Whether you use [Global](/azure/ai-foundry/foundry-models/concepts/deployment-types#global-standard), standard or provisioned, or [data zone](/azure/ai-foundry/foundry-models/concepts/deployment-types#data-zone-standard), standard or provisioned, it doesn't affect the Foundry models availability from a regional endpoint availability perspective. You still have a responsibility to implement failover logic yourself.
+  Whether you use [Global](/azure/ai-foundry/foundry-models/concepts/deployment-types#global-standard), standard or provisioned, or [data zone](/azure/ai-foundry/foundry-models/concepts/deployment-types#data-zone-standard), standard or provisioned, it doesn't affect the Foundry resource availability from a regional endpoint availability perspective. You still have a responsibility to implement failover logic yourself.
 
 - **Scale out to handle spikes:** Failing over to Foundry Model instances with capacity when throttled is another client responsibility that you need to control through configuration and custom logic. Updating multiple client configurations for new Foundry Model instances presents greater risk and has timeliness concerns. The same is true for updating client code to implement changes in logic, such as directing low priority requests to a queue during high demand periods.
 
