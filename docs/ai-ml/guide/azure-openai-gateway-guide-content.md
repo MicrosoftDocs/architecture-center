@@ -37,7 +37,7 @@ Security controls must help protect workload confidentiality, integrity, and ava
 
 - **Data sovereignty:** Data sovereignty in the context of Foundry refers to the legal and regulatory requirements related to the storage and processing of data within the geographic boundaries of a specific country or region. Your workload needs to ensure regional affinity so that clients can comply with data residency and sovereignty laws. This process involves multiple Foundry resource deployments.
 
-  You should be aware that when you are using [global](/azure/ai-foundry/foundry-models/concepts/deployment-types#global-standard) or [data zone](/azure/ai-foundry/foundry-models/concepts/deployment-types#data-zone-standard) deployments of Foundry, data at rest remains in the designated Azure geography, but data may be transmitted and processed for inferencing in any Foundry location.
+  You should be aware that when you are using [global](/azure/ai-foundry/foundry-models/concepts/deployment-types#global-standard) or [data zone](/azure/ai-foundry/foundry-models/concepts/deployment-types#data-zone-standard) deployments of Foundry models, data at rest remains in the designated Azure geography, but data may be transmitted and processed for inferencing in any Foundry models location.
 
 ### Cost optimization challenges
 
