@@ -6,7 +6,7 @@ Because a gateway can be used to solve specific scenarios that might not be pres
 
 ## Key challenges
 
-Without an API gateway or the ability to add logic into the Foundry APIs, the client has to handle the API client logic, which includes retry mechanisms or circuit breakers. This situation can be challenging in scenarios in which you don't directly control the client code, or when the code is restricted to specific SDK usage. Multiple clients or multiple Foundry models instances and deployments present further challenges, such as coordination of safe deployments and observability.
+Without an API gateway or the ability to add logic into the Foundry APIs, the client has to handle the API client logic, which includes retry mechanisms or circuit breakers. This situation can be challenging in scenarios in which you don't directly control the client code, or when the code is restricted to specific SDK usage. Multiple clients or multiple Foundry resources instances and model deployments present further challenges, such as coordination of safe deployments and observability.
 
 This section provides examples of specific key architectural challenges that you might face if your architecture only supports direct access to Foundry Models from consumers. The challenges are organized by using the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars).
 
