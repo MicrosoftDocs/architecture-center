@@ -14,7 +14,7 @@ This section provides examples of specific key architectural challenges that you
 
 The reliability of the workload depends on several factors, including its capacity for self-preservation and self-recovery, which are often implemented through replication and failover mechanisms. Without a gateway, all reliability concerns must be addressed exclusively by using client logic and your model platform features. Workload reliability is compromised when there isn't enough reliability control available in either of those two surfaces.
 
-- **Load balancing or Redundancy:** Failing over between multiple Foundry models instances based on service availability is a client responsibility that you need to control through configuration and custom logic.
+- **Load balancing or Redundancy:** Failing over between multiple Foundry resources or model instances based on service availability is a client responsibility that you need to control through configuration and custom logic.
 
   Whether you use [Global](/azure/ai-foundry/foundry-models/concepts/deployment-types#global-standard), standard or provisioned, or [data zone](/azure/ai-foundry/foundry-models/concepts/deployment-types#data-zone-standard), standard or provisioned, it doesn't affect the Foundry models availability from a regional endpoint availability perspective. You still have a responsibility to implement failover logic yourself.
 
