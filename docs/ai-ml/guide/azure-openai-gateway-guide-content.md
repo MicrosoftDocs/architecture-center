@@ -12,7 +12,7 @@ This section provides examples of specific key architectural challenges that you
 
 ### Reliability challenges
 
-The reliability of the workload depends on several factors, including its capacity for self-preservation and self-recovery, which are often implemented through replication and failover mechanisms. Without a gateway, all reliability concerns must be addressed exclusively by using client logic and LLM model features. Workload reliability is compromised when there isn't enough reliability control available in either of those two surfaces.
+The reliability of the workload depends on several factors, including its capacity for self-preservation and self-recovery, which are often implemented through replication and failover mechanisms. Without a gateway, all reliability concerns must be addressed exclusively by using client logic and your model platform features. Workload reliability is compromised when there isn't enough reliability control available in either of those two surfaces.
 
 - **Load balancing or Redundancy:** Failing over between multiple Foundry models instances based on service availability is a client responsibility that you need to control through configuration and custom logic.
 
