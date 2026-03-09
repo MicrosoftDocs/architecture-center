@@ -9,9 +9,7 @@ Most applications work with data, and the typical approach is for the applicatio
 
 The CRUD approach is straightforward and fast for most scenarios. However, in high-load systems, this approach has some challenges:
 
-- **Performance**: As the system scales, write performance degrades due to row-level lock contention when multiple processes update the same records concurrently.
-
-- **Scalability**: Because updates require read-modify-write cycles with locking, concurrent writes to the same entity become a bottleneck under load.
+- **Write contention**: Because updates require read-modify-write cycles with row-level locking, concurrent writes to the same entity degrade performance and become a bottleneck under load.
 
 - **Auditability**: CRUD systems only store the latest state of the data. Unless there's an auditing mechanism that records the details of each operation in a separate log, history is lost.
 
@@ -25,7 +23,7 @@ Each entity in an event-sourced system has its own event stream, which is the or
 
 Because it's relatively expensive to read and replay events, applications typically implement [materialized views](./materialized-view.yml), read-only projections of the event store that are optimized for querying. For example, a system can maintain a materialized view of all customer orders that's used to populate the UI. As the application adds new orders, adds or removes items on the order, or adds shipping information, events are raised and a handler updates the materialized view.
 
-The figure shows an overview of the pattern, including some typical implementations with the pattern, including the use of a queue, a read-only store, integrating events with external applications and systems, and replaying events to create projections of the current state of specific entities.
+The following figure shows an overview of the pattern combined with [CQRS](./cqrs.md). The presentation layer reads from a separate read-only store and writes commands to command handlers. The command handlers retrieve the entity's event stream from the event store, run business logic, and push new events to a queue. Event handlers consume from the queue and write events to the event store, update the read-only store, or integrate with external systems.
 
 ![An overview and example of the Event Sourcing pattern](./_images/event-sourcing-overview.png)
 
@@ -180,7 +178,7 @@ The sequence of actions for reserving two seats is as follows:
 
 If a user cancels a seat, the system follows a similar process except the command handler issues a command that generates a seat cancellation event and appends it to the event store.
 
-Using an event store provides a complete history, or audit trail, of the bookings and cancellations for a conference. The events in the event store are the accurate record. There's no need to persist aggregates in any other way because the system can easily replay the events and restore the state to any point in time.
+Using an event store provides a complete history, or audit trail, of the bookings and cancellations for a conference. The events in the event store are the accurate record. There's no need to persist entities in any other way because the system can easily replay the events and restore the state to any point in time.
 
 ## Next step
 
