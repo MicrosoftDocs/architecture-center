@@ -21,7 +21,7 @@ The Event Sourcing pattern defines an approach to handling operations on data th
 
 The events are persisted in an event store that acts as the system of record (the authoritative data source) about the current state of the data. Additional event handlers can listen for events they are interested in and take an appropriate action. Consumers could, for example, initiate tasks that apply the operations in the events to other systems, or perform any other associated action that's required to complete the operation. Notice that the application code that generates the events is decoupled from the systems that subscribe to the events.
 
-At any point, it's possible for applications to read the history of events. You can then use the events to materialize the current state of an entity by playing back and consuming all the events that are related to that entity. This process can occur on demand to materialize a domain object when handling a request.
+Each entity in an event-sourced system has its own event stream, which is the ordered sequence of events that records every change to that entity. At any point, it's possible for applications to read the history of events. The current state of an entity is derived by replaying all the events in its stream, a process known as rehydration. This process can occur on demand when handling a request.
 
 Because it's relatively expensive to read and replay events, applications typically implement [materialized views](./materialized-view.yml), read-only projections of the event store that are optimized for querying. For example, a system can maintain a materialized view of all customer orders that's used to populate the UI. As the application adds new orders, adds or removes items on the order, or adds shipping information, events are raised and a handler updates the materialized view.
 
@@ -35,7 +35,7 @@ The following describes a typical workflow for this pattern:
 
 1. The presentation layer calls an object responsible for reading from a read-only store. The data returned is used to populate the UI.
 1. The presentation layer calls command handlers to perform actions like create a cart, or add an item to the cart.
-1. The command handler calls the event store to get the historical events for the entity. For example, it might retrieve all cart events. Those events are played back in the object to materialize the current state of the entity, before any action occurs.
+1. The command handler loads the entity by retrieving its event stream from the event store. For example, it might retrieve all cart events. Those events are replayed against the entity to reconstruct its current state before any new action occurs.
 1. The business logic is run and events are raised. In most implementations, the events are pushed to a queue or topic to decouple the event producers and event consumers.
 1. Event handlers listen for events they are interested in and perform the appropriate action for that handler. Some typical event handler actions are:
     1. Writing the events to the event store
@@ -142,9 +142,9 @@ The sequence of actions for reserving two seats is as follows:
 
 1. The user interface issues a command to reserve seats for two attendees. The command is handled by a separate command handler. A piece of logic that is decoupled from the user interface and is responsible for handling requests posted as commands.
 
-2. An entity containing information about all reservations for the conference is constructed by querying the events that describe bookings and cancellations. This entity is called `SeatAvailability`, and is contained within a domain model that exposes methods for querying and modifying the data in the entity.
+2. An entity containing information about all reservations for the conference is constructed by replaying the events that describe bookings and cancellations. This entity is called `SeatAvailability`, and is contained within a domain model that exposes methods for querying and modifying the data in the entity.
 
-    > Some optimizations to consider are using snapshots (so that you don't need to query and replay the full list of events to obtain the current state of the entity), and maintaining a cached copy of the entity in memory.
+    > Some optimizations to consider are using snapshots (so that you don't need to replay the full list of events to obtain the current state of the entity), and maintaining a cached copy of the entity in memory.
 
 3. The command handler invokes a method exposed by the domain model to make the reservations.
 
@@ -178,3 +178,5 @@ The following patterns and guidance might also be relevant when implementing thi
 - [Materialized View pattern](./materialized-view.yml). The data store used in a system that's based on event sourcing is typically not well suited to efficient querying. Instead, a common approach is to generate prepopulated views of the data at regular intervals, or when the data changes.
 
 - [Compensating Transaction pattern](./compensating-transaction.yml). The existing data in an event sourcing store isn't updated. Instead, new entries are added that transition the state of entities to the new values. To reverse a change, compensating entries are used because it isn't possible to reverse the previous change. Describes how to undo the work that was performed by a previous operation.
+
+- [Domain analysis for microservices](../microservices/model/tactical-domain-driven-design.md). In systems that use domain-driven design, the entity that owns an event stream is typically an [aggregate](../microservices/model/tactical-domain-driven-design.md#define-aggregates), a consistency boundary that receives commands, enforces business rules, and emits events.
