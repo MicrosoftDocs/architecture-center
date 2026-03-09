@@ -58,6 +58,7 @@ The Event Sourcing pattern provides the following advantages:
 
 - The command handlers raise events, and tasks perform operations in response to those events. This decoupling of the tasks from the events provides flexibility and extensibility. Tasks know about the type of event and the event data, but not about the operation that triggered the event. In addition, multiple tasks can handle each event. This enables easy integration with other services and systems that only listen for new events raised by the event store. However, the event sourcing events tend to be very low level, and it might be necessary to generate specific integration events instead.
 
+> [!TIP]
 > Event sourcing is commonly combined with the [CQRS pattern](./cqrs.md) by performing the data management tasks in response to the events, and by materializing views from the stored events. This combination enables independent scaling of reads and writes because append-only event ingestion and query-optimized projections operate separately.
 
 ## Issues and considerations
@@ -67,9 +68,6 @@ Consider the following points when deciding how to implement this pattern:
 - **Event design** - Design events to capture the business intent behind each change, not just the resulting state. For example, in the seat-reservation system, an event that records "two seats were reserved" is more valuable than one that records "remaining seats changed to 42." The first tells you *what happened*. The second only tells you *what the state became*. State-focused events reduce the event store to a change log with no business meaning. Intent-focused events enable richer projections, meaningful audit trails, and the flexibility to build new read models from historical events without having to change the write side.
 
 - **Eventual consistency** - The system will only be eventually consistent when creating materialized views or generating projections of data by replaying events. There's some delay between an application adding events to the event store as the result of handling a request, the events being published, and the consumers of the events handling them. During this period, new events that describe further changes to entities might have arrived at the event store. Your customers must be okay with the fact that data is eventually consistent and the system should be designed to account for eventual consistency in these scenarios.
-
-  > [!NOTE]
-  > For more information about eventual consistency, see the [Data Consistency Primer](/previous-versions/msp-n-p/dn589800(v=pandp.10)).
 
 - **Versioning events** - The event store is the permanent source of information, and so the event data should never be updated. The only way to update an entity or undo a change is to add a compensating event to the event store; new event that reverses or corrects the effect of a previous event. For example, a `ReservationCancelled` event compensates for a prior `SeatsReserved` event. The original event remains in the stream; the compensating event records that it was undone. This immutability also means that if a bug produces incorrect events, those events persist in the store. Fixing the bug in application code doesn't fix the historical events, so you might also need compensating events or upcasters to handle the bad data during replay. If the schema (rather than the data) of the persisted events needs to change, perhaps during a migration, it can be difficult to combine existing events in the store with the new version.
 
@@ -88,6 +86,8 @@ Consider the following points when deciding how to implement this pattern:
 
   - Purpose-built event stores provide built-in support for operations like reading a stream by entity, optimistic concurrency, and snapshots.
   - Relational databases are familiar and widely available but require you to build those behaviors yourself.
+
+  Because each entity has its own independent event stream, event stores partition naturally by entity ID, which simplifies horizontal scaling or sharding when needed.
 
   > [!IMPORTANT]
   > Don't confuse an event store with an event stream message broker. Message brokers such as Apache Kafka typically lack per-entity stream queries and optimistic concurrency. They work well as a distribution layer to fan out events to projections and external consumers, but they aren't a substitute for an event store.
@@ -185,10 +185,6 @@ In addition to providing more scope for scalability, using an event store also p
 ## Next steps
 
 - [Object-relational impedance mismatch](https://en.wikipedia.org/wiki/Object-relational_impedance_mismatch)
-
-- [Data Consistency Primer](/previous-versions/msp-n-p/dn589800(v=pandp.10)). When you use event sourcing with a separate read store or materialized views, the read data won't be immediately consistent. Instead, the data will be only eventually consistent. This article summarizes the issues surrounding maintaining consistency over distributed data.
-
-- [Data Partitioning Guidance](/previous-versions/msp-n-p/dn589795(v=pandp.10)). Data is often partitioned when you use event sourcing to improve scalability, reduce contention, and optimize performance. This article describes how to divide data into discrete partitions, and the issues that can arise.
 
 - Martin Fowler's blog:
 
