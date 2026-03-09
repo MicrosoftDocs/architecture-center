@@ -6,7 +6,7 @@ The MongoDB Atlas to Fabric mirroring accelerator implements the open mirroring 
 
 The following diagram shows how a reference mirroring application deployed in Azure App Service streams MongoDB Atlas change events into Fabric.
 
-:::image type="content" source="media/mongodb-mirroring.png" alt-text="Architecture diagram that shows how Fabric integrates with MongoDB Atlas by using open mirroring." border="false" lightbox="media/mongodb-mirroring.png":::
+:::image type="content" source="media/mongodb-atlas-fabric.svg" alt-text="Architecture diagram that shows how Fabric integrates with MongoDB Atlas by using open mirroring." border="false" lightbox="media/mongodb-atlas-fabric.svg":::
 
 ### Dataflow
 
@@ -53,7 +53,7 @@ The following dataflow corresponds to the previous diagram:
 
 The following diagram shows the mirroring integration architecture:
 
-:::image type="content" source="media/mongodb-mirroring-integrated-arch.png" alt-text="Diagram that shows the mirroring integration architecture." border="false" lightbox="media/mongodb-mirroring-integrated-arch.png":::
+:::image type="content" source="media/mongodb-mirrored-integrated-architecture.png" alt-text="Diagram that shows the mirroring integration architecture." border="false" lightbox="media/mongodb-mirrored-integrated-architecture.png":::
 
 Open mirroring allows MongoDB change data to be written directly into Fabric. Then it's automatically converted to Delta format and immediately available for a lakehouse, Data Warehouse, real-time analytics, and Power BI.
 
@@ -191,7 +191,7 @@ Use sales pattern data to design bundles that increase basket size and margin.
 
 1. Model affinity and copurchase patterns, like market basket analysis, and expose metrics via Power BI.
 
-:::image type="content" source="media/product-bundling-use-case-visualization.png" alt-text="Pipeline stages and charts for product bundling, including sales by product, year, region, and affinity." border="false" lightbox="media/product-bundling-use-case-visualization.png":::
+:::image type="content" source="media/product-bundling-use-case-visualization.svg" alt-text="Screenshots of pipeline stages and charts for product bundling, including sales by product, year, region, and affinity." border="false" lightbox="media/product-bundling-use-case-visualization.svg":::
 
 **Recommendations from analysis**
 
@@ -207,7 +207,7 @@ Recommend complementary products by using customer behavior, profitability, and 
 - Train machine learning models in Fabric Spark notebooks or integrate with Azure Machine Learning.  
 - Use OneLake as the feature store and serve predictions to Power BI or downstream apps.
 
-:::image type="content" source="media/product-promotion-use-case-visualization.png" alt-text="Data pipeline and machine learning workflow for product promotion by using customer and product features." border="false" lightbox="media/product-promotion-use-case-visualization.png":::
+:::image type="content" source="media/product-promotion-use-case-visualization.svg" alt-text="Screenshot of the data pipeline and machine learning workflow for product promotion by using customer behavior and product features." border="false" lightbox="media/product-promotion-use-case-visualization.svg":::
 
 If the model achieves high accuracy, it yields a prioritized set of alternative product recommendations for each customer or segment.
 
