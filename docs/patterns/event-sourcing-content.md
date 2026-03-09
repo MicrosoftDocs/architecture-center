@@ -182,20 +182,24 @@ If a user cancels a seat, the system follows a similar process except the comman
 
 In addition to providing more scope for scalability, using an event store also provides a complete history, or audit trail, of the bookings and cancellations for a conference. The events in the event store are the accurate record. There's no need to persist aggregates in any other way because the system can easily replay the events and restore the state to any point in time.
 
-## Next steps
+## Next step
+
+> [!div class="nextstepaction"]
+> [Command and Query Responsibility Segregation (CQRS) pattern](./cqrs.md)
+
+The write store that provides the permanent source of information for a CQRS implementation is often based on an implementation of the Event Sourcing pattern. The pattern segregates the operations that read data in an application from the operations that update data by using separate interfaces.
+
+## Community resources
 
 - [Object-relational impedance mismatch](https://en.wikipedia.org/wiki/Object-relational_impedance_mismatch)
 
-- Martin Fowler's blog:
+- [Event Sourcing](https://martinfowler.com/eaaDev/EventSourcing.html) by Martin Fowler. The original 2005 description of the pattern that established the foundational vocabulary.
 
-  - [Event Sourcing](https://martinfowler.com/eaaDev/EventSourcing.html)
-  - [Snapshot on Martin Fowler's Enterprise Application Architecture website](https://martinfowler.com/eaaDev/Snapshot.html)
+- [CQRS Documents](https://cqrs.files.wordpress.com/2010/11/cqrs_documents.pdf) (PDF) by Greg Young. The definitive resource on event sourcing and CQRS from the practitioner who formalized both patterns.
 
 ## Related resources
 
 The following patterns and guidance might also be relevant when implementing this pattern:
-
-- [Command and Query Responsibility Segregation (CQRS) pattern](./cqrs.md). The write store that provides the permanent source of information for a CQRS implementation is often based on an implementation of the Event Sourcing pattern. Describes how to segregate the operations that read data in an application from the operations that update data by using separate interfaces.
 
 - [Materialized View pattern](./materialized-view.yml). The data store used in a system that's based on event sourcing is typically not well suited to efficient querying. Instead, a common approach is to generate prepopulated views of the data at regular intervals, or when the data changes.
 
