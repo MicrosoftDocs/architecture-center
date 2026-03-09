@@ -3,7 +3,7 @@ title: AKS Backup and Recovery
 description: Learn how to back up and recover your AKS clusters and their workloads.
 author: samcogan
 ms.author: samcogan
-ms.date: 02/17/2026
+ms.date: 03/09/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
@@ -199,7 +199,7 @@ Principal author:
 - [Joao Tavares](https://www.linkedin.com/in/joao-tavares-3976a63) | Senior Escalation Engineer
 
 Other contributors:
-
+- [Sam Cogan](https://www.linkedin.com/in/samcogan82/) | Senior Cloud Solution Architect
 - [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
 - [Sonia Cuff](https://www.linkedin.com/in/soniacuff) | Principal Cloud Advocate Lead
 
