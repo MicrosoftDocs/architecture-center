@@ -1,7 +1,7 @@
 Instead of storing just the current state of the data in a relational database, store the full series of actions taken on an object in an append-only store. The store acts as the system of record and can be used to materialize the domain objects. This approach can improve performance, scalability, and auditability in complex systems.
 
 > [!IMPORTANT]
-> Event sourcing is a complex pattern that permeates through the entire architecture and introduces trade-offs to achieve increased performance, scalability, and auditability. Once your system becomes an event sourcing system, all future design decisions are constrained by the fact that this is an event sourcing system. There is a high cost to migrate to or from an event sourcing system. This pattern is best suited for systems where performance and scalability are top requirements. The complexity that event sourcing adds to a system isn't justified for most systems.
+> Event sourcing is a complex pattern that introduces significant trade-offs. It changes how you store data, handle concurrency, evolve schemas, and query state. There is a high cost to migrate to or from event sourcing, and once adopted, it constrains future design decisions in the parts of the system where it's used. Adopt event sourcing where its benefits like auditability and historical reconstruction justify the pattern's complexity. For most systems and most parts of a system, traditional data management is sufficient.
 
 ## Context and problem
 
@@ -58,7 +58,7 @@ The Event Sourcing pattern provides the following advantages:
 
 - The command handlers raise events, and tasks perform operations in response to those events. This decoupling of the tasks from the events provides flexibility and extensibility. Tasks know about the type of event and the event data, but not about the operation that triggered the event. In addition, multiple tasks can handle each event. This enables easy integration with other services and systems that only listen for new events raised by the event store. However, the event sourcing events tend to be very low level, and it might be necessary to generate specific integration events instead.
 
-> Event sourcing is commonly combined with the [CQRS pattern](./cqrs.md) by performing the data management tasks in response to the events, and by materializing views from the stored events.
+> Event sourcing is commonly combined with the [CQRS pattern](./cqrs.md) by performing the data management tasks in response to the events, and by materializing views from the stored events. This combination enables independent scaling of reads and writes because append-only event ingestion and query-optimized projections operate separately.
 
 ## Issues and considerations
 
