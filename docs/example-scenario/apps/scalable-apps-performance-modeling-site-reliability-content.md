@@ -6,9 +6,7 @@ For more information on SRE strategies, see [Develop a Site Reliability Engineer
 
 ## Architecture
 
-:::image type="content" source="media/scalable-apps-performance-modeling-site-reliability.png" alt-text="The architecture shows microservices in a Kubernetes cluster. They receive requests passed on by Azure Front Door, and access data using various storage services." lightbox="media/scalable-apps-performance-modeling-site-reliability.png" :::
-
-*Download a [PowerPoint file](https://arch-center.azureedge.net/US-1881435-scalable-apps-performance-modeling-site-reliability.pptx) of this architecture.*
+:::image type="content" source="media/scalable-apps-performance-modeling-site-reliability.png" alt-text="Diagram showing a scalable API platform. Client apps send requests through Azure Front Door, API Management, and Application Gateway for Containers to AKS microservices backed by Azure data services. Microsoft Entra ID provides authentication, Azure Managed Redis provides caching, and Azure Monitor with Application Insights collects telemetry across all layers." lightbox="media/scalable-apps-performance-modeling-site-reliability.png" :::
 
 ### Dataflow
 
