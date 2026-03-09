@@ -126,6 +126,9 @@ This pattern might not be useful in the following situations:
 
 - Systems where there's only a low occurrence of conflicting updates to the underlying data. For example, systems that predominantly add data rather than updating it.
 
+> [!NOTE]
+> Event sourcing doesn't have to be an all-or-nothing decision for your entire system. Apply it selectively to the parts of your system where its benefits are strongest, such as a payment ledger or order-processing pipeline, and use traditional CRUD for parts where the complexity isn't justified, such as user profile management or application configuration.
+
 ## Workload design
 
 An architect should evaluate how the Event Sourcing pattern can be used in their workload's design to address the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). For example:
