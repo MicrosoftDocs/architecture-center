@@ -93,6 +93,11 @@ Consider the following points when deciding how to implement this pattern:
 
 - **Circular logic** - Be mindful of scenarios where the processing of one event involves the creation of one or more new events since this can cause an infinite loop.
 
+- **Personal data and regulatory compliance** - The append-only, immutable nature of an event store conflicts with data protection regulations that require deletion of personal data, such as the *right to be forgotten* laws. Deleting events outright breaks stream integrity, so design for this tension from the start.
+
+  - A common approach is to store personal data outside the event store and reference it by identifier in events, so deletion can occur independently without affecting the event stream.
+  - When personal data can't be separated from events, use crypto-shredding. Encrypt personal data in events with a per-subject key and destroy the key when deletion is required, rendering the data unrecoverable while leaving the event structure intact. This approach adds encryption overhead on every read and write and requires robust key management.
+
 ## When to use this pattern
 
 Use this pattern in the following scenarios:
