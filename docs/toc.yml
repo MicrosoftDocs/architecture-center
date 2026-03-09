@@ -43,10 +43,11 @@ items:
             href: microservices/ci-cd.yml
           - name: Domain modeling for microservices
             items:
-            - name: Domain analysis
+            - name: Use domain analysis to model microservices
+              displayName: DDD
               href: microservices/model/domain-analysis.md
-            - name: Tactical DDD
-              href: microservices/model/tactical-ddd.yml
+            - name: Use tactical DDD to design microservices
+              href: microservices/model/tactical-domain-driven-design.md
             - name: Identify microservice boundaries
               href: microservices/model/microservice-boundaries.yml
           - name: Design a microservices architecture
@@ -163,7 +164,7 @@ items:
     - name: Choose an AI service
       items:
       - name: AI services
-        displayName: choose
+        displayName: choose, foundry tools
         href: data-guide/technology-choices/ai-services.md
       - name: Targeted language processing
         href: data-guide/ai-services/targeted-language-processing.md
@@ -189,8 +190,8 @@ items:
     - name: Choose a messaging service
       items:
       - name: Asynchronous messaging
+        href: guide/technology-choices/messaging.md
         displayName: queue comparison, event-driven, Service Bus, Event Hubs, Event Grid
-        href: guide/technology-choices/messaging.yml
     - name: Development tools
       items:
       - name: Compare Java application hosting options
@@ -219,7 +220,7 @@ items:
       href: best-practices/data-partitioning-strategies.yml
     - name: Host name preservation
       displayName: host header, reverse proxy hostname, HTTP header
-      href: best-practices/host-name-preservation.yml
+      href: best-practices/host-name-preservation.md
     - name: Message encoding considerations
       href: best-practices/message-encode.md
     - name: Monitoring and diagnostics
@@ -261,7 +262,7 @@ items:
       href: guide/responsible-innovation/index.md
     - name: Understand potential harms
       href: guide/responsible-innovation/harms-modeling/index.md
-    - name: Implement AI responsibly when you use Azure AI services
+    - name: Implement AI responsibly when you use AI services
       href: /azure/ai-services/responsible-use-of-ai-overview
     - name: Measure Azure app sustainability
       href: example-scenario/apps/measure-azure-app-sustainability-sci-score.yml
@@ -409,7 +410,7 @@ items:
     displayName: legacy system integration, system boundary translation
     href: patterns/anti-corruption-layer.yml
   - name: Asynchronous Request-Reply
-    href: patterns/async-request-reply.yml
+    href: patterns/asynchronous-request-reply.md
   - name: Backends for Frontends
     displayName: BFF pattern, frontend-specific API
     href: patterns/backends-for-frontends.md
@@ -483,9 +484,9 @@ items:
     href: patterns/pipes-and-filters.yml
   - name: Priority Queue
     href: patterns/priority-queue.yml
-  - name: Publisher/Subscriber
+  - name: Publisher-Subscriber
     displayName: Pub/sub, pub sub, topic messaging
-    href: patterns/publisher-subscriber.yml
+    href: patterns/publisher-subscriber.md
   - name: Quarantine
     displayName: Deployment validation, input verification, security gate
     href: patterns/quarantine.yml
@@ -508,7 +509,7 @@ items:
     displayName: Horizontal partitioning, database partitioning
     href: patterns/sharding.yml
   - name: Sidecar
-    href: patterns/sidecar.yml
+    href: patterns/sidecar.md
   - name: Static Content Hosting
     displayName: Blob storage website, CDN hosting, static website, static assets
     href: patterns/static-content-hosting.yml
@@ -899,7 +900,7 @@ items:
           href: reference-architectures/hybrid-networking/index.yml
         - name: Connect on-premises with ExpressRoute
           href: reference-architectures/hybrid-networking/expressroute-vpn-failover.yml
-        - name: Design a hybrid Domain Name System
+        - name: Design a hybrid Domain Name System (DNS) solution by using Azure
           href: hybrid/hybrid-dns-infra.yml
         - name: Implement a secure hybrid network
           href: reference-architectures/dmz/secure-vnet-dmz.yml

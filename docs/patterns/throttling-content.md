@@ -73,6 +73,8 @@ Use this pattern:
 
 - To help cost-optimize a system by limiting the maximum resource levels needed to keep it functioning.
 
+- To reduce low value compute processing during periods of high carbon intensity in the energy grid.
+
 ## Workload design
 
 An architect should evaluate how the Throttling pattern can be used in their workload's design to address the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). For example:

@@ -173,6 +173,10 @@ When the roles of the SOC team are assigned, only two individuals in the team, k
 
 Only the [virtual network](/azure/virtual-network/virtual-networks-overview) in the SOC subscription has access to the SOC Storage account and key vault that archives the evidence. Authorized SOC team members can grant investigators temporary access to evidence in the SOC storage.
 
+#### OS disk requirements
+
+The production VMs that are subject to forensic capture must use persistent managed OS disks. Don't use [ephemeral OS disks](/azure/virtual-machines/ephemeral-os-disks) on VMs where digital evidence collection is required. Ephemeral OS disks are stored only on the local VM host and don't support disk snapshots. Because the snapshot-based evidence capture workflow depends on the ability to create and transfer point-in-time snapshots of OS and data disks, ephemeral OS disks are incompatible with this chain of custody process.
+
 #### Evidence acquisition
 
 Azure audit logs can document the evidence acquisition by recording the action of taking a VM disk snapshot. The logs include details such as who takes the snapshots and when they're taken.

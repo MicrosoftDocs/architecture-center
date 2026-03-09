@@ -119,7 +119,7 @@ To optimize your design, follow these best practices:
 - Test connectivity after establishing peerings to verify proper routing.
 - Limit connectivity to be unidirectional when supported by the scenario.
 
-[Subnet peering][subnet-peering] works similarly to virtual network peering but provides more granular control. You can specify which subnets at both sides of the peering can communicate with each other. This feature requires subscription registration and enforces a 400 subnet limit per peering connection. Subnet peering supports scenarios like overlapping virtual network ranges, IPv6-only connections, and selective gateway exposure.
+[Subnet peering](/azure/virtual-network/how-to-configure-subnet-peering) works similarly to virtual network peering but provides more granular control. You can specify which subnets at both sides of the peering can communicate with each other. This feature requires subscription registration and enforces a 400 subnet limit per peering connection. Subnet peering supports scenarios like overlapping virtual network ranges, IPv6-only connections, and selective gateway exposure.
 
 #### Virtual Network Manager
 
@@ -137,7 +137,7 @@ To optimize your design, follow these best practices:
 
 *Download a [Visio file](https://arch-center.azureedge.net/spoke-to-spoke-source-diagrams.vsdx) of these topologies.*
   
-When you create a hub-and-spoke topology by using Virtual Network Manager and connect spokes to each other, Azure automatically creates bi-directional connectivity between spoke virtual networks in the same [network group][avnm-network-group].
+When you create a hub-and-spoke topology by using Virtual Network Manager and connect spokes to each other, Azure automatically creates bi-directional connectivity between spoke virtual networks in the same [network group](/azure/virtual-network-manager/concept-network-groups).
 
 Use Virtual Network Manager to statically or dynamically assign spoke virtual networks to specific network groups. This assignment automatically creates virtual network connectivity.
   
@@ -145,11 +145,11 @@ You can create multiple network groups to isolate clusters of spoke virtual netw
 
 #### VPN tunnels
 
-Configure VPN services to directly connect spoke virtual networks by using Microsoft [VPN gateways][virtual-network-to-virtual-network] or non-Microsoft VPN NVAs. VPN gateways provide limited bandwidth connections and work well in scenarios that require encryption but can tolerate bandwidth restrictions and latency. To help detect and mitigate large-scale attacks, enable [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) on perimeter virtual networks.
+Configure VPN services to directly connect spoke virtual networks by using Microsoft [VPN gateways](/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal) or non-Microsoft VPN NVAs. VPN gateways provide limited bandwidth connections and work well in scenarios that require encryption but can tolerate bandwidth restrictions and latency. To help detect and mitigate large-scale attacks, enable [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) on perimeter virtual networks.
 
 Spoke virtual networks connect across commercial and sovereign clouds within the same cloud provider or between cross-cloud providers. If each spoke virtual network includes software-defined wide area network NVAs, use the non-Microsoft provider's control plane and feature set to manage virtual network connectivity.
 
-VPN-based connections also help meet compliance requirements for the encryption of traffic across virtual networks in a single Azure datacenter, where [Media Access Control Security encryption (MACsec)][macsec] doesn't apply.
+VPN-based connections also help meet compliance requirements for the encryption of traffic across virtual networks in a single Azure datacenter, where [Media Access Control Security encryption (MACsec)](/azure/virtual-network/virtual-networks-faq#is-virtual-network-peering-traffic-encrypted) doesn't apply.
 
 This approach has the following limitations:
 
@@ -186,20 +186,20 @@ Instead of connecting spoke virtual networks directly to each other, you can use
 
 The following resources use a network appliance to forward traffic between spokes:
 
-- **Virtual WAN hub router:** Microsoft manages Virtual WAN. Virtual WAN contains a virtual router that attracts traffic from spokes. It routes that traffic to either another virtual network connected to Virtual WAN or to on-premises networks via ExpressRoute or site-to-site or point-to-site VPN tunnels. The Virtual WAN router scales up and down automatically. You only need to ensure that the traffic volume between spokes stays within the [Virtual WAN limits][vwan-limits].
+- **Virtual WAN hub router:** Microsoft manages Virtual WAN. Virtual WAN contains a virtual router that attracts traffic from spokes. It routes that traffic to either another virtual network connected to Virtual WAN or to on-premises networks via ExpressRoute or site-to-site or point-to-site VPN tunnels. The Virtual WAN router scales up and down automatically. You only need to ensure that the traffic volume between spokes stays within the [Virtual WAN limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-virtual-wan-limits).
 
-- **Azure Firewall:** [Azure Firewall][azfw] is a Microsoft-managed network appliance that you can deploy in hub virtual networks that you manage or in Virtual WAN hubs. It forwards IP address packets, inspects them, and applies traffic segmentation rules defined in policies. Azure Firewall automatically scales up so that it doesn't become a bottleneck, but it has [limits][azfw-limits]. It supports built-in multiregion capabilities only when used with Virtual WAN. Without Virtual WAN, you must implement user-defined routes to enable cross-regional spoke-to-spoke communication.
+- **Azure Firewall:** [Azure Firewall](/azure/firewall/overview) is a Microsoft-managed network appliance that you can deploy in hub virtual networks that you manage or in Virtual WAN hubs. It forwards IP address packets, inspects them, and applies traffic segmentation rules defined in policies. Azure Firewall automatically scales up so that it doesn't become a bottleneck, but it has [limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-firewall-limits). It supports built-in multiregion capabilities only when used with Virtual WAN. Without Virtual WAN, you must implement user-defined routes to enable cross-regional spoke-to-spoke communication.
 
-- **Non-Microsoft NVAs:** If you prefer Microsoft partner NVAs to perform routing and network segmentation, you can deploy them in either a hub-and-spoke or Virtual WAN topology. For more information, see [Deploy highly available NVAs][nva-ha] and [NVAs in a Virtual WAN hub][vwan-nva]. Ensure that the NVA supports the bandwidth that the inter-spoke communications generate.
+- **Non-Microsoft NVAs:** If you prefer Microsoft partner NVAs to perform routing and network segmentation, you can deploy them in either a hub-and-spoke or Virtual WAN topology. For more information, see [Deploy highly available NVAs](../../networking/guide/network-virtual-appliance-high-availability.md) and [NVAs in a Virtual WAN hub](/azure/virtual-wan/about-nva-hub). Ensure that the NVA supports the bandwidth that the inter-spoke communications generate.
 
 - **Azure VPN Gateway:** You can use a VPN gateway as a next hop type of user-defined route. Don't use VPN virtual network gateways to route spoke-to-spoke traffic. These devices are designed to encrypt traffic to cross-premises sites or VPN users. For example, Azure doesn't guarantee bandwidth between spokes when you route through a VPN gateway.
-- **ExpressRoute:** An ExpressRoute gateway can advertise routes that attract spoke-to-spoke communication. This setup sends traffic to the Microsoft Edge router, which routes it to the destination spoke. This pattern, known as *ExpressRoute hairpinning*, must be [explicitly enabled][expressroute-hairpinning]. Avoid using this approach because it introduces latency by sending traffic to the Microsoft backbone edge and back. It creates a single point of failure and expands the blast radius. It also puts extra load on the ExpressRoute infrastructure, specifically the gateway and physical routers, which can result in packet drops.
+- **ExpressRoute:** An ExpressRoute gateway can advertise routes that attract spoke-to-spoke communication. This setup sends traffic to the Microsoft Edge router, which routes it to the destination spoke. This pattern, known as *ExpressRoute hairpinning*, must be [explicitly enabled](/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager#enable-or-disable-vnet-to-vnet-or-vnet-to-virtual-wan-traffic-through-expressroute). Avoid using this approach because it introduces latency by sending traffic to the Microsoft backbone edge and back. It creates a single point of failure and expands the blast radius. It also puts extra load on the ExpressRoute infrastructure, specifically the gateway and physical routers, which can result in packet drops.
 
 In self-managed hub-and-spoke network designs that include centralized NVAs, place the appliance in the hub. Create virtual network peerings between hub-and-spoke virtual networks manually, or use Virtual Network Manager to automate the configuration:
 
 - **Manual virtual network peerings or subnet peerings:** This approach works well when you have a few spoke virtual networks. But it adds management overhead at scale.
 
-- **[Virtual Network Manager][avnm-hns]:** Virtual Network Manager automates peering configurations between hub and spoke virtual networks at scale. Spoke virtual networks in network groups can [use the hub VPN or ExpressRoute gateways for connectivity][avnm-hub-as-gw]. Stay within the [Virtual Network Manager limits][avnm-limits].
+- **[Virtual Network Manager][avnm-hns]:** Virtual Network Manager automates peering configurations between hub and spoke virtual networks at scale. Spoke virtual networks in network groups can [use the hub VPN or ExpressRoute gateways for connectivity](/azure/virtual-network-manager/concept-connectivity-configuration#use-hub-as-a-gateway). Stay within the [Virtual Network Manager limits][avnm-limits].
 
 #### Single region deployment
 
@@ -226,7 +226,7 @@ The image shows a North-South hub and an East-West hub. The North-South hub incl
 
 #### Multiple region deployment
 
-You can extend the same configuration to multiple regions. For example, in a self-managed hub-and-spoke design that uses Azure Firewall, apply extra [route tables](/azure/virtual-network/manage-route-table) to the Azure Firewall subnets in each hub. These route tables support spokes in remote regions and ensure that inter-region traffic flows between the Azure firewalls in each hub virtual network. Inter-regional traffic between spoke virtual networks traverses both Azure firewalls. For more information, see [Use Azure Firewall to route a multi-hub and spoke topology][azfw-multi-hub-and-spoke].
+You can extend the same configuration to multiple regions. For example, in a self-managed hub-and-spoke design that uses Azure Firewall, apply extra [route tables](/azure/virtual-network/manage-route-table) to the Azure Firewall subnets in each hub. These route tables support spokes in remote regions and ensure that inter-region traffic flows between the Azure firewalls in each hub virtual network. Inter-regional traffic between spoke virtual networks traverses both Azure firewalls. For more information, see [Use Azure Firewall to route a multi-hub and spoke topology](/azure/firewall/firewall-multi-hub-spoke).
 
 :::image type="complex" border="false" source="images/spoke-to-spoke-via-nva-2-hubs.svg" alt-text="Network diagram that shows a two-region hub-and-spoke design via NVAs in the hubs." lightbox="images/spoke-to-spoke-via-nva-2-hubs.svg":::
 The image shows an East US hub and a West US hub. Each hub includes a firewall. A black line connects the two hubs. Three solid black lines connect the East US hub to three separate spokes. Three solid black lines connect the West US hub to three separate spokes.
@@ -254,7 +254,7 @@ Another scenario involves spoke virtual networks that are part of a single envir
 The image shows an East US hub and West US hub. Each hub has an NVA. A black line connects the hubs. Three black lines connect the East US hub to three separate spokes. Three black lines connect the West US hub to three separate spokes. A green line connects one spoke from each hub.
 :::image-end:::
 
-Another common pattern connects spokes in one region via direct virtual network peerings or Virtual Network Manager [connected groups][avnm-connected-group] but allows inter-regional traffic to cross NVAs. This model reduces the number of virtual network peerings in the architecture. But compared to the first model (direct connectivity between spokes), this model has more virtual network peering hops for cross-region traffic. These hops increase costs because of the multiple virtual network peerings that are crossed. This model also introduces extra load to the hub NVAs to front cross-regional traffic.  
+Another common pattern connects spokes in one region via direct virtual network peerings or Virtual Network Manager [connected groups](/azure/virtual-network-manager/concept-connectivity-configuration#connectedgroup) but allows inter-regional traffic to cross NVAs. This model reduces the number of virtual network peerings in the architecture. But compared to the first model (direct connectivity between spokes), this model has more virtual network peering hops for cross-region traffic. These hops increase costs because of the multiple virtual network peerings that are crossed. This model also introduces extra load to the hub NVAs to front cross-regional traffic.  
 
 :::image type="complex" border="false" source="images/spoke-to-spoke-through-peerings-2-hubs.svg" alt-text="Network diagram that shows a two-region hub-and-spoke design. Spokes in a single region are connected via virtual network peerings." lightbox="images/spoke-to-spoke-through-peerings-2-hubs.svg":::
 The image shows an East US hub and West US hub. Each hub has an NVA. A black line connects the hubs. Three black lines connect the East US hub to three separate spokes. Three black lines connect the West US hub to three separate spokes. In both hub networks, the spokes are all connected with each other with green lines.
@@ -267,7 +267,7 @@ The image shows Virtual WAN with East US and West US virtual hubs. In both hubs,
 :::image-end:::
 
 > [!NOTE]
-> For mixed approaches, direct connectivity via virtual network peering propagates system routes between connected virtual networks. These system routes are often more specific than custom routes configured via route tables. Therefore, the virtual network peering path is preferred over custom routes that follow the [longest prefix-match route selection][udr-route-selection].
+> For mixed approaches, direct connectivity via virtual network peering propagates system routes between connected virtual networks. These system routes are often more specific than custom routes configured via route tables. Therefore, the virtual network peering path is preferred over custom routes that follow the [longest prefix-match route selection](/azure/virtual-network/virtual-networks-udr-overview#how-azure-selects-a-route).
 >
 > In less common scenarios, when a system route and a custom user-defined route have the same address prefix, the user-defined route overrides the system routes created by virtual network peering. This behavior causes spoke-to-spoke virtual network traffic to pass through the hub virtual network, even when a direct peering connection exists.
 
@@ -296,29 +296,5 @@ Other contributors:
 - [Virtual Network Manager](/azure/virtual-network-manager/overview)
 - [Hub-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)
 
-[avnm-connected-group]: /azure/virtual-network-manager/concept-connectivity-configuration#connectedgroup
 [avnm-hns]: /azure/virtual-network-manager/concept-connectivity-configuration#hub-and-spoke-topology
-[avnm-hub-as-gw]: /azure/virtual-network-manager/concept-connectivity-configuration#use-hub-as-a-gateway
 [avnm-limits]: /azure/virtual-network-manager/faq#limits
-[avnm-network-group]: /azure/virtual-network-manager/concept-network-groups
-[avnm]: /azure/virtual-network-manager/overview
-[azfw-limits]: /azure/azure-resource-manager/management/azure-subscription-service-limits#azure-firewall-limits
-[azfw-multi-hub-and-spoke]: /azure/firewall/firewall-multi-hub-spoke
-[azfw]: /azure/firewall/overview
-[caf-network-topology-and-connectivity]: /azure/cloud-adoption-framework/ready/landing-zone/design-area/network-topology-and-connectivity
-[expressroute-hairpinning]: /azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager#enable-or-disable-vnet-to-vnet-or-vnet-to-virtual-wan-traffic-through-expressroute
-[hub-spoke-azure]: ../architecture/hub-spoke.yml
-[hub-spoke-azure-virtual-wan]: ../architecture/hub-spoke-virtual-wan-architecture.yml
-[hubnspoke]: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke
-[intro-avn]: /training/modules/introduction-to-azure-virtual-networks
-[macsec]: /azure/virtual-network/virtual-networks-faq#is-virtual-network-peering-traffic-encrypted
-[nva-ha]: ../../networking/guide/network-virtual-appliance-high-availability.md
-[secure-network-azure]: /training/modules/secure-network-connectivity-azure
-[subnet-peering]: /azure/virtual-network/how-to-configure-subnet-peering
-[traditional-azure-topology]: /azure/cloud-adoption-framework/ready/azure-best-practices/traditional-azure-networking-topology
-[udr-route-selection]: /azure/virtual-network/virtual-networks-udr-overview#how-azure-selects-a-route
-[virtual-network-peering]: /azure/virtual-network/virtual-network-peering-overview
-[virtual-network-to-virtual-network]: /azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal
-[vwan-limits]: /azure/azure-resource-manager/management/azure-subscription-service-limits#azure-virtual-wan-limits
-[vwan-nva]: /azure/virtual-wan/about-nva-hub
-[vwan]: /azure/virtual-wan/virtual-wan-about

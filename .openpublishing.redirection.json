@@ -4249,7 +4249,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "docs/solution-ideas/articles/messaging.yml",
+      "source_path": "docs/solution-ideas/articles/messaging.md",
       "redirect_url": "/azure/architecture/databases/idea/messaging",
       "redirect_document_id": true
     },
@@ -4427,6 +4427,11 @@
       "source_path": "docs/solution-ideas/articles/loan-chargeoff-prediction-with-sql-server.yml",
       "redirect_url": "/azure/architecture/databases",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/databases/guide/transactional-outbox-cosmos.md",
+      "redirect_url": "/azure/architecture/databases/guide/transactional-out-box-cosmos",
+      "redirect_document_id": true
     },
     {
       "source_path": "docs/solution-ideas/articles/loan-credit-risk-with-sql-server.yml",
@@ -7708,11 +7713,21 @@
       "redirect_document_id": false      
     },
     {
+      "source_path": "docs/patterns/async-request-reply.yml",
+      "redirect_url": "/azure/architecture/patterns/asynchronous-request-reply",
+      "redirect_document_id": true
+    },
+    {      
       "source_path": "docs/example-scenario/mainframe/refactor-mainframe-applications-advanced.yml",
       "redirect_url": "/azure/architecture/example-scenario/mainframe/general-mainframe-refactor",
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/microservices/model/tactical-ddd.yml",
+      "redirect_url": "/azure/architecture/microservices/model/tactical-domain-driven-design",
+      "redirect_document_id": false
+    },
+    {      
       "source_path": "docs/solution-ideas/articles/analytics-start-here.yml",
       "redirect_url": "/azure/architecture/solution-ideas/articles/analytics-get-started",
       "redirect_document_id": false

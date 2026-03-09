@@ -30,7 +30,7 @@ The following sections examine the economics of chunking images and the overall 
 
 A language model that generates a description of an image that you chunk incurs extra cost. For example, cloud-based services such as Azure OpenAI in Foundry Models either charge on a per-transaction basis or on a prepaid provisioning basis. Larger images incur a larger cost. Through your document analysis, you determine which images are valuable to chunk and which images to ignore. From there, you need to understand the number and sizes of the images in your solution. You then weigh the value of chunking the image descriptions against the cost to generate those descriptions.
 
-Use a service such as [Azure AI Vision](/azure/ai-services/computer-vision) to determine which images you want to process. You can classify images, tag images, or do logo detection. You can use the results and confidence indicators to determine whether the image adds meaningful, contextual value and should be processed. Calls to Vision might be less expensive than calls to language models, so this approach could result in cost savings. Experiment to determine what confidence levels and classifications or tags provide the best results for your data. Also consider the following alternatives:
+Use a service such as [Azure Vision in Foundry Tools](/azure/ai-services/computer-vision) to determine which images you want to process. You can classify images, tag images, or do logo detection. You can use the results and confidence indicators to determine whether the image adds meaningful, contextual value and should be processed. Calls to Vision might be less expensive than calls to language models, so this approach could result in cost savings. Experiment to determine what confidence levels and classifications or tags provide the best results for your data. Also consider the following alternatives:
 
 - Build your own classifier model. If you take this approach, be sure you consider the costs to build, host, and maintain your own model.
 
@@ -52,7 +52,7 @@ Consider the following factors when you assess the cost of your overall solution
 
 - **Number of unique chunking implementations:** Each unique implementation has engineering and maintenance costs. Consider the number of unique document types in your collection and the cost versus quality trade-offs of unique implementations for each.
 
-- **Per-document cost of each implementation:** Some chunking approaches might result in better quality chunks but have a higher financial and temporal cost to generate those chunks. For example, using a prebuilt model in Azure AI Document Intelligence likely has a higher per-document cost than a pure text parsing implementation, but might result in better chunks.
+- **Per-document cost of each implementation:** Some chunking approaches might result in better quality chunks but have a higher financial and temporal cost to generate those chunks. For example, using a prebuilt model in Azure Document Intelligence in Foundry Tools likely has a higher per-document cost than a pure text parsing implementation, but might result in better chunks.
 
 - **Number of initial documents:** The number of initial documents that you need to process to launch your solution.
 
