@@ -21,7 +21,7 @@ Mission-critical systems strive to minimize single points of failure by building
 The [architecture for a mission-critical application](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro) uses Azure Front Door because of its high uptime service-level agreement (SLA) and a rich feature set:
 
 - Route traffic to multiple regions, in either an active-active or active-passive model
-- Transparent failover between points of presence (PoPs)
+- Automatic rerouting to the next optimal point of presence (PoP) when a PoP is unhealthy
 - Serve static content from edge nodes by using integrated content delivery networks (CDNs)
 - Block unauthorized access with integrated web application firewall
 
