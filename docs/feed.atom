@@ -2,12 +2,188 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2026-03-02T17:45:16.420Z</updated>
+    <updated>2026-03-09T17:47:39.161Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Asynchronous Request-Reply Pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/asynchronous-request-reply</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/asynchronous-request-reply"/>
+        <updated>2026-03-05T20:29:44.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to decouple back-end processing from front-end hosts by using asynchronous operations and HTTP polling for long-running tasks.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Publisher-Subscriber Pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/publisher-subscriber</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/publisher-subscriber"/>
+        <updated>2026-03-05T18:51:34.000Z</updated>
+        <summary type="html"><![CDATA[Use an intermediary message broker or event bus to decouple senders from consumers and distribute messages to interested subscribers asynchronously.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Host Name Preservation]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/best-practices/host-name-preservation</id>
+        <link href="https://learn.microsoft.com/azure/architecture/best-practices/host-name-preservation"/>
+        <updated>2026-03-03T17:58:27.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to preserve the original HTTP host name between a reverse proxy and its back-end web application in common Azure services.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Real-Time Analytics on Data by Using Azure Service Bus and Azure Data Explorer]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/analytics-service-bus</id>
+        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/analytics-service-bus"/>
+        <updated>2026-03-05T22:55:30.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use Azure Service Bus and Azure Data Explorer to enhance an existing message broker architecture with near real-time analytics.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Virtual Desktop for Azure Local]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/hybrid/azure-local-workload-virtual-desktop</id>
+        <link href="https://learn.microsoft.com/azure/architecture/hybrid/azure-local-workload-virtual-desktop"/>
+        <updated>2026-03-05T20:00:36.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to design Azure Virtual Desktop for Azure Local to provide a more secure and productive remote desktop experience for users.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[AKS Day-2 Guide - Patch and Upgrade Guidance]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/operator-guides/aks/aks-upgrade-practices</id>
+        <link href="https://learn.microsoft.com/azure/architecture/operator-guides/aks/aks-upgrade-practices"/>
+        <updated>2026-03-05T19:51:56.000Z</updated>
+        <summary type="html"><![CDATA[Learn about day-2 patching and upgrading practices for Azure Kubernetes Service (AKS) worker nodes and Kubernetes versions.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Event-Driven Architecture Style]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/architecture-styles/event-driven</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/architecture-styles/event-driven"/>
+        <updated>2026-03-06T21:06:57.000Z</updated>
+        <summary type="html"><![CDATA[Explore the benefits, challenges, and best practices for event-driven architectures on Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Run a Linux VM on Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/n-tier/linux-vm</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/n-tier/linux-vm"/>
+        <updated>2026-03-05T21:46:27.000Z</updated>
+        <summary type="html"><![CDATA[Learn the best practices for running a Linux virtual machine on Azure, which requires some additional components, including networking and storage resources.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Choose an Azure storage service]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/technology-choices/storage-options</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/technology-choices/storage-options"/>
+        <updated>2026-03-04T18:55:05.000Z</updated>
+        <summary type="html"><![CDATA[Use this guide to decide which Azure storage service best suits your application.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Prepare to Choose a Data Store in Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/technology-choices/data-stores-getting-started</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/technology-choices/data-stores-getting-started"/>
+        <updated>2026-03-04T17:58:49.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to choose the right Azure data store for your workloads by evaluating functional, performance, cost, and security requirements.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Use Azure Firewall to help protect an AKS cluster]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/aks/aks-firewall</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/aks/aks-firewall"/>
+        <updated>2026-03-04T17:36:09.000Z</updated>
+        <summary type="html"><![CDATA[Deploy an AKS cluster in a hub-and-spoke network topology by using Terraform and Azure DevOps. Help protect inbound and outbound traffic by using Azure Firewall.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Guidance for using Azure Private Link service in a multitenant solution]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/private-link</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/private-link"/>
+        <updated>2026-03-04T17:36:09.000Z</updated>
+        <summary type="html"><![CDATA[This article describes the features of Azure Private Link that are useful when you work with multitenanted systems, and it provides links to guidance and examples.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Run SAP NetWeaver in Windows on Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/sap/sap-netweaver</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/sap/sap-netweaver"/>
+        <updated>2026-03-04T17:36:09.000Z</updated>
+        <summary type="html"><![CDATA[Learn proven practices for running SAP NetWeaver in a Windows environment on Azure, with high availability.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[SAP S/4HANA in Linux on Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/sap/sap-s4hana</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/sap/sap-s4hana"/>
+        <updated>2026-03-04T17:36:09.000Z</updated>
+        <summary type="html"><![CDATA[Learn more about proven practices for running SAP S/4HANA effectively in a Linux environment on Azure with high availability.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[No-Caching antipattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/antipatterns/no-caching</id>
+        <link href="https://learn.microsoft.com/azure/architecture/antipatterns/no-caching"/>
+        <updated>2026-03-04T15:46:10.000Z</updated>
+        <summary type="html"><![CDATA[Learn about ways to mitigate the No-Caching antipattern, the common design flaw of repeatedly fetching the same data.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Caching guidance]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/best-practices/caching</id>
+        <link href="https://learn.microsoft.com/azure/architecture/best-practices/caching"/>
+        <updated>2026-03-04T15:46:10.000Z</updated>
+        <summary type="html"><![CDATA[Learn how caching can improve the performance and scalability of a system by copying frequently accessed data to fast storage close to the application.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[CDN guidance]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/best-practices/cdn</id>
+        <link href="https://learn.microsoft.com/azure/architecture/best-practices/cdn"/>
+        <updated>2026-03-04T15:46:10.000Z</updated>
+        <summary type="html"><![CDATA[Guidance on using Content Delivery Networks (CDNs) to deliver high-bandwidth content hosted in Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Data partitioning guidance]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/best-practices/data-partitioning</id>
+        <link href="https://learn.microsoft.com/azure/architecture/best-practices/data-partitioning"/>
+        <updated>2026-03-04T15:46:10.000Z</updated>
+        <summary type="html"><![CDATA[View guidance for how to separate data partitions to be managed and accessed separately. Understand horizontal, vertical, and functional partitioning strategies.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Data partitioning strategies]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/best-practices/data-partitioning-strategies</id>
+        <link href="https://learn.microsoft.com/azure/architecture/best-practices/data-partitioning-strategies"/>
+        <updated>2026-03-04T15:46:10.000Z</updated>
+        <summary type="html"><![CDATA[View guidance on separating data partitions to be managed and accessed separately in different services, such as Azure AI Search, Azure storage queues, and more.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Administer SQL Server with Azure Arc]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/hybrid/azure-arc-sql-server</id>
+        <link href="https://learn.microsoft.com/azure/architecture/hybrid/azure-arc-sql-server"/>
+        <updated>2026-03-03T21:37:01.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use Azure Arc for management, maintenance, and monitoring of SQL Server instances in on-premises and multicloud environments.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure API Management Landing Zone Architecture]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/integration/app-gateway-internal-api-management-function</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/integration/app-gateway-internal-api-management-function"/>
+        <updated>2026-03-03T16:39:55.000Z</updated>
+        <summary type="html"><![CDATA[Learn about a secure enterprise API management architecture that uses Azure Application Gateway, API Management, and CI/CD pipeline deployment.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Inbound and outbound internet connections for SAP on Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/sap/sap-internet-inbound-outbound</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/sap/sap-internet-inbound-outbound"/>
+        <updated>2026-03-03T14:54:14.000Z</updated>
+        <summary type="html"><![CDATA[Learn proven practices for enabling improved-security inbound and outbound internet connections for your SAP on Azure infrastructure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Enhanced-security hybrid messaging for client access]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/hybrid/secure-hybrid-messaging-client</id>
@@ -153,7 +329,7 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Real-time analytics on data with Azure Service Bus and Azure Data Explorer]]></title>
+        <title type="html"><![CDATA[Real-Time Analytics on Data by Using Azure Service Bus and Azure Data Explorer]]></title>
         <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/analytics-service-bus</id>
         <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/analytics-service-bus"/>
         <updated>2026-02-25T19:46:25.000Z</updated>
