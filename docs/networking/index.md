@@ -91,15 +91,17 @@ The following sections, organized by category, provide links to sample networkin
 - [Virtual WAN architecture optimized for department-specific requirements](../networking/architecture/performance-security-optimized-vwan.yml)
 - [Hub-and-spoke network topology with Azure Virtual WAN](../networking/architecture/hub-spoke-virtual-wan-architecture.yml)
 
-### Multi-region networking
+### Multiregion networking
 
-- [Multi-region load balancing with Azure Traffic Manager and Application Gateway](../high-availability/traffic-manager-application-gateway.yml)
+- [Multiregion load balancing with Azure Traffic Manager and Application Gateway](../high-availability/traffic-manager-application-gateway.yml)
 
 ## Stay current with networking
 
 Get the [latest updates on Azure networking products and features](https://azure.microsoft.com/blog/topics/networking).
 
 ## Additional resources
+
+Consider the following resources.
 
 ### Example solutions
 
