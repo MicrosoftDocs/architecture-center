@@ -118,13 +118,15 @@ Use this pattern in the following scenarios:
 
 This pattern might not be useful in the following situations:
 
-- Applications that do not require hyper-scale or performance.
+- Systems with straightforward create, read, update, and delete operations where no one needs auditability, replay, or historical reconstruction of state. The operational overhead of an event store isn't justified if the only requirement is current-state reads and writes.
 
-- Small or simple domains, systems that have little or no business logic, or nondomain systems that naturally work well with traditional CRUD data management mechanisms.
+- Prototypes, MVPs, or systems with a short expected lifespan. The upfront investment in event design, schema evolution strategy, and projection infrastructure rarely pays off in these settings.
 
-- Systems where consistency and real-time updates to the views of the data are required.
+- Systems where consistency and real-time updates to the views of the data are required. Eventual consistency between the event store and projections is inherent to event sourcing.
 
-- Systems where there's only a low occurrence of conflicting updates to the underlying data. For example, systems that predominantly add data rather than updating it.
+- Domains where data is predominantly static or reference data, such as lookup tables or catalogs, that change infrequently and don't benefit from change history.
+
+- Teams without experience in [event-driven architectures](../guide/architecture-styles/event-driven.md). Event sourcing changes how you test, debug, and operate a system. Adopting it without that foundation increases the risk of anti-patterns that are costly to reverse.
 
 > [!NOTE]
 > Event sourcing doesn't have to be an all-or-nothing decision for your entire system. Apply it selectively to the parts of your system where its benefits are strongest, such as a payment ledger or order-processing pipeline, and use traditional CRUD for parts where the complexity isn't justified, such as user profile management or application configuration.
