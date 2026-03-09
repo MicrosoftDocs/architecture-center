@@ -82,6 +82,14 @@ Consider the following points when deciding how to implement this pattern:
 
 - **Querying events** -  There's no standard approach, or existing mechanisms such as SQL queries, for reading the events to obtain information. The only data that can be extracted is a stream of events using an event identifier as the criteria. The event ID typically maps to individual entities. The current state of an entity can be determined only by replaying all of the events that relate to it against the original state of that entity.
 
+- **Choosing an event store** - An event store can be a purpose-built database designed for append-only event streams or a general-purpose relational or document database with an append-only table.
+
+  - Purpose-built event stores provide built-in support for operations like reading a stream by entity, optimistic concurrency, and snapshots.
+  - Relational databases are familiar and widely available but require you to build those behaviors yourself.
+
+  > [!IMPORTANT]
+  > Don't confuse an event store with an event stream message broker. Message brokers such as Apache Kafka typically lack per-entity stream queries and optimistic concurrency. They work well as a distribution layer to fan out events to projections and external consumers, but they aren't a substitute for an event store.
+
 - **Cost of recreating state for entities** - The length of each event stream affects managing and updating the system. If the streams are large, replaying every event to rehydrate an entity becomes expensive in both time and compute. To mitigate this cost, create snapshots at specific intervals, such as every *N* events. A snapshot is a serialized representation of the entity's state at a specific point in its event stream. To rehydrate the entity, load the most recent snapshot and replay only the events that occurred after it, rather than replaying the entire stream from the beginning. Balance the storage cost of snapshots against the time saved during rehydration when choosing a snapshot frequency.
 
   > [!NOTE]
