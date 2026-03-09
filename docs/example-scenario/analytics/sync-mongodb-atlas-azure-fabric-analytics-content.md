@@ -7,7 +7,7 @@ The MongoDB Atlas to Fabric mirroring accelerator implements the open mirroring 
 The following diagram shows how a reference mirroring application deployed in Azure App Service streams MongoDB Atlas change events into Fabric.
 
 :::image type="complex" source="media/mongodb-atlas-fabric.svg" alt-text="Architecture diagram that shows how Fabric integrates with MongoDB Atlas by using open mirroring." border="false" lightbox="media/mongodb-atlas-fabric.svg":::
-   The flow begins with a user icon. An arrow points right to a box labeled Fabric generic mirroring with MirrorDB creation that contains Fabric, Power BI, OneLagke logos. An arrow labeled MongoDB mirrored landing zone points from this box to another box that represents the deployment to Azure. A GitHub logo is above this box. Another arrow points right to the App Service icon. A box labeled Python app is to the left of the App Service icon. That box contains smaller boxes for app.py, mirror, listening, and initial sync. Arrows point from App Service to app.py to mirror listening and initial sync. An arrow points from the Python app box back to the Fabric generic mirroring box.
+   The flow begins with a user icon. An arrow points right to a box labeled Fabric generic mirroring with MirrorDB creation that contains Fabric, Power BI, OneLake logos. An arrow labeled MongoDB mirrored landing zone points from this box to another box that represents the deployment to Azure. A GitHub logo is above this box. Another arrow points right to the App Service icon. A box labeled Python app is to the left of the App Service icon. That box contains smaller boxes for app.py, mirror, listening, and initial sync. Arrows point from App Service to app.py to mirror listening and initial sync. An arrow points from the Python app box back to the Fabric generic mirroring box.
 :::image-end:::
 
 ### Dataflow
@@ -56,7 +56,7 @@ The following dataflow corresponds to the previous diagram:
 The following diagram shows the mirroring integration architecture:
 
 :::image type="complex" source="media/mongodb-mirrored-integrated-architecture.png" alt-text="Diagram that shows the mirroring integration architecture." border="false" lightbox="media/mongodb-mirrored-integrated-architecture.png":::
-   On the left, a dashed box that represents the cloud contains an app icon.An arrow that represents insert, update, and delete operations points from the app to MongoDB Atlas. An arrow labeled near real-time incremental replication points right from MongoDB Atlas to OneLake. OneLake is inside another dashed box that represents a Fabric environment. Inside the Fabric box, arrows connect four vertically stacked icons to represent the flow from a mirrored MongoDB database to a default semantic model to a SQL analytics endpoint to OneLake with Delta or Parquet format.
+   On the left, a dashed box that represents the cloud contains an app icon. An arrow that represents insert, update, and delete operations points from the app to MongoDB Atlas. An arrow labeled near real-time incremental replication points right from MongoDB Atlas to OneLake. OneLake is inside another dashed box that represents a Fabric environment. Inside the Fabric box, arrows connect four vertically stacked icons to represent the flow from a mirrored MongoDB database to a default semantic model to a SQL analytics endpoint to OneLake with Delta or Parquet format.
 :::image-end:::
 
 Open mirroring allows MongoDB change data to be written directly into Fabric. Then it's automatically converted to Delta format and immediately available for a lakehouse, Data Warehouse, real-time analytics, and Power BI.
@@ -89,7 +89,7 @@ Use this approach when you need:
 This approach uses [MongoDB Atlas triggers](https://github.com/mongodb/atlas-functions-triggers-examples) to invoke Fabric user data functions or Azure Functions. The function writes the updated document into OneLake by using the Azure Data Lake Storage-compatible API.
 
 :::image type="complex" source="media/azure-fabric-analytics-mongodb.svg" alt-text="Architecture diagram that shows MongoDB CDC ingestion by using Real-Time Intelligence." lightbox="media/azure-fabric-analytics-mongodb.svg" border="false":::
-   The diagram consists of two boxes. The left box is labeled MongoDB Atlas. Inside the box, an arrow points from a cluster icon to a trigger icon and from the trigger icon to a function icon. Another arrow points right from the MongoDB Atlas box to a box labeled Microsoft Fabric. Inside this box, an arrow points from Fabric functions to OneLake. A Fabric pipleline icon connects OneLake and smaller box that contains icons for lakehouses and Data Warehouse.
+   The diagram consists of two boxes. The left box is labeled MongoDB Atlas. Inside the box, an arrow points from a cluster icon to a trigger icon and from the trigger icon to a function icon. Another arrow points right from the MongoDB Atlas box to a box labeled Microsoft Fabric. Inside this box, an arrow points from Fabric functions to OneLake. A Fabric pipeline icon connects OneLake and smaller box that contains icons for lakehouses and Data Warehouse.
 :::image-end:::
 
 ##### Dataflow
