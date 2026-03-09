@@ -64,6 +64,8 @@ The Event Sourcing pattern provides the following advantages:
 
 Consider the following points when deciding how to implement this pattern:
 
+- **Event design** - Design events to capture the business intent behind each change, not just the resulting state. For example, in the seat-reservation system, an event that records "two seats were reserved" is more valuable than one that records "remaining seats changed to 42." The first tells you *what happened*. The second only tells you *what the state became*. State-focused events reduce the event store to a change log with no business meaning. Intent-focused events enable richer projections, meaningful audit trails, and the flexibility to build new read models from historical events without having to change the write side.
+
 - **Eventual consistency** - The system will only be eventually consistent when creating materialized views or generating projections of data by replaying events. There's some delay between an application adding events to the event store as the result of handling a request, the events being published, and the consumers of the events handling them. During this period, new events that describe further changes to entities might have arrived at the event store. Your customers must be okay with the fact that data is eventually consistent and the system should be designed to account for eventual consistency in these scenarios.
 
   > [!NOTE]
