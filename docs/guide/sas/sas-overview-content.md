@@ -190,7 +190,7 @@ SAS workloads are often chatty. As a result, they can transfer a significant amo
 SAS has specific fully qualified domain name (FQDN) requirements for VMs. Set machine FQDNs correctly, and ensure that domain name system (DNS) services are working. You can set the names with Azure DNS. You can also edit the `hosts` file in the `etc` configuration folder.
 
 > [!NOTE]
-> Turn on accelerated networking on all nodes in the SAS deployment. When you turn this feature off, performance suffers significantly.
+> Turn on accelerated networking on all nodes in the SAS deployment. When you turn this feature off, performance degrades significantly.
 >
 > To turn on accelerated networking on a VM, follow these steps:
 >
