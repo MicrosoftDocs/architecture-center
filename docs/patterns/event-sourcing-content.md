@@ -1,4 +1,4 @@
-Instead of storing just the current state of the data in a relational database, store the full series of actions taken on an object in an append-only store. The store acts as the system of record and can be used to materialize the domain objects. This approach can improve performance, scalability, and auditability in complex systems.
+Instead of storing just the current state of the data in a relational database, store the full series of actions taken on an object in an append-only store. The store acts as the system of record and can be used to materialize the domain objects. This approach can improve auditability and write performance in complex systems.
 
 > [!IMPORTANT]
 > Event sourcing is a complex pattern that introduces significant trade-offs. It changes how you store data, handle concurrency, evolve schemas, and query state. There is a high cost to migrate to or from event sourcing, and once adopted, it constrains future design decisions in the parts of the system where it's used. Adopt event sourcing where its benefits like auditability and historical reconstruction justify the pattern's complexity. For most systems and most parts of a system, traditional data management is sufficient.
@@ -9,9 +9,9 @@ Most applications work with data, and the typical approach is for the applicatio
 
 The CRUD approach is straightforward and fast for most scenarios. However, in high-load systems, this approach has some challenges:
 
-- **Performance**: As the system scales, the performance will degrade due to contention for resources and locking issues.
+- **Performance**: As the system scales, write performance degrades due to row-level lock contention when multiple processes update the same records concurrently.
 
-- **Scalability**: CRUD systems are synchronous and data operations block on updates. This can lead to bottlenecks and higher latency when the system is under load.
+- **Scalability**: Because updates require read-modify-write cycles with locking, concurrent writes to the same entity become a bottleneck under load.
 
 - **Auditability**: CRUD systems only store the latest state of the data. Unless there's an auditing mechanism that records the details of each operation in a separate log, history is lost.
 
@@ -46,7 +46,7 @@ The following describes a typical workflow for this pattern:
 
 The Event Sourcing pattern provides the following advantages:
 
-- Events are immutable and can be stored using an append-only operation. The user interface, workflow, or process that initiated an event can continue, and tasks that handle the events can run in the background. This process, combined with the fact that there's no contention during the processing of transactions, can vastly improve performance and scalability for applications, especially for the presentation layer.
+- Events are immutable and can be stored using an append-only operation. The user interface, workflow, or process that initiated an event can continue, and tasks that handle the events can run in the background. Because append-only writes avoid the row-level lock contention of update-in-place systems, write throughput improves, especially for the presentation layer.
 
 - Events are simple objects that describe some action that occurred, together with any associated data that's required to describe the action represented by the event. Events don't directly update a data store. They're recorded for handling at the appropriate time. Using events can simplify implementation and management.
 
@@ -180,7 +180,7 @@ The sequence of actions for reserving two seats is as follows:
 
 If a user cancels a seat, the system follows a similar process except the command handler issues a command that generates a seat cancellation event and appends it to the event store.
 
-In addition to providing more scope for scalability, using an event store also provides a complete history, or audit trail, of the bookings and cancellations for a conference. The events in the event store are the accurate record. There's no need to persist aggregates in any other way because the system can easily replay the events and restore the state to any point in time.
+Using an event store provides a complete history, or audit trail, of the bookings and cancellations for a conference. The events in the event store are the accurate record. There's no need to persist aggregates in any other way because the system can easily replay the events and restore the state to any point in time.
 
 ## Next step
 
