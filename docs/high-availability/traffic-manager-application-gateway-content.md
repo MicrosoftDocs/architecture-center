@@ -298,7 +298,7 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
   Flexible orchestration supports [automatic guest patching](/azure/virtual-machines/automatic-vm-guest-patching) for critical and security patches, but doesn't support automatic OS image upgrades. Use [Azure Update Manager](/azure/update-manager/overview) or your deployment pipeline to handle OS image upgrades.
 
-  This ongoing operational burden is the primary trade-off for the control and flexibility that IaaS provides. If your team doesn't need this level of control, consider the PaaS alternatives described in [Alternatives](#compute-platform).
+  This ongoing operational burden is the primary trade-off for the control and flexibility that IaaS provides. If your team doesn't need this level of control, consider the PaaS [alternatives](#compute-platform).
 
 ### Performance Efficiency
 
