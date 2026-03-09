@@ -1,4 +1,4 @@
-This architecture is for global, internet-facing applications that use HTTP(S) and non-HTTP(S) protocols. It features Domain Name System (DNS)-based global load balancing, two forms of regional load balancing, and global virtual network peering to create a reliable architecture. Availability zones provide resiliency within each region, and multi-region deployment provides recoverability from a regional outage. Azure Web Application Firewall and Azure Firewall inspect traffic at multiple layers.
+This architecture is for global, internet-facing applications that use HTTP(S) and non-HTTP(S) protocols. It features Domain Name System (DNS)-based global load balancing, two forms of regional load balancing, and global virtual network peering to create a reliable architecture. Availability zones provide resiliency within each region, and multiregion deployment provides recoverability from a regional outage. Azure Web Application Firewall and Azure Firewall inspect traffic at multiple layers.
 
 ## Architecture
 
@@ -6,10 +6,10 @@ This section describes the traffic flows through the architecture for inbound HT
 
 ### Inbound HTTP(S) traffic flows
 
-HTTP(S) traffic passes through the Application Gateway web application firewall (WAF) and Azure Firewall Premium Transport Layer Security (TLS) inspection before it reaches the application tiers.
+HTTP(S) traffic passes through the Azure Application Gateway web application firewall (WAF) and Azure Firewall Premium Transport Layer Security (TLS) inspection before it reaches the application tiers.
 
-:::image type="complex" border="false" source="images/high-availability-multi-region-web-v-10.svg" alt-text="Diagram that shows multi-region load balancing with Azure Firewall, Application Gateway, and Traffic Manager for web traffic." lightbox="images/high-availability-multi-region-web-v-10.svg":::
-  In step 1, at the top center of the diagram, an arrow points from a browser icon to a box labeled recursive DNS service, and another arrow points from that box to Traffic Manager. A double-sided arrow labeled health check connects the Application Gateway endpoints. There are two mirrored regions connected by virtual network peering. In these regions, steps 2 through 8 show Application Gateway subnet, Azure Firewall subnet, internal load balancer, web tier subnet, the second internal load balancer, business tier subnet, and data tier subnets. The Application Gateway subnet includes App Gateway and a layer-7 load balancer. The Azure Firewall subnet includes the Azure Firewall. These sections span three zones. The resource group encloses both regions and includes DDoS Protection and Private DNS zone.
+:::image type="complex" border="false" source="images/high-availability-multi-region-web-v-10.svg" alt-text="Diagram that shows multiregion load balancing with Azure Firewall, Application Gateway, and Azure Traffic Manager for web traffic." lightbox="images/high-availability-multi-region-web-v-10.svg":::
+  In step 1, at the top center of the diagram, an arrow points from a browser icon to a box labeled recursive DNS service, and another arrow points from that box to Traffic Manager. A double-sided arrow labeled health check connects the Application Gateway endpoints. There are two mirrored regions connected by virtual network peering. In these regions, steps 2 through 8 show Application Gateway subnet, Azure Firewall subnet, internal load balancer, web tier subnet, another internal load balancer, business tier subnet, and data tier subnets. The Application Gateway subnet includes Application Gateway and a layer-7 load balancer. The Azure Firewall subnet includes the Azure Firewall. These sections span three zones. The resource group encloses both regions and includes Azure DDoS Protection and a private DNS zone.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/high-availability-multi-region-v-10.vsdx) of this architecture.*
@@ -34,8 +34,8 @@ HTTP(S) traffic passes through the Application Gateway web application firewall 
 
 Some workloads accept traffic over protocols other than HTTP(S), like SSH File Transfer Protocol (SFTP) for file-based data ingestion from business partners or legacy Transmission Control Protocol (TCP)-based integrations. Non-HTTP(S) traffic routes directly to Azure Firewall for destination network address translation (DNAT) and inspection, which bypasses Application Gateway.
 
-:::image type="complex" border="false" source="images/high-availability-multi-region-non-web-v-10.svg" alt-text="Diagram that shows multi-region load balancing with Azure Firewall, Application Gateway, and Traffic Manager for non-web traffic." lightbox="images/high-availability-multi-region-non-web-v-10.svg":::
-  In step 1, at the top center of the diagram, an arrow points from a non-web client to a box labeled recursive DNS service, and another arrow points from that box to Traffic Manager. A double-sided arrow labeled health check connects the Application Gateway endpoints. There are two mirrored regions connected by virtual network peering. In these regions, steps 2 through 7 show Azure Firewall subnet, internal load balancer, web tier subnet, the second internal load balancer, business tier subnet, and data tier subnets. The Application Gateway subnet includes App Gateway and a layer-7 load balancer. The Azure Firewall subnet includes the Azure Firewall. These sections span three zones. The resource group encloses both regions and includes DDoS Protection and Private DNS zone.
+:::image type="complex" border="false" source="images/high-availability-multi-region-non-web-v-10.svg" alt-text="Diagram that shows multiregion load balancing with Azure Firewall, Application Gateway, and Traffic Manager for non-web traffic." lightbox="images/high-availability-multi-region-non-web-v-10.svg":::
+  In step 1, at the top center of the diagram, an arrow points from a non-web client to a box labeled recursive DNS service, and another arrow points from that box to Traffic Manager. A double-sided arrow labeled health check connects the Application Gateway endpoints. There are two mirrored regions connected by virtual network peering. In these regions, steps 2 through 7 show Azure Firewall subnet, internal load balancer, web tier subnet, another internal load balancer, business tier subnet, and data tier subnets. The Application Gateway subnet includes Application Gateway and a layer-7 load balancer. The Azure Firewall subnet includes the Azure Firewall. These sections span three zones. The resource group encloses both regions and includes Azure DDoS Protection and a private DNS zone.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/high-availability-multi-region-v-10.vsdx) of this architecture.*
@@ -72,7 +72,7 @@ Outbound traffic flows for VM patch updates or other internet-bound traffic go f
 
 - [Azure DNS](/azure/dns/dns-overview) is a hosting service for DNS domains. It provides name resolution through Azure infrastructure. In this architecture, Azure DNS manages DNS records and works with Traffic Manager to provide global DNS-based load balancing and failover capabilities.
 
-- [Azure DNS private zones](/azure/dns/private-dns-overview) are a feature of Azure DNS. Azure DNS private zones provide name resolution within a virtual network and between virtual networks. In this architecture, Azure DNS private zones provide internal name resolution for resources within the virtual network infrastructure.
+- [Azure private DNS zones](/azure/dns/private-dns-overview) are a feature of Azure DNS. Azure private DNS zones provide name resolution within a virtual network and between virtual networks. In this architecture, Azure private DNS zones provide internal name resolution for resources within the virtual network infrastructure.
 
 - [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is a service that provides on-demand, scalable computing resources that give you the flexibility of virtualization but eliminate the maintenance demands of physical hardware. In this architecture, Virtual Machines hosts the application tiers, which are distributed across availability zones for resiliency and across multiple regions for recoverability.
 
@@ -108,13 +108,13 @@ Outbound traffic flows for VM patch updates or other internet-bound traffic go f
 
 ## Alternatives
 
-This architecture uses specific technology choices to support mixed‑protocol, multi-region workloads. Your workload requirements might lead to different choices. Consider the following alternatives.
+This architecture uses specific technology choices to support mixed‑protocol, multiregion workloads. Your workload requirements might lead to different choices. Consider the following alternatives.
 
 ### Global load balancer
 
 **Current approach:** Traffic Manager provides DNS-based global load balancing that supports both HTTP(S) and non-HTTP(S) protocols. This architecture uses Traffic Manager because it must route non-HTTP(S) flows, like SFTP and legacy TCP integrations, through Azure Firewall for network-level inspection. Traffic Manager is DNS-based, so clients connect directly to the back-end endpoints, which requires Application Gateway and Azure Firewall to have public IP addresses.
 
-**Alternative approach:** Use [Azure Front Door](/azure/frontdoor/front-door-overview) instead of Traffic Manager. Azure Front Door is a layer-7 global load balancer purpose-built for HTTP(S) traffic that provides caching, traffic acceleration, TLS termination, certificate management, and built-in WAF. Azure Front Door is a reverse proxy, so it can connect to Application Gateway over [Private Link](/azure/frontdoor/private-link), which eliminates the need for public IP addresses on your back-end infrastructure. It's the preferred global routing solution for HTTP(S)-only workloads.
+**Alternative approach:** Use [Azure Front Door](/azure/frontdoor/front-door-overview) instead of Traffic Manager. Azure Front Door is a layer-7 global load balancer for HTTP(S) traffic that provides caching, traffic acceleration, TLS termination, certificate management, and built-in WAF. Azure Front Door is a reverse proxy, so it can connect to Application Gateway over [Azure Private Link](/azure/frontdoor/private-link), which eliminates the need for public IP addresses on your back-end infrastructure. It's the preferred global routing solution for HTTP(S)-only workloads.
 
 Consider Azure Front Door if your workload meets the following conditions:
 
@@ -128,7 +128,7 @@ Consider Azure Front Door if your workload meets the following conditions:
 
 **Current approach:** The web, business, and data tiers run on Virtual Machine Scale Sets with SQL Server on Azure Virtual Machines. This infrastructure as a service (IaaS) approach provides full control over the operating system (OS), middleware, and database engine configuration.
 
-**Alternative approach:** Replace specific tiers with platform as a service (PaaS) resources like [Azure App Service](/azure/app-service/overview) for the web tier or [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview) for the data tier. The overall network architecture doesn't change significantly if you use [Azure Private Link](/azure/private-link/private-link-overview) and [App Service virtual network integration](/azure/app-service/overview-vnet-integration) to integrate these PaaS services into the virtual network.
+**Alternative approach:** Replace specific tiers with platform as a service (PaaS) resources like [Azure App Service](/azure/app-service/overview) for the web tier or [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview) for the data tier. The overall network architecture doesn't change significantly if you use [Private Link](/azure/private-link/private-link-overview) and [App Service virtual network integration](/azure/app-service/overview-vnet-integration) to integrate these PaaS services into the virtual network.
 
 Consider PaaS alternatives if your workload meets the following conditions:
 
@@ -160,13 +160,13 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-- Deploy to at least two Azure regions for recoverability. An active-passive or active-active multi-region configuration helps your workload recover from a regional outage. Traffic Manager monitors endpoint health and redirects DNS responses from unhealthy regions, but you must ensure that the secondary region is ready to serve traffic, including data replication and application readiness.
+- **Multiregion deployment:** Deploy to at least two Azure regions for recoverability. An active-passive or active-active multiregion configuration helps your workload recover from a regional outage. Traffic Manager monitors endpoint health and redirects DNS responses from unhealthy regions, but you must ensure that the secondary region is ready to serve traffic, including data replication and application readiness.
 
-  - For your secondary region, prefer a [paired region](/azure/reliability/regions-paired) when a paired region is available for benefits like prioritized recovery sequencing and staggered platform updates. If your region doesn't have a pair, you can build a multi-region solution, but some services like [geo-redundant storage (GRS)](/azure/storage/common/storage-redundancy#geo-redundant-storage) require alternative replication approaches. Factor in geographic distance, data residency, service availability, and cost. For more information, see [Select Azure regions](/azure/cloud-adoption-framework/ready/azure-setup-guide/regions).
+  - For your secondary region, prefer a [paired region](/azure/reliability/regions-paired) when a paired region is available because it provides prioritized recovery sequencing and staggered platform updates. If your region doesn't have a paired region, you can build a multiregion solution. But some services like [geo-redundant storage (GRS)](/azure/storage/common/storage-redundancy#geo-redundant-storage) require alternative replication approaches. Factor in geographic distance, data residency, service availability, and cost. For more information, see [Select Azure regions](/azure/cloud-adoption-framework/ready/azure-setup-guide/regions).
 
   - The SQL Server Always On availability group replicas in the secondary region use [asynchronous commit with manual failover](/azure/azure-sql/virtual-machines/windows/availability-group-manually-configure-multi-subnet-multiple-regions). Because the commit mode is asynchronous, the secondary region might not receive some committed transactions during a regional outage, so plan for potential data loss. Define your recovery point objective (RPO) and test whether the replication lag under your workload's write volume remains within that target. Failover to the secondary region is a manual operation that requires an operator or runbook to promote the asynchronous replica.
 
-- This architecture deploys Application Gateway, Azure Firewall, Load Balancer, and Virtual Machine Scale Sets across multiple [availability zones](/azure/reliability/availability-zones-overview) within each region to provide resiliency against datacenter-level failures.
+- **Zonal resiliency:** This architecture deploys Application Gateway, Azure Firewall, Load Balancer, and Virtual Machine Scale Sets across multiple [availability zones](/azure/reliability/availability-zones-overview) within each region to provide resiliency against datacenter-level failures.
 
 - **Virtual Machine Scale Sets:** Flexible orchestration distributes VM instances across fault domains within each availability zone, which reduces the blast radius of a single host failure. It also provides the per-VM placement control that the [multi-subnet SQL Server availability group](/azure/azure-sql/virtual-machines/windows/hadr-cluster-best-practices) configuration requires.
 
@@ -176,7 +176,7 @@ Reliability helps ensure that your application can meet the commitments that you
 
   Use Traffic Manager in a [nested configuration](/azure/traffic-manager/traffic-manager-configure-performance-routing-method) if you need more granular control to choose a preferred failover within a region.
 
-- Use [Traffic View](/azure/traffic-manager/traffic-manager-traffic-view-overview) to see traffic patterns and latency metrics. Traffic View can help you plan expansion into new Azure regions.
+- Use [traffic view](/azure/traffic-manager/traffic-manager-traffic-view-overview) to see traffic patterns and latency metrics. Traffic view can help you plan expansion into new Azure regions.
 
 #### Application Gateway
 
@@ -226,7 +226,7 @@ Familiarize yourself with the health probe policies of Application Gateway and L
 
 Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-This architecture follows zero-trust principles and assumes no implicit trust between components. Multiple layers inspect and authorize traffic. The Application Gateway WAF filters HTTP-level threats, Azure Firewall Premium inspects all traffic flows at a deep packet level, network security groups (NSGs) enforce least-privilege segmentation between tiers, and TLS encryption protects data in transit at every hop. No single layer blocks every threat.
+This architecture follows zero-trust principles and assumes no implicit trust between components. Multiple layers inspect and authorize traffic. The Application Gateway WAF filters HTTP-level threats, Azure Firewall Premium inspects all traffic flows at a deep packet level, network security groups (NSGs) enforce least-privilege segmentation between tiers, and TLS encryption protects data in transit at every network hop. No single layer blocks every threat.
 
 - **WAF:** The WAF functionality of Application Gateway detects and prevents attacks at the HTTP level, like SQL injection (SQLi) or cross-site scripting (XSS).
 
@@ -256,7 +256,7 @@ This architecture follows zero-trust principles and assumes no implicit trust be
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-- **Multi-region baseline cost:** This architecture deploys a full infrastructure stamp in each region, including Virtual Machine Scale Sets across three tiers, Application Gateway, Azure Firewall Premium, and load balancers. The secondary region incurs cost whether it serves traffic or not. In an active-passive configuration, scale the secondary region's Virtual Machine Scale Sets instances to the minimum required for a timely failover rather than run them at full production capacity.
+- **Multiregion baseline cost:** This architecture deploys a full infrastructure stamp in each region, including Virtual Machine Scale Sets across three tiers, Application Gateway, Azure Firewall Premium, and load balancers. The secondary region incurs cost whether it serves traffic or not. In an active-passive configuration, scale the secondary region's Virtual Machine Scale Sets instances to the minimum required for a timely failover rather than run them at full production capacity.
 
 - **VMs:** VMs are the primary cost driver because every tier in both regions runs compute continuously. Use [Azure Reserved VM Instances](/azure/virtual-machines/prepay-reserved-vm-instances) or [Azure savings plans for compute](/azure/cost-management-billing/savings-plan/savings-plan-compute-overview). Reserved instances work well for the minimum always-on capacity, while savings plans provide flexibility if VM sizes change over time.
 
@@ -264,7 +264,7 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 - **DDoS Network Protection and WAF discount:** [DDoS Network Protection](/azure/ddos-protection/ddos-protection-overview) has a fixed monthly cost that covers up to 100 public IP addresses across subscriptions in a tenant.
 
-  When you turn on DDoS Network Protection, Azure [bills Application Gateway WAF instances at the lower standard rate](/azure/application-gateway/understanding-pricing) instead of the WAF rate. For architectures that have multiple Application Gateway instances, the WAF discount can offset a meaningful portion of the DDoS plan cost.
+  When you turn on DDoS Network Protection, Azure [bills Application Gateway WAF instances at the lower standard rate](/azure/application-gateway/understanding-pricing) instead of the WAF rate. For architectures that have multiple Application Gateway instances, the WAF discount can offset a significant portion of the DDoS plan cost.
 
 - **Application Gateway scaling:** Application Gateway charges a fixed hourly rate plus variable [capacity unit](/azure/application-gateway/understanding-pricing#capacity-unit) costs. A higher autoscale minimum instance count reserves capacity units you pay for regardless of traffic. Balance the minimum instance count against acceptable cold-start latency to avoid paying for unused capacity.
 
@@ -282,7 +282,7 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 - **Infrastructure as code (IaC):** This architecture has a large resource surface area that includes Traffic Manager, two regional stamps each that have Application Gateway, Azure Firewall, load balancers, Virtual Machine Scale Sets, NSGs, virtual networks, and subnets. Define all resources in [Bicep](/azure/azure-resource-manager/bicep/overview) or [Terraform](/azure/developer/terraform/overview) to ensure that both regional stamps remain consistent and for repeatable deployments.
 
-- **Deployment coordination:** In deployments that have two active regional stamps, deploy updates to the secondary region first and validate them before you promote the changes to the primary region. Use [safe deployment practices](/azure/well-architected/operational-excellence/safe-deployments) with progressive exposure to limit the scope of impact. Traffic Manager DNS weighting can support canary traffic shifts between regions during rollouts.
+- **Deployment coordination:** In deployments that have two active regional stamps, deploy updates to the secondary region and validate them before you promote the changes to the primary region. Use [safe deployment practices](/azure/well-architected/operational-excellence/safe-deployments) with progressive exposure to limit the scope of impact. Traffic Manager DNS weighting can support canary traffic shifts between regions during rollouts.
 
 - **Monitoring:** Deploy a [Log Analytics workspace](/azure/azure-monitor/logs/workspace-design) in each region so that monitoring remains functional even during a regional outage.
 
@@ -298,13 +298,13 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
   Flexible orchestration supports [automatic guest patching](/azure/virtual-machines/automatic-vm-guest-patching) for critical and security patches, but doesn't support automatic OS image upgrades. Use [Azure Update Manager](/azure/update-manager/overview) or your deployment pipeline to handle OS image upgrades.
 
-  This ongoing operational burden is the primary tradeoff for the control and flexibility that IaaS provides. If your team doesn't need this level of control, determine the PaaS alternatives described in [Alternatives](#compute-platform).
+  This ongoing operational burden is the primary trade-off for the control and flexibility that IaaS provides. If your team doesn't need this level of control, consider the PaaS alternatives described in [Alternatives](#compute-platform).
 
 ### Performance Efficiency
 
 Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-- **Virtual Machine Scale Sets:** Deploy a separate [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview) instance with [flexible orchestration](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#scale-sets-with-flexible-orchestration) for each application tier (web, business, and data). Separate scale sets let you scale each tier independently based on its own demand profile. Set up [autoscaling policies](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview) on the web and business tiers to scale out during demand increases and scale in during off-peak periods.
+- **Virtual Machine Scale Sets:** Deploy a separate [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview) instance with [flexible orchestration](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#scale-sets-with-flexible-orchestration) for each application tier, including the web, business, and data tiers. Separate scale sets let you scale each tier independently based on its own demand profile. Set up [autoscaling policies](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview) on the web and business tiers to scale out during demand increases and scale in during off-peak periods.
 
 - **Double inspection latency:** The HTTP(S) flow in this architecture passes traffic through both the Application Gateway WAF and Azure Firewall Premium TLS inspection. This layered defense adds latency to each request. Test your application's performance under realistic load to confirm that the extra inspection time meets your response-time requirements.
 
@@ -316,4 +316,4 @@ Performance Efficiency refers to your workload's ability to scale to meet user d
 
 ## Related resource
 
-- [AKS baseline for multi-region clusters](../reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml)
+- [AKS baseline for multiregion clusters](../reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml)

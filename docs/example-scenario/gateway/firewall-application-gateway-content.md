@@ -448,7 +448,7 @@ Learn more about the component technologies:
 Explore related architectures:
 
 - [Implement a secure hybrid network](../../reference-architectures/dmz/secure-vnet-dmz.yml)
-- [Multi-region load balancing with Traffic Manager, Azure Firewall, and Application Gateway](../../high-availability/traffic-manager-application-gateway.yml)
+- [Multiregion load balancing with Traffic Manager, Azure Firewall, and Application Gateway](../../high-availability/traffic-manager-application-gateway.yml)
 - [Securely managed web applications](../apps/fully-managed-secure-apps.yml)
 - [High availability enterprise deployment by using App Service Environment](../../web-apps/app-service-environment/architectures/app-service-environment-high-availability-deployment.yml)
 - [Enterprise deployment by using App Service Environment](../../web-apps/app-service-environment/architectures/app-service-environment-standard-deployment.yml)
