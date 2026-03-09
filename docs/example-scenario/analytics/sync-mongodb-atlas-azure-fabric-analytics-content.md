@@ -26,14 +26,14 @@ The following dataflow corresponds to the previous diagram:
    - Subscribes to MongoDB change streams to capture ongoing insert, update, and delete operations.
    - Writes the captured change data as Parquet files into the Fabric landing zone.
 
-   Fabric automatically:
+1. Fabric automatically:
 
    - Detects new Parquet files in the landing zone.
    - Converts new Parquet files into Delta tables that support schema evolution.
    - Keeps mirrored tables synced with the source MongoDB collections.
    - Generates a default semantic model for Power BI.
 
-   Power BI, lakehouse in Fabric, and Fabric Data Warehouse workloads can consume the synced data for analytics and reporting.
+1. Power BI, lakehouse in Fabric, and Fabric Data Warehouse workloads can consume the synced data for analytics and reporting.
 
 ### Components
 
