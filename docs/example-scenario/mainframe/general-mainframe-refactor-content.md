@@ -50,7 +50,7 @@ The following workflow corresponds to the previous diagram:
 
 1. In Azure, Azure Load Balancer manages access to the application compute clusters. Load Balancer supports scale-out compute resources to handle input. You can use a level-7 application level or level-4 network level load balancer, depending on how the application input reaches the compute cluster entry point.
 
-1. Application compute clusters can run on Azure VMs or run in containers in AKS clusters. Mainframe system emulation for PL/I or COBOL applications typically uses VMs. Applications refactored to Java or .NET use containers. Some mainframe system emulation software also supports deployment in containers. Compute resources use Azure Premium SSD disks or Azure Ultra Disk Storage with accelerated networking and remote direct memory access (RDMA).
+1. Application compute clusters can run on Azure VMs or run in containers in AKS clusters. Mainframe system emulation for PL/I or COBOL applications typically uses VMs. Applications refactored to Java or .NET use containers. Some mainframe system emulation software also supports deployment in containers. Compute resources use Azure Premium SSDs or Azure Ultra Disk Storage with accelerated networking and remote direct memory access (RDMA).
 
 1. Application servers in the compute clusters host the applications based on language capability, such as Java classes or COBOL programs. The servers receive application input and share application state and data by using Azure Managed Redis or RDMA.
 
@@ -104,7 +104,7 @@ This example features the following Azure components. Several of these component
 
 - [Azure Storage](/azure/storage/common/storage-introduction) is a cloud-based service that provides scalable, secure cloud storage for all your data, applications, and workloads. In this architecture, Storage provides the necessary storage infrastructure for various data types and applications.
 
-  - [Azure Disk Storage](/azure/virtual-machines/managed-disks-overview) is a high-performance, durable block storage service for business-critical applications. Azure managed disks are block-level storage volumes that Azure manages on Azure VMs. The available types of disks are Ultra Disk Storage, Premium SSD, and Azure Standard SSD. This architecture uses either Premium SSD disks or Ultra Disk Storage.
+  - [Azure Disk Storage](/azure/virtual-machines/managed-disks-overview) is a high-performance, durable block storage service for business-critical applications. Azure Managed Disks are block-level storage volumes that Azure manages on Azure VMs. The available types of disks are Ultra Disk Storage, Premium SSD, and Azure Standard SSD. This architecture uses either Premium SSDs or Ultra Disk Storage.
 
   - [Azure Files](/azure/well-architected/service-guides/azure-files) is a fully managed cloud-based file storage service that provides file shares in the cloud. These file shares are accessible via the industry-standard Server Message Block (SMB) protocol. In this architecture, Azure Files provides managed file shares for cloud and on-premises deployments. Cloud and on-premises Windows, Linux, and macOS deployments can mount Azure Files file shares concurrently.
 
@@ -170,7 +170,7 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 - Azure avoids unnecessary costs by identifying the correct number of resource types, analyzing spending over time, and scaling to meet business needs without overspending. Azure provides cost optimization by running on VMs. You can turn off the VMs when they're not in use and script a schedule for known usage patterns. For more information, see [Azure Well-Architected Framework](/azure/well-architected/) and [Recommendations for optimizing component costs](/azure/well-architected/cost-optimization/optimize-component-costs).
 
-- The VMs in this architecture use either Premium SSD disks or Ultra Disk Storage. For more information, see [Managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks).
+- The VMs in this architecture use either Premium SSDs or Ultra Disk Storage. For more information, see [Managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks).
 
 - SQL Database optimizes costs by using serverless compute and Hyperscale storage resources that automatically scale. For more information, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/azure-sql-database/single).
 
@@ -204,7 +204,7 @@ Principal author:
 - For more information, contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).
 - [What is ExpressRoute?](/azure/expressroute/expressroute-introduction)
 - [What is Virtual Network?](/azure/virtual-network/virtual-networks-overview)
-- [Introduction to Azure managed disks](/azure/virtual-machines/managed-disks-overview)
+- [Introduction to Azure Managed Disks](/azure/virtual-machines/managed-disks-overview)
 - [What is Private Link?](/azure/private-link/private-link-overview)
 - [What is SQL Database?](/azure/azure-sql/database/sql-database-paas-overview)
 - [What is Azure Files?](/azure/storage/files/storage-files-introduction)

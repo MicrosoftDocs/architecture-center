@@ -329,7 +329,6 @@ The following considerations and limitations apply when you create and manage si
 
 - System pools must contain at least one node. You can delete a system node pool if you have another system node pool to take its place in the AKS cluster. User node pools can contain zero or more nodes.
 - You can't change the VM size of a node pool after you create it.
-- For multiple node pools, the AKS cluster must use Standard SKU load balancers. Basic SKU load balancers don't support multiple node pools.
 - All cluster node pools must be in the same virtual network, and all subnets that are assigned to a node pool must be in the same virtual network.
 - If you create multiple node pools when you create a cluster, the Kubernetes versions for all node pools must match the control plane version. To update versions after you configure the cluster, use per-node-pool operations.
 

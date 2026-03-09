@@ -56,7 +56,7 @@ Often, *edge* locations have specific requirements for running Kubernetes cluste
 
 - It's important to understand any underlying infrastructure and any integration that occurs up front. Then you can narrow down viable options and identify any gaps with the open-source tooling or plugins.
 
-- You can enable clusters by using [Azure Arc](/azure/azure-arc/) as a simple way to manage your cluster from Azure alongside other resources. This approach also provides your cluster with other Azure capabilities, including [Azure Policy](/azure/governance/policy/), [Azure Monitor](/azure/azure-monitor/), [Microsoft Defender for Cloud](/azure/security-center/azure-defender), and other services.
+- You can enable clusters by using [Azure Arc](/azure/azure-arc/) as a simple way to manage your cluster from Azure alongside other resources. This approach also provides your cluster with other Azure capabilities, including [Azure Policy](/azure/governance/policy/), [Azure Monitor](/azure/azure-monitor/), [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction), and other services.
 
 - It's especially important to be mindful of continuous integration and continuous deployment (CI/CD) because cluster configuration isn't trivial. You must track and act on upstream changes of various plugins. Ensure that those changes don't affect the health of your cluster. It's important for you to have a strong CI/CD solution, strong testing, and monitoring in place.
 

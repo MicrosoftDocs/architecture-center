@@ -30,7 +30,7 @@ The numbers in the diagram correspond to the following data flow.
 
 - [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is an object storage solution designed for storing unstructured data, such as text and binary data. In this architecture, Blob Storage serves as the destination for AIX backup files transferred from Data Box Gateway during the migration process.
 
-- [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) is a connectivity service that extends your on-premises networks to Microsoft cloud services, including Azure and Office 365, over a private connection that a connectivity provider facilitates. In this architecture, ExpressRoute provides secure, high-bandwidth connectivity between on-premises users and the Azure-hosted web application.
+- [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) is a connectivity service that extends your on-premises networks to Microsoft cloud services, including Azure and Microsoft 365, over a private connection that a connectivity provider facilitates. In this architecture, ExpressRoute provides secure, high-bandwidth connectivity between on-premises users and the Azure-hosted web application.
 
   For more information about how ExpressRoute works with Skytap, see [Skytap Get started with Azure networking guide](https://www.skytap.com/blog/skytap-on-azure-networking-considerations/).
 

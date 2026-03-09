@@ -179,7 +179,7 @@ Also consider these points:
 
 If you need access to your other, non–Azure Red Hat OpenShift nodes, you can optionally use [Azure Bastion](/azure/bastion/bastion-overview) to access your VMs. For security reasons, don't expose VMs to a network or the internet without configuring [network security groups](/azure/virtual-network/network-security-groups-overview) to control access to them.
 
-[Server-side encryption (SSE) of Azure disk storage](/azure/virtual-machines/disk-encryption) helps protect your data. SSE also helps you meet organizational security and compliance commitments. With Azure managed disks, SSE encrypts the data at rest when persisting it to the cloud. This behavior applies by default to both OS and data disks. OpenShift uses SSE by default. Azure Red Hat OpenShift also supports customer-managed encryption keys (CMEK) for the OS disks in your cluster.
+[Server-side encryption (SSE) of Azure disk storage](/azure/virtual-machines/disk-encryption) helps protect your data. SSE also helps you meet organizational security and compliance commitments. With Azure Managed Disks, SSE encrypts the data at rest when persisting it to the cloud. This behavior applies by default to both OS and data disks. OpenShift uses SSE by default. Azure Red Hat OpenShift also supports customer-managed encryption keys (CMEK) for the OS disks in your cluster.
 
 #### Authentication
 
@@ -271,7 +271,7 @@ Other contributors:
 - [Use Azure Key Vault Provider for Secrets Store CSI Driver on Azure Red Hat OpenShift](/azure/openshift/howto-use-key-vault-secrets)
 - [IBM MQ in Containers](https://www.ibm.com/docs/en/ibm-mq/9.1?topic=mq-in-containers)
 - [Azure Red Hat OpenShift](/azure/openshift/intro-openshift)
-- [What is Azure Database for PostgreSQL?](/azure/postgresql/single-server/overview)
+- [What is Azure Database for PostgreSQL?](/azure/postgresql/overview)
 - [Introduction to Red Hat on Azure](/training/modules/introduction-to-red-hat-azure)
 - [Work with Azure Database for PostgreSQL](/training/paths/microsoft-learn-azure-database-for-postgresql)
 
@@ -279,4 +279,3 @@ Other contributors:
 
 - [Deploy IBM Maximo Application Suite on Azure](../../example-scenario/apps/deploy-ibm-maximo-application-suite.yml)
 - [Deploy a Java application with JBoss EAP on an ARO cluster](/azure/developer/java/ee/jboss-eap-on-aro)
-
