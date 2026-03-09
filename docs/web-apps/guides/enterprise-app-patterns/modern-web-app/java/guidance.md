@@ -4,7 +4,7 @@ description: Implement the Modern Web App pattern for Java. Get prescriptive arc
 author: nishanil
 ms.author: nanil
 ms.reviewer: ssumner
-ms.date: 11/7/2024
+ms.date: 3/8/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
@@ -166,7 +166,7 @@ Implement the [Queue-Based Load Leveling pattern](/azure/architecture/patterns/q
 
 - *Implement message retry and removal.* Implement a mechanism to retry processing of queued messages that can't be processed successfully. If failures persist, these messages should be removed from the queue. For example, Service Bus has built-in retry and dead-letter queue features.
 
-- *Configure idempotent message processing.* The logic that processes messages from the queue must be idempotent to handle cases in which a message might be processed more than once. In Spring Boot, you can use `@StreamListener` or `@KafkaListener` with a unique message identifier to prevent duplicate processing. Or you can organize the business process to operate in a functional approach with Spring Cloud Stream, where the `consume` method is defined in a way that produces the same result when it runs repeatedly. For a list of settings that manage the behavior of message consumption, see [Spring Cloud Stream with Service Bus](/azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-with-service-bus?tabs=use-a-service-bus-queue).
+- *Configure idempotent message processing.* The logic that processes messages from the queue must be idempotent to handle cases in which a message might be processed more than once. In Spring Boot, use the functional programming model with Spring Cloud Stream, defining `Function<>` or `Consumer<>` beans whose `consume` method produces the same result when it runs repeatedly. You can also use `@KafkaListener` with a unique message identifier to prevent duplicate processing. To further ensure idempotency, consider tracking processed message IDs in a persistent store and skipping duplicates. For a list of settings that manage the behavior of message consumption, see [Spring Cloud Stream with Service Bus](/azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-with-service-bus?tabs=use-a-service-bus-queue).
 
 - *Manage changes to the user experience.* When you use asynchronous processing, tasks might not be finished immediately. To set expectations and avoid confusion, ensure that users know when their tasks are being processed. Use visual cues or messages to indicate that a task is in progress. Give users the option to receive notifications when their task is complete, like an email or push notification.
 
