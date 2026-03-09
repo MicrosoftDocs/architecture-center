@@ -8,6 +8,8 @@ For more information on SRE strategies, see [Develop a Site Reliability Engineer
 
 :::image type="content" source="media/scalable-apps-performance-modeling-site-reliability.png" alt-text="Diagram showing a scalable API platform. Client apps send requests through Azure Front Door, API Management, and Application Gateway for Containers to AKS microservices backed by Azure data services. Microsoft Entra ID provides authentication, Azure Managed Redis provides caching, and Azure Monitor with Application Insights collects telemetry across all layers." lightbox="media/scalable-apps-performance-modeling-site-reliability.png" :::
 
+*Download a [PowerPoint file](https://arch-center.azureedge.net/US-1881435-scalable-apps-performance-modeling-site-reliability.pptx) of this architecture.*
+
 ### Dataflow
 
 1. Client applications such as web apps, mobile apps, and service applications send requests to the unified endpoint `https://api.contoso.com`.
