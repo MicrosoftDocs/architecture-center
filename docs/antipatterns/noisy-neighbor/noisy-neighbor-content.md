@@ -2,7 +2,7 @@ Multitenant systems share resources between two or more tenants. Because tenants
 
 ## Context and problem
 
-When you build a service that multiple customers or *tenants* share, you can build it to be *multitenanted*. A benefit of multitenant systems is that resources can be pooled and shared among tenants. This resource sharing often results in lower costs and improved efficiency. However, if a single tenant uses a disproportionate amount of the resources available in the system, the overall performance of the system can suffer. The *noisy neighbor* problem occurs when one tenant's performance is degraded because of the activities of another tenant.
+When you build a service that multiple customers or *tenants* share, you can build it to be *multitenanted*. A benefit of multitenant systems is that resources can be pooled and shared among tenants. This resource sharing often results in lower costs and improved efficiency. However, if a single tenant uses a disproportionate amount of the resources available in the system, the overall performance of the system can degrade. The *noisy neighbor* problem occurs when one tenant's performance is degraded because of the activities of another tenant.
 
 Consider an example multitenant system that has two tenants. Tenant A's usage patterns and tenant B's usage patterns coincide. At peak times, tenant A uses all of the system's resources, which means that any requests that tenant B makes fail. In other words, the total resource demand is higher than the capacity of the system:
 

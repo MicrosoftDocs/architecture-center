@@ -37,7 +37,7 @@ For more information, see [Kubernetes governance](https://www.cncf.io/blog/2020/
 
 ## Governance in EKS and AKS
 
-- Amazon Web Services (AWS) customers usually use [Kyverno](https://kyverno.io), [Gatekeeper](https://github.com/open-policy-agent/gatekeeper), or other partner solutions to define and implement a governance strategy for their Amazon EKS clusters. The [aws-eks-best-practices/policies](https://github.com/aws/aws-eks-best-practices/tree/master/policies) GitHub repository contains a collection of example policies for Kyverno and Gatekeeper.
+- Amazon Web Services (AWS) customers usually use [Kyverno](https://kyverno.io), [Gatekeeper](https://github.com/open-policy-agent/gatekeeper), or other partner solutions to define and implement a governance strategy for their Amazon EKS clusters. The [aws-eks-best-practices/policies](https://github.com/aws/aws-eks-best-practices/tree/mainline/policies) GitHub repository contains a collection of example policies for Kyverno and Gatekeeper.
 
 - Azure customers can also use Kyverno or Gatekeeper. To extend Gatekeeper for an AKS governance strategy, you can use the [Azure Policy for Kubernetes add-on](/azure/governance/policy/concepts/policy-for-kubernetes).
 
