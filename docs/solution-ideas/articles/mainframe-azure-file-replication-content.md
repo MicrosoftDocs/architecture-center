@@ -56,6 +56,10 @@ The following dataflow corresponds to the architecture diagram:
 
 This architecture uses the following components.
 
+### Alternatives
+
+Besides native services like Host Integration Server and LogicApp IBM Host connector, Open-source file conversion libraries can be used to convert EBCDIC mainframe files to ASCII or Unicode. This method, however, needs more orchestration and management than Azure's native solutions.
+
 #### Networking
 
 An [on-premises data gateway](/data-integration/gateway/service-gateway-onprem) is bridge software that connects on-premises data sources to cloud services. In this architecture, it enables communication between mainframe systems and Azure services for file transfer and integration. You can install the gateway [on a dedicated on-premises VM](/azure/logic-apps).
@@ -66,7 +70,7 @@ This architecture outlines various Azure-native migration tools that you can use
 
 - [Data Provider for Host Files](/host-integration-server/core/data-for-host-files) is a component of [HIS](/host-integration-server/what-is-his) that converts EBCDIC code page files to ASCII. The provider can read and write records offline in a local binary file. Or it can use Systems Network Architecture (SNA) or Transmission Control Protocol/Internet Protocol (TCP/IP) to read and write records in remote IBM z/OS mainframe datasets or i5/OS physical files. HIS connectors are available for [BizTalk](/host-integration-server/core/biztalk-adapter-for-host-files-configuration1) and [Logic Apps](/azure/logic-apps/logic-apps-overview). In this architecture, Data Provider for Host Files enables file-level access and transformation of IBM z/OS and i5/OS datasets for migration to Azure.
 
-- [Azure Data Factory](/azure/data-factory/introduction) is a hybrid data integration service that you can use to create, schedule, and orchestrate ETL and ELT workflows. In this architecture, Azure Data Factory transfers mainframe files to Blob Storage via FTP and manages transformation pipelines.
+- [Azure Data Factory](/azure/data-factory/introduction) is a hybrid data integration service that you can use to create, schedule, and orchestrate ETL and ELT workflows. In this architecture, Azure Data Factory transfers mainframe files to Blob Storage via FTP/SFTP and manages transformation pipelines.
 
 - [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security) is an Apache Spark-based analytics platform optimized for Azure. In this architecture, it enriches and correlates incoming mainframe data with other datasets for advanced analytics and transformation.
   
@@ -113,6 +117,8 @@ On-premises file replication and synchronization are essential for various use c
 - Parallel testing of rehosted or re-engineered applications on Azure with on-premises applications
   
 - Tightly coupled on-premises applications on systems that can't be immediately remediated or modernized
+
+- Microsoft Fabric enables T‑SQL–based, read‑only analytics and reporting on large mainframe datasets migrated to OneLake or ADLS Gen2 via its SQL Analytics Endpoint.
   
 ## Contributors
 
@@ -122,10 +128,6 @@ Principal authors:
 
 - [Nithish Aruldoss](https://www.linkedin.com/in/nithish-aruldoss-b4035b2b) | Engineering Architect
 - [Ashish Khandelwal](https://www.linkedin.com/in/ashish-khandelwal-839a851a3/) | Principal Engineering Architecture Manager
-
-Other contributors:
-
-- [Gyani Sinha](https://www.linkedin.com/in/gyani-sinha/) | Senior Cloud Solution Architect
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
