@@ -36,7 +36,7 @@ When it comes to intra-region high availability and cross-region disaster recove
 
 - [Availability zones](/azure/aks/availability-zones): AKS supports the use of availability zones, which are physically separate datacenters within an Azure region. By deploying AKS clusters across multiple availability zones, you can ensure higher resiliency and fault tolerance within a region. Doing so allows your applications to remain operational even if one zone experiences an outage.
 - [Redundancy options for persistent volumes](/azure/aks/concepts-storage#storage-classes): AKS provides various redundancy options for persistent volumes. The [Azure Disk CSI driver for Kubernetes](https://github.com/kubernetes-sigs/azuredisk-csi-driver) supports [built-in storage classes](/azure/aks/concepts-storage#storage-classes) and custom storage classes that use the locally redundant storage (LRS) or zone redundant storage (ZRS) for better intra-region resiliency. For more information, see [Driver Parameters](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/docs/driver-parameters.md).
-- [Azure Kubernetes Fleet Manager](https://azure.microsoft.com/products/kubernetes-fleet-manager): Azure Kubernetes Fleet Manager enables multi-cluster and at-scale intra-region and cross-region scenarios for AKS clusters.
+- [Azure Kubernetes Fleet Manager](/azure/kubernetes-fleet/): Azure Kubernetes Fleet Manager enables multi-cluster and at-scale intra-region and cross-region scenarios for AKS clusters.
 - [Geo-redundancy options for Azure Container Registry (ACR)](/azure/container-registry/container-registry-geo-replication): Azure Container Registry (ACR) offers geo-replication capabilities. With geo-redundancy, your container images are replicated across different Azure regions. So even if a particular region experiences an outage, your images are available, which provides higher availability for your container registry.
 
 For multi-region disaster recovery patterns, see:
@@ -92,13 +92,13 @@ AKS Backup integrates with the [Resiliency in Azure](/azure/backup/backup-center
 
 See [About AKS Backup using Azure Backup](/azure/backup/azure-kubernetes-service-backup-overview) for a detailed description of how AKS Backup works and its capabilities.
 
-### Kasten by Veeam
+### Veeam Kasten
 
-[Kasten by Veeam](https://www.kasten.io/) (formerly Kasten K10) is a commercial product that provides operations teams with a secure system for backup and recovery of Kubernetes applications. It's available in both a free version with limited functionality and no support, and a paid version that includes more features and customer support.
+[Veeam Kasten](https://www.veeam.com/products/cloud/kubernetes-data-protection.html) (formerly Kasten K10) is a commercial product that provides operations teams with a secure system for backup and recovery of Kubernetes applications. It's available in both a free version with limited functionality and no support, and a paid version that includes more features and customer support.
 
-When Kasten is deployed as a Kubernetes operator within the cluster, it provides a comprehensive backup solution. It offers a management dashboard for centralized control and visibility. With Kasten, users can benefit from incremental and application-aware backups, enabling efficient data protection. Additionally, Kasten offers disaster recovery capabilities. These capabilities include automated failover and failback, and features for data migration and ensuring security.
+When Veeam Kasten is deployed as a Kubernetes operator within the cluster, it provides a comprehensive backup solution. It offers a management dashboard for centralized control and visibility. With Kasten, users can benefit from incremental and application-aware backups, enabling efficient data protection. Additionally, Veeam Kasten offers disaster recovery capabilities. These capabilities include automated failover and failback, and features for data migration and ensuring security.
 
-For more information about Kasten's feature set, see the [Kasten by Veeam documentation](https://docs.kasten.io/latest/index.html). For more information about how to effectively use Kasten with AKS clusters, see [Installing Kasten on Azure](https://docs.kasten.io/latest/install/azure/azure.html).
+For more information about Veeam Kasten's feature set, see the [Veeam Kasten documentation](https://docs.kasten.io/latest/index.html). For more information about how to effectively use Veeam Kasten with AKS clusters, see [Installing Veeam Kasten on Azure](https://docs.kasten.io/latest/install/azure/azure.html).
 
 ### Velero
 
@@ -158,7 +158,7 @@ AKS Backup uses a Backup vault, a storage account, and (optionally) the Vault Ti
 
 ### Operational Tier storage
 
-For disk-based persistent volumes, AKS Backup uses [incremental snapshots](/azure/virtual-machines/disks-incremental-snapshots?tabs=azure-cli) of the underlying Azure Disk. Incremental snapshots are point-in-time backups for managed disks that consist only of the changes since the last snapshot. The first incremental snapshot is a full copy of the disk. These snapshots are stored within your Azure subscription in the same region as the source disk.
+For disk-based persistent volumes, AKS Backup uses [incremental snapshots](/azure/virtual-machines/disks-incremental-snapshots) of the underlying Azure Disk. Incremental snapshots are point-in-time backups for managed disks that consist only of the changes since the last snapshot. The first incremental snapshot is a full copy of the disk. These snapshots are stored within your Azure subscription in the same region as the source disk.
 
 Cluster state (Kubernetes resources) is backed up to a blob container within a designated [storage account](/azure/storage/common/storage-account-overview). The storage account provides multiple intra-region and cross-region redundancy options to ensure data durability.
 
@@ -220,7 +220,7 @@ Other contributors:
 
 ### Third-party AKS backup and recovery options
 
-- [Kasten by Veeam](https://docs.kasten.io/latest/index.html)
+- [Veeam Kasten](https://docs.kasten.io/latest/index.html)
 - [Velero](https://velero.io/docs)
 
 ## Related resources
