@@ -28,7 +28,7 @@ The following workflow corresponds to the previous diagram.
 
   :::image type="content" border="false" source="media/arcgis-rdp.jpg" alt-text="Screenshot that shows ArcGIS and virtual machines in the Remote Desktop tool.":::
 
-- Web GIS users can also use this solution by accessing ArcGIS Enterprise administrative interfaces either in the browser in the Azure Virtual Desktop RDP session or, if ArcGIS is published as public facing, via their local browser. Azure Application Gateway routes the traffic to the correct endpoint for the ArcGIS server roles. As with ArcGIS Pro, the latency between the browsers and the back end is minimized.
+- Web GIS users can also use this solution by accessing ArcGIS Enterprise administrative interfaces either in the browser in the Azure Virtual Desktop RDP session or, if ArcGIS is published as public-facing, via their local browser. Azure Application Gateway routes the traffic to the correct endpoint for the ArcGIS Server roles. As with ArcGIS Pro, the latency between the browsers and the back end is minimized.
 
 - You can deploy the enterprise geodatabase in Azure SQL Managed Instance. ArcGIS Pro users can then create, manage, and edit the geodatabase from an RDP session. During the creation of the Azure Virtual Desktop image, administrators can include the Open Database Connectivity (ODBC) drivers so users don't have to install them on the Azure Virtual Desktop virtual machines (VMs).
 
@@ -50,7 +50,7 @@ The following workflow corresponds to the previous diagram.
 
 - [SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) is a managed SQL Server instance that includes built-in high availability and scalability. In this architecture, SQL Managed Instance stores the enterprise geodatabase, which supports ArcGIS Pro users to manage and edit spatial data in a secure and scalable environment.
 
-- [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) provides an application delivery controller as a service, offering that provides layer-7 load balancing, security, and web application firewall functionality. In this architecture, Application Gateway distributes incoming requests to ArcGIS Server roles, which ensure efficient traffic routing and protection against common web vulnerabilities.
+- [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is an application delivery controller as a service that provides layer-7 load balancing, security, and web application firewall functionality. In this architecture, Application Gateway distributes incoming requests to ArcGIS Server roles to ensure efficient traffic routing and protection against common web vulnerabilities.
 
 - [FSLogix](/fslogix/overview-what-is-fslogix) is a profile container solution that improves the user experience in virtual desktop environments. In this architecture, FSLogix supports fast logins and persistent user profiles for Azure Virtual Desktop users. Users can roam between remote computing session hosts and optimize file input/output (I/O) between the host or client and the remote profile store.
 
@@ -58,7 +58,7 @@ The following workflow corresponds to the previous diagram.
 
 - [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is a private cloud-based network that you can use to build your own secure network infrastructure in Azure. Virtual Network enables secure communication between Azure resources through private IP addresses. In this architecture, Virtual Network connects all components, such as virtual desktops, databases, and storage, within a secure and isolated network.
 
-- [ArcGIS Pro](https://www.esri.com/arcgis/products/arcgis-pro/overview) is Esri's professional desktop GIS application for spatial analysis, mapping, and data editing. In this architecture, ArcGIS Pro runs on GPU-enabled Azure Virtual Desktop VMs, which help users to perform advanced 2D and 3D geospatial tasks and publish services. ArcGis Pro runs best on Azure high-performance computing VMs, like the NV-Series. You can scale the use of ArcGIS by using Azure Virtual Desktop.
+- [ArcGIS Pro](https://www.esri.com/arcgis/products/arcgis-pro/overview) is Esri's professional desktop GIS application for spatial analysis, mapping, and data editing. In this architecture, ArcGIS Pro runs on GPU-enabled Azure Virtual Desktop VMs, which help users to perform advanced 2D and 3D geospatial tasks and publish services. ArcGIS Pro runs best on Azure high-performance computing VMs, like the NV-Series. You can scale the use of ArcGIS by using Azure Virtual Desktop.
 
 - [ArcGIS Enterprise](https://enterprise.arcgis.com/en/get-started/latest/windows/what-is-arcgis-enterprise-.htm) is a comprehensive GIS platform for managing and sharing spatial data and services. In this architecture, you can add ArcGIS Enterprise to extend capabilities for hosting maps, apps, and spatial analytics across the organization. ArcGIS Enterprise works with ArcGIS Pro.
 
@@ -79,11 +79,11 @@ ArcGIS Pro is a key part of the technology. ArcGIS Pro is a 64-bit professional 
 Esri's ArcGIS and virtual desktop solutions are frequently used for:
 
 - Security and regulation applications like healthcare, government, and utilities, for example energy suppliers.
-- Elastic workforce needs like remote work, mergers and acquisition, short-term employees, contractors, and partner access.
+- Elastic workforce needs like remote work, mergers and acquisitions, short-term employees, contractors, and partner access.
 - Employees like bring-your-own-device users, mobile users, and branch workers.
 - Specialized workloads like design and engineering, legacy apps, software testing, and management, for example facilities and real estate.
 
-Although GIS was implemented in Azure many years ago, it typically included only the back-end components. That implementation introduces latency between the client and server components. Organizations are able to deploy desktop GIS on Virtual Machines from the [Microsoft Marketplace](https://marketplace.microsoft.com/marketplace/apps?search=ArcGIS), but that deployment is for thick clients and isn't scalable enough. This architecture addresses both challenges.
+Although GIS was implemented in Azure many years ago, it typically included only the back-end components. That implementation introduces latency between the client and server components. Organizations are able to deploy desktop GIS on virtual machines from the [Microsoft Marketplace](https://marketplace.microsoft.com/marketplace/apps?search=ArcGIS), but that deployment is for thick clients and isn't scalable enough. This architecture addresses both challenges.
 
 ## Considerations
 
@@ -113,7 +113,7 @@ GPU-enabled VMs are the largest cost driver in this architecture. Match VM SKUs 
 
 - **Start VM on Connect**: Turn on this feature to start session host VMs only when users need them, rather than running them continuously.
 
--  **Autoscale**: Configure [Azure Virtual Desktop autoscaling](/azure/virtual-desktop/autoscale-scaling-plan) to automatically scale the number of session hosts based on demand, reducing costs during off-peak hours.
+- **Autoscale**: Configure [Azure Virtual Desktop autoscaling](/azure/virtual-desktop/autoscale-scaling-plan) to automatically scale the number of session hosts based on demand, reducing costs during off-peak hours.
 
 - **Scheduled scaling**: Define scaling schedules that align with business hours to shut down or deallocate VMs during nights and weekends.
 
@@ -164,7 +164,7 @@ You can test your system's latency by using the [Connection Experience Indicator
 
 Whether you're running your session host VMs on Remote Desktop Services or Azure Virtual Desktop, different types of workloads require different VM configurations. The examples in this article are generic guidelines, and you should only use them for initial performance estimates. For the best possible experience, optimize and scale your deployment depending on your users' needs.
 
-ArcGIS Pro should use Windows 11 multisession VMs to provide additional flexibility and greater return on investment. It's necessary to allocate the appropriate VM types to give each user enough resources, such as GPU, CPU, and RAM. To avoid oversaturation and hindering performance, consider the number of connections and limit the simultaneous user access to each VM.
+ArcGIS Pro should use Windows 11 Enterprise multi-session VMs to provide additional flexibility and greater return on investment. It's necessary to allocate the appropriate VM types to give each user enough resources, such as GPU, CPU, and RAM. To avoid oversaturation and hindering performance, consider the number of connections and limit the simultaneous user access to each VM.
 
 ### Workloads
 
