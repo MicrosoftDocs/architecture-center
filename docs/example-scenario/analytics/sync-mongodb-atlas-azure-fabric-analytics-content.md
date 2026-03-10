@@ -20,18 +20,18 @@ The following dataflow corresponds to the previous diagram:
 
 1. Deploy the mirroring accelerator by using [Terraform](https://github.com/mongodb-partners/MongoDB_Fabric_Mirroring/tree/main/terraform) or Azure Resource Manager.
 
-1. The application:
+1. The application does several key functions:
 
-   - Performs the initial historical data load from MongoDB.
-   - Subscribes to MongoDB change streams to capture ongoing insert, update, and delete operations.
-   - Writes the captured change data as Parquet files into the Fabric landing zone.
+   - Performs the initial historical data load from MongoDB
+   - Subscribes to MongoDB change streams to capture ongoing insert, update, and delete operations
+   - Writes the captured change data as Parquet files into the Fabric landing zone
 
-1. Fabric automatically:
+1. Fabric automatically takes the following actions:
 
-   - Detects new Parquet files in the landing zone.
-   - Converts new Parquet files into Delta tables that support schema evolution.
-   - Keeps mirrored tables synced with the source MongoDB collections.
-   - Generates a default semantic model for Power BI.
+   1. Detects new Parquet files in the landing zone
+   1. Converts new Parquet files into Delta tables that support schema evolution
+   1. Keeps mirrored tables synced with the source MongoDB collections
+   1. Generates a default semantic model for Power BI
 
 1. Power BI, lakehouse in Fabric, and Fabric Data Warehouse workloads can consume the synced data for analytics and reporting.
 
@@ -39,11 +39,11 @@ The following dataflow corresponds to the previous diagram:
 
 - [Open mirroring in Fabric](/fabric/mirroring/open-mirroring) is a managed data replication capability that syncs external data sources into Fabric by using open table formats. In this architecture, it continuously ingests MongoDB change data by converting Parquet files into Delta tables and keeping them synced with MongoDB Atlas changes.
 
-- [OneLake](/fabric/onelake/onelake-overview) is the unified, open data lake for Fabric that provides centralized storage for all Fabric workloads. In this architecture, it serves as the initial landing zone for change data and the shared storage layer that downstream Fabric services access.
+- [OneLake](/fabric/onelake/onelake-overview) is the unified, open data lake for Fabric that provides centralized storage for all Fabric workloads. In this architecture, it functions as the initial landing zone for change data and the shared storage layer that downstream Fabric services access.
 
-- [Lakehouses](/fabric/data-warehouse/get-started-lakehouse-sql-analytics-endpoint) in Fabric combine data lake storage with analytics and SQL querying capabilities over Delta tables. In this architecture, a lakehouse exposes the mirrored Delta tables and provides built-in T‑SQL access for analytics and querying.
+- [Lakehouses](/fabric/data-warehouse/get-started-lakehouse-sql-analytics-endpoint) in Fabric are unified data platforms that combine data lake storage with analytics and SQL querying capabilities over Delta tables. In this architecture, a lakehouse exposes the mirrored Delta tables and provides built-in T‑SQL access for analytics and querying.
 
-- [Semantic models](/fabric/data-warehouse/semantic-models) define business-friendly metadata and relationships to support analytical queries and reporting. In this architecture, the lakehouse automatically generates them to accelerate Power BI reporting and analytics.
+- [Semantic models](/fabric/data-warehouse/semantic-models) are high-level semantics-based database descriptions and structuring formalisms for databases. They define business-friendly metadata and relationships to support analytical queries and reporting. In this architecture, the lakehouse automatically generates them to accelerate Power BI reporting and analytics.
 
 - [App Service](/azure/app-service/overview) is a fully managed platform for hosting web applications and background services. In this architecture, it hosts the Python-based mirroring application that orchestrates change ingestion into Fabric.
 
@@ -51,15 +51,15 @@ The following dataflow corresponds to the previous diagram:
 
 - [Terraform](/azure/developer/terraform/overview) is an infrastructure as code (IaC) tool used to declaratively provision cloud resources. In this architecture, the [templates](https://github.com/mongodb-partners/MongoDB_Fabric_Mirroring/tree/main/terraform) automate deployment of the required Azure and Fabric resources.
 
-- [Power BI](/power-bi/fundamentals/power-bi-overview) is a business intelligence platform for creating interactive dashboards and reports. In this architecture, it visualizes the mirrored Delta tables by using Direct Lake for high-performance, near real-time analytics.
+- [Power BI](/power-bi/fundamentals/power-bi-overview) is a business intelligence (BI) platform for creating interactive dashboards and reports. In this architecture, it visualizes the mirrored Delta tables by using Direct Lake for high-performance, near real-time analytics.
 
-The following diagram shows the mirroring integration architecture:
+The following diagram shows the mirroring integration architecture.
 
 :::image type="complex" source="media/mongodb-mirrored-integrated-architecture.png" alt-text="Diagram that shows the mirroring integration architecture." border="false" lightbox="media/mongodb-mirrored-integrated-architecture.png":::
    On the left, a dashed box that represents the cloud contains an app icon. An arrow that represents insert, update, and delete operations points from the app to MongoDB Atlas. An arrow labeled near real-time incremental replication points right from MongoDB Atlas to OneLake. OneLake is inside another dashed box that represents a Fabric environment. Inside the Fabric box, arrows connect four vertically stacked icons to represent the flow from a mirrored MongoDB database to a default semantic model to a SQL analytics endpoint to OneLake with Delta or Parquet format.
 :::image-end:::
 
-Open mirroring allows MongoDB change data to be written directly into Fabric. Then it's automatically converted to Delta format and immediately available for a lakehouse, Data Warehouse, real-time analytics, and Power BI.
+Open mirroring allows your application to write MongoDB change data directly into Fabric, convert it to Delta format, and make it immediately available for a lakehouse, Data Warehouse, real-time analytics, and Power BI.
 
 ### Alternatives
 
@@ -71,22 +71,22 @@ The following sections describe alternative ingestion approaches for various ope
 
 Fabric Real-Time Intelligence provides a native, code-free ingestion path by using the [MongoDB change data capture (CDC) connector](/fabric/real-time-intelligence/event-streams/add-source-mongodb-change-data-capture) for an eventstream. The connector streams change events from MongoDB Atlas directly into Fabric.
 
-Eventstreams route CDC events to:
+Eventstreams route CDC events to the following destinations:
 
-- **An eventhouse (KQL database)** for real-time analytics, anomaly detection, and observability.
-- **OneLake** for downstream lakehouse or Data Warehouse processing.
-- **Lakehouse folders** for Apache Spark, SQL analytics, or machine learning workloads.
+- **An eventhouse (KQL database)** for real-time analytics, anomaly detection, and observability
+- **OneLake** for downstream lakehouse or Data Warehouse processing
+- **Lakehouse folders** for Apache Spark, SQL analytics, or machine learning workloads
 
-Use this approach when you need:
+Use this approach when you need the following capabilities:
 
-- Operational real-time dashboards.
-- High-throughput log and event processing.
-- KQL-based monitoring and detections.
-- Low-latency scenarios without custom code.
+- Operational real-time dashboards
+- High-throughput log and event processing
+- KQL-based monitoring and detections
+- Low-latency scenarios without custom code
 
 #### Atlas triggers, functions, and OneLake (push model)
 
-This approach uses [MongoDB Atlas triggers](https://github.com/mongodb/atlas-functions-triggers-examples) to invoke Fabric user data functions or Azure Functions. The function writes the updated document into OneLake by using the Azure Data Lake Storage-compatible API.
+This approach uses [MongoDB Atlas triggers](https://github.com/mongodb/atlas-functions-triggers-examples) to invoke Fabric user data functions or Azure Functions. The function writes the updated document into OneLake by using an Azure Data Lake Storage-compatible API.
 
 :::image type="complex" source="media/azure-fabric-analytics-mongodb.svg" alt-text="Architecture diagram that shows MongoDB CDC ingestion by using Real-Time Intelligence." lightbox="media/azure-fabric-analytics-mongodb.svg" border="false":::
    The diagram consists of two boxes. The left box is labeled MongoDB Atlas. Inside the box, an arrow points from a cluster icon to a trigger icon and from the trigger icon to a function icon. Another arrow points right from the MongoDB Atlas box to a box labeled Microsoft Fabric. Inside this box, an arrow points from Fabric functions to OneLake. A Fabric pipeline icon connects OneLake and smaller box that contains icons for lakehouses and Data Warehouse.
@@ -106,9 +106,9 @@ This approach uses [MongoDB Atlas triggers](https://github.com/mongodb/atlas-fun
 
 Use the push model when you need near real-time ingestion but can't deploy the mirroring accelerator, or when you prefer a serverless, event-driven integration.
 
-#### Fabric pipelines and MongoDB Connector (pull model)
+#### Fabric pipelines and MongoDB connectors (pull model)
 
-Fabric pipelines include a [MongoDB Connector](/fabric/data-factory/connector-mongodb-overview) that supports on-premises MongoDB and MongoDB Atlas.
+Fabric pipelines include a [MongoDB connector](/fabric/data-factory/connector-mongodb-overview) that supports on-premises MongoDB and MongoDB Atlas.
 
 You typically use connectors for the following tasks:
 
@@ -119,35 +119,37 @@ You typically use connectors for the following tasks:
 
 Pipelines can load documents into a lakehouse that uses Delta, Parquet, Avro, JSON, or CSV. They can also load documents into Data Warehouse.  
 
-We recommend this model for batch workloads or scenarios in which real-time ingestion isn't required. For example, you can use a Fabric pipeline to run a nightly copy from MongoDB Atlas into Data Warehouse for executive reporting. The data only needs to reflect end‑of‑day state, so a MongoDB Connector-scheduled pipeline is sufficient and avoids the complexity of continuous ingestion.
+We recommend this model for batch workloads or scenarios that don't require real-time ingestion. For example, you can use a Fabric pipeline to run a nightly copy from MongoDB Atlas into Data Warehouse for executive reporting. The data only needs to reflect end‑of‑day state, so a MongoDB connector-scheduled pipeline is sufficient and avoids the complexity of continuous ingestion.
+
+*Apache® and Apache Spark™ are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
 :::image type="complex" source="media/azure-fabric-mongodb-connectors.svg" alt-text="Connector architecture for integrating MongoDB with Fabric pipelines." lightbox="media/azure-fabric-mongodb-connectors.svg" border="false":::
-   On the far left is a box labeled Consumers that includes internal apps, customer-facing services, and APIs for non-Microsoft consumption across any channel. A bidirectional arrow connects the consumers to a box labeled operational data layer. This box contains MongoDB Atlas on Azure, a document data model, distributed systems architecture, and cloud or on-premises components. Lines connect the operational data layer and the Relational Database Management System (RDBMS) in tabular format at the top and logs in unstructured format at the bottom. A pipeline icon that represents the MongoDB source connector connects the operational data layer to another box on the right labeled enterprise data warehouse. Inside this box, Spark, Fabric, and SQL feed into machine learning, big data analytics, and BI dashboard. A line connects the enterprise data warehouse box and a MongoDB sink connector icon and the MongoDB analytics store.
+   On the far left is a box labeled Consumers that includes internal apps, customer-facing services, and APIs for non-Microsoft consumption across any channel. A bidirectional arrow connects the consumers to a box labeled operational data layer. This box contains MongoDB Atlas on Azure, a document data model, distributed systems architecture, and cloud or on-premises components. Lines connect the operational data layer and the Relational Database Management System (RDBMS) in tabular format at the top and logs in unstructured format at the bottom. A pipeline icon that represents the MongoDB source connector connects the operational data layer to another box on the right labeled enterprise data warehouse. Inside this box, lines connect Spark, Fabric, and SQL to machine learning, big data analytics, and BI dashboard. A line connects the enterprise data warehouse box and a MongoDB sink connector icon and the MongoDB analytics store.
 :::image-end:::
 
-You can also use dataflows in Fabric to integrate with MongoDB Atlas. The pull model suits analyst‑driven or self‑service business intelligence (BI) scenarios.
+You can also use dataflows in Fabric to integrate with MongoDB Atlas. The pull model suits analyst‑driven or self‑service BI scenarios.
 
-Dataflows provide a no‑code, Power BI–centric option to ingest MongoDB Atlas data into OneLake. If you use Power BI as your primary analytics tool, then you can use the Dataflow Gen2 MongoDB Connector to:
+Dataflows provide a no‑code option focused on Power BI to ingest MongoDB Atlas data into OneLake. If you use Power BI as your primary analytics tool, you can use the Dataflow Gen2 MongoDB connector for the following tasks:
 
-- Perform scheduled ingestion.
-- Retrieve filtered historical data.
-- Shape and transform documents without code.
-- Land results directly into OneLake via a standard Dataflows Gen2 output.
+- Scheduled ingestion
+- Filtered historical data retrieval
+- Document shaping and transformation without code
+- Results written directly into OneLake via a standard Dataflows Gen2 output
 
 #### Batch integration
 
 You can use batch or micro‑batch integration to move historical or filtered data from MongoDB Atlas into OneLake. Organizations can use Fabric pipelines and the MongoDB Spark Connector v10.x, which supports batch and streaming ingestion patterns.
 
-- **Use Spark Connector for batch integration and streaming.** The MongoDB Spark Connector allows scalable DataFrame‑based ingestion into the Fabric lakehouse. It supports:
+- **Use Spark Connector for batch integration and streaming.** The MongoDB Spark Connector allows scalable DataFrame‑based ingestion into the Fabric lakehouse. It supports the following capabilities:
 
-   - Full historical batch loads.
-   - Filtered or incremental loads by using MongoDB queries.
-   - Micro‑batch or continuous streaming by using Spark Structured Streaming.
-   - Writing into Delta or Parquet tables in OneLake.
+   - Full historical batch loads
+   - Filtered or incremental loads by using MongoDB queries
+   - Micro‑batch or continuous streaming by using Spark structured streaming
+   - Writing into Delta or Parquet tables in OneLake
 
-   This approach is optimal for Spark‑centric engineering teams or workloads that require transformations as part of ingestion.
+   This approach is optimal for teams that primarily work with Spark or for workloads that require transformations as part of ingestion.
 
-- **Optionally, use Fabric pipelines for batch ingestion.** Fabric pipelines can orchestrate MongoDB batch ingestion through the MongoDB Connector, but the Spark Connector provides more flexibility for batch and streaming scenarios.
+- **Optionally, use Fabric pipelines for batch ingestion.** Fabric pipelines can orchestrate MongoDB batch ingestion through MongoDB Connector, but the Spark Connector provides more flexibility for batch and streaming scenarios.
 
 ## Scenario details
 
@@ -155,29 +157,29 @@ MongoDB Atlas is a common operational store for internal applications, customer-
 
 ### Potential use cases
 
-**Retail**
+**Retail:**
 
 - Product bundling and promotion optimization
 - Customer 360 and hyper-personalization
 - Demand sensing and stockout prediction
 - Smart search and recommendations
 
-**Banking and finance**
+**Banking and finance:**
 
 - Fraud detection and prevention
 - Personalized financial products and offers
 
-**Telecommunications**
+**Telecommunications:**
 
 - Network quality analytics and optimization
 - Edge telemetry aggregation
 
-**Automotive**
+**Automotive:**
 
 - Connected vehicle intelligence
 - Anomaly detection in Internet of Things (IoT) communication
 
-**Manufacturing**
+**Manufacturing:**
 
 - Predictive maintenance
 - Inventory and warehouse optimization
@@ -186,38 +188,38 @@ MongoDB Atlas is a common operational store for internal applications, customer-
 
 Use sales pattern data to design bundles that increase basket size and margin.
 
-**Data sources**
+**Data sources:**
 
 - Product catalog in MongoDB Atlas
 - Sales facts in Azure SQL
 
-**Flow**
+**Flow:**
 
 1. Use a Fabric pipeline to ingest product and sales data into Data Warehouse or a lakehouse.
 
-1. Apply CDC or event-driven updates for near real-time sync on top of the initial load.
+1. Apply CDC or event-driven updates for near real-time sync in addition to the initial load.
 
 1. Model affinity and copurchase patterns, like market basket analysis, and expose metrics via Power BI.
 
 :::image type="content" source="media/product-bundling-use-case-visualization.svg" alt-text="Screenshots of pipeline stages and charts for product bundling, including sales by product, year, region, and affinity." border="false" lightbox="media/product-bundling-use-case-visualization.svg":::
 
-**Recommendations from analysis**
+**Recommendations from analysis:**
 
-- Bundle products, such as *pen* and *ink refill*.  
+- Bundle products, like *pen* and *ink refill*.  
 - Promote the bundle in high‑affinity regions.
 
 #### Example: Promote products for retail
 
 Recommend complementary products by using customer behavior, profitability, and product affinity.
 
-**Approach**
+**Approach:**
 
 - Train machine learning models in Fabric Spark notebooks or integrate with Azure Machine Learning.  
 - Use OneLake as the feature store and serve predictions to Power BI or downstream apps.
 
 :::image type="content" source="media/product-promotion-use-case-visualization.svg" alt-text="Screenshot of the data pipeline and machine learning workflow for product promotion by using customer behavior and product features." border="false" lightbox="media/product-promotion-use-case-visualization.svg":::
 
-If the model achieves high accuracy, it yields a prioritized set of alternative product recommendations for each customer or segment.
+If the model achieves high accuracy, it produces a prioritized set of alternative product recommendations for each customer or segment.
 
 ## Considerations
 
@@ -229,9 +231,9 @@ Security provides assurances against deliberate attacks and the misuse of your v
 
 - Use HTTPS and the latest Transport Layer Security (TLS) versions for Fabric user data functions and Azure Functions endpoints.
 - Validate inbound payloads as MongoDB change events.
-- Configure Microsoft Entra ID authentication and least‑privilege role-based access control (RBAC) for Fabric.
-- OneLake inherits Data Lake Storage security and authentication models.
-- MongoDB Atlas provides built‑in controls for access, network isolation, encryption, and auditing.
+- Set up Microsoft Entra ID authentication and least‑privilege role-based access control (RBAC) for Fabric.
+- Set up OneLake to inherit Data Lake Storage security and authentication models.
+- Use MongoDB Atlas for built‑in controls for access, network isolation, encryption, and auditing.
 
 ### Cost Optimization
 
