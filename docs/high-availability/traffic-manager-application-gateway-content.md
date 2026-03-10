@@ -9,7 +9,7 @@ This section describes the traffic flows through the architecture for inbound HT
 HTTP(S) traffic passes through the Azure Application Gateway web application firewall (WAF) and Azure Firewall Premium Transport Layer Security (TLS) inspection before it reaches the application tiers.
 
 :::image type="complex" border="false" source="images/high-availability-multi-region-web-v-10.svg" alt-text="Diagram that shows multiregion load balancing with Azure Firewall, Application Gateway, and Azure Traffic Manager for web traffic." lightbox="images/high-availability-multi-region-web-v-10.svg":::
-  In step 1, at the top center of the diagram, an arrow points from a browser icon to a box labeled recursive DNS service, and another arrow points from that box to Traffic Manager. A double-sided arrow labeled health check connects the Application Gateway endpoints. There are two mirrored regions connected by virtual network peering. In these regions, steps 2 through 8 show Application Gateway subnet, Azure Firewall subnet, internal load balancer, web tier subnet, another internal load balancer, business tier subnet, and data tier subnets. The Application Gateway subnet includes Application Gateway and a layer-7 load balancer. The Azure Firewall subnet includes the Azure Firewall. These sections span three zones. The resource group encloses both regions and includes Azure DDoS Protection and a private DNS zone.
+  In step 1, at the left center of the diagram, an arrow points from a browser icon to a box labeled recursive DNS service, and another arrow points from that box to Traffic Manager. A double-sided arrow labeled health check connects the Application Gateway endpoints. Virtual network peering connects two mirrored regions. In these regions, steps 2 through 8 show Application Gateway subnet, Azure Firewall subnet, internal load balancer, web tier subnet, another internal load balancer, business tier subnet, and data tier subnets. The web tier, business tier, and data tier subnets each contain 3 VMs, one in each availability zone. The Application Gateway subnet includes Application Gateway, a WAF, and a layer-7 load balancer. The Azure Firewall subnet includes Azure Firewall. These sections span three zones. The resource group encloses both regions and includes Azure DDoS Protection and a private DNS zone.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/high-availability-multi-region-v-10.vsdx) of this architecture.*
@@ -32,10 +32,10 @@ HTTP(S) traffic passes through the Azure Application Gateway web application fir
 
 ### Inbound non-HTTP(S) traffic flows
 
-Some workloads accept traffic over protocols other than HTTP(S), like SSH File Transfer Protocol (SFTP) for file-based data ingestion from business partners or legacy Transmission Control Protocol (TCP)-based integrations. Non-HTTP(S) traffic routes directly to Azure Firewall for destination network address translation (DNAT) and inspection, which bypasses Application Gateway.
+Some workloads accept traffic over protocols other than HTTP(S), like Secure File Transfer Protocol (SFTP) for file-based data ingestion from business partners or legacy Transmission Control Protocol (TCP)-based integrations. Non-HTTP(S) traffic routes directly to Azure Firewall for destination network address translation (DNAT) and inspection, which bypasses Application Gateway.
 
 :::image type="complex" border="false" source="images/high-availability-multi-region-non-web-v-10.svg" alt-text="Diagram that shows multiregion load balancing with Azure Firewall, Application Gateway, and Traffic Manager for non-web traffic." lightbox="images/high-availability-multi-region-non-web-v-10.svg":::
-  In step 1, at the top center of the diagram, an arrow points from a non-web client to a box labeled recursive DNS service, and another arrow points from that box to Traffic Manager. A double-sided arrow labeled health check connects the Application Gateway endpoints. There are two mirrored regions connected by virtual network peering. In these regions, steps 2 through 7 show Azure Firewall subnet, internal load balancer, web tier subnet, another internal load balancer, business tier subnet, and data tier subnets. The Application Gateway subnet includes Application Gateway and a layer-7 load balancer. The Azure Firewall subnet includes the Azure Firewall. These sections span three zones. The resource group encloses both regions and includes Azure DDoS Protection and a private DNS zone.
+  In step 1, at the left center of the diagram, an arrow points from a non-web client to a box labeled recursive DNS service, and another arrow points from that box to Traffic Manager. A double-sided arrow labeled health check connects the Azure Firewall endpoints. Virtual network peering connects two mirrored regions. In these regions, steps 2 through 7 show Azure Firewall subnet, internal load balancer, web tier subnet, another internal load balancer, business tier subnet, and data tier subnets. The web tier, business tier, and data tier subnets each contain 3 VMs, one in each availability zone. An Application Gateway subnet includes Application Gateway, a WAF, and a layer-7 load balancer. The Azure Firewall subnet includes Azure Firewall. These sections span three zones. A resource group encloses each region and includes DDoS Protection and a private DNS zone.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/high-availability-multi-region-v-10.vsdx) of this architecture.*
@@ -52,7 +52,7 @@ Some workloads accept traffic over protocols other than HTTP(S), like SSH File T
 
 1. The business tier VMs span availability zones and route traffic to the availability group listener of the databases.
 
-1. The data tier stores the application data, typically in a database, object storage, or file share. This architecture has SQL Server on Azure Virtual Machines distributed across three availability zones. They use an Always On availability group with each SQL Server VM in a [separate subnet](/azure/azure-sql/virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial-multi-subnet). A multi-subnet deployment lets the [availability group listener](/azure/azure-sql/virtual-machines/windows/availability-group-overview) route traffic directly to the replicas and doesn't require an Azure load balancer or DNN.
+1. The data tier stores the application data, typically in a database, object storage, or file share. This architecture has SQL Server on Virtual Machines distributed across three availability zones. They use an Always On availability group with each SQL Server VM in a [separate subnet](/azure/azure-sql/virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial-multi-subnet). A multi-subnet deployment lets the [availability group listener](/azure/azure-sql/virtual-machines/windows/availability-group-overview) route traffic directly to the replicas and doesn't require an Azure load balancer or DNN.
 
 ### Outbound traffic flows (all protocols)
 
@@ -78,13 +78,59 @@ Outbound traffic flows for VM patch updates or other internet-bound traffic go f
 
 - [Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview) with [flexible orchestration](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#scale-sets-with-flexible-orchestration-recommended) is a service that you can use to create and manage a group of load-balanced VMs that can automatically scale based on demand. In this architecture, Virtual Machine Scale Sets host the web, business, and data tier VMs across availability zones in each region.
 
-- [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview) is a service that provides full versions of SQL Server in the cloud so that you don't need to manage any on-premises hardware. In this architecture, SQL Server on Azure Virtual Machines forms the data tier with Always On availability groups distributed across availability zones in a [multi-subnet configuration](/azure/azure-sql/virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial-multi-subnet).
+- [SQL Server on Virtual Machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview) is a service that provides full versions of SQL Server in the cloud so that you don't need to manage any on-premises hardware. In this architecture, SQL Server on Virtual Machines forms the data tier with Always On availability groups distributed across availability zones in a [multi-subnet configuration](/azure/azure-sql/virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial-multi-subnet).
 
 - [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is a secure private network in the cloud. It connects VMs to one another, to the internet, and to cross-premises networks. In this architecture, Virtual Network provides network isolation and connectivity for all components. Global virtual network peering provides low-latency communication between regions.
 
 - [UDRs](/azure/virtual-network/virtual-networks-udr-overview) are a mechanism to override the default routing in virtual networks. In this architecture, they force inbound and outbound traffic flows to traverse Azure Firewall for security inspection and policy enforcement.
 
-## Solution details
+### Alternatives
+
+This architecture uses specific technology choices to support mixed‑protocol, multiregion workloads. Your workload requirements might lead to different choices. Consider the following alternatives.
+
+#### Global load balancer
+
+**Current approach:** Traffic Manager provides DNS-based global load balancing that supports both HTTP(S) and non-HTTP(S) protocols. This architecture uses Traffic Manager because it must route non-HTTP(S) flows, like SFTP and legacy TCP integrations, through Azure Firewall for network-level inspection. Traffic Manager is DNS-based, so clients connect directly to the back-end endpoints, which requires Application Gateway and Azure Firewall to have public IP addresses.
+
+**Alternative approach:** Use [Azure Front Door](/azure/frontdoor/front-door-overview) instead of Traffic Manager. Azure Front Door is a layer-7 global load balancer for HTTP(S) traffic that provides caching, traffic acceleration, TLS termination, certificate management, and built-in WAF. Azure Front Door is a reverse proxy, so it can connect to Application Gateway over [Azure Private Link](/azure/frontdoor/private-link), which eliminates the need for public IP addresses on your back-end infrastructure. It's the preferred global routing solution for HTTP(S)-only workloads.
+
+Consider Azure Front Door if your workload meets the following conditions:
+
+- All inbound traffic uses HTTP(S) protocols.
+
+- You don't require Azure Firewall for deep packet inspection of inbound traffic.
+
+- You want integrated WAF and content delivery network capabilities at the global edge.
+
+#### Compute platform
+
+**Current approach:** The web, business, and data tiers run on Virtual Machine Scale Sets with SQL Server on Virtual Machines. This infrastructure as a service (IaaS) approach provides full control over the operating system (OS), middleware, and database engine configuration.
+
+**Alternative approach:** Replace specific tiers with platform as a service (PaaS) resources like [Azure App Service](/azure/app-service/overview) for the web tier or [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview) for the data tier. The overall network architecture doesn't change significantly if you use [Private Link](/azure/private-link/private-link-overview) and [App Service virtual network integration](/azure/app-service/overview-vnet-integration) to integrate these PaaS services into the virtual network.
+
+Consider PaaS alternatives if your workload meets the following conditions:
+
+- You don't require direct OS-level or middleware configuration control.
+
+- You want to reduce operational overhead for patching, scaling, and availability management.
+
+- Your database workload is compatible with the SQL Database feature set and limits.
+
+#### Load-balancing service combination
+
+**Current approach:** This architecture uses Traffic Manager for global, DNS-based routing. Within each region, Application Gateway handles layer-7 processing and WAF inspection, and Load Balancer manages layer-4, tier-to-tier distribution.
+
+**Alternative approach:** Your workload's protocol, latency, and security requirements might require a different combination of load-balancing services. For example, workloads that don't need a WAF can use Load Balancer alone for regional distribution. Workloads that need path-based routing without a firewall can use Application Gateway without Azure Firewall in front of it.
+
+To determine which services fit your scenario, see [Load-balancing options in Azure](../guide/technology-choices/load-balancing-overview.md).
+
+#### Network topology
+
+**Current approach:** This architecture uses a flat virtual network design with all components in a single virtual network for each region.
+
+**Alternative approach:** Adapt this architecture to a [hub-spoke virtual network design](../networking/architecture/hub-spoke.yml), in which Azure Firewall resides in the hub network and Application Gateway resides either in the hub or in a spoke. If you deploy Application Gateway in the hub, use multiple instances for different application groups to control Azure role-based access control (Azure RBAC) scope and remain within [Application Gateway limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-application-gateway-limits). In an [Azure Virtual WAN](../networking/architecture/hub-spoke-virtual-wan-architecture.yml) environment, you can't deploy Application Gateway instances in the hub, so you install them in spoke virtual networks.
+
+## Scenario details
 
 - **Global traffic routing:** Traffic Manager uses performance routing to direct each user to the endpoint that has the lowest latency and automatically adjusts as conditions change. Health checks and priority routing redirect DNS responses from unhealthy regions.
 
@@ -105,52 +151,6 @@ Outbound traffic flows for VM patch updates or other internet-bound traffic go f
 - **Compute orchestration:** All three application tiers use Virtual Machine Scale Sets with flexible orchestration. The data tier's multi-subnet SQL Server availability group requires you to place individual VMs into specific subnets and fault domains, which only flexible orchestration supports. The web and business tiers also use flexible orchestration to maintain a single operational model across the workload rather than mix orchestration modes across tiers.
 
 - **Cross-region connectivity:** Global virtual network peering provides low-latency, high-bandwidth data replication between regions over the Microsoft backbone. In a hub-spoke topology, peerings exist between hub and spoke networks within each region and between hubs across regions.
-
-## Alternatives
-
-This architecture uses specific technology choices to support mixed‑protocol, multiregion workloads. Your workload requirements might lead to different choices. Consider the following alternatives.
-
-### Global load balancer
-
-**Current approach:** Traffic Manager provides DNS-based global load balancing that supports both HTTP(S) and non-HTTP(S) protocols. This architecture uses Traffic Manager because it must route non-HTTP(S) flows, like SFTP and legacy TCP integrations, through Azure Firewall for network-level inspection. Traffic Manager is DNS-based, so clients connect directly to the back-end endpoints, which requires Application Gateway and Azure Firewall to have public IP addresses.
-
-**Alternative approach:** Use [Azure Front Door](/azure/frontdoor/front-door-overview) instead of Traffic Manager. Azure Front Door is a layer-7 global load balancer for HTTP(S) traffic that provides caching, traffic acceleration, TLS termination, certificate management, and built-in WAF. Azure Front Door is a reverse proxy, so it can connect to Application Gateway over [Azure Private Link](/azure/frontdoor/private-link), which eliminates the need for public IP addresses on your back-end infrastructure. It's the preferred global routing solution for HTTP(S)-only workloads.
-
-Consider Azure Front Door if your workload meets the following conditions:
-
-- All inbound traffic uses HTTP(S) protocols.
-
-- You don't require Azure Firewall for deep packet inspection of inbound traffic.
-
-- You want integrated WAF and content delivery network capabilities at the global edge.
-
-### Compute platform
-
-**Current approach:** The web, business, and data tiers run on Virtual Machine Scale Sets with SQL Server on Azure Virtual Machines. This infrastructure as a service (IaaS) approach provides full control over the operating system (OS), middleware, and database engine configuration.
-
-**Alternative approach:** Replace specific tiers with platform as a service (PaaS) resources like [Azure App Service](/azure/app-service/overview) for the web tier or [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview) for the data tier. The overall network architecture doesn't change significantly if you use [Private Link](/azure/private-link/private-link-overview) and [App Service virtual network integration](/azure/app-service/overview-vnet-integration) to integrate these PaaS services into the virtual network.
-
-Consider PaaS alternatives if your workload meets the following conditions:
-
-- You don't require direct OS-level or middleware configuration control.
-
-- You want to reduce operational overhead for patching, scaling, and availability management.
-
-- Your database workload is compatible with the SQL Database feature set and limits.
-
-### Load-balancing service combination
-
-**Current approach:** This architecture uses Traffic Manager for global, DNS-based routing. Within each region, Application Gateway handles layer-7 processing and WAF inspection, and Load Balancer manages layer-4, tier-to-tier distribution.
-
-**Alternative approach:** Your workload's protocol, latency, and security requirements might require a different combination of load-balancing services. For example, workloads that don't need a WAF can use Load Balancer alone for regional distribution. Workloads that need path-based routing without a firewall can use Application Gateway without Azure Firewall in front of it.
-
-To determine which services fit your scenario, see [Load-balancing options in Azure](../guide/technology-choices/load-balancing-overview.md).
-
-### Network topology
-
-**Current approach:** This architecture uses a flat virtual network design with all components in a single virtual network for each region.
-
-**Alternative approach:** Adapt this architecture to a [hub-spoke virtual network design](../networking/architecture/hub-spoke.yml), in which Azure Firewall resides in the hub network and Application Gateway resides either in the hub or in a spoke. If you deploy Application Gateway in the hub, use multiple instances for different application groups to control Azure role-based access control (Azure RBAC) scope and remain within [Application Gateway limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-application-gateway-limits). In an [Azure Virtual WAN](../networking/architecture/hub-spoke-virtual-wan-architecture.yml) environment, you can't deploy Application Gateway instances in the hub, so you install them in spoke virtual networks.
 
 ## Considerations
 
@@ -280,7 +280,7 @@ For service-specific pricing details, see the following resources:
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-- **Infrastructure as code (IaC):** This architecture has a large resource surface area that includes Traffic Manager, two regional stamps each that have Application Gateway, Azure Firewall, load balancers, Virtual Machine Scale Sets, NSGs, virtual networks, and subnets. Define all resources in [Bicep](/azure/azure-resource-manager/bicep/overview) or [Terraform](/azure/developer/terraform/overview) to ensure that both regional stamps remain consistent and for repeatable deployments.
+- **Infrastructure as code (IaC):** This architecture has a large resource surface area that includes Traffic Manager, two regional stamps that each have Application Gateway, Azure Firewall, and load balancers, Virtual Machine Scale Sets, NSGs, virtual networks, and subnets. Define all resources in [Bicep](/azure/azure-resource-manager/bicep/overview) or [Terraform](/azure/developer/terraform/overview) to ensure that both regional stamps remain consistent and for repeatable deployments.
 
 - **Deployment coordination:** In deployments that have two active regional stamps, deploy updates to the secondary region and validate them before you promote the changes to the primary region. Use [safe deployment practices](/azure/well-architected/operational-excellence/safe-deployments) with progressive exposure to limit the scope of impact. Traffic Manager DNS weighting can support canary traffic shifts between regions during rollouts.
 
