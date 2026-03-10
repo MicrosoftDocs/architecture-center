@@ -1,7 +1,7 @@
 Instead of storing just the current state of the data in a relational database, store the full series of actions taken on an object in an append-only store. The store acts as the system of record and can be used to materialize the domain objects. This approach can improve auditability and write performance in complex systems.
 
 > [!IMPORTANT]
-> Event sourcing is a complex pattern that introduces significant trade-offs. It changes how you store data, handle concurrency, evolve schemas, and query state. There is a high cost to migrate to or from event sourcing, and once adopted, it constrains future design decisions in the parts of the system where it's used. Adopt event sourcing where its benefits like auditability and historical reconstruction justify the pattern's complexity. For most systems and most parts of a system, traditional data management is sufficient.
+> Event sourcing is a complex pattern that introduces significant trade-offs. It changes how you store data, handle concurrency, evolve schemas, and query state. There's a high cost to migrate to or from event sourcing, and once adopted, it constrains future design decisions in the parts of the system where it's used. Adopt event sourcing where its benefits like auditability and historical reconstruction justify the pattern's complexity. For most systems and most parts of a system, traditional data management is sufficient.
 
 ## Context and problem
 
@@ -17,7 +17,7 @@ The CRUD approach is straightforward and fast for most scenarios. However, in hi
 
 The Event Sourcing pattern defines an approach to handling operations on data that's driven by a sequence of events, each of which is recorded in an append-only store. Application code raises events that describe each action taken on the object. The events are generally sent to a queue where a separate process, an event handler, listens to the queue and persists the events in an event store. Each event represents a logical change to the object, such as `AddedItemToOrder` or `OrderCanceled`.
 
-The events are persisted in an event store that acts as the system of record (the authoritative data source) about the current state of the data. Additional event handlers can listen for events they are interested in and take an appropriate action. Consumers could, for example, initiate tasks that apply the operations in the events to other systems, or perform any other associated action that's required to complete the operation. Notice that the application code that generates the events is decoupled from the systems that subscribe to the events.
+The events are persisted in an event store that acts as the system of record (the authoritative data source) about the current state of the data. Additional event handlers can listen for events they're interested in and take an appropriate action. Consumers could, for example, initiate tasks that apply the operations in the events to other systems, or perform any other associated action that's required to complete the operation. Notice that the application code that generates the events is decoupled from the systems that subscribe to the events.
 
 Each entity in an event-sourced system has its own event stream, which is the ordered sequence of events that records every change to that entity. At any point, it's possible for applications to read the history of events. The current state of an entity is derived by replaying all the events in its stream, a process known as rehydration. This process can occur on demand when handling a request.
 
@@ -35,7 +35,7 @@ The following describes a typical workflow for this pattern:
 1. The presentation layer calls command handlers to perform actions like create a cart, or add an item to the cart.
 1. The command handler loads the entity by retrieving its event stream from the event store. For example, it might retrieve all cart events. Those events are replayed against the entity to reconstruct its current state before any new action occurs.
 1. The business logic is run and events are raised. In most implementations, the events are pushed to a queue or topic to decouple the event producers and event consumers.
-1. Event handlers listen for events they are interested in and perform the appropriate action for that handler. Some typical event handler actions are:
+1. Event handlers listen for events they're interested in and perform the appropriate action for that handler. Some typical event handler actions are:
     1. Writing the events to the event store
     1. Updating a read-only store optimized for queries
     1. Integrating with external systems
@@ -50,7 +50,7 @@ The Event Sourcing pattern provides the following advantages:
 
 - Events typically have meaning for a domain expert, whereas object-relational impedance mismatch can make complex database tables hard to understand. Tables are artificial constructs that represent the current state of the system, not the events that occurred.
 
-- Event sourcing can help prevent concurrent updates from causing conflicts because it avoids the requirement to directly update objects in the data store. Command handlers rehydrate an entity from its event stream to enforce business rules before appending new events, so two handlers that load the same entity simultaneously can both act on the same state; for example, each seeing five remaining seats and both accepting a reservation. Event stores address this with optimistic concurrency control, rejecting an append if the stream changed since it was read. On rejection, the handler reloads the entity, re-evaluates, and retries.
+- Event sourcing can help prevent concurrent updates from causing conflicts because it avoids the requirement to directly update objects in the data store. Command handlers rehydrate an entity from its event stream to enforce business rules before appending new events, so two handlers that load the same entity simultaneously can both act on the same state; for example, each seeing five remaining seats and both accepting a reservation. Event stores address this with optimistic concurrency control, rejecting an append if the stream changed since it was read. On rejection, the handler reloads the entity, reevaluates, and retries.
 
 - The append-only storage of events provides an audit trail that can be used to monitor actions taken against a data store. It can regenerate the current state as materialized views or projections by replaying the events at any time, and it can assist in testing and debugging the system. In addition, the requirement to use compensating events to cancel changes can provide a history of changes that were reversed. This capability wouldn't be the case if the model stored the current state. The list of events can also be used to analyze application performance and to detect user behavior trends. Or, it can be used to obtain other useful business information.
 
@@ -71,7 +71,7 @@ Consider the following points when deciding how to implement this pattern:
 
   The following strategies can be used individually or in combination:
 
-  - **Tolerant deserialization** - Design event consumers to ignore unknown fields and use default values for missing fields. This approach handles additive, non-breaking changes (such as adding an optional field) without requiring any transformation of stored events.
+  - **Tolerant deserialization** - Design event consumers to ignore unknown fields and use default values for missing fields. This approach handles additive, nonbreaking changes (such as adding an optional field) without requiring any transformation of stored events.
   - **Event versioning** - Include a version identifier in each event, either as metadata in the event envelope or as part of the event type name. Consumers use the version to select the appropriate handling logic.
   - **Upcasting** - Register transformation functions that convert older event schemas to the current schema during deserialization. Upcasters can be chained so that the application code only needs to handle the latest version. The stored events remain unchanged, preserving immutability.
   - **In-place migration** - Rewrite historical events to the new schema directly in the event store. This breaks immutability and should be a last resort because it undermines the audit trail.
@@ -97,7 +97,7 @@ Consider the following points when deciding how to implement this pattern:
 
 - **Conflicts** - Optimistic concurrency control prevents conflicting writes to the same event stream, but the application must still handle conflicts that span multiple entities. For example, an event that indicates a reduction in stock inventory might arrive in the data store while an order for that item is being placed. Design the system to reconcile these situations, such as by advising the customer or by creating a back order.
 
-- **Need for idempotency** - Event delivery to consumers is typically *at least once*, so consumers can receive the same event more than once. Event handlers must be idempotent so processing a duplicate event does not change the outcome. For example, if multiple instances of a consumer process seat-reservation events to maintain an available-seat count, a duplicated reservation event must result in only one decrement. Without idempotency, projections drift from the event stream and side effects such as payments or notifications fire more than once. Track the last processed event sequence number per consumer and skip duplicates, or design state mutations that are inherently safe to repeat.
+- **Need for idempotency** - Event delivery to consumers is typically *at least once*, so consumers can receive the same event more than once. Event handlers must be idempotent so processing a duplicate event doesn't change the outcome. For example, if multiple instances of a consumer process seat-reservation events to maintain an available-seat count, a duplicated reservation event must result in only one decrement. Without idempotency, projections drift from the event stream and side effects such as payments or notifications fire more than once. Track the last processed event sequence number per consumer and skip duplicates, or design state mutations that are inherently safe to repeat.
 
 - **Circular logic** - Be mindful of scenarios where the processing of one event involves the creation of one or more new events since this can cause an infinite loop.
 
