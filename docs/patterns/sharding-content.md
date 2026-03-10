@@ -40,7 +40,7 @@ If queries regularly retrieve data using a combination of attribute values, you 
 
 ## Sharding strategies
 
-Three strategies are commonly used when selecting the shard key and deciding how to distribute data across shards. There doesn't have to be a one-to-one correspondence between shards and the servers that host them. A single server can host multiple shards. Consider the following strategies:
+Four strategies are commonly used when selecting the shard key and deciding how to distribute data across shards. There doesn't have to be a one-to-one correspondence between shards and the servers that host them. A single server can host multiple shards. Consider the following strategies:
 
 **The Lookup strategy**. In this strategy the sharding logic implements a map that routes a request for data to the shard that contains that data using the shard key. In a multitenant application all the data for a tenant might be stored together in a shard using the tenant ID as the shard key. Multiple tenants might share the same shard, but the data for a single tenant won't be spread across multiple shards. The figure illustrates sharding tenant data based on tenant IDs.
 
@@ -60,13 +60,23 @@ In this example, the shard key is a composite key containing the order month as 
 
 To understand the advantage of the Hash strategy over other sharding strategies, consider how a multitenant application that enrolls new tenants sequentially might assign the tenants to shards in the data store. When you use the Range strategy, the data for tenants 1 to n will all be stored in shard A, the data for tenants n+1 to m will all be stored in shard B, and later tenant ranges map to successive shards. If the most recently registered tenants are also the most active, most data activity will occur in a small number of shards, which could cause hotspots. In contrast, the Hash strategy allocates tenants to shards based on a hash of their tenant ID. This means that sequential tenants are most likely to be allocated to different shards, which will distribute the load across them. The previous figure shows this for tenants 55 and 56.
 
-The three sharding strategies have the following advantages and considerations:
+**The Geographic strategy**. This strategy assigns data to shards based on the geographic origin or intended consumption region of that data. In many workloads, users and the data they generate are concentrated in specific regions. Regulatory requirements such as data residency laws might require that certain data remain within a specific jurisdiction. Even without regulatory drivers, placing data close to the users who access it most frequently reduces network latency for reads and writes.
+
+   TODO ADD IMAGE
+
+In this strategy, the shard key is derived from a geographic attribute, such as the user's country/region, the originating datacenter region, or a regional tenant identifier. Each shard is hosted in (or pinned to) infrastructure within that geographic boundary. For example, an application that serves customers in North America, Europe, and Asia-Pacific might maintain three shard groups, each running in the corresponding Azure region. A request from a European user is routed to the Europe shard, which satisfies both the latency optimization and data residency goals.
+
+Geographic sharding introduces a distinct risk: uneven data distribution. If most of your users are in one region, that region's shard carries a disproportionate share of the load and storage. You can combine geographic sharding with another strategy (such as hash or lookup) within each region to distribute load evenly across multiple shards inside the same geographic boundary.
+
+The four sharding strategies have the following advantages and considerations:
 
 - **Lookup**. This offers more control over the way that shards are configured and used. Using virtual shards reduces the impact when rebalancing data because new physical partitions can be added to even out the workload. The mapping between a virtual shard and the physical partitions that implement the shard can be modified without affecting application code that uses a shard key to store and retrieve data. Looking up shard locations can add an extra overhead.
 
 - **Range**. This is easy to implement and works well with range queries because they can often fetch multiple data items from a single shard in a single operation. This strategy offers easier data management. For example, if users in the same region are in the same shard, updates can be scheduled in each time zone based on the local load and demand pattern. However, this strategy doesn't provide optimal balancing between shards. Rebalancing shards is difficult and might not resolve the problem of uneven load if the majority of activity is for adjacent shard keys.
 
 - **Hash**. This strategy offers a better chance of more even data and load distribution. Request routing can be accomplished directly by using the hash function. There's no need to maintain a map. Computing the hash might impose an additional overhead. Also, rebalancing shards is difficult.
+
+- **Geographic**. This strategy satisfies data residency and sovereignty requirements that other strategies don't inherently address. It also reduces read and write latency for region-local access patterns. However, geographic sharding can produce significant data and load imbalance when user populations aren't evenly distributed across regions. Cross-region queries (for example, global reporting) require fan-out across all geographic shards and incur higher latency. Use geographic sharding in combination with another strategy within each region when you need both compliance and even load distribution.
 
 Most common sharding systems implement one of the approaches described above, but you should also consider the business requirements of your applications and their patterns of data usage. For example, in a multitenant application:
 
@@ -87,6 +97,8 @@ The Lookup strategy permits scaling and data movement operations to be carried o
 The Range strategy imposes some limitations on scaling and data movement operations, which must typically be carried out when a part or all of the data store is offline because the data must be split and merged across the shards. Moving the data to rebalance shards might not resolve the problem of uneven load if the majority of activity is for adjacent shard keys or data identifiers that are within the same range. The Range strategy might also require some state to be maintained in order to map ranges to the physical partitions.
 
 The Hash strategy makes scaling and data movement operations more complex because the partition keys are hashes of the shard keys or data identifiers. The new location of each shard must be determined from the hash function, or the function modified to provide the correct mappings. However, the Hash strategy doesn't require maintenance of state.
+
+The Geographic strategy ties scaling operations to regional infrastructure provisioning. Adding capacity in one region doesn't help another region that is under load. Data movement across geographic boundaries might be restricted by the same regulatory requirements that motivated the geographic sharding in the first place. Within a region, scaling follows whichever secondary strategy is used to distribute data across that region's shards.
 
 ## Issues and considerations
 
