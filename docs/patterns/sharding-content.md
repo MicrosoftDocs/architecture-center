@@ -28,15 +28,21 @@ This pattern has the following benefits:
 
 - In the cloud, shards can be located physically close to the users that'll access the data.
 
-When dividing a data store up into shards, decide which data should be placed in each shard. A shard typically contains items that fall within a specified range determined by one or more attributes of the data. These attributes form the shard key (sometimes referred to as the partition key). The shard key should be static. It shouldn't be based on data that might change.
+When dividing a data store up into shards, decide which data should be placed in each shard. A shard typically contains items that fall within a specified range determined by one or more attributes of the data. These attributes form the shard key (sometimes referred to as the partition key).
 
 Sharding physically organizes the data. When an application stores and retrieves data, the sharding logic directs the application to the appropriate shard. This sharding logic can be implemented as part of the data access code in the application, or it could be implemented by the data storage system if it transparently supports sharding.
 
 Abstracting the physical location of the data in the sharding logic provides a high level of control over which shards contain which data. It also enables data to migrate between shards without reworking the business logic of an application if the data in the shards need to be redistributed later (for example, if the shards become unbalanced). The tradeoff is the additional data access overhead required in determining the location of each data item as it's retrieved.
 
-To ensure optimal performance and scalability, it's important to split the data in a way that's appropriate for the types of queries that the application performs. In many cases, it's unlikely that the sharding scheme will exactly match the requirements of every query. For example, in a multitenant system an application might need to retrieve tenant data using the tenant ID, but it might also need to look up this data based on some other attribute such as the tenant's name or location. To handle these situations, implement a sharding strategy with a shard key that supports the most commonly performed queries.
+### Shard key selection
 
-If queries regularly retrieve data using a combination of attribute values, you can likely define a composite shard key by linking attributes together. Alternatively, use a pattern such as [Index Table](./index-table.yml) to provide fast lookup to data based on attributes that aren't covered by the shard key.
+The shard key is the most consequential design decision in a sharded system. Once you choose a shard key, changing it typically requires migrating all data to a new shard layout; an expensive and risky operation on a live system. Invest time in this decision before you write any code.
+
+An effective shard key is **immutable**, has **high cardinality**, distributes data and load **evenly**, and **aligns with your dominant query patterns** so that most requests resolve against a single shard. Avoid monotonically increasing values (autoincrement integers, sequential timestamps), low-cardinality attributes (booleans, small enum sets), and volatile attributes that change frequently. All of which lead to hotspots or costly cross-shard data movement.
+
+If no single attribute satisfies these criteria, define a composite shard key by combining two or more attributes. If queries need to retrieve data by attributes that aren't part of the shard key, use a pattern such as [Index Table](./index-table.yml) to provide secondary lookups.
+
+For detailed guidance on choosing partition keys across Azure services, see [Data partitioning guidance](../best-practices/data-partitioning.yml) and [Data partitioning strategies](../best-practices/data-partitioning-strategies.yml).
 
 ## Sharding strategies
 
