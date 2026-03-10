@@ -133,6 +133,7 @@ Make sure to test the throughput and performance of your data transformation lay
 Principal author:
 
 - [Ashish Khandelwal](https://www.linkedin.com/in/ashish-khandelwal-839a851a3/) | Principal Engineering Architecture Manager
+- [Nithish Aruldoss](https://www.linkedin.com/in/nithish-aruldoss-b4035b2b) | Engineering Architect
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
