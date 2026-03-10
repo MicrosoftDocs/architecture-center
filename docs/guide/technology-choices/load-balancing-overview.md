@@ -25,7 +25,7 @@ The following main load balancing services and service with load balancing capab
   > [!IMPORTANT]
   > API Management isn't a traditional, general-purpose load balancer. It's designed specifically for HTTP APIs, and its load balancing capabilities are optional within its broader API management functionality. API Management is included in this article for completeness because it provides load balancing capabilities for specific API hosting topologies. However, its primary purpose is API gateway functionality rather than load balancing.
 
-- [Application Gateway](/azure/application-gateway/overview) is a proxy load balancer. It provides application delivery controller functionality as a managed service. It offers various Layer-7 load balancing, routing, TLS offloading and web application firewall functionalities. As a terminating load balancer, it also offers [Layer-4 load balancing](/azure/application-gateway/tcp-tls-proxy-overview) for TCP and TLS protocols. Use Application Gateway to transition traffic from public network space to your web servers hosted in private network space within a region.
+- [Application Gateway](/azure/application-gateway/overview) is a proxy load balancer. It provides application delivery controller functionality as a managed service. It offers various Layer-7 load balancing, routing, TLS offloading and web application firewall (WAF) functionalities. As a terminating load balancer, it also offers [Layer-4 load balancing](/azure/application-gateway/tcp-tls-proxy-overview) for TCP and TLS protocols. Use Application Gateway to transition traffic from public network space to your web servers hosted in private network space within a region.
 
 - [Application Gateway for Containers](/azure/application-gateway/for-containers/overview) is an application layer (layer 7) load balancing and dynamic traffic management product for workloads running in a Kubernetes cluster.
 
@@ -50,7 +50,7 @@ Azure load balancing services can be categorized along two dimensions: global ve
 
 ### HTTP(S) versus non-HTTP(S)
 
-- **HTTP(S):** These load balancing services are [Layer-7](https://www.iso.org/ics/35.100.70/x/) load balancers that accept only HTTP(S) traffic. They're designed for web applications or other HTTP(S) endpoints. Features include SSL offload, web application firewall, path-based load balancing, and session affinity.
+- **HTTP(S):** These load balancing services are [Layer-7](https://www.iso.org/ics/35.100.70/x/) load balancers that accept only HTTP(S) traffic. They're designed for web applications or other HTTP(S) endpoints. Features include SSL offload, WAF, path-based load balancing, and session affinity.
 
 - **Non-HTTP(S):** These load balancing services include [Layer-4](https://www.iso.org/ics/35.100.40/x/) TCP and UDP services, or DNS-based load balancing services.
 
@@ -104,7 +104,7 @@ When your workload includes several services that require load balancing, assess
 
 - **Non-HTTP(S) application** refers to an application that needs Layer 4 (TCP or UDP protocols) or Transport Layer Security (TLS protocol) support. Both Azure Load Balancer and Azure Application Gateway provide capabilities to handle such traffic. However, their features and behaviors differ, as described in this [comparison article](/azure/application-gateway/tcp-tls-proxy-overview#comparing-azure-load-balancer-with-azure-application-gateway).
 
-- **Internet-facing application** refers to an application that's publicly accessible from the internet. As a best practice, application owners apply restrictive access policies or protect the application by setting up offerings like web application firewall and distributed denial-of-service protection.
+- **Internet-facing application** refers to an application that's publicly accessible from the internet. As a best practice, application owners apply restrictive access policies or protect the application by setting up offerings like WAF and distributed denial-of-service protection.
 
 - **Global or deployed in multiple regions** means that the load balancer should have a single, highly available control plane that routes traffic to public endpoints on your globally distributed application. This configuration can support either active-active or active-passive topologies across regions.
 
@@ -154,7 +154,7 @@ The following table lists various articles based on the load balancing services 
 | :-------------- | :------ | :---------- |
 | Load Balancer   | [Load balance VMs across availability zones](/azure/load-balancer/quickstart-load-balancer-standard-public-portal) | Load balance VMs across availability zones to help protect your apps and data from an unlikely failure or loss of an entire datacenter. With zone redundancy, one or more availability zones can fail and the data path survives as long as one zone in the region remains healthy. |
 | Traffic Manager | [Multitier web application built for high availability and disaster recovery](../../example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml) | Deploy resilient multitier applications built for high availability and disaster recovery. If the primary region becomes unavailable, Traffic Manager fails over to the secondary region. |
-| Application Gateway and API Management | [API Management landing zone architecture](../../example-scenario/integration/app-gateway-internal-api-management-function.yml) | Use Application Gateway to offload web application firewall and TLS. Use API Management to load balance across API back ends. |
+| Application Gateway and API Management | [API Management landing zone architecture](../../example-scenario/integration/app-gateway-internal-api-management-function.yml) | Use Application Gateway to offload WAF and TLS. Use API Management to load balance across API back ends. |
 | Traffic Manager and Application Gateway | [Multiregion load balancing with Traffic Manager and Application Gateway](../../high-availability/traffic-manager-application-gateway.yml) | Deploy resilient multitier applications in multiple Azure regions with layered traffic inspection through both WAF and Azure Firewall for HTTP(S) and non-HTTP(S) protocols. |
 
 ## Next steps
