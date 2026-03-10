@@ -61,7 +61,7 @@ Consider the following points as you decide how to implement this pattern:
 Use this pattern when:
 
 - A business operation spans multiple steps, services, or data stores and must be undone if a later step fails. This is common in long‑running workflows that follow an eventual consistency model and can't rely on atomic transactions. 
-- Failure recovery requires business‑specific logic rather than a simple data rollback. Compensating actions are needed when undoing work involves applying domain rules (for example, canceling reservations or issuing partial refunds). 
+- Failure recovery often requires domain-specific logic rather than a simple data rollback. Use compensating actions when undoing work requires applying business rules, such as canceling reservations or issuing partial refunds.
 
 This pattern might not be suitable when:
 
