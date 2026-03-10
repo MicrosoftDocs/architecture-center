@@ -63,9 +63,6 @@ When considering backup and recovery for AKS and Kubernetes clusters in general,
 
 - **Application data:** Refers to the data created, managed, or accessed by the containerized workloads running within the cluster. To ensure data persistence across pod or container restarts, Kubernetes recommends storing application data in persistent volumes. These volumes can be created statically or dynamically and can be backed by various types of persistent storage, offering flexibility and scalability for data storage and management requirements.
 
-> [!TIP]
-> For stateful workloads such as databases, consider using [Custom Hooks](/azure/backup/azure-kubernetes-service-cluster-backup-concept#backup-hooks) in AKS Backup. Backup hooks let you run custom scripts in containers before and after a snapshot is taken (using pre- and post-hooks), ensuring application-consistent backups. For example, you can freeze a database write operation before a snapshot and unfreeze it afterward.
-
 While a complete backup of the cluster would require both the cluster state and application data to be included as a single unit, determining the optimal scope of each backup depends on various factors. For example, the presence of alternative sources, like Continuous Integration and Continuous Delivery (CI/CD) pipelines, might allow for easier recovery of the cluster state. Additionally, the size of the application data plays a role in storage costs and the time required for backup and recovery operations.
 
 The ideal backup and recovery strategy highly depends on the specific application and environment. Therefore, the scope of the backup should be assessed on a case-by-case basis. It should also consider factors such as the importance of the cluster state and the volume of application data.
@@ -84,11 +81,13 @@ Following are some examples of backup and recovery solutions that you can use wi
 
 ### AKS Backup
 
+AKS Backup integrates with the [Resiliency in Azure](/azure/backup/backup-center-overview) area in the Azure portal to help you govern, monitor, operate, and analyze backups at scale.
+
 [AKS Backup](/azure/backup/azure-kubernetes-service-backup-overview) is Azure's offering for backing up and restoring your AKS clusters. It's an Azure-native process that lets you back up and restore the containerized applications and data running in your AKS clusters.
 
 AKS Backup allows for on-demand or scheduled backups of full or fine-grained cluster state and application data stored in Azure disk-based persistent volumes. AKS Backup supports two storage tiers: the **Operational Tier**, which stores backups as local snapshots and Kubernetes resource backups in a storage account in your subscription, and the **Vault Tier**, which copies backup data to an Azure Backup managed storage vault for long-term retention and geo-redundant protection. Vault Tier supports only persistent volumes backed by Azure Disks up to 1 TB in size and enables **Cross Region Restore (CRR)**, allowing recovery of AKS workloads in an Azure paired secondary region.
 
-AKS Backup integrates with the [Resiliency in Azure](/azure/backup/backup-center-overview) area in the Azure portal to help you govern, monitor, operate, and analyze backups at scale.
+For stateful workloads such as databases, use [Custom Hooks](/azure/backup/azure-kubernetes-service-backup-overview#backup-hooks) in AKS Backup. Backup hooks let you run custom scripts in containers before and after a snapshot is taken (using pre- and post-hooks), ensuring application-consistent backups. For example, you can freeze a database write operation before a snapshot and unfreeze it afterward.
 
 See [About AKS Backup using Azure Backup](/azure/backup/azure-kubernetes-service-backup-overview) for a detailed description of how AKS Backup works and its capabilities.
 
