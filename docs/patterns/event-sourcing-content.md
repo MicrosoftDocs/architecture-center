@@ -138,7 +138,7 @@ This pattern might not be useful in the following situations:
 
 - Teams without experience in [event-driven architectures](../guide/architecture-styles/event-driven.md). Event sourcing changes how you test, debug, and operate a system. Adopting it without that foundation increases the risk of anti-patterns that are costly to reverse.
 
-> [!NOTE]
+> [!TIP]
 > Event sourcing doesn't have to be an all-or-nothing decision for your entire system. Apply it selectively to the parts of your system where its benefits are strongest, such as a payment ledger or order-processing pipeline, and use traditional CRUD for parts where the complexity isn't justified, such as user profile management or application configuration.
 
 ## Workload design
@@ -170,7 +170,7 @@ The sequence of actions for reserving two seats is as follows:
 
 2. An entity containing information about all reservations for the conference is constructed by replaying the events that describe bookings and cancellations. This entity is called `SeatAvailability`, and is contained within a domain model that exposes methods for querying and modifying the data in the entity.
 
-    > Some optimizations to consider are using snapshots (so that you don't need to replay the full list of events to obtain the current state of the entity), and maintaining a cached copy of the entity in memory.
+   > Some optimizations to consider are using snapshots (so that you don't need to replay the full list of events to obtain the current state of the entity), and maintaining a cached copy of the entity in memory.
 
 3. The command handler invokes a method exposed by the domain model to make the reservations.
 
@@ -191,7 +191,7 @@ The write store that provides the permanent source of information for a CQRS imp
 
 ## Community resources
 
-- [Object-relational impedance mismatch](https://en.wikipedia.org/wiki/Object-relational_impedance_mismatch)
+- [Object-relational impedance mismatch](https://en.wikipedia.org/wiki/Object%E2%80%93relational_impedance_mismatch)
 
 - [Event Sourcing](https://martinfowler.com/eaaDev/EventSourcing.html) by Martin Fowler. The original 2005 description of the pattern that established the foundational vocabulary.
 
