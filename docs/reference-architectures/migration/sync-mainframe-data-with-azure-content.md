@@ -121,6 +121,8 @@ Data replication and sync scenarios that can benefit from this solution include:
 
 - On-premises systems that have tightly coupled applications that require phased remediation or modernization.
 
+- Integrating data from mainframe systems into modern analytics platforms, organizations can unlock valuable insights from historical and real-time transactional records.
+
 ## Recommendations
 
 You can apply the following recommendations to most scenarios. Follow these recommendations unless you have a specific requirement that overrides them.
