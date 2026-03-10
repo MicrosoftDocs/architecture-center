@@ -42,7 +42,7 @@ Consider the following points as you decide how to implement this pattern:
 - The infrastructure that handles the steps must meet the following criteria:
   - It's resilient in the original operation and in the compensating transaction.
   - It doesn't lose the information that's required to compensate for a failing step.
-  - It reliably monitors the progress of the compensation logic. Because compensating transactions often span multiple services and time boundaries, ensure that both the original operation and its compensation can be correlated and audited end‑to‑end.
+  - It reliably monitors the progress of the compensation logic. Because compensating transactions execute after the original operations have committed and other transactions might have acted on intermediate states, ensure that both the original operation and its compensation can be correlated and audited end-to-end.
 
 - A compensating transaction doesn't necessarily return the system data to its state at the start of the original operation. Instead, the transaction compensates for the work that the operation completed successfully before it failed.
 
