@@ -1,0 +1,416 @@
+---
+title: Run SAP NetWeaver in Windows on Azure
+description: Learn proven practices for running SAP NetWeaver in a Windows environment on Azure, with high availability.
+author: bqtrinh
+ms.author: bentrin
+ms.date: 02/18/2026
+ms.topic: concept-article
+ms.subservice: architecture-guide
+ms.category:
+   - databases
+   - management-and-governance
+ms.custom: arb-sap
+---
+
+# Run SAP NetWeaver in Windows on Azure
+
+<!-- cSpell:ignore netweaver HANA SMLG ABAP SPOF WSFC ASCS Iperf SIOS -->
+
+This guide presents a set of proven practices for running SAP NetWeaver in a Windows environment, on Azure, with high availability. The database is AnyDB, the SAP term for any supported database management system (DBMS) besides SAP HANA.
+
+> [!IMPORTANT]
+> This architecture uses SAP NetWeaver. SAP NetWeaver is approaching the end of standard maintenance and is no longer recommended for new deployments. To transition your architecture to a successor product, see [Transitioning Architectures from SAP NetWeaver](https://architecture.learning.sap.com/docs/ref-arch/9a5f7b59dc).
+
+## Architecture
+
+The following diagram shows SAP NetWeaver in a Windows environment.
+
+:::image type="content" source="media/sap-netweaver.png" alt-text="Architecture diagram that shows a solution for SAP NetWeaver on Windows. The database is AnyDB on Azure VMs with availability sets." lightbox="media/sap-netweaver.png" border="false":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/sap-netweaver-windows.vsdx) of this architecture.*
+
+> [!NOTE]
+> To deploy this architecture, you need appropriate licensing of SAP products and other non-Microsoft technologies.
+
+This guide describes a production system. The system is deployed with specific virtual machine (VM) sizes that you can change to accommodate the needs of your organization. The system can be reduced to a single VM. In this guide, the network layout is greatly simplified to demonstrate architectural principles. The intention is not to describe a full enterprise network.
+
+### Workflow
+
+The following workflow corresponds to the preceding diagram.
+
+1. SAP database layer
+
+   The database is at the core of each SAP installation. Application data and programs are persisted here. In this case the database is replicated for HA reasons.
+
+2. External SAP input files
+
+   This data is from external non-SAP systems to be processed in the SAP system. For HA reasons, this data is replicated.
+
+3. SAP application server layer
+
+   This layer contains the central application components. Processing of data happens here. This layer is protected by Azure Site Recovery (ASR), Windows Server Failover Cluster (WSFC), and multiple application servers to ensure local and remote redundancy.
+
+4. Azure network gateway in a hub network
+
+   This gateway is the entry point from the on-premise network into the Azure cloud. The hub network includes security measures.
+
+5. On premises network connection to Azure
+
+   This connection is your local on-premises network, extended into Azure. It connects to Azure either via ExpressRoute or a VPN over the internet.
+
+## Components
+
+- **Azure Virtual Machines** - This architecture uses VMs for the application tier and database tier.
+
+- **Databases** - The database tier runs any SAP-certified database, such as Microsoft SQL Server, Oracle, or IBM Db2.
+
+- **SAP NetWeaver** - The application tier uses Windows VMs to run SAP Central Services and SAP application servers. For high availability, the VMs that run Central Services are configured in a Windows server failover cluster. WSFC supports Azure file shares or Azure shared disks.
+
+  - Advanced Business Application Programming (ABAP) SAP Central Service (ASCS)
+  - Enqueue Replication Server (ERS)
+
+  The Standard SKU also supports multi-systems identifier (multi-SID) SAP clusters. In other words, [multiple SAP systems on Windows](/azure/virtual-machines/workloads/sap/high-availability-guide) can share a common high availability infrastructure to save cost. Evaluate the cost savings, and avoid placing too many systems in one cluster. Azure supports no more than five SIDs per cluster.
+
+  There are also partner products like [SIOS DataKeeper Cluster Edition](https://marketplace.microsoft.com/product/sios_datakeeper.sios-datakeeper-8) from SIOS Technology Corp. This add-on replicates content from independent disks that are attached to the ASCS cluster nodes and then presents the disks as a cluster shared volume to the cluster software.
+
+- **Azure Storage** - Storage provides data persistence for a VM in the form of a virtual hard disk. We recommend [Azure Managed Disks](/azure/virtual-machines/managed-disks-overview).
+
+- **Virtual networks** - The [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) service connects Azure resources to each other with enhanced security. In this architecture, the virtual network connects to an on-premises network via an Azure ExpressRoute gateway that connects in the hub of a [hub-spoke topology](../../networking/architecture/hub-spoke.yml). The spoke is the virtual network that's used for the SAP applications and the database tiers. The hub virtual network is used for shared services like Azure Bastion and backup.
+
+- **Virtual network peering** - This architecture uses a hub-and-spoke networking topology with multiple virtual networks that are [peered together](/azure/virtual-network/virtual-network-peering-overview). This topology provides network segmentation and isolation for services that are deployed on Azure. Peering enables transparent connectivity between peered virtual networks through the Microsoft backbone network. It doesn't incur a performance penalty if deployed within a single region. The virtual network is divided into separate subnets for each tier: application (SAP NetWeaver), the database, and shared services like Bastion and a third-party backup solution.
+
+- **VPN or ExpressRoute Gateway** - A gateway connects distinct networks, extending your on-premises network to the Azure virtual network. We recommend that you use [ExpressRoute](../../reference-architectures/hybrid-networking/expressroute.yml) to create private connections that don't go over the public internet, but you can also use a [site-to-site](../../reference-architectures/hybrid-networking/expressroute.yml) connection. To reduce latency or increase throughput, consider [ExpressRoute Global Reach](/azure/expressroute/expressroute-global-reach) and [ExpressRoute FastPath](/azure/expressroute/about-fastpath), as discussed later in this article.
+
+- **Bastion service** - Administrators use an improved-security VM. This host acts as a bastion host to connect to other VMs. It's typically a part of shared services, like backup services. If Secure Shell Protocol (SSH) and Remote Desktop Protocol (RDP) are the only services that are used for server administration, an [Azure Bastion](/azure/bastion/bastion-overview) host is a good solution. If you use other management tools, like SQL Server Management Studio or SAP Frontend, use a traditional, self-deployed jump box.
+
+- **Network security groups** - To restrict incoming, outgoing, and intra-subnet traffic in a virtual network, create [network security groups](/azure/virtual-network/tutorial-filter-network-traffic-cli).
+
+  Use [Application security groups](/azure/virtual-network/security-overview) to define fine-grained, workload-based network security policies that are centered on applications. Application security groups provide a way to group VMs by name and help you secure applications by filtering traffic from trusted segments of your network.
+
+- **Private DNS service** - [Azure Private DNS](/azure/dns/private-dns-overview) provides a reliable and secure DNS service for your virtual network. Azure Private DNS manages and resolves domain names in the virtual network, without the need to configure a custom DNS solution.
+
+- **Load balancers** - To distribute traffic to VMs in the SAP application tier subnet for high availability, we recommend that you use an [Azure standard load balancer](/azure/load-balancer/load-balancer-standard-availability-zones). A standard load balancer provides a level of security by default. VMs that are behind a standard load balancer don't have outbound internet connectivity. To enable outbound internet on the VMs, you need to update your [standard load balancer configuration](/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections). For SAP web-based application high availability, use the built-in [SAP Web Dispatcher](https://help.sap.com/doc/saphelp_em900/9.0/en-US/48/8fe37933114e6fe10000000a421937/content.htm?no_cache=true) or another commercially available load balancer.
+
+  Base your selection on:
+
+  - Your traffic type, like HTTP or SAP GUI.
+  - The network services that you need, like Secure Sockets Layer (SSL) termination.
+
+  For some internet-facing inbound/outbound design examples, see [Inbound and outbound internet connections for SAP on Azure](./sap-internet-inbound-outbound.yml).
+
+  Standard Load Balancer supports multiple front-end virtual IPs.
+
+- **Application gateway** - Azure Application Gateway is a web traffic load balancer that you can use to manage the traffic to your web applications. Traditional load balancers operate at the transport layer (OSI layer 4 - TCP and UDP). They route traffic based on the source IP address and the port to a destination IP address and port. Application Gateway can make routing decisions based on more attributes of an HTTP request, such as the URI path or host headers. This type of routing is known as application layer (OSI layer 7) load balancing.
+
+## Recommendations
+
+This architecture describes a small production-level deployment. Deployments differ based on business requirements, so consider these recommendations as a starting point.
+
+### Networking
+
+This architecture uses a hub-spoke topology. The hub virtual network acts as a central point of connectivity to an on-premises network. The spokes are virtual networks that peer with the hub and isolate the SAP workloads. Traffic flows between the on-premises datacenter and the hub through a gateway connection.
+
+### Network interface cards (NICs)
+
+NICs enable all communication among VMs on a virtual network. Traditional on-premises SAP deployments implement multiple NICs per machine to segregate administrative traffic from business traffic.
+
+On Azure, the virtual network is a software-defined network that sends all traffic through the same network fabric. So it's not necessary to use multiple NICs for performance reasons. But if your organization needs to segregate traffic, you can deploy multiple NICs per VM and connect each NIC to a different subnet. You can then use network security groups to enforce different access control policies.
+
+Azure NICs support multiple IPs. This support conforms with the practice that SAP recommends of using virtual host names for installations. For a complete outline, see [SAP note 962955](https://launchpad.support.sap.com/#/notes/962955). To access SAP notes, you need an SAP Service Marketplace account.
+
+### Subnets and network security groups
+
+This architecture subdivides the virtual network address space into subnets. You can associate each subnet with a network security group that defines the access policies for the subnet. Place application servers on a separate subnet. By doing so, you can secure them more easily by managing the subnet security policies rather than the individual servers.
+
+When you associate a network security group with a subnet, the network security group applies to all the servers within the subnet and offers fine-grained control over the servers. Set up network security groups by using the [Azure portal](/azure/virtual-network/tutorial-filter-network-traffic), [PowerShell](/azure/virtual-network/tutorial-filter-network-traffic-powershell), or the [Azure CLI](/azure/virtual-network/tutorial-filter-network-traffic-cli).
+
+### ExpressRoute Global Reach
+
+If your network environment includes two or more ExpressRoute connections, [ExpressRoute Global Reach](/azure/expressroute/expressroute-global-reach) can help you reduce network hops and latency. This technology is a Border Gateway Protocol (BGP) route peering between two or more ExpressRoute connections to bridge two ExpressRoute routing domains. Global Reach reduces latency when network traffic traverses more than one ExpressRoute connection. It's currently available only for private peering on ExpressRoute circuits.
+
+At this time, there are no network access control lists or other attributes that can be changed in Global Reach. So all routes learned by a given ExpressRoute circuit (from on-premises and Azure) are advertised across the circuit peering to the other ExpressRoute circuit. We recommend that you establish network traffic filtering on-premises to restrict access to resources.
+
+### ExpressRoute FastPath
+
+[ExpressRoute FastPath](/azure/expressroute/about-fastpath) is designed to improve the data path performance between your on-premises network and your virtual network. VNet peering over FastPath is supported. Enabling FastPath sends network traffic directly to virtual machines in the virtual network, bypassing the gateway.
+
+For all new ExpressRoute connections to Azure, FastPath is the default configuration. For existing ExpressRoute circuits, contact Azure support to activate FastPath.
+
+| Scenario                         | FastPath + Virtual network peering |
+| : ------------------------------ | :--------------------------------- |
+|  ExpressRoute Direct             | Supported (same region only)       |
+|  ExpressRoute provider circuit   | Not supported                      |
+|  Global VNet peering             | Not supported                      |
+|  Hub - spoke traffic (Direct)    | Supported                          |
+|  Hub - spoke ILB traffic         | Gateway used                       |
+
+ExpressRoute provider circuits do not support VNet peering over FastPath.
+
+When you peer additional virtual networks with the virtual network that is connected to ExpressRoute, traffic from your on-premises network to those peered spoke virtual networks is routed through the virtual network gateway instead of over FastPath. To avoid this limitation, connect each virtual network directly to the ExpressRoute circuit.
+
+### Load balancers
+
+[SAP Web Dispatcher](https://help.sap.com/docs/SUPPORT_CONTENT/si/3362959690.html) handles load balancing of HTTP(S) traffic to a pool of SAP application servers. This software load balancer provides application layer services (referred to as layer 7 in the ISO networking model) that can perform SSL termination and other offloading functions.
+
+[Azure Load Balancer](https://azure.microsoft.com/blog/azure-load-balancer-new-distribution-mode) is a network transmission layer service (layer 4) that balances traffic by using a five-tuple hash from the data streams. The hash is based on source IP, source port, destination IP, destination port, and protocol type. In SAP deployments on Azure, Load Balancer is used in cluster setups to direct traffic to the primary service instance or to the healthy node if there's a fault.
+
+We recommend that you use [Internal Load Balancer](/azure/load-balancer/quickstart-load-balancer-standard-internal-portal) for all SAP scenarios. If VMs in the back-end pool require public outbound connectivity, or if they're used in an Azure zone deployment, Internal Load Balancer requires [extra configurations](/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) because they're secure by default. They don't allow outbound connectivity unless you explicitly configure it.
+
+For traffic from SAP GUI clients that connect to an SAP server via DIAG protocol or RFC, the Central Services message server balances the load through SAP application server [logon groups](https://userapps.support.sap.com/sap/support/knowledge/en/2472141). For this type of setup, you don't need another load balancer.
+
+### Storage
+
+Some organizations use standard storage for their application servers. Standard managed disks aren't supported. See [SAP note 1928533](https://service.sap.com/sap/support/notes/1928533). To access SAP notes, you need an SAP Service Marketplace account. We recommend that you use premium [Azure Managed Disks](/azure/virtual-machines/managed-disks-overview) in all cases. A recent update to [SAP note 2015553](https://launchpad.support.sap.com/#/notes/2015553) excludes the use of Standard HDD storage and Standard SSD storage for a few specific use cases.
+
+Application servers don't host business data. So you can also use the smaller P4 and P6 premium disks to help minimize costs. By doing so, you can benefit from the [single-instance VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_6) if you have a central SAP stack installation.
+
+For high-availability scenarios, you can use [Azure file shares](/azure/storage/files/storage-files-introduction) and [Azure shared disks](/azure/virtual-machines/disks-shared). [Premium SSDs and Azure Ultra Disk Storage](/azure/storage/storage-managed-disks-overview) are available for Azure shared disks, and Premium SSD is available for Azure file shares.
+
+Storage is also used by [Cloud Witness](/windows-server/failover-clustering/deploy-quorum-witness) to maintain quorum with a device in a remote Azure region, away from the primary region where the cluster resides.
+
+For the backup data store, we recommend Azure [cool and archive access tiers](/azure/storage/blobs/access-tiers-overview). These storage tiers provide a cost-effective way to store long-lived data for infrequent access.
+
+[Premium SSD v2](/azure/virtual-machines/disks-types#premium-ssd-v2) is designed for performance-critical workloads like online transaction processing systems that consistently need submillisecond latency combined with high IOPS and throughput.
+
+[Ultra Disk Storage](/azure/virtual-machines/disks-types#ultra-disks) greatly reduces disk latency. As a result, it benefits performance-critical applications like the SAP database servers. To compare block storage options in Azure, see [Azure Managed Disk types](/azure/virtual-machines/disks-types).
+
+For a high-availability, high-performance shared data store, use [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction). This technology is useful for the database tier when you use [Oracle](/azure/azure-netapp-files/performance-oracle-single-volumes), and also when you [host application data](/azure/sap/workloads/high-availability-guide-windows-netapp-files-smb).
+
+## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
+
+### Reliability
+
+Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
+
+Resource redundancy is the general theme in highly available infrastructure solutions. For single-instance VM availability SLAs for various storage types, see [SLA for virtual machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9). To increase service availability on Azure, deploy VM resources with Virtual Machine Scale Sets with Flexible orchestration, availability zones, or availability sets.
+
+With Azure, SAP workload deployment can be either regional or zonal, depending on the availability and resiliency requirements of the SAP applications. Azure provides [different deployment options](/azure/sap/workloads/sap-high-availability-architecture-scenarios#comparison-of-different-deployment-types-for-sap-workload), like Virtual Machine Scale Sets with Flexible orchestration (FD=1), availability zones, and availability sets, to enhance the availability of resources. To get a comprehensive understanding of the available deployment options and their applicability across different Azure regions (including across zones, within a single zone, or in a region without zones), see [High-availability architecture and scenarios for SAP NetWeaver](/azure/sap/workloads/sap-high-availability-architecture-scenarios).
+
+In this distributed installation of the SAP application, the base installation is replicated to achieve high availability. For each layer of the architecture, the high availability design varies.
+
+#### Web Dispatcher in the application servers tier
+
+The Web Dispatcher component is used as a load balancer for SAP traffic among the SAP application servers. To achieve [high availability of SAP Web Dispatcher](https://help.sap.com/docs/SUPPORT_CONTENT/si/3362959690.html), Load Balancer implements either the failover cluster or the parallel Web Dispatcher setup.
+
+For internet-facing communications, we recommend a stand-alone solution in the perimeter network, which is also known as *DMZ*, to satisfy security concerns.
+
+[Embedded Web Dispatcher](https://help.sap.com/viewer/00b4e4853ef3494da20ebcaceb181d5e/LATEST/en-US/2e708e2d42134b4baabdfeae953b24c5.html) on ASCS is a special option. If you use this option, consider proper sizing because of the extra workload on ASCS.
+
+#### Central Services in the application servers tier
+
+High availability of the Central Services is implemented with a Windows server failover cluster. When the cluster storage for the failover cluster is deployed on Azure, you can configure it in two ways: as a clustered shared disk or as a clustered file share.
+
+- We recommend that you use [Azure Files](/azure/storage/files/storage-files-introduction) as fully managed, cloud-native SMB or NFS shares. Another way is to use [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction), which provides high-performance, enterprise-class NFS and SMB shares.
+
+- To set up clusters with shared disks on Azure. First, we recommend that you use [Azure shared disks](/azure/virtual-machines/disks-shared) to set up a [Windows server failover cluster for SAP Central Services](/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-shared-disk). For an implementation example, see [ASCS cluster using Azure shared disks](/azure/sap/workloads/sap-high-availability-infrastructure-wsfc-shared-disk)./367898).
+
+If you use Internal Load Balancer, you can enable the [high availability port](/azure/load-balancer/load-balancer-ha-ports-overview). By doing so, you can avoid needing to configure load-balancing rules for multiple SAP ports. Also, when you set up Azure load balancers, enable Direct Server Return (DSR), which is also called *Floating IP*. Doing so provides a way for server responses to bypass the load balancer. This direct connection keeps the load balancer from becoming a bottleneck in the path of data transmission. We recommend that you enable DSR for the ASCS and database clusters.
+
+#### Application services in the application servers tier
+
+Load balancing traffic within a pool of application servers achieves high availability for the SAP application servers. You don't need cluster software, SAP Web Dispatcher, or the Azure load balancer. The SAP message server can load balance client traffic to the application servers defined in an ABAP logon group by the transaction SMLG.  
+
+#### Database tier
+
+In this architecture, the source database runs on AnyDB a DBMS such as SQL Server, SAP ASE, IBM DB2, or Oracle. The native replication feature of the database tier provides either manual or automatic failover between replicated nodes.
+
+For implementation details about specific database systems, see [Azure Virtual Machines DBMS deployment for SAP NetWeaver](/azure/sap/workloads/dbms-guide-general).
+
+#### VMs deployed across availability zones
+
+An availability zone consists of one or more datacenters. This design improves workload availability and protects application services and VMs against datacenter outages. VMs in a single zone are treated as if they were in a single fault domain. When you select zonal deployment, VMs in the same zone are distributed to fault domains on a best-effort basis.
+
+In [Azure regions](https://azure.microsoft.com/global-infrastructure/regions) that support multiple zones, at least three zones are available. But the maximum distance between datacenters in these zones isn't guaranteed. To deploy a multitier SAP system across zones, you need to know the network latency within a zone and across targeted zones. You also need to know how sensitive your deployed applications are to network latency.
+
+Take these [considerations](/azure/sap/workloads/high-availability-zones) into account when you decide to deploy resources across availability zones:
+
+- Latency between VMs in one zone
+- Latency between VMs across chosen zones
+- Availability of the same Azure services (VM types) in the chosen zones
+
+#### Active/inactive deployment example
+
+In this example deployment, the [active/passive](/azure/sap/workloads/high-availability-zones?tabs=passive#deployment-types) status refers to the application service state within the zones. In the application layer, all four active application servers of the SAP system are in zone 1. Another set of four passive application servers is built in zone 2 but is shut down. They're activated only when they're needed.
+
+The two-node clusters for Central Services and the database services are stretched across two zones. If zone 1 fails, Central Services and the database services run in zone 2. The passive application servers in zone 2 get activated. With all components of this SAP system now colocated in the same zone, network latency is minimized.
+
+#### Active/active deployment example
+
+In an [active/active](/azure/sap/workloads/high-availability-zones?tabs=active#deployment-types) deployment, two sets of application servers are built across two zones. Within each zone, two application servers in each set of servers are inactive, because they're shut down. As a result, there are active application servers in both zones during normal operations.
+
+Central Services and the database services run in zone 1. The application servers in zone 2 might have longer network latency when they connect to Central Services and the database services because of the physical distance between zones.
+
+If zone 1 goes offline, Central Services and the database services fail over to zone 2. You can bring the dormant application servers online to provide full capacity for application processing.
+
+#### DR considerations
+
+A DR here means that an entire region becomes unavaible, mainly through natural disaster like fire or flood. Every tier in the SAP application stack uses a different approach to provide DR protection. For DR strategies and implementation details, see [Disaster recovery overview and infrastructure guidelines for SAP workload](/azure/sap/workloads/disaster-recovery-overview-guide) and [Disaster recovery guidelines for SAP application](/azure/sap/workloads/disaster-recovery-sap-guide?tabs=linux).
+
+> [!NOTE]
+> If there's a regional, natural disaster that causes a large failover event for many Azure customers in one region, the target region's [resource capacity](/azure/site-recovery/azure-to-azure-common-questions#capacity) isn't guaranteed. Site Recovery continues to add features and capabilities. For the latest information about Azure-to-Azure replication, see the [support matrix](/azure/site-recovery/azure-to-azure-support-matrix).
+
+#### Backup
+
+Databases are critical workloads that require a low recovery point objective (RPO) and long-term retention.
+
+- For SAP on SQL Server, one approach is to use [Azure Backup](/azure/backup/backup-azure-sql-database) to back up SQL Server databases that run on VMs. If the database files are stored in Azure Blob Storage, another option is to use [file-snapshot backups for database files in Azure](/sql/relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure?view=sql-server-ver17).
+
+- For SAP on Oracle/Windows, see the "Backup/restore" section in [Azure VM DBMS Deployment for SAP](/azure/virtual-machines/workloads/sap/dbms_guide_oracle).
+
+- For other databases, see the backup recommendations for your database provider. If the database supports the Windows Volume Shadow Copy Service (VSS), use VSS snapshots for application-consistent backups.
+
+### Security
+
+Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
+
+SAP has its own user management engine (UME) to control role-based access and authorization within the SAP application and databases. For detailed application security guidance, see [SAP NetWeaver Security Guide](https://help.sap.com/docs/SAP_NETWEAVER_701/6f457d836c4b10148949c300573c213b/4aaf6fd65e233893e10000000a42189c.html).
+
+For more network security, consider using a [perimeter network](../../reference-architectures/dmz/secure-vnet-dmz.yml) that uses an NVA to create a firewall in front of the subnet for Web Dispatcher.
+
+You can deploy an NVA to filter traffic between virtual networks, but don't place it between the SAP application and the database. Also, check the routing rules that are configured on the subnet and avoid directing traffic to a single-instance NVA. Doing so can lead to maintenance downtime and network or clustered-node failures.
+
+For infrastructure security, data is encrypted in transit and at rest. For information about network security, see the "Security recommendations" section in [Azure Virtual Machines planning and implementation for SAP NetWeaver](/azure/sap/workloads/planning-guide#security-for-your-sap-landscape). This article also specifies the network ports that you need to open on the firewalls to allow application communication.
+
+#### Encryption
+
+For SAP workloads, Microsoft recommends the following approaches:
+
+- **Database-native encryption** (for example, SAP HANA data, log, and backup encryption) for protecting SAP database content
+- **Encryption at host**, optionally combined with Azure Storage Service Encryption and customer-managed keys, for VM-level protection
+
+For data-at-rest encryption, SQL Server transparent data encryption (TDE) encrypts SQL Server and Azure SQL Database data files. For more information, see [SQL Server Azure Virtual Machines DBMS deployment for SAP NetWeaver](/azure/sap/workloads/dbms-guide-sqlserver).
+
+To monitor threats from inside and outside the firewall, consider deploying [Microsoft Sentinel](/azure/sentinel/sap/solution-overview). The solution provides continuous threat detection and analytics for SAP systems that are deployed on Azure using an agentless data connector. For deployment guidance, see [Deploy Threat Monitoring for SAP in Microsoft Sentinel](/azure/sentinel/sap/deployment-overview).
+
+As always, manage security updates and patches to safeguard your information assets. Consider using an end-to-end [automation approach](/azure/update-manager/view-updates?tabs=singlevm-overview) for this task.
+
+#### Identity management
+
+To control access to resources at all levels, use a centralized identity management system like Microsoft Entra ID and Active Directory Domain Services (AD DS):
+
+- Provide access to Azure resources by using [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview).
+
+- Grant access to Azure VMs by using Lightweight Directory Access Protocol (LDAP), Microsoft Entra ID, Kerberos, or another system.
+
+Support access within the applications themselves by using the services that SAP provides. Or use [OAuth 2.0 and Microsoft Entra ID](/entra/identity-platform/v2-oauth2-auth-code-flow).
+
+### Cost Optimization
+
+Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+
+Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs.
+
+#### VMs
+
+This architecture uses VMs for the application tier and the database tier. The SAP NetWeaver tier uses Windows VMs to run SAP services and applications. The database tier runs AnyDB as the database, such as SQL Server, Oracle, or IBM DB2. VMs are also used as jump boxes for management.
+
+There are several payment options for VMs:
+
+- For workloads that have no predictable time of completion or resource consumption, consider the pay-as-you-go option.
+
+- Consider using [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) if you can commit to using a VM over a one-year or three-year term. VM reservations can significantly reduce costs. You might pay as little as 72 percent of the cost of a pay-as-you-go service.
+
+Use [Azure spot VMs](/azure/virtual-machines/spot-vms) to run compute that can be interrupted and don't require completion within a predetermined time frame or an SLA. Azure deploys spot VMs when there's available capacity and evicts them when it needs the capacity back. Costs that are associated with spot VMs are lower than for other VMs. Consider spot VMs for cost savings in this architecture for:
+
+- Part of your application servers in production environments where you do not have a service level objective (SLO).
+- Application servers in non-production environments, including supporting compute such as continuous integration and continuous delivery agents.
+
+Azure Reserved Virtual Machine Instances can reduce your total cost of ownership. You can combine Azure Reserved Virtual Machine Instances rates with a pay-as-you-go subscription to manage costs across predictable and variable workloads. For more information, see [Azure Reserved Virtual Machine Instances](/azure/virtual-machines/prepay-reserved-vm-instances).
+
+If your database tier requires more memory and fewer CPUs, use one of the [constrained vCPU VM](/azure/virtual-machines/constrained-vcpu) sizes to reduce software licensing costs that are charged per vCPU.
+
+#### Load Balancer
+
+In this scenario, Load Balancer is used to distribute traffic to VMs in the application-tier subnet.
+
+You're charged only for the number of configured load-balancing and outbound rules, plus the data going through the load balancer. Inbound network address translation (NAT) rules are free. There's no hourly charge for Standard Load Balancer when no rules are configured.
+
+#### ExpressRoute
+
+In this architecture, ExpressRoute is the networking service that's used to create private connections between an on-premises network and Azure virtual networks.
+
+All inbound data transfer is free. All outbound data transfer is charged based on a predetermined rate. For more information, see [Azure ExpressRoute pricing](https://azure.microsoft.com/pricing/details/expressroute).
+
+### Operational Excellence
+
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
+
+#### Azure Center for SAP solutions
+
+Azure Center for SAP solutions is an end-to-end solution that enables you to create and run SAP systems as a unified workload on Azure and provides a foundation for innovation. Also, the Azure Center for SAP solutions guided deployment experience creates the necessary compute, storage, and networking components that you need to run your SAP system. It then helps you automate the installation of SAP software according to Microsoft best practices. You can take advantage of the management capabilities for both new and existing Azure-based SAP systems. For more information, see [Azure Center for SAP solutions](/azure/sap/center-sap-solutions/overview).
+
+If you need more control over maintenance events or hardware isolation, for either performance or compliance, consider deploying your VMs on [dedicated hosts](/azure/virtual-machines/dedicated-hosts).
+
+#### Monitoring
+
+To maximize the availability and performance of applications and services on Azure, use [Azure Monitor](/azure/azure-monitor/overview). This is a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. Azure Monitor shows how applications are performing and proactively identifies problems that affect them and the resources that they depend on. For SAP applications that run on SAP HANA and other major database solutions, see [Azure Monitor for SAP solutions](/azure/sap/monitor/about-azure-monitor-sap-solutions) to learn how Azure Monitor for SAP can help you manage the availability and performance of SAP services.
+
+#### Communities
+
+Communities can answer questions and help you set up a successful deployment. Consider these resources:
+
+- [Running SAP Applications on the Microsoft Platform blog](https://techcommunity.microsoft.com/category/saponmicrosoft)
+- [NetWeaver on Microsoft Learn Q&A](https://learn.microsoft.com/search/?terms=NetWeaver&category=QnA)
+- [SAP Community](https://community.sap.com)
+
+### Performance Efficiency
+
+Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+
+SAP application servers communicate constantly with the database servers. For performance-critical applications that run on database platforms, enable [Write Accelerator](/azure/virtual-machines/how-to-enable-write-accelerator) for the log volume if you're using Premium SSD v1. Doing so can improve log-write latency. Write Accelerator is available for M-series VMs.
+
+To optimize inter-server communications, use [Accelerated Networking](/azure/virtual-network/accelerated-networking-overview). Most general-purpose and compute-optimized VM instance sizes that have two or more vCPUs support Accelerated Networking. On instances that support hyperthreading, VM instances with four or more vCPUs support Accelerated Networking.
+
+To achieve high IOPS and disk throughput, follow the common practices in storage volume [performance optimization](/azure/virtual-machines/premium-storage-performance), which apply to Azure storage layout. For example, you can position multiple disks together to create a striped disk volume to improve I/O performance. Enabling the read cache on storage content that changes infrequently enhances the speed of data retrieval.
+
+[Premium SSD v2](/azure/virtual-machines/disks-types) provides more flexibility in choosing performance characteristics than Premium SSDs. You can set a Premium SSD v2 disk to any supported size you prefer and make granular adjustments to the performance without downtime.
+
+[Ultra Disk Storage](/azure/virtual-machines/disks-enable-ultra-ssd) is available for I/O-intensive applications. Where these disks are available, we recommend them over [Write Accelerator](/azure/virtual-machines/windows/how-to-enable-write-accelerator) premium storage. You can individually increase or decrease performance metrics like IOPS and MBps without needing to reboot.
+
+For guidance about optimizing Azure storage for SAP workloads on SQL Server, see [Azure Virtual Machines planning and implementation for SAP NetWeaver](/azure/sap/workloads/planning-guide).
+
+The placement of a network virtual appliance (NVA) between the application and the database layers for any SAP application stack isn't supported. This practice introduces significant processing time for data packets, which leads to unacceptable application performance.
+
+#### Proximity placement groups
+
+SAP application servers usually require frequent communication with the database. The physical proximity of the application server layer and the database layers affects network latency, which can adversely affect application performance.
+
+To optimize network latency, you can use [proximity placement groups](/azure/sap/workloads/proximity-placement-scenarios#), which set a logical constraint on the VMs that are deployed in availability sets. Proximity placement groups favor colocation and performance over scalability, availability, or cost. They can greatly improve the user experience for most SAP applications. For scripts that help measure latency, see [Scripts](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities) on GitHub.
+
+> [!NOTE]
+> Not all scenarios require the use of proximity placement groups, see the scenarios listed in [proximity placement groups](/azure/sap/workloads/proximity-placement-scenarios#proximity-placement-groupsscenarios) for additional recommendations on when to use or avoid proximity placement groups.
+
+#### Availability zones
+
+[Availability zones](/azure/reliability/availability-zones-overview) provide a way for you to deploy VMs across datacenters, which are physically separated locations within a specific Azure region. Their purpose is to enhance service availability. But deploying resources across zones can increase latency, so keep performance considerations in mind.
+
+Administrators need a clear network latency profile between all zones of a target region before they can determine the resource placement with minimum inter-zone latency. To create this profile, deploy small VMs in each zone for testing. Recommended tools for these tests include [PsPing](/sysinternals/downloads/psping) and [Iperf](https://github.com/esnet/iperf). When the tests are done, remove the VMs that you used for testing. As an alternative, consider using an [Azure inter-zone latency check tool](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/main/AvZone-Latency-Test).
+
+#### Scalability considerations
+
+For the SAP application layer, Azure offers a wide range of VM sizes for scaling up and scaling out. For an inclusive list, see [SAP note 1928533 - SAP Applications on Azure: Supported Products and Azure VM Types](https://launchpad.support.sap.com/#/notes/1928533). To access SAP notes, you need an SAP Service Marketplace account.
+
+You can scale SAP application servers and the Central Services clusters up and down. You can also scale them out or in by changing the number of instances that you use. The AnyDB database can scale up and down but doesn't scale out. The SAP database container for AnyDB doesn't support sharding.
+
+## Contributors
+
+*Microsoft maintains this article. The following contributor wrote this article.*
+
+Principal author:
+
+- [Ben Trinh](https://www.linkedin.com/in/bentrinh/) | Principal Architect
+
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
+
+## Next steps
+
+For more information and for examples of SAP workloads that use some of the same technologies as this architecture, see these articles:
+
+- [Azure Virtual Machines planning and implementation for SAP NetWeaver](/azure/virtual-machines/workloads/sap/planning-guide)
+- [Use Azure to host and run SAP workload scenarios](/azure/virtual-machines/workloads/sap/get-started)
+
+## Related resources
+
+- [Run SAP production workloads using an Oracle Database on Azure](../../example-scenario/apps/sap-production.yml)
