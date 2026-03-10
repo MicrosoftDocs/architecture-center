@@ -121,7 +121,7 @@ These transactions rely on the load-balancing capability in the Central Services
 
 ### SAP Central Services cluster
 
-The SAP Central Services contain a single instance of the message server and the enqueue replication service. Unlike the work processes of application servers, these components are single points of failure in the SAP application stack. You can deploy Central Services to a single VM when the Azure single-instance VM availability service-level agreement (SLA) meets your requirement. If your SLA requires higher availability, you need to deploy these services on an HA cluster. For more information, see [Central Services in the application servers tier](#central-services-in-the-application-servers-tier).
+The SAP Central Services contain a single instance of the message server and the enqueue replication service. Unlike the work processes of application servers, these components are single points of failure in the SAP application stack. You can deploy Central Services to a single VM when the Azure single-instance VM availability service-level agreement (SLA) meets your requirement. If your SLO requires higher availability, you need to deploy these services on an HA cluster. For more information, see [Central Services in the application servers tier](#central-services-in-the-application-servers-tier).
 
 ### Networking
 
