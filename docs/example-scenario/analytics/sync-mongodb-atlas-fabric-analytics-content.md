@@ -43,7 +43,7 @@ The following dataflow corresponds to the previous diagram:
 
 - [Lakehouses](/fabric/data-warehouse/get-started-lakehouse-sql-analytics-endpoint) in Fabric are unified data platforms that combine data lake storage with analytics and SQL querying capabilities over Delta tables. In this architecture, a lakehouse exposes the mirrored Delta tables and provides built-in T‑SQL access for analytics and querying.
 
-- [Semantic models](/fabric/data-warehouse/semantic-models) are high-level semantics-based database descriptions and structuring formalisms for databases. They define business-friendly metadata and relationships to support analytical queries and reporting. In this architecture, the lakehouse automatically generates them to accelerate Power BI reporting and analytics.
+- [Semantic models](/fabric/data-warehouse/semantic-models) in Fabric are Power BI datasets that define business-friendly metadata and relationships to support analytical queries and reporting. In this architecture, the lakehouse automatically generates them to accelerate Power BI reporting and analytics.
 
 - [App Service](/azure/app-service/overview) is a fully managed platform for hosting web applications and background services. In this architecture, it hosts the Python-based mirroring application that orchestrates change ingestion into Fabric.
 
@@ -88,7 +88,7 @@ Use this approach when you need the following capabilities:
 
 This approach uses [MongoDB Atlas triggers](https://github.com/mongodb/atlas-functions-triggers-examples) to invoke Fabric user data functions or Azure Functions. The function writes the updated document into OneLake by using an Azure Data Lake Storage-compatible API.
 
-:::image type="complex" source="media/azure-fabric-analytics-mongodb.svg" alt-text="Architecture diagram that shows MongoDB CDC ingestion by using Real-Time Intelligence." lightbox="media/azure-fabric-analytics-mongodb.svg" border="false":::
+:::image type="complex" source="media/azure-fabric-analytics-mongodb.svg" alt-text="Architecture diagram that shows MongoDB Atlas triggers and functions that push data to OneLake." lightbox="media/azure-fabric-analytics-mongodb.svg" border="false":::
    The diagram consists of two boxes. The left box is labeled MongoDB Atlas. Inside the box, an arrow points from a cluster icon to a trigger icon and from the trigger icon to a function icon. Another arrow points right from the MongoDB Atlas box to a box labeled Microsoft Fabric. Inside this box, an arrow points from Fabric functions to OneLake. A Fabric pipeline icon connects OneLake and smaller box that contains icons for lakehouses and Data Warehouse.
 :::image-end:::
 
