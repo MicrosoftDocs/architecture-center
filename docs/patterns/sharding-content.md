@@ -133,12 +133,14 @@ Consider the following points when deciding how to implement this pattern:
 
 - It might not be possible to design a shard key that matches the requirements of every possible query against the data. Shard the data to support the most frequently performed queries, and if necessary create secondary index tables to support queries that retrieve data using criteria based on attributes that aren't part of the shard key. For more information, see the [Index Table pattern](./index-table.yml).
 
-- Queries that access only a single shard are more efficient than those that retrieve data from multiple shards, so avoid implementing a sharding system that results in applications performing large numbers of queries that join data held in different shards. Remember that a single shard can contain the data for multiple types of entities. Consider denormalizing your data to keep related entities that are commonly queried together (such as the details of customers and the orders that they have placed) in the same shard to reduce the number of separate reads that an application performs.
+- Queries that access only a single shard are more efficient than those that retrieve data from multiple shards. Design your shard key and data model to keep the majority of operations scoped to a single shard. Consider denormalizing your data to keep related entities that are commonly queried together (such as the details of customers and the orders that they have placed) in the same shard to reduce the number of separate reads that an application performs.
+
+  Cross-shard queries are expensive. When an application must retrieve data from multiple shards, use parallel fan-out queries that run against each shard concurrently and aggregate the results. However, even with parallelism, this approach adds latency (bounded by the slowest shard), increases resource consumption, and adds complexity to the data access logic.
 
   > [!TIP]
   > If an entity in one shard references an entity stored in another shard, include the shard key for the second entity as part of the schema for the first entity. This can help to improve the performance of queries that reference related data across shards.
 
-- If an application must perform queries that retrieve data from multiple shards, it might be possible to fetch this data by using parallel tasks. Examples include fan-out queries, where data from multiple shards is retrieved in parallel and then aggregated into a single result. However, this approach inevitably adds some complexity to the data access logic of a solution.
+- Cross-shard transactions are difficult. Distributed coordination protocols (such as two-phase commit) add latency, introduce failure modes, and reduce throughput. Most sharded systems avoid distributed transactions and instead adopt eventual consistency — each shard is updated independently, and the application handles temporary inconsistencies. If your workload requires strong transactional integrity across shard boundaries, reconsider your shard key or whether sharding is the right approach.
 
 - For many applications, creating many small shards can be more efficient than creating fewer large shards because they can provide greater opportunities for load balancing. This can also be useful if you anticipate the need to migrate shards from one physical location to another. Moving a small shard is quicker than moving a large one.
 
@@ -146,9 +148,8 @@ Consider the following points when deciding how to implement this pattern:
 
 - Consider replicating reference data to all shards. If an operation that retrieves data from a shard also references static or slow-moving data as part of the same query, add this data to the shard. The application can then fetch all of the data for the query easily, without having to make an additional round trip to a separate data store.
 
-    >  If reference data held in multiple shards changes, the system must synchronize these changes across all shards. The system can experience a degree of inconsistency while this synchronization occurs. If you do this, you should design your applications to be able to handle it.
-
-- It can be difficult to maintain referential integrity and consistency between shards, so you should minimize operations that affect data in multiple shards. If an application must modify data across shards, evaluate whether complete data consistency is actually required. Instead, a common approach in the cloud is to implement eventual consistency. The data in each partition is updated separately, and the application logic must take responsibility for ensuring that the updates all complete successfully, as well as handling the inconsistencies that can arise from querying data while an eventually consistent operation is running. For more information about implementing eventual consistency, see the [Data Consistency Primer](/previous-versions/msp-n-p/dn589800(v=pandp.10)).
+  > [!NOTE]
+  > If reference data held in multiple shards changes, the system must synchronize these changes across all shards. The system can experience a degree of inconsistency while this synchronization occurs. If you do this, you should design your applications to be able to handle it.
 
 - Configuring and managing a large number of shards can be a challenge. Tasks such as monitoring, backing up, checking for consistency, and logging or auditing must be accomplished on multiple shards and servers, possibly held in multiple locations. These tasks are likely to be implemented using scripts or other automation solutions, but that might not completely eliminate the additional administrative requirements.
 
