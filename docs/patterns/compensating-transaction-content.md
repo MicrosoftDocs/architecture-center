@@ -65,7 +65,7 @@ Use this pattern when:
 
 This pattern might not be suitable when:
 
-- Operations can be retried safely or handled as transient failures. If retry logic alone can resolve most failures, introducing compensating transactions adds unnecessary complexity. 
+- If operations can be safely retried and most failures are transient, retry logic alone is often sufficient. In these cases, adding compensating transactions introduces unnecessary complexity.
 - Consider alternative designs if your system can't tolerate temporary inconsistency, or compensation can't reliably restore a valid state. The system requires strong consistency or atomic transactions across all steps. 
 
 ## Workload design
