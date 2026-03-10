@@ -55,7 +55,7 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 | --- | --- |
 | [Databases architecture design](/en-us/azure/architecture/databases) | Overview of the Azure database solutions described in Azure Architecture Center. |
 
-[view all](../browse/?azure_categories=databases)
+[view all](../browse/index.yml?azure_categories=databases)
 
 ### Data orchestration and ETL
 
@@ -78,7 +78,7 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 | [Analytics end-to-end with Microsoft Fabric](/en-us/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end) | Use Azure services to ingest, process, store, serve, and visualize data from different sources. |
 | [Analytics architecture design](/en-us/azure/architecture/solution-ideas/articles/analytics-start-here) | Use analytics solutions to turn volumes of data into useful business intelligence, such as reports and visualizations, and inventive AI, such as forecasts based on machine learning. |
 
-[view all](../browse/?azure_categories=databases)
+[view all](../browse/index.yml?azure_categories=databases)
 
 ### Analytics and visualization
 
@@ -95,7 +95,7 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 | --- | --- |
 | [Databases architecture design](/en-us/azure/architecture/databases) | Overview of the Azure database solutions described in Azure Architecture Center. |
 
-[view all](../browse/?azure_categories=analytics)
+[view all](../browse/index.yml?azure_categories=analytics)
 
 ### Time series & IoT data
 
@@ -134,8 +134,8 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 | [Cloud TPU](https://docs.cloud.google.com/tpu/docs/tpu7x) | [FPGA accelerated virtual machines](/en-us/azure/virtual-machines/sizes/overview#fpga-accelerated) | Perform AI and machine learning inferencing tasks that are optimized for FPGA programming. FPGAs are based on Intel's FPGA devices. |
 | [Vertex AI](https://cloud.google.com/vertex-ai/docs/start/introduction-unified-platform) | [Machine Learning Operations (MLOps)](https://azure.microsoft.com/solutions/machine-learning-ops) | A platform that streamlines the development and deployment of ML models and AI workflows, from data preparation and model training to deployment and monitoring. |
 | [Dialogflow](https://cloud.google.com/dialogflow/docs/) | [Microsoft Bot Framework](https://dev.botframework.com) | Help build conversational AI experiences and integrate a conversational user interface. |
-| [Gemini Model family](https://ai.google.dev/gemini-api/docs/models) | [Azure OpenAI](https://azure.microsoft.com/en-us/products/ai-foundry/models/openai?msockid=34cad29db9636e450e54c615b82c6f44) | Prebuilt LLMs available via API endpoints |
-| [Vertex AI Agent Builder](https://cloud.google.com/products/agent-builder) | [Foundry AI Agent Service](https://azure.microsoft.com/en-us/products/ai-foundry/agent-service/?msockid=34cad29db9636e450e54c615b82c6f44) | Build your own custom AI agents in the cloud |
+| [Gemini Model family](https://ai.google.dev/gemini-api/docs/models) | [Azure OpenAI](https://azure.microsoft.com/products/ai-foundry/models/openai?msockid=34cad29db9636e450e54c615b82c6f44) | Prebuilt LLMs available via API endpoints |
+| [Vertex AI Agent Builder](https://cloud.google.com/products/agent-builder) | [Foundry AI Agent Service](https://azure.microsoft.com/products/ai-foundry/agent-service/?msockid=34cad29db9636e450e54c615b82c6f44) | Build your own custom AI agents in the cloud |
 | [Imagen (Image generation)](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/image/overview) | [Azure OpenAI Image generation models](/en-us/azure/foundry/openai/how-to/dall-e) | Generate images with AI models |
 | [Google Agentspace](https://cloud.google.com/blog/products/ai-machine-learning/google-agentspace-enables-the-agent-driven-enterprise) | [Microsoft Copilot Studio](https://www.microsoft.com/en-us/microsoft-365-copilot/microsoft-copilot-studio/?msockid=34cad29db9636e450e54c615b82c6f44) | Low-code tool for custom AI Agent creation in the cloud |
 | [Gemini Code Assist](https://codeassist.google/) | [GitHub Copilot](https://github.com/features/copilot) | AI code creation assistance agent |
@@ -146,7 +146,7 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 | --- | --- |
 | [Image classification on Azure](/en-us/azure/architecture/ai-ml/idea/intelligent-apps-image-processing) | Learn how to build image processing into your applications by using Azure services such as the Computer Vision API and Azure Functions. |
 
-[view all](../browse/?azure_categories=ai-machine-learning)
+[view all](../browse/index.yml?azure_categories=ai-machine-learning)
 
 ## Data catalog & governance
 
@@ -173,7 +173,7 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 | --- | --- | --- |
 | [Cloud Run](https://cloud.google.com/run#documentation) | [Azure Container Apps](https://azure.microsoft.com/products/container-apps) | Azure Container Apps is a fully managed serverless container service built on Kubernetes and KEDA that enables event-driven applications, scale-to-zero, and microservices without managing clusters. |
 | [Artifact Registry](https://cloud.google.com/artifacts/docs)[Container Registry (legacy)](https://cloud.google.com/container-registry/docs) | [Azure Container Registry](https://azure.microsoft.com/services/container-registry) | Allows customers to store OCI-compatible container images and artifacts (e.g., Docker/OCI image, Helm chart, etc.). Used to create all types of container deployments on Azure. |
-| [Kubernetes Engine (GKE)](https://cloud.google.com/kubernetes-engine#documentation) | [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) | Deploy orchestrated containerized applications with Kubernetes. Provides cluster management and monitoring, including automatic upgrades and an operations console. See [AKS solution journey](../reference-architectures/containers/aks-start-here). |
+| [Kubernetes Engine (GKE)](https://cloud.google.com/kubernetes-engine#documentation) | [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) | Deploy orchestrated containerized applications with Kubernetes. Provides cluster management and monitoring, including automatic upgrades and an operations console. See [AKS solution journey](../reference-architectures/containers/aks-start-here.md). |
 | [Kubernetes Engine Monitoring](https://cloud.google.com/monitoring/kubernetes-engine) | [Azure Monitor container insights](/en-us/azure/azure-monitor/insights/container-insights-overview) | Azure Monitor Container Insights is a feature designed to monitor the performance and health of container workloads deployed to: Managed Kubernetes clusters hosted on Azure Kubernetes Service (AKS); Azure Container Instances, Self-managed Kubernetes clusters hosted on [AKS on Azure Stack HCI](/en-us/azure-stack/aks-hci/overview) or on-premises; or [Azure Red Hat OpenShift](/en-us/azure/openshift/intro-openshift). It integrates with the Azure Monitor managed service for Prometheus (for Prometheus metrics collection) and with Azure managed Grafana for visualization.|
 
 #### Container architectures
@@ -186,7 +186,7 @@ Here are some architectures that use AKS as the orchestrator.
 | [Microservices architecture on Azure Kubernetes Service (AKS)](/en-us/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices) | Deploy a microservices architecture on Azure Kubernetes Service (AKS). |
 | [CI/CD for AKS apps with GitHub Actions and GitFlow](/en-us/azure/architecture/guide/aks/aks-cicd-github-actions-and-gitops) | This architecture is applicable to businesses that want to modernize end-to-end application development by using containers, continuous integration for build, and GitOps for continuous deployment. |
 
-[view all](../browse/?azure_categories=containers)
+[view all](../browse/index.yml?azure_categories=containers)
 
 ### Functions
 
@@ -223,7 +223,7 @@ Here are some architectures that use AKS as the orchestrator.
 | --- | --- |
 | [CI/CD for AKS apps with GitHub Actions and GitFlow](/en-us/azure/architecture/guide/aks/aks-cicd-github-actions-and-gitops) | This architecture is applicable to businesses that want to modernize end-to-end application development by using containers, continuous integration for build, and GitOps for continuous deployment. |
 
-[view all](../browse/?azure_categories=devops)
+[view all](../browse/index.yml?azure_categories=devops)
 
 ## Internet of Things (IoT)
 
@@ -239,7 +239,7 @@ Here are some architectures that use AKS as the orchestrator.
 | --- | --- |
 | [Azure IoT reference architecture](/en-us/azure/architecture/reference-architectures/iot) | A recommended architecture for IoT applications on Azure by using platform as a service (PaaS) components. |
 
-[view all](../browse/?azure_categories=iot)
+[view all](../browse/index.yml?azure_categories=iot)
 
 ## Management
 
@@ -327,7 +327,7 @@ Here are some architectures that use AKS as the orchestrator.
 | SIEM | [Google Security Operations](https://docs.cloud.google.com/chronicle/docs/overview) | [Microsoft Sentinel](/en-us/azure/sentinel/overview) | A cloud-native security information and event management (SIEM) platform that uses built-in AI to analyze large volumes of data from all sources, including users, applications, servers, and devices that are running on-premises or in any cloud. |
 | Container security | [Container Security](https://cloud.google.com/containers/security) | [Container Security in Microsoft Defender for Cloud](/en-us/azure/security-center/container-security) | Microsoft Defender for Cloud is the Azure-native solution for securing your containers. |
 |  | [Artifact Registry](https://cloud.google.com/artifact-registry) | [Azure Container Registry](/en-us/azure/container-registry/container-registry-intro) | A managed, private Docker registry service that's based on the open-source Docker Registry 2.0. Create and maintain Azure container registries to store and manage your private Docker container images and related artifacts that allow you to only deploy trusted containers. |
-| AI security assistant | [Sec-Gemini](https://secgemini.google/), [Gemini in Security Operations](https://cloud.google.com/security/products/security-operations) | [Microsoft Security Copilot](https://learn.microsoft.com/en-us/copilot/security/microsoft-security-copilot) | Microsoft Security Copilot is a generative AI-powered security solution that helps security teams investigate and remediate threats, build KQL queries from natural language, reverse-engineer scripts, and generate incident summaries with step-by-step response guidance. |
+| AI security assistant | [Sec-Gemini](https://secgemini.google/), [Gemini in Security Operations](https://cloud.google.com/security/products/security-operations) | [Microsoft Security Copilot](/copilot/security/microsoft-security-copilot) | Microsoft Security Copilot is a generative AI-powered security solution that helps security teams investigate and remediate threats, build KQL queries from natural language, reverse-engineer scripts, and generate incident summaries with step-by-step response guidance. |
 
 ### Security architectures
 
@@ -335,7 +335,7 @@ Here are some architectures that use AKS as the orchestrator.
 | --- | --- |
 | [Securely managed web applications](/en-us/azure/architecture/example-scenario/apps/fully-managed-secure-apps) | Learn about deploying secure applications using the Azure App Service Environment, the Azure Application Gateway service, and Web Application Firewall. |
 
-[view all](../browse/?azure_categories=security)
+[view all](../browse/index.yml?azure_categories=security)
 
 ## Storage
 
@@ -369,8 +369,8 @@ Here are some architectures that use AKS as the orchestrator.
 
 | Google Cloud service | Azure service | Description |
 | --- | --- | --- |
-| [App Engine](https://cloud.google.com/appengine/docs) | [Azure App Service](https://learn.microsoft.com/en-us/azure/app-service/overview) | Managed hosting platform providing services for deploying and scaling web applications and services. |
-| [Apigee](https://cloud.google.com/apigee) | [Azure API Management](https://learn.microsoft.com/en-us/azure/api-management/api-management-key-concepts) | A managed service for publishing APIs to external and internal consumers. |
+| [App Engine](https://cloud.google.com/appengine/docs) | [Azure App Service](/azure/app-service/overview) | Managed hosting platform providing services for deploying and scaling web applications and services. |
+| [Apigee](https://cloud.google.com/apigee) | [Azure API Management](/azure/api-management/api-management-key-concepts) | A managed service for publishing APIs to external and internal consumers. |
 
 ### Web architectures
 
@@ -378,7 +378,7 @@ Here are some architectures that use AKS as the orchestrator.
 | --- | --- |
 | [Serverless web application](/en-us/azure/architecture/web-apps/serverless/architectures/web-app) | This reference architecture shows a serverless web application, which serves static content from Azure Blob Storage and implements an API using Azure Functions. |
 
-[view all](../browse/?azure_categories=web)
+[view all](../browse/index.yml?azure_categories=web)
 
 ## Miscellaneous
 
