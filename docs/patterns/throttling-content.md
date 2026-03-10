@@ -1,4 +1,4 @@
-Control the consumption of resources used by an instance of an application, an individual tenant, or an entire service. This can allow the system to continue to function and meet service level agreements, even when an increase in demand places an extreme load on resources.
+Control the consumption of resources used by an instance of an application, an individual tenant, or an entire service. This can allow the system to continue to function and meet service-level objectives (SLOs), even when an increase in demand places an extreme load on resources.
 
 ## Context and problem
 
@@ -8,7 +8,7 @@ There are many strategies available for handling varying load in the cloud, depe
 
 ## Solution
 
-An alternative strategy to autoscaling is to allow applications to use resources only up to a limit, and then throttle them when this limit is reached. The system should monitor how it's using resources so that, when usage exceeds the threshold, it can throttle requests from one or more users. This enables the system to continue functioning and meet any service level agreements (SLAs) that are in place. For more information on monitoring resource usage, see the [Instrumentation and Telemetry Guidance](/previous-versions/msp-n-p/dn589775(v=pandp.10)).
+An alternative strategy to autoscaling is to allow applications to use resources only up to a limit, and then throttle them when this limit is reached. The system should monitor how it's using resources so that, when usage exceeds the threshold, it can throttle requests from one or more users. This enables the system to continue functioning and meet any service-level objectives (SLOs) that are in place. For more information on monitoring resource usage, see the [Instrumentation and Telemetry Guidance](/previous-versions/msp-n-p/dn589775(v=pandp.10)).
 
 The system could implement several throttling strategies, including:
 
@@ -65,7 +65,7 @@ The client application can wait for a period before retrying the request. A `Ret
 
 Use this pattern:
 
-- To ensure that a system continues to meet service level agreements.
+- To ensure that a system continues to meet service-level objectives (SLOs).
 
 - To prevent a single tenant from monopolizing the resources provided by an application.
 
