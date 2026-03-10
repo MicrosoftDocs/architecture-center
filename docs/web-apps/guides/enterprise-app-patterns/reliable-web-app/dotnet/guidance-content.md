@@ -79,12 +79,14 @@ For example, before it was moved to the cloud, Relecloud's ticketing web app was
   - *External data store.* The on-premises application servers performed VM-local caching. This setup didn't offload highly frequented data, and it couldn't invalidate data.
   - *Nonsticky sessions.* Externalizing session state supports nonsticky sessions.
 
-- *Load balancer:* Web applications that use PaaS solutions should use Azure Front Door, Azure Application Gateway, or both, depending on web app architecture and requirements. Use the [load balancer decision tree](/azure/architecture/guide/technology-choices/load-balancing-overview) to pick the right load balancer. Relecloud needed a layer-7 load balancer that could route traffic across multiple regions. The company needed a multi-region web app to meet the SLO of 99.9%. Relecloud chose [Azure Front Door](/azure/frontdoor/front-door-overview) for the following reasons:
+- *Load balancer:* Web applications that use PaaS solutions should use Azure Front Door, Azure Application Gateway, or both, depending on web app architecture and requirements. Use the [load balancer decision tree](/azure/architecture/guide/technology-choices/load-balancing-overview) to pick the right load balancer. Relecloud needed a layer-7 load balancer that could route traffic across multiple regions. The company needed a multi-region web app to meet the SLO of 99.9%.
+
+  Relecloud chose [Azure Front Door](/azure/frontdoor/front-door-overview) for the following reasons:
 
     - *Global load balancing.* It's a layer-7 load balancer that can route traffic across multiple regions.
     - *Web application firewall.* It integrates natively with Azure Web Application Firewall.
     - *Routing flexibility.* It allows the application team to configure ingress needs to support future changes in the application.
-    - *Traffic acceleration.* It uses anycast to reach the nearest Azure point of presence and find the fastest route to the web app.
+    - *Traffic acceleration.* It routes traffic to an optimal point of presence to find the fastest route to the web app.
     - *Custom domains.* It supports custom domain names with flexible domain validation.
     - *Health probes.* The application requires intelligent health probe monitoring. Azure Front Door uses responses from the probe to determine the best origin for routing client requests.
     - *Monitoring support.* It supports built-in reports with an all-in-one dashboard for both Azure Front Door and security patterns. You can configure alerts that integrate with Azure Monitor. Azure Front Door enables the application to log each request and failed health probes.
@@ -123,6 +125,10 @@ For example, before it was moved to the cloud, Relecloud's ticketing web app was
     - *Minimal effort.* The private endpoints support the web app platform and database platform that the web app uses. Both platforms mirror existing on-premises configurations, so minimal change is required.
 
 - *Network security.* Use [Azure Firewall](/azure/firewall/overview) to control inbound and outbound traffic at the network level. Use [Azure Bastion](/azure/bastion/bastion-overview) to connect to virtual machines with enhanced security, without exposing RDP/SSH ports. Relecloud adopted a hub-and-spoke network topology and wanted to put shared network security services in the hub. Azure Firewall improves security by inspecting all outbound traffic from the spokes to increase network security. Relecloud needed Azure Bastion for enhanced-security deployments from a jump host in the DevOps subnet.
+
+## Architecture cost estimate
+
+You can find a cost estimate for the components used in this architecture in the [Azure pricing calculator](https://azure.com/e/a8aa90b9851f434885cc7a322c96c36b). Modify your estimate to include the components required for your use case.
 
 ## Code guidance
 

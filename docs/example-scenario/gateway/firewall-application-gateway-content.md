@@ -273,7 +273,7 @@ This design lets Azure Firewall filter and discard malicious traffic before it r
 
 - **Azure Firewall with DNAT rules:** Azure Firewall only swaps IP addresses at the IP address layer, but it doesn't process the payload. As a result, it doesn't change any of the HTTP headers.
 
-- **Azure Firewall with application rules and TLS inspection disabled:** Azure Firewall can look at the SNI header in TLS, but it doesn't decrypt it. A new TCP connection is created from the firewall to the next hop. In this example, it's Application Gateway.
+- **Azure Firewall with application rules and TLS inspection disabled:** Azure Firewall can inspect the SNI header in TLS, but it doesn't decrypt it. A new TCP connection is created from the firewall to the next hop. In this example, it's Application Gateway.
 
 - **Azure Firewall with application rules and TLS inspection enabled:** Azure Firewall looks into the packet contents and decrypts them. It serves as an HTTP proxy and can set the HTTP headers `X-Forwarded-For` to preserve the IP address. However, it presents a self-generated certificate to the client. For internet-based applications, using a self-generated certificate isn't an option because a security warning is sent to the application clients from their browser.
 

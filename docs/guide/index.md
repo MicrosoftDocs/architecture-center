@@ -108,7 +108,7 @@ After you determine the type of architecture that you want to build and the desi
 
 - *Messaging* technologies enable asynchronous messaging between components of the system. For more information, see [Asynchronous messaging options](./technology-choices/messaging.md).
 
-- *AI* technologies solve problems that are computationally complex to implement in traditional application code. For more information, see [Choose an Azure AI services technology](../data-guide/technology-choices/ai-services.md).
+- *AI* technologies solve problems that are computationally complex to implement in traditional application code. For more information, see [Choose an AI services technology](../data-guide/technology-choices/ai-services.md).
 
 You'll probably make other technology choices along the way, but compute, data, messaging, and AI are central to most cloud applications and determine many aspects of your design.
 

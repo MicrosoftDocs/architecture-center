@@ -497,7 +497,7 @@ This section contains high availability (HA) and DR guidance for other key Azure
 
   - For more information, see [Business continuity and HADR for SQL Server on Azure VMs](/azure/azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview) and [Business continuity in SQL Database](/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview).
 
-- **Azure AI services:** If AI services are deployed through customer-managed [Docker containers](/azure/ai-services/cognitive-services-container-support), the customer is responsible for recovery.
+- **Foundry Tools:** If Foundry Tools are deployed through customer-managed [Docker containers](/azure/ai-services/cognitive-services-container-support), the customer is responsible for recovery.
 
 - **Azure AI Search:** This service doesn't include a [built-in mechanism for DR](/azure/reliability/reliability-ai-search#disaster-recovery-and-service-outages). If you require continuous service during a catastrophic failure, deploy a second service in a different region and implement a geo-replication strategy to ensure that indexes remain fully redundant across all services.  
 

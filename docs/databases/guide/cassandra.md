@@ -32,13 +32,13 @@ If you're looking for a more automated service for running Apache Cassandra on A
 
 Cassandra workloads on Azure commonly use either [Standard_DS14_v2][dsv2], [Standard_DS13_v2][dsv2], [Standard_D16s_v5][dsv5], or [Standard_E16s_v5][esv5] virtual machines. Cassandra workloads benefit from having more memory in the VM, so consider [memory optimized](/azure/virtual-machines/sizes-memory) virtual machine sizes, such as Standard_DS14_v2 or Standard_E16s_v5, or [local-storage optimized](/azure/virtual-machines/sizes-storage) sizes such as Standard_L16s_v3.
 
-For durability, data and commit logs are commonly stored on a stripe set of two to four 1-TB [premium managed disks](/azure/virtual-machines/windows/disks-types#premium-ssd) (P30).
+For durability, data and commit logs are commonly stored on a stripe set of two to four 1-TB [Premium SSDs](/azure/virtual-machines/windows/disks-types#premium-ssd) (P30).
 
-Cassandra nodes shouldn't be too data-dense. We recommend having at most 1 &ndash; 2 TB of data per VM and enough free space for compaction. To achieve the highest possible combined throughput and IOPS using premium managed disks, we recommend creating a stripe set from a few 1-TB disks, instead of using a single 2-TB or 4-TB disk. For example, on a DS14_v2 VM, four 1-TB disks have a maximum IOPS of 4 &times; 5000 = 20 K, versus 7.5 K for a single 4-TB disk.
+Cassandra nodes shouldn't be too data-dense. We recommend having at most 1 &ndash; 2 TB of data per VM and enough free space for compaction. To achieve the highest possible combined throughput and IOPS using Premium SSDs, we recommend creating a stripe set from a few 1-TB disks, instead of using a single 2-TB or 4-TB disk. For example, on a DS14_v2 VM, four 1-TB disks have a maximum IOPS of 4 &times; 5000 = 20 K, versus 7.5 K for a single 4-TB disk.
 
 Evaluate [Azure Ultra Disks](/azure/virtual-machines/linux/disks-enable-ultra-ssd) for Cassandra workloads that need smaller disk capacity. They can provide higher IOPS/throughput and lower latency on VM sizes like [Standard_E16s_v5][esv5] and [Standard_D16s_v5][dsv5].
 
-For Cassandra workloads that don't need durable storage—that is, where data can be easily reconstructed from another storage medium—consider using [Standard_L16s_v3][lsv3] or [Standard_L16s_v2][lsv2] VMs. These VMs sizes have large and fast local *temporary* NVM Express (NVMe) disks.
+For Cassandra workloads that don't need durable storage—that is, where data can be easily reconstructed from another storage medium—consider using [Standard_L16s_v3](/azure/virtual-machines/lsv3-series) or [Standard_L16s_v2](/azure/virtual-machines/lsv2-series) VMs. These VMs sizes have large and fast local *temporary* NVM Express (NVMe) disks.
 
 For more information, see [Comparing performance of Azure local/ephemeral vs attached/persistent disks](https://github.com/Azure-Samples/cassandra-on-azure-vms-performance-experiments/blob/master/docs/cassandra-local-attached-disks.md) (GitHub).
 
@@ -52,7 +52,7 @@ Accelerated Networking requires a modern Linux distribution with the latest driv
 
 ## Azure VM data disk caching
 
-Cassandra read workloads perform best when random-access disk latency is low. We recommend using Azure managed disks with [ReadOnly](/azure/virtual-machines/windows/premium-storage-performance#disk-caching) caching enabled. ReadOnly caching provides lower average latency, because the data is read from the cache on the host instead of going to the backend storage.
+Cassandra read workloads perform best when random-access disk latency is low. We recommend using Azure Managed Disks with [ReadOnly](/azure/virtual-machines/windows/premium-storage-performance#disk-caching) caching enabled. ReadOnly caching provides lower average latency, because the data is read from the cache on the host instead of going to the backend storage.
 
 Read-heavy, random-read workloads like Cassandra benefit from the lower read latency even though cached mode has lower throughput limits than uncached mode. (For example, [DS14_v2](/azure/virtual-machines/dv2-dsv2-series-memory) virtual machines have a maximum cached throughput of 512 MBps versus uncached of 768 MBps.)
 
@@ -88,7 +88,7 @@ For more information, see [Measuring impact of mdadm chunk sizes on Cassandra pe
 
 Cassandra writes perform best when commit logs are on disks with high throughput and low latency. In the default configuration, Cassandra 3.x flushes data from memory to the commit log file every ~10 seconds and doesn't touch the disk for every write. In this configuration, write performance is almost identical whether the commit log is on premium attached disks versus local/ephemeral disks.
 
-Commit logs must be durable, so that a restarted node can reconstruct any data not yet in data files from the flushed commit logs. For better durability, store commit logs on premium managed disks and not on local storage, which can be lost if the VM is migrated to another host.
+Commit logs must be durable, so that a restarted node can reconstruct any data not yet in data files from the flushed commit logs. For better durability, store commit logs on Premium SSDs and not on local storage, which can be lost if the VM is migrated to another host.
 
 Based on our tests, Cassandra on CentOS 7.x might have *lower* write performance when commit logs are on the xfs versus ext4 filesystem. Turning on commit log compression brings xfs performance in line with ext4. Compressed xfs performs as well as compressed and non-compressed ext4 in our tests.
 
@@ -174,9 +174,6 @@ For more information about general Cassandra settings, not specific to Azure, se
 - [Data partitioning guidance](../../best-practices/data-partitioning.yml)
 
 [dsv2]: /azure/virtual-machines/dv2-dsv2-series-memory
-[dsv3]: /azure/virtual-machines/dv3-dsv3-series
 [dsv5]: /azure/virtual-machines/dv5-dsv5-series
 [esv5]: /azure/virtual-machines/ev5-esv5-series
-[lsv2]: /azure/virtual-machines/lsv2-series
-[lsv3]: /azure/virtual-machines/lsv3-series
 [repo]: https://github.com/Azure-Samples/cassandra-on-azure-vms-performance-experiments

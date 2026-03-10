@@ -168,7 +168,7 @@ However, this approach is often much more time-consuming to build. Your effort n
 For more information, see [Considerations for multitenant control planes](../considerations/control-planes.md).
 
 > [!NOTE]
-> Azure deployment and configuration operations often take time to complete. Ensure that you use an appropriate process to initiate and monitor these long-running operations. For example, you might consider following the [Asynchronous Request-Reply pattern](../../../patterns/async-request-reply.yml). Use technologies designed to support long-running operations, like [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) and [durable functions](/azure/azure-functions/durable/durable-functions-overview).
+> Azure deployment and configuration operations often take time to complete. Ensure that you use an appropriate process to initiate and monitor these long-running operations. For example, you might consider following the [Asynchronous Request-Reply pattern](../../../patterns/asynchronous-request-reply.md). Use technologies designed to support long-running operations, like [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) and [durable functions](/azure/azure-functions/durable/durable-functions-overview).
 
 ### Example
 

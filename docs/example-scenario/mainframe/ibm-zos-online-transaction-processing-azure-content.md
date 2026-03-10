@@ -54,7 +54,7 @@ The following diagram shows how to migrate this architecture to Azure.
 
 ### Components
 
-This architecture consists of several Azure cloud services. It's divided into four categories of resources: networking and identity, application, storage, and monitoring. The following sections describe the services for each resource and their roles.
+This architecture consists of several Azure services. It's divided into four categories of resources: networking and identity, application, storage, and monitoring. The following sections describe the services for each resource and their roles.
 
 #### Networking and identity
 

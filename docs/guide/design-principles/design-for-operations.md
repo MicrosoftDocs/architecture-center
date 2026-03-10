@@ -20,7 +20,7 @@ The shift to the cloud has fundamentally changed the role of the operations team
 - Incident response.
 - Security auditing.
 
-Robust logging and tracing are especially important in cloud applications. Include the operations team in design and planning to ensure that they receive the data and insights they need for success.  <!-- to do: Link to DevOps checklist -->
+Robust logging and tracing are especially important in cloud applications. Include the operations team in design and planning to ensure that they receive the data and insights they need for success.
 
 ## Recommendations
 

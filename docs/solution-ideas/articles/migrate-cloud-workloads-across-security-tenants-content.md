@@ -52,7 +52,7 @@ The following data flow corresponds to the previous diagram:
 
 - [Azure Databricks](/azure/well-architected/service-guides/azure-databricks-security) is a unified analytics platform that builds, deploys, shares, and maintains data solutions. In this architecture, it supports scalable data engineering, and you re-create it in the target tenant.
 
-- [Azure AI services](/azure/ai-services/what-are-ai-services) are cloud-based AI services that can help developers build cognitive intelligence into applications, even without AI or data science skills or knowledge. In this architecture, AI services enhance migrated applications with cognitive intelligence.
+- [Foundry Tools](/azure/ai-services/what-are-ai-services) are cloud-based AI services that can help developers build cognitive intelligence into applications, even without AI or data science skills or knowledge. In this architecture, Foundry Tools enhance migrated applications with cognitive intelligence.
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed NoSQL and relational database service. In this architecture, it serves as a data service that's backed up and restored during migration.
 

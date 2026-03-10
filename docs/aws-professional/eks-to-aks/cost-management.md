@@ -136,7 +136,7 @@ If you run workloads that use CSI persistent volumes on your AKS cluster, consid
 
 - [Azure Files](/azure/aks/azure-files-csi) mounts Server Message Block (SMB) 3.0 and 3.1 file shares to your AKS pods. The file shares are backed by an Azure Storage account. You can share data across multiple nodes and pods. Azure Files can use premium storage that's backed by Premium SSDs. Azure Files uses a Storage account and accrues charges based on the following factors:
 
-  - The service, such as Azure Blob Storage, Azure Files, Azure Queue Storage, Azure Table Storage, or unmanaged disks
+  - The service, such as Azure Blob Storage, Azure Files, Azure Queue Storage, Azure Table Storage, or managed disks
 
   - The Storage account type, such as GPv1, GPv2, blob, or premium blob
   - The level of resiliency, such as locally redundant storage (LRS), zone-redundant storage (ZRS), geo-redundant storage (GRS), or read-access geo-redundant storage (RA-GRS)
@@ -161,7 +161,7 @@ Several Azure networking tools can provide access to your applications that run 
 
   - The number of configured load-balancing and outbound rules. The total number of rules doesn't include inbound network address translation (NAT) rules.
 
-  - The amount of inbound and outbound processed data, independent of rules. There's no hourly charge for a standard load balancer that has no rules configured.
+  - The amount of inbound and outbound processed data, independent of rules. There's no hourly charge for a load balancer that has no rules configured.
 
 - [Azure Application Gateway](https://azure.microsoft.com/pricing/details/application-gateway): AKS often uses Application Gateway through [Application Gateway Ingress Controller](/azure/application-gateway/ingress-controller-overview). Or you can front a different ingress controller with a manually managed Application Gateway instance. Application Gateway supports gateway routing, Transport Layer Security (TLS) termination, and Web Application Firewall functionality. Application Gateway charges are based on:
 

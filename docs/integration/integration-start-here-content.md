@@ -21,7 +21,7 @@ For information about more Azure integration services, see [Integration Services
 
 ## Introduction to integration on Azure
 
-If you're new to integration, the best place to start is Microsoft Learn. This free online platform offers videos, tutorials, and hands-on training for various products and services.
+If you're new to integration, the best place to start is Microsoft Learn. This free online platform offers videos, tutorials, and interactive training for various products and services.
 
 The following resources can help you learn the core concepts of integration:
 
@@ -157,5 +157,5 @@ The following resources provide practical recommendations and information for sp
 [Patterns and implementations for a banking cloud transformation]: ../example-scenario/banking/patterns-and-implementations.yml
 [Performance and scale for Event Hubs and Azure Functions]: ../serverless/event-hubs-functions/performance-scale.yml
 [Service Bus ACOM page]: https://azure.microsoft.com/services/service-bus
-[Transactional Outbox pattern with Azure Cosmos DB]: ../databases/guide/transactional-outbox-cosmos.yml
+[Transactional Outbox pattern with Azure Cosmos DB]: ../databases/guide/transactional-out-box-cosmos.md
 [Web and mobile front ends]: ../solution-ideas/articles/front-end.yml
