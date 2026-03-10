@@ -112,13 +112,15 @@ Consider the following points when deciding how to implement this pattern:
 
 - Ensure that shard keys are unique. For example, avoid using autoincrementing fields as the shard key. In some systems, autoincremented fields can't be coordinated across shards, possibly resulting in items in different shards having the same shard key.
 
-    >  Autoincremented values in other fields that are not shard keys can also cause problems. For example, if you use autoincremented fields to generate unique IDs, then two different items located in different shards might be assigned the same ID.
+  > [!NOTE]
+  > Autoincremented values in other fields that are not shard keys can also cause problems. For example, if you use autoincremented fields to generate unique IDs, then two different items located in different shards might be assigned the same ID.
 
 - It might not be possible to design a shard key that matches the requirements of every possible query against the data. Shard the data to support the most frequently performed queries, and if necessary create secondary index tables to support queries that retrieve data using criteria based on attributes that aren't part of the shard key. For more information, see the [Index Table pattern](./index-table.yml).
 
 - Queries that access only a single shard are more efficient than those that retrieve data from multiple shards, so avoid implementing a sharding system that results in applications performing large numbers of queries that join data held in different shards. Remember that a single shard can contain the data for multiple types of entities. Consider denormalizing your data to keep related entities that are commonly queried together (such as the details of customers and the orders that they have placed) in the same shard to reduce the number of separate reads that an application performs.
 
-    >  If an entity in one shard references an entity stored in another shard, include the shard key for the second entity as part of the schema for the first entity. This can help to improve the performance of queries that reference related data across shards.
+  > [!TIP]
+  > If an entity in one shard references an entity stored in another shard, include the shard key for the second entity as part of the schema for the first entity. This can help to improve the performance of queries that reference related data across shards.
 
 - If an application must perform queries that retrieve data from multiple shards, it might be possible to fetch this data by using parallel tasks. Examples include fan-out queries, where data from multiple shards is retrieved in parallel and then aggregated into a single result. However, this approach inevitably adds some complexity to the data access logic of a solution.
 
@@ -138,10 +140,28 @@ Consider the following points when deciding how to implement this pattern:
 
 ## When to use this pattern
 
-Use this pattern when a data store is likely to need to scale beyond the resources available to a single storage node, or to improve performance by reducing contention in a data store.
+Sharding is most appropriate when one or more of the following conditions are true:
 
-> [!NOTE]
-> The primary focus of sharding is to improve the performance and scalability of a system, but as a by-product it can also improve availability due to how the data is divided into separate partitions. A failure in one partition doesn't necessarily prevent an application from accessing data held in other partitions, and an operator can perform maintenance or recovery of one or more partitions without making the entire data for an application inaccessible. For more information, see the [Data Partitioning Guidance](/previous-versions/msp-n-p/dn589795(v=pandp.10)).
+- The total data volume exceeds the storage capacity of a single database instance, and there's no vertical scaling option that addresses the shortfall.
+
+- The transaction throughput or query concurrency exceeds what a single instance can sustain, and read replicas alone don't resolve the bottleneck because write load is also high.
+
+  > [!NOTE]
+  > The primary focus of sharding is to improve the performance and scalability of a system, but as a by-product it can also improve availability due to how the data is divided into separate partitions. A failure in one partition doesn't necessarily prevent an application from accessing data held in other partitions, and an operator can perform maintenance or recovery of one or more partitions without making the entire data for an application inaccessible. For more information, see [Data partitioning guidance](../best-practices/data-partitioning.yml).
+
+- Regulatory or compliance requirements mandate that specific data subsets reside in specific geographic jurisdictions, and no single-region deployment can satisfy all requirements.
+
+- Distinct tenants or customer segments require physical data isolation for security, performance, or contractual reasons.
+
+Sharding introduces substantial and permanent complexity into your data architecture. That complexity affects development, operations, testing, query design, and failure recovery for the lifetime of the system. This pattern might not be suitable when:
+
+- Your data volume and throughput fit within a single database instance, even with projected growth. Vertical scaling preserves query simplicity and transactional integrity.
+
+- Your bottleneck is read volume, not write volume or storage capacity. Read replicas and caching layers can offload read traffic without the cross-shard query complexity that sharding introduces.
+
+- Your database engine supports table-level partitioning that meets your performance needs. Partitioning within a single instance doesn't require multiple servers or routing logic.
+
+- Your dominant query patterns require cross-entity joins, multi-entity transactions, or full-dataset aggregations. Sharding makes these operations expensive, and the overhead of fan-out queries and distributed coordination can outweigh the scaling benefits.
 
 ## Workload design
 
