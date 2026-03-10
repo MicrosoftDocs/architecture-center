@@ -157,6 +157,9 @@ Consider the following points when deciding how to implement this pattern:
 
 ## When to use this pattern
 
+> [!TIP]
+> Before you design a custom sharding layer, understand how much of this work your chosen data platform already handles. Some services manage sharding transparently. For example, Azure Cosmos DB distributes data across physical partitions, handles splits, and routes queries without application involvement. Other services partially manage sharding. For example, Azure SQL Database offers [elastic database tools](/azure/azure-sql/database/elastic-scale-introduction) for shard map management and data-dependent routing, but you still own the shard key design and split decisions. This pattern applies when you must build and operate the sharding logic yourself.
+
 Sharding is most appropriate when one or more of the following conditions are true:
 
 - The total data volume exceeds the storage capacity of a single database instance, and there's no vertical scaling option that addresses the shortfall.
