@@ -153,7 +153,13 @@ Consider the following points when deciding how to implement this pattern:
   > [!NOTE]
   > If reference data held in multiple shards changes, the system must synchronize these changes across all shards. The system can experience a degree of inconsistency while this synchronization occurs. If you do this, you should design your applications to be able to handle it.
 
-- Configuring and managing a large number of shards can be a challenge. Tasks such as monitoring, backing up, checking for consistency, and logging or auditing must be accomplished on multiple shards and servers, possibly held in multiple locations. These tasks are likely to be implemented using scripts or other automation solutions, but that might not completely eliminate the additional administrative requirements.
+- Sharded systems multiply operational burden. Plan for these concerns:
+
+  - **Monitoring.** You must aggregate metrics and logs across all shards to get a complete view of system health.
+  - **Backup and restore.** Each shard must be backed up independently, and restore procedures must account for cross-shard consistency. A point-in-time restore of one shard can put it out of sync with the rest.
+  - **Schema changes.** DDL changes must be coordinated across every shard.
+
+  These tasks are likely to be implemented using scripts or other automation solutions.
 
 - Shards can be geolocated so that the data that they contain is close to the instances of an application that use it. This approach can considerably improve performance, but requires additional consideration for tasks that must access multiple shards in different locations.
 
