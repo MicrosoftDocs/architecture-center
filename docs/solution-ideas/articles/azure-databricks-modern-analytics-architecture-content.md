@@ -169,7 +169,7 @@ To learn about related solutions, see the following guides and architectures.
 [Azure Databricks]: /azure/well-architected/service-guides/azure-databricks-security
 [Azure Databricks SQL warehouses]: /azure/databricks/sql/
 [Azure Kubernetes Service]: /azure/well-architected/service-guides/azure-kubernetes-service
-[Azure Machine Learning]: /azure/well-architected/service-guides/azure-kubernetes-service
+[Azure Machine Learning]: /azure/well-architected/service-guides/azure-machine-learning
 [Azure Monitor]: /azure/azure-monitor/overview
 [Compare the machine learning products and technologies from Microsoft]: ../../ai-ml/guide/data-science-and-machine-learning.md
 [Choosing a natural language processing technology in Azure]: ../../data-guide/technology-choices/natural-language-processing.md
