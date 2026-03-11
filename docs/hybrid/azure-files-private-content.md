@@ -135,7 +135,7 @@ When you manage name resolution for private endpoints, Azure Files and Azure Fil
 
 - If you use your own DNS server, the virtual network where you deploy it must link to provisioned private DNS zones.
 
-On-premises environments resolve private domain names by mapping them to private IP addresses. They can forward DNS queries to a DNS server deployed in the Azure virtual network or to DNS Private Resolver, as shown in the previous diagram. They can also use the on-premises DNS server by setting up zones for the private domains `<region>.privatelink.afs.azure.net` and `privatelink.file.core.windows.net` and adding DNS `A` records that map the Azure Files and Azure File Sync private endpoint IP addresses to those zones. The on-premises client then resolves the private domain name directly from the local on-premises DNS server.
+On-premises environments resolve private domain names by mapping them to private IP addresses. On-premises DNS servers can forward DNS queries to a DNS server deployed in the Azure virtual network or to DNS Private Resolver, as shown in the previous diagram. They can also use the on-premises DNS server by setting up zones for the private domains `<region>.privatelink.afs.azure.net` and `privatelink.file.core.windows.net` and adding DNS `A` records that map the Azure Files and Azure File Sync private endpoint IP addresses to those zones. The on-premises client then resolves the private domain name directly from the local on-premises DNS server.
 
 For more information, see [Private resolver architecture](/azure/dns/private-resolver-architecture).
 
