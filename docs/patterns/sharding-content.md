@@ -122,7 +122,11 @@ Consider the following points when deciding how to implement this pattern:
 
 - Sharding is complementary to other forms of partitioning, such as vertical partitioning and functional partitioning. For example, a single shard can contain entities that have been partitioned vertically, and a functional partition can be implemented as multiple shards. For more information about partitioning, see [Horizontal, vertical, and functional data partitioning](../best-practices/data-partitioning.yml).
 
-- Keep shards balanced so they all handle a similar volume of I/O. As data is inserted and deleted, it's necessary to periodically rebalance the shards to guarantee an even distribution and to reduce the chance of hotspots. Rebalancing can be an expensive operation. To reduce the necessity of rebalancing, plan for growth by ensuring that each shard contains sufficient free space to handle the expected volume of changes. You should also develop strategies and scripts you can use to quickly rebalance shards if this becomes necessary.
+- Keep shards balanced so they all handle a similar volume of I/O. Data skew accumulates over time as records are inserted and deleted, which leads to hotspots. Plan to rebalance periodically.
+
+  Rebalancing moves data between shards and often causes downtime or reduced throughput. To rebalance less frequently, use virtual partitions. Map many logical partitions to fewer physical shards. When a shard is overloaded, redistribute its virtual partitions to new physical shards without rehashing the entire dataset. Azure Cosmos DB uses this approach to decouple the partition scheme from the physical infrastructure.
+
+  Prefer many small shards over few large ones. Smaller shards are faster to migrate, balance load more evenly, and give you more flexibility when redistributing data.
 
 - Use stable data for the shard key. If the shard key changes, the corresponding data item might have to move between shards, increasing the amount of work performed by update operations. For this reason, avoid basing the shard key on potentially volatile information. Instead, look for attributes that are invariant or that naturally form a key.
 
@@ -140,9 +144,7 @@ Consider the following points when deciding how to implement this pattern:
   > [!TIP]
   > If an entity in one shard references an entity stored in another shard, include the shard key for the second entity as part of the schema for the first entity. This can help to improve the performance of queries that reference related data across shards.
 
-- Cross-shard transactions are difficult. Distributed coordination protocols (such as two-phase commit) add latency, introduce failure modes, and reduce throughput. Most sharded systems avoid distributed transactions and instead adopt eventual consistency — each shard is updated independently, and the application handles temporary inconsistencies. If your workload requires strong transactional integrity across shard boundaries, reconsider your shard key or whether sharding is the right approach.
-
-- For many applications, creating many small shards can be more efficient than creating fewer large shards because they can provide greater opportunities for load balancing. This can also be useful if you anticipate the need to migrate shards from one physical location to another. Moving a small shard is quicker than moving a large one.
+- Cross-shard transactions are difficult. Distributed coordination protocols (such as two-phase commit) add latency, introduce failure modes, and reduce throughput. Most sharded systems avoid distributed transactions and instead adopt eventual consistency; each shard is updated independently, and the application handles temporary inconsistencies. If your workload requires strong transactional integrity across shard boundaries, reconsider your shard key or whether sharding is the right approach.
 
 - Make sure the resources available to each shard storage node are sufficient to handle the scalability requirements in terms of data size and throughput. For more information, see [Data partitioning strategies](../best-practices/data-partitioning-strategies.yml).
 
