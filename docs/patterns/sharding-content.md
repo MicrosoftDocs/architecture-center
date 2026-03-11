@@ -52,7 +52,7 @@ Four strategies are commonly used when selecting the shard key and deciding how 
 
 In the lookup (also called directory-based) strategy, the sharding logic implements a map that routes a data request to the shard that contains that data using the shard key. In a multitenant application, all the data for a tenant might be stored together in a shard using the tenant ID as the shard key. Multiple tenants might share the same shard, but the data for a single tenant won't be spread across multiple shards. The following figure illustrates sharding tenant data based on tenant IDs.
 
-   ![Figure 1 - Sharding tenant data based on tenant IDs](./_images/sharding-tenant.png)
+![Figure 1 - Sharding tenant data based on tenant IDs](./_images/sharding-tenant.png)
 
 The mapping between shard key values and physical storage can be direct, where each shard key value maps to a physical partition. A more flexible technique is virtual partitioning, where shard key values map to virtual shards, which in turn map to fewer physical partitions. An application locates data by using a shard key value that refers to a virtual shard, and the system transparently maps virtual shards to physical partitions. The mapping between a virtual shard and a physical partition can change without requiring application code modifications.
 
@@ -60,7 +60,7 @@ The mapping between shard key values and physical storage can be direct, where e
 
 The range-based strategy groups related items together in the same shard and orders them by shard key&mdash;the shard keys are sequential. It's useful for applications that frequently retrieve sets of items using range queries (queries that return a set of data items for a shard key that falls within a given range). For example, if an application regularly needs to find all orders placed in a given month, that data can be retrieved faster if all orders for a month are stored in date and time order in the same shard. If each order was stored in a different shard, the application would have to fetch them individually by performing a large number of point queries. The following figure illustrates storing sequential sets (ranges) of data in shards.
 
-   ![Figure 2 - Storing sequential sets (ranges) of data in shards](./_images/sharding-sequential-sets.png)
+![Figure 2 - Storing sequential sets (ranges) of data in shards](./_images/sharding-sequential-sets.png)
 
 In this example, the shard key is a composite key containing the order month as the most significant element, followed by the order day and the time. The data for orders is naturally sorted when new orders are created and added to a shard. Some data stores support two-part shard keys containing a partition key element that identifies the shard and a row key that uniquely identifies an item in the shard. Data is usually held in row key order in the shard. Items that are subject to range queries and need to be grouped together can use a shard key that has the same value for the partition key but a unique value for the row key.
 
@@ -68,7 +68,7 @@ In this example, the shard key is a composite key containing the order month as 
 
 The purpose of the hash-based strategy is to reduce the chance of hotspots (shards that receive a disproportionate amount of load). It distributes data across shards to balance the size of each shard and the average load each shard encounters. The sharding logic computes the shard to store an item in based on a hash of one or more attributes of the data. The chosen hashing function should distribute data evenly across the shards. The following figure illustrates sharding tenant data based on a hash of tenant IDs.
 
-   ![Figure 3 - Sharding tenant data based on a hash of tenant IDs](./_images/sharding-data-hash.png)
+![Figure 3 - Sharding tenant data based on a hash of tenant IDs](./_images/sharding-data-hash.png)
 
 To understand the advantage of the Hash strategy over other sharding strategies, consider how a multitenant application that enrolls new tenants sequentially might assign the tenants to shards in the data store. When you use the Range strategy, the data for tenants 1 to n will all be stored in shard A, the data for tenants n+1 to m will all be stored in shard B, and later tenant ranges map to successive shards. If the most recently registered tenants are also the most active, most data activity will occur in a small number of shards, which could cause hotspots. In contrast, the Hash strategy allocates tenants to shards based on a hash of their tenant ID. This means that sequential tenants are most likely to be allocated to different shards, which will distribute the load across them. The previous figure shows this for tenants 55 and 56.
 
@@ -76,9 +76,9 @@ To understand the advantage of the Hash strategy over other sharding strategies,
 
 The geographic strategy assigns data to shards based on the geographic origin or intended consumption region of that data. In many workloads, users and the data they generate are concentrated in specific regions. Regulatory requirements such as data residency laws might require that certain data remain within a specific jurisdiction. Even without regulatory drivers, placing data close to the users who access it most frequently reduces network latency for reads and writes.
 
-   TODO ADD IMAGE
+![Figure 4 - Sharding data based on the geography of the application instance](./_images/sharding-geographic.png)
 
-In this strategy, the shard key is derived from a geographic attribute, such as the user's country/region, the originating datacenter region, or a regional tenant identifier. Each shard is hosted in (or pinned to) infrastructure within that geographic boundary. For example, an application that serves customers in North America, Europe, and Asia-Pacific might maintain three shard groups, each running in the corresponding Azure region. A request from a European user is routed to the Europe shard, which satisfies both the latency optimization and data residency goals.
+In this strategy, the shard key is derived from a geographic attribute, such as the user's country/region, the originating datacenter region, or a regional tenant identifier. Each shard is hosted in (or pinned to) infrastructure within that geographic boundary. For example, an application that serves customers in North America, Europe, and Asia-Pacific might maintain three shard groups, each running in a corresponding Azure region. A request from a European application instance, serving only European users, is routed to the Europe shard, which satisfies both the latency optimization and data residency goals.
 
 Geographic sharding introduces a distinct risk: uneven data distribution. If most of your users are in one region, that region's shard carries a disproportionate share of the load and storage. You can combine geographic sharding with another strategy (such as hash or lookup) within each region to distribute load evenly across multiple shards inside the same geographic boundary.
 
