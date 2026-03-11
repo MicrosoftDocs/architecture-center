@@ -324,7 +324,7 @@ As an alternative to cross-shard queries, this workload could use an externally 
 
 ### Adding shard instances
 
-The workload team is aware that if the data catalog or its concurrent usage grows significantly more than three database instances might be required. The workload team doesn't expect to dynamically add database servers and will endure workload downtime if a new shard needs to come online. Bringing a new shard instance online requires you to move data from existing shards into the new shard along with an update to the shard map table. This fairly static approach allows the workload to confidently cache the shard key database mapping in the website code.
+The workload team is aware that if the data catalog or its concurrent usage grows significantly, more than three database instances might be required. The workload team doesn't expect to dynamically add database servers and will endure workload downtime if a new shard needs to come online. Bringing a new shard instance online requires you to move data from existing shards into the new shard along with an update to the shard map table. This fairly static approach allows the workload to confidently cache the shard key database mapping in the website code.
 
 The shard key logic in this example has a hard upper limit of 11 maximum physical shards. If the workload team performs load estimation tests and evaluates that more than 11 databases instances are eventually going to be required, an invasive change to the shard key logic would need to be made. This change involves the careful planning of code modifications and data migration to the new key logic.
 

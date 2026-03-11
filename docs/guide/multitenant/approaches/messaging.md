@@ -116,7 +116,7 @@ Tenants A, B, and C point to a section that contains a shared web server, shard 
 
 Every messaging system or *shard* can have different characteristics in terms of reliability, SKU, and location. For example, you can shard your tenants across multiple messaging systems based on their location or requirements for performance, reliability, data protection, or business continuity.
 
-When you use the Sharding pattern, you need to use a [sharding strategy](/azure/architecture/patterns/sharding#sharding-strategies) to map a given tenant to the messaging system that contains its queues. The [lookup strategy](/azure/architecture/patterns/sharding#sharding-strategies) uses a map to identify the target messaging system based on the tenant name or ID. Multiple tenants might share the same shard, but the messaging entities that a single tenant uses stay within one shard.
+When you use the Sharding pattern, you need to use a [sharding strategy](../../../patterns/sharding.yml#sharding-strategies) to map a given tenant to the messaging system that contains its queues. The [lookup strategy](../../../patterns/sharding.yml#lookup-sharding-strategy) uses a map to identify the target messaging system based on the tenant name or ID. Multiple tenants might share the same shard, but the messaging entities that a single tenant uses stay within one shard.
 
 You can implement the map as a dictionary that links each tenant name to the name or reference of its target messaging system. You can store the map in a distributed cache that all instances of a multitenant application can access, or store it in a persistent store like a table in a relational database or storage account.
 
