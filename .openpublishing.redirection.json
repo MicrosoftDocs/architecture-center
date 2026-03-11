@@ -7658,6 +7658,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/high-availability/reference-architecture-traffic-manager-application-gateway.yml",
+      "redirect_url": "/azure/architecture/high-availability/traffic-manager-application-gateway",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/guide/technology-choices/data-store-decision-tree.md",
       "redirect_url": "/azure/architecture/guide/technology-choices/data-stores-getting-started",
       "redirect_document_id": false
