@@ -226,7 +226,7 @@ Familiarize yourself with the health probe policies of Application Gateway and L
 
 Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-This architecture follows Zero Trust principles and assumes no implicit trust between components. Multiple layers inspect and authorize traffic. The Application Gateway WAF filters HTTP-level threats. Azure Firewall Premium inspects all traffic flows at a deep packet level. Network security groups (NSGs) enforce least-privilege segmentation between tiers. TLS encryption protects data in transit at every network hop. No single layer blocks every threat.
+This architecture follows assumes no implicit trust between components. Multiple layers inspect and authorize traffic. The Application Gateway WAF filters HTTP-level threats. Azure Firewall Premium inspects all traffic flows at a deep packet level. Network security groups (NSGs) enforce least-privilege segmentation between tiers. TLS encryption protects data in transit at every network hop. No single layer blocks every threat.
 
 - **WAF:** The WAF functionality of Application Gateway detects and prevents attacks at the HTTP level, like SQL injection (SQLi) or cross-site scripting (XSS).
 
