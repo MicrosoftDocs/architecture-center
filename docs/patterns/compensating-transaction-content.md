@@ -23,9 +23,9 @@ Three important points are:
 - A compensating transaction might not have to undo the work in the exact reverse order of the original operation.
 - It might be possible to perform some of the undo steps in parallel.
 - It might be necessary to apply various business-specific rules. For example, canceling a flight reservation might not entitle the customer to a complete refund.  
-- 
+
     :::image type="content" source="./_images/compensating-transaction.png" alt-text="Diagram that shows the steps for creating an itinerary. The steps of the compensating transaction that cancels the itinerary are also shown.":::  
-    
+
 This approach is similar to the [Saga distributed transactions pattern](./saga.yml).
 
 Compensating transactions are eventually consistent operations and can fail while executing. To handle this, the system should record progress and resume the compensating transaction from the point of failure. Because retrying a step might execute it more than once, each step must be designed as an [idempotent commands](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing).
