@@ -42,7 +42,7 @@ The articles in this section include fully developed architectures that you can 
 
 ### Compute architectures
 
-The following production-ready architectures demonstrate end-to-end compute solutions that you can deploy and customize:
+The following production-ready architectures demonstrate comprehensive compute solutions that you can deploy and customize:
 
 - [Azure Virtual Machines baseline architecture](../../virtual-machines/baseline.yml): See a foundational reference architecture for workloads deployed on Virtual Machines.
 - [Virtual Machines baseline architecture in an Azure landing zone](../../virtual-machines/baseline-landing-zone.yml): Deploy VM workloads in an Azure landing zone context.
