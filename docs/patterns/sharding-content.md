@@ -205,7 +205,7 @@ As with any design decision, consider any tradeoffs against the goals of the oth
 
 ## Example
 
-Consider a website that surfaces an expansive collection of information on published books worldwide. The number of possible books cataloged in this workload and the typical query/usage patterns contra-indicate the usage of a single relational database to store the book information. The workload architect decides to shard the data across multiple database instances, using the books' static International Standard Book Number (ISBN) for the shard key. Specifically, they use the [check digit](https://wikipedia.org/wiki/ISBN#Check_digits) (0 - 10) of the ISBN as that gives 11 possible logical shards and the data will be fairly balanced across each shard. To start with, they decide to colocate the 11 logical shards into three physical shard databases. They use the *lookup* sharding approach and store the key-to-server mapping information in a shard map database.
+Consider a website that surfaces an expansive collection of information on published books worldwide. The number of possible books cataloged in this workload and the typical query and usage patterns exceed what a single relational database can handle. The workload architect decides to shard the data across multiple database instances, using the books' static International Standard Book Number (ISBN) as the shard key. Specifically, they use the [check digit](https://wikipedia.org/wiki/ISBN#Check_digits) (0 - 10) of the ISBN, which gives 11 possible logical shards with fairly balanced data distribution. To start, they colocate the 11 logical shards into three physical shard databases. This is the virtual partition approach described in [Issues and considerations](#issues-and-considerations) — many logical partitions mapped to fewer physical nodes. They use the *lookup* sharding approach and store the key-to-server mapping in a shard map database.
 
 :::image type="complex" source="_images/sharding-example.png" alt-text="Diagram that shows an Azure App Service, four Azure SQL Databases, and one Azure AI Search.":::
    Diagram that shows an Azure App Service labeled as "Book catalog website" that is connected to multiple Azure SQL Database instances and an Azure AI Search instance. One of the databases is labeled as the ShardMap database, and it has an example table which mirrors a part of the mapping table that is also listed further in this document. There are three shard databases instances listed as well: bookdbshard0, bookdbshard1, and bookdbshard2. Each of the databases has an example listing of tables under them. All three examples are identical, listing the tables of "Books" and "LibraryOfCongressCatalog" and an indicator of more tables. The Azure AI Search icon indicates it's used for faceted navigation and site search. Managed identity is shown associated with the Azure App Service.
@@ -238,7 +238,7 @@ FROM BookDataShardMap
 
 ### Example website code - single shard access
 
-The website isn't aware of the number of physical shard databases (three in this case) nor the logic that maps a shard key to a database instance, but the website does know that the check digit of a book's ISBN should be considered the shard key. The website has read-only access to the shard map database and read-write access to all shard databases. In this example, the website is using the Azure App Service's system managed identity that is hosting the website for authorization to keep secrets out of the connection strings.
+The website doesn't know how many physical shard databases exist (three in this case) or the logic that maps a shard key to a database instance. It only knows that the check digit of a book's ISBN is the shard key. The website has read-only access to the shard map database and read-write access to all shard databases. In this example, the website uses the system managed identity of its Azure App Service host for authorization, which keeps secrets out of connection strings.
 
 The website is configured with the following connection strings, either in an `appsettings.json` file, such as in this example, or through App Service app settings.
 
@@ -320,7 +320,7 @@ Parallel.ForEachAsync(shardKeys, async (shardKey, cancellationToken) =>
 ...
 ```
 
-As an alternative to cross-shard queries in this workload might be using an externally maintained index in Azure AI Search, such as for site search or faceted navigation functionality.
+As an alternative to cross-shard queries, this workload could use an externally maintained index in Azure AI Search for site search or faceted navigation.
 
 ### Adding shard instances
 
