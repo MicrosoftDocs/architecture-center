@@ -38,22 +38,22 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 |  | [Cloud SQL](https://cloud.google.com/sql#documentation) MySQL & PostgreSQL | [Azure Database for MySQL (Flexible Server)](/en-us/azure/mysql/)<br/>[Azure Database for PostgreSQL (Flexible Server)](/en-us/azure/postgresql) | Managed relational database service where resiliency, security, scale, and maintenance are primarily handled by the platform |
 | Horizontally scalable relational database | [Cloud Spanner](https://cloud.google.com/spanner) | [Azure Cosmos DB for NoSQL](https://azure.microsoft.com/services/cosmos-db) | A globally distributed database system that scales horizontally. Is multi-modal -- key-value, graph, and document data). Supports multiple APIs: SQL, JavaScript, Gremlin, MongoDB, and Azure Table storage. Compute and storage can be scaled independently |
 |  |  | [Azure Cosmos DB for PostgreSQL (Citus)](/en-us/azure/cosmos-db/postgresql/introduction) | Azure Database for PostgreSQL is a fully managed database-as-a-service based on the open-source Postgres relational database engine. The Hyperscale (Citus) deployment option scales queries across multiple machines using sharding, to serve applications that require greater scale and performance |
-| NoSQL | [Cloud Bigtable](https://cloud.google.com/bigtable/docs) | [Azure Table storage](/en-us/azure/storage/tables) | A highly scalable NoSQL key-value store for rapid development using massive semi-structured datasets. Store semi-structured data that's highly available. Supporting flexible data schema and OData-based queries |
-|  | [Cloud Firestore](https://cloud.google.com/firestore/docs) | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) | Globally distributed, multi-model database that natively supports multiple data models: key-value, documents, graphs, and columnar |
-|  | [Firebase Realtime Database](https://firebase.google.com/products/realtime-database) | [Azure Cosmos DB change feed](/en-us/azure/cosmos-db/change-feed) | Change feed in Azure Cosmos DB is a persistent record of changes to a container in the order they occur. Change feed works by listening to an Azure Cosmos DB container for any changes. It then outputs the sorted list of documents that were changed in the order in which they were modified. The persisted changes can be processed asynchronously and incrementally, and the output can be distributed across one or more consumers for parallel processing |
+| NoSQL | [Cloud Bigtable](https://cloud.google.com/bigtable/docs) | [Azure Table storage](/azure/storage/tables) | A highly scalable NoSQL key-value store for rapid development using massive semi-structured datasets. Store semi-structured data that's highly available. Supporting flexible data schema and OData-based queries |
+|  | [Cloud Firestore](https://cloud.google.com/firestore/docs) | [Azure Cosmos DB](/azure/cosmos-db) | Globally distributed, multi-model database that natively supports multiple data models: key-value, documents, graphs, and columnar |
+|  | [Firebase Realtime Database](https://firebase.google.com/products/realtime-database) | [Azure Cosmos DB change feed](/azure/cosmos-db/change-feed) | Change feed in Azure Cosmos DB is a persistent record of changes to a container in the order they occur. Change feed works by listening to an Azure Cosmos DB container for any changes. It then outputs the sorted list of documents that were changed in the order in which they were modified. The persisted changes can be processed asynchronously and incrementally, and the output can be distributed across one or more consumers for parallel processing |
 | In-memory | [Cloud Memorystore](https://cloud.google.com/memorystore/docs) | [Azure Managed Redis](https://azure.microsoft.com/products/managed-redis/) | A secure data cache and messaging broker that provides high throughput and low-latency access to data for applications |
 
 ### Data warehouse
 
 | Google Cloud service | Azure service | Description |
 | --- | --- | --- |
-| [BigQuery](https://cloud.google.com/bigquery) | [Microsoft Fabric Warehouse](/en-us/fabric/data-warehouse/data-warehousing)[Azure Databricks](https://azure.microsoft.com/services/databricks) | Cloud-based Enterprise Data Warehouse (EDW) that uses Massively Parallel Processing (MPP) to quickly run complex queries across petabytes of data. Allow you to deploy scalable clusters of SQL Server, Spark, and HDFS containers running on Kubernetes. These components are running side by side to enable you to read, write, and process big data from Transact-SQL or Spark, allowing you to combine and analyze relational data with high-volume big data. |
+| [BigQuery](https://cloud.google.com/bigquery) | [Microsoft Fabric Warehouse](/en-us/fabric/data-warehouse/data-warehousing) / [Azure Databricks](https://azure.microsoft.com/services/databricks) | Cloud-based analytics and data warehousing platforms that use distributed processing to run large-scale SQL and Spark queries over structured and unstructured data. Microsoft Fabric Warehouse provides a fully managed, SQL-based data warehouse built on OneLake, while Azure Databricks is an Apache Spark–based analytics platform for building lakehouse architectures and advanced analytics solutions. |
 
 #### Data warehouse architectures
 
 | Architecture | Description |
 | --- | --- |
-| [Databases architecture design](/en-us/azure/architecture/databases) | Overview of the Azure database solutions described in Azure Architecture Center. |
+| [Databases architecture design](/azure/architecture/databases) | Overview of the Azure database solutions described in Azure Architecture Center. |
 
 [view all](../browse/index.yml?azure_categories=databases)
 
@@ -75,8 +75,8 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 
 | Architecture | Description |
 | --- | --- |
-| [Analytics end-to-end with Microsoft Fabric](/en-us/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end) | Use Azure services to ingest, process, store, serve, and visualize data from different sources. |
-| [Analytics architecture design](/en-us/azure/architecture/solution-ideas/articles/analytics-start-here) | Use analytics solutions to turn volumes of data into useful business intelligence, such as reports and visualizations, and inventive AI, such as forecasts based on machine learning. |
+| [Analytics end-to-end with Microsoft Fabric](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end) | Use Azure services to ingest, process, store, serve, and visualize data from different sources. |
+| [Analytics architecture design](/azure/architecture/solution-ideas/articles/analytics-start-here) | Use analytics solutions to turn volumes of data into useful business intelligence, such as reports and visualizations, and inventive AI, such as forecasts based on machine learning. |
 
 [view all](../browse/index.yml?azure_categories=databases)
 
@@ -84,16 +84,16 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 
 | Google Cloud service | Azure service | Description |
 | --- | --- | --- |
-| [Cloud Dataflow](https://cloud.google.com/dataflow) | [Azure Databricks](https://azure.microsoft.com/services/databricks/#documentation)[Azure HDInsight](/en-us/azure/hdinsight) | Managed platform for streaming and batch data processing using Apache Beam |
+| [Cloud Dataflow](https://cloud.google.com/dataflow) | [Azure Databricks](https://azure.microsoft.com/services/databricks/#documentation)<br/>[Azure HDInsight](/azure/hdinsight) | Managed platform for streaming and batch data processing using Apache Beam |
 | [Data Studio](https://datastudio.google.com/overview)[Looker](https://cloud.google.com/looker) | [Power BI](https://powerbi.microsoft.com) | Business intelligence tools that build visualizations, perform ad hoc analysis, and develop business insights from data. |
 | [Cloud Search](https://cloud.google.com/products/search) | [Azure AI Search](https://azure.microsoft.com/services/search) | Delivers full-text search and related search analytics and capabilities. |
-| [BigQuery](https://cloud.google.com/bigquery) | [SQL Server Analysis Services](/en-us/analysis-services/analysis-services-overview) | Provides a serverless non-cloud interactive query service that uses standard SQL for analyzing databases. |
+| [BigQuery](https://cloud.google.com/bigquery) | [SQL Server Analysis Services](/analysis-services/analysis-services-overview) | Provides a serverless non-cloud interactive query service that uses standard SQL for analyzing databases. |
 
 #### Analytics architectures
 
 | Architecture | Description |
 | --- | --- |
-| [Databases architecture design](/en-us/azure/architecture/databases) | Overview of the Azure database solutions described in Azure Architecture Center. |
+| [Databases architecture design](/azure/architecture/databases) | Overview of the Azure database solutions described in Azure Architecture Center. |
 
 [view all](../browse/index.yml?azure_categories=analytics)
 
@@ -107,26 +107,26 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 
 | Architecture | Description |
 | --- | --- |
-| [IoT analytics with Azure Data Explorer](/en-us/azure/architecture/solution-ideas/articles/iot-azure-data-explorer) | IoT telemetry analytics with Azure Data Explorer demonstrates near real-time analytics over a fast flowing, high volume, wide range of streaming data from IoT devices. |
+| [IoT analytics with Azure Data Explorer](/azure/architecture/solution-ideas/articles/iot-azure-data-explorer) | IoT telemetry analytics with Azure Data Explorer demonstrates near real-time analytics over a fast flowing, high volume, wide range of streaming data from IoT devices. |
 
 ## AI and machine learning
 
 | Google Cloud service | Azure service | Description |
 | --- | --- | --- |
-| [Vertex AI](https://cloud.google.com/vertex-ai) | [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning-services) | A cloud service to train, deploy, automate, and manage machine learning and foundation models, with notebook, designer, and automate options. |
+| [Vertex AI](https://cloud.google.com/vertex-ai) | [Azure Machine Learning](/azure/machine-learning/) | A cloud service to train, deploy, automate, and manage machine learning and foundation models, with notebook, designer, and automate options. |
 | [TensorFlow](https://www.tensorflow.org) | [ML.NET](https://dotnet.microsoft.com/apps/machinelearning-ai/ml-dotnet) | ML.NET is an open source and cross-platform machine learning framework for both machine learning & AI. |
 | [TensorFlow](https://www.tensorflow.org/) | [ONNX (Open Neural Network Exchange)](https://onnx.ai) | ONNX is an open format built to represent machine learning models that facilitate maximum compatibility and increased inference performance. |
 | [Cloud Vision API - Computer Vision](https://cloud.google.com/vision) | [Foundry Tools Computer Vision](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-computer-vision/) | Use visual data processing to enable computers to identify and understand objects and people in images and videos, label content, from objects to concepts, extract printed and handwritten text, recognize familiar subjects like brands and landmarks, and moderate content. |
-| [Natural Language AI](https://cloud.google.com/natural-language) | [Azure Language in Foundry Tools](https://azure.microsoft.com/services/cognitive-services/text-analytics) | Azure AI Language is a managed service for developing natural language processing applications. Identify key terms and phrases, analyze sentiment, summarize text, and build conversational interfaces. |
-| [Natural Language AI](https://cloud.google.com/natural-language) | [Foundry Tools conversational language understanding](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service) | A feature of AI Language that uses natural language understanding (NLU) so people can interact with your apps, bots, and IoT devices. |
+| [Natural Language AI](https://cloud.google.com/natural-language) | [Azure Language in Foundry Tools](/azure/ai-services/language-service/) | Azure AI Language is a managed service for developing natural language processing applications. Identify key terms and phrases, analyze sentiment, summarize text, and build conversational interfaces. |
+| [Natural Language AI](https://cloud.google.com/natural-language) | [Foundry Tools conversational language understanding](/azure/ai-services/language-service/) | A feature of AI Language that uses natural language understanding (NLU) so people can interact with your apps, bots, and IoT devices. |
 | [Speech-to-Text](https://cloud.google.com/speech-to-text) | [Foundry Tools speech to text](https://azure.microsoft.com/services/cognitive-services/speech-to-text) | Transcribe audio to text in more than 100 languages and variants. Customize models to enhance accuracy for domain-specific terminology. |
 | [Vertex AI AutoML](https://docs.cloud.google.com/vertex-ai/docs/beginner/beginners-guide) | [ML.NET Model Builder](https://dotnet.microsoft.com/apps/machinelearning-ai/ml-dotnet/model-builder) | ML.NET Model Builder provides a visual interface to build, train, and deploy custom machine learning models. Prior machine learning expertise isn't required. Model Builder supports AutoML, which automatically explores different machine learning algorithms and settings to help you find the one that best suits your scenario. |
 | [Vertex AI AutoML](https://docs.cloud.google.com/vertex-ai/docs/beginner/beginners-guide) | [Azure Video Indexer](https://vi.microsoft.com) | Extract insights from your videos and enrich applications to enhance discovery and engagement. |
-| [Dialogflow](https://cloud.google.com/dialogflow) | [Azure AI Language Question Answering](/en-us/azure/ai-services/language-service/question-answering/overview) | Build, train and publish a sophisticated bot using FAQ pages, support websites, product manuals, SharePoint documents or editorial content through a graphical user interface or via REST APIs. |
+| [Dialogflow](https://cloud.google.com/dialogflow) | [Azure AI Language Question Answering](/azure/ai-services/language-service/question-answering/overview) | Build, train and publish a sophisticated bot using FAQ pages, support websites, product manuals, SharePoint documents or editorial content through a graphical user interface or via REST APIs. |
 | [Vertex AI Workbench](https://cloud.google.com/vertex-ai-notebooks) | [Azure Machine Learning studio notebooks](/azure/machine-learning/how-to-run-jupyter-notebooks) | Develop and run code with Jupyter notebooks in Azure Machine Learning studio, with access to managed compute resources and integration with Azure Machine Learning workflows. |
-| [Vertex AI Workbench Instances](https://docs.cloud.google.com/vertex-ai/docs/workbench/introduction#reservations) | [Data Science Virtual Machines](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines) | Preconfigured environments in the cloud for Data Science and AI Development. |
-| [Deep Learning Containers](https://cloud.google.com/ai-platform/deep-learning-containers) | [GPU support on Azure Kubernetes Service (AKS)](/en-us/azure/aks/gpu-cluster) | Graphical processing units (GPUs) are often used for compute-intensive workloads such as graphics, visualization workloads, and AI inferencing. AKS supports the creation of GPU-enabled node pools to run these compute-intensive workloads in Kubernetes. |
-| [Data Labeling Service](https://cloud.google.com/ai-platform/data-labeling/docs) | [Azure ML - Data Labeling](/en-us/azure/machine-learning/how-to-create-labeling-projects) | A central place to create, manage, and monitor labeling projects (public preview). Use it to coordinate data, labels, and team members to efficiently manage labeling tasks. Machine Learning supports image classification, either multi-label or multi-class, and object identification with bounded boxes. |
+| [Vertex AI Workbench Instances](https://docs.cloud.google.com/vertex-ai/docs/workbench/introduction#reservations) | [Data Science Virtual Machines](/azure/machine-learning/data-science-virtual-machine/overview) | Preconfigured environments in the cloud for Data Science and AI Development. |
+| [Deep Learning Containers](https://cloud.google.com/ai-platform/deep-learning-containers) | [GPU support on Azure Kubernetes Service (AKS)](/azure/aks/gpu-cluster) | Graphical processing units (GPUs) are often used for compute-intensive workloads such as graphics, visualization workloads, and AI inferencing. AKS supports the creation of GPU-enabled node pools to run these compute-intensive workloads in Kubernetes. |
+| [Data Labeling Service](https://cloud.google.com/ai-platform/data-labeling/docs) | [Azure ML - Data Labeling](/azure/machine-learning/how-to-create-labeling-projects) | A central place to create, manage, and monitor labeling projects (public preview). Use it to coordinate data, labels, and team members to efficiently manage labeling tasks. Machine Learning supports image classification, either multi-label or multi-class, and object identification with bounded boxes. |
 | [Vertex AI Training](https://docs.cloud.google.com/vertex-ai/docs/training/overview) | [Azure ML – Compute Targets](/en-us/azure/machine-learning/concept-compute-target) | Designated compute resource/environment where you run your training script or host your service deployment. This location might be your local machine or a cloud-based compute resource. Using compute targets lets you later change your compute environment without changing your code. |
 | [Vertex AI Predictions](https://docs.cloud.google.com/vertex-ai/docs/predictions/overview) | [Azure ML - Deployments](/en-us/azure/machine-learning/tutorial-deploy-model) | Deploy your machine learning model as a web service for making real-time or batch predictions at scale. |
 | [Continuous Evaluation](https://cloud.google.com/ai-platform/prediction/docs/continuous-evaluation) | [Azure ML – Data Drift](/en-us/azure/machine-learning/how-to-monitor-datasets) | Monitor for data drift between the training dataset and inference data of a deployed model. In the context of machine learning, trained machine learning models might experience degraded prediction performance because of drift. With Azure Machine Learning, you can monitor data drift and the service can send an email alert to you when drift is detected. |
@@ -134,10 +134,10 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 | [Cloud TPU](https://docs.cloud.google.com/tpu/docs/tpu7x) | [FPGA accelerated virtual machines](/en-us/azure/virtual-machines/sizes/overview#fpga-accelerated) | Perform AI and machine learning inferencing tasks that are optimized for FPGA programming. FPGAs are based on Intel's FPGA devices. |
 | [Vertex AI](https://cloud.google.com/vertex-ai/docs/start/introduction-unified-platform) | [Machine Learning Operations (MLOps)](https://azure.microsoft.com/solutions/machine-learning-ops) | A platform that streamlines the development and deployment of ML models and AI workflows, from data preparation and model training to deployment and monitoring. |
 | [Dialogflow](https://cloud.google.com/dialogflow/docs/) | [Microsoft Bot Framework](https://dev.botframework.com) | Help build conversational AI experiences and integrate a conversational user interface. |
-| [Gemini Model family](https://ai.google.dev/gemini-api/docs/models) | [Azure OpenAI](https://azure.microsoft.com/products/ai-foundry/models/openai?msockid=34cad29db9636e450e54c615b82c6f44) | Prebuilt LLMs available via API endpoints |
-| [Vertex AI Agent Builder](https://cloud.google.com/products/agent-builder) | [Foundry AI Agent Service](https://azure.microsoft.com/products/ai-foundry/agent-service/?msockid=34cad29db9636e450e54c615b82c6f44) | Build your own custom AI agents in the cloud |
+| [Gemini Model family](https://ai.google.dev/gemini-api/docs/models) | [Azure OpenAI](https://azure.microsoft.com/products/ai-foundry/models/openai) | Prebuilt LLMs available via API endpoints |
+| [Vertex AI Agent Builder](https://cloud.google.com/products/agent-builder) | [Foundry AI Agent Service](https://azure.microsoft.com/products/ai-foundry/agent-service/) | Build your own custom AI agents in the cloud |
 | [Imagen (Image generation)](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/image/overview) | [Azure OpenAI Image generation models](/en-us/azure/foundry/openai/how-to/dall-e) | Generate images with AI models |
-| [Google Agentspace](https://cloud.google.com/blog/products/ai-machine-learning/google-agentspace-enables-the-agent-driven-enterprise) | [Microsoft Copilot Studio](https://www.microsoft.com/en-us/microsoft-365-copilot/microsoft-copilot-studio/?msockid=34cad29db9636e450e54c615b82c6f44) | Low-code tool for custom AI Agent creation in the cloud |
+| [Google Agentspace](https://cloud.google.com/blog/products/ai-machine-learning/google-agentspace-enables-the-agent-driven-enterprise) | [Microsoft Copilot Studio](https://www.microsoft.com/en-us/microsoft-365-copilot/microsoft-copilot-studio/) | Low-code tool for custom AI Agent creation in the cloud |
 | [Gemini Code Assist](https://codeassist.google/) | [GitHub Copilot](https://github.com/features/copilot) | AI code creation assistance agent |
 
 ### AI and machine learning architectures
@@ -230,7 +230,7 @@ Here are some architectures that use AKS as the orchestrator.
 | Google Cloud service | Azure service | Description |
 | --- | --- | --- |
 | ~~[Cloud IoT Core](https://cloud.google.com/iot/docs)~~<br>Deprecated August 16, 2023 | [Azure Event Grid MQTT Broker](/en-us/azure/event-grid/mqtt-overview)<br>[Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) | Gateways for managing bidirectional communication with IoT devices, securely and at scale. |
-| [Cloud Pub/Sub](https://cloud.google.com/pubsub/docs) | See Messaging and eventing section | Process and route streaming data to a subsequent processing engine or to a storage or database platform. |
+| [Cloud Pub/Sub](https://cloud.google.com/pubsub/docs) | See [Messaging and eventing](#messaging-and-eventing) section | Process and route streaming data to a subsequent processing engine or to a storage or database platform. |
 | [Edge TPU](https://cloud.google.com/edge-tpu) | [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge)<br>[Azure IoT Operations](/en-us/azure/iot-operations/) | Deploy cloud intelligence directly on IoT devices to run in on-premises scenarios. |
 
 ### IoT architectures
