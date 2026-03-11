@@ -1,9 +1,9 @@
 ---
-title: Choose an Azure Speech Recognition and Generation Technology
-description: Learn about Azure's AI speech recognition and generation capabilities, such as speech-to-text, speech translation, and text-to-speech.
+title: Choose an Azure speech recognition and generation technology
+description: Learn about Azure Foundry Tools speech recognition and generation capabilities, including speech-to-text, text-to-speech, speech translation, and avatar creation.
 author: ritesh-modi
 ms.author: rimod
-ms.date: 3/20/2025
+ms.date: 02/19/2026
 ms.update-cycle: 180-days
 ms.topic: concept-article
 ms.subservice: architecture-guide
@@ -11,88 +11,94 @@ ms.collection: ce-skilling-ai-copilot
 ms.custom: arb-aiml
 ---
 
-# Choose an Azure AI speech recognition and generation technology
+# Choose an Azure speech recognition and generation technology
 
-[Foundry Tools](/azure/ai-services/what-are-ai-services) help workload designers and developers create intelligent, cutting-edge, market-ready, and responsible applications with out-of-the-box and prebuilt and customizable APIs and models.
+[Foundry Tools](/azure/ai-services/what-are-ai-services) help developers and organizations rapidly create intelligent, cutting-edge, market-ready, and responsible applications with out-of-the-box and prebuilt and customizable APIs and models.
 
-This article covers Foundry Tools that provide speech recognition and generation capabilities such as speech-to-text and text-to-speech conversions, audio translation, and speaker recognition. It also includes reading support for people with learning differences.
+This article covers Foundry tools that provide speech-to-text and text-to-speech capabilities. You can transcribe speech to text with high accuracy, produce natural-sounding text-to-speech voices, translate spoken audio, and conduct live AI voice conversations. Create custom voices, add specific words to your base vocabulary, or build your own models. Run Azure Speech anywhere, in the cloud or at the edge in containers.
 
-> [!NOTE]
-> To gather insights on terms or phrases or get detailed contextual analysis of spoken or written language, see [Choose an Azure AI targeted language processing technology](targeted-language-processing.md).
+- [Azure Speech in Foundry Tools](#azure-speech) provides speech-to-text, text-to-speech, speech translation, speaker identification, and custom voice capabilities. Use Azure Speech for real-time or batch transcription, natural-sounding voice synthesis, multilingual audio translation, and brand-specific custom voices.
 
-## Services
+- [Azure OpenAI in Microsoft Foundry models](#azure-openai-in-microsoft-foundry-models) provides audio models including GPT-4o Realtime for low-latency voice conversations, GPT-4o audio models for completions-based audio generation, and Audio API models for file-based speech-to-text transcription, speech translation, and text-to-speech synthesis. Use Azure OpenAI in Microsoft Foundry models for scenarios that combine audio with language understanding, reasoning, or generation in a single model call.
 
-The following Foundry Tools can provide speech recognition and generation capabilities for your workload.
 
-- [Azure Speech in Foundry Tools](#speech) provides natural language processing for text analysis.
+## Azure Speech
 
-  - **Use** Speech when you need to transcribe or translate spoken speech and identify speakers in a conversation. You can also use Speech as a lower-cost alternative for natural-sounding speech generation compared to the higher-quality [Whisper](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#audio-api) system in the OpenAI models.
+[Azure Speech](/azure/ai-services/speech-service/overview) is part of Foundry Tools and provides speech-to-text, text-to-speech, speech translation, and other capabilities. You can transcribe speech to text with high accuracy, produce natural-sounding text-to-speech voices, translate spoken audio, and conduct live AI voice conversations.
 
-  - **Don't use** Speech for chat, content summarization, moderation, or guiding users through scripts. Use other models for those things instead.
+| Use Azure Speech to | Don't use Azure Speech to |
+| :----------| :-------------|
+| Transcribe or translate spoken speech to text in real time or batch processing. | Analyze text for sentiment or extract entities. For these tasks, use [Azure Language](/azure/ai-services/language-service/overview) instead. |
+| Generate natural-sounding speech from text using neural voices. | Moderate content for safety. For content moderation, use [Azure AI Content Safety](/azure/ai-services/content-safety/overview) instead. |
+| Identify speakers in a conversation using voice biometry. | Translate text documents while preserving formatting. For document translation, use [Azure Translator](/azure/ai-services/translator/overview) instead. |
+| Create custom voices unique to your brand or product. | |
 
-- [Immersive Reader](#immersive-reader) is a tool that implements proven techniques to improve reading comprehension for emerging readers, language learners, and people with learning differences.
+### Available Azure Speech features
 
-  - **Use** Immersive Reader to provide an improved readability experience tailored for language learners or people with learning differences.
+The following table provides a list of features available in Azure Speech.
 
-  - **Don't use** Immersive Reader for traditional text-to-speech use cases.
+| Feature | Description |
+| :----------| :-------------|
+| [Speech-to-text](/azure/ai-services/speech-service/speech-to-text) | Converts audio into text. Choose from [real-time transcription](/azure/ai-services/speech-service/get-started-speech-to-text) for streaming audio, [fast transcription](/azure/ai-services/speech-service/fast-transcription-create) for pre-recorded audio files, or [batch transcription](/azure/ai-services/speech-service/batch-transcription) for processing large volumes of audio asynchronously. |
+| [Text-to-speech](/azure/ai-services/speech-service/text-to-speech) | Converts input text into humanlike synthesized speech using neural voices powered by deep neural networks. Use [Speech Synthesis Markup Language (SSML)](/azure/ai-services/speech-service/speech-synthesis-markup) to fine-tune pitch, pronunciation, speaking rate, volume, and more. |
+| [Text-to-speech avatar](/azure/ai-services/speech-service/text-to-speech-avatar/what-is-text-to-speech-avatar) | Converts text into a digital video of a photorealistic human speaking with a natural-sounding voice. The video can be synthesized asynchronously or in real time for lifelike synthetic talking avatar videos. |
+| [Speech translation](/azure/ai-services/speech-service/speech-translation) | Enables real-time, multilingual translation of speech to your applications, tools, and devices. Use for speech-to-speech and speech-to-text translation. |
+| [LLM speech (preview)](/azure/ai-services/speech-service/llm-speech) | Large language model (LLM)-enhanced speech model that delivers improved quality, deep contextual understanding, multilingual support, and prompt-tuning capabilities. Supports transcription and translation tasks. |
+| [Language identification](/azure/ai-services/speech-service/language-identification) | Identifies languages spoken in audio by comparing them against a list of supported languages. Use by itself, with speech-to-text recognition, or with speech translation. |
+| [Pronunciation assessment](/azure/ai-services/speech-service/how-to-pronunciation-assessment) | Evaluates speech pronunciation and gives speakers feedback on the accuracy and fluency of spoken audio. Language learners can practice, get instant feedback, and improve their pronunciation. |
+| [Custom speech](/azure/ai-services/speech-service/custom-speech-overview) | Create and train custom speech models with acoustic, language, and pronunciation data when the base model isn't sufficient for audio that contains ambient noise or industry-specific jargon. |
+| [Custom voice](/azure/ai-services/speech-service/custom-neural-voice) | Create a custom voice that's recognizable and unique to your brand or product. Custom voices are private and can offer a competitive advantage. |
 
-### Speech
+### Which Speech feature should I use?
 
-[Speech](/azure/ai-services/speech-service/overview) provides speech-to-text and text-to-speech capabilities with a Speech resource. You can transcribe speech-to-text with high accuracy, produce natural-sounding text-to-speech voices, translate spoken audio, and use speaker recognition during conversations. Create custom voices, add specific words to your base vocabulary, or build your own models. Run Speech anywhere, whether in the cloud or at the edge in containers.
+The following table provides a list of possible use cases for Azure Speech.
 
-Speech is available for multiple languages and regions.
-
-#### Capabilities
-
-The following table provides a list of capabilities available in Speech.
-
-| Capability | Description |
-|:----------|:-------------|
-| [Batch transcription](/azure/ai-services/speech-service/batch-transcription) | Transcribes a large amount of audio data in storage. Both the speech-to-text REST API and Speech CLI support batch transcription. |
-| [Intent recognition](/azure/ai-services/speech-service/intent-recognition) | An intent is something that the user wants to do, such as book a flight, check the weather, or make a call. Intent recognition enables your applications, tools, and devices to determine what the user wants to initiate or do based on options. You define user intent in the intent recognizer or conversational language understanding model. |
-| [Pronunciation assessment](/azure/ai-services/speech-service/how-to-pronunciation-assessment) | Evaluates speech pronunciation and gives speakers feedback on the accuracy and fluency of spoken audio. |
-| [Speaker recognition](/azure/ai-services/speech-service/speaker-recognition-overview) | Speaker recognition can help determine who is speaking in an audio clip. The service verifies and identifies speakers through their unique voice characteristics by using voice biometry. |
-| [Speech-to-text](/azure/ai-services/speech-service/speech-to-text) |Converts audio streams to text in real time or in batch processing. |
-| [Text-to-speech](/azure/ai-services/speech-service/text-to-speech) | Enables your applications, tools, or devices to convert text into humanlike synthesized speech. |
-| [Speech translation](/azure/ai-services/speech-service/speech-translation) | Provides multiple-language speech-to-speech and speech-to-text translation of audio streams. |
-| [Video translation](/azure/ai-services/speech-service/video-translation-overview) | Translates and generates videos in multiple languages automatically. |
-
-#### Use cases
-
-The following table describes some of the ways that you can use Speech.
-
-| Use case | Capability to use | Description |
-|:----------|:-----------------|:---------------|
-| [Audio content creation](/azure/ai-services/speech-service/text-to-speech#more-about-neural-text-to-speech-features) | Speech-to-text | Make interactions with chatbots and voice assistants more natural and engaging by using neural voices. Convert digital texts such as e-books into audiobooks and enhance in-car navigation systems. |
-| [Call center transcription](/azure/ai-services/speech-service/call-center-overview) | Speech-to-text | Transcribe calls in real time or process a batch of calls, redact personally identifying information, and extract insights such as sentiment to help with your call center use case.|
+| Use case | Feature | Description |
+| :----------|:-----------------|:---------------|
 | [Captioning](/azure/ai-services/speech-service/captioning-concepts) | Speech-to-text | Synchronize captions with your input audio, apply profanity filters, get partial results, apply customizations, and identify spoken languages for multilingual scenarios. |
-| [Language learning](/azure/ai-services/speech-service/language-learning-overview) | Speech-to-text| Provide pronunciation assessment feedback to language learners, support real-time transcription for remote learning conversations, and read aloud teaching materials with neural voices. |
-| [Voice assistants](/azure/ai-services/speech-service/voice-assistants)| Text-to-speech | Create natural, humanlike conversational interfaces for applications and experiences. The voice assistant feature provides fast and reliable interaction between a device and an assistant implementation. |
+| [Audio content creation](/azure/ai-services/speech-service/text-to-speech#neural-text-to-speech-features) | Text-to-speech | Make interactions with chatbots and voice agents more natural and engaging, convert digital texts such as e-books into audiobooks, and enhance in-car navigation systems. |
+| [Call center transcription](/azure/ai-services/speech-service/call-center-overview) | Speech-to-text | Transcribe calls in real time or process a batch of calls, redact personal information, and extract insights such as sentiment to help with your call center use case. |
+| [Language learning](/azure/ai-services/speech-service/language-learning-overview) | Pronunciation assessment | Provide pronunciation assessment feedback to language learners, support real-time transcription for remote learning conversations, and read aloud teaching materials with neural voices. |
+| [Voice Live](/azure/ai-services/speech-service/voice-live) | Text-to-speech | Create natural, humanlike conversational interfaces for applications and experiences. Provides fast, reliable interaction between a human and an agent implementation. |
+| [Video avatar creation](/azure/ai-services/speech-service/text-to-speech-avatar/what-is-text-to-speech-avatar) | Text-to-speech avatar | Create lifelike and high-quality synthetic talking avatar videos for various real-time and batch applications while adhering to responsible AI practices. |
 
-### Immersive Reader
+### Integration options
 
-[Immersive Reader](https://www.onenote.com/learningtools) is an inclusively designed tool that implements proven techniques to improve reading comprehension for new readers, language learners, and people with learning differences such as dyslexia. With the Immersive Reader client library, you can use the same technology used in Microsoft Word and Microsoft OneNote to provide an enhanced experience for your workload's users.
+You can integrate Azure Speech into your applications using:
 
-#### Capabilities
+- **[Speech Studio](/azure/ai-services/speech-service/speech-studio-overview)**: UI-based tools for building and integrating features from Azure Speech using a no-code approach.
+- **[Speech SDK](/azure/ai-services/speech-service/speech-sdk)**: Exposes many Azure Speech capabilities across multiple programming languages and platforms.
+- **[Speech CLI](/azure/ai-services/speech-service/spx-overview)**: Command-line tool for using Azure Speech without writing code.
+- **[REST APIs](/azure/ai-services/speech-service/rest-speech-to-text)**: Access Azure Speech when you can't or shouldn't use the Speech SDK.
 
-The following capabilities are available for your workload to help users achieve their reading comprehension goals.
+### Deployment options
 
-- Isolate content to improve readability.
+Azure Speech can be deployed in the cloud or on-premises. By using [containers](/azure/ai-services/speech-service/speech-container-howto), you can bring the service closer to your data for compliance, security, or other operational reasons. Azure Speech deployment in [sovereign clouds](/azure/ai-services/speech-service/sovereign-clouds) is available for government entities and their partners.
 
-- Display pictures for common words and terms.
+## Azure OpenAI in Microsoft Foundry models
 
-- Help understand parts of speech and grammar by highlighting verbs, nouns, and pronouns.
+[Azure OpenAI in Microsoft Foundry models](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#azure-openai-in-microsoft-foundry-models) provides audio models through three interfaces: the [Realtime API](/azure/ai-services/openai/realtime-audio-quickstart) for low-latency voice conversations, the [Chat Completions API with audio](/azure/ai-services/openai/audio-completions-quickstart) for flexible audio generation and transcription in a single model call, and the [Audio API](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#audio-api) via the `/audio` endpoint for file-based transcription, translation, and text-to-speech.
 
-- Read content aloud, such as user-selected text in your workload's UI.
+### Available Azure OpenAI audio models
 
-- Translate content into many languages in real time. This method helps improve comprehension for readers learning a new language.
+The following table lists the available Azure OpenAI audio models by API and capability.
 
-- Break words into syllables to improve readability or to sound out new words.
+| API | Capability | Models | Description |
+| :--- | :--- | :--- | :--- |
+| [Realtime API](/azure/ai-services/openai/realtime-audio-quickstart) | Real-time voice conversation | `gpt-realtime`, `gpt-realtime-mini`, `gpt-4o-realtime-preview`, `gpt-4o-mini-realtime-preview` | Low-latency, speech-in/speech-out conversations for live voice agents, interactive assistants, and streaming audio scenarios. |
+| [Chat Completions API](/azure/ai-services/openai/audio-completions-quickstart) | Audio generation and transcription | `gpt-4o-audio-preview`, `gpt-4o-mini-audio-preview`, `gpt-audio`, `gpt-audio-mini` | Combines audio input and output with language reasoning, summarization, or generation in a single model call. |
+| [Audio API `/audio/transcriptions`](/azure/ai-services/openai/whisper-quickstart) | Speech-to-text | `whisper`, `gpt-4o-transcribe`, `gpt-4o-mini-transcribe`, `gpt-4o-transcribe-diarize` | File-based transcription of pre-recorded audio. `gpt-4o-transcribe-diarize` includes speaker diarization. |
+| [Audio API `/audio/translations`](/azure/ai-services/openai/whisper-quickstart) | Speech translation | `whisper` | Translates spoken audio in supported languages into English text. |
+| [Audio API `/audio/speech`](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#audio-api) | Text-to-speech | `tts`, `tts-hd`, `gpt-4o-mini-tts` | Synthesizes text into natural-sounding speech. `tts-hd` is optimized for quality; `gpt-4o-mini-tts` supports prompt-guided style and tone. |
 
-## Next steps
+### When to use Azure OpenAI audio vs. Azure Speech
 
-- [What is the Speech service?](/azure/ai-services/speech-service/overview)
-- [Learning path: Develop natural language solutions in Azure](/training/paths/develop-language-solutions-azure-ai/)
+| Use Azure OpenAI audio models when | Use Azure Speech when |
+| :----------| :-------------|
+| You need low-latency, real-time voice conversations with a generative AI model using [GPT-4o Realtime](/azure/ai-services/openai/realtime-audio-quickstart). | You need high-volume [real-time](/azure/ai-services/speech-service/get-started-speech-to-text) or [batch](/azure/ai-services/speech-service/batch-transcription) speech transcription with predictable accuracy and cost. |
+| You need general-purpose transcription or translation without custom vocabulary or acoustic tuning, using [Whisper](/azure/ai-services/openai/whisper-quickstart) or [GPT-4o audio models](/azure/ai-services/openai/audio-completions-quickstart). | You need [speaker diarization](/azure/ai-services/speech-service/batch-transcription-create), [custom speech models](/azure/ai-services/speech-service/custom-speech-overview), or custom vocabulary for domain-specific or noisy audio. |
+| Your workload combines speech input with downstream reasoning, summarization, or language understanding in a single model call. | You need natural-sounding [text-to-speech](/azure/ai-services/speech-service/text-to-speech) output using neural voices, including custom brand voices built with [Custom Neural Voice](/azure/ai-services/speech-service/custom-neural-voice). |
+| You need ad-hoc, flexible audio processing that benefits from prompt-based control, or text-to-speech with prompt-guided style using `gpt-4o-mini-tts`. | You require [on-premises or container deployment](/azure/ai-services/speech-service/speech-container-howto) for compliance, data residency, or [sovereign cloud](/azure/ai-services/speech-service/sovereign-clouds) requirements. |
 
 ## Related resources
 
