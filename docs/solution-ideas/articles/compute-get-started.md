@@ -149,7 +149,7 @@ To stay current with key compute services, see the following articles:
 
 ## Other resources
 
-Compute is a broad category and covers a range of solutions. The following resources can help you discover more about Azure.
+Compute covers a range of solutions. The following resources can help you discover more about Azure.
 
 ### Hybrid and multicloud
 
