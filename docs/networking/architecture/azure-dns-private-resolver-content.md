@@ -139,7 +139,7 @@ The following diagram shows the traffic flow that results when VM 1 or VM 2 issu
    The image includes two main sections. The on-premises section contains the on-premises server, Windows desktops, App 1, App 2, App 3, and servers and their IP addresses. ExpressRoute connects the on-premises section to the site-to site or ExpressRoute gateway in the Azure section. The Azure section contains the inbound and outbound endpoints, Azure DNS, Azure private DNS, DNS Private Resolver, and DNS server sections that contain a spoke and a VM. An arrow indicates the flow between the DNS server sections, the inbound endpoint, Azure DNS, and Azure private DNS. The DNS server sections also connect via the DNS forwarding virtual network link to the DNS forwarding rule set. A dotted line connects this section to the outbound endpoint.
 :::image-end:::
 
-1. VM 1 or VM 2 queries a DNS record. The spoke virtual networks use `10.0.0.8` as the name resolution DNS server. As a result, DNS Private Resolver resolves the DNS query.
+1. VM 1 or VM 2 queries a DNS record. The spoke virtual networks are set up to use `10.0.0.8` as the name resolution DNS server. As a result, DNS Private Resolver resolves the DNS query.
 
 1. If the query attempts to resolve a private name, DNS Private Resolver contacts Azure private DNS.
 
@@ -159,7 +159,7 @@ The following diagram shows the traffic flow that results when VM 1 or VM 2 issu
    The image includes two main sections. The on-premises section contains the on-premises server, Windows desktops, App 1, App 2, App 3, and servers and their IP addresses. ExpressRoute connects the on-premises section to the site-to site or ExpressRoute gateway section located in the Azure section. The Azure section contains the inbound and outbound endpoints, Azure DNS, Azure private DNS, DNS Private Resolver, and DNS server sections that contain a spoke and a VM. The DNS server sections also connect via the DNS forwarding virtual network link to the DNS forwarding rule set. An arrow shows the flow of operations.
 :::image-end:::
 
-1. VM 1 or VM 2 queries a DNS record. The spoke virtual networks use `192.168.0.1/2` as the name resolution DNS server. As a result, an on-premises DNS server resolves the DNS query. The VM sends the request to the local DNS server at the IP address `192.168.0.1` or `192.168.0.2`.
+1. VM 1 or VM 2 queries a DNS record. The spoke virtual networks use `192.168.0.1/2` as the name resolution DNS server. As a result, an on-premises DNS server resolves the DNS query. The VM sends the request to the local DNS server at IP address `192.168.0.1` or `192.168.0.2`.
 
 1. A conditional forwarder on the local DNS server for `blob.core.windows.net` forwards the request to the DNS resolver at the IP address `10.0.0.8`.
 
@@ -308,7 +308,7 @@ The following resources provide information about how to create a DNS private re
 
 #### Reverse DNS support
 
-Reverse DNS is the process of resolving an IP address to its associated hostname. DNS Private Resolver supports reverse DNS resolution when you set up appropriate reverse lookup zones within Azure private DNS zones. Traditionally, DNS records map a DNS name to an IP address. For example, `www.contoso.com` resolves to `42.3.10.170`. Reverse DNS handles the inverse lookup and maps an IP address back to a DNS name. For example, the IP address `42.3.10.170` resolves to `www.contoso.com`.
+Reverse DNS is the process of resolving an IP address to its associated hostname. DNS Private Resolver supports reverse DNS resolution when you set up appropriate reverse lookup zones within Azure private DNS zones. Traditionally, DNS records map a DNS name to an IP address. For example, `www.contoso.com` resolves to `42.3.10.170`. Reverse DNS handles inverse lookup and maps an IP address back to a DNS name. For example, the IP address `42.3.10.170` resolves to `www.contoso.com`.
 
 For more information, see [Overview of reverse DNS and support in Azure](/azure/dns/dns-reverse-dns-overview).
 
