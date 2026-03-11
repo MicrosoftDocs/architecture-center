@@ -46,7 +46,7 @@ The solution in this architecture sets up on-premises DNS settings so that they 
 
 - Azure links the private DNS zones to the Azure virtual network so that a DNS server deployed in the virtual network or Azure DNS Private Resolver (component **8**) can resolve private domain names.
 
-- Azure creates DNS `A` records for Azure Files and Azure File Sync in the private DNS zones. For the endpoint configuration steps, see Azure Files network endpoints and Azure File Sync network endpoints.
+- Azure creates DNS `A` records for Azure Files and Azure File Sync in the private DNS zones. For the endpoint configuration steps, see [Configure Azure Files network endpoints](/azure/storage/files/storage-files-networking-endpoints) and [Configure Azure File Sync network endpoints](/azure/storage/file-sync/file-sync-networking-endpoints).
 
 - The on-premises DNS server (component **3**) is configured with conditional forwarders that send DNS queries for `afs.azure.net` and `file.core.windows.net` to the DNS server in the Azure virtual network (component **8**).
 
