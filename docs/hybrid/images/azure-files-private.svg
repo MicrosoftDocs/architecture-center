@@ -794,11 +794,11 @@
 				</g>
 				<g id="shape1691-261" v:mID="1691" v:groupContext="shape" transform="translate(-10.4973,6.78451)">
 					<title>Sheet.1691</title>
-					<desc>Client-1</desc>
+					<desc>Client-2</desc>
 					<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 					<v:textRect cx="27.8438" cy="519.761" width="55.69" height="22.478"/>
 					<rect x="0" y="508.522" width="55.6875" height="22.478" class="st4"/>
-					<text x="10.49" y="522.76" class="st5" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Client-1</text>				</g>
+					<text x="10.49" y="522.76" class="st5" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Client-2</text>				</g>
 			</g>
 		</g>
 		<g id="group1693-264" transform="translate(302.352,-236.172)" v:mID="1693" v:groupContext="group">
@@ -968,12 +968,12 @@
 			<title>Sheet.1735</title>
 			<g id="shape1629-329" v:mID="1629" v:groupContext="shape" transform="translate(-3.39257,0)">
 				<title>Sheet.1629</title>
-				<desc>DNS server/DNS private resolver</desc>
+				<desc>DNS server/Azure DNS private resolver</desc>
 				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 				<v:textRect cx="52.5937" cy="520.275" width="105.19" height="21.4508"/>
 				<rect x="0" y="509.549" width="105.187" height="21.4508" class="st4"/>
-				<text x="16.25" y="517.27" class="st5" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>DNS server/DNS <tspan
-							x="18.72" dy="1.2em" class="st6">private resolver</tspan></text>			</g>
+				<text x="13.48" y="517.27" class="st5" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>DNS server/Azure <tspan
+							x="7.45" dy="1.2em" class="st6">DNS private resolver</tspan></text>			</g>
 			<g id="group1705-333" transform="translate(36.9489,-25.4483)" v:mID="1705" v:groupContext="group">
 				<title>Page-1</title>
 				<g id="group1706-334" v:mID="1706" v:groupContext="group">
