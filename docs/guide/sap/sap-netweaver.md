@@ -1,6 +1,6 @@
 ---
 title: Run SAP NetWeaver in Windows on Azure
-description: Learn proven practices for running SAP NetWeaver in a Windows environment on Azure, with high availability.
+description: Learn about proven practices for running SAP NetWeaver in a Windows environment on Azure with high availability.
 author: bqtrinh
 ms.author: bentrin
 ms.date: 02/18/2026
@@ -16,7 +16,7 @@ ms.custom: arb-sap
 
 <!-- cSpell:ignore netweaver HANA SMLG ABAP SPOF WSFC ASCS Iperf SIOS -->
 
-This guide presents a set of proven practices for running SAP NetWeaver in a Windows environment, on Azure, with high availability. The database is AnyDB, the SAP term for any supported database management system (DBMS) besides SAP HANA.
+This guide presents proven practices for running SAP NetWeaver in a Windows environment on Azure with high availability. The database is AnyDB, which is the SAP term for any supported database management system (DBMS) other than SAP HANA.
 
 > [!IMPORTANT]
 > This architecture uses SAP NetWeaver. SAP NetWeaver is approaching the end of standard maintenance and is no longer recommended for new deployments. To transition your architecture to a successor product, see [Transitioning Architectures from SAP NetWeaver](https://architecture.learning.sap.com/docs/ref-arch/9a5f7b59dc).
@@ -25,46 +25,48 @@ This guide presents a set of proven practices for running SAP NetWeaver in a Win
 
 The following diagram shows SAP NetWeaver in a Windows environment.
 
-:::image type="content" source="media/sap-netweaver.png" alt-text="Architecture diagram that shows a solution for SAP NetWeaver on Windows. The database is AnyDB on Azure VMs with availability sets." lightbox="media/sap-netweaver.png" border="false":::
+:::image type="complex" source="media/sap-netweaver.png" alt-text="Architecture diagram that shows a solution for SAP NetWeaver on Windows. The database is AnyDB on Azure VMs with availability sets." lightbox="media/sap-netweaver.png" border="false":::
+
+:::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/sap-netweaver-windows.vsdx) of this architecture.*
 
 > [!NOTE]
 > To deploy this architecture, you need appropriate licensing of SAP products and other non-Microsoft technologies.
 
-This guide describes a production system. The system is deployed with specific virtual machine (VM) sizes that you can change to accommodate the needs of your organization. The system can be reduced to a single VM. In this guide, the network layout is greatly simplified to demonstrate architectural principles. The intention is not to describe a full enterprise network.
+This architecture deploys a production system that has specific virtual machine (VM) sizes that you can adjust to meet your organization's needs. You can even reduce the deployment to a single VM. The network layout is simplified to demonstrate core architectural principles rather than a complete enterprise network configuration.
 
 ### Workflow
 
-The following workflow corresponds to the preceding diagram.
+The following workflow corresponds to the preceding diagram:
 
 1. SAP database layer
 
-   The database is at the core of each SAP installation. Application data and programs are persisted here. In this case the database is replicated for HA reasons.
+   The database is at the core of each SAP installation. Application data and programs are persisted here. In this case, the database is replicated for high availability reasons.
 
-2. External SAP input files
+1. External SAP input files
 
-   This data is from external non-SAP systems to be processed in the SAP system. For HA reasons, this data is replicated.
+   This data is from external non-SAP systems to be processed in the SAP system. For high availability reasons, this data is replicated.
 
-3. SAP application server layer
+1. SAP application server layer
 
-   This layer contains the central application components. Processing of data happens here. This layer is protected by Azure Site Recovery (ASR), Windows Server Failover Cluster (WSFC), and multiple application servers to ensure local and remote redundancy.
+   This layer contains the central application components. Processing of data happens here. This layer is protected by Azure Site Recovery, Windows Server Failover Cluster (WSFC), and multiple application servers to ensure local and remote redundancy.
 
-4. Azure network gateway in a hub network
+1. Azure network gateway in a hub network
 
    This gateway is the entry point from the on-premise network into the Azure cloud. The hub network includes security measures.
 
-5. On premises network connection to Azure
+1. On-premises network connection to Azure
 
-   This connection is your local on-premises network, extended into Azure. It connects to Azure either via ExpressRoute or a VPN over the internet.
+   This connection is your local on-premises network, extended into Azure. It connects to Azure either via Azure ExpressRoute or a VPN over the internet.
 
 ## Components
 
-- **Azure Virtual Machines** - This architecture uses VMs for the application tier and database tier.
+- **Azure Virtual Machines:** This architecture uses VMs for the application tier and database tier.
 
-- **Databases** - The database tier runs any SAP-certified database, such as Microsoft SQL Server, Oracle, or IBM Db2.
+- **Databases:** The database tier runs any SAP-certified database, such as Microsoft SQL Server, Oracle, or IBM Db2.
 
-- **SAP NetWeaver** - The application tier uses Windows VMs to run SAP Central Services and SAP application servers. For high availability, the VMs that run Central Services are configured in a Windows server failover cluster. WSFC supports Azure file shares or Azure shared disks.
+- **SAP NetWeaver:** The application tier uses Windows VMs to run SAP Central Services and SAP application servers. For high availability, the VMs that run Central Services are configured in a Windows server failover cluster. WSFC supports Azure file shares or Azure shared disks.
 
   - Advanced Business Application Programming (ABAP) SAP Central Service (ASCS)
   - Enqueue Replication Server (ERS)
@@ -73,38 +75,38 @@ The following workflow corresponds to the preceding diagram.
 
   There are also partner products like [SIOS DataKeeper Cluster Edition](https://marketplace.microsoft.com/product/sios_datakeeper.sios-datakeeper-8) from SIOS Technology Corp. This add-on replicates content from independent disks that are attached to the ASCS cluster nodes and then presents the disks as a cluster shared volume to the cluster software.
 
-- **Azure Storage** - Storage provides data persistence for a VM in the form of a virtual hard disk. We recommend [Azure Managed Disks](/azure/virtual-machines/managed-disks-overview).
+- **Azure Storage:** Storage provides data persistence for a VM in the form of a virtual hard disk. We recommend [Azure Managed Disks](/azure/virtual-machines/managed-disks-overview).
 
-- **Virtual networks** - The [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) service connects Azure resources to each other with enhanced security. In this architecture, the virtual network connects to an on-premises network via an Azure ExpressRoute gateway that connects in the hub of a [hub-spoke topology](../../networking/architecture/hub-spoke.yml). The spoke is the virtual network that's used for the SAP applications and the database tiers. The hub virtual network is used for shared services like Azure Bastion and backup.
+- **Virtual networks:** The [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) service connects Azure resources to each other with enhanced security. In this architecture, the virtual network connects to an on-premises network via an Azure ExpressRoute gateway that connects in the hub of a [hub-spoke topology](../../networking/architecture/hub-spoke.yml). The spoke is the virtual network that's used for the SAP applications and the database tiers. The hub virtual network is used for shared services like Azure Bastion and backup.
 
-- **Virtual network peering** - This architecture uses a hub-and-spoke networking topology with multiple virtual networks that are [peered together](/azure/virtual-network/virtual-network-peering-overview). This topology provides network segmentation and isolation for services that are deployed on Azure. Peering enables transparent connectivity between peered virtual networks through the Microsoft backbone network. It doesn't incur a performance penalty if deployed within a single region. The virtual network is divided into separate subnets for each tier: application (SAP NetWeaver), the database, and shared services like Bastion and a third-party backup solution.
+- **Virtual network peering:** This architecture uses a hub-and-spoke networking topology with multiple virtual networks that are [peered together](/azure/virtual-network/virtual-network-peering-overview). This topology provides network segmentation and isolation for services that are deployed on Azure. Peering enables transparent connectivity between peered virtual networks through the Microsoft backbone network. It doesn't incur a performance penalty if deployed within a single region. The virtual network is divided into separate subnets for each tier: application (SAP NetWeaver), the database, and shared services like Bastion and a third-party backup solution.
 
-- **VPN or ExpressRoute Gateway** - A gateway connects distinct networks, extending your on-premises network to the Azure virtual network. We recommend that you use [ExpressRoute](../../reference-architectures/hybrid-networking/expressroute.yml) to create private connections that don't go over the public internet, but you can also use a [site-to-site](../../reference-architectures/hybrid-networking/expressroute.yml) connection. To reduce latency or increase throughput, consider [ExpressRoute Global Reach](/azure/expressroute/expressroute-global-reach) and [ExpressRoute FastPath](/azure/expressroute/about-fastpath), as discussed later in this article.
+- **VPN or ExpressRoute Gateway:** A gateway connects distinct networks, extending your on-premises network to the Azure virtual network. We recommend that you use [ExpressRoute](../../reference-architectures/hybrid-networking/expressroute.yml) to create private connections that don't go over the public internet, but you can also use a [site-to-site](../../reference-architectures/hybrid-networking/expressroute.yml) connection. To reduce latency or increase throughput, consider [ExpressRoute Global Reach](/azure/expressroute/expressroute-global-reach) and [ExpressRoute FastPath](/azure/expressroute/about-fastpath), as discussed later in this article.
 
-- **Bastion service** - Administrators use an improved-security VM. This host acts as a bastion host to connect to other VMs. It's typically a part of shared services, like backup services. If Secure Shell Protocol (SSH) and Remote Desktop Protocol (RDP) are the only services that are used for server administration, an [Azure Bastion](/azure/bastion/bastion-overview) host is a good solution. If you use other management tools, like SQL Server Management Studio or SAP Frontend, use a traditional, self-deployed jump box.
+- **Bastion service:** Administrators use an improved-security VM. This host acts as a bastion host to connect to other VMs. It's typically a part of shared services, like backup services. If Secure Shell Protocol (SSH) and Remote Desktop Protocol (RDP) are the only services that are used for server administration, an [Azure Bastion](/azure/bastion/bastion-overview) host is a good solution. If you use other management tools, like SQL Server Management Studio or SAP Frontend, use a traditional, self-deployed jump box.
 
-- **Network security groups** - To restrict incoming, outgoing, and intra-subnet traffic in a virtual network, create [network security groups](/azure/virtual-network/tutorial-filter-network-traffic-cli).
+- **Network security groups:** To restrict incoming, outgoing, and intra-subnet traffic in a virtual network, create [network security groups](/azure/virtual-network/tutorial-filter-network-traffic-cli).
 
   Use [Application security groups](/azure/virtual-network/security-overview) to define fine-grained, workload-based network security policies that are centered on applications. Application security groups provide a way to group VMs by name and help you secure applications by filtering traffic from trusted segments of your network.
 
-- **Private DNS service** - [Azure Private DNS](/azure/dns/private-dns-overview) provides a reliable and secure DNS service for your virtual network. Azure Private DNS manages and resolves domain names in the virtual network, without the need to configure a custom DNS solution.
+- **Private DNS service:** [Azure Private DNS](/azure/dns/private-dns-overview) provides a reliable and secure DNS service for your virtual network. Azure Private DNS manages and resolves domain names in the virtual network, without the need to configure a custom DNS solution.
 
-- **Load balancers** - To distribute traffic to VMs in the SAP application tier subnet for high availability, we recommend that you use an [Azure standard load balancer](/azure/load-balancer/load-balancer-standard-availability-zones). A standard load balancer provides a level of security by default. VMs that are behind a standard load balancer don't have outbound internet connectivity. To enable outbound internet on the VMs, you need to update your [standard load balancer configuration](/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections). For SAP web-based application high availability, use the built-in [SAP Web Dispatcher](https://help.sap.com/doc/saphelp_em900/9.0/en-US/48/8fe37933114e6fe10000000a421937/content.htm?no_cache=true) or another commercially available load balancer.
+- **Load balancers:** To distribute traffic to VMs in the SAP application tier subnet for high availability, we recommend that you use an [Azure standard load balancer](/azure/load-balancer/load-balancer-standard-availability-zones). A standard load balancer provides a level of security by default. VMs that are behind a standard load balancer don't have outbound internet connectivity. To enable outbound internet on the VMs, you need to update your [standard load balancer configuration](/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections). For SAP web-based application high availability, use the built-in [SAP Web Dispatcher](https://help.sap.com/doc/saphelp_em900/9.0/en-US/48/8fe37933114e6fe10000000a421937/content.htm?no_cache=true) or another commercially available load balancer.
 
-  Base your selection on:
+  Base your selection on the following details:
 
-  - Your traffic type, like HTTP or SAP GUI.
-  - The network services that you need, like Secure Sockets Layer (SSL) termination.
+  - Your traffic type, like HTTP or SAP GUI
+  - The network services that you need, like Secure Sockets Layer (SSL) termination
 
-  For some internet-facing inbound/outbound design examples, see [Inbound and outbound internet connections for SAP on Azure](./sap-internet-inbound-outbound.yml).
+  For more information, see [Inbound and outbound internet connections for SAP on Azure](./sap-internet-inbound-outbound.yml).
 
-  Standard Load Balancer supports multiple front-end virtual IPs.
+  Standard Load Balancer supports multiple front-end virtual IP addresses.
 
-- **Application gateway** - Azure Application Gateway is a web traffic load balancer that you can use to manage the traffic to your web applications. Traditional load balancers operate at the transport layer (OSI layer 4 - TCP and UDP). They route traffic based on the source IP address and the port to a destination IP address and port. Application Gateway can make routing decisions based on more attributes of an HTTP request, such as the URI path or host headers. This type of routing is known as application layer (OSI layer 7) load balancing.
+- **Application gateway:** Azure Application Gateway is a web traffic load balancer that you can use to manage the traffic to your web applications. Traditional load balancers operate at the transport layer (OSI layer 4 - TCP and UDP). They route traffic based on the source IP address and the port to a destination IP address and port. Application Gateway can make routing decisions based on more attributes of an HTTP request, such as the URI path or host headers. This type of routing is known as application layer (OSI layer 7) load balancing.
 
 ## Recommendations
 
-This architecture describes a small production-level deployment. Deployments differ based on business requirements, so consider these recommendations as a starting point.
+This architecture describes a small production-level deployment. Deployments differ based on business requirements, so use these recommendations as a starting point.
 
 ### Networking
 
@@ -132,7 +134,7 @@ At this time, there are no network access control lists or other attributes that
 
 ### ExpressRoute FastPath
 
-[ExpressRoute FastPath](/azure/expressroute/about-fastpath) is designed to improve the data path performance between your on-premises network and your virtual network. VNet peering over FastPath is supported. Enabling FastPath sends network traffic directly to virtual machines in the virtual network, bypassing the gateway.
+[ExpressRoute FastPath](/azure/expressroute/about-fastpath) improves the data path performance between your on-premises network and your virtual network. Virtual network peering over FastPath is supported. Enabling FastPath sends network traffic directly to virtual machines in the virtual network, bypassing the gateway.
 
 For all new ExpressRoute connections to Azure, FastPath is the default configuration. For existing ExpressRoute circuits, contact Azure support to activate FastPath.
 
@@ -140,11 +142,11 @@ For all new ExpressRoute connections to Azure, FastPath is the default configura
 | : ------------------------------ | :--------------------------------- |
 |  ExpressRoute Direct             | Supported (same region only)       |
 |  ExpressRoute provider circuit   | Not supported                      |
-|  Global VNet peering             | Not supported                      |
+|  Global virtual network peering  | Not supported                      |
 |  Hub - spoke traffic (Direct)    | Supported                          |
 |  Hub - spoke ILB traffic         | Gateway used                       |
 
-ExpressRoute provider circuits do not support VNet peering over FastPath.
+ExpressRoute provider circuits do not support virtual network peering over FastPath.
 
 When you peer additional virtual networks with the virtual network that is connected to ExpressRoute, traffic from your on-premises network to those peered spoke virtual networks is routed through the virtual network gateway instead of over FastPath. To avoid this limitation, connect each virtual network directly to the ExpressRoute circuit.
 
@@ -278,6 +280,7 @@ For infrastructure security, data is encrypted in transit and at rest. For infor
 For SAP workloads, Microsoft recommends the following approaches:
 
 - **Database-native encryption** (for example, SAP HANA data, log, and backup encryption) for protecting SAP database content
+
 - **Encryption at host**, optionally combined with Azure Storage Service Encryption and customer-managed keys, for VM-level protection
 
 For data-at-rest encryption, SQL Server transparent data encryption (TDE) encrypts SQL Server and Azure SQL Database data files. For more information, see [SQL Server Azure Virtual Machines DBMS deployment for SAP NetWeaver](/azure/sap/workloads/dbms-guide-sqlserver).
@@ -314,7 +317,8 @@ There are several payment options for VMs:
 
 Use [Azure spot VMs](/azure/virtual-machines/spot-vms) to run compute that can be interrupted and don't require completion within a predetermined time frame or an SLA. Azure deploys spot VMs when there's available capacity and evicts them when it needs the capacity back. Costs that are associated with spot VMs are lower than for other VMs. Consider spot VMs for cost savings in this architecture for:
 
-- Part of your application servers in production environments where you do not have a service level objective (SLO).
+- Part of your application servers in production environments where you do not have a service-level objective (SLO).
+
 - Application servers in non-production environments, including supporting compute such as continuous integration and continuous delivery agents.
 
 Azure Reserved Virtual Machine Instances can reduce your total cost of ownership. You can combine Azure Reserved Virtual Machine Instances rates with a pay-as-you-go subscription to manage costs across predictable and variable workloads. For more information, see [Azure Reserved Virtual Machine Instances](/azure/virtual-machines/prepay-reserved-vm-instances).
@@ -323,7 +327,7 @@ If your database tier requires more memory and fewer CPUs, use one of the [const
 
 #### Load Balancer
 
-In this scenario, Load Balancer is used to distribute traffic to VMs in the application-tier subnet.
+In this scenario, Load Balancer distributes traffic to VMs in the application-tier subnet.
 
 You're charged only for the number of configured load-balancing and outbound rules, plus the data going through the load balancer. Inbound network address translation (NAT) rules are free. There's no hourly charge for Standard Load Balancer when no rules are configured.
 
@@ -352,7 +356,7 @@ To maximize the availability and performance of applications and services on Azu
 Communities can answer questions and help you set up a successful deployment. Consider these resources:
 
 - [Running SAP Applications on the Microsoft Platform blog](https://techcommunity.microsoft.com/category/saponmicrosoft)
-- [NetWeaver on Microsoft Learn Q&A](https://learn.microsoft.com/search/?terms=NetWeaver&category=QnA)
+- [NetWeaver on Microsoft Learn Q&A](/search/?terms=NetWeaver&category=QnA)
 - [SAP Community](https://community.sap.com)
 
 ### Performance Efficiency
