@@ -18,10 +18,11 @@ The solution is to implement a compensating transaction. The steps in a compensa
 
 A common approach is to use a workflow to implement an eventually consistent operation that requires compensation. As the original operation proceeds, the system records information about each step, including how to undo the work that the step performs. If the operation fails at any point, the workflow rewinds back through the steps it has completed. At each step, the workflow performs the work that reverses that step.
 
-Two important points are:
+Three important points are:
 
 - A compensating transaction might not have to undo the work in the exact reverse order of the original operation.
 - It might be possible to perform some of the undo steps in parallel.
+- It might be necessary to apply various business-specific rules. For example, canceling a flight reservation might not entitle the customer to a complete refund.
 
 This approach is similar to the [Saga distributed transactions pattern](./saga.yml).
 
@@ -43,6 +44,8 @@ Consider the following points as you decide how to implement this pattern:
   - It's resilient in the original operation and in the compensating transaction.
   - It doesn't lose the information that's required to compensate for a failing step.
   - It reliably monitors the progress of the compensation logic. Because compensating transactions execute after the original operations have committed and other transactions might have acted on intermediate states, ensure that both the original operation and its compensation can be correlated and audited end-to-end.
+
+:::image type="content" source="./_images/compensating-transaction.png" alt-text="Diagram that shows the steps for creating an itinerary. The steps of the compensating transaction that cancels the itinerary are also shown.":::
 
 - A compensating transaction doesn't necessarily return the system data to its state at the start of the original operation. Instead, the transaction compensates for the work that the operation completed successfully before it failed.
 
@@ -100,6 +103,12 @@ The following figure shows the steps in a long-running transaction for booking a
 > You might be able to perform the steps in the compensating transaction in parallel, depending on how you design the compensating logic for each step.
 
 In many business solutions, failure of a single step doesn't always necessitate rolling back the system by using a compensating transaction. For example, consider the travel website scenario. Suppose the customer books flights F1, F2, and F3 but can't reserve a room at hotel H1. It's preferable to offer the customer a room at a different hotel in the same city rather than canceling the flights. The customer can still decide to cancel. In that case, the compensating transaction runs and undoes the bookings for flights F1, F2, and F3. But the customer should make this decision, not the system.
+
+In Azure, the Compensating Transaction pattern is frequently orchestrated using Azure Durable Functions or Azure Logic Apps. Durable Functions are ideal for code-centric implementations of the Saga pattern; they allow you to define explicit try/catch blocks within an orchestrator to trigger compensating activities if a sub-task fails. Alternatively, Logic Apps provide a low-code approach, utilizing "Scopes" and "Run After" configurations to handle errors and initiate compensatory integration steps.
+
+For highly decoupled or microservices-based architectures, Azure Service Bus or Event Grid serve as the messaging backbone to propagate both forward-moving and compensating events across distributed services. To maintain the "Saga State" or "Log," services like Azure Cosmos DB or Azure Table Storage are often used to track the progress of the multi-stage transaction, ensuring that the system knows exactly which steps to undo in the event of a failure. These technologies offer a robust starting point for achieving eventual consistency in complex Azure environments.
+
+:::image type="content" source="./_images/compensating-transaction-azure.png" alt-text="Diagram that shows the possible Azure technologies":::
 
 ## Next steps
 
