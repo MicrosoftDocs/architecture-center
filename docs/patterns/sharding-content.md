@@ -120,7 +120,7 @@ The **Geographic** strategy ties scaling operations to regional infrastructure p
 
 Consider the following points when deciding how to implement this pattern:
 
-- Sharding is complementary to other forms of partitioning, such as vertical partitioning and functional partitioning. For example, a single shard can contain entities that have been partitioned vertically, and a functional partition can be implemented as multiple shards. For more information about partitioning, see the [Data Partitioning Guidance](/previous-versions/msp-n-p/dn589795(v=pandp.10)).
+- Sharding is complementary to other forms of partitioning, such as vertical partitioning and functional partitioning. For example, a single shard can contain entities that have been partitioned vertically, and a functional partition can be implemented as multiple shards. For more information about partitioning, see [Horizontal, vertical, and functional data partitioning](../best-practices/data-partitioning.yml).
 
 - Keep shards balanced so they all handle a similar volume of I/O. As data is inserted and deleted, it's necessary to periodically rebalance the shards to guarantee an even distribution and to reduce the chance of hotspots. Rebalancing can be an expensive operation. To reduce the necessity of rebalancing, plan for growth by ensuring that each shard contains sufficient free space to handle the expected volume of changes. You should also develop strategies and scripts you can use to quickly rebalance shards if this becomes necessary.
 
@@ -144,7 +144,7 @@ Consider the following points when deciding how to implement this pattern:
 
 - For many applications, creating many small shards can be more efficient than creating fewer large shards because they can provide greater opportunities for load balancing. This can also be useful if you anticipate the need to migrate shards from one physical location to another. Moving a small shard is quicker than moving a large one.
 
-- Make sure the resources available to each shard storage node are sufficient to handle the scalability requirements in terms of data size and throughput. For more information, see the section "Designing Partitions for Scalability" in the [Data Partitioning Guidance](/previous-versions/msp-n-p/dn589795(v=pandp.10)).
+- Make sure the resources available to each shard storage node are sufficient to handle the scalability requirements in terms of data size and throughput. For more information, see [Data partitioning strategies](../best-practices/data-partitioning-strategies.yml).
 
 - Consider replicating reference data to all shards. If an operation that retrieves data from a shard also references static or slow-moving data as part of the same query, add this data to the shard. The application can then fetch all of the data for the query easily, without having to make an additional round trip to a separate data store.
 
@@ -328,8 +328,8 @@ Instead of writing custom code for shard management and query routing to Azure S
 
 The following guidance might also be relevant when implementing this pattern:
 
-- [Data Consistency Primer](/previous-versions/msp-n-p/dn589800(v=pandp.10)). It might be necessary to maintain consistency for data distributed across different shards. Summarizes the issues surrounding maintaining consistency over distributed data, and describes the benefits and tradeoffs of different consistency models.
-- [Data Partitioning Guidance](/previous-versions/msp-n-p/dn589795(v=pandp.10)). Sharding a data store can introduce a range of additional issues. Describes these issues in relation to partitioning data stores in the cloud to improve scalability, reduce contention, and optimize performance.
+- [Horizontal, vertical, and functional data partitioning](../best-practices/data-partitioning.yml). Sharding is one form of data partitioning. Describes partitioning strategies for cloud data stores to improve scalability, reduce contention, and optimize performance.
+- [Consistency levels in Azure Cosmos DB](/azure/cosmos-db/consistency-levels). Distributing data across shards introduces consistency tradeoffs. This article describes consistency models, from strong to eventual, and their effects on availability and latency.
 
 ## Related resources
 
