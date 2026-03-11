@@ -24,9 +24,9 @@ The enterprise-level cloud file sharing solution uses the following methods to r
 
 - Accesses file share and file sync services via a private IP address by using Private Link and Azure private endpoints over an ExpressRoute private peering or VPN tunnel
 
-Implementing an Azure private endpoint on Azure Files and Azure File Sync turns off the public endpoint and allows access to these services only from Azure virtual network traffic.
+To restrict access to private networks only, configure Azure private endpoints for Azure Files and Azure File Sync and disable or restrict public network access for these services so that clients connect only via Azure virtual network traffic.
 
-The ExpressRoute private peering VPN site-to-site tunnel extends the on-premises network to the Azure virtual network. Azure File Sync and Server Message Block (SMB) traffic from on-premises to Azure Files and Azure File Sync private endpoints travels over private connections only. During this transition, Azure Files allows only connections that use SMB 3.0 or later. The Azure File Sync agent encrypts every connection to an Azure file share or the Storage Sync Service. Azure Storage and Azure Files encrypt data at rest automatically when it persists to the cloud.
+The ExpressRoute private peering or VPN site-to-site tunnel extends the on-premises network to the Azure virtual network. Azure File Sync and Server Message Block (SMB) traffic from on-premises to Azure Files and Azure File Sync private endpoints travels over private connections only. During this transition, Azure Files allows only connections that use SMB 3.0 or later. The Azure File Sync agent encrypts every connection to an Azure file share or the Storage Sync Service. Azure Storage and Azure Files encrypt data at rest automatically when it persists to the cloud.
 
 A Domain Name System (DNS) resolver is a critical component of the solution. Each Azure service, including Azure Files and Azure File Sync, has a fully qualified domain name (FQDN). DNS resolves those FQDNs to public IP addresses in these cases:
 
@@ -162,7 +162,7 @@ Data loss poses a serious risk for businesses of all sizes. Azure file share bac
 - Alerting and reporting
 - Protection against accidental deletion of file shares
 
-Azure File Sync provides built-in redundancy by syncing files between on-premises servers and Azure Files. If an on-premises server fails, you can provision a new server, install the Azure File Sync agent, and connect it to the same sync group to restore access. Use geo-redundant storage (GRS) or geo-zone-redundant storage (GZRS) for the Azure Files storage account to protect against regional outages.
+Azure File Sync provides built-in redundancy by syncing files between on-premises servers and Azure Files. If an on-premises server fails, you can provision a new server, install the Azure File Sync agent, and connect it to the same sync group to restore access. When supported for your chosen storage account type and redundancy tier, configure the Azure Files storage account with geo-redundant storage (GRS) or geo-zone-redundant storage (GZRS) to protect against regional outages. For details about supported redundancy options, see [Planning for an Azure file share deployment](/azure/storage/files/storage-files-planning#redundancy-options).
 
 ### Security
 
