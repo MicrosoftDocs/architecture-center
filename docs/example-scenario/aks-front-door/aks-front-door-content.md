@@ -327,7 +327,7 @@ The source code for this scenario is available in [GitHub](https://github.com/Az
    git clone https://github.com/Azure-Samples/aks-front-door-end-to-end-tls.git
    ```
 
-1. Follow the instructions in the [README file](https://github.com/Azure-Samples/aks-front-door-end-to-end-tls/blob/master/README.md). You need your Azure subscription information for this step.
+1. Follow the instructions in the [README file](https://github.com/Azure-Samples/aks-front-door-end-to-end-tls/blob/main/README.md). You need your Azure subscription information for this step.
 
 ## Contributors
 

@@ -270,6 +270,12 @@ The App Service baseline architecture configures authentication and authorizatio
 
 - Use user-assigned managed identities. System-assigned identities can cause IaC deployments to fail based on race conditions and order of operations. User-assigned managed identities avoid some of these deployment error scenarios. For more information, see [Managed identities](/entra/identity/managed-identities-azure-resources/managed-identity-best-practice-recommendations).
 
+### Cost Optimization
+
+Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+
+This [Azure pricing estimate](https://azure.com/e/04fa6a287c1d47f9af40c91e4202f238) includes only the components in this architecture, including those components that are carried over from the [Basic web application](./basic-web-app.yml#components). Modify it with any architecture changes that your use case requires.
+
 ### Operational Excellence
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).

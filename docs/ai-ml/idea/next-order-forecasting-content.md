@@ -159,7 +159,7 @@ Improved security is built in to the components of this scenario. You can use Mi
 
 Fabric provides a complete [security](/fabric/security/security-fundamentals) package for the entire platform. Fabric minimizes the cost and responsibility of maintaining your security solution and transfers it to the cloud. By using Fabric, you can access the expertise and resources of Microsoft to keep your data more secure, patch vulnerabilities, monitor threats, and comply with regulations. You can also use Fabric to manage, control, and audit your security settings according to your requirements.
 
-Data Lake provides improved data protection, data masking, and improved threat protection. For more information, see [Data Lake security](/azure/data-lake-store/data-lake-store-security-overview).
+Data Lake Storage provides improved data protection, data masking, and improved threat protection. For more information, see [Access control model in Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-access-control-model).
 
 For more information about security for this architecture, see the following resources:
 
@@ -179,7 +179,7 @@ Follow [machine learning operations guidelines](/azure/machine-learning/concept-
 For more information, see the following resources:
 
 - [Machine learning operations v2](../guide/machine-learning-operations-v2.md)
-- [Azure machine learning operations v2 GitHub repository](https://github.com/Azure/mlops-v2)
+- [Azure Machine Learning operations v2 GitHub repository](https://github.com/Azure/mlops-v2)
 
 ### Performance Efficiency
 

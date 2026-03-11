@@ -118,6 +118,6 @@ Principal authors:
 
 ## Related resources
 
-- [Transactional Outbox pattern with Azure Cosmos DB](../../databases/guide/transactional-outbox-cosmos.yml)
+- [Transactional Outbox pattern with Azure Cosmos DB](../../databases/guide/transactional-out-box-cosmos.md)
 - [Azure Data Architecture Guide](../index.md)
 - [Multitenancy and Azure Cosmos DB](../../guide/multitenant/service/cosmos-db.md)

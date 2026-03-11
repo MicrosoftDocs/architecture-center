@@ -2,8 +2,8 @@
 metadata:
   title: Integration architecture design
   description: Bring workflows together and automate processes by connecting apps, data, services, and devices. See resources with integration guidelines and recommendations.
-  author: karlrissland
-  ms.author: karlriss
+  author: claytonsiemens77
+  ms.author: pnp
   ms.date: 08/15/24
   ms.topic: concept-article
   ms.subservice: architecture-guide

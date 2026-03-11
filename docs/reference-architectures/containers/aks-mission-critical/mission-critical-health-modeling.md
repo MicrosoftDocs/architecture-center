@@ -87,7 +87,7 @@ For the Read-only query, the following query is being used, which doesn't fetch 
 SELECT GetCurrentDateTime ()
 ```
 
-The write query creates a dummy `ItemRating` with minimum content:
+The write query creates a placeholder `ItemRating` with minimum content:
 
 ```csharp
 var testRating = new ItemRating()

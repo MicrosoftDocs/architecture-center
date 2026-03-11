@@ -2,7 +2,7 @@
 
 This architecture describes a process automation system that uses multiple specialized AI agents to coordinate and run organizational tasks automatically.
 
-Multiple AI agents collaborate through a central API orchestrator to build scalable automation pipelines. Custom software that uses Microsoft Agent Framework defines the agent and orchestration behavior, and you deploy the agents in Azure Container Apps where they use Azure AI services.
+Multiple AI agents collaborate through a central API orchestrator to build scalable automation pipelines. Custom software that uses Microsoft Agent Framework defines the agent and orchestration behavior, and you deploy the agents in Azure Container Apps where they use Foundry Tools.
 
 This article focuses on the infrastructure and DevOps aspects of managing multiple-agent systems on Azure. It covers continuous integration, data persistence, agent coordination, and automated deployment processes for enterprise-grade task automation.
 
@@ -36,7 +36,7 @@ The following workflow corresponds to the previous diagram:
 
 - [Container Apps](/azure/well-architected/service-guides/azure-container-apps) is a serverless container platform that lets you run microservices and containerized applications on a serverless platform. In this architecture, the Container Apps API serves as the central orchestration layer that processes user requests, coordinates multiple AI agents, and manages the completion state of tasks. It hosts the custom code that your software team develops by using Agent Framework.
 
-- [Foundry](/azure/ai-foundry/what-is-foundry) is a unified Azure PaaS offering for enterprise AI operations, model builders, and application development. It combines production-grade infrastructure with developer-friendly interfaces, which lets developers focus on building applications rather than managing infrastructure. In this architecture, Foundry provides the foundation for deploying and managing AI models in a chat interface and serves as the gateway to connected AI services, like Foundry Agent Service.
+- [Foundry](/azure/ai-foundry/what-is-foundry) is a unified Azure PaaS offering for enterprise AI operations, model builders, and application development. It combines production-grade infrastructure with developer-friendly interfaces, which lets developers focus on building applications rather than managing infrastructure. In this architecture, Foundry provides the foundation for deploying and managing AI models in a chat interface and serves as the gateway to connected Foundry Tools, like Foundry Agent Service.
 
   [Foundry Agent Service](/azure/ai-foundry/agents/overview) is a managed runtime service that connects the core pieces of Foundry, like models, tools, and frameworks, into a single agentic runtime. It manages conversations, orchestrates tool calls, enforces content safety, and integrates with identity, networking, and observability systems. In this architecture, the application invokes Foundry Agent Service to power the agent conversations.
 

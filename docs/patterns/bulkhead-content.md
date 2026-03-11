@@ -31,7 +31,7 @@ The next diagram shows multiple clients calling a single service. Each client is
 ## Issues and considerations
 
 - Define partitions around the business and technical requirements of the application.
-- If using [tactical DDD to design microservices](/azure/architecture/microservices/model/tactical-ddd), partition boundaries should align with the bounded contexts.
+- If using [tactical DDD to design microservices](../microservices/model/tactical-domain-driven-design.md), partition boundaries should align with the bounded contexts.
 - When partitioning services or consumers into bulkheads, consider the level of isolation offered by the technology as well as the overhead in terms of cost, performance and manageability.
 - Consider combining bulkheads with retry, circuit breaker, and throttling patterns to provide more sophisticated fault handling.
 - When partitioning consumers into bulkheads, consider using processes, thread pools, and semaphores. Projects like [resilience4j](https://resilience4j.readme.io/docs/getting-started) and [Polly](https://www.pollydocs.org/) offer a framework for creating consumer bulkheads.

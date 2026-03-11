@@ -123,7 +123,7 @@ The following list provides guidance to select the right Azure services for your
 
   - *Routing flexibility:* It allows the application team to configure ingress needs to support future changes in the application.
 
-  - *Traffic acceleration:* It uses anycast routing to reach the nearest Azure point of presence and find the fastest route to the web app.
+  - *Traffic acceleration:* It routes traffic to an optimal point of presence to find the fastest route to the web app.
 
   - *Custom domains:* It supports custom domain names with flexible domain validation.
 

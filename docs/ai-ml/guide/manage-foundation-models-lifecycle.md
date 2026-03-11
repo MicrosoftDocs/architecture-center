@@ -65,7 +65,7 @@ Model retirement behavior depends on your model deployment strategy. There are t
 
 - **Self-hosting models** are models deployed on your own infrastructure. This deployment provides maximum control over models but requires significant responsibility for infrastructure, management, and maintenance.
 
-Both MaaS and MaaP strategies in Azure source models from the Azure AI model catalog. Models in the model catalog follow a life cycle where models are [deprecated](/azure/ai-foundry/concepts/model-lifecycle-retirement#deprecated) and then [retired](/azure/ai-foundry/concepts/model-lifecycle-retirement#retired). You must plan for these eventualities in your workload.
+Both MaaS and MaaP strategies in Azure source models from the Foundry model catalog. Models in the model catalog follow a life cycle where models are [deprecated](/azure/ai-foundry/concepts/model-lifecycle-retirement#deprecated) and then [retired](/azure/ai-foundry/concepts/model-lifecycle-retirement#retired). You must plan for these eventualities in your workload.
 
 > [!WARNING]
 > For MaaS services, including Azure OpenAI-deployed models and models deployed by using the serverless API model, it's crucial to understand that existing deployments for *retired* models return HTTP errors. If you don't upgrade to a supported model, your application no longer operates as expected. For *deprecated* models, you can't create new deployments for those models, but existing deployments continue to work until they're retired. For more information, see [Serverless API model deprecations and retirements](/azure/ai-foundry/concepts/model-lifecycle-retirement) and [Azure OpenAI model deprecations and retirements](/azure/ai-services/openai/concepts/model-retirements).

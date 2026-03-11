@@ -22,7 +22,7 @@ The following options are available for machine learning in the Azure cloud.
 |-|-|-|
 | [Azure&nbsp;Machine&nbsp;Learning](#azure-machine-learning) | Managed platform for machine learning  | Use a pretrained model, or train, deploy, and manage models on Azure by using Python and a CLI. Machine Learning includes features like automated machine learning (AutoML), model catalog, and MLflow integration. You can track and understand model performance during the production stage. |
 | [Microsoft Fabric](#microsoft-fabric) | Unified analytics platform | Manage the entire data lifecycle, from ingestion to insights, by using a comprehensive platform that integrates various services and tools for data professionals, including data engineers, data scientists, and business analysts. |
-| [Azure&nbsp;AI&nbsp;services](#azure-ai-services) | Prebuilt AI capabilities that are implemented through REST APIs and SDKs  | Build intelligent applications by using standard programming languages. These languages call APIs that provide inferencing. Although you should ideally have machine learning and data science expertise, engineering teams that don't have these skills can also adopt this platform. |
+| [Azure&nbsp;AI&nbsp;services](#ai-services-in-azure) | Prebuilt AI capabilities that are implemented through REST APIs and SDKs  | Build intelligent applications by using standard programming languages. These languages call APIs that provide inferencing. Although you should ideally have machine learning and data science expertise, engineering teams that don't have these skills can also adopt this platform. |
 | [Azure SQL Managed Instance machine learning services](#sql-machine-learning) | In-database machine learning for SQL | Train and deploy models inside SQL Managed Instance. |
 | [Azure Databricks](#azure-databricks) | Apache Spark-based analytics platform | Build and deploy models and data workflows by integrating with open-source machine learning libraries and the [MLflow](/azure/databricks/applications/mlflow/) platform. |
 
@@ -40,7 +40,7 @@ The following development platforms and tools are available for machine learning
 
 | Platform or tool | Description | Features and uses |
 |-|-|-|
-| [Microsoft&nbsp;Foundry&nbsp;portal](#foundry) | Unified development environment for AI and machine learning scenarios | Develop, evaluate, and deploy AI models and applications. The [Foundry portal](https://ai.azure.com?cid=learnDocs) facilitates collaboration and project management across various Azure AI services. You can even use it as a common environment across multiple workload teams. |
+| [Microsoft&nbsp;Foundry&nbsp;portal](#foundry) | Unified development environment for AI and machine learning scenarios | Develop, evaluate, and deploy AI models and applications. The [Foundry portal](https://ai.azure.com?cid=learnDocs) facilitates collaboration and project management across various Foundry Tools. You can even use it as a common environment across multiple workload teams. |
 | [Azure&nbsp;Machine&nbsp;Learning&nbsp;studio](#azure-machine-learning-studio) | Collaborative, drag-and-drop tool for machine learning | Build, test, and deploy predictive analytics solutions by using minimal coding. Machine Learning studio supports a wide range of machine learning algorithms and AI models. It provides tools for data preparation, model training, and evaluation. |
 | [Azure&nbsp;Data&nbsp;Science Virtual Machine](#azure-data-science-virtual-machine) | VM image that includes preinstalled data science tools | Use a preconfigured environment with tools like Jupyter, R, and Python to develop machine learning solutions on your own VMs.|
 | [Microsoft ML.NET](#mlnet) | Open-source, cross-platform machine learning SDK | Develop machine learning solutions for .NET applications. |
@@ -63,13 +63,13 @@ Use Python SDK, Jupyter notebooks, R, and the CLI for machine learning at cloud 
 |**Key benefits**           |- Code-first (SDK) and studio and drag-and-drop designer web interface authoring options <br/>- Central management of scripts and run history, which makes it easy to compare model versions<br/>- Easy deployment and management of models to the cloud or edge devices<br/>- Scalable training, deployment, and management of machine learning models|
 |**Considerations**         |Requires some familiarity with the model-management model.|
 
-## Azure AI services
+## AI services in Azure
 
-[AI services](/azure/ai-services/what-are-ai-services) is a comprehensive suite of prebuilt APIs that help developers and organizations create intelligent, market-ready applications rapidly. These services provide out-of-the-box and customizable APIs and SDKs that allow your apps to see, hear, speak, understand, and interpret user needs with minimal code. These capabilities make datasets or data science expertise to train models unnecessary. You can add intelligent features to your apps, such as:
+[Foundry Tools](/azure/ai-services/what-are-ai-services) is a comprehensive suite of prebuilt APIs that help developers and organizations create intelligent, market-ready applications rapidly. These services provide out-of-the-box and customizable APIs and SDKs that allow your apps to see, hear, speak, understand, and interpret user needs with minimal code. These capabilities make datasets or data science expertise to train models unnecessary. You can add intelligent features to your apps, such as:
 
-- **Vision:** Includes object detection, face recognition, and optical character recognition. For more information, see [Azure AI Vision](/azure/ai-services/computer-vision/), [Azure AI Face](/azure/ai-services/computer-vision/overview-identity), and [Azure AI Document Intelligence](/azure/ai-services/document-intelligence/).
+- **Vision:** Includes object detection, face recognition, and optical character recognition. For more information, see [Azure Vision in Foundry Tools](/azure/ai-services/computer-vision/), [Azure AI Face](/azure/ai-services/computer-vision/overview-identity), and [Azure Document Intelligence in Foundry Tools](/azure/ai-services/document-intelligence/).
 - **Speech:** Includes speech-to-text, text-to-speech, and speaker recognition capabilities. For more information, see [Speech service](/azure/ai-services/speech-service/).
-- **Language:** Includes translation, sentiment analysis, key phrase extraction, and language understanding. For more information, see [Azure OpenAI in Foundry Models](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#azure-openai-in-microsoft-foundry-models), [Azure AI Translator](/azure/ai-services/translator/), [Azure AI Immersive Reader](/azure/ai-services/immersive-reader/), [Bot Framework Composer](/composer/), and [Azure AI Language](/azure/ai-services/language-service/).
+- **Language:** Includes translation, sentiment analysis, key phrase extraction, and language understanding. For more information, see [Azure OpenAI in Foundry Models](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#azure-openai-in-microsoft-foundry-models), [Azure Translator in Foundry Tools](/azure/ai-services/translator/), [Azure AI Immersive Reader](/azure/ai-services/immersive-reader/), [Bot Framework Composer](/composer/), and [Azure Language in Foundry Tools](/azure/ai-services/language-service/).
 - **Decision-making:** Detect unwanted content and make informed decisions. For more information, see [Azure AI Content Safety](/azure/ai-services/content-safety/).
 - **Search and knowledge:** Bring AI-powered cloud search and knowledge mining capabilities to your apps. For more information, see [Azure AI Search](/azure/search/).
 
@@ -114,7 +114,7 @@ The [Foundry portal](https://ai.azure.com?cid=learnDocs) fosters collaboration a
 |**Type**                   |Unified development environment for AI|
 |**Supported languages**    |Python and C#|
 |**Machine learning phases**|- Data preparation<br>- Deployment (Models as a service (MaaS))|
-|**Key benefits**           |- Facilitates collaboration and project management across various AI services<br/>- Provides comprehensive tools for building, training, and deploying AI models<br/>- Emphasizes responsible AI by providing tools for bias detection, interpretability, and privacy-preserving machine learning<br/>- Supports integration with popular open-source frameworks and tools|
+|**Key benefits**           |- Facilitates collaboration and project management across various Foundry Tools<br/>- Provides comprehensive tools for building, training, and deploying AI models<br/>- Emphasizes responsible AI by providing tools for bias detection, interpretability, and privacy-preserving machine learning<br/>- Supports integration with popular open-source frameworks and tools|
 
 ## Azure Machine Learning studio
 
@@ -213,7 +213,7 @@ Use AI for Windows apps when you want to use trained machine learning models wit
 
 SynapseML adds many deep learning and data science tools to the Spark ecosystem, including integration of [Spark Machine Learning](https://spark.apache.org/docs/latest/ml-guide.html) pipelines with [Light Gradient Boosting Machine (LightGBM)](https://github.com/microsoft/LightGBM), [Local Interpretable Model-Agnostic Explanations](https://www.oreilly.com/learning/introduction-to-local-interpretable-model-agnostic-explanations-lime), and [OpenCV](https://opencv.org/). You can use these tools to create powerful predictive models on any Spark cluster, such as [Azure Databricks](#azure-databricks) or [Azure Cosmos DB](/azure/cosmos-db/spark-connector).
 
-SynapseML also provides networking capabilities to the Spark ecosystem. With the HTTP on Spark project, users can embed any web service into their SparkML models. Additionally, SynapseML provides easy-to-use tools for orchestrating [AI services](https://azure.microsoft.com/products/ai-services/) at scale. For production-grade deployment, the Spark Serving project enables high throughput and submillisecond latency web services that are backed by your Spark cluster.
+SynapseML also provides networking capabilities to the Spark ecosystem. With the HTTP on Spark project, users can embed any web service into their SparkML models. Additionally, SynapseML provides easy-to-use tools for orchestrating [Foundry Tools](https://azure.microsoft.com/products/ai-foundry/tools) at scale. For production-grade deployment, the Spark Serving project enables high throughput and submillisecond latency web services that are backed by your Spark cluster.
 
 |SynapseML feature|Description|
 |--------|-----------|
@@ -241,5 +241,5 @@ Principal authors:
 
 ## Related resources  
 
-- [Choose an Azure AI services technology](../../data-guide/technology-choices/ai-services.md)
+- [Choose an AI services technology](../../data-guide/technology-choices/ai-services.md)
 - [AI architecture design](../../data-guide/big-data/ai-overview.md)

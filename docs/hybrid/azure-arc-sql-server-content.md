@@ -46,13 +46,13 @@ The following recommendations apply for most scenarios. Follow these recommendat
 ### Assess, monitor, and optimize performance, availability, compliance, and security of Azure Arc enabled SQL Server instances by using Azure services
 
 Without a consistent, unified operational and management model, administering individual instances of SQL Server might lead to significant overhead costs. Without a proper set of tools, you need advanced skills and continuous efforts to identify and maintain the high-performing, resilient, and secure SQL Server configuration. It's especially important to solve these challenges as the business technology landscape evolves and becomes increasingly complex, with multiple SQL Server instances running on different hardware across on-premises datacenters, multiple public and private clouds, and the edge.
-<!--LM: If the Connected Machine agent is referring to Azure, then use Azure Connected Machine Agent as the full term.-->
+
 You can use Azure Arc enabled SQL Server instances, hosted on physical and virtual machines residing outside of Azure, which are running a Windows or Linux operating system with a locally installed Connected Machine agent. The agent installs automatically when you register the SQL Server instance with Azure. Azure Arc uses the agent to establish a logical connection between the non-Azure resource and Azure. After establishing this connection, a non-Azure resource automatically becomes a hybrid Azure resource, with its own identity and an Azure Resource Manager resource ID. Azure Resource Manager serves as the management interface that allows you to create, modify, and delete Azure resources. After you Arc-enable a non-Azure resource, you can use Azure Resource Manager to facilitate the implementation of other Azure services that enhance the manageability of SQL Server instances.
 
 > [!NOTE]
 > Installation of the Azure Connected Machine Agent is also part of implementation of Azure Arc enabled servers. Effectively, there is no need for its installation when implementing Azure Arc enabled SQL Server on Azure Arc enabled servers.
-<!--LM: Is Connected Agent the same as Azure Connected Machine Agent described later in the document? If not, please revert the edit.-->
- After you satisfy all of the [prerequisites][azure-arc-sql-assess-prereqs] for Azure Arc enabled SQL Server, including the installation of the Log Analytics agent, you automatically have the option to use the following Azure functionality:
+
+After you satisfy all of the [prerequisites][azure-arc-sql-assess-prereqs] for Azure Arc enabled SQL Server, including the installation of the Log Analytics agent, you automatically have the option to use the following Azure functionality:
 
 - On-demand SQL Assessment of Azure Arc enabled SQL Server. The assessment relies on the Log Analytics agent to collect relevant data and upload it to the Log Analytics workspace you designate. With logs uploaded to the workspace, the SQL Server Assessment Log Analytics solution manages data analysis and allows you to review its [results directly in the Azure portal][azure-arc-sql-assess]. Whenever applicable, the solution also provides recommendations regarding potential improvements. The results of the analysis are organized into four categories: assessment quality, security and compliance, availability and continuity, and performance and scalability. The Log Analytics agent scans for updates in regular intervals and automatically uploads them to the Log Analytics workspace to ensure that the results you're reviewing are up to date.
 
@@ -63,7 +63,7 @@ You can use Azure Arc enabled SQL Server instances, hosted on physical and virtu
 
 ### Automate deployment and management of Azure Arc enabled SQL Managed Instance in on-premises and multicloud environments
 
-Azure Arc enabled SQL Managed Instance becomes a containerized deployment running on top of Azure Arc enabled data services. To host your deployment, you can use the following options: <!--LM: Please check that "becomes" still retains the meaning of the sentence.-->
+Azure Arc enabled SQL Managed Instance becomes a containerized deployment running on top of Azure Arc enabled data services. To host your deployment, you can use the following options:
 
 - Azure Arc enabled data services on an Azure Arc-enabled Kubernetes cluster. Azure Arc-enabled Kubernetes supports a wide range of Kubernetes distributions hosted in cloud or on-premises environments on virtual or physical servers.
 - Azure Arc enabled data services on an AKS cluster hosted on an on-premises, physical Azure Local instance.
@@ -71,7 +71,7 @@ Azure Arc enabled SQL Managed Instance becomes a containerized deployment runnin
 Both options support equivalent SQL Server-related capabilities because these capabilities rely on the Azure Arc enabled data services layer. However, when you use Azure Local, you should implement AKS because this simplifies the implementation and management of the Kubernetes infrastructure and its workloads.
 
 Azure Arc enabled SQL Managed Instance offers [near 100% compatibility][azure-arc-enabled-sql-mi-compatibility] with the latest SQL Server database engine. This facilitates lift and shift migrations to Azure Arc enabled data services with minimal application and database changes.
-<!--LM: Please check that "becomes" retains the meaning in the following paragraph.-->
+
 Azure Arc enabled SQL Managed Instance relies on Azure Arc data controller to establish and maintain a logical connection to the Azure Resource Manager control plane. The data controller becomes a group of pods running within the local Kubernetes or AKS cluster. The pods orchestrate SQL Managed Instance management and operational tasks, such as provisioning and deprovisioning, automatic failover, updates, scaling, backup and restoration, and monitoring.
 
 When planning for Azure Arc enabled data services, you need to decide whether the data controller operates in the [Directly Connected or Indirectly Connected connectivity mode][azure-arc-data-services-connectivity-modes]. Your decision has important implications for the management capabilities and the amount of data being sent to Azure. If the Azure Arc enabled data services are directly connected to Azure, then you can manage them by using the standard Azure Resource Manager-based interfaces and tools, including the Azure portal, Azure command-line interface (CLI), or Azure Resource Manager templates. If the Azure Arc enabled data services are indirectly connected to Azure, then Azure Resource Manager provides their read-only inventory. Similarly, the Directly Connected mode is necessary if you want to provide Azure Arc enabled data services with support for Microsoft Entra ID, Azure role-based access control (Azure RBAC), or integrate them with such Azure services as Microsoft Defender for Cloud, Azure Monitor, or Azure Backup.
@@ -83,14 +83,14 @@ While the Indirectly Connected mode offers reduced functionality, it allows you 
 
 The common set of capabilities of the Azure Arc enabled SQL Managed Instance include:
 
-- Support for automated updates. Microsoft frequently provides updates to Azure Arc enabled data services through Microsoft Container Registry (MCR). This includes servicing patches and new features and delivering a similar experience as Azure managed data services. However, you control deployment schedule and cadence. <!--LM: Confirm that Microsoft Container Registry (MCR) is the correct term. Azure Container Registry (ACR) is approved in Term Studio, but I did find Microsoft documentation that uses MCR.-->
+- Support for automated updates. Microsoft frequently provides updates to Azure Arc enabled data services through Microsoft Container Registry (MCR). This includes servicing patches and new features and delivering a similar experience as Azure managed data services. However, you control deployment schedule and cadence.
 - Elastic scale. Container-based architecture inherently supports elastic scale, with limits that depend on the capacity of your infrastructure. This capability accommodates burst scenarios that have volatile needs, including ingesting and querying data in real time, at any scale, with sub-second response time.
 - Self-service provisioning. With Kubernetes-based orchestration, you can provision a database in seconds using either graphical interface or Azure CLI tools.
 - Flexible monitoring and management. With Azure Arc enabled SQL Managed Instance, you can collect and analyze logs and telemetry from Kubernetes APIs and implement [local monitoring by using Kibana and Grafana dashboards][kubernetes-kibana-grafana]. You can also provision and manage Azure Arc enabled SQL Managed Instance by using standard SQL Server management tools like the Azure CLI, along with Kubernetes tools like Helm and kubectl.
-<!--LM: Do you mean Azure CLI instead of Azure Data CLI? If not, please reject the edit.-->
+
 In addition, because Azure Arc enabled SQL Managed Instance runs on Azure Arc-enabled Kubernetes or AKS on Azure Local, you also can use their management, security, and compliance capabilities, including:
 
-- Support for [enforcement of run-time policies by using Azure Policy for Kubernetes][arc-enabled-kubrnetes-policy-enforcement] and centralized reporting of the corresponding policy compliance. This allows you, for example, to enforce HTTPS ingress in Kubernetes cluster or ensure that containers listen only on allowed ports. <!--LM: I'm flagging "listen" for inclusivity to confirm that it's allowed in this instance.-->
+- Support for [enforcement of run-time policies by using Azure Policy for Kubernetes][arc-enabled-kubrnetes-policy-enforcement] and centralized reporting of the corresponding policy compliance. This allows you, for example, to enforce HTTPS ingress in Kubernetes cluster or ensure that containers listen only on allowed ports.
 - Support for [deploying Kubernetes and AKS configurations by using GitOps][arc-enabled-kubernetes-gitops]. GitOps is the practice of automated deployment of code residing in a Git repository. In this scenario, the code describes the desired state of Kubernetes or AKS configuration. You have the option to [enforce specific GitOps-based configurations by using Azure Policy][arc-enabled-kubernetes-gitops-enforce], which also provides centralized reporting of the corresponding policy compliance.
 
 > [!CAUTION]
@@ -121,7 +121,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 - With Azure Arc enabled SQL Managed Instance, in the Directly Connected mode, you should provide the data controller with direct access to the MCR to facilitate automatic upgrades and patching. Alternatively, you have the option to import container images from MCR and make them available in a local, private container registry accessible by the data controller.
 
 - The Azure Connected Machine Agent communicates outbound to Azure Arc over TCP port **443** using the Transport Layer Security (TLS) protocol.
-<!--LM: If you're referring to Azure, the correct term is Azure Connected Machine Agent. Use full term.-->
+
 - With Azure Arc enabled SQL Managed Instance in the Directly Connected mode, there's no need to open any inbound ports at the perimeter of on-premises datacenters. Data controller initiated outbound connectivity in the secure manner over TCP port **443** using the Transport Layer Security (TLS) protocol.
 
 > [!CAUTION]
@@ -132,7 +132,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 - Azure Arc helps minimize or even eliminate the need for on-premises management and monitoring systems, which reduces operational complexity and cost, especially in large, diverse, and distributed environments. This helps offset additional costs associated with Azure Arc-related services. For example, advanced data security for Azure Arc enabled SQL Server instance requires [Microsoft Defender for Cloud] functionality of Microsoft Defender for Cloud, which has [pricing implications][azure-defender-pricing].
-<!--LM: Azure Defender is in brackets. Did you mean to insert a link here?-->
+
 - Containerizing your SQL Server environment by using Azure Arc enabled SQL Managed Instance helps increase workload density and mobility. This facilitates more efficient hardware utilization, which tends to maximize return on investment (ROI) and minimize operational costs, helping accelerate datacenter consolidation initiatives.
 
 ### Operational Excellence

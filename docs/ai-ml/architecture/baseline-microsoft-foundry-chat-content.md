@@ -632,7 +632,7 @@ If index server-tuning alone doesn't resolve all bottlenecks, consider the follo
 
 #### Performance efficiency in model deployments
 
-- Determine whether your application needs [provisioned throughput](/azure/ai-foundry/openai/concepts/provisioned-throughput) or can use the shared (consumption) model. Provisioned throughput provides reserved capacity and predictable latency, which supports production workloads that have strict service-level objectives (SLOs). The consumption model provides best-effort service and might suffer from noisy neighbor effects.
+- Determine whether your application needs [provisioned throughput](/azure/ai-foundry/openai/concepts/provisioned-throughput) or can use the shared (consumption) model. Provisioned throughput provides reserved capacity and predictable latency, which supports production workloads that have strict service-level objectives (SLOs). The consumption model provides best-effort service and might experience noisy neighbor effects.
 
 - Monitor [provision-managed usage](/azure/ai-foundry/openai/how-to/monitor-openai) to avoid overprovisioning or underprovisioning.
 

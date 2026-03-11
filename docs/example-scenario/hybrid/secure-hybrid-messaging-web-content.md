@@ -104,7 +104,7 @@ Reliability helps ensure that your application can meet the commitments that you
 Overall availability depends on the availability of the components involved. For information about availability, see these resources:
 
 - [Advancing Microsoft Entra availability](https://azure.microsoft.com/blog/advancing-azure-active-directory-availability)
-- [Cloud services you can trust: Office 365 availability](https://www.microsoft.com/microsoft-365/blog/2013/08/08/cloud-services-you-can-trust-office-365-availability)
+- [Cloud services you can trust: Microsoft 365 availability](https://www.microsoft.com/microsoft-365/blog/2013/08/08/cloud-services-you-can-trust-office-365-availability)
 - [What is the Microsoft Entra architecture?](/entra/architecture/architecture)
 
 Availability of on-premises solution components depends on the implemented design, hardware availability, and your internal operations and maintenance routines. For availability information about some of these components, see the following resources:
@@ -147,7 +147,7 @@ For information about AD FS and Web Application Proxy, see [Pricing and licensin
 
 Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-Performance depends on the performance of the components involved and your company's network performance. For more information, see [Office 365 performance tuning using baselines and performance history](/microsoft-365/enterprise/performance-tuning-using-baselines-and-history?view=o365-worldwide).
+Performance depends on the performance of the components involved and your company's network performance. For more information, see [Microsoft 365 performance tuning using baselines and performance history](/microsoft-365/enterprise/performance-tuning-using-baselines-and-history?view=o365-worldwide).
 
 For information about on-premises factors that influence performance for scenarios that include AD FS services, see these resources:
 
@@ -171,7 +171,7 @@ To deploy this scenario, complete these high-level steps:
 
 To set up a Microsoft Entra Conditional Access policy that enforces multifactor authentication, as described in step 3 of the online user's flow earlier in this article:
 
-1. Configure **Office 365 Exchange Online** or **Office 365** as a cloud app:
+1. Configure **Microsoft 365 Exchange Online** or **Microsoft 365** as a cloud app:
 
     :::image type="content" source="./media/set-as-cloud-app.png" alt-text="Screenshot that shows how to configure Office as a cloud application.":::
 

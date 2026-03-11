@@ -1,6 +1,6 @@
 This article defines the baseline architecture for implementing Siemens Teamcenter Product Lifecycle Management (PLM) on Azure. [Siemens Teamcenter PLM](https://plm.sw.siemens.com/en-US/teamcenter/) is a software suite for managing the entire lifecycle of a product. Consolidating Teamcenter on Azure provides a consistent and synchronized PLM experience across your enterprise.
 
-Many customers run multiple Teamcenter solutions across the enterprise, mixing multiple instances, multiple ISV vendors, and hybrid cloud and on-premises implementations. This fragmentation reduces the ability to uniformly access data. Consolidating Teamcenter on Azure provides a consistent and synchronized PLM experience across your enterprise.
+Many customers run multiple Teamcenter solutions across the enterprise, mixing multiple instances, multiple ISV vendors, and hybrid cloud and on-premises implementations. This fragmentation reduces the customer’s ability to uniformly access data. Consolidating Teamcenter on Azure provides a consistent and synchronized PLM experience across your enterprise.
 
 | Benefits of Teamcenter on Azure | Details |
 | --- | --- |
@@ -28,23 +28,22 @@ Siemens Teamcenter PLM baseline architecture has four distributed tiers (client,
 1. The Web subnet in the Web tier runs the following Teamcenter components on virtual machines:
 
     - *Teamcenter Security services (TCSS)* enable role-based access control (RBAC) for end users and secure access to resources. With TCSS, users can navigate between different Teamcenter applications without encountering multiple authentication challenges. It offers a unified framework for integration with a site's single sign-on solution and simplifies the authentication process
-    - *Teamcenter HTTP servers (TC HTTP servers)* run third-party HTTP web servers, such as IIS (.NET) or Java-based servers, to support the Rich client or Active Workspace client. These web server virtual machines also host the Teamcenter servlet container. Network security groups (NSGs) secure inbound and outbound communication between the Application Gateway subnet, web subnet and enterprise subnets. NSGs ensure the necessary connectivity and security measures are in place for data transfer between the subnets.
+    - *Teamcenter Web servers* run third-party HTTP web servers, JBoss WildFly, Oracle WebLogic, or Java-based servers, to support the Rich client or Active Workspace client. These web server virtual machines also host the Teamcenter servlet container. Network security groups (NSGs) secure inbound and outbound communication between the Application Gateway subnet, web subnet, and enterprise subnets. NSGs ensure the necessary connectivity and security measures are in place for data transfer between the subnets.
     - *Active Workspace Gateway* provides the functionality for the Teamcenter Active Workspace client. It serves as the routing mechanism for static content, such as HTML, CSS, JavaScript, JSON, and dynamic content such as API routing. It directs these requests to the appropriate back-end services and microservices responsible for tasks such as Service-Oriented Architecture (SOA), File Management Services (FMS), Visualization, and GraphQL. This architecture ensures efficient delivery and processing of content within the Teamcenter Product Lifecycle Management application running on Azure.
-    - *Network security groups (NSGs)* secure inbound and outbound communication between the Enterprise subnets, Database subnet & Storage subnet.
 
 1. The Enterprise subnet runs the following core Teamcenter components:
 
     - *Enterprise tier virtual machines* run the business logic components of Teamcenter. These components include Teamcenter Foundation, Server Manager, Dispatcher, and Microservices.
     - *Active workspace* serves as the platform where Active Workspace users sign in to access information and perform tasks based on their assigned roles.
     - *Visualization virtual machines* run Teamcenter lifecycle visualization. This feature empowers every member of your organization to access and view design data that is commonly stored in CAD-data formats.
-    - *File Management System (FMS) virtual machine* stores and retrieves user files (CAD, PDF) through SMB/NFS access protocols from file storage (ex. managed disks, Azure Files or Azure NetApp Files). It also supports caching and file distribution. FMS requires the installation of an FMS server cache (FSC) and FMS client cache (FCC) components. FCC resides on client desktop.
-    - *File server cache virtual machine* is a volume server for file management. It's also a server-level performance cache server and provides shared data access for multiple users. All Teamcenter file access/update is via FMS server cache processes. The cache process reads and writes the files in volume servers. It also streams the file(s) to/from clients as required.
+    - *File Management System (FMS) volume server* stores and retrieves user files (CAD, PDF) through SMB/NFS access protocols from file storage (ex. managed disks, Azure Files or Azure NetApp Files). It also supports caching and file distribution. FMS requires the installation of an FMS server cache (FSC) and FMS client cache (FCC) components. FCC resides on client desktop. A separate Teamcenter FMS Volume Server (independent of FSC) is reducing the I/O rating on the Teamcenter Enterprise Tier. Teamcenter Volume Servers are typically impacted first by the throughput of the network interface and then the system's disk I/O capacity. Actual I/O requirements can vary considerably based on your usage patterns. 
+    - *File server cache virtual machine* is a volume server for file management. It's also a server-level performance cache server and provides shared data access for multiple users. All Teamcenter file access/update is via FMS server cache processes. The cache process reads and writes the files in volume servers. It also streams the file(s) to/from clients as required. We recommend using FSC Servers with Store-and-Forward volume installation for remote sites with CAD users.
 
     - *Search server Apache Solr* performs smart searches and supports real-time indexing of data.
     - *License server virtual machine* runs a valid Teamcenter FlexPLM license.
 
 1. *Database subnet* runs a SQL Server database using an infrastructure-as-a-service deployment. It uses SQL Server Always On availability groups for asynchronous replication. The deployment could run an Oracle on this IaaS deployment.
-1. *Storage subnet* uses Azure Files Premium and Azure NetApp Files.
+1. *Storage subnet* uses Azure Files Premium and Azure NetApp Files or Nasuni storage.
 1. *On-premises network* allows the customer support team and system administrators to connect to Azure via Azure VPN connection to gain access to any virtual machine instance via Remote Desktop Protocol (RDP) from a jump box (Bastion).
 
 ### Components
@@ -64,6 +63,30 @@ This architecture consists of the following Azure components.
 - [Azure Application Gateway](/azure/well-architected/service-guides/azure-application-gateway): Azure Application Gateway is a web traffic load balancer that manages traffic to web applications. You use it to manage and distribute traffic to the Teamcenter services, improving performance and reliability.
 - [Azure Virtual Desktop](/azure/virtual-desktop/overview): Azure Virtual Desktop is a desktop and app virtualization service. You use it to provide users with a virtualized desktop environment for CAD workstation, facilitating access to Teamcenter services from anywhere.
 - [Azure Firewall](/azure/well-architected/service-guides/azure-firewall): Azure Firewall is a cloud-native network firewall security service that provides threat protection for cloud workloads. For a Teamcenter deployment, Azure Firewall can be used to protect the Teamcenter frontend services from threats.
+
+### Alternatives
+
+**Storage alternatives** (Azure NetApp Files vs Nasuni): 
+
+- Azure NetApp Files is a fully managed, high-performance NFS/SMB file service that fits workloads needing predictable latency, throughput, and enterprise NAS capabilities.
+- [Nasuni](/azure/storage/solution-integration/validated-partners/primary-secondary-storage/nasuni-deployment-guide) provides a global file system with edge caching and centralized management, which can be useful for distributed engineering teams and branch-office access patterns; selection often depends on performance SLAs versus global collaboration and cache-first requirements.
+
+**Database alternatives** (SQL Server on Azure VM, Azure SQL Managed Instance, Oracle Database on IaaS):
+
+- SQL Server on Azure Virtual Machines provides the most control and compatibility for OS-level tuning, backup tooling, and Always On availability groups.
+- [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview?view=azuresql) reduces operational overhead with managed patching and built-in platform features, but you should validate Teamcenter supportability and required agent/OS dependencies.
+- [Oracle Database on Azure Virtual Machines](/azure/virtual-machines/workloads/oracle/oracle-overview) is an option for Oracle-standardized estates that need IaaS-level control, while using Oracle HA features (for example, Data Guard) aligned with your availability requirements.
+
+**Teamcenter client alternatives** (Rich Client vs hosted on Azure Virtual Desktop):
+
+- The Teamcenter Rich Client is suitable when you need a full-featured desktop client experience and can manage local workstation requirements and network connectivity to the enterprise tier.
+- Hosting the client in [Azure Virtual Desktop (AVD)](/azure/virtual-desktop/) centralizes application delivery and can improve performance for remote users by keeping the client closer to backend services and storage, while simplifying endpoint management and supporting controlled access to engineering data.
+
+## Scenario details
+
+- The Siemens Teamcenter baseline architecture on Azure is designed for organizations that want to standardize PLM delivery on a secure, scalable cloud platform while supporting globally distributed engineering teams. Many enterprises operate multiple Teamcenter environments across business units and geographies, which can create data silos, inconsistent user experiences, and higher operational overhead.
+- This baseline architecture illustrates a reference deployment that separates client, web, enterprise, and resource tiers within an Azure virtual network. It provides a starting point for implementing secure ingress, tier-to-tier network segmentation, identity integration, and high-performance compute and storage patterns that can be extended for production, development, and test environments.
+- Use this scenario as a foundation and adjust it based on your requirements for availability, performance, and data management. For example, you can select storage platforms and database options that align with your enterprise standards, and you can choose end-user access models (local clients or virtual desktops) to meet security and connectivity needs.
 
 ### Potential use cases
 
@@ -175,8 +198,8 @@ Other contributors:
 
 ## Next steps
 
->[!div class="nextstepaction"]
-> [Teamcenter PLM with Azure NetApp Files](teamcenter-plm-netapp-files.yml)
+- [Teamcenter PLM with Azure NetApp Files](teamcenter-plm-netapp-files.yml)
+- [Teamcenter PLM with Nasuni Storage](/industry/manufacturing/architecture/siemens-teamcenter-nasuni-azure)
 
 ## Related resources
 

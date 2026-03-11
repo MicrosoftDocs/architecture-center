@@ -33,7 +33,7 @@ Traditional data modeling follows the rule of *one fact in one place*. Every ent
 
 No single approach works for all cases. Consider the following general guidelines to manage data in a microservices architecture:
 
-- **Define the required consistency level for each component, and prefer eventual consistency where possible.** Identify areas in the system where you need strong consistency or atomicity, consistency, isolation, and durability (ACID) transactions. And identify areas where eventual consistency is acceptable. For more information, see [Use tactical domain-driven design (DDD) for microservices](../model/tactical-ddd.yml).
+- **Define the required consistency level for each component, and prefer eventual consistency where possible.** Identify areas in the system where you need strong consistency or atomicity, consistency, isolation, and durability (ACID) transactions. And identify areas where eventual consistency is acceptable. For more information, see [Use tactical domain-driven design (DDD) for microservices](../model/tactical-domain-driven-design.md).
 
 - **Use a single source of truth when you require strong consistency.** One service might represent the source of truth for a given entity and expose it through an API. Other services might hold their own copy of the data, or a subset of the data, that's eventually consistent with the primary data but not considered the source of truth. For example, in an e-commerce system that has a customer order service and a recommendation service, the recommendation service might listen to events from the order service. But if a customer requests a refund, the order service, not the recommendation service, has the complete transaction history.
 
@@ -71,11 +71,11 @@ Users frequently check the status of a delivery while they wait for their packag
 
 The delivery history service listens for delivery status events from the delivery service. It stores this data in long-term storage. This historical data supports two scenarios, each with different storage requirements.
 
-The first scenario aggregates data for data analytics to optimize the business or improve service quality. The delivery history service doesn't do the actual data analysis. It only ingests and stores the data. For this scenario, the storage must be optimized for data analysis over large datasets and use a schema-on-read approach to accommodate various data sources. [Azure Data Lake Storage](/azure/data-lake-store/) is a good fit for this scenario because it's an Apache Hadoop file system compatible with Hadoop Distributed File System (HDFS). It's also tuned for performance for data analytics scenarios.
+The first scenario aggregates data for data analytics to optimize the business or improve service quality. The delivery history service doesn't do the actual data analysis. It only ingests and stores the data. For this scenario, the storage must be optimized for data analysis over large datasets and use a schema-on-read approach to accommodate various data sources. [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a good fit for this scenario because it's an Apache Hadoop file system compatible with Hadoop Distributed File System (HDFS). It's also tuned for performance for data analytics scenarios.
 
 The second scenario lets users look up the history of a delivery after the delivery finishes. Data Lake Storage doesn't support this scenario. For optimal performance, store time-series data in Data Lake Storage in folders partitioned by date. But this structure makes individual ID-based lookups inefficient. Unless you also know the timestamp, an ID lookup requires you to scan the entire collection. To address this problem, the delivery history service also stores a subset of the historical data in Azure Cosmos DB for quicker lookup. The records don't need to stay in Azure Cosmos DB indefinitely. You can archive older deliveries after a specific time period, like a month, by running an occasional batch process. Archiving data can reduce costs for Azure Cosmos DB and keep the data available for historical reporting from Data Lake Storage.
 
-For more information, see [Tune Data Lake Storage for performance](/azure/data-lake-store/data-lake-store-performance-tuning-guidance).
+For more information, see [Tune Data Lake Storage for performance](/azure/storage/blobs/data-lake-storage-best-practices).
 
 ### Package service
 

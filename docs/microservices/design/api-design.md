@@ -66,7 +66,7 @@ Consider the following factors:
 
 - For operations that cause side effects, consider making them idempotent and implementing them as `PUT` methods. This approach enables safe retries and improves resiliency. For more information, see [Interservice communication](./interservice-communication.yml).
 
-- HTTP methods can have asynchronous semantics, where the method returns a response immediately but the service carries out the operation asynchronously. In that case, the method should return an [HTTP 202](https://www.rfc-editor.org/rfc/rfc9110.html#section-15.3.3) response code. This code indicates that the request was accepted for processing but not yet processed. For more information, see [Asynchronous Request-Reply pattern](../../patterns/async-request-reply.yml).
+- HTTP methods can have asynchronous semantics, where the method returns a response immediately but the service carries out the operation asynchronously. In that case, the method should return an [HTTP 202](https://www.rfc-editor.org/rfc/rfc9110.html#section-15.3.3) response code. This code indicates that the request was accepted for processing but not yet processed. For more information, see [Asynchronous Request-Reply pattern](../../patterns/asynchronous-request-reply.md).
 
 ## Generic data access APIs: OData and GraphQL considerations
 

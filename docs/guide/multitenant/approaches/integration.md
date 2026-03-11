@@ -51,7 +51,7 @@ Consider whether you plan to use real-time data or send the data in batches.
 
 For real-time integrations, the following approaches are common:
 
-- **Request-response** is where a client initiates a request to a server and receives a response. Typically, request-response integrations are implemented by using APIs or webhooks. Requests might be *synchronous*, where they wait for acknowledgment and a response. Alternatively, requests can be *asynchronous* and use something like the [Asynchronous Request-Reply pattern](../../../patterns/async-request-reply.yml) to wait for a response.
+- **Request-response** is where a client initiates a request to a server and receives a response. Typically, request-response integrations are implemented by using APIs or webhooks. Requests might be *synchronous*, where they wait for acknowledgment and a response. Alternatively, requests can be *asynchronous* and use something like the [Asynchronous Request-Reply pattern](../../../patterns/asynchronous-request-reply.md) to wait for a response.
 
 - **Loosely coupled communication** is often enabled through messaging components that are designed for loosely coupling systems together. For example, Azure Service Bus provides message queuing capabilities, and Azure Event Grid and Azure Event Hubs provide eventing capabilities. These components are often used as part of integration architectures.
 
