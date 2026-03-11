@@ -1,10 +1,10 @@
-This reference architecture describes an enterprise-level cloud file sharing solution that uses Azure services, including [Azure Files](/azure/storage/files/storage-files-introduction), [Azure File Sync](/azure/storage/file-sync/file-sync-introduction), [Azure private DNS](/azure/dns/private-dns-overview), and the [Azure private endpoint](/azure/private-link/private-endpoint-overview) capability in [Azure Private Link](/azure/private-link/private-link-overview). The solution reduces cost by outsourcing file server and infrastructure management while you retain control of the data.
+This reference architecture describes an enterprise-level cloud file sharing solution that uses Azure services, including [Azure Files](/azure/storage/files/storage-files-introduction), [Azure File Sync](/azure/storage/file-sync/file-sync-introduction), [Azure private DNS](/azure/dns/private-dns-overview), and the [Azure private endpoint](/azure/private-link/private-endpoint-overview) capability in [Azure Private Link](/azure/private-link/private-link-overview). The solution reduces costs by outsourcing file server and infrastructure management while you retain control of the data.
 
 ## Architecture
 
 The following diagram shows how clients can access Azure file shares locally through a cloud tiering file server or remotely over Azure ExpressRoute private peering or a VPN tunnel in a private network environment.
 
-:::image type="complex" border="false" source="./images/azure-files-private.svg" alt-text="Diagram that shows how clients can access Azure file shares locally through a cloud tiering file server or remotely over [ExpressRoute](/azure/expressroute/expressroute-introduction) private peering or a VPN tunnel in a private network environment." lightbox="./images/azure-files-private.svg":::
+:::image type="complex" border="false" source="./images/azure-files-private.svg" alt-text="Diagram that shows how clients can access Azure file shares locally through a cloud tiering file server or remotely over ExpressRoute private peering or a VPN tunnel in a private network environment." lightbox="./images/azure-files-private.svg":::
    The diagram shows an on‑premises section on the left and an Azure section on the right. The on‑premises section contains two clients, a domain controller and Domain Name System (DNS) server, a file server, and a customer edge (CE) device or VPN device. All arrows in this section are bidirectional and dotted. An arrow labeled SMB (file server) connects client-1 and the file server. An arrow labeled DNS query connects client-2 and the domain controller and DNS server. An arrow labeled forwarded DNS query connects the domain controller and DNS server to the CE/VPN device. An arrow labeled DNS query connects the file server and the domain controller and DNS server. An arrow labeled SMB (Azure file share) crosses it diagonally and connects client-1 and the CE/VPN device. An arrow labeled Azure File Sync traffic connects the file server and the CE/VPN device. An arrow labeled ExpressRoute circuit/VPN tunnel that includes SMB, DNS, and Azure File Sync traffic connects the on-premises and Azure sections. The Azure virtual network section includes ExpressRoute/Azure VPN Gateway, a DNS server/Azure DNS Private Resolver, and a private endpoint subnet. A bidirectional dotted arrow labeled SMB, Azure File Sync traffic connects ExpressRoute/VPN Gateway and the private endpoint subnet. A bidirectional dotted arrow labeled forwarded DNS query connects the DNS server/DNS Private Resolver. A line connects Azure File Sync and a private endpoint. Another line connects Azure Files and a private endpoint. An arrow labeled backup points from Azure Files to Azure Backup. A bidirectional dotted arrow labeled DNS connects the DNS server/DNS Private Resolver and Azure File Sync private DNS (region.privatelink.afs.azure.net). Another bidirectional dotted arrow labeled DNS connects the DNS server/DNS Private Resolver and Azure Files private DNS (privatelink.file.core.windows.net).
 :::image-end:::
 
@@ -234,7 +234,7 @@ Principal author:
 - [Monitor Azure Files](/azure/storage/files/storage-files-monitoring)
 - [Plan for file access auditing](/windows-server/identity/solution-guides/plan-for-file-access-auditing)
 - [Back up Azure file shares](/azure/backup/backup-afs)
-- [On-premises Microsoft Entra Domain Services authentication over SMB for Azure file shares](/azure/storage/files/storage-files-identity-ad-ds-overview)
+- [On-premises Active Directory Domain Services (AD DS) authentication over SMB for Azure file shares](/azure/storage/files/storage-files-identity-ad-ds-overview)
 - [Deploy Azure File Sync](/azure/storage/file-sync/file-sync-deployment-guide)
 - [Set up Azure File Sync network endpoints](/azure/storage/file-sync/file-sync-networking-endpoints)
 - [Cloud tiering overview](/azure/storage/file-sync/file-sync-cloud-tiering-overview)
@@ -247,6 +247,5 @@ Principal author:
 
 ## Related resources
 
-- [Azure enterprise cloud file share](azure-files-private.yml)
 - [Azure files accessed on-premises and secured by AD DS](../example-scenario/hybrid/azure-files-on-premises-authentication.yml)
 - [Hybrid file services](hybrid-file-services.yml)
