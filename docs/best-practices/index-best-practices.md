@@ -47,8 +47,9 @@ Even with sound principles, good patterns, and best practices applied, defects c
 
 ## Next steps
 
-- [Web API design](./api-design.md)
-- [Web API implementation](./api-implementation.md)
+- [Azure Well-Architected Review](/assessments/azure-architecture-review/) - Assess your workload against the Well-Architected Framework pillars.
+- [Design principles for Azure applications](../guide/design-principles/index.md) - Start with the foundational principles that inform these best practices.
+- [Cloud design patterns](../patterns/index.md) - Explore reusable solutions to common architectural challenges.
 
 ## Related resources
 
