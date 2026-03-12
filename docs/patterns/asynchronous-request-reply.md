@@ -241,6 +241,7 @@ public class AsyncProcessingBackgroundWorker(BlobContainerClient _blobContainerC
 The `AsyncOperationStatusChecker` function implements the status endpoint. This function checks the status of the request:
 
 - If the request completes, the function returns HTTP 303 (See Other), redirecting the client to a [valet key](./valet-key.yml) URL for the result.
+
 - If the request is pending, the function returns an [HTTP 200 code that includes the current state](../best-practices/api-design.md#implement-asynchronous-methods).
 
 ```csharp
