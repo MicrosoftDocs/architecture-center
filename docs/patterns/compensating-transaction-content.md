@@ -104,11 +104,9 @@ The following figure shows the steps in a long-running transaction for booking a
 
 In many business solutions, failure of a single step doesn't always necessitate rolling back the system by using a compensating transaction. For example, consider the travel website scenario. Suppose the customer books flights F1, F2, and F3 but can't reserve a room at hotel H1. It's preferable to offer the customer a room at a different hotel in the same city rather than canceling the flights. The customer can still decide to cancel. In that case, the compensating transaction runs and undoes the bookings for flights F1, F2, and F3. But the customer should make this decision, not the system.
 
-In Azure, the Compensating Transaction pattern is frequently orchestrated using Azure Durable Functions or Azure Logic Apps. Durable Functions are ideal for code-centric implementations of the Saga pattern; they allow you to define explicit try/catch blocks within an orchestrator to trigger compensating activities if a sub-task fails. Alternatively, Logic Apps provide a low-code approach, utilizing "Scopes" and "Run After" configurations to handle errors and initiate compensatory integration steps.
+In Azure, the Compensating Transaction pattern is frequently orchestrated using Azure Durable Functions. Durable Functions coordinate the execution of steps and manage compensating activities if a step fails. Within orchestrator functions, you can use try/catch blocks to catch failures and trigger compensation logic.
 
-For highly decoupled or microservices-based architectures, Azure Service Bus or Event Grid serve as the messaging backbone to propagate both forward-moving and compensating events across distributed services. To maintain the "Saga State" or "Log," services like Azure Cosmos DB or Azure Table Storage are often used to track the progress of the multi-stage transaction, ensuring that the system knows exactly which steps to undo in the event of a failure. These technologies offer a robust starting point for achieving eventual consistency in complex Azure environments.
-
-:::image type="content" source="./_images/compensating-transaction-azure.png" alt-text="Diagram that shows the possible Azure technologies":::
+For distributed architectures, use Azure Service Bus or Event Grid to reliably propagate both forward-moving and compensating events across services. Store transaction progress in Azure Cosmos DB or Azure Table Storage. These data stores track which steps have completed, enabling the system to determine exactly which compensation steps must execute if a failure occurs.
 
 ## Next steps
 
