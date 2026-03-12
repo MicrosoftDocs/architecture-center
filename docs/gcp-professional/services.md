@@ -73,14 +73,14 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 | --- | --- | --- |
 | [Dataproc](https://cloud.google.com/dataproc) | [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks)<br/>[Microsoft Fabric Data Engineering](/fabric/data-engineering/data-engineering-overview) | Managed Apache Spark-based analytics platform. |
 
+[Learn more about big data services in Azure](/azure/architecture/data-guide/technology-choices/data-storage)
+
 #### Big data architectures
 
 | Architecture | Description |
 | --- | --- |
 | [Analytics end-to-end with Microsoft Fabric](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end) | Use Azure services to ingest, process, store, serve, and visualize data from different sources. |
 | [Analytics architecture design](/azure/architecture/solution-ideas/articles/analytics-start-here) | Use analytics solutions to turn volumes of data into useful business intelligence, such as reports and visualizations, and inventive AI, such as forecasts based on machine learning. |
-
-[Learn more about big data services in Azure](/azure/architecture/data-guide/technology-choices/data-storage)
 
 ### Analytics and visualization
 
