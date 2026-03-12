@@ -53,7 +53,7 @@ Consider the following points as you decide how to implement this pattern:
 - In an orchestrator‑led design, the central component can delegate resiliency responsibilities, such as retry handling for transient, nontransient, and timeout failures, to a dedicated resiliency handler.
 When the orchestrator is removed in a choreography‑based design, those responsibilities don’t move into the downstream components. They remain centralized in the resiliency handler. However, downstream components must communicate with that handler directly, which increases point‑to‑point communication. 
 
-- Event schema drift can break consumers over time. In this pattern, multiple independent services consume the same events. If a producer changes the data structure of an event, it can break downstream consumers that depend on the old schema. Use a schema registry to manage event contracts and use versioning to maintain compatibility as services evolve independently.
+- Event schema evolution can break consumers over time. In this pattern, multiple independent services consume the same events. If a producer changes the data structure of an event, it can break downstream consumers that depend on the old schema. Use a schema registry to manage event contracts and use backward-compatible evolution as services evolve independently.
 
 - Event ordering isn't guaranteed under retries or scale-out. Design for idempotency and versioning to handle duplicate or out-of-order events.
 
