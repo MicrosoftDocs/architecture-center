@@ -39,7 +39,7 @@ Each pattern in this catalog describes the problem that it addresses, considerat
 
 | Pattern | Summary | Well-Architected Framework pillars |
 | :------ | :------ | :-------------------------------------- |
-| [Ambassador](./ambassador.yml) | Create helper services that send network requests on behalf of a consumer service or application. | - Reliability<br><br>- Security |
+| [Ambassador](./ambassador.md) | Create helper services that send network requests on behalf of a consumer service or application. | - Reliability<br><br>- Security |
 | [Anti-Corruption Layer](./anti-corruption-layer.yml) | Implement a façade or adapter layer between a modern application and a legacy system. | - Operational&nbsp;Excellence |
 | [Asynchronous Request-Reply](asynchronous-request-reply.md) | Decouple back-end processing from a front-end host. This pattern is useful when back-end processing must be asynchronous, but the front end requires a clear and timely response. | - Performance&nbsp;Efficiency |
 | [Backends for Frontends](./backends-for-frontends.md) | Create separate backend services for specific frontend applications or interfaces. | - Reliability<br><br>- Security<br><br>- Performance&nbsp;Efficiency |

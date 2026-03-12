@@ -405,7 +405,7 @@ items:
       href: pattern-implementations/network-secure-ingress.md
   - name: Ambassador
     displayName: API proxy, cross-cutting concerns
-    href: patterns/ambassador.yml
+    href: patterns/ambassador.md
   - name: Anti-Corruption Layer
     displayName: legacy system integration, system boundary translation
     href: patterns/anti-corruption-layer.yml
@@ -604,8 +604,8 @@ items:
         href: example-scenario/manufacturing/teamcenter-baseline.yml
       - name: Teamcenter with Azure NetApp Files
         href: example-scenario/manufacturing/teamcenter-plm-netapp-files.yml
-      - name: Multiregion load balancing
-        href: high-availability/traffic-manager-application-gateway.yml
+      - name: Multi-region load balancing
+        href: high-availability/reference-architecture-traffic-manager-application-gateway.yml
       - name: Multi-tier web application built for HA/DR
         displayName: high availability, disaster recovery
         href: example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml
