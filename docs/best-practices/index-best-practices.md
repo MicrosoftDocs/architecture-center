@@ -19,19 +19,19 @@ These practices complement other foundational guidance in the Azure Architecture
 Each practice in this table maps to one or more [Well-Architected Framework pillars](/azure/well-architected/pillars). Use these mappings to identify which practices are most relevant to the quality attributes you're prioritizing in your workload.
 
 | Practice | Summary | Related pillars |
-| ------- | ------- | -------- |
-| [API design][Web API design] | Design web APIs to support platform independence by using standard protocols and agreed-upon data formats. Promote service evolution so that clients can discover functionality without requiring modification. Improve response times and prevent transient faults by supporting partial responses and providing ways to filter and paginate data. | [Performance efficiency][Overview of the performance efficiency pillar], [Operational excellence][Overview of the operational excellence pillar] |
-| [API implementation][Web API implementation] | Implement web APIs to be efficient, responsive, scalable, and available. Make actions idempotent, support content negotiation, and follow the HTTP specification. Handle exceptions, and support the discovery of resources. Provide ways to handle large requests and minimize network traffic. | [Operational excellence][Overview of the operational excellence pillar] |
-| [Autoscaling][Autoscaling] | Design apps to dynamically allocate and de-allocate resources to satisfy performance requirements and minimize costs. Take advantage of [Azure Monitor autoscale][Overview of autoscale in Microsoft Azure] and the built-in autoscaling that many Azure components offer. | [Performance efficiency][Overview of the performance efficiency pillar], [Cost optimization][Principles of cost optimization] |
-| [Background jobs][Background jobs] | Implement batch jobs, processing tasks, and workflows as background jobs. Use Azure platform services to host these tasks. Trigger tasks with events or schedules, and return results to calling tasks. | [Operational excellence][Overview of the operational excellence pillar] |
-| [Caching][Caching] | Improve performance by copying data to fast storage that's close to apps. Cache data that you read often but rarely modify. Manage data expiration and concurrency. See how to populate caches and use the [Azure Managed Redis][About Azure Managed Redis] service. | [Performance efficiency][Overview of the performance efficiency pillar] |
-| [Content delivery network][Best practices for using content delivery networks (CDNs)] | Use content delivery networks (CDNs) to efficiently deliver web content to users and reduce load on web apps. Overcome deployment, versioning, security, and resilience challenges. | [Performance efficiency][Overview of the performance efficiency pillar] |
-| [Data partitioning][Horizontal, vertical, and functional data partitioning]| Partition data to improve scalability, availability, and performance, and to reduce contention and data storage costs. Use horizontal, vertical, and functional partitioning in efficient ways. | [Performance efficiency][Overview of the performance efficiency pillar], [Cost optimization][Principles of cost optimization] |
-| [Data partitioning strategies (by service)][Data partitioning strategies] | Partition data in [Azure SQL Database][What is Azure SQL Database?] and [Azure Storage][Introduction to the core Azure Storage services] services like [Azure Table Storage][What is Azure Table storage?] and [Azure Blob Storage][Introduction to Azure Blob storage]. Shard your data to distribute loads, reduce latency, and support horizontal scaling. | [Performance efficiency][Overview of the performance efficiency pillar], [Cost optimization][Principles of cost optimization] |
-| [Host name preservation][Host name preservation] | Learn why it's important to preserve the original HTTP host name between a reverse proxy and its back-end web application, and how to implement this recommendation for the most common Azure services. | [Reliability][Principles of the reliability pillar] |
-| [Message encoding considerations][Message encoding considerations] | Use asynchronous messages to exchange information between system components. Choose the payload structure, encoding format, and serialization library that work best with your data. | [Security][Overview of the security pillar] |
-| [Monitoring and diagnostics][Best practices for monitoring cloud applications] | Track system health, usage, and performance with a monitoring and diagnostics pipeline. Turn monitoring data into alerts, reports, and triggers that help in various situations. Examples include detecting and correcting issues, spotting potential problems, meeting performance guarantees, and fulfilling auditing requirements. | [Operational excellence][Overview of the operational excellence pillar] |
-| [Transient fault handling][Transient fault handling] | Handle transient faults caused by unavailable networks or resources. Overcome challenges when developing appropriate retry strategies. Avoid duplicating layers of retry code and other antipatterns. | [Reliability][Principles of the reliability pillar] |
+| :------- | :------ | :-------------- |
+| [API design](./api-design.md) | Design web APIs to support platform independence by using standard protocols and agreed-upon data formats. Promote service evolution so that clients can discover functionality without requiring modification. Improve response times and prevent transient faults by supporting partial responses and providing ways to filter and paginate data. | [Performance Efficiency](/azure/well-architected/performance-efficiency/), [Operational Excellence](/azure/well-architected/operational-excellence/) |
+| [API implementation](./api-implementation.md) | Implement web APIs to be efficient, responsive, scalable, and available. Make actions idempotent, support content negotiation, and follow the HTTP specification. Handle exceptions, and support the discovery of resources. Provide ways to handle large requests and minimize network traffic. | [Operational Excellence](/azure/well-architected/operational-excellence/) |
+| [Autoscaling](./auto-scaling.md) | Design apps to dynamically allocate and de-allocate resources to satisfy performance requirements and minimize costs. Take advantage of [Azure Monitor autoscale](/azure/azure-monitor/autoscale/autoscale-overview) and the built-in autoscaling that many Azure components offer. | [Performance Efficiency](/azure/well-architected/performance-efficiency/), [Cost Optimization](/azure/well-architected/cost-optimization/) |
+| [Background jobs](./background-jobs.md) | Implement batch jobs, processing tasks, and workflows as background jobs. Use Azure platform services to host these tasks. Trigger tasks with events or schedules, and return results to calling tasks. | [Operational Excellence](/azure/well-architected/operational-excellence/) |
+| [Caching](./caching.yml) | Improve performance by copying data to fast storage that's close to apps. Cache data that you read often but rarely modify. Manage data expiration and concurrency. See how to populate caches and use the [Azure Managed Redis](/azure/redis/overview) service. | [Performance Efficiency](/azure/well-architected/performance-efficiency/) |
+| [Content Delivery Network](./cdn.yml) | Use content delivery networks (CDNs) to efficiently deliver web content to users and reduce load on web apps. Overcome deployment, versioning, security, and resilience challenges. | [Performance Efficiency](/azure/well-architected/performance-efficiency/) |
+| [Data partitioning](./data-partitioning.yml) | Partition data to improve scalability, availability, and performance, and to reduce contention and data storage costs. Use horizontal, vertical, and functional partitioning in efficient ways. | [Performance Efficiency](/azure/well-architected/performance-efficiency/), [Cost Optimization](/azure/well-architected/cost-optimization/) |
+| [Data partitioning strategies (by service)](./data-partitioning-strategies.yml) | Partition data in [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview) and [Azure Storage](/azure/storage/common/storage-introduction) services like [Azure Table Storage](/azure/storage/tables/table-storage-overview) and [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction). Shard your data to distribute loads, reduce latency, and support horizontal scaling. | [Performance Efficiency](/azure/well-architected/performance-efficiency/), [Cost Optimization](/azure/well-architected/cost-optimization/) |
+| [Host name preservation](./host-name-preservation.md) | Learn why it's important to preserve the original HTTP host name between a reverse proxy and its back-end web application, and how to implement this recommendation for the most common Azure services. | [Reliability](/azure/well-architected/reliability/) |
+| [Message encoding considerations](./message-encode.md) | Use asynchronous messages to exchange information between system components. Choose the payload structure, encoding format, and serialization library that work best with your data. | [Security](/azure/well-architected/security/) |
+| [Monitoring and diagnostics](./monitoring.yml) | Track system health, usage, and performance with a monitoring and diagnostics pipeline. Turn monitoring data into alerts, reports, and triggers that help in various situations. Examples include detecting and correcting issues, spotting potential problems, meeting performance guarantees, and fulfilling auditing requirements. | [Operational Excellence](/azure/well-architected/operational-excellence/) |
+| [Transient fault handling](./transient-faults.md) | Handle transient faults caused by unavailable networks or resources. Overcome challenges when developing appropriate retry strategies. Avoid duplicating layers of retry code and other antipatterns. | [Reliability](/azure/well-architected/reliability/) |
 
 ## Performance antipatterns
 
@@ -52,36 +52,10 @@ Best practices tell you what to do. Antipatterns describe common defects that su
 
 ## Next steps
 
-- [Web API design][Web API design]
-- [Web API implementation][Web API implementation]
+- [Web API design](./api-design.md)
+- [Web API implementation](./api-implementation.md)
 
 ## Related resources
 
-- [Cloud design patterns][Cloud Design Patterns]
-- [Microsoft Azure Well-Architected Framework][Microsoft Azure Well-Architected Framework]
-
-[About Azure Managed Redis]: /azure/redis/overview
-[Autoscaling]: ./auto-scaling.md
-[Background jobs]: ./background-jobs.md
-[Best practices for monitoring cloud applications]: ./monitoring.yml
-[Best practices for using content delivery networks (CDNs)]: ./cdn.yml
-[Caching]: ./caching.yml
-[Cloud Design Patterns]: ../patterns/index.md
-[Data partitioning strategies]: ./data-partitioning-strategies.yml
-[Horizontal, vertical, and functional data partitioning]: ./data-partitioning.yml
-[Host name preservation]: ./host-name-preservation.md
-[Introduction to Azure Blob storage]: /azure/storage/blobs/storage-blobs-introduction
-[Introduction to the core Azure Storage services]: /azure/storage/common/storage-introduction
-[Message encoding considerations]: ./message-encode.md
-[Microsoft Azure Well-Architected Framework]: /azure/well-architected/
-[Overview of autoscale in Microsoft Azure]: /azure/azure-monitor/autoscale/autoscale-overview
-[Overview of the operational excellence pillar]: /azure/well-architected/operational-excellence/
-[Overview of the performance efficiency pillar]: /azure/well-architected/performance-efficiency/
-[Overview of the security pillar]: /azure/well-architected/security/
-[Principles of cost optimization]: /azure/well-architected/cost-optimization/
-[Principles of the reliability pillar]: /azure/well-architected/reliability/
-[Transient fault handling]: ./transient-faults.md
-[Web API design]: ./api-design.md
-[Web API implementation]: ./api-implementation.md
-[What is Azure SQL Database?]: /azure/azure-sql/database/sql-database-paas-overview
-[What is Azure Table storage?]: /azure/storage/tables/table-storage-overview
+- [Cloud design patterns](../patterns/index.md)
+- [Azure Well-Architected Framework](/azure/well-architected/)
