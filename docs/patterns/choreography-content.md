@@ -55,7 +55,7 @@ When the orchestrator is removed in a choreography‑based design, those respons
 
 - Event schema evolution can break consumers over time. In this pattern, multiple independent services consume the same events. If a producer changes the data structure of an event, it can break downstream consumers that depend on the old schema. Use a schema registry to manage event contracts and use backward-compatible evolution as services evolve independently.
 
-- Event ordering isn't guaranteed under retries or scale-out. Design for idempotency and versioning to handle duplicate or out-of-order events.
+- Event ordering isn't guaranteed under retries or scale-out. Design for idempotency and re-emit in sequence to handle duplicate or out-of-order events.
 
 - Decentralized event flows can create emergent behavior at scale. When many services react to each other's events, the system can unintentionally produce feedback loops or event storms. A minor event may trigger a cascade of downstream reactions. Use guardrails such as event filtering, consumer concurrency limits, throttling, and explicit rules to prevent circular event chains
 
