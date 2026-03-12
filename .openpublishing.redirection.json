@@ -7728,6 +7728,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/topics/high-performance-computing.md",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/microservices/model/tactical-ddd.yml",
       "redirect_url": "/azure/architecture/microservices/model/tactical-domain-driven-design",
       "redirect_document_id": false

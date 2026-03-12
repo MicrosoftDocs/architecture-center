@@ -582,7 +582,7 @@ items:
   - name: Compute
     items:
     - name: Get started
-      href: topics/high-performance-computing.md
+      href: solution-ideas/articles/compute-get-started.md
     - name: Guides
       items:
       - name: Choose a compute service
@@ -592,6 +592,8 @@ items:
       - name: Build workloads with Azure Spot Virtual Machines
         displayName: VM, spot instances
         href: guide/spot/spot-eviction.yml
+      - name: High-performance computing
+        href: guide/compute/high-performance-computing.md
     - name: Architectures
       items:
       - name: VM baseline
