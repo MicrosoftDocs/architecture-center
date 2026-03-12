@@ -57,7 +57,7 @@ When the orchestrator is removed in a choreography‑based design, those respons
 
 - Event ordering isn't guaranteed under retries or scale-out. Design for idempotency and re-emit in sequence to handle duplicate or out-of-order events.
 
-- Decentralized event flows can create emergent behavior at scale. When many services react to each other's events, the system can unintentionally produce feedback loops or event storms. A minor event may trigger a cascade of downstream reactions. Use guardrails such as event filtering, consumer concurrency limits, throttling, and explicit rules to prevent circular event chains
+- Decentralized event topologies can create emergent behavior at scale. When many services react to each other's events, the system can unintentionally produce feedback loops or event storms. A minor event may trigger a cascade of downstream reactions. Use guardrails such as event filtering, consumer concurrency limits, throttling, and explicit rules to prevent circular event chains.
 
 ## When to use this pattern
 
