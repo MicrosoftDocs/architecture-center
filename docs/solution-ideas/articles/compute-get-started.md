@@ -179,7 +179,7 @@ HPC uses large clusters of computers to solve complex computational problems. Fo
 Container-based architectures are increasingly popular for building scalable, portable applications. For more information, see the following articles:
 
 - [Choose an Azure container service](../../guide/choose-azure-container-service.md): Review guidance for container workloads.
-- [AKS baseline architecture](../../reference-architectures/containers/aks/baseline-aks.yml):See an example production-ready Kubernetes deployment.
+- [AKS baseline architecture](../../reference-architectures/containers/aks/baseline-aks.yml): See an example of a production-ready Kubernetes deployment.
 - [Microservices architecture](../../guide/architecture-styles/microservices.md): See design patterns for microservices.
 
 ## AWS or Google Cloud professionals
