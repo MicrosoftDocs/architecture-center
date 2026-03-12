@@ -185,7 +185,7 @@ This deployment can take up to 45 minutes to complete. The recommended deploymen
 
 Use the following button to deploy the reference using the Azure portal.
 
-[![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsamples%2Fmaster%2Fsolutions%2Fsecure-hybrid-network%2Fazuredeploy.json)
+[![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsamples%2Fmain%2Fsolutions%2Fsecure-hybrid-network%2Fazuredeploy.json)
 
 #### [Azure CLI](#tab/cli)
 
@@ -195,7 +195,7 @@ When prompted, enter values for an admin user name and password. These values ar
 
 ```azurecli
 az deployment sub create --location eastus \
-    --template-uri https://raw.githubusercontent.com/mspnp/samples/master/solutions/secure-hybrid-network/azuredeploy.json
+    --template-uri https://raw.githubusercontent.com/mspnp/samples/main/solutions/secure-hybrid-network/azuredeploy.json
 ```
 
 #### [PowerShell](#tab/powershell)
@@ -206,7 +206,7 @@ When prompted, enter values for an admin user name and password. These values ar
 
 ```azurepowershell
 New-AzSubscriptionDeployment -Location eastus `
-    -TemplateUri https://raw.githubusercontent.com/mspnp/samples/master/solutions/secure-hybrid-network/azuredeploy.json
+    -TemplateUri https://raw.githubusercontent.com/mspnp/samples/main/solutions/secure-hybrid-network/azuredeploy.json
 ```
 
 ---

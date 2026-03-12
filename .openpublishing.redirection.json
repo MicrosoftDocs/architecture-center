@@ -7658,6 +7658,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/high-availability/reference-architecture-traffic-manager-application-gateway.yml",
+      "redirect_url": "/azure/architecture/high-availability/traffic-manager-application-gateway",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/guide/technology-choices/data-store-decision-tree.md",
       "redirect_url": "/azure/architecture/guide/technology-choices/data-stores-getting-started",
       "redirect_document_id": false
@@ -7713,8 +7718,18 @@
       "redirect_document_id": false      
     },
     {
+      "source_path": "docs/patterns/async-request-reply.yml",
+      "redirect_url": "/azure/architecture/patterns/asynchronous-request-reply",
+      "redirect_document_id": true
+    },
+    {      
       "source_path": "docs/example-scenario/mainframe/refactor-mainframe-applications-advanced.yml",
       "redirect_url": "/azure/architecture/example-scenario/mainframe/general-mainframe-refactor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/topics/high-performance-computing.md",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
       "redirect_document_id": false
     },
     {

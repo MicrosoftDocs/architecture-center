@@ -81,7 +81,7 @@ Consider the following recommendations for analysis and diagnostics:
 
 - Customize log data collection (which is similar to metrics) using the HTTP Data Collector API to send log data to a Log Analytics workspace. For more information, see [Send log data to Azure Monitor with the HTTP Data Collector API (public preview)][custom-log-api].
 
-- Analyze your applications proactively with the **smart detection** feature of Application Insight. Smart detection applies the machine learning capabilities of Azure and statistical analysis <!-- If it's Azure's statistical analysis, rewrite as "capabilities and statistical analysis to..." -->to detect issues such as performance or failure anomalies, memory leaks, or general application degradation. For more information, see [Smart Detection in Application Insights][smart-detection].
+- Analyze your applications proactively with the **smart detection** feature of Application Insights. Smart detection applies the machine learning capabilities of Azure and statistical analysis to detect issues such as performance or failure anomalies, memory leaks, or general application degradation. For more information, see [Smart Detection in Application Insights][smart-detection].
 
 - Use **Azure Monitor for VMs - Map** to review connections between servers, processes, inbound and outbound connection latency, and ports across any TCP-connected architecture. No configuration is required other than installing an agent. With **Azure Monitor for VMs - Map**, you can interact and engage with your servers as interconnected systems.
 

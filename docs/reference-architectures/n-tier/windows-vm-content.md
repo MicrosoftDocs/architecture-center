@@ -34,11 +34,13 @@ For best disk I/O performance, we recommend [Premium Storage](/azure/virtual-mac
 
 [Managed disks](/azure/storage/storage-managed-disks-overview) simplify disk management by handling the storage for you. Managed disks don't require a storage account. You specify the size and type of disk and it's deployed as a highly available resource. Managed disks also offer cost optimization by providing desired performance without the need for over-provisioning, accounting for fluctuating workload patterns, and minimizing unused provisioned capacity.
 
-The OS disk is a VHD stored in [Azure Storage](/azure/storage/common/storage-introduction), so it persists even when the host machine is down. We also recommend creating one or more [data disks](/azure/virtual-machines/windows/disks-types), which are persistent VHDs used for application data. 
+By default, the OS disk is a managed disk stored in [Azure Storage](/azure/storage/common/storage-introduction), so it persists even when the host machine is down. As an alternative, [ephemeral OS disks](/azure/virtual-machines/ephemeral-os-disks) place the OS image on the VM host's local storage instead of remote Azure Storage, which lowers read latency, speeds up reimaging, and eliminates the managed disk cost. However, all data on an ephemeral OS disk is lost on stop-deallocate, reimage, or host maintenance healing events, and ephemeral OS disks don't support snapshots or Azure Backup. Use ephemeral OS disks only when VMs are fully redeployable from automation.
 
-Ephemeral disks provide good performance at no extra cost, but come with the significant drawbacks of being non-persistent, having limited capacity, and being restricted to OS and temp disk use only. When possible, install applications on a data disk, not the OS disk. Some legacy applications might need to install components on the C: drive; in that case, you can [resize the OS disk](/azure/virtual-machines/windows/expand-os-disk) using PowerShell.
+The VM is also created with a temporary disk (the `D:` drive on Windows). This disk is stored on a physical drive on the host machine. It isn't persisted to Azure Storage and can be deleted during reboots and other VM lifecycle events. Use the temp disk only for scratch data that doesn't need to survive a reboot, such as application-specific temporary files.
 
-The VM is also created with a temporary disk (the `D:` drive on Windows). This disk is stored on a physical drive on the host machine. It is *not* saved in Azure Storage and may be deleted during reboots and other VM lifecycle events. Use this disk only for temporary data, such as page or swap files.
+Windows needs a page file for virtual memory management. On SCSI-based VM sizes (v5 and older), marketplace images place the page file on the temp disk by default. On NVMe-based VM sizes (v6 and newer), the page file defaults to the OS disk because the NVMe temp disks require initialization after each boot. For ephemeral OS disk VMs, the page file is also on the OS disk.
+
+When possible, install applications on a data disk, not the OS disk. Some legacy applications might need to install components on the C: drive; in that case, you can [resize the OS disk](/azure/virtual-machines/windows/expand-os-disk) using PowerShell. We recommend creating one or more [data disks](/azure/virtual-machines/windows/disks-types) for application data. Data disks are persistent managed disks backed by Azure Storage.
 
 ### Network
 
@@ -94,7 +96,7 @@ Use [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-
 
 **Audit logs**. Use [audit logs](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) to see provisioning actions and other VM events.
 
-**Data encryption**. Use [Azure Disk Encryption](/azure/security/fundamentals/azure-disk-encryption-vms-vmss) if you need to encrypt the OS and data disks.
+**Data encryption**. Enable [encryption at host](/azure/virtual-machines/disk-encryption#encryption-at-host---end-to-end-encryption-for-your-vm-data) to achieve end-to-end encryption for your VM data, including temp disks and disk caches. Encryption at host handles encryption on the VM host infrastructure and doesn't consume VM CPU resources, unlike guest-based encryption. You can use [customer-managed keys](/azure/virtual-machines/disk-encryption#customer-managed-keys) with Azure Key Vault for persistent OS and data disks. Temp disks and [ephemeral OS disks](/azure/virtual-machines/ephemeral-os-disks) are encrypted with platform-managed keys. Verify that your selected [VM size supports encryption at host](/azure/virtual-machines/windows/disks-enable-host-based-encryption-powershell#finding-supported-vm-sizes) before provisioning.
 
 ### Cost Optimization
 
