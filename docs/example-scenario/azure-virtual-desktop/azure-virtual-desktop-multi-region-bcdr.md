@@ -1,3 +1,15 @@
+---
+title: Multiregion BCDR for Azure Virtual Desktop
+description: Learn which options and scenarios are possible to design and implement an effective multi-region BCDR strategy for Azure Virtual Desktop.
+author: BenMartinBaur
+ms.author: bebaur
+ms.date: 02/27/2026
+ms.topic: concept-article
+ms.subservice: architecture-guide
+---
+
+# Multiregion BCDR for Azure Virtual Desktop
+
 This article provides implementation-level architecture and configuration guidance for deploying Azure Virtual Desktop (AVD) with multiregion business continuity and disaster recovery (BCDR). [FSLogix](/fslogix/overview) is a profile management solution that stores user profiles in virtual hard disk containers, and its Cloud Cache component enables cross-region profile replication. You learn about BCDR model options (active-active, active-passive, and personal host pools with Site Recovery), FSLogix Cloud Cache configuration, failover and failback procedures, and storage considerations.
 
 This article complements two related resources:

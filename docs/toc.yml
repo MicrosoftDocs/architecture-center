@@ -1180,7 +1180,7 @@ items:
         href: guide/virtual-desktop/windows-365-azure-network-connection.md
       - name: Multiregion BCDR for AVD
         displayName: Azure Virtual Desktop, business continuity, disaster recovery
-        href: example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr.yml
+        href: example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr.md
     - name: Architectures
       items:
       - name: Esri ArcGIS on Azure Virtual Desktop
