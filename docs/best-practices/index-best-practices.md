@@ -33,6 +33,23 @@ Each practice in this table maps to one or more [Well-Architected Framework pill
 | [Monitoring and diagnostics][Best practices for monitoring cloud applications] | Track system health, usage, and performance with a monitoring and diagnostics pipeline. Turn monitoring data into alerts, reports, and triggers that help in various situations. Examples include detecting and correcting issues, spotting potential problems, meeting performance guarantees, and fulfilling auditing requirements. | [Operational excellence][Overview of the operational excellence pillar] |
 | [Transient fault handling][Transient fault handling] | Handle transient faults caused by unavailable networks or resources. Overcome challenges when developing appropriate retry strategies. Avoid duplicating layers of retry code and other antipatterns. | [Reliability][Principles of the reliability pillar] |
 
+## Performance antipatterns
+
+Best practices tell you what to do. Antipatterns describe common defects that surface under production load. These issues often stem from designs that don't scale or from shortcuts that accumulate as features are added. Recognizing these antipatterns during design reviews and code reviews helps you avoid performance and scalability problems before they reach production. For more detail on each antipattern and how to detect and resolve it, see [Performance antipatterns for cloud applications](../antipatterns/index.md).
+
+| Antipattern | Description |
+| :---------- | :---------- |
+| [Busy Database](../antipatterns/busy-database/index.md) | Offloading too much processing to a data store. |
+| [Busy Front End](../antipatterns/busy-front-end/index.md) | Moving resource-intensive tasks onto background threads that starve foreground work. |
+| [Chatty I/O](../antipatterns/chatty-io/index.md) | Continually sending many small network requests. |
+| [Extraneous Fetching](../antipatterns/extraneous-fetching/index.md) | Retrieving more data than is needed, resulting in unnecessary I/O. |
+| [Improper Instantiation](../antipatterns/improper-instantiation/index.md) | Repeatedly creating and destroying objects that are designed to be shared and reused. |
+| [Monolithic Persistence](../antipatterns/monolithic-persistence/index.md) | Using the same data store for data with very different usage patterns. |
+| [No Caching](../antipatterns/no-caching/index.md) | Failing to cache data that is read frequently but changes rarely. |
+| [Noisy Neighbor](../antipatterns/noisy-neighbor/noisy-neighbor.yml) | A single tenant consuming a disproportionate share of shared resources. |
+| [Retry Storm](../antipatterns/retry-storm/index.md) | Retrying failed requests too aggressively, amplifying load on a recovering service. |
+| [Synchronous I/O](../antipatterns/synchronous-io/index.md) | Blocking the calling thread while I/O completes. |
+
 ## Next steps
 
 - [Web API design][Web API design]
