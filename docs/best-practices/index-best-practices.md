@@ -1,9 +1,9 @@
 ---
 title: Best practices in cloud applications
-description: Learn best practices for building reliable, scalable, and secure applications in the cloud. See resources on caching, partitioning, monitoring, and other areas.
-ms.author: pnp
+description: Learn about some best practices for building cloud applications, how they align with the Azure Well-Architected Framework.
 author: claytonsiemens77
-ms.date: 01/04/2022
+ms.author: pnp
+ms.date: 03/12/2026
 ms.topic: best-practice
 ms.subservice: cloud-fundamentals
 ---
@@ -50,8 +50,3 @@ Even with sound principles, good patterns, and best practices applied, defects c
 - [Azure Well-Architected Review](/assessments/azure-architecture-review/) - Assess your workload against the Well-Architected Framework pillars.
 - [Design principles for Azure applications](../guide/design-principles/index.md) - Start with the foundational principles that inform these best practices.
 - [Cloud design patterns](../patterns/index.md) - Explore reusable solutions to common architectural challenges.
-
-## Related resources
-
-- [Cloud design patterns](../patterns/index.md)
-- [Azure Well-Architected Framework](/azure/well-architected/)
