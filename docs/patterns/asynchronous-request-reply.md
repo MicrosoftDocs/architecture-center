@@ -63,8 +63,11 @@ The following diagram shows a typical flow.
 :::image-end:::
 
 1. The client sends a request and receives an HTTP 202 (Accepted) response.
+
 1. The client sends an HTTP GET request to the status endpoint. The work is still pending, so this call returns HTTP 200.
+
 1. At some point, the work completes and the status endpoint returns HTTP 303 (See Other) to redirect to the resource.
+
 1. The client fetches the resource at the specified URL.
 
 ## Problems and considerations
