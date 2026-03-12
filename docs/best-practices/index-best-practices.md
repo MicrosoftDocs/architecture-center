@@ -6,19 +6,17 @@ author: claytonsiemens77
 ms.date: 01/04/2022
 ms.topic: best-practice
 ms.subservice: cloud-fundamentals
-ms.custom:
-  - design-pattern
-keywords:
-  - Azure
 ---
 
 # Best practices in cloud applications
 
-These best practices can help you build reliable, scalable, and secure applications in the cloud. They offer guidelines and tips for designing and implementing efficient and robust systems, mechanisms, and approaches. Many also include code examples that you can use with Azure services. The practices apply to any distributed system, whether your host is Azure or a different cloud platform.
+Building reliable, scalable, and secure cloud applications requires deliberate architectural decisions. The best practices in this section provide guidance for common concerns that arise in distributed systems, such as caching, data partitioning, API design, and transient fault handling. Each practice addresses one or more pillars of the [Azure Well-Architected Framework](/azure/well-architected/), which defines five quality attributes for workload design: [Reliability](/azure/well-architected/reliability/), [Security](/azure/well-architected/security/), [Cost Optimization](/azure/well-architected/cost-optimization/), [Operational Excellence](/azure/well-architected/operational-excellence/), and [Performance Efficiency](/azure/well-architected/performance-efficiency/).
+
+These practices complement other foundational guidance in the Azure Architecture Center. The [design principles for Azure applications](../guide/design-principles/index.md) provide high-level strategies, like designing for self-healing and scaling out. The [cloud design patterns](../patterns/index.md) offer reusable solutions to recurring architectural problems. The [performance antipatterns](../antipatterns/index.md) describe common defects that cause scalability issues under load. These resources help you make informed architectural choices.
 
 ## Catalog of practices
 
-This table lists various best practices. The **Related pillars** column contains the pillars of the [Microsoft Azure Well-Architected Framework][Microsoft Azure Well-Architected Framework] that the practice focuses on.
+Each practice in this table maps to one or more [Well-Architected Framework pillars](/azure/well-architected/pillars). Use these mappings to identify which practices are most relevant to the quality attributes you're prioritizing in your workload.
 
 | Practice | Summary | Related pillars |
 | ------- | ------- | -------- |
@@ -58,13 +56,13 @@ This table lists various best practices. The **Related pillars** column contains
 [Introduction to Azure Blob storage]: /azure/storage/blobs/storage-blobs-introduction
 [Introduction to the core Azure Storage services]: /azure/storage/common/storage-introduction
 [Message encoding considerations]: ./message-encode.md
-[Microsoft Azure Well-Architected Framework]: /azure/architecture/framework/index
+[Microsoft Azure Well-Architected Framework]: /azure/well-architected/
 [Overview of autoscale in Microsoft Azure]: /azure/azure-monitor/autoscale/autoscale-overview
-[Overview of the operational excellence pillar]: /azure/architecture/framework/devops/overview
-[Overview of the performance efficiency pillar]: /azure/architecture/framework/scalability/overview
-[Overview of the security pillar]: /azure/architecture/framework/security/overview
-[Principles of cost optimization]: /azure/architecture/framework/cost/overview
-[Principles of the reliability pillar]: /azure/architecture/framework/resiliency/principles
+[Overview of the operational excellence pillar]: /azure/well-architected/operational-excellence/
+[Overview of the performance efficiency pillar]: /azure/well-architected/performance-efficiency/
+[Overview of the security pillar]: /azure/well-architected/security/
+[Principles of cost optimization]: /azure/well-architected/cost-optimization/
+[Principles of the reliability pillar]: /azure/well-architected/reliability/
 [Transient fault handling]: ./transient-faults.md
 [Web API design]: ./api-design.md
 [Web API implementation]: ./api-implementation.md
