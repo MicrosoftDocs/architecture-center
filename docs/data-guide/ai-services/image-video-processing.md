@@ -13,49 +13,56 @@ ms.custom: arb-aiml
 
 # Choose an Azure AI image and video processing and generation technology
 
-[Foundry Tools](/azure/ai-services/what-are-ai-services) help developers and organizations rapidly create intelligent, cutting-edge, market-ready, and responsible applications with out-of-the-box and prebuilt and customizable APIs and models.
+[Foundry Tools](/azure/ai-services/what-are-ai-services) helps developers and organizations rapidly create intelligent, cutting-edge, market-ready, and responsible applications by using out-of-the-box and prebuilt and customizable APIs and models.
 
-This article covers Foundry Tools that provide video and image processing capabilities, such as visual analysis and generation of images, object detection, image classification, and facial recognition, including:
+This article describes video and image processing capabilities in Foundry Tools, such as visual analysis and generation of images, object detection, image classification, and facial recognition. The suite includes the following services:
 
-- [Azure OpenAI in Microsoft Foundry models](#azure-openai-in-microsoft-foundry-models) provides access to OpenAI's powerful language models, including the latest generation of GPT models with vision and audio capabilities, Sora for video generation, DALL-E for image generation, and [audio models](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#audio-models) for real-time voice conversations, audio generation, speech-to-text transcription, translation, and text-to-speech. Use Azure OpenAI in Microsoft Foundry models for image generation from natural language, broad nonspecific image analysis, or audio scenarios that don't require a dedicated speech service.
+- [Foundry Models](#foundry-models) provides access to the following OpenAI language models:
+   
+   - The latest generation of GPT models that have vision and audio capabilities
+   - Sora for video generation
+   - DALL-E for image generation
+   - Audio models for real-time voice conversations, audio generation, speech-to-text (STT) transcription, translation, and text-to-speech
+   
+   Use Foundry Models for image generation from natural language, broad and nonspecific image analysis, or audio scenarios that don't require a dedicated speech service.
 
-- [Azure Vision in Foundry tools](#azure-vision-in-foundry-tools) is part of Foundry Tools and provides advanced algorithms that process images and return information based on visual features. It includes optical character recognition (OCR), image analysis, and face detection capabilities.
+- [Azure Vision](#vision) is part of Foundry Tools and provides advanced algorithms that process images and return information based on visual features. It includes optical character recognition (OCR), image analysis, and face detection capabilities.
 
-- [Azure AI Custom Vision](#custom-vision) is an image recognition service that you can use to build, deploy, and improve your image identifier models for specific requirements that can't be met by other services.
+- [Microsoft Azure AI Custom Vision](#custom-vision) is an image recognition service that you can use to build, deploy, and improve your image identifier models for specific requirements that other services can't meet.
 
-- [Azure AI Content Understanding in Microsoft Foundry Tools](#azure-ai-content-understanding) is a Foundry Tool that uses generative AI to extract structured fields from images and video. Use Content Understanding when you need schema-defined extraction, scene segmentation, or RAG-ready video output.
+- [Azure Content Understanding](#content-understanding) is a capability in Foundry Tools that uses generative AI to extract structured fields from images and video. Use Content Understanding when you need schema-defined extraction, scene segmentation, or retrieval-augmented generation (RAG)-ready video output.
 
-- [Azure AI Video Indexer](#azure-ai-video-indexer) is a comprehensive AI solution that enables organizations to extract deep insights from video (live and uploaded) and audio content using advanced machine learning and generative AI models.
+- [Microsoft Azure AI Video Indexer](#video-indexer) is an AI solution that organizations can use to extract deep insights from live and uploaded video and audio content by using advanced machine learning and generative AI models.
 
-### Azure OpenAI in Microsoft Foundry models
+### Foundry Models
 
-[Azure OpenAI in Microsoft Foundry models](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#azure-openai-in-microsoft-foundry-models) provides access to OpenAI's powerful language models, including the latest generation of GPT models with image, video, and audio capabilities. [Sora and Sora 2 video generation models](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#video-generation-models), [DALL-E and GPT-image image generation models](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#image-generation-models), and [audio models](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#audio-models) for real-time voice conversations, audio generation and transcription, speech-to-text, speech translation, and text-to-speech are also available.
+[Foundry Models](/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure#azure-openai-in-microsoft-foundry-models) provides access to OpenAI's powerful language models, including the latest generation of GPT models that have image, video, and audio capabilities. [Sora and Sora 2 video generation models](/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure#video-generation-models), [DALL-E and GPT-image image generation models](/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure#image-generation-models), and [audio models](/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure#audio-models) for real-time voice conversations, audio generation and transcription, STT, speech translation, and text-to-speech are also available.
 
-| Use Azure OpenAI in Microsoft Foundry models to | Don't use Azure OpenAI in Microsoft Foundry models to |
+| Use Foundry Models to do these tasks | Don't use Foundry Models to do these tasks |
 | :----------| :-------------|
-| Generate images from natural language descriptions using DALL-E or GPT-image models. | Perform specific image processing like form extraction or domain-specialized detection. For these tasks, use [Document Intelligence](/azure/ai-services/document-intelligence/overview). |
-| Perform broad, nonspecific analysis on images using vision-capable models like GPT-4o. | Extract structured fields from images using a schema you define. For schema-driven extraction, use [Azure AI Content Understanding](#azure-ai-content-understanding). |
-| Transcribe speech to text or translate spoken audio using Whisper or GPT-4o transcription models. | Detect, recognize, or analyze human faces. For face-related tasks, use [Azure Vision](#azure-vision-in-foundry-tools). |
-| Enable low-latency real-time voice conversations using GPT-4o Realtime audio models. | Perform high-volume speech transcription with advanced customization, speaker diarization, or custom vocabulary. For those scenarios, use [Azure Speech](/azure/ai-services/speech-service/overview). |
+| Generate images from natural language descriptions by using DALL-E or GPT-image models. | Perform specific image processing, like form extraction or domain-specialized detection. For these tasks, use [Azure Document Intelligence](/azure/ai-services/document-intelligence/overview). |
+| Perform broad, nonspecific analysis on images by using vision-capable models like GPT-4o. | Extract structured fields from images by using a schema that you define. For schema-driven extraction, use [Content Understanding](#content-understanding). |
+| Transcribe STT or translate spoken audio by using Whisper or GPT-4o transcription models. | Detect, recognize, or analyze human faces. For face-related tasks, use [Vision](#vision). |
+| Enable low-latency real-time voice conversations by using GPT-4o Realtime audio models. | Perform high-volume speech transcription that needs advanced customization, speaker diarization, or custom vocabulary. For those scenarios, use [Azure Speech](/azure/ai-services/speech-service/overview). |
 | Generate accessibility descriptions for images. | Use open-source image generation models. For open-source models, use Azure Machine Learning. |
 
 #### Audio models
 
-Azure OpenAI provides audio models through three APIs: the [Realtime API](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#gpt-4o-audio-models) for low-latency, real-time voice conversations, the [Chat Completions API with audio](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#gpt-4o-audio-models) for flexible audio generation and transcription in a single model call, and the [Audio API](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#audio-api) via the `/audio` endpoint for file-based speech-to-text transcription (Whisper, GPT-4o transcription models), speech translation, and text-to-speech.
+Azure OpenAI provides audio models through three APIs: the [Realtime API](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#gpt-4o-audio-models) for low-latency, real-time voice conversations, the [Chat Completions API with audio](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#gpt-4o-audio-models) for flexible audio generation and transcription in a single model call, and the [Audio API](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure#audio-api) via the `/audio` endpoint for file-based STT transcription (Whisper, GPT-4o transcription models), speech translation, and text-to-speech.
 
-### Azure Vision in Foundry Tools
+### Vision
 
-[Azure Vision](/azure/ai-services/computer-vision/overview) is part of Foundry Tools and provides advanced algorithms that process images and return information based on the visual features you're interested in. Azure Vision includes OCR, image analysis, and face detection capabilities.
+[Vision](/azure/ai-services/computer-vision/overview) is part of Foundry Tools and provides advanced algorithms that process images and return information based on the visual features you're interested in. Azure Vision includes OCR, image analysis, and face detection capabilities.
 
-| Use Azure Vision to | Don't use Azure Vision to |
+| Use Vision to | Don't use Vision to |
 | :----------| :-------------|
-| Extract printed and handwritten text from images and documents using OCR. | Perform advanced video analysis like transcription, translation, or content summarization. For these tasks, use [Azure AI Video Indexer](#azure-ai-video-indexer). |
+| Extract printed and handwritten text from images and documents using OCR. | Perform advanced video analysis like transcription, translation, or content summarization. For these tasks, use [Video Indexer](#video-indexer). |
 | Analyze images to extract visual features like objects, faces, and auto-generated descriptions. | Moderate content for safety. For content moderation, use [Azure AI Content Safety](/azure/ai-services/content-safety/overview). |
 | Detect, recognize, and analyze human faces in images. | Perform analysis that large, multimodal foundation models like GPT-4o already support well. |
 
-#### Available Azure Vision features
+#### Available Vision features
 
-The following table provides a list of features available in Azure Vision.
+The following table provides a list of features available in Vision.
 
 | Feature | Description |
 | :----------| :-------------|
@@ -70,7 +77,7 @@ The following table provides a list of features available in Azure Vision.
 
 #### Use cases
 
-The following table provides a list of possible use cases for Azure Vision.
+The following table provides a list of possible use cases for Vision.
 
 | Use case | Description |
 | :----------| :-------------|
@@ -85,8 +92,8 @@ The following table provides a list of possible use cases for Azure Vision.
 
 | Use Custom Vision to | Don't use Custom Vision to |
 | :----------| :-------------|
-| Recognize unusual objects and manufacturing defects that standard image analysis can't detect. | Perform basic object detection or face detection. Use [Azure Vision](#azure-vision-in-foundry-tools) instead. |
-| Provide detailed custom classifications for specific business requirements. | Perform basic visual analysis. Use vision-capable models from [Azure OpenAI in Microsoft Foundry models](#azure-openai-in-microsoft-foundry-models) or open-source models in Azure Machine Learning instead. |
+| Recognize unusual objects and manufacturing defects that standard image analysis can't detect. | Perform basic object detection or face detection. Use [Vision](#vision) instead. |
+| Provide detailed custom classifications for specific business requirements. | Perform basic visual analysis. Use vision-capable models from [Foundry Models](#foundry-models) or open-source models in Machine Learning instead. |
 | Train models with your own labeled images for specialized scenarios. | |
 
 Custom Vision uses a machine learning algorithm to analyze images for custom features. You submit sets of images that do have and don't have the visual characteristics that you want. Then you label the images with your own labels, or *tags*, at the time of submission. The algorithm trains to this data and calculates its own accuracy by testing itself on the same images. After you train your model, you can test, retrain, and eventually use the model in your image recognition app to classify images or detect objects. You can also export the model for offline use.
@@ -109,20 +116,20 @@ The following table provides a list of possible use cases for Custom Vision.
 | [Use Custom Vision with an IoT device to report visual states](/azure/iot-edge/tutorial-deploy-custom-vision) | Use Custom Vision to train a device that has a camera to detect visual states. You can run this detection scenario on an IoT device by using an exported ONNX model. A visual state describes the content of an image, such as an empty room or a room with people or an empty driveway or a driveway with a truck. |
 | [Classify images and objects](/azure/ai-services/custom-vision-service/overview#classification-and-object-detection) | Analyze photos and scan for specific logos by training a custom model. |
 
-### Azure AI Content Understanding
+### Content Understanding
 
-[Azure AI Content Understanding](/azure/ai-services/content-understanding/overview) is a Foundry Tool that uses generative AI to extract structured fields from images and video. You define a schema that specifies what to extract, and Content Understanding applies generative models to produce structured JSON or RAG-ready Markdown output. It also provides confidence scores and grounding for each extracted value, enabling automated workflows with targeted human review.
+[Content Understanding](/azure/ai-services/content-understanding/overview) is a Foundry Tool that uses generative AI to extract structured fields from images and video. You define a schema that specifies what to extract, and Content Understanding applies generative models to produce structured JSON or RAG-ready Markdown output. It also provides confidence scores and grounding for each extracted value, enabling automated workflows with targeted human review.
 
-| Use Azure AI Content Understanding to | Don't use Azure AI Content Understanding to |
+| Use Content Understanding to | Don't use Content Understanding to |
 | :----------| :-------------|
-| Extract custom structured fields from images using a schema you define, such as detecting products, brands, or defects. | Perform standard image analysis such as object detection or OCR. Use [Azure Vision](#azure-vision-in-foundry-tools) for those tasks. |
-| Generate RAG-ready output from video, including scene descriptions, transcripts, and key frames, for use in search indexes or chat agents. | Extract deep video insights such as celebrity identification, speaker enumeration, or sentiment analysis across long-form content. Use [Azure AI Video Indexer](#azure-ai-video-indexer) for those tasks. |
+| Extract custom structured fields from images using a schema you define, such as detecting products, brands, or defects. | Perform standard image analysis such as object detection or OCR. Use [Vision](#vision) for those tasks. |
+| Generate RAG-ready output from video, including scene descriptions, transcripts, and key frames, for use in search indexes or chat agents. | Extract deep video insights such as celebrity identification, speaker enumeration, or sentiment analysis across long-form content. Use [Video Indexer](#video-indexer) for those tasks. |
 | Segment video into scenes and extract custom metadata per segment, such as brand presence or ad category. | |
 | Generate face descriptions in images or video, such as facial expressions or celebrity identification (limited access). | |
 
-#### Available Azure AI Content Understanding features
+#### Available Content Understanding features
 
-The following table provides a list of image and video features available in Azure AI Content Understanding.
+The following table provides a list of image and video features available in Content Understanding.
 
 | Feature | Description |
 | :----------| :-------------|
@@ -133,9 +140,9 @@ The following table provides a list of image and video features available in Azu
 | [Video field extraction](/azure/ai-services/content-understanding/video/overview#field-extraction-and-segmentation) | Generates custom structured fields per video segment based on a schema, such as brand logos, ad categories, or scene sentiment, using a generative model. |
 | [Face description](/azure/ai-services/content-understanding/video/overview#face-description-fields) | Generates textual descriptions of faces in images or video, including facial hair, expressions, and celebrity identification. This is a limited-access feature that requires disabling face blurring in the analyzer configuration. |
 
-#### Use cases for Azure AI Content Understanding
+#### Use cases for Content Understanding
 
-The following table provides a list of possible use cases for Azure AI Content Understanding applied to images and video.
+The following table provides a list of possible use cases for Content Understanding applied to images and video.
 
 | Use case | Description |
 | :----------| :-------------|
@@ -145,14 +152,14 @@ The following table provides a list of possible use cases for Azure AI Content U
 | [Retail shelf analysis](/azure/ai-services/content-understanding/image/overview) | Extract structured data from shelf images to count products, detect misplacements, and monitor stock levels. |
 | [Ad and brand analysis](/azure/ai-services/content-understanding/video/overview#field-extraction-and-segmentation) | Identify brand logos and ad categories in promotional video segments to assess brand exposure and compliance with branding guidelines. |
 
-### Azure AI Video Indexer
+### Video Indexer
 
-[Azure AI Video Indexer](/azure/azure-video-indexer/video-indexer-overview) is a comprehensive AI solution that enables organizations to extract deep insights from video (live and uploaded) and audio content. It uses advanced machine learning and generative AI models and supports a wide range of capabilities including transcription, translation, object detection, and video summarization. Designed for flexibility, Video Indexer can be used in the cloud or deployed to edge locations via Azure Arc.
+[Video Indexer](/azure/azure-video-indexer/video-indexer-overview) is a comprehensive AI solution that enables organizations to extract deep insights from video (live and uploaded) and audio content. It uses advanced machine learning and generative AI models and supports a wide range of capabilities including transcription, translation, object detection, and video summarization. Designed for flexibility, Video Indexer can be used in the cloud or deployed to edge locations via Azure Arc.
 
-| Use Azure AI Video Indexer to | Don't use Azure AI Video Indexer to |
+| Use Video Indexer to | Don't use Video Indexer to |
 | :----------| :-------------|
-| Extract insights from uploaded videos including transcription, translation, and content analysis. | Perform basic video analysis tasks like people counting and motion detection. [Azure Vision](#azure-vision-in-foundry-tools) is more cost-effective for these tasks. |
-| Analyze live video streams in real time for retail, manufacturing, or safety scenarios. | Extract text from static images. For OCR on images, use [Azure Vision](#azure-vision-in-foundry-tools). |
+| Extract insights from uploaded videos including transcription, translation, and content analysis. | Perform basic video analysis tasks like people counting and motion detection. [Vision](#vision) is more cost-effective for these tasks. |
+| Analyze live video streams in real time for retail, manufacturing, or safety scenarios. | Extract text from static images. For OCR on images, use [Vision](#vision). |
 | Run video analysis on edge devices with strict data residency or low-latency requirements using Azure Arc. | |
 
 #### Deployment options
@@ -161,7 +168,7 @@ Video Indexer offers two deployment options:
 
 | Option | Description |
 | :----------| :-------------|
-| [Cloud-based Video Indexer](/azure/azure-video-indexer/video-indexer-get-started) | A cloud application built on Azure AI services including Face, Translator, Azure Vision, and Speech. Analyzes video and audio content by running more than 30 AI models to generate rich insights. |
+| [Cloud-based Video Indexer](/azure/azure-video-indexer/video-indexer-get-started) | A cloud application built on Azure AI services including Face, Translator, Vision, and Speech. Analyzes video and audio content by running more than 30 AI models to generate rich insights. |
 | [Video Indexer enabled by Azure Arc](/azure/azure-video-indexer/arc/azure-video-indexer-enabled-by-arc-overview) | An Azure Arc extension that runs video and audio analysis and generative AI on edge devices. Supports both uploaded and live video streams, enabling real-time analysis directly at the data source. Suited for industries with strict data residency requirements or low-latency operational needs. |
 
 #### Video models
@@ -187,7 +194,7 @@ The following table provides a list of audio analysis features available in Vide
 
 | Feature | Description |
 | :----------| :-------------|
-| [Audio transcription](/azure/azure-video-indexer/transcription-translation-lid-insight) | Converts speech to text in over 50 languages and supports extensions. |
+| [Audio transcription](/azure/azure-video-indexer/transcription-translation-lid-insight) | Converts STT in over 50 languages and supports extensions. |
 | [Automatic language detection](/azure/azure-video-indexer/language-support) | Identifies the dominant spoken language. |
 | [Multilanguage speech identification](/azure/azure-video-indexer/transcription-translation-lid-insight) | Identifies the spoken language in different segments of audio, sends each segment to be transcribed, and combines them into one unified transcription. |
 | [Closed captioning](/azure/azure-video-indexer/video-indexer-output-json-v2#insights) | Creates closed captioning in three formats: VTT, TTML, and SRT. |
