@@ -43,6 +43,8 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 |  | [Firebase Realtime Database](https://firebase.google.com/products/realtime-database) | [Azure Cosmos DB change feed](/azure/cosmos-db/change-feed) | Change feed in Azure Cosmos DB is a persistent record of changes to a container in the order they occur. Change feed works by listening to an Azure Cosmos DB container for any changes. It then outputs the sorted list of documents that were changed in the order in which they were modified. The persisted changes can be processed asynchronously and incrementally, and the output can be distributed across one or more consumers for parallel processing |
 | In-memory | [Cloud Memorystore](https://cloud.google.com/memorystore/docs) | [Azure Managed Redis](https://azure.microsoft.com/products/managed-redis/) | A secure data cache and messaging broker that provides high throughput and low-latency access to data for applications |
 
+[Learn more about database services in Azure](/azure/architecture/guide/technology-choices/data-stores-getting-started)
+
 ### Data warehouse
 
 | Google Cloud service | Azure service | Description |
@@ -78,7 +80,7 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 | [Analytics end-to-end with Microsoft Fabric](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end) | Use Azure services to ingest, process, store, serve, and visualize data from different sources. |
 | [Analytics architecture design](/azure/architecture/solution-ideas/articles/analytics-start-here) | Use analytics solutions to turn volumes of data into useful business intelligence, such as reports and visualizations, and inventive AI, such as forecasts based on machine learning. |
 
-[view all](../browse/index.yml?azure_categories=databases)
+[Learn more about big data services in Azure](/azure/architecture/data-guide/technology-choices/data-storage)
 
 ### Analytics and visualization
 
@@ -88,6 +90,8 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 | [Data Studio](https://datastudio.google.com/overview)[Looker](https://cloud.google.com/looker) | [Power BI](https://powerbi.microsoft.com) | Business intelligence tools that build visualizations, perform ad hoc analysis, and develop business insights from data. |
 | [Cloud Search](https://cloud.google.com/products/search) | [Azure AI Search](https://azure.microsoft.com/services/search) | Delivers full-text search and related search analytics and capabilities. |
 | [BigQuery](https://cloud.google.com/bigquery) | [SQL Server Analysis Services](/analysis-services/analysis-services-overview) | Provides a serverless non-cloud interactive query service that uses standard SQL for analyzing databases. |
+
+[Learn more about analytics and visualization services in Azure](/azure/architecture/data-guide/technology-choices/analytical-data-stores)
 
 #### Analytics architectures
 
@@ -120,7 +124,7 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 | [Natural Language AI](https://cloud.google.com/natural-language) | [Azure Language in Foundry Tools](/azure/ai-services/language-service/) | Azure AI Language is a managed service for developing natural language processing applications. Identify key terms and phrases, analyze sentiment, summarize text, and build conversational interfaces. |
 | [Natural Language AI](https://cloud.google.com/natural-language) | [Foundry Tools conversational language understanding](/azure/ai-services/language-service/) | A feature of AI Language that uses natural language understanding (NLU) so people can interact with your apps, bots, and IoT devices. |
 | [Speech-to-Text](https://cloud.google.com/speech-to-text) | [Foundry Tools speech to text](https://azure.microsoft.com/services/cognitive-services/speech-to-text) | Transcribe audio to text in more than 100 languages and variants. Customize models to enhance accuracy for domain-specific terminology. |
-| [Vertex AI AutoML](https://docs.cloud.google.com/vertex-ai/docs/beginner/beginners-guide) | [ML.NET Model Builder](https://dotnet.microsoft.com/apps/machinelearning-ai/ml-dotnet/model-builder) | ML.NET Model Builder provides a visual interface to build, train, and deploy custom machine learning models. Prior machine learning expertise isn't required. Model Builder supports AutoML, which automatically explores different machine learning algorithms and settings to help you find the one that best suits your scenario. |
+| [Vertex AI AutoML](https://docs.cloud.google.com/vertex-ai/docs/beginner/beginners-guide) | [Azure Machine Learning AutoML](/azure/machine-learning/concept-automated-ml) | AutoML in Azure Machine Learning automates the time-consuming, iterative tasks of machine learning model development. With automated ML, data scientists, analysts, and developers can build machine learning models at scale with efficiency and productivity, while maintaining model quality. |
 | [Vertex AI AutoML](https://docs.cloud.google.com/vertex-ai/docs/beginner/beginners-guide) | [Azure Video Indexer](https://vi.microsoft.com) | Extract insights from your videos and enrich applications to enhance discovery and engagement. |
 | [Dialogflow](https://cloud.google.com/dialogflow) | [Azure AI Language Question Answering](/azure/ai-services/language-service/question-answering/overview) | Build, train and publish a sophisticated bot using FAQ pages, support websites, product manuals, SharePoint documents or editorial content through a graphical user interface or via REST APIs. |
 | [Vertex AI Workbench](https://cloud.google.com/vertex-ai-notebooks) | [Azure Machine Learning studio notebooks](/azure/machine-learning/how-to-run-jupyter-notebooks) | Develop and run code with Jupyter notebooks in Azure Machine Learning studio, with access to managed compute resources and integration with Azure Machine Learning workflows. |
@@ -139,6 +143,8 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 | [Imagen (Image generation)](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/image/overview) | [Azure OpenAI Image generation models](/azure/foundry/openai/how-to/dall-e) | Generate images with AI models |
 | [Google Agentspace](https://cloud.google.com/blog/products/ai-machine-learning/google-agentspace-enables-the-agent-driven-enterprise) | [Microsoft Copilot Studio](https://www.microsoft.com/microsoft-365-copilot/microsoft-copilot-studio/) | Low-code tool for custom AI Agent creation in the cloud |
 | [Gemini Code Assist](https://codeassist.google/) | [GitHub Copilot](https://github.com/features/copilot) | AI code creation assistance agent |
+
+[Learn more about AI and machine learning services in Azure](/azure/architecture/data-guide/technology-choices/ai-services)
 
 ### AI and machine learning architectures
 
@@ -167,6 +173,8 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 | [Cloud GPUs](https://cloud.google.com/gpu) | [GPU Optimized VMs](/azure/virtual-machines/sizes-gpu) | GPU-optimized VM sizes are specialized virtual machines that are available with single, multiple, or fractional GPUs. The sizes are designed for AI, compute-intensive, graphics-intensive, and visualization workloads. |
 | [VMware Engine](https://cloud.google.com/vmware-engine) | [Azure VMware Solution](https://azure.microsoft.com/services/azure-vmware) | Redeploy and extend your VMware-based enterprise workloads to Azure with Azure VMware Solution. Migrate VMware-based workloads from your datacenter to Azure and integrate your VMware environment with Azure. Continue managing existing environments with the same VMware tools while you modernize applications with Azure services. Azure VMware Solution is a Microsoft service verified by VMware and runs on Azure infrastructure. |
 
+[Learn more about compute services in Azure](/azure/architecture/guide/technology-choices/compute-decision-tree)
+
 ### Containers and container orchestrators
 
 | Google Cloud service | Azure service | Description |
@@ -175,6 +183,8 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 | [Artifact Registry](https://cloud.google.com/artifacts/docs)[Container Registry (legacy)](https://cloud.google.com/container-registry/docs) | [Azure Container Registry](https://azure.microsoft.com/services/container-registry) | Allows customers to store OCI-compatible container images and artifacts (e.g., Docker/OCI image, Helm chart, etc.). Used to create all types of container deployments on Azure. |
 | [Kubernetes Engine (GKE)](https://cloud.google.com/kubernetes-engine#documentation) | [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) | Deploy orchestrated containerized applications with Kubernetes. Provides cluster management and monitoring, including automatic upgrades and an operations console. See [AKS solution journey](../reference-architectures/containers/aks-start-here.md). |
 | [Kubernetes Engine Monitoring](https://cloud.google.com/monitoring/kubernetes-engine) | [Azure Monitor container insights](/azure/azure-monitor/insights/container-insights-overview) | Azure Monitor Container Insights is a feature designed to monitor the performance and health of container workloads deployed to: Managed Kubernetes clusters hosted on Azure Kubernetes Service (AKS); Azure Container Instances, Self-managed Kubernetes clusters hosted on [AKS on Azure Stack HCI](/azure-stack/aks-hci/overview) or on-premises; or [Azure Red Hat OpenShift](/azure/openshift/intro-openshift). It integrates with the Azure Monitor managed service for Prometheus (for Prometheus metrics collection) and with Azure managed Grafana for visualization.|
+
+[Learn more about container services in Azure](/azure/architecture/guide/choose-azure-container-service)
 
 #### Container architectures
 
@@ -258,6 +268,8 @@ Here are some architectures that use AKS as the orchestrator.
 | [Cloud Pub/Sub](https://cloud.google.com/pubsub/docs) | [Azure Event Grid](/azure/event-grid/overview) | A fully managed event routing service that allows for uniform event consumption using a publish/subscribe model. |
 | [Cloud Pub/Sub](https://cloud.google.com/pubsub/docs) | [Azure Event Hubs](/azure/event-hubs/) | A real-time data ingestion and microbatching service used to build dynamic data pipelines and integrates with other Azure services. |
 
+[Learn more about messaging services in Azure](/azure/architecture/guide/technology-choices/messaging)
+
 ### Messaging architectures
 
 | Architecture | Description |
@@ -295,6 +307,8 @@ Here are some architectures that use AKS as the orchestrator.
 |  | [Operations (formerly Stackdriver)](https://cloud.google.com/products/operations) | [Azure Monitor](/azure/azure-monitor/overview) | Azure Monitor delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. Log queries help you maximize the value of the data collected in Azure Monitor Logs. |
 |  | [Network Intelligence Center](https://cloud.google.com/network-intelligence-center) | [Azure Network Watcher](/azure/network-watcher/network-watcher-monitoring-overview) | Azure Network Watcher provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network. |
 | Other Connectivity Options | [Direct Interconnect](https://cloud.google.com/network-connectivity/docs/direct-peering),[Partner Interconnect](https://cloud.google.com/network-connectivity/docs/interconnect/concepts/partner-overview),[Carrier Peering](https://cloud.google.com/network-connectivity/docs/carrier-peering) | [Azure S2S VPN](/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal),[Azure P2S VPN](/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal) | Point to Site lets you create a secure connection to your virtual network from an individual client computer. Site to Site is a connection between two or more networks, such as a corporate network and a branch office network. |
+
+[Learn more about networking services in Azure](/azure/architecture/guide/technology-choices/load-balancing-overview)
 
 ### Networking architectures
 
@@ -364,6 +378,8 @@ Here are some architectures that use AKS as the orchestrator.
 | --- | --- | --- |
 | [Transfer Appliance](https://cloud.google.com/transfer-appliance/docs/2.0) | [Azure Import/Export](/azure/storage/common/storage-import-export-service) | A data transport solution that uses secure disks and appliances to transfer large amounts of data. Also offers data protection during transit. |
 | [Transfer Appliance](https://cloud.google.com/transfer-appliance/docs/2.0) | [Azure Data Box](https://azure.microsoft.com/services/storage/databox) | Petabyte- to exabyte-scale data transport solution that uses secure data storage devices to transfer large amounts of data to and from Azure. |
+
+[Learn more about storage services in Azure](/azure/architecture/guide/technology-choices/storage-options)
 
 ## Application services
 
