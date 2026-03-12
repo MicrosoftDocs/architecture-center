@@ -35,11 +35,15 @@ Each practice in this table maps to one or more [Well-Architected Framework pill
 
 ## Design principles
 
-The [design principles for Azure applications](../guide/design-principles/index.md) provide high-level strategies that apply across workloads. Where best practices address specific technical concerns like caching or autoscaling, these principles shape the broader architectural approach. Apply these principles early in design to establish a foundation that supports the best practices listed previously.
+Before you address specific technical concerns, establish a strong architectural foundation. The [design principles for Azure applications](../guide/design-principles/index.md) provide high-level strategies that apply across workloads, such as designing for self-healing, scaling out, and minimizing coordination. These principles shape decisions that the best practices listed previously help you implement.
+
+## Cloud design patterns
+
+With principles in place, [cloud design patterns](../patterns/index.md) give you reusable solutions for recurring problems in distributed systems. Many of the best practices in this section rely on one or more of these patterns. For example, the transient fault handling guidance builds on the [Retry pattern](../patterns/retry.yml) and [Circuit Breaker pattern](../patterns/circuit-breaker.md), the caching guidance relates to the [Cache-Aside pattern](../patterns/cache-aside.yml), and the background jobs guidance uses patterns like [Competing Consumers](../patterns/competing-consumers.yml) and [Queue-Based Load Leveling](../patterns/queue-based-load-leveling.yml). Review the full catalog to identify patterns that address the architectural challenges in your workload.
 
 ## Performance antipatterns
 
-Best practices tell you what to do. [Performance antipatterns for cloud applications](../antipatterns/index.md) describe common defects that surface under production load. These issues often stem from designs that don't scale or from shortcuts that accumulate as features are added. Recognizing these antipatterns during design reviews and code reviews helps you avoid performance and scalability problems before they reach production.
+Even with sound principles, good patterns, and best practices applied, defects can emerge under production load. [Performance antipatterns for cloud applications](../antipatterns/index.md) describe common designs that don't scale or shortcuts that accumulate as features are added. Use these antipatterns as a checklist during design reviews and code reviews to catch issues before they reach production.
 
 ## Next steps
 
