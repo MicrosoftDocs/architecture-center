@@ -48,7 +48,7 @@ The following workflow corresponds to the previous diagram.
 
 - [Azure Virtual Desktop](/azure/virtual-desktop/overview) is a desktop and application virtualization service that delivers Windows desktops and apps remotely. In this architecture, Azure Virtual Desktop hosts ArcGIS Pro on GPU-enabled VMs so that users can run intensive GIS workflows from anywhere.
 
-- [SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) is a managed SQL Server instance that includes built-in high availability and scalability. In this architecture, SQL Managed Instance stores the enterprise geodatabase, which supports ArcGIS Pro users to manage and edit spatial data in a secure and scalable environment.
+- [SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability) is a managed SQL Server instance that includes built-in high availability and scalability. In this architecture, SQL Managed Instance stores the enterprise geodatabase, so ArcGIS Pro users can manage and edit spatial data in a secure and scalable environment.
 
 - [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is an application delivery controller as a service that provides layer-7 load balancing, security, and web application firewall functionality. In this architecture, Application Gateway distributes incoming requests to ArcGIS Server roles to ensure efficient traffic routing and protection against common web vulnerabilities.
 
