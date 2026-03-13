@@ -28,7 +28,9 @@ The next diagram shows multiple clients calling a single service. Each client is
 
 ![Diagram showing multiple clients calling a single service.](./_images/bulkhead-2.png)
 
-## Issues and considerations
+## Problems and considerations
+
+Consider the following points as you decide how to implement this pattern:
 
 - Define partitions around the business and technical requirements of the application.
 - If using [tactical DDD to design microservices](../microservices/model/tactical-domain-driven-design.md), partition boundaries should align with the bounded contexts.
@@ -39,12 +41,15 @@ The next diagram shows multiple clients calling a single service. Each client is
 - Services that communicate using asynchronous messages can be isolated through different sets of queues. Each queue can have a dedicated set of instances processing messages on the queue, or a single group of instances using an algorithm to dequeue and dispatch processing.
 - Determine the level of granularity for the bulkheads. For example, if you want to distribute tenants across partitions, you could place each tenant into a separate partition, or put several tenants into one partition.
 - Monitor each partition's performance and SLA.
+- Leverage built-in platform controls-such as APIM rate limits, Cosmos DB RU isolation, and resource limits in AKS or Azure Container Apps-rather than recreating these throttling and isolation mechanisms within your application code.
+- AI and inference workloads often require strict bulkheads due to deployment‑level quotas and concurrency limits (for example, isolating Azure OpenAI deployments per workload or tenant).
+
 
 ## When to use this pattern
 
-Use this pattern to:
+Use this pattern when:
 
-- Isolate resources used to consume a set of backend services, especially if the application can provide some level of functionality even when one of the services isn't responding.
+- Isolate resources for specific dependencies so that a disruption in one service doesn’t affect the entire application.
 - Isolate critical consumers from standard consumers.
 - Protect the application from cascading failures.
 
@@ -59,9 +64,9 @@ An architect should evaluate how the Bulkhead pattern can be used in their workl
 
 | Pillar | How this pattern supports pillar goals |
 | :----- | :------------------------------------- |
-| [Reliability](/azure/well-architected/reliability/checklist) design decisions help your workload become **resilient** to malfunction and to ensure that it **recovers** to a fully functioning state after a failure occurs. | The failure isolation strategy introduced through the intentional and complete segmentation between components attempts to contain faults to just the bulkhead that's experiencing the problem, preventing impact to other bulkheads.<br/><br/> - [RE:02 Critical flows](/azure/well-architected/reliability/identify-flows)<br/> - [RE:07 Self-preservation](/azure/well-architected/reliability/self-preservation) |
-| [Security](/azure/well-architected/security/checklist) design decisions help ensure the **confidentiality**, **integrity**, and **availability** of your workload's data and systems. | The segmentation between components helps constrain security incidents to the compromised bulkhead.<br/><br/> - [SE:04 Segmentation](/azure/well-architected/security/segmentation) |
-| [Performance Efficiency](/azure/well-architected/performance-efficiency/checklist) helps your workload **efficiently meet demands** through optimizations in scaling, data, code. | Each bulkhead can be individually scalable to efficiently meet the needs of the task that's encapsulated in the bulkhead.<br/><br/> - [PE:02 Capacity planning](/azure/well-architected/performance-efficiency/capacity-planning)<br/> - [PE:05 Scaling and partitioning](/azure/well-architected/performance-efficiency/scale-partition) |
+| [Reliability](/azure/well-architected/reliability/checklist) design decisions help your workload become **resilient** to malfunction and ensure that it **recovers** to a fully functioning state after a failure occurs. | The failure isolation strategy introduced through the intentional and complete segmentation between components attempts to contain faults to just the bulkhead that's experiencing the problem, preventing impact to other bulkheads.<br/><br/> - [RE:02 Critical flows](/azure/well-architected/reliability/identify-flows)<br/> - [RE:07 Self-preservation](/azure/well-architected/reliability/self-preservation) |
+| [Security](/azure/well-architected/security/checklist)  design decisions help ensure the **confidentiality**, **integrity**, and **availability** of your workload's data and systems. | The segmentation between components helps constrain security incidents to the compromised bulkhead.<br/><br/> - [SE:04 Segmentation](/azure/well-architected/security/segmentation) |
+| [Performance Efficiency](/azure/well-architected/performance-efficiency/checklist) helps your workload **efficiently meet demands** through optimizations in scaling, data, and code. | Each bulkhead can be individually scalable to efficiently meet the needs of the task that's encapsulated in the bulkhead.<br/><br/> - [PE:02 Capacity planning](/azure/well-architected/performance-efficiency/capacity-planning)<br/> - [PE:05 Scaling and partitioning](/azure/well-architected/performance-efficiency/scale-partition) |
 
 As with any design decision, consider any tradeoffs against the goals of the other pillars that might be introduced with this pattern.
 
@@ -89,7 +94,10 @@ spec:
 
 ## Next steps
 
-- [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design)
+- Use [APIM rate‑limit policies](/azure/api-management/api-management-policies#rate-limiting-and-quotas) to control request throughput per client or backend.
+- Use [Azure Functions concurrency](/azure/azure-functions/functions-concurrency) controls to limit parallel executions.
+- Set [Container Apps resource limits](/azure/container-apps/containers) to control CPU and memory per workload.
+- Assign [Cosmos DB RU throughput](/azure/cosmos-db/set-throughput) per container for predictable isolation.
 
 ## Related resources
 
