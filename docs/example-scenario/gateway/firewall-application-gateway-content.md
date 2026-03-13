@@ -322,7 +322,7 @@ Network traffic from the public internet follows this flow:
 1. The client starts the connection to the public IP address of Azure Firewall.
 
    - Source IP address: `ClientPIP`
-   - Destination IP address: `AzFWPIP`
+   - Destination IP address: `AzFwPIP`
 
 2. The request to the Azure Firewall public IP address is distributed to a back-end instance of the firewall, which is `192.168.100.7` in this example. Azure Firewall applies DNAT to the web port, usually TCP 443, to the private IP address of the Application Gateway instance. Azure Firewall also applies SNAT when you perform DNAT. For more information, see [Azure Firewall known issues][azfw-known-issues].
 
@@ -331,7 +331,7 @@ Network traffic from the public internet follows this flow:
 
 3. Application Gateway establishes a new session between the instance that handles the connection and one of the back-end servers. The original IP address of the client isn't in the packet.
 
-   - Source IP address, that's the private IP address of the Application Gateway instance: `192.168.200.7`
+   - Source IP address that's the private IP address of the Application Gateway instance: `192.168.200.7`
    - Destination IP address: `192.168.1.4`
    - `X-Forwarded-For` header: `192.168.100.7`
 
@@ -362,7 +362,7 @@ The preceding designs all show incoming application clients from the public inte
 
 - Web Application Firewall uses the private IP address of Application Gateway.
 
-- You can simplify your routing design by [configuring Azure Firewall private DNAT][azfw-private-dnat] so the application FQDN resolves to the Azure Firewall's private IP address. If clients access the application by private IP, use UDRs in the 'GatewaySubnet' to route VPN or ExpressRoute traffic to Azure Firewall
+- You can simplify your routing design by [configuring Azure Firewall private DNAT][azfw-private-dnat] so the application FQDN resolves to the Azure Firewall's private IP address. If clients access the application by private IP, use UDRs in the `GatewaySubnet`. These UDRs route VPN or ExpressRoute traffic to Azure Firewall.
 
 - Make sure to verify caveats around *forced tunneling* for [Application Gateway][appgw-defaultroute] and for [Azure Firewall][azfw-defaultroute]. Even if your workload doesn't need outbound connectivity to the public internet, you can't inject a default route like `0.0.0.0/0` for Application Gateway that points to the on-premises network because it breaks control traffic. For Application Gateway, the default route needs to point to the public internet.
 
@@ -382,7 +382,7 @@ The designs in this article apply to a *hub-and-spoke* topology. Shared resource
 
 ### Architecture
 
-:::image type="complex" source="./images/hubnspoke_500.png" alt-text="Diagram that shows a hybrid design with a VPN and Expressroute gateway and a hub-and-spoke topology.":::
+:::image type="complex" source="./images/hubnspoke_500.png" alt-text="Diagram that shows a hybrid design with a VPN and ExpressRoute gateway and a hub-and-spoke topology.":::
    Diagram that shows a hub-and-spoke topology. The hub virtual network contains a gateway subnet with a VPN or ExpressRoute gateway, an Azure Firewall subnet, and an Application Gateway subnet. A spoke virtual network is peered to the hub and contains an application subnet with a VM. On-premises clients connect through the VPN or ExpressRoute gateway. Azure Firewall in the hub inspects and filters traffic between the spoke and the internet or on-premises network. Application Gateway in the hub handles inbound HTTP(S) traffic. UDRs in the spoke virtual network route traffic to shared services in the hub through Azure Firewall, but don't include the Azure Firewall subnet prefix to avoid asymmetric routing.
 :::image-end:::
 

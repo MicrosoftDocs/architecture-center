@@ -25,6 +25,6 @@ products:
   - azure-front-door
   - azure-virtual-network
   - azure-web-application-firewall
-thumbnailUrl: /azure/architecture/browse/thumbs/decision-tree.png
+  thumbnailUrl: /azure/architecture/browse/thumbs/decision-tree.png
 content: |
-   [!INCLUDE[](firewall-application-gateway-content.md)]
+  [!INCLUDE[](firewall-application-gateway-content.md)]
