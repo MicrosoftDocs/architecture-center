@@ -37,4 +37,3 @@ For the complete catalog of cloud design patterns on the Azure Architecture Cent
 - [Design a microservices architecture](index.md)
 - [Using domain analysis to model microservices](../model/domain-analysis.md)
 - [Data considerations for microservices](data-considerations.md)
-- 

@@ -16,7 +16,7 @@ Use the Ambassador pattern to offload common client connectivity tasks like moni
 
 ## Context and problem
 
-Resilient cloud-based applications require features like [circuit breaking](./circuit-breaker.md), routing, metering and monitoring, and network-related configuration updates. If the development team doesn't maintain the code or can't easily modified it, it might be difficult or even impossible to update legacy applications or existing code libraries to add these features.
+Resilient cloud-based applications require features like [circuit breaking](./circuit-breaker.md), routing, metering and monitoring, and network-related configuration updates. If the development team doesn't maintain the code or can't easily modify it, it might be difficult or even impossible to update legacy applications or existing code libraries to add these features.
 
 Network calls might also require substantial configuration for connection, authentication, and authorization. Configure network calls for each instance if these calls are used across multiple applications and built by using multiple languages and frameworks. A central team within your organization might need to manage network and security functionality. With a large code base, it can be risky for that team to update unfamiliar application code.
 
@@ -54,7 +54,7 @@ Use this pattern when:
 
 - You must offload cross-cutting client connectivity concerns to infrastructure developers or other more specialized teams.
 
--  You must support cloud or cluster connectivity requirements in a legacy application or an application that's difficult to modify.
+- You must support cloud or cluster connectivity requirements in a legacy application or an application that's difficult to modify.
 
 - You must support protocols or connectivity patterns that API gateways, service meshes, or standard ingress and egress controls don't handle easily.
 
