@@ -1,20 +1,20 @@
-The Bulkhead pattern is a type of application design that's tolerant of failure. In a bulkhead architecture, also known as cell-based architecture, elements of an application are isolated into pools so that if one fails, the others continue to function. The Bulkhead pattern is named after the sectioned partitions (bulkheads) of a ship's hull. If the hull of a ship is compromised, only the damaged section fills with water, which prevents the ship from sinking.
+The Bulkhead pattern is a type of application design that's tolerant of failure. In a bulkhead architecture, also known as cell-based architecture, elements of an application are isolated into pools so that if one fails, the other elements continue to function. The Bulkhead pattern is named after the sectioned partitions (bulkheads) of a ship's hull. If the hull of a ship is compromised, only the damaged section fills with water, which prevents the ship from sinking.
 
 ## Context and problem
 
 A cloud-based application might include multiple services, with each service having one or more consumers. Excessive load or failure in a service affects all consumers of the service.
 
-Moreover, a consumer might send requests to multiple services simultaneously, using resources for each request. When the consumer sends a request to a service that is misconfigured or not responding, the resources used by the client's request might not be freed in a timely manner. As requests to the service continue, those resources might be exhausted. For example, the client's connection pool might be exhausted. At that point, requests by the consumer to other services are affected. Eventually the consumer can no longer send requests to other services, not just the original unresponsive service.
+Also, a consumer might send requests to multiple services simultaneously, using resources for each request. When the consumer sends a request to a service that is misconfigured or not responding, it might take a long time for the resources used by the client's request to become available again. As requests to the service continue, those resources might be exhausted. For example, the client's connection pool might be exhausted. At that point, the consumer's requests to other services are affected. Eventually, the consumer can no longer send requests to other services, not just the original unresponsive service.
 
-The same issue of resource exhaustion affects services with multiple consumers. A large number of requests originating from one client might exhaust available resources in the service. Other consumers are no longer able to consume the service, causing a cascading failure effect.
+Resource exhaustion affects services with multiple consumers. A lot of requests from one client might exhaust available resources in the service. Resource exhaustion can mean that other consumers are unable to consume the service, causing a cascading failure effect.
 
 ## Solution
 
 Partition service instances into different groups, based on consumer load and availability requirements. This design helps to isolate failures, and allows you to sustain service functionality for some consumers, even during a failure.
 
-A consumer can also partition resources, to ensure that resources used to call one service don't affect the resources used to call another service. For example, a consumer that calls multiple services might be assigned a connection pool for each service. If a service begins to fail, it only affects the connection pool assigned for that service, allowing the consumer to continue using the other services.
+A consumer can also partition resources, to ensure that resources used to call one service don't affect the resources used to call another service. For example, a consumer that calls multiple services might be assigned a connection pool for each service. If a service begins to fail, it only affects the connection pool assigned for that service, allowing the consumer to continue using other services.
 
-The benefits of this pattern include:
+The benefits of this pattern are that it:
 
 - Isolates consumers and services from cascading failures. An issue affecting a consumer or service can be isolated within its own bulkhead, preventing the entire solution from failing.
 
@@ -25,18 +25,18 @@ The benefits of this pattern include:
 The following diagram shows bulkheads structured around connection pools that call individual services. If Service A fails or causes some other issue, the connection pool is isolated, so only workloads using the thread pool assigned to Service A are affected. Workloads that use Service B and C aren't affected and can continue working without interruption.
 
 :::image type="complex" source="./_images/bulkhead-connection-pool.png" alt-text="Diagram showing bulkheads structured around connection pools that call individual services." border="false":::
-   <long description here>
+   Diagram that shows two workloads, Workload 1 and Workload 2, and three services, Service A, Service B, and Service C. Workload 1 is using a connection pool that is assigned to Service A. Workload 2 is using two connection pools, one connection pool is assigned to Service B and the other is assigned to Service C. The connection pool that Workload 1 is using is isolated, so the connection pools that Workload 2 is using can continue to call Service B and Service C.
 :::image-end:::
 
-The next diagram shows multiple clients calling a single service. Each client is assigned a separate service instance. Client 1 makes too many requests and overwhelms its instance. Because each service instance is isolated from the others, the other clients can continue making calls.
+The following diagram shows multiple clients calling a single service. Each client is assigned a separate service instance. Client 1 makes too many requests and overwhelms its instance. Because each service instance is isolated from the others, the other clients can continue making calls.
 
 :::image type="complex" source="./_images/bulkhead-single-service.png" alt-text="Diagram showing multiple clients calling a single service." border="false":::
-   <long description here>
+   Diagram that shows three clients, Client 1, Client 2, and Client 3, and three service instances that each form a part of Service A. Each client is connected to its own service instance. The service instances are isolated, so if Client 1 overwhelms its instance, clients 2 and 3 are unaffected.
 :::image-end:::
 
 ## Problems and considerations
 
-Consider the following points as you decide how to implement this pattern:
+Consider the following points as you decide how to implement this pattern.
 
 - Define partitions around the business and technical requirements of the application.
 
@@ -52,13 +52,13 @@ Consider the following points as you decide how to implement this pattern:
 
 - Services that communicate using asynchronous messages can be isolated through different sets of queues. Each queue can have a dedicated set of instances processing messages on the queue, or a single group of instances using an algorithm to dequeue and dispatch processing.
 
-- Determine the level of granularity for the bulkheads. For example, if you want to distribute tenants across partitions, you could place each tenant into a separate partition, or put several tenants into one partition.
+- Determine the level of granularity for the bulkheads. For example, if you want to distribute tenants across partitions, you can place each tenant into a separate partition, or put several tenants into one partition.
 
 - Monitor each partition's performance and SLA.
 
-- Use built-in platform controls-such as APIM rate limits, Cosmos DB RU isolation, and resource limits in AKS or Azure Container Apps-rather than recreating these throttling and isolation mechanisms within your application code.
+- Use built-in platform controls, such as APIM rate limits, Cosmos DB RU isolation, and resource limits in AKS or Azure Container Apps, rather than recreating these throttling and isolation mechanisms within your application code.
 
-- AI and inference workloads often require strict bulkheads due to deployment‑level quotas and concurrency limits (for example, isolating Azure OpenAI deployments per workload or tenant).
+- AI and inference workloads often require strict bulkheads due to deployment‑level quotas and concurrency limits, for example, isolating Azure OpenAI deployments per workload or per tenant.
 
 
 ## When to use this pattern
