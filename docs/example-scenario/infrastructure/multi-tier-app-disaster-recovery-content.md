@@ -82,7 +82,7 @@ All the virtual network traffic into the front-end application tier is protected
 
 For general guidance on designing secure scenarios, see the [Azure Security Documentation][security].
 
-## Cost Optimization
+### Cost Optimization
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
