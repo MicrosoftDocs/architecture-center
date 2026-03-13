@@ -219,15 +219,15 @@ Azure provides various DNS solutions, including Azure Traffic Manager. Traffic M
 
 Before DNS Private Resolver was available, custom DNS servers resolved names from on-premises systems to Azure and from Azure to on-premises systems. Custom DNS solutions have many disadvantages:
 
-- Managing multiple custom DNS servers for multiple virtual networks involves high infrastructure and licensing costs.
+- Multiple custom DNS servers across multiple virtual networks create high infrastructure and licensing costs.
 
-- You have to handle all aspects of installing, configuring, and maintaining DNS servers.
+- Installation, configuration, and maintenance of DNS servers are the operator's responsibility.
 
-- Overhead tasks, like monitoring and patching these servers, are complex and prone to failure.
+- Overhead tasks like monitoring and patching introduce complexity and frequent failure points.
 
-- There's no DevOps support for managing DNS records and forwarding rules.
+- Lack of DevOps support limits automation for DNS records and forwarding rules.
 
-- It's costly to implement scalable DNS server solutions.
+- Scalable DNS server solutions are costly to implement.
 
 DNS Private Resolver addresses these obstacles by providing the following features and key advantages:
 
