@@ -3,7 +3,7 @@ title: Ambassador Pattern
 description: Learn about the ambassador pattern, which creates helper services that send network requests on behalf of a consumer service or application.
 author: claytonsiemens77
 ms.author: pnp
-ms.date: 03/13/2026
+ms.date: 02/25/2026
 ms.topic: design-pattern
 ms.subservice: cloud-fundamentals
 ---
