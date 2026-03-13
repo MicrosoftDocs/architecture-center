@@ -352,7 +352,7 @@ Network traffic from the public internet follows this flow:
 Application Gateway needs a public IP address so that Microsoft can manage it, even if it has no listeners configured for applications.
 
 > [!NOTE]
-> A default route to `0.0.0.0/0` in the Application Gateway subnet that points to Azure Firewall is only supported in [private Appication Gateway deployments][appgw-private]. In other configurations, the UDR breaks the control plane traffic that Application Gateway v2 requires to function properly.
+> A default route to `0.0.0.0/0` in the Application Gateway subnet that points to Azure Firewall is only supported in [private Application Gateway deployments][appgw-private]. In other configurations, the UDR breaks the control plane traffic that Application Gateway v2 requires to function properly.
 
 ## On-premises clients
 
