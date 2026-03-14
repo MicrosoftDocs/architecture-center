@@ -3,7 +3,7 @@ title: Multitenancy and Azure Cosmos DB
 description: Learn about features of Azure Cosmos DB that you can use with multitenant systems. Find other resources about how to use Azure Cosmos DB in a multitenant solution.
 author: deborahc
 ms.author: dech
-ms.date: 11/16/2024
+ms.date: 03/12/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-saas
@@ -16,25 +16,23 @@ This article describes features of Azure Cosmos DB that you can use for multiten
 ## Multitenancy requirements
 
 When you plan a multitenant solution, you have two key requirements:
-- Help ensure strong isolation between tenants, and meet stringent security requirements for those who need them.
+- Ensure security and performance isolation between tenants. As the provider, meet security requirements and ensure good performance per tenant.
 - Maintain a low cost per tenant. As the provider, ensure that the cost to run the application remains sustainable as it scales.
 
 These two needs can often conflict and introduce a trade-off where you must prioritize one over the other. The guidance in this article can help you better understand the trade-offs that you must make to address these needs. This article helps you navigate these considerations so you can make informed decisions when you design your multitenant solution.
 
 ## Isolation models
 
-Determine the level of isolation that you need between your tenants. Azure Cosmos DB supports a range of isolation models, but for most solutions we recommend that you use one of the following strategies:
+Determine the level of isolation that you need between your tenants. For most solutions, we recommend that you use one of the following strategies, depending on your workload:
 
-- A partition key per tenant is often used for fully multitenant solutions, like business-to-consumer software as a service (B2C SaaS) solutions.
-- A database account per tenant is often used for business-to-business (B2B) SaaS solutions.
+- A partition key per tenant is often used for business-to-consumer software as a service (B2C SaaS) solutions. For example, a conversational chatbot application that stores user chat history in Azure Cosmos DB.
+- A database account per tenant is often used for business-to-business (B2B) SaaS solutions. For example, a Content Management System (CMS) sold to enterprises to publish digital content.
 
-To choose the most appropriate isolation model, consider your business model and the tenants' requirements. For example, strong performance isolation might not be a priority for some B2C models where a business sells a product or service directly to an individual customer. However, B2B models might prioritize strong security and performance isolation and might require that tenants have their own provisioned database account.
-
-You can also combine multiple models to suit different customer needs. For example, suppose you build a B2B SaaS solution that you sell to enterprise customers, and you provide a free trial for potential new customers. You might deploy a separate database account for paid enterprise tenants that need strong security and isolation guarantees. And you might share a database account and use partition keys to isolate trial customers.
+To choose the most appropriate isolation model, consider your business model and the tenants' requirements. For example, in B2C models, where a business sells a product or service directly to an individual customer, strong security and performance isolation for each individual customer is often not required. For these applications, for highest cost efficiency, the data for all tenants can be stored in the same container, with partition key providing logical isolation. However, in a B2B models, providers often sell different SKUs corresponding to different performance levels or SLA guarantees. In addition, providers often want to offer their customers the option to manage their own encryption keys, known as cross-tenant or hosted on behalf of customer managed keys. For these applications, using a separate database account per tenant ensures the ability to tune and guarantee performance per customer, as well as provide customer managed keys, a feature only available at the Azure Cosmos DB database account level.
 
 ## Recommended isolation models
 
-The partition-key-per-tenant model and the database-account-per-tenant model are the most common isolation models for multitenant solutions. These models provide the best balance between tenant isolation and cost efficiency.
+The partition-key-per-tenant model and the database-account-per-tenant model are the most common and recommended isolation models for multitenant solutions. These models provide the best balance between tenant isolation and cost efficiency.
 
 ### Partition-key-per-tenant model
 
@@ -51,7 +49,7 @@ If you isolate your tenants by partition key, throughput is shared across tenant
 
 #### Trade-offs
 
-- **Resource contention:** Shared throughput (RU/s) across tenants that are in the same container can lead to contention during peak usage. This contention can create [noisy neighbor problems](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml) and performance challenges if your tenants have high or overlapping workloads. Use this isolation model for workloads that need guaranteed RUs on a single tenant and can share throughput.
+- **Resource contention:** Shared throughput (RU/s) across tenants that are in the same container can lead to contention during peak usage. This contention can create [noisy neighbor problems](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml) and performance challenges if your tenants have high or overlapping workloads. Use this isolation model for workloads that don't need guaranteed RU/ss on a single tenant and can share throughput.
 
 - **Limited isolation:** This approach provides logical isolation, not physical isolation. It might not meet strict isolation requirements from a performance or security perspective.
 - **Less flexibility:** You can't customize account-level features, like geo-replication, point-in-time restore, and customer-managed keys, for each tenant if you isolate by partition key or by database or container. 
