@@ -19,9 +19,6 @@ This scenario uses a hub-and-spoke network topology, which is shown in the follo
 
 In the architecture, the production virtual machines (VMs) are part of a spoke [Azure virtual network](/azure/virtual-network/virtual-networks-overview). The VM disks are encrypted with [encryption at host](/azure/virtual-machines/disk-encryption#encryption-at-host---end-to-end-encryption-for-your-vm-data) by using platform-managed keys. For more information, see [Overview of managed disk encryption options](/azure/virtual-machines/disk-encryption-overview).
 
-> [!IMPORTANT]
-> [Azure Disk Encryption](/azure/security/fundamentals/azure-disk-encryption-vms-vmss) (ADE), which uses BitLocker on Windows and dm-crypt on Linux, is scheduled for retirement on September 15, 2028. Use encryption at host for new VMs. Existing ADE-enabled VMs must [migrate to encryption at host](/azure/virtual-machines/disk-encryption-migrate) before that date.
-
 > [!NOTE]
 > This architecture assumes encryption at host with platform-managed keys.
 
@@ -94,10 +91,6 @@ Access to the SOC Azure architecture includes the following roles:
 Access to the target architecture includes the following roles:
 
 - **Contributor** on the target VM's resource group, which provides snapshot rights on VM disks
-
-- **Key Vault Secrets Officer** on the target VM's key vault that's used to store the hash value of disk snapshots, only if Azure RBAC is used to control the Key Vault access
-
-- Access policy to **Get Secret** on the target VM's key vault that's used to store the hash value of disk snapshots, only if the access policy is used to control the Key Vault access
 
 #### Storage account
 
