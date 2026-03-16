@@ -33,6 +33,8 @@ Consider the following points as you decide how to implement this pattern:
 
 - **Message ordering**. The order in which consumer service instances receive messages isn't guaranteed, and doesn't necessarily reflect the order in which the messages were created. Design the system to ensure that message processing is [idempotent](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing) because this will help to eliminate any dependency on the order in which messages are handled.
 
+> Azure Service Bus can implement guaranteed first-in-first-out ordering of messages and other patterns by using [message sessions](/azure/service-bus-messaging/message-sessions).
+
 - **Designing services for resiliency**. If the system is designed to detect and restart failed service instances, it might be necessary to implement the processing performed by the service instances as idempotent operations to minimize the effects of a single message being retrieved and processed more than once.
 
 - **Detecting poison messages**. A malformed message, or a task that requires access to resources that aren't available, can cause a service instance to fail. The system should prevent such messages being returned to the queue indefinitely, and instead capture and store the details of these messages elsewhere so that they can be analyzed if necessary.
