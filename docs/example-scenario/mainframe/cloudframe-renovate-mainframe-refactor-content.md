@@ -48,7 +48,7 @@ J. The Processor Resource / System Manager (PR/SM) hypervisor performs direct ha
 
 6. Renovate runtime services provide backward compatibility with mainframe data architectures and emulation of mainframe QSAM and VSAM file systems, decoupling data migration to UTF-8 from refactoring to Java and rehosting in Azure. Additional runtime services include compatibility with SORT, IDCAMS, IE utilities, GDG retention management, and more.
 
-7. Data services use a combination of high-performance storage (Ultra SSD / Premium SSD), file storage (Azure NetApp Files / Azure Files) and standard storage (blob, archive, backup) that can be either locally redundant or geo-redundant, depending on the use.
+7. Data services use a combination of high-performance storage (Ultra Disk / Premium SSD), file storage (Azure NetApp Files / Azure Files) and standard storage (blob, archive, backup) that can be either locally redundant or geo-redundant, depending on the use.
 
 8. Azure platform as a service (PaaS) data services provide scalable, highly available geo-redundant data storage that's shared across compute resources in a cluster.
 
@@ -62,7 +62,7 @@ J. The Processor Resource / System Manager (PR/SM) hypervisor performs direct ha
 
 - [Azure Kubernetes Service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed Kubernetes service that simplifies the deployment, management, and scaling of containerized applications by using Kubernetes. In this architecture, AKS provides a container orchestration platform where Java applications created via Renovate can be deployed in pods as an alternative to VMs. It provides benefits such as improved resource utilization, faster deployment times, and enhanced scalability.
 
-- [Azure managed disks](/azure/virtual-machines/managed-disks-overview) are block-level storage volumes that Azure manages and you use with Azure VMs. In this architecture, Azure managed disks provide high-performance storage for the data services layer and we recommend either a Premium SSD or Ultra Disks type.
+- [Azure Managed Disks](/azure/virtual-machines/managed-disks-overview) are block-level storage volumes that Azure manages and you use with Azure VMs. In this architecture, Azure Managed Disks provide high-performance storage for the data services layer and we recommend Premium SSDs or Ultra Disks.
 
 - [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is a compute service that provides on-demand, scalable computing resources with the flexibility of virtualization without having to buy and maintain physical hardware. In this architecture, Virtual Machines hosts the Java Business Services and applications created via Renovate in compute clusters and provides the primary execution environment for the migrated mainframe workloads.
 

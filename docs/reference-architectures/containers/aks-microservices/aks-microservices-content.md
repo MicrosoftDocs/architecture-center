@@ -14,7 +14,7 @@ For an example of a more advanced microservice that's built on the [AKS baseline
 
 ### Data flow
 
-This request flow implements the [Publisher-Subscriber](/azure/architecture/patterns/publisher-subscriber), [Competing Consumers](/azure/architecture/patterns/competing-consumers), and [Gateway Routing](/azure/architecture/patterns/gateway-routing) cloud design patterns.
+This request flow implements the [Publisher-Subscriber](../../../patterns/publisher-subscriber.md), [Competing Consumers](/azure/architecture/patterns/competing-consumers), and [Gateway Routing](/azure/architecture/patterns/gateway-routing) cloud design patterns.
 
 The following data flow corresponds to the previous diagram:
 
@@ -208,7 +208,7 @@ For troubleshooting microservice health problems, use the network observability 
 
 Resource contention can affect the availability of a service. Define [resource constraints for containers](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) so that a single container can't overwhelm the cluster resources, like memory and CPU. For non-container resources, like threads or network connections, consider using the [Bulkhead pattern](../../../patterns/bulkhead.yml) to isolate resources.
 
-Use [resource quotas](https://kubernetes.io/docs/concepts/policy/resource-quotas/) to limit the total resources allowed for a namespace. This limitation ensures that front-end services doesn't consume resources that back-end services need, and back-end services don't consume resources that front-end services need. Resource quotas can help allocate resources within the same cluster to multiple microservice development teams.
+Use [resource quotas](https://kubernetes.io/docs/concepts/policy/resource-quotas/) to limit the total resources allowed for a namespace. This limitation ensures that front-end services don't consume resources that back-end services need, and back-end services don't consume resources that front-end services need. Resource quotas can help allocate resources within the same cluster to multiple microservice development teams.
 
 ### Security
 
@@ -273,9 +273,9 @@ This architecture uses a managed identity for microservices to authenticate to K
 
 The following recommended practices can help secure your pods and containers:
 
-- **Monitor for threats.** Monitor for threats by using [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) or a non-Microsoft capability. If you host containers on a virtual machine (VM), use [Microsoft Defender for Servers](/azure/security-center/defender-for-servers-introduction) or a non-Microsoft capability. You can also integrate logs from the [Container Monitoring solution in Azure Monitor](/azure/azure-monitor/insights/containers) to [Microsoft Sentinel](/azure/sentinel/) or an existing security information and event management (SIEM) solution.
+- **Monitor for threats.** Monitor for threats by using [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) or a non-Microsoft capability. If you host containers on a virtual machine (VM), use [Microsoft Defender for Servers](/azure/defender-for-cloud/plan-defender-for-servers) or a non-Microsoft capability. You can also integrate logs from the [Container Monitoring solution in Azure Monitor](/azure/azure-monitor/insights/containers) to [Microsoft Sentinel](/azure/sentinel/) or an existing security information and event management (SIEM) solution.
 
-- **Monitor vulnerabilities.** Continuously monitor images and running containers for known vulnerabilities by using [Microsoft Defender for Cloud](/azure/security-center/container-security) or a non-Microsoft solution.
+- **Monitor vulnerabilities.** Continuously monitor images and running containers for known vulnerabilities by using [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) or a non-Microsoft solution.
 
 - **Automate image patching.** Use [Container Registry tasks](/azure/container-registry/container-registry-tasks-overview) to automate image patching. A container image is built up from layers. The base layers include the OS image and application framework images, like ASP.NET Core or Node.js. The base images are typically created upstream from the application developers, and other project maintainers maintain them. When these images are patched upstream, you must update, test, and redeploy your own images so that you don't leave any known security vulnerabilities. Container Registry tasks can help automate this process.
 
@@ -327,7 +327,7 @@ Consider the following points for some of the services used in this architecture
 
 #### Azure Load Balancer
 
-You're charged only for the number of configured load-balancing and outbound rules. Inbound network address translation rules are free. There's no hourly charge for the Standard Load Balancer when no rules are configured. For more information, see [Azure Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer).
+You're charged only for the number of configured load-balancing and outbound rules. Inbound network address translation rules are free. There's no hourly charge for Load Balancer when no rules are configured. For more information, see [Azure Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer).
 
 #### Azure Pipelines
 
@@ -363,10 +363,9 @@ Other contributors:
 
 - [Use a service principal with AKS](/azure/aks/kubernetes-service-principal)
 - [Container protection in Defender for Cloud](/azure/defender-for-cloud/defender-for-containers-introduction)
-- [Plan Defender for Servers deployment](/azure/security-center/defender-for-servers-introduction)
+- [Plan Defender for Servers deployment](/azure/defender-for-cloud/plan-defender-for-servers)
 - [Container Monitoring solution in Azure Monitor](/azure/azure-monitor/insights/containers)
 - [Microsoft Sentinel](/azure/sentinel/)
-- [Defender for Cloud](/azure/security-center/container-security)
 - [Automate container image builds and maintenance by using Container Registry tasks](/azure/container-registry/container-registry-tasks-overview)
 
 ## Related resources

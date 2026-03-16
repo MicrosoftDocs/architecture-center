@@ -203,7 +203,7 @@ For more information, see the following resources:
 
 - [What is Fabric?](/fabric/fundamentals/microsoft-fabric-overview)
 - [Learning path: Get started with Fabric](/training/paths/get-started-fabric/)
-- [AI services in Fabric](/fabric/data-science/ai-services/ai-services-overview)
+- [Foundry Tools in Fabric](/fabric/data-science/ai-services/ai-services-overview)
 - [Use Azure OpenAI in Fabric with REST API](/fabric/data-science/ai-services/how-to-use-openai-via-rest-api)
 - [Use Fabric for generative AI: A guide to building and improving RAG systems](https://blog.fabric.microsoft.com/blog/using-microsoft-fabric-for-generative-ai-a-guide-to-building-and-improving-rag-systems)
 - [Build custom AI applications with Fabric: Implement RAG for enhanced language models](https://blog.fabric.microsoft.com/blog/building-custom-ai-applications-with-microsoft-fabric-implementing-retrieval-augmented-generation-for-enhanced-language-models)

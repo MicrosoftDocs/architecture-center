@@ -17,7 +17,7 @@ This set of articles explores how to build a microservices architecture on Azure
 
 - [Compute options for microservices](./compute-options.md): Evaluate Azure compute services for microservices, including Azure Kubernetes Service (AKS), Azure Container Apps, and Azure Functions. Learn when to use each service based on your requirements for scalability, management overhead, and deployment models.
 
-- [Interservice communication](./interservice-communication.yml): Design effective communication patterns between microservices by using synchronous and asynchronous approaches. Learn about REST APIs, messaging patterns, event-driven architectures, and service mesh technologies for reliable service-to-service communication.
+- [Interservice communication](./interservice-communication.yml): Design effective communication patterns between microservices by using synchronous and asynchronous approaches. Learn about REST APIs, messaging patterns, [event-driven architectures](../../guide/architecture-styles/event-driven.md), and service mesh technologies for reliable service-to-service communication.
 
 - [API design](./api-design.md): Create well-designed APIs that support microservices architecture principles. Learn API versioning strategies, error handling patterns, and how to design APIs that promote loose coupling and independent service evolution.
 

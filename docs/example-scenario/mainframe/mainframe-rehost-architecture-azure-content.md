@@ -123,7 +123,7 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-- The target architecture is functional with Azure Cloud Services.
+- The target architecture uses Azure managed services.
 - The container-based deployment promotes adoption of DevOps and Agile working principles.
 - You have full flexibility of development and production deployment options.
 

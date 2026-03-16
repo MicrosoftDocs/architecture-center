@@ -49,7 +49,7 @@ trigger:
     # for new release to production: release flow strategy
     - release/delivery/v*
     - refs/release/delivery/v*
-    - master
+    - main
     - feature/delivery/*
     - topic/delivery/*
   paths:
@@ -62,7 +62,7 @@ Using this approach, each team can have its own build pipeline. Only code that i
 1. Build the code.
 1. Run unit tests.
 
-The goal is to keep build times short so that the developer can get quick feedback. Once the feature is ready to merge into master, the developer opens a PR. This operation triggers another CI build that performs some additional checks:
+The goal is to keep build times short so that the developer can get quick feedback. Once the feature is ready to merge into main, the developer opens a PR. This operation triggers another CI build that performs some additional checks:
 
 1. Build the code.
 1. Run unit tests.
@@ -72,7 +72,7 @@ The goal is to keep build times short so that the developer can get quick feedba
 ![Diagram showing ci-delivery-full in the Build pipeline.](./images/aks-cicd-2.png)
 
 > [!NOTE]
-> In Azure DevOps Repos, you can define [policies](/azure/devops/repos/git/branch-policies) to protect branches. For example, the policy could require a successful CI build plus a sign-off from an approver in order to merge into master.
+> In Azure DevOps Repos, you can define [policies](/azure/devops/repos/git/branch-policies) to protect branches. For example, the policy could require a successful CI build plus a sign-off from an approver in order to merge into main.
 
 ## Full CI/CD build
 

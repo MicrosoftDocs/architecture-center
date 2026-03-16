@@ -23,7 +23,7 @@ This architecture demonstrates how to use Azure NetApp Files with workloads in S
 
 The architecture uses these components:
 
-- [Kyndryl Cloud Uplift (formerly Skytap on Azure)](https://marketplace.microsoft.com/product/skytapinc.skytap-on-azure-main1) is a service in Azure that natively runs IBM Power and x86 traditional workloads on hardware in Azure datacenters. If your organization runs IBM Power-based AIX, IBM i, or Linux operating systems (OS), you can use Skytap on Azure to migrate workloads to Azure with minimal upfront effort.
+- [Kyndryl Cloud Uplift (formerly Skytap on Azure)](https://marketplace.microsoft.com/search/products?search=Kyndryl%20Cloud%20Uplift) is a service in Azure that natively runs IBM Power and x86 traditional workloads on hardware in Azure datacenters. If your organization runs IBM Power-based AIX, IBM i, or Linux operating systems (OS), you can use Skytap on Azure to migrate workloads to Azure with minimal upfront effort.
 
 - [Azure NetApp Files](/azure/well-architected/service-guides/azure-netapp-files) is an Azure-native, enterprise-class, high-performance file storage service. Azure NetApp Files provides volumes as a service that you can use to create NetApp accounts, capacity pools, and volumes. You can select service and performance levels and manage data protection and replication across zones and regions.
 

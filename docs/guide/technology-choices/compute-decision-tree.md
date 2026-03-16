@@ -18,7 +18,7 @@ Azure provides many ways to host your application code. The term *compute* refer
 Use the following flowchart to select a candidate compute service.
 
 :::image type="complex" border="false" source="images/compute-choices.svg" alt-text="Diagram that shows a decision tree for Azure compute services." lightbox="images/compute-choices.svg":::
-   The image shows a flowchart for selecting an appropriate Azure service based on whether the user migrates an existing workload or builds a new workload. The flowchart begins with a start node and splits into two primary branches labeled migrate and build new. The migrate branch includes decision points that assess whether the application is optimized for the cloud and whether it can be lifted and shifted. Depending on the answers, the flow leads to services like Azure App Service, Azure VMware Solution, or Azure Virtual Machines. The build new branch includes decision points that evaluate the need for full control, high-performance computing (HPC), event-driven workloads, managed web hosting, and orchestration requirements. These decisions guide the user toward services like Virtual Machines, Azure Batch, Azure Functions, App Service, Azure Container Instances, Azure Red Hat OpenShift, Azure Kubernetes Service (AKS), or Azure Container Apps. A branching section for your own orchestration implementation on Virtual Machines includes VMware Tanzu on Virtual Machines, Kubernetes on Virtual Machines, and OpenShift on Virtual Machines. At the bottom of the image, two boxed sections list container-exclusive services and container-compatible services. The container-exclusive section includes Container Instances, Azure Red Hat OpenShift, Kubernetes on Virtual Machines, OpenShift on Virtual Machines, and VMware Tanzu on Virtual Machines. The container-compatible section includes Azure Batch, Azure Functions, and App Service.
+   The image shows a flowchart for selecting an appropriate Azure service based on whether the user migrates an existing workload or builds a new workload. The flowchart begins with a start node and splits into two primary branches labeled migrate and build new. The migrate branch includes decision points that assess whether the application is optimized for the cloud and whether it can be lifted and shifted. Depending on the answers, the flow leads to services like Azure App Service, Azure VMware Solution, or Azure Virtual Machines. The build new branch includes decision points that evaluate the need for full control, high-performance computing (HPC), event-driven workloads, managed web hosting, and orchestration requirements. These decisions guide the user toward services like Virtual Machines, Azure Batch, Azure Functions, App Service, Azure Container Instances, Azure Red Hat OpenShift, Azure Kubernetes Service (AKS), or Azure Container Apps. A branching section for your own orchestration implementation on Virtual Machines includes Kubernetes on Virtual Machines and OpenShift on Virtual Machines. At the bottom of the image, two boxed sections list container-exclusive services and container-compatible services. The container-exclusive section includes Container Instances, Azure Red Hat OpenShift, Kubernetes on Virtual Machines, and OpenShift on Virtual Machines. The container-compatible section includes Azure Batch, Azure Functions, and App Service.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/compute-choices.vsdx) of this architecture.*
@@ -122,7 +122,7 @@ Your application platform likely needs to interface with networks both as a serv
 
 **Notes:**
 
-<sup>1</sup> <span id="note1b">Requires an App Service Environment or a dedicated compute pricing tier.</span>
+<sup>1</sup> <span id="note1b">Requires Basic tier or higher, or App Service Environment. See [virtual network integration](/azure/app-service/overview-vnet-integration).</span>
 
 <sup>2</sup> <span id="note2b">Use [App Service Hybrid Connections][app-service-hybrid].</span>
 
@@ -164,14 +164,12 @@ Your application platform likely needs to interface with networks both as a serv
 
 ## Scalability
 
-Quota and limits can affect scalability. Review the latest [Azure subscription and service limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits) when you design your workload.
-
 | Service | Autoscaling | Load balancer | Scale limit |
 | :------ | :---------- | :------------ | :---------- |
 | Virtual Machines | Virtual machine scale sets | Azure Load Balancer | - Platform image: 1,000 nodes for each scale set <br><br> - Custom image: 600 nodes for each scale set |
-| App Service | Built-in service | Integrated | 30 instances, 200 with an App Service Environment |
+| App Service | Built-in service | Integrated | 30 instances (Premium Tier), 200 with App Service Environment, 100 with Isolated App Service Environment |
 | Azure Functions | Built-in service | Integrated | 200 instances (Consumption), 1,000 instances (Flex Consumption) |
-| AKS | Pod autoscaling<a href="#note1d"><sup>1</sup></a>, cluster autoscaling<a href="#note2d"><sup>2</sup></a> | Load Balancer or Azure Application Gateway | 5,000 nodes when you use [uptime SLA][uptime-sla] |
+| AKS | Pod autoscaling<a href="#note1d"><sup>1</sup></a>, cluster autoscaling<a href="#note2d"><sup>2</sup></a> | Load Balancer or Azure Application Gateway | 5,000 nodes when you use [Standard or Premium tier][aks-pricing-tiers] |
 | Container Apps | Scaling rules<a href="#note3d"><sup>3</sup></a> | Integrated | 1,000 replicas for each revision, 15 environments in each region |
 | Container Instances | Not supported | No built-in support | 100 container groups for each subscription (default limit) |
 | Azure Red Hat OpenShift | Pod autoscaling, cluster autoscaling | Load Balancer or Application Gateway | 250 nodes for each cluster (default limit) |
@@ -298,5 +296,5 @@ Some workloads have specific requirements and don't typically follow the general
 [function-plans]: /azure/azure-functions/functions-scale
 [microservices]: ../architecture-styles/microservices.md
 [n-tier]: ../architecture-styles/n-tier.md
-[uptime-sla]: /azure/aks/free-standard-pricing-tiers
+[aks-pricing-tiers]: /azure/aks/free-standard-pricing-tiers
 [w-q-w]: ../architecture-styles/web-queue-worker.md

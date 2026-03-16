@@ -4,7 +4,7 @@ metadata:
   description: Learn about the Ambassador pattern, which creates helper services that send network requests on behalf of a consumer service or application.
   ms.author: pnp
   author: claytonsiemens77
-  ms.date: 07/28/2022
+  ms.date: 02/13/2026
   ms.topic: design-pattern
   ms.subservice: cloud-fundamentals
 azureCategories:

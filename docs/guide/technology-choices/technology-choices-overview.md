@@ -60,7 +60,7 @@ Azure provides multiple storage services for different access patterns, performa
 | Article | Summary |
 | :------ | :------ |
 | [Review your storage options](/azure/architecture/guide/technology-choices/storage-options) | Review the storage options for Azure workloads. |
-| [Learn about Azure managed disk types](/azure/virtual-machines/disks-types) | Learn about the disk types for Azure virtual machines (VMs), including Azure Ultra Disk Storage, Azure Premium SSD v2, Premium SSD, and Azure Standard SSD. |
+| [Learn about Azure Managed Disk types](/azure/virtual-machines/disks-types) | Learn about the disk types for Azure virtual machines (VMs), including Azure Ultra Disk Storage, Azure Premium SSD v2, Premium SSD, and Azure Standard SSD. |
 | [Choose a data transfer technology](../../data-guide/scenarios/data-transfer.md) | Learn about Azure data transfer options like the Azure Import/Export service, Azure Data Box, Azure Data Factory, and command-line and graphical interface tools. |
 
 ## Choose a data store

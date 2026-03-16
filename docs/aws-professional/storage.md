@@ -60,7 +60,7 @@ AWS customers often replicate their S3 buckets to another region by using cross-
 
 Both platforms provide different types of disks to meet particular performance needs. Although the performance characteristics don't match exactly, the following table provides a generalized comparison. You should always perform testing to determine which storage configurations best suit your application. For higher-performing disks, on both AWS and Azure you need to match the storage performance of the VM with the provisioned disk type and configuration.
 
-| AWS EBS volume type | Azure Managed disk | Use | Can this managed disk be used as an OS Disk |
+| AWS EBS volume type | Azure Managed Disk | Use | Can this managed disk be used as an OS Disk |
 | ----------- | ------------- | ----------- | ----------- |
 | gp2/gp3 |  Standard SSD | Web servers and lightly used application servers or dev/test environments | Yes |
 | gp2 |  Premium SSD | Production and performance-sensitive workloads | Yes |

@@ -128,7 +128,7 @@ The following patterns might be helpful to you when you implement this pattern:
 - [Throttling pattern](./throttling.yml): This pattern can be implemented using queues to manage request rates. By utilizing priority messaging, requests from critical applications or high-value customers can be prioritized over less important ones.
 
 <!-- links -->
-[priority-queues]: https://github.com/mspnp/cloud-design-patterns/tree/master/priority-queue
+[priority-queues]: https://github.com/mspnp/cloud-design-patterns/tree/main/priority-queue
 [app]: https://github.com/mspnp/cloud-design-patterns/tree/main/priority-queue/PriorityQueueSender
 [high]: https://github.com/mspnp/cloud-design-patterns/tree/main/priority-queue/PriorityQueueConsumerHigh
 [low]: https://github.com/mspnp/cloud-design-patterns/tree/main/priority-queue/PriorityQueueConsumerLow
