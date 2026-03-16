@@ -1,4 +1,4 @@
-This architecture shows how you can deploy Esri ArcGIS Pro in Azure Virtual Desktop to support the hyperscale of Azure. The architecture also includes back-end components like ArcGIS Enterprise to build a complete system on Azure.
+This architecture describes how to deploy Esri ArcGIS Pro in Azure Virtual Desktop to support the hyperscale of Azure. The architecture also includes back-end components like ArcGIS Enterprise to build a complete system on Azure.
 
 *ArcGIS® is a trademark of its company. No endorsement is implied by the use of this mark.*
 
@@ -6,43 +6,43 @@ This architecture shows how you can deploy Esri ArcGIS Pro in Azure Virtual Desk
 
 The following diagram presents a high-level architecture for deploying ArcGIS components on Azure.
 
-:::image type="complex" source="media/virtual-desktop-gis-azure-network.svg" alt-text="Diagram that shows an architecture for deploying ArcGIS components on Azure." border="false" lightbox="media/virtual-desktop-gis-azure-network.svg":::
-   Diagram that shows a single-region Azure architecture within one subscription. The diagram has two user groups at the bottom: remote desktop users (ArcGIS analysts) on the left and external public users on the right. Above the users, a large box represents the Azure virtual network, which contains four subnets. The desktop subnet on the left contains Windows desktop virtual machines and a user profile management component, grouped in the Desktop resource group. Adjacent to it, the Azure Virtual Desktop resource group contains an Azure Virtual Desktop host pool and workspace. The Azure Virtual Desktop service sits above as the control plane. The Esri subnet on the right contains ArcGIS Web Adaptor with ArcGIS Server (Federated), ArcGIS Data Store, and ArcGIS Web Adaptor with Portal, all grouped in the Esri resource group. Azure Application Gateway appears at the entry to the Esri subnet. A SQL subnet contains Azure SQL Managed Instance, and an Azure NetApp Files subnet contains Azure NetApp Files, grouped in the Storage resource group. Arrows show remote desktop users connecting through the Azure Virtual Desktop service to the desktop subnet, and external users connecting through Application Gateway to the Esri subnet.
+:::image type="complex" source="media/virtual-desktop-azure-network.svg" alt-text="Diagram that shows an architecture for deploying ArcGIS components on Azure." border="false" lightbox="media/virtual-desktop-gis-azure-network.svg":::
+   Diagram that shows a single-region Azure architecture within one subscription. The diagram has two user groups at the bottom: remote desktop users (ArcGIS analysts) on the left and external public users on the right. Above the users, a large box represents the Azure virtual network, which contains four subnets. The desktop subnet on the left contains Windows desktop virtual machines (VMs) and a user profile management component, grouped in the Desktop resource group. Next to it, the Azure Virtual Desktop resource group contains an Azure Virtual Desktop host pool and workspace. The Azure Virtual Desktop service sits above as the control plane. The Esri subnet on the right contains ArcGIS Web Adaptor with ArcGIS Server (Federated), ArcGIS Data Store, and ArcGIS Web Adaptor with Portal, all grouped in the Esri resource group. Azure Application Gateway appears at the entry to the Esri subnet. A SQL subnet contains Azure SQL Managed Instance, and an Azure NetApp Files subnet contains Azure NetApp Files, grouped in the Storage resource group. Arrows show remote desktop users connecting through the Azure Virtual Desktop service to the desktop subnet, and external users connecting through Application Gateway to the Esri subnet.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/AVD-GIS-Azure-Network.vsdx) of this architecture.*
 
 ### Workflow
 
-The following workflow corresponds to the previous diagram.
+The following workflow corresponds to the previous diagram:
 
-- This solution is deployed to a single region with storage, geographic information system (GIS) desktop, GIS back end, and Azure Virtual Desktop resource groups. Each resource group contains one subnet, and all subnets are in one virtual network. All components are in a single Azure subscription. This architecture is a three-tier deployment.
+- This solution is deployed to a single region with storage, a geographic information system (GIS) desktop, a GIS back end, and Azure Virtual Desktop resource groups. Each resource group contains one subnet, and all subnets are in one virtual network. All components are in a single Azure subscription. This architecture is a three-tier deployment.
 
-- The Azure Virtual Desktop control plane handles web access, gateway, broker, diagnostics, and extensibility components like REST APIs.
+- The Azure Virtual Desktop control plane handles web access, the gateway, the broker, diagnostics, and extensibility components like REST APIs.
 
 - You manage Microsoft Entra Domain Services and Microsoft Entra ID, Azure subscriptions, virtual networks, [Azure Files or Azure NetApp Files](/azure/virtual-desktop/store-fslogix-profile), and the Azure Virtual Desktop host pools and workspaces.
 
 - GIS analysts, administrators, and editors connect to Azure Virtual Desktop via a Remote Desktop Protocol (RDP) session. From Azure Virtual Desktop, ArcGIS Pro is accessed and takes advantage of the GPUs for light, medium, and heavy workflows. *Light* refers to a 2D workflow, *medium* refers to a more demanding 2D workflow, and *heavy* refers to a 2D or 3D workflow that requires GPUs. GIS administrators can also use ArcGIS Pro to publish services and administer the enterprise geodatabase. Finally, GIS editors can maintain the vector and raster layers.
 
-  Administrators can also use semantic versioning to make it possible to publish new versions of ArcGIS Pro. For example, as new versions of ArcGIS Pro are available, like ArcGIS Pro 3.0, the new version can be published in the Remote Desktop tool. Users can pick that new version when they're ready to upgrade without having to perform the upgrade themselves. The GPU drivers can be included in the creation of the images that the deployments are based on, or use the Azure Virtual Machines extension to install the GPU driver.
+  Administrators can also use semantic versioning to make it possible to publish new versions of ArcGIS Pro. For example, as new versions of ArcGIS Pro are available, like ArcGIS Pro 3.0, the new version can be published in the Remote Desktop tool. Users can pick that new version when they're ready to upgrade without having to perform the upgrade themselves. The GPU drivers can be included in the creation of the images that the deployments are based on, or you can use the Azure Virtual Machines extension to install the GPU driver.
 
-  :::image type="content" border="false" source="media/arcgis-rdp.jpg" alt-text="Screenshot that shows ArcGIS and virtual machines in the Remote Desktop tool.":::
+  :::image type="content" source="media/arcgis-rdp.jpg" alt-text="Screenshot that shows ArcGIS and virtual machines in the Remote Desktop tool.":::
 
-- Web GIS users can also use this solution by accessing ArcGIS Enterprise administrative interfaces either in the browser in the Azure Virtual Desktop RDP session or, if ArcGIS is published as public-facing, via their local browser. Azure Application Gateway routes the traffic to the correct endpoint for the ArcGIS Server roles. As with ArcGIS Pro, the latency between the browsers and the back end is minimized.
+- Web GIS users can also use this solution by accessing ArcGIS Enterprise administrative interfaces either in the browser in the Azure Virtual Desktop RDP session or, if ArcGIS is published as public facing, via their local browser. Azure Application Gateway routes the traffic to the correct endpoint for the ArcGIS Server roles. As with ArcGIS Pro, this approach minimizes the latency between the browsers and the back end.
 
-- You can deploy the enterprise geodatabase in Azure SQL Managed Instance. ArcGIS Pro users can then create, manage, and edit the geodatabase from an RDP session. During the creation of the Azure Virtual Desktop image, administrators can include the Open Database Connectivity (ODBC) drivers so users don't have to install them on the Azure Virtual Desktop virtual machines (VMs).
+- You can deploy the enterprise geodatabase in Azure SQL Managed Instance. ArcGIS Pro users can then create, manage, and edit the geodatabase from an RDP session. During the creation of the Azure Virtual Desktop image, administrators can include the Open Database Connectivity (ODBC) drivers so that users don't have to install them on the Azure Virtual Desktop virtual machines (VMs).
 
-- Azure NetApp Files supports fast access to the ArcGIS Server configuration store and directories. You can use Azure Files and Azure Storage, but Azure NetApp Files costs less for large deployments. Also, you can use Azure NetApp Files to store data such as Portal for ArcGIS items and raster images, and lidar data.
+- Azure NetApp Files supports fast access to the ArcGIS Server configuration store and directories. You can use Azure Files and Azure Storage, but Azure NetApp Files costs less for large deployments. You can also use Azure NetApp Files to store data, such as Portal for ArcGIS items, raster images, and lidar data.
 
 ### Components
 
-- [Azure NetApp Files](/azure/well-architected/service-guides/azure-netapp-files) is an enterprise-class, high-performance, metered file network-attached storage service. In this architecture, Azure NetApp Files stores ArcGIS Server configuration data, raster images, lidar datasets, and other geospatial files.
+- [Azure NetApp Files](/azure/well-architected/service-guides/azure-netapp-files) is an enterprise-class, high-performance, metered file network-attached storage (NAS) service. In this architecture, Azure NetApp Files stores ArcGIS Server configuration data, raster images, lidar datasets, and other geospatial files.
 
 - [Azure Monitor](/azure/azure-monitor/overview) is a collection of tools that provides visibility into the state of your system. In this architecture, Azure Monitor provides visibility into system performance and helps identify and resolve problems that affect your workload's components.
 
 - [Azure Policy](/azure/governance/policy/overview) is a governance tool that enforces rules and standards across Azure resources. In this architecture, Azure Policy ensures compliance with workload policies, such as resource tagging, location restrictions, and security configurations. Through its compliance dashboard, it provides an aggregated view of the overall state of the environment and the ability to drill down to per-resource, per-policy granularity.
 
-- [Microsoft Entra ID](/entra/fundamentals/whatis) is an enterprise identity service that provides single sign-on, multifactor authentication, and other identity services to protect against cybersecurity threats. In this architecture, Microsoft Entra ID secures user access to Azure Virtual Desktop and other services.
+- [Microsoft Entra ID](/entra/fundamentals/whatis) is an enterprise identity service that provides single sign-on, Microsoft Entra multifactor authentication (MFA), and other identity services to protect against cybersecurity threats. In this architecture, Microsoft Entra ID secures user access to Azure Virtual Desktop and other services.
 
 - [Azure Directory Domain Services (AD DS)](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) is a directory service that provides traditional domain-based identity services like group policies and Kerberos authentication. AD DS stores directory data and makes that data available to network users and administrators. AD DS stores information about user accounts, like names, passwords, and phone numbers, and enables other authorized users on the same network to access that information.
 
@@ -105,36 +105,36 @@ GPU-enabled VMs are the largest cost driver in this architecture. Match VM SKUs 
 
 | Workload | Recommended approach |
 | :------- | :------------------- |
-| Light (2D viewing) | Use smaller GPU SKUs like NV4ads_V710_v5 or consider multi-session pooling |
-| Medium (editing) | Use mid-tier SKUs like NC8as_T4_v3; pool four users per VM in multi-session |
+| Light (2D viewing) | Use smaller GPU SKUs like NV4ads_V710_v5 or consider multisession pooling |
+| Medium (editing) | Use mid-tier SKUs like NC8as_T4_v3; pool four users per VM in multisession |
 | Heavy (3D visualization) | Use larger SKUs like NV18ads_A10_v5; limit to three users per VM |
 
 #### Scaling and automation
 
-- **Start VM on Connect**: Turn on this feature to start session host VMs only when users need them, rather than running them continuously.
+- **Start VM on Connect:** Turn on this feature to start session host VMs only when users need them, rather than running them continuously.
 
-- **Autoscale**: Configure [Azure Virtual Desktop autoscaling](/azure/virtual-desktop/autoscale-scaling-plan) to automatically scale the number of session hosts based on demand, which reduces costs during off-peak hours.
+- **Autoscale:** Configure [Azure Virtual Desktop autoscaling](/azure/virtual-desktop/autoscale-scaling-plan) to automatically scale the number of session hosts based on demand, which reduces costs during off-peak hours.
 
-- **Scheduled scaling**: Define scaling schedules that align with business hours to shut down or deallocate VMs during nights and weekends.
+- **Scheduled scaling:** Define scaling schedules that align with business hours to shut down or deallocate VMs during nights and weekends.
 
 #### Storage optimization
 
-- **Azure NetApp Files**: For large deployments that have high I/O requirements, Azure NetApp Files can be more cost-effective than Azure Files Premium. Evaluate your storage needs and choose the appropriate tier (Standard, Premium, or Ultra).
+- **Azure NetApp Files:** For large deployments that have high I/O requirements, Azure NetApp Files can be more cost-effective than Azure Files Premium. Evaluate your storage needs and choose the appropriate tier (Standard, Premium, or Ultra).
 
-- **FSLogix profile containers**: Store user profiles in Azure NetApp Files or Azure Files to reduce the need for larger OS disks on session hosts.
+- **FSLogix profile containers:** Store user profiles in Azure NetApp Files or Azure Files to reduce the need for larger OS disks on session hosts.
 
 #### Reserved instances and savings plans
 
 - Use [Azure Reserved Virtual Machine Instances](/azure/cost-management-billing/reservations/save-compute-costs-reservations) for predictable, always-on workloads to save up to 72% compared to pay-as-you-go pricing.
-- Consider [Azure Savings Plans](/azure/cost-management-billing/savings-plan/savings-plan-compute-overview) for flexible compute commitments across VM families.
+- Consider [Azure savings plans](/azure/cost-management-billing/savings-plan/savings-plan-compute-overview) for flexible compute commitments across VM families.
 
 #### Monitoring and optimization
 
 - Use [Microsoft Cost Management](/azure/cost-management-billing/costs/overview-cost-management) to track spending and set budgets.
-- Monitor VM utilization with [Azure Monitor](/azure/azure-monitor/vm/vminsights-overview) to identify underutilized or oversized resources.
+- Monitor VM utilization by using [Azure Monitor](/azure/azure-monitor/vm/vminsights-overview) to identify underutilized or oversized resources.
 - Review [Azure Advisor cost recommendations](/azure/advisor/advisor-cost-recommendations) regularly to identify optimization opportunities.
 
-For a cost estimate based on your specific requirements, use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/).
+For a cost estimate based on your specific requirements, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
 ### Performance Efficiency
 
@@ -154,7 +154,7 @@ This architecture also reduces the latency between the Azure infrastructure and 
 
 #### Scalability
 
-You can scale this architecture in many ways. You can scale the VMs for the back end or the desktops (both CPU and GPUs) in, out, up, or down. You can also deploy Azure Virtual Desktop on individual VMs or multi-session VMs. Azure Virtual Desktop can scale hundreds or thousands of VMs.
+You can scale this architecture in many ways. You can scale the VMs for the back end or the desktops (both CPU and GPUs) in, out, up, or down. You can also deploy Azure Virtual Desktop on individual VMs or multisession VMs. Azure Virtual Desktop can scale hundreds or thousands of VMs.
 
 #### Testing
 
@@ -164,7 +164,7 @@ You can test your system's latency by using the [Connection Experience Indicator
 
 Whether you're running your session host VMs on Remote Desktop Services or Azure Virtual Desktop, different types of workloads require different VM configurations. The examples in this article are generic guidelines, and you should only use them for initial performance estimates. For the best possible experience, optimize and scale your deployment depending on your users' needs.
 
-ArcGIS Pro should use Windows 11 Enterprise multi-session VMs to provide greater flexibility and return on investment (ROI). Allocate the appropriate VM types to give each user enough resources, such as GPU, CPU, and RAM. To avoid oversaturation and hindering performance, consider the number of connections and limit the simultaneous user access to each VM.
+ArcGIS Pro should use Windows 11 Enterprise multisession VMs to provide greater flexibility and return on investment (ROI). Allocate the appropriate VM types to give each user enough resources, such as GPU, CPU, and RAM. To avoid oversaturation and hindering performance, consider the number of connections and limit the simultaneous user access to each VM.
 
 ### Workloads
 
@@ -174,9 +174,9 @@ The following table describes each ArcGIS workload. *Example users* are the type
 
 | Workload type | Example user workflows | Activity |
 | :--- | :--- | :--- |
-| Light | Simple 2-D map display, navigation, and querying. Combining and presenting data prepared by others. | Viewing |
-| Medium | 2-D and 3-D map display, navigation, querying, and editing. Moderate use of GP tools. Compilation of presentation of data from multiple sources into a simple map layout. | Editing |
-| Heavy | 2-D and 3-D map display, navigation, querying, and editing. Advanced use of symbology including transparency, and dynamic labeling. Heavy 2-D and 3-D analysis involving visibility, and line of sight. | Visualizing |
+| Light | Simple 2D map display, navigation, and querying. Combine and present data that others prepare. | Viewing |
+| Medium | 2D and 3D map display, navigation, querying, and editing. Moderate use of geoprocessing tools. Compile and present data from multiple sources into a simple map layout. | Editing |
+| Heavy | 2D and 3D map display, navigation, querying, and editing. Advanced use of symbology including transparency and dynamic labeling. Heavy 2D and 3D analysis involving visibility and line of sight. | Visualizing |
 
 ### Single-session recommendations
 
@@ -204,7 +204,7 @@ The following table provides examples for multisession ArcGIS Pro scenarios.
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
+*Microsoft maintains this article. The following contributors wrote this article.*
 
 Principal authors:
 
