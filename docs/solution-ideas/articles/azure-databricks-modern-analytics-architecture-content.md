@@ -160,9 +160,6 @@ Principal authors:
 Other contributors:
 
 - [Kranthi Kumar Manchhikanti](https://www.linkedin.com/in/<chad-kittel-profile>/) | Contributor
-- [Chad Kittel](https://www.linkedin.com/in/<chad-kittel-profile>/) | Contributor
-- [Jodi Martis](https://www.linkedin.com/in/<jodi-martis-profile>/) | Technical Reviewer
-- [Courtney Wales](https://www.linkedin.com/in/<courtney-wales-profile>/) | Technical Reviewer
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
