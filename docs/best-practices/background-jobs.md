@@ -12,11 +12,11 @@ ms.subservice: best-practice
 
 # Background jobs
 
-Many types of applications require background tasks that run independently of the user interface (UI). Examples include batch jobs, intensive processing tasks, and long-running processes such as workflows. Background jobs can be executed without requiring user interaction--the application can start the job and then continue to process interactive requests from users. This can help to minimize the load on the application UI, which can improve availability and reduce interactive response times.
+Many types of applications require background tasks that run independently of the user interface (UI). Examples include batch jobs, intensive processing tasks, and long-running processes such as workflows. Background jobs run without user interaction. The application starts the job and continues to process interactive requests from users. This minimizes load on the application UI, which improves availability and reduces interactive response times.
 
-For example, if an application is required to generate thumbnails of images that are uploaded by users, it can do this as a background job and save the thumbnail to storage when it's complete--without the user needing to wait for the process to be completed. In the same way, a user placing an order can initiate a background workflow that processes the order, while the UI allows the user to continue browsing the web app. When the background job is complete, it can update the stored orders data and send an email to the user that confirms the order.
+For example, if an application needs to generate thumbnails of images that users upload, it can run this work as a background job and save the thumbnail to storage when complete. The user doesn't need to wait. In the same way, a user placing an order can initiate a background workflow that processes the order, while the UI allows the user to continue browsing the web app. When the background job completes, it updates the stored order data and sends an email to the user to confirm the order.
 
-When you consider whether to implement a task as a background job, the main criterion is whether the task can run without user interaction and without the UI needing to wait for the job to be completed. Tasks that require the user or the UI to wait while they are completed might not be appropriate as background jobs.
+When you consider whether to implement a task as a background job, the main criterion is whether the task can run without user interaction and without the UI needing to wait for it to complete. Tasks that require the user or the UI to wait while they complete might not be appropriate as background jobs.
 
 > [!TIP]
 > This article provides architectural guidance for designing background job systems on Azure, covering hosting options, design principles, reliability, security, observability, and scaling. If you're conducting a reliability review of an existing workload that uses background jobs, see [Recommendations for developing background jobs](/azure/well-architected/reliability/background-jobs) in the Azure Well-Architected Framework, which provides a focused checklist of reliability requirements.
@@ -27,54 +27,54 @@ Background jobs typically include one or more of the following types of jobs:
 
 - CPU-intensive jobs, such as mathematical calculations or structural model analysis.
 
-- I/O-intensive jobs, such as executing a series of storage transactions or indexing files.
+- I/O-intensive jobs, such as running a series of storage transactions or indexing files.
 
 - Batch jobs, such as nightly data updates or scheduled processing.
 
 - Long-running workflows, such as order fulfillment, or provisioning services and systems.
 
-- Sensitive-data processing where the task is handed off to a more secure location for processing. For example, you might not want to process sensitive data within a web app. Instead, you might use a pattern such as the [Gatekeeper pattern](../patterns/gatekeeper.yml) to transfer the data to an isolated background process that has access to protected storage.
+- Sensitive-data processing where you hand off the task to a more secure location for processing. For example, you might not want to process sensitive data within a web app. Instead, you might use a pattern such as the [Gatekeeper pattern](../patterns/gatekeeper.yml) to transfer the data to an isolated background process that has access to protected storage.
 
 ## Triggers
 
-Background jobs can be initiated in several different ways. They fall into one of the following categories:
+Background jobs can be initiated in several ways. They fall into one of the following categories:
 
-- [**Event-driven triggers**](#event-driven-triggers). The task is started in response to an event, typically an action taken by a user or a step in a workflow.
-- [**Schedule-driven triggers**](#schedule-driven-triggers). The task is invoked on a schedule based on a timer. This might be a recurring schedule or a one-off invocation that is specified for a later time.
+- [**Event-driven triggers**](#event-driven-triggers). An event, typically a user action or a step in a workflow, starts the task.
+- [**Schedule-driven triggers**](#schedule-driven-triggers). A timer invokes the task on a recurring schedule or as a one-off invocation at a specified time.
 
 ### Event-driven triggers
 
 Event-driven invocation uses a trigger to start the background task. Examples of using event-driven triggers include:
 
-- The UI or another job places a message in a queue. The message contains data about an action that has taken place, such as the user placing an order. The background task listens on this queue and detects the arrival of a new message. It reads the message and uses the data in it as the input to the background job. This pattern is known as [asynchronous message-based communication](/dotnet/architecture/microservices/architect-microservice-container-applications/asynchronous-message-based-communication).
+- The UI or another job places a message in a queue. The message contains data about an action that took place, such as the user placing an order. The background task listens on this queue for new messages. It reads a message and uses the data as the input to the background job. This pattern is known as [asynchronous message-based communication](/dotnet/architecture/microservices/architect-microservice-container-applications/asynchronous-message-based-communication).
 
 - The UI or another job saves or updates a value in storage. The background task monitors the storage and detects changes. It reads the data and uses it as the input to the background job.
 
-- The UI or another job makes a request to an endpoint, such as an HTTPS URI, or an API that is exposed as a web service. It passes the data that is required to complete the background task as part of the request. The endpoint or web service invokes the background task, which uses the data as its input.
+- The UI or another job makes a request to an endpoint, such as an HTTPS URI, or an API exposed as a web service. It passes the data required to complete the background task as part of the request. The endpoint or web service invokes the background task, which uses the data as its input.
 
-Typical examples of tasks that are suited to event-driven invocation include image processing, workflows, sending information to remote services, sending email messages, and provisioning new users in multitenant applications.
+Typical examples of tasks suited to event-driven invocation include image processing, workflows, sending information to remote services, sending email messages, and provisioning new users in multitenant applications.
 
 ### Schedule-driven triggers
 
 Schedule-driven invocation uses a timer to start the background task. Examples of using schedule-driven triggers include:
 
-- A timer that is running locally within the application or as part of the application's operating system invokes a background task on a regular basis.
+- A timer running locally within the application or as part of the application's operating system invokes a background task on a regular basis.
 
-- A timer that is running in a different application, such as Azure Logic Apps, sends a request to an API or web service on a regular basis. The API or web service invokes the background task.
+- A timer running in a different application, such as Azure Logic Apps, sends a request to an API or web service on a regular basis. The API or web service invokes the background task.
 
-- A separate process or application starts a timer that causes the background task to be invoked once after a specified time delay, or at a specific time.
+- A separate process or application starts a timer that starts the background task once after a specified time delay, or at a specific time.
 
-Typical examples of tasks that are suited to schedule-driven invocation include batch-processing routines (such as updating related-products lists for users based on their recent behavior), routine data processing tasks (such as updating indexes or generating accumulated results), data analysis for daily reports, data retention cleanup, and data consistency checks.
+Typical examples of tasks suited to schedule-driven invocation include batch-processing routines (such as updating related-products lists for users based on their recent behavior), routine data processing tasks (such as updating indexes or generating accumulated results), data analysis for daily reports, data retention cleanup, and data consistency checks.
 
 If you use a schedule-driven task that must run as a single instance, be aware of the following considerations:
 
-- If the compute instance that is running the scheduler (such as a virtual machine using Windows scheduled tasks) is scaled, you then have multiple instances of the scheduler running. These could start multiple instances of the task. [Design scheduled tasks to be idempotent](#design-for-idempotency) so that running the same task more than once doesn't produce duplicate results or inconsistencies.
+- If the compute instance running the scheduler (such as a virtual machine using Windows scheduled tasks) is scaled, you then have multiple instances of the scheduler running. These could start multiple instances of the task. [Design scheduled tasks to be idempotent](#design-for-idempotency) so that running the same task more than once doesn't produce duplicate results or inconsistencies.
 
 - If tasks run for longer than the period between scheduler events, the scheduler might start another instance of the task while the previous one is still running.
 
 ## Returning results
 
-Background jobs execute asynchronously in a separate process, or even in a separate location, from the UI or the process that invoked the background task. Ideally, background tasks are "fire and forget" operations, and their execution progress has no impact on the UI or the calling process. This means that the calling process doesn't wait for completion of the tasks and can't automatically detect when the task ends.
+Background jobs run asynchronously in a separate process, or even a separate location, from the UI or the process that invoked them. Ideally, background tasks are "fire and forget" operations, and their execution progress has no impact on the UI or the calling process. The calling process doesn't wait for task completion and can't automatically detect when the task ends.
 
 If you require a background task to communicate with the calling task to indicate progress or completion, you must implement a mechanism for this. Some options are:
 
@@ -144,7 +144,7 @@ Azure Container Apps supports background processing through [Container Apps jobs
 
 Container Apps jobs support three trigger types:
 
-- **Manual jobs**. Triggered on demand through the Azure CLI, Azure portal, or Azure Resource Manager API. Use manual jobs for one-time tasks such as data migrations or on-demand processing that is initiated by an application.
+- **Manual jobs**. Triggered on demand through the Azure CLI, Azure portal, or Azure Resource Manager API. Use manual jobs for one-time tasks such as data migrations or on-demand processing initiated by an application.
 
 - **Scheduled jobs**. Triggered at specific times by using a cron expression. Use scheduled jobs for nightly reports, periodic data cleanup, or recurring data processing.
 
@@ -188,9 +188,9 @@ Background tasks might require a full operating system environment or specific r
 
 To initiate the background task in a separate virtual machine, you have several options:
 
-- You can execute the task on demand directly from your application by sending a request to an endpoint that the task exposes. This passes in any data that the task requires. This endpoint invokes the task.
+- You can run the task on demand directly from your application by sending a request to an endpoint that the task exposes. This request passes in any data that the task requires. The endpoint invokes the task.
 
-- You can configure the task to run on a schedule by using a scheduler or timer that is available in your chosen operating system. For example, on Windows you can use Windows Task Scheduler to execute scripts and tasks. Or, if you have SQL Server installed on the virtual machine, you can use the SQL Server Agent to execute scripts and tasks.
+- You can configure the task to run on a schedule by using a scheduler or timer available in your chosen operating system. For example, on Windows you can use Windows Task Scheduler to run scripts and tasks. Or, if you have SQL Server installed on the virtual machine, you can use the SQL Server Agent to run scripts and tasks.
 
 - You can use Azure Logic Apps to initiate the task by adding a message to a queue that the task listens on, or by sending a request to an API that the task exposes.
 
@@ -198,13 +198,13 @@ See the earlier section [Triggers](#triggers) for more information about how you
 
 #### Azure Virtual Machines considerations
 
-Consider the following points when you decide whether to deploy background tasks in an Azure virtual machine:
+Consider the following points when you deploy background tasks in an Azure virtual machine:
 
-- Hosting background tasks in a separate [Azure virtual machine](/azure/virtual-machines/linux/faq) provides flexibility and allows precise control over initiation, execution, scheduling, and resource allocation. However, it increases runtime cost if a virtual machine must be deployed solely to run background tasks. To evaluate whether a VM is the right compute model, see [Choose an Azure compute service](/azure/architecture/guide/technology-choices/compute-decision-tree).
+- Hosting background tasks in a separate [Azure virtual machine](/azure/virtual-machines/linux/faq) provides flexibility and precise control over initiation, execution, scheduling, and resource allocation. However, it increases runtime cost if a virtual machine must be deployed solely to run background tasks. To evaluate whether a VM is the right compute model, see [Choose an Azure compute service](/azure/architecture/guide/technology-choices/compute-decision-tree).
 
-- There is no built-in facility in the Azure portal to monitor individual tasks, and no automated restart capability for failed tasks. You can monitor the basic status of the virtual machine and manage it by using [Azure PowerShell cmdlets](/powershell/azure). However, you need to implement your own mechanisms for collecting instrumentation data from the task and the operating system. Use the [Azure Monitor Agent](/azure/azure-monitor/agents/agents-overview) to collect logs and metrics from the VM.
+- The Azure portal has no built-in facility to monitor individual tasks and no automated restart capability for failed tasks. You can monitor the basic status of the virtual machine and manage it by using [Azure PowerShell cmdlets](/powershell/azure). However, you need to implement your own mechanisms for collecting instrumentation data from the task and operating system. Use the [Azure Monitor Agent](/azure/azure-monitor/agents/agents-overview) to collect logs and metrics from the VM.
 
-- You might consider creating monitoring probes that are exposed through HTTP endpoints. The code for these probes could perform health checks, collect operational information and statistics, or collate error information and return it to a management application. For more information, see the [Health Endpoint Monitoring pattern](../patterns/health-endpoint-monitoring.yml).
+- Create monitoring probes exposed through HTTP endpoints. The code for these probes should perform health checks, collect operational information and statistics, or collate error information and return it to a management application. For more information, see the [Health Endpoint Monitoring pattern](../patterns/health-endpoint-monitoring.yml).
 
 ### Azure App Service WebJobs
 
@@ -228,7 +228,7 @@ WebJobs can run as continuous or triggered processes:
 
 ## Partitioning
 
-If you decide to include background tasks within an existing compute instance, you must consider how this affects the quality attributes of the compute instance and the background task itself. These factors help you to decide whether to colocate the tasks with the existing compute instance or separate them out into a separate compute instance:
+If you decide to include background tasks within an existing compute instance, consider how this affects the quality attributes of the compute instance and the background task itself. These factors help you decide whether to colocate the tasks with the existing compute instance or separate them into a dedicated compute instance:
 
 - **Availability**: Background tasks are often more tolerant of brief outages than the UI because pending work can be queued. However, if the queue backs up because background processing is unavailable for too long, the application as a whole is affected.
 
@@ -244,17 +244,17 @@ Separating background tasks into dedicated compute adds hosting cost. Weigh that
 
 ## Conflicts
 
-If you have multiple instances of a background job, they might compete for access to resources and services, such as databases and storage. This concurrent access can result in resource contention, which might cause conflicts in availability of the services and in the integrity of data in storage. You can resolve resource contention by using a pessimistic locking approach. This prevents competing instances of a task from concurrently accessing a service or corrupting data.
+If you have multiple instances of a background job, they might compete for access to resources and services, such as databases and storage. This concurrent access can result in resource contention, which can affect service availability and data integrity. You can resolve resource contention by using a pessimistic locking approach. This prevents competing instances of a task from concurrently accessing a service or corrupting data.
 
 Another approach to resolve conflicts is to define background tasks as a singleton, so that there's only ever one instance running. But this eliminates the reliability and performance benefits that a multiple-instance configuration can provide. This is especially true if the UI can supply sufficient work to keep more than one background task busy.
 
-It is vital to ensure that the background task can automatically restart and that it has sufficient capacity to cope with peaks in demand. You can achieve this by allocating a compute instance with sufficient resources, by implementing a queueing mechanism that can store requests for later execution when demand decreases, or by using a combination of these techniques.
+Ensure that the background task can automatically restart and that it has sufficient capacity to cope with peaks in demand. You can achieve this by allocating a compute instance with sufficient resources, by implementing a queueing mechanism that stores requests for later execution when demand decreases, or by using a combination of these techniques.
 
 ## Coordination
 
-The background tasks might be complex and might require multiple individual tasks to execute to produce a result or to fulfill all the requirements. It is common in these scenarios to divide the task into smaller discrete steps or subtasks that can be executed by multiple consumers. Multistep jobs can be more efficient and more flexible because individual steps might be reusable in multiple jobs. It is also easy to add, remove, or modify the order of the steps.
+Background tasks can be complex and require multiple individual tasks to produce a result or fulfill all the requirements. In these scenarios, it's common to divide the task into smaller discrete steps or subtasks that multiple consumers can run. Multistep jobs can be more efficient and more flexible because individual steps might be reusable in multiple jobs. You can also add, remove, or reorder the steps.
 
-Coordinating multiple tasks and steps can be challenging, but there are three common patterns that you can use to guide your implementation of a solution:
+Coordinating multiple tasks and steps can be challenging, but three common patterns can guide your implementation:
 
 - **Decomposing a task into multiple reusable steps**. A background job that processes information through several stages (for example, validate, transform, store) can be decomposed into discrete filters connected by queues. Each step runs independently and can be scaled or reused across different jobs. For more information, see the [Pipes and Filters pattern](../patterns/pipes-and-filters.yml).
 
@@ -262,9 +262,9 @@ Coordinating multiple tasks and steps can be challenging, but there are three co
 
 - **Managing recovery for task steps that fail**. A background job that spans multiple steps (which together define an eventually consistent operation) might need to undo completed work if a later step fails. For more information, see the [Compensating Transaction pattern](../patterns/compensating-transaction.yml).
 
-## Resiliency considerations
+## Reliability considerations
 
-Background tasks must be resilient in order to provide reliable services to the application. When you are planning and designing background tasks, consider the following points:
+Background tasks must be resilient and recoverable to provide reliable services to the application. When you plan and design background tasks, consider the following points:
 
 - Background tasks must be able to gracefully handle restarts without corrupting data or introducing inconsistency into the application. For long-running or multistep tasks, consider using *checkpointing* by saving the state of jobs in persistent storage, or as messages in a queue if this is appropriate. For example, you can persist state information in a message in a queue and incrementally update this state information with the task progress so that the task can be processed from the last known good checkpoint instead of restarting from the beginning. When you use Azure Service Bus queues, you can use [message sessions](/azure/service-bus-messaging/message-sessions) to save and retrieve application processing state. For more information about designing reliable multistep processes and workflows, see the [Scheduler Agent Supervisor pattern](../patterns/scheduler-agent-supervisor.yml).
 
@@ -272,15 +272,15 @@ Background tasks must be resilient in order to provide reliable services to the 
 
   Set the platform's shutdown grace period (such as `terminationGracePeriodSeconds` in Kubernetes or the [shutdown timeout](/azure/azure-functions/functions-host-json#functiontimeout) in Azure Functions) long enough for your typical work item to complete.
 
-- When you use queues to communicate with background tasks, the queues can act as a buffer to store requests that are sent to the tasks while the application is under higher than usual load. This allows the tasks to catch up with the UI during less busy periods. It also means that restarts won't block the UI. For more information, see the [Queue-Based Load Leveling pattern](../patterns/queue-based-load-leveling.yml). If some tasks are more important than others, consider implementing the [Priority Queue pattern](../patterns/priority-queue.yml) to ensure that these tasks run before less important ones.
+- When you use queues to communicate with background tasks, the queues can act as a buffer to store requests while the application is under higher than usual load. This allows the tasks to catch up with the UI during less busy periods. It also means that restarts won't block the UI. For more information, see the [Queue-Based Load Leveling pattern](../patterns/queue-based-load-leveling.yml). If some tasks are more important than others, consider implementing the [Priority Queue pattern](../patterns/priority-queue.yml) to ensure that these tasks run before less important ones.
 
-- Background tasks that are initiated by messages or process messages must be designed to handle inconsistencies, such as messages arriving out of order, messages that repeatedly cause an error (often referred to as *poison messages*), and messages that are delivered more than once. Consider the following factors:
+- Background tasks initiated by messages or that process messages must handle inconsistencies, such as messages arriving out of order, messages that repeatedly cause an error (often referred to as *poison messages*), and messages that are delivered more than once. Consider the following factors:
 
-  - Messages that must be processed in a specific order, such as those that change data based on the existing data value (for example, adding a value to an existing value), might not arrive in the original order in which they were sent. Alternatively, they might be handled by different instances of a background task in a different order due to varying loads on each instance. Messages that must be processed in a specific order should include a sequence number, key, or some other indicator that background tasks can use to ensure that they are processed in the correct order. If you are using Azure Service Bus, you can use message sessions to guarantee the order of delivery. But it's usually more efficient, where possible, to design the process so that the message order isn't important.
+  - Messages that must be processed in a specific order, such as those that change data based on the existing data value (for example, adding a value to an existing value), might not arrive in the original order in which they were sent. Alternatively, different instances of a background task might handle them in a different order due to varying loads on each instance. Messages that must be processed in a specific order should include a sequence number, key, or another indicator that background tasks can use to ensure correct processing order. If you use Azure Service Bus, you can use message sessions to guarantee the order of delivery. But it's usually more efficient, where possible, to design the process so that the message order isn't important.
 
-  - Typically, a background task peeks at messages in the queue, which temporarily hides them from other message consumers. Then it deletes the messages after they are successfully processed. If a background task fails when processing a message, that message reappears on the queue after the peek time-out expires. It is then processed by another instance of the task or during the next processing cycle of this instance. If the message consistently causes an error in the consumer, it blocks the task, the queue, and eventually the application itself when the queue becomes full. So, it's vital to detect and remove poison messages from the queue. If you're using Azure Service Bus, messages that cause an error can be moved automatically or manually to an associated [dead letter queue](/azure/service-bus-messaging/service-bus-dead-letter-queues).
+  - Typically, a background task peeks at messages in the queue, which temporarily hides them from other message consumers. After the task successfully processes a message, it deletes it. If a background task fails when processing a message, that message reappears on the queue after the peek time-out expires. Another instance of the task or the next processing cycle of this instance then processes it. If the message consistently causes an error in the consumer, it blocks the task, the queue, and eventually the application itself when the queue becomes full. Detect and remove poison messages from the queue. If you're using Azure Service Bus, messages that cause an error can be moved automatically or manually to an associated [dead letter queue](/azure/service-bus-messaging/service-bus-dead-letter-queues).
 
-  - Queues are guaranteed at *least once* delivery mechanisms, which means a message can be delivered more than once. If a background task fails after processing a message but before deleting it from the queue, the message becomes available for processing again. All message-driven background tasks must be idempotent. See [Design for idempotency](#design-for-idempotency) for techniques to handle duplicate delivery safely.
+  - Queues are guaranteed at *least once* delivery mechanisms, which means a message can be delivered more than once. If a background task fails after processing a message but before deleting it from the queue, the message becomes available for processing again. All message-driven background tasks must be idempotent. For more information, see [Design for idempotency](#design-for-idempotency).
 
 - **Distinguish transient from permanent failures in your job processor**. When a background task fails to process a message, the queue redelivers it automatically. If the failure is transient (a downstream service timeout or throttling response), redelivery is the right behavior. If the failure is permanent (invalid message payload, missing referenced data), the message fails on every attempt. Configure your job processor to detect permanent failures and route those messages directly to a [dead letter queue](/azure/service-bus-messaging/service-bus-dead-letter-queues) instead of consuming retry attempts. Use the queue's max delivery count to cap how many times a message is retried before it's dead-lettered automatically. For more information on handling transient conditions in your processing logic, see [Transient fault handling](transient-faults.md).
 
