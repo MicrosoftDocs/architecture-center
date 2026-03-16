@@ -67,7 +67,7 @@ Typical examples of tasks that are suited to schedule-driven invocation include 
 
 If you use a schedule-driven task that must run as a single instance, be aware of the following considerations:
 
-- If the compute instance that is running the scheduler (such as a virtual machine using Windows scheduled tasks) is scaled, you then have multiple instances of the scheduler running. These could start multiple instances of the task. Design scheduled tasks to be [idempotent](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing) so that running the same task more than once doesn't produce duplicate results or inconsistencies.
+- If the compute instance that is running the scheduler (such as a virtual machine using Windows scheduled tasks) is scaled, you then have multiple instances of the scheduler running. These could start multiple instances of the task. [Design scheduled tasks to be idempotent](#design-for-idempotency) so that running the same task more than once doesn't produce duplicate results or inconsistencies.
 
 - If tasks run for longer than the period between scheduler events, the scheduler might start another instance of the task while the previous one is still running.
 
@@ -86,6 +86,10 @@ If you require a background task to communicate with the calling task to indicat
 - **Call back to the caller through a webhook**. The caller provides a callback URL when it submits the job. The background task sends an HTTP request to that URL when processing completes or when errors occur. This approach is useful when the caller is an external system.
 
 - **Write status to shared storage**. The background task writes progress or results to a shared data store (such as a database or blob) that the caller monitors. This approach is straightforward but requires the caller to poll for changes.
+
+## Design for idempotency
+
+Background jobs are especially prone to running more than once for the same logical work item. Queues deliver messages at least once, schedulers can overlap if a job runs longer than the timer interval, and infrastructure restarts can replay partially completed work. Design every background job so that running it multiple times with the same input produces the same outcome. For implementation techniques, see the [guidance on idempotent message processing](../reference-architectures/containers/aks-mission-critical/mission-critical-data-platform.md#idempotent-message-processing).
 
 ## Hosting environment
 
@@ -275,9 +279,7 @@ Background tasks must be resilient in order to provide reliable services to the 
 
   - Typically, a background task peeks at messages in the queue, which temporarily hides them from other message consumers. Then it deletes the messages after they are successfully processed. If a background task fails when processing a message, that message reappears on the queue after the peek time-out expires. It is then processed by another instance of the task or during the next processing cycle of this instance. If the message consistently causes an error in the consumer, it blocks the task, the queue, and eventually the application itself when the queue becomes full. So, it's vital to detect and remove poison messages from the queue. If you're using Azure Service Bus, messages that cause an error can be moved automatically or manually to an associated [dead letter queue](/azure/service-bus-messaging/service-bus-dead-letter-queues).
 
-  - Queues are guaranteed at *least once* delivery mechanisms, but they might deliver the same message more than once. Also, if a background task fails after processing a message but before deleting it from the queue, the message becomes available for processing again. Background tasks should be idempotent, which means that processing the same message more than once doesn't cause an error or inconsistency in the application's data. Some operations are naturally idempotent, such as setting a stored value to a specific new value. But operations such as adding a value to an existing stored value without checking that the stored value is still the same as when the message was originally sent causes inconsistencies. Azure Service Bus queues can be configured to automatically remove duplicated messages. For more information on the challenges with at-least-once message delivery, see the [guidance on idempotent message processing](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing).
-
-  - Some messaging systems, such as Azure Queue Storage and Azure Service Bus queues, support a dequeue count property that indicates the number of times a message has been read from the queue. This count is useful for identifying poison messages and for implementing idempotency checks. For more information, see [Azure Service Bus messaging overview](/azure/service-bus-messaging/service-bus-messaging-overview) and [idempotent message processing](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing).
+  - Queues are guaranteed at *least once* delivery mechanisms, which means a message can be delivered more than once. If a background task fails after processing a message but before deleting it from the queue, the message becomes available for processing again. All message-driven background tasks must be idempotent. See [Design for idempotency](#design-for-idempotency) for techniques to handle duplicate delivery safely.
 
 - Design retry behavior around how your queue redelivers failed messages.
 
