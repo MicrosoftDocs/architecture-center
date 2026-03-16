@@ -55,7 +55,7 @@ The following dataflow corresponds to the previous diagram:
 
 The following diagram shows the mirroring integration architecture.
 
-:::image type="complex" source="media/mongodb-mirrored-integrated-architecture.png" alt-text="Diagram that shows the mirroring integration architecture." border="false" lightbox="media/mongodb-mirrored-integrated-architecture.png":::
+:::image type="complex" source="media/mongodb-mirrored-integrated-architecture.svg" alt-text="Diagram that shows the mirroring integration architecture." border="false" lightbox="media/mongodb-mirrored-integrated-architecture.svg":::
    On the left, a dashed box that represents the cloud contains an app icon. An arrow that represents insert, update, and delete operations points from the app to MongoDB Atlas. An arrow labeled near real-time incremental replication points right from MongoDB Atlas to OneLake. OneLake is inside another dashed box that represents a Fabric environment. Inside the Fabric box, arrows connect four vertically stacked icons to represent the flow from a mirrored MongoDB database to a default semantic model to a SQL analytics endpoint to OneLake with Delta or Parquet format.
 :::image-end:::
 
