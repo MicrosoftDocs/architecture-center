@@ -56,38 +56,38 @@ The following workflow corresponds to the previous diagram.
 
   For more information about FSLogix Profile Container, Azure Files, and Azure NetApp Files best practices, see [FSLogix configuration examples](/fslogix/concepts-configuration-examples).
 
-- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is a private cloud-based network that you can use to build your own secure network infrastructure in Azure. Virtual Network enables secure communication between Azure resources through private IP addresses. In this architecture, Virtual Network connects all components, such as virtual desktops, databases, and storage, within a secure and isolated network.
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is a private cloud-based network that you can use to build your own secure network infrastructure in Azure. Virtual Network provides secure communication between Azure resources through private IP addresses. In this architecture, Virtual Network connects all components, such as virtual desktops, databases, and storage, within a secure and isolated network.
 
-- [ArcGIS Pro](https://www.esri.com/arcgis/products/arcgis-pro/overview) is Esri's professional desktop GIS application for spatial analysis, mapping, and data editing. In this architecture, ArcGIS Pro runs on GPU-enabled Azure Virtual Desktop VMs, which help users to perform advanced 2D and 3D geospatial tasks and publish services. ArcGIS Pro runs best on Azure high-performance computing VMs, like the NV-Series. You can scale the use of ArcGIS by using Azure Virtual Desktop.
+- [ArcGIS Pro](https://www.esri.com/arcgis/products/arcgis-pro/overview) is the Esri professional desktop GIS application for spatial analysis, mapping, and data editing. In this architecture, ArcGIS Pro runs on GPU-enabled Azure Virtual Desktop VMs, which help users perform advanced 2D and 3D geospatial tasks and publish services. ArcGIS Pro runs best on Azure high-performance computing (HPC) VMs, like the NV-Series. You can use Azure Virtual Desktop to scale ArcGIS usage.
 
 - [ArcGIS Enterprise](https://enterprise.arcgis.com/en/get-started/latest/windows/what-is-arcgis-enterprise-.htm) is a comprehensive GIS platform for managing and sharing spatial data and services. In this architecture, you can add ArcGIS Enterprise to extend capabilities for hosting maps, apps, and spatial analytics across the organization. ArcGIS Enterprise works with ArcGIS Pro.
 
-- [Portal for ArcGIS](https://enterprise.arcgis.com/en/portal) is a web-based interface for sharing and managing GIS content within ArcGIS Enterprise. In this architecture, Portal for ArcGIS supports users to create, organize, and share maps, scenes, and apps securely within the organization. Portal for ArcGIS is part of the base deployment.
+- [Portal for ArcGIS](https://enterprise.arcgis.com/en/portal) is a web-based interface for sharing and managing GIS content within ArcGIS Enterprise. In this architecture, Portal for ArcGIS helps users create, organize, and share maps, scenes, and apps securely within the organization. Portal for ArcGIS is part of the base deployment.
 
-- [ArcGIS Server](https://enterprise.arcgis.com/en/server/latest/get-started/windows/what-is-arcgis-for-server-.htm) is back-end server software that's deployed with ArcGIS Enterprise or in a standalone deployment with ArcGIS Enterprise. In this architecture, ArcGIS Server handles requests from users and applications, such as to draw maps, run tools, or query data. ArcGIS Server's configuration and data is stored in Azure NetApp Files. ArcGIS Server also has a management plane that supports administrators to start, stop, and delete services.
+- [ArcGIS Server](https://enterprise.arcgis.com/en/server/latest/get-started/windows/what-is-arcgis-for-server-.htm) is back-end server software that's deployed with ArcGIS Enterprise or in a standalone deployment with ArcGIS Enterprise. In this architecture, ArcGIS Server handles requests from users and applications, such as to draw maps, run tools, or query data. ArcGIS Server configuration and data is stored in Azure NetApp Files. Administrators can use the ArcGIS Server management plane to start, stop, and delete services.
 
-- [Enterprise geodatabase](https://enterprise.arcgis.com/en/server/latest/manage-data/windows/enterprise-geodatabases-and-arcgis-enterprise.htm) is a multi-user spatial database that supports versioning, replication, and advanced data models. You can deploy this database in many database management systems. In this architecture, Enterprise geodatabase is hosted in SQL Managed Instance and is the authoritative data source for ArcGIS Pro and other GIS tools.
+- An [Enterprise geodatabase](https://enterprise.arcgis.com/en/server/latest/manage-data/windows/enterprise-geodatabases-and-arcgis-enterprise.htm) is a multiuser spatial database that supports versioning, replication, and advanced data models. You can deploy this database in many database management systems. In this architecture, Enterprise geodatabase is hosted in SQL Managed Instance and is the authoritative data source for ArcGIS Pro and other GIS tools.
 
 ## Scenario details
 
-Esri's technology is a GIS that contains capabilities for the visualization, analysis, and data management of geospatial data. Esri's core technology is called *the ArcGIS platform*. It includes capabilities for mapping, spatial analysis, 3D GIS, imagery and remote sensing, data collection and management, and field operations.
+The technology from Esri comprises a GIS that contains capabilities for the visualization, analysis, and data management of geospatial data. The core technology is called the *ArcGIS platform*. It includes capabilities for mapping, spatial analysis, 3D GIS, imagery and remote sensing, data collection and management, and field operations.
 
 ArcGIS Pro is a key part of the technology. ArcGIS Pro is a 64-bit professional desktop GIS that GIS analysts can use to perform spatial analysis and edit spatial data. GIS administrators can use ArcGIS Pro to create and publish geospatial services.
 
 ### Potential use cases
 
-Esri's ArcGIS and virtual desktop solutions are frequently used for:
+Esri ArcGIS and virtual desktop solutions are frequently used for:
 
 - Security and regulation applications like healthcare, government, and utilities, for example energy suppliers.
 - Elastic workforce needs like remote work, mergers and acquisitions, short-term employees, contractors, and partner access.
 - Employees like bring-your-own-device users, mobile users, and branch workers.
-- Specialized workloads like design and engineering, legacy apps, software testing, and management, for example facilities and real estate.
+- Specialized workloads like design and engineering, legacy apps, software testing, and land management, for example facilities and real estate.
 
-Although GIS was implemented in Azure many years ago, it typically included only the back-end components. That implementation introduces latency between the client and server components. Organizations are able to deploy desktop GIS on virtual machines from the [Microsoft Marketplace](https://marketplace.microsoft.com/marketplace/apps?search=ArcGIS), but that deployment is for thick clients and isn't scalable enough. This architecture addresses both challenges.
+Traditional GIS implementations in Azure typically include only the back-end components. That implementation introduces latency between the client and server components. Organizations can deploy desktop GIS on VMs from the [Microsoft Marketplace](https://marketplace.microsoft.com/marketplace/apps?search=ArcGIS), but those deployments require dedicated VMs for individual users and don't scale well. This architecture addresses both challenges.
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of best practices that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
 
 ### Cost Optimization
 
@@ -99,7 +99,7 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 - **Personal host pools** assign dedicated VMs to individual users. Use this option for users who require persistent environments or have specialized software needs.
 
-#### Right-size GPU-enabled VMs
+#### Rightsize GPU-enabled VMs
 
 GPU-enabled VMs are the largest cost driver in this architecture. Match VM SKUs to actual workload requirements:
 
@@ -113,13 +113,13 @@ GPU-enabled VMs are the largest cost driver in this architecture. Match VM SKUs 
 
 - **Start VM on Connect**: Turn on this feature to start session host VMs only when users need them, rather than running them continuously.
 
-- **Autoscale**: Configure [Azure Virtual Desktop autoscaling](/azure/virtual-desktop/autoscale-scaling-plan) to automatically scale the number of session hosts based on demand, reducing costs during off-peak hours.
+- **Autoscale**: Configure [Azure Virtual Desktop autoscaling](/azure/virtual-desktop/autoscale-scaling-plan) to automatically scale the number of session hosts based on demand, which reduces costs during off-peak hours.
 
 - **Scheduled scaling**: Define scaling schedules that align with business hours to shut down or deallocate VMs during nights and weekends.
 
 #### Storage optimization
 
-- **Azure NetApp Files**: For large deployments with high I/O requirements, Azure NetApp Files can be more cost-effective than Azure Files Premium. Evaluate your storage needs and choose the appropriate tier (Standard, Premium, or Ultra).
+- **Azure NetApp Files**: For large deployments that have high I/O requirements, Azure NetApp Files can be more cost-effective than Azure Files Premium. Evaluate your storage needs and choose the appropriate tier (Standard, Premium, or Ultra).
 
 - **FSLogix profile containers**: Store user profiles in Azure NetApp Files or Azure Files to reduce the need for larger OS disks on session hosts.
 
@@ -140,7 +140,7 @@ For a cost estimate based on your specific requirements, use the [Azure Pricing 
 
 Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-When you use a remote Windows session, your network's available bandwidth affects the quality of your experience. The following table lists the minimum recommended bandwidths for a smooth user experience. These recommendations are based on the guidelines in [Remote Desktop workloads](/windows-server/remote/remote-desktop-services/remote-desktop-workloads).
+When you use a remote Windows session, your network's available bandwidth affects the quality of your experience. The following table lists the minimum recommended bandwidths for a smooth user experience. These recommendations are based on the guidelines in [Remote Desktop Services workloads](/windows-server/remote/remote-desktop-services/session-host-virtual-machine-sizing-guidelines#workloads).
 
 | Workload type | Recommended bandwidth |
 | :------------ | :-------------------- |
@@ -148,9 +148,9 @@ When you use a remote Windows session, your network's available bandwidth affect
 | Medium        | 3 Mbps                |
 | Heavy         | 5 Mbps                |
 
-Remember that the stress put on your network depends on your app workload's output frame rate and on your display resolution. If the frame rate or the display resolution increases, the bandwidth requirement also rises. For example, a light workload with a high-resolution display requires more available bandwidth than a light workload with regular or low resolution. Ideally, the latency between the end user and the RDP session needs to be around 200 ms or less. This latency helps to ensure that the interactive edits and the tooltips appear quickly enough when ArcGIS Pro users interact with maps and perform measurements or edits.
+Remember that the stress put on your network depends on your app workload's output frame rate and on your display resolution. If the frame rate or the display resolution increases, the bandwidth requirement also rises. For example, a light workload with a high-resolution display requires more available bandwidth than a light workload with regular or low resolution. Ideally, the latency between the user and the RDP session needs to be around 200 milliseconds or less. This latency helps ensure that the interactive edits and the tooltips appear quickly enough when ArcGIS Pro users interact with maps and perform measurements or edits.
 
-Another benefit of this architecture is that the latency between it and Esri's SaaS offerings, like ArcGIS Velocity and ArcGIS Image, is also reduced for ArcGIS Pro users and web browser users. All components of the ArcGIS SaaS platform ArcGIS Online are in the cloud.
+This architecture also reduces the latency between the Azure infrastructure and Esri software as a service (SaaS) offerings, like ArcGIS Velocity and ArcGIS Image, for ArcGIS Pro users and web browser users. All components of the ArcGIS SaaS platform ArcGIS Online reside in the cloud.
 
 #### Scalability
 
@@ -158,17 +158,17 @@ You can scale this architecture in many ways. You can scale the VMs for the back
 
 #### Testing
 
-You can test your system's latency by using the [Connection Experience Indicator](https://bramwolfs.com/2023/11/10/connection-experience-indicator-for-rds-wvd/). You can use [Esri's ArcGIS Pro Performance Assessment Tool](https://pro.arcgis.com/en/pro-app/latest/get-started/pro-performance-tool-overview.htm) to test the performance. Esri also recommends [tools for testing ArcGIS Enterprise](https://community.esri.com/t5/implementing-arcgis-blog/performance-engineering-load-testing-arcgis/ba-p/1070106). [Azure Load Testing](/azure/app-testing/load-testing/overview-what-is-azure-load-testing) might also be helpful.
+You can test your system's latency by using the [Connection Experience Indicator](https://bramwolfs.com/2023/11/10/connection-experience-indicator-for-rds-wvd/). You can use the [Esri ArcGIS Pro Performance Assessment Tool](https://pro.arcgis.com/en/pro-app/latest/get-started/pro-performance-tool-overview.htm) to test the performance. Esri also recommends [tools for testing ArcGIS Enterprise](https://community.esri.com/t5/implementing-arcgis-blog/performance-engineering-load-testing-arcgis/ba-p/1070106). [Azure Load Testing](/azure/app-testing/load-testing/overview-what-is-azure-load-testing) might also be helpful.
 
 ### ArcGIS Pro VM sizing guidelines for Azure Virtual Desktop and Remote Desktop Services
 
 Whether you're running your session host VMs on Remote Desktop Services or Azure Virtual Desktop, different types of workloads require different VM configurations. The examples in this article are generic guidelines, and you should only use them for initial performance estimates. For the best possible experience, optimize and scale your deployment depending on your users' needs.
 
-ArcGIS Pro should use Windows 11 Enterprise multi-session VMs to provide additional flexibility and greater return on investment. It's necessary to allocate the appropriate VM types to give each user enough resources, such as GPU, CPU, and RAM. To avoid oversaturation and hindering performance, consider the number of connections and limit the simultaneous user access to each VM.
+ArcGIS Pro should use Windows 11 Enterprise multi-session VMs to provide greater flexibility and return on investment (ROI). Allocate the appropriate VM types to give each user enough resources, such as GPU, CPU, and RAM. To avoid oversaturation and hindering performance, consider the number of connections and limit the simultaneous user access to each VM.
 
 ### Workloads
 
-Users can run different types of workloads on the session host VMs. The following table shows examples of a range of workload types to help you estimate what size your VMs need to be. After you set up your VMs, monitor their actual usage and adjust their size accordingly. If you need a bigger or smaller VM, scale your existing deployment up or down.
+Users can run different types of workloads on the session host VMs. The following table shows examples of a range of workload types to help you estimate your VM sizes. After you set up your VMs, monitor their actual usage and adjust their size accordingly. If you need a bigger or smaller VM, scale your existing deployment up or down.
 
 The following table describes each ArcGIS workload. *Example users* are the types of users who might find each workload most helpful.
 
@@ -180,23 +180,23 @@ The following table describes each ArcGIS workload. *Example users* are the type
 
 ### Single-session recommendations
 
-*Single-session* scenarios are when there's only one user signed in to a session host VM at any one time. For example, if you use personal host pools in Azure Virtual Desktop, you're using a single-session scenario.
+In a *single-session* scenario, only one user signs in to a session host VM at a time. For example, if you use personal host pools in Azure Virtual Desktop, you use a single-session scenario.
 
-The following table provides examples for single-session ArcGIS Pro scenarios:
+The following table provides examples for single-session ArcGIS Pro scenarios.
 
-| Workload type | Example VM SKU | Activity |
+| Workload type | Example Azure VM SKU | Activity |
 | :--- | :--- | :--- |
 | Light | NV4ads_V710_v5, NV8ads_V710_v5 | Viewing |
 | Medium | NV12ads_V710_v5, NC4as_T4_v3, NC8as_T4_v3, NV6ads_A10_v5 | Editing |
 | Heavy | NC16as_T4_v3, NV12ads_A10_v5, NV18ads_A10_v5 | Visualizing |
 
-### Multi-session recommendations
+### Multisession recommendations
 
-*Multi-session* scenarios are when there's more than one user signed in to a session host at any one time. For example, when you use pooled host pools in Azure Virtual Desktop with the Windows 11 Enterprise multi-session OS, that's a multi-session deployment.
+In *multisession* scenarios, more than one user signs in to a session host at a time. For example, when you use pooled host pools in Azure Virtual Desktop with the Windows 11 Enterprise multisession OS, you use a multisession deployment.
 
-The following table provides examples for multi-session ArcGIS Pro scenarios:
+The following table provides examples for multisession ArcGIS Pro scenarios.
 
-| Workload type | Example VM SKU | Maximum users per VM | Activity |
+| Workload type | Example Azure VM SKU | Maximum users per VM | Activity |
 | :--- | :--- | :--- | :--- |
 | Light | NV18ads_A10_v5, NC16as_T4_v3, NV24ads_V710_v5 | 6 | Viewing |
 | Medium | NV18ads_A10_v5, NC16as_T4_v3, NV24ads_V710_v5 | 4 | Editing |
@@ -215,7 +215,7 @@ Principal authors:
 
 ## Next steps
 
-- You can use the [ArcGIS Pro for Mission Landing Zone](https://github.com/Azure/missionlz/tree/main/src/add-ons/arcgis-pro) to deploy ArcGIS Pro on Azure Virtual Desktop. The implementation in the repository includes SCCA-compliant infrastructure, GPU-enabled VMs, Azure NetApp Files, and FSLogix preconfigured for rapid proof-of-concept deployments.
+- You can use the [ArcGIS Pro for Mission Landing Zone](https://github.com/Azure/missionlz/tree/main/src/add-ons/arcgis-pro) to deploy ArcGIS Pro on Azure Virtual Desktop. The implementation in the repository includes Secure Cloud Computing Architecture (SCCA)-compliant infrastructure, GPU-enabled VMs, Azure NetApp Files, and FSLogix preconfigured for rapid proof-of-concept deployments.
 
 - You can use [ArcGIS Enterprise Builder](https://enterprise.arcgis.com/en/get-started/latest/windows/arcgis-enterprise-builder.htm) to set up a base ArcGIS Enterprise deployment on a single machine or multiple machines.
 
