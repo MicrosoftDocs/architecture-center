@@ -38,7 +38,7 @@ This guide presents an architecture that uses the private endpoint option. The p
 
 Start by securing the Azure Web App in the tenant that owns it. Create a private endpoint and restrict access from public internet to the Web App.
 
-Although Web apps and Function Apps become immediately inaccessible publicly when they're associated with a private endpoint and the App Access setting was not configured, it is recommended to explicitly disable public network access via the [App Access setting](/azure/app-service/overview-access-restrictions#app-access). Note that other Azure services remain publicly available after you associate them with a private endpoint. These services always require additional access controls to disable public access.
+All Azure services implement their own public access behavior, and some even remain publicly available after you associate them with a private endpoint unless you take additional configuration steps. Web Apps and Function Apps become inaccessible publicly when they're associated with a private endpoint and the [public access setting](/azure/app-service/overview-access-restrictions#app-access) is set to disabled. Evaluate if the service your using requires additional access controls to disable public access.
 
 Before you create the private endpoint, prepare a virtual network and subnet for the private endpoint NIC. The NIC consumes one IP address from the subnet. Also define your DNS strategy so you can register the NIC's A record in the appropriate DNS zone.
 
@@ -57,7 +57,7 @@ Before you create the private endpoint, prepare a virtual network and subnet for
 
 In both cases, during the creation of the private endpoint, the Azure DNS public zone (`azurewebsites.net`) is automatically updated with the CNAME record that points to the private DNS zone. Users can try to reach the Web App from sources that can't resolve the private DNS zone to retrieve the actual A record and its internal IP address. Those users get a public resolvable IP address, but the response is *403 Forbidden*.
 
-The provider can optionally configure a [custom domain name](/azure/app-service/app-service-web-tutorial-custom-domain) for the Web App via a CNAME record referencing the entry in the public zone `azurewebsites.net`. For the avoidance of doubt, the CNAME record should not point to the `privatelink.azurewebsites.net` entry.
+The provider can optionally configure a [custom domain name](/azure/app-service/app-service-web-tutorial-custom-domain) for the Web App via a CNAME record referencing the entry in the public zone `azurewebsites.net`. The CNAME record created for this custom domain shouldn't point to the `privatelink.azurewebsites.net` entry.
 
 ## Consumer setup
 
