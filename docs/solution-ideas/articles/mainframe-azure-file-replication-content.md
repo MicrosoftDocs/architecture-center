@@ -56,10 +56,6 @@ The following dataflow corresponds to the architecture diagram:
 
 This architecture uses the following components.
 
-### Alternatives
-
-Besides native services like Host Integration Server and LogicApp IBM Host connector, Open-source file conversion libraries can be used to convert EBCDIC mainframe files to ASCII or Unicode. This method, however, needs more orchestration and management than Azure's native solutions.
-
 #### Networking
 
 An [on-premises data gateway](/data-integration/gateway/service-gateway-onprem) is bridge software that connects on-premises data sources to cloud services. In this architecture, it enables communication between mainframe systems and Azure services for file transfer and integration. You can install the gateway [on a dedicated on-premises VM](/azure/logic-apps).
@@ -101,6 +97,10 @@ This architecture outlines the process of migrating mainframe file data to cloud
 - [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a storage repository that holds a large amount of data in native, raw format. Data Lake Storage provides scaling for big data analytics workloads with terabytes and petabytes of data. The data typically comes from multiple heterogeneous sources, and can be structured, semi-structured, or unstructured. In this architecture, it stores raw and transformed mainframe data in native format for processing by analytics services.
 
 - [OneLake in Microsoft Fabric](/fabric/onelake/onelake-overview) is a single, unified, logical data lake. In this architecture, it serves as the storage destination for Fabric Data Factory pipelines. It provides a centralized location to store transformed mainframe data for analytics and business intelligence workloads.
+
+### Alternatives
+
+Besides native services like Host Integration Server and LogicApp IBM Host connector, Open-source file conversion libraries can be used to convert EBCDIC mainframe files to ASCII or Unicode. This method, however, needs more orchestration and management than Azure's native solutions.
 
 ## Scenario details
 
