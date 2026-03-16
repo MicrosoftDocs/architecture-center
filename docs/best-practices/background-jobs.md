@@ -281,11 +281,21 @@ Background tasks must be resilient in order to provide reliable services to the 
 
   - Queues are guaranteed at *least once* delivery mechanisms, which means a message can be delivered more than once. If a background task fails after processing a message but before deleting it from the queue, the message becomes available for processing again. All message-driven background tasks must be idempotent. See [Design for idempotency](#design-for-idempotency) for techniques to handle duplicate delivery safely.
 
-- Design retry behavior around how your queue redelivers failed messages.
+- **Distinguish transient from permanent failures in your job processor**. When a background task fails to process a message, the queue redelivers it automatically. If the failure is transient (a downstream service timeout or throttling response), redelivery is the right behavior. If the failure is permanent (invalid message payload, missing referenced data), the message fails on every attempt. Configure your job processor to detect permanent failures and route those messages directly to a [dead letter queue](/azure/service-bus-messaging/service-bus-dead-letter-queues) instead of consuming retry attempts. Use the queue's max delivery count to cap how many times a message is retried before it's dead-lettered automatically. For more information on handling transient conditions in your processing logic, see [Transient fault handling](transient-faults.md).
 
-  - **Distinguish transient from permanent failures in your job processor**. When a background task fails to process a message, the queue redelivers it automatically. If the failure is transient (a downstream service timeout or throttling response), redelivery is the right behavior. If the failure is permanent (invalid message payload, missing referenced data), the message fails on every attempt. Configure your job processor to detect permanent failures and route those messages directly to a [dead letter queue](/azure/service-bus-messaging/service-bus-dead-letter-queues) instead of consuming retry attempts. Use the queue's max delivery count to cap how many times a message is retried before it's dead-lettered automatically.
+## Observability considerations
 
-  - **Monitor dead letter queues**. Dead-lettered messages represent background work that wasn't completed. Set up alerts on DLQ depth and message age so that your operations team can investigate failures, fix the underlying issue, and resubmit messages. Without monitoring, failed work accumulates silently. For more information on handling transient conditions in your processing logic, see [Transient fault handling](transient-faults.md).
+Background jobs run without a user present, so failures are silent unless you actively monitor for them. When you plan observability for background tasks, consider the following points:
+
+- **Track job completion, not just job start.** Log when a background job starts, completes, and fails. Include the job type, a correlation identifier that ties the job back to the triggering event or message, and the elapsed duration. Without completion tracking, a job that hangs or crashes silently appears to be running normally.
+
+- **Alert on missed schedules.** For schedule-driven tasks, monitor that each expected run actually occurred. If a scheduled job doesn't fire, there's no error to catch because nothing ran. Compare actual execution times against the expected schedule and alert when a run is missing.
+
+- **Monitor dead letter queues.** Dead-lettered messages represent background work that wasn't completed. Set up alerts on [dead letter queue](/azure/service-bus-messaging/service-bus-dead-letter-queues) depth and message age so that your operations team can investigate failures, fix the underlying issue, and resubmit messages. Without monitoring, failed work accumulates silently.
+
+- **Measure queue wait time, not just processing time.** The total time from when a message is enqueued to when it finishes processing is what matters to the business. A job that processes in 2 seconds but sat in the queue for 30 minutes still delivered a 30-minute delay. Track enqueue-to-completion latency alongside per-job processing duration.
+
+- **Correlate across job steps.** Multistep background jobs can span multiple services, queues, and compute instances. Propagate a correlation identifier through every step so that you can trace the full lifecycle of a single work item in your logs and [distributed traces](/azure/azure-monitor/app/distributed-trace-data).
 
 ## Scaling and performance considerations
 
