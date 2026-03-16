@@ -46,14 +46,14 @@ When you use Azure as a modern data platform, you have your choice of platform a
 ## Scenario details
 
 A popular approach in digital transformation scenarios is to see whether
-existing applications and middleware tiers can run as-is in a hybrid setup where Microsoft Azure serves as the scalable, distributed data platform. This example describes a data-first approach to middleware integration that enables IBM message queues (MQs) running on mainframe or midrange systems to work with Azure services so you can find the best data platform for your workload.
+A popular approach in digital transformation scenarios is to see whether existing applications and middleware tiers can run as-is in a hybrid setup where Microsoft Azure serves as the scalable, distributed data platform. This example describes a data-first approach to middleware integration that enables IBM message queues (MQs) running on mainframe or midrange systems to work with Azure services so you can find the best data platform for your workload.
 
 In this scenario, Azure can serve as either a PaaS or an IaaS. PaaS enables cloud-native options for ingestion, transformation, and storage. IaaS provides greater control over hybrid infrastructure through customizable VMs. Both approaches let you take advantage of fully managed databases, storage, and analytics offerings across proprietary and open-source engines.
 
 The following architecture illustrates how these options work in practice:
 
 -   **Cloud-native PaaS**. [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) exchanges messages with [IBM MQ](https://www.ibm.com/cloud/learn/message-queues) through the [MQ connector](/azure/connectors/connectors-create-api-mq#:~:text=The%20logic%20app%20where%20you%20want%20to%20add,For%20example,%20you%20can%20use%20the%20Recurrence%20trigger.). Additional
-    [connectors](/connectors/connector-reference/) provide quick access to events, data, and actions across other apps, services, systems, protocols, and platforms. Logic Apps also includes tools for transforming data from the queue if you need to modify the data format, structure, or values before storing it on Azure or sending it to the application layer.
+-   **Cloud-native PaaS**. [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) exchanges messages with [IBM MQ](https://www.ibm.com/cloud/learn/message-queues) through the [MQ connector](/azure/connectors/connectors-create-api-mq). Additional [connectors](/connectors/connector-reference/) provide quick access to events, data, and actions across other apps, services, systems, protocols, and platforms. Logic Apps also includes tools for transforming data from the queue if you need to modify the data format, structure, or values before storing it on Azure or sending it to the application layer.
 
 -   **VM-based IaaS**. Running [Microsoft Host Integration Server (HIS)](/host-integration-server/what-is-his) on a VM, you can use a messaging integration component that connects to IBM MQ. You control the data transformation process by creating a .NET application to read and write messages. The application can persist data in the Azure data store of your choice, and you can choose the MQ server's polling interval.
 
