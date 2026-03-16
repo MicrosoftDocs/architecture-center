@@ -229,21 +229,17 @@ WebJobs can run as continuous or triggered processes:
 
 If you decide to include background tasks within an existing compute instance, you must consider how this affects the quality attributes of the compute instance and the background task itself. These factors help you to decide whether to colocate the tasks with the existing compute instance or separate them out into a separate compute instance:
 
-- **Availability**: Background tasks might not need to have the same level of availability as other parts of the application, in particular the UI and other parts that are directly involved in user interaction. Background tasks might be more tolerant of latency, retried connection failures, and other factors that affect availability because the operations can be queued. However, there must be sufficient capacity to prevent the backup of requests that could block queues and affect the application as a whole.
+- **Availability**: Background tasks are often more tolerant of brief outages than the UI because pending work can be queued. However, if the queue backs up because background processing is unavailable for too long, the application as a whole is affected.
 
-- **Scalability**: Background tasks are likely to have a different scalability requirement than the UI and the interactive parts of the application. Scaling the UI might be necessary to meet peaks in demand, while outstanding background tasks might be completed during less busy times by fewer compute instances.
+- **Recovery**: If a compute instance that only hosts background tasks fails, the application can continue serving users as long as pending work is queued. When the instance recovers, it processes the backlog.
 
-- **Resiliency**: Failure of a compute instance that just hosts background tasks might not fatally affect the application as a whole if the requests for these tasks can be queued or postponed until the task is available again. If the compute instance or tasks can be restarted within an appropriate interval, users of the application might not be affected.
+- **Security**: Background tasks might need access to different resources, credentials, or network segments than the UI. Running them in a separate compute instance lets you apply a tighter security boundary, such as restricting network access to a data store that the UI should never reach directly. You can also use patterns such as [Gatekeeper](../patterns/gatekeeper.yml) to isolate background compute from user-facing components.
 
-- **Security**: Background tasks might have different security requirements or restrictions than the UI or other parts of the application. By using a separate compute instance, you can specify a different security environment for the tasks. You can also use patterns such as Gatekeeper to isolate the background compute instances from the UI in order to maximize security and separation.
+- **Manageability**: Background tasks often change on a different release cadence than the UI. Separating them avoids redeploying the entire application when only the job logic changes.
 
-- **Performance**: You can choose the type of compute instance for background tasks to specifically match the performance requirements of the tasks. This might mean using a less expensive compute option if the tasks do not require the same processing capabilities as the UI, or a larger instance if they require additional capacity and resources.
+- **Scalability**: Background tasks typically scale on different signals (queue depth, batch size) than the UI (concurrent users, request rate). Separating them lets each scale independently.
 
-- **Manageability**: Background tasks might have a different development and deployment rhythm from the main application code or the UI. Deploying them to a separate compute instance can simplify updates and versioning.
-
-- **Cost**: Adding compute instances to execute background tasks increases hosting costs. You should carefully consider the trade-off between additional capacity and these extra costs.
-
-For more information, see the [Leader Election pattern](../patterns/leader-election.yml) and the [Competing Consumers pattern](../patterns/competing-consumers.yml).
+Separating background tasks into dedicated compute adds hosting cost. Weigh that cost against the operational benefits of independent scaling, deployment, and failure isolation.
 
 ## Conflicts
 
@@ -259,11 +255,11 @@ The background tasks might be complex and might require multiple individual task
 
 Coordinating multiple tasks and steps can be challenging, but there are three common patterns that you can use to guide your implementation of a solution:
 
-- **Decomposing a task into multiple reusable steps**. An application might be required to handle tasks of varying complexity when it processes information. A straightforward but inflexible approach to implementing this application might be to perform this processing as a monolithic module. However, this approach is likely to reduce the opportunities for refactoring the code, optimizing it, or reusing it if parts of the same processing are required elsewhere within the application. For more information, see the [Pipes and Filters pattern](../patterns/pipes-and-filters.yml).
+- **Decomposing a task into multiple reusable steps**. A background job that processes information through several stages (for example, validate, transform, store) can be decomposed into discrete filters connected by queues. Each step runs independently and can be scaled or reused across different jobs. For more information, see the [Pipes and Filters pattern](../patterns/pipes-and-filters.yml).
 
-- **Managing execution of the steps for a task**. An application might do tasks composed of several steps, and some of these steps might call remote services or access remote resources. The individual steps might be independent of each other, but they are orchestrated by the application logic that implements the task. For more information, see [Scheduler Agent Supervisor pattern](../patterns/scheduler-agent-supervisor.yml).
+- **Managing execution of the steps for a task**. A background job composed of several steps that call remote services or access remote resources needs orchestration logic to sequence the steps, handle timeouts, and track progress. For more information, see [Scheduler Agent Supervisor pattern](../patterns/scheduler-agent-supervisor.yml).
 
-- **Managing recovery for task steps that fail**. An application might need to undo the work that is performed by a series of steps (which together define an eventually consistent operation) if one or more of the steps fail. For more information, see the [Compensating Transaction pattern](../patterns/compensating-transaction.yml).
+- **Managing recovery for task steps that fail**. A background job that spans multiple steps (which together define an eventually consistent operation) might need to undo completed work if a later step fails. For more information, see the [Compensating Transaction pattern](../patterns/compensating-transaction.yml).
 
 ## Resiliency considerations
 
