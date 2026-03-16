@@ -210,6 +210,7 @@ To learn about related solutions, see the following guides and architectures.
 [Get-Started with Databricks pipelines]: /azure/databricks/getting-started/data-pipeline-get-started/
 [Run your first DLT pipeline]: /azure/databricks/delta-live-tables/tutorial-pipelines/
 [Stream processing with Azure Databricks]: ../../reference-architectures/data/stream-processing-databricks.yml
+[Choosing a stream processing technology in Azure]: ../../data-guide/technology-choices/stream-processing.md
 [Choose a data analytics and reporting technology in Azure]: ../../data-guide/technology-choices/analysis-visualizations-reporting.md
 [Choose a data pipeline orchestration technology in Azure]: ../../data-guide/technology-choices/pipeline-orchestration-data-movement.md
 [What is Power BI?]: /power-bi/fundamentals/power-bi-overview
