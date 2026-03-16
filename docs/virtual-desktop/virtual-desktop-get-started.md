@@ -24,7 +24,7 @@ Migrating end-user desktops to the cloud helps improve employee productivity and
 
 This section provides an overview of the virtual desktop architecture on Azure, showing how the key stages of a virtual desktop solution journey connect — from initial learning through production deployment.
 
-:::image type="complex" border="false" source="images/virtual-desktop-get-started-diagram.svg" alt-text="Diagram that shows the virtual desktop solution journey on Azure." lightbox="images/virtual-desktop-get-started-diagram.svg":::
+:::image type="complex" border="false" source="images/virtual-desktop-get-started-diagram.png" alt-text="Diagram that shows the virtual desktop solution journey on Azure." lightbox="images/virtual-desktop-get-started-diagram.png":::
    Diagram showing the solution journey for virtual desktops on Azure. The journey starts with learning and organizational readiness, then moves to choosing appropriate Azure services, followed by implementation best practices and production deployment.
 :::image-end:::
 
