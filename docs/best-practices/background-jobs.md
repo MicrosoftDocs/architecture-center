@@ -77,166 +77,134 @@ If you require a background task to communicate with the calling task to indicat
 
 You can host background tasks by using a range of different Azure platform services:
 
-- [**Azure Web Apps and WebJobs**](#azure-web-apps-and-webjobs). You can use WebJobs to execute custom jobs based on a range of different types of scripts or executable programs within the context of a web app.
-- [**Azure Functions**](#azure-functions). You can use functions for background jobs that don't run for a long time. Another use case is if your workload is already hosted on App Service plan and is underutilized.
-- [**Azure Virtual Machines**](#azure-virtual-machines). If you have a Windows service or want to use the Windows Task Scheduler, it's common to host your background tasks within a dedicated virtual machine.
-- [**Azure Batch**](#azure-batch). Batch is a platform service that schedules compute-intensive work to run on a managed collection of virtual machines. It can automatically scale compute resources.
-- [**Azure Kubernetes Service (AKS)**](#azure-kubernetes-service). Azure Kubernetes Service provides a managed hosting environment for Kubernetes on Azure.
-- [**Azure Container Apps**](#azure-container-apps). Azure Container Apps enables you to build serverless microservices based on containers.
+- [**Azure Functions**](#azure-functions). A serverless compute service that supports event-driven and schedule-driven triggers with automatic scaling. Use [Durable Functions](/azure/azure-functions/durable/durable-functions-overview) for long-running or stateful workflows.
 
-The following sections describe these options in more detail, and include considerations to help you choose the appropriate option.
+- [**Azure Container Apps**](#azure-container-apps). A serverless container platform that supports both long-running services and discrete [jobs](/azure/container-apps/jobs). Jobs run to completion and can be triggered manually, on a schedule, or by events. Container Apps uses [KEDA](https://keda.sh/) for event-driven autoscaling, including scale to zero.
 
-### Azure Web Apps and WebJobs
+- [**Azure Kubernetes Service (AKS)**](#azure-kubernetes-service). A managed Kubernetes environment that provides full control over container orchestration. Use Kubernetes [CronJobs](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/) and [Jobs](https://kubernetes.io/docs/concepts/workloads/controllers/job/) for background processing when you need direct access to the Kubernetes API and control plane.
 
-You can use Azure WebJobs to execute custom jobs as background tasks within an Azure Web App. WebJobs run within the context of your web app as a continuous process. WebJobs also run in response to a trigger event from Azure Logic Apps or external factors, such as changes to storage blobs and message queues. Jobs can be started and stopped on demand, and shut down gracefully. If a continuously running WebJob fails, it's automatically restarted. Retry and error actions are configurable.
+- [**Azure Batch**](#azure-batch). A platform service that schedules compute-intensive work to run on a managed collection of virtual machines. It can automatically scale compute resources across tens, hundreds, or thousands of nodes.
 
-When you configure a WebJob:
+- [**Azure Virtual Machines**](#azure-virtual-machines). An IaaS option for background tasks that require full control over the operating system or runtime environment, such as Windows services, third-party executables, or specialized runtimes.
 
-- If you want the job to respond to an event-driven trigger, you should configure it as **Run continuously**. The script or program is stored in the folder named site/wwwroot/app_data/jobs/continuous.
-- If you want the job to respond to a schedule-driven trigger, you should configure it as **Run on a schedule**. The script or program is stored in the folder named site/wwwroot/app_data/jobs/triggered.
-- If you choose the **Run on demand** option when you configure a job, it executes the same code as the **Run on a schedule** option when you start it.
+- [**Azure App Service WebJobs**](#azure-app-service-webjobs). A feature of Azure App Service that runs background scripts or programs in the same context as a web app. Consider WebJobs when you need background processing that is colocated with an existing App Service application.
 
-Azure WebJobs run within the sandbox of the web app. This means that they can access environment variables and share information, such as connection strings, with the web app. The job has access to the unique identifier of the machine that is running the job. The connection string named **AzureWebJobsStorage** provides access to Azure Storage queues, blobs, and tables for application data, and access to Service Bus for messaging and communication. The connection string named **AzureWebJobsDashboard** provides access to the job action log files.
-
-Azure WebJobs have the following characteristics:
-
-- **Security**: WebJobs are protected by the deployment credentials of the web app.
-- **Supported file types**: You can define WebJobs by using command scripts (`.cmd`), batch files (`.bat`), PowerShell scripts (`.ps1`), Bash shell scripts (`.sh`), PHP scripts (`.php`), Python scripts (`.py`), JavaScript code (`.js`), and executable programs (`.exe`, `.jar`, and more).
-- **Deployment**: You can deploy scripts and executables by using the [Azure portal](/azure/app-service-web/web-sites-create-web-jobs), by using [Visual Studio](/azure/app-service-web/websites-dotnet-deploy-webjobs), by using the [Azure WebJobs SDK](/azure/app-service/webjobs-sdk-get-started), or by copying them directly to the following locations:
-  - For triggered execution: site/wwwroot/app_data/jobs/triggered/{job name}
-  - For continuous execution: site/wwwroot/app_data/jobs/continuous/{job name}
-- **Logging**: Console.Out is treated (marked) as INFO. Console.Error is treated as ERROR. You can access monitoring and diagnostics information by using the Azure portal. You can download log files directly from the site. They are saved in the following locations:
-  - For triggered execution: Vfs/data/jobs/triggered/jobName
-  - For continuous execution: Vfs/data/jobs/continuous/jobName
-- **Configuration**: You can configure WebJobs by using the portal, the REST API, and PowerShell. You can use a configuration file named settings.job in the same root directory as the job script to provide configuration information for a job. For example:
-  - { "stopping_wait_time": 60 }
-  - { "is_singleton": true }
-
-#### Considerations
-
-- By default, WebJobs scale with the web app. However, you can configure jobs to run on single instance by setting the **is_singleton** configuration property to **true**. Single instance WebJobs are useful for tasks that you do not want to scale or run as simultaneous multiple instances, such as reindexing, data analysis, and similar tasks.
-- To minimize the impact of jobs on the performance of the web app, consider creating an empty Azure Web App instance in a new App Service plan to host long-running or resource-intensive WebJobs.
+The following sections describe these options in more detail and include considerations to help you choose the appropriate option.
 
 ### Azure Functions
 
-An option that is similar to WebJobs is Azure Functions. This service is serverless that is most suitable for event-driven triggers that run for a short period. A function can also be used to run scheduled jobs through timer triggers, when configured to run at set times.
+Azure Functions is a serverless compute service that runs event-driven code. Functions are a fit for background jobs because they support a wide range of [triggers](/azure/azure-functions/functions-triggers-bindings), including queue messages, blob storage changes, timer schedules, HTTP requests, and Event Grid events.
 
-Azure Functions isn't a recommended option for large, long-running tasks because they can cause unexpected timeout issues. However, depending on the hosting plan, they can be considered for schedule-driven triggers.
+For short-duration background tasks, Azure Functions provides automatic scaling (including scale to zero on the Consumption plan) and pay-per-execution billing. For long-running or stateful workflows, use [Durable Functions](/azure/azure-functions/durable/durable-functions-overview), which extends Azure Functions with orchestration capabilities.
 
-#### Considerations
+Durable Functions supports several [patterns](/azure/azure-functions/durable/durable-functions-overview#application-patterns) that are directly applicable to background job coordination:
 
-If the background task is expected to run for a short duration in response to an event, consider running the task in a Consumption plan. The execution time is configurable up to a maximum time. A function that runs for longer costs more. Also CPU-intensive jobs that consume more memory can be more expensive. If you use additional triggers for services as part of your task, those are billed separately.
+- **Function chaining**. Execute a sequence of functions in a specific order, passing the output of each step to the next.
+- **Fan-out/fan-in**. Run multiple functions in parallel and then aggregate the results.
+- **Async HTTP APIs**. Coordinate long-running operations with external clients by using a polling endpoint or webhook callback.
+- **Human interaction**. Pause an orchestration until an external event (such as an approval) is received, with optional timeout-based escalation.
+- **Monitor**. Implement a recurring process that polls for a condition, with configurable intervals and timeouts.
 
-The Premium plan is more suitable if you have a high number of tasks that are short but expected to run continuously. This plan is more expensive because it needs more memory and CPU. The benefit is that you can use features such as virtual network integration.
+#### Azure Functions considerations
 
-The Dedicated plan is most suitable for background jobs if your workload already runs on it. If you have underutilized VMs, you can run it on the same VM and share compute costs.
+- Choose a [hosting plan](/azure/azure-functions/functions-scale) based on your workload characteristics:
 
-For more information, see these articles:
+  - **Consumption plan**. Best for infrequent or unpredictable workloads. You pay only for execution time and resources consumed. Execution duration is limited by a configurable timeout (default 5 minutes, maximum 10 minutes).
 
-- [Azure Functions hosting options](/azure/azure-functions/functions-scale)
-- [Timer trigger for Azure Functions](/azure/azure-functions/functions-bindings-timer?tabs=csharp)
+  - **Flex Consumption plan**. Provides the scale-to-zero billing model of the Consumption plan with additional features like virtual network integration, configurable instance sizes, and faster scaling. Supports concurrency control for event-driven processing.
+
+  - **Premium plan**. Suited for high-throughput workloads that run continuously or near-continuously. Provides pre-warmed instances to avoid cold starts, virtual network integration, and longer execution durations.
+
+  - **Dedicated (App Service) plan**. Run functions on existing App Service infrastructure. This option is appropriate when you have underutilized App Service capacity and want to share compute costs.
+
+- Durable Functions maintains orchestration state automatically through checkpointing. If a function app restarts, the orchestration resumes from its last checkpoint. Design activity functions to be [idempotent](/azure/azure-functions/durable/durable-functions-best-practice-reference) so that retries don't produce duplicate side effects. You can also use [timer triggers](/azure/azure-functions/functions-bindings-timer) to run functions on a schedule without an external event source.
+
+### Azure Container Apps
+
+Azure Container Apps supports background processing through [Container Apps jobs](/azure/container-apps/jobs), which run containerized tasks to completion and then stop. Jobs are suited for batch processing, scheduled tasks, and event-driven work where a short-lived process handles a discrete unit of work. For a general overview of the platform, see [Azure Container Apps overview](/azure/container-apps/overview).
+
+Container Apps jobs support three trigger types:
+
+- **Manual jobs**. Triggered on demand through the Azure CLI, Azure portal, or Azure Resource Manager API. Use manual jobs for one-time tasks such as data migrations or on-demand processing that is initiated by an application.
+
+- **Scheduled jobs**. Triggered at specific times by using a cron expression. Use scheduled jobs for nightly reports, periodic data cleanup, or recurring data processing.
+
+- **Event-driven jobs**. Triggered by events such as a message arriving in a queue. Container Apps uses [KEDA](https://keda.sh/) to monitor event sources and scale job executions based on configured rules. Event-driven jobs can scale to zero when there are no events to process. For a walkthrough, see [Tutorial: Deploy an event-driven job](/azure/container-apps/tutorial-event-driven-jobs).
+
+For background tasks that run continuously (for example, a service that constantly processes messages from a queue), deploy a container app instead of a job. Container apps restart automatically on failure and support [scaling rules](/azure/container-apps/scale-app) based on queue length or other metrics.
+
+#### Azure Container Apps considerations
+
+- Container Apps jobs require you to build and maintain container images. This adds overhead compared to Azure Functions, but it gives you full control over the runtime, dependencies, and OS-level tooling your job needs.
+
+- For event-driven jobs, verify that your event source is supported by a [KEDA scaler](https://keda.sh/docs/scalers/). KEDA supports Azure Service Bus, Azure Storage Queues, Apache Kafka, RabbitMQ, and many other sources.
+
+- If you need direct access to the Kubernetes APIs and control plane, use [Azure Kubernetes Service](/azure/aks/intro-kubernetes) instead.
+
+### Azure Kubernetes Service
+
+Use Azure Kubernetes Service (AKS) when your background jobs require direct access to the Kubernetes API, custom scheduling logic, or integration with a broader Kubernetes-based platform that your team already operates.
+
+Use Kubernetes [CronJobs](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/) for scheduled background tasks and [Jobs](https://kubernetes.io/docs/concepts/workloads/controllers/job/) for one-time run-to-completion work. You can also use [KEDA](https://keda.sh/) with AKS for event-driven autoscaling of job processors.
+
+#### Azure Kubernetes Service considerations
+
+- AKS requires operational investment in cluster management, upgrades, and security patching. If you don't need direct Kubernetes API access, [Azure Container Apps jobs](#azure-container-apps) provide a managed alternative with less overhead.
+
+### Azure Batch
+
+Consider [Azure Batch](/azure/batch/batch-technical-overview) if you need to run large, parallel high-performance computing (HPC) workloads across tens, hundreds, or thousands of VMs.
+
+The Batch service provisions the VMs, assigns tasks to the VMs, runs the tasks, and monitors the progress. Batch can automatically scale out the VMs in response to the workload. Batch also provides job scheduling. Azure Batch supports both Linux and Windows VMs.
+
+#### Azure Batch considerations
+
+Batch works well with intrinsically parallel workloads. It can also perform parallel calculations with a reduce step at the end, or run [Message Passing Interface (MPI) applications](/azure/batch/batch-mpi) for parallel tasks that require message passing between nodes.
+
+An Azure Batch job runs on a pool of nodes (VMs). One approach is to allocate a pool only when needed and then delete it after the job completes. This approach maximizes utilization because nodes aren't idle, but the job must wait for nodes to be allocated. Alternatively, you can create a pool ahead of time. That approach minimizes the time that it takes for a job to start but can result in nodes that sit idle. For more information, see [Pool and compute node lifetime](/azure/batch/batch-api-basics#pool-and-compute-node-lifetime). For broader HPC guidance, see [Batch and HPC solutions for large-scale computing workloads](../topics/high-performance-computing.md).
 
 ### Azure Virtual Machines
 
-Background tasks might be implemented in a way that prevents them from being deployed to Azure Web Apps, or these options might not be convenient. Typical examples are Windows services, and third-party utilities and executable programs. Another example might be programs written for an execution environment that is different than that hosting the application. For example, it might be a Unix or Linux program that you want to execute from a Windows or .NET application. You can choose from a range of operating systems for an Azure virtual machine, and run your service or executable on that virtual machine.
+Background tasks might require a full operating system environment or specific runtime dependencies that prevent them from using platform or serverless services. Typical examples include Windows services, third-party executables, and programs written for specialized runtimes. You can choose from a range of operating systems for an Azure virtual machine and run your service or executable on that virtual machine.
 
-For more information, see the following resources:
-
-- [Azure App Services, Cloud Services, and Virtual Machines comparison](/azure/app-service-web/choose-web-site-cloud-service-vm)
-- [Sizes for Windows virtual machines in Azure](/azure/virtual-machines/windows/sizes)
-- [Operating systems and prebuilt images for Virtual Machines](https://marketplace.microsoft.com/search/products?product=virtual-machines)
-
-To initiate the background task in a separate virtual machine, you have a range of options:
+To initiate the background task in a separate virtual machine, you have several options:
 
 - You can execute the task on demand directly from your application by sending a request to an endpoint that the task exposes. This passes in any data that the task requires. This endpoint invokes the task.
+
 - You can configure the task to run on a schedule by using a scheduler or timer that is available in your chosen operating system. For example, on Windows you can use Windows Task Scheduler to execute scripts and tasks. Or, if you have SQL Server installed on the virtual machine, you can use the SQL Server Agent to execute scripts and tasks.
+
 - You can use Azure Logic Apps to initiate the task by adding a message to a queue that the task listens on, or by sending a request to an API that the task exposes.
 
 See the earlier section [Triggers](#triggers) for more information about how you can initiate background tasks.
 
-<!-- markdownlint-disable MD024 -->
+#### Azure Virtual Machines considerations
 
-#### Considerations
+Consider the following points when you decide whether to deploy background tasks in an Azure virtual machine:
 
-<!-- markdownlint-enable MD024 -->
+- Hosting background tasks in a separate [Azure virtual machine](/azure/virtual-machines/linux/faq) provides flexibility and allows precise control over initiation, execution, scheduling, and resource allocation. However, it increases runtime cost if a virtual machine must be deployed solely to run background tasks. To evaluate whether a VM is the right compute model, see [Choose an Azure compute service](/azure/architecture/guide/technology-choices/compute-decision-tree).
 
-Consider the following points when you are deciding whether to deploy background tasks in an Azure virtual machine:
+- There is no built-in facility in the Azure portal to monitor individual tasks, and no automated restart capability for failed tasks. You can monitor the basic status of the virtual machine and manage it by using [Azure PowerShell cmdlets](/powershell/azure). However, you need to implement your own mechanisms for collecting instrumentation data from the task and the operating system. Use the [Azure Monitor Agent](/azure/azure-monitor/agents/agents-overview) to collect logs and metrics from the VM.
 
-- Hosting background tasks in a separate Azure virtual machine provides flexibility and allows precise control over initiation, execution, scheduling, and resource allocation. However, it increases runtime cost if a virtual machine must be deployed just to run background tasks.
-- There is no facility to monitor the tasks in the Azure portal and no automated restart capability for failed tasks--although you can monitor the basic status of the virtual machine and manage it by using the [Azure Resource Manager Cmdlets](/powershell/module/?view=azps-1.0.0&preserve-view=true). However, there are no facilities to control processes and threads in compute nodes. Typically, using a virtual machine requires additional effort to implement a mechanism that collects data from instrumentation in the task, and from the operating system in the virtual machine. One solution that might be appropriate is to use the [System Center Management Pack for Azure](https://www.microsoft.com/download/details.aspx?id=50013).
-- You might consider creating monitoring probes that are exposed through HTTP endpoints. The code for these probes could perform health checks, collect operational information and statistics--or collate error information and return it to a management application. For more information, see the [Health Endpoint Monitoring pattern](../patterns/health-endpoint-monitoring.yml).
+- You might consider creating monitoring probes that are exposed through HTTP endpoints. The code for these probes could perform health checks, collect operational information and statistics, or collate error information and return it to a management application. For more information, see the [Health Endpoint Monitoring pattern](../patterns/health-endpoint-monitoring.yml).
 
-For more information, see:
+### Azure App Service WebJobs
 
-- [Virtual Machines](https://azure.microsoft.com/services/virtual-machines)
-- [Azure Virtual Machines FAQ](/azure/virtual-machines/linux/faq)
+Azure [WebJobs](/azure/app-service/webjobs-create) is a feature of Azure App Service that runs background scripts or programs in the same instance as a web app. WebJobs run within the sandbox of the web app, which means that they can access environment variables, connection strings, and other configuration shared with the app. You can use the [Azure WebJobs SDK](/azure/app-service/webjobs-sdk-get-started) to simplify the code you write for common background processing tasks.
 
-### Azure Batch
+Consider WebJobs when you have an existing App Service web app and you need background processing that shares the same lifecycle, configuration, and deployment as the web app. WebJobs aren't recommended as a general-purpose background job platform for new workloads. For new event-driven or scheduled background processing, evaluate [Azure Functions](#azure-functions) or [Azure Container Apps jobs](#azure-container-apps) first.
 
-Consider [Azure Batch](/azure/batch) if you need to run large, parallel high-performance computing (HPC) workloads across tens, hundreds, or thousands of VMs.
+WebJobs can run as continuous or triggered processes:
 
-The Batch service provisions the VMs, assign tasks to the VMs, runs the tasks, and monitors the progress. Batch can automatically scale out the VMs in response to the workload. Batch also provides job scheduling. Azure Batch supports both Linux and Windows VMs.
+- **Run continuously**. The WebJob starts immediately and runs as a long-running process. The script or program is stored in site/wwwroot/app_data/jobs/continuous.
+- **Run on a schedule or on demand**. The WebJob is triggered by a schedule (via a CRON expression) or started manually. The script or program is stored in site/wwwroot/app_data/jobs/triggered.
 
-<!-- markdownlint-disable MD024 -->
+#### Azure App Service WebJobs considerations
 
-#### Considerations
+- By default, WebJobs scale with the web app. You can configure a job to run as a single instance by setting the **is_singleton** configuration property to **true**. Single instance WebJobs are useful for tasks that you don't want to run as simultaneous multiple instances, such as reindexing or data analysis.
 
-<!-- markdownlint-enable MD024 -->
+- To minimize the impact of jobs on the performance of the web app, consider creating an empty Azure Web App instance in a separate App Service plan to host long-running or resource-intensive WebJobs.
 
-Batch works well with intrinsically parallel workloads. It can also perform parallel calculations with a reduce step at the end, or run [Message Passing Interface (MPI) applications](/azure/batch/batch-mpi) for parallel tasks that require message passing between nodes.
-
-An Azure Batch job runs on a pool of nodes (VMs). One approach is to allocate a pool only when needed and then delete it after the job completes. This maximizes utilization, because nodes aren't idle, but the job must wait for nodes to be allocated. Alternatively, you can create a pool ahead of time. That approach minimizes the time that it takes for a job to start, but can result in having nodes that sit idle. For more information, see [Pool and compute node lifetime](/azure/batch/batch-api-basics#pool-and-compute-node-lifetime).
-
-For more information, see:
-
-- [What is Azure Batch?](/azure/batch/batch-technical-overview)
-- [Develop large-scale parallel compute solutions with Batch](/azure/batch/batch-api-basics)
-- [Batch and HPC solutions for large-scale computing workloads](../topics/high-performance-computing.md)
-
-### Azure Kubernetes Service
-
-Azure Kubernetes Service (AKS) manages your hosted Kubernetes environment, which makes it easy to deploy and manage containerized applications.
-
-Containers can be useful for running background jobs. Some of the benefits include:
-
-- Containers support high-density hosting. You can isolate a background task in a container, while placing multiple containers in each VM.
-- The container orchestrator handles internal load balancing, configuring the internal network, and other configuration tasks.
-- Containers can be started and stopped as needed.
-- Azure Container Registry allows you to register your containers inside Azure boundaries. This comes with security, privacy, and proximity benefits.
-
-<!-- markdownlint-disable MD024 -->
-
-#### Considerations
-
-<!-- markdownlint-enable MD024 -->
-
-- Requires an understanding of how to use a container orchestrator. 
-
-For more information, see:
-
-- [Overview of containers in Azure](https://azure.microsoft.com/overview/containers)
-
-- [Introduction to private Docker container registries](/azure/container-registry/container-registry-intro)
-
-### Azure Container Apps
-
-Azure Container Apps enables you to build serverless microservices based on containers. Distinctive features of Container Apps include:
-
-- Optimized for running general purpose containers, especially for applications that span many microservices deployed in containers.
-- Powered by Kubernetes and open-source technologies like [Dapr](https://dapr.io/), [Kubernetes Event-driven Autoscaling (KEDA)](https://keda.sh/), and [envoy](https://www.envoyproxy.io/).
-- Supports Kubernetes-style apps and microservices with features like [Service discovery](/azure/container-apps/connect-apps) and [traffic splitting](/azure/container-apps/revisions).
-- Enables event-driven application architectures by supporting scale based on traffic and pulling from [event sources like queues](/azure/container-apps/scale-app), including [scale to zero](/azure/container-apps/scale-app).
-- Support of long running processes and can run [background tasks](/azure/container-apps/background-processing).
-
-#### Considerations
-
-Azure Container Apps doesn't provide direct access to the underlying Kubernetes APIs. If you require access to the Kubernetes APIs and control plane, you should use [Azure Kubernetes Service](/azure/aks/intro-kubernetes). However, if you would like to build Kubernetes-style applications and don't require direct access to all the native Kubernetes APIs and cluster management, Container Apps provides a fully managed experience based on best-practices. For these reasons, many teams prefer to start building container microservices with Azure Container Apps.
-
-For more information, see:
-
-- [Overview of Azure Containers App](/azure/container-apps/overview)
-
-You can get started building your first container app [using the quickstarts](/azure/container-apps/get-started).
+- WebJobs share compute resources with the host web app. Resource-intensive background processing can degrade the responsiveness of the web app.
 
 ## Partitioning
 
