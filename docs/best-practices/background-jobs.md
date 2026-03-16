@@ -173,7 +173,7 @@ The Batch service provisions the VMs, assigns tasks to the VMs, runs the tasks, 
 
 Batch works well with intrinsically parallel workloads. It can also perform parallel calculations with a reduce step at the end, or run [Message Passing Interface (MPI) applications](/azure/batch/batch-mpi) for parallel tasks that require message passing between nodes.
 
-An Azure Batch job runs on a pool of nodes (VMs). One approach is to allocate a pool only when needed and then delete it after the job completes. This approach maximizes utilization because nodes aren't idle, but the job must wait for nodes to be allocated. Alternatively, you can create a pool ahead of time. That approach minimizes the time that it takes for a job to start but can result in nodes that sit idle. For more information, see [Pool and compute node lifetime](/azure/batch/batch-api-basics#pool-and-compute-node-lifetime). For broader HPC guidance, see [Batch and HPC solutions for large-scale computing workloads](../topics/high-performance-computing.md).
+An Azure Batch job runs on a pool of nodes (VMs). One approach is to allocate a pool only when needed and then delete it after the job completes. This approach maximizes utilization because nodes aren't idle, but the job must wait for nodes to be allocated. Alternatively, you can create a pool ahead of time. That approach minimizes the time that it takes for a job to start but can result in nodes that sit idle. For more information, see [Pool and compute node lifetime](/azure/batch/batch-api-basics#pool-and-compute-node-lifetime). For broader HPC guidance, see [Batch and HPC solutions for large-scale computing workloads](../guide/compute/high-performance-computing.md).
 
 ### Azure Virtual Machines
 
