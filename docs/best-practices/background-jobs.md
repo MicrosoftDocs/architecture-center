@@ -73,17 +73,19 @@ If you use a schedule-driven task that must run as a single instance, be aware o
 
 ## Returning results
 
-Background jobs execute asynchronously in a separate process, or even in a separate location, from the UI or the process that invoked the background task. Ideally, background tasks are "fire and forget" operations, and their execution progress has no impact on the UI or the calling process. This means that the calling process doesn't wait for completion of the tasks. Therefore, it cannot automatically detect when the task ends.
+Background jobs execute asynchronously in a separate process, or even in a separate location, from the UI or the process that invoked the background task. Ideally, background tasks are "fire and forget" operations, and their execution progress has no impact on the UI or the calling process. This means that the calling process doesn't wait for completion of the tasks and can't automatically detect when the task ends.
 
-If you require a background task to communicate with the calling task to indicate progress or completion, you must implement a mechanism for this. Some examples are:
+If you require a background task to communicate with the calling task to indicate progress or completion, you must implement a mechanism for this. Some options are:
 
-- Write a status indicator value to storage that is accessible to the UI or caller task, which can monitor or check this value when required. Other data that the background task must return to the caller can be placed into the same storage.
+- **Return a status endpoint to the caller**. The caller receives a URL (or resource identifier) when it submits the job and polls that endpoint for status. This approach is described by the [Asynchronous Request-Reply pattern](../patterns/async-request-reply.yml). It works well for HTTP-based APIs where the caller initiates a long-running operation and needs to check for completion.
 
-- Establish a reply queue that the UI or caller listens on. The background task can send messages to the queue that indicate status and completion. Data that the background task must return to the caller can be placed into the messages. If you are using Azure Service Bus, you can use the **ReplyTo** and **CorrelationId** properties to implement this capability.
+- **Use a reply queue**. The background task sends messages to a queue that the caller listens on. The messages indicate status and completion. If you use Azure Service Bus, you can use the **ReplyTo** and **CorrelationId** properties to correlate responses to requests.
 
-- Expose an API or endpoint from the background task that the UI or caller can access to obtain status information. Data that the background task must return to the caller can be included in the response.
+- **Push notifications through events**. The background task publishes an event when it completes (or at key milestones). The caller subscribes to those events. This approach works well with [Azure Event Grid](/azure/event-grid/overview) for cloud-native event routing, or with a publish-and-subscribe mechanism like Azure Service Bus topics.
 
-- Have the background task call back to the UI or caller through an API to indicate status at predefined points or on completion. This might be through events raised locally or through a publish-and-subscribe mechanism. Data that the background task must return to the caller can be included in the request or event payload.
+- **Call back to the caller through a webhook**. The caller provides a callback URL when it submits the job. The background task sends an HTTP request to that URL when processing completes or when errors occur. This approach is useful when the caller is an external system.
+
+- **Write status to shared storage**. The background task writes progress or results to a shared data store (such as a database or blob) that the caller monitors. This approach is straightforward but requires the caller to poll for changes.
 
 ## Hosting environment
 
@@ -276,6 +278,12 @@ Background tasks must be resilient in order to provide reliable services to the 
   - Queues are guaranteed at *least once* delivery mechanisms, but they might deliver the same message more than once. Also, if a background task fails after processing a message but before deleting it from the queue, the message becomes available for processing again. Background tasks should be idempotent, which means that processing the same message more than once doesn't cause an error or inconsistency in the application's data. Some operations are naturally idempotent, such as setting a stored value to a specific new value. But operations such as adding a value to an existing stored value without checking that the stored value is still the same as when the message was originally sent causes inconsistencies. Azure Service Bus queues can be configured to automatically remove duplicated messages. For more information on the challenges with at-least-once message delivery, see the [guidance on idempotent message processing](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing).
 
   - Some messaging systems, such as Azure Queue Storage and Azure Service Bus queues, support a dequeue count property that indicates the number of times a message has been read from the queue. This count is useful for identifying poison messages and for implementing idempotency checks. For more information, see [Azure Service Bus messaging overview](/azure/service-bus-messaging/service-bus-messaging-overview) and [idempotent message processing](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing).
+
+- Design retry behavior around how your queue redelivers failed messages.
+
+  - **Distinguish transient from permanent failures in your job processor**. When a background task fails to process a message, the queue redelivers it automatically. If the failure is transient (a downstream service timeout or throttling response), redelivery is the right behavior. If the failure is permanent (invalid message payload, missing referenced data), the message fails on every attempt. Configure your job processor to detect permanent failures and route those messages directly to a [dead letter queue](/azure/service-bus-messaging/service-bus-dead-letter-queues) instead of consuming retry attempts. Use the queue's max delivery count to cap how many times a message is retried before it's dead-lettered automatically.
+
+  - **Monitor dead letter queues**. Dead-lettered messages represent background work that wasn't completed. Set up alerts on DLQ depth and message age so that your operations team can investigate failures, fix the underlying issue, and resubmit messages. Without monitoring, failed work accumulates silently. For more information on handling transient conditions in your processing logic, see [Transient fault handling](transient-faults.md).
 
 ## Scaling and performance considerations
 
