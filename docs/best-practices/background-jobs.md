@@ -283,6 +283,14 @@ Background tasks must be resilient in order to provide reliable services to the 
 
 - **Distinguish transient from permanent failures in your job processor**. When a background task fails to process a message, the queue redelivers it automatically. If the failure is transient (a downstream service timeout or throttling response), redelivery is the right behavior. If the failure is permanent (invalid message payload, missing referenced data), the message fails on every attempt. Configure your job processor to detect permanent failures and route those messages directly to a [dead letter queue](/azure/service-bus-messaging/service-bus-dead-letter-queues) instead of consuming retry attempts. Use the queue's max delivery count to cap how many times a message is retried before it's dead-lettered automatically. For more information on handling transient conditions in your processing logic, see [Transient fault handling](transient-faults.md).
 
+## Security considerations
+
+Background jobs often run with broader access to data stores, APIs, and internal services than the user-facing application. When you plan security for background tasks, consider the following points:
+
+- **Grant least-privilege access to job processors.** A background job that reads from a queue and writes to a database should only have permission to do those two things. Avoid reusing a broad application identity that also serves the UI or admin APIs. If a job processor is compromised, the blast radius is limited to the permissions it was granted.
+
+- **Keep sensitive data out of message payloads.** Queue messages might be logged, dead-lettered, or inspected during debugging. Instead of placing sensitive data (such as personal information or credentials) directly in a message, store the data in a protected data store and pass a reference identifier in the message that the job uses to retrieve the data.
+
 ## Observability considerations
 
 Background jobs run without a user present, so failures are silent unless you actively monitor for them. When you plan observability for background tasks, consider the following points:
