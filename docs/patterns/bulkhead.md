@@ -1,3 +1,15 @@
+---
+title: Bulkhead Pattern
+description: Isolate elements of an application into pools so that if one fails, the others will continue to function.
+author: pnp
+ms.author: claytonsiemens77
+ms.date: 03/19/2026
+ms.topic: design-pattern
+ms.subservice: cloud-fundamentals
+---
+
+# Bulkhead pattern
+
 The Bulkhead pattern is a type of application design that's tolerant of failure. In a bulkhead architecture, also known as cell-based architecture, elements of an application are isolated into pools so that if one fails, the other elements continue to function. The Bulkhead pattern is named after the sectioned partitions (bulkheads) of a ship's hull. If the hull of a ship is compromised, only the damaged section fills with water, which prevents the ship from sinking.
 
 ## Context and problem
@@ -56,7 +68,7 @@ Consider the following points as you decide how to implement this pattern.
 
 - Monitor each partition's performance and SLA.
 
-- Use built-in platform controls, such as APIM rate limits, Cosmos DB RU isolation, and resource limits in AKS or Azure Container Apps. Don't recreate these throttling and isolation mechanisms in your application code.
+- Use built-in platform controls, such as Azure API Management (APIM) rate limits, Cosmos DB RU isolation, and resource limits in Azure Kubernetes Service or Azure Container Apps. Don't recreate these throttling and isolation mechanisms in your application code.
 
 - AI and inference workloads often require strict bulkheads due to deployment‑level quotas and concurrency limits, for example, isolating Azure OpenAI deployments per workload or per tenant.
 
@@ -81,7 +93,7 @@ Evaluate how to use the Bulkhead pattern in a workload's design to address the g
 | Pillar | How this pattern supports pillar goals |
 | :----- | :------------------------------------- |
 | [Reliability](/azure/well-architected/reliability/checklist) design decisions help your workload become **resilient** to malfunction and ensure that it **recovers** to a fully functioning state after a failure occurs. | The failure isolation strategy introduced through the intentional and complete segmentation between components attempts to contain faults to the bulkhead that's experiencing the problem, preventing impact on other bulkheads.<br/><br/> - [RE:02 Critical flows](/azure/well-architected/reliability/identify-flows)<br/> - [RE:07 Self-preservation](/azure/well-architected/reliability/self-preservation) |
-| [Security](/azure/well-architected/security/checklist)  design decisions help ensure the **confidentiality**, **integrity**, and **availability** of your workload's data and systems. | The segmentation between components helps constrain security incidents to the compromised bulkhead.<br/><br/> - [SE:04 Segmentation](/azure/well-architected/security/segmentation) |
+| [Security](/azure/well-architected/security/checklist) design decisions help ensure the **confidentiality**, **integrity**, and **availability** of your workload's data and systems. | The segmentation between components helps constrain security incidents to the compromised bulkhead.<br/><br/> - [SE:04 Segmentation](/azure/well-architected/security/segmentation) |
 | [Performance Efficiency](/azure/well-architected/performance-efficiency/checklist) helps your workload **efficiently meet demands** through optimizations in scaling, data, and code. | Each bulkhead can be individually scalable to efficiently meet the needs of the task that's encapsulated in the bulkhead.<br/><br/> - [PE:02 Capacity planning](/azure/well-architected/performance-efficiency/capacity-planning)<br/> - [PE:05 Scaling and partitioning](/azure/well-architected/performance-efficiency/scale-partition) |
 
 If this pattern introduces trade-offs within a pillar, consider them against the goals of the other pillars.

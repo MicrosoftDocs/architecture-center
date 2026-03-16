@@ -235,7 +235,7 @@ Principal author:
 [Azure Policy Regulatory Compliance controls for Azure Virtual Machines]: /azure/virtual-machines/security-controls-policy
 [Azure Shared Image Galleries]: /azure/virtual-machines/shared-image-galleries#billing
 [Azure VM Image Builder - pricing]: https://azure.microsoft.com/pricing/details/image-builder
-[Bulkhead pattern]: ../../patterns/bulkhead.yml
+[Bulkhead pattern]: ../../patterns/bulkhead.md
 [Control and audit your resources by using Azure Policy]: /training/modules/build-cloud-governance-strategy-azure/6-control-audit-resources-azure-policy
 [Custom Script Extensions]: /azure/virtual-machines/extensions/custom-script-windows
 [Deployment Stamps pattern]: ../../patterns/deployment-stamp.yml

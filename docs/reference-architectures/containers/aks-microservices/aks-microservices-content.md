@@ -206,7 +206,7 @@ For troubleshooting microservice health problems, use the network observability 
 
 #### Resource constraints
 
-Resource contention can affect the availability of a service. Define [resource constraints for containers](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) so that a single container can't overwhelm the cluster resources, like memory and CPU. For non-container resources, like threads or network connections, consider using the [Bulkhead pattern](../../../patterns/bulkhead.yml) to isolate resources.
+Resource contention can affect the availability of a service. Define [resource constraints for containers](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) so that a single container can't overwhelm the cluster resources, like memory and CPU. For non-container resources, like threads or network connections, consider using the [Bulkhead pattern](../../../patterns/bulkhead.md) to isolate resources.
 
 Use [resource quotas](https://kubernetes.io/docs/concepts/policy/resource-quotas/) to limit the total resources allowed for a namespace. This limitation ensures that front-end services don't consume resources that back-end services need, and back-end services don't consume resources that front-end services need. Resource quotas can help allocate resources within the same cluster to multiple microservice development teams.
 
