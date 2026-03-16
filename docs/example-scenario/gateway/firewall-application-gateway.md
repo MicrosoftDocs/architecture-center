@@ -1,3 +1,15 @@
+---
+title: Azure Firewall and Application Gateway for Virtual Networks
+description: Learn about options and best practices for how to use Azure Firewall and Azure Application Gateway security in virtual networks.
+author: erjosito
+ms.author: jomore
+ms.date: 03/18/2026
+ms.topic: concept-article
+ms.subservice: architecture-guide
+---
+
+# Azure Firewall and Application Gateway for virtual networks
+
 To help secure Azure application workloads, use protective measures such as authentication and encryption in the applications themselves. You can add security layers to the virtual networks that host the applications. These security layers help protect the application's inbound flows from unintended use. They also limit outbound flows to the internet to only those endpoints that your application requires. This article describes [Azure Virtual Network][azure-virtual-network] security services like Azure DDoS Protection, Azure Firewall, and Azure Application Gateway. It also describes when to use each service and network design options that combine them.
 
 - [DDoS Protection](/azure/ddos-protection/ddos-protection-overview), combined with application design best practices, provides enhanced DDoS mitigation features that improve defense against DDoS attacks. You should activate DDoS Protection on every perimeter virtual network.
