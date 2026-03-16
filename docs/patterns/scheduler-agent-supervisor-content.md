@@ -63,7 +63,7 @@ You should consider the following points when deciding how to implement this pat
 
 ## When to use this pattern
 
-Use this pattern when a process that runs in a distributed environment, such as the cloud, must be resilient to communications failure and/or operational failure.
+Use this pattern when a process that runs in a distributed environment, such as the cloud, must be resilient to communications failure and/or operational failure. This pattern is common in [background jobs](../best-practices/background-jobs.md) that orchestrate multistep workflows, such as order processing or resource provisioning.
 
 This pattern might not be suitable for tasks that don't invoke remote services or access remote resources.
 
