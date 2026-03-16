@@ -10,6 +10,8 @@ The following diagram shows how a reference mirroring application deployed in Az
    The flow begins with a user icon. An arrow points right to a box labeled Fabric generic mirroring with MirrorDB creation that contains Fabric, Power BI, OneLake logos. An arrow labeled MongoDB mirrored landing zone points from this box to another box that represents the deployment to Azure. A GitHub logo is above this box. Another arrow points right to the App Service icon. A box labeled Python app is to the left of the App Service icon. That box contains smaller boxes for app.py, mirror, listening, and initial sync. Arrows point from App Service to app.py to mirror listening and initial sync. An arrow points from the Python app box back to the Fabric generic mirroring box.
 :::image-end:::
 
+*Download a [Visio file](https://arch-center.azureedge.net/mongodb-atlas-fabric.vsdx) of this architecture.*
+
 ### Dataflow
 
 The following dataflow corresponds to the previous diagram:
@@ -91,6 +93,8 @@ This approach uses [MongoDB Atlas triggers](https://github.com/mongodb/atlas-fun
 :::image type="complex" source="media/azure-fabric-analytics-mongodb.svg" alt-text="Architecture diagram that shows MongoDB Atlas triggers and functions that push data to OneLake." lightbox="media/azure-fabric-analytics-mongodb.svg" border="false":::
    The diagram consists of two boxes. The left box is labeled MongoDB Atlas. Inside the box, an arrow points from a cluster icon to a trigger icon and from the trigger icon to a function icon. Another arrow points right from the MongoDB Atlas box to a box labeled Microsoft Fabric. Inside this box, an arrow points from Fabric functions to OneLake. A Fabric pipeline icon connects OneLake and smaller box that contains icons for lakehouses and Data Warehouse.
 :::image-end:::
+
+*Download a [PowerPoint file](https://arch-center.azureedge.net/sync-mongodb-atlas-fabric.pptx) of this architecture.*
 
 ##### Dataflow
 
