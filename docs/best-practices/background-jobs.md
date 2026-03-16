@@ -114,7 +114,7 @@ The following sections describe these options in more detail and include conside
 
 Azure Functions is a serverless compute service that runs event-driven code. Functions are a fit for background jobs because they support a wide range of [triggers](/azure/azure-functions/functions-triggers-bindings), including queue messages, blob storage changes, timer schedules, HTTP requests, and Event Grid events.
 
-For short-duration background tasks, Azure Functions provides automatic scaling (including scale to zero on the Consumption plan) and pay-per-execution billing. For long-running or stateful workflows, use [Durable Functions](/azure/azure-functions/durable/durable-functions-overview), which extends Azure Functions with orchestration capabilities.
+For short-duration background tasks, Azure Functions provides automatic scaling (including scale to zero) and pay-per-execution billing. For long-running or stateful workflows, use [Durable Functions](/azure/azure-functions/durable/durable-functions-overview), which extends Azure Functions with orchestration capabilities.
 
 Durable Functions supports several orchestration patterns that are directly applicable to background job coordination:
 
@@ -128,9 +128,7 @@ Durable Functions supports several orchestration patterns that are directly appl
 
 - Choose a [hosting plan](/azure/azure-functions/functions-scale) based on your workload characteristics:
 
-  - **Consumption plan**. Best for infrequent or unpredictable workloads. You pay only for execution time and resources consumed. Execution duration is limited by a configurable timeout (default 5 minutes, maximum 10 minutes).
-
-  - **Flex Consumption plan**. Provides the scale-to-zero billing model of the Consumption plan with additional features like virtual network integration, configurable instance sizes, and faster scaling. Supports concurrency control for event-driven processing.
+  - **Flex Consumption plan**. Best for background jobs that are intermittent or unpredictable in volume. Scales to zero when there's no work and scales up under load, with per-execution billing. The default function timeout is 30 minutes with no enforced maximum, so it handles both short tasks and longer processing. Supports virtual network integration and [always ready instances](/azure/azure-functions/flex-consumption-plan#always-ready-instances) to reduce cold-start latency.
 
   - **Premium plan**. Suited for high-throughput workloads that run continuously or near-continuously. Provides pre-warmed instances to avoid cold starts, virtual network integration, and longer execution durations.
 
@@ -270,7 +268,7 @@ Background tasks must be resilient and recoverable to provide reliable services 
 
 - Design background tasks to shut down gracefully when the hosting platform signals termination. Deployments, scale-in events, and platform maintenance can stop a running instance at any time. If a background task is mid-execution when it receives a termination signal (such as SIGTERM in containers), it should stop accepting new work, finish or checkpoint the current work item, and exit cleanly. For queue-driven tasks, this means completing the current message before the process exits so the message isn't redelivered unnecessarily. If the task can't finish in time, it should checkpoint its progress or allow the message visibility timeout to expire so another instance picks up the work.
 
-  Set the platform's shutdown grace period (such as `terminationGracePeriodSeconds` in Kubernetes or the [shutdown timeout](/azure/azure-functions/functions-host-json#functiontimeout) in Azure Functions) long enough for your typical work item to complete.
+  Configure the platform's shutdown grace period long enough for your typical work item to complete. In Kubernetes, set `terminationGracePeriodSeconds` on the pod spec. In Azure Functions (Flex Consumption and Premium plans), the platform automatically provides up to 60 minutes for in-progress executions to complete during [scale-in](/azure/azure-functions/event-driven-scaling#scale-in-behaviors).
 
 - When you use queues to communicate with background tasks, the queues can act as a buffer to store requests while the application is under higher than usual load. This allows the tasks to catch up with the UI during less busy periods. It also means that restarts won't block the UI. For more information, see the [Queue-Based Load Leveling pattern](../patterns/queue-based-load-leveling.yml). If some tasks are more important than others, consider implementing the [Priority Queue pattern](../patterns/priority-queue.yml) to ensure that these tasks run before less important ones.
 
@@ -312,7 +310,7 @@ Background tasks must keep pace with the rate at which work arrives. If tasks fa
 
 - **Scale on queue depth, not on CPU alone.** For message-driven background tasks, the most meaningful scaling signal is how much work is waiting, not how busy the current instances are. Azure Functions, Azure Container Apps, and AKS (via [KEDA](https://keda.sh/)) all support scaling based on queue length, topic subscription count, or other event-source metrics. This approach adds capacity when work accumulates and removes it when queues drain.
 
-- **Use scale-to-zero for intermittent workloads.** If your background jobs only run at certain times, such as nightly batch jobs or event-driven processing with idle periods, use a hosting model that scales to zero when there's no work. Azure Functions (Consumption and Flex Consumption plans) and Azure Container Apps Jobs scale to zero by default, so you don't pay for idle compute.
+- **Use scale-to-zero for intermittent workloads.** If your background jobs only run at certain times, such as nightly batch jobs or event-driven processing with idle periods, use a hosting model that scales to zero when there's no work. Azure Functions and Azure Container Apps Jobs can scale to zero, so you don't pay for idle compute.
 
 - **Scale background tasks independently from the application.** Host background tasks in a separate compute service so that the UI and background processing scale on different signals. If you have multiple background task types with different throughput characteristics, consider separating them so each type can scale independently.
 
