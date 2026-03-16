@@ -101,7 +101,7 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 #### Rightsize GPU-enabled VMs
 
-GPU-enabled VMs are the largest cost driver in this architecture. Match VM SKUs to actual workload requirements:
+GPU-enabled VMs are the largest cost driver in this architecture. Match VM SKUs to actual workload requirements.
 
 | Workload | Recommended approach |
 | :------- | :------------------- |
