@@ -15,7 +15,7 @@ ms.custom: arb-aiml
 
 [Foundry Tools](/azure/ai-services/what-are-ai-services) helps developers and organizations rapidly create intelligent, cutting-edge, market-ready, and responsible applications by using out-of-the-box and prebuilt and customizable APIs and models.
 
-This article describes video and image processing capabilities in Foundry Tools, such as visual analysis and generation of images, object detection, image classification, and facial recognition. The suite includes the following services:
+This article describes video and image processing capabilities in Tools, such as visual analysis and generation of images, object detection, image classification, and facial recognition. The suite includes the following services:
 
 - [Azure OpenAI in Foundry Models](#azure-openai) provides access to the following OpenAI language models:
    
@@ -29,11 +29,11 @@ This article describes video and image processing capabilities in Foundry Tools,
    
    Use Azure OpenAI for image generation from natural language, broad and nonspecific image analysis, or audio scenarios that don't require a dedicated speech service.
 
-- [Azure Vision in Foundry Tools](#azure-vision) is part of Foundry Tools and provides advanced algorithms that process images and return information based on visual features. It includes optical character recognition (OCR), image analysis, and face detection capabilities.
+- [Azure Vision in Foundry Tools](#azure-vision) provides advanced algorithms that process images and return information based on visual features. It includes optical character recognition (OCR), image analysis, and face detection capabilities.
 
 - [Microsoft Azure AI Custom Vision](#custom-vision) is an image recognition service that you can use to build, deploy, and improve your image identifier models for specific requirements that other services can't meet.
 
-- [Azure Content Understanding in Foundry Tools](#azure-content-understanding) is a capability in Foundry Tools that uses generative AI to extract structured fields from images and video. Use Azure Content Understanding when you need schema-defined extraction, scene segmentation, or retrieval-augmented generation (RAG)-ready video output.
+- [Azure Content Understanding in Foundry Tools](#azure-content-understanding) uses generative AI to extract structured fields from images and video. Use Azure Content Understanding when you need schema-defined extraction, scene segmentation, or retrieval-augmented generation (RAG)-ready video output.
 
 - [Microsoft Azure AI Video Indexer](#video-indexer) is an AI solution that organizations can use to extract deep insights from live and uploaded video and audio content by using advanced machine learning and generative AI models.
 
@@ -61,7 +61,7 @@ Azure OpenAI provides audio models through the following APIs:
 
 ### Azure Vision
 
-[Azure Vision](/azure/ai-services/computer-vision/overview) is part of Foundry Tools. It provides advanced algorithms that process images and return information based on the visual features that interest you. Azure Vision includes OCR, image analysis, and face detection capabilities.
+[Azure Vision](/azure/ai-services/computer-vision/overview) is part of Tools. It provides advanced algorithms that process images and return information based on the visual features that interest you. Azure Vision includes OCR, image analysis, and face detection capabilities.
 
 | Use Azure Vision to do these tasks | Don't use Azure Vision to do these tasks |
 | :----------| :-------------|
@@ -105,7 +105,7 @@ The following table provides a list of possible use cases for Azure Vision.
 | Provide detailed custom classifications for specific business requirements. | Perform basic visual analysis. Use vision-capable models from [Azure OpenAI](#azure-openai) or open-source models in Machine Learning instead. |
 | Train models with your own labeled images for specialized scenarios. | |
 
-Custom Vision uses a machine learning algorithm to analyze images for custom features. You submit sets of images that do have and don't have the visual characteristics that you want. Then you label the images with your own labels, or *tags*, at the time of submission. The algorithm trains to this data and calculates its own accuracy by testing itself on the same images. After you train your model, you can test, retrain, and eventually use the model in your image recognition app to classify images or detect objects. You can also export the model for offline use.
+Custom Vision uses a machine learning algorithm to analyze images for custom features. You submit sets of images that do have and don't have the visual characteristics that you want. Then you label the images with your own labels, or *tags*, at the time of submission. The algorithm uses this data to train and calculates its own accuracy by testing itself on the same images. After you train your model, you can test, retrain, and eventually use the model in your image recognition app to classify images or detect objects. You can also export the model for offline use.
 
 #### Available Custom Vision features
 
@@ -127,7 +127,7 @@ The following table provides a list of possible use cases for Custom Vision.
 
 ### Azure Content Understanding
 
-[Azure Content Understanding](/azure/ai-services/content-understanding/overview) is part of Foundry Tools. It uses generative AI to extract structured fields from images and video. You define a schema that specifies what to extract, and Azure Content Understanding applies generative models to produce structured JSON or RAG-ready Markdown output. It also provides confidence scores and grounding for each extracted value, enabling automated workflows with targeted human review.
+[Azure Content Understanding](/azure/ai-services/content-understanding/overview) is part of Tools. It uses generative AI to extract structured fields from images and video. You define a schema that specifies what to extract, and Azure Content Understanding applies generative models to produce structured JSON or RAG-ready Markdown output. It also provides confidence scores and grounding for each extracted value, enabling automated workflows with targeted human review.
 
 | Use Azure Content Understanding to do these tasks | Don't use Azure Content Understanding to do these tasks |
 | :----------| :-------------|
@@ -163,7 +163,7 @@ The following table provides a list of possible use cases for Azure Content Unde
 
 ### Video Indexer
 
-[Video Indexer](/azure/azure-video-indexer/video-indexer-overview) is an AI solution that organizations can use to extract deep insights from live and uploaded video and audio content. It uses advanced machine learning and generative AI models and supports a wide range of capabilities, including transcription, translation, object detection, and video summarization. Video Indexer is flexibile. You can use it in the cloud or deploy it to edge locations via Azure Arc.
+[Video Indexer](/azure/azure-video-indexer/video-indexer-overview) is an AI solution that organizations can use to extract deep insights from live and uploaded video and audio content. It uses advanced machine learning and generative AI models and supports a wide range of capabilities, including transcription, translation, object detection, and video summarization. Video Indexer is flexible. You can use it in the cloud or deploy it to edge locations via Azure Arc.
 
 | Use Video Indexer to do these tasks | Don't use Video Indexer to do these tasks |
 | :----------| :-------------|
@@ -177,8 +177,8 @@ Video Indexer provides the following deployment options.
 
 | Option | Description |
 | :----------| :-------------|
-| [Cloud-based Video Indexer](/azure/azure-video-indexer/upload-index-media) | A cloud application built on Foundry Tools, including Azure Face, Azure Translator in Foundry Tools, Azure Vision, and Azure Speech. It analyzes video and audio content by running more than 30 AI models to generate rich insights. |
-| [Video Indexer enabled by Azure Arc](/azure/azure-video-indexer/arc/azure-video-indexer-enabled-by-arc-overview) | An Azure Arc extension that runs video and audio analysis and generative AI on edge devices. It supports both uploaded and live video streams, enabling real-time analysis directly at the data source. It's suited for industries that have strict data residency requirements or low-latency operational needs. |
+| [Cloud-based Video Indexer](/azure/azure-video-indexer/upload-index-media) | A cloud application built on Tools, including Azure Face, Azure Translator in Foundry Tools, Azure Vision, and Azure Speech. It analyzes video and audio content by running more than 30 AI models to generate rich insights. |
+| [Video Indexer enabled by Azure Arc](/azure/azure-video-indexer/arc/azure-video-indexer-enabled-by-arc-overview) | An Azure Arc extension that runs video and audio analysis and generative AI on edge devices. It supports both uploaded and live video streams, enabling real-time analysis directly at the data source. It suits industries that have strict data residency requirements or low-latency operational needs. |
 
 #### Video models
 
@@ -195,7 +195,7 @@ The following table provides a list of video analysis features available in Vide
 | [Scene segmentation](/azure/azure-video-indexer/scene-shot-keyframe-detection-insight) | Determines when a scene changes in video based on visual cues. A scene depicts a single event composed of a series of consecutive shots. |
 | [Shot detection](/azure/azure-video-indexer/scene-shot-keyframe-detection-insight) | Determines when a shot changes in video based on visual cues. A shot is a series of frames taken from the same motion-picture camera. |
 | [Keyframe extraction](/azure/azure-video-indexer/scene-shot-keyframe-detection-insight#keyframe-editorial-shot-type-detection) | Detects stable keyframes in a video. |
-| [Slate detection](/azure/azure-video-indexer/clapper-board-insight) | Identifies movie post-production insights, including clapperboard detection, digital patterns detection, and textless slate detection. |
+| [Slate detection](/azure/azure-video-indexer/clapper-board-insight) | Identifies movie post-production insights, including clapper board detection, digital patterns detection, and textless slate detection. |
 
 #### Audio models
 
@@ -209,35 +209,35 @@ The following table provides a list of audio analysis features available in Vide
 | [Closed captioning](/azure/azure-video-indexer/video-indexer-output-json-v2#insights) | Creates closed captioning in Web Video Text Tracks (VTT), Timed Text Markup Language (TTML), and SubRip Subtitle (SRT) formats. |
 | [Two channel processing](/azure/azure-video-indexer/video-indexer-output-json-v2) | Automatically detects separate transcripts and merges them into a single timeline. |
 | [Noise reduction](/azure/azure-video-indexer/video-indexer-output-json-v2) | Clears up telephony audio or noisy recordings based on Skype filters. |
-| [Speaker enumeration](/azure/azure-video-indexer/video-indexer-output-json-v2) | Maps and understands which speaker spoke which words and when. It can detect sixteen speakers in a single audio file. |
+| [Speaker enumeration](/azure/azure-video-indexer/video-indexer-output-json-v2) | Maps and understands which speaker spoke which words and when. It can detect 16 speakers in a single audio file. |
 | [Translation](/azure/azure-video-indexer/language-support) | Creates translations of the audio transcript in many different languages. |
 | [Audio effects detection](/azure/azure-video-indexer/audio-effects-detection-insight) | Detects audio effects in nonspeech segments, including alarms or sirens, a dog barking, crowd reactions, gunshots or explosions, laughter, breaking glass, and silence. |
 
 #### Combined audio and video models
 
-The following features analyze both audio and video content.
+The following features analyze audio and video content.
 
 | Feature | Description |
 | :----------| :-------------|
-| Keywords extraction | Extracts keywords from speech and visual text. |
-| Named entities extraction | Extracts brands, locations, and people from speech and visual text through natural language processing (NLP). |
-| Topic inference | Extracts topics based on various keywords by using the International Press Telecommunications Council (IPTC), Wikipedia, and Video Indexer hierarchical topic ontology. |
-| Sentiment analysis | Identifies positive, negative, and neutral sentiments from speech and visual text. |
+| Keywords extraction | Extracts keywords from speech and visual text |
+| Named entities extraction | Extracts brands, locations, and people from speech and visual text through natural language processing (NLP) |
+| Topic inference | Extracts topics based on various keywords by using the International Press Telecommunications Council (IPTC), Wikipedia, and Video Indexer hierarchical topic ontology |
+| Sentiment analysis | Identifies positive, negative, and neutral sentiments from speech and visual text |
 
-For more information, see [Video Indexer documentation](/azure/azure-video-indexer/video-indexer-overview).
+For more information, see [Video Indexer overview](/azure/azure-video-indexer/video-indexer-overview).
 
-#### Use cases for Cloud-based Video Indexer
+#### Use cases for cloud-based Video Indexer
 
-The following table provides a list of possible use cases for Cloud-based Video Indexer.
+The following table provides a list of possible use cases for cloud-based Video Indexer.
 
 | Use case | Description |
 | :----------| :-------------|
-| Deep search | Use the insights extracted from the video to enhance the search experience across a video library. For example, indexing spoken words and faces lets users find moments in a video where a person spoke certain words or when two people were seen together. Search based on such insights from videos is applicable to news agencies, educational institutes, broadcasters, entertainment content owners, enterprise line-of-business apps, and generally to any industry that has a video library that users need to search against. |
-| Content creation | Create trailers, highlight reels, social media content, or news clips based on the insights Video Indexer extracts from your content. Keyframes, scene markers, and timestamps of people and label appearances simplify the creation process. |
-| Accessibility | Make your content available for people with disabilities or distribute content to different regions that use different languages by using the transcription and translation that Video Indexer provides in multiple languages. |
-| Monetization | Increase the value of videos. Industries that rely on ad revenue, such as news media and social media, can deliver relevant ads by using the extracted insights as additional signals to the ad server. |
-| Content moderation | Use textual and visual content moderation models to keep your users safe from inappropriate content and validate that the content that you publish matches your organization's values. |
-| Recommendations | Improve user engagement by highlighting the relevant video moments to users. By tagging each video with extra metadata, you can recommend the most relevant videos and highlight the parts that match user needs. |
+| Deep search | Enhance the search experience across a video library by using the insights that Video Indexer extracts. For example, when you index spoken words and faces, users can find moments in a video when a person speaks specific words or when two people are seen together. These use cases apply to any industry that has a video library that users need to search, including news agencies, educational institutes, broadcasters, entertainment content owners, and enterprise line-of-business apps. |
+| Content creation | Create trailers, highlight reels, social media content, or news clips based on the insights that Video Indexer extracts from your content. Keyframes, scene markers, and timestamps of people and label appearances simplify the creation process. |
+| Accessibility | Make your content available for people with disabilities or distribute content to regions that use different languages by using the transcription and translation capabilities that Video Indexer provides. |
+| Monetization | Increase the value of videos. Industries that rely on ad revenue, such as news media and social media, can deliver relevant ads by using the extracted insights as extra signals to the ad server. |
+| Content moderation | Keep your users safe from inappropriate content and validate that the content that you publish matches your organization's values by using textual and visual content moderation models. |
+| Recommendations | Improve user engagement by highlighting the relevant video moments to users. By tagging each video with extra metadata, you can recommend the most relevant videos and highlight the parts that match users' needs. |
 
 #### Use cases for Video Indexer enabled by Azure Arc
 
@@ -248,8 +248,8 @@ The following table provides a list of possible use cases for Video Indexer enab
 | Retail | Optimize store layouts and improve customer experience and safety. Monitor the number of customers in checkout lines in real time to optimize staffing and reduce wait times. |
 | Manufacturing | Ensure quality control and worker safety through video analysis. Detect workers who aren't wearing protective gear with real-time detection of critical events. |
 | Modern safety | Detect and identify security and safety issues before they cause a risk. |
-| Data governance | Bring AI to the content instead of vice versa. Use Video Indexer enabled by Arc when you can't move indexed content from on-premises to the cloud due to regulations, architecture decisions, or large data stores. |
-| Pre-indexing | Index before uploading content to the cloud. Presort your on-premises video or audio archive, and then only upload it for standard or advanced indexing in the cloud. |
+| Data governance | Bring AI to the content. Use Video Indexer enabled by Arc when you can't move indexed content from on-premises to the cloud because of regulations, architecture decisions, or large data stores. |
+| Pre-indexing | Index content before you upload it to the cloud. Presort your on-premises video or audio archive, and then only upload it for standard or advanced indexing in the cloud. |
 
 ## Related resources
 
