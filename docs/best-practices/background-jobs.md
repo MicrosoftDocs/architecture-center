@@ -78,7 +78,7 @@ Background jobs run asynchronously in a separate process, or even a separate loc
 
 If you require a background task to communicate with the calling task to indicate progress or completion, you must implement a mechanism for this. Some options are:
 
-- **Return a status endpoint to the caller**. The caller receives a URL (or resource identifier) when it submits the job and polls that endpoint for status. This approach is described by the [Asynchronous Request-Reply pattern](../patterns/async-request-reply.yml). It works well for HTTP-based APIs where the caller initiates a long-running operation and needs to check for completion.
+- **Return a status endpoint to the caller**. The caller receives a URL (or resource identifier) when it submits the job and polls that endpoint for status. This approach is described by the [Asynchronous Request-Reply pattern](../patterns/asynchronous-request-reply.md). It works well for HTTP-based APIs where the caller initiates a long-running operation and needs to check for completion.
 
 - **Use a reply queue**. The background task sends messages to a queue that the caller listens on. The messages indicate status and completion. If you use Azure Service Bus, you can use the **ReplyTo** and **CorrelationId** properties to correlate responses to requests.
 
@@ -200,7 +200,7 @@ See the earlier section [Triggers](#triggers) for more information about how you
 
 Consider the following points when you deploy background tasks in an Azure virtual machine:
 
-- Hosting background tasks in a separate [Azure virtual machine](/azure/virtual-machines/linux/faq) provides flexibility and precise control over initiation, execution, scheduling, and resource allocation. However, it increases runtime cost if a virtual machine must be deployed solely to run background tasks. To evaluate whether a VM is the right compute model, see [Choose an Azure compute service](/azure/architecture/guide/technology-choices/compute-decision-tree).
+- Hosting background tasks in a separate [Azure virtual machine](/azure/virtual-machines/linux/faq) provides flexibility and precise control over initiation, execution, scheduling, and resource allocation. However, it increases runtime cost if a virtual machine must be deployed solely to run background tasks. To evaluate whether a VM is the right compute model, see [Choose an Azure compute service](../guide/technology-choices/compute-decision-tree.md).
 
 - The Azure portal has no built-in facility to monitor individual tasks and no automated restart capability for failed tasks. You can monitor the basic status of the virtual machine and manage it by using [Azure PowerShell cmdlets](/powershell/azure). However, you need to implement your own mechanisms for collecting instrumentation data from the task and operating system. Use the [Azure Monitor Agent](/azure/azure-monitor/agents/agents-overview) to collect logs and metrics from the VM.
 
@@ -324,7 +324,7 @@ Background tasks must keep pace with the rate at which work arrives. If tasks fa
 
 - [Reliability checklist for background jobs](/azure/well-architected/reliability/background-jobs)
 - [Choose a messaging service](/azure/service-bus-messaging/compare-messaging-services)
-- [Choose an Azure compute service](/azure/architecture/guide/technology-choices/compute-decision-tree)
+- [Choose an Azure compute service](../guide/technology-choices/compute-decision-tree.md)
 
 ## Related resources
 
