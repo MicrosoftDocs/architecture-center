@@ -41,7 +41,7 @@ This architecture uses two cloud design patterns:
 
 When selecting regions to deploy each AKS cluster, consider regions close to the workload consumer or your customers. Also, consider utilizing [cross-region replication](/azure/reliability/cross-region-replication-azure). Cross-region replication asynchronously replicates the same applications and data across other Azure regions for disaster recovery protection. As your cluster scales beyond two regions, continue to plan for cross-region replication for each pair of AKS clusters.
 
-Within each region, nodes in the AKS node pools are spread across multiple availability zones to help prevent issues due to zonal failures. Availability zones are supported in a limited set of regions, which influences regional cluster placement. For more information on AKS and availability zones, including a list of supported regions, see [AKS availability zones](/azure/aks/availability-zones).
+Within each region, nodes in the AKS node pools are spread across multiple availability zones to help prevent issues due to zone failures. Availability zones are supported in a limited set of regions, which influences regional cluster placement. For more information on AKS and availability zones, including a list of supported regions, see [AKS availability zones](/azure/aks/availability-zones).
 
 ### Deployment stamp considerations
 
