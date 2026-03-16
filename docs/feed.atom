@@ -2,12 +2,28 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2026-03-09T17:47:39.161Z</updated>
+    <updated>2026-03-16T18:00:47.830Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Get Started with Compute Architecture Design]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/compute-get-started</id>
+        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/compute-get-started"/>
+        <updated>2026-03-12T16:50:59.000Z</updated>
+        <summary type="html"><![CDATA[Learn about Azure compute technologies, from virtual machines to serverless functions. Review guidance, solution ideas, and reference architectures.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Multiregion Load Balancing]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/high-availability/traffic-manager-application-gateway</id>
+        <link href="https://learn.microsoft.com/azure/architecture/high-availability/traffic-manager-application-gateway"/>
+        <updated>2026-03-11T15:51:40.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to build an Azure system that serves web and non-web workloads with resilient multitier applications in multiple Azure regions.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Asynchronous Request-Reply Pattern]]></title>
         <id>https://learn.microsoft.com/azure/architecture/patterns/asynchronous-request-reply</id>
@@ -54,6 +70,22 @@
         <link href="https://learn.microsoft.com/azure/architecture/operator-guides/aks/aks-upgrade-practices"/>
         <updated>2026-03-05T19:51:56.000Z</updated>
         <summary type="html"><![CDATA[Learn about day-2 patching and upgrading practices for Azure Kubernetes Service (AKS) worker nodes and Kubernetes versions.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Best practices in cloud applications]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/best-practices/index-best-practices</id>
+        <link href="https://learn.microsoft.com/azure/architecture/best-practices/index-best-practices"/>
+        <updated>2026-03-12T18:38:23.000Z</updated>
+        <summary type="html"><![CDATA[Learn about some best practices for building cloud applications and how they align with the Azure Well-Architected Framework.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Enterprise Cloud File Share]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/hybrid/azure-files-private</id>
+        <link href="https://learn.microsoft.com/azure/architecture/hybrid/azure-files-private"/>
+        <updated>2026-03-11T15:20:04.000Z</updated>
+        <summary type="html"><![CDATA[Learn about an enterprise-level cloud file sharing solution that uses Azure Files, Azure File Sync, Azure private DNS, and Azure private endpoints.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
