@@ -289,17 +289,17 @@ Background tasks must be resilient in order to provide reliable services to the 
 
 ## Scaling and performance considerations
 
-Background tasks must offer sufficient performance to ensure they do not block the application, or cause inconsistencies due to delayed operation when the system is under load. Typically, performance is improved by scaling the compute instances that host the background tasks. When you are planning and designing background tasks, consider the following points around scalability and performance:
+Background tasks must keep pace with the rate at which work arrives. If tasks fall behind, queues grow, latency increases, and downstream processes stall. When you plan scaling for background tasks, consider the following points:
 
-- Azure supports autoscaling (both scaling out and scaling back in) based on current demand and load or on a predefined schedule, for Web Apps and Virtual Machines hosted deployments. Use this feature to ensure that the application as a whole has sufficient performance capabilities while minimizing runtime costs.
+- **Scale on queue depth, not on CPU alone.** For message-driven background tasks, the most meaningful scaling signal is how much work is waiting, not how busy the current instances are. Azure Functions, Azure Container Apps, and AKS (via [KEDA](https://keda.sh/)) all support scaling based on queue length, topic subscription count, or other event-source metrics. This approach adds capacity when work accumulates and removes it when queues drain.
 
-- Where background tasks have a different performance capability from the other parts of an application (for example, the UI or components such as the data access layer), hosting the background tasks together in a separate compute service allows the UI and background tasks to scale independently to manage the load. If multiple background tasks have significantly different performance capabilities from each other, consider dividing them and scaling each type independently. However, this approach might increase runtime costs.
+- **Use scale-to-zero for intermittent workloads.** If your background jobs only run at certain times, such as nightly batch jobs or event-driven processing with idle periods, use a hosting model that scales to zero when there's no work. Azure Functions (Consumption and Flex Consumption plans) and Azure Container Apps Jobs scale to zero by default, so you don't pay for idle compute.
 
-- Just scaling the compute resources might not be sufficient to prevent performance loss under load. You might also need to scale storage queues and other resources to prevent a single point of the overall processing chain from becoming a bottleneck. Also, consider other limitations, such as the maximum throughput of storage and other services that the application and the background tasks rely on.
+- **Scale background tasks independently from the application.** Host background tasks in a separate compute service so that the UI and background processing scale on different signals. If you have multiple background task types with different throughput characteristics, consider separating them so each type can scale independently.
 
-- Background tasks must be designed for scaling. For example, they must be able to dynamically detect the number of storage queues in use in order to listen on or send messages to the appropriate queue.
+- **Scale the entire processing pipeline, not just compute.** Adding more task instances doesn't help if the queue, database, or downstream API becomes the bottleneck. Identify throughput limits across the pipeline, including messaging throughput units, database request units, and API rate limits, and scale those resources alongside your compute.
 
-- By default, WebJobs scale with their associated Azure Web Apps instance. However, if you want a WebJob to run as only a single instance, you can create a Settings.job file that contains the JSON data **{ "is_singleton": true }**. This forces Azure to only run one instance of the WebJob, even if there are multiple instances of the associated web app. This can be a useful technique for scheduled jobs that must run as only a single instance.
+- **Enforce single-instance execution when required.** Some scheduled background tasks must not run concurrently, such as database maintenance or report generation that isn't idempotent. Azure Functions timer triggers use a [distributed lock](/azure/azure-functions/functions-bindings-timer#usage) to ensure only one instance runs. For containers, use Kubernetes CronJob's `concurrencyPolicy: Forbid` or Container Apps job-level concurrency settings.
 
 ## Next steps
 
