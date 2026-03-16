@@ -1,8 +1,10 @@
-Like most Azure Platform as a Service (PaaS) services, Azure Web Apps and Function Apps are internet-accessible by default. To restrict inbound traffic, Azure provides two built-in options: access restrictions and private endpoints.
+Like most Azure Platform as a Service (PaaS) services, Azure Web Apps and Function Apps are internet-accessible by default. You can restrict inbound traffic to Azure Web Apps and Function Apps by using access restrictions or private endpoints.
 
-Access restrictions let you configure the resource's internal firewall by defining allow and deny rules. Restrictions can be based on IPv4/IPv6 addresses, service tags, or service endpoints. Service endpoints permit only traffic from selected subnets and virtual networks. Access restrictions are free and available in all App Service and Functions plans, but they have drawbacks: maintaining rules is challenging, and third-party clients require listed IPs (which may be dynamic or considered sensitive).
+Access restrictions let you configure the resource's internal firewall by defining allow and deny rules. Restrictions can be based on IPv4/IPv6 addresses, service tags, or service endpoints. Service endpoints permit only traffic from selected subnets and virtual networks. There is no cost to use Access restrictions and it is available in all App Service and Functions plans, but they have drawbacks: maintaining rules is challenging, and third-party clients require listed IPs (which could be dynamic or considered sensitive).
 
 The second option, a private endpoint, gives clients in your private network secure access to your app over Azure Private Link. A private endpoint uses an IP address from the Azure virtual network address space. Network traffic between the client and the app traverses the virtual network and Private Link on the Microsoft backbone, eliminating exposure to the public internet. Private endpoints also enable ad hoc cross-tenant access: a secure connection can run from a consumer virtual network in one tenant to a specific Web App or Function App in another tenant, removing the need for site-to-site VPNs or virtual network peerings.
+
+For some other PaaS resources (such as Storage Accounts, Key Vault, and Event Hubs), the Network Security Perimeter (NSP) is an additional option to restrict inbound traffic. It is an Azure-native network isolation feature that lets you define a logical security boundary around certain Azure PaaS resources that are not deployed inside a VNet. NSP gives you a "virtual perimeter" for PaaS resources, controlling who and what can talk to them. This solution can be used in combination with private endpoints.
 
 This guide presents an architecture that uses the private endpoint option. The private endpoint securely exposes an Azure Web App in one tenant to a client that consumes the app in another Azure tenant. You can also use this approach for a Function App if you have a Premium or App Service plan for Functions.
 
@@ -34,9 +36,9 @@ This guide presents an architecture that uses the private endpoint option. The p
 
 ## Provider setup
 
-Start by securing the Azure Web App in the tenant that owns it. Create a private endpoint to remove public internet access to the Web App.
+Start by securing the Azure Web App in the tenant that owns it. Create a private endpoint and restrict access from public internet to the Web App.
 
-Web apps and function apps become immediately inaccessible publicly when they're associated with a private endpoint. If you want to turn on public access again, you can do so via the access restriction settings. Other Azure services are still publicly available after you associate them with a private endpoint. These services require additional access controls to become inaccessible.
+Although Web apps and Function Apps become immediately inaccessible publicly when they're associated with a private endpoint and the App Access setting was not configured, it is recommended to explicitly disable public network access via the [App Access setting](/azure/app-service/overview-access-restrictions#app-access). Note that other Azure services remain publicly available after you associate them with a private endpoint. These services always require additional access controls to disable public access.
 
 Before you create the private endpoint, prepare a virtual network and subnet for the private endpoint NIC. The NIC consumes one IP address from the subnet. Also define your DNS strategy so you can register the NIC's A record in the appropriate DNS zone.
 
@@ -54,6 +56,8 @@ Before you create the private endpoint, prepare a virtual network and subnet for
   For more information, see [Azure private endpoint DNS configuration](/azure/private-link/private-endpoint-dns).
 
 In both cases, during the creation of the private endpoint, the Azure DNS public zone (`azurewebsites.net`) is automatically updated with the CNAME record that points to the private DNS zone. Users can try to reach the Web App from sources that can't resolve the private DNS zone to retrieve the actual A record and its internal IP address. Those users get a public resolvable IP address, but the response is *403 Forbidden*.
+
+The provider can optionally configure a [custom domain name](/azure/app-service/app-service-web-tutorial-custom-domain) for the Web App via a CNAME record referencing the entry in the public zone `azurewebsites.net`. For the avoidance of doubt, the CNAME record should not point to the `privatelink.azurewebsites.net` entry.
 
 ## Consumer setup
 
@@ -99,6 +103,8 @@ The consumer needs to set up and configure the private DNS zone to make sure its
   These actions create the A record in the private DNS zone. The FQDN is populated automatically when the connection is approved.
 
 - If the consumer manages their own DNS zones, the consumer needs to configure their environment as described earlier in [Provider setup](#provider-setup).
+
+If the provider configured a custom domain name, the consumer will also be able to access the Web App via that name.
 
 In this guide's architecture, the consumer VM uses the private endpoint to access the Azure Web App. That access is possible as soon as the connection is approved and the DNS has been configured correctly.
 
@@ -172,3 +178,4 @@ Other contributor:
 - [Multi-tier app service with private endpoint](../../example-scenario/web/multi-tier-app-service-private-endpoint.yml)
 - [Azure Private Link in a hub-and-spoke network](../guide/private-link-hub-spoke-network.md)
 - [Limit cross-tenant private endpoint connections in Azure](/azure/cloud-adoption-framework/ready/azure-best-practices/limit-cross-tenant-private-endpoint-connections)
+- [Network Security Perimeter (NSP)](/azure/private-link/network-security-perimeter-concepts)
