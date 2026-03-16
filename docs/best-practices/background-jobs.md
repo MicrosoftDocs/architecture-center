@@ -18,6 +18,9 @@ For example, if an application is required to generate thumbnails of images that
 
 When you consider whether to implement a task as a background job, the main criterion is whether the task can run without user interaction and without the UI needing to wait for the job to be completed. Tasks that require the user or the UI to wait while they are completed might not be appropriate as background jobs.
 
+> [!TIP]
+> This article provides architectural guidance for designing background job systems on Azure, covering hosting options, design principles, reliability, security, observability, and scaling. If you're conducting a reliability review of an existing workload that uses background jobs, see [Recommendations for developing background jobs](/azure/well-architected/reliability/background-jobs) in the Azure Well-Architected Framework, which provides a focused checklist of reliability requirements.
+
 ## Types of background jobs
 
 Background jobs typically include one or more of the following types of jobs:
@@ -319,7 +322,7 @@ Background tasks must keep pace with the rate at which work arrives. If tasks fa
 
 ## Next steps
 
-- [More recommendations for developing background jobs](/azure/well-architected/reliability/background-jobs)
+- [Reliability checklist for background jobs](/azure/well-architected/reliability/background-jobs)
 - [Choose a messaging service](/azure/service-bus-messaging/compare-messaging-services)
 - [Choose an Azure compute service](/azure/architecture/guide/technology-choices/compute-decision-tree)
 
