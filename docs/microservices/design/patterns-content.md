@@ -13,19 +13,19 @@ The design patterns in this article address these challenges directly. Each patt
 
 - [**Anti-corruption layer**](../../patterns/anti-corruption-layer.yml) implements a façade or adapter layer between subsystems that don't share the same semantics. This pattern translates requests between subsystems and prevents a new service's design from being limited by dependencies on legacy systems or other services with incompatible domain models.
 
-- [**Backends for Frontends**](../../patterns/backends-for-frontends.md) creates separate backend services for different types of clients, such as desktop and mobile. That way, a single backend service doesn't need to handle the conflicting requirements of various client types. This pattern can help keep each microservice simple, by separating client-specific concerns.
+- [**Backends for Frontends**](../../patterns/backends-for-frontends.md) creates separate backend services for different types of clients, such as desktop and mobile. That way, a single backend service doesn't need to handle the conflicting requirements of various client types. This pattern helps keep each microservice simple by separating client-specific concerns.
 
-- [**Bulkhead**](../../patterns/bulkhead.md) isolates critical resources, such as connection pool, memory, and CPU, for each workload or service. By using bulkheads, a single workload (or service) can't consume all of the resources, starving others. This pattern increases the resiliency of the system by preventing cascading failures caused by one service.
+- [**Bulkhead**](../../patterns/bulkhead.md) isolates critical resources, such as connection pools, memory, and CPU, for each workload or service. This isolation prevents a single workload or service from consuming all resources and starving others. This pattern increases workload resiliency by preventing cascading failures caused by one service.
 
-- [**Choreography**](../../patterns/choreography.yml) lets each service decide when and how a business operation is processed, rather than depending on a central orchestrator. This pattern reduces coupling between services and is a viable approach when you expect to update or add services frequently.
+- [**Choreography**](../../patterns/choreography.yml) lets each service decide when and how to process a business operation, rather than depending on a central orchestrator. This pattern reduces coupling between services and works well when you expect to update or add services frequently.
 
-- [**CQRS**](../../patterns/cqrs.md) segregates read operations from write operations into separate data models. This pattern can maximize performance, scalability, and security in microservices where reads and writes have different performance or scaling requirements.
+- [**CQRS**](../../patterns/cqrs.md) segregates read operations from write operations into separate data models. This pattern improves performance, scalability, and security in microservices where reads and writes have different performance or scaling requirements.
 
 - [**Gateway Routing**](../../patterns/gateway-routing.yml) uses an API gateway as a reverse proxy to route client requests to different services based on the request, giving clients a single endpoint instead of many.
 
   [**Gateway Aggregation**](../../patterns/gateway-aggregation.yml) uses the gateway to combine multiple client requests into a single request, reducing chattiness between clients and services.
 
-  [**Gateway Offloading**](../../patterns/gateway-offloading.yml) centralizes cross-cutting functionality, such as SSL termination, authentication, and rate limiting, into the gateway so that individual services don't each have to implement it.
+  [**Gateway Offloading**](../../patterns/gateway-offloading.yml) centralizes cross-cutting functionality, such as SSL termination, authentication, and rate limiting, into the gateway so that individual services don't have to implement these concerns separately.
 
   For more information, see [API gateways for microservices](gateway.yml).
 
@@ -33,7 +33,7 @@ The design patterns in this article address these challenges directly. Each patt
 
 - [**Sidecar**](../../patterns/sidecar.md) deploys helper components of an application as a separate container or process to provide isolation and encapsulation. This pattern lets you attach common functionality such as logging, monitoring, and networking configuration to a service without embedding it in the service's code.
 
-- [**Strangler Fig**](../../patterns/strangler-fig.md) supports incremental migration from a legacy system by gradually replacing specific pieces of functionality with new services. Consumers continue to use the same interface, unaware that the migration is taking place, until the legacy system is fully replaced.
+- [**Strangler Fig**](../../patterns/strangler-fig.md) supports incremental migration from a legacy system by gradually replacing specific pieces of functionality with new services. Consumers continue to use the same interface, unaware that the migration is taking place, until you fully replace the legacy system.
 
 ## Supporting patterns
 
