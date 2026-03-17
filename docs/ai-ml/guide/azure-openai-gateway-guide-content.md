@@ -2,7 +2,7 @@ This article describes the key challenges across the five pillars of the Azure W
 
 [Microsoft Foundry](/azure/ai-foundry/what-is-foundry) exposes HTTP APIs that let your applications perform embeddings or completions by using language models. Intelligent applications call these HTTP APIs directly from clients or orchestrators. Examples of clients include chat UI code and custom data processing pipelines. Examples of orchestrators include Microsoft Agent Framework, Semantic Kernel, LangChain, and Foundry Agent Service. When your workload connects to one or more Foundry resources or Foundry Model instances, you must decide whether these consumers connect directly or through a reverse proxy API gateway.
 
-Because a gateway can be used to solve specific scenarios that might not be present in every workload, be sure to see [Specific scenario guidance](#next-steps), which looks at that specific use case of a gateway in more depth.
+You can use a gateway to solve specific scenarios that might not be present in every workload. For more information, see [Specific scenario guidance](#next-steps), which includes an example of gateway usage.
 
 ## Key challenges
 
