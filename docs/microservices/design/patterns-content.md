@@ -15,7 +15,7 @@ The design patterns in this article address these challenges directly. Each patt
 
 - [**Backends for Frontends**](../../patterns/backends-for-frontends.md) creates separate backend services for different types of clients, such as desktop and mobile. That way, a single backend service doesn't need to handle the conflicting requirements of various client types. This pattern can help keep each microservice simple, by separating client-specific concerns.
 
-- [**Bulkhead**](../../patterns/bulkhead.yml) isolates critical resources, such as connection pool, memory, and CPU, for each workload or service. By using bulkheads, a single workload (or service) can't consume all of the resources, starving others. This pattern increases the resiliency of the system by preventing cascading failures caused by one service.
+- [**Bulkhead**](../../patterns/bulkhead.md) isolates critical resources, such as connection pool, memory, and CPU, for each workload or service. By using bulkheads, a single workload (or service) can't consume all of the resources, starving others. This pattern increases the resiliency of the system by preventing cascading failures caused by one service.
 
 - [**Choreography**](../../patterns/choreography.yml) lets each service decide when and how a business operation is processed, rather than depending on a central orchestrator. This pattern reduces coupling between services and is a viable approach when you expect to update or add services frequently.
 
