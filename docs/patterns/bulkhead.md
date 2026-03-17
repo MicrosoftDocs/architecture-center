@@ -132,3 +132,4 @@ spec:
 - [Circuit Breaker pattern](./circuit-breaker.md)
 - [Retry pattern](./retry.yml)
 - [Throttling pattern](./throttling.yml)
+- 
