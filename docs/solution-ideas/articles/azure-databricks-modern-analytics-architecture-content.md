@@ -35,16 +35,16 @@ The following dataflow corresponds to the previous diagram:
    - Model preparation.
    - Model training.
 
-   MLflow manages parameter, metric, and model tracking in data science code runs. The coding possibilities are flexible:
+   MLflow manages parameter, metric, and model tracking in data science code runs. Azure Databricks provides flexible coding options for these workloads:
 
    - Code can be in SQL, Python, R, and Scala.
-   - Code can use popular open-source libraries and frameworks such as Koalas, Pandas, and scikit-learn, which are preinstalled and optimized.
-   - Users can optimize for performance and cost by using single-node and multiple-node compute options.
+   - Code can use popular open-source libraries and frameworks such as PySpark, pandas API on Spark, pandas, and scikit-learn.
+   - You can optimize performance and cost by using single-node and multiple-node compute options.
 
 1. Machine learning models are available in the following formats:
 
    - Azure Databricks stores information about models in the [MLflow Model Registry][MLflow Model Registry]. The registry makes models available through batch, streaming, and REST APIs.
-   - The solution can also deploy models to Azure Machine Learning web services or Azure Kubernetes Service (AKS).
+   - The solution can also deploy models to Azure Machine Learning endpoints, including managed online endpoints, batch endpoints, and AKS-backed Kubernetes endpoints.
 
 1. Services that work with the data connect to a single underlying data source to help ensure consistency. For instance, you can run SQL queries on the data lake by using Azure Databricks SQL warehouses. This service:
 
@@ -52,13 +52,13 @@ The following dataflow corresponds to the previous diagram:
    - Uses integrated security that includes row-level permissions and column-level permissions.
    - Uses a [Photon-powered Delta Engine to improve performance][Photon improves performance].
 
-1. You can mirror gold datasets out of Azure Databricks Unity Catalog into Fabric. Use [Azure Databricks mirroring in Fabric][Databricks mirroring in Fabric] to easily integrate without the need to move or replicate data.
+1. You can mirror gold datasets out of Azure Databricks Unity Catalog into Microsoft Fabric OneLake. Use [Azure Databricks mirroring in Fabric][Databricks mirroring in Fabric] to easily integrate without the need to move or replicate data.
 
 1. Power BI generates analytical and historical reports and dashboards from the unified data platform. This service uses the following features when it works with Azure Databricks:
 
    - A [built-in Azure Databricks connector][Power BI connector for Azure Databricks] for visualizing the underlying data.
    - Optimized Java Database Connectivity and Open Database Connectivity drivers.
-   - You can use [Direct Lake][Direct Lake] with Azure Databricks mirroring in Fabric to load your Power BI semantic models for higher-performance queries. 
+   - You can use [Direct Lake mode][Direct Lake] with Azure Databricks mirroring into Microsoft Fabric OneLake to load your Power BI semantic models for higher-performance queries. 
 
 1. The solution uses Unity Catalog and Azure services for collaboration, performance, reliability, governance, and security:
 
@@ -88,7 +88,7 @@ This solution uses the following components.
 
 - [Azure Databricks Delta Live Tables][Azure Databricks Delta Live Tables] is a declarative framework for building reliable, maintainable, and testable data processing pipelines. In this architecture, Delta Live Tables helps you define transformations to perform on your data. It also helps you manage task orchestration, cluster management, monitoring, data quality, and error handling within Azure Databricks. 
 
-- [Microsoft Fabric][Microsoft Fabric] is an end-to-end analytics and data platform for organizations that need a unified solution. The platform provides services like Data Engineering, Data Factory, Data Science, Real-Time Intelligence, Data Warehouse, and Databases. This architecture mirrors Unity Catalog tables into Fabric and uses Direct Lake in Power BI for better performance.
+- [Microsoft Fabric][Microsoft Fabric] is an end-to-end analytics and data platform for organizations that need a unified solution. The platform provides services like Data Engineering, Data Factory, Data Science, Real-Time Intelligence, Data Warehouse, Databases, and a persistence layer known as OneLake. This architecture mirrors Unity Catalog tables into Microsoft Fabric OneLake and uses Direct Lake mode in Power BI for better performance.
 
 - [Data Factory in Microsoft Fabric][Data Factory in Microsoft Fabric] is a modern data integration platform that you can use to ingest, prepare, and transform data from a rich set of data sources in Fabric. This architecture uses built-in connectors to several data sources for quick ingestion into Data Lake Storage or OneLake. Azure Databricks later retrieves and further transforms the batch data.
 
@@ -159,13 +159,13 @@ Principal authors:
 
 Other contributors:
 
-- [Kranthi Kumar Manchhikanti](https://www.linkedin.com/in/<chad-kittel-profile>/) | Contributor
+- [Kranthi Kumar Manchhikanti](https://www.linkedin.com/in/kranthimanchikanti/) | Contributor
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
-- [Build an end-to-end data pipeline in Azure Databricks][Get-Started with Databricks pipelines]
+
 - [Run your first Delta Live Tables pipeline][Run your first DLT pipeline]
 - [Create an end-to-end pipeline with Fabric Data Factory](/fabric/data-factory/tutorial-end-to-end-pipeline)
 - [Use Direct Lake for high‑performance analytics on OneLake data](/fabric/fundamentals/direct-lake-overview)
