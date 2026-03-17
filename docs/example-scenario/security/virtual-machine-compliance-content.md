@@ -44,7 +44,7 @@ The process of tracking VM compliance contains these steps:
 
 ### Alternatives
 
-- You can use a third-party tool to manage compliance. But with this type of tool, you usually need to install an agent on the target VM. You also might have to pay a licensing fee.
+- You can use a non-Microsoft tool to manage compliance. But with this type of tool, you usually need to install an agent on the target VM. You also might have to pay a licensing fee.
 
 - You can use [custom script extensions][Custom Script Extensions] for installing software on VMs or configuring VMs after deployment. But each VM or Virtual Machine Scale Set can only have one custom script extension. And if you use custom script extensions, you prevent DevOps teams from customizing their applications.
 
@@ -101,7 +101,7 @@ As part of this solution, VM Image Builder should use a Microsoft Marketplace im
 A golden image is the version of a marketplace image that's published to Compute Gallery. Golden images are available for consumption by DevOps teams. Before the image is published, customization takes place. Customization activities are unique to each enterprise. Common activities include:
 
 - Operating system hardening.
-- Deploying custom agents for third-party software.
+- Deploying custom agents for non-Microsoft software.
 - Installing enterprise certificate authority (CA) root certificates.
 
 You can use VM Image Builder to customize images by adjusting operating system settings and by running custom scripts and commands. VM Image Builder supports Windows and Linux images. For more information on customizing images, see [Azure Policy Regulatory Compliance controls for Azure Virtual Machines][Azure Policy Regulatory Compliance controls for Azure Virtual Machines].
@@ -194,7 +194,7 @@ You can configure the number of replicas that Compute Gallery stores of each ima
 
 Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-Unless you use a third-party service such as Ansible or Terraform, this approach is nearly free of charge. Storage and egress costs might apply. Other potential charges involve these components:
+Unless you use a non-Microsoft service such as Ansible or Terraform, this approach is nearly free of charge. Storage and egress costs might apply. Other potential charges involve these components:
 
 - Azure Policy and [Azure Automanage Machine configuration][Azure Automanage Machine configuration] are free of charge for Azure resources. If your company uses a hybrid approach, there are extra charges for Azure Arc resources.
 - [VM Image Builder][Azure VM Image Builder - pricing] uses a single compute instance type with 1 vCPU and 3.5 GB of RAM. Charges might apply for data storage and transfer.
