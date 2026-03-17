@@ -23,7 +23,7 @@ As cloud-native deployments and Kubernetes continue to grow in adoption, it beco
 
 Implementing backup and recovery in AKS lets you:
 
-- Create a secondary copy of the configuration and data from your AKS cluster, to use if irreversible system failure, data loss or disaster occurs.
+- Create a secondary copy of the configuration and data from your AKS cluster, to use if irreversible system failure, data loss, or disaster occurs.
 - Copy Kubernetes resources and application data from one AKS cluster to another.
 - Replicate your AKS cluster to create other environments.
 - Take workload snapshots before maintenance operations such as AKS version upgrades.
@@ -35,8 +35,11 @@ While backups help you restore your workload if an issue occurs, they don't prov
 When it comes to intra-region high availability and cross-region disaster recovery in AKS, you can consider several other options, such as:
 
 - [Availability zones](/azure/aks/availability-zones): AKS supports the use of availability zones, which are physically separate datacenters within an Azure region. By deploying AKS clusters across multiple availability zones, you can ensure higher resiliency and fault tolerance within a region. Doing so allows your applications to remain operational even if one zone experiences an outage.
+
 - [Redundancy options for persistent volumes](/azure/aks/concepts-storage#storage-classes): AKS provides various redundancy options for persistent volumes. The [Azure Disk CSI driver for Kubernetes](https://github.com/kubernetes-sigs/azuredisk-csi-driver) supports [built-in storage classes](/azure/aks/concepts-storage#storage-classes) and custom storage classes that use the locally redundant storage (LRS) or zone redundant storage (ZRS) for better intra-region resiliency. For more information, see [Driver Parameters](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/docs/driver-parameters.md).
+
 - [Azure Kubernetes Fleet Manager](/azure/kubernetes-fleet/): Azure Kubernetes Fleet Manager enables multi-cluster and at-scale intra-region and cross-region scenarios for AKS clusters.
+
 - [Geo-redundancy options for Azure Container Registry (ACR)](/azure/container-registry/container-registry-geo-replication): Azure Container Registry (ACR) offers geo-replication capabilities. With geo-redundancy, your container images are replicated across different Azure regions. So even if a particular region experiences an outage, your images are available, which provides higher availability for your container registry.
 
 For multi-region disaster recovery patterns, see:
@@ -44,7 +47,7 @@ For multi-region disaster recovery patterns, see:
 - [Active-active HA for AKS](/azure/architecture/guide/aks/aks-high-availability)
 - [Active-passive DR for AKS](/azure/architecture/guide/aks/blue-green-deployment-for-aks)
 
-You can also use methodologies such as Infrastructure as Code (IaC), Azure Pipelines, GitOps and Flux to quickly redeploy your workloads if disaster occurs.
+You can also use methodologies such as Infrastructure as Code (IaC), Azure Pipelines, GitOps, and Flux to quickly redeploy your workloads if disaster occurs.
 
 To find out more about these methodologies, you can review these articles:
 
@@ -73,7 +76,7 @@ Targeting other components such as individual cluster nodes (VMs) or local files
 
 There are notable differences between traditional monolithic applications and workloads running in a Kubernetes cluster, which present several challenges to backup and recovery. Kubernetes workloads are intentionally designed to be highly dynamic and distributed, with data persisted across external persistent volumes supported by multiple underlying resources and services.
 
-To effectively support Kubernetes environments, backup and recovery solutions must possess Kubernetes and application awareness. They should offer a degree of automation, reliability and integration, which is often not found in legacy or more conventional backup and recovery tools.
+To effectively support Kubernetes environments, backup and recovery solutions must possess Kubernetes and application awareness. They should offer a degree of automation, reliability, and integration, which is often not found in legacy or more conventional backup and recovery tools.
 
 Various Kubernetes-native backup and recovery solutions are available, with options ranging from open to closed source and offering different licensing models.
 
@@ -89,7 +92,7 @@ AKS Backup allows for on-demand or scheduled backups of full or fine-grained clu
 
 For stateful workloads such as databases, use [Custom Hooks](/azure/backup/azure-kubernetes-service-backup-overview#backup-hooks) in AKS Backup. Backup hooks let you run custom scripts in containers before and after a snapshot is taken (using pre- and post-hooks), ensuring application-consistent backups. For example, you can freeze a database write operation before a snapshot and unfreeze it afterward.
 
-See [About AKS Backup using Azure Backup](/azure/backup/azure-kubernetes-service-backup-overview) for a detailed description of how AKS Backup works and its capabilities.
+For a detailed description of how AKS Backup works and its capabilities, see [About AKS Backup using Azure Backup](/azure/backup/azure-kubernetes-service-backup-overview).
 
 ### Veeam Kasten
 
@@ -112,10 +115,14 @@ Velero runs as a deployment in the cluster and provides a comprehensive set of f
 To install and configure [AKS Backup](/azure/backup/azure-kubernetes-service-backup-overview), follow these steps:
 
 1. See [Prerequisites for AKS Backup using Azure Backup](/azure/backup/azure-kubernetes-service-cluster-backup-concept) for a detailed description of the prerequisites for using AKS Backup with your AKS cluster.
-2. Review the [AKS Backup support matrix](/azure/backup/azure-kubernetes-service-cluster-backup-support-matrix) for a detailed description of AKS Backup's region availability, supported scenarios, and limitations.
-3. See [Manage AKS backups using Azure Backup](/azure/backup/azure-kubernetes-service-cluster-manage-backups) for guidance on how to register the required resource providers on your subscriptions and manage these registrations.
-4. Review [Back up AKS using Azure Backup](/azure/backup/azure-kubernetes-service-cluster-backup) for detailed instructions on how to set up backup and recovery for your AKS cluster using AKS Backup. Instructions include the creation and configuration of all the necessary Azure resources such as Backup vault, Backup policies, and Backup instances.
-5. See [Restore AKS using Azure Backup](/azure/backup/azure-kubernetes-service-cluster-restore) for detailed instructions on how to perform full or item-level restores of your AKS cluster from an existing Backup instance.
+
+1. Review the [AKS Backup support matrix](/azure/backup/azure-kubernetes-service-cluster-backup-support-matrix) for a detailed description of AKS Backup's region availability, supported scenarios, and limitations.
+
+1. See [Manage AKS backups using Azure Backup](/azure/backup/azure-kubernetes-service-cluster-manage-backups) for guidance on how to register the required resource providers on your subscriptions and manage these registrations.
+
+1. Review [Back up AKS using Azure Backup](/azure/backup/azure-kubernetes-service-cluster-backup) for detailed instructions on how to set up backup and recovery for your AKS cluster using AKS Backup. Instructions include the creation and configuration of all the necessary Azure resources such as Backup vault, Backup policies, and Backup instances.
+
+1. See [Restore AKS using Azure Backup](/azure/backup/azure-kubernetes-service-cluster-restore) for detailed instructions on how to perform full or item-level restores of your AKS cluster from an existing Backup instance.
 
 ## Backup frequency and retention in AKS: defining a backup policy
 
@@ -126,27 +133,37 @@ In a Kubernetes scenario, the RPO represents the maximum acceptable amount of cl
 The chosen backup frequency and retention period are a trade-off between desirable RPO/RTO targets, storage costs, and backup management overhead. This means there's no one-size-fits-all configuration for all AKS clusters and workloads, and the optimum configuration for each cluster or workload should instead be defined on a case-by-case basis to meet the requirements of the business, following careful planning and consideration. Relevant factors to consider when defining an AKS cluster's backup frequency and retention period include:
 
 - **Criticality**: The level of criticality associated with the cluster and its workload application data in terms of business continuity.
+
 - **Access patterns and change rate**: The amount of cluster state and data that is added, modified, deleted in a given period of time.
+
 - **Data Volume**: The volume of data affecting storage costs and the time required to complete backup and recovery operations.
+
 - **Compliance**: The requirements for data retention and data sovereignty based on internal compliance rules and industry regulations.
 
 In the AKS Backup service, backup frequency and retention period are stored as a *backup policy* resource, which applies to both the cluster state and the application data from persistent volumes.
 
 Backup policies in AKS Backup support backup frequencies at **4, 6, 8, 12, and 24-hour intervals** (the minimum supported interval is 4 hours), with retention periods of up to 360 days for the Operational Tier and up to 30 days for the Vault Tier. Multiple policies can be defined and applied to the same cluster.
 
-See [Create a backup policy](/azure/backup/azure-kubernetes-service-cluster-backup#create-a-backup-policy) for more information on how to configure backup policies in AKS Backup.
+For more information on how to configure backup policies in AKS Backup, ee [Create a backup policy](/azure/backup/azure-kubernetes-service-cluster-backup#create-a-backup-policy).
 
 ## Other backup considerations
 
 To ensure that your backup and recovery solution meets your organization's requirements and policies, consider the following points:
 
 - **Recovery Point Objective (RPO) and Recovery Time Objective (RTO)**: Determine if you have specific RPO and RTO targets that need to be met for your backups and recovery operations.
+
 - **Persistent volumes (PVs)**: Verify if you're using persistent volumes and ensure that the AKS Backup solution supports your PV types. Refer to the [AKS Backup support matrix](/azure/backup/azure-kubernetes-service-cluster-backup-support-matrix) for compatibility details.
+
 - **Backup scope**: Define what needs to be backed up, such as specific namespaces, types of resources, or specific data within the cluster. For more information, see [Configure a backup job](/azure/backup/azure-kubernetes-service-cluster-backup#configure-backups).
+
 - **Backup frequency and retention**: Determine the frequency at which you need to perform backups and the duration for which you need to retain them. This setting can be configured using backup policies. For more information, see [Defining a backup policy](/azure/backup/azure-kubernetes-service-cluster-backup#create-a-backup-policy).
+
 - **Cluster selection**: Decide if you need to back up all clusters or only specific production clusters based on your requirements.
+
 - **Test restore procedure**: Perform periodic test restores to validate the reliability and usability of your backup strategy. This step is crucial for ensuring the effectiveness of the backup and recovery solution. For more information, see [Restoring an AKS cluster](/azure/backup/azure-kubernetes-service-cluster-restore).
+
 - **Supported scenarios**: Verify that the AKS Backup solution supports your specific scenario. Refer to the [AKS Backup support matrix](/azure/backup/azure-kubernetes-service-cluster-backup-support-matrix) for compatibility information.
+
 - **Budget allocations**: Consider if you have specific budget allocations for backup and restore operations. Review the [pricing](/azure/backup/azure-kubernetes-service-backup-overview#understand-pricing) information provided by the AKS Backup solution to align with your budgetary requirements.
 
 By taking these other considerations into account, you can ensure that your backup and recovery solution for AKS meets your organization's needs and preferences efficiently and effectively.
@@ -181,7 +198,7 @@ You can use AKS Backup as a mechanism for backup and recovery for specific clust
 - Replicating contents across multiple clusters
 - Restoring a backup to a cluster in a different subscription within the same tenant
 
-When restoring to a different cluster, AKS Backup provides conflict resolution options such as **Skip** (skip resources that already exist in the target) and **Patch** (update mutable fields on existing resources), as well as **namespace mapping** to redirect resources into different namespaces during restore.
+When restoring to a different cluster, AKS Backup provides conflict resolution options such as **Skip** (skip resources that already exist in the target) and **Patch** (update mutable fields on existing resources), and **namespace mapping** to redirect resources into different namespaces during restore.
 
 To ensure that your scenario is supported, consult the following documentation:
 
