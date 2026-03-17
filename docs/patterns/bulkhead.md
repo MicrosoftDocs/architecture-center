@@ -1,6 +1,6 @@
 ---
 title: Bulkhead Pattern
-description: Isolate elements of an application into pools so that if one fails, the others continue to function.
+description: Learn about the Bulkhead pattern, which isolates elements of an application into pools so that if one fails, the others continue to function.
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 03/19/2026
