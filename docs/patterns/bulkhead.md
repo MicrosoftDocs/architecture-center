@@ -70,8 +70,7 @@ Consider the following points as you decide how to implement this pattern:
 
 - Use built-in platform controls, such as Azure API Management rate limits, Azure Cosmos DB request unit (RU) isolation, and resource limits in Azure Kubernetes Service (AKS) or Azure Container Apps. Don't re-create these throttling and isolation mechanisms in your application code.
 
-- AI and inference workloads often require strict bulkheads because of deployment‑level quotas and concurrency limits, for example, isolating Azure OpenAI deployments per workload or per tenant.
-
+- AI and inference workloads often require strict bulkheads because of deployment-level quotas and concurrency limits, for example, isolating Azure OpenAI deployments per workload or per tenant.
 
 ## When to use this pattern
 
@@ -122,7 +121,7 @@ spec:
 
 ## Next steps
 
-- Use [API Management rate‑limit policies](/azure/api-management/api-management-policies#rate-limiting-and-quotas) to control request throughput per client or back end.
+- Use [API Management rate-limit policies](/azure/api-management/api-management-policies#rate-limiting-and-quotas) to control request throughput per client.
 - Use [Azure Functions concurrency controls](/azure/azure-functions/functions-concurrency) to limit parallel executions.
 - Set [Container Apps resource limits](/azure/container-apps/containers) to control CPU and memory per workload.
 - Assign [Azure Cosmos DB RU throughput](/azure/cosmos-db/set-throughput) per container for predictable isolation.

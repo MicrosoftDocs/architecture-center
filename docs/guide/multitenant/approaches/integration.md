@@ -146,7 +146,7 @@ If you choose to build your own webhook eventing system, consider following the 
 Alternatively, you can use a service like [Event Grid](/azure/event-grid/overview) to provide webhook functionality. Event Grid works natively with CloudEvents and supports [event domains](/azure/event-grid/event-domains), which are useful for multitenant solutions.
 
 > [!NOTE]
-> When you make outbound connections to your tenants' systems, you connect to an external system. Follow recommended cloud practices, including using the [Retry pattern](../../../patterns/retry.yml), the [Circuit Breaker pattern](../../../patterns/circuit-breaker.md), and the [Bulkhead pattern](../../../patterns/bulkhead.md to ensure that problems in the tenant's system don't propagate to your system.
+> When you make outbound connections to your tenants' systems, you connect to an external system. Follow recommended cloud practices, including using the [Retry pattern](../../../patterns/retry.yml), the [Circuit Breaker pattern](../../../patterns/circuit-breaker.md), and the [Bulkhead pattern](../../../patterns/bulkhead.md) to ensure that problems in the tenant's system don't propagate to your system.
 
 ### Delegated user access
 
