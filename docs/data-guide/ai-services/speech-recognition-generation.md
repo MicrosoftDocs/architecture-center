@@ -1,6 +1,6 @@
 ---
 title: Choose an Azure Speech Recognition and Generation Technology
-description: Learn about Foundry Tools speech recognition and generation capabilities, including speech-to-text, text-to-speech, speech translation, and avatar creation.
+description: Learn about speech recognition and generation capabilities in Foundry Tools, including speech-to-text, text-to-speech, speech translation, and avatar creation.
 author: ritesh-modi
 ms.author: rimod
 ms.date: 02/19/2026
@@ -94,7 +94,7 @@ The following table lists the available Azure OpenAI audio models by API and cap
 | API | Capability | Models | Description |
 | :--- | :--- | :--- | :--- |
 | [Realtime API](/azure/foundry/openai/how-to/realtime-audio#quickstart) | Real-time voice conversation | `gpt-realtime`, `gpt-realtime-mini`, `gpt-4o-realtime-preview`, `gpt-4o-mini-realtime-preview` | Low-latency, speech-in/speech-out conversations for live voice agents, interactive assistants, and streaming audio scenarios |
-| [Chat Completions API](//azure/foundry/openai/audio-completions-quickstart) | Audio generation and transcription | `gpt-4o-audio-preview`, `gpt-4o-mini-audio-preview`, `gpt-audio`, `gpt-audio-mini` | Combines audio input and output with language reasoning, summarization, or generation in a single model call |
+| [Chat Completions API](/azure/foundry/openai/audio-completions-quickstart) | Audio generation and transcription | `gpt-4o-audio-preview`, `gpt-4o-mini-audio-preview`, `gpt-audio`, `gpt-audio-mini` | Combines audio input and output with language reasoning, summarization, or generation in a single model call |
 | [Audio API `/audio/transcriptions`](/azure/foundry/openai/whisper-quickstart) | STT | `whisper`, `gpt-4o-transcribe`, `gpt-4o-mini-transcribe`, `gpt-4o-transcribe-diarize` | - File-based transcription of prerecorded audio <br><br> - `gpt-4o-transcribe-diarize` includes speaker diarization |
 | [Audio API `/audio/translations`](/azure/foundry/openai/whisper-quickstart) | Speech translation | `whisper` | Translates spoken audio in supported languages into English text |
 | [Audio API `/audio/speech`](/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure#audio-api) | TTS | `tts`, `tts-hd`, `gpt-4o-mini-tts` | - Synthesizes text into natural-sounding speech <br><br> - `tts-hd` is optimized for quality, and `gpt-4o-mini-tts` supports prompt-guided style and tone |
