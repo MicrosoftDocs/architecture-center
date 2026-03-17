@@ -102,7 +102,7 @@ If this pattern introduces trade-offs within a pillar, consider them against the
 
 The following Kubernetes configuration file creates an isolated container to run a single service, with its own CPU and memory resources and limits.
 
-```yml
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
