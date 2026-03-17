@@ -86,7 +86,7 @@ Follow these best practices to ensure that your AKS cluster operates smoothly du
 
 - **Check other dependencies in your cluster.** Kubernetes operators often deploy other tooling to the Kubernetes cluster as part of operations, like Kubernetes Event-driven Autoscaling (KEDA) scalers, Distributed Application Runtime (DAPR), and service meshes. When you plan your upgrade processes, check the release notes for any components that you use to ensure compatibility with the target version.
 
-- **Tune for AKS zonal configurations.** For zonal AKS clusters, the surge upgrade might result in a temporarily imbalanced distribution of workloads between zones. Set the surge value to a multiple of 3, such as 33%, to prevent this imbalance.
+- **Tune for AKS zone-redundant configurations.** For zone-redundant AKS clusters, the surge upgrade might result in a temporarily imbalanced distribution of workloads between zones. Set the surge value to a multiple of 3, such as 33%, to prevent this imbalance.
 
 ### Manage weekly updates to node images
 
