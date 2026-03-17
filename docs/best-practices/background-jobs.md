@@ -1,6 +1,6 @@
 ---
 title: Background jobs guidance
-description: Learn about background tasks that run independently of the user interface, such as batch jobs, intensive processing tasks, and long-running processes.
+description: Learn best practices for designing background jobs on Azure, including hosting options for event-driven and scheduled jobs.
 ms.author: pnp
 author: claytonsiemens77
 ms.date: 10/18/2022
@@ -266,7 +266,7 @@ Background tasks must be resilient and recoverable to provide reliable services 
 
 - Background tasks must be able to gracefully handle restarts without corrupting data or introducing inconsistency into the application. For long-running or multistep tasks, consider using *checkpointing* by saving the state of jobs in persistent storage, or as messages in a queue if this is appropriate. For example, you can persist state information in a message in a queue and incrementally update this state information with the task progress so that the task can be processed from the last known good checkpoint instead of restarting from the beginning. When you use Azure Service Bus queues, you can use [message sessions](/azure/service-bus-messaging/message-sessions) to save and retrieve application processing state. For more information about designing reliable multistep processes and workflows, see the [Scheduler Agent Supervisor pattern](../patterns/scheduler-agent-supervisor.yml).
 
-- Design background tasks to shut down gracefully when the hosting platform signals termination. Deployments, scale-in events, and platform maintenance can stop a running instance at any time. If a background task is mid-execution when it receives a termination signal (such as SIGTERM in containers), it should stop accepting new work, finish or checkpoint the current work item, and exit cleanly. For queue-driven tasks, this means completing the current message before the process exits so the message isn't redelivered unnecessarily. If the task can't finish in time, it should checkpoint its progress or allow the message visibility timeout to expire so another instance picks up the work.
+- Design background tasks to shut down gracefully when the hosting platform signals termination. Deployments, scale-in events, and platform maintenance can stop a running instance at any time. If a background task is mid-execution when it receives a termination signal (such as `SIGTERM` in containers), it should stop accepting new work, finish or checkpoint the current work item, and exit cleanly. For queue-driven tasks, this means completing the current message before the process exits so the message isn't redelivered unnecessarily. If the task can't finish in time, it should checkpoint its progress or allow the message visibility timeout to expire so another instance picks up the work.
 
   Configure the platform's shutdown grace period long enough for your typical work item to complete. In Kubernetes, set `terminationGracePeriodSeconds` on the pod spec. In Azure Functions (Flex Consumption and Premium plans), the platform automatically provides up to 60 minutes for in-progress executions to complete during [scale-in](/azure/azure-functions/event-driven-scaling#scale-in-behaviors).
 
