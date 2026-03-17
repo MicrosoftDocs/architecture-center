@@ -23,7 +23,7 @@ Typically, different types of network appliances inspect different aspects of ne
 
 - Next-generation firewalls can also look for generic threats.
 
-This architecture focuses on a common pattern for maximizing security, in which Azure Application Gateway inspects and processes traffic before it reaches Azure Firewall Premium. In some scenarios, you can combine different types of network security appliances to increase protection. For more information, see [Azure Firewall and Application Gateway for virtual networks](./firewall-application-gateway.yml).
+This architecture focuses on a common pattern for maximizing security, in which Azure Application Gateway inspects and processes traffic before it reaches Azure Firewall Premium. In some scenarios, you can combine different types of network security appliances to increase protection. For more information, see [Azure Firewall and Application Gateway for virtual networks](./firewall-application-gateway.md).
 
 ## Architecture
 
