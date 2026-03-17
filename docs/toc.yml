@@ -416,7 +416,7 @@ items:
     href: patterns/backends-for-frontends.md
   - name: Bulkhead
     displayName: Fault isolation, failure containment, resource isolation
-    href: patterns/bulkhead.yml
+    href: patterns/bulkhead.md
   - name: Cache-Aside
     displayName: Lazy loading, caching, read-through
     href: patterns/cache-aside.yml
