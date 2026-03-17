@@ -3,7 +3,7 @@ title: Background jobs guidance
 description: Learn best practices for designing background jobs on Azure, including hosting options for event-driven and scheduled jobs.
 ms.author: pnp
 author: claytonsiemens77
-ms.date: 10/18/2022
+ms.date: 03/14/2026
 ms.topic: best-practice
 ms.subservice: best-practice
 ---
