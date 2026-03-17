@@ -6,7 +6,6 @@ ms.author: pnp
 ms.date: 09/02/2025
 ms.topic: concept-article
 ms.subservice: architecture-guide
-ms.custom: fcp
 keyword: Azure
 ---
 
@@ -29,6 +28,7 @@ Consider the nature of your data and how you plan to use it:
 - **Purpose:** Online transactional processing (OLTP) for transactional data or online analytical processing (OLAP) for complex, ad-hoc data analysis
 - **Search needs:** Indexing capability or full-text search capability
 - **Specialized:** Vector stores for highly dimensional data or graph databases for highly interconnected data
+- **Data access method:** Direct query language (such as SQL or Gremlin), REST API, SDK, or a combination. Some platforms restrict access to a proprietary API layer, which affects query flexibility and integration options.
 - **Data relationships:** Joins, graph traversal, or hierarchical structures
 - **Consistency model:** Strong, eventual, or configurable consistency
 - **Schema flexibility:** Schema-on-write (rigid) versus schema-on-read (flexible)
@@ -49,7 +49,7 @@ Evaluate performance and scalability expectations:
 
 Factor in operational overhead and budget:
 
-- **Managed versus self-hosted:** Platform as a service (PaaS) versus infrastructure as a service (IaaS) trade-offs
+- **Managed versus self-hosted:** Software as a service (SaaS), platform as a service (PaaS), and infrastructure as a service (IaaS) trade-offs across control, operational overhead, and flexibility
 - **Region availability:** Data residency and compliance needs
 - **Cost optimization:** Tiered storage, partitioning, and caching
 - **Licensing and portability:** Vendor lock-in and open-source compatibility
@@ -81,6 +81,8 @@ Answer the following questions about your workloads to make decisions based on t
 
 - **Will your workloads use SQL Server?** In Azure, your workloads can run on IaaS-based [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/) or on the PaaS-based [SQL Database hosted service](/azure/azure-sql/database/sql-database-paas-overview). Your choice depends on whether you want to manage your database, apply patches, and take backups, or delegate these operations to Azure. Some scenarios require IaaS-hosted SQL Server because of capability requirements. For more information, see [Choose the right SQL Server option in Azure](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview).
 
+- **Does your Azure solution include Power Platform or Dynamics 365 workloads?** [Microsoft Dataverse](/power-apps/maker/data-platform/data-platform-intro) is the SaaS data platform for Power Platform and Dynamics 365 business applications. Unlike the PaaS and IaaS database services in this article, Dataverse abstracts away all infrastructure and engine management. It provides a relational data store with built-in business rules, granular security (role-based, row-level, and column-level), and a standardized [Common Data Model](/common-data-model/). Client applications primarily access data through Dataverse APIs rather than direct SQL connections to an underlying database engine, which limits query flexibility and throughput compared to Azure-native database services. Evaluate Dataverse for the portions of your solution that use Power Apps, Power Automate, Power Pages, or Dynamics 365. For components of the same solution that require high-throughput processing, complex analytical queries, or direct database control, use an Azure-native database service alongside Dataverse. You can synchronize data between Dataverse and Azure services by using tools such as [Azure Synapse Link for Dataverse](/power-apps/maker/data-platform/export-to-data-lake) and [Microsoft Fabric](/power-apps/maker/data-platform/azure-synapse-link-view-in-fabric).
+
 - **Will your workloads use key-value database storage?** [Azure Managed Redis](/azure/redis/overview) is a managed in-memory data store based on the latest Redis Enterprise version. It provides low latency and high throughput. [Azure Cosmos DB](/azure/cosmos-db/introduction) also provides key-value storage capabilities.
 
 - **Will your workloads use document or graph data?** [Azure Cosmos DB](/azure/cosmos-db/introduction) is a multimodel database service that supports various data types and APIs. It also provides document and graph database capabilities. [Azure DocumentDB](/azure/documentdb/overview) is a fully managed, open-source, MongoDB-compatible database service.
@@ -101,7 +103,7 @@ Answer the following questions about your workloads to make decisions based on t
 The following table lists common use scenario requirements and the recommended database services to handle them.
 
 | Your goal | Recommended database service |
-|---|---|
+| :-------- | :--------------------------- |
 | Build apps that scale with a managed and intelligent SQL database in the cloud. | [SQL Database](/azure/azure-sql/database/sql-database-paas-overview) |
 | Modernize SQL Server applications by using a managed, up-to-date SQL instance in the cloud. | [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview?view=azuresqland&preserve-view=true) |
 | Migrate your SQL workloads to Azure while maintaining complete SQL Server compatibility and OS-level access. | [SQL Server on Virtual Machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview?view=azuresqland&preserve-view=true) |
@@ -111,26 +113,29 @@ The following table lists common use scenario requirements and the recommended d
 | Migrate MongoDB workloads to the cloud, or build hybrid and multicloud applications with high-capacity vertical and horizontal scaling | [Azure DocumentDB](/azure/documentdb/overview)|
 | Modernize existing Cassandra data clusters and apps, and gain flexibility by using a managed instance service. | [Azure Managed Instance for Apache Cassandra](/azure/managed-instance-apache-cassandra/introduction) |
 | Deliver fast, scalable applications by using an open-source-compatible in-memory data store. | [Azure Managed Redis](/azure/redis/overview) |
+| Build or extend business applications by using Power Platform or Dynamics 365 with built-in data modeling, business logic, and security. | [Microsoft Dataverse](/power-apps/maker/data-platform/data-platform-intro) |
 
-## Database feature comparison
+## Database and data platform feature comparison
 
-The following table lists features available in Azure database services.
+The following table lists features available in Azure data services and Microsoft Dataverse.
 
-| Feature | SQL Database | SQL Managed Instance | Azure Database for PostgreSQL | Azure Database for MySQL | Azure Managed Instance for Apache Cassandra | Azure Cosmos DB | Azure Managed Redis | Azure DocumentDB
-|------------------|---------|--------|--------|--------|--------|--------|--------|--------|
-|Database type|Relational |Relational |Relational |Relational |NoSQL |NoSQL |In-memory |NoSQL
-|Data model|Relational |Relational |Relational |Relational |Wide-column |Multimodel: Document, wide-column, key-value, graph |Key-value |Document |
-|Distributed multiprimary writes|No |No |No |No |Yes |Yes |Yes  |Yes 
-|Virtual network connectivity support|Virtual network service endpoint |Native virtual network implementation |Virtual network injection (Flexible Server only) |Virtual network injection (Flexible Server only) |Native virtual network implementation |Virtual network service endpoint |Virtual network service endpoint |Virtual network service endpoint |
+| Feature | SQL Database | SQL Managed Instance | Azure Database for PostgreSQL | Azure Database for MySQL | Azure Managed Instance for Apache Cassandra | Azure Cosmos DB | Azure Managed Redis | Azure DocumentDB | Microsoft Dataverse |
+| :------ | :----------- | :------------------- | :---------------------------- | :----------------------- | :---------------------------- | :-------------- | :------------------ | :--------------- | :------------------ |
+| Database type | Relational | Relational | Relational | Relational | NoSQL | NoSQL | In-memory | NoSQL | Relational (managed) |
+| Data model | Relational | Relational | Relational | Relational | Wide-column | Multimodel: Document, wide-column, key-value, graph | Key-value | Document | Relational |
+| Distributed multiprimary writes | No | No | No | No | Yes | Yes | Yes | Yes | No |
+| Virtual network connectivity support | Virtual network service endpoint | Native virtual network implementation | Virtual network injection (Flexible Server only) | Virtual network injection (Flexible Server only) | Native virtual network implementation | Virtual network service endpoint | Virtual network service endpoint | Virtual network service endpoint | [Managed virtual network support](/power-platform/admin/vnet-support-overview) |
 
 > [!NOTE]
-> [Azure Private Link service](/azure/private-link/private-link-service-overview) simplifies networking design by enabling Azure services to communicate over private networking. All Azure database services support Azure Private Link service. For managed instance database services, these instances are deployed in virtual networks, so you don't need to deploy [private endpoints](/azure/private-link/create-private-endpoint-portal) for them.
+> [Azure Private Link service](/azure/private-link/private-link-service-overview) simplifies networking design by enabling Azure data services to communicate over private networking. Most Azure database services listed in this table support Azure Private Link through [private endpoints](/azure/private-link/create-private-endpoint-portal). For managed instance database services, these instances are deployed in virtual networks, so you don't need to deploy private endpoints for them. Microsoft Dataverse is hosted on Power Platform rather than as an Azure resource, and its virtual network and private connectivity options are described in [Managed virtual network support for Power Platform](/power-platform/admin/vnet-support-overview).
 
 ## Regional availability
 
 Azure helps you deliver services at the scale needed to reach customers and partners anywhere. When you plan your cloud deployment, determine the Azure region to host your workload resources.
 
 Most Azure regions support most database services. A few regions support only a subset of these products, but they mostly target governmental customers. Before you decide which regions to deploy your database resources to, see [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/) to check the latest status of regional availability.
+
+Microsoft Dataverse environments are deployed to a [Power Platform geography](/power-platform/admin/regions-overview) (such as United States, Europe, or Australia) rather than to a specific Azure region. Data stays within the chosen geography, but you don't control which Azure region within that geography hosts your environment. Consider this coarser region granularity when you plan colocation with other Azure services or when you have specific latency or [data residency requirements](#data-residency-and-compliance-requirements).
 
 For more information about Azure global infrastructure, see [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/).
 
@@ -154,7 +159,9 @@ After you identify and document your landing zone's requirements, you can use [A
 
 For example, you might restrict users to creating only SQL Database resources. Use policies to control the options that users can select when they create resources. For example, you can restrict SQL Database SKUs that users can provision by allowing only specific versions of SQL Server to be installed on an IaaS VM. For more information, see [Azure Policy built-in policy definitions](/azure/governance/policy/samples/built-in-policies).
 
-You can apply policies to resources, resource groups, subscriptions, and management groups. Include your policies in [Azure Blueprints](/azure/governance/blueprints/overview) definitions, and apply them repeatedly throughout your cloud estate.
+You should apply policies to resources, resource groups, subscriptions, and management groups throughout your cloud estate.
+
+Microsoft Dataverse environments are governed separately through the [Power Platform admin center](/power-platform/admin/admin-documentation), not through Azure Policy. Use [Managed Environments](/power-platform/admin/managed-environment-overview) and [data loss prevention policies](/power-platform/admin/wp-data-loss-prevention) to control environment creation, connector usage, and data movement. If your solution spans both Azure-native databases and Dataverse, plan for governance across both control planes.
 
 ## Next steps
 

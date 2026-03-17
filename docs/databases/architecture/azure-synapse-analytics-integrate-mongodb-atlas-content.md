@@ -130,7 +130,7 @@ Here are two specific examples:
 - As this article describes earlier in [Batch integration](#batch-integration), you can retrieve MongoDB data in a batch and then update the data as changes occur. This capability makes real-time insights possible for just-in-time decision making and conclusions. This functionality is useful for analytics of sensitive and critical information such as financial transactions and fraud detection data.
 - As [Batch integration](#batch-integration) also describes, you can schedule a pipeline to retrieve MongoDB data on a regular basis. This functionality is useful in retail scenarios such as updating inventory levels with daily sales data. In such cases, analytics reports and dashboards aren't of critical importance, and real-time analysis isn't worth the effort.
 
-The following sections take a closer look at two retail industry use cases.
+The following sections examine two retail industry use cases.
 
 #### Product bundling
 
