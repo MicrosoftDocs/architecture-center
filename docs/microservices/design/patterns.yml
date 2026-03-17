@@ -1,18 +1,21 @@
 ### YamlMime:Architecture
 metadata:
   title: Design patterns for microservices
-  description: Learn how designs that use microservices can increase the velocity of application releases by deploying small, autonomous services independently.
+  description: Learn about design patterns that address common microservices challenges like data consistency, cross-service communication, failure isolation, and legacy integration.
   author: claytonsiemens77
   ms.author: pnp
-  ms.date:  07/26/2022
+  ms.date:  03/17/2026
   ms.topic: concept-article
   ms.subservice: architecture-guide
 azureCategories:
   - developer-tools
+  - integration
 products:
-  - azure-cloud-services
+  - azure-kubernetes-service
+  - azure-api-management
+  - azure-service-bus
 name: Design patterns for microservices
-summary: Learn how designs that use microservices can increase the velocity of application releases by deploying small, autonomous services independently.
+summary: Learn about design patterns that address common microservices challenges like data consistency, cross-service communication, failure isolation, and legacy integration.
 thumbnailUrl: /azure/architecture/browse/thumbs/microservices-patterns.png
 content: |
-  [!include[](patterns-content.md)]
+  [!INCLUDE[](patterns-content.md)]
