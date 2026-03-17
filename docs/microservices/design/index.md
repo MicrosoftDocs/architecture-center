@@ -27,7 +27,7 @@ This set of articles explores how to build a microservices architecture on Azure
 
 - [Container orchestration](./orchestration.yml): Deploy and manage containerized microservices at scale by using container orchestrators. Understand how platforms like Kubernetes automate deployment, scaling, load balancing, and health management to maintain desired system state in production environments.
 
-- [Design patterns](./patterns.yml): Apply proven design patterns specific to microservices, including the Ambassador pattern for offloading connectivity tasks, the Bulkhead pattern for resource isolation, and the Strangler Fig pattern for incremental application refactoring.
+- [Design patterns](./patterns.yml): Apply proven design patterns to common microservices challenges, including the Saga pattern for distributed data consistency, the Bulkhead pattern for failure isolation, and the Strangler Fig pattern for incremental application refactoring.
 
 ## Prerequisites
 
