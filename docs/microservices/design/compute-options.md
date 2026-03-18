@@ -29,7 +29,11 @@ You can use serverless platforms to deploy microservices on Azure Container Apps
 
 ## Deploy code-based microservices 
 
-If you want to deploy your microservices as code instead of containerizing them, you might want to use Azure Functions. For more information, see the [list of programming and scripting languages supported by Functions](/azure/azure-functions/supported-languages#language-support-details). For microservices that you develop in other languages, you might want to implement a custom handler in Functions or consider containerizing the application. You can also run the Azure Functions programming model [on Container Apps](/azure/container-apps/functions-overview), which lets you combine Functions triggers and bindings with Container Apps scaling and networking features.
+If you want to deploy your microservices as code instead of containerizing them, consider Azure Functions or Azure App Service.
+
+[Azure Functions](/azure/azure-functions/functions-overview) is suited for event-driven microservices. For more information, see the [list of programming and scripting languages supported by Functions](/azure/azure-functions/supported-languages#language-support-details). For microservices that you develop in other languages, you might want to implement a custom handler in Functions or consider containerizing the application. You can also run the Azure Functions programming model [on Container Apps](/azure/container-apps/functions-overview), which lets you combine Functions triggers and bindings with Container Apps scaling and networking features.
+
+[Azure App Service](/azure/app-service/overview) is suited for HTTP-based microservices such as web APIs. App Service supports deploying as code or as a single container. It provides built-in autoscaling, deployment slots for blue-green deployments, and integration with CI/CD pipelines. App Service doesn't provide rich container orchestration features like service discovery or traffic splitting, so it's a better fit for simpler microservices that are independently deployable and don't require inter-service communication features from the platform.
 
 ## Use a GPU model
 
@@ -41,7 +45,9 @@ An orchestrator handles tasks that relate to deploying and managing a set of ser
 
 On the Azure platform, consider the following options:
 
-- [Azure Kubernetes Service (AKS)](/azure/aks/) is a managed Kubernetes service. AKS provisions Kubernetes and exposes the Kubernetes API endpoints, hosts and manages the Kubernetes control plane, and performs automated upgrades, automated patching, autoscaling, and other management tasks. AKS provides direct access to Kubernetes APIs. 
+- [Azure Kubernetes Service (AKS)](/azure/aks/) is a managed Kubernetes service. AKS provisions Kubernetes and exposes the Kubernetes API endpoints, hosts and manages the Kubernetes control plane, and performs automated upgrades, automated patching, autoscaling, and other management tasks. AKS provides direct access to Kubernetes APIs.
+
+  [AKS Automatic](/azure/aks/intro-aks-automatic) is a mode of AKS that preconfigures node management, scaling, security, and observability based on AKS well-architected recommendations, so that teams get a production-ready cluster without configuring each capability individually.
 
 - [Container Apps](/azure/container-apps) is a managed service built on Kubernetes that abstracts the complexities of container orchestration and other management tasks. Container Apps simplifies the deployment and management of containerized applications and microservices in a serverless environment while providing the features of Kubernetes. Container Apps is ideal for scenarios where direct access to Kubernetes APIs isn't required.
 
@@ -55,7 +61,7 @@ Access to Kubernetes APIs is often a deciding factor when you choose a compute o
 
 ### Other decision factors
 
-There might be other factors that affect your microservice compute platform selection. These factors include service mesh options, platform scalability, and skill sets that you might use within the organization. 
+There might be other factors that affect your microservice compute platform selection. These factors include service mesh options, platform scalability, and skill sets that you might use within the organization.
 
 ## Considerations
 
