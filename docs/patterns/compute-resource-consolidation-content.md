@@ -12,7 +12,7 @@ Each computational unit consumes chargeable resources, even when it's idle or li
 
 ## Solution
 
-To help reduce costs, increase utilization, improve communication speed, and reduce management it's possible to consolidate multiple tasks or operations into a single computational unit.
+To help reduce costs, increase utilization, improve communication speed, and reduce management, it's possible to consolidate multiple tasks or operations into a single computational unit.
 
 Tasks can be grouped according to criteria based on the features provided by the environment and the costs associated with these features. A common approach is to look for tasks that have a similar profile concerning their scalability, lifetime, and processing requirements. Grouping these together allows them to scale as a unit. The elasticity provided by many cloud environments enables additional instances of a computational unit to be started and stopped according to the workload. For example, Azure provides autoscaling that you can apply to App Services and Virtual Machine Scale Sets.
 
