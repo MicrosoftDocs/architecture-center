@@ -124,7 +124,6 @@ If the user travels to California and then accesses the system, their connection
 
 ## Next steps
 
-- Infrastructure as code. For example, Bicep, Resource Manager templates, Azure CLI, Terraform, PowerShell, Bash.
 - [Azure Front Door](/azure/frontdoor/), which can route traffic to a specific stamp or to a traffic routing service.
 - [Integrate Bicep with Azure Pipelines](/azure/azure-resource-manager/bicep/add-template-to-azure-pipelines)
 - [Integrate JSON ARM templates with Azure Pipelines](/azure/azure-resource-manager/templates/add-template-to-azure-pipelines)
