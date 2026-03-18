@@ -314,7 +314,7 @@ To examine system usage, an operator typically needs to see information that inc
 - The volume of data storage that each user occupies.
 - The resources that each user is accessing.
 
-An operator should also be able to generate graphs. Common examples of generated graphs are a graph to display the most resource-hungry users, and the most frequently accessed resources or system features.
+An operator should also be able to generate graphs. Common examples of generated graphs include a graph to display the most resource-hungry users, and the most frequently accessed resources or system features.
 
 ### Data sources, instrumentation, and data-collection requirements
 
