@@ -56,11 +56,15 @@ Consider the following points as you decide how to implement this pattern:
 
 Use this pattern when:
 
-- Use this pattern for tasks that are not cost effective if they run in their own computational units. If a task spends much of its time idle, running this task in a dedicated unit can be expensive.
+- Tasks are not cost effective if they run in their own computational units.
+- A task spends much of its time idle.
+- Running a task in a dedicated unit would be unnecessarily expensive.
 
 This pattern might not be suitable when:
 
-- This pattern might not be suitable for tasks that perform critical fault-tolerant operations, or tasks that process highly sensitive or private data and require their own security context. These tasks should run in their own isolated environment, in a separate computational unit.
+- Tasks perform critical fault-tolerant operations.
+- Tasks process highly sensitive or private data and require their own security context.
+- Tasks need to run in their own isolated environment, in a separate computational unit.
 
 ## Workload design
 
