@@ -94,8 +94,6 @@ The following diagram shows a slightly different pattern for outbound traffic:
   Diagram that shows a hub and two spokes. The hub contains a gateway subnet and an NVA subnet. The gateway subnet contains a VPN or Azure ExpressRoute gateway. The NVA subnet contains an internal Azure load balancer and NVAs. There's a NAT gateway between the NVA subnet and the internet. Each spoke contains an app server. Spoke2 has a note that reads "Spoke route table `0.0.0.0/0` to `10.0.0.36`" and "Disable gateway propagation." Outbound traffic flows from the app server to the NVA through the internal Azure load balancer thanks to the user-defined route for `0.0.0.0/0`. The NVA sends it to the public internet through the NAT gateway. Return traffic comes back through the NAT gateway, then to the NVA, and finally to the first app server.
 :::image-end:::
 
-*Download a [Visio file](https://arch-center.azureedge.net/deploy-highly-available-nva-diagrams.vsdx) of this architecture.*
-
 To send traffic from spokes to the public internet through the NVAs, this design uses a UDR for `0.0.0.0/0` applied to the application server's subnet in the spoke virtual network. The next hop is the internal load balancer's IP address. The load balancer will forward it to one of the NVA instances, which sends the traffic to the public internet via the NAT gateway. The NAT gateway ensures that return traffic is forwarded to the same NVA instance, which delivers it to the first app server.
 
 The following diagram shows how to use the same load balancer design to inspect traffic between Azure and on-premises networks, or *East-West traffic*, which only involves an internal load balancer. You can also use this method to send traffic between spokes through the NVAs.
