@@ -25,7 +25,7 @@ The second task requires elasticity that can involve starting and stopping a lar
 
 In many cloud environments, it's possible to specify the resources available to a computational unit in terms of resources, such as the number of CPU cores, memory, and disk space. Generally, the more resources specified, the greater the cost. To save money, it's important to maximize the work an expensive computational unit performs, and not let it become inactive for an extended period.
 
-If there are tasks that require a great deal of CPU power in short bursts, consider consolidating these into a single computational unit that provides the necessary power. However, it's important to balance this need to keep expensive resources busy against the contention that could occur if they are over stressed. Long-running, compute-intensive tasks shouldn't share the same computational unit, for example.
+If there are tasks that require a great deal of CPU power in short bursts, consider consolidating these into a single computational unit that provides the necessary power. However, it's important to balance this need to keep expensive resources busy against the contention that could occur if they are overstressed. Long-running, compute-intensive tasks shouldn't share the same computational unit, for example.
 
 ## Problems and considerations
 
