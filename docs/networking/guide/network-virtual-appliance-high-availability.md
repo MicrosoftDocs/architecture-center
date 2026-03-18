@@ -80,13 +80,21 @@ The Load Balancer design pattern uses two Azure load balancers to expose a clust
 
 - A public load balancer exposes the NVAs to the internet. High availability ports are for inbound traffic, so each TCP/UDP port needs to be opened in a dedicated load-balancing rule.
 
+The following diagram shows the sequence of hops that packets take from the internet to an application server in a spoke virtual network. These packets traverse a firewall NVA to control traffic to and from the public internet, also called *North-South traffic*.
+
+:::image type="complex" source="./images/nvaha-alb-internet-inbound.png" lightbox="./images/nvaha-alb-internet-inbound.png" alt-text="Diagram that shows inbound Internet traffic with Load Balancer integration." border="false":::
+Diagram that shows a hub and two spokes. The hub contains a gateway subnet and an NVA subnet. The gateway subnet contains a VPN or Azure ExpressRoute gateway. The NVA subnet contains an internal Azure load balancer and NVAs. Each spoke contains an app server. Spoke2 has a note that reads "Spoke route table `0.0.0.0/0` to `10.0.0.36` and "Disable gateway propagation." Inbound traffic flows from the public internet to the NVAs through the public Azure load balancer. The NVAs need to perform Source Network Address Translation (SNAT) before sending the traffic to the app server to guarantee traffic symmetry. The translated traffic then flows to the app server in Spoke2. Return traffic flows from this app server directly to the corresponding NVA instance thanks to SNAT, which forwards it to the public internet.
+:::image-end:::
+
 This design requires SNAT because traffic in each direction would otherwise pass through a different Azure load balancer. The internal and public Azure load balancers can't guarantee traffic symmetry, so the NVA instances must perform SNAT to attract return traffic. Most stateful NVAs, such as firewalls, require traffic symmetry.
 
 The following diagram shows a slightly different pattern for outbound traffic:
 
 :::image type="complex" source="./images/nvaha-alb-internet-outbound.png" lightbox="./images/nvaha-alb-internet-outbound.png" alt-text="Diagram that shows outbound Internet traffic with Azure Load Balancer integration." border="false":::
-  Diagram that shows a hub and two spokes. The hub contains a gateway subnet and NVA subnet. The gateway subnet contains a VPN or Azure ExpressRoute gateway. The NVA subnet contains an internal Azure load balancer and NVAs. There's a NAT gateway between the NVA subnet and the internet. Each spoke contains an app server. Spoke2 has a note that reads "Spoke route table `0.0.0.0/0` to `10.0.0.36`" and "Disable gateway propagation." Outbound traffic flows from the app server to the NVA through the internal Azure load balancer thanks to the user-defined route for `0.0.0.0/0`. The NVA sends it to the public internet through the NAT gateway. Return traffic comes back through the NAT gateway, then to the NVA, and finally to the first app server.
+  Diagram that shows a hub and two spokes. The hub contains a gateway subnet and an NVA subnet. The gateway subnet contains a VPN or Azure ExpressRoute gateway. The NVA subnet contains an internal Azure load balancer and NVAs. There's a NAT gateway between the NVA subnet and the internet. Each spoke contains an app server. Spoke2 has a note that reads "Spoke route table `0.0.0.0/0` to `10.0.0.36`" and "Disable gateway propagation." Outbound traffic flows from the app server to the NVA through the internal Azure load balancer thanks to the user-defined route for `0.0.0.0/0`. The NVA sends it to the public internet through the NAT gateway. Return traffic comes back through the NAT gateway, then to the NVA, and finally to the first app server.
 :::image-end:::
+
+*Download a [Visio file](https://arch-center.azureedge.net/deploy-highly-available-nva-diagrams.vsdx) of this architecture.*
 
 To send traffic from spokes to the public internet through the NVAs, this design uses a UDR for `0.0.0.0/0` applied to the application server's subnet in the spoke virtual network. The next hop is the internal load balancer's IP address. The load balancer will forward it to one of the NVA instances, which sends the traffic to the public internet via the NAT gateway. The NAT gateway ensures that return traffic is forwarded to the same NVA instance, which delivers it to the first app server.
 
@@ -98,7 +106,7 @@ The following diagram shows how to use the same load balancer design to inspect 
 
 In the previous diagrams, spoke1 doesn't know about spoke2's range. Therefore, the `0.0.0.0/0` UDR sends traffic that's intended for spoke2 to the NVA's internal Azure load balancer.
 
-For traffic between on-premises networks and Azure, or between Azure virtual machines, traffic symmetry is guaranteed in single network interface card (NIC) NVAs by the internal Azure load balancer. When both directions of a traffic flow traverse the same Azure load balancer, the load balancer selects the same NVA instance for both directions. If a dual-NIC NVA design has an internal load balancer for each direction of communication, SNAT is required to ensure traffic symmetry.
+For traffic between on-premises networks and Azure, or between Azure virtual machines, traffic symmetry is guaranteed in single network interface card (NIC) NVAs by the internal Azure load balancer. When both directions of a traffic flow traverse the same Azure load balancer, the load balancer selects the same NVA instance for both directions. If a dual-NIC NVA design has an internal load balancer for each direction of communication, SNAT is required to ensure traffic symmetry. The previous North-South diagram provides an example of this design.
 
 In this design, dual-NIC NVAs must determine where to send replies to the load balancer's health checks. Azure Load Balancer always uses the same IP address as the source for the health checks, which is `168.63.129.16`. The NVA must send these health check responses back through the same interface on which they were received. This process typically requires multiple routing tables in an operating system because destination-based routing sends the replies through the same NIC.
 
