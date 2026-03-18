@@ -110,11 +110,14 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-In a microservices architecture, individual services should be designed to fail independently. Your compute platform needs to detect unhealthy service instances, restart them, and route traffic away from them without bringing down the entire system.
+In a microservices architecture, the primary reliability risk is cascading failure: one unhealthy service causes callers to accumulate timeouts, which propagates outward through the call chain. Your platform choice affects how you mitigate this.
 
-- AKS provides liveness and readiness probes per container, automatic pod restarts, and replica sets that maintain a minimum instance count.
-- Container Apps provides similar [health probes](/azure/container-apps/health-probes) and automatically replaces failed replicas.
-- Functions automatically retries failed executions based on the trigger type. Deploy across [availability zones](/azure/reliability/availability-zones-overview) on whichever platform you choose to protect against datacenter-level failures.
+- AKS and Container Apps provide platform-level health probes that detect unhealthy instances and remove them from rotation automatically.
+- Functions retries failed executions based on the trigger type.
+
+Regardless of platform, implement [circuit breakers](../../patterns/circuit-breaker.yml), retry policies with backoff, and timeouts in your inter-service communication to prevent a single service failure from becoming a system-wide outage.
+
+Deploy each service across [availability zones](/azure/reliability/availability-zones-overview) to protect against datacenter-level failures. In a mixed-platform composition, verify that all platforms in use support zone redundancy for your deployment region.
 
 For platform-specific reliability guidance, see the reliability sections of the WAF service guides for [AKS](/azure/well-architected/service-guides/azure-kubernetes-service#reliability), [Container Apps](/azure/well-architected/service-guides/azure-container-apps#reliability), and [Azure Functions](/azure/well-architected/service-guides/azure-functions#reliability).
 
@@ -122,9 +125,9 @@ For platform-specific reliability guidance, see the reliability sections of the 
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-Microservices increase the attack surface because every service-to-service call crosses a network boundary. Treat inter-service traffic as untrusted. Use mutual TLS (mTLS) to authenticate and encrypt communication between services. AKS supports mTLS through service meshes like [Istio](/azure/aks/istio-about), and Container Apps provides mTLS through [Dapr](/azure/container-apps/dapr-overview) or [environment-level configuration](/azure/container-apps/networking).
+Microservices increase the attack surface because every service-to-service call crosses a network boundary. Treat all inter-service traffic as untrusted and encrypt it with mutual TLS (mTLS). AKS supports mTLS through service meshes like [Istio](/azure/aks/istio-about). Container Apps provides mTLS through [Dapr](/azure/container-apps/dapr-overview) or [environment-level configuration](/azure/container-apps/networking). Functions and App Service don't provide platform-level mTLS, so you need to enforce transport security through application-layer HTTPS, API gateway policies, or virtual network isolation if those platforms host services in your composition.
 
-Assign each microservice its own identity by using [workload identity](/azure/aks/workload-identity-overview) on AKS or [managed identity](/azure/container-apps/managed-identity) on Container Apps, so that each service authenticates to only the resources it requires.
+In a composition of many services, each service should authenticate to only the resources it requires. Assign per-service identities rather than sharing a single identity across the workload. See the [per-service identity](#compare-platforms-for-microservices) row in the comparison table for platform-specific mechanisms.
 
 For platform-specific security guidance, see the security sections of the WAF service guides for [AKS](/azure/well-architected/service-guides/azure-kubernetes-service#security), [Container Apps](/azure/well-architected/service-guides/azure-container-apps#security), and [Azure Functions](/azure/well-architected/service-guides/azure-functions#security).
 
@@ -132,12 +135,9 @@ For platform-specific security guidance, see the security sections of the WAF se
 
 Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-A microservices architecture can include dozens of services, each with different traffic volumes. Services that handle high throughput continuously might be less expensive on dedicated compute. Services that handle sporadic or event-driven traffic might cost less on a consumption model that scales to zero.
+A microservices architecture can include dozens of services, each with different traffic volumes. Match each service to the billing model that fits its traffic pattern: consumption-based platforms like Container Apps and Functions can scale idle services to zero, while dedicated compute like AKS can be more cost-effective for services with sustained load. In a mixed-platform composition, this per-service billing flexibility is one of the main cost advantages of not standardizing on a single platform, but factor in the operational cost of managing multiple platforms.
 
-- Container Apps and Functions support consumption billing and can scale to zero.
-- AKS requires dedicated node pools that you pay for whether the pods are busy or idle, though you can mix node pool sizes and use cluster autoscaler to reduce waste.
-
-In a composition with many services, the billing model you choose for each service can have a larger cost impact than the per-unit price of any single platform. For platform-specific cost guidance, see the cost optimization sections of the WAF service guides for [AKS](/azure/well-architected/service-guides/azure-kubernetes-service#cost-optimization), [Container Apps](/azure/well-architected/service-guides/azure-container-apps#cost-optimization), and [Azure Functions](/azure/well-architected/service-guides/azure-functions#cost-optimization).
+For platform-specific cost guidance, see the cost optimization sections of the WAF service guides for [AKS](/azure/well-architected/service-guides/azure-kubernetes-service#cost-optimization), [Container Apps](/azure/well-architected/service-guides/azure-container-apps#cost-optimization), and [Azure Functions](/azure/well-architected/service-guides/azure-functions#cost-optimization).
 
 ## Next step
 
