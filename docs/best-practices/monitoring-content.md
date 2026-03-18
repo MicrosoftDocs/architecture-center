@@ -449,7 +449,7 @@ You can easily monitor individual system-level performance counters, capture met
 
 Also, there's unlikely to be a 1:1 mapping between threads and user requests, because asynchronous operations might reuse the same threads to perform operations on behalf of more than one user. To complicate matters further, a single request might be handled by more than one thread as execution flows through the system. If possible, associate each request with a unique activity ID that's propagated through the system as part of the request context. (The technique for generating and including activity IDs in trace information depends on the technology that's used to capture the trace data.)
 
-All monitoring data should be timestamped in the same way. For consistency, record all dates and times by using Coordinated Universal Time. This helps you more easily trace sequences of events.
+All monitoring data should be timestamped in the same way. For consistency, record all dates and times by using Coordinated Universal Time (UTC). This helps you more easily trace sequences of events.
 
 > [!NOTE]
 > Computers operating in different time zones and networks might not be synchronized. Don't depend on using timestamps alone for correlating instrumentation data that spans multiple machines.
