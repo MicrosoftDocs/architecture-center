@@ -27,7 +27,7 @@ This introductory article outlines the Azure container services covered in this 
 
 This guide helps you evaluate trade-offs based on your workload's technical requirements, size, and complexity. It also considers the expertise of your team to ensure informed decision-making.
 
-If you're building a microservices architecture, see [Choose an Azure compute option for microservices](../../microservices/design/compute-options.md) for a comparison focused on inter-service communication, independent scaling, and deployability.
+If you're building a microservices architecture, see [Choose an Azure compute option for microservices](../microservices/design/compute-options.md) for a comparison focused on inter-service communication, independent scaling, and deployability.
 
 ## Azure container services in scope for this guide
 
