@@ -29,15 +29,15 @@ You can use serverless platforms to deploy microservices on Azure Container Apps
 
 ## Deploy code-based microservices 
 
-If you want to deploy your microservices as code instead of containerizing them, you might want to use Azure Functions. For more information, see the [list of programming and scripting languages supported by Functions](/azure/azure-functions/supported-languages#language-support-details). For microservices that you develop in other languages, you might want to implement a custom handler in Functions or consider containerizing the application.
+If you want to deploy your microservices as code instead of containerizing them, you might want to use Azure Functions. For more information, see the [list of programming and scripting languages supported by Functions](/azure/azure-functions/supported-languages#language-support-details). For microservices that you develop in other languages, you might want to implement a custom handler in Functions or consider containerizing the application. You can also run the Azure Functions programming model [on Container Apps](/azure/container-apps/functions-overview), which lets you combine Functions triggers and bindings with Container Apps scaling and networking features.
 
 ## Use a GPU model
 
-If your microservice requires GPU capacity, for example, to run machine learning tasks, consider choosing Container Apps or Azure Kubernetes Service (AKS) for your platform. AKS can [use any GPU models in Azure](/azure/aks/gpu-cluster), and Container Apps offers a [subset of GPU models to choose from](/azure/container-apps/workload-profiles-overview). 
+If your microservice requires GPU capacity, for example, to run machine learning tasks, consider choosing Container Apps or Azure Kubernetes Service (AKS) for your platform. AKS can [use any GPU models in Azure](/azure/aks/gpu-cluster). Container Apps supports GPU workloads through [dedicated workload profiles](/azure/container-apps/workload-profiles-overview), which offer a subset of GPU models.
 
 ## Use service orchestrators
 
-An orchestrator handles tasks that relate to deploying and managing a set of services. These tasks include placing services on nodes, monitoring the health of services, restarting unhealthy services, load balancing network traffic across service instances, service discovery, scaling the number of instances of a service, and applying configuration updates. Popular orchestrators include Kubernetes and HashiCorp Nomad.
+An orchestrator handles tasks that relate to deploying and managing a set of services. These tasks include placing services on nodes, monitoring the health of services, restarting unhealthy services, load balancing network traffic across service instances, service discovery, scaling the number of instances of a service, and applying configuration updates. Kubernetes is the dominant orchestrator for microservices.
 
 On the Azure platform, consider the following options:
 
@@ -87,11 +87,11 @@ Cost Optimization is about looking at ways to reduce unnecessary expenses and im
 
 When you use an orchestrator, you pay for the virtual machines that run in the cluster. When you use a serverless application, you pay only for the actual compute resources that you consume. In both cases, you need to factor in the cost of any extra services, such as storage, databases, and messaging services.
 
-Azure Functions, Container Apps, and AKS provide autoscaling options. Container Apps and Functions provide serverless platforms where the cost is based on consumption and can be zero. AKS provides only dedicated compute options.
+Azure Functions, Container Apps, and AKS provide autoscaling options. Container Apps and Functions provide serverless platforms where the cost is based on consumption and can scale to zero. Container Apps also offers [dedicated workload profiles](/azure/container-apps/workload-profiles-overview) for workloads that need reserved capacity or specialized hardware. AKS provides only dedicated compute options.
 
 If you choose AKS as the compute platform to deploy microservices, you need to understand cost optimization best practices. For more information, see [Optimize costs in Azure Kubernetes Service](/azure/aks/best-practices-cost).
 
-If you choose Container Apps as your microservices compute platform, you need to understand the various billing models and decide on the deployment model for your microservices based on your workload requirements. For more information, see [Billing in Container Apps](/azure/container-apps/billing).
+If you choose Container Apps as your microservices compute platform, you need to understand the consumption and dedicated billing models and decide on the deployment model for your microservices based on your workload requirements. For more information, see [Billing in Container Apps](/azure/container-apps/billing).
 
 If you choose Azure Functions as your microservices compute platform, you need to understand the various billing models and decide on the Functions plan based on your workload requirements. For more information, see [Estimate consumption-based costs](/azure/azure-functions/functions-consumption-costs) and [Azure Functions plan details](/azure/azure-functions/functions-scale#billing).
 
