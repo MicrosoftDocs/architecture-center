@@ -18,7 +18,7 @@ Use the Ambassador pattern to offload common client connectivity tasks like moni
 
 Resilient cloud-based applications require features like [circuit breaking](./circuit-breaker.md), routing, metering and monitoring, and network-related configuration updates. If the development team doesn't maintain the code or can't easily modify it, it might be difficult or even impossible to update legacy applications or existing code libraries to add these features.
 
-Network calls might also require substantial configuration for connection, authentication, and authorization. hen multiple applications use these calls across different languages and frameworks, you must configure the calls separately for each instance. A central team within your organization might need to manage network and security functionality. With a large code base, it can be risky for that team to update unfamiliar application code.
+Network calls might also require substantial configuration for connection, authentication, and authorization. When multiple applications use these calls across different languages and frameworks, you must configure the calls separately for each instance. A central team within your organization might need to manage network and security functionality. With a large code base, it can be risky for that team to update unfamiliar application code.
 
 ## Solution
 
