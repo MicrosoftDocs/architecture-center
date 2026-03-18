@@ -172,5 +172,5 @@ Other contributors:
  
 ## Related resources
 
-- [Firewall and Application Gateway for virtual networks](../../example-scenario/gateway/firewall-application-gateway.yml#architecture-2)
+- [Firewall and Application Gateway for virtual networks](../../example-scenario/gateway/firewall-application-gateway.md#architecture-2)
 - [Use Azure Front Door in a multitenant solution](../../guide/multitenant/service/front-door.md)

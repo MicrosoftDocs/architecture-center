@@ -416,7 +416,7 @@ items:
     href: patterns/backends-for-frontends.md
   - name: Bulkhead
     displayName: Fault isolation, failure containment, resource isolation
-    href: patterns/bulkhead.yml
+    href: patterns/bulkhead.md
   - name: Cache-Aside
     displayName: Lazy loading, caching, read-through
     href: patterns/cache-aside.yml
@@ -582,7 +582,7 @@ items:
   - name: Compute
     items:
     - name: Get started
-      href: topics/high-performance-computing.md
+      href: solution-ideas/articles/compute-get-started.md
     - name: Guides
       items:
       - name: Choose a compute service
@@ -592,6 +592,8 @@ items:
       - name: Build workloads with Azure Spot Virtual Machines
         displayName: VM, spot instances
         href: guide/spot/spot-eviction.yml
+      - name: High-performance computing
+        href: guide/compute/high-performance-computing.md
     - name: Architectures
       items:
       - name: VM baseline
@@ -604,8 +606,8 @@ items:
         href: example-scenario/manufacturing/teamcenter-baseline.yml
       - name: Teamcenter with Azure NetApp Files
         href: example-scenario/manufacturing/teamcenter-plm-netapp-files.yml
-      - name: Multi-region load balancing
-        href: high-availability/reference-architecture-traffic-manager-application-gateway.yml
+      - name: Multiregion load balancing
+        href: high-availability/traffic-manager-application-gateway.yml
       - name: Multi-tier web application built for HA/DR
         displayName: high availability, disaster recovery
         href: example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml
@@ -1104,7 +1106,7 @@ items:
       items:
       - name: Virtual Network security options
         displayName: VNet
-        href: example-scenario/gateway/firewall-application-gateway.yml
+        href: example-scenario/gateway/firewall-application-gateway.md
       - name: Zero Trust network for web applications
         href: example-scenario/gateway/application-gateway-before-azure-firewall.md
     - name: Architectures
