@@ -1,12 +1,12 @@
 This article describes the key challenges across the five pillars of the Azure Well-Architected Framework that arise when your workload allows consumers to directly access the Foundry Models data plane APIs. It explains how introducing a gateway can help address these challenges, while also introducing new considerations. The focus is on the architectural pattern, not on gateway implementation details.
 
-[Microsoft Foundry](/azure/ai-foundry/what-is-foundry) exposes HTTP APIs that let your applications perform embeddings or completions by using language models. Intelligent applications call these HTTP APIs directly from clients or orchestrators. Examples of clients include chat UI code and custom data processing pipelines. Examples of orchestrators include Microsoft Agent Framework, Semantic Kernel, LangChain, and Foundry Agent Service. When your workload connects to one or more Foundry resources or Foundry Model instances, you must decide whether these consumers connect directly or through a reverse proxy API gateway.
+[Microsoft Foundry](/azure/ai-foundry/what-is-foundry) exposes HTTP APIs that let your applications perform embeddings or completions by using language models. Intelligent applications call these HTTP APIs directly from clients or orchestrators. Examples of clients include chat UI code and custom data processing pipelines. Examples of orchestrators include Microsoft Agent Framework, Semantic Kernel, LangChain, and Foundry Agent Service. When your workload connects to one or more Foundry resources or Foundry model instances, you must decide whether these consumers connect directly or through a reverse proxy API gateway.
 
 You can use a gateway to solve specific scenarios that might not be present in every workload. For more information, see [Specific scenario guidance](#next-steps), which includes an example of gateway usage.
 
 ## Key challenges
 
-Without an API gateway or the ability to add logic into the Foundry APIs, the client has to handle the API client logic, which includes retry mechanisms or circuit breakers. This situation can be challenging in scenarios in which you don't directly control the client code, or when the code is restricted to specific SDK usage. Multiple clients or multiple Foundry resources instances and model deployments present further challenges, such as coordination of safe deployments and observability.
+Without an API gateway or the ability to add logic into the Foundry APIs, the client has to handle the API client logic, which includes retry mechanisms or circuit breakers. This situation can be challenging in scenarios in which you don't directly control the client code, or when the code is restricted to specific SDK usage. Multiple clients or multiple Foundry resource instances and model deployments present further challenges, such as coordination of safe deployments and observability.
 
 This section provides examples of specific key architectural challenges that you might face if your architecture only supports direct access to Foundry Models from consumers. The challenges are organized by using the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars).
 
@@ -18,10 +18,9 @@ The reliability of the workload depends on several factors, including its capaci
 
   Whether you use [Global](/azure/ai-foundry/foundry-models/concepts/deployment-types#global-standard), standard or provisioned, or [data zone](/azure/ai-foundry/foundry-models/concepts/deployment-types#data-zone-standard), standard or provisioned, it doesn't affect the Foundry resource availability from a regional endpoint availability perspective. You still have a responsibility to implement failover logic yourself.
 
-- **Scale out to handle spikes:** Failing over to Foundry Model instances with capacity when throttled is another client responsibility that you need to control through configuration and custom logic. Updating multiple client configurations for new Foundry Model instances presents greater risk and has timeliness concerns. The same is true for updating client code to implement changes in logic, such as directing low priority requests to a queue during high demand periods.
+- **Scale out to handle spikes:** Failing over to Foundry Model instances with capacity when throttled is another client responsibility that you need to control through configuration and custom logic. Updating multiple client configurations for new Foundry model instances presents greater risk and has timeliness concerns. The same is true for updating client code to implement changes in logic, such as directing low priority requests to a queue during high demand periods.
 
-- **Throttling:** Foundry APIs throttle requests by returning an HTTP 429 error response code to requests that exceed the Token-Per-Minute (TPM) or Requests-Per-Minute (RPM) in the standard model. Foundry APIs also throttle requests that exceed provisioned capacity for the pre-provisioned billing model. Handling appropriate back-off and retry logic is left exclusively to client implementations.
-- **Throttling:** Azure OpenAI APIs throttle requests by returning an HTTP 429 error response code to requests that exceed the Token-Per-Minute (TPM) or Requests-Per-Minute (RPM) in the standard model. Azure OpenAI APIs also throttle requests that exceed provisioned capacity for the pre-provisioned billing model. Client implementations are solely responsible for handling appropriate [back-off and retry logic](/azure/well-architected/design-guides/handle-transient-faults).
+- **Throttling:** Foundry APIs throttle requests by returning an HTTP 429 error response code to requests that exceed the Token-Per-Minute (TPM) or Requests-Per-Minute (RPM) in the standard model. Foundry APIs also throttle requests that exceed provisioned capacity for the pre-provisioned billing model. Client implementations are solely responsible for handling appropriate [back-off and retry logic](/azure/well-architected/design-guides/handle-transient-faults).
 
   Most workloads should solve this specific issue by using [global](/azure/ai-foundry/foundry-models/concepts/deployment-types#global-standard) and [data zone](/azure/ai-foundry/foundry-models/concepts/deployment-types#data-zone-standard) deployments of models. Those deployments use model capacity from data centers with enough capacity for each request. Using global and data zone deployments will significantly decrease service throttling without the added complexity of custom gateways. The global and data zone deployments are themselves a gateway implementation.
 
@@ -29,21 +28,21 @@ The reliability of the workload depends on several factors, including its capaci
 
 Security controls must help protect workload confidentiality, integrity, and availability. Without a gateway, all security concerns must be addressed exclusively in client logic and Foundry features. Workload requirements might demand more than what's available for client segmentation, client control, or service security features for direct communication.
 
-- **Identity management - authentication scope:** The data plane APIs exposed by Foundry can be secured in one of two ways: API key or Azure role-based access control (RBAC). In both cases, authentication happens at the Foundry instance level, not the individual deployment level, which introduces complexity for providing least privileged access and identity segmentation for specific deployment models.
+- **Identity management - authentication scope:** The data plane APIs exposed by Foundry can be secured in one of two ways: API key or Azure role-based access control (RBAC). In both cases, authentication happens at the Foundry resource level or project level, not the individual model deployment level, which introduces complexity for providing least privileged access and identity segmentation for specific deployment models.
 
-- **Identity management - identity providers:** Clients that can't use identities located in the Microsoft Entra tenant that's backing the Foundry instance must share a single full-access API key. API keys have security usefulness limitations and are problematic when multiple clients are involved and all share the same identity.
+- **Identity management - identity providers:** Clients that can't use identities located in the Microsoft Entra tenant that's backing the Foundry resource instance must share a single full-access API key. API keys have security usefulness limitations and are problematic when multiple clients are involved and all share the same identity.
 
-- **Network security:** Depending on client location relative to your Foundry instances, public internet access to language models might be necessary.
+- **Network security:** Depending on client location relative to your Foundry resource instances, public internet access to language models might be necessary.
 
-- **Data sovereignty:** Data sovereignty in the context of Foundry are the regulatory requirements related to storing and processing  data in a specific country or region. Your workload needs to ensure regional affinity so that clients can comply with data residency and sovereignty laws. This process involves multiple Foundry resource deployments.
+- **Data sovereignty:** Data sovereignty in the context of Foundry are the regulatory requirements related to storing and processing  data in a specific country or region. Your workload needs to ensure regional affinity so that clients can comply with data residency and sovereignty laws. This process involves multiple Foundry resource instances.
 
-  You should be aware that when you are using [global](/azure/ai-foundry/foundry-models/concepts/deployment-types#global-standard) or [data zone](/azure/ai-foundry/foundry-models/concepts/deployment-types#data-zone-standard) deployments of Foundry models, data at rest remains in the designated Azure geography, but data may be transmitted and processed for inferencing in any Foundry models location.
+  You should be aware that when you are using [global](/azure/ai-foundry/foundry-models/concepts/deployment-types#global-standard) or [data zone](/azure/ai-foundry/foundry-models/concepts/deployment-types#data-zone-standard) Foundry model deployments, data at rest remains in the designated Azure geography, but data may be transmitted and processed for inferencing in any Foundry model location.
 
 ### Cost optimization challenges
 
-Workloads benefit when architectures minimize waste and maximize utility. Strong cost modeling and monitoring are important requirements for any workload. Without a gateway, utilization of provisioned or per-client cost tracking can be authoritatively achieved exclusively from aggregating Foundry instance usage telemetry.
+Workloads benefit when architectures minimize waste and maximize utility. Strong cost modeling and monitoring are important requirements for any workload. Without a gateway, utilization of provisioned or per-client cost tracking can be authoritatively achieved exclusively from aggregating Foundry telemetry.
 
-- **Cost tracking:** Being able to provide a financial perspective on Foundry usage is limited to data aggregated from Foundry instance usage telemetry. When required to do chargeback or showback, you need to attribute that usage telemetry with various clients across different departments or even customers for multitenant scenarios.
+- **Cost tracking:** Being able to provide a financial perspective on Foundry usage is limited to data aggregated from Foundry telemetry. When required to do chargeback or showback, you need to attribute that usage telemetry with various clients across different departments or even customers for multitenant scenarios.
 
 - **Provisioned throughput utilization:** Your workload wants to avoid waste by fully utilizing the provisioned throughput that you paid for. This means that clients must be trusted and coordinated to use provisioned model deployments before spilling over into any standard model deployments.
 
@@ -63,7 +62,7 @@ Without a gateway, your workload puts responsibility on clients to be individual
 
 - **Performance optimization - priority traffic:** Prioritizing client requests so that high priority clients have preferential access over low priority clients would require extensive, and likely unreasonable, client-to-client coordination. Some workloads might benefit from having low priority requests queued to run when model utilization is low.
 
-- **Performance optimization - client compliance:** To share capacity, clients need to be well-behaved. An example of this is when clients ensure that `max_tokens` and `best_of` are set to approved values. Without a gateway, you must trust clients to act in the best interest of preserving capacity of your Foundry instance.
+- **Performance optimization - client compliance:** To share capacity, clients need to be well-behaved. An example of this is when clients ensure that `max_tokens` and `best_of` are set to approved values. Without a gateway, you must trust clients to act in the best interest of preserving capacity of your Foundry model instance.
 
 - **Minimize latency:** While network latency is usually a small component of the overall prompt and completion request flow, ensuring that clients are routed to a network endpoint and model close to them might be beneficial. Without a gateway, clients would need to self-select which model deployment endpoints to use and what credentials are necessary for that specific Foundry data plane API.
 
@@ -88,7 +87,7 @@ To address the many challenges listed in [Key challenges](#key-challenges), you 
 
 - Caching strategies to improve performance and cost optimization.
 
-Some specific scenarios have more guidance available that directly addresses an API gateway and Foundry instances. Those scenarios are listed in the [Next steps](#next-steps) section.
+Some specific scenarios have more guidance available that directly addresses an API gateway and Foundry. Those scenarios are listed in the [Next steps](#next-steps) section.
 
 ## Considerations
 
@@ -102,7 +101,7 @@ Reliability ensures that your application meets the commitments you make to your
 
 - The gateway solution can introduce a single point of failure. This failure could have its origin in service availability of the gateway platform, interruptions due to code or configuration deployments, or even misconfigured critical API endpoints in your gateway. Ensure that you design your implementation to meet your workload's availability requirements. Consider resiliency and fault tolerance capabilities in the implementation by including the gateway in the [failure mode analysis](/azure/well-architected/reliability/failure-mode-analysis) of the workload.
 
-- Your solution might require global routing capabilities if your architecture requires Foundry instances in multiple regions to increase the availability of your Foundry endpoints, such as the ability to continue to serve requests in the event of a regional outage. This situation can further complicate the topology through management of extra fully qualified domain names, TLS certificates, and more global routing components.
+- Your solution might require global routing capabilities if your architecture requires Foundry resource instances in multiple regions to increase the availability of your Foundry endpoints, such as the ability to continue to serve requests in the event of a regional outage. This situation can further complicate the topology through management of extra fully qualified domain names, TLS certificates, and more global routing components.
 
 > [!IMPORTANT]
 > Don't implement a gateway if doing so would jeopardize your workload's ability to meet agreed upon service-level objectives (SLOs).
@@ -145,7 +144,7 @@ When considering how an API gateway benefits your architecture, use the [Design 
 
 - You need to build or extend your APIOps approach to cover the APIs exposed in the gateway.
 
-- You duplicate capabilities that are available through solutions such as the Azure AI Service resource or Foundry data zone load distribution functionality.
+- You duplicate capabilities that are available through solutions such as the Azure AI Services resource or Foundry data zone load distribution functionality.
 
 ### Performance Efficiency
 
@@ -155,7 +154,7 @@ When considering how an API gateway benefits your architecture, use the [Design 
 
 - The gateway service must run processes for each request, and it introduces added latency for each API invocation. Optimize your routing logic to keep requests fast and reliable.
 
-- In most cases, the gateway should be geographically near both the users and Foundry instances to reduce latency. While network latency is usually a small percentage of time in overall API calls to language models, it might be a competitive factor for your workload.
+- In most cases, the gateway should be geographically near both the users and Foundry resource instances to reduce latency. While network latency is usually a small percentage of time in overall API calls to language models, it might be a competitive factor for your workload.
 
 - Evaluate the impact of the gateway on Foundry features, such as streaming responses or instance pinning for stateful interactions, such as the Assistants API.
 
@@ -190,14 +189,14 @@ The use of non-Microsoft gateway technology, which is a product or service that 
 
 ## Example architecture
 
-:::image type="complex" source="_images/azure-openai-gateway-example-architecture.svg" lightbox="_images/azure-openai-gateway-example-architecture.svg" alt-text="Diagram that shows an example architecture that injects a gateway between an intelligent application and Azure OpenAI.":::
-    The diagram shows an intelligent application icon with an arrow that points to two Azure API Management icons, one of which is gateway only. The icons have arrows that point to two Azure OpenAI icons in one region and one in another. One of the Azure API Management icons has an arrow labeled Batch request that points to Azure Event Hubs. The same icon has an arrow that points to an Azure Function with the arrow labeled Compute service. The Azure function has an arrow that points to API Management with a label Replay batched request and an arrow that points to Azure Event Hubs labeled Batched request. A Microsoft Entra ID icon, an Azure Traffic Manager icon, and an Application Insights and Azure Monitor icon are at the bottom of the diagram.
+:::image type="complex" source="_images/azure-openai-gateway-example-architecture.svg" lightbox="_images/azure-openai-gateway-example-architecture.svg" alt-text="Diagram that shows an example architecture that injects a gateway between an intelligent application and Foundry.":::
+    The diagram shows an intelligent application icon with an arrow that points to two Azure API Management icons, one of which is gateway only. The icons have arrows that point to two Azure Foundry icons in one region and one in another. One of the Azure API Management icons has an arrow labeled Batch request that points to Azure Event Hubs. The same icon has an arrow that points to an Azure Function with the arrow labeled Compute service. The Azure function has an arrow that points to API Management with a label Replay batched request and an arrow that points to Azure Event Hubs labeled Batched request. A Microsoft Entra ID icon, an Azure Traffic Manager icon, and an Application Insights and Azure Monitor icon are at the bottom of the diagram.
 :::image-end:::
-*Figure 2: Example architecture of accessing Azure OpenAI through an Azure API Management-based gateway*
+*Figure 2: Example architecture of accessing Azure Foundry through an Azure API Management-based gateway*
 
 ## Next steps
 
-Learn about a specific scenario where deploying a gateway between an intelligent application and Azure OpenAI deployments is used to address workload requirements:
+Learn about a specific scenario where deploying a gateway between an intelligent application and Azure Foundry deployments is used to address workload requirements:
 
 - [Load balancing or failover between multiple backend instances](./azure-openai-gateway-multi-backend.yml)
 - [Custom authentication and authorization for client applications](./azure-openai-gateway-custom-authentication.yml)
