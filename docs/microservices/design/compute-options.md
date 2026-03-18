@@ -10,60 +10,75 @@ ms.subservice: architecture-guide
 
 # Choose an Azure compute option for microservices
 
-This article provides guidance for choosing an Azure compute platform for a microservices architecture. A microservices architecture is a composition of small, services that communicate over the network. Your compute platform needs to support independent scaling, independent deployment, and reliable inter-service communication across many services.
+This article helps you choose an Azure compute platform for a workload that is built on a microservices architecture. A microservices architecture is a composition of small, independently deployable services that communicate over the network. Your compute platform needs to support that model: independent scaling, independent deployment, and reliable inter-service communication across many services.
 
-For a microservices architecture, the following approaches are common:
+For decision factors that apply to any workload, such as team skills, networking, and portability, see [Choose an Azure compute service](../../guide/technology-choices/compute-decision-tree.md). This article focuses on what matters specifically for microservices.
 
-- Deploy microservices on dedicated compute platforms, typically by using a microservice orchestrator.
-- Deploy microservices on a serverless platform.
+## Azure compute platforms for microservices
 
-Although these options aren't the only ones, they're both proven approaches to building microservices. An application might include both approaches.
+The following Azure platforms support microservices workloads. They differ in how much orchestration, inter-service communication, and scaling behavior they provide out of the box.
 
-:::image type="content" source="../design/images/microservice-compute-options.svg" alt-text="A diagram that shows microservice compute options in Azure." border="false" lightbox="../design/images/microservice-compute-options.svg":::
+### Azure Kubernetes Service (AKS)
 
-*Download a [Visio file](https://arch-center.azureedge.net/microservice-compute-options.vsdx) of this architecture.*
+[AKS](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed Kubernetes service that provides direct access to Kubernetes APIs and the control plane. AKS handles upgrades, patching, and node management, but you configure the cluster, networking, and scaling policies.
 
-## Use a serverless platform
+For microservices, AKS supports service meshes like [Istio](/azure/aks/istio-about) for traffic management and mTLS, per-deployment scaling through Horizontal Pod Autoscaler and [KEDA](/azure/aks/keda-about), and Kubernetes-native deployment strategies like rolling updates and canary releases.
 
-Serverless platforms let you deploy each microservice without provisioning or managing infrastructure. Each service scales independently based on its own demand, including scaling to zero when idle. This model is well suited for microservices architectures where services have different traffic patterns and you want to avoid paying for idle capacity across many services. Azure Container Apps and Azure Functions both provide serverless compute options. Both platforms also give you the option to host workloads on dedicated capacity.
+[AKS Automatic](/azure/aks/intro-aks-automatic) is a mode of AKS that preconfigures node management, scaling, security, and observability based on AKS well-architected recommendations, so that teams get a production-ready cluster without configuring each capability individually.
 
-## Deploy code-based microservices
+### Azure Container Apps
 
-If you want to deploy your microservices as code instead of containerizing them, consider Azure Functions or Azure App Service.
+[Container Apps](/azure/well-architected/service-guides/azure-container-apps) is a managed service built on Kubernetes that abstracts cluster management.
 
-[Azure Functions](/azure/azure-functions/functions-overview) is suited for event-driven microservices. For more information, see the [list of programming and scripting languages supported by Functions](/azure/azure-functions/supported-languages#language-support-details). For microservices that you develop in other languages, you might want to implement a custom handler in Functions or consider containerizing the application. You can also run the Azure Functions programming model [on Container Apps](/azure/container-apps/functions-overview), which lets you combine Functions triggers and bindings with Container Apps scaling and networking features.
+Container Apps provides built-in features for microservices, including [service discovery](/azure/container-apps/connect-apps), [Dapr integration](/azure/container-apps/dapr-overview) for service-to-service invocation with mTLS, publish/subscribe messaging, and state management. [KEDA-based autoscaling](/azure/container-apps/scale-app) enables event-driven scaling, including scale to zero. Container Apps also supports [traffic splitting](/azure/container-apps/revisions) across revisions for canary deployments and [jobs](/azure/container-apps/jobs) for on-demand, scheduled, or event-driven tasks.
 
-[Azure App Service](/azure/app-service/overview) is suited for HTTP-based microservices such as web APIs. App Service supports deploying as code or as a single container. It provides built-in autoscaling, deployment slots for blue-green deployments, and integration with CI/CD pipelines. App Service doesn't provide rich container orchestration features like service discovery or traffic splitting, so it's a better fit for simpler microservices that are independently deployable and don't require inter-service communication features from the platform.
+Container Apps doesn't expose Kubernetes APIs. If your deployment tooling or service mesh configuration depends on Kubernetes primitives, use AKS instead.
 
-## Use service orchestrators
+### Azure Functions
 
-A service orchestrator manages the deployment, scaling, health monitoring, and networking of your services across a cluster instance. For microservices architectures with many containerized services, an orchestrator handles the operational complexity of keeping those services running and communicating with each other.
+[Azure Functions](/azure/well-architected/service-guides/azure-functions) is a serverless, event-driven compute service suited for microservices that respond to triggers like HTTP requests, queue messages, or timers. Functions scales each function independently and can scale to zero. Functions doesn't provide platform-level service discovery or inter-service communication. You'll implement those features in application code or through external services like [Azure API Management](/azure/api-management/api-management-key-concepts).
 
-On the Azure platform, consider the following options:
+Functions supports [multiple programming languages](/azure/azure-functions/supported-languages#language-support-details). You can also run the Azure Functions programming model [on Container Apps](/azure/container-apps/functions-overview), which combines Functions triggers and bindings with Container Apps networking and scaling features.
 
-- [Azure Kubernetes Service (AKS)](/azure/aks/) is a managed Kubernetes service. AKS provisions Kubernetes and exposes the Kubernetes API endpoints, hosts and manages the Kubernetes control plane, and performs automated upgrades, automated patching, autoscaling, and other management tasks. AKS provides direct access to Kubernetes APIs.
+### Azure App Service
 
-  [AKS Automatic](/azure/aks/intro-aks-automatic) is a mode of AKS that preconfigures node management, scaling, security, and observability based on AKS well-architected recommendations, so that teams get a production-ready cluster without configuring each capability individually.
+[Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is suited for HTTP-based microservices such as web APIs. App Service supports deploying as code or as a single container. It provides built-in autoscaling, [deployment slots](/azure/app-service/deploy-staging-slots) for blue-green deployments, and integration with CI/CD pipelines. App Service doesn't provide service discovery or traffic splitting, so it's a better fit for simpler microservices that don't require inter-service communication features from the platform.
 
-- [Container Apps](/azure/container-apps) is a managed service built on Kubernetes that abstracts the complexities of container orchestration and other management tasks. Container Apps simplifies the deployment and management of containerized applications and microservices in a serverless environment.
+### Azure Red Hat OpenShift
 
-  Container Apps is ideal for scenarios where direct access to Kubernetes APIs isn't required. Container Apps provides built-in features for microservices, including [service discovery](/azure/container-apps/connect-apps), [Dapr integration](/azure/container-apps/dapr-overview) for service-to-service invocation with mutual TLS (mTLS), publish/subscribe messaging, and state management.
+[Azure Red Hat OpenShift](/azure/openshift) provides fully managed OpenShift clusters. It extends Kubernetes with an opinionated developer experience and is jointly engineered, operated, and supported by Red Hat and Microsoft. Use Azure Red Hat OpenShift if your organization has standardized on OpenShift.
 
-  [KEDA-based autoscaling](/azure/container-apps/scale-app) enables event-driven scaling, including scale to zero. Container Apps also supports [traffic splitting](/azure/container-apps/revisions) across revisions for canary deployments and [jobs](/azure/container-apps/jobs) for on-demand, scheduled, or event-driven tasks.
+## Compare platforms for microservices
 
-- Use [Azure Red Hat OpenShift](/azure/openshift) to deploy fully managed OpenShift clusters. Azure Red Hat OpenShift extends Kubernetes. Azure Red Hat OpenShift is jointly engineered, operated, and supported by Red Hat and Microsoft.
+The following table compares how each platform supports the capabilities that matter for a microservices architecture. For a broader comparison that includes general-purpose compute factors, see [Choose an Azure container service](../../guide/choose-azure-container-service.md).
 
-- You can find additional Kubernetes-based container solutions from partners on [Microsoft Marketplace](https://marketplace.microsoft.com).
+| Capability | AKS | Container Apps | Functions | App Service |
+| :--------- | :-- | :------------- | :-------- | :---------- |
+| **Service discovery** | Kubernetes DNS, service mesh | [Built-in](/azure/container-apps/connect-apps), [Dapr](/azure/container-apps/dapr-overview) | None (app-level) | None (app-level) |
+| **Inter-service communication** | Service mesh ([Istio](/azure/aks/istio-about)) | [Dapr](/azure/container-apps/dapr-overview), [environment-level](/azure/container-apps/networking) | None (app-level) | None (app-level) |
+| **Pub/sub messaging** | App-level (e.g., Service Bus, Event Hubs) | [Dapr pub/sub](/azure/container-apps/dapr-overview) | [Bindings](/azure/azure-functions/functions-triggers-bindings) | App-level |
+| **Independent scaling** | Per-deployment (HPA, [KEDA](/azure/aks/keda-about)) | Per-app ([KEDA](/azure/container-apps/scale-app)) | Per-function | Per-App Service plan |
+| **Scale to zero** | No (nodes stay provisioned) | Yes | Yes (Consumption/Flex plans) | No |
+| **Traffic splitting / canary** | Kubernetes-native, service mesh | [Revision-based](/azure/container-apps/revisions) | Deployment slots | [Deployment slots](/azure/app-service/deploy-staging-slots) |
+| **Distributed tracing** | [Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview), open-source tooling | [Built-in](/azure/container-apps/observability), Dapr tracing | [Application Insights](/azure/azure-monitor/app/app-insights-overview) | [Application Insights](/azure/azure-monitor/app/app-insights-overview) |
+| **Stateful services** | Persistent volumes, StatefulSets | [Volume mounts](/azure/container-apps/storage-mounts), [Dapr state](/azure/container-apps/dapr-overview) | [Durable Functions](/azure/azure-functions/durable/durable-functions-overview) | Not supported |
+| **Kubernetes API access** | Yes | No | No | No |
+| **Independent deployability** | Yes (per pod/deployment) | Yes (per container app) | Yes (per function app) | Yes (per app or [deployment slot](/azure/app-service/deploy-staging-slots)) |
+| **Runs containers** | Yes | Yes | Yes | Yes |
+| **Runs code without containers** | No | No | Yes | Yes |
 
-### Key decision factors
+> [!NOTE]
+> Azure Red Hat OpenShift is not included in this table. It provides the full Kubernetes API, so its microservices capabilities are comparable to AKS. Choose Azure Red Hat OpenShift when your organization requires a jointly supported Red Hat and Microsoft platform or has existing investments in the OpenShift ecosystem.
 
-When you select a compute platform for microservices, focus on how well the platform supports the defining characteristics of a microservices architecture: independently deployable services that communicate over the network, scale independently, and are potentially owned by separate teams. For decision factors that apply to any workload, such as Kubernetes API access, team skills, networking, and portability, see [Choose an Azure compute service](../../guide/technology-choices/compute-decision-tree.md).
+## Key decision factors
+
+When you select a compute platform for microservices, focus on how well the platform supports the defining characteristics of a microservices architecture: independently deployable services that communicate over the network, scale independently, and are owned by separate teams.
 
 - **Inter-service communication.** Microservices depend on reliable service-to-service communication with capabilities like service discovery, retries, and mutual TLS (mTLS).
 
   - AKS supports service meshes like [Istio](/azure/aks/istio-about) that provide traffic management, mTLS, and observability across the full mesh.
   - Container Apps provides [built-in Dapr integration](/azure/container-apps/dapr-overview) for service invocation, pub/sub messaging, and mTLS without deploying a separate mesh.
-  - Functions and App Service don't provide platform-level inter-service communication; you implement service discovery and resilient calls in application code or through external services like [Azure API Management](/azure/api-management/api-management-key-concepts).
+  - Functions and App Service don't provide platform-level inter-service communication. You must implement service discovery and resilient calls in application code or through external services like [Azure API Management](/azure/api-management/api-management-key-concepts).
 
 - **Independent scaling.** Each microservice in a composition has different load characteristics. The platform needs to let you scale services independently rather than scaling the entire application as a unit.
 
