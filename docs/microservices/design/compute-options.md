@@ -62,6 +62,7 @@ The following table compares how each platform supports the capabilities that ma
 | **Traffic splitting / canary** | Kubernetes-native, service mesh | [Revision-based](/azure/container-apps/revisions) | Deployment slots | [Deployment slots](/azure/app-service/deploy-staging-slots) |
 | **Distributed tracing** | [Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview), open-source tooling | [Built-in](/azure/container-apps/observability), Dapr tracing | [Application Insights](/azure/azure-monitor/app/app-insights-overview) | [Application Insights](/azure/azure-monitor/app/app-insights-overview) |
 | **Stateful services** | Persistent volumes, StatefulSets | [Volume mounts](/azure/container-apps/storage-mounts), [Dapr state](/azure/container-apps/dapr-overview) | [Durable Functions](/azure/azure-functions/durable/durable-functions-overview) | Not supported |
+| **Per-service identity** | [Workload identity](/azure/aks/workload-identity-overview) | [Managed identity](/azure/container-apps/managed-identity) | [Managed identity](/azure/azure-functions/security-concepts#managed-identities) | [Managed identity](/azure/app-service/overview-managed-identity) |
 | **Kubernetes API access** | Yes | No | No | No |
 | **Independent deployability** | Yes (per pod/deployment) | Yes (per container app) | Yes (per function app) | Yes (per app or [deployment slot](/azure/app-service/deploy-staging-slots)) |
 | **Runs containers** | Yes | Yes | Yes | Yes |
@@ -70,9 +71,18 @@ The following table compares how each platform supports the capabilities that ma
 > [!NOTE]
 > Azure Red Hat OpenShift is not included in this table. It provides the full Kubernetes API, so its microservices capabilities are comparable to AKS. Choose Azure Red Hat OpenShift when your organization requires a jointly supported Red Hat and Microsoft platform or has existing investments in the OpenShift ecosystem.
 
+## Choose your platform
+
+- **Start with Container Apps** when you want built-in microservices primitives, such as service discovery, Dapr, and per-app scaling with scale to zero, without managing a Kubernetes cluster.
+- **Choose AKS** when you need direct Kubernetes API access, custom service mesh configuration, or fine-grained control over cluster infrastructure such as node pools, networking policies, or scheduling constraints.
+- **Use Functions** for event-driven microservices with sporadic or bursty traffic patterns that benefit from scale-to-zero billing and trigger-based execution.
+- **Use App Service** for straightforward HTTP-based services that don't need platform-level service discovery or inter-service communication features.
+
+Your microservices workload doesn't need to run on a single platform. For example, you can run core services on AKS or Container Apps while handling event-driven workloads with Functions. Evaluate each service in your composition against its own traffic pattern, scaling requirements, and communication needs, and choose the platform that fits that service instead of trying to make the service fit the platform.
+
 ## Key decision factors
 
-When you select a compute platform for microservices, focus on how well the platform supports the defining characteristics of a microservices architecture: independently deployable services that communicate over the network, scale independently, and are owned by separate teams.
+When you select a compute platform for each service, focus on how well the platform supports the defining characteristics of a microservices architecture: independently deployable services that communicate over the network, scale independently, and are owned by separate teams.
 
 - **Inter-service communication.** Microservices depend on reliable service-to-service communication with capabilities like service discovery, retries, and mutual TLS (mTLS).
 
