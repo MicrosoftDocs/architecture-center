@@ -13,7 +13,7 @@ ms.custom: arb-aiml
 
 # Choose an Azure speech recognition and generation technology
 
-[Foundry Tools](/azure/ai-services/what-are-ai-services) helps developers and organizations rapidly create intelligent, cutting-edge, market-ready, and responsible applications by using out-of-the-box and prebuilt and customizable APIs and models.
+[Foundry Tools](/azure/ai-services/what-are-ai-services) helps developers and organizations create AI-based, advanced, production-ready applications that align with responsible AI practices by using out-of-the-box, prebuilt, and customizable APIs and models.
 
 This article describes speech-to-text (STT) and text-to-speech (TTS) capabilities in Tools. You can transcribe speech to text with high accuracy, produce natural-sounding TTS voices, translate spoken audio, and conduct live AI voice conversations. Create custom voices, add specific words to your base vocabulary, or build your own models. Run Azure Speech in Foundry Tools anywhere, including in the cloud or at the edge in containers.
 
@@ -23,14 +23,14 @@ This article describes speech-to-text (STT) and text-to-speech (TTS) capabilitie
 
 ## Azure Speech
 
-[Azure Speech](/azure/ai-services/speech-service/overview) is part of Tools and provides STT, TTS, speech translation, and other capabilities. You can transcribe speech to text with high accuracy, produce natural-sounding TTS voices, translate spoken audio, and conduct live AI voice conversations.
+[Azure Speech](/azure/ai-services/speech-service/overview) is a service in Tools that provides STT, TTS, speech translation, and other capabilities. You can transcribe speech to text with high accuracy, produce natural-sounding TTS voices, translate spoken audio, and conduct live AI voice conversations.
 
-| Use Azure Speech to do these tasks | Don't use Azure Speech to do these tasks |
+| Use Azure Speech for these tasks | Don't use Azure Speech for these tasks |
 | :----------| :-------------|
 | Transcribe or translate spoken speech to text in real time or batch processing. | Analyze text for sentiment or extract entities. For these tasks, use [Azure Language in Foundry Tools](/azure/ai-services/language-service/overview). |
 | Generate natural-sounding speech from text by using neural voices. | Moderate content for safety. For content moderation, use [Content Safety in Foundry Control Plane](/azure/ai-services/content-safety/overview). |
 | Identify speakers in a conversation by using voice biometry. | Translate text documents while preserving formatting. For document translation, use [Azure Translator in Foundry Tools](/azure/ai-services/translator/overview). |
-| Create custom voices unique to your brand or product. | |
+| Create custom voices unique to your brand or product. | - |
 
 ### Available Azure Speech features
 
@@ -43,7 +43,7 @@ The following table provides a list of features available in Azure Speech.
 | [TTS avatar](/azure/ai-services/speech-service/text-to-speech-avatar/what-is-text-to-speech-avatar) | Converts text into a digital video of a photorealistic human that speaks with a natural-sounding voice. The video can be synthesized asynchronously or in real time for lifelike synthetic talking avatar videos. |
 | [Speech translation](/azure/ai-services/speech-service/speech-translation) | Enables real-time, multilingual translation of speech to your applications, tools, and devices. Use it for speech-to-speech (S2S) and STT translation. |
 | [Large language model (LLM) speech (preview)](/azure/ai-services/speech-service/llm-speech) | Provides improved quality, deep contextual understanding, multilingual support, and prompt-tuning capabilities. Supports transcription and translation tasks. |
-| [Language identification](/azure/ai-services/speech-service/language-identification) | Identifies languages spoken in audio by comparing them against a list of supported languages. Use it by itself, with STT recognition, or with speech translation. |
+| [Language identification](/azure/ai-services/speech-service/language-identification) | Identifies languages spoken in audio by comparing them against a list of supported languages. Use language identification on its own, with STT recognition, or with speech translation. |
 | [Pronunciation assessment](/azure/ai-services/speech-service/how-to-pronunciation-assessment) | Evaluates speech pronunciation and gives speakers feedback on the accuracy and fluency of spoken audio. Language learners can practice, get instant feedback, and improve their pronunciation. |
 | [Custom speech](/azure/ai-services/speech-service/custom-speech-overview) | Create and train custom speech models by using acoustic, language, and pronunciation data when the base model isn't sufficient for audio that contains ambient noise or industry-specific jargon. |
 | [Custom voice](/azure/ai-services/speech-service/custom-neural-voice) | Create a custom voice that's recognizable and unique to your brand or product. Custom voices are private and can provide a competitive advantage. |
@@ -65,7 +65,7 @@ The following table provides a list of possible use cases for Azure Speech.
 
 You can integrate Azure Speech into your applications by using the following tools:
 
-- [Speech Studio](/azure/ai-services/speech-service/speech-studio-overview) provides UI-based tools for building and integrating features from Azure Speech using a no-code approach.
+- [Speech Studio](/azure/ai-services/speech-service/speech-studio-overview) provides UI-based tools for building and integrating features from Azure Speech by using a no-code approach.
 
 - [Speech SDK](/azure/ai-services/speech-service/speech-sdk) exposes many Azure Speech capabilities across multiple programming languages and platforms.
 
@@ -75,7 +75,7 @@ You can integrate Azure Speech into your applications by using the following too
 
 ### Deployment options
 
-You can deploy Azure Speech in the cloud or on-premises. By using [containers](/azure/ai-services/speech-service/speech-container-howto), you can bring the service closer to your data for compliance, security, or other operational reasons. Azure Speech deployment in [sovereign clouds](/azure/ai-services/speech-service/sovereign-clouds) is available for government entities and their partners.
+You can deploy Azure Speech in the cloud or on-premises. By using [containers](/azure/ai-services/speech-service/speech-container-howto), you can run the service nearer to your data for compliance, security, or other operational reasons. Azure Speech deployment in [sovereign clouds](/azure/ai-services/speech-service/sovereign-clouds) is available for government entities and their partners.
 
 ## Azure OpenAI
 
@@ -93,7 +93,7 @@ The following table lists the available Azure OpenAI audio models by API and cap
 
 | API | Capability | Models | Description |
 | :--- | :--- | :--- | :--- |
-| [Realtime API](/azure/foundry/openai/how-to/realtime-audio#quickstart) | Real-time voice conversation | `gpt-realtime`, `gpt-realtime-mini`, `gpt-4o-realtime-preview`, `gpt-4o-mini-realtime-preview` | Low-latency, speech-in/speech-out conversations for live voice agents, interactive assistants, and streaming audio scenarios |
+| [Realtime API](/azure/foundry/openai/how-to/realtime-audio#quickstart) | Real-time voice conversation | `gpt-realtime`, `gpt-realtime-mini`, `gpt-4o-realtime-preview`, `gpt-4o-mini-realtime-preview` | Low-latency, speech-in and speech-out conversations for live voice agents, interactive assistants, and streaming audio scenarios |
 | [Chat Completions API](/azure/foundry/openai/audio-completions-quickstart) | Audio generation and transcription | `gpt-4o-audio-preview`, `gpt-4o-mini-audio-preview`, `gpt-audio`, `gpt-audio-mini` | Combines audio input and output with language reasoning, summarization, or generation in a single model call |
 | [Audio API `/audio/transcriptions`](/azure/foundry/openai/whisper-quickstart) | STT | `whisper`, `gpt-4o-transcribe`, `gpt-4o-mini-transcribe`, `gpt-4o-transcribe-diarize` | - File-based transcription of prerecorded audio <br><br> - `gpt-4o-transcribe-diarize` includes speaker diarization |
 | [Audio API `/audio/translations`](/azure/foundry/openai/whisper-quickstart) | Speech translation | `whisper` | Translates spoken audio in supported languages into English text |
