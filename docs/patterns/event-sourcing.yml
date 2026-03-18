@@ -4,7 +4,7 @@ metadata:
   description: Use an append-only store to record the full series of events that describe actions taken on data in a domain.
   ms.author: pnp
   author: claytonsiemens77
-  ms.date: 1/15/2025
+  ms.date: 03/09/2026
   ms.topic: design-pattern
   ms.subservice: cloud-fundamentals
 azureCategories:
@@ -15,4 +15,4 @@ name: Event Sourcing pattern
 summary: Use an append-only store to record the full series of events that describe actions taken on data in a domain.
 thumbnailUrl: /azure/architecture/browse/thumbs/event-sourcing-overview.png
 content: |
-  [!include[](event-sourcing-content.md)]
+  [!INCLUDE[](event-sourcing-content.md)]
