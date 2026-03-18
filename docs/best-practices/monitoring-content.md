@@ -400,7 +400,7 @@ The operating system where the application is running can be a source of low-lev
 
 You should also consider the underlying infrastructure and components on which your system runs. Virtual machines, virtual networks, and storage services can all be sources of important infrastructure-level performance counters and other diagnostic data.
 
-If your application uses other external services, such as a web server or database management system, these services might publish their own trace information, logs, and performance counters. Examples include SQL Server Dynamic Management Views for tracking operations performed against a SQL Server database, and IIS trace logs for recording requests made to a web server.
+If your application uses other external services, such as a web server or database management system, these services might publish their own trace information, logs, and performance counters. Examples include SQL Server Dynamic Management Views for tracking operations performed against a SQL Server database, and Application Insights trace logs for recording requests made to an Azure App Service.
 
 As the components of a system are modified and new versions are deployed, it's important to be able to attribute issues, events, and metrics to each version. This information should be tied back to the release pipeline so that problems with a specific version of a component can be tracked quickly and rectified.
 
@@ -425,6 +425,8 @@ The section [Instrumenting an application](#instrumenting-an-application) contai
 - **Profiling**. This approach is primarily targeted at monitoring and improving application performance. Rather than operating at the functional level of real and synthetic user monitoring, it captures lower-level information as the application runs. You can implement profiling by using periodic sampling of the execution state of an application (determining which piece of code that the application is running at a given point in time). You can also use instrumentation that inserts probes into the code at important junctures (such as the start and end of a method call) and records which methods were invoked, at what time, and how long each call took. You can then analyze this data to determine which parts of the application might cause performance problems.
 
 - **Endpoint monitoring**. This technique uses one or more diagnostic endpoints that the application exposes specifically to enable monitoring. An endpoint provides a pathway into the application code and can return information about the health of the system. Different endpoints can focus on various aspects of the functionality. You can write your own diagnostics client that sends periodic requests to these endpoints and assimilate the responses. For more information, see the [Health Endpoint Monitoring pattern](../patterns/health-endpoint-monitoring.yml).
+
+- **User error dumps**. This technique relies on an application to provide a graceful way to collect a snapshot of the application state if it cannot recover, and for users to voluntarily share that snapshot. While it is not guaranteed to always run, the low-level data provided by an error dump can be incredibly useful to determine the root cause of errors. This is especially true if the errors in question happen infrequently, or if errors are isolated to an uncommonly-used feature in the application.
 
 For maximum coverage, you should use a combination of these techniques.
 
