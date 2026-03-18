@@ -177,7 +177,7 @@ The most critical aspects of security monitoring should enable an operator to qu
 
 - Detect attempted intrusions by an unauthenticated entity.
 - Identify attempts by entities to perform operations on data for which they have not been granted access.
-- Determine whether the system, or some part of the system, is under attack from outside or inside. (For example, a malicious authenticated user might be attempting to bring the system down.)
+- Determine whether the system, or some part of the system, is under attack from outside or inside. For example, a malicious authenticated user might be attempting to bring the system down.
 
 To support these requirements, an operator should be notified if:
 
@@ -187,7 +187,9 @@ To support these requirements, an operator should be notified if:
 
 The information that's provided to an operator should include the host address of the source for each request. If security violations regularly arise from a particular range of addresses, these hosts might be blocked.
 
-A key part in maintaining the security of a system is being able to quickly detect actions that deviate from the usual pattern. Information such as the number of failed or successful sign-in requests can be displayed visually to help detect whether there is a spike in activity at an unusual time. (An example of this activity is users signing in at 3:00 AM and performing a large number of operations when their working day starts at 9:00 AM). This information can also be used to help configure time-based autoscaling. For example, if an operator observes that a large number of users regularly sign in at a particular time of day, the operator can arrange to start additional authentication services to handle the volume of work, and then shut down these additional services when the peak has passed.
+A key part in maintaining the security of a system is being able to quickly detect actions that deviate from the usual pattern. Information such as the number of failed or successful sign-in requests can be displayed visually to help detect whether there is a spike in activity at an unusual time. An example of this activity is users signing in at 3:00 AM and performing a large number of operations when their working day starts at 9:00 AM.
+
+This information can also be used to help configure time-based autoscaling. For example, if an operator observes that a large number of users regularly sign in at a particular time of day, the operator can arrange to start additional authentication services to handle the volume of work, and then shut down these additional services when the peak has passed.
 
 ### Data sources, instrumentation, and data-collection requirements
 
