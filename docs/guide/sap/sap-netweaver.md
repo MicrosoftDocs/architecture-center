@@ -152,7 +152,7 @@ For traffic from SAP GUI clients that connect to an SAP server via DIAG protocol
 
 ### Storage
 
-Some organizations use standard storage for their application servers. SAP doesn't support Standard managed disks. For more information, see [SAP note 1928533](https://service.sap.com/sap/support/notes/1928533). To access SAP notes, you need an SAP Service Marketplace account. We recommend that you use [Azure Premium SSD storage](/azure/virtual-machines/managed-disks-overview) in all cases. A recent update to [SAP note 2015553](https://launchpad.support.sap.com/#/notes/2015553) excludes the use of Azure Standard HDD storage and Azure Standard SSD storage for a few specific use cases.
+Some organizations use standard storage for their application servers. SAP doesn't support Standard managed disks. For more information, see [SAP note 1928533](https://service.sap.com/sap/support/notes/1928533). To access SAP notes, you need an SAP Service Marketplace account. We recommend that you use [Azure Premium SSD storage](/azure/virtual-machines/managed-disks-overview) in all cases. A recent update to [SAP note 2015553](https://launchpad.support.sap.com/#/notes/2015553) lists specific use cases that exclude Azure Standard HDD storage and Azure Standard SSD storage.
 
 Application servers don't host business data. So you can also use the smaller P4 and P6 premium disks to help minimize costs. Premium disks provide the [single-instance VM service-level agreement (SLA)](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_6) if you have a central SAP stack installation.
 
@@ -196,7 +196,7 @@ A Windows server failover cluster implements high availability for the Central S
 
 - We recommend that you use [Azure Files](/azure/storage/files/storage-files-introduction) as fully managed, cloud-native SMB or NFS shares. You can also use [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction), which provides high-performance, enterprise-class NFS and SMB shares.
 
-- To set up clusters by using shared disks on Azure. First, we recommend that you use [Azure shared disks](/azure/virtual-machines/disks-shared) to set up a [Windows server failover cluster for SAP Central Services](/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-shared-disk). For an implementation example, see [Prepare Azure infrastructure for an ASCS cluster by using Azure shared disks](/azure/sap/workloads/sap-high-availability-infrastructure-wsfc-shared-disk).
+- To set up clusters by using shared disks on Azure, we recommend that you use [Azure shared disks](/azure/virtual-machines/disks-shared) to set up a [Windows server failover cluster for SAP Central Services](/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-shared-disk). For an implementation example, see [Prepare Azure infrastructure for an ASCS cluster by using Azure shared disks](/azure/sap/workloads/sap-high-availability-infrastructure-wsfc-shared-disk).
 
 If you use Internal Load Balancer, you can activate the [high-availability port](/azure/load-balancer/load-balancer-ha-ports-overview). This activation avoids the need to configure load-balancing rules for multiple SAP ports. When you set up Azure load balancers, activate Direct Server Return (DSR), which is also called *Floating IP*. DSR provides a way for server responses to bypass the load balancer. This direct connection keeps the load balancer from becoming a bottleneck in the path of data transmission. We recommend that you activate DSR for the ASCS and database clusters.
 
@@ -226,7 +226,7 @@ Consider the following [factors](/azure/sap/workloads/high-availability-zones) w
 
 In this example deployment, the [active/passive](/azure/sap/workloads/high-availability-zones?tabs=passive#deployment-types) status refers to the application service state within the zones. In the application layer, all four active application servers of the SAP system are in zone 1. Another set of four passive application servers is built in zone 2 but is shut down. They're activated only when they're needed.
 
-The two-node clusters for Central Services and the database services are stretched across two zones. If zone 1 fails, Central Services and the database services run in zone 2. The passive application servers in zone 2 get activated. All components of this SAP system now reside in the same zone, which reduces network latency.
+The two-node clusters for Central Services and the database services are deployed across two zones. If zone 1 fails, Central Services and the database services run in zone 2. The passive application servers in zone 2 get activated. All components of this SAP system now reside in the same zone, which reduces network latency.
 
 #### Active/active deployment example
 
@@ -247,7 +247,7 @@ In this context, Disaster recovery (DR) means that an entire region becomes unav
 
 Databases are critical workloads that require a low recovery point objective (RPO) and long-term retention.
 
-- For SAP on SQL Server, you can use [Azure Backup](/azure/backup/backup-azure-sql-database) to back up SQL Server databases that run on VMs. If the database files are stored in Azure Blob Storage, you can use [file-snapshot backups for database files in Azure](/sql/relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure?view=sql-server-ver17).
+- For SAP on SQL Server, you can use [Azure Backup](/azure/backup/backup-azure-sql-database) to back up SQL Server databases that run on VMs. If the database files are stored in Azure Blob Storage, you can use [file-snapshot backups for database files in Azure](/sql/relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure).
 
 - For SAP on Oracle/Windows, see [Backup and restore for Azure virtual machines Oracle database deployment for SAP workloads](/azure/sap/workloads/dbms-guide-oracle#backup-and-restore).
 
@@ -376,7 +376,7 @@ SAP application servers usually require frequent communication with the database
 To optimize network latency, you can use [proximity placement groups](/azure/sap/workloads/proximity-placement-scenarios#), which set a logical constraint on the VMs that are deployed in availability sets. Proximity placement groups favor colocation and performance over scalability, availability, or cost. They can improve the user experience for most SAP applications. For more information about scripts that help measure latency, see [Scripts on GitHub](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities).
 
 > [!NOTE]
-> Not all scenarios require proximity placement groups. For more recommendations about when to use or avoid proximity placement groups, see [Proximity placement groups](/azure/sap/workloads/proximity-placement-scenarios#proximity-placement-groupsscenarios).
+> Not all scenarios require proximity placement groups. For more recommendations about when to use or avoid proximity placement groups, see [Proximity placement groups](/azure/sap/workloads/proximity-placement-scenarios#proximity-placement-groups).
 
 #### Availability zones
 

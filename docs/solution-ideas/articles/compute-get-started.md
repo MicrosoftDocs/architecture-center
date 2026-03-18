@@ -75,7 +75,7 @@ SAP workloads have specific architecture requirements. See the following resourc
 - [SAP BW/4HANA in Linux on Azure](../../reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines.yml): Deploy an SAP BW/4HANA data warehouse on Azure Linux VMs.
 - [SAP deployment by using an Oracle database](../../example-scenario/apps/sap-production.yml): Run SAP production workloads by using an Oracle database on Azure.
 - [SAP HANA scale-up systems on Linux](../../reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.yml): Scale up SAP HANA deployments on Azure Linux VMs.
-- [SAP NetWeaver in Windows on Azure](../../guide/sap/sap-netweaver.yml): Deploy SAP NetWeaver on Windows VMs.
+- [SAP NetWeaver in Windows on Azure](../../guide/sap/sap-netweaver.md): Deploy SAP NetWeaver on Windows VMs.
 - [SAP S/4HANA in Linux on Azure](../../guide/sap/sap-s4hana.md): Run SAP S/4HANA on Azure Linux VMs.
 
 #### SAP solution ideas
