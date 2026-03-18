@@ -1,6 +1,6 @@
 ---
 title: Choose a Compute Option for Microservices
-description: Learn about compute options, the hosting models for the computing resources that your application runs on, like service orchestrator and serverless architectures.
+description: Learn how to choose an Azure compute platform for a microservices architecture. Compare orchestrators, serverless options, and PaaS platforms based on inter-service communication, independent scaling, and deployability.
 author: francisnazareth
 ms.author: fnazaret
 ms.date: 11/05/2024
@@ -10,9 +10,9 @@ ms.subservice: architecture-guide
 
 # Choose an Azure compute option for microservices
 
-The term *compute* refers to the hosting model for the computing resources that your application runs on. This article provides prescriptive guidance to help you choose a compute platform for microservices. Your microservice compute platform selection might depend on more nuanced requirements.
+This article provides guidance for choosing an Azure compute platform for a microservices architecture. A microservices architecture is a composition of small, services that communicate over the network. Your compute platform needs to support independent scaling, independent deployment, and reliable inter-service communication across many services.
 
-For a microservices architecture, the following approaches are popular:
+For a microservices architecture, the following approaches are common:
 
 - Deploy microservices on dedicated compute platforms, typically by using a microservice orchestrator.
 - Deploy microservices on a serverless platform.
@@ -25,9 +25,9 @@ Although these options aren't the only ones, they're both proven approaches to b
 
 ## Use a serverless platform
 
-You can use serverless platforms to deploy microservices on Azure Container Apps or Azure Functions. Both Container Apps and Functions provide serverless compute options that bill based on the volume of requests rather than compute consumption. Both platforms also give you the option to host the workloads on dedicated capacity. 
+Serverless platforms let you deploy each microservice without provisioning or managing infrastructure. Each service scales independently based on its own demand, including scaling to zero when idle. This model is well suited for microservices architectures where services have different traffic patterns and you want to avoid paying for idle capacity across many services. Azure Container Apps and Azure Functions both provide serverless compute options. Both platforms also give you the option to host workloads on dedicated capacity.
 
-## Deploy code-based microservices 
+## Deploy code-based microservices
 
 If you want to deploy your microservices as code instead of containerizing them, consider Azure Functions or Azure App Service.
 
@@ -35,13 +35,9 @@ If you want to deploy your microservices as code instead of containerizing them,
 
 [Azure App Service](/azure/app-service/overview) is suited for HTTP-based microservices such as web APIs. App Service supports deploying as code or as a single container. It provides built-in autoscaling, deployment slots for blue-green deployments, and integration with CI/CD pipelines. App Service doesn't provide rich container orchestration features like service discovery or traffic splitting, so it's a better fit for simpler microservices that are independently deployable and don't require inter-service communication features from the platform.
 
-## Use a GPU model
-
-If your microservice requires GPU capacity, for example, to run machine learning tasks, consider choosing Container Apps or Azure Kubernetes Service (AKS) for your platform. AKS can [use any GPU models in Azure](/azure/aks/gpu-cluster). Container Apps supports GPU workloads through [dedicated workload profiles](/azure/container-apps/workload-profiles-overview), which offer a subset of GPU models.
-
 ## Use service orchestrators
 
-An orchestrator handles tasks that relate to deploying and managing a set of services. These tasks include placing services on nodes, monitoring the health of services, restarting unhealthy services, load balancing network traffic across service instances, service discovery, scaling the number of instances of a service, and applying configuration updates. Kubernetes is the dominant orchestrator for microservices.
+A service orchestrator manages the deployment, scaling, health monitoring, and networking of your services across a cluster instance. For microservices architectures with many containerized services, an orchestrator handles the operational complexity of keeping those services running and communicating with each other.
 
 On the Azure platform, consider the following options:
 
@@ -98,51 +94,36 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist). 
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-If you choose Azure Functions as your microservice computing platform, consider deploying the [Functions Premium plan](/azure/azure-functions/functions-premium-plan?tabs=portal) or Azure App Service plan in a zone-redundant configuration. For more information, see [Reliability in Functions](/azure/reliability/reliability-functions?tabs=azure-portal). 
+In a microservices architecture, individual services should be designed to fail independently. Your compute platform needs to detect unhealthy service instances, restart them, and route traffic away from them without bringing down the entire system.
 
-If you choose AKS as your microservice computing platform, you can enhance microservice reliability by deploying an [AKS cluster that uses availability zones](/azure/aks/availability-zones), by using the [Standard or Premium tier](/azure/aks/free-standard-pricing-tiers) for Azure Kubernetes clusters, and by increasing the minimum number of pods and nodes. For more information, see [Deployment and cluster reliability best practices for AKS](/azure/aks/best-practices-app-cluster-reliability).
+- AKS provides liveness and readiness probes per container, automatic pod restarts, and replica sets that maintain a minimum instance count.
+- Container Apps provides similar [health probes](/azure/container-apps/health-probes) and automatically replaces failed replicas.
+- Functions automatically retries failed executions based on the trigger type. Deploy across [availability zones](/azure/reliability/availability-zones-overview) on whichever platform you choose to protect against datacenter-level failures.
 
-If you choose Container Apps as your microservice computing platform, you can enhance reliability by using availability zones. For more information, see [Reliability in Container Apps](/azure/reliability/reliability-azure-container-apps).
+For platform-specific reliability guidance, see the reliability sections of the WAF service guides for [AKS](/azure/well-architected/service-guides/azure-kubernetes-service#reliability), [Container Apps](/azure/well-architected/service-guides/azure-container-apps#reliability), and [Azure Functions](/azure/well-architected/service-guides/azure-functions#reliability).
 
 ### Security
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-If you choose Azure Functions as your compute platform to deploy microservices, the principles of [securing Azure Functions](/azure/azure-functions/security-concepts) apply to microservices as well.
+Microservices increase the attack surface because every service-to-service call crosses a network boundary. Treat inter-service traffic as untrusted. Use mutual TLS (mTLS) to authenticate and encrypt communication between services. AKS supports mTLS through service meshes like [Istio](/azure/aks/istio-about), and Container Apps provides mTLS through [Dapr](/azure/container-apps/dapr-overview) or [environment-level configuration](/azure/container-apps/networking).
 
-If you choose AKS as your compute platform to deploy microservices, the [AKS security baseline architecture](/security/benchmark/azure/baselines/azure-kubernetes-service-aks-security-baseline) provides guidance for securing the compute platform. For best practices on microservice security on AKS, see [Advanced AKS microservice architecture](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced). 
+Assign each microservice its own identity by using [workload identity](/azure/aks/workload-identity-overview) on AKS or [managed identity](/azure/container-apps/managed-identity) on Container Apps, so that each service authenticates to only the resources it requires.
 
-If you choose Container Apps as your compute platform to deploy microservices, see the [security baseline for Container Apps](/security/benchmark/azure/baselines/azure-container-apps-security-baseline) for security best practices.
+For platform-specific security guidance, see the security sections of the WAF service guides for [AKS](/azure/well-architected/service-guides/azure-kubernetes-service#security), [Container Apps](/azure/well-architected/service-guides/azure-container-apps#security), and [Azure Functions](/azure/well-architected/service-guides/azure-functions#security).
 
 ### Cost Optimization
 
 Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-When you use an orchestrator, you pay for the virtual machines that run in the cluster. When you use a serverless application, you pay only for the actual compute resources that you consume. In both cases, you need to factor in the cost of any extra services, such as storage, databases, and messaging services.
+A microservices architecture can include dozens of services, each with different traffic volumes. Services that handle high throughput continuously might be less expensive on dedicated compute. Services that handle sporadic or event-driven traffic might cost less on a consumption model that scales to zero.
 
-Azure Functions, Container Apps, and AKS provide autoscaling options. Container Apps and Functions provide serverless platforms where the cost is based on consumption and can scale to zero. Container Apps also offers [dedicated workload profiles](/azure/container-apps/workload-profiles-overview) for workloads that need reserved capacity or specialized hardware. AKS provides only dedicated compute options.
+- Container Apps and Functions support consumption billing and can scale to zero.
+- AKS requires dedicated node pools that you pay for whether the pods are busy or idle, though you can mix node pool sizes and use cluster autoscaler to reduce waste.
 
-If you choose AKS as the compute platform to deploy microservices, you need to understand cost optimization best practices. For more information, see [Optimize costs in Azure Kubernetes Service](/azure/aks/best-practices-cost).
-
-If you choose Container Apps as your microservices compute platform, you need to understand the consumption and dedicated billing models and decide on the deployment model for your microservices based on your workload requirements. For more information, see [Billing in Container Apps](/azure/container-apps/billing).
-
-If you choose Azure Functions as your microservices compute platform, you need to understand the various billing models and decide on the Functions plan based on your workload requirements. For more information, see [Estimate consumption-based costs](/azure/azure-functions/functions-consumption-costs) and [Azure Functions plan details](/azure/azure-functions/functions-scale#billing).
-
-### Operational Excellence
-
-Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
-
-You can deploy all of the microservice compute choices that this article describes in an automated manner by using Terraform, Bicep, and other scripting languages. You can use [Application Insights](/azure/azure-monitor/app/app-insights-overview), [Azure Monitor](/azure/azure-monitor/overview), and other monitoring solutions to monitor these compute platforms and microservices.
-
-Consider the following factors when you choose between an orchestrator approach and a serverless approach:
-
-- **Flexibility and control:** An orchestrator gives you control over configuring and managing your services and the cluster. The trade-off is more complexity. With a serverless architecture, you give up some degree of control because these details are abstracted.
-
-- **Portability:** Kubernetes-based workloads are portable across environments because Kubernetes runs on-premises and across multiple public clouds. However, the managed Azure services listed in this article, such as AKS, Container Apps, and Azure Red Hat OpenShift, are Azure-specific. If you design your workloads against standard Kubernetes APIs, you reduce the effort to host between Kubernetes environments.
-
-- **Application integration:** It can be challenging to build a complex application that uses a serverless architecture because you need to coordinate, deploy, and manage many small, independent functions. One option in Azure is to use [Azure Logic Apps](/azure/logic-apps/) to coordinate a set of Azure functions. For an example of this approach, see [Create a function that integrates with Logic Apps](/azure/azure-functions/functions-twitter-email).
+In a composition with many services, the billing model you choose for each service can have a larger cost impact than the per-unit price of any single platform. For platform-specific cost guidance, see the cost optimization sections of the WAF service guides for [AKS](/azure/well-architected/service-guides/azure-kubernetes-service#cost-optimization), [Container Apps](/azure/well-architected/service-guides/azure-container-apps#cost-optimization), and [Azure Functions](/azure/well-architected/service-guides/azure-functions#cost-optimization).
 
 ## Next step
 
