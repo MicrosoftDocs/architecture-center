@@ -47,7 +47,7 @@ The following dataflow corresponds to the previous diagram:
 
 - [Semantic models](/fabric/data-warehouse/semantic-models) in Fabric are Power BI datasets that define business-friendly metadata and relationships to support analytical queries and reporting. In this architecture, the lakehouse automatically generates them to accelerate Power BI reporting and analytics.
 
-- [App Service](/azure/app-service/overview) is a fully managed platform for hosting web applications and background services. In this architecture, it hosts the Python-based mirroring application that orchestrates change ingestion into Fabric.
+- [App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed platform for hosting web applications and background services. In this architecture, it hosts the Python-based mirroring application that orchestrates change ingestion into Fabric.
 
 - [MongoDB change streams](https://www.mongodb.com/docs/manual/changeStreams/) provide a mechanism to capture real-time data changes from MongoDB collections. In this architecture, they capture insert, update, and delete operations from MongoDB Atlas to drive continuous data sync.
 
