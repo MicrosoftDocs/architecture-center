@@ -104,14 +104,14 @@ This is useful for SLA purposes. ([SLA monitoring](#sla-monitoring) is described
 
 ## Performance monitoring
 
-As the system is placed under more and more stress (by increasing the volume of users), the size of the datasets that these users access grows and the possibility of failure of one or more components becomes more likely. Frequently, component failure is preceded by a decrease in performance. If you're able detect such a decrease, you can take proactive steps to remedy the situation.
+As the system is placed under more and more stress (by increasing the volume of users), the size of the datasets that these users access grows and the possibility of failure of one or more components becomes more likely. Frequently, component failure is preceded by performance degradation. If you're able detect such a degradation, you can take proactive steps to remedy the situation.
 
 System performance depends on multiple factors. Each factor is typically measured through key performance indicators (KPIs), such as the number of database transactions per second or the volume of network requests that are successfully serviced in a specified time frame. Some of these KPIs might be available as specific performance measures, whereas others might be derived from a combination of metrics.
 
 > [!NOTE]
 > Determining poor or good performance requires that you understand the level of performance at which the system should be capable of running. This requires observing the system while it's functioning under a typical load and capturing the data for each KPI over a period of time. This might involve running the system under a simulated load in a test environment and gathering the appropriate data before deploying the system to a production environment.
 >
-> You should also ensure that monitoring for performance purposes doesn't become a burden on the system. You might be able to dynamically adjust the level of detail for the data that the performance monitoring process gathers.
+> You should also ensure that monitoring for performance purposes doesn't become a burden on the system. You should take care to adjust the level of detail for the data that the performance monitoring process gathers.
 
 ### Requirements for performance monitoring
 
