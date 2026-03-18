@@ -19,7 +19,7 @@ Delegate the transaction handling logic among the services. Let each service dec
 
 > The pattern is a way to minimize dependency on custom software that centralizes the communication workflow. The components implement common logic as they choreograph the workflow among themselves without having direct communication with each other.
 
-A common way to implement choreography is to use a message broker that buffers requests until downstream components claim and process them. The image shows request handling through a [publisher-subscriber model](./publisher-subscriber.yml).
+A common way to implement choreography is to use a message broker that buffers requests until downstream components claim and process them. The image shows request handling through a [publisher-subscriber model](./publisher-subscriber.md).
 
 ![A diagram showing processing of a request using a message broker.](./_images/choreography-pattern.png)
 
@@ -127,7 +127,7 @@ Consider these patterns in your design for choreography.
 
 - Implement [queue-based load leveling pattern](./queue-based-load-leveling.yml) to handle spikes of the workload.
 
-- Use asynchronous distributed messaging through the [publisher-subscriber pattern](./publisher-subscriber.yml).
+- Use asynchronous distributed messaging through the [publisher-subscriber pattern](./publisher-subscriber.md).
 
 - Use [compensating transactions](./compensating-transaction.yml) to undo a series of successful operations in case one or more related operations fail.
 

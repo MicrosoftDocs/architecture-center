@@ -179,7 +179,7 @@ For more information about pricing for specific components, see the following re
 - [Azure Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/)
 - [Azure Data Factory pricing](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline)
 - [Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs)
-- [Language pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-service)
+- [Language in Foundry Tools pricing](https://azure.microsoft.com/pricing/details/language/)
 - [Machine Learning pricing](https://azure.microsoft.com/pricing/details/machine-learning/#overview)
 - [Azure OpenAI pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/)
 

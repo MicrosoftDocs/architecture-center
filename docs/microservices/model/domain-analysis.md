@@ -30,7 +30,7 @@ The concept of *ubiquitous language* is central in DDD. It's a shared vocabulary
    The image has four sections: analyze domain; define bounded contexts; define entities, aggregates, and services; and identify microservices. Double greater-than signs indicate a flow between the sections, from left to right.
 :::image-end:::
 
-This article and the related [Tactical DDD](./tactical-ddd.yml) article present the following steps and apply them to the drone delivery application:
+This article and the related [Tactical DDD](./tactical-domain-driven-design.md) article present the following steps and apply them to the drone delivery application:
 
 1. Analyze the business domain to understand the application's functional requirements. The output of this step is an informal description of the domain, which you can refine into a more formal set of domain models.
 
@@ -40,7 +40,7 @@ This article and the related [Tactical DDD](./tactical-ddd.yml) article present 
 
 1. Use the results from the previous step to identify the microservices in your application.
 
-This article covers the first two steps, which primarily concern strategic DDD. The article [Tactical DDD](./tactical-ddd.yml) covers step 3. The article [Identify microservice boundaries](microservice-boundaries.yml) covers step 4. DDD is an iterative, ongoing process, so service boundaries don't remain fixed. As an application evolves, you might decide to separate a service into several smaller services.
+This article covers the first two steps, which primarily concern strategic DDD. The article [Tactical DDD](./tactical-domain-driven-design.md) covers step 3. The article [Identify microservice boundaries](microservice-boundaries.yml) covers step 4. DDD is an iterative, ongoing process, so service boundaries don't remain fixed. As an application evolves, you might decide to separate a service into several smaller services.
 
 > [!NOTE]
 > This article doesn't show a complete and comprehensive domain analysis. The example is intentionally brief and focuses on the key ideas. For more background about DDD, read Eric Evans's *Domain-Driven Design*, the book that first introduced the term. Another good reference is *Learning Domain-Driven Design* by Vlad Khononov for a practical, modern treatment of the subject.
@@ -144,7 +144,7 @@ For the rest of this journey, we will focus on the shipping bounded context.
 After you complete a domain analysis, apply tactical DDD to define your domain models more precisely.
 
 > [!div class="nextstepaction"]
-> [Tactical DDD](./tactical-ddd.yml)
+> [Tactical DDD](./tactical-domain-driven-design.md)
 
 ## Related resources
 

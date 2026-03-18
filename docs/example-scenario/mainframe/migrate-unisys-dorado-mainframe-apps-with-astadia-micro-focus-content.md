@@ -108,7 +108,7 @@ This architecture uses the following components:
   - Ultra Disks
   - Premium SSD Managed Disks
   - Standard SSD Managed Disks
-  - Standard hard disk drives (HDD) Managed Disks
+  - Standard HDDs Managed Disks
 
   Premium SSDs or Ultra Disks work best with this architecture.
 

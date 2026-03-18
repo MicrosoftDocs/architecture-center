@@ -28,7 +28,7 @@ The numbers in the diagram correspond to the following data flow.
 
   For more information about how Skytap on [Azure connectivity](https://www.skytap.com/blog/skytap-on-azure-networking-considerations/) works, see [Skytap well-architected framework](https://skytap.github.io/well-architected-framework/).
 
-- [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) is a connectivity service that extends your on-premises networks to Microsoft cloud services, including Azure and Office 365, over a private connection that a connectivity provider facilitates. In this architecture, ExpressRoute provides secure, high-bandwidth connectivity between on-premises users and the Azure-hosted web application.
+- [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) is a connectivity service that extends your on-premises networks to Microsoft cloud services, including Azure and Microsoft 365, over a private connection that a connectivity provider facilitates. In this architecture, ExpressRoute provides secure, high-bandwidth connectivity between on-premises users and the Azure-hosted web application.
 
   For more information about how ExpressRoute works with Skytap, see [Skytap getting started with Azure networking guide](https://www.skytap.com/blog/skytap-on-azure-networking-considerations/).
 

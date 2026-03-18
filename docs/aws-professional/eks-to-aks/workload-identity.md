@@ -120,7 +120,7 @@ AKS uses different types of managed identities to enable various built-in servic
 | Add-on identities (AzureNPM, AzureCNI network monitoring, Azure Policy, and Calico) | These add-ons don't require an identity.                      | N/A                                                          |
 | Application routing                                          | Manages Azure DNS and Azure Key Vault certificates.          | Key Vault Secrets User role for Key Vault, DNS Zone Contributor role for DNS zones, Private DNS Zone Contributor role for private DNS zones |
 | Ingress application gateway                                  | Manages required network resources.                          | Contributor role for the node resource group                     |
-| Operations Management Suite (OMS) agent                                                    | Sends AKS metrics to Azure Monitor.                   | Monitoring Metrics Publisher role                            |
+| Azure Monitor agent                                                    | Sends AKS metrics to Azure Monitor.                   | Monitoring Metrics Publisher role                            |
 | Virtual node (Azure Container Instances connector)                                 | Manages required network resources for Container Instances. | Contributor role for the node resource group                     |
 | Cost analysis                                                |  Gathers cost allocation data.                         | N/A                                                          |
 | Workload identity (Workload ID)              | Enables applications to securely access cloud resources with Workload ID. | N/A                                                          |

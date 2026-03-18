@@ -80,7 +80,7 @@ Azure Container Apps and Azure Container Instances provide serverless container 
 
 ## Learn about containers on Azure
 
-If you're new to containers on Azure, the best place to learn more is with [Microsoft Learn](/training/?WT.mc_id=learnaka), a free, online training platform. You'll find videos, tutorials, and hands-on learning for specific products and services, plus learning paths based on your job role, such as developer or solutions architect.
+If you're new to containers on Azure, the best place to learn more is with [Microsoft Learn](/training/?WT.mc_id=learnaka), a free, online training platform. You'll find videos, tutorials, and interactive learning for specific products and services, plus learning paths based on your job role, such as developer or solutions architect.
 
 Here are some resources to get you started:
 

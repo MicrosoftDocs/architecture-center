@@ -48,7 +48,7 @@ Available throughput for the volumes in a capacity pool is defined by the size a
 
 ### Data protection
 
-To protect against unlikely zonal failures make use of Oracle Data Guard to replicate database files and redo logs to an alternate zone in the region.
+To protect against unlikely zone failures make use of Oracle Data Guard to replicate database files and redo logs to an alternate zone in the region.
 
 :::image type="complex" source="./media/oracle-replication-diagram.png" alt-text="Diagram of replicated Oracle workload." lightbox="./media/oracle-replication-diagram.png" border="false":::
     Two rectangles with dashed blue lines delineate a set of virtual machines (VMs); each rectangle denotes a different availability zone in the same Azure region. Within each availability zone, there is a virtual machine subnet hosting an Oracle VM. The Oracle VMs have delegated subnets for Azure NetApp Files that host a manual quality of service capacity pool, denoted by a solid color yellow rectangle stretching between the delegated subnet in each availability zone. The capacity pools house the different Oracle volume deployments.
@@ -179,7 +179,7 @@ Using Azure NetApp Files instead of block storage can reduce costs:
 
 - You can use smaller VMs:
 
-  - Azure NetApp Files provides low-latency storage access. With smaller VMs, you get the same performance that larger VMs deliver with ultra disk storage.
+  - Azure NetApp Files provides low-latency storage access. With smaller VMs, you get the same performance that larger VMs deliver with Ultra Disk Storage.
   - Cloud resources usually place limits on I/O operations. This practice prevents sudden slowdowns that resource exhaustion or unexpected outages can cause. As a result, VMs have disk throughput limitations and network bandwidth limitations. The network limitations are typically higher than disk throughput limitations. With network-attached storage, only network bandwidth limits are relevant, and they only apply to data egress. In other words, VM-level disk I/O limits don't affect Azure NetApp Files. Because of these factors, network-attached storage can achieve better performance than disk I/O. This fact is true even when Azure NetApp Files runs on smaller VMs.
 
   Smaller VMs offer these pricing advantages over larger ones:
