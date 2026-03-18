@@ -63,7 +63,7 @@ The following table compares how each platform supports the capabilities that ma
 | **Pub/sub messaging** | App-level (e.g., Service Bus, Event Hubs) | [Dapr pub/sub](/azure/container-apps/dapr-overview) | [Bindings](/azure/azure-functions/functions-triggers-bindings) | App-level |
 | **Independent scaling** | Per-deployment (HPA, [KEDA](/azure/aks/keda-about)) | Per-app ([KEDA](/azure/container-apps/scale-app)) | Per-function app ([per-function on Flex](/azure/azure-functions/flex-consumption-plan)) | Per-App Service plan |
 | **Scale to zero** | Partial. [User node pools only](/azure/aks/scale-cluster) | Yes | Yes (Consumption/Flex plans) | No |
-| **Cold start mitigation** | [Minimum node count](/azure/aks/scale-cluster), minimum pod replicas | [Minimum replica count](/azure/container-apps/scale-app) | [Pre-warmed / always-ready instances](/azure/azure-functions/functions-premium-plan#eliminate-cold-starts) (Premium/Flex) | Not applicable (Always On) |
+| **Cold start mitigation** | [Minimum node count](/azure/aks/scale-cluster), minimum pod replicas | [Minimum replica count](/azure/container-apps/scale-app) | [Prewarmed / always-ready instances](/azure/azure-functions/functions-premium-plan#eliminate-cold-starts) (Premium/Flex) | Not applicable (Always On) |
 | **Traffic splitting / canary** | Kubernetes-native, service mesh | [Revision-based](/azure/container-apps/revisions) | Deployment slots | [Deployment slots with traffic routing](/azure/app-service/deploy-staging-slots) |
 | **Distributed tracing** | OpenTelemetry, open-source tooling | [Built-in](/azure/container-apps/observability), Dapr tracing | [Application Insights](/azure/azure-monitor/app/app-insights-overview) | [Application Insights](/azure/azure-monitor/app/app-insights-overview) |
 | **Stateful services** | Persistent volumes, StatefulSets | [Volume mounts](/azure/container-apps/storage-mounts), [Dapr state](/azure/container-apps/dapr-overview) | [Durable Functions](/azure/azure-functions/durable/durable-functions-overview) | Not supported |
@@ -74,7 +74,7 @@ The following table compares how each platform supports the capabilities that ma
 | **Runs code without containers** | No | No | Yes | Yes |
 
 > [!NOTE]
-> Azure Red Hat OpenShift is not included in this table. It provides the full Kubernetes API, so its microservices capabilities are comparable to AKS. Choose Azure Red Hat OpenShift when your organization has existing investments in the OpenShift ecosystem.
+> Azure Red Hat OpenShift isn't included in this table. It provides the full Kubernetes API, so its microservices capabilities are comparable to AKS. Choose Azure Red Hat OpenShift when your organization has existing investments in the OpenShift ecosystem.
 
 ## Choose your platform
 
@@ -109,7 +109,7 @@ The comparison table shows what each platform supports. This section helps you w
 
   Ensure each service in the composition exposes per-service metrics (request rate, error rate, latency) so you can identify which service is degrading without correlating logs across the full call chain.
 
-- **State management.** Microservices typically externalize state to databases or caches, but some services benefit from state that's colocated with the compute instance, such as actor-based patterns or in-cluster data stores. AKS provides the most flexibility through persistent volumes and StatefulSets. Container Apps supports volume mounts and Dapr state management. Functions supports stateful orchestrations through Durable Functions. App Service doesn't support persistent local state.
+- **State management.** Microservices typically externalize state to databases or caches, but some services benefit from state colocated on the compute instance, such as actor-based patterns or in-cluster data stores. AKS provides the most flexibility through persistent volumes and StatefulSets. Container Apps supports volume mounts and Dapr state management. Functions supports stateful orchestrations through Durable Functions. App Service doesn't support persistent local state.
 
 ## Considerations
 
@@ -119,7 +119,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-In a microservices architecture, the primary reliability risk is cascading failure: one unhealthy service causes callers to accumulate timeouts, which propagates outward through the call chain. Your platform choice affects how you mitigate this.
+In a microservices architecture, the primary reliability risk is cascading failure: one unhealthy service causes callers to accumulate timeouts, which propagates outward through the call chain. Your platform choice affects how you mitigate this risk.
 
 - AKS and Container Apps provide platform-level health probes that detect unhealthy instances and remove them from rotation automatically.
 - Functions retries failed executions based on the trigger type.
@@ -150,7 +150,7 @@ For platform-specific cost guidance, see the cost optimization sections of the W
 
 ## Reference architectures
 
-Use the comparison criteria in this article to narrow your options to one or two platforms. Then run a proof of concept: deploy a representative subset of your services and test inter-service communication, scaling behavior, and deployment workflows against your requirements. Confirm the platform meets your team's operational expectations before committing to production. These architectures provide production-ready starting points.
+Narrow your options to one or two platforms by using the comparison criteria in this article. Then run a proof of concept: deploy a representative subset of your services and test inter-service communication, scaling behavior, and deployment workflows against your requirements. Confirm the platform meets your team's operational expectations before committing to production. These architectures provide production-ready starting points.
 
 - **AKS**: [Baseline architecture for an AKS cluster](../../reference-architectures/containers/aks/baseline-aks.yml)
 - [Microservices with Container Apps and Dapr](../../example-scenario/serverless/microservices-with-container-apps-dapr.yml)
