@@ -221,7 +221,7 @@ SLAs are often defined in terms of:
 
 ### Requirements for SLA monitoring
 
-At the highest level, an operator should be able to determine at a glance whether the system is meeting the agreed SLAs or not. And if not, the operator should be able to drill down and examine the underlying factors to determine the reasons for substandard performance.
+At the highest level, an operator should be able to determine at a glance whether the system is meeting the agreed SLAs or not. If not, the operator should be able to drill down and examine the underlying factors to determine the reasons for substandard performance.
 
 Typical high-level indicators that can be depicted visually include:
 
@@ -235,7 +235,7 @@ All of these indicators should be capable of being filtered by a specified perio
 A cloud application likely comprises multiple subsystems and components. An operator should be able to select a high-level indicator and see how it's composed from the health of the underlying elements. For example, if the uptime of the overall system falls below an acceptable value, an operator should be able to zoom in and determine which elements are contributing to this failure.
 
 > [!NOTE]
-> System uptime needs to be defined carefully. In a system that uses redundancy to ensure maximum availability, individual instances of elements might fail, but the system can remain functional. System uptime as presented by health monitoring should indicate the aggregate uptime of each element and not necessarily whether the system has actually halted. Additionally, failures might be isolated. So even if a specific system is unavailable, the remainder of the system might remain available, although with decreased functionality. (In an e-commerce system, a failure in the system might prevent a customer from placing orders, but the customer might still be able to browse the product catalog.)
+> System uptime needs to be defined carefully. In a system that uses redundancy to ensure maximum availability, individual instances of elements might fail, but the system can remain functional. System uptime as presented by health monitoring should indicate the aggregate uptime of each element and not necessarily whether the system has actually halted. Additionally, failures might be isolated. So even if a specific system is unavailable, the remainder of the system might remain available, although with decreased functionality. In an e-commerce system, a failure in the system might prevent a customer from placing orders, but the customer might still be able to browse the product catalog.
 
 For alerting purposes, the system should be able to raise an event if any of the high-level indicators exceed a specified threshold. The lower-level details of the various factors that compose the high-level indicator should be available as contextual data to the alerting system.
 
@@ -283,7 +283,7 @@ The primary sources of information for auditing can include:
 - Trace logs that record user activity.
 - Security logs that track all identifiable and unidentifiable network requests.
 
-The format of the audit data and the way in which it's stored might be driven by regulatory requirements. For example, it might not be possible to clean the data in any way. (It must be recorded in its original format.) Access to the repository where it's held must be protected to prevent tampering.
+The format of the audit data and the way in which it's stored might be driven by regulatory requirements. If regulations require that the data be recorded in its original format, it might not be possible to clean the data in any way. Therefore, access to the repository where it's held must be closely protected to prevent tampering.
 
 ### Analyzing audit data
 
@@ -303,6 +303,8 @@ Usage monitoring tracks how the features and components of an application are us
 
 - Enforce quotas. If a user in a multitenant system exceeds their paid quota of processing time or resource usage during a specified period, their access can be limited or processing can be throttled.
 
+- Detect noisy neighbor problems. Being able to determine if traffic is evenly spread out or if a small set of users are generating the bulk of it can help drive error investigations or product decisions. If a single user is the only one using an application feature, and that generates an outsized amount of traffic, that may imply that the feature needs some performance tuning. Alternatively, you may decide to impose additional quotas to resolve the issue.
+
 ### Requirements for usage monitoring
 
 To examine system usage, an operator typically needs to see information that includes:
@@ -312,7 +314,7 @@ To examine system usage, an operator typically needs to see information that inc
 - The volume of data storage that each user occupies.
 - The resources that each user is accessing.
 
-An operator should also be able to generate graphs. For example, a graph might display the most resource-hungry users, or the most frequently accessed resources or system features.
+An operator should also be able to generate graphs. Common examples of generated graphs are a graph to display the most resource-hungry users, and the most frequently accessed resources or system features.
 
 ### Data sources, instrumentation, and data-collection requirements
 
