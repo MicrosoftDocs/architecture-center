@@ -18,7 +18,7 @@ Use the Ambassador pattern to offload common client connectivity tasks like moni
 
 Resilient cloud-based applications require features like [circuit breaking](./circuit-breaker.md), routing, metering and monitoring, and network-related configuration updates. If the development team doesn't maintain the code or can't easily modify it, it might be difficult or even impossible to update legacy applications or existing code libraries to add these features.
 
-Network calls might also require substantial configuration for connection, authentication, and authorization. Configure network calls for each instance if these calls are used across multiple applications and built by using multiple languages and frameworks. A central team within your organization might need to manage network and security functionality. With a large code base, it can be risky for that team to update unfamiliar application code.
+Network calls might also require substantial configuration for connection, authentication, and authorization. hen multiple applications use these calls across different languages and frameworks, you must configure the calls separately for each instance. A central team within your organization might need to manage network and security functionality. With a large code base, it can be risky for that team to update unfamiliar application code.
 
 ## Solution
 
@@ -28,7 +28,7 @@ Put client frameworks and libraries into an external process that acts as a prox
   Diagram that shows a client application and an ambassador proxy colocated on the same host. The client application sends requests to the ambassador instead of calling external services directly. The ambassador forwards those requests to the remote service. Responses from the remote service return through the ambassador and back to the client application.
 :::image-end:::
 
-You can manage features that are offloaded to the ambassador independently of the application. Update and modify the ambassador without disturbing the application's legacy functionality. Separate, specialized teams can also implement and maintain security, networking, or authentication features that have been moved to the ambassador.
+You can manage features that are offloaded to the ambassador independently of the application. You can update and modify the ambassador without disturbing the application's legacy functionality. Separate, specialized teams can also implement and maintain security, networking, or authentication features that have been moved to the ambassador.
 
 You can deploy ambassador services as a [sidecar](./sidecar.md) to accompany the life cycle of a consuming application or service. Alternatively, if multiple separate processes on a common host share an ambassador, you can deploy it as a daemon or Windows service. If the consuming service is containerized, create the ambassador as a separate container on the same host and set up the appropriate links for communication.
 
@@ -75,7 +75,7 @@ Evaluate how to use the Ambassador pattern in a workload's design to address the
 | Pillar | How this pattern supports pillar goals |
 | :----- | :------------------------------------- |
 | [Reliability](/azure/well-architected/reliability/checklist) design decisions help your workload become **resilient** to malfunction and ensure that it **recovers** to a fully functioning state after a failure occurs. | This pattern introduces a network communications mediation point, so you can add reliability patterns to network communication, like retry or buffering. <br/><br/> - [RE:07 Self-preservation](/azure/well-architected/reliability/self-preservation) |
-| [Security](/azure/well-architected/security/checklist) design decisions help ensure the **confidentiality**, **integrity**, and **availability** of your workload's data and systems. | With this pattern, you can modify security on network communications that the client can't handle directly. <br/><br/> - [SE:06 Network controls](/azure/well-architected/security/networking)<br/> - [SE:07 Encryption](/azure/well-architected/security/encryption) |
+| [Security](/azure/well-architected/security/checklist) design decisions help ensure the **confidentiality**, **integrity**, and **availability** of your workload's data and systems. | With this pattern, you can implement security on network communications that the client can't handle directly. <br/><br/> - [SE:06 Network controls](/azure/well-architected/security/networking)<br/> - [SE:07 Encryption](/azure/well-architected/security/encryption) |
 
 If this pattern introduces trade-offs within a pillar, consider them against the goals of the other pillars.
 
