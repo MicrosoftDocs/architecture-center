@@ -128,11 +128,13 @@ In a composition with many services, the billing model you choose for each servi
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Microservices on Azure](https://azure.microsoft.com/solutions/microservice-applications/?msockid=3bbaeb6b4c8a60711338fe44488a669b)
+> [Design interservice communication for microservices](./interservice-communication.yml)
 
 ## Related resources
 
-- [Design interservice communication for microservices](./interservice-communication.yml)
-- [Use domain analysis to model microservices](../model/domain-analysis.md)
 - [Design a microservices architecture](index.md)
 - [Design APIs for microservices](../design/api-design.md)
+- [Use domain analysis to model microservices](../model/domain-analysis.md)
+- [Choose an Azure compute service](../../guide/technology-choices/compute-decision-tree.md)
+- [Choose an Azure container service](../../guide/choose-azure-container-service.md)
+- [Architectural considerations for choosing an Azure container service](../../guide/container-service-general-considerations.md)
