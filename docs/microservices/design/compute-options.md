@@ -148,6 +148,15 @@ A microservices architecture can include dozens of services, each with different
 
 For platform-specific cost guidance, see the cost optimization sections of the WAF service guides for [AKS](/azure/well-architected/service-guides/azure-kubernetes-service#cost-optimization), [Container Apps](/azure/well-architected/service-guides/azure-container-apps#cost-optimization), and [Azure Functions](/azure/well-architected/service-guides/azure-functions#cost-optimization).
 
+## Reference architectures
+
+Use the comparison criteria in this article to narrow your options to one or two platforms. Then run a proof of concept: deploy a representative subset of your services and test inter-service communication, scaling behavior, and deployment workflows against your requirements. Confirm the platform meets your team's operational expectations before committing to production. These architectures provide production-ready starting points.
+
+- **AKS**: [Baseline architecture for an AKS cluster](../../reference-architectures/containers/aks/baseline-aks.yml)
+- [Microservices with Container Apps and Dapr](../../example-scenario/serverless/microservices-with-container-apps-dapr.yml)
+- **App Service**: [Baseline highly available zone-redundant web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml)
+- **Azure Red Hat OpenShift**: [Azure Red Hat OpenShift in a hybrid environment](../../reference-architectures/containers/aro/azure-redhat-openshift-financial-services-workloads.yml)
+
 ## Next step
 
 > [!div class="nextstepaction"]
