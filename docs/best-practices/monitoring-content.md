@@ -195,7 +195,7 @@ This information can also be used to help configure time-based autoscaling. For 
 
 Security is an all-encompassing aspect of most distributed systems. The pertinent data is likely to be generated at multiple points throughout a system. You should consider adopting a Security Information and Event Management (SIEM) approach to gather the security-related information that results from events raised by the application, network equipment, servers, firewalls, antivirus software, and other intrusion-prevention elements.
 
-Security monitoring can incorporate data from tools that are not part of your application. These tools can include utilities that identify port-scanning activities by external agencies, or network filters that detect attempts to gain unauthenticated access to your application and data.
+Security monitoring can incorporate data from tools that are not part of your application. These tools can include utilities that identify port-scanning activities by external agencies, or network filters that detect attempts to gain unauthenticated access to your application and data. In some cases, CI/CD deployment tooling also make up an important part of the application life cycle, and these tools should also flag anomalous behavior.
 
 In all cases, the gathered data must enable an administrator to determine the nature of any attack and take the appropriate countermeasures.
 
