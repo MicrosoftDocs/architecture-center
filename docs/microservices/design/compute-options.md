@@ -46,7 +46,7 @@ Functions supports [multiple programming languages](/azure/azure-functions/suppo
 
 ### Azure Red Hat OpenShift
 
-[Azure Red Hat OpenShift](/azure/openshift) provides fully managed OpenShift clusters. It extends Kubernetes with an opinionated developer experience and is jointly engineered, operated, and supported by Red Hat and Microsoft. Use Azure Red Hat OpenShift if your organization has standardized on OpenShift.
+[Azure Red Hat OpenShift](/azure/openshift/) provides fully managed OpenShift clusters. It extends Kubernetes with an opinionated developer experience and is jointly engineered, operated, and supported by Red Hat and Microsoft. Use Azure Red Hat OpenShift if your organization has standardized on OpenShift.
 
 ## Compare platforms for microservices
 
@@ -60,7 +60,7 @@ The following table compares how each platform supports the capabilities that ma
 | **Independent scaling** | Per-deployment (HPA, [KEDA](/azure/aks/keda-about)) | Per-app ([KEDA](/azure/container-apps/scale-app)) | Per-function | Per-App Service plan |
 | **Scale to zero** | No (nodes stay provisioned) | Yes | Yes (Consumption/Flex plans) | No |
 | **Traffic splitting / canary** | Kubernetes-native, service mesh | [Revision-based](/azure/container-apps/revisions) | Deployment slots | [Deployment slots](/azure/app-service/deploy-staging-slots) |
-| **Distributed tracing** | [Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview), open-source tooling | [Built-in](/azure/container-apps/observability), Dapr tracing | [Application Insights](/azure/azure-monitor/app/app-insights-overview) | [Application Insights](/azure/azure-monitor/app/app-insights-overview) |
+| **Distributed tracing** | [Prometheus](/azure/azure-monitor/metrics/prometheus-metrics-overview), open-source tooling | [Built-in](/azure/container-apps/observability), Dapr tracing | [Application Insights](/azure/azure-monitor/app/app-insights-overview) | [Application Insights](/azure/azure-monitor/app/app-insights-overview) |
 | **Stateful services** | Persistent volumes, StatefulSets | [Volume mounts](/azure/container-apps/storage-mounts), [Dapr state](/azure/container-apps/dapr-overview) | [Durable Functions](/azure/azure-functions/durable/durable-functions-overview) | Not supported |
 | **Per-service identity** | [Workload identity](/azure/aks/workload-identity-overview) | [Managed identity](/azure/container-apps/managed-identity) | [Managed identity](/azure/azure-functions/security-concepts#managed-identities) | [Managed identity](/azure/app-service/overview-managed-identity) |
 | **Kubernetes API access** | Yes | No | No | No |
@@ -69,7 +69,7 @@ The following table compares how each platform supports the capabilities that ma
 | **Runs code without containers** | No | No | Yes | Yes |
 
 > [!NOTE]
-> Azure Red Hat OpenShift is not included in this table. It provides the full Kubernetes API, so its microservices capabilities are comparable to AKS. Choose Azure Red Hat OpenShift when your organization requires a jointly supported Red Hat and Microsoft platform or has existing investments in the OpenShift ecosystem.
+> Azure Red Hat OpenShift is not included in this table. It provides the full Kubernetes API, so its microservices capabilities are comparable to AKS. Choose Azure Red Hat OpenShift when your organization has existing investments in the OpenShift ecosystem.
 
 ## Choose your platform
 
@@ -115,7 +115,7 @@ In a microservices architecture, the primary reliability risk is cascading failu
 - AKS and Container Apps provide platform-level health probes that detect unhealthy instances and remove them from rotation automatically.
 - Functions retries failed executions based on the trigger type.
 
-Regardless of platform, implement [circuit breakers](../../patterns/circuit-breaker.yml), retry policies with backoff, and timeouts in your inter-service communication to prevent a single service failure from becoming a system-wide outage.
+Regardless of platform, implement [circuit breakers](../../patterns/circuit-breaker.md), retry policies with backoff, and timeouts in your inter-service communication to prevent a single service failure from becoming a system-wide outage.
 
 Deploy each service across [availability zones](/azure/reliability/availability-zones-overview) to protect against datacenter-level failures. In a mixed-platform composition, verify that all platforms in use support zone redundancy for your deployment region.
 
