@@ -46,7 +46,7 @@ Functions supports [multiple programming languages](/azure/azure-functions/suppo
 
 ### Azure App Service
 
-[Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is suited for HTTP-based microservices such as web APIs. App Service supports deploying as code or as a single container. It provides built-in autoscaling, [deployment slots](/azure/app-service/deploy-staging-slots) for blue-green deployments and percentage-based traffic routing, and integration with CI/CD pipelines. App Service doesn't provide service discovery, so it's a better fit for simpler microservices that don't require inter-service communication features from the platform.
+[Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is suited for HTTP-based microservices such as web APIs. App Service supports deploying as code or as a single container. It provides built-in autoscaling, [deployment slots](/azure/app-service/deploy-staging-slots) for blue-green deployments and percentage-based traffic routing, and integration with CI/CD pipelines. App Service doesn't provide service discovery, so it's a fit for microservices that communicate through external messaging or an API gateway rather than relying on platform-level inter-service communication.
 
 ### Azure Red Hat OpenShift
 
@@ -91,7 +91,7 @@ The table above shows what each platform supports. This section helps you weigh 
 
 - **Inter-service communication.** Microservices depend on reliable service-to-service communication with capabilities like service discovery, retries, and mutual TLS (mTLS).
 
-  If your architecture relies heavily on synchronous service-to-service calls across many services, prioritize a platform with built-in communication primitives. Container Apps provides these through Dapr without extra infrastructure. AKS provides them through service meshes like Istio, which offer more control but require configuration and operational investment.
+  If your architecture relies heavily on synchronous service-to-service calls across many services, prioritize a platform with built-in communication primitives. Container Apps provides these through Dapr without extra infrastructure. AKS provides them through service meshes like Istio, which give you control over traffic policies, retries, and circuit breaking at the mesh level, but you manage the mesh lifecycle, configuration, and upgrades.
 
   If your services communicate primarily through asynchronous messaging (queues, event streams), the platform's built-in communication features matter less as you'll need to interact with those services through an SDK or an abstraction.
 
@@ -99,15 +99,15 @@ The table above shows what each platform supports. This section helps you weigh 
 
   If your services have highly variable or bursty traffic, Container Apps and Functions scale per service and can scale idle services to zero, which avoids paying for unused capacity. With Functions, each function app is the scaling unit, so deploy each microservice as its own function app. AKS provides per-deployment scaling, but you manage shared node pools that stay provisioned, though user node pools can scale to zero.
 
-  Scale-to-zero platforms introduce cold start latency when an idle service receives its first request. In a microservices architecture, a single user request can traverse multiple services. If several services in the call chain are cold, the latency compounds. For synchronous inter-service calls with low-latency requirements, use the platform's cold start mitigation features or accept the trade-off of keeping instances warm.
+  Scale-to-zero platforms introduce cold start latency when an idle service receives its first request. In a microservices architecture, a single user request can traverse multiple services. If several services in the call chain are cold, the latency compounds. For synchronous inter-service calls with low-latency requirements, use the platform's cold start mitigation features or pay the cost of keeping minimum instances running to avoid cold starts.
 
   If your services have steady, predictable load, AKS or App Service can be more cost-effective because you pay for reserved capacity rather than consumption-based billing.
 
 - **Independent deployability.** You need to deploy, update, and roll back individual microservices without affecting the rest of the system. All four platforms support this, but they differ in how you validate changes. Container Apps and AKS provide traffic splitting natively for gradual rollouts. App Service supports percentage-based traffic routing across deployment slots. Functions supports deployment slots on Premium and Dedicated plans.
 
-- **Distributed observability.** A single user request can traverse many services. If you need correlated traces across the full call chain, verify that your platform's observability tooling integrates with your tracing strategy. Container Apps offers built-in observability with Dapr tracing. AKS integrates with OpenTelemetry and open-source tracing tools, giving you more flexibility but requiring setup. Functions and App Service integrate with Application Insights, which provides end-to-end transaction tracing with minimal configuration.
+- **Distributed observability.** A single user request can traverse many services. If you need correlated traces across the full call chain, verify that your platform's observability tooling integrates with your tracing strategy. Container Apps offers built-in observability with Dapr tracing. AKS integrates with OpenTelemetry and open-source tracing tools, which lets you choose your tracing backend (Jaeger, Zipkin, or Azure Monitor) but requires you to deploy and configure the collection pipeline. Functions and App Service integrate with Application Insights, which provides end-to-end transaction tracing with minimal configuration.
 
-  Beyond tracing, understand how your platform supports per-service metrics collection (request rate, error rate, latency) for monitoring the health of individual services in the composition.
+  Ensure each service in the composition exposes per-service metrics (request rate, error rate, latency) so you can identify which service is degrading without correlating logs across the full call chain.
 
 - **State management.** Microservices typically externalize state to databases or caches, but some services benefit from state that's colocated with the compute instance, such as actor-based patterns or in-cluster data stores. If you need stateful services, AKS provides the most flexibility through persistent volumes and StatefulSets. Container Apps supports volume mounts and Dapr state management. Functions supports stateful orchestrations through Durable Functions. App Service doesn't support persistent local state.
 
@@ -144,7 +144,7 @@ For platform-specific security guidance, see the security sections of the WAF se
 
 Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-A microservices architecture can include dozens of services, each with different traffic volumes. Match each service to the billing model that fits its traffic pattern: consumption-based platforms like Container Apps and Functions can scale idle services to zero, while dedicated compute like AKS can be more cost-effective for services with sustained load. In a mixed-platform composition, this per-service billing flexibility is one of the main cost advantages of not standardizing on a single platform, but factor in the operational cost of managing multiple platforms.
+A microservices architecture can include dozens of services, each with different traffic volumes. Match each service to the billing model that fits its traffic pattern: consumption-based platforms like Container Apps and Functions can scale idle services to zero, while dedicated compute like AKS can be more cost-effective for services with sustained load. In a mixed-platform composition, this per-service billing flexibility is one of the main cost advantages of not standardizing on a single platform, but account for the overhead of maintaining separate deployment pipelines, monitoring configurations, and team expertise across platforms.
 
 For platform-specific cost guidance, see the cost optimization sections of the WAF service guides for [AKS](/azure/well-architected/service-guides/azure-kubernetes-service#cost-optimization), [Container Apps](/azure/well-architected/service-guides/azure-container-apps#cost-optimization), and [Azure Functions](/azure/well-architected/service-guides/azure-functions#cost-optimization).
 
