@@ -64,7 +64,7 @@ The following workflow corresponds to the previous diagram:
 
 - [Portal for ArcGIS](https://enterprise.arcgis.com/en/portal) is a web-based interface for sharing and managing GIS content within ArcGIS Enterprise. In this architecture, Portal for ArcGIS helps users create, organize, and share maps, scenes, and apps securely within the organization. Portal for ArcGIS is part of the base deployment.
 
-- [ArcGIS Server](https://enterprise.arcgis.com/en/server/latest/get-started/windows/what-is-arcgis-for-server-.htm) is back-end server software that's deployed with ArcGIS Enterprise or in a standalone deployment with ArcGIS Enterprise. In this architecture, ArcGIS Server handles requests from users and applications, such as to draw maps, run tools, or query data. ArcGIS Server configuration and data is stored in Azure NetApp Files. Administrators can use the ArcGIS Server management plane to start, stop, and delete services.
+- [ArcGIS Server](https://enterprise.arcgis.com/en/server/latest/get-started/windows/what-is-arcgis-for-server-.htm) is back-end server software that's deployed with ArcGIS Enterprise or in a standalone deployment with ArcGIS Enterprise. In this architecture, ArcGIS Server handles requests from users and applications, such as to draw maps, run tools, or query data. ArcGIS Server configuration and data are stored in Azure NetApp Files. Administrators can use the ArcGIS Server management plane to start, stop, and delete services.
 
 - An [Enterprise geodatabase](https://enterprise.arcgis.com/en/server/latest/manage-data/windows/enterprise-geodatabases-and-arcgis-enterprise.htm) is a multiuser spatial database that supports versioning, replication, and advanced data models. You can deploy this database in many database management systems. In this architecture, Enterprise geodatabase is hosted in SQL Managed Instance and is the authoritative data source for ArcGIS Pro and other GIS tools.
 
@@ -78,10 +78,10 @@ ArcGIS Pro is a key part of the technology. ArcGIS Pro is a 64-bit professional 
 
 Esri ArcGIS and virtual desktop solutions are frequently used for:
 
-- Security and regulation applications like healthcare, government, and utilities, for example energy suppliers.
+- Security and regulation applications like healthcare, government, and utilities, for example, energy suppliers.
 - Elastic workforce needs like remote work, mergers and acquisitions, short-term employees, contractors, and partner access.
 - Employees like bring-your-own-device users, mobile users, and branch workers.
-- Specialized workloads like design and engineering, legacy apps, software testing, and land management, for example facilities and real estate.
+- Specialized workloads like design and engineering, legacy apps, software testing, and land management, for example, facilities and real estate.
 
 Traditional GIS implementations in Azure typically include only the back-end components. That implementation introduces latency between the client and server components. Organizations can deploy desktop GIS on VMs from the [Microsoft Marketplace](https://marketplace.microsoft.com/marketplace/apps?search=ArcGIS), but those deployments require dedicated VMs for individual users and don't scale well. This architecture addresses both challenges.
 
