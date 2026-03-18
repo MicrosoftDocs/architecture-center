@@ -63,6 +63,7 @@ The following table compares how each platform supports the capabilities that ma
 | **Pub/sub messaging** | App-level (e.g., Service Bus, Event Hubs) | [Dapr pub/sub](/azure/container-apps/dapr-overview) | [Bindings](/azure/azure-functions/functions-triggers-bindings) | App-level |
 | **Independent scaling** | Per-deployment (HPA, [KEDA](/azure/aks/keda-about)) | Per-app ([KEDA](/azure/container-apps/scale-app)) | Per-function app ([per-function on Flex](/azure/azure-functions/flex-consumption-plan)) | Per-App Service plan |
 | **Scale to zero** | Partial. [User node pools only](/azure/aks/scale-cluster) | Yes | Yes (Consumption/Flex plans) | No |
+| **Cold start mitigation** | [Minimum node count](/azure/aks/scale-cluster), minimum pod replicas | [Minimum replica count](/azure/container-apps/scale-app) | [Pre-warmed / always-ready instances](/azure/azure-functions/functions-premium-plan#eliminate-cold-starts) (Premium/Flex) | Not applicable (Always On) |
 | **Traffic splitting / canary** | Kubernetes-native, service mesh | [Revision-based](/azure/container-apps/revisions) | Deployment slots | [Deployment slots with traffic routing](/azure/app-service/deploy-staging-slots) |
 | **Distributed tracing** | OpenTelemetry, open-source tooling | [Built-in](/azure/container-apps/observability), Dapr tracing | [Application Insights](/azure/azure-monitor/app/app-insights-overview) | [Application Insights](/azure/azure-monitor/app/app-insights-overview) |
 | **Stateful services** | Persistent volumes, StatefulSets | [Volume mounts](/azure/container-apps/storage-mounts), [Dapr state](/azure/container-apps/dapr-overview) | [Durable Functions](/azure/azure-functions/durable/durable-functions-overview) | Not supported |
@@ -98,11 +99,15 @@ The table above shows what each platform supports. This section helps you weigh 
 
   If your services have highly variable or bursty traffic, Container Apps and Functions scale per service and can scale idle services to zero, which avoids paying for unused capacity. With Functions, each function app is the scaling unit, so deploy each microservice as its own function app. AKS provides per-deployment scaling, but you manage shared node pools that stay provisioned, though user node pools can scale to zero.
 
+  Scale-to-zero platforms introduce cold start latency when an idle service receives its first request. In a microservices architecture, a single user request can traverse multiple services. If several services in the call chain are cold, the latency compounds. For synchronous inter-service calls with low-latency requirements, use the platform's cold start mitigation features or accept the trade-off of keeping instances warm.
+
   If your services have steady, predictable load, AKS or App Service can be more cost-effective because you pay for reserved capacity rather than consumption-based billing.
 
 - **Independent deployability.** You need to deploy, update, and roll back individual microservices without affecting the rest of the system. All four platforms support this, but they differ in how you validate changes. Container Apps and AKS provide traffic splitting natively for gradual rollouts. App Service supports percentage-based traffic routing across deployment slots. Functions supports deployment slots on Premium and Dedicated plans.
 
 - **Distributed observability.** A single user request can traverse many services. If you need correlated traces across the full call chain, verify that your platform's observability tooling integrates with your tracing strategy. Container Apps offers built-in observability with Dapr tracing. AKS integrates with OpenTelemetry and open-source tracing tools, giving you more flexibility but requiring setup. Functions and App Service integrate with Application Insights, which provides end-to-end transaction tracing with minimal configuration.
+
+  Beyond tracing, understand how your platform supports per-service metrics collection (request rate, error rate, latency) for monitoring the health of individual services in the composition.
 
 - **State management.** Microservices typically externalize state to databases or caches, but some services benefit from state that's colocated with the compute instance, such as actor-based patterns or in-cluster data stores. If you need stateful services, AKS provides the most flexibility through persistent volumes and StatefulSets. Container Apps supports volume mounts and Dapr state management. Functions supports stateful orchestrations through Durable Functions. App Service doesn't support persistent local state.
 
