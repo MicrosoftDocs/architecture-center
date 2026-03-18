@@ -59,13 +59,38 @@ On the Azure platform, consider the following options:
 
 - You can find additional Kubernetes-based container solutions from partners on [Microsoft Marketplace](https://marketplace.microsoft.com).
 
-### Use Kubernetes APIs
+### Key decision factors
 
-Access to Kubernetes APIs is often a deciding factor when you choose a compute option. AKS provides direct access to Kubernetes APIs, but Container Apps doesn't. Container Apps hides the complexities of Kubernetes and simplifies the container deployment experience. If you design your microservice deployment to directly interact with Kubernetes APIs, AKS might be the right choice.
+When you select a compute platform for microservices, focus on how well the platform supports the defining characteristics of a microservices architecture: independently deployable services that communicate over the network, scale independently, and are potentially owned by separate teams. For decision factors that apply to any workload, such as Kubernetes API access, team skills, networking, and portability, see [Choose an Azure compute service](../../guide/technology-choices/compute-decision-tree.md).
 
-### Other decision factors
+- **Inter-service communication.** Microservices depend on reliable service-to-service communication with capabilities like service discovery, retries, and mutual TLS (mTLS).
 
-There might be other factors that affect your microservice compute platform selection. These factors include service mesh options, platform scalability, and skill sets that you might use within the organization.
+  - AKS supports service meshes like [Istio](/azure/aks/istio-about) that provide traffic management, mTLS, and observability across the full mesh.
+  - Container Apps provides [built-in Dapr integration](/azure/container-apps/dapr-overview) for service invocation, pub/sub messaging, and mTLS without deploying a separate mesh.
+  - Functions and App Service don't provide platform-level inter-service communication; you implement service discovery and resilient calls in application code or through external services like [Azure API Management](/azure/api-management/api-management-key-concepts).
+
+- **Independent scaling.** Each microservice in a composition has different load characteristics. The platform needs to let you scale services independently rather than scaling the entire application as a unit.
+
+  - Container Apps and Functions scale each service independently based on its own triggers, including HTTP traffic, queue depth, or custom metrics, and can scale to zero when a service is idle.
+  - AKS provides per-deployment scaling through Horizontal Pod Autoscaler and [KEDA](/azure/aks/keda-about), but the underlying node pool is shared and doesn't scale to zero.
+  - App Service scales each App Service plan, which can host multiple microservices; less granular if you colocate services.
+
+- **Independent deployability.** You need to deploy, update, and roll back individual microservices without redeploying the rest of the system.
+
+  - Container Apps supports [traffic splitting](/azure/container-apps/revisions) across revisions, so you can canary-test a single service. AKS supports rolling updates, canary, and blue-green patterns through Kubernetes-native mechanisms or service mesh traffic policies.
+  - App Service provides [deployment slots](/azure/app-service/deploy-staging-slots) per app. Functions supports deployment slots through App Service plans.
+
+- **Distributed observability.** A single user request in a microservices architecture can traverse many services. Debugging failures requires correlated distributed tracing, not just per-service logs.
+
+  - AKS integrates with [Azure Monitor managed service for Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview) and supports open-source tracing tools.
+  - Container Apps provides [built-in observability](/azure/container-apps/observability) and Dapr's distributed tracing support.
+  - Functions and App Service integrate with [Application Insights](/azure/azure-monitor/app/app-insights-overview), which provides end-to-end transaction tracing.
+
+- **State management.** Microservices typically externalize state to databases or caches, but some patterns like event sourcing or CQRS require services with local persistent state.
+
+  - AKS supports stateful workloads through persistent volumes and StatefulSets.
+  - Container Apps supports [volume mounts](/azure/container-apps/storage-mounts) and Dapr [state management APIs](/azure/container-apps/dapr-overview).
+  - Functions supports stateful orchestrations through [Durable Functions](/azure/azure-functions/durable/durable-functions-overview).
 
 ## Considerations
 
