@@ -345,6 +345,6 @@ Principal author:
 
 ## Related resources
 
-- [Azure files accessed on-premises and secured by Active Directory Domain Services](../../example-scenario/hybrid/azure-files-on-premises-authentication.yml)
-- [Design a hybrid DNS solution with Azure](../../hybrid/hybrid-dns-infra.yml)
+- [Azure Files accessed on-premises and secured by Active Directory Domain Services](../../example-scenario/hybrid/azure-files-on-premises-authentication.yml)
+- [Design a hybrid DNS solution by using Azure](../../hybrid/hybrid-dns-infra.yml)
 - [Azure enterprise cloud file share](../../hybrid/azure-files-private.yml)
