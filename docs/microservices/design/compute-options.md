@@ -3,7 +3,7 @@ title: Choose a Compute Option for Microservices
 description: Learn how to choose an Azure compute platform for a microservices architecture. Compare AKS, Container Apps, Functions, App Service, and Azure Red Hat OpenShift based on inter-service communication, independent scaling, and deployability.
 author: francisnazareth
 ms.author: fnazaret
-ms.date: 11/05/2024
+ms.date: 03/18/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
