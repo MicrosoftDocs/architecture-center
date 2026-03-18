@@ -18,7 +18,7 @@ The solution is to implement a compensating transaction. The steps in a compensa
 
 A common approach is to use a workflow to implement an eventually consistent operation that requires compensation. As the original operation proceeds, the system records information about each step, including how to undo the work that the step performs. If the operation fails at any point, the workflow rewinds back through the steps it has completed. At each step, the workflow performs the work that reverses that step.
 
-In [event-sourced systems](./event-sourcing.yml), this history exists inherently because state changes are stored as a sequence of immutable events. Compensation means appending a new event that reverses the effect of a prior one rather than modifying or deleting existing data.
+In [event-sourced systems](./event-sourcing.yml), this history exists inherently because state changes are stored as a sequence of immutable events. Compensation requires you to append a new event that reverses the effect of a prior one rather than modifying or deleting existing data.
 
 Two important points are:
 
@@ -35,7 +35,7 @@ In some cases, manual intervention might be the only way to recover from a step 
 
 Consider the following points when you decide how to implement this pattern:
 
-- It might not be easy to determine when a step in an operation that implements eventual consistency fails. A step might not fail immediately. Instead, it might get blocked. You might need to implement a time-out mechanism.
+- It might not be easy to determine when a step in an operation that implements eventual consistency fails. A step might not fail immediately. Instead, it might get blocked. You might need to implement a timeout mechanism.
 
 - It's not easy to generalize compensation logic. A compensating transaction is application-specific. It relies on the application having sufficient information to be able to undo the effects of each step in a failed operation.
 
@@ -50,7 +50,7 @@ Consider the following points when you decide how to implement this pattern:
 
 - The order of the steps in the compensating transaction isn't necessarily the exact opposite of the steps in the original operation. For example, one data store might be more sensitive to inconsistencies than another. The steps in the compensating transaction that undo the changes to this store should occur first.
 
-- Certain measures can help increase the likelihood that the overall activity succeeds. Specifically, you can place a short-term, time-out–based lock on each resource that's required to complete an operation. You can also obtain these resources in advance. Then, perform the work only after you've acquired all the resources. Finalize all actions before the locks expire.
+- Certain measures can help increase the likelihood that the overall activity succeeds. Specifically, you can place a short-term, timeout-based lock on each resource that's required to complete an operation. You can also obtain these resources in advance. Then, perform the work only after you've acquired all the resources. Finalize all actions before the locks expire.
 
 - Retry logic that treats more errors as transient can help minimize failures that trigger a compensating transaction. If a step in an operation that implements eventual consistency fails, try handling the failure as a transient exception and repeating the step. Stop the operation and initiate a compensating transaction only if a step fails repeatedly or can't be recovered. For guidance about how to design retry strategies, see [Transient fault handling](../best-practices/transient-faults.md).
 

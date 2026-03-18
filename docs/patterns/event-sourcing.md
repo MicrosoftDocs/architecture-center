@@ -1,65 +1,92 @@
-Instead of storing just the current state of the data in a relational database, store the full series of actions taken on an object in an append-only store. The store acts as the system of record and can be used to materialize the domain objects. This approach can improve auditability and write performance in complex systems.
+---
+title: Event Sourcing Pattern
+description: Learn how to use an append-only store to record the full series of events that describe actions taken on data in a domain.
+ms.author: pnp
+author: claytonsiemens77
+ms.date: 03/09/2026
+ms.topic: design-pattern
+ms.subservice: cloud-fundamentals
+---
+
+# Event Sourcing pattern
+
+Instead of storing only the current state of the data in a relational database, store the full series of actions taken on an object in an append-only store. The store acts as the system of record and can be used to materialize the domain objects. This approach can improve auditability and write performance in complex systems.
 
 > [!IMPORTANT]
-> Event sourcing is a complex pattern that introduces significant trade-offs. It changes how you store data, handle concurrency, evolve schemas, and query state. There's a high cost to migrate to or from event sourcing, and once adopted, it constrains future design decisions in the parts of the system where it's used. Adopt event sourcing where its benefits like auditability and historical reconstruction justify the pattern's complexity. For most systems and most parts of a system, traditional data management is sufficient.
+> Event sourcing is a complex pattern that introduces significant trade-offs. It changes how you store data, handle concurrency, evolve schemas, and query state. It's costly to migrate to or from event sourcing, and after you adopt the pattern, it constrains future design decisions in the parts of the system that use it. Adopt event sourcing when its benefits, like auditability and historical reconstruction, justify the pattern's complexity. For most systems and most parts of a system, traditional data management is sufficient.
 
 ## Context and problem
 
-Most applications work with data, and the typical approach is for the application to store the latest state of the data in a relational database, inserting or updating data as required. For example, in the traditional create, read, update, and delete (CRUD) model, a typical data process is to read data from the store, make some modifications to it, and update the current state of the data with the new values&mdash;often by using transactions that lock the data.
+Most applications work with data. The typical approach is for the application to store the latest state of the data in a relational database and insert or update data as needed. For example, in the traditional create, read, update, and delete (CRUD) model, a typical data process is to read data from the store, modify it, and update the current state of the data with the new values, typically by using transactions that lock the data.
 
-The CRUD approach is straightforward and fast for most scenarios. However, in high-load systems, this approach has some challenges:
+The CRUD approach is straightforward and fast for most scenarios. However, in high-load systems, this approach presents some challenges:
 
-- **Write contention**: Because updates require read-modify-write cycles with row-level locking, concurrent writes to the same entity degrade performance and become a bottleneck under load.
+- **Write contention:** Because updates require read-modify-write cycles with row-level locking, concurrent writes to the same entity degrade performance and become a bottleneck under load.
 
-- **Auditability**: CRUD systems only store the latest state of the data. Unless there's an auditing mechanism that records the details of each operation in a separate log, history is lost.
+- **Auditability:** CRUD systems only store the latest state of the data. If you don't implement an auditing mechanism that records the details of each operation in a separate log, history is lost.
 
 ## Solution
 
-The Event Sourcing pattern defines an approach to handling operations on data that's driven by a sequence of events, each of which is recorded in an append-only store. Application code raises events that describe each action taken on the object. The events are generally sent to a queue where a separate process, an event handler, listens to the queue and persists the events in an event store. Each event represents a logical change to the object, such as `AddedItemToOrder` or `OrderCanceled`.
+The Event Sourcing pattern defines an approach to handling operations on data that a sequence of events drive. Each event is recorded in an append-only store. Application code raises events that describe each action taken on the object. It typically sends events to a queue in which a separate process, an event handler, listens to the queue and persists the events in an event store. Each event represents a logical change to the object, such as `AddedItemToOrder` or `OrderCanceled`.
 
-The events are persisted in an event store that acts as the system of record (the authoritative data source) about the current state of the data. Additional event handlers can listen for events they're interested in and take an appropriate action. Consumers could, for example, initiate tasks that apply the operations in the events to other systems, or perform any other associated action that's required to complete the operation. Notice that the application code that generates the events is decoupled from the systems that subscribe to the events.
+The events are persisted in an event store that serves as the system of record, or the authoritative data source, about the current state of the data. Extra event handlers can listen for specific events and take an appropriate action. For example, consumers might initiate tasks that apply operations in the events to other systems or take other associated actions required to finish the operation. The application code that generates the events is decoupled from the systems that subscribe to the events.
 
-Each entity in an event-sourced system has its own event stream, which is the ordered sequence of events that records every change to that entity. At any point, it's possible for applications to read the history of events. The current state of an entity is derived by replaying all the events in its stream, a process known as rehydration. This process can occur on demand when handling a request.
+Each entity in an event-sourced system has its own event stream, which is the ordered sequence of events that records every change to that entity. At any point, applications can read the history of events. Applications derive the current state of an entity by replaying all of the events in its stream. This process is known as rehydration. It can occur on demand when the application handles a request.
 
-Because it's relatively expensive to read and replay events, applications typically implement [materialized views](./materialized-view.yml), read-only projections of the event store that are optimized for querying. For example, a system can maintain a materialized view of all customer orders that's used to populate the UI. As the application adds new orders, adds or removes items on the order, or adds shipping information, events are raised and a handler updates the materialized view.
+Applications typically implement [materialized views](./materialized-view.yml) because it's costly to read and replay events. Materialized views are read-only projections of the event store that are optimized for querying. For example, a system can maintain a materialized view of all customer orders that it uses to populate the user interface (UI). When the application adds new orders, adds or removes items in the order, or adds shipping information, the application raises events and a handler updates the materialized view.
 
-The following figure shows an overview of the pattern combined with [CQRS](./cqrs.md). The presentation layer reads from a separate read-only store and writes commands to command handlers. The command handlers retrieve the entity's event stream from the event store, run business logic, and push new events to a queue. Event handlers consume from the queue and write events to the event store, update the read-only store, or integrate with external systems.
+The following diagram shows an overview of the pattern combined with [Command Query Responsibility Segregation (CQRS)](./cqrs.md). The presentation layer reads from a separate read-only store and writes commands to command handlers. The command handlers retrieve the entity's event stream from the event store, run business logic, and push new events to a queue. Event handlers consume events from the queue and write events to the event store, update the read-only store, or integrate with external systems.
 
-![An overview and example of the Event Sourcing pattern](./_images/event-sourcing-overview.png)
+  :::image type="complex" source="./_images/event-sourcing-overview.png" border="false" lightbox="./_images/event-sourcing-overview.png" alt-text="Diagram that shows an overview and example of the Event Sourcing pattern.":::
+      At the top of the diagram, a box represents the presentation layer. In the upper right, an arrow labeled reads points from the presentation layer to a box labeled business object. An arrow labeled writes points from the presentation layer to a box on the left labeled command handlers or business objects. From this box, an arrow labeled get cart events points right to a cylinder labeled event store. Another arrow points from the command handlers box to a box at the bottom labeled queue or topic that contains seven envelope icons. Alongside this arrow, envelope icons represent events like cart created, item 1 added, item 2 added, item 1 removed, and shipping information added. Three arrows point from the queue or topic box to separate event handlers. The leftmost event handler writes events to the event store. The middle event handler updates a read-only store. The rightmost event handler integrates with external systems.
+:::image-end:::
 
 ### Workflow
 
-The following describes a typical workflow for this pattern:
+The following workflow corresponds to the previous diagram:
 
-1. The presentation layer calls an object responsible for reading from a read-only store. The data returned is used to populate the UI.
-1. The presentation layer calls command handlers to perform actions like create a cart, or add an item to the cart.
-1. The command handler loads the entity by retrieving its event stream from the event store. For example, it might retrieve all cart events. Those events are replayed against the entity to reconstruct its current state before any new action occurs.
-1. The business logic is run and events are raised. In most implementations, the events are pushed to a queue or topic to decouple the event producers and event consumers.
-1. Event handlers listen for events they're interested in and perform the appropriate action for that handler. Some typical event handler actions are:
-    1. Writing the events to the event store
-    1. Updating a read-only store optimized for queries
-    1. Integrating with external systems
+1. The presentation layer calls an object responsible for reading from a read-only store. It uses the returned data to populate the UI.
+
+1. The presentation layer calls command handlers to perform actions like *create a cart* or *add an item to the cart*.
+
+1. The command handler loads the entity by retrieving its event stream from the event store. For example, it might retrieve all cart events. It replays those events against the entity to reconstruct its current state before any new action occurs.
+
+1. The business logic runs and events are raised. In most implementations, the events are pushed to a queue or topic to decouple the event producers and event consumers.
+
+1. Event handlers listen for specific events and take the appropriate action for that handler. In this example, the event handlers take the following actions:
+
+    - Write the events to the event store
+
+    - Update a read-only store optimized for queries
+
+    - Integrate with external systems
 
 ### Pattern advantages
 
 The Event Sourcing pattern provides the following advantages:
 
-- Events are immutable and can be stored using an append-only operation. The user interface, workflow, or process that initiated an event can continue, and tasks that handle the events can run in the background. Because append-only writes avoid the row-level lock contention of update-in-place systems, write throughput improves, especially for the presentation layer.
+- Events are immutable and you can store them by using an append-only operation. The UI, workflow, or process that initiates an event can continue, and tasks that handle the events can run in the background. Write throughput improves, especially for the presentation layer, because append-only writes avoid the row-level lock contention that update-in-place systems create.
 
-- Events are simple objects that describe some action that occurred, together with any associated data that's required to describe the action represented by the event. Events don't directly update a data store. They're recorded for handling at the appropriate time. Using events can simplify implementation and management.
+- Events are simple objects that describe an action that occurs along with any associated data required to describe the action that the event represents. Events don't directly update a data store. They're recorded for handling at the appropriate time. Use events to help simplify implementation and management.
 
-- Events typically have meaning for a domain expert, whereas object-relational impedance mismatch can make complex database tables hard to understand. Tables are artificial constructs that represent the current state of the system, not the events that occurred.
+- Events typically have meaning for a domain expert, whereas object-relational impedance mismatch can make complex database tables hard to understand. Tables are artificial constructs that represent the current state of the system, not the events that occur.
 
-- Event sourcing can help prevent concurrent updates from causing conflicts because it avoids the requirement to directly update objects in the data store. Command handlers rehydrate an entity from its event stream to enforce business rules before appending new events, so two handlers that load the same entity simultaneously can both act on the same state; for example, each seeing five remaining seats and both accepting a reservation. Event stores address this with optimistic concurrency control, rejecting an append if the stream changed since it was read. On rejection, the handler reloads the entity, reevaluates, and retries.
+- Event sourcing can help prevent concurrent updates from causing conflicts because it avoids the requirement to directly update objects in the data store. Command handlers rehydrate an entity from its event stream to enforce business rules before they append new events, so two handlers that load the same entity simultaneously can both act on the same state.
 
-- The append-only storage of events provides an audit trail that can be used to monitor actions taken against a data store. It can regenerate the current state as materialized views or projections by replaying the events at any time, and it can assist in testing and debugging the system. In addition, the requirement to use compensating events to cancel changes can provide a history of changes that were reversed. This capability wouldn't be the case if the model stored the current state. The list of events can also be used to analyze application performance and to detect user behavior trends. Or, it can be used to obtain other useful business information.
+   For example, each handler sees five remaining seats, and both handlers can accept a reservation. Event stores address this scenario by using optimistic concurrency control and reject an append if the stream changed since it was read. Upon rejection, the handler reloads the entity, reevaluates, and retries.
 
-- The command handlers raise events, and tasks perform operations in response to those events. This decoupling of the tasks from the events provides flexibility and extensibility. Tasks know about the type of event and the event data, but not about the operation that triggered the event. In addition, multiple tasks can handle each event. This enables easy integration with other services and systems that only listen for new events raised by the event store. However, the event sourcing events tend to be very low level, and it might be necessary to generate specific integration events instead.
+- Append-only event storage provides an audit trail that applications can use to monitor actions taken against a data store. It can regenerate the current state as materialized views or projections by replaying the events at any time, and it can help test and debug the system. 
+
+   The requirement to use compensating events to cancel changes can provide a history of reversed changes. If the model stores only the current state, this history doesn't exist. You can also use the list of events to analyze application performance, detect user behavior trends, and obtain other useful business information.
+
+- The command handlers raise events, and tasks perform operations in response to those events. This decoupling of the tasks from the events provides flexibility and extensibility. Tasks know about the type of event and the event data, but not about the operation that triggers the event. 
+
+   Multiple tasks can handle each event, so they can easily integrate with other services and systems that only listen for new events that the event store raises. But the event sourcing events are typically low level, and it might be necessary to generate specific integration events instead.
 
 > [!TIP]
-> Event sourcing is commonly combined with the [CQRS pattern](./cqrs.md) by performing the data management tasks in response to the events, and by materializing views from the stored events. This combination enables independent scaling of reads and writes because append-only event ingestion and query-optimized projections operate separately.
+> Event sourcing is commonly combined with the [CQRS pattern](./cqrs.md) by performing the data management tasks in response to the events and by materializing views from the stored events. Use this combination to independently scale reads and writes because append-only event ingestion and query-optimized projections operate separately.
 
-## Issues and considerations
+## Problems and considerations
 
 Consider the following points when deciding how to implement this pattern:
 
@@ -166,7 +193,7 @@ The following diagram illustrates how the seat reservation subsystem of the conf
 
 The sequence of actions for reserving two seats is as follows:
 
-1. The user interface issues a command to reserve seats for two attendees. The command is handled by a separate command handler, a piece of logic that is decoupled from the user interface and is responsible for handling requests posted as commands.
+1. The UI issues a command to reserve seats for two attendees. The command is handled by a separate command handler, a piece of logic that is decoupled from the UI and is responsible for handling requests posted as commands.
 
 2. An entity containing information about all reservations for the conference is constructed by replaying the events that describe bookings and cancellations. This entity is called `SeatAvailability`, and is contained within a domain model that exposes methods for querying and modifying the data in the entity.
 
