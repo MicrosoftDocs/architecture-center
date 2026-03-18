@@ -54,7 +54,7 @@ Functions supports [multiple programming languages](/azure/azure-functions/suppo
 
 ## Compare platforms for microservices
 
-The following table compares how each platform supports the capabilities that matter for a microservices architecture. For a broader comparison that includes general-purpose compute factors, see [Choose an Azure container service](../../guide/choose-azure-container-service.md).
+The following table compares how each platform supports the capabilities that matter for a microservices architecture. For a more detailed comparison of Azure container-hosting platforms and their capabilities, see [Choose an Azure container service](../../guide/choose-azure-container-service.md).
 
 | Capability | AKS | Container Apps | Functions | App Service |
 | :--------- | :-- | :------------- | :-------- | :---------- |
