@@ -74,7 +74,9 @@ The following table compares how each platform supports the capabilities that ma
 | **Runs code without containers** | No | No | Yes | Yes |
 
 > [!NOTE]
-> Azure Red Hat OpenShift isn't included in this table. It provides the full Kubernetes API, so its microservices capabilities are comparable to AKS. Choose Azure Red Hat OpenShift when your organization has existing investments in the OpenShift ecosystem.
+> Azure Red Hat OpenShift isn't included in this table. It provides the full Kubernetes API, so its core microservices capabilities, such as per-deployment scaling, service discovery, and rolling updates, are comparable to AKS.
+>
+> The platforms differ in their operational tooling, not in their core microservices capabilities. For example, AKS provides Dapr and KEDA as managed add-ons, while on OpenShift you install and maintain them yourself. For more information, see [Azure Red Hat OpenShift documentation](/azure/openshift/).
 
 ## Choose your platform
 
