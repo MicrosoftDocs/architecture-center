@@ -178,175 +178,200 @@ If you need to restrict access to subsets of the cached data, you can do one of 
 
 You must also protect the data as it flows in and out of the cache. To do this, you depend on the security features provided by the network infrastructure that client applications use to connect to the cache. If the cache is implemented using an on-site server within the same organization that hosts the client applications, then the isolation of the network itself might not require you to take more steps. If the cache is located remotely and requires a TCP or HTTP connection over a public network (such as the Internet), consider implementing SSL.
 
-## Considerations for implementing caching in Azure
+## Considerations for using Azure Managed Redis
 
-[Azure Cache for Redis](/azure/azure-cache-for-redis/) is an implementation of the open source Redis cache that runs as a service in an Azure datacenter. It provides a caching service that can be accessed from any Azure application, whether the application is implemented as a cloud service, a website, or inside an Azure virtual machine. Caches can be shared by client applications that have the appropriate access key.
+[Azure Managed Redis](/azure/redis/overview) is a managed, enterprise-grade data platform built on Redis Enterprise. Azure Managed Redis is fully compatible with the standard Redis API. While it continues to excel at classic caching scenarios, it provides a high-performance, multi-model in-memory environment capable of accelerating both traditional application patterns and AI architectures.
 
-Azure Cache for Redis is a high-performance caching solution that provides availability, scalability and security. It typically runs as a service spread across one or more dedicated machines. It attempts to store as much information as it can in memory to ensure fast access. This architecture is intended to provide low latency and high throughput by reducing the need to perform slow I/O operations.
-
-Azure Cache for Redis is compatible with many of the various APIs that are used by client applications. If you have existing applications that already use Azure Cache for Redis running on-premises, the Azure Cache for Redis provides a quick migration path to caching in the cloud.
+From a caching perspective, Azure Managed Redis offers extremely low-latency access, high throughput, built-in clustering, and strong availability guarantees. These characteristics make it ideal for reducing load on backend databases, improving response times, and scaling applications that repeatedly read shared reference data, session state, configuration settings, or precomputed results.
 
 ### Features of Redis
 
-Redis is more than a basic cache server. It provides a distributed in-memory database with an extensive command set that supports many common scenarios. These are described later in this document, in the section Using Redis caching. This section summarizes some of the key features that Redis provides.
+While this document focuses primarily on how Redis enhances caching architectures, it is important to know that Redis has broader capabilities when evaluating how best to use it. This section summarizes the key features of Redis that are most relevant to caching and modern application performance.
 
 ### Redis as an in-memory database
 
-Redis supports both read and write operations. In Redis, writes can be protected from system failure either by being stored periodically in a local snapshot file or in an append-only log file. This situation isn't the case in many caches, which should be considered transitory data stores.
+Redis is fundamentally an in-memory data platform, providing extremely fast read and write operations by storing data directly in memory rather than on disk. Unlike many traditional cache implementations that treat data as purely transient, Redis offers optional durability through configurable persistence mechanisms.  
 
-All writes are asynchronous and don't block clients from reading and writing data. When Redis starts running, it reads the data from the snapshot or log file and uses it to construct the in-memory cache. For more information, see [Redis persistence](https://redis.io/topics/persistence) on the Redis website.
+Azure Managed Redis supports Redis persistence features such as periodic snapshots (RDB) and append-only file (AOF) logs. When enabled, these mechanisms help protect data against system failures by ensuring that Redis can reconstruct its in-memory state after a restart. Persistence is optional, allowing customers to balance durability, performance, and cost depending on the workload.
+
+Redis processes write operations asynchronously, allowing clients to continue reading and writing without waiting for disk I/O. Upon restart, Redis rebuilds its in-memory state from the most recent snapshot or log file. For detailed information about Redis persistence concepts, see the Redis documentation.
 
 > [!NOTE]
-> Redis doesn't guarantee that all writes are saved if there's a catastrophic failure, but at worst you might lose only a few seconds worth of data. Remember that a cache isn't intended to act as an authoritative data source, and it's the responsibility of the applications using the cache to ensure that critical data is saved successfully to an appropriate data store. For more information, see the [Cache-aside pattern](../patterns/cache-aside.yml).
+> Redis persistence improves durability but does not provide full transactional guarantees. Depending on configuration, a small amount of recently written data may be lost during unexpected failures. Because of this, Redis is often used as a performance layer rather than the sole authoritative data store. When building caching architectures or high-speed data access layers, ensure that critical data is also written to a durable backing store, following patterns such as the cache-aside pattern. For more information, see the [Cache-aside pattern](../patterns/cache-aside.yml)
 
 #### Redis data types
 
-Redis is a key-value store, where values can contain simple types or complex data structures such as hashes, lists, and sets. It supports a set of atomic operations on these data types. Keys can be permanent or tagged with a limited time-to-live, at which point the key and its corresponding value are automatically removed from the cache. For more information about Redis keys and values, visit the page [An introduction to Redis data types and abstractions](https://redis.io/topics/data-types-intro) on the Redis website.
+Redis is a key-value data platform, but the values it stores can represent a wide range of simple and complex data structures. In addition to basic string values, Redis natively supports hashes, lists, sets, sorted sets, streams, bitmaps, HyperLogLogs, and geospatial indexes. In Azure Managed Redis, Redis Enterprise extends these capabilities with additional data models. For more information about Redis keys and values, see [An introduction to Redis data types and abstractions](https://redis.io/topics/data-types-intro) on the Redis website.
 
 #### Redis replication and clustering
 
-Redis supports primary/subordinate replication to help ensure availability and maintain throughput. Write operations to a Redis primary node are replicated to one or more subordinate nodes. Read operations are served by the primary or any of the subordinates.
+Redis uses primary/replica replication to improve availability and read scalability. Write operations are processed by the primary and asynchronously replicated to replicas. If a primary fails, a replica can be promoted to continue serving requests.
 
-If you have a network partition, subordinates can continue to serve data and then transparently resynchronize with the primary when the connection is reestablished. For further details, visit the [Replication](https://redis.io/topics/replication) page on the Redis website.
+In Azure Managed Redis, replication and failover are managed automatically. The service monitors node health and performs replica promotion when needed to maintain availability.
 
-Redis also provides clustering, which enables you to transparently partition data into shards across servers and spread the load. This feature improves scalability, because new Redis servers can be added and the data repartitioned as the size of the cache increases.
+Redis also supports clustering, which partitions (shards) data across multiple nodes to scale memory capacity and throughput. As workload demands increase, additional shards can be added without requiring application changes. Azure Managed Redis handles routing, balancing, resharding, and failover internally, exposing a single endpoint to client applications.
 
-Furthermore, each server in the cluster can be replicated by using primary/subordinate replication. This ensures availability across each node in the cluster. For more information about clustering and sharding, visit the [Redis cluster tutorial page](https://redis.io/topics/cluster-tutorial) on the Redis website.
+For more information about Redis [replication](https://redis.io/docs/latest/operate/rs/databases/durability-ha/replication/) and [clustering](https://redis.io/docs/latest/operate/rs/databases/durability-ha/clustering/) fundamentals, see the Redis documentation.
 
 ### Redis memory use
 
-A Redis cache has a finite size that depends on the resources available on the host computer. When you configure a Redis server, you can specify the maximum amount of memory it can use. You can also configure a key in a Redis cache to have an expiration time, after which it's automatically removed from the cache. This feature can help prevent the in-memory cache from filling with old or stale data.
+Redis stores data in memory, so the amount of available memory determines how much data the cache can hold. In Azure Managed Redis, memory capacity is defined by the selected tier and configuration. To control memory usage, keys can be assigned a time-to-live (TTL). When a TTL expires, Redis automatically removes the key. TTLs are commonly used in caching to prevent stale data from consuming memory.
 
-As memory fills up, Redis can automatically evict keys and their values based on different policies. The default is least recently used (LRU), but you can also choose other options, like evicting keys at random or disabling eviction entirely. In that case, attempts to add items to the cache fail if it's full. For more information, see [Use Redis as an LRU cache](https://redis.io/topics/lru-cache).
+When memory limits are reached, Redis evicts keys according to a configured eviction policy (for example, least recently used). If eviction is disabled and memory is exhausted, write operations fail. For more details on Redis memory management and [eviction](https://redis.io/docs/latest/develop/reference/eviction/) policies, see the Redis documentation.
 
 ### Redis transactions and batches
 
-Redis enables a client application to submit a series of operations that read and write data in the cache as an atomic transaction. All the commands in the transaction are guaranteed to run sequentially, and no commands issued by other concurrent clients are interwoven between them.
+Redis supports grouping multiple operations using transactions and pipelining.
 
-However, these aren't true transactions as a relational database would perform them. Transaction processing consists of two stages--the first is when the commands are queued, and the second is when the commands are run. During the command queuing stage, the client submits the commands that comprise the transaction. If some sort of error occurs at this point (such as a syntax error, or the wrong number of parameters) then Redis refuses to process the entire transaction and discards it.
+A Redis transaction (`MULTI` / `EXEC`) queues a set of commands and executes them sequentially without interleaving commands from other clients. Transactions do not provide rollback. If a command fails during execution, previously executed commands are not undone.
 
-During the run phase, Redis performs each queued command in sequence. If a command fails during this phase, Redis continues with the next queued command and doesn't roll back the effects of any commands that have already been run. This simplified form of transaction helps to maintain performance and avoid performance problems that are caused by contention.
+Redis also supports optimistic locking using `WATCH`. If a watched key changes before the transaction executes, the transaction is discarded. This approach is useful when updating shared cached values such as counters or session state.
 
-Redis does implement a form of optimistic locking to help maintain consistency. For detailed information about transactions and locking with Redis, visit the [Transactions page](https://redis.io/topics/transactions) on the Redis website.
+In addition to transactions, Redis supports pipelining, which allows clients to send multiple commands without waiting for individual responses. Pipelining reduces network round trips and improves throughput, but it does not provide atomicity. Each command executes independently.
 
-Redis also supports nontransactional batching of requests. The Redis protocol that clients use to send commands to a Redis server enables a client to send a series of operations as part of the same request. This can help reduce packet fragmentation on the network. When the batch processes, each command runs. If any of these commands are malformed, they're rejected (which doesn't happen with a transaction), but the remaining commands are run. There's also no guarantee about the order in which the commands in the batch process.
+For more complex multi-step updates that must be atomic, Redis supports Lua scripting. A Lua script runs entirely on the server as a single atomic operation and is often the safest way to update multiple keys consistently in caching scenarios.
+
+For more information about Redis [transactions](https://redis.io/docs/latest/develop/using-commands/transactions/), pipelining, and scripting, see the Redis documentation.
 
 ### Redis security
 
-Redis is focused purely on providing fast access to data, and is designed to run inside a trusted environment that can be accessed only by trusted clients. Redis supports a limited security model based on password authentication. (It's possible to remove authentication completely, although we don't recommend this.)
+Redis should not be exposed directly to untrusted networks. Access must be restricted to authorized applications and identities.
 
-All authenticated clients share the same global password and have access to the same resources. If you need more comprehensive sign-in security, you must implement your own security layer in front of the Redis server, and all client requests should pass through this extra layer. Redis shouldn't be directly exposed to untrusted or unauthenticated clients.
+Azure Managed Redis provides security features suitable for production caching workloads, including TLS encryption, Microsoft Entra ID authentication, access key support, virtual network integration with Private Endpoints, Azure RBAC for management operations, and encryption at rest.
 
-You can restrict access to commands by disabling them or renaming them (and by providing only privileged clients with the new names).
-
-Redis doesn't directly support any form of data encryption, so all encoding is performed by client applications. Additionally, Redis doesn't provide any form of transport security. If you need to protect data as it flows across the network, we recommend implementing an SSL proxy.
-
-For more information, visit the [Redis security](https://redis.io/topics/security) page on the Redis website.
-
-> [!NOTE]
-> Azure Cache for Redis provides its own security layer through which clients connect. The underlying Redis servers aren't exposed to the public network.
-
-### Azure Redis cache
-
-Azure Cache for Redis provides access to Redis servers that are hosted at an Azure datacenter. It acts as a façade that provides access control and security. You can provision a cache by using the Azure portal.
-
-The portal provides several predefined configurations. These configurations range from a 53-GB cache running as a dedicated service that supports SSL communications (for privacy) and primary/secondary replication with a service-level agreement (SLA) of 99.9% availability, down to a 250-MB cache without replication (no availability guarantees) running on shared hardware.
-
-Using the Azure portal, you can also configure the eviction policy of the cache, and control access to the cache by adding users to the roles provided. These roles, which define the operations that members can perform, include Owner, Contributor, and Reader. For example, members of the Owner role have complete control over the cache (including security) and its contents, members of the Contributor role can read and write information in the cache, and members of the Reader role can only retrieve data from the cache.
-
-Most administrative tasks are performed through the Azure portal. For this reason, many of the administrative commands that are available in the standard version of Redis aren't available, including the ability to modify the configuration programmatically, shut down the Redis server, configure more subordinates, or forcibly save data to disk.
-
-The Azure portal includes a convenient graphical display that enables you to monitor the performance of the cache. For example, you can view the number of connections being made, the number of requests being performed, the volume of reads and writes, and the number of cache hits versus cache misses. Using this information, you can determine the effectiveness of the cache and if necessary, switch to a different configuration or change the eviction policy.
-
-Additionally, you can create alerts that send email messages to an administrator if one or more critical metrics fall outside of an expected range. For example, you might want to alert an administrator if the number of cache misses exceeds a specified value in the last hour, because it means the cache might be too small or data might be being evicted too quickly.
-
-You can also monitor the CPU, memory, and network usage for the cache.
-
-For further information and examples showing how to create and configure an Azure Cache for Redis, visit the page Lap around Azure Cache for Redis on the Azure blog.
+Follow the principle of least privilege and restrict network access to ensure cached data is protected in transit and at rest.
 
 ## Caching session state and HTML output
 
-If you build ASP.NET web applications that run in Azure App Service, you can save session state information and HTML output in an Azure Cache for Redis. The session state provider for Azure Cache for Redis enables you to share session information between different instances of an ASP.NET web application, and is very useful in web farm situations where client-server affinity isn't available and caching session data in-memory wouldn't be appropriate.
+Azure Managed Redis can be used to store session state and output cache data for ASP.NET and ASP.NET Core applications. By keeping session data and rendered output in a shared Redis-based cache, applications running across multiple instances, such as in Azure App Service, Azure Kubernetes Service (AKS), Azure Container Apps, or virtual machine scale sets, can maintain consistent user experiences without requiring server affinity.
 
-Using the session state provider with Azure Cache for Redis delivers several benefits, including:
+### ASP.NET session state and output caching
 
-- Sharing session state with a large number of instances of ASP.NET web applications.
-- Providing improved scalability.
-- Supporting controlled, concurrent access to the same session state data for multiple readers and a single writer.
-- Using compression to save memory and improve network performance.
+For classic ASP.NET applications, the Redis-based session state provider enables applications to store session data externally instead of in-process memory or a SQL-backed session store. This approach is especially valuable in web farm scenarios where client affinity ("sticky sessions") is unavailable or undesirable.
 
-For more information, see [ASP.NET session state provider for Azure Cache for Redis](/azure/redis/aspnet-session-state-provider).
+Using the session state provider with Azure Managed Redis provides several benefits:
 
-> [!NOTE]
-> Don't use the session state provider for Azure Cache for Redis with ASP.NET applications that run outside of the Azure environment. The latency of accessing the cache from outside of Azure can eliminate the performance benefits of caching data.
+- Session data can be shared across any number of application instances.
+- Applications can scale out without losing session information.
+- Concurrent access is coordinated so that multiple readers and a single writer can safely work with the same session state.
+- Optional compression reduces memory usage and network bandwidth.
 
-Similarly, the output cache provider for Azure Cache for Redis enables you to save the HTTP responses generated by an ASP.NET web application. Using the output cache provider with Azure Cache for Redis can improve the response times of applications that render complex HTML output. Application instances that generate similar responses can use the shared output fragments in the cache rather than generating this HTML output afresh. For more information, see [ASP.NET output cache provider for Azure Cache for Redis](/azure/redis/aspnet-output-cache-provider).
+If you build ASP.NET web applications that run in Azure App Service, you can save session state information and HTML output in an Azure Managed Redis. The session state provider for Azure Managed Redis enables you to share session information between different instances of an ASP.NET web application, and is very useful in web farm situations where client-server affinity isn't available and caching session data in-memory wouldn't be appropriate.
 
-## Building a custom Redis cache
+- [ASP.NET session state provider for Redis](/azure/redis/aspnet-session-state-provider)
 
-Azure Cache for Redis acts as a façade to the underlying Redis servers. If you require an advanced configuration that isn't covered by the Azure Redis cache (such as a cache bigger than 53 GB) you can build and host your own Redis servers by using Azure Virtual Machines.
+Similarly, the ASP.NET output cache provider for Redis allows applications to save rendered HTML fragments or full-page output. This improves response times for pages that are expensive to compute or frequently requested. By caching output in Azure Managed Redis, application instances can reuse previously generated results across requests and across servers.
 
-This is a potentially complex process because you might need to create several VMs to act as primary and subordinate nodes if you want to implement replication. Furthermore, if you wish to create a cluster, then you need multiple primaries and subordinate servers. A minimal clustered replication topology that provides a high degree of availability and scalability comprises at least six VMs organized as three pairs of primary/subordinate servers (a cluster must contain at least three primary nodes).
-
-Each primary/subordinate pair should be located close together to minimize latency. However, each set of pairs can be running in different Azure datacenters located in different regions, if you wish to locate cached data close to the applications that are most likely to use it. For an example of building and configuring a Redis node running as an Azure VM, see [Running Redis on a CentOS Linux VM in Azure](/archive/blogs/tconte/running-redis-on-a-centos-linux-vm-in-windows-azure).
+For more information, see [ASP.NET output cache provider for Redis](/azure/redis/aspnet-output-cache-provider)
 
 > [!NOTE]
-> If you implement your own Redis cache in this way, you're responsible for monitoring, managing, and securing the service.
+> Applications hosted outside of Azure may experience increased latency when accessing Azure Managed Redis. For best performance, deploy your application and Azure Managed Redis instance in the same Azure region or network environment.
+
+### ASP.NET Core, IDistributedCache, and output caching
+
+Modern ASP.NET Core applications use the `IDistributedCache` abstraction and session middleware rather than the legacy ASP.NET session state provider. Azure Managed Redis integrates with `IDistributedCache` through the `Microsoft.Extensions.Caching.StackExchangeRedis` package, which provides an opinionated Redis-backed implementation.
+
+Example configuration in ASP.NET Core:
+
+```csharp
+builder.Services.AddStackExchangeRedisCache(options =>
+{
+    options.Configuration = "<your-cache-name>.redis.azure.net:10000";
+    options.InstanceName = "app-cache:";
+});
+
+builder.Services.AddSession();
+```
+
+ASP.NET Core output caching middleware can also use Redis as a distributed backing store via `IDistributedCache`, enabling applications to share rendered fragments or pages across all instances.
+
+### .NET Aspire integration
+
+.NET Aspire simplifies using Azure Managed Redis by providing standardized components and configuration patterns for distributed caching and session state. Developers can reference Azure Managed Redis as a cache or session store using Aspire’s opinionated defaults, reducing boilerplate and ensuring consistent configuration across microservices in a distributed application.
+
+### Redis usage scope in these scenarios
+
+When used through ASP.NET session providers, output caching, `IDistributedCache`, or Aspire components, Azure Managed Redis functions strictly as a **distributed key/value cache**. These framework integrations serialize and store data under simple keys, using Redis only for high-performance caching—not for advanced Redis Enterprise features.
+
+Features such as RedisJSON, RediSearch, hybrid search, vector similarity search, and long-term or agentic memory for AI workloads are accessed directly through Redis client libraries and **are not used** by these built-in ASP.NET/.NET caching providers.
+
+Understanding this distinction helps clarify when Azure Managed Redis is being used purely as a cache and when its broader real-time data and AI capabilities should be leveraged directly.
 
 ## Partitioning a Redis cache
 
-Partitioning the cache involves splitting the cache across multiple computers. This structure gives you several advantages over using a single cache server, including:
+Partitioning (or sharding) distributes data across multiple Redis nodes so that the dataset and throughput exceed the capacity of a single server. Partitioning increases scalability, improves load distribution, enables high availability, and supports large or high-throughput workloads.
 
-- Creating a cache that is too big to store on a single server.
-- Distributing data across servers, improving availability. If one server fails or becomes inaccessible, the data that it holds is unavailable, but the data on the remaining servers can still be accessed. For a cache, this isn't crucial because the cached data is only a transient copy of the data that's held in a database. Cached data on a server that becomes inaccessible can be cached on a different server instead.
-- Spreading the load across servers, which improves performance and scalability.
-- Geolocating data close to the users that access it, thus reducing latency.
+Azure Managed Redis supports two clustering policies:
 
-For a cache, the most common form of partitioning is sharding. In this strategy, each partition (or shard) is a Redis cache in its own right. Data is directed to a specific partition by using sharding logic, which can use various approaches to distribute the data. The [Sharding pattern](../patterns/sharding.yml) provides more information about implementing sharding.
+- **OSS Clustering Policy (default):**  
+  Provides the highest performance and lowest routing overhead. Clients communicate directly with the appropriate shard and follow OSS Redis Cluster semantics, including MOVED and ASK redirections. Cluster-aware clients such as StackExchange.Redis automatically handle these redirects.
 
-To implement partitioning in a Redis cache, you can take one of the following approaches:
+- **Redis Enterprise Clustering Policy:**  
+  Uses the Redis Enterprise proxy to provide transparent routing through a single endpoint. Clients do not need to implement cluster-aware logic or handle MOVED/ASK responses. This policy offers simpler client integration but introduces a small routing overhead.
 
-- *Server-side query routing.* In this technique, a client application sends a request to any of the Redis servers that comprise the cache (probably the closest server). Each Redis server stores metadata that describes the partition that it holds, and also contains information about which partitions are located on other servers. The Redis server examines the client request. If it can be resolved locally, it performs the requested operation. Otherwise it forwards the request on to the appropriate server. Redis clustering implements this model, as described in more detail on the [Redis cluster tutorial](https://redis.io/topics/cluster-tutorial) page on the Redis website. Redis clustering is transparent to client applications, and more Redis servers can be added to the cluster (and the data repartitioned) without requiring that you reconfigure the clients.
-- *Client-side partitioning.* In this model, the client application contains logic (possibly in the form of a library) that routes requests to the appropriate Redis server. This approach can be used with Azure Cache for Redis. Create multiple Azure Cache for Redis (one for each data partition) and implement the client-side logic that routes the requests to the correct cache. If the partitioning scheme changes (if more Azure Cache for Redis are created, for example), client applications might need to be reconfigured.
-- *Proxy-assisted partitioning.* In this scheme, client applications send requests to an intermediary proxy service that understands how the data is partitioned and then routes the request to the appropriate Redis server. This approach can also be used with Azure Cache for Redis; the proxy service can be implemented as an Azure cloud service. This approach requires an extra level of complexity to implement the service, and requests might take longer to perform than using client-side partitioning.
+Azure Managed Redis also supports **non-clustered mode**, which uses a single primary/replica pair with no sharding. This mode is suitable for smaller workloads or applications that do not require horizontal scale-out.
 
-The page [Partitioning: how to split data among multiple Redis instances](https://redis.io/topics/partitioning) on the Redis website provides further information about implementing partitioning with Redis.
+### Server-side partitioning
+
+With both clustering policies (OSS or Enterprise), data is automatically sharded across nodes. Clustering provides:
+
+- Key-to-shard hashing and balanced shard placement  
+- High availability through primary/replica configuration  
+- Automatic failover and resynchronization  
+- Online resharding (scale-out and scale-in)  
+- Horizontal scaling for large caching layers, JSON stores, search indexes, and vector embedding workloads for AI applications
+
+**In OSS mode**, clients route directly to shards and manage redirection.  
+**In Enterprise mode**, the proxy handles routing internally for clients.
+
+### Partitioning in self-managed environments
+
+Custom partitioning models (such as client-side hashing or third-party proxies) are typically only used in self-managed Redis deployments running on VMs or Kubernetes. These approaches require more operational effort and are generally unnecessary when using Azure Managed Redis, where clustering handles routing, failover, and resharding automatically.
 
 ### Implement Redis cache client applications
 
-Redis supports client applications written in numerous programming languages. If you build new applications by using the .NET Framework, we recommended you use the StackExchange.Redis client library. This library provides a .NET Framework object model that abstracts the details for connecting to a Redis server, sending commands, and receiving responses. It's available in Visual Studio as a NuGet package. You can use this same library to connect to an Azure Cache for Redis, or a custom Redis cache hosted on a VM.
+Redis supports client applications in many programming languages. For .NET applications, several client libraries are available, each suited for different Redis workloads. Choosing the appropriate library depends on whether Redis is being used strictly as a cache or as a multi-model data platform.
 
 To connect to a Redis server, you use the static `Connect` method of the `ConnectionMultiplexer` class. The connection that this method creates is built for use throughout the lifetime of the client application. The same connection can be used by multiple concurrent threads. Don't reconnect and disconnect each time you perform a Redis operation because this can degrade performance.
 
-You can specify the connection parameters, such as the address of the Redis host and the password. If you use Azure Cache for Redis, the password is either the primary or secondary key that is generated for Azure Cache for Redis by using the Azure portal.
+### Choosing a .NET client library
 
-After you connect to the Redis server, you can obtain a handle on the Redis Database that acts as the cache. The Redis connection provides the `GetDatabase` method to do this. You can then retrieve items from the cache and store data in the cache by using the `StringGet` and `StringSet` methods. These methods expect a key as a parameter, and return the item either in the cache that has a matching value (`StringGet`) or add the item to the cache with this key (`StringSet`).
+When using Azure Managed Redis, the recommended .NET libraries depend on the scenario:
 
-Depending on the location of the Redis server, operations might incur some latency while a request is transmitted to the server and a response is returned to the client. The StackExchange library provides asynchronous versions of many of the methods that it exposes to help client applications remain responsive. These methods support the [Task-based Asynchronous pattern](/dotnet/standard/asynchronous-programming-patterns/task-based-asynchronous-pattern-tap) in the .NET Framework.
+#### **1. Using Redis for caching
 
-The following code snippet shows a method named `RetrieveItem`. It illustrates an implementation of the cache-aside pattern based on Redis and the StackExchange library. The method takes a string key value and attempts to retrieve the corresponding item from the Redis cache by calling the `StringGetAsync` method (the asynchronous version of `StringGet`).
+For basic caching scenarios—storing and retrieving string values, byte arrays, or simple serialized objects—the preferred libraries are:
 
-If the item isn't found, it's fetched from the underlying data source using the `GetItemFromDataSourceAsync` method (which is a local method and not part of the StackExchange library). It's then added to the cache by using the `StringSetAsync` method so it can be retrieved more quickly next time.
+- **StackExchange.Redis** (low-level Redis client, high performance)  
+- **Microsoft.Extensions.Caching.StackExchangeRedis** (opinionated `IDistributedCache` integration for ASP.NET Core)
+
+These libraries provide the primitives required to build common caching patterns. However, these patterns are not built into the client libraries. The application must implement the caching logic using Redis commands and background processing where appropriate.
+
+IDistributedCache provides a simplified abstraction suitable for basic distributed caching, but it stores values as opaque byte arrays and does not expose advanced Redis data structures. For more control over caching behavior, including atomic operations, transactions, pipelining, and Lua scripting, use StackExchange.Redis directly.
+
+### Connecting to Azure Managed Redis
+
+For information about how to connect to Azure Managed Redis using multiple coding languages, see: [How to connect to Azure Managed Redis Quick start](/azure/redis/dotnet)
+
+### Implementing cache-aside pattern
 
 ```csharp
-// Connect to the Azure Redis cache
 ConfigurationOptions config = new ConfigurationOptions();
-config.EndPoints.Add("<your DNS name>.redis.cache.windows.net");
-config.Password = "<Redis cache key from management portal>";
-ConnectionMultiplexer redisHostConnection = ConnectionMultiplexer.Connect(config);
-IDatabase cache = redisHostConnection.GetDatabase();
 ...
-private async Task<string> RetrieveItem(string itemKey)
+ConnectionMultiplexer redisHostConnection = ConnectionMultiplexer.Connect(config);
+IDatabase db = redisHostConnection.GetDatabase();
+...
+private async Task<string> RetrieveItemAsync(string itemKey)
 {
     // Attempt to retrieve the item from the Redis cache
-    string itemValue = await cache.StringGetAsync(itemKey);
+    string itemValue = await db.StringGetAsync(itemKey);
 
     // If the value returned is null, the item was not found in the cache
     // So retrieve the item from the data source and add it to the cache
     if (itemValue == null)
     {
         itemValue = await GetItemFromDataSourceAsync(itemKey);
-        await cache.StringSetAsync(itemKey, itemValue);
+        await db.StringSetAsync(itemKey, itemValue);
     }
 
     // Return the item
@@ -354,143 +379,80 @@ private async Task<string> RetrieveItem(string itemKey)
 }
 ```
 
-The `StringGet` and `StringSet` methods aren't restricted to retrieving or storing string values. They can take any item that is serialized as an array of bytes. If you need to save a .NET object, you can serialize it as a byte stream and use the `StringSet` method to write it to the cache.
+### Serializing .NET objects
 
-Similarly, you can read an object from the cache by using the `StringGet` method and deserializing it as a .NET object. The following code shows a set of extension methods for the IDatabase interface (the `GetDatabase` method of a Redis connection returns an `IDatabase` object),  and some sample code that uses these methods to read and write a `BlogPost` object to the cache:
+With native JSON support in Redis, you no longer need to manually serialize .NET objects before storing them.
 
 ```csharp
-public static class RedisCacheExtensions
+public static class RedisJsonExtensions
 {
-    public static async Task<T> GetAsync<T>(this IDatabase cache, string key)
+    public static async Task<T?> GetAsync<T>(
+        this IDatabase cache,
+        string key,
+        string path = "$")
     {
-        return Deserialize<T>(await cache.StringGetAsync(key));
+        var result = await cache.ExecuteAsync("JSON.GET", key, path);
+
+        if (result.IsNull)
+            return default;
+
+        return JsonSerializer.Deserialize<T>(result!);
     }
 
-    public static async Task<object> GetAsync(this IDatabase cache, string key)
+    public static async Task SetAsync<T>(
+        this IDatabase cache,
+        string key,
+        T value,
+        TimeSpan? expiry = null,
+        string path = "$")
     {
-        return Deserialize<object>(await cache.StringGetAsync(key));
-    }
+        var json = JsonSerializer.Serialize(value);
 
-    public static async Task SetAsync(this IDatabase cache, string key, object value)
-    {
-        await cache.StringSetAsync(key, Serialize(value));
-    }
+        // Store JSON document
+        await cache.ExecuteAsync("JSON.SET", key, path, json);
 
-    static byte[] Serialize(object o)
-    {
-        byte[] objectDataAsStream = null;
-
-        if (o != null)
+        // Apply TTL if provided
+        if (expiry.HasValue)
         {
-            var jsonString = JsonSerializer.Serialize(o);
-            objectDataAsStream = Encoding.ASCII.GetBytes(jsonString);
+            await cache.KeyExpireAsync(key, expiry);
         }
-
-        return objectDataAsStream;
     }
 
-    static T Deserialize<T>(byte[] stream)
+    public static async Task<bool> ExpireAsync(
+        this IDatabase cache,
+        string key,
+        TimeSpan expiry)
     {
-        T result = default(T);
-
-        if (stream != null)
-        {
-            var jsonString = Encoding.ASCII.GetString(stream);
-            result = JsonSerializer.Deserialize<T>(jsonString);
-        }
-
-        return result;
+        return await cache.KeyExpireAsync(key, expiry);
     }
 }
 ```
 
-The following code illustrates a method named `RetrieveBlogPost` that uses these extension methods to read and write a serializable `BlogPost` object to the cache following the cache-aside pattern:
+## Using Redis as a cache
 
-```csharp
-// The BlogPost type
-public class BlogPost
-{
-    private HashSet<string> tags;
-
-    public BlogPost(int id, string title, int score, IEnumerable<string> tags)
-    {
-        this.Id = id;
-        this.Title = title;
-        this.Score = score;
-        this.tags = new HashSet<string>(tags);
-    }
-
-    public int Id { get; set; }
-    public string Title { get; set; }
-    public int Score { get; set; }
-    public ICollection<string> Tags => this.tags;
-}
-...
-private async Task<BlogPost> RetrieveBlogPost(string blogPostKey)
-{
-    BlogPost blogPost = await cache.GetAsync<BlogPost>(blogPostKey);
-    if (blogPost == null)
-    {
-        blogPost = await GetBlogPostFromDataSourceAsync(blogPostKey);
-        await cache.SetAsync(blogPostKey, blogPost);
-    }
-
-    return blogPost;
-}
-```
-
-Redis supports command pipelining if a client application sends multiple asynchronous requests. Redis can multiplex the requests using the same connection rather than receiving and responding to commands in a strict sequence.
-
-This approach helps to reduce latency by making more efficient use of the network. The following code snippet shows an example that retrieves the details of two customers concurrently. The code submits two requests and then performs some other processing (not shown) before waiting to receive the results. The `Wait` method of the cache object is similar to the .NET Framework `Task.Wait` method:
-
-```csharp
-ConnectionMultiplexer redisHostConnection = ...;
-IDatabase cache = redisHostConnection.GetDatabase();
-...
-var task1 = cache.StringGetAsync("customer:1");
-var task2 = cache.StringGetAsync("customer:2");
-...
-var customer1 = cache.Wait(task1);
-var customer2 = cache.Wait(task2);
-```
-
-For more information about writing client applications that can use the Azure Cache for Redis, see [Azure Cache for Redis documentation](/azure/azure-cache-for-redis). More information is also available at [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis/blob/main/docs/Basics.md).
-
-The page [Pipelines and multiplexers](https://stackexchange.github.io/StackExchange.Redis/PipelinesMultiplexers) on the same website provides more information about asynchronous operations and pipelining with Redis and the StackExchange library.
-
-## Using Redis caching
-
-The simplest use of Redis for caching concerns is key-value pairs where the value is an uninterpreted string of arbitrary length that can contain any binary data. (It's essentially an array of bytes that can be treated as a string). This scenario was illustrated in the section Implement Redis Cache client applications earlier in this article.
+The simplest way to use Redis for caching is to store values under keys using the key–value model. Values may be strings or binary data of arbitrary length, making Redis well suited for caching serialized objects, configuration data, session state, or precomputed results. This scenario was illustrated earlier in the section *Implement Redis cache client applications*.
 
 Keys also contain uninterpreted data, so you can use any binary information as the key. The longer the key is, however, the more space it takes to store, and the longer it takes to perform lookup operations. For usability and ease of maintenance, design your keyspace carefully and use meaningful (but not verbose) keys.
 
 For example, use structured keys like `customer:100` (instead of just `100`) to represent the key for the customer with ID 100. This scheme enables you to distinguish between values that store different data types. For example, you can also use the key `orders:100` to represent the key for the order with ID 100.
 
-Apart from one-dimensional binary strings, a value in a Redis key-value pair can also hold more structured information, including lists, sets (sorted and unsorted), and hashes. Redis provides a comprehensive command set that can manipulate these types, and many of these commands are available to .NET Framework applications through a client library such as StackExchange. The page [An introduction to Redis data types and abstractions](https://redis.io/topics/data-types-intro) on the Redis website provides a more detailed overview of these types and the commands that you can use to manipulate them.
+While strings are the most common caching approach, Redis supports a rich set of native data types such as hashes, lists, sets, sorted sets, and streams, enabling more flexible caching patterns.
 
-This section summarizes some common use cases for these data types and commands.
+Azure Managed Redis builds on these capabilities with native support for JSON, search, bloom and time-series data, making it easier to cache structured objects, index metadata, and query cached data efficiently.
+
+For more information about Redis data types and their capabilities, see the Redis documentation on [data types](https://redis.io/docs/latest/develop/data-types/).
 
 ### Perform atomic and batch operations
 
-Redis supports a series of atomic get-and-set operations on string values. These operations remove the possible race hazards that might occur when you use separate `GET` and `SET` commands. The operations that are available include:
+Redis provides a set of atomic operations that allow applications to update values safely without race conditions. These operations are performed directly on the server, ensuring the update is completed as a single, indivisible action. Atomic operations are commonly used when Redis is functioning as a cache or a high-performance coordination layer.
 
-- `INCR`, `INCRBY`, `DECR`, and `DECRBY`, which perform atomic increment and decrement operations on integer numeric data values. The StackExchange library provides overloaded versions of the `IDatabase.StringIncrementAsync` and `IDatabase.StringDecrementAsync` methods to perform these operations and return the resulting value that is stored in the cache. The following code snippet illustrates how to use these methods:
+### Atomic operations on string values
 
-  ```csharp
-  ConnectionMultiplexer redisHostConnection = ...;
-  IDatabase cache = redisHostConnection.GetDatabase();
-  ...
-  await cache.StringSetAsync("data:counter", 99);
-  ...
-  long oldValue = await cache.StringIncrementAsync("data:counter");
-  // Increment by 1 (the default)
-  // oldValue should be 100
+Redis offers atomic operations for incrementing, decrementing, or replacing values. These operations prevent race hazards that might occur if `GET` and `SET` were issued separately.
 
-  long newValue = await cache.StringDecrementAsync("data:counter", 50);
-  // Decrement by 50
-  // newValue should be 50
-  ```
+Examples include:
 
+- `INCR`, `INCRBY`, `DECR`, `DECRBY`  
 - `GETSET`, which retrieves the value that's associated with a key and changes it to a new value. The StackExchange library makes this operation available through the `IDatabase.StringGetSetAsync` method. The following code snippet shows an example of this method. This code returns the current value that's associated with the key "data:counter" from the previous example. Then it resets the value for this key back to zero, all as part of the same operation:
 
   ```csharp
@@ -534,42 +496,67 @@ The `ITransaction` interface provides access to a set of methods that's similar 
 The following code snippet shows an example that increments and decrements two counters as part of the same transaction:
 
 ```csharp
-ConnectionMultiplexer redisHostConnection = ...;
-IDatabase cache = redisHostConnection.GetDatabase();
-...
 ITransaction transaction = cache.CreateTransaction();
+
 var tx1 = transaction.StringIncrementAsync("data:counter1");
 var tx2 = transaction.StringDecrementAsync("data:counter2");
-bool result = transaction.Execute();
+
+bool result = await transaction.ExecuteAsync();
+
 Console.WriteLine("Transaction {0}", result ? "succeeded" : "failed");
-Console.WriteLine("Result of increment: {0}", tx1.Result);
-Console.WriteLine("Result of decrement: {0}", tx2.Result);
+
+if (result)
+{
+    long increment = await tx1;
+    long decrement = await tx2;
+
+    Console.WriteLine("Result of increment: {0}", increment);
+    Console.WriteLine("Result of decrement: {0}", decrement);
+}
 ```
 
-Remember that Redis transactions are unlike transactions in relational databases. The `Execute` method queues all the commands that comprise the transaction to run, and if any command isn't valid, then the transaction stops. If all the commands are queued successfully, each command runs asynchronously.
+> [!NOTE]
+> Redis atomic operations apply to **single keys only**. Multi-key atomicity requires Lua scripting or ensuring keys share the same cluster hash slot.
+
+Remember that Redis transactions are unlike transactions in relational databases. The `Execute` method queues all the commands that comprise the transaction to run, and if any command isn't valid, then the transaction stops. If all the commands have been queued successfully, each command runs asynchronously.
 
 If any command fails, the others still continue processing. If you need to verify that a command is completed successfully, you must fetch the results of the command by using the **Result** property of the corresponding task, as shown in the previous example. Reading the **Result** property blocks the calling thread until the task is completed.
 
-For more information, see [Transactions in Redis](https://stackexchange.github.io/StackExchange.Redis/Transactions).
+### Multi-key operations (MSET / MGET)
 
-When performing batch operations, you can use the `IBatch` interface of the StackExchange library. This interface provides access to a set of methods similar to those accessed by the `IDatabase` interface, except that all the methods are asynchronous.
+Redis can set and retrieve multiple keys in a single command.
 
-You create an `IBatch` object by using the `IDatabase.CreateBatch` method, and then run the batch by using the `IBatch.Execute` method, as shown in the following example. This code sets a string value, increments and decrements the same counters used in the previous example, and displays the results:
+In clustered deployments, all keys in a multi-key operation must map to the same hash slot, or Redis returns a CROSSSLOT error. You can ensure this using hash tags (for example, customer:{123}:name and customer:{123}:email).
 
-```csharp
-ConnectionMultiplexer redisHostConnection = ...;
-IDatabase cache = redisHostConnection.GetDatabase();
-...
-IBatch batch = cache.CreateBatch();
-batch.StringSetAsync("data:key1", 11);
-var t1 = batch.StringIncrementAsync("data:counter1");
-var t2 = batch.StringDecrementAsync("data:counter2");
-batch.Execute();
-Console.WriteLine("{0}", t1.Result);
-Console.WriteLine("{0}", t2.Result);
-```
+Azure Managed Redis supports multi-key operations, but applications should still design keys for proper slot placement.
 
-It's important to understand that unlike a transaction, if a command in a batch fails because it's malformed, the other commands might still run. The `IBatch.Execute` method doesn't return any indication of success or failure.
+### Redis transactions (MULTI/EXEC)
+
+Transactions queue multiple commands and execute them sequentially without interleaving from other clients. They guarantee ordering, but do not provide rollback if a command fails.
+
+In clustered environments, keys involved in a transaction should be colocated in the same hash slot. Redis also supports optimistic locking via WATCH.
+
+**Advanced notes:**
+
+- Under **OSS Clustering Policy**, **all keys in a transaction must be in the same hash slot**.
+- Under **Enterprise Clustering Policy**, the Redis Enterprise proxy may route multi-key transactions across shards, but developers should still design for efficient key grouping.
+- Transactions guarantee **command ordering**, not rollback.
+
+### Batch operations (pipelining)
+
+Pipelining sends multiple commands without waiting for individual responses, reducing network round trips and improving throughput.
+
+- Not atomic
+- Commands execute independently
+- Ideal for bulk cache loading or high-throughput scenarios
+
+StackExchange.Redis automatically pipelines most asynchronous operations, so explicit batching is often unnecessary.
+
+### Lua scripting for atomic multi-step logic
+
+Lua scripts execute server-side as a single atomic operation, making them ideal for multi-step updates involving multiple commands.
+
+In clustered deployments, referenced keys should still be colocated for predictable behavior and performance.
 
 ### Perform fire and forget cache operations
 
@@ -618,169 +605,143 @@ await cache.KeyExpireAsync("data:key1",
 > [!TIP]
 > You can manually remove an item from the cache by using the DEL command, which is available through the StackExchange library as the `IDatabase.KeyDeleteAsync` method.
 
-### Use tags to cross-correlate cached items
+### Cross-correlating cached items in Azure Managed Redis
 
-A Redis set is a collection of multiple items that share a single key. You can create a set by using the SADD command. You can retrieve the items in a set by using the SMEMBERS command. The StackExchange library implements the SADD command with the `IDatabase.SetAddAsync` method, and the SMEMBERS command with the `IDatabase.SetMembersAsync` method.
+In earlier generations of Redis and in traditional OSS environments, it was common to model relationships—such as tags, categories, or groups of related items—using Redis Sets. Applications would maintain forward and reverse sets to represent many-to-many relationships. While this pattern still works, it is no longer the recommended approach in Azure Managed Redis, which is powered by Redis Enterprise.
 
-You can also combine existing sets to create new sets by using the SDIFF (set difference), SINTER (set intersection), and SUNION (set union) commands. The StackExchange library unifies these operations in the `IDatabase.SetCombineAsync` method. The first parameter to this method specifies the set operation to perform.
+Because Azure Managed Redis includes RedisJSON and RediSearch, there are more powerful, scalable, and maintainable ways to model tagged or correlated data than using Redis Sets alone.
 
-The following code snippets show how sets can be useful for quickly storing and retrieving collections of related items. This code uses the `BlogPost` type that was described in the section Implement Redis Cache Client Applications earlier in this article.
+### Recommended approach: RedisJSON + RediSearch
+
+RedisJSON enables you to store structured documents instead of flat string values. RediSearch provides secondary indexes that make it possible to query and filter cached objects based on tags, fields, ranges, or full-text content.
 
 A `BlogPost` object contains four fields&mdash;an ID, a title, a ranking score, and a collection of tags. The first code snippet shows the sample data that's used for populating a C# list of `BlogPost` objects:
 
-```csharp
-List<string[]> tags = new List<string[]>
+```json
 {
-    new[] { "iot","csharp" },
-    new[] { "iot","azure","csharp" },
-    new[] { "csharp","git","big data" },
-    new[] { "iot","git","database" },
-    new[] { "database","git" },
-    new[] { "csharp","database" },
-    new[] { "iot" },
-    new[] { "iot","database","git" },
-    new[] { "azure","database","big data","git","csharp" },
-    new[] { "azure" }
-};
-
-List<BlogPost> posts = new List<BlogPost>();
-int blogKey = 0;
-int numberOfPosts = 20;
-Random random = new Random();
-for (int i = 0; i < numberOfPosts; i++)
-{
-    blogKey++;
-    posts.Add(new BlogPost(
-        blogKey,                  // Blog post ID
-        string.Format(CultureInfo.InvariantCulture, "Blog Post #{0}",
-            blogKey),             // Blog post title
-        random.Next(100, 10000),  // Ranking score
-        tags[i % tags.Count]));   // Tags--assigned from a collection
-                                  // in the tags list
+  "id": 1,
+  "title": "Blog Post #1",
+  "tags": ["iot", "csharp"],
+  "score": 842
 }
 ```
 
-You can store the tags for each `BlogPost` object as a set in a Redis cache and associate each set with the ID of the `BlogPost`. This enables an application to quickly find all the tags that belong to a specific blog post. To enable searching in the opposite direction and find all blog posts that share a specific tag, you can create another set that holds the blog posts referencing the tag ID in the key:
+A RediSearch index can be created with a TAG field for efficient tag-based lookups:
 
-```csharp
-ConnectionMultiplexer redisHostConnection = ...;
-IDatabase cache = redisHostConnection.GetDatabase();
-...
-// Tags are easily represented as Redis Sets
-foreach (BlogPost post in posts)
-{
-    string redisKey = string.Format(CultureInfo.InvariantCulture,
-        "blog:posts:{0}:tags", post.Id);
-    // Add tags to the blog post in Redis
-    await cache.SetAddAsync(
-        redisKey, post.Tags.Select(s => (RedisValue)s).ToArray());
-
-    // Now do the inverse so we can figure out which blog posts have a given tag
-    foreach (var tag in post.Tags)
-    {
-        await cache.SetAddAsync(string.Format(CultureInfo.InvariantCulture,
-            "tag:{0}:blog:posts", tag), post.Id);
-    }
-}
+```text
+FT.CREATE idx:blogposts ON JSON PREFIX 1 blog:posts: 
+SCHEMA $.title AS title TEXT 
+       $.tags[*] AS tag TAG 
+       $.score AS score NUMERIC
 ```
 
-These structures enable you to perform many common queries efficiently. For example, you can find and display all of the tags for blog post 1 like this:
+### Query examples
 
-```csharp
-// Show the tags for blog post #1
-foreach (var value in await cache.SetMembersAsync("blog:posts:1:tags"))
-{
-    Console.WriteLine(value);
-}
+**Find all blog posts with the tag "iot":**
+
+```text
+FT.SEARCH idx:blogposts "@tag:{iot}"
 ```
 
-You can find all tags that are common to blog post 1 and blog post 2 by performing a set intersection operation, as follows:
+**Find all posts that contain both "iot" and "csharp":**
 
-```csharp
-// Show the tags in common for blog posts #1 and #2
-foreach (var value in await cache.SetCombineAsync(SetOperation.Intersect, new RedisKey[]
-    { "blog:posts:1:tags", "blog:posts:2:tags" }))
-{
-    Console.WriteLine(value);
-}
+```text
+FT.SEARCH idx:blogposts "@tag:{iot} @tag:{csharp}"
 ```
 
-And you can find all blog posts that contain a specific tag:
+**Find posts with overlapping tags between two sets:**
 
-```csharp
-// Show the ids of the blog posts that have the tag "iot".
-foreach (var value in await cache.SetMembersAsync("tag:iot:blog:posts"))
-{
-    Console.WriteLine(value);
-}
+```text
+FT.SEARCH idx:blogposts "@tag:{iot|database}"
 ```
+
+**Find posts sorted by score:**
+
+```text
+FT.SEARCH idx:blogposts "*" SORTBY score DESC
+```
+
+### Why this is preferred in Azure Managed Redis
+
+Redis Enterprise provides several advantages over Redis Sets for correlation logic:
+
+- **Scalable indexing:** RediSearch indexes millions of documents efficiently.  
+- **Flexible queries:** Filter by tags, ranges, keywords, or vector similarity.  
+- **No manual reverse-indexing:** RediSearch handles reverse lookups automatically.  
+- **Simpler application code:** No need to maintain multiple Set structures.  
+- **Better support for AI workloads:** Combine metadata filters with vector search.  
+
+### When Redis Sets may still be useful
+
+Redis Sets remain available for simple scenarios such as:
+
+- Small-scale tag lists  
+- Lightweight membership checks  
+- Purely cache-based structures where search is not required  
+
+However, for most production workloads running on Azure Managed Redis—especially those involving structured data, filtering, or search—RedisJSON and RediSearch are the recommended approach.
 
 ### Find recently accessed items
 
-A common task required of many applications is to find the most recently accessed items. For example, a blogging site might want to display information about the most recently read blog posts.
+Many applications need to track the most recently accessed or viewed items. For example, a blogging site may display the most recently read posts to a returning visitor. Redis Lists provide a simple and highly efficient way to implement these recency-based caching patterns.
 
-You can implement this functionality by using a Redis list. A Redis list contains multiple items that share the same key. The list acts as a double-ended queue. You can push items to either end of the list by using the LPUSH (left push) and RPUSH (right push) commands. You can retrieve items from either end of the list by using the LPOP and RPOP commands. You can also return a set of elements by using the LRANGE and RRANGE commands.
+A Redis List contains ordered values stored under a single key, acting as a fast double-ended queue. Items can be pushed to either end of the list using `LPUSH` or `RPUSH`, and removed using `LPOP` or `RPOP`. Because lists operate on a single key, they work seamlessly in both clustered and non-clustered Azure Managed Redis deployments without hash-slot constraints.
 
-The following code snippets show how you can perform these operations by using the StackExchange library. This code uses the `BlogPost` type from the previous examples. As a user reads a blog post, the `IDatabase.ListLeftPushAsync` method pushes the title of the blog post onto a list that's associated with the key "blog:recent_posts" in the Redis cache.
+### When to use Redis Lists
 
-```csharp
-ConnectionMultiplexer redisHostConnection = ...;
-IDatabase cache = redisHostConnection.GetDatabase();
-...
-string redisKey = "blog:recent_posts";
-BlogPost blogPost = ...; // Reference to the blog post that has just been read
-await cache.ListLeftPushAsync(
-    redisKey, blogPost.Title); // Push the blog post onto the list
-```
+Redis Lists are ideal for:
 
-As more blog posts are read, their titles are pushed onto the same list. The list is ordered by the sequence in which the titles are added. The most recently read blog posts are toward the left end of the list. (If the same blog post is read more than once, it has multiple entries in the list.)
+- Most Recently Used (MRU) lists  
+- View history and activity feeds  
+- Lightweight queues  
+- Time-ordered collections  
+- Maintaining short-term recency information in caching layers  
 
-You can display the titles of the most recently read posts by using the `IDatabase.ListRange` method. This method takes the key that contains the list, a starting point, and an ending point. The following code retrieves the titles of the 10 blog posts (items from 0 to 9) at the left-most end of the list:
+### Advanced considerations
 
-```csharp
-// Show latest ten posts
-foreach (string postTitle in await cache.ListRangeAsync(redisKey, 0, 9))
-{
-    Console.WriteLine(postTitle);
-}
-```
-
-The `ListRangeAsync` method doesn't remove items from the list. To do this, you can use the `IDatabase.ListLeftPopAsync` and `IDatabase.ListRightPopAsync` methods.
-
-To prevent the list from growing indefinitely, you can periodically cull items by trimming the list. The following code snippet shows you how to remove all but the five left-most items from the list:
-
-```csharp
-await cache.ListTrimAsync(redisKey, 0, 5);
-```
+- **Performance:** List pushes and pops are O(1) operations and extremely fast.  
+- **Cluster compatibility:** Lists operate on a single key and do not require special handling in clustered Azure Managed Redis instances.  
+- **Memory management:** Trimming lists prevents unbounded growth and helps control memory usage.  
+- **Alternative for event streaming:** If your application requires durable streams, replay, or multi-consumer groups, Redis Streams may be a better choice. Lists are optimized for recency, not event processing.
 
 ### Implement a leader board
 
-By default, the items in a set aren't held in any specific order. You can create an ordered set by using the ZADD command (the `IDatabase.SortedSetAdd` method in the StackExchange library). The items are ordered by using a numeric value called a score, which is provided as a parameter to the command.
+Redis Sorted Sets (ZSETs) provide a fast and efficient way to maintain ordered rankings, making them ideal for leaderboards, scoring systems, popularity lists, or any scenario where items must be sorted dynamically by a numeric score. Each element in a Sorted Set is associated with a numeric score, and Redis maintains the ordering automatically.
 
-The following code snippet adds the title of a blog post to an ordered list. In this example, each blog post also has a score field that contains the ranking of the blog post.
+### Adding items to a leader board
+
+The following example demonstrates how to add a blog post and its score to a leaderboard using the `ZADD` command via `SortedSetAddAsync`:
 
 ```csharp
-ConnectionMultiplexer redisHostConnection = ...;
-IDatabase cache = redisHostConnection.GetDatabase();
-...
+var db = connection.GetDatabase();
 string redisKey = "blog:post_rankings";
-BlogPost blogPost = ...; // Reference to a blog post that has just been rated
-await cache.SortedSetAddAsync(redisKey, blogPost.Title, blogPost.Score);
+
+BlogPost blogPost = ...; // The blog post being ranked
+
+await db.SortedSetAddAsync(redisKey, blogPost.Title, blogPost.Score);
 ```
 
-You can retrieve the blog post titles and scores in ascending score order by using the `IDatabase.SortedSetRangeByRankWithScores` method:
+Sorted Sets automatically maintain ascending order by score, and update operations are O(log N), making them highly suitable for large-scale leaderboards.
+
+### Retrieving ranked items
+
+You can retrieve items in ascending score order using `SortedSetRangeByRankWithScoresAsync`:
 
 ```csharp
-foreach (var post in await cache.SortedSetRangeByRankWithScoresAsync(redisKey))
+var entries = await db.SortedSetRangeByRankWithScoresAsync(redisKey);
+
+foreach (var entry in entries)
 {
-    Console.WriteLine(post);
+    Console.WriteLine($"{entry.Element}: {entry.Score}");
 }
 ```
 
 > [!NOTE]
-> The StackExchange library also provides the `IDatabase.SortedSetRangeByRankAsync` method, which returns the data in score order, but it doesn't return the scores.
+> `SortedSetRangeByRankAsync` returns only member values, not scores.
 
-You can also retrieve items in descending order of scores, and limit the number of items that are returned by providing more parameters to the `IDatabase.SortedSetRangeByRankWithScoresAsync` method. The next example displays the titles and scores of the top 10 ranked blog posts:
+### Retrieving top-N items
+
+To get the highest-scoring items—for example, the top 10 posts—use descending order:
 
 ```csharp
 foreach (var post in await cache.SortedSetRangeByRankWithScoresAsync(
@@ -790,10 +751,11 @@ foreach (var post in await cache.SortedSetRangeByRankWithScoresAsync(
 }
 ```
 
-The next example uses the `IDatabase.SortedSetRangeByScoreWithScoresAsync` method, which you can use to limit the items that are returned to those that fall within a given score range:
+### Retrieving items by score range
+
+You can also query items based on score boundaries rather than rank:
 
 ```csharp
-// Blog posts with scores between 5000 and 100000
 foreach (var post in await cache.SortedSetRangeByScoreWithScoresAsync(
                                redisKey, 5000, 100000))
 {
@@ -801,13 +763,22 @@ foreach (var post in await cache.SortedSetRangeByScoreWithScoresAsync(
 }
 ```
 
+### Advanced considerations for Azure Managed Redis
+
+- **Cluster compatibility:** Sorted Sets operate on a **single key**, so they work seamlessly in both clustered and non-clustered Azure Managed Redis deployments without hash-slot constraints.
+- **Performance:** `ZADD`, `ZRANGE`, and `ZREVRANGE` operations are O(log N) and extremely efficient for real-time leaderboards.
+- **TTL and trimming:** To prevent the leaderboard from growing indefinitely, you can remove old entries using `SortedSetRemoveRangeByRankAsync` or apply time-scoped keys (e.g., daily or weekly leaderboards).
+- **Updating scores:** Using `SortedSetIncrementAsync` or `ZINCRBY` allows you to modify scores atomically.
+- **Combining metadata:** For richer leaderboard displays (e.g., user avatars, descriptions, tags), store additional details in RedisJSON documents and retrieve them alongside ranking results.
+- **Search integration:** RediSearch can be used to filter ranked items by metadata (e.g., “top 10 posts tagged with ‘azure’”), combining search criteria with ZSET ranking.
+
 ### Message by using channels
 
 Apart from acting as a data cache, a Redis server provides messaging through a high-performance publisher/subscriber mechanism. Client applications can subscribe to a channel, and other applications or services can publish messages to the channel. Subscribing applications can then receive these messages and process them.
 
-Redis provides the SUBSCRIBE command for client applications to use to subscribe to channels. This command expects the name of one or more channels on which the application accepts messages. The StackExchange library includes the `ISubscription` interface, which enables a .NET Framework application to subscribe and publish to channels.
+Redis provides the SUBSCRIBE command for client applications to use to subscribe to channels. This command expects the name of one or more channels on which the application accepts messages. The StackExchange library includes the `ISubscriber` interface, which enables a .NET Framework application to subscribe and publish to channels.
 
-You create an `ISubscription` object by using the `GetSubscriber` method of the connection to the Redis server. Then you listen for messages on a channel by using the `SubscribeAsync` method of this object. The following code example shows how to subscribe to a channel named "messages:blogPosts":
+The StackExchange.Redis client exposes Pub/Sub functionality through the `ISubscriber` interface:
 
 ```csharp
 ConnectionMultiplexer redisHostConnection = ...;
@@ -816,33 +787,68 @@ ISubscriber subscriber = redisHostConnection.GetSubscriber();
 await subscriber.SubscribeAsync("messages:blogPosts", (channel, message) => Console.WriteLine("Title is: {0}", message));
 ```
 
-The first parameter to the `Subscribe` method is the name of the channel. This name follows the same conventions that are used by keys in the cache. The name can contain any binary data, but we recommend you use relatively short, meaningful strings to help ensure good performance and maintainability.
-
-Note also that the namespace used by channels is separate from that used by keys. This means you can have channels and keys that have the same name, although this might make your application code more difficult to maintain.
-
-The second parameter is an `Action` delegate. The delegate runs asynchronously when a new message appears on the channel. In this example, the delegate displays the message on the console, and the message contains the title of a blog post.
-
-To publish to a channel, an application can use the Redis PUBLISH command. The StackExchange library provides the `IServer.PublishAsync` method to perform this operation. The next code snippet shows how to publish a message to the "messages:blogPosts" channel:
+### Publishing a message
 
 ```csharp
-ConnectionMultiplexer redisHostConnection = ...;
-ISubscriber subscriber = redisHostConnection.GetSubscriber();
-...
-BlogPost blogPost = ...;
-subscriber.PublishAsync("messages:blogPosts", blogPost.Title);
+var subscriber = connection.GetSubscriber();
+await subscriber.PublishAsync("messages:blogPosts", blogPost.Title);
 ```
 
-There are several points you should understand about the publish/subscribe mechanism:
+### Pub/Sub delivery characteristics
 
-- Multiple subscribers can subscribe to the same channel, and they'll all receive the messages that are published to that channel.
-- Subscribers only receive messages that have been published after they subscribe. Channels aren't buffered, and once a message is published, the Redis infrastructure pushes the message to each subscriber and then removes it.
-- By default, messages are received by subscribers in the order in which they're sent. In a highly active system with a large number of messages and many subscribers and publishers, guaranteed sequential delivery of messages can slow performance of the system. If each message is independent and the order is unimportant, you can enable concurrent processing by the Redis system, which can help to improve responsiveness. You can achieve this in a StackExchange client by setting the PreserveAsyncOrder of the connection used by the subscriber to false:
+Redis Pub/Sub provides **real-time, ephemeral broadcast messaging**. It has the following properties:
+
+- **At-most-once delivery:** Messages are not persisted. If a subscriber is offline, or a network interruption occurs, the message is lost.
+- **No message replay:** Once delivered (or if no subscribers exist), the message is discarded.
+- **Broadcast semantics:** All active subscribers receive the message.
+- **Order preserved per publisher:** Redis guarantees ordering per connection, but concurrency may result in interleaved delivery.
+- **No consumer tracking:** Redis does not track acknowledgments or consumer offsets.
+
+### Improving throughput
 
 ```csharp
-ConnectionMultiplexer redisHostConnection = ...;
-redisHostConnection.PreserveAsyncOrder = false;
-ISubscriber subscriber = redisHostConnection.GetSubscriber();
+connection.PreserveAsyncOrder = false;
+var subscriber = connection.GetSubscriber();
 ```
+
+Disabling ordered callbacks allows handlers to execute concurrently.
+
+### Pub/Sub in Azure Managed Redis
+
+Pub/Sub is fully supported in Azure Managed Redis. However:
+
+- Under **OSS Clustering Policy**, Pub/Sub messages are scoped to the shard hosting the channel.
+- Under **Enterprise Clustering Policy**, the proxy does not change Pub/Sub’s ephemeral semantics.
+- Pub/Sub is **not persisted** and offers **no delivery guarantees**.
+
+## Redis Streams: Reliable, durable messaging (at-least-once)
+
+Redis Streams provide a more advanced messaging model designed for durability, ordering, and consumer management. Streams are ideal when messages must **not** be lost or when multiple consumers must coordinate processing.
+
+### Streams provide
+
+- **At-least-once delivery** (messages are stored until acknowledged)
+- **Durability** — messages are persisted in the stream log
+- **Replay ability** — consumers can re-read or rewind
+- **Consumer groups** — coordinated parallel processing
+- **Per-message acknowledgments**
+- **Backpressure support**
+
+### When to use Pub/Sub vs Streams
+
+**Use Pub/Sub when:**
+
+- Messages are not critical
+- Only active subscribers need the message
+- You need fire-and-forget notifications
+- Delivery loss is acceptable (cache invalidation, UI updates)
+
+**Use Streams when:**
+
+- Messages must be durable
+- Consumers must coordinate or process reliably
+- Delivery loss is not acceptable
+- You need replay, retries, or historical analysis
 
 ### Serialization considerations
 
@@ -868,8 +874,8 @@ Some options to consider include:
 
 ## Next steps
 
-- [Azure Cache for Redis documentation](/azure/azure-cache-for-redis)
-- [Azure Cache for Redis FAQ](/azure/redis/faq)
+- [Azure Managed Redis documentation](/azure/redis)
+- [Azure Managed Redis FAQ](/azure/redis/faq)
 - [Task-based Asynchronous pattern](/dotnet/standard/asynchronous-programming-patterns/task-based-asynchronous-pattern-tap)
 - [Redis documentation](https://redis.io/documentation)
 - [StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis)
