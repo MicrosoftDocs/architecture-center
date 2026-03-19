@@ -1,4 +1,4 @@
-<!-- cSpell:ignore BSON keyspace INCRBY DECR DECRBY GETSET MGET MSET SADD SMEMBERS SDIFF SUNION ZADD LPUSH RPUSH LPOP RPOP LRANGE RRANGE -->
+<!-- cSpell:ignore BSON keyspace INCRBY DECR DECRBY MGET MSET SADD SMEMBERS SDIFF SUNION ZADD LPUSH RPUSH LPOP RPOP LRANGE RRANGE -->
 
 Caching is a common technique that aims to improve the performance and scalability of a system. It caches data by temporarily copying frequently accessed data to fast storage that's located close to the application. If this fast data storage is located closer to the application than the original source, then caching can significantly improve response times for client applications by serving data more quickly.
 
@@ -184,48 +184,6 @@ The remaining sections of this article describe how to implement the caching pat
 
 For information about available tiers, capacity planning, networking, and feature details, see the [Azure Managed Redis documentation](/azure/redis/overview).
 
-### Manage data expiration and eviction
-
-Azure Managed Redis implements the expiration and eviction strategies described in [Manage data expiration in a cache](#manage-data-expiration-in-a-cache) through two mechanisms:
-
-- **Per-key TTL.** You can assign a time-to-live (TTL) to each key when you store it, or add one later with the `EXPIRE` command. When the TTL elapses, Redis removes the key automatically. TTLs support both absolute and relative expiration. For code examples, see [Specify automatically expiring keys](#specify-automatically-expiring-keys) later in this article.
-
-- **Eviction policy.** When Redis reaches its memory limit, it evicts keys according to a configured policy. The default policy is `volatile-lru`, which evicts the least recently used key that has a TTL set. Other policies include `allkeys-lru`, `volatile-random`, and `noeviction` (which causes write operations to fail when memory is full). Choose an eviction policy based on whether your application uses TTLs consistently and whether you prefer to protect keys that have no expiration. For more information about eviction policies, see [Key eviction](/azure/redis/key-eviction).
-
-### Manage concurrency
-
-Azure Managed Redis supports the optimistic and pessimistic concurrency approaches described in [Managing concurrency in a cache](#managing-concurrency-in-a-cache):
-
-- **Optimistic concurrency.** Use the `WATCH` command to monitor one or more keys before starting a transaction with `MULTI`/`EXEC`. If any watched key changes before the transaction executes, Redis discards the transaction and the client can retry. This approach avoids locks and works well when collisions are infrequent. For code examples using the StackExchange `ITransaction` interface, see [Perform atomic and batch operations](#perform-atomic-and-batch-operations) later in this article.
-
-- **Atomic single-key operations.** Commands such as `INCR`, `DECR`, and `GETSET` update a value in a single step, eliminating the read-modify-write race condition. Use these when the update logic can be expressed as a single Redis command.
-
-- **Lua scripting.** For multi-step updates that must be atomic across multiple keys, execute a Lua script on the server. Redis runs the entire script as a single operation without interleaving other commands.
-
-In clustered deployments, all keys involved in a transaction or Lua script must reside in the same hash slot. Use hash tags (for example, `customer:{123}:name` and `customer:{123}:email`) to colocate related keys.
-
-### Implement high availability and scalability
-
-The top-half guidance in [Implement high availability and scalability, and improve performance](#implement-high-availability-and-scalability-and-improve-performance) describes replication, failover, partitioning, and layered caching as general strategies. Azure Managed Redis provides built-in support for these:
-
-- **Replication and failover.** Each Azure Managed Redis instance uses primary/replica replication. The service monitors node health and automatically promotes a replica if the primary fails. This aligns with the asynchronous replication model described above. A small amount of recently written data may be lost during an unexpected failover because replication is asynchronous.
-
-- **Clustering.** For workloads that exceed the capacity of a single node, Azure Managed Redis supports clustering to shard data across multiple nodes. You can choose between OSS Clustering Policy (clients route directly to shards) and Enterprise Clustering Policy (a proxy handles routing transparently). For details, see [Partitioning a Redis cache](#partitioning-a-redis-cache) later in this article.
-
-- **Active geo-replication.** For multi-region availability, Azure Managed Redis supports active geo-replication, which links instances across Azure regions into a single replication group. Each instance can handle reads and writes, and changes sync automatically. Your application is responsible for redirecting traffic to a healthy instance during a regional failure. For more information, see [Active geo-replication](/azure/redis/how-to-active-geo-replication).
-
-- **Layered caching.** As described in the guidance above, you can combine a local in-memory cache with Azure Managed Redis to reduce latency and provide a fallback if the shared cache is temporarily unreachable. The [Circuit-Breaker pattern](../patterns/circuit-breaker.md) and [Cache-aside pattern](../patterns/cache-aside.yml) help manage this layered approach.
-
-### Protect cached data in Azure Managed Redis
-
-The guidance in [Protect cached data](#protect-cached-data) describes two concerns: controlling who can access cached data, and protecting data in transit. Azure Managed Redis addresses both:
-
-- **Authentication.** Use [Microsoft Entra ID authentication](/azure/redis/entra-for-authentication) as the primary access control mechanism.
-- **Network isolation.** Use [Private Endpoints](/azure/redis/managed-redis-private-link) to restrict network access to your cache so that traffic doesn't traverse the public internet.
-- **Encryption.** Azure Managed Redis encrypts data in transit with TLS and encrypts data at rest by default.
-
-Follow the principle of least privilege when granting access to your cache.
-
 ### Caching session state and HTML output
 
 Azure Managed Redis can be used to store session state and output cache data for ASP.NET Core and ASP.NET applications. By keeping session data and rendered output in a shared Redis-based cache, applications running across multiple instances, such as in Azure App Service, Azure Kubernetes Service (AKS), Azure Container Apps, or virtual machine scale sets, can maintain consistent user experiences without requiring server affinity.
@@ -267,11 +225,13 @@ For ASP.NET applications that haven't migrated to ASP.NET Core, Redis-based prov
 > [!TIP]
 > For best performance, deploy your application and Azure Managed Redis instance in the same Azure region.
 
-### Partitioning a Redis cache
+### High availability, scalability, and partitioning
 
-Partitioning (or sharding) distributes data across multiple Redis nodes so that the dataset and throughput exceed the capacity of a single server. Partitioning increases scalability, improves load distribution, enables high availability, and supports large or high-throughput workloads.
+Each Azure Managed Redis instance uses primary/replica replication. The service monitors node health and automatically promotes a replica if the primary fails. Because replication is asynchronous, a small amount of recently written data can be lost during an unexpected failover. For the general strategies behind replication, failover, and layered caching, see [Implement high availability and scalability, and improve performance](#implement-high-availability-and-scalability-and-improve-performance) earlier in this article.
 
-Azure Managed Redis supports two clustering policies:
+You can combine a local in-memory cache with Azure Managed Redis to reduce latency and provide a fallback if the shared cache is temporarily unreachable. The [Circuit-Breaker pattern](../patterns/circuit-breaker.md) and [Cache-aside pattern](../patterns/cache-aside.yml) help manage this layered approach.
+
+For workloads that exceed the capacity of a single node, Azure Managed Redis supports partitioning (sharding) data across multiple Redis nodes. Azure Managed Redis supports two clustering policies:
 
 - **OSS Clustering Policy (default):**  
   Provides the highest performance and lowest routing overhead. Clients communicate directly with the appropriate shard and follow OSS Redis Cluster semantics, including MOVED and ASK redirections. Cluster-aware clients such as StackExchange.Redis automatically handle these redirects.
@@ -298,6 +258,10 @@ With both clustering policies (OSS or Enterprise), data is automatically sharded
 
 Custom partitioning models (such as client-side hashing or third-party proxies) are typically only used in self-managed Redis deployments running on VMs or Kubernetes. These approaches require more operational effort and are generally unnecessary when using Azure Managed Redis, where clustering handles routing, failover, and resharding automatically.
 
+#### Active geo-replication
+
+For multi-region availability, Azure Managed Redis supports active geo-replication, which links instances across Azure regions into a single replication group. Each instance can handle reads and writes, and changes sync automatically. Your application is responsible for redirecting traffic to a healthy instance during a regional failure. For more information, see [Active geo-replication](/azure/redis/how-to-active-geo-replication).
+
 #### Implement Redis cache client applications
 
 Redis supports client applications in many programming languages. For .NET applications, several client libraries are available, each suited for different Redis workloads. Choosing the appropriate library depends on whether Redis is being used strictly as a cache or as a multi-model data platform.
@@ -306,18 +270,12 @@ To connect to a Redis server, you use the static `Connect` method of the `Connec
 
 #### Choosing a .NET client library
 
-When using Azure Managed Redis, the recommended .NET libraries depend on the scenario:
+When using Azure Managed Redis for caching, the recommended .NET libraries are:
 
-##### **1. Using Redis for caching
+- **StackExchange.Redis** -- A low-level Redis client with high performance. Use it when you need direct access to Redis commands, atomic operations, transactions, pipelining, or Lua scripting.
+- **Microsoft.Extensions.Caching.StackExchangeRedis** -- Provides an `IDistributedCache` integration for ASP.NET Core. Use it for straightforward key-value caching where values are stored as opaque byte arrays. This abstraction does not expose advanced Redis data structures.
 
-For basic caching scenarios like storing and retrieving string values, byte arrays, or simple serialized objects, the preferred libraries are:
-
-- **StackExchange.Redis** (low-level Redis client, high performance)  
-- **Microsoft.Extensions.Caching.StackExchangeRedis** (opinionated `IDistributedCache` integration for ASP.NET Core)
-
-These libraries provide the primitives required to build common caching patterns. However, these patterns are not built into the client libraries. The application must implement the caching logic using Redis commands and background processing where appropriate.
-
-IDistributedCache provides a simplified abstraction suitable for basic distributed caching, but it stores values as opaque byte arrays and does not expose advanced Redis data structures. For more control over caching behavior, including atomic operations, transactions, pipelining, and Lua scripting, use StackExchange.Redis directly.
+These libraries provide the primitives required to build common caching patterns, but the application must implement the caching logic itself.
 
 #### Connecting to Azure Managed Redis
 
@@ -409,16 +367,13 @@ While strings are the most common caching approach, Redis supports a rich set of
 
 #### Perform atomic and batch operations
 
-Redis provides a set of atomic operations that allow applications to update values safely without race conditions. These operations are performed directly on the server, ensuring the update is completed as a single, indivisible action. Atomic operations are commonly used when Redis is functioning as a cache or a high-performance coordination layer.
+When multiple clients or application instances share a cache, you need to prevent concurrent updates from corrupting data. The general concurrency strategies are described in [Managing concurrency in a cache](#managing-concurrency-in-a-cache) earlier in this article. Redis provides several mechanisms that implement those strategies.
 
-#### Atomic operations on string values
-
-Redis offers atomic operations for incrementing, decrementing, or replacing values. These operations prevent race hazards that might occur if `GET` and `SET` were issued separately.
-
-Examples include:
+**Atomic single-key operations.** Commands such as `INCR`, `INCRBY`, `DECR`, `DECRBY`, and `SET` with the `GET` option update a value in a single step, eliminating race conditions that occur when `GET` and `SET` are issued separately. Examples:
 
 - `INCR`, `INCRBY`, `DECR`, `DECRBY`  
-- `GETSET`, which retrieves the value that's associated with a key and changes it to a new value. The StackExchange library makes this operation available through the `IDatabase.StringGetSetAsync` method. The following code snippet shows an example of this method. This code returns the current value that's associated with the key "data:counter" from the previous example. Then it resets the value for this key back to zero, all as part of the same operation:
+
+- `SET` with the `GET` option, which atomically sets a key to a new value and returns the previous value. In StackExchange.Redis, use `IDatabase.StringGetSetAsync` for this operation:
 
   ```csharp
   string oldValue = await cache.StringGetSetAsync("data:counter", 0);
@@ -445,7 +400,7 @@ Examples include:
   RedisValue[] values = cache.StringGet(keys);
   ```
 
-You can also combine multiple operations into a single Redis transaction. The StackExchange library provides support for transactions through the `ITransaction` interface.
+**Transactions (optimistic concurrency).** You can use the `WATCH` command to monitor one or more keys before starting a transaction with `MULTI`/`EXEC`. If any watched key changes before the transaction executes, Redis discards the transaction and the client can retry. The StackExchange library provides support for transactions through the `ITransaction` interface.
 
 You create an `ITransaction` object by using the `IDatabase.CreateTransaction` method. You invoke commands to the transaction by using the methods provided by the `ITransaction` object.
 
@@ -475,7 +430,10 @@ if (result)
 
 Redis transactions are unlike transactions in relational databases. The `Execute` method queues all the commands that comprise the transaction to run, and if any command isn't valid, then the transaction stops. If all the commands have been queued successfully, each command runs asynchronously. If any command fails, the others still continue processing. If you need to verify that a command completed successfully, fetch the results by using the **Result** property of the corresponding task, as shown in the previous example.
 
-For more information about concurrency strategies, transactions, pipelining, and Lua scripting in Azure Managed Redis, see [Manage concurrency](#manage-concurrency) earlier in this article.
+**Lua scripting.** For multi-step updates that must be atomic across multiple keys, you can execute a Lua script on the server. Redis runs the entire script as a single operation without interleaving other commands.
+
+> [!NOTE]
+> In clustered deployments, all keys involved in a transaction or Lua script must reside in the same hash slot. Use hash tags (for example, `customer:{123}:name` and `customer:{123}:email`) to colocate related keys.
 
 #### Perform fire and forget cache operations
 
@@ -489,7 +447,7 @@ cache.StringIncrement("data:key1", flags: CommandFlags.FireAndForget);
 
 #### Specify automatically expiring keys
 
-When you store an item in a Redis cache, you can specify a timeout after which the item is automatically removed from the cache. You can also query how much more time a key has before it expires by using the `TTL` command. This command is available to StackExchange applications by using the `IDatabase.KeyTimeToLive` method.
+The expiration strategies described in [Manage data expiration in a cache](#manage-data-expiration-in-a-cache) are implemented in Redis through per-key TTLs. When you store an item in a Redis cache, you can specify a timeout after which the item is automatically removed. You can also query how much time a key has before it expires by using the `TTL` command. This command is available to StackExchange applications by using the `IDatabase.KeyTimeToLive` method.
 
 The following code snippet shows how to set an expiration time of 20 seconds on a key, and query the remaining lifetime of the key:
 
@@ -512,6 +470,8 @@ await cache.KeyExpireAsync("data:key1",
 
 > [!TIP]
 > You can manually remove an item from the cache by using the DEL command, which is available through the StackExchange library as the `IDatabase.KeyDeleteAsync` method.
+
+When Redis reaches its memory limit, it evicts keys according to a configured eviction policy. The default policy is `volatile-lru`, which evicts the least recently used key that has a TTL set. Other policies include `allkeys-lru`, `volatile-random`, and `noeviction` (which causes write operations to fail when memory is full). Choose an eviction policy based on whether your application uses TTLs consistently and whether you prefer to protect keys that have no expiration. For more information, see [Key eviction](/azure/redis/key-eviction).
 
 #### Cross-correlate cached items
 
@@ -601,6 +561,12 @@ foreach (var post in await cache.SortedSetRangeByScoreWithScoresAsync(
 ```
 
 To prevent a leaderboard from growing indefinitely, remove old entries using `SortedSetRemoveRangeByRankAsync` or use time-scoped keys (for example, daily or weekly leaderboards). You can update scores atomically using `SortedSetIncrementAsync` (`ZINCRBY`).
+
+#### Protect cached data in Azure Managed Redis
+
+- Use [Microsoft Entra ID authentication](/azure/redis/entra-for-authentication) as the primary access control mechanism for Azure Managed Redis, and follow the principle of least privilege when granting access.
+- Use [Private Endpoints](/azure/redis/managed-redis-private-link) to restrict network access so that traffic doesn't traverse the public internet.
+- Azure Managed Redis encrypts data in transit with TLS and encrypts data at rest.
 
 #### Serialization considerations
 
