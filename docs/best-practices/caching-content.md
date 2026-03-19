@@ -406,11 +406,7 @@ Keys also contain uninterpreted data, so you can use any binary information as t
 
 For example, use structured keys like `customer:100` (instead of just `100`) to represent the key for the customer with ID 100. This scheme enables you to distinguish between values that store different data types. For example, you can also use the key `orders:100` to represent the key for the order with ID 100.
 
-While strings are the most common caching approach, Redis supports a rich set of native data types such as hashes, lists, sets, sorted sets, and streams, enabling more flexible caching patterns.
-
-Azure Managed Redis builds on these capabilities with native support for JSON, search, bloom and time-series data, making it easier to cache structured objects, index metadata, and query cached data efficiently.
-
-For more information about Redis data types and their capabilities, see the Redis documentation on [data types](https://redis.io/docs/latest/develop/data-types/).
+While strings are the most common caching approach, Redis supports a rich set of native data types such as hashes, lists, sets, sorted sets, and streams, enabling more flexible caching patterns. For more information about Redis data types, see the Redis documentation on [data types](https://redis.io/docs/latest/develop/data-types/).
 
 #### Perform atomic and batch operations
 
@@ -457,7 +453,7 @@ Examples include:
 
   ```
 
-You can also combine multiple operations into a single Redis transaction as described in the Redis transactions and batches section earlier in this article. The StackExchange library provides support for transactions through the `ITransaction` interface.
+You can also combine multiple operations into a single Redis transaction. The StackExchange library provides support for transactions through the `ITransaction` interface.
 
 You create an `ITransaction` object by using the `IDatabase.CreateTransaction` method. You invoke commands to the transaction by using the methods provided by the `ITransaction` object.
 
@@ -485,48 +481,9 @@ if (result)
 }
 ```
 
-> [!NOTE]
-> Redis atomic operations apply to **single keys only**. Multi-key atomicity requires Lua scripting or ensuring keys share the same cluster hash slot.
+Redis transactions are unlike transactions in relational databases. The `Execute` method queues all the commands that comprise the transaction to run, and if any command isn't valid, then the transaction stops. If all the commands have been queued successfully, each command runs asynchronously. If any command fails, the others still continue processing. If you need to verify that a command completed successfully, fetch the results by using the **Result** property of the corresponding task, as shown in the previous example.
 
-Remember that Redis transactions are unlike transactions in relational databases. The `Execute` method queues all the commands that comprise the transaction to run, and if any command isn't valid, then the transaction stops. If all the commands have been queued successfully, each command runs asynchronously.
-
-If any command fails, the others still continue processing. If you need to verify that a command is completed successfully, you must fetch the results of the command by using the **Result** property of the corresponding task, as shown in the previous example. Reading the **Result** property blocks the calling thread until the task is completed.
-
-#### Multi-key operations (MSET / MGET)
-
-Redis can set and retrieve multiple keys in a single command.
-
-In clustered deployments, all keys in a multi-key operation must map to the same hash slot, or Redis returns a CROSSSLOT error. You can ensure this using hash tags (for example, customer:{123}:name and customer:{123}:email).
-
-Azure Managed Redis supports multi-key operations, but applications should still design keys for proper slot placement.
-
-#### Redis transactions (MULTI/EXEC)
-
-Transactions queue multiple commands and execute them sequentially without interleaving from other clients. They guarantee ordering, but do not provide rollback if a command fails.
-
-In clustered environments, keys involved in a transaction should be colocated in the same hash slot. Redis also supports optimistic locking via WATCH.
-
-**Advanced notes:**
-
-- Under **OSS Clustering Policy**, **all keys in a transaction must be in the same hash slot**.
-- Under **Enterprise Clustering Policy**, the Redis Enterprise proxy may route multi-key transactions across shards, but developers should still design for efficient key grouping.
-- Transactions guarantee **command ordering**, not rollback.
-
-#### Batch operations (pipelining)
-
-Pipelining sends multiple commands without waiting for individual responses, reducing network round trips and improving throughput.
-
-- Not atomic
-- Commands execute independently
-- Ideal for bulk cache loading or high-throughput scenarios
-
-StackExchange.Redis automatically pipelines most asynchronous operations, so explicit batching is often unnecessary.
-
-#### Lua scripting for atomic multi-step logic
-
-Lua scripts execute server-side as a single atomic operation, making them ideal for multi-step updates involving multiple commands.
-
-In clustered deployments, referenced keys should still be colocated for predictable behavior and performance.
+For more information about concurrency strategies, transactions, pipelining, and Lua scripting in Azure Managed Redis, see [Manage concurrency](#manage-concurrency) earlier in this article.
 
 #### Perform fire and forget cache operations
 
@@ -603,30 +560,11 @@ You can then query tags for a post with `SetMembersAsync`, find common tags acro
 
 #### Find recently accessed items
 
-Many applications need to track the most recently accessed or viewed items. For example, a blogging site may display the most recently read posts to a returning visitor. Redis Lists provide a simple and highly efficient way to implement these recency-based caching patterns.
-
-A Redis List contains ordered values stored under a single key, acting as a fast double-ended queue. Items can be pushed to either end of the list using `LPUSH` or `RPUSH`, and removed using `LPOP` or `RPOP`. Because lists operate on a single key, they work seamlessly in both clustered and non-clustered Azure Managed Redis deployments without hash-slot constraints.
-
-#### When to use Redis Lists
-
-Redis Lists are ideal for:
-
-- Most Recently Used (MRU) lists  
-- View history and activity feeds  
-- Lightweight queues  
-- Time-ordered collections  
-- Maintaining short-term recency information in caching layers  
-
-#### Advanced considerations
-
-- **Performance:** List pushes and pops are O(1) operations and extremely fast.  
-- **Cluster compatibility:** Lists operate on a single key and do not require special handling in clustered Azure Managed Redis instances.  
-- **Memory management:** Trimming lists prevents unbounded growth and helps control memory usage.  
-- **Alternative for event streaming:** If your application requires durable streams, replay, or multi-consumer groups, Redis Streams may be a better choice. Lists are optimized for recency, not event processing.
+Many applications need to track the most recently accessed or viewed items. For example, a blogging site might display the most recently read posts to a returning visitor. Redis Lists provide an efficient way to implement recency-based caching patterns. Items can be pushed to either end of the list using `LPUSH` or `RPUSH`, and removed using `LPOP` or `RPOP`. Use `LTRIM` to cap the list length and prevent unbounded memory growth.
 
 #### Implement a leader board
 
-Redis Sorted Sets (ZSETs) provide a fast and efficient way to maintain ordered rankings, making them ideal for leaderboards, scoring systems, popularity lists, or any scenario where items must be sorted dynamically by a numeric score. Each element in a Sorted Set is associated with a numeric score, and Redis maintains the ordering automatically.
+Redis Sorted Sets (ZSETs) maintain ordered rankings by associating each element with a numeric score. Redis keeps the ordering automatically, and operations such as `ZADD`, `ZRANGE`, and `ZREVRANGE` are O(log N), so sorted sets remain efficient even with large item counts.
 
 #### Adding items to a leader board
 
@@ -683,12 +621,7 @@ foreach (var post in await cache.SortedSetRangeByScoreWithScoresAsync(
 }
 ```
 
-#### Advanced considerations for Azure Managed Redis
-
-- **Cluster compatibility:** Sorted Sets operate on a **single key**, so they work seamlessly in both clustered and non-clustered Azure Managed Redis deployments without hash-slot constraints.
-- **Performance:** `ZADD`, `ZRANGE`, and `ZREVRANGE` operations are O(log N) and extremely efficient for real-time leaderboards.
-- **TTL and trimming:** To prevent the leaderboard from growing indefinitely, you can remove old entries using `SortedSetRemoveRangeByRankAsync` or apply time-scoped keys (e.g., daily or weekly leaderboards).
-- **Updating scores:** Using `SortedSetIncrementAsync` or `ZINCRBY` allows you to modify scores atomically.
+To prevent a leaderboard from growing indefinitely, remove old entries using `SortedSetRemoveRangeByRankAsync` or use time-scoped keys (for example, daily or weekly leaderboards). You can update scores atomically using `SortedSetIncrementAsync` (`ZINCRBY`).
 
 #### Serialization considerations
 
