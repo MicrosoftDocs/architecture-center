@@ -250,7 +250,7 @@ When multiple clients or application instances share a cache, you need to preven
   string oldValue = await cache.StringGetSetAsync("data:counter", 0);
   ```
 
-- `MGET` and `MSET`, which can return or change a set of string values as a single operation. The `IDatabase.StringGetAsync` and `IDatabase.StringSetAsync` methods are overloaded to support this functionality, as shown in the following example:
+**Multi-key operations.** `MGET` and `MSET` read or write multiple string values in a single round-trip, reducing network overhead when you need to work with several keys at once. The `IDatabase.StringGetAsync` and `IDatabase.StringSetAsync` methods are overloaded to support this functionality:
 
   ```csharp
   // Create a list of key-value pairs
@@ -263,12 +263,12 @@ When multiple clients or application instances share a cache, you need to preven
       };
 
   // Store the list of key-value pairs in the cache
-  cache.StringSet(keysAndValues);
+  await cache.StringSetAsync(keysAndValues);
   ...
   // Find all values that match a list of keys
   RedisKey[] keys = ["data:key1", "data:key99", "data:key322"];
   // values should contain { "value1", "value2", "value3" }
-  RedisValue[] values = cache.StringGet(keys);
+  RedisValue[] values = await cache.StringGetAsync(keys);
   ```
 
 **Transactions (optimistic concurrency).** You can use the `WATCH` command to monitor one or more keys before starting a transaction with `MULTI`/`EXEC`. If any watched key changes before the transaction executes, Redis discards the transaction and the client can retry. The StackExchange library provides support for transactions through the `ITransaction` interface.
@@ -342,7 +342,7 @@ await cache.KeyExpireAsync("data:key1",
 > [!TIP]
 > You can manually remove an item from the cache by using the DEL command, which is available through the StackExchange library as the `IDatabase.KeyDeleteAsync` method.
 
-When Redis reaches its memory limit, it evicts keys according to a configured eviction policy. The default policy is `volatile-lru`, which evicts the least recently used key that has a TTL set. Other policies include `allkeys-lru`, `volatile-random`, and `noeviction` (which causes write operations to fail when memory is full). Choose an eviction policy based on whether your application uses TTLs consistently and whether you prefer to protect keys that have no expiration. For more information, see [Key eviction](/azure/redis/key-eviction).
+When Redis reaches its memory limit, it evicts keys according to a configured eviction policy. The default policy is `volatile-lru`, which evicts the least recently used key that has a TTL set. Other policies include `allkeys-lru`, `volatile-random`, and `noeviction` (which causes write operations to fail when memory is full). Choose an eviction policy based on whether your application uses TTLs consistently and whether you prefer to protect keys that have no expiration. For more information, see [Memory management](/azure/redis/best-practices-memory-management).
 
 #### Cross-correlate cached items
 
@@ -372,11 +372,11 @@ You can then query tags for a post with `SetMembersAsync`, find common tags acro
 
 Many applications need to track the most recently accessed or viewed items. For example, a blogging site might display the most recently read posts to a returning visitor. Redis Lists provide an efficient way to implement recency-based caching patterns. Items can be pushed to either end of the list using `LPUSH` or `RPUSH`, and removed using `LPOP` or `RPOP`. Use `LTRIM` to cap the list length and prevent unbounded memory growth.
 
-#### Implement a leader board
+#### Implement a leaderboard
 
 Redis Sorted Sets (ZSETs) maintain ordered rankings by associating each element with a numeric score. Redis keeps the ordering automatically. `ZADD` is O(log N), and range queries such as `ZRANGE` and `ZREVRANGE` are O(log N + M) where M is the number of elements returned, so sorted sets remain efficient even with large item counts.
 
-##### Add items to a leader board
+##### Add items to a leaderboard
 
 The following example demonstrates how to add a blog post and its score to a leaderboard using the `ZADD` command via `SortedSetAddAsync`:
 
@@ -435,6 +435,9 @@ To prevent a leaderboard from growing indefinitely, remove old entries using `So
 
 Azure Managed Redis can be used to store session state and output cache data for ASP.NET Core and ASP.NET applications. By keeping session data and rendered output in a shared Redis-based cache, applications running across multiple instances, such as in Azure App Service, Azure Kubernetes Service (AKS), Azure Container Apps, or virtual machine scale sets, can maintain consistent user experiences without requiring server affinity.
 
+> [!TIP]
+> For best performance, deploy your application and Azure Managed Redis instance in the same Azure region.
+
 #### ASP.NET Core
 
 ASP.NET Core applications use the `IDistributedCache` abstraction and session middleware. Azure Managed Redis integrates with `IDistributedCache` through the `Microsoft.Extensions.Caching.StackExchangeRedis` package.
@@ -453,7 +456,7 @@ ASP.NET Core output caching middleware can also use Redis as a distributed backi
 
 #### .NET Aspire integration
 
-[.NET Aspire](/dotnet/aspire/get-started/aspire-overview) applications can use the `Aspire.Hosting.Azure.Redis` package to declare an Azure Managed Redis resource in the app host. Consuming projects receive the connection configuration automatically through dependency injection, which eliminates manual connection-string management across services.
+[.NET Aspire](https://aspire.dev/get-started/what-is-aspire/) applications can use the `Aspire.Hosting.Azure.Redis` package to declare an Azure Managed Redis resource in the app host. Consuming projects receive the connection configuration automatically through dependency injection, which eliminates manual connection-string management across services.
 
 ```csharp
 // App host: declare the Azure Managed Redis resource
@@ -463,14 +466,7 @@ builder.AddProject<Projects.ProductService>()
     .WithReference(cache);
 ```
 
-Consuming services register the distributed cache in the same way as any other `IDistributedCache` provider. For more information, see [.NET Aspire Azure Managed Redis integration](/dotnet/aspire/caching/azure-managed-redis-integration).
-
-#### ASP.NET (classic)
-
-For ASP.NET applications that haven't migrated to ASP.NET Core, Redis-based providers are available for both [session state](/azure/redis/aspnet-session-state-provider) and [output caching](/azure/redis/aspnet-output-cache-provider). These providers enable external session storage and page-level caching across web farm instances without requiring client affinity.
-
-> [!TIP]
-> For best performance, deploy your application and Azure Managed Redis instance in the same Azure region.
+Consuming services register the distributed cache in the same way as any other `IDistributedCache` provider. For more information, see [.NET Aspire Azure Cache for Redis hosting integration](https://aspire.dev/integrations/caching/redis/).
 
 ### High availability, scalability, and partitioning
 
@@ -512,7 +508,7 @@ For configuration details, see [Configure data persistence](/azure/redis/how-to-
 The guidance in [Protect cached data](#protect-cached-data) describes access control and data-in-transit concerns. Azure Managed Redis addresses these:
 
 - Use [Microsoft Entra ID authentication](/azure/redis/entra-for-authentication) as the primary access control mechanism, and follow the principle of least privilege when granting access.
-- Use [Private Endpoints](/azure/redis/managed-redis-private-link) to restrict network access so that traffic doesn't traverse the public internet.
+- Use [Private Endpoints](/azure/redis/private-link) to restrict network access so that traffic doesn't traverse the public internet.
 - Azure Managed Redis encrypts data in transit with TLS and encrypts data at rest.
 
 ### Serialization considerations
