@@ -560,12 +560,10 @@ When you serialize values as Redis strings instead, common format options includ
 
 ## Next steps
 
-- [Azure Managed Redis documentation](/azure/redis)
+- [Azure Managed Redis documentation](/azure/redis/)
 - [Azure Managed Redis FAQ](/azure/redis/faq)
-- [Task-based Asynchronous pattern](/dotnet/standard/asynchronous-programming-patterns/task-based-asynchronous-pattern-tap)
-- [Redis documentation](https://redis.io/documentation)
+- [Redis documentation](https://redis.io/docs/latest)
 - [StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis)
-- [Data partitioning guide](/previous-versions/msp-n-p/dn589795(v=pandp.10))
 
 ## Related resources
 
