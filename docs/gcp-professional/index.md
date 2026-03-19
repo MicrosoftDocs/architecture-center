@@ -51,7 +51,7 @@ Azure services can be purchased using several pricing options, depending on your
 
 A Google Cloud *project* is conceptually similar to the Azure subscription, in terms of billing, quotas, and limits. However, from a functional perspective, a Google Cloud project is more like a resource group in Azure. It's a logical unit that cloud resources are deployed to.
 
-Unlike in Google Cloud, there's no maximum number of Azure subscriptions. Each Azure subscription is linked to a single Microsoft Entra tenant (an *account*, in Google Cloud terms). A Microsoft Entra tenant can contain an unlimited number of subscriptions, whereas Google Cloud has a default limit of 30 projects per account.
+There are no maximum number of Azure subscriptions. Each Azure subscription is linked to a single Microsoft Entra tenant (an *account*, in Google Cloud terms). A Microsoft Entra tenant can contain an unlimited number of subscriptions, whereas Google Cloud has a default soft limit of 30 projects per account. This project limit can be increased through a request.
 
 Subscriptions are assigned three types of administrator accounts:
 
