@@ -1,4 +1,4 @@
-<!-- cSpell:ignore BSON GETSET keyspace INCRBY DECR DECRBY MGET MSET SADD SMEMBERS SDIFF SUNION ZADD LPUSH RPUSH LPOP RPOP LRANGE RRANGE -->
+<!-- cSpell:ignore BSON keyspace INCRBY DECR DECRBY GETSET MGET MSET SADD SMEMBERS SDIFF SUNION ZADD LPUSH RPUSH LPOP RPOP LRANGE RRANGE -->
 
 Caching is a common technique that aims to improve the performance and scalability of a system. It caches data by temporarily copying frequently accessed data to fast storage that's located close to the application. If this fast data storage is located closer to the application than the original source, then caching can significantly improve response times for client applications by serving data more quickly.
 
@@ -242,7 +242,7 @@ When multiple clients or application instances share a cache, you need to preven
 
 **Atomic single-key operations.** Commands such as `INCR`, `INCRBY`, `DECR`, `DECRBY`, and `GETSET` update a value in a single step, eliminating race conditions that occur when `GET` and `SET` are issued separately. Examples:
 
-- `INCR`, `INCRBY`, `DECR`, `DECRBY`  
+- `INCR`, `INCRBY`, `DECR`, `DECRBY` atomically increment or decrement a numeric value. In StackExchange.Redis, use `IDatabase.StringIncrementAsync` and `IDatabase.StringDecrementAsync`. These are useful for counters, rate limiters, and quota tracking where multiple clients update the same key concurrently.
 
 - `GETSET`, which atomically sets a key to a new value and returns the previous value. In StackExchange.Redis, use `IDatabase.StringGetSetAsync`:
 
@@ -492,6 +492,20 @@ Azure Managed Redis also supports **non-clustered mode**, which uses a single pr
 #### Active geo-replication
 
 For multi-region availability, Azure Managed Redis supports active geo-replication, which links instances across Azure regions into a single replication group. Each instance can handle reads and writes, and changes sync automatically. Your application is responsible for redirecting traffic to a healthy instance during a regional failure. For more information, see [Active geo-replication](/azure/redis/how-to-active-geo-replication).
+
+#### Data persistence
+
+By default, cached data in Azure Managed Redis is held in memory and can be lost if a node restarts or fails over. For workloads where rebuilding the cache from the source data store would be slow or expensive, Azure Managed Redis supports optional data persistence:
+
+- **RDB snapshots** create periodic point-in-time snapshots saved to a managed disk. RDB has minimal performance impact during normal operations, but data written since the last snapshot can be lost.
+- **AOF (Append-Only File)** logs every write operation to disk. AOF reduces potential data loss to approximately one second of writes, but produces larger files and can reduce write throughput.
+
+You can enable both RDB and AOF together. Redis loads the RDB snapshot on startup and then replays the AOF log for near-complete recovery.
+
+> [!IMPORTANT]
+> Persistence improves durability against node failures, but it is not a backup or disaster recovery mechanism. For critical data, always maintain the authoritative copy in your source data store and use the [cache-aside pattern](../patterns/cache-aside.yml) to repopulate the cache.
+
+For configuration details, see [Configure data persistence](/azure/redis/how-to-persistence).
 
 ### Protect cached data in Azure Managed Redis
 
