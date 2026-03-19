@@ -83,7 +83,7 @@ The solution that uses DNS Private Resolver contains the following components:
     | Outbound endpoint subnet | 10.0.0.16/28 |
     | Outbound endpoint IP address | 10.0.0.19 |
 
-  - The hub virtual network links to the private DNS zones for Blob Storage and the API service.
+  - The hub virtual network links to the private DNS zones for Blob Storage and API Management.
 
 - Spoke networks.
 
