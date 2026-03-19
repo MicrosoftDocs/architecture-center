@@ -184,84 +184,6 @@ The remaining sections of this article describe how to implement the caching pat
 
 For information about available tiers, capacity planning, networking, and feature details, see the [Azure Managed Redis documentation](/azure/redis/overview).
 
-### Caching session state and HTML output
-
-Azure Managed Redis can be used to store session state and output cache data for ASP.NET Core and ASP.NET applications. By keeping session data and rendered output in a shared Redis-based cache, applications running across multiple instances, such as in Azure App Service, Azure Kubernetes Service (AKS), Azure Container Apps, or virtual machine scale sets, can maintain consistent user experiences without requiring server affinity.
-
-#### ASP.NET Core
-
-ASP.NET Core applications use the `IDistributedCache` abstraction and session middleware. Azure Managed Redis integrates with `IDistributedCache` through the `Microsoft.Extensions.Caching.StackExchangeRedis` package.
-
-```csharp
-builder.Services.AddStackExchangeRedisCache(options =>
-{
-    options.Configuration = "<your-cache-name>.redis.azure.net:10000";
-    options.InstanceName = "app-cache:";
-});
-
-builder.Services.AddSession();
-```
-
-ASP.NET Core output caching middleware can also use Redis as a distributed backing store, enabling applications to share rendered fragments or pages across all instances. For more information, see [ASP.NET Core output cache provider for Redis](/azure/redis/aspnet-core-output-cache-provider).
-
-#### .NET Aspire integration
-
-[.NET Aspire](/dotnet/aspire/get-started/aspire-overview) applications can use the `Aspire.Hosting.Azure.Redis` package to declare an Azure Managed Redis resource in the app host. Consuming projects receive the connection configuration automatically through dependency injection, which eliminates manual connection-string management across services.
-
-```csharp
-// App host: declare the Azure Managed Redis resource
-var cache = builder.AddAzureManagedRedis("cache");
-
-builder.AddProject<Projects.ProductService>()
-    .WithReference(cache);
-```
-
-Consuming services register the distributed cache in the same way as any other `IDistributedCache` provider. For more information, see [.NET Aspire Azure Managed Redis integration](/dotnet/aspire/caching/azure-managed-redis-integration).
-
-#### ASP.NET (classic)
-
-For ASP.NET applications that haven't migrated to ASP.NET Core, Redis-based providers are available for both [session state](/azure/redis/aspnet-session-state-provider) and [output caching](/azure/redis/aspnet-output-cache-provider). These providers enable external session storage and page-level caching across web farm instances without requiring client affinity.
-
-> [!TIP]
-> For best performance, deploy your application and Azure Managed Redis instance in the same Azure region.
-
-### High availability, scalability, and partitioning
-
-Each Azure Managed Redis instance uses primary/replica replication. The service monitors node health and automatically promotes a replica if the primary fails. Because replication is asynchronous, a small amount of recently written data can be lost during an unexpected failover. For the general strategies behind replication, failover, and layered caching, see [Implement high availability and scalability, and improve performance](#implement-high-availability-and-scalability-and-improve-performance) earlier in this article.
-
-You can combine a local in-memory cache with Azure Managed Redis to reduce latency and provide a fallback if the shared cache is temporarily unreachable. The [Circuit-Breaker pattern](../patterns/circuit-breaker.md) and [Cache-aside pattern](../patterns/cache-aside.yml) help manage this layered approach.
-
-For workloads that exceed the capacity of a single node, Azure Managed Redis supports partitioning (sharding) data across multiple Redis nodes. Azure Managed Redis supports two clustering policies:
-
-- **OSS Clustering Policy (default):**  
-  Provides the highest performance and lowest routing overhead. Clients communicate directly with the appropriate shard and follow OSS Redis Cluster semantics, including MOVED and ASK redirections. Cluster-aware clients such as StackExchange.Redis automatically handle these redirects.
-
-- **Redis Enterprise Clustering Policy:**  
-  Uses the Redis Enterprise proxy to provide transparent routing through a single endpoint. Clients do not need to implement cluster-aware logic or handle MOVED/ASK responses. This policy offers simpler client integration but introduces a small routing overhead.
-
-Azure Managed Redis also supports **non-clustered mode**, which uses a single primary/replica pair with no sharding. This mode is suitable for smaller workloads or applications that do not require horizontal scale-out.
-
-#### Server-side partitioning
-
-With both clustering policies (OSS or Enterprise), data is automatically sharded across nodes. Clustering provides:
-
-- Key-to-shard hashing and balanced shard placement  
-- High availability through primary/replica configuration  
-- Automatic failover and resynchronization  
-- Online resharding (scale-out and scale-in)  
-- Horizontal scaling for large caching layers, JSON stores, search indexes, and vector embedding workloads for AI applications
-
-**In OSS mode**, clients route directly to shards and manage redirection.  
-**In Enterprise mode**, the proxy handles routing internally for clients.
-
-#### Partitioning in self-managed environments
-
-Custom partitioning models (such as client-side hashing or third-party proxies) are typically only used in self-managed Redis deployments running on VMs or Kubernetes. These approaches require more operational effort and are generally unnecessary when using Azure Managed Redis, where clustering handles routing, failover, and resharding automatically.
-
-#### Active geo-replication
-
-For multi-region availability, Azure Managed Redis supports active geo-replication, which links instances across Azure regions into a single replication group. Each instance can handle reads and writes, and changes sync automatically. Your application is responsible for redirecting traffic to a healthy instance during a regional failure. For more information, see [Active geo-replication](/azure/redis/how-to-active-geo-replication).
-
 ### Connect and configure client applications
 
 Redis supports client applications in many programming languages. For .NET applications, several client libraries are available, each suited for different Redis workloads. Choosing the appropriate library depends on whether Redis is being used strictly as a cache or as a multi-model data platform.
@@ -508,6 +430,84 @@ foreach (var post in await cache.SortedSetRangeByScoreWithScoresAsync(
 ```
 
 To prevent a leaderboard from growing indefinitely, remove old entries using `SortedSetRemoveRangeByRankAsync` or use time-scoped keys (for example, daily or weekly leaderboards). You can update scores atomically using `SortedSetIncrementAsync` (`ZINCRBY`).
+
+### Caching session state and HTML output
+
+Azure Managed Redis can be used to store session state and output cache data for ASP.NET Core and ASP.NET applications. By keeping session data and rendered output in a shared Redis-based cache, applications running across multiple instances, such as in Azure App Service, Azure Kubernetes Service (AKS), Azure Container Apps, or virtual machine scale sets, can maintain consistent user experiences without requiring server affinity.
+
+#### ASP.NET Core
+
+ASP.NET Core applications use the `IDistributedCache` abstraction and session middleware. Azure Managed Redis integrates with `IDistributedCache` through the `Microsoft.Extensions.Caching.StackExchangeRedis` package.
+
+```csharp
+builder.Services.AddStackExchangeRedisCache(options =>
+{
+    options.Configuration = "<your-cache-name>.redis.azure.net:10000";
+    options.InstanceName = "app-cache:";
+});
+
+builder.Services.AddSession();
+```
+
+ASP.NET Core output caching middleware can also use Redis as a distributed backing store, enabling applications to share rendered fragments or pages across all instances. For more information, see [ASP.NET Core output cache provider for Redis](/azure/redis/aspnet-core-output-cache-provider).
+
+#### .NET Aspire integration
+
+[.NET Aspire](/dotnet/aspire/get-started/aspire-overview) applications can use the `Aspire.Hosting.Azure.Redis` package to declare an Azure Managed Redis resource in the app host. Consuming projects receive the connection configuration automatically through dependency injection, which eliminates manual connection-string management across services.
+
+```csharp
+// App host: declare the Azure Managed Redis resource
+var cache = builder.AddAzureManagedRedis("cache");
+
+builder.AddProject<Projects.ProductService>()
+    .WithReference(cache);
+```
+
+Consuming services register the distributed cache in the same way as any other `IDistributedCache` provider. For more information, see [.NET Aspire Azure Managed Redis integration](/dotnet/aspire/caching/azure-managed-redis-integration).
+
+#### ASP.NET (classic)
+
+For ASP.NET applications that haven't migrated to ASP.NET Core, Redis-based providers are available for both [session state](/azure/redis/aspnet-session-state-provider) and [output caching](/azure/redis/aspnet-output-cache-provider). These providers enable external session storage and page-level caching across web farm instances without requiring client affinity.
+
+> [!TIP]
+> For best performance, deploy your application and Azure Managed Redis instance in the same Azure region.
+
+### High availability, scalability, and partitioning
+
+Each Azure Managed Redis instance uses primary/replica replication. The service monitors node health and automatically promotes a replica if the primary fails. Because replication is asynchronous, a small amount of recently written data can be lost during an unexpected failover. For the general strategies behind replication, failover, and layered caching, see [Implement high availability and scalability, and improve performance](#implement-high-availability-and-scalability-and-improve-performance) earlier in this article.
+
+You can combine a local in-memory cache with Azure Managed Redis to reduce latency and provide a fallback if the shared cache is temporarily unreachable. The [Circuit-Breaker pattern](../patterns/circuit-breaker.md) and [Cache-aside pattern](../patterns/cache-aside.yml) help manage this layered approach.
+
+For workloads that exceed the capacity of a single node, Azure Managed Redis supports partitioning (sharding) data across multiple Redis nodes. Azure Managed Redis supports two clustering policies:
+
+- **OSS Clustering Policy (default):**  
+  Provides the highest performance and lowest routing overhead. Clients communicate directly with the appropriate shard and follow OSS Redis Cluster semantics, including MOVED and ASK redirections. Cluster-aware clients such as StackExchange.Redis automatically handle these redirects.
+
+- **Redis Enterprise Clustering Policy:**  
+  Uses the Redis Enterprise proxy to provide transparent routing through a single endpoint. Clients do not need to implement cluster-aware logic or handle MOVED/ASK responses. This policy offers simpler client integration but introduces a small routing overhead.
+
+Azure Managed Redis also supports **non-clustered mode**, which uses a single primary/replica pair with no sharding. This mode is suitable for smaller workloads or applications that do not require horizontal scale-out.
+
+#### Server-side partitioning
+
+With both clustering policies (OSS or Enterprise), data is automatically sharded across nodes. Clustering provides:
+
+- Key-to-shard hashing and balanced shard placement  
+- High availability through primary/replica configuration  
+- Automatic failover and resynchronization  
+- Online resharding (scale-out and scale-in)  
+- Horizontal scaling for large caching layers, JSON stores, search indexes, and vector embedding workloads for AI applications
+
+**In OSS mode**, clients route directly to shards and manage redirection.  
+**In Enterprise mode**, the proxy handles routing internally for clients.
+
+#### Partitioning in self-managed environments
+
+Custom partitioning models (such as client-side hashing or third-party proxies) are typically only used in self-managed Redis deployments running on VMs or Kubernetes. These approaches require more operational effort and are generally unnecessary when using Azure Managed Redis, where clustering handles routing, failover, and resharding automatically.
+
+#### Active geo-replication
+
+For multi-region availability, Azure Managed Redis supports active geo-replication, which links instances across Azure regions into a single replication group. Each instance can handle reads and writes, and changes sync automatically. Your application is responsible for redirecting traffic to a healthy instance during a regional failure. For more information, see [Active geo-replication](/azure/redis/how-to-active-geo-replication).
 
 ### Protect cached data in Azure Managed Redis
 
