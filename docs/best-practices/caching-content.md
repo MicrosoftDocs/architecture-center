@@ -211,6 +211,8 @@ While strings are the most common caching approach, Redis supports a rich set of
 
 #### Implement the cache-aside pattern
 
+As described in [Determine how to cache data effectively](#determine-how-to-cache-data-effectively), a common approach is to load data into the cache on demand. The following example checks the cache first, fetches from the data source on a miss, and stores the result for subsequent requests:
+
 ```csharp
 var config = new ConfigurationOptions();
 // ... configure endpoint, credentials, SSL, etc.
@@ -306,7 +308,7 @@ Redis transactions are unlike transactions in relational databases. The `Execute
 
 #### Perform fire and forget cache operations
 
-Redis supports fire and forget operations by using command flags. In this situation, the client initiates an operation but has no interest in the result and doesn't wait for the command to be completed. The following example shows how to perform the INCR command as a fire and forget operation:
+When a cache update doesn't affect application correctness, such as incrementing a view counter or refreshing a non-critical statistic, you can skip waiting for the server's response. Redis supports fire-and-forget operations through command flags, which reduces round-trip latency for the client:
 
 ```csharp
 await cache.StringSetAsync("data:key1", 99);
@@ -493,7 +495,9 @@ For multi-region availability, Azure Managed Redis supports active geo-replicati
 
 ### Protect cached data in Azure Managed Redis
 
-- Use [Microsoft Entra ID authentication](/azure/redis/entra-for-authentication) as the primary access control mechanism for Azure Managed Redis, and follow the principle of least privilege when granting access.
+The guidance in [Protect cached data](#protect-cached-data) describes access control and data-in-transit concerns. Azure Managed Redis addresses these:
+
+- Use [Microsoft Entra ID authentication](/azure/redis/entra-for-authentication) as the primary access control mechanism, and follow the principle of least privilege when granting access.
 - Use [Private Endpoints](/azure/redis/managed-redis-private-link) to restrict network access so that traffic doesn't traverse the public internet.
 - Azure Managed Redis encrypts data in transit with TLS and encrypts data at rest.
 
