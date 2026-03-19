@@ -73,6 +73,8 @@ The following table compares how each platform supports the capabilities that ma
 | **Runs containers** | Yes | Yes | Yes | Yes |
 | **Runs code without containers** | No | No | Yes | Yes |
 
+*App-level* in this table means the platform doesn't provide the capability as a built-in feature. You implement it in your own application code using SDKs or take a dependency on an external service.
+
 > [!NOTE]
 > Azure Red Hat OpenShift isn't included in this table. It provides the full Kubernetes API, so its core microservices capabilities, such as per-deployment scaling, service discovery, and rolling updates, are comparable to AKS.
 >
