@@ -73,7 +73,7 @@ The data required to track availability might depend on multiple lower-level fac
 
 ### Requirements for availability monitoring
 
-An operator should also be able to view the historical availability of each system and subsystem, and use this information to spot any trends that might cause one or more subsystems to periodically fail. As an example, an operator might use availability data to detect that services start to fail at a particular time of day  corresponding to peak processing hours.
+An operator should also be able to view the historical availability of each system and subsystem, and use this information to spot any trends that might cause one or more subsystems to periodically fail. For example, an operator might use availability data to detect that services start to fail at a particular time of day  corresponding to peak processing hours.
 
 A monitoring solution should provide an immediate and historical view of the availability or unavailability of each subsystem. It should also be capable of quickly alerting an operator when one or more services fail or when users can't connect to services. This is a matter of not only monitoring each service, but also examining the actions that each user performs if these actions fail when they attempt to communicate with a service. To some extent, a degree of connectivity failure is normal and might be due to transient errors. But it might be useful to allow the system to raise an alert for the number of connectivity failures to a specified subsystem that occur during a specific period.
 
@@ -111,7 +111,7 @@ System performance depends on multiple factors. Each factor is typically measure
 > [!NOTE]
 > Determining poor or good performance requires that you understand the level of performance at which the system should be capable of running. This requires observing the system while it's functioning under a typical load and capturing the data for each KPI over a period of time. This might involve running the system under a simulated load in a test environment and gathering the appropriate data before deploying the system to a production environment.
 >
-> You should also ensure that monitoring for performance purposes doesn't become a burden on the system. You should take care to adjust the level of detail for the data that the performance monitoring process gathers.
+> You should also ensure that monitoring for performance purposes doesn't become a burden on the system. Adjusting the level of detail for the data that the performance monitoring process gathers will help you optimize your performance.
 
 ### Requirements for performance monitoring
 
@@ -460,7 +460,7 @@ Consider the following points when you're deciding which instrumentation data yo
 
 - Make sure that information captured by trace events is machine and human readable. Adopt well-defined schemas for this information to facilitate automated processing of log data across systems, and to provide consistency to operations and engineering staff reading the logs. Include environmental information, such as the deployment environment, the machine on which the process is running, the details of the process, and the call stack.
 
-- Enable profiling only when necessary because it can impose a significant overhead on the system. Profiling by using instrumentation records an event (such as a method call) every time it occurs, whereas sampling records only records selected events. The selection can be time-based (once every *n* seconds), or frequency-based (once every *n* requests). If events occur very frequently, profiling by instrumentation might cause too much of a burden and itself affect overall performance. In this case, the sampling approach might be preferable. However, if the frequency of events is low, sampling might miss them. In this case, instrumentation might be the better approach.
+- Enable profiling only when necessary because it can impose a significant overhead on the system. Profiling by using instrumentation records an event (such as a method call) every time it occurs, whereas sampling only records selected events. The selection can be time-based (once every *n* seconds), or frequency-based (once every *n* requests). If events occur very frequently, profiling by instrumentation might cause too much of a burden and itself affect overall performance. In this case, the sampling approach might be preferable. However, if the frequency of events is low, sampling might miss them. In this case, instrumentation might be the better approach.
 
 - Provide sufficient context to enable a developer or administrator to determine the source of each request. This might include some form of activity ID that identifies a specific instance of a request. It might also include information that can be used to correlate this activity with the computational work performed and the resources used. This work might cross process and machine boundaries. For metering, the context should also include (either directly or indirectly via other correlated information) a reference to the customer who caused the request to be made. This context provides valuable information about the application state at the time that the monitoring data was captured.
 
