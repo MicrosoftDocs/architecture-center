@@ -387,8 +387,6 @@ BlogPost blogPost = ...; // The blog post being ranked
 await db.SortedSetAddAsync(redisKey, blogPost.Title, blogPost.Score);
 ```
 
-Sorted Sets automatically maintain ascending order by score, and update operations are O(log N), making them highly suitable for large-scale leaderboards.
-
 ##### Retrieve ranked items
 
 You can retrieve items in ascending score order using `SortedSetRangeByRankWithScoresAsync`:
@@ -478,32 +476,16 @@ Each Azure Managed Redis instance uses primary/replica replication. The service 
 
 You can combine a local in-memory cache with Azure Managed Redis to reduce latency and provide a fallback if the shared cache is temporarily unreachable. The [Circuit-Breaker pattern](../patterns/circuit-breaker.md) and [Cache-aside pattern](../patterns/cache-aside.yml) help manage this layered approach.
 
-For workloads that exceed the capacity of a single node, Azure Managed Redis supports partitioning (sharding) data across multiple Redis nodes. Azure Managed Redis supports two clustering policies:
+For workloads that exceed the capacity of a single node, Azure Managed Redis supports partitioning (sharding) data across multiple Redis nodes. With both clustering policies, data is automatically sharded across nodes with key-to-shard hashing, automatic failover and resynchronization, and online resharding (scale-out and scale-in). Azure Managed Redis supports two clustering policies:
 
-- **OSS Clustering Policy (default):**  
-  Provides the highest performance and lowest routing overhead. Clients communicate directly with the appropriate shard and follow OSS Redis Cluster semantics, including MOVED and ASK redirections. Cluster-aware clients such as StackExchange.Redis automatically handle these redirects.
+- **OSS Clustering Policy (default):** Clients communicate directly with the appropriate shard and follow OSS Redis Cluster semantics, including MOVED and ASK redirections. Cluster-aware clients such as StackExchange.Redis handle these redirects automatically. This policy provides the lowest routing overhead.
 
-- **Redis Enterprise Clustering Policy:**  
-  Uses the Redis Enterprise proxy to provide transparent routing through a single endpoint. Clients do not need to implement cluster-aware logic or handle MOVED/ASK responses. This policy offers simpler client integration but introduces a small routing overhead.
+- **Redis Enterprise Clustering Policy:** A proxy provides transparent routing through a single endpoint. Clients do not need to implement cluster-aware logic or handle MOVED/ASK responses. This policy offers simpler client integration but introduces a small routing overhead.
 
-Azure Managed Redis also supports **non-clustered mode**, which uses a single primary/replica pair with no sharding. This mode is suitable for smaller workloads or applications that do not require horizontal scale-out.
+Azure Managed Redis also supports **non-clustered mode**, which uses a single primary/replica pair with no sharding. This mode is suitable for smaller workloads that do not require horizontal scale-out.
 
-#### Server-side partitioning
-
-With both clustering policies (OSS or Enterprise), data is automatically sharded across nodes. Clustering provides:
-
-- Key-to-shard hashing and balanced shard placement  
-- High availability through primary/replica configuration  
-- Automatic failover and resynchronization  
-- Online resharding (scale-out and scale-in)  
-- Horizontal scaling for large caching layers, JSON stores, search indexes, and vector embedding workloads for AI applications
-
-**In OSS mode**, clients route directly to shards and manage redirection.  
-**In Enterprise mode**, the proxy handles routing internally for clients.
-
-#### Partitioning in self-managed environments
-
-Custom partitioning models (such as client-side hashing or third-party proxies) are typically only used in self-managed Redis deployments running on VMs or Kubernetes. These approaches require more operational effort and are generally unnecessary when using Azure Managed Redis, where clustering handles routing, failover, and resharding automatically.
+> [!NOTE]
+> Custom partitioning models (such as client-side hashing or third-party proxies) are typically only needed in self-managed Redis deployments on VMs or Kubernetes. Azure Managed Redis clustering handles routing, failover, and resharding automatically.
 
 #### Active geo-replication
 
