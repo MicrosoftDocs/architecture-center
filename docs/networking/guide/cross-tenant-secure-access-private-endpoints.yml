@@ -4,7 +4,7 @@ metadata:
   description: Restrict inbound traffic to a web app or function app. Use private endpoints in Azure to give consumer tenants secure access to provider tenant apps.
   author: rdesutter
   ms.author: rdesutter
-  ms.date: 11/09/2024
+  ms.date: 02/25/2026
   ms.topic: concept-article
   ms.subservice: architecture-guide
   ai-usage: ai-assisted
