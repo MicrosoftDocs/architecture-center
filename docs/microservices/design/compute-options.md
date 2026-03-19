@@ -97,7 +97,7 @@ The comparison table shows what each platform supports. This section helps you w
 
   If your architecture relies heavily on synchronous service-to-service calls across many services, prioritize a platform with built-in communication primitives. Container Apps provides these through Dapr without extra infrastructure. AKS provides them through service meshes like Istio, which give you control over traffic policies, retries, and circuit breaking at the mesh level, but you manage the mesh lifecycle, configuration, and upgrades.
 
-  If your services communicate primarily through asynchronous messaging (queues, event streams), the platform's built-in communication features matter less as you'll need to interact with those services through an SDK or an abstraction.
+  If your services communicate primarily through asynchronous messaging (queues, event streams), the platform's built-in communication features matter less as you'll need to interact with those services through an SDK or an abstraction. Use the [Asynchronous Request-Reply pattern](../../patterns/async-request-reply.md) for long-running operations because platform timeouts can become an issue. For example, Functions and App Service enforce a [230 second HTTP response timeout](/troubleshoot/azure/app-service/web-request-times-out-app-service) due to Azure Load Balancer limits.
 
 - **Independent scaling.** Each microservice in a composition has different load characteristics.
 
@@ -164,7 +164,7 @@ For platform-specific cost guidance, see the cost optimization sections of the W
 Narrow your options to one or two platforms by using the comparison criteria in this article. Then run a proof of concept: deploy a representative subset of your services and test inter-service communication, scaling behavior, and deployment workflows against your requirements. Confirm the platform meets your team's operational expectations before committing to production. These architectures provide production-ready starting points.
 
 - **AKS**: [Baseline architecture for an AKS cluster](../../reference-architectures/containers/aks/baseline-aks.yml)
-- [Microservices with Container Apps and Dapr](../../example-scenario/serverless/microservices-with-container-apps-dapr.yml)
+- **Container Apps**: [Microservices with Container Apps and Dapr](../../example-scenario/serverless/microservices-with-container-apps-dapr.yml)
 - **App Service**: [Baseline highly available zone-redundant web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml)
 - **Azure Red Hat OpenShift**: [Azure Red Hat OpenShift in a hybrid environment](../../reference-architectures/containers/aro/azure-redhat-openshift-financial-services-workloads.yml)
 
