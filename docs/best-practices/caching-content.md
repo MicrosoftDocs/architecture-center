@@ -326,25 +326,24 @@ For information about how to connect to Azure Managed Redis using multiple codin
 #### Implementing cache-aside pattern
 
 ```csharp
-ConfigurationOptions config = new ConfigurationOptions();
-...
+var config = new ConfigurationOptions();
+// ... configure endpoint, credentials, SSL, etc.
 ConnectionMultiplexer redisHostConnection = ConnectionMultiplexer.Connect(config);
 IDatabase db = redisHostConnection.GetDatabase();
-...
-private async Task<string> RetrieveItemAsync(string itemKey)
+
+async Task<string> RetrieveItemAsync(string itemKey)
 {
     // Attempt to retrieve the item from the Redis cache
     string itemValue = await db.StringGetAsync(itemKey);
 
     // If the value returned is null, the item was not found in the cache
     // So retrieve the item from the data source and add it to the cache
-    if (itemValue == null)
+    if (itemValue is null)
     {
         itemValue = await GetItemFromDataSourceAsync(itemKey);
         await db.StringSetAsync(itemKey, itemValue);
     }
 
-    // Return the item
     return itemValue;
 }
 ```
@@ -422,35 +421,28 @@ Examples include:
 - `GETSET`, which retrieves the value that's associated with a key and changes it to a new value. The StackExchange library makes this operation available through the `IDatabase.StringGetSetAsync` method. The following code snippet shows an example of this method. This code returns the current value that's associated with the key "data:counter" from the previous example. Then it resets the value for this key back to zero, all as part of the same operation:
 
   ```csharp
-  ConnectionMultiplexer redisHostConnection = ...;
-  IDatabase cache = redisHostConnection.GetDatabase();
-  ...
   string oldValue = await cache.StringGetSetAsync("data:counter", 0);
   ```
 
 - `MGET` and `MSET`, which can return or change a set of string values as a single operation. The `IDatabase.StringGetAsync` and `IDatabase.StringSetAsync` methods are overloaded to support this functionality, as shown in the following example:
 
   ```csharp
-  ConnectionMultiplexer redisHostConnection = ...;
-  IDatabase cache = redisHostConnection.GetDatabase();
-  ...
   // Create a list of key-value pairs
   var keysAndValues =
-      new List<KeyValuePair<RedisKey, RedisValue>>()
+      new KeyValuePair<RedisKey, RedisValue>[]
       {
-          new KeyValuePair<RedisKey, RedisValue>("data:key1", "value1"),
-          new KeyValuePair<RedisKey, RedisValue>("data:key99", "value2"),
-          new KeyValuePair<RedisKey, RedisValue>("data:key322", "value3")
+          new("data:key1", "value1"),
+          new("data:key99", "value2"),
+          new("data:key322", "value3")
       };
 
   // Store the list of key-value pairs in the cache
-  cache.StringSet(keysAndValues.ToArray());
+  cache.StringSet(keysAndValues);
   ...
   // Find all values that match a list of keys
-  RedisKey[] keys = { "data:key1", "data:key99", "data:key322"};
+  RedisKey[] keys = ["data:key1", "data:key99", "data:key322"];
   // values should contain { "value1", "value2", "value3" }
   RedisValue[] values = cache.StringGet(keys);
-
   ```
 
 You can also combine multiple operations into a single Redis transaction. The StackExchange library provides support for transactions through the `ITransaction` interface.
@@ -469,15 +461,15 @@ var tx2 = transaction.StringDecrementAsync("data:counter2");
 
 bool result = await transaction.ExecuteAsync();
 
-Console.WriteLine("Transaction {0}", result ? "succeeded" : "failed");
+Console.WriteLine($"Transaction {(result ? "succeeded" : "failed")}");
 
 if (result)
 {
     long increment = await tx1;
     long decrement = await tx2;
 
-    Console.WriteLine("Result of increment: {0}", increment);
-    Console.WriteLine("Result of decrement: {0}", decrement);
+    Console.WriteLine($"Result of increment: {increment}");
+    Console.WriteLine($"Result of decrement: {decrement}");
 }
 ```
 
@@ -490,9 +482,6 @@ For more information about concurrency strategies, transactions, pipelining, and
 Redis supports fire and forget operations by using command flags. In this situation, the client initiates an operation but has no interest in the result and doesn't wait for the command to be completed. The following example shows how to perform the INCR command as a fire and forget operation:
 
 ```csharp
-ConnectionMultiplexer redisHostConnection = ...;
-IDatabase cache = redisHostConnection.GetDatabase();
-...
 await cache.StringSetAsync("data:key1", 99);
 ...
 cache.StringIncrement("data:key1", flags: CommandFlags.FireAndForget);
@@ -505,28 +494,20 @@ When you store an item in a Redis cache, you can specify a timeout after which t
 The following code snippet shows how to set an expiration time of 20 seconds on a key, and query the remaining lifetime of the key:
 
 ```csharp
-ConnectionMultiplexer redisHostConnection = ...;
-IDatabase cache = redisHostConnection.GetDatabase();
-...
 // Add a key with an expiration time of 20 seconds
 await cache.StringSetAsync("data:key1", 99, TimeSpan.FromSeconds(20));
 ...
 // Query how much time a key has left to live
-// If the key has already expired, the KeyTimeToLive function returns a null
+// If the key has already expired, the KeyTimeToLive function returns null
 TimeSpan? expiry = cache.KeyTimeToLive("data:key1");
 ```
 
 You can also set the expiration time to a specific date and time by using the EXPIRE command, which is available in the StackExchange library as the `KeyExpireAsync` method:
 
 ```csharp
-ConnectionMultiplexer redisHostConnection = ...;
-IDatabase cache = redisHostConnection.GetDatabase();
-...
-// Add a key with an expiration date of midnight on 1st January 2015
 await cache.StringSetAsync("data:key1", 99);
 await cache.KeyExpireAsync("data:key1",
-    new DateTime(2015, 1, 1, 0, 0, 0, DateTimeKind.Utc));
-...
+    new DateTime(2026, 6, 1, 0, 0, 0, DateTimeKind.Utc));
 ```
 
 > [!TIP]
@@ -543,15 +524,13 @@ For simpler scenarios, you can also use Redis Sets to build forward and reverse 
 ```csharp
 foreach (BlogPost post in posts)
 {
-    string postTagsKey = string.Format(CultureInfo.InvariantCulture,
-        "blog:posts:{0}:tags", post.Id);
+    string postTagsKey = $"blog:posts:{post.Id}:tags";
     await cache.SetAddAsync(
         postTagsKey, post.Tags.Select(s => (RedisValue)s).ToArray());
 
     foreach (var tag in post.Tags)
     {
-        await cache.SetAddAsync(string.Format(CultureInfo.InvariantCulture,
-            "tag:{0}:blog:posts", tag), post.Id);
+        await cache.SetAddAsync($"tag:{tag}:blog:posts", post.Id);
     }
 }
 ```
