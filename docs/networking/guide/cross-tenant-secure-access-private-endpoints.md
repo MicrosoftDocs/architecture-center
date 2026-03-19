@@ -1,3 +1,15 @@
+---
+title: Cross-tenant Secure Access to Apps with Private Endpoints
+description: Restrict inbound traffic to a web app or function app. Use private endpoints in Azure to give consumer tenants secure access to provider tenant apps.
+author: rdesutter
+ms.author: rdesutter
+ms.date: 03/30/2026
+ms.topic: concept-article
+ms.subservice: architecture-guide
+---
+
+# Cross-tenant secure access to apps with private endpoints
+
 Like most Azure Platform as a Service (PaaS) services, Azure Web Apps and Function Apps are internet-accessible by default. You can restrict inbound traffic to Azure Web Apps and Function Apps by using access restrictions or private endpoints.
 
 Access restrictions let you configure the resource's internal firewall by defining allow and deny rules. Restrictions can be based on IPv4/IPv6 addresses, service tags, or service endpoints. Service endpoints permit only traffic from selected subnets and virtual networks. There is no cost to use Access restrictions and it is available in all App Service and Functions plans, but they have drawbacks: maintaining rules is challenging, and third-party clients require listed IPs (which could be dynamic or considered sensitive).
