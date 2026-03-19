@@ -88,28 +88,34 @@ The Event Sourcing pattern provides the following advantages:
 
 ## Problems and considerations
 
-Consider the following points when deciding how to implement this pattern:
+Consider the following points when you decide how to implement this pattern:
 
-- **Event design** - Design events to capture the business intent behind each change, not just the resulting state. For example, in the seat-reservation system, an event that records "two seats were reserved" is more valuable than one that records "remaining seats changed to 42." The first tells you *what happened*. The second only tells you *what the state became*. State-focused events reduce the event store to a change log with no business meaning. Intent-focused events enable richer projections, meaningful audit trails, and the flexibility to build new read models from historical events without having to change the write side.
+- **Event design:** Design events to capture the business intent behind each change in addition to the resulting state. For example, in the seat-reservation system, an event that records *two seats were reserved* is more valuable than an event that records *remaining seats changed to 42*. The first event tells you what happened. The second event only tells you the resulting state. State-focused events reduce the event store to a change log that has no business meaning. Intent-focused events provide more detailed projections, meaningful audit trails, and the flexibility to build new read models from historical events without having to change the write environment.
 
-- **Eventual consistency** - The system will only be eventually consistent when creating materialized views or generating projections of data by replaying events. There's some delay between an application adding events to the event store as the result of handling a request, the events being published, and the consumers of the events handling them. During this period, new events that describe further changes to entities might have arrived at the event store. Your customers must be okay with the fact that data is eventually consistent and the system should be designed to account for eventual consistency in these scenarios.
+- **Eventual consistency:** The system is only eventually consistent when it creates materialized views or generates projections of data by replaying events. A delay exists between when an application handles a request and adds events to the event store, when the events publish, and when consumers handle the events. During this period, new events that describe further changes to entities might arrive at the event store. Ensure that your customers understand that data is eventually consistent and that the system is designed to account for eventual consistency in these scenarios.
 
-- **Versioning events** - The event store is the permanent source of information, and so the event data should never be updated. The only way to update an entity or undo a change is to add a compensating event to the event store, a new event that reverses or corrects the effect of a previous event. For example, a `ReservationCancelled` event compensates for a prior `SeatsReserved` event. The original event remains in the stream; the compensating event records that it was undone. This immutability also means that if a bug produces incorrect events, those events persist in the store. Fixing the bug in application code doesn't fix the historical events, so you might also need compensating events or upcasters to handle the bad data during replay. If the schema (rather than the data) of the persisted events needs to change, perhaps during a migration, it can be difficult to combine existing events in the store with the new version.
+- **Versioning events:** The event store is the permanent source of information, so you should never update the event data. The only way to update an entity or undo a change is to add a compensating event to the event store. A compensating event is a new event that reverses or corrects the effect of a previous event. For example, a `ReservationCancelled` event compensates for a prior `SeatsReserved` event. The original event remains in the stream, and the compensating event records that it was undone. 
 
-  The following strategies can be used individually or in combination:
+  This immutability also means that if a bug produces incorrect events, those events persist in the store. Fixing the bug in application code doesn't fix the historical events, so you might also need compensating events or upcasters to handle the bad data during replay. If the schema (rather than the data) of the persisted events needs to change, perhaps during a migration, it can be difficult to combine existing events in the store with the new version.
 
-  - **Tolerant deserialization** - Design event consumers to ignore unknown fields and use default values for missing fields. This approach handles additive, nonbreaking changes (such as adding an optional field) without requiring any transformation of stored events.
-  - **Event versioning** - Include a version identifier in each event, either as metadata in the event envelope or as part of the event type name. Consumers use the version to select the appropriate handling logic.
-  - **Upcasting** - Register transformation functions that convert older event schemas to the current schema during deserialization. Upcasters can be chained so that the application code only needs to handle the latest version. The stored events remain unchanged, preserving immutability.
-  - **In-place migration** - Rewrite historical events to the new schema directly in the event store. This breaks immutability and should be a last resort because it undermines the audit trail.
+  You can use the following strategies individually or in combination:
 
-- **Event ordering** - Multi-threaded applications and multiple instances of applications might be storing events in the event store. The consistency of events in the event store is vital, as is the order of events that affect a specific entity (the order that changes occur to an entity affects its current state). Adding a timestamp to every event can help to avoid issues. Another common practice is to annotate each event resulting from a request with an incremental identifier. If two actions attempt to add events for the same entity at the same time, the event store can reject an event that matches an existing entity identifier and event identifier.
+  - **Tolerant deserialization:** Design event consumers to ignore unknown fields and use default values for missing fields. This approach handles additive, nonbreaking changes, such as adding an optional field, without requiring any transformation of stored events.
 
-- **Querying events** - There's no standard approach, or existing mechanisms such as SQL queries, for reading the events to obtain information. The only data that can be extracted is a stream of events using an event identifier as the criteria. The event ID typically maps to individual entities. The current state of an entity can be determined only by replaying all of the events that relate to it against the original state of that entity.
+  - **Event versioning:** Include a version identifier in each event, either as metadata in the event envelope or as part of the event type name. Consumers use the version to select the appropriate handling logic.
 
-- **Choosing an event store** - An event store can be a purpose-built database designed for append-only event streams or a general-purpose relational or document database with an append-only table.
+  - **Upcasting:** Register transformation functions that convert older event schemas to the current schema during deserialization. You can chanin upcasters so that the application code only needs to handle the latest version. The stored events remain unchanged, which preserves immutability.
 
-  - Purpose-built event stores provide built-in support for operations like reading a stream by entity, optimistic concurrency, and snapshots.
+  - **In-place migration:** Rewrite historical events to the new schema directly in the event store. This approach breaks immutability and should be a last resort because it undermines the audit trail.
+
+- **Event ordering:** Multiple-threaded applications and multiple instances of applications might store events in the event store. The consistency of events in the event store and the order of events that affect a specific entity's current state are crucial. Adding a timestamp to every event can help you avoid problems. Another common practice is to annotate each event that results from a request with an incremental identifier. If two actions attempt to add events for the same entity at the same time, the event store can reject an event that matches an existing entity identifier and event identifier.
+
+- **Event querying:** There's no standard approach or existing mechanisms, such as SQL queries, for reading events to obtain information. The only data that you can extract is a stream of events by using an event identifier as the criteria. The event ID typically maps to individual entities. You can determine the current state of an entity only by replaying all of the events that relate to it against the original state of that entity.
+
+- **Event store options:** An event store can be a purpose-built database designed for append-only event streams or a general-purpose relational or document database with an append-only table.
+
+  - Purpose-built event stores provide built-in support for tasks like reading a stream by entity, optimistic concurrency, and snapshots.
+
   - Relational databases are familiar and widely available but require you to build those behaviors yourself.
 
   Because each entity has its own independent event stream, event stores partition naturally by entity ID, which simplifies horizontal scaling or sharding when needed.
@@ -117,23 +123,24 @@ Consider the following points when deciding how to implement this pattern:
   > [!IMPORTANT]
   > Don't confuse an event store with an event stream message broker. Message brokers such as Apache Kafka typically lack per-entity stream queries and optimistic concurrency. They work well as a distribution layer to fan out events to projections and external consumers, but they aren't a substitute for an event store.
 
-- **Cost of recreating state for entities** - The length of each event stream affects managing and updating the system. If the streams are large, replaying every event to rehydrate an entity becomes expensive in both time and compute. To mitigate this cost, create snapshots at specific intervals, such as every *N* events. A snapshot is a serialized representation of the entity's state at a specific point in its event stream. To rehydrate the entity, load the most recent snapshot and replay only the events that occurred after it, rather than replaying the entire stream from the beginning. Balance the storage cost of snapshots against the time saved during rehydration when choosing a snapshot frequency.
+- **Entity state re-creation:** The length of each event stream affects how you manage and update the system. If the streams are large, replaying every event to rehydrate an entity becomes costly in both time and compute. To mitigate this cost, create snapshots at specific intervals, such as every *N* events. A snapshot is a serialized representation of the entity's state at a specific point in its event stream. To rehydrate the entity, load the most recent snapshot and replay only the events that occur after it, rather than replaying the entire stream from the beginning. When you choose a snapshot frequency, balance the storage cost of snapshots against the time saved during rehydration.
 
   > [!NOTE]
-  > Snapshots are an optimization, not a replacement for the event stream. The event stream remains the source of truth, and snapshots can be regenerated from it at any time.
+  > Snapshots are an optimization, not a replacement for the event stream. The event stream remains the source of truth, and you can regenerate snapshots from it at any time.
 
-- **Conflicts** - Optimistic concurrency control prevents conflicting writes to the same event stream, but the application must still handle conflicts that span multiple entities. For example, an event that indicates a reduction in stock inventory might arrive in the data store while an order for that item is being placed. Design the system to reconcile these situations, such as by advising the customer or by creating a back order.
+- **Conflict handling:** Optimistic concurrency control prevents conflicting writes to the same event stream, but the application must still handle conflicts that span multiple entities. For example, an event that indicates a reduction in stock inventory might arrive in the data store while a customer places an order for that item. Design the system to reconcile these situations, such as by advising the customer or by creating a back order.
 
-- **Need for idempotency** - Event delivery to consumers is typically *at least once*, so consumers can receive the same event more than once. Event handlers must be idempotent so processing a duplicate event doesn't change the outcome. For example, if multiple instances of a consumer process seat-reservation events to maintain an available-seat count, a duplicated reservation event must result in only one decrement. Without idempotency, projections drift from the event stream and side effects such as payments or notifications fire more than once. Track the last processed event sequence number per consumer and skip duplicates, or design state mutations that are inherently safe to repeat.
+- **Idempotency requirements:** Event delivery to consumers is typically *at least once*, so consumers can receive the same event more than once. Event handlers must be idempotent so processing a duplicate event doesn't change the outcome. For example, if multiple instances of a consumer process seat-reservation events to maintain an available-seat count, a duplicated reservation event must result in only one decrement. Without idempotency, projections drift from the event stream and side effects such as payments or notifications fire more than once. Track the last processed event sequence number for each consumer and skip duplicates, or design state mutations that are inherently safe to repeat.
 
-- **Circular logic** - Be mindful of scenarios where the processing of one event involves the creation of one or more new events since this can cause an infinite loop.
+- **Circular logic:** Be mindful of scenarios in which the processing of one event requires the creation of one or more new events. This sequence can result in an infinite loop.
 
-- **Testing** - Event-sourced systems lend themselves to a specific testing style: set up past events, issue a command, and assert on the new events produced. This *given-when-then* approach tests business logic without databases, queues, or projections. However, you also need integration tests for projections, idempotency behavior, and schema evolution paths, which adds testing surface compared to CRUD systems.
+- **Testing:** A specific testing style best suits event-sourced systems. Set up past events, issue a command, and assert on the new events produced. This *given-when-then* approach tests business logic without databases, queues, or projections. But you also need integration tests for projections, idempotency behavior, and schema evolution paths, which adds testing surface compared to CRUD systems.
 
-- **Personal data and regulatory compliance** - The append-only, immutable nature of an event store conflicts with data protection regulations that require deletion of personal data, such as the *right to be forgotten* laws. Deleting events outright breaks stream integrity, so design for this tension from the start.
+- **Personal data and regulatory compliance:** The append-only, immutable nature of an event store conflicts with data protection regulations that require deletion of personal data, such as the *right to be forgotten* laws. Deleting events outright breaks stream integrity, so design for this tension from the start.
 
-  - A common approach is to store personal data outside the event store and reference it by identifier in events, so deletion can occur independently without affecting the event stream.
-  - When personal data can't be separated from events, use crypto-shredding. Encrypt personal data in events with a per-subject key and destroy the key when deletion is required, rendering the data unrecoverable while leaving the event structure intact. This approach adds encryption overhead on every read and write and requires robust key management.
+  - A common approach is to store personal data outside the event store and reference it by identifier in events. This approach allows deletion to occur independently without affecting the event stream.
+
+  - When personal data can't be separated from events, use crypto-shredding. Encrypt personal data in events with a per-subject key and destroy the key when deletion is required to render the data unrecoverable while leaving the event structure intact. This approach adds encryption overhead on every read and write and requires robust key management.
 
 ## When to use this pattern
 
@@ -155,13 +162,13 @@ Use this pattern in the following scenarios:
 
 This pattern might not be useful in the following situations:
 
-- Systems with straightforward create, read, update, and delete operations where no one needs auditability, replay, or historical reconstruction of state. The operational overhead of an event store isn't justified if the only requirement is current-state reads and writes.
+- Systems that have straightforward create, read, update, and delete operations for which no one needs auditability, replay, or historical reconstruction of state. The operational overhead of an event store isn't justified if the only requirement is current-state reads and writes.
 
 - Prototypes, MVPs, or systems with a short expected lifespan. The upfront investment in event design, schema evolution strategy, and projection infrastructure rarely pays off in these settings.
 
-- Systems where consistency and real-time updates to the views of the data are required. Eventual consistency between the event store and projections is inherent to event sourcing.
+- Systems that require consistency and real-time updates to the views of the data. Eventual consistency between the event store and projections is inherent to event sourcing.
 
-- Domains where data is predominantly static or reference data, such as lookup tables or catalogs, that change infrequently and don't benefit from change history.
+- Domains in which data is predominantly static or reference data, such as lookup tables or catalogs, that change infrequently and don't benefit from change history.
 
 - Teams without experience in [event-driven architectures](../guide/architecture-styles/event-driven.md). Event sourcing changes how you test, debug, and operate a system. Adopting it without that foundation increases the risk of anti-patterns that are costly to reverse.
 
