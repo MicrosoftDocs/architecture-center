@@ -132,7 +132,7 @@ The following new and updated articles have recently been published in the Azure
 - [Design to Support Foundation Model Life Cycles](./ai-ml/guide/manage-foundation-models-lifecycle.md) ([#f351100aa7](https://github.com/MicrosoftDocs/architecture-center/commit/f351100aa7))
 - [Use Azure Firewall to help protect an AKS cluster](./guide/aks/aks-firewall.yml) ([#f351100aa7](https://github.com/MicrosoftDocs/architecture-center/commit/f351100aa7))
 - [AKS baseline for multiregion clusters](./reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml) ([#f351100aa7](https://github.com/MicrosoftDocs/architecture-center/commit/f351100aa7))
-- [Multiregion BCDR for Azure Virtual Desktop](./example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr.yml) ([#9c9f9b9b79](https://github.com/MicrosoftDocs/architecture-center/commit/9c9f9b9b79))
+- [Multiregion BCDR for Azure Virtual Desktop](./example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr.md) ([#9c9f9b9b79](https://github.com/MicrosoftDocs/architecture-center/commit/9c9f9b9b79))
 - [Azure Local Baseline Reference Architecture](./hybrid/azure-local-baseline.yml) ([#9c9f9b9b79](https://github.com/MicrosoftDocs/architecture-center/commit/9c9f9b9b79))
 - [Compare Java application hosting options on Azure](./guide/technology-choices/service-for-java-comparison.yml) ([#c8b5795c3f](https://github.com/MicrosoftDocs/architecture-center/commit/c8b5795c3f))
 - [Prevent IPv4 Exhaustion in Azure](./networking/guide/internet-protocol-version-4-exhaustion.md) ([#c8b5795c3f](https://github.com/MicrosoftDocs/architecture-center/commit/c8b5795c3f))
