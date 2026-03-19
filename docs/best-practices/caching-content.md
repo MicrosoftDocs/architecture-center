@@ -141,7 +141,7 @@ To support large caches that hold relatively long-lived data, some cache service
 
 To reduce the latency that's associated with writing to multiple destinations, the replication to the secondary server might occur asynchronously when data is written to the cache on the primary server. This approach leads to the possibility that some cached information might be lost if there's a failure, but the proportion of this data should be small, compared to the overall size of the cache.
 
-If a shared cache is large, it might be beneficial to partition the cached data across nodes to reduce the chances of contention and improve scalability. Many shared caches support the ability to dynamically add (and remove) nodes and rebalance the data across partitions. This approach might involve clustering, in which the collection of nodes is presented to client applications as a seamless, single cache. Internally, however, the data is dispersed between nodes following a predefined distribution strategy that balances the load evenly. For more information about possible partitioning strategies, see [Data partitioning guidance](/previous-versions/msp-n-p/dn589795(v=pandp.10)).
+If a shared cache is large, it might be beneficial to partition the cached data across nodes to reduce the chances of contention and improve scalability. Many shared caches support the ability to dynamically add (and remove) nodes and rebalance the data across partitions. This approach might involve clustering, in which the collection of nodes is presented to client applications as a single cache. Internally, however, the data is dispersed between nodes following a predefined distribution strategy that balances the load evenly. For more information, see the [Sharding pattern](../patterns/sharding.yml).
 
 Clustering can also increase the availability of the cache. If a node fails, the remainder of the cache is still accessible. Clustering is frequently used with replication and failover. Each node can be replicated, and the replica can be quickly brought online if the node fails.
 
@@ -155,7 +155,9 @@ For the cache-aside pattern to work, the instance of the application that popula
 
 One instance of an application could modify a data item and invalidate the cached version of that item. Another instance of the application might attempt to read this item from a cache, which causes a cache-miss, so it reads the data from the data store and adds it to the cache. However, if the data store isn't fully synchronized with the other replicas, the application instance could read and populate the cache with the old value.
 
-For more information about handling data consistency, see the [Data consistency primer](/previous-versions/msp-n-p/dn589800(v=pandp.10)).
+A distributed cache introduces another layer to this problem. The CAP theorem states that a distributed system can provide at most two of three guarantees: consistency, availability, and partition tolerance. Because network partitions are unavoidable in cloud environments, you must choose between consistency and availability. Most distributed caches, including Redis, prioritize availability and partition tolerance over strong consistency. This means that reads from a cache replica might return stale data during a network partition or immediately after a write to a different node. When you design your caching strategy, decide how much staleness your application can tolerate and set TTLs accordingly. For data that must be current, use shorter TTLs or bypass the cache entirely and read from the source data store.
+
+For more information about handling data consistency in distributed systems, see [Data considerations for microservices](../microservices/design/data-considerations.md).
 
 ### Protect cached data
 
