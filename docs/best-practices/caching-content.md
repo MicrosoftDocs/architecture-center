@@ -570,25 +570,23 @@ To prevent a leaderboard from growing indefinitely, remove old entries using `So
 
 #### Serialization considerations
 
-When you choose a serialization format, consider tradeoffs between performance, interoperability, versioning, compatibility with existing systems, data compression, and memory overhead. When you evaluate the performance, remember that benchmarks are highly dependent on context. They might not reflect your actual workload, and might not consider newer libraries or versions. There's no single "fastest" serializer for all scenarios.
+When you store .NET objects in Redis as string values, you need to serialize them. When you choose a serialization format, consider tradeoffs between performance, interoperability, versioning, and payload size. There's no single fastest serializer for all scenarios. Benchmarks are highly dependent on context and might not reflect your actual workload.
 
-Some options to consider include:
+If your Azure Managed Redis tier supports [RedisJSON](/azure/redis/overview#modules), you can store objects as native JSON documents and query individual fields without deserializing the entire value. For the code example, see [Serializing .NET objects](#serializing-net-objects) earlier in this article.
 
-- [Protocol Buffers](https://protobuf.dev) (also called protobuf) is a serialization format developed by Google for serializing structured data efficiently. It uses strongly typed definition files to define message structures. These definition files are then compiled to language-specific code for serializing and deserializing messages. Protobuf can be used over existing RPC mechanisms, or it can generate an RPC service.
+When you serialize values as Redis strings, common format options include:
 
-- [Apache Thrift](https://thrift.apache.org) uses a similar approach, with strongly typed definition files and a compilation step to generate the serialization code and RPC services.
+- [JSON](https://json.org) - Human-readable, broad cross-platform support. Not the most compact format, but a good choice when cached items are returned directly to HTTP clients because it avoids an extra deserialization and re-serialization step.
 
-- [Apache Avro](https://avro.apache.org) provides similar functionality to Protocol Buffers and Thrift, but there's no compilation step. Instead, serialized data always includes a schema that describes the structure.
+- [MessagePack](https://msgpack.org) - A compact binary format with no schema requirement. Produces smaller payloads than JSON with lower serialization overhead.
 
-- [JSON](https://json.org) is an open standard that uses human-readable text fields. It has broad cross-platform support. JSON doesn't use message schemas. Being a text-based format, it isn't efficient over the wire. In some cases, however, you might be returning cached items directly to a client via HTTP, in which case storing JSON could save the cost of deserializing from another format and then serializing to JSON.
+- [JSON](https://json.org) - Human-readable, broad cross-platform support. Not the most compact format, but a good choice when cached items are returned directly to HTTP clients because it avoids an extra deserialization and re-serialization step.
 
-- [binary JSON (BSON)](https://bsonspec.org) is a binary serialization format that uses a structure similar to JSON. BSON was designed to be lightweight, easy to scan, and fast to serialize and deserialize, relative to JSON. Payloads are comparable in size to JSON. Depending on the data, a BSON payload might be smaller or larger than a JSON payload. BSON has some more data types that aren't available in JSON, notably BinData (for byte arrays) and Date.
+- [MessagePack](https://msgpack.org) - A compact binary format with no schema requirement. Produces smaller payloads than JSON with lower serialization overhead.
 
-- [MessagePack](https://msgpack.org) is a binary serialization format that is designed to be compact for transmission over the wire. There are no message schemas or message type checking.
+- [Protocol Buffers](https://protobuf.dev) (protobuf) - A schema-based binary format that produces compact payloads. Requires `.proto` definition files and a compilation step to generate language-specific code.
 
-- [Bond](https://microsoft.github.io/bond) is a cross-platform framework for working with schematized data. It supports cross-language serialization and deserialization. Notable differences from other systems listed here are support for inheritance, type aliases, and generics.
-
-- [gRPC](https://www.grpc.io) is an open-source RPC system developed by Google. By default, it uses Protocol Buffers as its definition language and underlying message interchange format.
+- [BSON](https://bsonspec.org) - A binary format that extends JSON with additional types such as dates and raw binary data. Payloads are comparable in size to JSON. A practical choice when your application already uses BSON elsewhere, such as with MongoDB.
 
 ## Next steps
 
