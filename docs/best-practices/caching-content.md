@@ -287,15 +287,17 @@ ASP.NET Core output caching middleware can also use Redis as a distributed backi
 
 ### .NET Aspire integration
 
-.NET Aspire simplifies using Azure Managed Redis by providing standardized components and configuration patterns for distributed caching and session state. Developers can reference Azure Managed Redis as a cache or session store using Aspire’s opinionated defaults, reducing boilerplate and ensuring consistent configuration across microservices in a distributed application.
+[.NET Aspire](/dotnet/aspire/get-started/aspire-overview) applications can use the `Aspire.Hosting.Azure.Redis` package to declare an Azure Managed Redis resource in the app host. Consuming projects receive the connection configuration automatically through dependency injection, which eliminates manual connection-string management across services.
 
-### Redis usage scope in these scenarios
+```csharp
+// App host: declare the Azure Managed Redis resource
+var cache = builder.AddAzureManagedRedis("cache");
 
-When used through ASP.NET session providers, output caching, `IDistributedCache`, or Aspire components, Azure Managed Redis functions strictly as a **distributed key/value cache**. These framework integrations serialize and store data under simple keys, using Redis only for high-performance caching—not for advanced Redis Enterprise features.
+builder.AddProject<Projects.ProductService>()
+    .WithReference(cache);
+```
 
-Features such as RedisJSON, RediSearch, hybrid search, vector similarity search, and long-term or agentic memory for AI workloads are accessed directly through Redis client libraries and **are not used** by these built-in ASP.NET/.NET caching providers.
-
-Understanding this distinction helps clarify when Azure Managed Redis is being used purely as a cache and when its broader real-time data and AI capabilities should be leveraged directly.
+Consuming services register the distributed cache in the same way as any other `IDistributedCache` provider. For more information, see [.NET Aspire Azure Managed Redis integration](/dotnet/aspire/caching/azure-managed-redis-integration).
 
 ## Partitioning a Redis cache
 
@@ -340,7 +342,7 @@ When using Azure Managed Redis, the recommended .NET libraries depend on the sce
 
 #### **1. Using Redis for caching
 
-For basic caching scenarios—storing and retrieving string values, byte arrays, or simple serialized objects—the preferred libraries are:
+For basic caching scenarios like storing and retrieving string values, byte arrays, or simple serialized objects, the preferred libraries are:
 
 - **StackExchange.Redis** (low-level Redis client, high performance)  
 - **Microsoft.Extensions.Caching.StackExchangeRedis** (opinionated `IDistributedCache` integration for ASP.NET Core)
@@ -430,7 +432,7 @@ public static class RedisJsonExtensions
 
 ## Using Redis as a cache
 
-The simplest way to use Redis for caching is to store values under keys using the key–value model. Values may be strings or binary data of arbitrary length, making Redis well suited for caching serialized objects, configuration data, session state, or precomputed results. This scenario was illustrated earlier in the section *Implement Redis cache client applications*.
+The simplest way to use Redis for caching is to store values under keys using the key-value model. Values may be strings or binary data of arbitrary length, making Redis well suited for caching serialized objects, configuration data, session state, or precomputed results. This scenario was illustrated earlier in the section *Implement Redis cache client applications*.
 
 Keys also contain uninterpreted data, so you can use any binary information as the key. The longer the key is, however, the more space it takes to store, and the longer it takes to perform lookup operations. For usability and ease of maintenance, design your keyspace carefully and use meaningful (but not verbose) keys.
 
@@ -605,81 +607,31 @@ await cache.KeyExpireAsync("data:key1",
 > [!TIP]
 > You can manually remove an item from the cache by using the DEL command, which is available through the StackExchange library as the `IDatabase.KeyDeleteAsync` method.
 
-### Cross-correlating cached items in Azure Managed Redis
+### Cross-correlate cached items
 
-In earlier generations of Redis and in traditional OSS environments, it was common to model relationships—such as tags, categories, or groups of related items—using Redis Sets. Applications would maintain forward and reverse sets to represent many-to-many relationships. While this pattern still works, it is no longer the recommended approach in Azure Managed Redis, which is powered by Redis Enterprise.
+When you cache related items, you often need to find them by relationship rather than by primary key alone. For example, you might cache blog posts and need to answer queries like "which posts share tag Y?" or "which tags belong to post X?"
 
-Because Azure Managed Redis includes RedisJSON and RediSearch, there are more powerful, scalable, and maintainable ways to model tagged or correlated data than using Redis Sets alone.
+In Azure Managed Redis, the recommended approach is to use [RedisJSON and RediSearch](/azure/redis/overview#modules). Store each cached item as a JSON document with its metadata, then create a RediSearch index over the fields you need to query. RediSearch handles reverse lookups, tag-based filtering, range queries, and full-text search without requiring your application to maintain separate index structures.
 
-### Recommended approach: RedisJSON + RediSearch
+For simpler scenarios, you can also use Redis Sets to build forward and reverse indexes manually. Store a Set per post (containing its tags) and a Set per tag (containing the post IDs):
 
-RedisJSON enables you to store structured documents instead of flat string values. RediSearch provides secondary indexes that make it possible to query and filter cached objects based on tags, fields, ranges, or full-text content.
-
-A `BlogPost` object contains four fields&mdash;an ID, a title, a ranking score, and a collection of tags. The first code snippet shows the sample data that's used for populating a C# list of `BlogPost` objects:
-
-```json
+```csharp
+foreach (BlogPost post in posts)
 {
-  "id": 1,
-  "title": "Blog Post #1",
-  "tags": ["iot", "csharp"],
-  "score": 842
+    string postTagsKey = string.Format(CultureInfo.InvariantCulture,
+        "blog:posts:{0}:tags", post.Id);
+    await cache.SetAddAsync(
+        postTagsKey, post.Tags.Select(s => (RedisValue)s).ToArray());
+
+    foreach (var tag in post.Tags)
+    {
+        await cache.SetAddAsync(string.Format(CultureInfo.InvariantCulture,
+            "tag:{0}:blog:posts", tag), post.Id);
+    }
 }
 ```
 
-A RediSearch index can be created with a TAG field for efficient tag-based lookups:
-
-```text
-FT.CREATE idx:blogposts ON JSON PREFIX 1 blog:posts: 
-SCHEMA $.title AS title TEXT 
-       $.tags[*] AS tag TAG 
-       $.score AS score NUMERIC
-```
-
-### Query examples
-
-**Find all blog posts with the tag "iot":**
-
-```text
-FT.SEARCH idx:blogposts "@tag:{iot}"
-```
-
-**Find all posts that contain both "iot" and "csharp":**
-
-```text
-FT.SEARCH idx:blogposts "@tag:{iot} @tag:{csharp}"
-```
-
-**Find posts with overlapping tags between two sets:**
-
-```text
-FT.SEARCH idx:blogposts "@tag:{iot|database}"
-```
-
-**Find posts sorted by score:**
-
-```text
-FT.SEARCH idx:blogposts "*" SORTBY score DESC
-```
-
-### Why this is preferred in Azure Managed Redis
-
-Redis Enterprise provides several advantages over Redis Sets for correlation logic:
-
-- **Scalable indexing:** RediSearch indexes millions of documents efficiently.  
-- **Flexible queries:** Filter by tags, ranges, keywords, or vector similarity.  
-- **No manual reverse-indexing:** RediSearch handles reverse lookups automatically.  
-- **Simpler application code:** No need to maintain multiple Set structures.  
-- **Better support for AI workloads:** Combine metadata filters with vector search.  
-
-### When Redis Sets may still be useful
-
-Redis Sets remain available for simple scenarios such as:
-
-- Small-scale tag lists  
-- Lightweight membership checks  
-- Purely cache-based structures where search is not required  
-
-However, for most production workloads running on Azure Managed Redis—especially those involving structured data, filtering, or search—RedisJSON and RediSearch are the recommended approach.
+You can then query tags for a post with `SetMembersAsync`, find common tags across posts with `SetCombineAsync(SetOperation.Intersect, ...)`, or find all posts for a given tag. The tradeoff is that your application must maintain both the forward and reverse Sets, which adds complexity as the number of relationships grows.
 
 ### Find recently accessed items
 
@@ -741,7 +693,7 @@ foreach (var entry in entries)
 
 ### Retrieving top-N items
 
-To get the highest-scoring items—for example, the top 10 posts—use descending order:
+To get the highest-scoring items, such as the top 10 posts, use descending order:
 
 ```csharp
 foreach (var post in await cache.SortedSetRangeByRankWithScoresAsync(
@@ -769,86 +721,6 @@ foreach (var post in await cache.SortedSetRangeByScoreWithScoresAsync(
 - **Performance:** `ZADD`, `ZRANGE`, and `ZREVRANGE` operations are O(log N) and extremely efficient for real-time leaderboards.
 - **TTL and trimming:** To prevent the leaderboard from growing indefinitely, you can remove old entries using `SortedSetRemoveRangeByRankAsync` or apply time-scoped keys (e.g., daily or weekly leaderboards).
 - **Updating scores:** Using `SortedSetIncrementAsync` or `ZINCRBY` allows you to modify scores atomically.
-- **Combining metadata:** For richer leaderboard displays (e.g., user avatars, descriptions, tags), store additional details in RedisJSON documents and retrieve them alongside ranking results.
-- **Search integration:** RediSearch can be used to filter ranked items by metadata (e.g., “top 10 posts tagged with ‘azure’”), combining search criteria with ZSET ranking.
-
-### Message by using channels
-
-Apart from acting as a data cache, a Redis server provides messaging through a high-performance publisher/subscriber mechanism. Client applications can subscribe to a channel, and other applications or services can publish messages to the channel. Subscribing applications can then receive these messages and process them.
-
-Redis provides the SUBSCRIBE command for client applications to use to subscribe to channels. This command expects the name of one or more channels on which the application accepts messages. The StackExchange library includes the `ISubscriber` interface, which enables a .NET Framework application to subscribe and publish to channels.
-
-The StackExchange.Redis client exposes Pub/Sub functionality through the `ISubscriber` interface:
-
-```csharp
-ConnectionMultiplexer redisHostConnection = ...;
-ISubscriber subscriber = redisHostConnection.GetSubscriber();
-...
-await subscriber.SubscribeAsync("messages:blogPosts", (channel, message) => Console.WriteLine("Title is: {0}", message));
-```
-
-### Publishing a message
-
-```csharp
-var subscriber = connection.GetSubscriber();
-await subscriber.PublishAsync("messages:blogPosts", blogPost.Title);
-```
-
-### Pub/Sub delivery characteristics
-
-Redis Pub/Sub provides **real-time, ephemeral broadcast messaging**. It has the following properties:
-
-- **At-most-once delivery:** Messages are not persisted. If a subscriber is offline, or a network interruption occurs, the message is lost.
-- **No message replay:** Once delivered (or if no subscribers exist), the message is discarded.
-- **Broadcast semantics:** All active subscribers receive the message.
-- **Order preserved per publisher:** Redis guarantees ordering per connection, but concurrency may result in interleaved delivery.
-- **No consumer tracking:** Redis does not track acknowledgments or consumer offsets.
-
-### Improving throughput
-
-```csharp
-connection.PreserveAsyncOrder = false;
-var subscriber = connection.GetSubscriber();
-```
-
-Disabling ordered callbacks allows handlers to execute concurrently.
-
-### Pub/Sub in Azure Managed Redis
-
-Pub/Sub is fully supported in Azure Managed Redis. However:
-
-- Under **OSS Clustering Policy**, Pub/Sub messages are scoped to the shard hosting the channel.
-- Under **Enterprise Clustering Policy**, the proxy does not change Pub/Sub’s ephemeral semantics.
-- Pub/Sub is **not persisted** and offers **no delivery guarantees**.
-
-## Redis Streams: Reliable, durable messaging (at-least-once)
-
-Redis Streams provide a more advanced messaging model designed for durability, ordering, and consumer management. Streams are ideal when messages must **not** be lost or when multiple consumers must coordinate processing.
-
-### Streams provide
-
-- **At-least-once delivery** (messages are stored until acknowledged)
-- **Durability** — messages are persisted in the stream log
-- **Replay ability** — consumers can re-read or rewind
-- **Consumer groups** — coordinated parallel processing
-- **Per-message acknowledgments**
-- **Backpressure support**
-
-### When to use Pub/Sub vs Streams
-
-**Use Pub/Sub when:**
-
-- Messages are not critical
-- Only active subscribers need the message
-- You need fire-and-forget notifications
-- Delivery loss is acceptable (cache invalidation, UI updates)
-
-**Use Streams when:**
-
-- Messages must be durable
-- Consumers must coordinate or process reliably
-- Delivery loss is not acceptable
-- You need replay, retries, or historical analysis
 
 ### Serialization considerations
 
