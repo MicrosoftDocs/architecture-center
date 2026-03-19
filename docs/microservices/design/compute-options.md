@@ -66,7 +66,7 @@ The following table compares how each platform supports the capabilities that ma
 | **Cold start mitigation** | [Minimum node count](/azure/aks/scale-cluster), minimum pod replicas | [Minimum replica count](/azure/container-apps/scale-app) | [Prewarmed / always-ready instances](/azure/azure-functions/functions-premium-plan#eliminate-cold-starts) (Premium/Flex) | Not applicable (Always On) |
 | **Traffic splitting / canary** | Kubernetes-native, service mesh | [Revision-based](/azure/container-apps/revisions) | Deployment slots | [Deployment slots with traffic routing](/azure/app-service/deploy-staging-slots) |
 | **Distributed tracing** | OpenTelemetry, open-source tooling | [Built-in](/azure/container-apps/observability), Dapr tracing | [Application Insights](/azure/azure-monitor/app/app-insights-overview) | [Application Insights](/azure/azure-monitor/app/app-insights-overview) |
-| **Stateful services** | Persistent volumes, StatefulSets | [Volume mounts](/azure/container-apps/storage-mounts), [Dapr state](/azure/container-apps/dapr-overview) | [Durable Functions](/azure/azure-functions/durable/durable-functions-overview) | Not supported |
+| **Stateful services** | Persistent volumes, StatefulSets | [Volume mounts](/azure/container-apps/storage-mounts), [Dapr state](/azure/container-apps/dapr-overview) | [Durable Functions](/azure/azure-functions/durable/durable-functions-overview) | [Azure Files mount](/azure/app-service/configure-connect-to-azure-storage) |
 | **Per-service identity** | [Workload identity](/azure/aks/workload-identity-overview) | [Managed identity](/azure/container-apps/managed-identity) | [Managed identity](/azure/azure-functions/security-concepts#managed-identities) | [Managed identity](/azure/app-service/overview-managed-identity) |
 | **Kubernetes API access** | Yes | No | No | No |
 | **Independent deployability** | Yes (per pod/deployment) | Yes (per container app) | Yes (per function app) | Yes (per app or [deployment slot](/azure/app-service/deploy-staging-slots)) |
@@ -113,7 +113,14 @@ The comparison table shows what each platform supports. This section helps you w
 
   Ensure each service in the composition exposes per-service metrics (request rate, error rate, latency) so you can identify which service is degrading without correlating logs across the full call chain.
 
-- **State management.** Microservices typically externalize state to databases or caches, but some services benefit from state colocated on the compute instance, such as actor-based patterns or in-cluster data stores. AKS provides the most flexibility through persistent volumes and StatefulSets. Container Apps supports volume mounts and Dapr state management. Functions supports stateful orchestrations through Durable Functions. App Service doesn't support persistent local state.
+- **State management.** In a microservices architecture, each service typically owns its data and externalizes state to a dedicated database or cache. That pattern keeps services independently deployable and all four platforms support it equally because the data store is a separate Azure resource.
+
+  The platforms differ when a service needs platform-managed state abstractions, such as actor-based patterns, workflow orchestration, or dedicated per-instance storage.
+
+  - AKS provides the most flexibility through persistent volumes and StatefulSets, which support in-cluster data stores and stable per-instance identity.
+  - Container Apps supports volume mounts and Dapr state management, including Dapr Actors.
+  - Functions supports stateful orchestrations and entities through Durable Functions.
+  - App Service supports shared storage through Azure Files mounts but doesn't provide per-instance storage or platform-level state abstractions.
 
 ## Considerations
 
