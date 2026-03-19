@@ -262,13 +262,15 @@ Custom partitioning models (such as client-side hashing or third-party proxies) 
 
 For multi-region availability, Azure Managed Redis supports active geo-replication, which links instances across Azure regions into a single replication group. Each instance can handle reads and writes, and changes sync automatically. Your application is responsible for redirecting traffic to a healthy instance during a regional failure. For more information, see [Active geo-replication](/azure/redis/how-to-active-geo-replication).
 
-#### Implement Redis cache client applications
+### Connect and configure client applications
 
 Redis supports client applications in many programming languages. For .NET applications, several client libraries are available, each suited for different Redis workloads. Choosing the appropriate library depends on whether Redis is being used strictly as a cache or as a multi-model data platform.
 
 To connect to a Redis server, you use the static `Connect` method of the `ConnectionMultiplexer` class. The connection that this method creates is built for use throughout the lifetime of the client application. The same connection can be used by multiple concurrent threads. Don't reconnect and disconnect each time you perform a Redis operation because this can degrade performance.
 
-#### Choosing a .NET client library
+For language-specific connection examples, see [Connect to Azure Managed Redis](/azure/redis/dotnet).
+
+#### Choose a .NET client library
 
 When using Azure Managed Redis for caching, the recommended .NET libraries are:
 
@@ -277,11 +279,15 @@ When using Azure Managed Redis for caching, the recommended .NET libraries are:
 
 These libraries provide the primitives required to build common caching patterns, but the application must implement the caching logic itself.
 
-#### Connecting to Azure Managed Redis
+### Implement caching patterns
 
-For information about how to connect to Azure Managed Redis using multiple coding languages, see: [How to connect to Azure Managed Redis Quick start](/azure/redis/dotnet)
+The simplest way to use Redis for caching is to store values under keys using the key-value model. Values may be strings or binary data of arbitrary length, making Redis well suited for caching serialized objects, configuration data, session state, or precomputed results.
 
-#### Implementing cache-aside pattern
+Design your keyspace carefully and use meaningful (but not verbose) keys. For example, use structured keys like `customer:100` (instead of just `100`) to represent the key for the customer with ID 100. This scheme enables you to distinguish between values that store different data types. For example, you can also use the key `orders:100` to represent the key for the order with ID 100.
+
+While strings are the most common caching approach, Redis supports a rich set of native data types such as hashes, lists, sets, sorted sets, and streams, enabling more flexible caching patterns. For more information about Redis data types, see the Redis documentation on [data types](https://redis.io/docs/latest/develop/data-types/).
+
+#### Implement the cache-aside pattern
 
 ```csharp
 var config = new ConfigurationOptions();
@@ -305,65 +311,6 @@ async Task<string> RetrieveItemAsync(string itemKey)
     return itemValue;
 }
 ```
-
-#### Serializing .NET objects
-
-With native JSON support in Redis, you no longer need to manually serialize .NET objects before storing them.
-
-```csharp
-public static class RedisJsonExtensions
-{
-    public static async Task<T?> GetAsync<T>(
-        this IDatabase cache,
-        string key,
-        string path = "$")
-    {
-        var result = await cache.ExecuteAsync("JSON.GET", key, path);
-
-        if (result.IsNull)
-            return default;
-
-        return JsonSerializer.Deserialize<T>(result!);
-    }
-
-    public static async Task SetAsync<T>(
-        this IDatabase cache,
-        string key,
-        T value,
-        TimeSpan? expiry = null,
-        string path = "$")
-    {
-        var json = JsonSerializer.Serialize(value);
-
-        // Store JSON document
-        await cache.ExecuteAsync("JSON.SET", key, path, json);
-
-        // Apply TTL if provided
-        if (expiry.HasValue)
-        {
-            await cache.KeyExpireAsync(key, expiry);
-        }
-    }
-
-    public static async Task<bool> ExpireAsync(
-        this IDatabase cache,
-        string key,
-        TimeSpan expiry)
-    {
-        return await cache.KeyExpireAsync(key, expiry);
-    }
-}
-```
-
-### Using Redis as a cache
-
-The simplest way to use Redis for caching is to store values under keys using the key-value model. Values may be strings or binary data of arbitrary length, making Redis well suited for caching serialized objects, configuration data, session state, or precomputed results. This scenario was illustrated earlier in the section *Implement Redis cache client applications*.
-
-Keys also contain uninterpreted data, so you can use any binary information as the key. The longer the key is, however, the more space it takes to store, and the longer it takes to perform lookup operations. For usability and ease of maintenance, design your keyspace carefully and use meaningful (but not verbose) keys.
-
-For example, use structured keys like `customer:100` (instead of just `100`) to represent the key for the customer with ID 100. This scheme enables you to distinguish between values that store different data types. For example, you can also use the key `orders:100` to represent the key for the order with ID 100.
-
-While strings are the most common caching approach, Redis supports a rich set of native data types such as hashes, lists, sets, sorted sets, and streams, enabling more flexible caching patterns. For more information about Redis data types, see the Redis documentation on [data types](https://redis.io/docs/latest/develop/data-types/).
 
 #### Perform atomic and batch operations
 
@@ -505,7 +452,7 @@ Many applications need to track the most recently accessed or viewed items. For 
 
 Redis Sorted Sets (ZSETs) maintain ordered rankings by associating each element with a numeric score. Redis keeps the ordering automatically, and operations such as `ZADD`, `ZRANGE`, and `ZREVRANGE` are O(log N), so sorted sets remain efficient even with large item counts.
 
-#### Adding items to a leader board
+##### Add items to a leader board
 
 The following example demonstrates how to add a blog post and its score to a leaderboard using the `ZADD` command via `SortedSetAddAsync`:
 
@@ -520,7 +467,7 @@ await db.SortedSetAddAsync(redisKey, blogPost.Title, blogPost.Score);
 
 Sorted Sets automatically maintain ascending order by score, and update operations are O(log N), making them highly suitable for large-scale leaderboards.
 
-#### Retrieving ranked items
+##### Retrieve ranked items
 
 You can retrieve items in ascending score order using `SortedSetRangeByRankWithScoresAsync`:
 
@@ -536,7 +483,7 @@ foreach (var entry in entries)
 > [!NOTE]
 > `SortedSetRangeByRankAsync` returns only member values, not scores.
 
-#### Retrieving top-N items
+##### Retrieve top-N items
 
 To get the highest-scoring items, such as the top 10 posts, use descending order:
 
@@ -548,7 +495,7 @@ foreach (var post in await cache.SortedSetRangeByRankWithScoresAsync(
 }
 ```
 
-#### Retrieving items by score range
+##### Retrieve items by score range
 
 You can also query items based on score boundaries rather than rank:
 
@@ -562,23 +509,64 @@ foreach (var post in await cache.SortedSetRangeByScoreWithScoresAsync(
 
 To prevent a leaderboard from growing indefinitely, remove old entries using `SortedSetRemoveRangeByRankAsync` or use time-scoped keys (for example, daily or weekly leaderboards). You can update scores atomically using `SortedSetIncrementAsync` (`ZINCRBY`).
 
-#### Protect cached data in Azure Managed Redis
+### Protect cached data in Azure Managed Redis
 
 - Use [Microsoft Entra ID authentication](/azure/redis/entra-for-authentication) as the primary access control mechanism for Azure Managed Redis, and follow the principle of least privilege when granting access.
 - Use [Private Endpoints](/azure/redis/managed-redis-private-link) to restrict network access so that traffic doesn't traverse the public internet.
 - Azure Managed Redis encrypts data in transit with TLS and encrypts data at rest.
 
-#### Serialization considerations
+### Serialization considerations
 
 When you store .NET objects in Redis as string values, you need to serialize them. When you choose a serialization format, consider tradeoffs between performance, interoperability, versioning, and payload size. There's no single fastest serializer for all scenarios. Benchmarks are highly dependent on context and might not reflect your actual workload.
 
-If your Azure Managed Redis tier supports [RedisJSON](/azure/redis/overview#modules), you can store objects as native JSON documents and query individual fields without deserializing the entire value. For the code example, see [Serializing .NET objects](#serializing-net-objects) earlier in this article.
+If your Azure Managed Redis tier supports [RedisJSON](/azure/redis/overview#modules), you can store objects as native JSON documents and query individual fields without deserializing the entire value:
 
-When you serialize values as Redis strings, common format options include:
+```csharp
+public static class RedisJsonExtensions
+{
+    public static async Task<T?> GetAsync<T>(
+        this IDatabase cache,
+        string key,
+        string path = "$")
+    {
+        var result = await cache.ExecuteAsync("JSON.GET", key, path);
 
-- [JSON](https://json.org) - Human-readable, broad cross-platform support. Not the most compact format, but a good choice when cached items are returned directly to HTTP clients because it avoids an extra deserialization and re-serialization step.
+        if (result.IsNull)
+            return default;
 
-- [MessagePack](https://msgpack.org) - A compact binary format with no schema requirement. Produces smaller payloads than JSON with lower serialization overhead.
+        return JsonSerializer.Deserialize<T>(result!);
+    }
+
+    public static async Task SetAsync<T>(
+        this IDatabase cache,
+        string key,
+        T value,
+        TimeSpan? expiry = null,
+        string path = "$")
+    {
+        var json = JsonSerializer.Serialize(value);
+
+        // Store JSON document
+        await cache.ExecuteAsync("JSON.SET", key, path, json);
+
+        // Apply TTL if provided
+        if (expiry.HasValue)
+        {
+            await cache.KeyExpireAsync(key, expiry);
+        }
+    }
+
+    public static async Task<bool> ExpireAsync(
+        this IDatabase cache,
+        string key,
+        TimeSpan expiry)
+    {
+        return await cache.KeyExpireAsync(key, expiry);
+    }
+}
+```
+
+When you serialize values as Redis strings instead, common format options include:
 
 - [JSON](https://json.org) - Human-readable, broad cross-platform support. Not the most compact format, but a good choice when cached items are returned directly to HTTP clients because it avoids an extra deserialization and re-serialization step.
 
