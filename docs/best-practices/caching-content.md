@@ -1,4 +1,4 @@
-<!-- cSpell:ignore BSON keyspace INCRBY DECR DECRBY MGET MSET SADD SMEMBERS SDIFF SUNION ZADD LPUSH RPUSH LPOP RPOP LRANGE RRANGE -->
+<!-- cSpell:ignore BSON GETSET keyspace INCRBY DECR DECRBY MGET MSET SADD SMEMBERS SDIFF SUNION ZADD LPUSH RPUSH LPOP RPOP LRANGE RRANGE -->
 
 Caching is a common technique that aims to improve the performance and scalability of a system. It caches data by temporarily copying frequently accessed data to fast storage that's located close to the application. If this fast data storage is located closer to the application than the original source, then caching can significantly improve response times for client applications by serving data more quickly.
 
@@ -240,11 +240,11 @@ async Task<string> RetrieveItemAsync(string itemKey)
 
 When multiple clients or application instances share a cache, you need to prevent concurrent updates from corrupting data. The general concurrency strategies are described in [Managing concurrency in a cache](#managing-concurrency-in-a-cache) earlier in this article. Redis provides several mechanisms that implement those strategies.
 
-**Atomic single-key operations.** Commands such as `INCR`, `INCRBY`, `DECR`, `DECRBY`, and `SET` with the `GET` option update a value in a single step, eliminating race conditions that occur when `GET` and `SET` are issued separately. Examples:
+**Atomic single-key operations.** Commands such as `INCR`, `INCRBY`, `DECR`, `DECRBY`, and `GETSET` update a value in a single step, eliminating race conditions that occur when `GET` and `SET` are issued separately. Examples:
 
 - `INCR`, `INCRBY`, `DECR`, `DECRBY`  
 
-- `SET` with the `GET` option, which atomically sets a key to a new value and returns the previous value. In StackExchange.Redis, use `IDatabase.StringGetSetAsync` for this operation:
+- `GETSET`, which atomically sets a key to a new value and returns the previous value. In StackExchange.Redis, use `IDatabase.StringGetSetAsync`:
 
   ```csharp
   string oldValue = await cache.StringGetSetAsync("data:counter", 0);
@@ -331,7 +331,7 @@ await cache.StringSetAsync("data:key1", 99, TimeSpan.FromSeconds(20));
 TimeSpan? expiry = cache.KeyTimeToLive("data:key1");
 ```
 
-You can also set the expiration time to a specific date and time by using the EXPIRE command, which is available in the StackExchange library as the `KeyExpireAsync` method:
+You can also set the expiration to a specific date and time by using the `EXPIREAT` command, which is available in the StackExchange library as the `KeyExpireAsync` method with a `DateTime` parameter:
 
 ```csharp
 await cache.StringSetAsync("data:key1", 99);
@@ -374,7 +374,7 @@ Many applications need to track the most recently accessed or viewed items. For 
 
 #### Implement a leader board
 
-Redis Sorted Sets (ZSETs) maintain ordered rankings by associating each element with a numeric score. Redis keeps the ordering automatically, and operations such as `ZADD`, `ZRANGE`, and `ZREVRANGE` are O(log N), so sorted sets remain efficient even with large item counts.
+Redis Sorted Sets (ZSETs) maintain ordered rankings by associating each element with a numeric score. Redis keeps the ordering automatically. `ZADD` is O(log N), and range queries such as `ZRANGE` and `ZREVRANGE` are O(log N + M) where M is the number of elements returned, so sorted sets remain efficient even with large item counts.
 
 ##### Add items to a leader board
 
@@ -442,7 +442,7 @@ ASP.NET Core applications use the `IDistributedCache` abstraction and session mi
 ```csharp
 builder.Services.AddStackExchangeRedisCache(options =>
 {
-    options.Configuration = "<your-cache-name>.redis.azure.net:10000";
+    options.Configuration = "<your-cache-name>.<region>.redis.azure.net:10000";
     options.InstanceName = "app-cache:";
 });
 
