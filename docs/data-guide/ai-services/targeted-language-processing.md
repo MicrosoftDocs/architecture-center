@@ -1,6 +1,6 @@
 ---
 title: Choose an Azure AI Targeted Language Processing Technology
-description: Learn about targeted language processing capabilities in Foundry Tools, including NLP, text analytics, translation, and document data extraction.
+description: Learn about targeted language processing capabilities in Foundry Tools, including natural language processing, text analytics, translation, and document data extraction.
 author: ritesh-modi
 ms.author: rimod
 ms.date: 02/19/2026
@@ -15,17 +15,17 @@ ms.custom: arb-aiml
 
 [Foundry Tools](/azure/ai-services/what-are-ai-services) helps developers and organizations create AI-based, advanced, production-ready applications that align with responsible AI practices by using out-of-the-box, prebuilt, and customizable APIs and models.
 
-This article describes targeted language processing capabilities that Tools provides, such as natural language processing (NLP), text analytics, language understanding, translation, and document data extraction. It includes the following services: 
+This article describes targeted language processing capabilities that Tools provides, including natural language processing, text analytics, language understanding, translation, and document data extraction. It includes the following services: 
 
-- [Azure Language in Foundry Tools](#azure-language) is a cloud-based service that provides NLP features for understanding and analyzing text, including named entity recognition (NER), sentiment analysis, language detection, summarization, and question answering.
+- [Azure Language in Foundry Tools](#azure-language) is a cloud-based service that provides natural language processing features for understanding and analyzing text, including named entity recognition (NER), sentiment analysis, language detection, summarization, and question answering.
 
-- [Azure Translator in Foundry Tools](#azure-translator) is a machine translation service. It performs [real-time text translation](/azure/ai-services/translator/text-translation/overview), batch and single-file [document translation](/azure/ai-services/translator/document-translation/overview), and [custom translations](/azure/ai-services/translator/custom-translator/overview) that you can use to incorporate specialized terminology or industry-specific language for your use case. Azure Translator [supports multiple languages](/azure/ai-services/translator/language-support).
+- [Azure Translator in Foundry Tools](#azure-translator) is a machine translation service. It provides [real-time text translation](/azure/ai-services/translator/text-translation/overview), batch and single-file [document translation](/azure/ai-services/translator/document-translation/overview), and [custom translations](/azure/ai-services/translator/custom-translator/overview) that you can use to incorporate specialized terminology or industry-specific language for your use case. Azure Translator [supports multiple languages](/azure/ai-services/translator/language-support).
 
-- [Azure Document Intelligence in Foundry Tools](#azure-document-intelligence) is a service that converts images directly into electronic forms. You can specify expected fields and then search images that you provide to capture those fields without human intervention. Azure Document Intelligence hosts many prebuilt models. You can also use it to build your own custom models.
+- [Azure Document Intelligence in Foundry Tools](#azure-document-intelligence) is a service that converts images directly into electronic forms. You can specify expected fields and search images that you provide to capture those fields without human intervention. Azure Document Intelligence hosts many prebuilt models. You can also use it to build your own custom models.
 
 - [Azure Content Understanding in Foundry Tools](#azure-content-understanding) is a service that uses generative AI to extract schema-defined fields from documents by using natural language descriptions. Use Azure Content Understanding when your document type has no prebuilt Azure Document Intelligence model, when you need confidence scores and grounding for automated workflows, or when you need retrieval-augmented generation (RAG)-ready Markdown output.
 
-- [Foundry Models](#models) is a service that provides AI models that you can use directly through APIs to do language tasks like content generation, summarization, and translation.
+- [Foundry Models](#models) is a service that provides AI models that you can use directly through APIs for language tasks like content generation, summarization, and translation.
 
 ## Azure Language
 
@@ -34,15 +34,15 @@ This article describes targeted language processing capabilities that Tools prov
 | Use Azure Language for these tasks | Don't use Azure Language for these tasks |
 | :----------| :-------------|
 | Build intelligent applications by using the web-based Microsoft Foundry, REST APIs, and client libraries. | Search documents by using chat. Use [Azure AI Search](/azure/search/search-what-is-azure-search) instead. |
-| Work with structured or unstructured documents for the wide array of language-related tasks that this article describes. | Check documents for content safety. Use [Content Safety in Foundry Control Plane](/azure/ai-services/content-safety/overview) instead. |
+| Work with structured or unstructured documents for the wide range of language-related tasks that this article describes. | Check documents for content safety. Use [Content Safety in Foundry Control Plane](/azure/ai-services/content-safety/overview) instead. |
 | | Translate documents. For translation, use [Azure Translator](#azure-translator). |
 
 ### Available Azure Language tools
 
-The [Azure Language Model Context Protocol (MCP) server](/azure/ai-services/language-service/concepts/foundry-tools-agents#azure-language-mcp-server-preview) connects agents directly to Azure Language services through the MCP. This integration allows developers to build conversational applications that have reliable NLP capabilities while ensuring enterprise-grade compliance, data protection, and processing accuracy throughout AI workflows. Azure Language provides both remote and local MCP server options:
+The [Azure Language model context protocol (MCP) server](/azure/ai-services/language-service/concepts/foundry-tools-agents#azure-language-mcp-server-preview) connects agents directly to Azure Language services through the MCP. This integration allows developers to build conversational applications that have reliable natural language processing capabilities while ensuring enterprise-grade compliance, data protection, and processing accuracy throughout AI workflows. Azure Language provides both remote and local MCP server options:
 
-- **Remote server:** Available through the Tools catalog for cloud-hosted deployments
-- **Local server:** Available for developers who prefer to host the server in their own environment
+- **Remote server:** Available through the Tools catalog for cloud-hosted deployments.
+- **Local server:** Available for developers who prefer to host the server in their own environment.
 
 ### Available Azure Language agents
 
@@ -59,19 +59,19 @@ The following table provides a list of features available in Azure Language.
 
 | Feature | Description |
 | :----------| :-------------|
-| [NER](/azure/ai-services/language-service/named-entity-recognition/overview) | Identifies different entries in text and categorizes them into predefined types, such as people, events, places, and dates. |
+| [NER](/azure/ai-services/language-service/named-entity-recognition/overview) | Identifies different entries in text and categorizes them into predefined types, like people, events, places, and dates. |
 | [Personal data and health data detection](/azure/ai-services/language-service/personally-identifiable-information/overview)| Identifies entities in text and conversations, including chat or transcripts, associated with individuals. Detects and redacts sensitive information like phone numbers, email addresses, and forms of identification. |
 | [Language detection](/azure/ai-services/language-service/language-detection/overview) | Evaluates text and detects a wide range of languages and dialects. |
 | [Sentiment analysis and opinion mining](/azure/ai-services/language-service/sentiment-opinion-mining/overview) | Helps you understand public perception of your brand or topic by analyzing text for signs of positive or negative sentiment and linking them to specific aspects of the content.|
-| [Summarization](/azure/ai-services/language-service/summarization/overview)| Condenses information for text and conversations. Supports extractive summarization (selecting key sentences), abstractive summarization (generating new, concise sentences), conversation summarization (recapping meetings with timestamps), and call center summarization. |
+| [Summarization](/azure/ai-services/language-service/summarization/overview)| Condenses information for text and conversations. Supports extractive summarization that selects key sentences, abstractive summarization that generates concise new sentences, conversation summarization that recaps meetings with timestamps, and call center summarization. |
 | [Key phrase extraction](/azure/ai-services/language-service/key-phrase-extraction/overview) | Evaluates and returns the main concepts in unstructured text as a list. |
-| [Entity linking](/azure/ai-services/language-service/entity-linking/overview) | Disambiguates the identity of entities, like words or phrases, found in unstructured text and returns links to Wikipedia. Entity linking retires September 1, 2028. We recommend that you migrate existing workloads to NER. |
-| [Text analytics for health](/azure/ai-services/language-service/text-analytics-for-health/overview) | Extracts and labels relevant medical information from unstructured texts such as doctor's notes, discharge summaries, clinical documents, and electronic health records. <br><br> When you design your workload, evaluate the processing location and data residency of this cloud-hosted feature to ensure that it aligns with your compliance expectations. Some workloads might be restricted in their capacity to send healthcare data to a cloud-hosted platform. <br><br> You can use this API as a Docker container to host in your own compute in the cloud or on-premises. This process might help address compliance concerns that include platform as a service. For more information, see [Use text analytics for health containers](/azure/ai-services/language-service/text-analytics-for-health/how-to/use-containers). |
+| [Entity linking](/azure/ai-services/language-service/entity-linking/overview) | Disambiguates entity identities, like words or phrases, found in unstructured text and returns links to Wikipedia. Entity linking retires September 1, 2028. We recommend that you migrate existing workloads to NER. |
+| [Text analytics for health](/azure/ai-services/language-service/text-analytics-for-health/overview) | Extracts and labels relevant medical information from unstructured texts like doctor's notes, discharge summaries, clinical documents, and electronic health records. <br><br> When you design your workload, evaluate the processing location and data residency of this cloud-hosted feature to ensure that it aligns with your compliance expectations. Some workloads might face restrictions that limit their capacity to send healthcare data to a cloud-hosted platform. <br><br> You can use this API as a Docker container to host in your own compute in the cloud or on-premises. This process can help address compliance concerns related to the use of platform as a service (PaaS) offerings. For more information, see [Use text analytics for health containers](/azure/ai-services/language-service/text-analytics-for-health/how-to/use-containers). |
 | [Custom text classification](/azure/ai-services/language-service/custom-text-classification/overview) | Builds custom AI models to classify unstructured text documents into custom classes that you define. |
 | [Custom NER](/azure/ai-services/language-service/custom-named-entity-recognition/overview) | Builds custom AI models to extract custom entity categories, like labels for words or phrases, by using unstructured text that you provide. |
-| [Conversational language understanding (CLU)](/azure/ai-services/language-service/conversational-language-understanding/overview)| Builds custom natural language understanding (NLU) models to predict the overall intention of an incoming utterance and extract important information from it. |
+| [Conversational language understanding (CLU)](/azure/ai-services/language-service/conversational-language-understanding/overview)| Builds custom natural language processing models to predict the user's intent from each input and extract important information from it. |
 | [Orchestration workflow](/azure/ai-services/language-service/orchestration-workflow/overview) | Connects [CLU](/azure/ai-services/language-service/conversational-language-understanding/overview), [question answering](/azure/ai-services/language-service/question-answering/overview), and [Language Understanding Intelligent Service (LUIS)](/azure/ai-services/luis/what-is-luis) applications. |
-| [Question answering](/azure/ai-services/language-service/question-answering/overview) | Identifies the most suitable answer for user inputs. Commonly used to build conversational client applications, such as social media applications, chatbots, and speech-enabled desktop applications. |
+| [Question answering](/azure/ai-services/language-service/question-answering/overview) | Identifies the most suitable answer for user inputs. Commonly used to build conversational client applications, like social media applications, chatbots, and speech-enabled desktop applications. |
 
 ### Choose an Azure Language feature
 
@@ -80,10 +80,10 @@ The following table provides a list of possible use cases for Azure Language. If
 | Use case | Customizable |
 | :----------|:-----------------|
 | [Predict the intention of user inputs and extract information from them](/azure/ai-services/language-service/conversational-language-understanding/overview). |  Yes |
-| [Identify and redact sensitive information such as personal data](/azure/ai-services/language-service/personally-identifiable-information/overview). |  |
+| [Identify and redact sensitive information like personal data](/azure/ai-services/language-service/personally-identifiable-information/overview). |  |
 | [Identify the language that text is written in](/azure/ai-services/language-service/language-detection/overview). | |
 | [Extract medical information from clinical or medical documents without building a model](/azure/ai-services/language-service/text-analytics-for-health/overview). |   |
-| [Extract medical information from clinical or medical documents by using a model trained on your data](/azure/ai-services/language-service/custom-text-analytics-for-health/overview). | Yes |
+| [Extract medical information from clinical or medical documents by using a model trained on your data](/azure/ai-services/language-service/text-analytics-for-health/overview). | Yes |
 | [Extract categories of information without creating a custom model](/azure/ai-services/language-service/named-entity-recognition/overview). |   |
 | [Extract categories of information by using a model specific to your data](/azure/ai-services/language-service/custom-named-entity-recognition/overview). | Yes |
 | [Extract main topics and important phrases](/azure/ai-services/language-service/key-phrase-extraction/overview). |  |
@@ -132,11 +132,11 @@ The following table provides a list of possible use cases for Azure Translator.
 
 ## Azure Document Intelligence
 
-[Azure Document Intelligence](/azure/ai-services/document-intelligence/overview) is a cloud-based service in Tools that you can use to build intelligent document processing solutions. Use Azure Document Intelligence to automate document processing in applications and workflows, enhance data-driven strategies, and enrich document search capabilities.
+Use [Azure Document Intelligence](/azure/ai-services/document-intelligence/overview) to automate document processing in applications and workflows, enhance data-driven strategies, and enrich document search capabilities.
 
 | Use Azure Document Intelligence for these tasks | Don't use Azure Document Intelligence for these tasks |
 | :----------| :-------------|
-| Extract specific fields from known document types that have a prebuilt model, such as invoices, receipts, W-2s, or ID documents. | Extract fields from custom document types that have no prebuilt model and require flexible, schema-defined extraction. Use [Azure Content Understanding](#azure-content-understanding) instead. |
+| Extract specific fields from known document types that have a prebuilt model, like invoices, receipts, W-2s, or ID documents. | Extract fields from custom document types that have no prebuilt model and require flexible, schema-defined extraction. Use [Azure Content Understanding](#azure-content-understanding) instead. |
 | Process high volumes of structured or semistructured documents when you need deterministic, low-variability extraction. | Build RAG pipelines that require Markdown-formatted output that has embedded figures, section hierarchy, and chunk-ready structure. Use [Azure Content Understanding](#azure-content-understanding) instead. |
 | Train custom neural or template models on labeled datasets for document types specific to your business. | Require confidence scores and grounding for each extracted field to drive human-in-the-loop review workflows. Use [Azure Content Understanding](#azure-content-understanding) instead. |
 | Identify key structures, like headers, footers, and chapter breaks, in varied collections of documents to further programmatically interact with the document. | |
@@ -159,9 +159,9 @@ Prebuilt models add intelligent document processing to your apps and flows witho
 | [Invoice](/azure/ai-services/document-intelligence/prebuilt/invoice) | Extract customer and vendor details from invoices. Use for accounts payable processing and automated tax recording and reporting. |
 | [Receipt](/azure/ai-services/document-intelligence/prebuilt/receipt) | Extract sales transaction details from receipts. Use for expense management, consumer behavior data analysis, and merchandise return processing. |
 | [Identity](/azure/ai-services/document-intelligence/prebuilt/id-document) | Extract key information from passports, ID cards, and driver's licenses. Use for Know Your Customer (KYC) compliance, medical account management, and identity checkpoints. |
-| [Health insurance card](/azure/ai-services/document-intelligence/prebuilt/health-insurance-card) | Extract key information from US health insurance cards, such as insurer, member, and group number. Use for coverage and eligibility verification and value-based analytics. |
+| [Health insurance card](/azure/ai-services/document-intelligence/prebuilt/health-insurance-card) | Extract key information from US health insurance cards, like insurer, member, and group number. Use for coverage and eligibility verification and value-based analytics. |
 | [Contract](/azure/ai-services/document-intelligence/prebuilt/contract) | Extract agreement and party details from contracts in various formats, including scanned documents and digital PDFs. |
-| [Credit card](/azure/ai-services/document-intelligence/prebuilt/credit-card) | Extract key fields from credit and debit cards, such as card number, issuing bank, and expiration date. |
+| [Credit card](/azure/ai-services/document-intelligence/prebuilt/credit-card) | Extract key fields from credit and debit cards, like card number, issuing bank, and expiration date. |
 | [Bank statement](/azure/ai-services/document-intelligence/prebuilt/bank-statement) | Extract account information and transaction details from bank statements. Use for tax processing, accounting management, and loan documentation processing. |
 | [Bank check](/azure/ai-services/document-intelligence/prebuilt/bank-check) | Extract relevant information from checks. Use for credit management and automated lender management. |
 | [Pay stub](/azure/ai-services/document-intelligence/prebuilt/pay-stub) | Extract pay stub details. Use for employee payroll detail verification and fraud detection. |
@@ -192,7 +192,7 @@ Azure Document Intelligence supports the following optional features that you ca
 - Query fields
 - Key-value pairs
 
-For more information about model scenarios, see [Choose an Azure Document Intelligence model](/azure/ai-services/document-intelligence/choose-model-feature).
+For more information about model scenarios, see [Choose an Azure Document Intelligence model](/azure/ai-services/document-intelligence/concept/choose-model-feature).
 
 ## Azure Content Understanding
 
@@ -201,8 +201,8 @@ For more information about model scenarios, see [Choose an Azure Document Intell
 | Use Azure Content Understanding for these tasks | Don't use Azure Content Understanding for these tasks |
 | :----------| :-------------|
 | Extract fields from document types that have no Azure Document Intelligence prebuilt model by using schema definitions written in natural language. | Extract fields from standard document types that have an existing Azure Document Intelligence prebuilt model. [Azure Document Intelligence](#azure-document-intelligence) is more cost-effective and deterministic for these scenarios. |
-| Build RAG pipelines that require Markdown output that preserves layout, headings, tables, figures, and annotations for vector indexing. | Process high volumes of simple, structured documents when you're concerned about LLM variability and cost. Use [Azure Document Intelligence](#azure-document-intelligence) instead. |
-| Drive automation workflows that require per-field confidence scores and grounding to route low-confidence records to human review. | Do general-purpose language tasks such as summarization or sentiment analysis. Use [Azure Language](#azure-language) or [Models](#models) instead. |
+| Build RAG pipelines that require Markdown output that preserves layout, headings, tables, figures, and annotations for vector indexing. | Process high volumes of simple, structured documents when you need to minimize LLM variability and cost. Use [Azure Document Intelligence](#azure-document-intelligence) instead. |
+| Drive automation workflows that require per-field confidence scores and grounding to route low-confidence records to human review. | Do general-purpose language tasks like summarization or sentiment analysis. Use [Azure Language](#azure-language) or [Models](#models) instead. |
 | Classify document types before you route them to the appropriate analyzer in a mixed-document pipeline. | |
 
 ### Available Azure Content Understanding features for documents
@@ -230,11 +230,11 @@ The following table provides a list of possible use cases for Azure Content Unde
 
 ## Models
 
-[Models](/azure/foundry-classic/concepts/foundry-models-overview) provides access to a catalog of foundation models from Microsoft, OpenAI, and other leading providers. These models can do general-purpose language tasks such as content generation, summarization, translation, and conversational interactions.
+[Models](/azure/foundry-classic/concepts/foundry-models-overview) provides access to a catalog of foundation models from Microsoft, OpenAI, and other leading providers. These models can do general-purpose language tasks like content generation, summarization, translation, and conversational interactions.
 
 | Use Models for these tasks | Consider specialized services when you need these capabilities |
 | :----------| :-------------|
-| Generate creative content, drafts, or variations of text. | Consistent, repeatable NLP tasks like NER or sentiment analysis at scale. [Azure Language](#azure-language) provides optimized, cost-effective APIs for these specific tasks. |
+| Generate creative content, drafts, or variations of text. | Consistent, repeatable natural language processing tasks like NER or sentiment analysis at scale. [Azure Language](#azure-language) provides optimized, cost-effective APIs for these specific tasks. |
 | Summarize long documents or conversations. | Translation for large volumes of documents while preserving formatting. [Azure Translator](#azure-translator) is optimized for translation quality and document structure preservation. |
 | Build conversational AI experiences and chatbots. | Structured data extraction from forms and invoices with high accuracy. [Azure Document Intelligence](#azure-document-intelligence) provides prebuilt models trained specifically for document types. |
 | Answer general questions based on provided context. | |
