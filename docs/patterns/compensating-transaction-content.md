@@ -18,13 +18,17 @@ The solution is to implement a compensating transaction. The steps in a compensa
 
 A common approach is to use a workflow to implement an eventually consistent operation that requires compensation. As the original operation proceeds, the system records information about each step, including how to undo the work that the step performs. If the operation fails at any point, the workflow rewinds back through the steps it has completed. At each step, the workflow performs the work that reverses that step.
 
+<div align="center">
+
+![Diagram that shows the steps for creating an itinerary. The steps of the compensating transaction that cancels the itinerary are also shown.](./_images/compensating-transaction.png)
+
+</div>
+
 Three important points are:
 
 - A compensating transaction might not have to undo the work in the exact reverse order of the original operation.
 - It might be possible to perform some of the undo steps in parallel.
 - It might be necessary to apply various business-specific rules. For example, canceling a flight reservation might not entitle the customer to a complete refund.  
-
-    :::image type="content" source="./_images/compensating-transaction.png" alt-text="Diagram that shows the steps for creating an itinerary. The steps of the compensating transaction that cancels the itinerary are also shown.":::  
 
 This approach is similar to the [Saga distributed transactions pattern](./saga.yml).
 
@@ -95,18 +99,15 @@ These steps constitute an eventually consistent operation, although each step is
 
 The steps in the compensating transaction might not be the exact opposite of the original steps. Also, the logic in each step in the compensating transaction must take business-specific rules into account. For example, canceling a flight reservation might not entitle the customer to a complete refund.
 
-The following figure shows the steps in a long-running transaction for booking a travel itinerary. You can also see the compensating transaction steps that undo the transaction.
-
-:::image type="content" source="./_images/compensating-transaction-diagram.png" alt-text="Diagram that shows the steps for creating an itinerary. The steps of the compensating transaction that cancels the itinerary are also shown.":::
-
-> [!NOTE]
-> You might be able to perform the steps in the compensating transaction in parallel, depending on how you design the compensating logic for each step.
-
 In many business solutions, failure of a single step doesn't always necessitate rolling back the system by using a compensating transaction. For example, consider the travel website scenario. Suppose the customer books flights F1, F2, and F3 but can't reserve a room at hotel H1. It's preferable to offer the customer a room at a different hotel in the same city rather than canceling the flights. The customer can still decide to cancel. In that case, the compensating transaction runs and undoes the bookings for flights F1, F2, and F3. But the customer should make this decision, not the system.
 
-In Azure, the Compensating Transaction pattern is frequently orchestrated using Azure Durable Functions. Durable Functions coordinate the execution of steps and manage compensating activities if a step fails. Within orchestrator functions, you can use try/catch blocks to catch failures and trigger compensation logic.
+The following image shows a possible Azure implementation. An application running in an Azure Container Apps environment hosts an orchestrator that coordinates each step of the workflow. The orchestrator records both forward actions and compensating actions in Azure Cosmos DB so that failures can be resumed, correlated, and audited. Communication between the orchestrator and participating microservices occurs through Azure Service Bus. Use managed identities and Microsoft Entra ID-based authorization between components to avoid shared secrets and to enforce least-privilege access. Configure retries, dead-letter queues, and message time-to-live policies in Service Bus so unrecoverable steps can be isolated and investigated without blocking the workflow. Capture end-to-end correlation IDs in Azure Monitor and Application Insights so you can trace original actions and compensation actions across services. If a step fails and can't be recovered by retries, the orchestrator starts the compensating workflow to undo previously completed steps. Because each microservice is typically aligned to a business domain, both the forward operation and its compensating action are often handled by the same service.
 
-For distributed architectures, use Azure Service Bus or Event Grid to reliably propagate both forward-moving and compensating events across services. Store transaction progress in Azure Cosmos DB or Azure Table Storage. These data stores track which steps have completed, enabling the system to determine exactly which compensation steps must execute if a failure occurs.
+<div align="center">
+
+![Example Azure implementation of the compensating transaction pattern](./_images/compensating-transaction-azure.png)
+
+</div>
 
 ## Next steps
 
