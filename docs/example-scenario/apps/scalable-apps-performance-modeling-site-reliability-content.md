@@ -8,7 +8,7 @@ For more information, see [Develop an SRE strategy](/training/paths/az-400-devel
 
 :::image type="content" source="media/scalable-apps-performance-modeling-site-reliability.svg" border="false" alt-text="Diagram that shows a scalable API platform. Client apps send requests through Azure Front Door, Azure API Management, and Application Gateway for Containers to AKS microservices backed by Azure data services. Microsoft Entra ID provides authentication, Azure Managed Redis provides caching, and Azure Monitor with Application Insights collects telemetry across all layers." lightbox="media/scalable-apps-performance-modeling-site-reliability.svg" :::
 
-*Download a [Visio file](https://arch-center.azureedge.net/scalable-apps-performance-modeling-site-reliability.svg) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/scalable-apps-performance-modeling-site-reliability.vsdx) of this architecture.*
 
 ### Data flow
 
@@ -26,19 +26,19 @@ The following data flow corresponds to the previous diagram:
 
 1. Microservices access back-end data stores as needed:
 
-  - Azure Cosmos DB for globally distributed, low-latency data
-  - Azure SQL for relational data
-  - Azure Storage and Azure Data Lake Storage for unstructured content and files
+   - Azure Cosmos DB for globally distributed, low-latency data
+   - Azure SQL for relational data
+   - Azure Storage and Azure Data Lake Storage for unstructured content and files
 
 1. Microsoft Entra ID authenticates and authorizes users and service principals throughout the request flow.
 
 1. Azure Monitor and Application Insights collect telemetry independently at each layer:
 
-  - Azure Front Door request metrics
-  - API Management policy execution
-  - Application Gateway for Containers load distribution
-  - AKS pod-level metrics
-  - Data store response times
+   - Azure Front Door request metrics
+   - API Management policy execution
+   - Application Gateway for Containers load distribution
+   - AKS pod-level metrics
+   - Data store response times
   
   SRE teams use per-layer collection to calculate composite SLIs, pinpoint degradation sources, and track SLO compliance.
 
@@ -59,7 +59,7 @@ Client applications such as web apps, mobile apps, and service applications cons
 
 - [Azure Front Door](/azure/well-architected/service-guides/azure-front-door) is a modern cloud content delivery network service that uses the Microsoft global edge network to create scalable web applications. In this architecture, it serves as the single entry point for all client requests. It provides SSL termination and applies Azure Web Application Firewall rules before it routes traffic to API Management. For more information, see [Routing architecture overview](/azure/frontdoor/front-door-routing-architecture).
 
-- [API Management](/azure/well-architected/service-guides/api-management/operational-excellence) is a managed API gateway service that provides a hybrid, multicloud management platform for APIs across all environments. In this architecture, it functions as the API gateway. It enforces access control policies, applies rate limiting, caches responses by using [Azure Managed Redis](/azure/azure-cache-for-redis/cache-overview) as an [external cache](/azure/api-management/api-management-howto-cache-external), and transforms requests before it forwards them to the back-end services. API Management supports autoscaling in Standard and Premium tiers.
+- [API Management](/azure/well-architected/service-guides/api-management/operational-excellence) is a managed API gateway service that provides a hybrid, multicloud management platform for APIs across all environments. In this architecture, it functions as the API gateway. It enforces access control policies, applies rate limiting, caches responses by using [Azure Managed Redis](/azure/redis/overview) as an [external cache](/azure/api-management/api-management-howto-cache-external), and transforms requests before it forwards them to the back-end services. API Management supports autoscaling in Standard and Premium tiers.
 
 - [AKS](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed container orchestration service that provides a Kubernetes platform for running containerized applications. In this architecture, it hosts all microservices: product, profile, orders and payment, and content services. Azure manages the control plane, and you manage the agent nodes.
 
@@ -71,7 +71,7 @@ Client applications such as web apps, mobile apps, and service applications cons
 
 - [Azure Storage](/azure/storage/common/storage-introduction) is a cloud storage service that includes object, file, disk, queue, and table storage. [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a massively scalable data lake service for high-performance analytics workloads. In this architecture, these services store unstructured content such as media assets, documents, and files.
 
-- [Microsoft Entra ID](/azure/active-directory/fundamentals/) is a cloud-based identity and access management service that authenticates and authorizes users to access resources. In this architecture, it provides centralized identity and access management for users and service principals across all services.
+- [Microsoft Entra ID](/entra/fundamentals/what-is-entra) is a cloud-based identity and access management service that authenticates and authorizes users to access resources. In this architecture, it provides centralized identity and access management for users and service principals across all services.
 
 - [Azure Monitor](/azure/azure-monitor/overview) is an observability service for collecting, analyzing, and responding to monitoring data from your cloud and on-premises environments. [Application Insights](/azure/azure-monitor/app/app-insights-overview) is an extension of Azure Monitor that provides application performance monitoring (APM) features. In this architecture, these services collect telemetry across all layers. They calculate SLIs, track SLO compliance, and provide dashboards for proactive alerting. Azure Monitor supports OpenTelemetry and integrates with Azure Managed Grafana for distributed tracing and visualization.
 
@@ -83,7 +83,7 @@ For the compute plane, consider:
 
 - [Azure Container Apps](/azure/container-apps/overview) for microservices and event-driven workloads. It supports serverless containers and [Kubernetes Event Driven Autoscaler (KEDA)](https://keda.sh/)-based autoscaling without requiring Kubernetes cluster management.
 
-- [Azure Functions](https://azure.microsoft.com/services/functions) for serverless API services where you can deploy individual API endpoints deployed as independent functions.
+- [Azure Functions](/azure/azure-functions/functions-overview) for serverless API services where you can deploy individual API endpoints deployed as independent functions.
 
 ## Scenario details
 
@@ -127,7 +127,7 @@ This architecture addresses security through multiple layers:
 
 - **Identity and access management:** Microsoft Entra ID provides centralized identity management for users and service principals.
 
-- **Network security:** Azure Web Application Firewall, integrated with Azure Front Door, provides protection against common web exploits, including [OWASP Top 10](https://owasp.org/www-project-top-ten/) vulnerabilities. API Management enforces network-level access controls such as IP address filtering and rate limiting.
+- **Network security:** Azure Web Application Firewall, integrated with Azure Front Door, provides protection against common web exploits, including [Open Worldwide Application Security Project (OWASP) Top 10](https://owasp.org/www-project-top-ten/) vulnerabilities. API Management enforces network-level access controls such as IP address filtering and rate limiting.
 
 - **API gateway security:** API Management enforces application-level authentication and authorization through OAuth 2.0 token validation and certificate authentication. These policies validate caller identity at the API-request level, distinct from the network-level protections that Web Application Firewall and IP address filtering provide.
 
@@ -329,6 +329,5 @@ Other contributors:
 - [Microservices architecture style](../../guide/architecture-styles/microservices.md)
 - [Design to scale out](../../guide/design-principles/scale-out.md)
 - [Choose an Azure compute service for your application](../../guide/technology-choices/compute-decision-tree.md)
-
 - [Baseline web application with zone redundancy](../../web-apps/app-service/architectures/baseline-zone-redundant.yml)
 
