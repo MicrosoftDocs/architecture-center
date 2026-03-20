@@ -6,7 +6,9 @@ For more information, see [Develop an SRE strategy](/training/paths/az-400-devel
 
 ## Architecture
 
-:::image type="content" source="media/scalable-apps-performance-modeling-site-reliability.svg" border="false" alt-text="Diagram that shows a scalable API platform. Client apps send requests through Azure Front Door, Azure API Management, and Application Gateway for Containers to AKS microservices backed by Azure data services. Microsoft Entra ID provides authentication, Azure Managed Redis provides caching, and Azure Monitor with Application Insights collects telemetry across all layers." lightbox="media/scalable-apps-performance-modeling-site-reliability.svg" :::
+:::image type="complex" source="media/scalable-apps-performance-modeling-site-reliability.svg" border="false" alt-text="Diagram that shows a scalable API platform." lightbox="media/scalable-apps-performance-modeling-site-reliability.svg":::
+ Client apps send requests through Azure Front Door, Azure API Management, and Application Gateway for Containers to AKS microservices backed by Azure data services. Microsoft Entra ID provides authentication, Azure Managed Redis provides caching, and Azure Monitor with Application Insights collects telemetry across all layers.
+:::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/scalable-apps-performance-modeling-site-reliability.vsdx) of this architecture.*
 
