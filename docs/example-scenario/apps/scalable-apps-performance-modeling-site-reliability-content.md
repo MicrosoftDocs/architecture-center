@@ -40,7 +40,7 @@ The following data flow corresponds to the previous diagram:
    - AKS pod-level metrics
    - Data store response times
   
-  SRE teams use per-layer collection to calculate composite SLIs, pinpoint degradation sources, and track SLO compliance.
+   SRE teams use per-layer collection to calculate composite SLIs, pinpoint degradation sources, and track SLO compliance.
 
 1. The response traverses back through the same path to the client application.
 
