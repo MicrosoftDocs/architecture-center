@@ -3,7 +3,7 @@ title: Choose an Azure AI Technology
 description: Learn about AI services that you can use in AI applications and data flows. Choose the appropriate service for your use case.
 author: davihern
 ms.author: davihern
-ms.date: 02/19/2026
+ms.date: 03/20/2026
 ms.update-cycle: 180-days
 ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot

@@ -3,7 +3,7 @@ title: Choose an Azure Speech Recognition and Generation Technology
 description: Learn about speech recognition and generation capabilities in Foundry Tools, including speech-to-text, text-to-speech, speech translation, and avatar creation.
 author: ritesh-modi
 ms.author: rimod
-ms.date: 02/19/2026
+ms.date: 03/20/2026
 ms.update-cycle: 180-days
 ms.topic: concept-article
 ms.subservice: architecture-guide
