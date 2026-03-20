@@ -148,7 +148,7 @@ When you peer extra virtual networks with the virtual network that connects to E
 
 [Azure Load Balancer](https://azure.microsoft.com/blog/azure-load-balancer-new-distribution-mode) is a network transmission layer service (layer 4) that balances traffic by using a five-tuple hash from data streams. The hash is based on source IP address, source port, destination IP address, destination port, and protocol type. In SAP cluster deployments on Azure, Load Balancer directs traffic to the primary service instance or to a healthy node when a fault occurs.
 
-We recommend that you use an [internal load balancer](/azure/load-balancer/quickstart-load-balancer-standard-internal-portal) for all SAP scenarios. If VMs in the back-end pool require public outbound connectivity or if you use them in an Azure zone deployment, you need [extra configurations](/azure/sap/workloads/high-availability-guide-standard-load-balancer-outbound-connections) for an internal load balancer. It's secure by default and blocks outbound connectivity unless you explicitly configure it.
+We recommend that you use an [internal load balancer](/azure/load-balancer/quickstart-load-balancer-standard-internal-portal) for all SAP scenarios. If VMs in the back-end pool require public outbound connectivity or if you use them in an Azure zone deployment, you need [extra configurations](/azure/sap/workloads/high-availability-guide-standard-load-balancer-outbound-connections) for an internal load balancer. It's secure by default and blocks outbound connectivity unless you explicitly allow it.
 
 For traffic from SAP GUI clients that connect to an SAP server via Dynamic Information and Action Gateway (DIAG) protocol or Remote Function Call (RFC), the SAP Central Services message server balances the load through SAP application server [logon groups](https://userapps.support.sap.com/sap/support/knowledge/en/2472141). For this type of setup, you don't need another load balancer.
 
@@ -194,13 +194,13 @@ For internet-facing communications, we recommend a standalone solution in the pe
 
 #### SAP Central Services in the application servers tier
 
-A Windows Server failover cluster implements high availability for SAP Central Services. When the cluster storage for the failover cluster is deployed on Azure, you can configure it as a clustered shared disk or as a clustered file share.
+A Windows Server failover cluster implements high availability for SAP Central Services. When the cluster storage for the failover cluster is deployed on Azure, you can set it up as a clustered shared disk or as a clustered file share.
 
 - We recommend that you use [Azure Files](/azure/storage/files/storage-files-introduction) as fully managed, cloud-native Server Message Block (SMB) or Network File System (NFS) shares. You can also use [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction), which provides high-performance, enterprise-class NFS and SMB shares.
 
 - To set up clusters by using shared disks on Azure, we recommend that you use [Azure shared disks](/azure/virtual-machines/disks-shared) to set up a [Windows Server failover cluster for SAP Central Services](/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-shared-disk). For an implementation example, see [Prepare Azure infrastructure for an ASCS cluster by using Azure shared disks](/azure/sap/workloads/sap-high-availability-infrastructure-wsfc-shared-disk).
 
-If you use an internal load balancer, you can activate the [high-availability port](/azure/load-balancer/load-balancer-ha-ports-overview). This port avoids the need to configure load-balancing rules for multiple SAP ports. When you set up Azure load balancers, activate Direct Server Return (DSR), which is also called *Floating IP*. DSR provides a way for server responses to bypass the load balancer. This direct connection keeps the load balancer from becoming a bottleneck in the path of data transmission. We recommend that you activate DSR for the ASCS and database clusters.
+If you use an internal load balancer, you can activate the [high-availability port](/azure/load-balancer/load-balancer-ha-ports-overview). This port avoids the need to define load-balancing rules for multiple SAP ports. When you set up Azure load balancers, activate Direct Server Return (DSR), which is also called *Floating IP*. DSR provides a way for server responses to bypass the load balancer. This direct connection keeps the load balancer from becoming a bottleneck in the path of data transmission. We recommend that you activate DSR for the ASCS and database clusters.
 
 #### Application services in the application servers tier
 
@@ -263,7 +263,7 @@ SAP has its own user management engine (UME) to control role-based access and au
 
 To enhance network security, consider applying a [perimeter network](../../reference-architectures/dmz/secure-vnet-dmz.yml) that uses a network virtual appliance (NVA) as a firewall for the SAP Web Dispatcher subnet.
 
-You can deploy an NVA to filter traffic between virtual networks, but don't place it between the SAP application and the database. Check the routing rules that are configured on the subnet and avoid directing traffic to a single-instance NVA. Routing through a single-instance NVA can cause maintenance downtime and network or clustered-node failures.
+You can deploy an NVA to filter traffic between virtual networks, but don't place it between the SAP application and the database. Check the routing rules that are defined on the subnet and avoid directing traffic to a single-instance NVA. Routing through a single-instance NVA can cause maintenance downtime and network or clustered-node failures.
 
 For infrastructure security, Azure encrypts data in transit and at rest. For more information about network security, see [Security for your SAP landscape](/azure/sap/workloads/planning-guide#security-for-your-sap-landscape). This article also specifies the network ports that you need to open on the firewalls to support application communication.
 
@@ -321,7 +321,7 @@ If your database tier requires more memory and fewer CPUs, use one of the [const
 
 In this scenario, Load Balancer distributes traffic to VMs in the application-tier subnet.
 
-Azure charges you only for the number of configured load-balancing and outbound rules, and the data that goes through the load balancer. Inbound network address translation (NAT) rules are free. Standard Load Balancer has no hourly charge if you don't configure any rules.
+Azure charges you only for the number of defined load-balancing and outbound rules, and the data that goes through the load balancer. Inbound network address translation (NAT) rules are free. Standard Load Balancer has no hourly charge if you don't create any rules.
 
 #### ExpressRoute
 
@@ -364,7 +364,7 @@ To achieve high IOPS and disk throughput, follow the common practices in storage
 
 [Premium SSD v2](/azure/virtual-machines/disks-types) provides more control over performance settings than Premium SSDs. You can set a Premium SSD v2 disk to any supported size and make granular adjustments to performance without downtime.
 
-[Ultra Disk Storage](/azure/virtual-machines/disks-enable-ultra-ssd) supports I/O-intensive applications. We recommend Ultra Disk Storage over [Write Accelerator](/azure/virtual-machines/how-to-enable-write-accelerator) premium storage when possible. You can individually increase or decrease performance metrics like IOPS and megabytes per second (MBps) without needing to reboot.
+[Ultra Disk Storage](/azure/virtual-machines/disks-enable-ultra-ssd) supports I/O-intensive applications. We recommend Ultra Disk Storage over [Write Accelerator](/azure/virtual-machines/how-to-enable-write-accelerator) premium storage when possible. You can individually increase or decrease performance metrics like IOPS and MBps without needing to reboot.
 
 For more information about how to optimize Azure storage for SAP workloads on SQL Server, see [Virtual Machines planning and implementation for SAP NetWeaver](/azure/sap/workloads/planning-guide).
 
