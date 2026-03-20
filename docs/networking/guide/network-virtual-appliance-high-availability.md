@@ -58,7 +58,7 @@ The following sections describe common architectures that you can use to integra
 | Solution | Benefits | Considerations |
 | --- | --- | --- |
 | [Load Balancer](#load-balancer) | This solution supports active/active and active/standby configurations, and scale-out NVAs with good convergence time. | The NVA needs to provide a port for the health probes, especially for active/standby deployments. For stateful appliances, such as firewalls that require traffic symmetry, flows to and from the internet require SNAT. |
-| [Azure Route Server](#azure-route-server) | The NVA must support Border Gateway Protocol (BGP). This solution supports active/active, active/standby, and scale-out NVAs. | Traffic symmetry requires SNAT in this solution. |
+| [Azure Route Server](#route-server) | The NVA must support Border Gateway Protocol (BGP). This solution supports active/active, active/standby, and scale-out NVAs. | Traffic symmetry requires SNAT in this solution. |
 | [Gateway Load Balancer](#gateway-load-balancer) | Traffic symmetry is guaranteed without SNAT. NVAs can be shared across tenants. This solution has a good convergence time and supports active/active, active/standby, and scale-out NVAs. | This solution supports flows to and from the internet and doesn't support East-West flows. |
 | [Dynamic public IP address and UDRs](#dynamic-public-ip-address-and-udr-management) | The NVA doesn't require special features. This solution guarantees symmetric traffic. | This solution is only for active/passive designs. It has a high convergence time of one to two minutes. |
 
