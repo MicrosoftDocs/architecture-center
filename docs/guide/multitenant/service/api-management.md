@@ -51,7 +51,7 @@ In scenarios where your tenants share a common back-end application, the API Man
 
 ### Instance for each tenant
 
-In some scenarios, you might deploy an instance of API Management for each tenant. We recommend this approach only if you have a small number of tenants or if you have strict compliance requirements that restrict you from sharing any infrastructure between tenants. For example, if you deploy a dedicated virtual network for each tenant, then you probably also need to deploy a dedicated API Management instance for each tenant.
+In some scenarios, you might deploy an instance of API Management for each tenant. We recommend this approach only if you have few tenants or if you have strict compliance requirements that restrict you from sharing any infrastructure between tenants. For example, if you deploy a dedicated virtual network for each tenant, then you probably also need to deploy a dedicated API Management instance for each tenant.
 
 > [!TIP]
 > If your only reason for deploying multiple instances is to support users across different geographic regions, you might want to consider whether the [multiregion deployment](#multiregion-deployments) feature in API Management meets your requirements.
@@ -204,7 +204,7 @@ The following example limits by tenant claim or header:
 
 Use API Management to configure your own [custom domains](/azure/api-management/configure-custom-domain) for the API gateway and developer portal. In some tiers, you can configure wildcard domains or multiple fully qualified domain names (FQDNs).
 
-You can also use API Management together with a service like [Azure Front Door](front-door.md). In this kind of configuration, Azure Front Door frequently handles custom domains and Transport Layer Security (TLS) certificates and communicates with API Management by using a single domain name. If the original URL from the client includes tenant information that you need to send to the API Management instance for later processing, consider using the `X-Forwarded-Host` request header, or use [Azure Front Door rules](front-door.md#rules-engine) to pass the information as an HTTP header.
+You can also use API Management together with a service like [Azure Front Door](front-door.md). In this kind of configuration, Azure Front Door frequently handles custom domains and Transport Layer Security (TLS) certificates and communicates with API Management by using a single domain name. If the original URL from the client includes tenant information that you need to send to the API Management instance for later processing, consider using the `X-Forwarded-Host` request header, or use [Azure Front Door rules](front-door.md#rules-engine) to pass the information as an HTTP header. For more information, see [Preserve the original HTTP host name](../../../best-practices/host-name-preservation.md).
 
 ### Rate limits
 

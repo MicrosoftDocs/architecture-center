@@ -39,7 +39,7 @@ The following scenarios are the primary use cases for the Claim-Check pattern:
 
 The following scenarios are secondary use cases for the Claim-Check pattern:
 
-- *Sensitive data protection*: Use the Claim-Check pattern when payloads contain sensitive data that don't want visible to the messaging system. Apply the pattern to all or portions of sensitive information in the payload. Secure the sensitive data without transmitting it directly through the messaging system.
+- *Sensitive data protection*: Use the Claim-Check pattern when payloads contain sensitive data that you don't want visible to the messaging system. Apply the pattern to all or portions of sensitive information in the payload. Secure the sensitive data without transmitting it directly through the messaging system.
 
 - *Complex routing scenarios*: Messages traversing multiple components can cause performance bottlenecks due to serialization, deserialization, encryption, and decryption tasks. Use the Claim-Check pattern to prevent direct message processing by intermediary components.
 
@@ -82,7 +82,7 @@ Choose the example that suits your needs and follow the provided link to view th
 
 ## Related resources
 
-- [Asynchronous Request-Reply Pattern](./async-request-reply.yml)
+- [Asynchronous Request-Reply Pattern](asynchronous-request-reply.md)
 - [Competing Consumers pattern](./competing-consumers.yml)
 - [Sequential Convoy pattern](./sequential-convoy.yml)
 

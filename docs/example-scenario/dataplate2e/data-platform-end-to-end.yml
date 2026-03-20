@@ -1,30 +1,29 @@
 ### YamlMime:Architecture
 metadata:
-  title: Analytics end-to-end with Azure Synapse
-  description: Learn how to use Azure Data Services to build a modern analytics platform capable of handling the most common data challenges in an organization.
-  author: mcsegold
-  ms.author: afilippov
-  ms.date: 08/26/2022
+  title: Analytics End-to-End with Microsoft Fabric
+  description: Learn how to use Microsoft data services to build a modern analytics platform capable of handling the most common data challenges in an organization.
+  author: lavansree06
+  ms.author: lsreedhar
+  ms.date: 10/24/2025
   ms.topic: example-scenario
   ms.subservice: example-scenario
   ms.category:
-    - databases
     - analytics
+    - databases
   ms.custom:
-    - fcp
+    - arb-data
     - data-analytics
     - example-scenario
-    - arb-data
   ai-usage: ai-assisted
-name: Analytics end-to-end with Azure Synapse
+name: Analytics end-to-end with Microsoft Fabric
 azureCategories:
   - databases
   - analytics
-summary: This example scenario demonstrates how to use the extensive family of Azure Data Services to build a modern analytics platform capable of handling the most common data challenges in an organization.
+summary: This example scenario demonstrates how to use the family of Microsoft data services to build a modern analytics platform capable of handling the most common data challenges in an organization.
 products:
-  - azure-synapse-analytics
+  - fabric
   - azure-cosmos-db
-  - azure-data-factory
+  - real-time-analytics
   - azure-databricks
   - azure-event-hubs
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-analytics-end-to-end.png

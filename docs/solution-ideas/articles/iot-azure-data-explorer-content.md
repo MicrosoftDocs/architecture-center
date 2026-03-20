@@ -6,13 +6,13 @@ Jupyter is a trademark of its respective company. No endorsement is implied by t
 
 ## Architecture
 
-:::image type="content" source="../media/iot-azure-data-explorer-new.svg" alt-text="Diagram showing IoT telemetry analytics with Azure Data Explorer." lightbox="../media/iot-azure-data-explorer-new.svg" border="false":::
+:::image type="content" source="../media/iot-azure-data-explorer-new.svg" alt-text="Diagram showing an IoT telemetry analytics architecture with Azure Data Explorer processing data from Event Hubs and IoT Hub." lightbox="../media/iot-azure-data-explorer-new.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/iot-azure-data-explorer.vsdx) of this architecture.*
 
 ### Dataflow
 
-1. Azure Event Hubs, Azure IoT Hub, or Kafka ingest a wide variety of fast-flowing streaming data such as logs, business events, and user activities.
+1. Azure Event Hubs, Azure IoT Hub, or Kafka ingest a wide range of fast-flowing streaming data such as logs, business events, and user activities.
 
 1. Azure Functions or Azure Stream Analytics process the data in near real time.
 
@@ -24,9 +24,9 @@ Jupyter is a trademark of its respective company. No endorsement is implied by t
 
    You can also continuously export data to Azure Storage in compressed, partitioned [Apache Parquet](https://parquet.apache.org) format, and seamlessly query the data with Azure Data Explorer. For more information, see [Continuous data export overview](/azure/data-explorer/kusto/management/data-export/continuous-data-export).
 
-1. To serve both the operational and analytical use cases, data can either route to Azure Data Explorer and Azure Cosmos DB in parallel, or from Azure Cosmos DB to Azure Data Explorer.
+1. To serve both the operational and analytical use cases, route data either to Azure Data Explorer and Azure Cosmos DB in parallel, or from Azure Cosmos DB to Azure Data Explorer.
 
-   - Azure Cosmos DB transactions can trigger Azure Functions via change feed. Functions will stream data to Event Hubs for ingestion into Azure Data Explorer.
+   - Azure Cosmos DB transactions can trigger Azure Functions via change feed. Functions stream data to Event Hubs for ingestion into Azure Data Explorer.
 
      -or-
 
@@ -73,7 +73,7 @@ This solution idea uses the following Azure components.
 
 ## Scenario details
 
-This solution uses Azure Data Explorer to get near real-time IoT telemetry analytics on fast-flowing, high-volume streaming data from a wide variety of IoT devices.
+This solution uses Azure Data Explorer to get near real-time IoT telemetry analytics on fast-flowing, high-volume streaming data from a wide range of IoT devices.
 
 ### Potential use cases
 
@@ -96,4 +96,4 @@ Principal author:
 
 ## Related resource
 
-- [Analytics architecture design](analytics-start-here.yml)
+- [Analytics architecture design](analytics-get-started.md)

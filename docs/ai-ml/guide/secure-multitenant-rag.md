@@ -9,6 +9,7 @@ ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
 ms.custom:
   - arb-saas
+  - arb-aiml
 ---
 
 # Design a secure multitenant RAG inferencing solution
@@ -20,7 +21,7 @@ A multitenant solution is used by multiple customers. Each customer, or tenant, 
 There are multitenant concerns beyond ensuring that users only access the information they're authorized to access. However, this article focuses on that aspect of multitenancy. This article begins with an overview of single-tenant RAG architectures. It discusses the challenges that you might encounter in multitenancy with RAG and some common approaches to take. It also outlines multitenancy considerations and recommendations for improved security.
 
 > [!NOTE]
-> This article describes several features that are specific to Azure OpenAI Service, such as the Azure OpenAI On Your Data feature. However, you can apply most of the principles described in this article to foundational AI models on any platform.
+> This article describes several features that are specific to Azure OpenAI in Foundry Models, like the Azure OpenAI On Your Data feature. However, you can apply most of the principles described in this article to foundational AI models on any platform.
 
 ## Single-tenant RAG architecture with an orchestrator
 
@@ -42,7 +43,12 @@ For more information, see [Design and develop a RAG solution](/azure/architectur
 
 ## Single-tenant RAG architecture with direct data access
 
-This variant of the single-tenant RAG architecture uses the [On Your Data feature](/azure/ai-services/openai/concepts/use-your-data) of Azure OpenAI to integrate directly with data stores like Azure AI Search. In this architecture, you either don't have your own orchestrator, or your orchestrator has fewer responsibilities. The Azure OpenAI API calls into the data store to fetch the grounding data and passes that data to the language model. This method gives you less control over what grounding data to fetch and the relevancy of that data.
+This variant of the single-tenant RAG architecture uses the [On Your Data feature](/azure/ai-foundry/openai/concepts/use-your-data) of Azure OpenAI to integrate directly with data stores like Azure AI Search.
+
+> [!IMPORTANT]
+> Azure OpenAI On Your Data is deprecated and approaching retirement. We recommend that you migrate Azure OpenAI On Your Data workloads to [Foundry Agent Service](/azure/ai-foundry/agents/overview) with [Foundry IQ](/azure/ai-foundry/agents/concepts/what-is-foundry-iq) to retrieve content and generate grounded answers from your data.
+
+In this architecture, you either don't have your own orchestrator, or your orchestrator has fewer responsibilities. The Azure OpenAI API calls into the data store to fetch the grounding data and passes that data to the language model. This method gives you less control over what grounding data to fetch and the relevancy of that data.
 
 > [!NOTE]
 > This Azure OpenAI feature integrates with the data store, but the model itself doesn't integrate with the data store. The model receives grounding data in the same way as it does when an orchestrator fetches the data.
@@ -192,5 +198,5 @@ Principal authors:
 ## Related resources
 
 - [SaaS and multitenant solution architecture](../../guide/saas-multitenant-solution-architecture/index.md)
-- [Baseline Microsoft Foundry chat reference architecture](../architecture/baseline-azure-ai-foundry-chat.yml)
+- [Baseline Microsoft Foundry chat reference architecture](../architecture/baseline-microsoft-foundry-chat.yml)
 - [Access Azure OpenAI and other language models through a gateway](./azure-openai-gateway-guide.yml)

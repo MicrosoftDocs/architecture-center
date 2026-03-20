@@ -1,4 +1,4 @@
-Organizations increasingly adopt API-first design approaches while facing growing threats to web applications. You need a comprehensive security strategy to protect APIs, especially when exposing AI-powered APIs and implementing Zero Trust architecture principles. The [Gateway Routing pattern](../../../patterns/gateway-routing.yml) provides one approach to API security by protecting network traffic. The gateway restricts traffic source locations and traffic quality while supporting flexible routing rules. This article describes how to use Azure Application Gateway and Azure API Management to protect API access.
+Organizations increasingly adopt API-first design approaches while facing growing threats to web applications. You need a comprehensive security strategy to protect APIs, especially when exposing AI-powered APIs and implementing zero trust architecture principles. The [Gateway Routing pattern](../../../patterns/gateway-routing.yml) provides one approach to API security by protecting network traffic. The gateway restricts traffic source locations and traffic quality while supporting flexible routing rules. This article describes how to use Azure Application Gateway and Azure API Management to protect API access.
 
 ## Architecture
 
@@ -47,7 +47,7 @@ You can use other services to deliver a similar level of firewall and WAF protec
 - [Azure Front Door](/azure/frontdoor/front-door-overview) provides built-in distributed denial-of-service (DDoS) protection and global load balancing.
 
 - [Azure Firewall](/azure/firewall/overview) provides network-level protection and centralized security policy management.
-- Partner solutions, such as [Barracuda WAF](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.waf), or other WAF solutions are available in [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/security?page=1&subcategories=threat-protection).
+- Partner solutions, such as [Barracuda CloudGen WAF for Azure](https://marketplace.microsoft.com/product/barracudanetworks.waf), or other WAF solutions are available in the [Microsoft Marketplace](https://marketplace.microsoft.com/marketplace/apps?category=security).
 
 ## Recommendations
 

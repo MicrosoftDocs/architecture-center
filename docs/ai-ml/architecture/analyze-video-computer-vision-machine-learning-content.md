@@ -1,3 +1,15 @@
+> [!IMPORTANT]
+> Microsoft is announcing the planned retirement of the Azure Custom Vision service. Microsoft will provide full support for all existing Azure Custom Vision customers until 9/25/2028. During this support window, customers are encouraged to begin planning and executing their transition to alternative solutions.
+> Depending on your use case, we recommend the following paths for transition:
+> - For creating custom models for both image classification and object detection, **Azure Machine Learning AutoML** offers the ability to train both custom model types using classic machine learning techniques
+> - [Learn more about Azure Machine Learning AutoML](/azure/machine-learning/concept-automated-ml) and explore how it can offer support for custom model training.
+> 
+> Microsoft is also investing in Generative AI-based solutions that increase accuracy in custom scenarios using prompt engineering and other techniques.
+> - To use generative models, you can use one of models available in the Foundry model catalog and create your own solution for customized vision.
+> - For a managed generative solution for image classification, Azure Content Understanding in Foundry Tools (currently in public preview) offers the ability to create custom classification workflows. It also supports processing unstructured data of any type (image, documents, audio, video) and extract structured insights based on pre-defined or user-defined formats.
+> - [Learn more about Microsoft Foundry Models](/azure/ai-foundry/concepts/foundry-models-overview) and [Azure Content Understanding (public preview)](/azure/ai-services/content-understanding/overview) and explore how they can offer alternative paths for your custom needs.
+>
+> For more detailed guidance on migration, see the [Azure Custom Vision Migration Guide](https://aka.ms/custom-vision-migration).
 This article describes an architecture that replaces manual video analysis with an automated machine learning process. The automated process often produces more accurate results.
 
 ## Architecture
@@ -38,9 +50,9 @@ The following workflow corresponds to the previous diagram:
 
 - [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a scalable, secure, and cost-effective cloud storage solution for analytics workloads. In this architecture, it stores the extracted video frames for downstream image analysis and processing.
 
-- [Azure AI Vision](/azure/ai-services/computer-vision/overview) is part of [Azure AI services](/azure/ai-services/what-are-ai-services). It provides tools to extract information from images. In this architecture, it analyzes the extracted frames and identifies objects and features. It can also retrieve text via OCR.
+- [Azure Vision](/azure/ai-services/computer-vision/overview) is part of [Foundry Tools](/azure/ai-services/what-are-ai-services). It provides tools to extract information from images. In this architecture, it analyzes the extracted frames and identifies objects and features. It can also retrieve text via OCR.
 
-- [Custom Vision](/azure/ai-services/custom-vision-service/overview) is a cloud-based AI service that you can use to customize and embed advanced computer vision image analysis for your specific domains. In this architecture, it identifies domain-specific objects or qualities in the extracted video frames.
+- [Custom Vision](/azure/ai-services/custom-vision-service/overview) is a cloud-based Foundry tool that you can use to customize and embed advanced computer vision image analysis for your specific domains. In this architecture, it identifies domain-specific objects or qualities in the extracted video frames.
 
 - [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) is a cloud-based service that automates workflows by connecting apps and data across environments. It provides a way to access and process data in real time. In this architecture, it monitors storage locations, initiates analysis workflows, processes results, and coordinates the movement and transformation of data.
 
@@ -72,7 +84,7 @@ The following workflow corresponds to the previous diagram:
 
 1. A preconfigured logic app monitors the ingestion to check when the indexing is complete.
 
-1. The logic app uses the Video Indexer API to perform natural language searches and detect objects, features, or attributes in images.
+1. The logic app uses the Video Indexer API to run natural language searches and detect objects, features, or attributes in images.
 
 1. Results are received in JSON format. The logic app parses the results and creates key-value pairs. You can store the results in SQL database in Fabric.
 
@@ -90,13 +102,13 @@ Many industries record video footage to detect the presence or absence of a spec
 
 A video recording can be separated into individual frames so that different technologies can analyze the images. An example of this technology is *computer vision*, which is the capability of a computer to identify objects and entities in an image.
 
-With computer vision, monitoring video footage becomes automatized, standardized, and potentially more accurate. A computer vision model can be trained. Depending on the use case, you can frequently get results that are at least as good as the results of the person who trained the model. By using [machine learning operations](/azure/machine-learning/concept-model-management-and-deployment) to continuously improve the model, you can achieve better results and adapt to changes in video data over time.
+With computer vision, monitoring video footage becomes automatized, standardized, and potentially more accurate. A computer vision model can be trained. Depending on the use case, you can frequently get results that are at least as good as the results of the person who trained the model. You can achieve better results and adapt to changes in video data over time by using [machine learning operations](/azure/machine-learning/concept-model-management-and-deployment) to continuously improve the model.
 
 ### Potential use cases
 
 This scenario is relevant for any business that analyzes videos. Consider the following sample use cases:
 
-- **Agriculture:** Monitor and analyze crops and soil conditions over time. By using drones or unmanned aerial vehicles (UAVs), farmers can record video footage for analysis.
+- **Agriculture:** Monitor and analyze crops and soil conditions over time. Farmers can record video footage for analysis by using drones or unmanned aerial vehicles (UAVs).
 
 - **Environmental sciences:** Analyze aquatic species to learn where they're located and how they evolve. Environmental researchers can navigate the shoreline and record video footage by attaching underwater cameras to boats. They can analyze the video footage to understand species migrations and how species populations change over time.
 
@@ -112,7 +124,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-A reliable workload is resilient and available. *Resiliency* is the ability of the system to recover from failures and continue to function. The goal of resiliency is to return the application to a fully functioning state after a failure occurs. *Availability* is a measure of whether your users can access your workload when they need to.
+A reliable workload is resilient and recoverable. *Resiliency* is the ability of the system to withstand failures and continue to function. The goal of resiliency is to prevent disruptions by tolerating faults. *Recoverability* is the ability to restore the application to a fully functioning state after a failure occurs. Availability is the measure of whether your users can access your workload when they need to.
 
 For the availability guarantees of the Azure services in this solution, see [Service-level agreements (SLAs) for online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
@@ -166,4 +178,3 @@ Other contributors:
 - [Introduction to Azure Storage](/azure/storage/common/storage-introduction)
 - [What is Machine Learning?](/azure/machine-learning/overview-what-is-azure-machine-learning)
 - [What is Power BI embedded analytics?](/power-bi/developer/embedded/embedded-analytics-power-bi)
-- [Business process automation solution](https://github.com/Azure/business-process-automation)

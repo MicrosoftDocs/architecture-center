@@ -26,26 +26,29 @@ items:
         items:
         - name: Extract and map information from unstructured content
           href: idea/multi-modal-content-processing.yml
-        - name: Extract document templates from enterprise data
+        - name: Generate documents from your data
           href: idea/generate-documents-from-your-data.yml
         - name: Use AI enrichment with Azure AI Search
           href: ../solution-ideas/articles/ai-search-skillsets.yml
-        - name: Extract text using Power Automate
+        - name: Extract text by using Power Automate
           href: ../example-scenario/ai/extract-object-text.yml
       - name: Workflow automation
         items:
-        - name: Build a multiple-agent workflow automation solution with Semantic Kernel
+        - name: Build a multiple-agent workflow automation solution by using Semantic Kernel
           href: idea/multiple-agent-workflow-automation.yml
     - name: Design architectures
       items:
       - name: Chat with data
         items:
         - name: Basic Microsoft Foundry chat reference architecture
-          href: architecture/basic-azure-ai-foundry-chat.yml
+          displayName: RAG architecture, AI chatbot, LLM
+          href: architecture/basic-microsoft-foundry-chat.yml
         - name: Baseline Microsoft Foundry chat reference architecture
-          href: architecture/baseline-azure-ai-foundry-chat.yml
+          displayName: Production, AI chatbot, LLM
+          href: architecture/baseline-microsoft-foundry-chat.yml
         - name: Baseline Microsoft Foundry chat architecture in an Azure landing zone
-          href: architecture/baseline-azure-ai-foundry-landing-zone.yml
+          displayName: ALZ, Production, AI chatbot, LLM
+          href: architecture/baseline-microsoft-foundry-landing-zone.yml
       - name: Document processing
         items:
         - name: Automate document classification
@@ -71,8 +74,10 @@ items:
     - name: Apply guidance
       items:
       - name: Machine learning options
+        displayName: comparison, Azure Machine Learning, model training
         href: guide/data-science-and-machine-learning.md
       - name: AI agent orchestration patterns
+        displayName: Agentic, multi-agent systems, agent frameworks
         href: guide/ai-agent-design-patterns.md
       - name: Developing and evaluating RAG solutions
         items:
@@ -99,10 +104,11 @@ items:
         - name: Generative AI operations with MLOps
           href: guide/genaiops-for-mlops.md
         - name: MLOps maturity model
-          href: guide/mlops-maturity-model.yml
+          href: guide/mlops-maturity-model.md
       - name: Proxy generative AI models
         items:
         - name: Use a gateway in front of generative models
+          displayName: API, AI gateway, proxy, LLM gateway
           href: guide/azure-openai-gateway-guide.yml
         - name: A gateway for multiple models
           href: guide/azure-openai-gateway-multi-backend.yml

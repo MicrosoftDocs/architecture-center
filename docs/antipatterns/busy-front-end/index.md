@@ -58,7 +58,7 @@ public class UserProfileController : ApiController
 
 - The `Get` method in the `UserProfile` controller implements an HTTP GET operation. This method is much less CPU intensive.
 
-The primary concern is the resource requirements of the `Post` method. Although it puts the work onto a background thread, the work can still consume considerable CPU resources. These resources are shared with other operations being performed by other concurrent users. If a moderate number of users send this request at the same time, overall performance is likely to suffer, slowing down all operations. Users might experience significant latency in the `Get` method, for example.
+The primary concern is the resource requirements of the `Post` method. Although it puts the work onto a background thread, the work can still consume considerable CPU resources. These resources are shared with other operations being performed by other concurrent users. If a moderate number of users send this request at the same time, overall performance is likely to degrade, slowing down all operations. Users might experience significant latency in the `Get` method, for example.
 
 ## How to fix the problem
 
@@ -126,7 +126,7 @@ public async Task RunAsync(CancellationToken cancellationToken)
 
 ## How to detect the problem
 
-Symptoms of a busy front end include high latency when resource-intensive tasks are being performed. Detection mechanisms could be any of the following:
+Symptoms of a busy front end include high latency when resource-intensive tasks are being performed. Consider the following detection mechanisms:
 
 - End users are likely to report extended response times or failures caused by services timing out.
 - These failures could also return HTTP 500 (Internal Server) errors or HTTP 503 (Service Unavailable) errors.
@@ -135,9 +135,9 @@ Symptoms of a busy front end include high latency when resource-intensive tasks 
 
 Examine the event logs for the web server, which are likely to contain more detailed information about the causes and circumstances of the errors.
 
-You can perform the following steps to help identify this problem:
+You can do the following steps to help identify this problem:
 
-1. Perform process monitoring of the production system, to identify points when response times slow down.
+1. Monitor the production system to identify points where response times slow down.
 2. Examine the telemetry data captured at these points to determine the mix of operations being performed and the resources being used.
 3. Find any correlations between poor response times and the volumes and combinations of operations that were happening at those times.
 4. Load test each suspected operation to identify which operations are consuming resources and starving other operations.
@@ -157,7 +157,7 @@ The following image shows a monitoring dashboard. (We used [AppDynamics] for our
 
 ### Examine telemetry data and find correlations
 
-The next image shows some of the metrics gathered to monitor resource utilization during the same interval. At first, few users are accessing the system. As more users connect, CPU utilization becomes very high (100%). Also notice that the network I/O rate initially goes up as CPU usage rises. But once CPU usage peaks, network I/O actually goes down. That's because the system can only handle a relatively small number of requests once the CPU is at capacity. As users disconnect, the CPU load tails off.
+The next image shows metrics gathered to monitor resource utilization during the same interval. At first, only a few users access the system. As more users connect, CPU utilization rises to 100%. The network I/O rate increases at first, but drops after CPU usage peaks. At full capacity, the system can process only limited requests. As users disconnect, CPU load decreases.
 
 ![AppDynamics metrics showing the CPU and network utilization][AppDynamics-Metrics-Front-End-Requests]
 
@@ -165,19 +165,19 @@ At this point, it appears the `Post` method in the `WorkInFrontEnd` controller i
 
 ### Perform load testing
 
-The next step is to perform tests in a controlled environment. For example, run a series of load tests that include and then omit each request in turn to see the effects.
+The next step is to run tests in a controlled environment. For example, run a series of load tests that include and then omit each request in turn to see the effects.
 
-The graph below shows the results of a load test performed against an identical deployment of the cloud service used in the previous tests. The test used a constant load of 500 users performing the `Get` operation in the `UserProfile` controller, along with a step load of users performing the `Post` operation in the `WorkInFrontEnd` controller.
+The following graph shows the results of a load test performed against an identical deployment of the cloud service used in the previous tests. The test used a constant load of 500 users performing the `Get` operation in the `UserProfile` controller, along with a step load of users performing the `Post` operation in the `WorkInFrontEnd` controller.
 
 ![Initial load test results for the WorkInFrontEnd controller][Initial-Load-Test-Results-Front-End]
 
 Initially, the step load is 0, so the only active users are performing the `UserProfile` requests. The system is able to respond to approximately 500 requests per second. After 60 seconds, a load of 100 additional users starts sending POST requests to the `WorkInFrontEnd` controller. Almost immediately, the workload sent to the `UserProfile` controller drops to about 150 requests per second. This is due to the way the load-test runner functions. It waits for a response before sending the next request, so the longer it takes to receive a response, the lower the request rate.
 
-As more users send POST requests to the `WorkInFrontEnd` controller, the response rate of the `UserProfile` controller continues to drop. But note that the volume of requests handled by the `WorkInFrontEnd` controller remains relatively constant. The saturation of the system becomes apparent as the overall rate of both requests tends toward a steady but low limit.
+As more users send POST requests to the `WorkInFrontEnd` controller, the response rate of the `UserProfile` controller continues to drop. But the volume of requests that the `WorkInFrontEnd` controller handles remains relatively constant. The saturation of the system becomes apparent as the overall rate of both requests tends toward a steady but low limit.
 
 ### Review the source code
 
-The final step is to look at the source code. The development team was aware that the `Post` method could take a considerable amount of time, which is why the original implementation used a separate thread. That solved the immediate problem, because the `Post` method did not block waiting for a long-running task to complete.
+The final step is to review the source code. The development team was aware that the `Post` method could take a considerable amount of time, which is why the original implementation used a separate thread. That solved the immediate problem, because the `Post` method did not block waiting for a long-running task to complete.
 
 However, the work performed by this method still consumes CPU, memory, and other resources. Enabling this process to run asynchronously might actually damage performance, as users can trigger a large number of these operations simultaneously, in an uncontrolled manner. There is a limit to the number of threads that a server can run. Past this limit, the application is likely to get an exception when it tries to start a new thread.
 
@@ -190,7 +190,7 @@ The following image shows performance monitoring after the solution was implemen
 
 ![AppDynamics Business Transactions pane showing the effects of the response times of all requests when the WorkInBackground controller is used][AppDynamics-Transactions-Background-Requests]
 
-Note that the `WorkInBackground` controller also handled a much larger volume of requests. However, you can't make a direct comparison in this case, because the work being performed in this controller is very different from the original code. The new version simply queues a request, rather than performing a time consuming calculation. The main point is that this method no longer drags down the entire system under load.
+The `WorkInBackground` controller handled a much larger volume of requests. But you can't make a direct comparison in this case because the work performed in this controller is much different from the original code. The new version queues a request instead of performing a time-consuming calculation. The main point is that this method no longer drags down the entire system under load.
 
 CPU and network utilization also show the improved performance. The CPU utilization never reached 100%, and the volume of handled network requests was far greater than earlier, and did not tail off until the workload dropped.
 
@@ -212,7 +212,7 @@ The following graph shows the results of a load test. The overall volume of requ
 [background-jobs]: ../../best-practices/background-jobs.md
 [load-leveling]: ../../patterns/queue-based-load-leveling.yml
 [sync-io]: ../synchronous-io/index.md
-[web-queue-worker]: ../../guide/architecture-styles/web-queue-worker.yml
+[web-queue-worker]: ../../guide/architecture-styles/web-queue-worker.md
 
 [AppDynamics-Transactions-Front-End-Requests]: ./_images/AppDynamicsPerformanceStats.jpg
 [AppDynamics-Metrics-Front-End-Requests]: ./_images/AppDynamicsFrontEndMetrics.jpg

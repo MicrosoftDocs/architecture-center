@@ -108,7 +108,7 @@ Services that don't have enough resources can exhibit different side effects, in
   - Insufficient processing units (PUs) for Event Hubs premium or throughput units (TUs) for standard
   - Insufficient Messaging Units (MUs) for Service Bus premium tier
 
-Take advantage of autoscaling features of the services, where possible, to ensure you have enough resources to meet demand. The following are automatic scaling features you can take advantage of:
+Take advantage of the following autoscaling features of the services, where possible, to ensure you have enough resources to meet demand:
 
 - [Horizontal Pod Autoscaling](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) allows you to increase or decrease the number of pods running workloads, depending upon demand.
 - The [AKS cluster autoscaler](/azure/aks/cluster-autoscaler) allows you to increase or decrease the number of nodes in the cluster, depending upon demand.
@@ -119,7 +119,7 @@ Take advantage of autoscaling features of the services, where possible, to ensur
 
 Use managed identities where possible to avoid having to manage API keys or secrets such as passwords.
 
-When you're using keys, secrets, or certificates, use Azure-native platform capabilities whenever possible. The following are some examples of these platform-level capabilities:
+When you're using keys, secrets, or certificates, use Azure-native platform capabilities whenever possible. These platform-level capabilities include the following examples:
 
 - Azure Front Door has built-in capabilities for TLS certificate management and renewal.
 - Azure Key Vault supports automatic key rotation.

@@ -82,9 +82,9 @@ Consider the following recommendations when you decide how to implement the prio
 
 ### Single consumer pool recommendations
 
-- *Implement preemption and suspension.* Decide if all high-priority items must be processed before any lower-priority items. Use an algorithm that ensures high-priority queues are always serviced before lower-priority queues when using a single pool of consumers for multiple queues.
+- *Implement preemption and suspension.* Decide if all high-priority items must be processed before any lower-priority items. Use an algorithm that ensures high-priority queues are always serviced before lower-priority queues when you use a single pool of consumers for multiple queues.
 
-- *Optimize costs.* Optimize operational costs by scaling back the number of consumers when using the single-queue approach. High-priority messages process first, though possibly more slowly, while lower-priority messages might face longer delays.
+- *Optimize costs.* Optimize operational costs by scaling back the number of consumers when you use the single-queue approach. High-priority messages process first, though possibly more slowly, while lower-priority messages might face longer delays.
 
 ## Workload design
 
@@ -128,7 +128,7 @@ The following patterns might be helpful to you when you implement this pattern:
 - [Throttling pattern](./throttling.yml): This pattern can be implemented using queues to manage request rates. By utilizing priority messaging, requests from critical applications or high-value customers can be prioritized over less important ones.
 
 <!-- links -->
-[priority-queues]: https://github.com/mspnp/cloud-design-patterns/tree/master/priority-queue
+[priority-queues]: https://github.com/mspnp/cloud-design-patterns/tree/main/priority-queue
 [app]: https://github.com/mspnp/cloud-design-patterns/tree/main/priority-queue/PriorityQueueSender
 [high]: https://github.com/mspnp/cloud-design-patterns/tree/main/priority-queue/PriorityQueueConsumerHigh
 [low]: https://github.com/mspnp/cloud-design-patterns/tree/main/priority-queue/PriorityQueueConsumerLow

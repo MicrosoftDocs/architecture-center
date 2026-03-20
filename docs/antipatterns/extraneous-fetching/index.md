@@ -15,7 +15,7 @@ keywords:
   - horizontal partitioning
 ---
 
-<!-- cSpell:ignore IQueryable LINQ -->
+<!-- cSpell:ignore IQueryable -->
 
 # Extraneous Fetching antipattern
 
@@ -42,7 +42,7 @@ public async Task<IHttpActionResult> GetAllFieldsAsync()
 }
 ```
 
-In the next example, the application retrieves data to perform an aggregation that could be done by the database instead. The application calculates total sales by getting every record for all orders sold, and then computing the sum over those records.
+In the next example, the application retrieves data and runs an aggregation that the database can handle instead. The application calculates total sales by getting every record for all orders sold and then computing the sum over those records.
 
 ```csharp
 public async Task<IHttpActionResult> AggregateOnClientAsync()
@@ -93,7 +93,7 @@ public async Task<IHttpActionResult> GetRequiredFieldsAsync()
 }
 ```
 
-Similarly, perform aggregation in the database and not in application memory.
+Similarly, run an aggregation in the database and not in application memory.
 
 ```csharp
 public async Task<IHttpActionResult> AggregateOnDatabaseAsync()
@@ -107,7 +107,7 @@ public async Task<IHttpActionResult> AggregateOnDatabaseAsync()
 }
 ```
 
-When using Entity Framework, ensure that LINQ queries are resolved using the `IQueryable` interface and not `IEnumerable`. You might need to adjust the query to use only functions that can be mapped to the data source. The earlier example can be refactored to remove the `AddDays` method from the query, allowing filtering to be done by the database.
+When you use Entity Framework, ensure that LINQ queries are resolved using the `IQueryable` interface and not `IEnumerable`. You might need to adjust the query to use only functions that can be mapped to the data source. The earlier example can be refactored to remove the `AddDays` method from the query, allowing filtering to be done by the database.
 
 ```csharp
 DateTime dateSince = DateTime.Now.AddDays(-7); // AddDays has been factored out.
@@ -140,14 +140,14 @@ Symptoms of extraneous fetching include high latency and low throughput. If the 
 
 The symptoms of this antipattern and some of the telemetry obtained might be very similar to those of the [Monolithic Persistence antipattern][MonolithicPersistence].
 
-You can perform the following steps to help identify the cause:
+You can do the following steps to help identify the cause:
 
 1. Identify slow workloads or transactions by performing load-testing, process monitoring, or other methods of capturing instrumentation data.
 2. Observe any behavioral patterns exhibited by the system. Are there particular limits in terms of transactions per second or volume of users?
 3. Correlate the instances of slow workloads with behavioral patterns.
 4. Identify the data stores being used. For each data source, run lower-level telemetry to observe the behavior of operations.
 5. Identify any slow-running queries that reference these data sources.
-6. Perform a resource-specific analysis of the slow-running queries and ascertain how the data is used and consumed.
+6. Analyze the resource-specific behavior of the slow-running queries and determine what uses the data.
 
 Look for any of these symptoms:
 
@@ -182,7 +182,7 @@ A slow operation isn't necessarily a problem if it isn't being performed when th
 
 If you suspect that a service is performing poorly because of the way it retrieves data, investigate how the application interacts with the repositories it uses. Monitor the live system to see which sources are accessed during periods of poor performance.
 
-For each data source, instrument the system to capture the following:
+For each data source, instrument the system to capture the following information:
 
 - The frequency that each data store is accessed.
 - The volume of data entering and exiting the data store.

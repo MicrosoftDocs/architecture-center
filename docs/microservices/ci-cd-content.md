@@ -26,7 +26,7 @@ Here are some goals of a robust CI/CD process for a microservices architecture:
 
 In a traditional monolithic application, there's a single build pipeline whose output is the application executable. All development work feeds into this pipeline. If a high-priority bug is found, a fix must be integrated, tested, and published, which can delay the release of new features. You can mitigate these problems by having well-factored modules and using feature branches to minimize the impact of code changes. But as the application grows more complex, and more features are added, the release process for a monolith tends to become more brittle and likely to break.
 
-Following the microservices philosophy, there should never be a long release train where every team has to get in line. The team that builds service "A" can release an update at any time, without waiting for changes in service "B" to be merged, tested, and deployed.
+Following the microservices philosophy, there should never be a long release train where every team has to get in line. The team that builds service "A" can release an update when they choose, without waiting for changes in service "B" to be merged, tested, and deployed.
 
 ![Diagram of a CI/CD monolith](./images/cicd-monolith.png)
 
@@ -50,7 +50,7 @@ To achieve a high release velocity, your release pipeline must be automated and 
 
 - **Service updates**. When you update a service to a new version, it shouldn't break other services that depend on it.
 
-    **Mitigation**: Use deployment techniques such as blue-green or canary release for non-breaking changes. For breaking API changes, deploy the new version side by side with the previous version. That way, services that consume the previous API can be updated and tested for the new API. See [Updating services](#updating-services), below.
+    **Mitigation**: Use deployment techniques such as blue-green or canary release for non-breaking changes. For breaking API changes, deploy the new version side by side with the previous version. That way, services that consume the previous API can be updated and tested for the new API. For more information, see the [Updating services](#updating-services) section in this article.
 
 ## Monorepo vs. multi-repo
 
@@ -73,15 +73,15 @@ There are various strategies for updating a service that's already in production
 
 ### Rolling updates
 
-In a rolling update, you deploy new instances of a service, and the new instances start receiving requests right away. As the new instances come up, the previous instances are removed.
+In a rolling update, you deploy new instances of a service, and the new instances start receiving requests immediately. As the new instances come up, the previous instances are removed.
 
 **Example.** In Kubernetes, rolling updates are the default behavior when you update the pod spec for a [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/). The Deployment controller creates a new ReplicaSet for the updated pods. Then it scales up the new ReplicaSet while scaling down the old one, to maintain the desired replica count. It doesn't delete old pods until the new ones are ready. Kubernetes keeps a history of the update, so you can roll back an update if needed.
 
-**Example.** Azure Service Fabric uses the rolling update strategy by default. This strategy is best suited for deploying a version of a service with new features without changing existing APIs. Service Fabric starts an upgrade deployment by updating the application type to a subset of the nodes or an update domain. It then rolls forward to the next update domain until all domains are upgraded. If an upgrade domain fails to update, the application type rolls back to the previous version across all domains. Be aware that an application type with multiple services (and if all services are updated as part of one upgrade deployment) is prone to failure. If one service fails to update, the entire application is rolled back to the previous version and the other services aren't updated.
+**Example.** Azure Container Apps uses [revisions](/azure/container-apps/revisions) to manage rolling updates. When you deploy a new revision, Container Apps can gradually shift traffic from the old revision to the new one by using traffic-splitting rules. If the new revision encounters issues, you can roll back by redirecting traffic to the previous revision. You can configure multiple active revisions simultaneously and control the percentage of traffic each revision receives.
 
 One challenge of rolling updates is that during the update process, a mix of old and new versions are running and receiving traffic. During this period, any request could get routed to either of the two versions.
 
-For breaking API changes, a good practice is to support both versions side by side, until all clients of the previous version are updated. See [API versioning](./design/api-design.yml#api-versioning).
+For breaking API changes, a good practice is to support both versions side by side, until all clients of the previous version are updated. See [API versioning](./design/api-design.md#api-versioning).
 
 ### Blue-green deployment
 
@@ -91,11 +91,11 @@ With a more traditional monolithic or N-tier application, blue-green deployment 
 
 **Example**. In Kubernetes, you don't need to provision a separate cluster to do blue-green deployments. Instead, you can take advantage of selectors. Create a new [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) resource with a new pod spec and a different set of labels. Create this deployment, without deleting the previous deployment or modifying the service that points to it. Once the new pods are running, you can update the service's selector to match the new deployment.
 
-One drawback of blue-green deployment is that during the update, you are running twice as many pods for the service (current and next). If the pods require a lot of CPU or memory resources, you might need to scale out the cluster temporarily to handle the resource consumption.
+One drawback of blue-green deployment is that during the update, you run twice as many pods for the service (current and next). If the pods require substantial CPU or memory resources, you might need to scale out the cluster temporarily to handle the resource consumption.
 
 ### Canary release
 
-In a canary release, you roll out an updated version to a small number of clients. Then you monitor the behavior of the new service before rolling it out to all clients. This lets you do a slow rollout in a controlled fashion, observe real data, and spot problems before all customers are affected.
+In a canary release, you first deploy an updated version to a small subset of clients. Then you monitor the behavior of the new service before rolling it out to all clients. This approach lets you roll out gradually in a controlled way, monitor real data, and identify problems before they affect all customers.
 
 A canary release is more complex to manage than either blue-green or rolling update, because you must dynamically route requests to different versions of the service.
 
@@ -106,11 +106,10 @@ A canary release is more complex to manage than either blue-green or rolling upd
 - [Learning path: Define and implement continuous integration](/training/paths/az-400-define-implement-continuous-integration)
 - [Training: Introduction to continuous delivery](/training/modules/introduction-to-continuous-delivery)
 - [Microservices architecture](/dotnet/architecture/microservices/architect-microservice-container-applications/microservices-architecture)
-- [Why use a microservices approach to building applications](/azure/service-fabric/service-fabric-overview-microservices)
+- [Why use a microservices approach to building applications](/azure/architecture/guide/architecture-styles/microservices)
 
 ## Related resources
 
 - [CI/CD for microservices on Kubernetes](./ci-cd-kubernetes.yml)
 - [Design a microservices architecture](../guide/architecture-styles/microservices.md)
 - [Using domain analysis to model microservices](model/domain-analysis.md)
-

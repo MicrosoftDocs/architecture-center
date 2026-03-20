@@ -19,7 +19,7 @@ The numbered circles in the diagram correspond to the numbered steps in the foll
 1. The Java nodes use Java Message Service to connect to Service Bus, and Java interfaces like Java Database Connectivity to connect to other data sources. They use other Java APIs as needed.
 1. The recoverable transactions run along with the business code for each batch step.
 1. The batch infrastructure uses Azure accelerated networking for speed.
-1. Azure Cache for Redis, Azure Cosmos DB, and Azure Stream Analytics provide working storage if needed.
+1. Azure Managed Redis, Azure Cosmos DB, and Azure Stream Analytics provide working storage if needed.
 1. The permanent data layer uses Azure Data Factory for data integration and Azure SQL Managed Instance, business critical performance tier, for high availability. The permanent storage is loosely coupled for easy switching to other database technologies, and for optimization of storage organization (using shards or partitions, for example).
 1. The data solutions (transitional and permanent) use the Azure Storage geo-redundant storage (GRS) option to protect against catastrophic failures.
 
@@ -29,7 +29,7 @@ The numbered circles in the diagram correspond to the numbered steps in the foll
 
 - [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is a cloud object storage service that provides scalable and secure REST-based object storage for cloud-native workloads, archives, data lakes, high-performance computing, and machine learning. In this architecture, Blob Storage provides scalable storage for batch processing input, output, and intermediate data files.
 
-- [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is a fully managed in-memory caching service for sharing data and state among compute resources. In this architecture, Azure Cache for Redis provides high-speed temporary storage for batch processing state and intermediate results.
+- [Azure Managed Redis](/azure/redis/overview) provides an in-memory data store based on Redis Enterprise software. In this architecture, Azure Managed Redis provides high-speed temporary storage for batch processing state and intermediate results.
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed multiple-model NoSQL database that has open APIs for any scale. In this architecture, Azure Cosmos DB provides scalable NoSQL storage for batch processing metadata and working data.
 
@@ -43,7 +43,7 @@ The numbered circles in the diagram correspond to the numbered steps in the foll
 
 - [Load Balancer](/azure/well-architected/service-guides/azure-load-balancer) is a load balancing service that provides low-latency layer-4 (TCP, UDP) load balancing capabilities to balance traffic between VMs, and across multitiered hybrid apps. In this architecture, Load Balancer distributes incoming traffic among healthy batch processing instances to optimize performance.
 
-- [Azure managed disks](/azure/virtual-machines/managed-disks-overview) are high-performance, highly durable block storage volumes for VMs. There are three disk storage options for the cloud: Azure Ultra Disk Storage, Azure Premium SSD, and Azure Standard SSD. In this architecture, Azure managed disks provide persistent storage for batch processing applications and temporary data.
+- [Azure Managed Disks](/azure/virtual-machines/managed-disks-overview) are high-performance, highly durable block storage volumes for VMs. There are three disk storage options for the cloud: Azure Ultra Disk Storage, Azure Premium SSD, and Azure Standard SSD. In this architecture, Azure Managed Disks provide persistent storage for batch processing applications and temporary data.
 
 - [Azure network interface](/azure/networking/fundamentals/networking-overview) is a component that connects a VM to the internet and to Azure and on-premises resources. You can give each child VM its own network interface and IP address. In this architecture, network interfaces enable connectivity between batch processing VMs and the Service Bus messaging system. For more information about network interfaces, see [Create, change, or delete a network interface](/azure/virtual-network/virtual-network-network-interface).
 
@@ -150,7 +150,5 @@ Performance Efficiency is the ability of your workload to scale to meet the dema
   - [Use geo-redundancy to design highly available applications](/azure/storage/common/geo-redundant-design?tabs=current).
   - [What are ARM templates?](/azure/azure-resource-manager/templates/overview)
 - Azure reference architectures:
-  - [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame](../../solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml).
-  - [Refactor IBM z/OS mainframe Coupling Facility (CF) to Azure](../../reference-architectures/zos/refactor-zos-coupling-facility.yml).
   - [Micro Focus Enterprise Server on Azure VMs](./micro-focus-server.yml).
   - [Unisys mainframe migration](../../reference-architectures/migration/unisys-mainframe-migration.yml).

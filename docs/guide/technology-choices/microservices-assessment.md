@@ -205,7 +205,7 @@ Consider the following factors:
 
 - Whether you use the [Materialized View pattern](/azure/architecture/patterns/materialized-view) to address the chatty behavior of microservices.
 
-- Whether you plan to implement Retry, Circuit Breaker, Exponential Backoff, or Jitter patterns for reliable communication. A common way to handle these features is to use the [Ambassador pattern](../../patterns/ambassador.yml).
+- Whether you plan to implement Retry, Circuit Breaker, Exponential Backoff, or Jitter patterns for reliable communication. A common way to handle these features is to use the [Ambassador pattern](../../patterns/ambassador.md).
 
 - Whether you have defined domain events to facilitate communication between microservices.
 
@@ -407,7 +407,7 @@ Consider the following factors:
 
 - Whether the service requires authentication and authorization and whether you implement [Zero Trust architecture principles](/azure/security/fundamentals/zero-trust)
 
-- Whether you have a comprehensive secrets management strategy that includes key rotation, life cycle management, and auditing, beyond simply storing secrets in a key vault
+- Whether you have a comprehensive secrets management strategy that includes key rotation, life cycle management, and auditing, beyond storing secrets in a key vault
 
 - Whether you use an API gateway to validate tokens and incoming requests
 
@@ -447,5 +447,5 @@ Principal authors:
 - [Build microservices on Azure](../architecture-styles/microservices.md)
 - [Microservices architecture on Azure Kubernetes Service](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)
 - [Use domain analysis to model microservices](../../microservices/model/domain-analysis.md)
-- [Use tactical DDD to design microservices](../../microservices/model/tactical-ddd.yml)
+- [Use tactical DDD to design microservices](../../microservices/model/tactical-domain-driven-design.md)
 - [Design a microservices architecture](../../microservices/design/index.md)

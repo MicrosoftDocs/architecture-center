@@ -179,13 +179,13 @@ For more information about managing virtual networks and NSGs at scale, see [Azu
 
 This deployment creates two resource groups; the first holds a mock on-premises network, the second a set of hub and spoke networks. The mock on-premises network and the hub network are connected using Azure Virtual Network gateways to form a site-to-site connection. This configuration is very similar to how you would connect your on-premises datacenter to Azure.
 
-This deployment can take up to 45 minutes to complete. The recommended deployment method is using the portal option found below.
+This deployment can take up to 45 minutes to complete. The recommended deployment method is using the following portal option.
 
 #### [Azure portal](#tab/portal)
 
 Use the following button to deploy the reference using the Azure portal.
 
-[![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsamples%2Fmaster%2Fsolutions%2Fsecure-hybrid-network%2Fazuredeploy.json)
+[![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsamples%2Fmain%2Fsolutions%2Fsecure-hybrid-network%2Fazuredeploy.json)
 
 #### [Azure CLI](#tab/cli)
 
@@ -195,7 +195,7 @@ When prompted, enter values for an admin user name and password. These values ar
 
 ```azurecli
 az deployment sub create --location eastus \
-    --template-uri https://raw.githubusercontent.com/mspnp/samples/master/solutions/secure-hybrid-network/azuredeploy.json
+    --template-uri https://raw.githubusercontent.com/mspnp/samples/main/solutions/secure-hybrid-network/azuredeploy.json
 ```
 
 #### [PowerShell](#tab/powershell)
@@ -206,12 +206,12 @@ When prompted, enter values for an admin user name and password. These values ar
 
 ```azurepowershell
 New-AzSubscriptionDeployment -Location eastus `
-    -TemplateUri https://raw.githubusercontent.com/mspnp/samples/master/solutions/secure-hybrid-network/azuredeploy.json
+    -TemplateUri https://raw.githubusercontent.com/mspnp/samples/main/solutions/secure-hybrid-network/azuredeploy.json
 ```
 
 ---
 
-Once the deployment has been completed, verify site-to-site connectivity by looking at the newly created connection resources. While in the Azure portal, search for 'connections' and note that the status of each connection.
+After the deployment finishes, verify site-to-site connectivity by looking at the newly created connection resources. In the Azure portal, search for *connections* and check the status of each connection.
 
 ![Screenshot showing the status of connections.](./images/portal-connections.png)
 
@@ -248,7 +248,6 @@ For more information and other deployment options, see the Azure Resource Manage
 [guidance-vpn-gateway-security]: /azure/expressroute/expressroute-howto-coexist-resource-manager#security-considerations
 [nsg]: /azure/virtual-network/security-overview
 [ra-vpn-failover]: ../hybrid-networking/expressroute-vpn-failover.yml
-[ra-vpn]: /azure/expressroute/expressroute-howto-coexist-resource-manager
 [rbac-custom-roles]: /azure/role-based-access-control/custom-roles
 [rbac]: /azure/role-based-access-control/role-assignments-portal
 [routing-and-remote-access-service]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd469790(v=ws.11)

@@ -6,7 +6,7 @@ This article uses an Azure Virtual WAN scenario to illustrate the technique. The
 > - [`azResourceStateCheck.bicep`](https://github.com/Azure/CAE-Bits/blob/main/infra/samples/deployment-scripts-property-check/modules/azResourceStateCheck.bicep)
 > - [Invoke-AzResourceStateCheck.ps1](https://github.com/Azure/CAE-Bits/blob/main/infra/samples/deployment-scripts-property-check/scripts/Invoke-AzResourceStateCheck.ps1)
 
-You can adapt the files for your deployment. The azResourceStateCheck.bicep module is parameterized for ease of reuse. Be sure to note how the **dependsOn** property is used in orchestration.bicep to make the vwanvhcs.bicep module deployment depend on the azResourceStateCheck.bicep nodule deployment.
+You can adapt the files for your deployment. The azResourceStateCheck.bicep module is parameterized for ease of reuse. Be sure to note how the **dependsOn** property is used in orchestration.bicep to make the vwanvhcs.bicep module deployment depend on the azResourceStateCheck.bicep module deployment.
 
 ## Architecture
 
@@ -50,14 +50,6 @@ The key parts of this architecture are the azResourceStateCheck.bicep module, wh
 Because this environment is all deployed from a single file that uses Bicep modules, we can use **dependsOn** to make one module depend explicitly on another. In this example, **dependsOn** makes the vwanvhcs.bicep module depend on the azResourceStateCheck.bicep module.
 
 The following excerpt from orchestration.bicep shows the use of **dependsOn**:
-
-<!--
-
-The following isn't currently supported in the architecture-center-pr repo:
-
-:::code language="bicep" source="~/azure-cae-bits/infra/samples/deployment-scripts-property-check/orchestration.bicep" range="57-68,98-134" highlight="110,125-127":::
-
--->
 
 ```Bicep
 @description('The API Version of the Azure Resource you wish to use to check a properties state.')
@@ -131,15 +123,7 @@ If the value doesn't become **Provisioned** after the maximum number of iteratio
 
 The Invoke-AzResourceStateCheck.ps1 script is as follows:
 
-<!--
-
-The following isn't currently supported in the architecture-center-pr repo:
-
-:::code language="powershell" source="~/azure-cae-bits/infra/samples/deployment-scripts-property-check/scripts/Invoke-AzResourceStateCheck.ps1" :::
-
--->
-
-```Bicep
+```powershell
 [CmdletBinding()]
 param (
   [string]

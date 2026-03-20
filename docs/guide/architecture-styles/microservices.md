@@ -1,8 +1,8 @@
 ---
 title: Microservices Architecture Style
 description: Learn about microservices on Azure. This architectural style builds applications that are resilient, highly scalable, and independently deployable.
-author: RobBagby
-ms.author: robbag
+author: claytonsiemens77
+ms.author: pnp
 ms.date: 06/30/2025
 ms.topic: concept-article
 ms.subservice: architecture-guide
@@ -86,6 +86,8 @@ The benefits of microservices come with trade-offs. Consider the following chall
 - Services communicate through well-designed APIs. Avoid leaking implementation details. APIs should model the domain, not the internal implementation of the service.
 
 - Avoid coupling between services. Causes of coupling include shared database schemas and rigid communication protocols.
+  
+- Use messaging frameworks for asynchronous communication. Adopt tools such as [MassTransit](https://masstransit.massient.com/) or [NServiceBus](https://particular.net/nservicebus) to handle routing, retries, durability, and workflow patterns instead of building custom messaging logic. Frameworks help reduce distributed system complexity, improve reliability, and avoid common pitfalls when implementing message-driven microservices.
 
 - Improve security by using mutual Transport Layer Security (mTLS) for service-to-service encryption. Implement role-based access control and use API gateways to enforce policies.
 
@@ -134,7 +136,7 @@ The following articles present a structured approach for designing, building, an
 **Use domain analysis:** To avoid common pitfalls when you design microservices, use domain analysis to define your microservice boundaries. Do the following steps:
 
 1. [Use domain analysis to model microservices](../../microservices/model/domain-analysis.md).
-1. [Use tactical DDD to design microservices](../../microservices/model/tactical-ddd.yml).
+1. [Use tactical DDD to design microservices](../../microservices/model/tactical-domain-driven-design.md).
 1. [Identify microservice boundaries](../../microservices/model/microservice-boundaries.yml).
 
 **Design the services:** Microservices require a decentralized and agile approach to designing and building applications. For more information, see [Design a microservices architecture](../../microservices/design/index.md).

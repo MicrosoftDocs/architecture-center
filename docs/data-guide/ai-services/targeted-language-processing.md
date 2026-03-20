@@ -1,6 +1,6 @@
 ---
 title: Choose an Azure AI Targeted Language Processing Technology
-description: Learn about Azure AI services targeted language processing capabilities, including NLP, text analytics, translation, and document data extraction.
+description: Learn about Foundry Tools targeted language processing capabilities, including NLP, text analytics, translation, and document data extraction.
 author: ritesh-modi
 ms.author: rimod
 ms.date: 03/20/2025
@@ -13,13 +13,13 @@ ms.custom: arb-aiml
 
 # Choose an Azure AI targeted language processing technology
 
-[Azure AI services](/azure/ai-services/what-are-ai-services) help developers and organizations rapidly create intelligent, cutting-edge, market-ready, and responsible applications with out-of-the-box and prebuilt and customizable APIs and models.
+[Foundry Tools](/azure/ai-services/what-are-ai-services) help developers and organizations rapidly create intelligent, cutting-edge, market-ready, and responsible applications with out-of-the-box and prebuilt and customizable APIs and models.
 
-This article covers AI services that provide targeted language processing capabilities such as natural language processing (NLP), text analytics, language understanding, translation, and document data extraction. Microsoft Azure AI Language is one of the broadest categories in AI services. You can use the APIs in your workload to incorporate language features like named entity recognition (NER), sentiment analysis, language detection, and text summarization.
+This article covers Foundry Tools that provide targeted language processing capabilities such as natural language processing (NLP), text analytics, language understanding, translation, and document data extraction. Microsoft Azure Language in Foundry Tools is one of the broadest categories in Foundry Tools. You can use the APIs in your workload to incorporate language features like named entity recognition (NER), sentiment analysis, language detection, and text summarization.
 
 ## Services
 
-The following services provide targeted language processing capabilities for AI services:
+The following services provide targeted language processing capabilities for Foundry Tools:
 
 - [Language](#language) provides NLP for text analysis.
 
@@ -27,13 +27,13 @@ The following services provide targeted language processing capabilities for AI 
 
   - **Don't use** Language if you need to search documents with chat, check them for content safety, or translate them.
 
-- [Microsoft Azure AI Translator](#translator) is a machine translation service. It can perform [real-time text translation](/azure/ai-services/translator/text-translation-overview), batch and single file [document translation](/azure/ai-services/translator/document-translation/overview), and [custom translations](/azure/ai-services/translator/custom-translator/overview) that you can use to incorporate specialized terminology or industry-specific language for your scenario. Translator [supports multiple languages](/azure/ai-services/translator/language-support).
+- [Azure Translator in Foundry Tools](#translator) is a machine translation service. It can perform [real-time text translation](/azure/ai-services/translator/text-translation-overview), batch and single file [document translation](/azure/ai-services/translator/document-translation/overview), and [custom translations](/azure/ai-services/translator/custom-translator/overview) that you can use to incorporate specialized terminology or industry-specific language for your scenario. Translator [supports multiple languages](/azure/ai-services/translator/language-support).
 
   - **Use** Translator when you need to perform translation specifically. You can use other general purpose foundation language models to perform translation. But using Translator for its specialized purpose can be more effective and cost effective because of its targeted translation models.
   
   - **Don't use** Translator if you need to engage with chat, analyze content for sentiment, or moderate content. For sentiment analysis, use Language instead. For content moderation, use Microsoft Azure AI Content Safety.
 
-- [Azure AI Document Intelligence](#document-intelligence) is a service that can convert images directly into electronic forms. You can specify expected fields and then search images that you provide to capture those fields without human intervention. Document Intelligence hosts many prebuilt models and also allows you to build custom models of your own.
+- [Azure Document Intelligence in Foundry Tools](#document-intelligence) is a service that can convert images directly into electronic forms. You can specify expected fields and then search images that you provide to capture those fields without human intervention. Document Intelligence hosts many prebuilt models and also allows you to build custom models of your own.
 
   - **Use** Document Intelligence when you know exactly which fields you need to extract from scanned documents to fill electronic forms appropriately.
 
@@ -41,9 +41,9 @@ The following services provide targeted language processing capabilities for AI 
 
   - **Don't use** Document Intelligence as a real-time search API.
 
-### Azure OpenAI Service
+### Azure OpenAI in Foundry Models
 
-[Azure OpenAI Service](/azure/ai-services/openai/overview) provides REST API access to OpenAI's powerful language models. These models include O3-Mini, O1, O1-Mini, GPT-4o, GPT-4o Mini, GPT-4 Turbo with Vision, GPT-4, GPT-3.5-Turbo, and the Embeddings model series. These models are highly adaptable, which allows you to tailor them for tasks like content generation, summarization, image analysis, and semantic search. They also support natural language to code translation, which makes them versatile for various applications.
+[Azure OpenAI in Foundry Models](/azure/ai-services/openai/overview) provides REST API access to OpenAI's powerful language models. These models include O3-Mini, O1, O1-Mini, GPT-4o, GPT-4o Mini, GPT-4 Turbo with Vision, GPT-4, GPT-3.5-Turbo, and the Embeddings model series. These models are highly adaptable, which allows you to tailor them for tasks like content generation, summarization, image analysis, and semantic search. They also support natural language to code translation, which makes them versatile for various applications.
 
 #### Capabilities
 
@@ -108,7 +108,7 @@ If a feature is customizable, you can train an AI model by using our tools to fi
 
 ### Translator
 
-[Translator](https://azure.microsoft.com/products/ai-services/ai-translator) is a machine translation service that is part of AI services. Translator powers many Microsoft products and services.
+[Translator](https://azure.microsoft.com/products/ai-services/ai-translator) is a machine translation service that is part of Foundry Tools. Translator powers many Microsoft products and services.
 
 #### Capabilities
 
@@ -144,17 +144,17 @@ The following table provides a list of some of the capabilities available in Doc
 | [Credit card extraction](/azure/ai-services/document-intelligence/concept-credit-card) | The Document Intelligence credit/debit card model uses OCR capabilities to analyze and extract key fields from credit and debit cards. Credit and debit cards can appear in various formats and qualities, including images captured by phone, scanned documents, and digital PDFs. The API analyzes document text, extracts key information such as card number, issuing bank, and expiration date, and then returns a structured JSON data representation. The model currently supports document formats in English. |
 | [Health insurance card extraction](/azure/ai-services/document-intelligence/concept-health-insurance-card) | The Document Intelligence health insurance card model combines OCR capabilities with deep learning models to analyze and extract key information from US health insurance cards. A health insurance card is a key document for care processing and can be digitally analyzed for patient onboarding, financial coverage information, cashless payments, and insurance claim processing. The health insurance card model analyzes health card images, extracts key information such as insurer, member, prescription, and group number, and then returns a structured JSON representation. Health insurance cards can appear in various formats and qualities, including images captured by phone, scanned documents, and digital PDFs. |
 | [US tax document extraction](/azure/ai-services/document-intelligence/concept-tax-document) | The Document Intelligence contract model uses OCR capabilities to analyze and extract key fields and line items from a select group of tax documents. Tax documents can be of various formats and quality, including phone-captured images, scanned documents, and digital PDFs. The API analyzes document text, extracts key information such as customer name, billing address, due date, and amount due, and then returns a structured JSON data representation. The model currently supports specific tax document formats in English. |
-| [Client libraries](/azure/ai-services/document-intelligence/concept-model-overview) | Document Intelligence supports a wide variety of models that enable you to add intelligent document processing to your apps and flows. You can use a prebuilt domain-specific model or train a custom model tailored to your specific business need and use cases. Document Intelligence can be used with the REST API or Python, C#, Java, and JavaScript client libraries. |
+| [Client libraries](/azure/ai-services/document-intelligence/concept-model-overview) | Document Intelligence supports a wide range of models that enable you to add intelligent document processing to your apps and flows. You can use a prebuilt domain-specific model or train a custom model tailored to your specific business need and use cases. Document Intelligence can be used with the REST API or Python, C#, Java, and JavaScript client libraries. |
 
 For more information about model scenarios, see [Which model should I choose?](/azure/ai-services/document-intelligence/choose-model-feature)
 
 ## Next steps
 
-- [What is Language?](/azure/ai-services/language-service/overview)
-- [Learning path: Develop NLP solutions with AI services](/training/paths/develop-language-solutions-azure-ai/)
-- [Learning path: Get started with AI services](/training/paths/get-started-azure-ai/)
+- [What is Azure Language in Foundry Tools?](/azure/ai-services/language-service/overview)
+- [Learning path: Develop natural language solutions in Azure](/training/paths/develop-language-solutions-azure-ai/)
+- [Learning path: Develop generative AI apps in Azure](/training/paths/create-custom-copilots-ai-studio/)
 
 ## Related resources
 
-- [Microsoft Azure AI Speech capabilities guide](speech-recognition-generation.md)
-- [Microsoft Azure AI Vision capabilities guide](image-video-processing.md)
+- [Microsoft Azure Speech in Foundry Tools capabilities guide](speech-recognition-generation.md)
+- [Microsoft Azure Vision in Foundry Tools capabilities guide](image-video-processing.md)

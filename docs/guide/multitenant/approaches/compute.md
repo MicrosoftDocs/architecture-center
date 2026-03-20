@@ -181,4 +181,4 @@ Review service-specific guidance for your compute services:
 
 - [App Service and Azure Functions considerations for multitenancy](../service/app-service.md)
 - [Considerations for using Container Apps in a multitenant solution](../service/container-apps.md)
-- [AKS considerations for multitenancy](../service/aks.yml)
+- [AKS considerations for multitenancy](../service/aks.md)

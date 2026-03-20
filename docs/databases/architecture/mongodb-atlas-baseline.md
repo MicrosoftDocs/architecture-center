@@ -28,7 +28,7 @@ In the single-region deployment, all core components, including the MongoDB Atla
 #### Architecture
 
 :::image type="complex" source="_images/mongodb-atlas-single-region.svg" alt-text="A diagram that shows a single-region MongoDB Atlas deployment on Azure." lightbox="_images/mongodb-atlas-single-region.svg" border="false":::
-   The diagram shows a single-region Azure architecture with MongoDB Atlas. At the top, Application Insights and Log Analytics workspace connect through Azure Monitor Private Link Scope (AMPLS) to the workload services below. The main workload area has three subnets: snet-private with compute services (App Service and Container Apps), snet-private-endpoints with monitoring and storage private endpoints, and snet-function-app with Azure Functions. Azure Key Vault is shown to the right of the virtual network. The MongoDB Atlas cluster at the bottom includes one primary node and two secondary nodes that are connected through a private endpoint, Private Link service, and load balancer. Numbers 1, 2, and 3 indicate the private endpoint connection, load balancer, and network security group respectively.
+   The diagram shows a single-region Azure architecture with MongoDB Atlas. At the top, Application Insights and Log Analytics workspace connect through Azure Monitor Private Link Scope (AMPLS) to the workload services beneath it. The main workload area has three subnets: snet-private with compute services (App Service and Container Apps), snet-private-endpoints with monitoring and storage private endpoints, and snet-function-app with Azure Functions. Azure Key Vault is shown on the right side of the virtual network. The MongoDB Atlas cluster at the bottom includes one primary node and two secondary nodes that are connected through a private endpoint, Private Link service, and load balancer. Numbers 1, 2, and 3 indicate the private endpoint connection, load balancer, and network security group, respectively.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/mongodb-atlas-single-region.vsdx) of this architecture*
@@ -126,7 +126,7 @@ Beyond this solution, you can further extend your monitoring solution to gain de
 - [Query Profiler](https://www.mongodb.com/resources/products/capabilities/how-to-monitor-mongodb-and-what-metrics-to-monitor#6-query-profiler)
 - [Billing Cost Explorer](https://www.mongodb.com/resources/products/capabilities/how-to-monitor-mongodb-and-what-metrics-to-monitor#7-billing-cost-explorer)
 
-Configure alerts to notify on metric drift from your baseline, like rising query targeting, any scan-and-order queries, or normalized CPU sustained below 40% or above 70%. For more information, see [Monitoring and alerts](https://www.mongodb.com/docs/atlas/monitoring-alerts/).
+Configure alerts to notify on metric drift from your baseline, like rising query targeting, any scan-and-order queries, or normalized CPU sustained at less than 40% or higher than 70%. For more information, see [Monitoring and alerts](https://www.mongodb.com/docs/atlas/monitoring-alerts/).
 
 > [!NOTE]
 > Azure Monitor can't read MongoDB Atlas metrics directly. Use MongoDB Atlas [webhooks](https://www.mongodb.com/docs/atlas/cli/current/command/atlas-integrations-create-WEBHOOK/) or supported [integrations](https://www.mongodb.com/docs/atlas/tutorial/third-party-service-integrations/#view-third-party-integrations) to ingest them.

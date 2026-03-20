@@ -84,7 +84,7 @@ Building a more secure AKS-hosted platform is an important step to help ensure s
 
 #### Best Practice – Build threat modeling into your process
 
-- Threat modeling is usually a manual activity that involves security and development teams. It's used to model and find threats within a system so vulnerabilities can be addressed prior to any code development or changes to a system. Threat modeling can occur at different times, triggered by events such as a significant software change, solution architectural change, or security incidents.
+- Threat modeling is usually a manual activity that involves security and development teams. It's used to model and find threats within a system so that vulnerabilities can be addressed before any code development or changes to a system. Threat modeling can occur at different times, triggered by events such as a significant software change, solution architectural change, or security incidents.
 - We recommend you use the [STRIDE threat model](/azure/security/develop/threat-modeling-tool-threats#stride-model). This methodology starts with a data-flow diagram and uses the STRIDE mnemonic (Spoofing, Tampering, Info Disclosure, Repudiation, Denial of Service, and Elevation of Privilege) threat categories to empower teams to identify, mitigate, and validate risk. It also includes a [modeling tool](https://www.microsoft.com/securityengineering/sdl/threatmodeling) to notate and visualize system components, data flows, and security boundaries. Building threat modeling into your SDLC processes introduces new processes and more work to maintain updated threat models. But it helps ensure security is in place early, which helps reduce the potential cost of dealing with security issues found in later SDLC stages.
 
 #### Best Practice – Apply Azure Well Architect Framework (WAF)
@@ -99,7 +99,7 @@ Building a more secure AKS-hosted platform is an important step to help ensure s
 #### Best Practice – Enforce secure coding standards
 
 - By using established secure coding best practices and checklists, you can help protect your code from common vulnerabilities like injection and insecure design. The [OWASP](https://owasp.org/www-pdf-archive/OWASP_SCP_Quick_Reference_Guide_v2.pdf) foundation publishes industry standard secure coding recommendations that you should adopt when writing code. These guidelines are especially important when developing public-facing web applications or services.
-- In addition to general security best practices, you should also look at secure coding practices for your specific programming language runtimes, like [Java](https://www.oracle.com/java/technologies/javase/seccodeguide.html) and .NET.
+- In addition to general security best practices, you should also review secure coding practices for your specific programming language runtimes, like [Java](https://www.oracle.com/java/technologies/javase/seccodeguide.html) and .NET.
 - You can enforce logging standards to protect sensitive information from being leaked into application logs. Most popular logging frameworks, like log4j and log4net, provide filters and plugins to mask sensitive information like account numbers or personal data.
 
 #### Best practice – Use IDE tools and plugins to automate security checks
@@ -176,7 +176,7 @@ During the build phase, developers work with the site reliability engineers and 
 
 - Azure Key Vault stores a signing key that can be used by [notation](/azure/container-registry/container-registry-tutorial-sign-build-push) with the notation Key Vault plugin (azure-kv) to [sign](/azure/container-registry/container-registry-tutorial-sign-build-push) and verify container images and other artifacts. Container Registry lets you attach these signatures by using the Azure CLI commands.
 - The signed containers let users make sure that deployments are built from a trusted entity and verify an artifact hasn't been tampered with since its creation. The signed artifact ensures integrity and authenticity before the user pulls an artifact into any environment, which helps avoid attacks.
-  - [Ratify](https://github.com/deislabs/ratify/blob/main/README.md) lets Kubernetes clusters verify artifact security metadata prior to deployment and admit for deployment only those that comply with an admission policy that you create.
+  - [Ratify](https://github.com/deislabs/ratify/blob/main/README.md) lets Kubernetes clusters verify artifact security metadata before deployment and admit for deployment only those that comply with an admission policy that you create.
 
 ### Deploy phase
 
@@ -279,7 +279,7 @@ Other contributors:
 
 ## Next steps
 
-- [Microsoft Defender for Cloud](/azure/security-center/container-security)
+- [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction)
 - [Secure DevOps](https://www.microsoft.com/securityengineering/devsecops)
 - [Security in DevOps (DevSecOps)](/devops/operate/security-in-devops)
 - [GitHub Advanced Security](https://docs.github.com/enterprise-cloud@latest/get-started/learning-about-github/about-github-advanced-security)

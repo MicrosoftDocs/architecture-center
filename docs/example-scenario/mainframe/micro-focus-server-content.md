@@ -28,7 +28,7 @@ This sample solution is a prescriptive, well-architected example of a Micro Focu
 
    - Distributed instances are more resistant to hardware or network issues.
    - Several instances working together perform better, maximize throughput, and provide for future horizontal scaling.
-   - The instances share synchronized user and system data, using a data store called a Scale-Out Repository (SOR). The data store uses Azure Cache for Redis to improve performance and scalability.
+   - The instances share synchronized user and system data, using a data store called a Scale-Out Repository (SOR). The data store uses Azure Managed Redis to improve performance and scalability.
 
 1. For HA, Azure Site Recovery replicates a Production VM and keeps it synced in the failover region. Since the two VMs in the Production region are clones, only one needs to participate in Site Recovery.
 
@@ -44,13 +44,13 @@ This sample solution is a prescriptive, well-architected example of a Micro Focu
 
 - [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is an infrastructure as a service (IaaS) that provides on-demand, scalable computing resources in Azure. Virtual Machines gives you the flexibility of virtualization without having to buy and maintain the physical hardware that runs it. In this architecture, Virtual Machines hosts the Micro Focus Enterprise Server instances in a performance availability cluster configuration.
 
-  The Azure VMs that host Enterprise Server use [Azure managed disks](/azure/virtual-machines/windows/managed-disks-overview), which are block-level storage volumes. Available managed disk types are ultra disks, premium solid-state drives (SSDs), standard SSDs, and standard hard disk drives (HDDs). In this architecture, premium SSDs or ultra disks provide high-performance storage for the Enterprise Server workloads.
+  The Azure VMs that host Enterprise Server use [Azure Managed Disks](/azure/virtual-machines/managed-disks-overview), which are block-level storage volumes. Available managed disk types are Ultra Disks, Premium SSDs, Standard SSDs, and Standard HDDs. In this architecture, Premium SSDs or Ultra Disks provide high-performance storage for the Enterprise Server workloads.
 
 - [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block for private networks in Azure. A virtual network is similar to a traditional network that you operate in your own datacenter, but it adds Azure infrastructure benefits like scaling, availability, and isolation. Virtual Network lets Azure resources like VMs securely communicate with each other, the internet, and on-premises networks. In this architecture, Virtual Network provides secure network isolation and connectivity for all Enterprise Server components.
 
   A [virtual network interface card (NIC)](/azure/virtual-network/virtual-network-network-interface) is a networking component that lets an Azure VM communicate with internet, Azure, and on-premises resources over a virtual network. In this architecture, you can add NICs to Azure VMs to give child VMs their own dedicated network interface devices and IP addresses.
 
-- [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is a fully managed in-memory data store that improves performance and scalability for applications that use back-end data stores heavily. Azure Cache for Redis keeps frequently accessed data, like session state and scale-out repository (SOR), in-server memory for fast access and throughput. In this architecture, Azure Cache for Redis serves as the SOR data store for sharing synchronized user and system data across Enterprise Server instances in the performance availability cluster.
+- [Azure Managed Redis](/azure/redis/overview) is a managed in-memory data store that improves performance and scalability for applications that use back-end data stores heavily. Azure Managed Redis keeps frequently accessed data, like session state and scale-out repository (SOR), in-server memory for fast access and throughput. In this architecture, Azure Managed Redis serves as the SOR data store for sharing synchronized user and system data across Enterprise Server instances in the performance availability cluster.
 
 - [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) is a service that extends on-premises networks into the Azure cloud over a private connection that a connectivity provider facilitates. In this architecture, ExpressRoute provides secure, high-performance connectivity between on-premises Enterprise Server users and Azure resources.
 
@@ -65,8 +65,6 @@ This sample solution is a prescriptive, well-architected example of a Micro Focu
 Micro Focus Enterprise Server 6.0 is an application deployment environment for IBM z/OS mainframe applications. Enterprise Server can help you modernize and integrate your mainframe applications with technologies like .NET and Java. Enterprise Server also supports application flexibility across Linux and Windows with containerized or virtual machine (VM) deployments on Azure.
 
 This sample solution is a prescriptive, well-architected example of a Micro Focus Enterprise Server 6.0 VM-based deployment in Azure. The solution implements high availability (HA) and disaster recovery (DR) by using a secondary Azure failover region. The failover region uses Azure Site Recovery for the VMs in the application tier, and a SQL Server Always On configuration for the data tier. A Micro Focus Performance Availability Cluster (PAC) boosts VM performance, availability, and scalability.
-
-<!--For a similar scenario that uses Azure Kubernetes Service (AKS) for containerized applications, see []().-->
 
 ### Potential use cases
 
@@ -118,18 +116,18 @@ Performance Efficiency is the ability of your workload to scale to meet the dema
 
 - The PAC enables horizontal scaling according to application load.
 
-- Azure Cache for Redis and Azure Storage accounts maintain critical component operations. These features provide high performance for data reads and writes, hot storage access, and long-term data storage.
+- Azure Managed Redis and Azure Storage accounts maintain critical component operations. These features provide high performance for data reads and writes, hot storage access, and long-term data storage.
 
 A PAC configures several Enterprise Server instances in a scale-out architecture using [availability sets](/azure/virtual-machines/availability#availability-sets). The PAC supports future horizontal scaling.
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
- - [Jonathon Frost](https://www.linkedin.com/in/jjfrost/) | Principal Software Engineer
- 
+- [Jonathon Frost](https://www.linkedin.com/in/jjfrost/) | Principal Software Engineer
+
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
@@ -139,6 +137,5 @@ Principal author:
 
 ## Related resources
 
-- [Refactor IBM z/OS mainframe Coupling Facility (CF) to Azure](../../reference-architectures/zos/refactor-zos-coupling-facility.yml).
 - [Replicate and sync mainframe data in Azure](../../reference-architectures/migration/sync-mainframe-data-with-azure.yml).
 - [Multi-tier web application built for HA/DR](../infrastructure/multi-tier-app-disaster-recovery.yml)

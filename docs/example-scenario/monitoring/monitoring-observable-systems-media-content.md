@@ -120,8 +120,7 @@ Other contributors:
 - [Real-Time Intelligence tutorial: Introduction](/fabric/real-time-intelligence/tutorial-introduction)
 - [Introduction to Azure Functions](/azure/azure-functions/functions-overview)
 - [Supplementary code samples](https://github.com/microsoft/fabricrealtimelab)
-- [Monitor Azure Media Services](/azure/media-services/latest/monitoring/monitor-media-services)
 
 ## Related resource
 
-- [Analytics architecture design](../../solution-ideas/articles/analytics-start-here.yml)
+- [Analytics architecture design](../../solution-ideas/articles/analytics-get-started.md)

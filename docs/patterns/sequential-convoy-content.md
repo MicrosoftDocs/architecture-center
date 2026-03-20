@@ -25,7 +25,7 @@ Consider the following points when deciding how to implement this pattern:
 - Category/scale unit. What property of your incoming messages can you scale out on? In the order tracking scenario, this property is the order ID.
 - Throughput. What is your target message throughput? If it's very high, you might need to reconsider your FIFO requirements. For example, can you enforce a start/end message, sort by time, then send a batch for processing?
 - Service capabilities. Does your choice of message bus allow for one-at-a-time processing of messages within a queue or category of a queue?
-- Evolvability. How will you add a new category of message to the system? For example, suppose the ledger system described above is specific one customer. If you needed to onboard a new customer, could you have a set of ledger processors that distribute work per customer ID?
+- Evolvability. How will you add a new category of message to the system? For example, suppose the ledger system described above is specific to one customer. If you needed to onboard a new customer, could you have a set of ledger processors that distribute work per customer ID?
 - It's possible that consumers might receive a message out of order, due to variable network latency when sending messages. Consider using sequence numbers to verify ordering. You might also include a special "end of sequence" flag in the last message of a transaction. Stream processing technologies such as Spark or Azure Stream Analytics can process messages in order within a time window.
 
 ## When to use this pattern

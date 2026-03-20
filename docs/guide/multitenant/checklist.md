@@ -29,7 +29,7 @@ When you build your multitenant solution in Azure, there are many elements that 
 
 - Based on your customers' requirements, decide on the [tenancy models](./considerations/tenancy-models.md) that are appropriate for various parts of your solution.  
 
-- When you're ready, sell your B2B multitenant solution by using the [Microsoft commercial marketplace](/azure/marketplace/plan-saas-offer).  
+- When you're ready, sell your B2B multitenant solution by using the [Microsoft commercial marketplace](/partner-center/marketplace-offers/plan-saas-offer).  
 
 ## Reliability considerations  
 
@@ -47,7 +47,7 @@ When you build your multitenant solution in Azure, there are many elements that 
 
 ## Security considerations  
 
-- Apply [Zero Trust](/security/zero-trust) and least privilege principles in all layers of your solution.
+- Apply [zero trust](/security/zero-trust) and least privilege principles in all layers of your solution.
 
 - Ensure that you can correctly [map user requests](./considerations/map-requests.yml) to tenants. Consider including the tenant context as part of the identity system or via another method, like application-level tenant authorization.  
 

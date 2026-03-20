@@ -225,7 +225,7 @@ Advanced Container Networking Services (ACNS) equips AKS with advanced networkin
 
 - **Container network security:**
 
-  For clusters that use Azure Container Networking Interface powered by Cilium, ACNS provides fully qualified domain name (FQDN) filtering. Instead of managing static, IP address-based security policies, you can define policies based on domain names. This dynamic approach simplifies policy management and also aligns with modern, Zero Trust security models. This approach makes it easier for you to enforce robust security without constant manual updates.
+  For clusters that use Azure Container Networking Interface powered by Cilium, ACNS provides fully qualified domain name (FQDN) filtering. Instead of managing static, IP address-based security policies, you can define policies based on domain names. This dynamic approach simplifies policy management and also aligns with modern, zero trust security models. This approach makes it easier for you to enforce robust security without constant manual updates.
 
 For more information, see the following resources:
 
@@ -323,7 +323,7 @@ There are consequences to implementing network-restricted access to the Kubernet
 |---|---|---|
 | Kubernetes API network security | Not configurable in PaaS | Configurable by using a public or private IP address |
 
-ACNS enhances data plane security in AKS. For clusters that use Azure Container Networking Interface powered by Cilium, ACNS introduces container network security through FQDN filtering. Instead of managing static, IP address-based security policies, you can define dynamic policies based on FQDNs. This approach simplifies policy management, reduces administrative overhead, and supports a Zero Trust model by ensuring that only traffic to trusted domains is allowed.
+ACNS enhances data plane security in AKS. For clusters that use Azure Container Networking Interface powered by Cilium, ACNS introduces container network security through FQDN filtering. Instead of managing static, IP address-based security policies, you can define dynamic policies based on FQDNs. This approach simplifies policy management, reduces administrative overhead, and supports a zero trust model by ensuring that only traffic to trusted domains is allowed.
 
 > [!NOTE]
 > ACNS security features require Kubernetes version 1.29 or later and are available only on clusters that use the Cilium data plane.
@@ -505,7 +505,7 @@ Gathering metrics for complex or multiple-tiered applications can be challenging
 - **Manual instrumentation:** Minimal code changes required to integrate and configure the SDK and client
 
   | Instrumentation method | Container Apps | AKS | Web App for Containers |
-  |---|---|---|---|
+  | :--------------------- | :------------- | :-- | :--------------------- |
   | Automatic instrumentation via platform | ❌ | ❌ | Partial support* |
   | Automatic instrumentation via agent | ❌ | Partial support* | Not available |
   | Manual instrumentation | Via SDK or OpenTelemetry | Via SDK or OpenTelemetry | Via SDK or OpenTelemetry |
@@ -515,21 +515,18 @@ Gathering metrics for complex or multiple-tiered applications can be challenging
 - [Automatic instrumentation supported environments, languages, and resource providers](/azure/azure-monitor/app/codeless-overview#supported-environments-languages-and-resource-providers)
 - [Automatic instrumentation application monitoring for Kubernetes](/azure/azure-monitor/app/kubernetes-codeless)
 
-Instrumentation within application code is the responsibility of application developers, so it's independent of any Azure container solution. Use the following solutions for your workload:
-
-- [Application Insights SDKs](/azure/azure-monitor/app/app-insights-overview#supported-languages)
-- [OpenTelemetry distributions](/azure/azure-monitor/app/opentelemetry-add-modify)
+Instrumentation within application code is the responsibility of application developers, so it's independent of any Azure container solution. Use [OpenTelemetry with Application Insights](/azure/azure-monitor/app/opentelemetry-enable#enable-opentelemetry-with-application-insights).
 
 ### Logs and metrics
 
-All Azure container services provide application and platform log and metric functionality. Application logs are console logs that your workload generates. Platform logs capture events that occur at the platform level, outside the scope of your application, like scaling and deployments. Metrics are numerical values that describe some aspect of a system at a point in time. Metrics allow you to monitor and alert on system performance and health.
+All Azure container services provide application and platform log and metric functionality. Application logs are console logs that your workload generates. Platform logs capture events that occur at the platform level, outside the scope of your application, like scaling and deployments. Metrics are numerical values that describe some aspect of a system at a point in time. Metrics help you monitor and alert on system performance and health.
 
 Azure Monitor is the key logging and metrics service in Azure that integrates with these services. Azure Monitor uses [resource logs](/azure/azure-monitor/essentials/resource-logs) to separate logs from different sources into categories and collects metrics to provide insights into resource performance. One way to determine which logs and metrics are available from each Azure service is to review the resource log categories and available metrics for each of the services.
 
 | Observability features | Container Apps | AKS | AKS Automatic | Web App for Containers |
 | --- | --- | --- | --- | --- |
-| Support for log streaming | ✅   | ✅   | ✅   | ✅   |
-| Support for Azure Monitor | ✅   | ✅   | ✅   | ✅   |
+| Support for log streaming | ✅ | ✅ | ✅ | ✅ |
+| Support for Azure Monitor | ✅ | ✅ | ✅ | ✅ |
 | Azure Monitor resource logs | - [Console](/azure/container-apps/logging#container-console-logs) <br><br> - [System](/azure/container-apps/logging#system-logs) | [Kubernetes API server, Audit, Scheduler, and Cluster Autoscaler](/azure/aks/monitor-aks#aks-control-planeresource-logs) | Same as AKS | [ConsoleLogs, HTTPLogs, and EnvironmentPlatformLogs](/azure/app-service/monitor-app-service-reference#resource-logs) |
 | Metric collection and monitoring | Metrics via Azure Monitor. Custom metrics via [Dapr metrics](/azure/container-apps/dapr-overview#observability). | Metrics via Azure Monitor. Custom metrics via Prometheus (requires manual setup). | Preconfigured Managed Prometheus for metrics collection and Managed Grafana for visualization. Metrics via Azure Monitor. | Metrics via Azure Monitor |
 | Preconfigured Prometheus and Grafana | ❌ | Requires manual setup. | Managed Prometheus and Managed Grafana are preconfigured by default. | ❌ |
@@ -588,10 +585,10 @@ When you use multiple Azure services, [composite service-level objectives](/azur
 Azure has availability zones in every country or region in which it operates a datacenter region. To allow multiple instances of containers to cross availability zones, be sure to select SKUs, service tiers, and regions that provide availability zone support.
 
 | Feature | Container Apps | AKS | Web App for Containers |
-|---|---|---|---|
+| :------ | :------------- | :-- | :--------------------- |
 | Availability zone support | Full | Full | Full |
 
-For example, an application or infrastructure that's configured to run a single instance becomes unavailable if a problem occurs in the availability zone where the hardware is hosted. To fully use availability zone support, you should deploy workloads that have a minimum configuration of three instances of the container, spread across zones.
+For example, an application or infrastructure that's configured to run a single instance becomes unavailable if a problem occurs in the availability zone where the hardware is hosted. To take full advantage of availability zone support, deploy workloads that have at least three container instances distributed across zones.
 
 ### Health checks and self-healing
 
@@ -681,7 +678,7 @@ When you compare Azure container services, a clear theme emerges. AKS exposes th
 
 The amount of operational overhead and complexity varies widely for AKS workloads. Some teams significantly reduce overhead by using Microsoft-managed add-ons, extensions, and automatic-upgrade features. Other teams prefer full cluster control to take advantage of Kubernetes' full extensibility and the CNCF ecosystem. For example, while Microsoft provides Flux as a managed GitOps extension, many teams choose to set up and operate ArgoCD on their own.
 
-Workload teams that don't require CNCF applications, have less operations experience, or prefer to focus on application features might prefer a PaaS offering. We recommend that they first consider Container Apps.
+Workload teams that don't require CNCF applications, have less experience in operations, or prefer to focus on application features might prefer a PaaS offering. We recommend that they first consider Container Apps.
 
 Container Apps and Web App for Containers are both PaaS offerings that provide similar levels of Microsoft-managed infrastructure. However, Container Apps is closer to Kubernetes and provides extra cloud-native capabilities for service discovery, event-driven autoscaling, and [Dapr](https://dapr.io/) integration. Teams that don't need these features and are familiar with App Service networking and deployment models might prefer Web App for Containers.
 

@@ -42,7 +42,7 @@ This diagram shows how the legacy architecture can be migrated to Azure, taking 
 
 #### Workflow
 
-1. User access provided over TLS port 443 for accessing web-based applications. Web-based Applications presentation layer can be kept virtually unchanged to minimize end user retraining. Alternatively, the web application presentation layer can be updated with modern UX frameworks as requirements necessitate.
+1. User access provided over TLS port 443 for accessing web-based applications. The web-based applications' presentation layer can be kept with minimal changes to reduce user retraining. Alternatively, the web application presentation layer can be updated with modern UX frameworks as requirements necessitate.
 
 2. In Azure, access to the application compute clusters is through Azure Load Balancer, allowing for scale-out compute resources to process the input work.
 
@@ -68,7 +68,7 @@ This diagram shows how the legacy architecture can be migrated to Azure, taking 
 
 - [Azure Files](/azure/well-architected/service-guides/azure-files) offers fully managed file shares in the cloud that are accessible via the industry-standard Server Message Block (SMB) protocol. Azure file shares can be mounted concurrently by cloud or on-premises deployments of Windows, Linux, and macOS.
 
-- [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. With ExpressRoute you can establish connections to Microsoft cloud services, such as Microsoft Azure and Office 365.
+- [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. With ExpressRoute you can establish connections to Microsoft cloud services, such as Microsoft Azure and Microsoft 365.
 
 - [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer/reliability) operates at layer four of the Open Systems Interconnection (OSI) model. It's the single point of contact for clients. Load Balancer distributes inbound flows that arrive at the load balancer's front end to back-end pool instances. These flows are according to configured load balancing rules and health probes. The back-end pool instances can be Azure Virtual Machines or instances in a virtual machine scale set.
 
@@ -208,8 +208,4 @@ For more information, please contact <legacy2azure@microsoft.com> or check out t
 
 -   [Replicate and sync mainframe data in Azure](../migration/sync-mainframe-data-with-azure.yml)
 
--   [Refactor IBM z/OS mainframe Coupling Facility (CF) to Azure](../zos/refactor-zos-coupling-facility.yml)
-
 -   [IBM z/OS mainframe migration with Avanade AMT](../../example-scenario/mainframe/avanade-amt-zos-migration.yml)
-
--   [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame](../../solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml)

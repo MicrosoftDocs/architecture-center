@@ -112,7 +112,7 @@ Use the following table to identify potential options for your application type.
 Also, refer to the following decision tree.
 
 :::image type="complex" border="false" source="images/java-application-tree.png" alt-text="Diagram that shows a decision tree for Java on Azure services." lightbox="images/java-application-tree.png":::
-   The diagram has six key sections. A branching line points from Need infrastructure control to a Yes and a No section. These are two separate flows. In the Yes flow, a line points from Have technology preferences to four sections: VMs, Tanzu or PCF, Kubernetes, and OpenShift. Four lines point from these sections to the following sections: Azure IaaS, Tanzu application service on IaaS, Azure Kubernetes Service, and Azure Red Hat OpenShift. In the No flow, a line points to Build and manage your own container images. A line points from this section and splits into two flows. The first flow points from Yes to Azure Container Apps. The second flow points from App server or MicroProfile or Spring. Then it splits into two sections: App Service and Azure Spring Apps. At the bottom of the image, an arrow spans the entire diagram with Control on the far left and Productivity on the far right.
+   The diagram has six key sections. A branching line points from Need infrastructure control to a Yes and a No section. These are two separate flows. In the Yes flow, a line points from Have technology preferences to four sections: VMs, Tanzu or PCF, Kubernetes, and OpenShift. Four lines point from these sections to the following sections: Azure IaaS, Tanzu application service on IaaS, Azure Kubernetes Service, and Azure Red Hat OpenShift. In the No flow, a line points to Build and manage your own container images. A line points from this section and splits into two flows. The first flow points from Yes to Azure Container Apps. The second flow points from App server or MicroProfile or Spring. Then it splits into two sections: App Service and Azure Container Apps. At the bottom of the image, an arrow spans the entire diagram with Control on the far left and Productivity on the far right.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/java-application-tree.vsdx) of this diagram.*
@@ -137,16 +137,16 @@ The MicroProfile project provides a collection of specifications designed to hel
 
 The following table provides build or migration information by application type and Azure service.
 
-|                              | Type             | Java SE  | MicroProfile | JarkartaSE |
-|------------------------------|------------------|----------|--------------|------------|
-| **Virtual Machine**          | IaaS             | &#x2714; | &#x2714;     | &#x2714;   |
-| **VMware Tanzu**             | IaaS             | &#x2714; |              |            |
-| **Azure Kubernetes Service** | Container        | &#x2714; | &#x2714;     | &#x2714;   |
-| **Red Hat OpenShift**        | Container        | &#x2714; | &#x2714;     | &#x2714;   |
-| **Azure Container App**      | PaaS             | &#x2714; | &#x2714;     |            |
-| **JBoss EAP**                | PaaS App Service | &#x2714; |              | &#x2714;   |
-| **Apache Tomcat**            | PaaS App Service | &#x2714; |              |            |
-| **Java SE**                  | PaaS App Service | &#x2714; | &#x2714;     |            |
+|                              | Type             | Java SE  | MicroProfile | JakartaSE |
+|------------------------------|------------------|----------|--------------|-----------|
+| **Virtual Machine**          | IaaS             | &#x2714; | &#x2714;     | &#x2714;  |
+| **VMware Tanzu**             | IaaS             | &#x2714; |              |           |
+| **Azure Kubernetes Service** | Container        | &#x2714; | &#x2714;     | &#x2714;  |
+| **Red Hat OpenShift**        | Container        | &#x2714; | &#x2714;     | &#x2714;  |
+| **Azure Container App**      | PaaS             | &#x2714; | &#x2714;     |           |
+| **JBoss EAP**                | PaaS App Service | &#x2714; |              | &#x2714;  |
+| **Apache Tomcat**            | PaaS App Service | &#x2714; |              |           |
+| **Java SE**                  | PaaS App Service | &#x2714; | &#x2714;     |           |
 
 
 ## Contributors

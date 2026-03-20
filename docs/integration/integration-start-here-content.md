@@ -21,7 +21,7 @@ For information about more Azure integration services, see [Integration Services
 
 ## Introduction to integration on Azure
 
-If you're new to integration, the best place to start is Microsoft Learn. This free online platform offers videos, tutorials, and hands-on training for various products and services.
+If you're new to integration, the best place to start is Microsoft Learn. This free online platform offers videos, tutorials, and interactive training for various products and services.
 
 The following resources can help you learn the core concepts of integration:
 
@@ -95,7 +95,7 @@ These reference architectures provide baseline implementations for various scena
 - [Data analysis workloads for regulated industries][Data analysis workloads for regulated industries]: Run data analytics workloads that take into account regulatory requirements.
 - [Basic enterprise integration on Azure][Basic enterprise integration on Azure]: Orchestrate synchronous calls to enterprise back-end systems.
 - [Enterprise integration using message broker and events](../example-scenario/integration/queues-events.yml): Orchestrate asynchronous calls to enterprise back-end systems by using queues and events.
-- [Enterprise business intelligence][Enterprise business intelligence]: Move data from an on-premises SQL Server database into Azure Synapse Analytics and transform the data for analysis.
+- [Enterprise business intelligence][Enterprise business intelligence]: Move data from an on-premises SQL Server database into Microsoft Fabric and transform the data for analysis.
 - [Web and mobile front ends][Web and mobile front ends]: Make third-party data available to web users.
 
 ## Operations guide
@@ -125,7 +125,7 @@ The following resources provide practical recommendations and information for sp
 [About connectors in Azure Logic Apps]: /azure/connectors/apis-list?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [API Management ACOM page]: https://azure.microsoft.com/services/api-management
 [Architect API integration in Azure]: /training/paths/architect-api-integration
-[Asynchronous messaging options]: ../guide/technology-choices/messaging.yml
+[Asynchronous messaging options]: ../guide/technology-choices/messaging.md
 [Azure Functions ACOM page]: https://azure.microsoft.com/services/functions
 [Azure Logic Apps ACOM page]: https://azure.microsoft.com/services/logic-apps
 [Azure Policy Regulatory Compliance controls for Azure Logic Apps]: /azure/logic-apps/security-controls-policy?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
@@ -157,5 +157,5 @@ The following resources provide practical recommendations and information for sp
 [Patterns and implementations for a banking cloud transformation]: ../example-scenario/banking/patterns-and-implementations.yml
 [Performance and scale for Event Hubs and Azure Functions]: ../serverless/event-hubs-functions/performance-scale.yml
 [Service Bus ACOM page]: https://azure.microsoft.com/services/service-bus
-[Transactional Outbox pattern with Azure Cosmos DB]: ../databases/guide/transactional-outbox-cosmos.yml
+[Transactional Outbox pattern with Azure Cosmos DB]: ../databases/guide/transactional-out-box-cosmos.md
 [Web and mobile front ends]: ../solution-ideas/articles/front-end.yml

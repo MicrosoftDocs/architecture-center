@@ -86,7 +86,7 @@
           "folder_relative_path_in_docset": "./"
         }
       },
-      "ms.topic": "conceptual",
+      "ms.topic": "concept-article",
       "searchScope": [ "Azure", "Azure Architecture Center" ]
     },
     "fileMetadata": {
@@ -114,10 +114,6 @@
         "reference-architectures/**/*.md": [ "Azure", "Azure Architecture Center", "Reference Architectures" ],
         "example-scenario/**/*.md": [ "Azure", "Azure Architecture Center", "Reference Architectures" ],
         "solution-ideas/**/*.md": [ "Azure", "Azure Architecture Center", "Reference Architectures" ]
-      },
-      "ms.custom": {
-        "ai-ml/**/*.md": "arb-aiml",
-        "ai-ml/**/*.yml": "arb-aiml"
       },
       "ms.update-cycle": {
         "guide/multitenant/considerations/*.md": "1095-days",

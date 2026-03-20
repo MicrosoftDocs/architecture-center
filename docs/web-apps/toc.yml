@@ -13,6 +13,7 @@ items:
         - name: Basic web application
           href: app-service/architectures/basic-web-app.yml
         - name: Baseline web application with zone redundancy
+          displayName: High availability
           href: app-service/architectures/baseline-zone-redundant.yml
       - name: Host web apps with App Service Environment
         items:
@@ -25,11 +26,14 @@ items:
       - name: Manage your APIs with Azure API Management (APIM)
         items:
         - name: Protect APIs by using Application Gateway and API Management
+          displayName: APIM
           href: api-management/architectures/protect-apis.yml
         - name: Design API with API Management and GitHub
+          displayName: APIM
           href: ../example-scenario/web/design-api-developer-experiences-management-github.yml
         - name: Migrate a web app with APIM
-          href: ../example-scenario/apps/apim-api-scenario.yml          
+          displayName: API Management
+          href: ../example-scenario/apps/apim-api-scenario.yml
     - name: Apply guidance
       items:
       - name: Networking guidance for web apps
@@ -39,6 +43,7 @@ items:
       - name: Security guidance for web apps
         items:
         - name: Single-page application authorization
+          displayName: SPA, OAuth
           href: guides/security/secure-single-page-application-authorization.md
       - name: Application development guidance for web apps
         items:
@@ -61,12 +66,14 @@ items:
       - name: Disaster recovery for web apps
         items:
         - name: Multi-region App Service apps for disaster recovery
+          displayName: DR
           href: guides/multi-region-app-service/multi-region-app-service.yml
     - name: Hosting WordPress on Azure
       items:
       - name: Overview
         href: ../guide/infrastructure/wordpress-overview.yml
       - name: Container hosting (AKS)
+        displayName: Azure Kubernetes Service
         href: ../example-scenario/infrastructure/wordpress-container.yml
       - name: App Service hosting
         href: ../example-scenario/infrastructure/wordpress-app-service.yml

@@ -1,4 +1,4 @@
-This article presents a solution for extracting text from images so it can be indexed and retrieved in SharePoint. By using AI Builder and Azure AI Document Intelligence, you can configure a Power Automate workflow to use a trained model to extract text from an image. Once you've configured a workflow, you can quickly search documents for meaningful text that's embedded in shapes and objects.
+This article presents a solution for extracting text from images so it can be indexed and retrieved in SharePoint. By using AI Builder and Azure Document Intelligence in Foundry Tools, you can configure a Power Automate workflow to use a trained model to extract text from an image. Once you've configured a workflow, you can quickly search documents for meaningful text that's embedded in shapes and objects.
 
 ## Architecture
 
@@ -24,14 +24,14 @@ This article presents a solution for extracting text from images so it can be in
 - [Document Intelligence Studio](/azure/ai-services/document-intelligence/studio-overview) uses machine-learning models to extract and analyze form fields, text, and tables from your documents.
 
   > [!NOTE]
-  > Before using Document Intelligence Studio, evaluate if your scenario works from within Azure AI Foundry. The capabilities found in the Document Intelligence Studio are being migrated to Azure AI Foundry. To help you select a portal experience, see [Choose the correct studio experience](/azure/ai-services/document-intelligence/studio-overview#choose-the-correct-studio-experience).
+  > Before using Document Intelligence Studio, evaluate if your scenario works from within Microsoft Foundry. The capabilities found in the Document Intelligence Studio are being migrated to Foundry. To help you select a portal experience, see [Choose the correct studio experience](/azure/ai-services/document-intelligence/studio-overview#choose-the-correct-studio-experience).
 - [Power Automate](/power-automate/getting-started) is a part of Microsoft Power Platform no-code or low-code intuitive solutions. Power Automate is an online workflow service that automates actions across apps and services.
 - [Azure Functions](/azure/azure-functions/functions-overview) is an event-driven serverless compute platform. Azure Functions runs on demand and at scale in the cloud.
 - [PnP Modern Search](https://microsoft-search.github.io/pnp-modern-search) solution is a set of SharePoint in Microsoft 365 modern web parts. By using these tools, you can create highly flexible and personalized search-based experiences.
 
 ### Alternatives
 
-- [Azure AI Document Intelligence](/azure/ai-services/document-intelligence/overview) can do a full OCR scan of documents, with the resulting metadata stored in SharePoint.
+- [Document Intelligence](/azure/ai-services/document-intelligence/overview) can do a full OCR scan of documents, with the resulting metadata stored in SharePoint.
 - SharePoint can run OCR scans on documents and add content output to the index for retrieval. Use search techniques to target key information in documents.
 - If you want to process a high rate of documents, consider using Azure Logic Apps to configure the components. Azure Logic Apps helps avoid consumption limits primarily through its integration with a dedicated workflow engine and its ability to run under different pricing tiers, and is cost-effective. For more information, see [Azure Logic Apps](/azure/logic-apps/logic-apps-limits-and-config?tabs=consumption).
 

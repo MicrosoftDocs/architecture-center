@@ -49,7 +49,7 @@ trigger:
     # for new release to production: release flow strategy
     - release/delivery/v*
     - refs/release/delivery/v*
-    - master
+    - main
     - feature/delivery/*
     - topic/delivery/*
   paths:
@@ -62,7 +62,7 @@ Using this approach, each team can have its own build pipeline. Only code that i
 1. Build the code.
 1. Run unit tests.
 
-The goal is to keep build times short so that the developer can get quick feedback. Once the feature is ready to merge into master, the developer opens a PR. This operation triggers another CI build that performs some additional checks:
+The goal is to keep build times short so that the developer can get quick feedback. Once the feature is ready to merge into main, the developer opens a PR. This operation triggers another CI build that performs some additional checks:
 
 1. Build the code.
 1. Run unit tests.
@@ -72,7 +72,7 @@ The goal is to keep build times short so that the developer can get quick feedba
 ![Diagram showing ci-delivery-full in the Build pipeline.](./images/aks-cicd-2.png)
 
 > [!NOTE]
-> In Azure DevOps Repos, you can define [policies](/azure/devops/repos/git/branch-policies) to protect branches. For example, the policy could require a successful CI build plus a sign-off from an approver in order to merge into master.
+> In Azure DevOps Repos, you can define [policies](/azure/devops/repos/git/branch-policies) to protect branches. For example, the policy could require a successful CI build plus a sign-off from an approver in order to merge into main.
 
 ## Full CI/CD build
 
@@ -103,7 +103,7 @@ Our recommendation is to create a dedicated production cluster along with a sepa
 
 ## Build process
 
-When possible, package your build process into a Docker container. This configuration allows you to build code artifacts using Docker and without configuring a build environment on each build machine. A containerized build process makes it easy to scale out the CI pipeline by adding new build agents. Also, any developer on the team can build the code simply by running the build container.
+When possible, package your build process into a Docker container. This configuration allows you to build code artifacts using Docker and without configuring a build environment on each build machine. A containerized build process simplifies scaling out the CI pipeline by adding new build agents. Also, any developer on the team can build the code by running the build container.
 
 By using multi-stage builds in Docker, you can define the build environment and the runtime image in a single Dockerfile. For example, here's a Dockerfile that builds a .NET application:
 
@@ -164,7 +164,7 @@ docker run delivery-test:1
 
 The CI pipeline should also run the tests as part of the build verification step.
 
-Note that this file uses the Docker `ENTRYPOINT` command to run the tests, not the Docker `RUN` command.
+This file uses the Docker `ENTRYPOINT` command to run the tests, not the Docker `RUN` command.
 
 - If you use the `RUN` command, the tests run every time you build the image. By using `ENTRYPOINT`, the tests are opt-in. They run only when you explicitly target the `testrunner` stage.
 - A failing test doesn't cause the Docker `build` command to fail. That way, you can distinguish container build failures from test failures.
@@ -174,7 +174,7 @@ Note that this file uses the Docker `ENTRYPOINT` command to run the tests, not t
 
 Here are some other best practices to consider for containers:
 
-- Define organization-wide conventions for container tags, versioning, and naming conventions for resources deployed to the cluster (pods, services, and so on). That can make it easier to diagnose deployment issues.
+- Define organization-wide conventions for container tags, versioning, and naming conventions for resources deployed to the cluster (for example, pods and services). That can make it easier to diagnose deployment issues.
 
 - During the development and test cycle, the CI/CD process builds many container images. Only some of those images are candidates for release, and then only some of those release candidates get promoted to production. Have a clear versioning strategy so that you know which images are currently deployed to production and to help roll back to a previous version if necessary.
 

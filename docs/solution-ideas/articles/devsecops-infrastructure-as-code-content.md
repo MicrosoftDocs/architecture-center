@@ -16,21 +16,21 @@ This solution idea illustrates the DevSecOps pipeline that uses GitHub for infra
 
 The following dataflow corresponds to the previous diagram:
 
-1. Use test-driven development to check code changes for infrastructure definitions, like IaC templates, into GitHub repositories. You develop unit tests, integration tests, and policy as code (PaC) at the same time to test the quality of the IaC.
+1. Developers use test-driven development to check code changes for infrastructure definitions, such as IaC templates, into GitHub repositories. They develop unit tests, integration tests, and policy as code (PaC) concurrently to test the quality of the IaC.
 
 1. Pull requests trigger automated unit testing through GitHub Actions.
 
-1. Configure the GitHub Actions workflow process to test the IaC by using locally deployed infrastructure states and plans.
+1. Configure the GitHub Actions workflow process to test the IaC by using locally generated infrastructure states and plans.
 
-1. Configure GitHub Actions to scan for code quality and security problems. Create your own custom-built GitHub CodeQL queries to analyze IaC templates and detect potential security vulnerabilities. If a vulnerability is detected, GitHub sends alerts to the organization or to repository owners and maintainers.
+1. Configure GitHub Actions to scan for code quality and security problems. Scan using your own custom-built GitHub CodeQL queries or other security tooling to analyze IaC templates and detect potential security vulnerabilities. If a vulnerability is detected, GitHub sends alerts to the organization or to repository owners and maintainers.
 
 1. The IaC tool provisions and modifies resources for each environment by tailoring size, instance count, and other properties. You can run automated integration tests for IaC on provisioned resources.
 
-1. When a manual update to the infrastructure is necessary, the designated administrator access is elevated to perform the modifications. After modification, the elevated access is removed. You should also log a GitHub Issue for reconciliation of the IaC. The reconciliation steps and approaches depend on the specific IaC tools.
+1. When a manual update to the infrastructure is necessary, the designated administrator elevates their access to perform the modifications. After modification, the elevated access is removed. You should also log a GitHub Issue for reconciliation of the IaC. The reconciliation steps and approaches depend on the specific IaC tools.
 
 1. SecOps continuously monitors and defends against security threats and vulnerabilities. Azure Policy enforces cloud governance.
 
-1. When an anomaly is detected, a GitHub Issue is automatically logged so that it can be resolved.
+1. When the system detects an anomaly, it automatically logs a GitHub Issue for resolution.
 
 ### Components
 
@@ -41,6 +41,9 @@ The following dataflow corresponds to the previous diagram:
 - [GitHub Advanced Security](https://github.com/advanced-security) is a suite of security features that includes static analysis and vulnerability detection for code stored in GitHub. In this architecture, it enhances IaC security by scanning templates and raising alerts about misconfigurations or risks.
 
 - [CodeQL](https://codeql.github.com) is a semantic code analysis engine that enables custom queries to detect vulnerabilities and misconfigurations in code. In this architecture, CodeQL scans repository artifacts to identify potential security problems before deployment.
+
+  > [!NOTE]
+  > CodeQL does not natively support scanning of all IaC files, such as Terraform. However, you can use the [CodeQL IaC Extractor](https://github.com/advanced-security/codeql-extractor-iac/) community project or vendor-provided alternatives like Aqua Security's [Trivy](https://github.com/aquasecurity/trivy).
 
 - [Terraform](https://www.terraform.io) is an open-source infrastructure automation tool developed by HashiCorp that enables declarative provisioning across cloud environments. In this architecture, Terraform provisions and modifies Azure resources based on IaC definitions and supports test-driven development workflows.
 
@@ -54,15 +57,15 @@ The following dataflow corresponds to the previous diagram:
 
 ## Scenario details
 
-Conceptually, the DevSecOps for IaC is similar to [DevSecOps for application code on Azure Kubernetes Service (AKS)](../../guide/devsecops/devsecops-on-aks.yml). But you need a different set of pipelines and tools to manage and automate continuous integration and continuous delivery for IaC.
+DevSecOps for IaC is conceptually similar to [DevSecOps for application code on Azure Kubernetes Service (AKS)](../../guide/devsecops/devsecops-on-aks.yml). However, you need a different set of pipelines and tools to manage and automate continuous integration and continuous delivery for IaC.
 
 When you adopt IaC, it's important to create automation tests as you develop the code. These tests reduce the complexity of testing IaC when your workload scales. You can use local infrastructure configuration states like Terraform states and plans for [test-driven development](/azure/cloud-adoption-framework/ready/considerations/test-driven-development). These configuration states emulate the actual deployments. You can run integration tests for IaC on actual infrastructure deployments by using the [Azure Resource Graph REST API](/rest/api/azure-resourcegraph/).
 
 PaC is another important method to deliver infrastructure that complies with regulations and corporate governance. You can add [PaC workflows](/azure/governance/policy/concepts/policy-as-code) into your pipelines to automate cloud governance.
 
-Securing infrastructure early in the development stage reduces the risks of misconfigured infrastructure that exposes points for attack after deployment. You can integrate static code analysis tools like Synk or Aqua Security tfsec by using GitHub's CodeQL to scan for security vulnerabilities in infrastructure code. This process is similar to static application security testing.
+Securing infrastructure early in the development stage reduces the risks of misconfigured infrastructure that exposes points for attack after deployment. You can integrate static code analysis tools like Snyk or Aqua Security Trivy with GitHub Advanced Security to scan for security vulnerabilities in infrastructure code. This process is similar to static application security testing.
 
-When the infrastructure is deployed and operational, cloud configuration drifts can be difficult to resolve, especially in production environments.
+When the infrastructure is deployed and operational, cloud configuration drift can be difficult to resolve, especially in production environments.
 
 Set up dedicated service principals to deploy or modify cloud infrastructure for production environments. Then remove all other access that allows manual configuration of the environment. If you need manual configurations, elevate access for the designated administrator, and then remove elevated access after the change is made. You should configure Azure Monitor to raise a GitHub Issue so that developers can reconcile the changes. Avoid manual configuration if possible.
 

@@ -35,7 +35,7 @@ A service can throttle based on different metrics over time, such as:
 
 Regardless of the metric used for throttling, your rate limiting implementation will involve controlling the number and/or size of operations sent to the service over a specific time period, optimizing your use of the service while not exceeding its throttling capacity.
 
-In scenarios where your APIs can handle requests faster than any throttled ingestion services allow, you'll need to manage how quickly you can use the service. However, only treating the throttling as a data rate mismatch problem, and simply buffering your ingestion requests until the throttled service can catch up, is risky. If your application crashes in this scenario, you risk losing any of this buffered data.
+In scenarios where your APIs can handle requests faster than throttled ingestion services allow, you must manage how quickly you use the service. Treating throttling only as a data-rate mismatch and buffering ingestion requests until the service recovers creates risk. If your application crashes in this scenario, any buffered data might be lost.
 
 To avoid this risk, consider sending your records to a durable messaging system that *can* handle your full ingestion rate. (Services such as Azure Event Hubs can handle millions of operations per second). You can then use one or more job processors to read the records from the messaging system at a controlled rate that is within the throttled service's limits. Submitting records to the messaging system can save internal memory by allowing you to dequeue only the records that can be processed during a given time interval.
 
@@ -49,7 +49,7 @@ Azure provides several durable messaging services that you can use with this pat
 
 When you're sending records, the time period you use for releasing records might be more granular than the period the service throttles on. Systems often set throttles based on timespans you can easily comprehend and work with. However, for the computer running a service, these timeframes might be very long compared to how fast it can process information. For instance, a system might throttle per second or per minute, but commonly the code is processing on the order of nanoseconds or milliseconds.
 
-While not required, it's often recommended to send smaller amounts of records more frequently to improve throughput. So rather than trying to batch things up for a release once a second or once a minute, you can be more granular than that to keep your resource consumption (memory, CPU, network, and so on) flowing at a more even rate, preventing potential bottlenecks due to sudden bursts of requests. For example, if a service allows 100 operations per second, the implementation of a rate limiter might even out requests by releasing 20 operations every 200 milliseconds, as shown in the following graph.
+While not required, it's often recommended to send smaller amounts of records more frequently to improve throughput. So rather than trying to batch things up for a release once a second or once a minute, you can be more granular than that to keep your resource consumption (memory, CPU, and network) flowing at a more even rate, preventing potential bottlenecks due to sudden bursts of requests. For example, if a service allows 100 operations per second, the implementation of a rate limiter might even out requests by releasing 20 operations every 200 milliseconds, as shown in the following graph.
 
 ![A chart showing rate limiting over time.](./_images/rate-limiting-pattern-02.png)
 

@@ -86,11 +86,11 @@ Use the Azure [pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 ### Third-party archive solutions
 
-Some third-party solutions are available on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?filters=partners&page=1&search=mainframe%20data). Each of these solutions requires unique configuration. Setting up these solutions is one of the primary tasks of implementing this architecture.
+Some third-party solutions are available on the [Microsoft Marketplace](https://marketplace.microsoft.com/marketplace/apps?search=mainframe+data). Each of these solutions requires unique configuration. Setting up these solutions is one of the primary tasks of implementing this architecture.
 
 ### Azure storage
 
-Azure has a variety of options for different application and technical requirements, like frequent versus infrequent access, and structured versus unstructured data. You can set up various storage lifecycle configurations in Azure storage. You can define the rules to manage the lifecycle. For an overview, see [Configure a lifecycle management policy](/azure/storage/blobs/lifecycle-management-policy-configure).
+Azure has various options for different application and technical requirements, like frequent versus infrequent access, and structured versus unstructured data. You can set up various storage lifecycle configurations in Azure storage. You can define the rules to manage the lifecycle. For an overview, see [Configure a lifecycle management policy](/azure/storage/blobs/lifecycle-management-policy-configure).
 
 ### Data recall
 

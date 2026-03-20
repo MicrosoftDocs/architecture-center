@@ -73,18 +73,20 @@ For example, before it was moved to the cloud, Relecloud's ticketing web app was
 
 - *Cache:* Choose whether to add a cache to your web app architecture. [Azure Managed Redis](/azure/redis/overview) is the primary Azure cache solution. It's a managed in-memory data store that's based on Redis software. Relecloud's web app load is heavily skewed toward viewing concerts and venue details. Relecloud added Azure Managed Redis for the following reasons:
 
-    - *Reduced management overhead.* It's a fully managed service.
-    - *Speed and volume.* It has high-data throughput and low latency reads for commonly accessed, slow-changing data.
-    - *Diverse supportability.* It's a unified cache location for all instances of the web app to use.
-    - *External data store.* The on-premises application servers performed VM-local caching. This setup didn't offload highly frequented data, and it couldn't invalidate data.
-    - *Nonsticky sessions.* Externalizing session state supports nonsticky sessions.
+  - *Reduced management overhead.* It's a fully managed service.
+  - *Speed and volume.* It has high-data throughput and low latency reads for commonly accessed, slow-changing data.
+  - *Diverse supportability.* It's a unified cache location for all instances of the web app to use.
+  - *External data store.* The on-premises application servers performed VM-local caching. This setup didn't offload highly frequented data, and it couldn't invalidate data.
+  - *Nonsticky sessions.* Externalizing session state supports nonsticky sessions.
 
-- *Load balancer:* Web applications that use PaaS solutions should use Azure Front Door, Azure Application Gateway, or both, depending on web app architecture and requirements. Use the [load balancer decision tree](/azure/architecture/guide/technology-choices/load-balancing-overview) to pick the right load balancer. Relecloud needed a layer-7 load balancer that could route traffic across multiple regions. The company needed a multi-region web app to meet the SLO of 99.9%. Relecloud chose [Azure Front Door](/azure/frontdoor/front-door-overview) for the following reasons:
+- *Load balancer:* Web applications that use PaaS solutions should use Azure Front Door, Azure Application Gateway, or both, depending on web app architecture and requirements. Use the [load balancer decision tree](/azure/architecture/guide/technology-choices/load-balancing-overview) to pick the right load balancer. Relecloud needed a layer-7 load balancer that could route traffic across multiple regions. The company needed a multi-region web app to meet the SLO of 99.9%.
+
+  Relecloud chose [Azure Front Door](/azure/frontdoor/front-door-overview) for the following reasons:
 
     - *Global load balancing.* It's a layer-7 load balancer that can route traffic across multiple regions.
     - *Web application firewall.* It integrates natively with Azure Web Application Firewall.
     - *Routing flexibility.* It allows the application team to configure ingress needs to support future changes in the application.
-    - *Traffic acceleration.* It uses anycast to reach the nearest Azure point of presence and find the fastest route to the web app.
+    - *Traffic acceleration.* It routes traffic to an optimal point of presence to find the fastest route to the web app.
     - *Custom domains.* It supports custom domain names with flexible domain validation.
     - *Health probes.* The application requires intelligent health probe monitoring. Azure Front Door uses responses from the probe to determine the best origin for routing client requests.
     - *Monitoring support.* It supports built-in reports with an all-in-one dashboard for both Azure Front Door and security patterns. You can configure alerts that integrate with Azure Monitor. Azure Front Door enables the application to log each request and failed health probes.
@@ -123,6 +125,10 @@ For example, before it was moved to the cloud, Relecloud's ticketing web app was
     - *Minimal effort.* The private endpoints support the web app platform and database platform that the web app uses. Both platforms mirror existing on-premises configurations, so minimal change is required.
 
 - *Network security.* Use [Azure Firewall](/azure/firewall/overview) to control inbound and outbound traffic at the network level. Use [Azure Bastion](/azure/bastion/bastion-overview) to connect to virtual machines with enhanced security, without exposing RDP/SSH ports. Relecloud adopted a hub-and-spoke network topology and wanted to put shared network security services in the hub. Azure Firewall improves security by inspecting all outbound traffic from the spokes to increase network security. Relecloud needed Azure Bastion for enhanced-security deployments from a jump host in the DevOps subnet.
+
+## Architecture cost estimate
+
+You can find a cost estimate for the components used in this architecture in the [Azure pricing calculator](https://azure.com/e/a8aa90b9851f434885cc7a322c96c36b). Modify your estimate to include the components required for your use case.
 
 ## Code guidance
 
@@ -198,10 +204,10 @@ private static IAsyncPolicy<HttpResponseMessage> GetCircuitBreakerPolicy()
 
 [!INCLUDE [Cache-aside pattern intro](../includes/cache-aside.md)]
 
-- *Configure the application to use a cache.* Production apps should use a distributed Redis cache. This cache improves performance by reducing database queries. It also enables nonsticky sessions so that the load balancer can evenly distribute traffic. The reference implementation uses a distributed Redis cache. The [`AddAzureCacheForRedis` method](/dotnet/api/microsoft.extensions.dependencyinjection.memorycacheservicecollectionextensions.adddistributedmemorycache) configures the application to use Azure Cache for Redis:
+- *Configure the application to use a cache.* Production apps should use a distributed Redis cache. This cache improves performance by reducing database queries. It also enables nonsticky sessions so that the load balancer can evenly distribute traffic. The reference implementation uses a distributed Redis cache. The [`AddRedisCache` method](/dotnet/api/microsoft.extensions.dependencyinjection.memorycacheservicecollectionextensions.adddistributedmemorycache) configures the application to use Azure Managed Redis:
 
     ```csharp
-    private void AddAzureCacheForRedis(IServiceCollection services)
+    private void AddRedisCache(IServiceCollection services)
     {
         if (!string.IsNullOrWhiteSpace(Configuration["App:RedisCache:ConnectionString"]))
         {
@@ -315,13 +321,7 @@ The reference implementation uses the `Authentication` argument in the SQL datab
 
 [!INCLUDE [Right size environments intro](../includes/right-size.md)]
 
-For example, the reference implementation uses Bicep parameters to deploy more expensive tiers (SKUs) to the production environment:
-    
-```bicep
-    var redisCacheSkuName = isProd ? 'Standard' : 'Basic'
-    var redisCacheFamilyName = isProd ? 'C' : 'C'
-    var redisCacheCapacity = isProd ? 1 : 0
-```
+For example, the reference implementation uses Bicep parameters to deploy more expensive tiers (SKUs) to the production environment.
 
 ### Implement autoscaling
 
@@ -335,29 +335,25 @@ For example, the reference implementation uses Bicep parameters to deploy more e
 
 [!INCLUDE [Monitoring](../includes/monitor.md)]
 
-- *Collect application telemetry.* Use [autoinstrumentation](/azure/azure-monitor/app/codeless-overview) in Azure Application Insights to collect application [telemetry](/azure/azure-monitor/app/data-model-complete), such as request throughput, average request duration, errors, and dependency monitoring. You don't need to make any code changes to use this telemetry. 
+- *Collect application telemetry.* Use the [Azure Monitor OpenTelemetry Distro](/azure/azure-monitor/app/opentelemetry-enable) to collect application [telemetry](/azure/azure-monitor/app/data-model-complete) in Application Insights, such as request throughput, average request duration, errors, and dependency monitoring.
 
-    The reference implementation uses `AddApplicationInsightsTelemetry` from the NuGet package `Microsoft.ApplicationInsights.AspNetCore` to enable [telemetry collection](/azure/azure-monitor/app/asp-net-core):
+  The reference implementation adds the `Azure.Monitor.OpenTelemetry.AspNetCore` NuGet package and enables [telemetry collection](/azure/azure-monitor/app/opentelemetry-enable?tabs=aspnetcore):
 
-    ```csharp
-    public void ConfigureServices(IServiceCollection services)
-    {
-       ...
-       services.AddApplicationInsightsTelemetry(Configuration["App:Api:ApplicationInsights:ConnectionString"]);
-       ...
-    }
-    ```
+  ```csharp
+  var builder = WebApplication.CreateBuilder(args);
 
-- *Create custom application metrics.* Use code-based instrumentation for [custom application telemetry](/azure/azure-monitor/app/api-custom-events-metrics). Add the Application Insights SDK to your code and use the Application Insights API.
+  builder.Services.AddOpenTelemetry().UseAzureMonitor();
+  ```
 
-    The reference implementation gathers telemetry on events related to cart activity. `this.telemetryClient.TrackEvent` counts the tickets added to the cart. It supplies the event name (`AddToCart`) and specifies a dictionary that has the `concertId` and `count`:
+- *Create custom application metrics.* Use code-based instrumentation for [custom application telemetry](/azure/azure-monitor/app/opentelemetry-add-modify). Use the OpenTelemetry APIs (`ActivitySource`, `Meter`) to emit custom traces and metrics to Application Insights.
 
-    ```csharp
-    this.telemetryClient.TrackEvent("AddToCart", new Dictionary<string, string> {
-        { "ConcertId", concertId.ToString() },
-        { "Count", count.ToString() }
-    });
-    ```
+  The reference implementation gathers telemetry on events related to cart activity. It uses an `ActivitySource` to create a span that records when tickets are added to the cart:
+
+  ```csharp
+  using var activity = activitySource.StartActivity("AddToCart");
+  activity?.SetTag("ConcertId", concertId.ToString());
+  activity?.SetTag("Count", count.ToString());
+  ```
 
 - *Monitor the platform.* Enable diagnostics for all supported services. Send diagnostics to the same destination as the application logs for correlation. Azure services create platform logs automatically but only store them when you enable diagnostics. Enable diagnostic settings for each service that supports diagnostics.
 

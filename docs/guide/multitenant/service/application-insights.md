@@ -1,8 +1,8 @@
 ---
 title: Multitenancy and Application Insights
 description: Learn about tenancy models that you can use with Application Insights and features that are useful when you use this service in multitenant systems.
-author: rajnemani
-ms.author: ranema
+author: PlagueHO
+ms.author: dascottr
 ms.date: 08/01/2025
 ms.topic: concept-article
 ms.subservice: architecture-guide
@@ -171,7 +171,7 @@ Other contributors:
 - [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/)
 - [Log data ingestion time in Azure Monitor](/azure/azure-monitor/logs/data-ingestion-time)
 - [Sampling in Application Insights](/azure/azure-monitor/app/opentelemetry-sampling)
-- [Filter and preprocess telemetry in the Application Insights SDK](/azure/azure-monitor/app/api-filtering-sampling)
+- [Filter and preprocess telemetry in Azure Monitor OpenTelemetry for Application Insights](/azure/azure-monitor/app/opentelemetry-filter)
 
 ## Related resources
 

@@ -1,4 +1,4 @@
-This article describes best practices for how to build on Azure Spot Virtual Machines. Spot virtual machines (spot VMs) provide access to compute capacity at lower prices than regular VMs. This discount makes them a good option for organizations that want to optimize costs. But the savings come with a trade-off. Spot VMs can be evicted at any time, which means that they lose access to compute resources. Workloads that run on spot VMs must be able to handle these interruptions in compute. The right workload and a flexible orchestration mechanism are the keys to success. The following recommendations describe how to build on spot VMs.
+This article describes best practices for how to build on Azure Spot Virtual Machines. Spot virtual machines (spot VMs) provide access to compute capacity at lower prices than regular VMs. This discount makes them a good option for organizations that want to optimize costs. But the savings come with a trade-off. Spot VMs can be evicted at any time, which means that they lose access to compute resources. Workloads that run on spot VMs must be able to handle these interruptions in compute. The appropriate workload and a flexible orchestration mechanism are the keys to success. The following recommendations describe how to build on spot VMs.
 
 ## Understand spot VMs
 
@@ -30,7 +30,7 @@ Capacity changes or price changes cause evictions. The way capacity and price ch
 
 - **Capacity-only eviction:** This eviction type triggers an eviction when excess compute capacity is no longer available. By default, the price is capped at the pay-as-you-go rate. Use this eviction type when you don't want to pay more than the pay-as-you-go VM price.
 
-- **Price or capacity eviction:** This eviction type has two triggers. Azure evicts a spot VM when excess compute capacity is no longer available or the cost of the VM exceeds the maximum price that you set. This eviction type allows you to set a maximum price far below the pay-as-you-go price. Use this eviction type to set your own price cap.
+- **Price or capacity eviction:** This eviction type has two triggers. Azure evicts a spot VM when excess compute capacity is no longer available or the cost of the VM exceeds the maximum price that you set. This eviction type allows you to set a maximum price far less than the pay-as-you-go price. Use this eviction type to set your own price cap.
 
 ### Eviction policy
 
@@ -38,7 +38,7 @@ The eviction policy that you choose for a spot VM affects its orchestration. Orc
 
 **Stop/Deallocate policy:** The Stop/Deallocate policy is ideal when the workload can wait for release capacity within the same location and VM type. The Stop/Deallocate policy stops the VM and ends its lease with the underlying hardware. Stopping and deallocating a spot VM is the same as stopping and deallocating a regular VM. The VM remains accessible in Azure, and you can restart the same VM later. The VM loses compute capacity and nonstatic IP addresses with the Stop/Deallocate policy. However, the VM data disks remain and continue to incur charges. The VM also occupies cores in the subscription. VMs can't be moved from their region or zone even when they're stopped or deallocated. For more information, see [Power states and billing](/azure/virtual-machines/states-billing#power-states-and-billing).
 
-**Delete policy:** Use the Delete policy if the workload can change location or VM size. Changing the location or VM size allows the VM to redeploy faster. The Delete policy deletes the VM and any data disk. The VM doesn't occupy cores in subscriptions. For more information, see [Eviction policy](/azure/virtual-machines/spot-vms#eviction-policy).
+**Delete policy:** Use the Delete policy if the workload can change location or VM size. Changing the location or VM size allows the VM to redeploy faster. The Delete policy deletes the VM and any data disk. The VM doesn't occupy cores in subscriptions. For more information, see [Eviction policy](/azure/virtual-machines/spot-vms#eviction-policy). When you use the Delete policy, consider using [ephemeral OS disks](/azure/virtual-machines/ephemeral-os-disks) for your spot VMs. Because the VM and its disks are deleted on eviction, a persistent OS disk incurs storage cost for a resource that doesn't survive eviction. Ephemeral OS disks eliminate that cost and reduce VM provisioning time, which helps your orchestration replace evicted VMs faster. Ephemeral OS disks aren't compatible with the Stop/Deallocate policy because deallocation destroys the OS disk state.
 
 ## Design for flexible orchestration
 
@@ -93,7 +93,7 @@ Monitoring is the key to workload reliability on spot VMs. Spot VMs have no SLA 
 
 Your orchestration needs an automated pipeline to deploy new spot VMs after eviction. The pipeline should run outside the interruptible workload to help ensure permanence. The deployment pipeline should work according to the eviction policy that you choose for your spot VMs.
 
-For a Delete policy, we recommend that you build a pipeline that uses different VM sizes and deploys to different regions. For a Stop/Deallocate policy, the deployment pipeline needs two distinct actions. For the initial creation of a VM, the pipeline needs to deploy the right size VMs to the right location. For an evicted VM, the pipeline needs to try to restart the VM until it works. A combination of Azure Monitor alerts and Azure functions is one way to automate a deployment system. The pipeline could use bicep templates. They're declarative and idempotent and represent a best practice for infrastructure deployment.
+For a Delete policy, we recommend that you build a pipeline that uses different VM sizes and deploys to different regions. For a Stop/Deallocate policy, the deployment pipeline needs two distinct actions. For the initial creation of a VM, the pipeline needs to deploy the correct size VMs to the correct location. For an evicted VM, the pipeline needs to try to restart the VM until it works. A combination of Azure Monitor alerts and Azure functions is one way to automate a deployment system. The pipeline could use bicep templates. They're declarative and idempotent and represent a best practice for infrastructure deployment.
 
 ### Prepare for immediate eviction
 
@@ -127,7 +127,7 @@ Most interruptible workloads run applications. Applications need time to install
 
 Assign user-assigned managed identities to streamline the authentication and authorization process. User-assigned managed identities let you avoid putting credentials in code and aren't tied to a single resource like system-assigned managed identities. The user-assigned managed identities contain permissions and access tokens from Microsoft Entra ID that can be reused and assigned to spot VMs during orchestration. Token consistency across spot VMs helps streamline orchestration and simplifies the access to workload resources that the spot VMs have.
 
-If you use system-assigned managed identities, a new spot VM might get a different access token from Microsoft Entra ID. If you need to use system-assigned managed identities, make the workloads resilient to `403 Forbidden Error` responses. Your orchestration needs to get tokens from Microsoft Entra ID with the right permissions. For more information, see [Managed identities](/entra/identity/managed-identities-azure-resources/overview).
+If you use system-assigned managed identities, a new spot VM might get a different access token from Microsoft Entra ID. If you need to use system-assigned managed identities, make the workloads resilient to `403 Forbidden Error` responses. Your orchestration needs to get tokens from Microsoft Entra ID with the correct permissions. For more information, see [Managed identities](/entra/identity/managed-identities-azure-resources/overview).
 
 ## Example scenario
 
@@ -151,7 +151,7 @@ The following workflow corresponds to the previous diagram:
 
 1. **Query Scheduled Events endpoint:** An API request is sent to a static nonroutable IP address `169.254.169.254`. The API request queries the Scheduled Events endpoint for infrastructure maintenance signals.
 
-1. **Application Insights:** The architecture uses Application Insights only for learning purposes. It's not an essential component of interruptible workload orchestration, but allows you to validate the telemetry from the .NET worker application. The .NET worker application sends telemetry to Application Insights. For more information, see [Enable live metrics from the .NET application](/azure/azure-monitor/app/live-stream#enable-live-metrics-using-code-for-any-net-application).
+1. **Application Insights:** The architecture uses Application Insights only for learning purposes. It's not an essential component of interruptible workload orchestration, but allows you to validate the telemetry from the .NET worker application. The .NET worker application sends telemetry to Application Insights via the [Azure Monitor OpenTelemetry Distro](/azure/azure-monitor/app/opentelemetry-enable). For more information, see [Enable live metrics from the .NET application](/azure/azure-monitor/app/live-stream#enable-live-metrics-using-code-for-any-net-application).
 
 ## Next step
 

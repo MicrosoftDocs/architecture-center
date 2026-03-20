@@ -7,7 +7,7 @@ The solution consists of two processes:
 - The golden image publishing process
 - The process of tracking virtual machine (VM) compliance
 
-:::image type="content" source="./media/virtual-machine-compliance-golden-image-publishing-architecture.svg" alt-text="Architecture diagram showing how the solution manages Azure Marketplace images. Illustrated steps include customization, tracking, testing, and publishing." border="false":::
+:::image type="content" source="./media/virtual-machine-compliance-golden-image-publishing-architecture.svg" alt-text="Architecture diagram showing how the solution manages Microsoft Marketplace images for Azure. Illustrated steps include customization, tracking, testing, and publishing." border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/virtual-machine-compliance-golden-image-publishing-architecture.vsdx) of this architecture.*
 
@@ -15,7 +15,7 @@ The solution consists of two processes:
 
 The golden image publishing process runs monthly and contains these steps:
 
-1. The process captures a base image from Azure Marketplace.
+1. The process captures a base image from the [Microsoft Marketplace](https://marketplace.microsoft.com).
 1. VM Image Builder customizes the image.
 1. The process of image tattooing tracks image version information like the source and publish date.
 1. Automated tests validate the image.
@@ -44,7 +44,7 @@ The process of tracking VM compliance contains these steps:
 
 ### Alternatives
 
-- You can use a third-party tool to manage compliance. But with this type of tool, you usually need to install an agent on the target VM. You also might have to pay a licensing fee.
+- You can use a non-Microsoft tool to manage compliance. But with this type of tool, you usually need to install an agent on the target VM. You also might have to pay a licensing fee.
 
 - You can use [custom script extensions][Custom Script Extensions] for installing software on VMs or configuring VMs after deployment. But each VM or Virtual Machine Scale Set can only have one custom script extension. And if you use custom script extensions, you prevent DevOps teams from customizing their applications.
 
@@ -92,16 +92,16 @@ To manage compliance:
 
 #### Restrict images
 
-Don't allow DevOps teams to use Azure Marketplace VM images. Only allow VM images that Compute Gallery publishes. This restriction is critical for ensuring VM compliance. You can use a custom policy in Azure Policy to enforce this restriction. For a sample, see [Allow image publishers][Only allow certain image publishers from the Marketplace].
+Don't allow DevOps teams to use Microsoft Marketplace VM images. Only allow VM images that Compute Gallery publishes. This restriction is critical for ensuring VM compliance. You can use a custom policy in Azure Policy to enforce this restriction. For a sample, see [Allow image publishers][Only allow certain image publishers from the Marketplace].
 
-As part of this solution, VM Image Builder should use an Azure Marketplace image. It's essential to use the latest image that's available in Azure Marketplace. Apply any customizations on top of that image. Azure Marketplace images are refreshed often, and each image has certain preset configurations, ensuring your images are secure by default.
+As part of this solution, VM Image Builder should use a Microsoft Marketplace image. It's essential to use the latest image that's available in the Microsoft Marketplace. Apply any customizations on top of that image. Microsoft Marketplace images are refreshed often, and each image has certain preset configurations, ensuring your images are secure by default.
 
 #### Customize images
 
 A golden image is the version of a marketplace image that's published to Compute Gallery. Golden images are available for consumption by DevOps teams. Before the image is published, customization takes place. Customization activities are unique to each enterprise. Common activities include:
 
 - Operating system hardening.
-- Deploying custom agents for third-party software.
+- Deploying custom agents for non-Microsoft software.
 - Installing enterprise certificate authority (CA) root certificates.
 
 You can use VM Image Builder to customize images by adjusting operating system settings and by running custom scripts and commands. VM Image Builder supports Windows and Linux images. For more information on customizing images, see [Azure Policy Regulatory Compliance controls for Azure Virtual Machines][Azure Policy Regulatory Compliance controls for Azure Virtual Machines].
@@ -121,7 +121,7 @@ For image tattooing on Windows VMs, set up a custom registry. Add all required i
 
 #### Validate golden images with automated tests
 
-Generally, you should refresh golden images monthly to stay current with the latest updates and changes in Azure Marketplace images. Use a recurrent testing procedure for this purpose. As part of the image creation process, use an Azure pipeline or other automated workflow for testing. Set up the pipeline to deploy a new VM for running tests before the beginning of each month. The tests should confirm pared images before publishing them for consumption. Automate tests by using a test automation solution or by running commands or batches on the VM.
+Generally, you should refresh golden images monthly to stay current with the latest updates and changes in Microsoft Marketplace images. Use a recurrent testing procedure for this purpose. As part of the image creation process, use an Azure pipeline or other automated workflow for testing. Set up the pipeline to deploy a new VM for running tests before the beginning of each month. The tests should confirm pared images before publishing them for consumption. Automate tests by using a test automation solution or by running commands or batches on the VM.
 
 Common test scenarios include:
 
@@ -194,7 +194,7 @@ You can configure the number of replicas that Compute Gallery stores of each ima
 
 Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-Unless you use a third-party service such as Ansible or Terraform, this approach is nearly free of charge. Storage and egress costs might apply. Other potential charges involve these components:
+Unless you use a non-Microsoft service such as Ansible or Terraform, this approach is nearly free of charge. Storage and egress costs might apply. Other potential charges involve these components:
 
 - Azure Policy and [Azure Automanage Machine configuration][Azure Automanage Machine configuration] are free of charge for Azure resources. If your company uses a hybrid approach, there are extra charges for Azure Arc resources.
 - [VM Image Builder][Azure VM Image Builder - pricing] uses a single compute instance type with 1 vCPU and 3.5 GB of RAM. Charges might apply for data storage and transfer.
@@ -235,7 +235,7 @@ Principal author:
 [Azure Policy Regulatory Compliance controls for Azure Virtual Machines]: /azure/virtual-machines/security-controls-policy
 [Azure Shared Image Galleries]: /azure/virtual-machines/shared-image-galleries#billing
 [Azure VM Image Builder - pricing]: https://azure.microsoft.com/pricing/details/image-builder
-[Bulkhead pattern]: ../../patterns/bulkhead.yml
+[Bulkhead pattern]: ../../patterns/bulkhead.md
 [Control and audit your resources by using Azure Policy]: /training/modules/build-cloud-governance-strategy-azure/6-control-audit-resources-azure-policy
 [Custom Script Extensions]: /azure/virtual-machines/extensions/custom-script-windows
 [Deployment Stamps pattern]: ../../patterns/deployment-stamp.yml

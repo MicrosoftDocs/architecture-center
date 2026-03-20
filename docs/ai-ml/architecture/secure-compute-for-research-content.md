@@ -20,7 +20,7 @@ The following data flow corresponds to the previous diagram:
 
 1. The secure storage account presents the dataset to the data science virtual machines (VMs) that you set up in a secure network environment for research work. Most data preparation occurs on those VMs.
 
-1. The secure environment includes Azure Machine Learning and [Fabric Data Science](https://learn.microsoft.com/en-us/fabric/data-science/data-science-overview). They can access the dataset through a private endpoint. You can use these platforms to train, deploy, automate, and manage machine learning models. At this stage, you can create models that meet regulatory guidelines. To de-identify all model data, remove personal information.
+1. The secure environment includes Azure Machine Learning and [Fabric Data Science](/fabric/data-science/data-science-overview). They can access the dataset through a private endpoint. You can use these platforms to train, deploy, automate, and manage machine learning models. At this stage, you can create models that meet regulatory guidelines. To de-identify all model data, remove personal information.
 
 1. Models or de-identified data are saved to a separate location on the secure storage account, known as the *export path*. When you add new data to the export path, you trigger a logic app. In this architecture, the logic app runs outside the secure environment because it doesn't receive data. Its only function is to send notifications and start the manual approval process.
 

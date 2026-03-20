@@ -80,7 +80,7 @@ Linux works best for running SAS workloads. SAS supports 64-bit versions of the 
 
 For more information about specific SAS releases, see the [SAS Operating System support matrix](https://support.sas.com/supportos/list?requestAction=summary&outputView=sasrelease&sasrelease=9.4&platformGroup=UNIX&platformName=Linux+64-bit). In environments that use multiple machines, it's best to run the same version of Linux on all machines. Azure doesn't support Linux 32-bit deployments.
 
-To optimize compatibility and integration with Azure, start with an operating system image from Azure Marketplace. Using a custom image without additional configurations can degrade SAS performance.
+To optimize compatibility and integration with Azure, start with an operating system image from the [Microsoft Marketplace](https://marketplace.microsoft.com/search/products?filters=linux&product=virtual-machines). Using a custom image without additional configurations can degrade SAS performance.
 
 #### Kernel issues
 
@@ -190,7 +190,7 @@ SAS workloads are often chatty. As a result, they can transfer a significant amo
 SAS has specific fully qualified domain name (FQDN) requirements for VMs. Set machine FQDNs correctly, and ensure that domain name system (DNS) services are working. You can set the names with Azure DNS. You can also edit the `hosts` file in the `etc` configuration folder.
 
 > [!NOTE]
-> Turn on accelerated networking on all nodes in the SAS deployment. When you turn this feature off, performance suffers significantly.
+> Turn on accelerated networking on all nodes in the SAS deployment. When you turn this feature off, performance degrades significantly.
 >
 > To turn on accelerated networking on a VM, follow these steps:
 >
@@ -243,7 +243,7 @@ For best performance:
 
 SAS and Microsoft have tested a series of data platforms that you can use to host SAS datasets. The SAS blogs document the results in detail, including performance characteristics. The tests include the following platforms:
 
-- [Sycomp Storage Fueled by IBM Spectrum Scale](https://azuremarketplace.microsoft.com/marketplace/apps?search=Sycomp%20Storage&page=1), which uses General Parallel File System (GPFS)
+- [Sycomp Storage Fueled by IBM Spectrum Scale](https://marketplace.microsoft.com/product/sycompatechnologycompanyinc1588192103892.sycompstoragefueledbyibmstoragescale), which uses General Parallel File System (GPFS)
 - [Azure Managed Lustre](/azure/azure-managed-lustre/amlfs-overview), which provides the Lustre parallel file system
 - [Azure NetApp Files](https://azure.microsoft.com/services/netapp/), which supports NFS file-storage protocols
 - [Azure Files premium](https://azure.microsoft.com/products/storage/files/), which is a file share service that supports the NFS protocol
@@ -279,7 +279,7 @@ Azure Files premium tier is a managed service that supports the NFS 4.1 protocol
  
 You can use `nconnect` to improve performance. This mount option spreads IO requests over multiple channels. For more information, see [NFS performance](/azure/storage/files/nfs-performance#nconnect).
 
-When using an NFS Azure file share in Azure Files, consider the following points:
+When you use an NFS Azure file share in Azure Files, consider the following points:
 - Adjust the provisioned capacity to meet performance requirements. The IOPS and throughput of NFS shares scale with the provisioned capacity. For more information, see [NFS performance](/azure/storage/files/files-nfs-protocol#performance).
 - Use nConnect in your mounts with a setting of `nconnect=4` for optimal-performance parallel channel use.
 - Optimize read-ahead settings to be 15 times the `rsize` and `wsize`. For most workloads, we recommend an `rsize` and `wsize` of 1 MB and a `read-ahead` setting of 15 MB. For more information, see [Increase read-ahead size](/azure/storage/files/nfs-performance#increase-read-ahead-size-to-improve-read-throughput).
@@ -288,11 +288,11 @@ When using an NFS Azure file share in Azure Files, consider the following points
 
 SAS tests have [validated NetApp performance for SAS Grid](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/td-p/579437). Specifically, testing shows that Azure NetApp Files is a viable primary storage option for SAS Grid clusters of up to 32 physical cores across multiple machines. When [NetApp provided-optimizations and Linux features](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/m-p/722261/highlight/true#M21648) are used, Azure NetApp Files can be the primary option for clusters up to 48 physical cores across multiple machines.
 
-Consider the following points when using this service:
+Consider the following points when you use this service:
 
 - Azure NetApp Files works well with Viya deployments. Don't use Azure NetApp Files for the CAS cache in Viya, because the write throughput is inadequate. If possible, use your VM's local ephemeral disk instead.
 - On SAS 9 Foundation with Grid 9.4, the performance of Azure NetApp Files with SAS for `SASDATA` files is good for clusters up to 32 physical cores. This increases to 48 cores when [tuning](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/m-p/722261/highlight/true#M21648) is applied.
-- To ensure good performance, select at least a Premium or Ultra storage tier [service level](/azure/azure-netapp-files/azure-netapp-files-service-levels) when deploying Azure NetApp Files. You can choose the Standard service level for very large volumes. Consider starting with the Premium level and switching to Ultra or Standard later. Service level changes can be done online, without disruption or data migrations.
+- To ensure good performance, select at least a Premium or Ultra storage tier [service level](/azure/azure-netapp-files/azure-netapp-files-service-levels) when deploying Azure NetApp Files. You can choose the Standard service level for high volumes. Consider starting with the Premium level and switching to Ultra or Standard later. Service level changes can be done online, without disruption or data migrations.
 - Read performance and write performance [differ](/azure/azure-netapp-files/azure-netapp-files-performance-considerations) for Azure NetApp Files. Write throughput for SAS hits limits at around 1600 MiB/s, while read throughput goes beyond that, to around 4500 MiB/s. If you need continuous high write throughput, Azure NetApp Files might not be a good fit.
 
 ##### NFS read-ahead tuning
@@ -324,7 +324,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-The output of your SAS workloads can be one of your organization's critical assets. SAS output provides insight into internal efficiencies and can play a critical role in your reporting strategy. It's important, then, to secure access to your SAS architecture. To achieve this goal, use secure authentication and address network vulnerabilities. Use encryption to help protect all data moving in and out of your architecture.
+The output of your SAS workloads can be one of your organization's critical assets. SAS output provides insight into internal efficiencies and can play a critical role in your reporting strategy. It's important to secure access to your SAS architecture. To achieve this goal, use secure authentication and address network vulnerabilities. Use encryption to help protect all data moving in and out of your architecture.
 
 Azure delivers SAS by using an infrastructure as a service (IaaS) cloud model. Microsoft builds security protections into the service at the following levels:
 
@@ -335,16 +335,14 @@ Azure delivers SAS by using an infrastructure as a service (IaaS) cloud model. M
 
 Carefully evaluate the services and technologies that you select for the areas above the hypervisor, such as the guest operating system for SAS. Make sure to provide the proper security controls for your architecture.
 
-SAS currently doesn't fully support [Microsoft Entra ID](/entra/identity/). For authentication into the visualization layer for SAS, you can use Microsoft Entra ID. But for back-end authorization, use a strategy that's similar to on-premises authentication. When managing IaaS resources, you can use Microsoft Entra ID for authentication and authorization to the Azure portal. When using Microsoft Entra Domain Services, you can't authenticate guest accounts. Guest attempts to sign in will fail.
+SAS currently doesn't fully support [Microsoft Entra ID](/entra/identity/). For authentication into the visualization layer for SAS, you can use Microsoft Entra ID. But for back-end authorization, use a strategy that's similar to on-premises authentication. When managing IaaS resources, you can use Microsoft Entra ID for authentication and authorization to the Azure portal. When you use Microsoft Entra Domain Services, you can't authenticate guest accounts. Guest attempts to sign in will fail.
 
 Use [network security groups](/azure/virtual-network/security-overview) to filter network traffic to and from resources in your [virtual network](/azure/virtual-network/virtual-networks-overview). With these groups, you can define rules that grant or deny access to your SAS services. Examples include:
 
 - Giving access to CAS worker ports from on-premises IP address ranges.
 - Blocking access to SAS services from the internet.
 
-You can use [Azure Disk Encryption](/azure/security/azure-security-disk-encryption-faq) for encryption within the operating system. This solution uses the DM-Crypt feature of Linux. But we currently don't recommend using Azure Disk Encryption. It can severely degrade performance, especially when you use `SASWORK` files locally.
-
-[Server-side encryption (SSE) of Azure Disk Storage](/azure/virtual-machines/disk-encryption) protects your data. It also helps you meet organizational security and compliance commitments. With Azure managed disks, SSE encrypts the data at rest when persisting it to the cloud. This behavior applies by default to both OS and data disks. You can use platform-managed keys or your own keys to encrypt your managed disk.
+[Server-side encryption (SSE) of Azure Disk Storage](/azure/virtual-machines/disk-encryption) protects your data. It also helps you meet organizational security and compliance commitments. With Azure Managed Disks, SSE encrypts the data at rest when persisting it to the cloud. This behavior applies by default to both OS and data disks. You can use platform-managed keys or your own keys to encrypt your managed disk. Enable [encryption at host](/azure/virtual-machines/disk-encryption#encryption-at-host---end-to-end-encryption-for-your-vm-data) for end-to-end encryption that extends to temp disks and disk caches without consuming VM CPU resources. This approach is important for SAS workloads that use `SASWORK` files on local temp disks, where guest-based encryption can severely degrade I/O performance. Temp disks are encrypted with platform-managed keys only.
 
 #### Protect your infrastructure
 

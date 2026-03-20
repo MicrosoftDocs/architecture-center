@@ -143,7 +143,7 @@ Principal authors:
 - [Microsoft Fabric Real-Time Intelligence End-to-End Sample](/fabric/real-time-intelligence/sample-end-to-end) 
 - [Explore Real-Time Analytics in Microsoft Fabric](/training/paths/explore-real-time-analytics-microsoft-fabric/)
 
-## Related resources
+## Related resource
 
 - [Microsoft Fabric Real-Time Intelligence](/fabric/real-time-intelligence/)
 - [Microsoft Fabric Real-Time Hub - Azure Service Bus](/fabric/real-time-hub/add-source-azure-service-bus)

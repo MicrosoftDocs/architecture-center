@@ -1,4 +1,3 @@
-
 <!-- cSpell:ignore RRAS Russinovich sysinternals psping profx -->
 
 This article gives some tips for troubleshooting a VPN gateway connection between an on-premises network and Azure. For general information on troubleshooting common VPN-related errors, see [Troubleshooting common VPN related errors][troubleshooting-vpn-errors].
@@ -79,7 +78,7 @@ You can also obtain event log information about attempts to connect through the 
 Get-EventLog -LogName Application -Source RasClient | Format-List -Property *
 ```
 
-In the event of a failure to connect, this log will contain errors that look similar to the following:
+In the event of a failure to connect, this log will contain errors that look similar to the following example:
 
 ```console
 EventID            : 20227
@@ -109,7 +108,7 @@ Container          :
 PsPing -t <<web-server-address>>:80
 ```
 
-If the on-premises machine can route traffic to the web server, you should see output similar to the following:
+If the on-premises machine can route traffic to the web server, you should see output similar to the following example:
 
 ```console
 D:\PSTools> psping -t 10.20.0.5:80
@@ -157,7 +156,7 @@ Connecting to 10.20.1.6:80:
 
 The following recommendations are useful for determining if there's a problem with the Azure VPN gateway:
 
-**Examine Azure VPN gateway diagnostic logs for potential issues.** For more information, ee [Step-by-Step: Capturing Azure Resource Manager VNet Gateway Diagnostic Logs][gateway-diagnostic-logs].
+**Examine Azure VPN gateway diagnostic logs for potential issues.** For more information, see [Step-by-Step: Capturing Azure Resource Manager VNet Gateway Diagnostic Logs][gateway-diagnostic-logs].
 
 **Verify that the Azure VPN gateway and on-premises VPN appliance are configured with the same shared authentication key.** You can view the shared key stored by the Azure VPN gateway using the following Azure CLI command:
 

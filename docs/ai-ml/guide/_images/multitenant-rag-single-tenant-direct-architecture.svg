@@ -120,31 +120,30 @@
 			</v:userDefs>
 			<rect x="0" y="401.936" width="56.5796" height="93.6112" class="st5"/>
 		</g>
-		<g id="shape8-15" v:mID="8" v:groupContext="shape" transform="translate(325.928,-228.375)">
+		<g id="shape8-15" v:mID="8" v:groupContext="shape" transform="translate(325.928,-233.375)">
 			<title>Sheet.8</title>
-			<desc>Azure OpenAI Service</desc>
+			<desc>Azure OpenAI</desc>
 			<v:userDefs/>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="28.7209" cy="485.984" width="57.47" height="19.125"/>
 			<rect x="0" y="476.422" width="57.4418" height="19.125" class="st3"/>
-			<text x="16.05" y="476.98" class="st6" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure <tspan
-						x="12.01" dy="1.2em" class="st7">OpenAI </tspan><tspan x="13.18" dy="1.2em" class="st7">Service</tspan></text>		</g>
+			<text x="28.7209" y="474.98" class="st6" v:langID="1033" text-anchor="middle"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure<tspan x="28.7209" dy="1.2em">OpenAI</tspan></text>		</g>
 		<g id="shape9-20" v:mID="9" v:groupContext="shape" transform="translate(322.875,-22.9998)">
 			<title>Rectangle.1287</title>
 			<v:userDefs>
 				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
 			</v:userDefs>
-			<rect x="0" y="401.936" width="63" height="93.6112" class="st5"/>
+			<rect x="-5" y="401.936" width="73" height="93.6112" class="st5"/>
 		</g>
 		<g id="shape10-22" v:mID="10" v:groupContext="shape" transform="translate(319.5,-30.3751)">
 			<title>Sheet.10</title>
 			<desc>Azure AI Search, Blob Storage, etc.</desc>
 			<v:userDefs/>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
-			<v:textRect cx="34.8101" cy="485.984" width="69.65" height="19.125"/>
-			<rect x="0" y="476.422" width="69.6202" height="19.125" class="st3"/>
+			<v:textRect cx="34.8101" cy="485.984" width="77.65" height="19.125"/>
+			<rect x="-4" y="476.422" width="77.6202" height="19.125" class="st3"/>
 			<text x="4.5" y="482.98" class="st6" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>AI Search and <tspan
-						x="6.37" dy="1.2em" class="st7">Blob Storage</tspan></text>		</g>
+					x="6.37" dy="1.2em" class="st7">Blob Storage</tspan></text>		</g>
 		<g id="shape11-26" v:mID="11" v:groupContext="shape" transform="translate(119.03,-263.3)">
 			<title>Sheet.11</title>
 			<path d="M0 495.55 L53.2 495.55 L53.2 495.55" class="st8"/>
@@ -350,7 +349,7 @@
 							 -0.47339 L0.46 492.12 Z" class="st19"/>
 			</g>
 		</g>
-		<g id="shape63-129" v:mID="63" v:groupContext="shape" transform="translate(181.687,-430.875)">
+		<g id="shape63-129" v:mID="63" v:groupContext="shape" transform="translate(181.687,-420.875)">
 			<title>Sheet.63</title>
 			<rect v:rectContext="foreign" x="0" y="453.922" width="45.066" height="41.625" class="st20"/>
 			<image x="0" y="453.922" width="45.066" height="41.625" preserveAspectRatio="none" xlink:href="data:image/png;base64,

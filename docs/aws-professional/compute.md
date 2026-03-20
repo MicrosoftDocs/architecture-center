@@ -30,7 +30,6 @@ Virtual machines (VMs) and servers allow users to deploy, manage, and maintain O
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
 | [Amazon EC2 Instance Types](https://aws.amazon.com/ec2/instance-types) | [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) | AWS and Azure on-demand VMs bill per seconds used. Although AWS instance types and Azure VM sizes have similar categories, the exact RAM, CPU, and storage capabilities differ. For more information about Azure VM sizes, see [Azure VM sizes](/azure/virtual-machines/sizes).|
-| [VMware Cloud on AWS](https://aws.amazon.com/vmware) | [Azure VMware Solution](https://azure.microsoft.com/services/azure-vmware) | AWS and Azure solutions let you move VMware vSphere-based workloads and environments to the cloud. Azure VMware Solution is a VMware-verified Microsoft service that runs on Azure infrastructure. You can manage existing environments with VMware solution tools, while modernizing applications with cloud native services. |
 | [AWS Parallel Cluster](https://aws.amazon.com/hpc/parallelcluster) | [Azure CycleCloud](https://azure.microsoft.com/features/azure-cyclecloud) | Create, manage, operate, and optimize HPC and large compute clusters of any scale. |
 
 [View all the virtual machines architectures](/azure/architecture/browse/?expanded=azure&products=azure-virtual-machines)
@@ -74,7 +73,8 @@ Several AWS and Azure services provide containerized application deployment and 
 
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
-| [Amazon Elastic Container Service (Amazon ECS)](https://aws.amazon.com/ecs), [AWS Fargate](https://aws.amazon.com/fargate) | [Azure Container Apps](https://azure.microsoft.com/products/container-apps/) | Azure Container Apps is a scalable service that lets you deploy thousands of containers without requiring access to the control plane. |
+| [Amazon Elastic Container Service (Amazon ECS)](https://aws.amazon.com/ecs) | [Azure Container Apps](https://azure.microsoft.com/products/container-apps/) | Amazon ECS is a container orchestration service for deploying and managing containerized applications. Azure Container Apps is a managed container platform with built-in scaling, service discovery, and traffic management. |
+| [AWS Fargate](https://aws.amazon.com/fargate) | [Azure Container Instances](/azure/container-instances/container-instances-overview), [Azure Container Apps](https://azure.microsoft.com/products/container-apps/) | Fargate is a serverless compute engine that provides compute capacity for Amazon ECS tasks and Amazon EKS pods. [Azure Container Instances](/azure/container-instances/container-instances-overview) provides on-demand serverless container compute and integrates with AKS through [virtual nodes](/azure/aks/virtual-nodes). Azure Container Apps also provides serverless infrastructure management with higher-level orchestration features. |
 | [Amazon Elastic Container Registry (Amazon ECR)](https://aws.amazon.com/ecr) | [Azure Container Registry](https://azure.microsoft.com/services/container-registry) | Container registries store Docker formatted images and create all types of container deployments in the cloud. |
 | [Amazon Elastic Kubernetes Service (EKS)](https://aws.amazon.com/eks) | [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) | EKS and AKS let you orchestrate Docker containerized application deployments with Kubernetes. AKS simplifies monitoring and cluster management through auto upgrades and a built-in operations console. See [Container runtime configuration](/azure/aks/concepts-clusters-workloads#container-runtime-configuration) for specifics on the hosting environment.|
 | [AWS App Mesh](https://aws.amazon.com/app-mesh) | [Istio add-on for AKS](/azure/aks/istio-about)| The Istio add-on for AKS provides a fully-supported integration of the open-source Istio service mesh. |
@@ -101,7 +101,7 @@ Serverless computing lets you integrate systems and run backend processes withou
 
 | Architecture | Description |
 |-----|-----|
-| [Cross-cloud scaling pattern](/azure/adaptive-cloud/app-solutions/pattern-cross-cloud-scale) | Learn how to improve cross-cloud scalability with a solution architecture that includes Azure Stack. A step-by-step flowchart details instructions for implementation. |
+| [Cross-cloud scaling pattern](/azure-stack/user/pattern-cross-cloud-scale) | Learn how to improve cross-cloud scalability with a solution architecture that includes Azure Stack. A step-by-step flowchart details instructions for implementation. |
 
 [View all the serverless architectures](/azure/architecture/browse/?expanded=azure&products=azure-functions)
 

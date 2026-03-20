@@ -25,7 +25,7 @@ Many libraries provide abstractions of external resources. Internally, these cla
 - `System.Net.Http.HttpClient`. Communicates with a web service using HTTP.
 - `Microsoft.ServiceBus.Messaging.QueueClient`. Posts and receives messages to a Service Bus queue.
 - `Microsoft.Azure.Documents.Client.DocumentClient`. Connects to an Azure Cosmos DB instance.
-- `StackExchange.Redis.ConnectionMultiplexer`. Connects to Redis, including Azure Cache for Redis.
+- `StackExchange.Redis.ConnectionMultiplexer`. Connects to Redis, including Azure Managed Redis.
 
 These classes are intended to be instantiated once and reused throughout the lifetime of an application. However, it's a common misunderstanding that these classes should be acquired only as necessary and released quickly. (The ones listed here happen to be .NET libraries, but the pattern isn't unique to .NET.) The following ASP.NET example creates an instance of `HttpClient` to communicate with a remote service.
 
@@ -47,7 +47,7 @@ public class NewHttpClientInstancePerRequestController : ApiController
 
 In a web application, this technique isn't scalable. A new `HttpClient` object is created for each user request. Under heavy load, the web server might exhaust the number of available sockets, resulting in `SocketException` errors.
 
-This problem isn't restricted to the `HttpClient` class. Other classes that wrap resources or are expensive to create might cause similar issues. The following example creates an instance of the `ExpensiveToCreateService` class. Here the issue isn't necessarily socket exhaustion, but simply how long it takes to create each instance. Continually creating and destroying instances of this class might adversely affect the scalability of the system.
+This problem isn't restricted to the `HttpClient` class. Other classes that wrap resources or are expensive to create might cause similar problems. The following example creates an instance of the `ExpensiveToCreateService` class. In this case, the problem isn't necessarily socket exhaustion, but rather how long it takes to create each instance. Continually creating and destroying instances of this class might adversely affect the scalability of the system.
 
 ```csharp
 public class NewServiceInstancePerRequestController : ApiController
@@ -102,7 +102,7 @@ public class SingleHttpClientInstanceController : ApiController
 
 - The type of shared resource might dictate whether you should use a singleton or create a pool. The `HttpClient` class is designed to be shared rather than pooled. Other objects might support pooling, enabling the system to spread the workload across multiple instances.
 
-- Objects that you share across multiple requests *must* be thread-safe. The `HttpClient` class is designed to be used in this manner, but other classes might not support concurrent requests, so check the available documentation.
+- Objects that you share across multiple requests *must* be thread-safe. The `HttpClient` class is built for this usage pattern, but other classes might not support concurrent requests, so check the available documentation.
 
 - Be careful about setting properties on shared objects, as this can lead to race conditions. For example, setting `DefaultRequestHeaders` on the `HttpClient` class before each request can create a race condition. Set such properties once (for example, during startup), and create separate instances if you need to configure different settings.
 
@@ -112,20 +112,20 @@ public class SingleHttpClientInstanceController : ApiController
 
 ## How to detect improper instantiation antipattern
 
-Symptoms of this problem include a drop in throughput or an increased error rate, along with one or more of the following:
+Symptoms of this problem include a drop in throughput or an increased error rate, along with one or more of the following changes:
 
-- An increase in exceptions that indicate exhaustion of resources such as sockets, database connections, file handles, and so on.
+- An increase in exceptions that indicate exhaustion of resources such as sockets, database connections, and file handles.
 - Increased memory use and garbage collection.
 - An increase in network, disk, or database activity.
 
-You can perform the following steps to help identify this problem:
+You can do the following steps to help identify this problem:
 
 1. Performing process monitoring of the production system, to identify points when response times slow down or the system fails due to lack of resources.
 2. Examine the telemetry data captured at these points to determine which operations might be creating and destroying resource-consuming objects.
 3. Load test each suspected operation, in a controlled test environment rather than the production system.
 4. Review the source code and examine how the broker objects are managed.
 
-Look at stack traces for operations that are slow-running or that generate exceptions when the system is under load. This information can help to identify how these operations are using resources. Exceptions can help to determine whether errors are caused by shared resources being exhausted.
+Examine stack traces for operations that are slow-running or that generate exceptions when the system is under load. This information can help to identify how these operations are using resources. Exceptions can help to determine whether errors are caused by shared resources being exhausted.
 
 ## Example diagnosis
 
@@ -145,7 +145,7 @@ The next image shows data captured using thread profiling, over the same period 
 
 ### Performing load testing
 
-Use load testing to simulate the typical operations that users might perform. This can help to identify which parts of a system suffer from resource exhaustion under varying loads. Perform these tests in a controlled environment rather than the production system. The following graph shows the throughput of requests handled by the `NewHttpClientInstancePerRequest` controller as the user load increases to 100 concurrent users.
+Use load testing to simulate the typical operations that users might do. This can help to identify which parts of a system experience resource exhaustion under varying loads. Run these tests in a controlled environment rather than the production system. The following graph shows the throughput of requests handled by the `NewHttpClientInstancePerRequest` controller as the user load increases to 100 concurrent users.
 
 ![Throughput of the sample application creating a new instance of an HttpClient object for each request][throughput-new-HTTPClient-instance]
 

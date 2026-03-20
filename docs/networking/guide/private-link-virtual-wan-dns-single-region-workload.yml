@@ -2,7 +2,7 @@
 metadata:
   title: Single region scenario - Private Link and DNS in Azure Virtual WAN
   description: This article provides guidance on implementing DNS to support private endpoints in a Virtual WAN network in a single region where the virtual hub has a Firewall with DNS Proxy enabled. The solution includes implementing a virtual WAN hub extension for DNS.
-  author: robbag
+  author: claytonsiemens77
   ms.author: pnp
   ms.date: 04/26/2023
   ms.topic: concept-article

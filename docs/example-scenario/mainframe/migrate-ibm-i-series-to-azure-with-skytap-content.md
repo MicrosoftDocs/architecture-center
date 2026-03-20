@@ -28,7 +28,7 @@ The numbers in the diagram correspond to the following data flow.
 
   For more information about how Skytap on [Azure connectivity](https://www.skytap.com/blog/skytap-on-azure-networking-considerations/) works, see [Skytap well-architected framework](https://skytap.github.io/well-architected-framework/).
 
-- [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) is a connectivity service that extends your on-premises networks to Microsoft cloud services, including Azure and Office 365, over a private connection that a connectivity provider facilitates. In this architecture, ExpressRoute provides secure, high-bandwidth connectivity between on-premises users and the Azure-hosted web application.
+- [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) is a connectivity service that extends your on-premises networks to Microsoft cloud services, including Azure and Microsoft 365, over a private connection that a connectivity provider facilitates. In this architecture, ExpressRoute provides secure, high-bandwidth connectivity between on-premises users and the Azure-hosted web application.
 
   For more information about how ExpressRoute works with Skytap, see [Skytap getting started with Azure networking guide](https://www.skytap.com/blog/skytap-on-azure-networking-considerations/).
 
@@ -38,7 +38,7 @@ The numbers in the diagram correspond to the following data flow.
 
 - [Private Link](/azure/private-link/private-link-overview) is a networking service that creates your own private link service in your virtual network so that the web client can consume resources from Skytap on Azure. In this architecture, Private Link enables secure data transfer from IBM i systems to Blob Storage through a private endpoint.
 
-- [Skytap on Azure](https://azuremarketplace.microsoft.com/marketplace/apps/skytapinc.skytap-on-azure-main1?tab=overview) is a service that runs IBM Power and x86 traditional workloads on hardware in Azure datacenters. Organizations of any size that run applications on IBM Power-based AIX, IBM i, or Linux operating systems can migrate them to Azure with little upfront effort. In this architecture, Skytap on Azure provides the native IBM Power9 infrastructure to host migrated IBM i LPARs without requiring application refactoring.
+- [Kyndryl Cloud Uplift (formerly Skytap on Azure)](https://marketplace.microsoft.com/search/products?search=Kyndryl%20Cloud%20Uplift) is a service that runs IBM Power and x86 traditional workloads on hardware in Azure datacenters. Organizations of any size that run applications on IBM Power-based AIX, IBM i, or Linux operating systems can migrate them to Azure with little upfront effort. In this architecture, Skytap on Azure provides the native IBM Power9 infrastructure to host migrated IBM i LPARs without requiring application refactoring.
 
 ### Alternatives
 
@@ -52,7 +52,7 @@ The numbers in the diagram correspond to the following data flow.
 
 ## Scenario details
 
-The IBM System i family of midrange computers was first introduced in 1988 as the AS/400. Until now, your choice was to rearchitect iSeries applications before moving them to the cloud or maintain them on-premises or in a co-located facility—both expensive options.
+The IBM System i family of midrange computers was first introduced in 1988 as the AS/400. Until now, your choice was to rearchitect iSeries applications before you move them to the cloud or maintain them on-premises or in a co-located facility—both expensive options.
 
 In this example, a web app on Azure gives users a modern interface for the resources running in Skytap on Azure. You can continue to run critical components or systems of record (SOR) on IBM i on-premises. You can also migrate complete IBM i workloads and modernize them using native Azure services, such as advanced analytics and machine learning. In this type of all-cloud scenario, Skytap on Azure helps you optimize costs.
 
@@ -89,7 +89,7 @@ Cost Optimization is about looking at ways to reduce unnecessary expenses and im
 
 Running IBM i series workloads in Skytap on Azure helps optimize costs compared to on-premises deployments. The consumption-based usage plans let you deploy LPARs only as needed and scale them on demand to meet the needs of your workloads.
 
-See more pricing information on the [Plans + Pricing](https://azuremarketplace.microsoft.com/marketplace/apps/skytapinc.skytap-on-azure-main1?tab=PlansAndPrice) tab of Skytap on Azure in Azure Marketplace.
+See more pricing information on the [Plans + Pricing](https://marketplace.microsoft.com/search/products?search=Kyndryl%20Cloud%20Uplift) tab in the Microsoft Marketplace.
 
 ### Performance Efficiency
 
@@ -104,20 +104,18 @@ Azure compute scale-up can be as simple as choosing the right [virtual machine](
 
 ## Deploy this scenario
 
-To get started running iSeries applications on Azure, check out the [Skytap on Azure](https://azuremarketplace.microsoft.com/marketplace/apps/skytapinc.skytap-on-azure-main1?tab=overview) template in Azure Marketplace.
+To get started running iSeries applications on Azure, check out the [Kyndryl Cloud Uplift (formerly Skytap on Azure)](https://marketplace.microsoft.com/search/products?search=Kyndryl%20Cloud%20Uplift) template in the Microsoft Marketplace.
+
 Learn more about the different Migration and Deployment options with the [Skytap Well-Architected Framework](https://skytap.github.io/well-architected-framework/).
 
 ## Next steps
 
 To learn more about Skytap on Azure, contact <legacy2azure@microsoft.com> or check out the following resources:
 
--   See the [Cloud Migration for Apps Running IBM Power](https://techcommunity.microsoft.com/t5/video-hub/skytap-on-azure-cloud-migration-for-apps-running-ibm-power/m-p/1693588) demo.
+- See the [Cloud Migration for Apps Running IBM Power](https://techcommunity.microsoft.com/t5/video-hub/skytap-on-azure-cloud-migration-for-apps-running-ibm-power/m-p/1693588) demo.
 
--   Learn how to [accelerate your cloud strategy with Skytap on Azure](https://azure.microsoft.com/blog/accelerate-your-cloud-strategy-with-skytap-on-azure).
+- Learn how to [accelerate your cloud strategy with Skytap on Azure](https://azure.microsoft.com/blog/accelerate-your-cloud-strategy-with-skytap-on-azure).
 
--   Explore the [Skytap on Azure](https://azuremarketplace.microsoft.com/marketplace/apps/skytapinc.skytap-on-azure-main1?tab=overview) template on Azure Marketplace.
-
--   Learn about [Skytap Migration options](https://skytap.github.io/well-architected-framework/resiliency).
 
 - [Skytap Well-Architected Framework](https://skytap.github.io/well-architected-framework)
 

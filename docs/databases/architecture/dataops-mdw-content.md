@@ -144,7 +144,7 @@ For a detailed list of all resources, see the [Deployed Resources](https://githu
 
 ### Continuous integration and continuous delivery (CI/CD)
 
-The diagram below demonstrates the CI/CD process and sequence for the build and release pipelines.
+The following diagram demonstrates the CI/CD process and sequence for the build and release pipelines.
 
 :::image type="content" source="_images/ci-cd-process-diagram-new.svg" lightbox="_images/ci-cd-process-diagram-new.svg" alt-text="Diagram that shows the process and sequence for build and release." border="false":::
 
@@ -229,6 +229,6 @@ Azure Storage
 * [Best practices for using Azure Data Lake Storage Gen2 – High availability and Disaster Recovery](/azure/storage/blobs/data-lake-storage-best-practices#high-availability-and-disaster-recovery)
 * [Azure Storage Redundancy](/azure/storage/common/storage-redundancy)
 
-### Detailed walkthrough
+### Detailed overview
 
-For a detailed walk-through of the solution and key concepts, watch the following video recording: [DataDevOps for the Modern Data Warehouse on Microsoft Azure](https://www.youtube.com/watch?v=Xs1-OU5cmsw%22)
+For a detailed overview of the solution and key concepts, watch the following video recording: [DataDevOps for the Modern Data Warehouse on Microsoft Azure](https://www.youtube.com/watch?v=Xs1-OU5cmsw%22)

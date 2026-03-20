@@ -14,7 +14,7 @@ Now we're ready to go from domain model to application design. Here's an approac
 
 1. Start with a bounded context. In general, the functionality in a microservice shouldn't span more than one bounded context. By definition, a bounded context marks the boundary of a specific domain model. If you find that a microservice mixes different domain models together, you might need to go back and refine your domain analysis.
 
-1. Next, look at the aggregates in your domain model. Aggregates are often good candidates for microservices. A well-designed aggregate exhibits many of the characteristics of a well-designed microservice:
+1. Next, examine the aggregates in your domain model. Aggregates are often good candidates for microservices. A well-designed aggregate exhibits many of the characteristics of a well-designed microservice:
 
     - An aggregate is derived from business requirements, rather than technical concerns such as data access or messaging.
     - An aggregate should have high functional cohesion.
@@ -23,7 +23,7 @@ Now we're ready to go from domain model to application design. Here's an approac
 
 1. Domain services are also good candidates for microservices. Domain services are stateless operations across multiple aggregates. A typical example is a workflow that includes several microservices. The Drone Delivery application shows an example.
 
-1. Consider nonfunctional requirements. Look at factors such as team size, data types, technologies, scalability requirements, availability requirements, and security requirements. These factors might cause you to break a microservice into multiple smaller services. In other cases, they might cause you to merge several microservices into a single microservice.
+1. Consider nonfunctional requirements. Use factors such as team size, data types, technologies, scalability requirements, availability requirements, and security requirements. These factors might cause you to break a microservice into multiple smaller services. In other cases, they might cause you to merge several microservices into a single microservice.
 
 After you identify the microservices in your application, validate your design against the following criteria:
 
@@ -61,7 +61,7 @@ The details of the Drone and Account bounded contexts are beyond the scope of th
 
 So far, the team hasn't considered any nonfunctional requirements. After evaluating the application's throughput needs, the development team creates a separate Ingestion microservice to handle client requests. This microservice implements [load leveling](../../patterns/queue-based-load-leveling.yml) by placing incoming requests into a buffer for processing. The Scheduler then reads requests from the buffer and implements the workflow.
 
-Nonfunctional requirements also lead the team to create one more service. The existing services focus on scheduling and delivering packages in real time. However, the system must also store delivery history in long-term storage for data analysis. Initially, the team considered making this task part of the Delivery service. But the data storage requirements for historical analysis differ from the requirements for in-flight operations. For more information, see [Data considerations](../design/data-considerations.yml). As a result, the team created a separate Delivery History service. This service listens for DeliveryTracking events from the Delivery service and writes them to long-term storage.
+Nonfunctional requirements also lead the team to create one more service. The existing services focus on scheduling and delivering packages in real time. However, the system must also store delivery history in long-term storage for data analysis. Initially, the team considered making this task part of the Delivery service. But the data storage requirements for historical analysis differ from the requirements for in-flight operations. For more information, see [Data considerations](../design/data-considerations.md). As a result, the team created a separate Delivery History service. This service listens for DeliveryTracking events from the Delivery service and writes them to long-term storage.
 
 The following diagram shows the design at this point:
 
@@ -81,6 +81,6 @@ At this point, you should have a clear understanding of the purpose and function
 ## Related resources
 
 - [Microservices architecture design](../../guide/architecture-styles/microservices.md)
-- [Using tactical DDD to design microservices](tactical-ddd.yml)
+- [Using tactical DDD to design microservices](tactical-domain-driven-design.md)
 - [Using domain analysis to model microservices](domain-analysis.md)
 - [Choose an Azure compute option for microservices](../../microservices/design/compute-options.md)

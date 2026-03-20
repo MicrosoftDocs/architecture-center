@@ -40,7 +40,7 @@ Working under the assumption of at-least once delivery, especially within the co
 
 There are several different scenarios that could result in duplicate events being delivered to a function:
 
-- **Checkpointing:** If the Azure Functions host crashes or the threshold set for the [batch checkpoint frequency](/azure/azure-functions/functions-bindings-event-hubs#hostjson-settings) isn't met, a checkpoint isn't created. As a result, the offset for the consumer isn't advanced and the next time the function is invoked, it will resume from the last checkpoint. It is important to note that checkpointing occurs at the partition level for each consumer.
+- **Checkpointing:** If the Azure Functions host crashes or the threshold set for the [batch checkpoint frequency](/azure/azure-functions/functions-bindings-event-hubs#hostjson-settings) isn't met, a checkpoint isn't created. As a result, the offset for the consumer isn't advanced and the next time the function is invoked, it will resume from the last checkpoint. Checkpointing occurs at the partition level for each consumer.
 
 - **Duplicate events published:** Many techniques can reduce the chances of the same event being published to a stream, but the consumer is still responsible for handling duplicates idempotently.
 
@@ -72,9 +72,9 @@ Without error handling, it can be tricky to implement retries, detect runtime ex
 
 ### Retries
 
-Implementing retry logic in an event streaming architecture can be complex. Supporting cancellation tokens, retry counts and exponential back off strategies are just a few of the considerations that make it challenging. Fortunately, Functions provides [retry policies](/azure/azure-functions/functions-bindings-error-pages#retry-policies-preview) that can make up for many of these tasks that you would typically code yourself.
+Implementing retry logic in an event streaming architecture can be complex. Supporting cancellation tokens, retry counts, and exponential back-off strategies are a few of the considerations that make it a challenge. Fortunately, Functions provides [retry policies](/azure/azure-functions/functions-bindings-error-pages#retry-policies) for many of these tasks that you typically code yourself. For general guidance on retry strategies, see [Recommendations for handling transient faults](/azure/well-architected/design-guides/handle-transient-faults).
 
-Several important factors that must be considered when using the retry policies with the Event Hub binding, include:
+Several important factors that must be considered when you use the retry policies with the Event Hub binding, include:
 
 - **Avoid indefinite retries:** When the [max retry count](/azure/azure-functions/functions-host-json#retry) setting is set to a value of -1, the function retries indefinitely. In general, indefinite retries should be used sparingly with Functions and almost never with the Event Hub trigger binding.
 
@@ -88,11 +88,11 @@ An important takeaway for the retry policies in Functions is that it's a best ef
 
 ## Strategies for failures and corrupt data
 
-There are several noteworthy approaches that you can use to compensate for issues that arise due to failures or bad data in an event stream. Some fundamental strategies are:
+Several noteworthy approaches can help you compensate for problems that occur because of failures or bad data in an eventstream. Consider the following fundamental strategies:
 
 - **Stop sending and reading:** To fix the underlying issue, pause the reading and writing of events. The benefit of this approach is that data won't be lost, and operations can resume after a fix is rolled out. This approach might require a circuit-breaker component in the architecture and possibly a notification to the affected services to achieve a pause. In some cases, stopping a function might be necessary until the issues are resolved.
 
-- **Drop messages:** If messages aren't important or are considered non-mission critical, consider moving on and not processing them. This approach doesn't work for scenarios that require strong consistency such as recording moves in a chess match or finance-based transactions. Error handling inside of a function is recommended for catching and dropping messages that can't be processed.
+- **Drop messages:** If messages aren't important or mission critical, consider discarding them instead of processing them. This approach doesn't work for scenarios that require strong consistency such as recording moves in a chess match or finance-based transactions. Error handling inside of a function is recommended for catching and dropping messages that can't be processed.
 
 - **Retry:** There are many situations that might warrant the reprocessing of an event. The most common scenario would be a transient error encountered when calling another service or dependency. Network errors, service limits and availability, and strong consistency are perhaps the most frequent use cases that justify reprocessing attempts.
 
