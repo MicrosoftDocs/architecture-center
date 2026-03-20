@@ -80,20 +80,20 @@ The following table provides a list of possible use cases for Azure Language. If
 | Use case | Customizable |
 | :----------|:-----------------|
 | [Predict the intention of user inputs and extract information from them](/azure/ai-services/language-service/conversational-language-understanding/overview). |  Yes |
-| [Identify and redact sensitive information like personal data](/azure/ai-services/language-service/personally-identifiable-information/overview). |  |
-| [Identify the language that text is written in](/azure/ai-services/language-service/language-detection/overview). | |
-| [Extract medical information from clinical or medical documents without building a model](/azure/ai-services/language-service/text-analytics-for-health/overview). |   |
+| [Identify and redact sensitive information like personal data](/azure/ai-services/language-service/personally-identifiable-information/overview). | No |
+| [Identify the language that text is written in](/azure/ai-services/language-service/language-detection/overview). | No |
+| [Extract medical information from clinical or medical documents without building a model](/azure/ai-services/language-service/text-analytics-for-health/overview). | No |
 | [Extract medical information from clinical or medical documents by using a model trained on your data](/azure/ai-services/language-service/text-analytics-for-health/overview). | Yes |
-| [Extract categories of information without creating a custom model](/azure/ai-services/language-service/named-entity-recognition/overview). |   |
+| [Extract categories of information without creating a custom model](/azure/ai-services/language-service/named-entity-recognition/overview). | No |
 | [Extract categories of information by using a model specific to your data](/azure/ai-services/language-service/custom-named-entity-recognition/overview). | Yes |
-| [Extract main topics and important phrases](/azure/ai-services/language-service/key-phrase-extraction/overview). |  |
-| [Summarize a document](/azure/ai-services/language-service/summarization/quickstart). |   |
+| [Extract main topics and important phrases](/azure/ai-services/language-service/key-phrase-extraction/overview). | No |
+| [Summarize a document](/azure/ai-services/language-service/summarization/quickstart). | No |
 | [Classify text by using sentiment analysis](/azure/ai-services/language-service/sentiment-opinion-mining/quickstart). | Yes |
 | [Classify text by using custom classes](/azure/ai-services/language-service/custom-text-classification/quickstart). | Yes |
-| [Classify items into categories provided at inference time](/azure/foundry/openai/how-to/responses). |  |
-| [Link an entity with knowledge base articles](/azure/ai-services/language-service/entity-linking/overview). | |
+| [Classify items into categories provided at inference time](/azure/foundry/openai/how-to/responses). | No |
+| [Link an entity with knowledge base articles](/azure/ai-services/language-service/entity-linking/overview). | No |
 | [Understand generic questions and answers](/azure/ai-services/language-service/question-answering/overview). | Yes |
-| [Build a conversational application that responds to user inputs](/azure/ai-services/language-service/question-answering/overview). |   |
+| [Build a conversational application that responds to user inputs](/azure/ai-services/language-service/question-answering/overview). | No |
 | [Connect apps from CLU and question answering](/azure/ai-services/language-service/orchestration-workflow/overview). | Yes |
 
 ## Azure Translator
