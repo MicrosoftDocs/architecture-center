@@ -20,4 +20,4 @@ name: Azure DNS Private Resolver
 summary: Learn how to use Azure DNS Private Resolver to simplify hybrid recursive Domain Name System (DNS) resolution for on-premises and Azure workloads.  
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-dns-private-resolver-thumbnail.png
 content: |
-   [!INCLUDE[](azure-dns-private-resolver-content.md)]
+  [!INCLUDE[](azure-dns-private-resolver-content.md)]
