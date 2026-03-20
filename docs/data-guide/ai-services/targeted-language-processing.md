@@ -1,8 +1,8 @@
 ---
 title: Choose an Azure AI Targeted Language Processing Technology
 description: Learn about targeted language processing capabilities in Foundry Tools, including natural language processing, text analytics, translation, and document data extraction.
-author: ritesh-modi
-ms.author: rimod
+author: hudua
+ms.author: hudua
 ms.date: 03/20/2026
 ms.update-cycle: 180-days
 ms.topic: concept-article
@@ -70,7 +70,7 @@ The following table provides a list of features available in Azure Language.
 | [Custom text classification](/azure/ai-services/language-service/custom-text-classification/overview) | Builds custom AI models to classify unstructured text documents into custom classes that you define. |
 | [Custom NER](/azure/ai-services/language-service/custom-named-entity-recognition/overview) | Builds custom AI models to extract custom entity categories, like labels for words or phrases, by using unstructured text that you provide. |
 | [Conversational language understanding (CLU)](/azure/ai-services/language-service/conversational-language-understanding/overview)| Builds custom natural language processing models to predict the user's intent from each input and extract important information from it. |
-| [Orchestration workflow](/azure/ai-services/language-service/orchestration-workflow/overview) | Connects [CLU](/azure/ai-services/language-service/conversational-language-understanding/overview), [question answering](/azure/ai-services/language-service/question-answering/overview), and [Language Understanding Intelligent Service (LUIS)](/azure/ai-services/luis/what-is-luis) applications. |
+| [Orchestration workflow](/azure/ai-services/language-service/orchestration-workflow/overview) | Connects [CLU](/azure/ai-services/language-service/conversational-language-understanding/overview) and [question answering](/azure/ai-services/language-service/question-answering/overview) applications. |
 | [Question answering](/azure/ai-services/language-service/question-answering/overview) | Identifies the most suitable answer for user inputs. Commonly used to build conversational client applications, like social media applications, chatbots, and speech-enabled desktop applications. |
 
 ### Choose an Azure Language feature
@@ -112,7 +112,7 @@ The following table provides a list of features available in Azure Translator.
 
 | Feature | Description |
 | :----------| :-------------|
-| [Text translation (preview)](/azure/ai-services/translator/text-translation/overview) | Use the 2025-10-01-preview version to select either standard NMT or a large language model (LLM) deployment (GPT-4o-mini or GPT-4o) to translate text. You need a Foundry resource to use an LLM deployment. |
+| [Text translation (preview)](/azure/ai-services/translator/text-translation/overview) | Use the 2025-10-01-preview version to select either standard NMT or a language model deployment (GPT-4o-mini or GPT-4o) to translate text. You need a Foundry resource to use a language model deployment. |
 | [Text translation v3 (GA)](/azure/ai-services/translator/text-translation/overview) | Translate text between supported source and target languages in real time. Create a [dynamic dictionary](/azure/ai-services/translator/text-translation/how-to/use-dynamic-dictionary) and learn how to [prevent translations](/azure/ai-services/translator/text-translation/how-to/prevent-translation) by using the Azure Translator API. |
 | [Asynchronous document translation](/azure/ai-services/translator/document-translation/overview)| Translate batch and complex files while preserving the structure and format of the original documents. The batch translation process requires an Azure Blob Storage account that has containers for your source and translated documents. |
 | [Synchronous document translation](/azure/ai-services/translator/document-translation/overview)| Translate a single document file alone or with a glossary file while preserving the structure and format of the original document. The file translation process doesn't require a Blob Storage account. The final response contains the translated document and is returned directly to the calling client. |
@@ -201,7 +201,7 @@ For more information about model scenarios, see [Choose an Azure Document Intell
 | Use Azure Content Understanding for these tasks | Don't use Azure Content Understanding for these tasks |
 | :----------| :-------------|
 | Extract fields from document types that have no Azure Document Intelligence prebuilt model by using schema definitions written in natural language. | Extract fields from standard document types that have an existing Azure Document Intelligence prebuilt model. [Azure Document Intelligence](#azure-document-intelligence) is more cost-effective and deterministic for these scenarios. |
-| Build RAG pipelines that require Markdown output that preserves layout, headings, tables, figures, and annotations for vector indexing. | Process high volumes of simple, structured documents when you need to minimize LLM variability and cost. Use [Azure Document Intelligence](#azure-document-intelligence) instead. |
+| Build RAG pipelines that require Markdown output that preserves layout, headings, tables, figures, and annotations for vector indexing. | Process high volumes of simple, structured documents when you need to minimize language model variability and cost. Use [Azure Document Intelligence](#azure-document-intelligence) instead. |
 | Drive automation workflows that require per-field confidence scores and grounding to route low-confidence records to human review. | Do general-purpose language tasks like summarization or sentiment analysis. Use [Azure Language](#azure-language) or [Models](#models) instead. |
 | Classify document types before you route them to the appropriate analyzer in a mixed-document pipeline. | |
 

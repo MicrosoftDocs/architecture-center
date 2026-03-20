@@ -1,8 +1,8 @@
 ---
 title: Azure AI Video Processing Guide
 description: Learn about Foundry Tools for video processing and video generation. Understand and compare each service's capabilities and use cases.
-author: ritesh-modi
-ms.author: rimod
+author: hudua
+ms.author: hudua
 ms.date: 03/20/2026
 ms.update-cycle: 180-days
 ms.topic: concept-article
@@ -92,8 +92,8 @@ The following table provides a list of possible use cases for Azure Vision.
 | :----------| :-------------|
 | [Generate image alternative text (alt text)](/azure/ai-services/computer-vision/use-case-alt-text) | Use Image Analysis captioning models to automatically generate alt text descriptions for images. Alt text improves accessibility for users who are blind or have low vision, helps meet legal compliance requirements, and makes your website more discoverable through improved SEO. Microsoft products like PowerPoint, Word, and Edge use this capability. |
 | [Identity verification](/azure/ai-services/computer-vision/use-case-identity-verification) | Use Azure Face to confirm that users are who they claim to be. Verification compares a probe image against an enrolled template, such as a government-issued ID, for access control scenarios. This approach helps improve user experience and security compared to knowledge-based methods. |
-| Face redaction | Redact or blur detected faces of people recorded in a video to protect their privacy. |
-| Touchless access control | Use opt-in face identification for enhanced access control while reducing the maintenance and security risks from physical media sharing, loss, or theft. Facial recognition assists the check-in process with a human in the loop for check-ins in airports, stadiums, theme parks, buildings, reception kiosks at offices, hospitals, gyms, clubs, or schools. |
+| [Face redaction](/azure/azure-video-indexer/face-redaction-with-api) | Redact or blur detected faces of people recorded in a video to protect their privacy. |
+| [Touchless access control](/azure/ai-services/face/how-to/specify-recognition-model) | Use opt-in face identification for enhanced access control while reducing the maintenance and security risks from physical media sharing, loss, or theft. Facial recognition assists the check-in process with a human in the loop for check-ins in airports, stadiums, theme parks, buildings, reception kiosks at offices, hospitals, gyms, clubs, or schools. |
 
 ### Custom Vision
 
@@ -103,7 +103,7 @@ The following table provides a list of possible use cases for Azure Vision.
 | :----------| :-------------|
 | Recognize unusual objects and manufacturing defects that standard image analysis can't detect. | Do basic object detection or face detection. Use [Azure Vision](#azure-vision) instead. |
 | Provide detailed custom classifications for specific business requirements. | Do basic visual analysis. Use vision-capable models from [Azure OpenAI](#azure-openai) or open-source models in Machine Learning instead. |
-| Train models with your own labeled images for specialized scenarios. | - |
+| Train models with your own labeled images for specialized scenarios. | |
 
 Custom Vision uses a machine learning algorithm to analyze images for custom features. You submit sets of images with and without the visual characteristics that you want. You then label the images with your own labels, or *tags*, at the time of submission. The algorithm uses this data to train and calculates its own accuracy by testing itself on the same images. After you train your model, you can test, retrain, and eventually use the model in your image recognition app to classify images or detect objects. You can also export the model for offline use.
 
@@ -133,8 +133,8 @@ The following table provides a list of possible use cases for Custom Vision.
 | :----------| :-------------|
 | Extract custom structured fields from images by using a schema that you define, such as product, brand, or defect detection. | Do standard image analysis, such as object detection or OCR. Use [Azure Vision](#azure-vision) for these tasks. |
 | Generate RAG-ready output from video, including scene descriptions, transcripts, and key frames, for use in search indexes or chat agents. | Extract deep video insights, such as celebrity identification, speaker enumeration, or sentiment analysis across long-form content. Use [Video Indexer](#video-indexer) for these tasks. |
-| Segment video into scenes and extract custom metadata for each segment, such as brand presence or ad category. | - |
-| Generate face descriptions in images or video, such as facial expressions or celebrity identification. These features have limited access. | - |
+| Segment video into scenes and extract custom metadata for each segment, such as brand presence or ad category. | |
+| Generate face descriptions in images or video, such as facial expressions or celebrity identification. These features have limited access. | |
 
 #### Available Azure Content Understanding features
 
@@ -169,7 +169,7 @@ The following table provides a list of possible use cases for Azure Content Unde
 | :----------| :-------------|
 | Extract insights from uploaded videos, including transcription, translation, and content analysis. | Do basic video analysis tasks like people counting and motion detection. [Azure Vision](#azure-vision) is a more cost-effective tool for these tasks. |
 | Analyze live video streams in real time for retail, manufacturing, or safety scenarios. | Extract text from static images. For OCR on images, use [Azure Vision](#azure-vision). |
-| Run video analysis on edge devices that have strict data residency or low-latency requirements by using Azure Arc. | - |
+| Run video analysis on edge devices that have strict data residency or low-latency requirements by using Azure Arc. | |
 
 #### Deployment options
 
@@ -206,10 +206,10 @@ The following table provides a list of audio analysis features available in Vide
 | [Audio transcription](/azure/azure-video-indexer/transcription-translation-lid-insight) | Converts STT in more than 50 languages and supports extensions. |
 | [Automatic language detection](/azure/azure-video-indexer/language-support) | Identifies the dominant spoken language. |
 | [Multiple-language speech identification](/azure/azure-video-indexer/transcription-translation-lid-insight) | Identifies the spoken language in different segments of audio, sends each segment to be transcribed, and combines them into one unified transcription. |
-| [Closed captioning](/azure/azure-video-indexer/video-indexer-output-json-v2#insights) | Creates closed captioning in Web Video Text Tracks (WebVTT), Timed Text Markup Language (TTML), and SubRip Subtitle (SRT) formats. |
-| [Two channel processing](/azure/azure-video-indexer/video-indexer-output-json-v2) | Detects separate transcripts automatically and merges them into a single timeline. |
-| [Noise reduction](/azure/azure-video-indexer/video-indexer-output-json-v2) | Clears up telephony audio or noisy recordings based on Skype filters. |
-| [Speaker enumeration](/azure/azure-video-indexer/video-indexer-output-json-v2) | Maps and understands which speaker spoke which words and when. It can detect 16 speakers in a single audio file. |
+| [Closed captioning](/azure/azure-video-indexer/insights-overview) | Creates closed captioning in Web Video Text Tracks (WebVTT), Timed Text Markup Language (TTML), and SubRip Subtitle (SRT) formats. |
+| [Two channel processing](/azure/azure-video-indexer/insights-overview) | Detects separate transcripts automatically and merges them into a single timeline. |
+| [Noise reduction](/azure/azure-video-indexer/insights-overview) | Clears up telephony audio or noisy recordings based on Skype filters. |
+| [Speaker enumeration](/azure/azure-video-indexer/insights-overview) | Maps and understands which speaker spoke which words and when. It can detect 16 speakers in a single audio file. |
 | [Translation](/azure/azure-video-indexer/language-support) | Creates translations of the audio transcript in many different languages. |
 | [Audio effects detection](/azure/azure-video-indexer/audio-effects-detection-insight) | Detects audio effects in nonspeech segments, including alarms or sirens, a dog barking, crowd reactions, loud impact sounds, laughter, breaking glass, and silence. |
 

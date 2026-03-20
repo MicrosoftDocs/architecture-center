@@ -1,8 +1,8 @@
 ---
 title: Choose an Azure Speech Recognition and Generation Technology
 description: Learn about speech recognition and generation capabilities in Foundry Tools, including speech-to-text, text-to-speech, speech translation, and avatar creation.
-author: ritesh-modi
-ms.author: rimod
+author: hudua
+ms.author: hudua
 ms.date: 03/20/2026
 ms.update-cycle: 180-days
 ms.topic: concept-article
@@ -30,7 +30,7 @@ This article describes speech-to-text (STT) and text-to-speech (TTS) capabilitie
 | Transcribe or translate spoken speech to text in real time or batch processing. | Analyze text for sentiment or extract entities. For these tasks, use [Azure Language in Foundry Tools](/azure/ai-services/language-service/overview). |
 | Generate natural-sounding speech from text by using neural voices. | Moderate content for safety. For content moderation, use [Content Safety in Foundry Control Plane](/azure/ai-services/content-safety/overview). |
 | Identify speakers in a conversation by using voice biometry. | Translate text documents while preserving formatting. For document translation, use [Azure Translator in Foundry Tools](/azure/ai-services/translator/overview). |
-| Create custom voices unique to your brand or product. | - |
+| Create custom voices unique to your brand or product. | |
 
 ### Available Azure Speech features
 
@@ -42,7 +42,7 @@ The following table provides a list of features available in Azure Speech.
 | [TTS](/azure/ai-services/speech-service/text-to-speech) | Converts input text into humanlike synthesized speech by using neural voices powered by deep neural networks. Use [Speech Synthesis Markup Language (SSML)](/azure/ai-services/speech-service/speech-synthesis-markup) to fine-tune pitch, pronunciation, speaking rate, and volume. |
 | [TTS avatar](/azure/ai-services/speech-service/text-to-speech-avatar/what-is-text-to-speech-avatar) | Converts text into a digital video of a photorealistic human that speaks with a natural-sounding voice. The video can be synthesized asynchronously or in real time for lifelike synthetic talking avatar videos. |
 | [Speech translation](/azure/ai-services/speech-service/speech-translation) | Enables real-time, multilingual translation of speech to your applications, tools, and devices. Use it for speech-to-speech (S2S) and STT translation. |
-| [Large language model (LLM) speech (preview)](/azure/ai-services/speech-service/llm-speech) | Provides improved quality, deep contextual understanding, multilingual support, and prompt-tuning capabilities. Supports transcription and translation tasks. |
+| [Language model speech (preview)](/azure/ai-services/speech-service/llm-speech) | Provides improved quality, deep contextual understanding, multilingual support, and prompt-tuning capabilities. Supports transcription and translation tasks. |
 | [Language identification](/azure/ai-services/speech-service/language-identification) | Identifies languages spoken in audio by comparing them against a list of supported languages. Use language identification on its own, with STT recognition, or with speech translation. |
 | [Pronunciation assessment](/azure/ai-services/speech-service/how-to-pronunciation-assessment) | Evaluates speech pronunciation and gives speakers feedback on the accuracy and fluency of spoken audio. Language learners can practice, get instant feedback, and improve their pronunciation. |
 | [Custom speech](/azure/ai-services/speech-service/custom-speech-overview) | Create and train custom speech models by using acoustic, language, and pronunciation data when the base model isn't sufficient for audio that contains ambient noise or industry-specific jargon. |
