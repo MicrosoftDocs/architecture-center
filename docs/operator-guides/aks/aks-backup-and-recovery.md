@@ -174,17 +174,17 @@ Cluster state (Kubernetes resources) is backed up to a blob container within a d
 
 ### Vault tier storage
 
-If Vault Tier is turned on in the backup policy, AKS Backup copies backup data to an Azure Backup managed vault. Vault Tier provides an **off-site, isolated storage** layer that's managed entirely by Azure Backup, separate from your subscription. This layer provides protection against ransomware and operational mistakes. Vault Tier is available only for PVs backed by Azure Disks up to 1 TB in size. To use Vault Tier, a **staging resource group and storage account** are required as intermediate locations during data transfer.
+If the backup policy uses the Vault tier, AKS Backup copies backup data to an Azure Backup managed vault. The Vault tier provides an off-site, isolated storage layer that's managed by Azure Backup, separate from your subscription. This layer provides protection against ransomware and operational mistakes. The Vault tier is available only for PVs backed by Azure disks up to 1 TB in size. To use the Vault tier, you must set up a staging resource group and storage account as intermediate locations during data transfer.
 
-When the Backup vault is configured with **geo-redundant storage (GRS)**, and CRR is turned on, backup data in the Vault Tier is replicated to the Azure-paired secondary region. This configuration supports the recovery of workloads in the secondary region with an RPO of up to 36 hours.
+When the backup vault is configured with geo-redundant storage (GRS) and CRR is turned on, backup data in the Vault tier is replicated to the Azure-paired secondary region. This configuration supports the recovery of workloads in the secondary region with an RPO of up to 36 hours.
 
 ### Backup vault
 
-A [Backup vault](/azure/backup/backup-vault-overview) is a secure storage entity within Azure. Backup vaults store backup data for workloads that Azure Backup supports, such as AKS clusters. The Backup vault stores the backup policies, backups, and recovery points that backup jobs create.
+A [backup vault](/azure/backup/backup-vault-overview) is a secure storage entity within Azure. Backup vaults store backup data for workloads that Azure Backup supports, such as AKS clusters. The backup vault stores the backup policies, backups, and recovery points that backup jobs create.
 
-Azure manages the storage for a Backup vault. You can choose from several redundancy options for the data stored within it, including LRS, GRS, and ZRS. You can configure these options when you create the Backup vault.
+Azure manages the storage for a backup vault. You can choose from several redundancy options for the data stored within it, including LRS, GRS, and ZRS. You can configure these options when you create the backup vault.
 
-## Using AKS Backup to migrate workloads between AKS clusters
+## Use AKS Backup to migrate workloads between AKS clusters
 
 You can use AKS Backup as a mechanism for backup and recovery for specific clusters. You can take a backup from one cluster and restore it to another cluster by using AKS Backup. AKS Backup supports migration scenarios including:
 
@@ -192,7 +192,7 @@ You can use AKS Backup as a mechanism for backup and recovery for specific clust
 - Replication of contents across multiple clusters.
 - Restoration of a backup to a cluster in a different subscription within the same tenant.
 
-To redirect resources into different namespaces when restoring to a different cluster, use AKS Backup for conflict resolution. AKS Backup offers conflict resolution options such as **Skip** (skip resources that already exist in the target), **Patch** (update mutable fields on existing resources), and **namespace mapping**.
+To redirect resources into different namespaces when you restore to a different cluster, use AKS Backup for conflict resolution. AKS Backup offers conflict resolution options such as skip (skip resources that already exist in the target), patch (update mutable fields on existing resources), and namespace mapping.
 
 ## Contributors
 
@@ -218,11 +218,11 @@ Other contributors:
 - [AKS Backup overview](/azure/backup/azure-kubernetes-service-backup-overview)
 - [AKS Backup support matrix](/azure/backup/azure-kubernetes-service-cluster-backup-support-matrix)
 - [AKS Backup prerequisites](/azure/backup/azure-kubernetes-service-cluster-backup-concept)
-- [Configuring AKS Backup](/azure/backup/azure-kubernetes-service-cluster-backup)
-- [Creating a Backup vault](/azure/backup/create-manage-backup-vault#create-a-backup-vault)
-- [Creating a backup policy](/azure/backup/azure-kubernetes-service-cluster-backup#create-a-backup-policy)
-- [Configuring backups](/azure/backup/azure-kubernetes-service-cluster-backup#configure-backups)
-- [Restoring an AKS cluster](/azure/backup/azure-kubernetes-service-cluster-restore)
+- [Configure AKS Backup](/azure/backup/azure-kubernetes-service-cluster-backup)
+- [Create a backup vault](/azure/backup/create-manage-backup-vault#create-a-backup-vault)
+- [Create a backup policy](/azure/backup/azure-kubernetes-service-cluster-backup#create-a-backup-policy)
+- [Configure backups](/azure/backup/azure-kubernetes-service-cluster-backup#configure-backups)
+- [Restore an AKS cluster](/azure/backup/azure-kubernetes-service-cluster-restore)
 - [Business continuity and DR best practices for AKS](/azure/aks/operator-best-practices-multi-region)
 - [Reliability patterns - Cloud design patterns](/azure/well-architected/reliability/design-patterns)
 
@@ -233,6 +233,6 @@ Other contributors:
 
 ## Related resources
 
-- [AKS day-2 operations guide - Introduction](/azure/architecture/operator-guides/aks/day-2-operations-guide)
-- [Baseline architecture for an AKS cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)
-- [AKS baseline for multiregion clusters](/azure/architecture/reference-architectures/containers/aks-multi-region/aks-multi-cluster)
+- [AKS day-2 operations guide - Introduction](../../operator-guides/aks/day-2-operations-guide.md)
+- [Baseline architecture for an AKS cluster](../../reference-architectures/containers/aks/baseline-aks.yml)
+- [AKS baseline for multiregion clusters](../../reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml)
