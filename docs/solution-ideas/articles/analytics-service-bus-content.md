@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This architecture showcases how to build a scalable, secure, and intelligent real-time analytics solution using Azure Service Bus and Microsoft Fabric Real-Time Intelligence (RTI). Designed for cloud architects, data engineers, and retail solution strategists, it enables actionable insights from high-velocity data streams - ideal for scenarios like personalized product recommendations, dynamic pricing, and inventory optimization. 
+This architecture showcases how to build a scalable, secure, and intelligent real-time analytics solution using Azure Service Bus and Microsoft Fabric Real-Time Intelligence (RTI). Designed for cloud architects, data engineers, and retail solution strategists, it enables actionable insights from high-velocity data streams. It's ideal for scenarios like personalized product recommendations, dynamic pricing, and inventory optimization. 
 
 ## Architecture
 
