@@ -188,7 +188,7 @@ This distributed installation of the SAP application replicates the base install
 
 The SAP Web Dispatcher component serves as a load balancer for SAP traffic among the SAP application servers. To achieve [high availability of SAP Web Dispatcher](https://help.sap.com/docs/SUPPORT_CONTENT/si/3362959690.html), Load Balancer implements either the failover cluster or the parallel SAP Web Dispatcher setup.
 
-For internet-facing communications, we recommend a stand-alone solution in the perimeter network (also known as *DMZ, demilitarized zone, and screened subnet*) to satisfy security concerns.
+For internet-facing communications, we recommend a standalone solution in the perimeter network (also known as *DMZ, demilitarized zone, and screened subnet*) to satisfy security concerns.
 
 [Embedded SAP Web Dispatcher](https://help.sap.com/viewer/00b4e4853ef3494da20ebcaceb181d5e/LATEST/en-US/2e708e2d42134b4baabdfeae953b24c5.html) on ASCS is an alternative option. If you use this option, consider properly sizing the ASCS instance because of the extra workload.
 
@@ -214,7 +214,7 @@ For more information about how to implement specific database systems, see [Virt
 
 #### VMs deployed across availability zones
 
-An availability zone consists of one or more datacenters. This design improves workload availability and protects application services and VMs against datacenter outages. VMs in a single zone are treated as if they were in a single fault domain. When you select zonal deployment, VMs in the same zone are distributed to fault domains on a best-effort basis.
+An availability zone consists of one or more datacenters. This design improves workload availability and protects application services and VMs against datacenter outages. VMs in a single zone are treated as if they're in a single fault domain. When you select zonal deployment, VMs in the same zone are distributed to fault domains on a best-effort basis.
 
 In [Azure regions](https://azure.microsoft.com/explore/global-infrastructure/geographies/) that support multiple zones, at least three zones are available. But the maximum distance between datacenters in these zones isn't guaranteed. To deploy a multitier SAP system across zones, you must know the network latency within a zone and across targeted zones. You also must know your deployed applications' sensitivity to network latency.
 
@@ -398,6 +398,10 @@ You can scale SAP application servers and the SAP Central Services clusters up a
 Principal author:
 
 - [Ben Trinh](https://www.linkedin.com/in/bentrinh/) | Principal Architect
+
+Other contributor:
+
+- [Steffen Mueller](https://www.linkedin.com/in/steffen-mueller-054ba455/) | Senior Architect
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
