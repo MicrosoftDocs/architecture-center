@@ -7,7 +7,7 @@ Caching is most effective when a client instance repeatedly reads the same data,
 - It remains relatively static.
 - It's slow compared to the speed of the cache.
 - It's subject to a high level of contention.
-- It's far away when network latency can cause access to be slow.
+- It's far enough away from clients that network latency is significant.
 
 ## Caching in distributed applications
 
@@ -61,7 +61,7 @@ Consider caching data that is read frequently but modified infrequently (for exa
 
 ### Determine how to cache data effectively
 
-The key to using a cache effectively lies in determining the most appropriate data to cache, and caching it at the appropriate time. The data can be added to the cache on demand the first time an application retrieves it. The application needs to fetch the data only once from the data store, and that subsequent access can be satisfied by using the cache.
+The key to using a cache effectively lies in determining the most appropriate data to cache, and caching it at the appropriate time. The data can be added to the cache on demand the first time an application retrieves it. The application needs to fetch the data only once from the data store, and then subsequent access can be satisfied by using the cache.
 
 Alternatively, a cache can be partially or fully populated with data in advance, typically when the application starts (an approach known as seeding). However, it might not be advisable to implement seeding for a large cache because this approach can impose a sudden, high load on the original data store when the application starts running.
 
