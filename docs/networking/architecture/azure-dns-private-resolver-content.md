@@ -62,10 +62,10 @@ The solution that uses DNS Private Resolver contains the following components:
 
   | Domain name | IP address | Record type |
   | --- | --- | --- |
-  | `App1.onprem.company.com` | 192.168.0.8 | Address mapping |
-  | `App2.onprem.company.com` | 192.168.0.9 | Address mapping |
+  | `App1.onpremises.company.com` | 192.168.0.8 | Address mapping |
+  | `App2.onpremises.company.com` | 192.168.0.9 | Address mapping |
   | `blob.core.windows.net` | 10.0.0.8 | DNS forwarder |
-  | `azure-api.net` | 10.0.0.8 | DNS forwarder |
+  | `azure-api.net` | 10.0.0.8 | DNS forwarder 
 
 - A hub network.
 
