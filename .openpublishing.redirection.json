@@ -2117,7 +2117,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "docs/guide/sap/sap-netweaver.md",
+      "source_path": "docs/reference-architectures/sap/sap-netweaver.yml",
       "redirect_url": "/azure/architecture/guide/sap/sap-netweaver",
       "redirect_document_id": true
     },
