@@ -560,15 +560,15 @@ The failback steps and flow are similar, and you can run the process multiple ti
 
 You can also implement a test failover plan with a few configuration changes and no effect on the production environment:
 
-- Create a few test user accounts in Active Directory.
+1. Create a few test user accounts in Active Directory.
 
-- Create a new Active Directory group named *GRP-TEST* and assign users.
+1. Create a new Active Directory group named *GRP-TEST* and assign users.
 
-- Assign access to DAG1, APPG2, and APPG3 with the GRP-TEST group.
+1. Assign access to DAG1, APPG2, and APPG3 with the GRP-TEST group.
 
-- Instruct users in the GRP-TEST group to test applications.
+1. Instruct users in the GRP-TEST group to test applications.
 
-- Test the failover procedure with the GRP-TEST group. Remove access from the primary host pool and grant access to the secondary DR pool.
+1. Test the failover procedure with the GRP-TEST group. Remove access from the primary host pool and grant access to the secondary DR pool.
 
 Follow these recommendations:
 
