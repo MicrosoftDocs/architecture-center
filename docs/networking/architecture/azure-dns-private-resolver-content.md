@@ -111,7 +111,7 @@ The following diagram shows the traffic flow that results when an on-premises se
 
 #### Traffic flow for a VM DNS query (decentralized)
 
-The following diagram shows the traffic flow that results when VM 1 issues a DNS request. In this scenario, the spoke 1 spoke virtual network attempts to resolve the request.
+The following diagram shows the traffic flow that results when VM 1 issues a DNS request. In this scenario, the spoke 1 virtual network attempts to resolve the request.
 
 :::image type="complex" border="false" source="./_images/azure-dns-private-resolver-spoke-query-traffic-usecase-2.svg" alt-text="Architecture diagram that shows name resolution traffic with DNS Private Resolver when a spoke VM issues a DNS request." lightbox="./_images/azure-dns-private-resolver-spoke-query-traffic-usecase-2.svg":::
    The image includes two main sections. The on-premises section contains the on-premises server, Windows desktops, App 1, App 2, App 3, and servers and their IP addresses. ExpressRoute connects the on-premises section to the site-to-site or ExpressRoute gateway in the Azure section. The Azure section contains the inbound and outbound endpoints inside the gateway section, Azure DNS, Azure private DNS, DNS Private Resolver, and two Azure-provisioned DNS sections that each contain a spoke and a VM. Spoke 1 connects via DNS forwarding virtual network link to the DNS forwarding rule set. A dotted line connects this section to the outbound endpoint.
@@ -316,7 +316,7 @@ For more information, see [Overview of reverse DNS and support in Azure](/azure/
 
 DNS Private Resolver has the following limitations:
 
-- You can only link DNS Private Resolver rule sets to virtual networks that are within the same geographical region as the resolver.
+- You can link DNS Private Resolver rule sets only to virtual networks that are within the same geographical region as the resolver.
 
 - A virtual network can't contain more than one DNS private resolver.
 
