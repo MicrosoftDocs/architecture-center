@@ -12,7 +12,7 @@ The following diagram shows how mLogica LIBER*IRIS integrates with Azure compone
 
 *Download a [Visio file](https://arch-center.azureedge.net/mlogica-mainframe-data-migration-architecture.vsdx) of this architecture.*
 
-### Workflow
+### Dataflow
 
 The steps to migrate mainframe data to Azure are as follows:
 
@@ -25,39 +25,9 @@ The steps to migrate mainframe data to Azure are as follows:
 7. The scripts load the ASCII converted data from sequential files into the target Azure relational database. The load scripts include DDL commands to create tables and other objects and SQL queries to load the data into those objects. Scale the load process horizontally across a cluster to maximize throughput, as needed. Execution logs and detailed exception logs are stored in Azure Blob Storage for further analysis.
 8. The mLogica Liber*IRIS data migration service runs the load scripts to transform data from relational file format to NoSQL database format. You can load this NoSQL data to Azure Cosmos DB by using the Azure Cosmos DB SQL API.
 
-### Components
+## Scenario details
 
-This solution uses the following components.
-
-#### Networking and identity
-
-- [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) is a virtual network gateway used to send encrypted traffic between an Azure virtual network and an on-premises location over the public internet. In this architecture, VPN Gateway provides an alternative to ExpressRoute for secure connectivity between the mainframe environment and Azure.
-
-- [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) is a connectivity service that lets you extend your on-premises networks into Azure over a private connection by using a connectivity provider. In this architecture, ExpressRoute provides a secure, private connection for transferring data definition files and extraction scripts between the mainframe and Azure.
-
-- [Microsoft Entra ID](/entra/fundamentals/whatis) is an identity and access management service that can be synchronized with an on-premises directory. In this architecture, Microsoft Entra ID provides authentication and access control for the mLogica data migration cluster and Azure resources.
-
-#### Compute
-
-- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is a compute service that provides on-demand, scalable computing resources. In this architecture, the mLogica data migration cluster runs on Azure Linux virtual machines optimized for network performance.
-
-#### Databases and Storage
-
-- [Azure SQL](/azure/azure-sql/), [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql), and [Azure Database for MySQL](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) are fully managed platform as a service (PaaS) services for SQL Server, PostgreSQL, and MySQL respectively. In this architecture, they provide high-performance, highly available options for mainframe relational data, emulated nonrelational data, and emulated Virtual Storage Access Method (VSAM) data.
-
-- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a fully managed NoSQL database service that provides low latency and elastic scalability. In this architecture, it's used to migrate nonrelational mainframe sources like Information Management System (IMS), Integrated Database Management System (IDMS), and Adaptable Database System (ADABAS).
-
-- [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is a cloud storage service that provides a highly available, encrypted-at-rest, cost-efficient, high-capacity storage facility. In this architecture, Blob Storage enables direct binary SFTP traffic from the mainframe and can mount containers on Linux virtual machines by using NFS 3.0 for storing sequential files and load scripts.
-
-#### Monitoring
-
-- [Azure Monitor](/azure/azure-monitor/overview) is a comprehensive monitoring service that delivers a solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments. In this architecture, Azure Monitor is used to monitor the mLogica data migration cluster and set up alerts for proactive management.
-
-  - [Application Insights](/azure/well-architected/service-guides/application-insights) is a feature of Azure Monitor that provides application performance monitoring by collecting and analyzing application telemetry. In this architecture, Application Insights monitors the mLogica data migration cluster for performance insights and diagnostics.
-
-  - [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs) is a feature of Azure Monitor that collects and organizes log and performance data from monitored resources. In this architecture, Azure Monitor Logs consolidates data from multiple sources into a single workspace, including platform logs from Azure services, log and performance data from virtual machine agents, and usage and performance data from applications.
-
-  - [Log Analytics](/azure/well-architected/service-guides/azure-log-analytics) is a feature of Azure Monitor that enables log queries to help you use the data collected in Azure Monitor Logs. In this architecture, Log Analytics helps analyze mLogica load script execution logs stored in Blob Storage. It uses a powerful query language to join data from multiple tables, aggregate large sets of data, and perform complex operations.
+This article provides information how mLogica product can be use dto perform Bulk data migration from a mainframe to Azure.
 
 ### Potential use cases
 
@@ -71,13 +41,6 @@ There are two key use cases for this example workload:
 
   Retire mainframe workload and retain the data in a low-cost Azure storage solution.
 
-### Recommendations
-
-Follow these general recommendations unless you have a specific requirement that overrides them:
-
-- To reduce network latency, create all Azure resources mentioned in this scenario in one region.
-- Instead of sending a single large file from the mainframe to Azure, split data into multiple files and send them in parallel.
-
 ## Considerations
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
@@ -85,18 +48,6 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 ### Reliability
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
-
-#### Resiliency
-
-Use Azure Monitor and [Application Insights](/azure/azure-monitor/app/app-insights-overview) to monitor the mLogica data migration cluster. Set up alerts for proactive management.
-
-For more information about resiliency in Azure, see [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
-
-#### Availability
-
-This example workflow describes mainframe-to-Azure data migration to replatform, refactor, or archive a workload. This task is discrete, performed a few times during a month-long project. Although high availability isn't required in this scenario, you can design the mLogica data migration cluster to provide high availability.
-
-Azure database services support zone redundancy. You can configure them to fail over if there's an outage or during a maintenance window.
 
 ### Security
 
@@ -152,7 +103,60 @@ If you're migrating multiple large independent datasets, deploy the mLogica data
 
 You can upload multiple data sets in parallel from the mainframe to Blob Storage.
 
-[Azure SQL DB serverless](/azure/azure-sql/database/serverless-tier-overview?view=azuresql) provides an option for autoscaling based on workload. Other Azure databases can be scaled up and down using automation to meet the workload demands. For more information, see [Autoscaling](/azure/architecture/best-practices/auto-scaling).
+[Azure SQL DB serverless](/azure/azure-sql/database/serverless-tier-overview?view=azuresql) provides an option for autoscaling based on workload. Other Azure databases can be scaled up and down using automation to meet the workload demands. For more information, see [Autoscaling](/azure/architecture/best-practices/auto-scaling). 
+
+### Components
+
+This solution uses the following components.
+
+#### Networking and identity
+
+- [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) is a virtual network gateway used to send encrypted traffic between an Azure virtual network and an on-premises location over the public internet. In this architecture, VPN Gateway provides an alternative to ExpressRoute for secure connectivity between the mainframe environment and Azure.
+
+- [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) is a connectivity service that lets you extend your on-premises networks into Azure over a private connection by using a connectivity provider. In this architecture, ExpressRoute provides a secure, private connection for transferring data definition files and extraction scripts between the mainframe and Azure.
+
+- [Microsoft Entra ID](/entra/fundamentals/whatis) is an identity and access management service that can be synchronized with an on-premises directory. In this architecture, Microsoft Entra ID provides authentication and access control for the mLogica data migration cluster and Azure resources.
+
+#### Compute
+
+- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is a compute service that provides on-demand, scalable computing resources. In this architecture, the mLogica data migration cluster runs on Azure Linux virtual machines optimized for network performance.
+
+#### Databases and Storage
+
+- [Azure SQL](/azure/azure-sql/), [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql), and [Azure Database for MySQL](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) are fully managed platform as a service (PaaS) services for SQL Server, PostgreSQL, and MySQL respectively. In this architecture, they provide high-performance, highly available options for mainframe relational data, emulated nonrelational data, and emulated Virtual Storage Access Method (VSAM) data.
+
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a fully managed NoSQL database service that provides low latency and elastic scalability. In this architecture, it's used to migrate nonrelational mainframe sources like Information Management System (IMS), Integrated Database Management System (IDMS), and Adaptable Database System (ADABAS).
+
+- [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is a cloud storage service that provides a highly available, encrypted-at-rest, cost-efficient, high-capacity storage facility. In this architecture, Blob Storage enables direct binary SFTP traffic from the mainframe and can mount containers on Linux virtual machines by using NFS 3.0 for storing sequential files and load scripts.
+
+#### Monitoring
+
+- [Azure Monitor](/azure/azure-monitor/overview) is a comprehensive monitoring service that delivers a solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments. In this architecture, Azure Monitor is used to monitor the mLogica data migration cluster and set up alerts for proactive management.
+
+  - [Application Insights](/azure/well-architected/service-guides/application-insights) is a feature of Azure Monitor that provides application performance monitoring by collecting and analyzing application telemetry. In this architecture, Application Insights monitors the mLogica data migration cluster for performance insights and diagnostics.
+
+  - [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs) is a feature of Azure Monitor that collects and organizes log and performance data from monitored resources. In this architecture, Azure Monitor Logs consolidates data from multiple sources into a single workspace, including platform logs from Azure services, log and performance data from virtual machine agents, and usage and performance data from applications.
+
+  - [Log Analytics](/azure/well-architected/service-guides/azure-log-analytics) is a feature of Azure Monitor that enables log queries to help you use the data collected in Azure Monitor Logs. In this architecture, Log Analytics helps analyze mLogica load script execution logs stored in Blob Storage. It uses a powerful query language to join data from multiple tables, aggregate large sets of data, and perform complex operations.
+
+### Recommendations
+
+Follow these general recommendations unless you have a specific requirement that overrides them:
+
+- To reduce network latency, create all Azure resources mentioned in this scenario in one region.
+- Instead of sending a single large file from the mainframe to Azure, split data into multiple files and send them in parallel.
+
+#### Resiliency
+
+Use Azure Monitor and [Application Insights](/azure/azure-monitor/app/app-insights-overview) to monitor the mLogica data migration cluster. Set up alerts for proactive management.
+
+For more information about resiliency in Azure, see [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
+
+#### Availability
+
+This example workflow describes mainframe-to-Azure data migration to replatform, refactor, or archive a workload. This task is discrete, performed a few times during a month-long project. Although high availability isn't required in this scenario, you can design the mLogica data migration cluster to provide high availability.
+
+Azure database services support zone redundancy. You can configure them to fail over if there's an outage or during a maintenance window.
 
 ## Contributors
 
@@ -160,7 +164,7 @@ You can upload multiple data sets in parallel from the mainframe to Blob Storage
 
 Principal author:
 
-[Sandip Khandelwal](https://www.linkedin.com/in/sandip-khandelwal-64326a7) | Senior Engineering Architect
+[Sandip Khandelwal](https://www.linkedin.com/in/sandip-khandelwal-64326a7) | Principal Engineering Architect
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
