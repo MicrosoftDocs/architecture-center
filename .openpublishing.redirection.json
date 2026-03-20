@@ -4429,6 +4429,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/databases/guide/transactional-outbox-cosmos.md",
+      "redirect_url": "/azure/architecture/databases/guide/transactional-out-box-cosmos",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/solution-ideas/articles/loan-credit-risk-with-sql-server.yml",
       "redirect_url": "/azure/architecture/databases",
       "redirect_document_id": false
@@ -6809,8 +6814,19 @@
     },
     {
       "source_path": "docs/example-scenario/analytics/azure-synapse-analytics-integrate-mongodb-atlas.yml",
-      "redirect_url": "/azure/architecture/databases/architecture/azure-synapse-analytics-integrate-mongodb-atlas",
+      "redirect_url": "/azure/architecture/example-scenario/analytics/sync-mongodb-atlas-fabric-analytics",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/analytics/sync-mongodb-atlas-azure-synapse-analytics.yml",
+      "redirect_url": "/azure/architecture/example-scenario/analytics/sync-mongodb-atlas-fabric-analytics",
+      "redirect_document_id": false
+    },
+    
+    {
+      "source_path": "docs/databases/architecture/azure-synapse-analytics-integrate-mongodb-atlas.yml",
+      "redirect_url": "/azure/architecture/example-scenario/analytics/sync-mongodb-atlas-fabric-analytics",
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/solution-ideas/articles/next-order-forecasting.yml",
@@ -7653,6 +7669,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/high-availability/reference-architecture-traffic-manager-application-gateway.yml",
+      "redirect_url": "/azure/architecture/high-availability/traffic-manager-application-gateway",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/guide/technology-choices/data-store-decision-tree.md",
       "redirect_url": "/azure/architecture/guide/technology-choices/data-stores-getting-started",
       "redirect_document_id": false
@@ -7708,11 +7729,26 @@
       "redirect_document_id": false      
     },
     {
+      "source_path": "docs/patterns/async-request-reply.yml",
+      "redirect_url": "/azure/architecture/patterns/asynchronous-request-reply",
+      "redirect_document_id": true
+    },
+    {      
       "source_path": "docs/example-scenario/mainframe/refactor-mainframe-applications-advanced.yml",
       "redirect_url": "/azure/architecture/example-scenario/mainframe/general-mainframe-refactor",
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/topics/high-performance-computing.md",
+      "redirect_url": "/azure/architecture/guide/compute/high-performance-computing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/microservices/model/tactical-ddd.yml",
+      "redirect_url": "/azure/architecture/microservices/model/tactical-domain-driven-design",
+      "redirect_document_id": false
+    },
+    {      
       "source_path": "docs/solution-ideas/articles/analytics-start-here.yml",
       "redirect_url": "/azure/architecture/solution-ideas/articles/analytics-get-started",
       "redirect_document_id": false

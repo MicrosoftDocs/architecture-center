@@ -24,7 +24,7 @@ The following recommendations help you design and build solutions to meet busine
 
 - **Document service level agreements (SLAs)** and service level objectives (SLOs), including availability and performance metrics. For example, a proposed solution might deliver 99.95% availability. Whether that SLO meets the SLA is a business decision.
 
-- **Model applications** for your business domain. Analyze the business requirements, and use these requirements to model the solution. Consider using a domain-driven design (DDD) approach to create domain models that reflect your business processes and use cases.
+- **Model applications** for your business domain. Analyze the business requirements, and use these requirements to model the solution. Consider using a [domain-driven design (DDD)](../../microservices/model/domain-analysis.md) approach to create domain models that reflect your business processes and use cases.
 
 - **Define functional and nonfunctional requirements**. Functional requirements determine whether an application performs its task. Nonfunctional requirements determine how well the application performs. Make sure you understand nonfunctional requirements like scalability, availability, and latency. These requirements influence design decisions and technology choices.
 

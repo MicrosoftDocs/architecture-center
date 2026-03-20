@@ -43,10 +43,11 @@ items:
             href: microservices/ci-cd.yml
           - name: Domain modeling for microservices
             items:
-            - name: Domain analysis
+            - name: Use domain analysis to model microservices
+              displayName: DDD
               href: microservices/model/domain-analysis.md
-            - name: Tactical DDD
-              href: microservices/model/tactical-ddd.yml
+            - name: Use tactical DDD to design microservices
+              href: microservices/model/tactical-domain-driven-design.md
             - name: Identify microservice boundaries
               href: microservices/model/microservice-boundaries.yml
           - name: Design a microservices architecture
@@ -163,7 +164,7 @@ items:
     - name: Choose an AI service
       items:
       - name: AI services
-        displayName: choose
+        displayName: choose, foundry tools
         href: data-guide/technology-choices/ai-services.md
       - name: Targeted language processing
         href: data-guide/ai-services/targeted-language-processing.md
@@ -219,7 +220,7 @@ items:
       href: best-practices/data-partitioning-strategies.yml
     - name: Host name preservation
       displayName: host header, reverse proxy hostname, HTTP header
-      href: best-practices/host-name-preservation.yml
+      href: best-practices/host-name-preservation.md
     - name: Message encoding considerations
       href: best-practices/message-encode.md
     - name: Monitoring and diagnostics
@@ -261,7 +262,7 @@ items:
       href: guide/responsible-innovation/index.md
     - name: Understand potential harms
       href: guide/responsible-innovation/harms-modeling/index.md
-    - name: Implement AI responsibly when you use Azure AI services
+    - name: Implement AI responsibly when you use AI services
       href: /azure/ai-services/responsible-use-of-ai-overview
     - name: Measure Azure app sustainability
       href: example-scenario/apps/measure-azure-app-sustainability-sci-score.yml
@@ -404,18 +405,18 @@ items:
       href: pattern-implementations/network-secure-ingress.md
   - name: Ambassador
     displayName: API proxy, cross-cutting concerns
-    href: patterns/ambassador.yml
+    href: patterns/ambassador.md
   - name: Anti-Corruption Layer
     displayName: legacy system integration, system boundary translation
     href: patterns/anti-corruption-layer.yml
   - name: Asynchronous Request-Reply
-    href: patterns/async-request-reply.yml
+    href: patterns/asynchronous-request-reply.md
   - name: Backends for Frontends
     displayName: BFF pattern, frontend-specific API
     href: patterns/backends-for-frontends.md
   - name: Bulkhead
     displayName: Fault isolation, failure containment, resource isolation
-    href: patterns/bulkhead.yml
+    href: patterns/bulkhead.md
   - name: Cache-Aside
     displayName: Lazy loading, caching, read-through
     href: patterns/cache-aside.yml
@@ -483,9 +484,9 @@ items:
     href: patterns/pipes-and-filters.yml
   - name: Priority Queue
     href: patterns/priority-queue.yml
-  - name: Publisher/Subscriber
+  - name: Publisher-Subscriber
     displayName: Pub/sub, pub sub, topic messaging
-    href: patterns/publisher-subscriber.yml
+    href: patterns/publisher-subscriber.md
   - name: Quarantine
     displayName: Deployment validation, input verification, security gate
     href: patterns/quarantine.yml
@@ -560,8 +561,8 @@ items:
         href: example-scenario/analytics/enterprise-bi-microsoft-fabric.yml
       - name: Near real-time lakehouse processing
         href: example-scenario/data/real-time-lakehouse-data-processing.yml
-      - name: Real-time sync of MongoDB Atlas to Azure Synapse Analytics
-        href: example-scenario/analytics/sync-mongodb-atlas-azure-synapse-analytics.yml
+      - name: Real-time sync of MongoDB Atlas to Fabric
+        href: example-scenario/analytics/sync-mongodb-atlas-fabric-analytics.yml
       - name: Stream processing with Azure Databricks
         href: reference-architectures/data/stream-processing-databricks.yml
       - name: Stream processing with Stream Analytics
@@ -581,7 +582,7 @@ items:
   - name: Compute
     items:
     - name: Get started
-      href: topics/high-performance-computing.md
+      href: solution-ideas/articles/compute-get-started.md
     - name: Guides
       items:
       - name: Choose a compute service
@@ -591,6 +592,8 @@ items:
       - name: Build workloads with Azure Spot Virtual Machines
         displayName: VM, spot instances
         href: guide/spot/spot-eviction.yml
+      - name: High-performance computing
+        href: guide/compute/high-performance-computing.md
     - name: Architectures
       items:
       - name: VM baseline
@@ -603,8 +606,8 @@ items:
         href: example-scenario/manufacturing/teamcenter-baseline.yml
       - name: Teamcenter with Azure NetApp Files
         href: example-scenario/manufacturing/teamcenter-plm-netapp-files.yml
-      - name: Multi-region load balancing
-        href: high-availability/reference-architecture-traffic-manager-application-gateway.yml
+      - name: Multiregion load balancing
+        href: high-availability/traffic-manager-application-gateway.yml
       - name: Multi-tier web application built for HA/DR
         displayName: high availability, disaster recovery
         href: example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml
@@ -899,7 +902,7 @@ items:
           href: reference-architectures/hybrid-networking/index.yml
         - name: Connect on-premises with ExpressRoute
           href: reference-architectures/hybrid-networking/expressroute-vpn-failover.yml
-        - name: Design a hybrid Domain Name System
+        - name: Design a hybrid Domain Name System (DNS) solution by using Azure
           href: hybrid/hybrid-dns-infra.yml
         - name: Implement a secure hybrid network
           href: reference-architectures/dmz/secure-vnet-dmz.yml
@@ -1103,7 +1106,7 @@ items:
       items:
       - name: Virtual Network security options
         displayName: VNet
-        href: example-scenario/gateway/firewall-application-gateway.yml
+        href: example-scenario/gateway/firewall-application-gateway.md
       - name: Zero Trust network for web applications
         href: example-scenario/gateway/application-gateway-before-azure-firewall.md
     - name: Architectures

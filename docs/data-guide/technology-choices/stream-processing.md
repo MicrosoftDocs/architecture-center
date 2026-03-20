@@ -8,7 +8,6 @@ ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
 
-<!-- cSpell:ignore HDFS -->
 # Choose a stream processing technology in Azure
 
 This article compares technology choices for real-time stream processing in Azure.

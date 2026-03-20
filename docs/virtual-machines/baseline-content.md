@@ -213,7 +213,7 @@ Two public IP addresses are used for ingress flows. One address is for Applicati
 
 #### Egress traffic
 
-This architecture uses standard SKU Load Balancer with outbound rules defined from the VM instances. Load Balancer was chosen because it's zone redundant.
+This architecture uses a public Load Balancer with outbound rules defined from the VM instances. Load Balancer was chosen because it's zone redundant.
 
 :::image type="content" source="./media/baseline-network-egress.svg" alt-text="Diagram of a virtual machine baseline that shows ingress flow." lightbox="./media/baseline-network-egress.svg" border="false":::
 
@@ -260,11 +260,11 @@ This table links to logs and metrics collected by Azure Monitor. The available a
 
 | Azure resource | Metrics and logs | Alerts |
 | -------------- | ---------------- | ------ |
-|Application Gateway | [Application Gateway metrics and logs description](/azure/application-gateway/monitor-application-gateway-reference) | [Application Gateway alerts](/azure/application-gateway/high-traffic-support#alerts-for-application-gateway-v2-sku-standard_v2waf_v2) |
-| Application Insights | [Application Insights metrics and logging API](/azure/azure-monitor/app/api-custom-events-metrics) | [Application Insights alerts](/azure/azure-monitor/alerts/alerts-smart-detections-migration) |
-|Azure Bastion|[Azure Bastion metrics](/azure/bastion/howto-metrics-monitor-alert)|
+| Application Gateway | [Application Gateway metrics and logs description](/azure/application-gateway/monitor-application-gateway-reference) | [Application Gateway alerts](/azure/application-gateway/high-traffic-support#alerts-for-application-gateway-v2-sku-standard_v2waf_v2) |
+| Application Insights | [Application Insights metrics and the OpenTelemetry API](/azure/azure-monitor/app/opentelemetry-add-modify) | [Application Insights alerts](/azure/azure-monitor/alerts/alerts-smart-detections-migration) |
+| Azure Bastion | [Azure Bastion metrics](/azure/bastion/howto-metrics-monitor-alert) |
 | Key Vault | [Key Vault metrics and logs descriptions](/azure/key-vault/general/monitor-key-vault-reference) | [Key Vault alerts](/azure/key-vault/general/monitor-key-vault#alerts) |
-|Standard Load Balancer|[Load balancer logs and metrics](/azure/load-balancer/load-balancer-standard-diagnostics)|[Load Balancer alerts](/azure/load-balancer/load-balancer-standard-diagnostics#configure-alerts-for-multi-dimensional-metrics)
+| Load Balancer | [Load balancer logs and metrics](/azure/load-balancer/load-balancer-standard-diagnostics) | [Load Balancer alerts](/azure/load-balancer/load-balancer-standard-diagnostics#configure-alerts-for-multi-dimensional-metrics)
 | Public IP address | [Public IP address metrics and logs description](/azure/virtual-network/ip-services/monitor-public-ip) | [Public IP address metrics alerts](/azure/virtual-network/ip-services/monitor-public-ip#alerts) |
 | Virtual Network | [Virtual network metrics and logs reference](/azure/virtual-network/monitor-virtual-network-reference) | [Virtual network alerts](/azure/virtual-network/monitor-virtual-network#alerts) |
 | Virtual Machines and Virtual Machine Scale Sets | [VM metrics and logs reference](/azure/virtual-machines/monitor-vm-reference) | [VM alerts and tutorials](/azure/virtual-machines/monitor-vm#alerts) |
@@ -294,7 +294,7 @@ Disk metrics depend on your workload, requiring a mix of key metrics. Monitoring
 
 ### Application-level monitoring
 
-Even though the reference implementation doesn't make use of it, [Application Insights](/azure/azure-monitor/app/app-insights-overview) is provisioned as an APM for extensibility purposes. Application Insights  collects data from an application and sends that data to the Log Analytics workspace. It also can visualize that data from the workload applications.
+Even though the reference implementation doesn't make use of it, [Application Insights](/azure/azure-monitor/app/app-insights-overview) is provisioned as an APM for extensibility purposes. Use the [Azure Monitor OpenTelemetry Distro](/azure/azure-monitor/app/opentelemetry-enable) to instrument your application code and send data to the Log Analytics workspace. Application Insights can also visualize that data from the workload applications.
 
 The [application health extension](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension) is deployed to VMs to monitor the binary health state of each VM instance in the scale set, and perform instance repairs if necessary by using scale set automatic instance repair. It tests for the same file as the Application Gateway and the internal Azure load balancer health probe to check if the application is responsive.
 
@@ -426,9 +426,9 @@ This architecture uses zone-redundancy for several components. Each zone is made
 
   Consider a scenario where there are three availability zones in your Azure region. If you have three instances, each instance is allocated to a different availability zone and placed in a different fault domain. Azure guarantees that only one fault domain is updated at a time in each availability zone. However, there could be a situation in which all three fault domains hosting your VMs across the three availability zones are updated simultaneously. All zones and domains are affected. Having at least two instances in each zone provides a buffer during upgrades.
 
-- Managed disks can only be attached to a VM in the same region. Their availability typically affects the availability of the VM. For single-region deployments, disks can be configured for redundancy to withstand zonal failures. In this architecture, data disks are configured zone-redundant storage (ZRS) on the back-end VMs. It requires a recovery strategy to take advantage of availability zones. The recovery strategy is to redeploy the solution. Ideally pre-provision compute in alternate availability zones ready to recover from a zonal failure.
+- Managed disks can only be attached to a VM in the same region. Their availability typically affects the availability of the VM. For single-region deployments, disks can be configured for redundancy to withstand zone failures. In this architecture, data disks are configured zone-redundant storage (ZRS) on the back-end VMs. It requires a recovery strategy to take advantage of availability zones. The recovery strategy is to redeploy the solution. Ideally pre-provision compute in alternate availability zones ready to recover from a zone failure.
 
-- A zone-redundant Application Gateway or standard load balancer can route traffic to VMs across zones using a single IP address, ensuring continuity even if zone failures occur. These services use health probes to check VM availability. As long as one zone in the region remains operational, routing continues despite potential failures in other zones. However, inter-zone routing might have higher latency compared to intra-zone routing.
+- A zone-redundant Application Gateway or Azure Load Balancer can route traffic to VMs across zones using a single IP address, ensuring continuity even if zone failures occur. These services use health probes to check VM availability. As long as one zone in the region remains operational, routing continues despite potential failures in other zones. However, inter-zone routing might have higher latency compared to intra-zone routing.
 
   All public IPs used in this architecture are zone redundant.
 

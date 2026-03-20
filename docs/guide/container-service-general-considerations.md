@@ -505,7 +505,7 @@ Gathering metrics for complex or multiple-tiered applications can be challenging
 - **Manual instrumentation:** Minimal code changes required to integrate and configure the SDK and client
 
   | Instrumentation method | Container Apps | AKS | Web App for Containers |
-  |---|---|---|---|
+  | :--------------------- | :------------- | :-- | :--------------------- |
   | Automatic instrumentation via platform | ❌ | ❌ | Partial support* |
   | Automatic instrumentation via agent | ❌ | Partial support* | Not available |
   | Manual instrumentation | Via SDK or OpenTelemetry | Via SDK or OpenTelemetry | Via SDK or OpenTelemetry |
@@ -515,10 +515,7 @@ Gathering metrics for complex or multiple-tiered applications can be challenging
 - [Automatic instrumentation supported environments, languages, and resource providers](/azure/azure-monitor/app/codeless-overview#supported-environments-languages-and-resource-providers)
 - [Automatic instrumentation application monitoring for Kubernetes](/azure/azure-monitor/app/kubernetes-codeless)
 
-Instrumentation within application code is the responsibility of application developers, so it's independent of any Azure container solution. Use the following solutions for your workload:
-
-- [Application Insights SDKs](/azure/azure-monitor/app/app-insights-overview#supported-languages)
-- [OpenTelemetry distributions](/azure/azure-monitor/app/opentelemetry-add-modify)
+Instrumentation within application code is the responsibility of application developers, so it's independent of any Azure container solution. Use [OpenTelemetry with Application Insights](/azure/azure-monitor/app/opentelemetry-enable#enable-opentelemetry-with-application-insights).
 
 ### Logs and metrics
 
@@ -528,8 +525,8 @@ Azure Monitor is the key logging and metrics service in Azure that integrates wi
 
 | Observability features | Container Apps | AKS | AKS Automatic | Web App for Containers |
 | --- | --- | --- | --- | --- |
-| Support for log streaming | ✅   | ✅   | ✅   | ✅   |
-| Support for Azure Monitor | ✅   | ✅   | ✅   | ✅   |
+| Support for log streaming | ✅ | ✅ | ✅ | ✅ |
+| Support for Azure Monitor | ✅ | ✅ | ✅ | ✅ |
 | Azure Monitor resource logs | - [Console](/azure/container-apps/logging#container-console-logs) <br><br> - [System](/azure/container-apps/logging#system-logs) | [Kubernetes API server, Audit, Scheduler, and Cluster Autoscaler](/azure/aks/monitor-aks#aks-control-planeresource-logs) | Same as AKS | [ConsoleLogs, HTTPLogs, and EnvironmentPlatformLogs](/azure/app-service/monitor-app-service-reference#resource-logs) |
 | Metric collection and monitoring | Metrics via Azure Monitor. Custom metrics via [Dapr metrics](/azure/container-apps/dapr-overview#observability). | Metrics via Azure Monitor. Custom metrics via Prometheus (requires manual setup). | Preconfigured Managed Prometheus for metrics collection and Managed Grafana for visualization. Metrics via Azure Monitor. | Metrics via Azure Monitor |
 | Preconfigured Prometheus and Grafana | ❌ | Requires manual setup. | Managed Prometheus and Managed Grafana are preconfigured by default. | ❌ |
@@ -588,7 +585,7 @@ When you use multiple Azure services, [composite service-level objectives](/azur
 Azure has availability zones in every country or region in which it operates a datacenter region. To allow multiple instances of containers to cross availability zones, be sure to select SKUs, service tiers, and regions that provide availability zone support.
 
 | Feature | Container Apps | AKS | Web App for Containers |
-|---|---|---|---|
+| :------ | :------------- | :-- | :--------------------- |
 | Availability zone support | Full | Full | Full |
 
 For example, an application or infrastructure that's configured to run a single instance becomes unavailable if a problem occurs in the availability zone where the hardware is hosted. To take full advantage of availability zone support, deploy workloads that have at least three container instances distributed across zones.

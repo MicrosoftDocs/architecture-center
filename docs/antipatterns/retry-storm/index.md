@@ -39,7 +39,7 @@ Client applications should follow best practices to prevent retry storms.
 - **Limit the number of retry attempts and duration.** Writing a `while(true)` loop might seem simple, but you usually don't want to retry for a long period of time. The conditions that led to the request being initiated likely changed. Most applications only need to retry for a few seconds or minutes.
 
 - **Pause between retry attempts and increase wait time.** If a service is unavailable, retrying immediately is unlikely to succeed. Gradually increase the amount of time between attempts, for example by using an exponential backoff strategy.
-- **Handle service faults gracefully.** If the service doesn't respond, determine whether to abort the attempt and return an error to the user or caller of your component. Consider these failure scenarios when you design your application.
+- **Handle service faults gracefully.** If the service doesn't respond, determine whether to cancel the attempt and return an error to the user or caller of your component. Consider these failure scenarios when you design your application.
 - **Use the [Circuit Breaker pattern](../../patterns/circuit-breaker.md).** This pattern is designed specifically to help avoid retry storms.
 - **Honor response headers.** If the server provides a `retry-after` response header, don't attempt to retry until the specified time period passes.
 - **Use official SDKs to communicate with Azure services.** These SDKs generally have built-in retry policies and protections against causing or contributing to retry storms. If you communicate with a service that doesn't have an SDK or the SDK improperly handles retry logic, consider using a library like [Polly](https://www.pollydocs.org/) for .NET or [retry](https://www.npmjs.com/package/retry) for JavaScript to handle your retry logic correctly and avoid writing the code yourself.
@@ -48,7 +48,7 @@ Client applications should follow best practices to prevent retry storms.
 
 Services should also protect themselves from retry storms.
 
-- **Add a gateway layer to block connections during incidents.** This approach follows the [Bulkhead pattern](../../patterns/bulkhead.yml). Azure provides many gateway services for different types of solutions including [Azure Front Door](https://azure.microsoft.com/services/frontdoor/), [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/), and [Azure API Management](https://azure.microsoft.com/services/api-management/).
+- **Add a gateway layer to block connections during incidents.** This approach follows the [Bulkhead pattern](../../patterns/bulkhead.md). Azure provides many gateway services for different types of solutions including [Azure Front Door](https://azure.microsoft.com/services/frontdoor/), [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/), and [Azure API Management](https://azure.microsoft.com/services/api-management/).
 
 - **Throttle requests at your gateway.** This approach prevents back-end components from becoming overwhelmed by excessive requests.
 - **Send signals to clients.** When throttling, send back a `retry-after` header to help clients understand when to reattempt their connections. Clients aren't required to honor these headers, but many do.

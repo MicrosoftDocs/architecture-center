@@ -61,7 +61,7 @@ productDirectory:
           text: Choose a data store
         - url: /azure/architecture/data-guide/technology-choices/ai-services
           text: Choose AI services
-        - url: ./guide/technology-choices/messaging.yml
+        - url: ./guide/technology-choices/messaging.md
           text: Choose a messaging service
     - title: Implement an Azure landing zone
       imageSrc: /media/common/i_architecture.svg
@@ -176,7 +176,7 @@ conceptualContent:
           url: /azure/architecture/virtual-machines/baseline
         - text: Understand multi-region compute balancing
           itemType: concept
-          url: /azure/architecture/high-availability/reference-architecture-traffic-manager-application-gateway
+          url: /azure/architecture/high-availability/traffic-manager-application-gateway
         - text: Build workloads on spot virtual machines
           itemType: concept
           url: /azure/architecture/guide/spot/spot-eviction

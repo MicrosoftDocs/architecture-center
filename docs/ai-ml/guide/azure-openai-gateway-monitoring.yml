@@ -13,7 +13,7 @@ azureCategories:
   - ai-machine-learning
   - management-and-governance
 products:
-  - ai-services
+  - foundry-tools
   - azure-openai
   - azure-api-management
   - entra-id

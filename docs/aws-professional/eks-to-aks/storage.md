@@ -93,7 +93,7 @@ Volumes that are defined and created as part of the pod lifecycle only exist unt
 To decide between [Azure disk storage or Azure Files](/azure/aks/concepts-storage#volumes), consider whether your application needs concurrent data access or a specific performance tier.
 
 :::image type="complex" source="./media/aks-storage-persistent-volume.png" border="false" lightbox="./media/aks-storage-persistent-volume.png" alt-text="Diagram of persistent volumes in an AKS cluster.":::
-The diagram shows two scenarios: single node or pod access and multiple concurrent node or pod access. The single node or pod access scenario uses Azure managed disks (Standard or Premium storage). The multiple concurrent node or pod access scenario uses Azure Files (Standard storage). Both scenarios point to a persistent volume within the AKS cluster.
+The diagram shows two scenarios: single node or pod access and multiple concurrent node or pod access. The single node or pod access scenario uses Azure Managed Disks (Standard or Premium storage). The multiple concurrent node or pod access scenario uses Azure Files (Standard storage). Both scenarios point to a persistent volume within the AKS cluster.
 :::image-end:::
 
 A cluster administrator can *statically* create a persistent volume, or the Kubernetes API server can *dynamically* create a volume. If a pod is scheduled and requests storage that's currently unavailable, Kubernetes can create the underlying Azure disk or file storage and attach it to the pod. Dynamic provisioning uses a *storage class* to identify what type of resource needs to be created.
@@ -129,11 +129,11 @@ Unless you specify a storage class for a persistent volume, the default storage 
 
 The `default` class is the same as the `managed-csi` class.
 
-For Kubernetes version 1.29 and later, when you deploy AKS clusters across multiple availability zones, AKS uses ZRS to create managed disks within built-in storage classes. ZRS ensures synchronous replication of your Azure managed disks across multiple Azure availability zones in your chosen region. This redundancy strategy enhances the resilience of your applications and helps safeguard your data against datacenter failures.
+For Kubernetes version 1.29 and later, when you deploy AKS clusters across multiple availability zones, AKS uses ZRS to create managed disks within built-in storage classes. ZRS ensures synchronous replication of your Azure Managed Disks across multiple Azure availability zones in your chosen region. This redundancy strategy enhances the resilience of your applications and helps safeguard your data against datacenter failures.
 
 However, ZRS costs more than LRS. If cost optimization is a priority, you can create a new storage class that has the `skuname` parameter set to LRS. You can then use the new storage class in your persistent volume claim.
 
-You can create a storage class for other needs by using `kubectl`. The following example uses premium managed disks and specifies that the underlying Azure disk should be *retained* when you delete the pod:
+You can create a storage class for other needs by using `kubectl`. The following example uses Premium SSDs and specifies that the underlying Azure disk should be *retained* when you delete the pod:
 
 ```yaml
 apiVersion: storage.k8s.io/v1
@@ -159,7 +159,7 @@ A persistent volume claim requests storage of a particular storage class, access
 The pod definition includes the volume mount after the volume connects to the pod.
 
 :::image type="complex" source="./media/aks-storage-persistent-volume-claim.png" border="false" lightbox="./media/aks-storage-persistent-volume-claim.png" alt-text="Diagram of persistent volume claims in an AKS cluster.":::
-The left side has two sections: single node or pod access and multiple concurrent node or pod access. The single node or pod access uses Azure managed disks (Standard or Premium storage). An arrow points from single node or pod access to a persistent volume in the AKS cluster that's on the right side. The multiple concurrent nodes or pods access uses Azure Files (Standard storage). An arrow points from multiple concurrent node or pod access to the same persistent volume in the AKS cluster on the right side. Inside the AKS cluster, a persistent volume connects to a persistent volume claim, which links to a storage class. The persistent volume claim points to nodes and pods.
+The left side has two sections: single node or pod access and multiple concurrent node or pod access. The single node or pod access uses Azure Managed Disks (Standard or Premium storage). An arrow points from single node or pod access to a persistent volume in the AKS cluster that's on the right side. The multiple concurrent nodes or pods access uses Azure Files (Standard storage). An arrow points from multiple concurrent node or pod access to the same persistent volume in the AKS cluster on the right side. Inside the AKS cluster, a persistent volume connects to a persistent volume claim, which links to a storage class. The persistent volume claim points to nodes and pods.
 :::image-end:::
 
 After an available storage resource is assigned to the pod that requests storage, the persistent volume is *bound* to a persistent volume claim. Each persistent volume is associated with one persistent volume claim to ensure dedicated storage.
@@ -223,7 +223,7 @@ By default, Azure automatically replicates the operating system disk for a virtu
 
 In contrast, ephemeral OS disks are stored only on the host machine, like a temporary disk. This configuration provides lower read and write latency and faster node scaling and cluster upgrades.
 
-If you don't request [Azure managed disks](/azure/virtual-machines/managed-disks-overview) for the OS, AKS defaults to ephemeral OS disks if possible for a given node pool configuration.
+If you don't request [Azure Managed Disks](/azure/virtual-machines/managed-disks-overview) for the OS, AKS defaults to ephemeral OS disks if possible for a given node pool configuration.
 
 For size requirements and recommendations, see [Ephemeral OS disks for Azure VMs](/azure/virtual-machines/ephemeral-os-disks). Consider the following sizing considerations:
 
@@ -242,7 +242,7 @@ The latest generation of VM series doesn't have a dedicated cache and only has t
 
 ### Customer-managed keys
 
-You can manage encryption for your ephemeral OS disk by using your own keys on an AKS cluster. For more information, see [Bring your own keys with Azure managed disks in AKS](/azure/aks/azure-disk-customer-managed-keys).
+You can manage encryption for your ephemeral OS disk by using your own keys on an AKS cluster. For more information, see [Bring your own keys with Azure Managed Disks in AKS](/azure/aks/azure-disk-customer-managed-keys).
 
 ## Volumes
 
@@ -261,9 +261,9 @@ By default, an AKS cluster comes with precreated `managed-csi` and `managed-csi-
 
 The disk classes allow both [static](/azure/aks/azure-csi-disk-storage-provision#statically-provision-a-volume) and [dynamic](/azure/aks/azure-csi-disk-storage-provision#dynamically-provision-a-volume) volume provisioning. The reclaim policy ensures that the disk is deleted with the persistent volume. To expand the disk, edit the persistent volume claim.
 
-These storage classes use Azure managed disks with [LRS](/azure/storage/common/storage-redundancy#locally-redundant-storage). Data in LRS has three synchronous copies within a single physical location in an Azure primary region. LRS is the least expensive replication option but doesn't provide protection against a datacenter failure. You can define custom storage classes that use ZRS managed disks.
+These storage classes use Azure Managed Disks with [LRS](/azure/storage/common/storage-redundancy#locally-redundant-storage). Data in LRS has three synchronous copies within a single physical location in an Azure primary region. LRS is the least expensive replication option but doesn't provide protection against a datacenter failure. You can define custom storage classes that use ZRS managed disks.
 
-ZRS synchronously replicates your Azure managed disk across three Azure availability zones in your region. Each availability zone is a separate physical location that has independent power, cooling, and networking. ZRS disks provide at least 99.9999999999% of durability over a given year. A ZRS managed disk can be attached by a VM in a different [availability zone](/azure/availability-zones/az-overview). ZRS disks aren't available in all Azure regions. For more information, see [ZRS options for Azure disks to improve availability](https://youtu.be/RSHmhmdHXcY).
+ZRS synchronously replicates your Azure Managed Disk across three Azure availability zones in your region. Each availability zone is a separate physical location that has independent power, cooling, and networking. ZRS disks provide at least 99.9999999999% of durability over a given year. A ZRS managed disk can be attached by a VM in a different [availability zone](/azure/availability-zones/az-overview). ZRS disks aren't available in all Azure regions. For more information, see [ZRS options for Azure disks to improve availability](https://youtu.be/RSHmhmdHXcY).
 
 To mitigate the risk of data loss, use [AKS backup](/azure/backup/azure-kubernetes-service-backup-overview) to take regular backups or snapshots of disk storage data. Or you can use partner solutions, like [Velero](https://github.com/vmware-tanzu/velero) or [Azure Backup](/azure/backup/backup-managed-disks), that have built-in snapshot technology.
 
@@ -285,7 +285,7 @@ An Azure disk is mounted as *ReadWriteOnce*, so it's only available to a single 
 
 #### Ultra Disk Storage
 
-Ultra Disk Storage is an Azure managed disk tier that provides high throughput, high IOPS, and consistent low-latency disk storage for Azure VMs. Use Ultra Disk Storage for data-intensive and transaction-heavy workloads. Like other disk storage SKUs and Amazon EBS, Ultra Disk Storage mounts one pod at a time and doesn't provide concurrent access.
+Ultra Disk Storage is an Azure Managed Disk tier that provides high throughput, high IOPS, and consistent low-latency disk storage for Azure VMs. Use Ultra Disk Storage for data-intensive and transaction-heavy workloads. Like other disk storage SKUs and Amazon EBS, Ultra Disk Storage mounts one pod at a time and doesn't provide concurrent access.
 
 To [enable Ultra Disk Storage on your AKS cluster](/azure/aks/use-ultra-disks), use the flag `--enable-ultra-ssd`.
 
@@ -293,7 +293,7 @@ Be aware of Ultra Disk Storage [limitations](/azure/virtual-machines/disks-enabl
 
 #### Bring your own keys (BYOK)
 
-Azure encrypts all data in a managed disk at rest, including the OS and data disks of an AKS cluster. By default, data is encrypted with Microsoft-managed keys. For more control over encryption keys, you can supply customer-managed keys to provide encryption at rest for both the OS and data disks in AKS clusters. For more information, see [BYOK with Azure managed disks in AKS](/azure/aks/azure-disk-customer-managed-keys) and [Server-side encryption of Azure disk storage](/azure/virtual-machines/disk-encryption).
+Azure encrypts all data in a managed disk at rest, including the OS and data disks of an AKS cluster. By default, data is encrypted with Microsoft-managed keys. For more control over encryption keys, you can supply customer-managed keys to provide encryption at rest for both the OS and data disks in AKS clusters. For more information, see [BYOK with Azure Managed Disks in AKS](/azure/aks/azure-disk-customer-managed-keys) and [Server-side encryption of Azure disk storage](/azure/virtual-machines/disk-encryption).
 
 ### Azure Files
 
@@ -341,9 +341,9 @@ Applications can access the data on the object storage via [Blobfuse2](https://g
 
 To create an AKS cluster that has CSI drivers support, see [CSI drivers on AKS](/azure/aks/csi-storage-drivers). For more information, see [Compare access to Azure Files, Blob Storage, and Azure NetApp Files with NFS](/azure/storage/common/nfs-comparison).
 
-### Azure HPC Cache
+### Azure Managed Lustre
 
-[HPC Cache](/azure/hpc-cache/hpc-cache-overview) accelerates access to your data for high-perforance computing tasks and provides the scalability of cloud solutions. If you choose this storage solution, make sure to deploy your AKS cluster in a [region that supports HPC Cache](https://azure.microsoft.com/global-infrastructure/services/).
+[Azure Managed Lustre](/azure/azure-managed-lustre/amlfs-overview#use-azure-managed-lustre-with-kubernetes) is a managed parallel file system that accelerates access to your data for high-performance computing tasks and provides the scalability of cloud solutions.
 
 ### NFS server
 
@@ -413,7 +413,7 @@ Different services support storage classes that have different access modes.
 | Azure Files         |      X        |      X       |       X       |
 | Azure NetApp Files |      X        |       X      |       X       |
 | NFS server         |      X        |       X      |       X       |
-| HPC Cache    |      X        |       X      |       X       |
+| Azure Managed Lustre    |      X        |       X      |       X       |
 
 ### Dynamic vs. static provisioning
 
