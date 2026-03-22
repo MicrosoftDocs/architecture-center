@@ -316,7 +316,7 @@ Learn more about [networking services in Azure](../guide/technology-choices/load
 | --- | --- |
 | [Deploy highly available network virtual appliances (NVAs)](../networking/guide/network-virtual-appliance-high-availability.md) | Learn how to deploy NVAs for high availability in Azure. Includes example architectures for ingress, egress, and combined ingress-egress scenarios. |
 | [Hub-spoke network topology in Azure](../networking/architecture/hub-spoke.yml) | Learn how to implement a hub-spoke topology in Azure, where the hub is a virtual network and the spokes are virtual networks that peer with the hub. |
-| [Implement a secure hybrid network](../reference-architectures/dmz/secure-vnet-dmz.) | See a secure hybrid network that extends an on-premises network to Azure and includes a perimeter network between the on-premises network and an Azure virtual network. |
+| [Implement a secure hybrid network](../reference-architectures/dmz/secure-vnet-dmz.yml) | See a secure hybrid network that extends an on-premises network to Azure and includes a perimeter network between the on-premises network and an Azure virtual network. |
 
 View all [networking architectures](../browse/index.yml?azure_categories=networking).
 
