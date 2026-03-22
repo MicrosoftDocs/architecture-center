@@ -24,7 +24,7 @@ The following data flow corresponds to the previous diagram:
 
 1. API Management forwards requests to Application Gateway for Containers, which load balances traffic across the AKS cluster.
 
-1. The appropriate microservice in AKS processes the request. Microservices include product, profile, orders and payment, and content services. Each microservice emits telemetry that feeds into SLI calculations for availability, latency, and throughput.
+1. The appropriate microservice in AKS processes the request. Microservices include product, profile, orders and payment, and content services. Each microservice emits telemetry that contributes to SLI calculations for availability, latency, and throughput.
 
 1. Microservices access back-end data stores as needed:
 
