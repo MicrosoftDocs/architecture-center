@@ -2,7 +2,7 @@ The success of your cloud solution depends on its reliability. Reliability is th
 
 This article demonstrates how to apply SRE principles to a scalable API platform. This architecture defines service-level indicators (SLIs) and service-level objectives (SLOs), models scale and performance expectations, and establishes monitoring practices. These techniques help ensure measurable and achievable reliability.
 
-For more information, see [Develop an SRE strategy](/training/paths/az-400-develop-sre-strategy).
+For more information, see [Develop an SRE strategy](/training/paths/az-400-develop-sre-strategy/).
 
 ## Architecture
 
@@ -42,17 +42,17 @@ The following data flow corresponds to the previous diagram:
    - AKS pod-level metrics
    - Data store response times
   
-   SRE teams use per-layer collection to calculate composite SLIs, pinpoint degradation sources, and track SLO compliance.
+   SRE teams use per-layer collection to calculate composite SLIs, identify degradation sources, and track SLO compliance.
 
 1. The response traverses back through the same path to the client application.
 
-This architecture represents a scalable API platform. The solution comprises multiple microservices that use various databases and storage services.
+This architecture represents a scalable API platform. The solution includes multiple microservices that use various databases and storage services.
 
 The example scenario covers high-level marketplace and e-commerce use cases:
 
 - Product browsing
 - Registration and sign-in
-- Viewing content such as news articles
+- Content viewing, such as news articles
 - Order and subscription management
 
 Client applications such as web apps, mobile apps, and service applications consume the API platform services through a unified access path, `https://api.contoso.com`.
@@ -61,9 +61,9 @@ Client applications such as web apps, mobile apps, and service applications cons
 
 - [Azure Front Door](/azure/well-architected/service-guides/azure-front-door) is a modern cloud content delivery network service that uses the Microsoft global edge network to create scalable web applications. In this architecture, it serves as the single entry point for all client requests. It provides SSL termination and applies Azure Web Application Firewall rules before it routes traffic to API Management. For more information, see [Routing architecture overview](/azure/frontdoor/front-door-routing-architecture).
 
-- [API Management](/azure/well-architected/service-guides/api-management/operational-excellence) is a managed API gateway service that provides a hybrid, multicloud management platform for APIs across all environments. In this architecture, it functions as the API gateway. It enforces access control policies, applies rate limiting, caches responses by using [Azure Managed Redis](/azure/redis/overview) as an [external cache](/azure/api-management/api-management-howto-cache-external), and transforms requests before it forwards them to the back-end services. API Management supports autoscaling in Standard and Premium tiers.
+- [API Management](/azure/well-architected/service-guides/azure-api-management) is a managed API gateway service that provides a hybrid, multicloud management platform for APIs across all environments. In this architecture, it functions as the API gateway. It enforces access control policies, applies rate limiting, caches responses by using [Azure Managed Redis](/azure/redis/overview) as an [external cache](/azure/api-management/api-management-howto-cache-external), and transforms requests before it forwards them to the back-end services. API Management supports autoscaling in Standard and Premium tiers.
 
-- [AKS](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed container orchestration service that provides a Kubernetes platform for running containerized applications. In this architecture, it hosts all microservices: product, profile, orders and payment, and content services. Azure manages the control plane, and you manage the agent nodes.
+- [AKS](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed container orchestration service that provides a Kubernetes platform for running containerized applications. In this architecture, it hosts all microservices, including product, profile, orders and payment, and content services. Azure manages the control plane, and you manage the agent nodes.
 
 - [Application Gateway for Containers](/azure/application-gateway/for-containers/overview) is an application load balancer that provides dynamic traffic management for workloads that run in a Kubernetes cluster. In this architecture, it provides layer-7 load balancing for traffic that enters the AKS cluster. It distributes requests from API Management across the microservice pods.
 
@@ -75,7 +75,7 @@ Client applications such as web apps, mobile apps, and service applications cons
 
 - [Microsoft Entra ID](/entra/fundamentals/what-is-entra) is a cloud-based identity and access management service that authenticates and authorizes users to access resources. In this architecture, it provides centralized identity and access management for users and service principals across all services.
 
-- [Azure Monitor](/azure/azure-monitor/overview) is an observability service for collecting, analyzing, and responding to monitoring data from your cloud and on-premises environments. [Application Insights](/azure/azure-monitor/app/app-insights-overview) is an extension of Azure Monitor that provides application performance monitoring (APM) features. In this architecture, these services collect telemetry across all layers. They calculate SLIs, track SLO compliance, and provide dashboards for proactive alerting. Azure Monitor supports OpenTelemetry and integrates with Azure Managed Grafana for distributed tracing and visualization.
+- [Azure Monitor](/azure/azure-monitor/fundamentals/overview) is an observability service for collecting, analyzing, and responding to monitoring data from your cloud and on-premises environments. [Application Insights](/azure/azure-monitor/app/app-insights-overview) is an extension of Azure Monitor that provides application performance monitoring (APM) features. In this architecture, these services collect telemetry across all layers. They calculate SLIs, track SLO compliance, and provide dashboards for proactive alerting. Azure Monitor supports OpenTelemetry and integrates with Azure Managed Grafana for distributed tracing and visualization.
 
 - [Azure Chaos Studio](/azure/chaos-studio/chaos-studio-overview) is a managed chaos engineering service that helps measure, understand, and improve your cloud application and service resilience. In this architecture, it injects faults and validates the resilience of the system during resiliency and recovery testing.
 
@@ -131,7 +131,7 @@ This architecture addresses security through multiple layers:
 
 - **Network security:** Azure Web Application Firewall, integrated with Azure Front Door, provides protection against common web exploits, including [Open Worldwide Application Security Project (OWASP) Top 10](https://owasp.org/www-project-top-ten/) vulnerabilities. API Management enforces network-level access controls such as IP address filtering and rate limiting.
 
-- **API gateway security:** API Management enforces application-level authentication and authorization through OAuth 2.0 token validation and certificate authentication. These policies validate caller identity at the API-request level, distinct from the network-level protections that Web Application Firewall and IP address filtering provide.
+- **API gateway security:** API Management enforces application-level authentication and authorization through OAuth 2.0 token validation and certificate authentication. These policies validate caller identity at the API-request level, separate from the network-level protections that Web Application Firewall and IP address filtering provide.
 
 - **Data protection:** Use managed identities for service-to-service authentication. Activate encryption at rest for all data stores.
 
@@ -139,13 +139,13 @@ This architecture addresses security through multiple layers:
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-From an SRE perspective, cost optimization relates directly to how you provision monitoring infrastructure, define autoscaling thresholds, and allocate error budget. Over-provisioning degrades cost efficiency. Under-provisioning degrades reliability.
+From an SRE perspective, cost optimization relates directly to how you provision monitoring infrastructure, define autoscaling thresholds, and allocate error budget. Overprovisioning degrades cost efficiency. Underprovisioning degrades reliability.
 
 Key SRE-related cost drivers in this architecture include:
 
 - **Monitoring and observability:** Azure Monitor, Application Insights, and Azure Managed Grafana incur costs based on data ingestion volume, retention policies, and alert rule count. Tune sampling rates and retention periods to balance observability depth against cost.
 
-- **Autoscaling overhead:** Compute resources such as AKS node pools and API Management scale units represent the largest cost variable. Set autoscale minimum thresholds carefully. Too high wastes resources, while too low risks SLO violations during traffic spikes. Use monitoring data to calibrate thresholds.
+- **Autoscaling overhead:** Compute resources such as AKS node pools and API Management scale units represent the largest cost variable. Set autoscale minimum thresholds carefully. Setting them too high wastes resources, while setting them too low risks SLO violations during traffic spikes. Use monitoring data to calibrate thresholds.
 
 - **Error budget investment:** When failures stay within your error budget, invest in features. When failures consume your budget, invest in reliability. This practice prevents unnecessary spending on reliability improvements when the system already meets its SLOs.
 
@@ -161,8 +161,8 @@ To optimize costs:
 
 - Use [Azure Advisor](/azure/advisor/advisor-overview) recommendations for reserved instances and Azure savings plans.
 - Rightsize AKS node pools based on actual utilization.
-- Configure autoscaling thresholds to balance performance and cost.
-- Use Azure Cosmos DB autoscale to avoid over-provisioning.
+- Set up autoscaling thresholds to balance performance and cost.
+- Use Azure Cosmos DB autoscale to avoid overprovisioning.
 
 Use the [Azure pricing calculator](https://azure.com/e/fe330064f12845cf82272f0e803b77e1) to estimate costs for this architecture.
 
@@ -227,7 +227,7 @@ The following table shows example SLI metrics.
 
 | Metric | Description |
 | --- | --- |
-| Availability | Whether the request was serviced by the API |
+| Availability | Whether the API serviced the request |
 | Latency | Time for the API to process the request and reply |
 | Throughput | Number of requests handled |
 | Success rate | Number of requests handled successfully |
@@ -236,9 +236,9 @@ The following table shows example SLI metrics.
 
 For each SLI, you calculate the ratio of good events to total events as observed by the customer. The following examples illustrate this calculation for different user scenarios:
 
-- **Latency SLI for product browsing:** (Number of requests completed successfully in <1,000 ms) / (Number of requests). This SLI tracks whether the Product microservice responds within the acceptable latency threshold.
+- **Latency SLI for product browsing:** The *number of requests completed successfully in <1,000 ms* divided by the *number of requests*. This SLI tracks whether the product microservice responds within the acceptable latency threshold.
 
-- **Freshness SLI for search:** (Number of search results returned within 3 seconds) / (Number of searches). This SLI measures how often the search experience meets the freshness target after catalog updates.
+- **Freshness SLI for search:** The *number of search results returned within 3 seconds* divided by the *number of searches*. This SLI measures how often the search experience meets the freshness target after catalog updates.
 
 After you define SLIs, determine what telemetry to capture at each layer of the architecture, including Azure Front Door, API Management, Application Gateway, AKS pods, and data stores. For HTTP services, use status codes to classify success and failure. Azure Monitor and Application Insights provide diagnostic and monitoring support for all layers.
 
@@ -304,7 +304,7 @@ Principal author:
 
 - [Subhajit Chatterjee](https://www.linkedin.com/in/subhajit-chatterjee-b9b53b44) | Principal Software Engineer
 
-Other contributors:
+Other contributor:
 
 - [Dawid Obrocki](https://www.linkedin.com/in/obrocki) | Senior Software Engineer
 
@@ -316,14 +316,14 @@ Other contributors:
 - [What is Azure Front Door?](/azure/frontdoor/front-door-overview)
 - [About API Management](/azure/api-management/api-management-key-concepts)
 - [What is Application Gateway for Containers?](/azure/application-gateway/for-containers/overview)
-- [AKS](/azure/aks/intro-kubernetes)
-- [Autoscaling and Zone-redundant Application Gateway v2](/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
+- [AKS](/azure/aks/what-is-aks)
+- [Autoscaling and zone-redundant Application Gateway v2](/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
 - [Automatically scale a cluster to meet application demands on AKS](/azure/aks/cluster-autoscaler)
 - [Create Azure Cosmos DB containers and databases with autoscale throughput](/azure/cosmos-db/provision-throughput-autoscale)
 - [Chaos Studio](/azure/chaos-studio/chaos-studio-overview)
 - [Azure Advisor](/azure/advisor/advisor-overview)
-- [SRE documentation](/azure/site-reliability-engineering)
-- [Training: Develop an SRE strategy](/training/paths/az-400-develop-sre-strategy)
+- [SRE documentation](/azure/site-reliability-engineering/)
+- [Training: Develop an SRE strategy](/training/paths/az-400-develop-sre-strategy/)
 
 ## Related resources
 
