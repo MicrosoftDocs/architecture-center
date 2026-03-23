@@ -1178,7 +1178,7 @@ items:
         href: landing-zones/azure-virtual-desktop/design-guide.md
       - name: Windows 365 Azure network connection
         href: guide/virtual-desktop/windows-365-azure-network-connection.md
-      - name: Multiregion BCDR for AVD
+      - name: Multiregion BCDR for Azure Virtual Desktop
         displayName: Azure Virtual Desktop, business continuity, disaster recovery
         href: example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr.md
     - name: Architectures
