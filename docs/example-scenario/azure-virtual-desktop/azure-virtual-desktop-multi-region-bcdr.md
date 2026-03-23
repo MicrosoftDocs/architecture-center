@@ -1,6 +1,6 @@
 ---
 title: Multiregion BCDR for Azure Virtual Desktop
-description: Learn which options and scenarios are possible to design and implement an effective multiregion BCDR strategy for Azure Virtual Desktop.
+description: Learn about the possible options and scenarios so that you can design and implement an effective multiregion BCDR strategy for Azure Virtual Desktop.
 author: BenMartinBaur
 ms.author: bebaur
 ms.date: 03/19/2026
