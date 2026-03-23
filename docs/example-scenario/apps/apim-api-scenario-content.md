@@ -38,10 +38,11 @@ In the future, the project team can gradually port functionality to the new APIs
 - If the organization had decided to keep the existing endpoints private and not expose them publicly, the organization's API Management instance could be linked to an [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview):
   - When [API Management is linked to an Azure virtual network](/azure/api-management/virtual-network-concepts), the organization could directly address the back-end service through private IP addresses.
   - In the on-premises scenario, the API Management instance could reach back to the internal service privately via an [Azure VPN Gateway and site-to-site Internet Protocol Security (IPsec) VPN connection](/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal) or [Azure ExpressRoute](/azure/expressroute/expressroute-introduction). This scenario would then become a [hybrid of Azure and on-premises](../../reference-architectures/hybrid-networking/index.yml).
+- In the v2 tiers, the Standard v2 and Premium v2 tiers provide [outbound virtual network integration](/azure/api-management/integrate-vnet-outbound) for connecting to network-isolated backends, and support [private endpoints](/azure/api-management/private-endpoint) for inbound connections. Premium v2 also supports full [virtual network injection](/azure/api-management/virtual-network-concepts). These options offer alternatives to the classic VNet integration patterns and can provide a path to private connectivity without requiring the classic Premium tier.
 - The organization can keep the API Management instance private by deploying it in internal mode. The organization can then use deployment with [Azure Application Gateway](/azure/application-gateway/application-gateway-introduction) to enable public access for some APIs while others remain internal. For more information, see [Integrate API Management in an internal virtual network with Application Gateway](/azure/api-management/api-management-howto-integrate-internal-vnet-appgateway).
 - The organization might decide to host its APIs on-premises. One reason for this change might be that the organization couldn't move downstream database dependencies that are in scope for this project to the cloud. If that's the case, the organization can still take advantage of API Management locally by using a [self-hosted gateway](/azure/api-management/self-hosted-gateway-overview).
 
-  The self-hosted gateway is a containerized deployment of the API Management gateway that connects back to Azure on an outbound socket. The first prerequisite is that self-hosted gateways can't be deployed without a parent resource in Azure, which carries an additional charge. Second, the Premium tier of API Management is required.
+  The self-hosted gateway is a containerized deployment of the API Management gateway that connects back to Azure on an outbound socket. The first prerequisite is that self-hosted gateways can't be deployed without a parent resource in Azure, which carries an additional charge. Second, the Developer or Premium (classic) tier of API Management is required. Self-hosted gateways are not available in the v2 tiers. For more information, see [Self-hosted gateway overview](/azure/api-management/self-hosted-gateway-overview).
 
 ## Scenario details
 
@@ -75,8 +76,8 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-- Consider deploying your Azure API Management instance with [Availability zones enabled](/azure/api-management/high-availability). The option to deploy API Management into Availability zones is only available in the Premium service tier.
-- Availability zones can be used in conjunction with [additional gateway instances deployed to different regions](/azure/api-management/api-management-howto-deploy-multi-region). This improves service availability if one region goes offline. Multi-region deployment is also only available in the Premium service tier.
+- Consider deploying your Azure API Management instance with [availability zones enabled](/azure/api-management/high-availability). Availability zone support requires the Premium (classic) or Premium v2 tier. For more information, see [Reliability in Azure API Management](/azure/reliability/reliability-api-management).
+- Availability zones can be used in conjunction with [additional gateway instances deployed to different regions](/azure/api-management/api-management-howto-deploy-multi-region). This improves service availability if one region goes offline. Multi-region deployment is available in the Premium (classic) tier. The Premium v2 tier does not currently support multi-region deployments.
 - Consider [Integrating with Azure Application Insights](/azure/api-management/api-management-howto-app-insights), which also surfaces metrics through [Azure Monitor](/azure/monitoring-and-diagnostics/monitoring-overview) for monitoring. For example, the capacity metric can be used to determine the overall load on the API Management resource and whether [additional scale-out units are required](/azure/api-management/upgrade-and-scale). Tracking the resource capacity and health improves reliability.
 - Ensure that downstream dependencies, for example the backend services hosting the APIs that API Management façades, are also resilient.
 
@@ -84,12 +85,12 @@ Reliability helps ensure that your application can meet the commitments that you
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-API Management is offered in four tiers: Developer, Basic, Standard, and Premium. For more information about the differences in these tiers, see [Azure API Management pricing guidance](https://azure.microsoft.com/pricing/details/api-management).
+API Management is offered in several tiers grouped into three families: classic (Developer, Basic, Standard, and Premium), v2 (Basic v2, Standard v2, and Premium v2), and Consumption. The v2 tiers are built on a more recent platform and provide faster deployment, scaling, and simplified networking options. The Consumption tier is a serverless option that scales based on demand and bills per execution. For a detailed comparison of features and limits across all tiers, see [Feature-based comparison of the Azure API Management tiers](/azure/api-management/api-management-features). For pricing, see [Azure API Management pricing](https://azure.microsoft.com/pricing/details/api-management).
 
 You can scale API Management by adding and removing units. Each unit has capacity that depends on its tier.
 
 > [!NOTE]
-> You can use the Developer tier for evaluation of the API Management features. Don't use it for production.
+> You can use the Developer tier for evaluation of the API Management features. Don't use it for production. The Basic v2 tier is also designed for development and testing scenarios but is backed by an SLA.
 
 To view projected costs and customize to your deployment needs, you can modify the number of scale units and App Service instances in the [Azure pricing calculator](https://azure.com/e/0e916a861fac464db61342d378cc0bd6).
 
