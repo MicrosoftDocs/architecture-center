@@ -113,7 +113,7 @@ The following diagram shows the traffic flow that results when an on-premises se
 
 The following diagram shows the traffic flow that results when VM 1 issues a DNS request. In this scenario, the spoke 1 virtual network attempts to resolve the request.
 
-:::image type="complex" border="false" source="./_images/azure-dns-private-resolver-spoke-query-traffic-usecase-2.svg" alt-text="Architecture diagram that shows name resolution traffic with DNS Private Resolver when a spoke VM issues a DNS request." lightbox="./_images/azure-dns-private-resolver-spoke-query-traffic-usecase-2.svg":::
+:::image type="complex" border="false" source="./_images/azure-dns-private-resolver-spoke-query-traffic-decentralized.svg" alt-text="Architecture diagram that shows name resolution traffic with DNS Private Resolver when a spoke VM issues a DNS request." lightbox="./_images/azure-dns-private-resolver-spoke-query-traffic-decentralized.svg":::
    The image includes two main sections. The on-premises section contains the on-premises server, Windows desktops, App 1, App 2, App 3, and servers and their IP addresses. ExpressRoute connects the on-premises section to the site-to-site or ExpressRoute gateway in the Azure section. The Azure section contains the inbound and outbound endpoints inside the gateway section, Azure DNS, Azure private DNS, DNS Private Resolver, and two Azure-provisioned DNS sections that each contain a spoke and a VM. Spoke 1 connects via DNS forwarding virtual network link to the DNS forwarding rule set. A dotted line connects this section to the outbound endpoint.
 :::image-end:::
 
@@ -135,7 +135,7 @@ Each DNS forwarding rule specifies one or more target DNS servers to use for con
 
 The following diagram shows the traffic flow that results when VM 1 or VM 2 issues a DNS request via a DNS Private Resolver inbound endpoint. In this scenario, spoke VMs attempt to resolve the DNS request.
 
-:::image type="complex" border="false" source="./_images/azure-dns-private-resolver-spoke-query-traffic-usecase-3.svg" alt-text="Architecture diagram that shows traffic with DNS Private Resolver when a spoke VM issues a DNS request." lightbox="./_images/azure-dns-private-resolver-spoke-query-traffic-usecase-3.svg":::
+:::image type="complex" border="false" source="./_images/azure-dns-private-resolver-spoke-query-traffic-centralized.svg" alt-text="Architecture diagram that shows traffic with DNS Private Resolver when a spoke VM issues a DNS request." lightbox="./_images/azure-dns-private-resolver-spoke-query-traffic-centralized.svg":::
    The image includes two main sections. The on-premises section contains the on-premises server, Windows desktops, App 1, App 2, App 3, and servers and their IP addresses. ExpressRoute connects the on-premises section to the site-to-site or ExpressRoute gateway in the Azure section. The Azure section contains the inbound and outbound endpoints, Azure DNS, Azure private DNS, DNS Private Resolver, and two DNS server sections that each contain a spoke and a VM. An arrow indicates the flow between the DNS server sections, the inbound endpoint, Azure DNS, and Azure private DNS. The DNS server sections also connect via the DNS forwarding virtual network link to the DNS forwarding rule set. A dotted line connects this section to the outbound endpoint.
 :::image-end:::
 
@@ -155,7 +155,7 @@ Each DNS forwarding rule specifies one or more target DNS servers to use for con
 
 The following diagram shows the traffic flow that results when VM 1 or VM 2 issues a DNS request via an on-premises DNS server. In this scenario, spoke VMs attempt to resolve the DNS request.
 
-:::image type="complex" border="false" source="./_images/azure-dns-private-resolver-spoke-query-traffic-usecase-4.svg" alt-text="Architecture diagram that shows name resolution traffic with DNS Private Resolver when a spoke VM issues a DNS request." lightbox="./_images/azure-dns-private-resolver-spoke-query-traffic-usecase-4.svg":::
+:::image type="complex" border="false" source="./_images/azure-dns-private-resolver-spoke-query-traffic-on-premises.svg" alt-text="Architecture diagram that shows name resolution traffic with DNS Private Resolver when a spoke VM issues a DNS request." lightbox="./_images/azure-dns-private-resolver-spoke-query-traffic-on-premises.svg":::
    The image includes two main sections. The on-premises section contains the on-premises server, Windows desktops, App 1, App 2, App 3, and servers and their IP addresses. ExpressRoute connects the on-premises section to the site-to-site or ExpressRoute gateway section located in the Azure section. The Azure section contains the inbound and outbound endpoints, Azure DNS, Azure private DNS, DNS Private Resolver, and two DNS server sections that each contain a spoke and a VM. The DNS server sections also connect via the DNS forwarding virtual network link to the DNS forwarding rule set. An arrow shows the flow of operations.
 :::image-end:::
 
@@ -171,7 +171,7 @@ The following diagram shows the traffic flow that results when VM 1 or VM 2 issu
 
 The following diagram shows the traffic flow that results when VM 1 or VM 2 issues a DNS request via a hub DNS Private Resolver inbound endpoint. In this scenario, spoke VMs attempt to resolve the request to the nested DNS resolver.
 
-:::image type="complex" border="false" source="./_images/azure-dns-private-resolver-spoke-query-traffic-usecase-6.svg" alt-text="Architecture diagram that shows traffic with DNS Private Resolver when a spoke VM issues a DNS request." lightbox="./_images/azure-dns-private-resolver-spoke-query-traffic-usecase-6.svg":::
+:::image type="complex" border="false" source="./_images/azure-dns-private-resolver-spoke-query-traffic-nested.svg" alt-text="Architecture diagram that shows traffic with DNS Private Resolver when a spoke VM issues a DNS request." lightbox="./_images/azure-dns-private-resolver-spoke-query-traffic-nested.svg":::
    The image includes two main sections. The on-premises section contains the on-premises server, Windows desktops, App 1, App 2, App 3, and servers and their IP addresses. ExpressRoute connects the on-premises section to the site-to-site or ExpressRoute gateway in the Azure section. The Azure section contains the inbound and outbound endpoints, Azure DNS, Azure private DNS, DNS Private Resolver 1, DNS Private Resolver 2, and two DNS server sections that each contain a spoke and a VM. An arrow indicates the flow between the DNS server sections, the inbound endpoint, Azure DNS, and Azure private DNS. The DNS server sections also connect via the DNS forwarding virtual network link to the DNS forwarding rule set. A dotted line connects this section to the outbound endpoint.
 :::image-end:::
 
@@ -191,7 +191,7 @@ Each DNS forwarding rule specifies one or more target DNS servers to use for con
 
    In the following scenario, if a private DNS zone exists in both DNS Private Resolver instances (like `privatelink.blob.core.windows.net`), the hub resolver already links to that zone through its virtual network. Because this link is in place, the DNS forwarding rule set that should send queries for `privatelink.blob.core.windows.net` (**4.a**) to the nested DNS resolver doesn't take effect. This behavior is by design.
 
-:::image type="complex" border="false" source="./_images/azure-dns-private-resolver-spoke-query-traffic-usecase-5.svg" alt-text="Architecture diagram that shows traffic with DNS Private Resolver when a spoke VM issues a DNS request." lightbox="./_images/azure-dns-private-resolver-spoke-query-traffic-usecase-5.svg":::
+:::image type="complex" border="false" source="./_images/azure-dns-private-resolver-spoke-vm-query-nested-resolver-forwarding-bypass.svg" alt-text="Architecture diagram that shows traffic with DNS Private Resolver when a spoke VM issues a DNS request." lightbox="./_images/azure-dns-private-resolver-spoke-vm-query-nested-resolver-forwarding-bypass.svg":::
    The image includes two main sections. The on-premises section contains the on-premises server, Windows desktops, App 1, App 2, App 3, and servers and their IP addresses. ExpressRoute connects the on-premises section to the site-to-site or ExpressRoute gateway in the Azure section. The Azure section contains the inbound and outbound endpoints, Azure DNS, Azure private DNS, DNS Private Resolver 1, DNS Private Resolver 2 and DNS server sections that contain a spoke and a VM. An arrow indicates the flow between the DNS server sections, the inbound endpoint, Azure DNS, and Azure private DNS. The DNS server sections also connect via the DNS forwarding virtual network link to the DNS forwarding rule set. A dotted line connects this section to the outbound endpoint.
 :::image-end:::
 
