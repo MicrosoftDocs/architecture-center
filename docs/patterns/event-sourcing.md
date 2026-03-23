@@ -10,26 +10,26 @@ ms.subservice: cloud-fundamentals
 
 # Event Sourcing pattern
 
-Instead of storing only the current state of the data in a relational database, store the full series of actions taken on an object in an append-only store. The store acts as the system of record and can be used to materialize the domain objects. This approach can improve auditability and write performance in complex systems.
+Instead of storing only the current state of the data in a relational database, store the full series of actions taken on an object in an append-only store. The store acts as the system of record that you can use to materialize the domain objects. This approach can improve auditability and write performance in complex systems.
 
 > [!IMPORTANT]
-> Event sourcing is a complex pattern that introduces significant trade-offs. It changes how you store data, handle concurrency, evolve schemas, and query state. It's costly to migrate to or from event sourcing, and after you adopt the pattern, it constrains future design decisions in the parts of the system that use it. Adopt event sourcing when its benefits, like auditability and historical reconstruction, justify the pattern's complexity. For most systems and most parts of a system, traditional data management is sufficient.
+> Event sourcing is a complex pattern that introduces significant trade-offs. It changes how you store data, handle concurrency, evolve schemas, and query state. It's costly to migrate to or from an event sourcing solution, and after you adopt the pattern, it constrains future design decisions in the parts of the system that use it. Adopt event sourcing when its benefits, like auditability and historical reconstruction, justify the pattern's complexity. For most systems and most parts of a system, traditional data management is sufficient.
 
 ## Context and problem
 
-Most applications work with data. The typical approach is for the application to store the latest state of the data in a relational database and insert or update data as needed. For example, in the traditional create, read, update, and delete (CRUD) model, a typical data process is to read data from the store, modify it, and update the current state of the data with the new values, typically by using transactions that lock the data.
+Most applications work with data. The application typically stores the latest state of the data in a relational database and inserts or updates data as needed. For example, in the traditional create, read, update, and delete (CRUD) model, an application reads data from the store, modifies it, and updates the current state of the data with the new values, typically by using transactions that lock the data.
 
-The CRUD approach is straightforward and fast for most scenarios. However, in high-load systems, this approach presents some challenges:
+The CRUD approach is straightforward and fast for most scenarios. However, in high-load systems, this approach presents challenges:
 
 - **Write contention:** Because updates require read-modify-write cycles with row-level locking, concurrent writes to the same entity degrade performance and become a bottleneck under load.
 
-- **Auditability:** CRUD systems only store the latest state of the data. If you don't implement an auditing mechanism that records the details of each operation in a separate log, history is lost.
+- **Auditability:** CRUD systems only store the latest state of the data. If you don't implement an auditing mechanism that records the details of each operation in a separate log, you lose data history.
 
 ## Solution
 
 The Event Sourcing pattern defines an approach to handling operations on data that a sequence of events drive. Each event is recorded in an append-only store. Application code raises events that describe each action taken on the object. It typically sends events to a queue in which a separate process, an event handler, listens to the queue and persists the events in an event store. Each event represents a logical change to the object, such as `AddedItemToOrder` or `OrderCanceled`.
 
-The events are persisted in an event store that serves as the system of record, or the authoritative data source, about the current state of the data. Extra event handlers can listen for specific events and take an appropriate action. For example, consumers might initiate tasks that apply operations in the events to other systems or take other associated actions required to finish the operation. The application code that generates the events is decoupled from the systems that subscribe to the events.
+The events persist in an event store that serves as the system of record, or the authoritative data source, about the current state of the data. Extra event handlers can listen for specific events and take action as needed. For example, consumers might initiate tasks that apply operations in the events to other systems or take other associated actions required to finish the operation. The application code that generates the events is decoupled from the systems that subscribe to the events.
 
 Each entity in an event-sourced system has its own event stream, which is the ordered sequence of events that records every change to that entity. At any point, applications can read the history of events. Applications derive the current state of an entity by replaying all of the events in its stream. This process is known as rehydration. It can occur on demand when the application handles a request.
 
@@ -164,11 +164,11 @@ This pattern might not be suitable in the following situations:
 
 - Systems that have straightforward create, read, update, and delete operations for which no one needs auditability, replay, or historical reconstruction of state. The operational overhead of an event store isn't justified if the only requirement is current-state reads and writes.
 
-- Prototypes, minimum viable products (MVPs), or systems that have a short expected lifespans. The upfront investment in event design, schema evolution strategy, and projection infrastructure rarely yield a return in these scenarios.
+- Prototypes, minimum viable products (MVPs), or systems that have short expected lifespans. The upfront investment in event design, schema evolution strategy, and projection infrastructure rarely yield a return in these scenarios.
 
 - Systems that require consistency and real-time updates to the views of the data. Eventual consistency between the event store and projections is inherent to event sourcing.
 
-- Domains in which data is mostly static or reference data, such as lookup tables or catalogs, that changes infrequently and does't benefit from change history.
+- Domains in which data is mostly static or reference data, such as lookup tables or catalogs, that changes infrequently and doesn't benefit from change history.
 
 - Teams that don't have experience in [event-driven architectures](../guide/architecture-styles/event-driven.md). Event sourcing changes how you test, debug, and operate a system. Adopting it without the foundational knowledge increases the risk of antipatterns that are costly to reverse.
 
@@ -239,8 +239,14 @@ The system can provide a complete history, or audit trail, of the bookings and c
 
 The following patterns and guidance might also be relevant when you implement this pattern:
 
-- [Materialized View pattern](./materialized-view.yml): The data store that you use in an event sourcing system typically isn't suited for efficient querying. Instead, a common approach is to generate prepopulated views of the data at regular intervals or when the data changes.
+- [Materialized View pattern](./materialized-view.yml)
 
-- [Compensating Transaction pattern](./compensating-transaction.yml): The system doesn't update existing data in an event sourcing store. Instead, it adds new entries that transition the state of entities to the new values. To reverse a change, it uses compensating entries because it can't reverse the previous change. The Compensating Transaction pattern article describes how to undo the work that a previous operation performed.
+   The data store that you use in an event sourcing system typically isn't suited for efficient querying. Instead, a common approach is to generate prepopulated views of the data at regular intervals or when the data changes.
 
-- [Domain analysis for microservices](../microservices/model/tactical-domain-driven-design.md): In systems that use domain-driven design (DDD), the entity that owns an event stream is typically an [aggregate](../microservices/model/tactical-domain-driven-design.md#aggregates), a consistency boundary that receives commands, enforces business rules, and emits events.
+- [Compensating Transaction pattern](./compensating-transaction.yml)
+
+   The system doesn't update existing data in an event sourcing store. Instead, it adds new entries that transition the state of entities to the new values. To reverse a change, it uses compensating entries because it can't reverse the previous change. The Compensating Transaction pattern article describes how to undo the work that a previous operation performed.
+
+- [Domain analysis for microservices](../microservices/model/tactical-domain-driven-design.md)
+   
+   In systems that use domain-driven design (DDD), the entity that owns an event stream is typically an [aggregate](../microservices/model/tactical-domain-driven-design.md#aggregates), a consistency boundary that receives commands, enforces business rules, and emits events.
