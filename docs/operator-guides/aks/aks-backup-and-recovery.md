@@ -1,6 +1,6 @@
 ---
 title: AKS Backup and Recovery
-description: Learn how to back up and recover your AKS clusters and their workloads.
+description: Learn how to back up and recover AKS clusters and their workloads to protect data, maintain availability, and support disaster recovery.
 author: samcogan
 ms.author: samcogan
 ms.date: 03/24/2026
