@@ -144,7 +144,7 @@ When you peer extra virtual networks with the virtual network that connects to E
 
 ### Load balancers
 
-[SAP Web Dispatcher](https://help.sap.com/docs/SUPPORT_CONTENT/si/3362959690.html) handles load balancing of HTTP and HTTPS traffic to a pool of SAP application servers. This software load balancer provides application layer services (referred to as *layer 7* in the ISO networking model) that can perform SSL termination and other offloading functions.
+[SAP Web Dispatcher](https://help.sap.com/docs/SUPPORT_CONTENT/si/3362959690.html) handles load balancing of HTTP and HTTPS traffic to a pool of SAP application servers. This software load balancer provides application layer services (referred to as *layer 7* in the OSI networking model) that can perform SSL termination and other offloading functions.
 
 [Azure Load Balancer](https://azure.microsoft.com/blog/azure-load-balancer-new-distribution-mode) is a network transmission layer service (layer 4) that balances traffic by using a five-tuple hash from data streams. The hash is based on source IP address, source port, destination IP address, destination port, and protocol type. In SAP cluster deployments on Azure, Load Balancer directs traffic to the primary service instance or to a healthy node when a fault occurs.
 
