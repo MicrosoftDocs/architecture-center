@@ -86,7 +86,7 @@ AKS Backup supports on-demand or scheduled backups of full or fine-grained clust
 
 - **Operational tier:** Stores backups as local snapshots and Kubernetes resource backups in a storage account in your subscription.
 
-- **Vault Tier:** Copies backup data to an Azure Backup-managed storage vault for long-term retention and geo-redundant protection. The Vault tier supports only PVs backed by Azure disks up to 1 TB in size. This tier also provides **Cross Region Restore (CRR)**, which can recover AKS workloads in an Azure-paired secondary region.
+- **Vault tier:** Copies backup data to an Azure Backup-managed storage vault for long-term retention and geo-redundant protection. The Vault tier supports only PVs backed by Azure disks up to 1 TB in size. This tier also provides **Cross Region Restore (CRR)**, which can recover AKS workloads in an Azure-paired secondary region.
 
 For stateful workloads such as databases, use [custom hooks](/azure/backup/azure-kubernetes-service-backup-overview#backup-hooks) in AKS Backup. Ensure application-consistent backups by using backup hooks. You can use backup hooks to run custom scripts in containers. Use pre-hooks before a snapshot and post-hooks after a snapshot. For example, you can freeze a database write operation before a snapshot and unfreeze it afterward.
 
