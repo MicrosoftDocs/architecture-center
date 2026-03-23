@@ -110,15 +110,15 @@ For more information about Velero's feature set and how to integrate it with AKS
 
 To install and configure [AKS Backup](/azure/backup/azure-kubernetes-service-backup-overview), follow these steps:
 
-- For a detailed description of the prerequisites for using AKS Backup with your AKS cluster, see [Prerequisites for AKS Backup using Azure Backup](/azure/backup/azure-kubernetes-service-cluster-backup-concept).
+1. Check [prerequisites for using AKS Backup with your AKS cluster](/azure/backup/azure-kubernetes-service-cluster-backup-concept).
 
-- For a detailed description of AKS Backup's region availability, supported scenarios, and limitations, see the [AKS Backup support matrix](/azure/backup/azure-kubernetes-service-cluster-backup-support-matrix).
+1. Review [AKS Backup region availability, supported scenarios, and limitations](/azure/backup/azure-kubernetes-service-cluster-backup-support-matrix).
 
-- For guidance on how to register the required resource providers on your subscriptions and how to manage these registrations, see [Manage AKS backups using Azure Backup](/azure/backup/azure-kubernetes-service-cluster-manage-backups).
+1. Find out how to register the required resource providers on your subscriptions, how to manage these registrations and [manage AKS backups using Azure Backup](/azure/backup/azure-kubernetes-service-cluster-manage-backups).
 
-- For detailed instructions on how to set up backup and recovery for your AKS cluster using AKS Backup, see [Back up AKS using Azure Backup](/azure/backup/azure-kubernetes-service-cluster-backup). These instructions include information about how to create and configure all the necessary Azure resources, such as Backup vault, Backup policies, and Backup instances.
+1. Learn how to [backup and recover your AKS cluster using AKS Backup](/azure/backup/azure-kubernetes-service-cluster-backup). These instructions include information about how to create and configure all the necessary Azure resources, such as Backup vault, Backup policies, and Backup instances.
 
-- For detailed instructions on how to perform full or item-level restores of your AKS cluster from an existing Backup instance, see [Restore AKS using Azure Backup](/azure/backup/azure-kubernetes-service-cluster-restore).
+1. Find out how to perform full or item-level [restores of your AKS cluster using Azure Backup](/azure/backup/azure-kubernetes-service-cluster-restore).
 
 ## Backup frequency and retention in AKS: Define a backup policy
 
