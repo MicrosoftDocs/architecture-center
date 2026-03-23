@@ -4,7 +4,7 @@ description: Implement the Modern Web App pattern for Java. Get prescriptive arc
 author: nishanil
 ms.author: nanil
 ms.reviewer: ssumner
-ms.date: 3/8/2026
+ms.date: 03/23/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:

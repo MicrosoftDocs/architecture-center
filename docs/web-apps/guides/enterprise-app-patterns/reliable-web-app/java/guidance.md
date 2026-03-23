@@ -4,7 +4,7 @@ description: Implement the Reliable Web App pattern for Java. Get essential guid
 author: nishanil
 ms.author: nanil
 ms.reviewer: ssumner
-ms.date: 3/8/2026
+ms.date: 03/23/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
