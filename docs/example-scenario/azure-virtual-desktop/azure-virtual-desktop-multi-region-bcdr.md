@@ -1,6 +1,6 @@
 ---
 title: Multiregion BCDR for Azure Virtual Desktop
-description: Learn which options and scenarios are possible to design and implement an effective multiregion BCDR strategy for Azure Virtual Desktop.
+description: Learn about the possible options and scenarios so that you can design and implement an effective multiregion BCDR strategy for Azure Virtual Desktop.
 author: BenMartinBaur
 ms.author: bebaur
 ms.date: 03/19/2026
@@ -15,9 +15,9 @@ This article provides implementation-level architecture and configuration guidan
 
 The guidance builds on two related resources:
 
-- The [Virtual Desktop landing zone design guide](/azure/architecture/landing-zones/azure-virtual-desktop/design-guide), which establishes foundational infrastructure for Virtual Desktop, including subscriptions, networking, identity, and governance.
+- The [Virtual Desktop landing zone design guide](/azure/architecture/landing-zones/azure-virtual-desktop/design-guide), which establishes foundational infrastructure for Virtual Desktop, including subscriptions, networking, identity, and governance
 
-- [BC considerations for Virtual Desktop workloads](/azure/well-architected/azure-virtual-desktop/business-continuity), which provides design principles and component-level recommendations based on the Azure Well-Architected Framework.
+- [BC considerations for Virtual Desktop workloads](/azure/well-architected/azure-virtual-desktop/business-continuity), which provides design principles and component-level recommendations based on the Azure Well-Architected Framework
 
 This article focuses on implementation details, including architecture diagrams, registry-level configuration, step-by-step failover procedures, and DR testing approaches.
 
