@@ -1,4 +1,6 @@
-This reference architecture describes how to design a hybrid Domain Name System (DNS) solution to resolve names for workloads hosted on-premises and in Microsoft Azure.
+Correctly setting and designing your Domain Name System (DNS) landscape is a critical phase of your Azure Landing Zone (ALZ) implementation. DNS needs to work seamlessly across your whole infrastructure, so that hybrid name resolution flows are possible: on-premises systems need to be able to resolve domains hosted in Azure, and Azure resources are also able to access domains located on-premises. Additionally, DNS is a critical element of Private Link, a technology used to enforce Azure Platform-as-a-Service (PaaS) network security.
+
+This reference architecture describes how to design a hybrid DNS solution to resolve domains for workloads hosted in Microsoft Azure as well as on-premises or other clouds.
 
 ## Architecture
 
@@ -34,7 +36,7 @@ This reference architecture describes how to design a hybrid Domain Name System 
 
     - [DNS forwarding rulesets](/azure/dns/private-resolver-endpoints-rulesets#dns-forwarding-rulesets) are collections of rules that define which name domains forward to which external DNS servers. In this architecture, the rulesets include all on‑premises domains and the IP addresses of the on‑premises DNS servers as forwarding targets. You link forwarding rulesets to virtual networks to provide external DNS resolution. The previous diagram shows the [centralized DNS architecture](/azure/dns/private-resolver-architecture) for external name resolution with DNS Private Resolver. This architecture requires linking the forwarding ruleset to the virtual network where the private resolver is deployed, which is the shared services virtual network in this architecture.
 
-    - **Inbound endpoint subnet:** DNS requests to DNS Private Resolver must go to the IP address of its inbound endpoint. You set up this address in the forwarding rules on your on-premises DNS servers and as the DNS server for Azure Firewall.
+    - **Inbound endpoint subnet:** DNS requests to DNS Private Resolver must go to the IP address of its inbound endpoint. You set up this address in the forwarding rules on your on-premises DNS servers and as the DNS server for Azure Firewall. The minimum length of this subnet is `/28`, in this example we are using a `/26` range for future scalability in case this minimum size is changed in the future.
 
     - **Outbound endpoint subnet:** When DNS Private Resolver needs to forward DNS requests to external servers based on forwarding rules, it sources those requests from this subnet. The minimum size for inbound and outbound endpoint subnets is `/28`, but this architecture uses `/26` for added flexibility if limits change. For more information, see [Subnet restrictions](/azure/dns/dns-private-resolver-overview#subnet-restrictions).
 
@@ -42,7 +44,7 @@ This reference architecture describes how to design a hybrid Domain Name System 
 
   - An [ExpressRoute gateway](/azure/expressroute/expressroute-about-virtual-network-gateways) is a virtual network gateway that connects a virtual network to an ExpressRoute circuit, which is a dedicated private connection with guaranteed bandwidth between Microsoft and your on-premises environment. In this architecture, it provides private connectivity between the hub virtual network and your on-premises environment.
 
-  - [Azure Firewall](/azure/well-architected/service-guides/azure-firewall) is a cloud-native network security service that inspects network traffic and filters it based on configured rules. In this architecture, it serves as a DNS proxy to support fully qualified domain name (FQDN) network rules and DNS logging. For more information, see [Azure Firewall DNS proxy](/azure/firewall/dns-details).
+  - [Azure Firewall](/azure/well-architected/service-guides/azure-firewall) is a cloud-native network security service that inspects network traffic and filters it based on configured rules. In this architecture, it serves as a DNS proxy to support fully qualified domain name (FQDN) network rules and DNS logging. For more information, see [Azure Firewall DNS proxy](/azure/firewall/dns-details). Azure Firewall is not an authoritative server for any DNS name, but it just forwards all DNS requests to the inbound endpoint of the Azure DNS Private Resolver (`10.1.0.68` in this example). 
 
   - [Azure private DNS zones](/azure/dns/private-dns-overview) are containers that host DNS records for private name resolution from linked Azure virtual networks. In this architecture, they provide DNS resolution for Azure workloads, support VM autoregistration, and integrate automatically with private link endpoints through DNS virtual network links.
 
@@ -66,6 +68,10 @@ You can modify the topology described in this article and adapt it to your speci
 
 - Use DNS Private Resolver for workloads when you have a non-Microsoft firewall that doesn't need to be in the DNS resolution path to support features like FQDN-based rules. Set up the inbound endpoint's IP address as the custom DNS server in the workload virtual network, or link the DNS forwarding ruleset to the workload virtual network. Then set up the DNS Private Resolver inbound endpoint's IP address as the target in your on-premises DNS conditional forwarding rules.
 
+- You can use Network Security Groups (NSGs) in the inbound and outbound endpoint subnets for the Azure DNS Private Resolver, but you need to be careful not to block DNS requests. You can also apply User Defined Routes (UDRs) to these subnets to send DNS traffic through a Network Virtual Appliance (NVA), but you need to be careful not to block DNS traffic or Azure Load Balancer health checks coming from the Azure internal platform IP address `168.63.129.16`.
+
+- You can use Software Defined Wide Area Network (SD-WAN) technologies instead of VPN or ExpressRoute, the fundamental architecture for DNS does not change.
+
 ## Workflows
 
 This section explains how hybrid resolution flows work in two main cases:
@@ -82,9 +88,9 @@ Azure VMs might need to access on-premises systems like database or monitoring a
    Diagram that shows hybrid resolution from Azure to on-premises. It includes three main subscriptions: on-premises, connectivity, and workload. The on-premises section on the left includes DNS servers and on-premises VPN/ExpressRoute termination. The connectivity subscription in the center includes two main sections: the shared services virtual network and the hub virtual network. A double-sided arrow labeled DNS virtual network link points from Azure private DNS zone to the shared services virtual network. Two double-sided arrows point from the forwarding ruleset and DNS Private Resolver to the outbound endpoint (10.1.0.0/26). Another double-sided arrow points from DNS Private Resolver to the inbound endpoint (10.1.0.64/26). Virtual network peering connects the virtual networks. The hub virtual network includes both the gateway and Azure Firewall subnets. The gateway subnet (10.0.1.0/27) includes the VPN or ExpressRoute gateway. The Azure Firewall subnet, which uses the address range 10.0.1.64 to 10.0.1.127, contains the Azure Firewall at 10.0.1.68. The firewall is configured to use a DNS server at 10.1.0.4 in the shared services virtual network, and the firewall's IP address, 10.0.1.68, is set as the custom DNS server for the spoke or workload virtual network. The workload subscription on the right has two parts: the workload subnet (10.2.1.0/24) enclosed in the spoke virtual network (10.2.0.0/16) and custom DNS servers (10.0.1.68). There are four steps in the diagram. In step 1, an arrow points from the workload in the workload subscription section to Azure Firewall in the hub virtual network. In step 2, an arrow points from the Azure Firewall subnet to the inbound endpoint in the shared services virtual network. In step 3, an arrow points from the outbound endpoint to the DNS servers in the on-premises section. The DNS servers are labeled step 4.
 :::image-end:::
 
-1. The workload sends the DNS request to Azure Firewall because the IP address of Azure Firewall is configured as the [custom DNS server](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances) in the virtual network.
+1. The workload sends the DNS request to Azure Firewall because the IP address of Azure Firewall (`10.0.1.68`) is configured as the [custom DNS server](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances) in the virtual network.
 
-1. Azure Firewall forwards the DNS request to the inbound endpoint of the DNS Private Resolver.
+1. Azure Firewall forwards the DNS request to the inbound endpoint of the DNS Private Resolver (`10.1.0.68`)..
 
 1. If DNS Private Resolver finds a match in the rulesets associated with its outbound endpoints, it forwards the DNS request to the target specified in the rule, which should be the on-premises DNS servers.
 
@@ -102,11 +108,11 @@ On-premises systems might need name resolution for workloads that you deploy in 
 
 1. The on-premises workload sends a DNS request to the on-premises DNS server.
 
-1. The on-premises DNS server forwards the query to the DNS Private Resolver inbound endpoint, based on its configured forwarding rules.
+1. The on-premises DNS server forwards the query to the Azure Firewall's IP address (`10.0.1.68`), based on its configured conditional forwarding rules.
 
-1. If you set up Azure Firewall as a DNS proxy, the DNS Private Resolver outbound endpoint forwards the query to Azure Firewall, which then uses Azure DNS for external resolution.
+1. The Azure Firewall forwards the DNS query to the Azure DNS Private Resolver inbound enpoint's IP address (`10.1.0.68`).
 
-1. DNS Private Resolver resolves queries for any private DNS zone linked to the virtual network where it's deployed.
+1. The Azure DNS Private Resolver will resolve the domain name if it matches one of the Azure private DNS zones linked with its virtual network.
 
 ## Recommendations
 
