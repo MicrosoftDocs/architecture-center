@@ -38,7 +38,7 @@ Applications typically implement [materialized views](./materialized-view.yml) b
 The following diagram shows an overview of the pattern combined with [Command Query Responsibility Segregation (CQRS)](./cqrs.md). The presentation layer reads from a separate read-only store and writes commands to command handlers. The command handlers retrieve the entity's event stream from the event store, run business logic, and push new events to a queue. Event handlers consume events from the queue and write events to the event store, update the read-only store, or integrate with external systems.
 
   :::image type="complex" source="./_images/event-sourcing-overview.png" border="false" lightbox="./_images/event-sourcing-overview.png" alt-text="Diagram that shows an overview and example of the Event Sourcing pattern.":::
-      At the top of the diagram, a box represents the presentation layer. In the upper right, an arrow labeled reads points from the presentation layer to a box labeled business object. An arrow labeled writes points from the presentation layer to a box on the left labeled command handlers or business objects. From this box, an arrow labeled get cart events points right to a cylinder labeled event store. Another arrow points from the command handlers box to a box at the bottom labeled queue or topic that contains seven envelope icons. Alongside this arrow, envelope icons represent events like cart created, item 1 added, item 2 added, item 1 removed, and shipping information added. Three arrows point from the queue or topic box to separate event handlers. The leftmost event handler writes events to the event store. The middle event handler updates a read-only store. The rightmost event handler integrates with external systems.
+      At the top of the diagram, a box represents the presentation layer. In the upper right, an arrow labeled reads points from the presentation layer to a box labeled business object. An arrow labeled writes points from the presentation layer to a box on the left that includes command handlers and business objects. From this box, an arrow labeled get cart events points to an event store. Another arrow points from the command handlers box to a box at the bottom labeled queue or topic that contains seven envelope icons. Alongside this arrow, envelope icons represent events like cart created, item 1 added, item 2 added, item 1 removed, and shipping information added. Three arrows point from the queue or topic box to separate event handlers. The leftmost event handler writes events to the event store. The middle event handler updates a read-only store. The rightmost event handler integrates with external systems.
 :::image-end:::
 
 ### Workflow
@@ -71,7 +71,7 @@ The Event Sourcing pattern provides the following advantages:
 
 - Events typically have meaning for a domain expert, whereas object-relational impedance mismatch can make complex database tables hard to understand. Tables are artificial constructs that represent the current state of the system, not the events that occur.
 
-- Event sourcing can help prevent concurrent updates from causing conflicts because it avoids the requirement to directly update objects in the data store. Command handlers rehydrate an entity from its event stream to enforce business rules before they append new events, so two handlers that load the same entity simultaneously can both act on the same state.
+- Event sourcing can help prevent concurrent updates from causing conflicts because it avoids the requirement to directly update objects in the data store. Command handlers rehydrate an entity from its event stream to enforce business rules before they append new events, so two handlers that load the same entity simultaneously can act on the same state.
 
    For example, each handler sees five remaining seats, and both handlers can accept a reservation. Event stores address this scenario by using optimistic concurrency control and reject an append if the stream changed since it was read. Upon rejection, the handler reloads the entity, reevaluates, and retries.
 
@@ -94,7 +94,7 @@ Consider the following points when you decide how to implement this pattern:
 
 - **Eventual consistency:** The system is only eventually consistent when it creates materialized views or generates projections of data by replaying events. A delay exists between when an application handles a request and adds events to the event store, when the events publish, and when consumers handle the events. During this period, new events that describe further changes to entities might arrive at the event store. Ensure that your customers understand that data is eventually consistent and that the system is designed to account for eventual consistency in these scenarios.
 
-- **Versioning events:** The event store is the permanent source of information, so you should never update the event data. The only way to update an entity or undo a change is to add a compensating event to the event store. A compensating event is a new event that reverses or corrects the effect of a previous event. For example, a `ReservationCancelled` event compensates for a prior `SeatsReserved` event. The original event remains in the stream, and the compensating event records that it was undone. 
+- **Versioning events:** The event store is the permanent source of information, so you should never update the event data. The only way to update an entity or undo a change is to add a compensating event to the event store. A compensating event is a new event that reverses or corrects the effect of a previous event. For example, a `ReservationCanceled` event compensates for a prior `SeatsReserved` event. The original event remains in the stream, and the compensating event records that it was undone. 
 
   This immutability also means that if a bug produces incorrect events, those events persist in the store. Fixing the bug in application code doesn't fix the historical events, so you might also need compensating events or upcasters to handle the bad data during replay. If the schema (rather than the data) of the persisted events needs to change, perhaps during a migration, it can be difficult to combine existing events in the store with the new version.
 
@@ -104,7 +104,7 @@ Consider the following points when you decide how to implement this pattern:
 
   - **Event versioning:** Include a version identifier in each event, either as metadata in the event envelope or as part of the event type name. Consumers use the version to select the appropriate handling logic.
 
-  - **Upcasting:** Register transformation functions that convert older event schemas to the current schema during deserialization. You can chanin upcasters so that the application code only needs to handle the latest version. The stored events remain unchanged, which preserves immutability.
+  - **Upcasting:** Register transformation functions that convert older event schemas to the current schema during deserialization. You can chain upcasters so that the application code only needs to handle the latest version. The stored events remain unchanged, which preserves immutability.
 
   - **In-place migration:** Rewrite historical events to the new schema directly in the event store. This approach breaks immutability and should be a last resort because it undermines the audit trail.
 
@@ -146,97 +146,101 @@ Consider the following points when you decide how to implement this pattern:
 
 Use this pattern in the following scenarios:
 
-- When you want to capture intent, purpose, or reason in the data. For example, changes to a customer entity can be captured as a series of specific event types, such as *Moved home*, *Closed account*, or *Deceased*.
+- You want to capture intent, purpose, or reason in the data. For example, you can capture changes to a customer entity as a series of specific event types, such as *Moved home*, *Closed account*, or *Deceased*.
 
-- When it's vital to minimize or completely avoid the occurrence of conflicting updates to data.
+- It's crucial to minimize or completely avoid conflicting updates to data.
 
-- When you want to record events that occur, to replay them to restore the state of a system, to roll back changes, or to keep a history and audit log. For example, when a task involves multiple steps, you might need to execute actions to revert updates and then replay some steps to bring the data back into a consistent state.
+- You want to record events that occur, to replay them to restore the state of a system, to roll back changes, or to keep a history and audit log. For example, when a task consists of multiple steps, you might need to run actions to revert updates and then replay some steps to bring the data back into a consistent state.
 
-- When the application already uses events as a natural feature of its operation, and event sourcing requires little extra development or implementation effort.
+- The application already uses events as a natural feature of its operation, and event sourcing requires little extra development or implementation effort.
 
-- When you need to decouple the process of inputting, or updating data from the tasks required to apply these actions. This change might be to improve UI performance, or to distribute events to other listeners that take action when the events occur. For example, you can integrate a payroll system with an expense submission website. The events that are raised by the event store in response to data updates made in the website would be consumed by both the website and the payroll system.
+- You need to decouple the process of inputting or updating data from the tasks required to apply these actions. This change might be to improve UI performance or to distribute events to other listeners that act when the events occur. For example, you can integrate a payroll system with an expense submission website. Both the website and the payroll system consume events that the event store raises in response to data updated on the website.
 
-- When you want flexibility to be able to change the format of materialized models and entity data if requirements change, or&mdash;when used with CQRS&mdash;you need to adapt a read model or the views that expose the data.
+- You want the flexibility to change the format of materialized models and entity data if requirements change, or when you use CQRS and you need to adapt a read model or the views that expose the data.
 
-- When used with CQRS, and eventual consistency is acceptable while a read model is updated, or the performance impact of rehydrating entities and data from an event stream is acceptable.
+- You use CQRS and eventual consistency is acceptable while a read model is updated, or entity and data rehydration from an event stream results in acceptable performance reduction.
 
-This pattern might not be useful in the following situations:
+This pattern might not be suitable in the following situations:
 
 - Systems that have straightforward create, read, update, and delete operations for which no one needs auditability, replay, or historical reconstruction of state. The operational overhead of an event store isn't justified if the only requirement is current-state reads and writes.
 
-- Prototypes, MVPs, or systems with a short expected lifespan. The upfront investment in event design, schema evolution strategy, and projection infrastructure rarely pays off in these settings.
+- Prototypes, minimum viable products (MVPs), or systems that have a short expected lifespans. The upfront investment in event design, schema evolution strategy, and projection infrastructure rarely yield a return in these scenarios.
 
 - Systems that require consistency and real-time updates to the views of the data. Eventual consistency between the event store and projections is inherent to event sourcing.
 
-- Domains in which data is predominantly static or reference data, such as lookup tables or catalogs, that change infrequently and don't benefit from change history.
+- Domains in which data is mostly static or reference data, such as lookup tables or catalogs, that changes infrequently and does't benefit from change history.
 
-- Teams without experience in [event-driven architectures](../guide/architecture-styles/event-driven.md). Event sourcing changes how you test, debug, and operate a system. Adopting it without that foundation increases the risk of anti-patterns that are costly to reverse.
+- Teams that don't have experience in [event-driven architectures](../guide/architecture-styles/event-driven.md). Event sourcing changes how you test, debug, and operate a system. Adopting it without the foundational knowledge increases the risk of antipatterns that are costly to reverse.
 
 > [!TIP]
-> Event sourcing doesn't have to be an all-or-nothing decision for your entire system. Apply it selectively to the parts of your system where its benefits are strongest, such as a payment ledger or order-processing pipeline, and use traditional CRUD for parts where the complexity isn't justified, such as user profile management or application configuration.
+> Event sourcing doesn't have to be an all-or-nothing decision for your entire system. Apply it selectively to the parts of your system that it benefits the most, such as a payment ledger or order-processing pipeline. Use traditional CRUD for parts when the complexity isn't justified, such as user profile management or application configuration.
 
 ## Workload design
 
-An architect should evaluate how the Event Sourcing pattern can be used in their workload's design to address the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). For example:
+Evaluate how to use the Event Sourcing pattern in a workload's design to address the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). The following table provides guidance about how this pattern supports the goals of each pillar.
 
 | Pillar | How this pattern supports pillar goals |
 | :----- | :------------------------------------- |
-| [Reliability](/azure/well-architected/reliability/checklist) design decisions help your workload become **resilient** to malfunction and to ensure that it **recovers** to a fully functioning state after a failure occurs. | Due to capturing a history of changes in complex business process, it can facilitate state reconstruction if you need to recover state stores.<br/><br/> - [RE:06 Data partitioning](/azure/well-architected/reliability/partition-data)<br/> - [RE:09 Disaster recovery](/azure/well-architected/reliability/disaster-recovery) |
-| [Performance Efficiency](/azure/well-architected/performance-efficiency/checklist) helps your workload **efficiently meet demands** through optimizations in scaling, data, code. | This pattern, usually combined with CQRS, an appropriate domain design, and strategic snapshotting, can improve workload performance due to the atomic append-only operations and the avoidance of database locking for writes and reads.<br/><br/> - [PE:08 Data performance](/azure/well-architected/performance-efficiency/optimize-data-performance) |
+| [Reliability](/azure/well-architected/reliability/checklist) design decisions help your workload become **resilient** to malfunction and ensure that it **recovers** to a fully functioning state after a failure occurs. | This pattern can facilitate state reconstruction if you need to recover state stores because you capture a history of changes in complex business processes.<br/><br/> - [Data partitioning](/azure/well-architected/design-guides/partition-data)<br/> - [RE:09 Disaster recovery](/azure/well-architected/reliability/disaster-recovery) |
+| [Performance Efficiency](/azure/well-architected/performance-efficiency/checklist) helps your workload **efficiently meet demands** through optimizations in scaling, data, and code. | This pattern, usually combined with CQRS, an appropriate domain design, and strategic snapshotting, can improve workload performance because of atomic append-only operations and the avoidance of database locking for writes and reads.<br/><br/> - [PE:08 Data performance](/azure/well-architected/performance-efficiency/optimize-data-performance) |
 
-As with any design decision, consider any tradeoffs against the goals of the other pillars that might be introduced with this pattern.
+If this pattern introduces trade-offs within a pillar, consider them against the goals of the other pillars.
 
 ## Example
 
-A conference management system needs to track the number of completed bookings for a conference. This way it can check whether there are seats still available, when a potential attendee tries to make a booking. The system could store the total number of bookings for a conference in at least two ways:
+A conference management system needs to track the number of completed bookings for a conference. By tracking this number, it can check for available seats when a potential attendee tries to make a booking. The system can store the total number of bookings for a conference in at least two ways:
 
-- The system could store the information about the total number of bookings as a separate entity in a database that holds booking information. As bookings are made or canceled, the system could increment or decrement this number as appropriate. This approach is simple in theory, but it can cause scalability problems if a large number of attendees attempt to book seats during a short period of time. For example, this surge often occurs in the final day before the booking period closes.
+- The system can store information about the total number of bookings as a separate entity in a database that holds booking information. As attendees make or cancel bookings, the system increases or decreases this number. This approach is simple in theory, but it can cause scalability problems if a large number of attendees attempt to book seats during a short period of time. For example, this surge typically occurs on the final day before the booking period closes.
 
-- The system could store information about bookings and cancellations as events held in an event store. It could then calculate the number of seats available by replaying these events. This approach can be more scalable due to the immutability of events. The system only needs to be able to read data from the event store, or append data to the event store. Event information about bookings and cancellations is never modified.
+- The system can store information about bookings and cancellations as events held in an event store. It calculates the number of available seats by replaying these events. This approach can be more scalable because of the immutability of events. The system only needs to be able to read data from the event store or append data to the event store. It never modifies event information about bookings and cancellations.
 
-The following diagram illustrates how the seat reservation subsystem of the conference management system might be implemented using event sourcing.
+The following diagram shows how you might use event sourcing to implement the seat reservation subsystem of the conference management system.
 
-![Using event sourcing to capture information about seat reservations in a conference management system](./_images/event-sourcing-example.png)
+  :::image type="complex" source="./_images/event-sourcing-example.png" border="false" lightbox="./_images/event-sourcing-example.png" alt-text="Diagram that shows how to use event sourcing to capture information about seat reservations in a conference management system.":::
+      At the top of the diagram, a box represents the presentation layer. An arrow labeled writes points from the presentation layer to a box that includes command handlers and business objects. An arrow labeled get seat availability events points from that box to an event store. An arrow labeled seat reserved (number of seats) points from the command handlers box to a box labeled queue or topic. An arrow points from the queue or topic box to an event handler. Another arrow points from the event handler to the event store.
+:::image-end:::
 
-The sequence of actions for reserving two seats is as follows:
+### Workflow
 
-1. The UI issues a command to reserve seats for two attendees. The command is handled by a separate command handler, a piece of logic that is decoupled from the UI and is responsible for handling requests posted as commands.
+The following workflow corresponds to the previous diagram:
 
-2. An entity containing information about all reservations for the conference is constructed by replaying the events that describe bookings and cancellations. This entity is called `SeatAvailability`, and is contained within a domain model that exposes methods for querying and modifying the data in the entity.
+1. The UI issues a command to reserve seats for two attendees. A separate command handler handles the command. The command handler is a piece of logic that's decoupled from the UI and is responsible for handling requests posted as commands.
 
-   > Some optimizations to consider are using snapshots (so that you don't need to replay the full list of events to obtain the current state of the entity), and maintaining a cached copy of the entity in memory.
+2. The system constructs an entity that contains information about all reservations for the conference by replaying the events that describe bookings and cancellations. This entity is called `SeatAvailability`, and it's contained within a domain model that exposes methods for querying and modifying the data in the entity.
 
-3. The command handler invokes a method exposed by the domain model to make the reservations.
+   > [!TIP] 
+   > Consider optimizations such as snapshots, so that you don't need to replay the full list of events to obtain the current state of the entity, and maintaining a cached copy of the entity in memory.
 
-4. The `SeatAvailability` entity raises an event containing the number of seats that were reserved. The next time the entity applies events, all the reservations will be used to compute how many seats remain.
+3. The command handler invokes a method that the domain model exposes to make the reservations.
+
+4. The `SeatAvailability` entity raises an event that contains the number of reserved seats. The next time that the entity applies events, it uses all of the reservations to compute the number of remaining seats.
 
 5. The system appends the new event to the list of events in the event store.
 
-If a user cancels a seat, the system follows a similar process except the command handler issues a command that generates a seat cancellation event and appends it to the event store.
+If a user cancels a seat, the system follows a similar process, but the command handler issues a command that generates a seat cancellation event and appends it to the event store.
 
-Using an event store provides a complete history, or audit trail, of the bookings and cancellations for a conference. The events in the event store are the accurate record. There's no need to persist entities in any other way because the system can easily replay the events and restore the state to any point in time.
+The system can provide a complete history, or audit trail, of the bookings and cancellations for a conference by using an event store. The events in the event store are the accurate record. You don't need to persist entities in any other way because the system can easily replay the events and restore the state to any point in time.
 
 ## Next step
 
-> [!div class="nextstepaction"]
-> [Command and Query Responsibility Segregation (CQRS) pattern](./cqrs.md)
+- [CQRS pattern](./cqrs.md)
 
-The write store that provides the permanent source of information for a CQRS implementation is often based on an implementation of the Event Sourcing pattern. The pattern segregates the operations that read data in an application from the operations that update data by using separate interfaces.
+   The write store that provides the permanent source of information for a CQRS implementation is typically based on an implementation of the Event Sourcing pattern. The pattern segregates the operations that read data in an application from the operations that update data by using separate interfaces.
 
 ## Community resources
 
-- [Object-relational impedance mismatch](https://en.wikipedia.org/wiki/Object%E2%80%93relational_impedance_mismatch)
+- [Object-relational impedance mismatch](https://en.wikipedia.org/wiki/Object%E2%80%93relational_impedance_mismatch).
 
-- [Event Sourcing](https://martinfowler.com/eaaDev/EventSourcing.html) by Martin Fowler. The original 2005 description of the pattern that established the foundational vocabulary.
+- [Event Sourcing](https://martinfowler.com/eaaDev/EventSourcing.html), by Martin Fowler, is the original 2005 description of the pattern that established the foundational vocabulary.
 
-- [CQRS Documents](https://cqrs.files.wordpress.com/2010/11/cqrs_documents.pdf) (PDF) by Greg Young. The definitive resource on event sourcing and CQRS from the practitioner who formalized both patterns.
+- [CQRS Documents (PDF)](https://cqrs.files.wordpress.com/2010/11/cqrs_documents.pdf), by Greg Young, is the definitive resource about event sourcing and CQRS from the practitioner who formalized both patterns.
 
 ## Related resources
 
-The following patterns and guidance might also be relevant when implementing this pattern:
+The following patterns and guidance might also be relevant when you implement this pattern:
 
-- [Materialized View pattern](./materialized-view.yml). The data store used in a system that's based on event sourcing is typically not well suited to efficient querying. Instead, a common approach is to generate prepopulated views of the data at regular intervals, or when the data changes.
+- [Materialized View pattern](./materialized-view.yml): The data store that you use in an event sourcing system typically isn't suited for efficient querying. Instead, a common approach is to generate prepopulated views of the data at regular intervals or when the data changes.
 
-- [Compensating Transaction pattern](./compensating-transaction.yml). The existing data in an event sourcing store isn't updated. Instead, new entries are added that transition the state of entities to the new values. To reverse a change, compensating entries are used because it isn't possible to reverse the previous change. Describes how to undo the work that was performed by a previous operation.
+- [Compensating Transaction pattern](./compensating-transaction.yml): The system doesn't update existing data in an event sourcing store. Instead, it adds new entries that transition the state of entities to the new values. To reverse a change, it uses compensating entries because it can't reverse the previous change. The Compensating Transaction pattern article describes how to undo the work that a previous operation performed.
 
-- [Domain analysis for microservices](../microservices/model/tactical-domain-driven-design.md). In systems that use domain-driven design, the entity that owns an event stream is typically an [aggregate](../microservices/model/tactical-domain-driven-design.md#aggregates), a consistency boundary that receives commands, enforces business rules, and emits events.
+- [Domain analysis for microservices](../microservices/model/tactical-domain-driven-design.md): In systems that use domain-driven design (DDD), the entity that owns an event stream is typically an [aggregate](../microservices/model/tactical-domain-driven-design.md#aggregates), a consistency boundary that receives commands, enforces business rules, and emits events.

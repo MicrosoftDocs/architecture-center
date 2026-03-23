@@ -18,7 +18,7 @@ The solution is to implement a compensating transaction. The steps in a compensa
 
 A common approach is to use a workflow to implement an eventually consistent operation that requires compensation. As the original operation proceeds, the system records information about each step, including how to undo the work that the step performs. If the operation fails at any point, the workflow rewinds back through the steps it has completed. At each step, the workflow performs the work that reverses that step.
 
-In [event-sourced systems](./event-sourcing.yml), this history exists inherently because state changes are stored as a sequence of immutable events. Compensation requires you to append a new event that reverses the effect of a prior one rather than modifying or deleting existing data.
+In [event-sourced systems](./event-sourcing.md), this history exists inherently because state changes are stored as a sequence of immutable events. Compensation requires you to append a new event that reverses the effect of a prior one rather than modifying or deleting existing data.
 
 Two important points are:
 
