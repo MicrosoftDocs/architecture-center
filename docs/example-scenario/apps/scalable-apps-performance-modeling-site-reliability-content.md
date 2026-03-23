@@ -85,7 +85,7 @@ For the compute plane, consider:
 
 - [Azure Container Apps](/azure/container-apps/overview) for microservices and event-driven workloads. It supports serverless containers and [Kubernetes Event Driven Autoscaler (KEDA)](https://keda.sh/)-based autoscaling without requiring Kubernetes cluster management.
 
-- [Azure Functions](/azure/azure-functions/functions-overview) for serverless API services where you can deploy individual API endpoints deployed as independent functions.
+- [Azure Functions](/azure/azure-functions/functions-overview) for serverless API services where you can deploy individual API endpoints as independent functions.
 
 ## Scenario details
 
