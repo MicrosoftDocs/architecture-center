@@ -31,7 +31,7 @@ This guide has the following goals:
 
 These objectives are also known as the recovery point objective (RPO) and the recovery time objective (RTO).
 
-:::image type="content" source="images/rpo-rto-diagram.png" alt-text="A timeline diagram that shows the RPO and RTO for a DR event. It shows how much data is lost before the disaster and how long systems are down afterward." lightbox="images/rpo-rto-diagram.png":::
+:::image type="content" border="false" source="images/rpo-rto-diagram.png" alt-text="A timeline diagram that shows the RPO and RTO for a DR event. It shows how much data is lost before the disaster and how long systems are down afterward." lightbox="images/rpo-rto-diagram.png":::
 
 The achievable RPO and RTO depend on the BCDR model and host pool type that you select. The following table provides approximate estimates for each model.
 
