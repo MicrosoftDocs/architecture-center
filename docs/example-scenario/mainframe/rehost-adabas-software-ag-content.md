@@ -126,11 +126,9 @@ Load balancers and redundant VMs in a distributed environment provide performanc
 
 Principal author:
 
-- Bhaskar Bandam | Principal Program Manager
-
-Other contributors:
-
 - [Bhaskar Bandam](https://www.linkedin.com/in/bhaskar-bandam-75202a9) | Principal Program Manager
+
+
 
 ## Next steps  
 
