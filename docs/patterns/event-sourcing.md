@@ -3,7 +3,7 @@ title: Event Sourcing Pattern
 description: Learn how to use an append-only store to record the full series of events that describe actions taken on data in a domain.
 ms.author: pnp
 author: claytonsiemens77
-ms.date: 03/09/2026
+ms.date: 03/24/2026
 ms.topic: design-pattern
 ms.subservice: cloud-fundamentals
 ---
@@ -75,11 +75,11 @@ The Event Sourcing pattern provides the following advantages:
 
    For example, each handler sees five remaining seats, and both handlers can accept a reservation. Event stores address this scenario by using optimistic concurrency control and reject an append if the stream changed since it was read. Upon rejection, the handler reloads the entity, reevaluates, and retries.
 
-- Append-only event storage provides an audit trail that applications can use to monitor actions taken against a data store. It can regenerate the current state as materialized views or projections by replaying the events at any time, and it can help test and debug the system. 
+- Append-only event storage provides an audit trail that applications can use to monitor actions taken against a data store. It can regenerate the current state as materialized views or projections by replaying the events at any time, and it can help test and debug the system.
 
    The requirement to use compensating events to cancel changes can provide a history of reversed changes. If the model stores only the current state, this history doesn't exist. You can also use the list of events to analyze application performance, detect user behavior trends, and obtain other useful business information.
 
-- The command handlers raise events, and tasks perform operations in response to those events. This decoupling of the tasks from the events provides flexibility and extensibility. Tasks know about the type of event and the event data, but not about the operation that triggers the event. 
+- The command handlers raise events, and tasks perform operations in response to those events. This decoupling of the tasks from the events provides flexibility and extensibility. Tasks know about the type of event and the event data, but not about the operation that triggers the event.
 
    Multiple tasks can handle each event, so they can easily integrate with other services and systems that only listen for new events that the event store raises. But the event sourcing events are typically low level, and it might be necessary to generate specific integration events instead.
 
@@ -94,7 +94,7 @@ Consider the following points as you decide how to implement this pattern:
 
 - **Eventual consistency:** The system is only eventually consistent when it creates materialized views or generates projections of data by replaying events. A delay exists between when an application handles a request and adds events to the event store, when the events publish, and when consumers handle the events. During this period, new events that describe further changes to entities might arrive at the event store. Ensure that your customers understand that data is eventually consistent and that the system is designed to account for eventual consistency in these scenarios.
 
-- **Versioning events:** The event store is the permanent source of information, so you should never update the event data. The only way to update an entity or undo a change is to add a compensating event to the event store. A compensating event is a new event that reverses or corrects the effect of a previous event. For example, a `ReservationCanceled` event compensates for a prior `SeatsReserved` event. The original event remains in the stream, and the compensating event records that it was undone. 
+- **Versioning events:** The event store is the permanent source of information, so you should never update the event data. The only way to update an entity or undo a change is to add a compensating event to the event store. A compensating event is a new event that reverses or corrects the effect of a previous event. For example, a `ReservationCanceled` event compensates for a prior `SeatsReserved` event. The original event remains in the stream, and the compensating event records that it was undone.
 
   This immutability also means that if a bug produces incorrect events, those events persist in the store. Fixing the bug in application code doesn't fix the historical events, so you might also need compensating events or upcasters to handle the bad data during replay. If the schema (rather than the data) of the persisted events needs to change, perhaps during a migration, it can be difficult to combine existing events in the store with the new version.
 
@@ -208,7 +208,7 @@ The following workflow corresponds to the previous diagram:
 
 1. The system constructs an entity that contains information about all reservations for the conference by replaying the events that describe bookings and cancellations. This entity is called `SeatAvailability`, and it's contained within a domain model that exposes methods for querying and modifying the data in the entity.
 
-   > [!TIP] 
+   > [!TIP]
    > Consider optimizations like snapshots so that you don't need to replay the full list of events to obtain the current state of the entity. Snapshots also maintain a cached copy of the entity in memory.
 
 1. The command handler invokes a method that the domain model exposes to make the reservations.
@@ -248,5 +248,5 @@ The following patterns and guidance might also be relevant when you implement th
    The system doesn't update existing data in an event sourcing store. Instead, it adds new entries that transition the state of entities to the new values. To reverse a change, it uses compensating entries because it can't reverse the previous change. The Compensating Transaction pattern article describes how to undo the work that a previous operation performed.
 
 - [Domain analysis for microservices](../microservices/model/tactical-domain-driven-design.md)
-   
+
    In systems that use domain-driven design (DDD), the entity that owns an event stream is typically an [aggregate](../microservices/model/tactical-domain-driven-design.md#aggregates), a consistency boundary that receives commands, enforces business rules, and emits events.
