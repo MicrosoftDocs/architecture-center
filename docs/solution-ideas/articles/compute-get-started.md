@@ -75,7 +75,7 @@ SAP workloads have specific architecture requirements. See the following resourc
 - [SAP BW/4HANA in Linux on Azure](../../reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines.yml): Deploy an SAP BW/4HANA data warehouse on Azure Linux VMs.
 - [SAP deployment by using an Oracle database](../../example-scenario/apps/sap-production.yml): Run SAP production workloads by using an Oracle database on Azure.
 - [SAP HANA scale-up systems on Linux](../../reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.yml): Scale up SAP HANA deployments on Azure Linux VMs.
-- [SAP NetWeaver in Windows on Azure](../../guide/sap/sap-netweaver.yml): Deploy SAP NetWeaver on Windows VMs.
+- [SAP NetWeaver in Windows on Azure](../../guide/sap/sap-netweaver.md): Deploy SAP NetWeaver on Windows VMs.
 - [SAP S/4HANA in Linux on Azure](../../guide/sap/sap-s4hana.md): Run SAP S/4HANA on Azure Linux VMs.
 
 #### SAP solution ideas
@@ -133,7 +133,7 @@ To manage compute costs on Azure, you must understand your usage patterns and ch
 
 - [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations): Make 1-year or 3-year commitments and save up to 72% on VMs, App Service, AKS, and other compute services compared to pay-as-you-go prices.
 - [Spot Virtual Machines](/azure/virtual-machines/spot-vms): Access unused Azure capacity at significant discounts for interruptible workloads.
-- [Azure savings plan for compute](/azure/cost-management-billing/savings-plan/savings-plan-compute-overview): Take advantage of flexible pricing for compute across VMs, App Service, Azure Container Instances, and Functions Premium.
+- [Azure savings plan for compute](/azure/cost-management-billing/savings-plan/buy-savings-plan): Take advantage of flexible pricing for compute across VMs, App Service, Azure Container Instances, and Functions Premium.
 - [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/): Use existing Windows Server, SQL Server, and Linux subscription licenses on Azure.
 - [Reduce service costs by using Azure Advisor](/azure/advisor/advisor-cost-recommendations): Use Advisor recommendations to identify underutilized VMs, App Service plans, and other resources.
 
