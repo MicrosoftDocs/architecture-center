@@ -86,6 +86,9 @@ The following diagram shows the sequence of hops that packets take from the inte
 Diagram that shows a hub and two spokes. The hub contains a gateway subnet and an NVA subnet. The gateway subnet contains a VPN or Azure ExpressRoute gateway. The NVA subnet contains an internal load balancer and NVAs. Spoke1 contains an app server in the 10.1.1.0/24 address space. Spoke2 contains an app server in the 10.1.2.0/24 address space. Inbound traffic flows from the public internet to the NVAs through the public load balancer. The NVAs need to perform SNAT before they send the traffic to the app server to guarantee traffic symmetry. The translated traffic then flows to the app server in Spoke2. Return traffic flows from this app server directly to the corresponding NVA instance because of SNAT, which forwards it to the public internet.
 :::image-end:::
 
+*Download a [Visio file](https://arch-center.azureedge.net/<file-name>.vsdx) of this architecture.*
+
+
 This design requires SNAT because traffic in each direction would otherwise pass through a different load balancer. The internal and public Azure load balancers can't guarantee traffic symmetry, so the NVA instances must perform SNAT to attract return traffic. Most stateful NVAs, such as firewalls, require traffic symmetry.
 
 The following diagram shows a slightly different pattern for outbound traffic.
@@ -182,7 +185,7 @@ Principal authors:
 
 ## Next step
 
-- [Perimeter networks](/azure/cloud-adoption-framework/ready/azure-best-practices/perimeter-networks)
+- [Hub-spoke network topology in Azure](../architecture/hub-spoke.yml)
 
 ## Related resource
 
