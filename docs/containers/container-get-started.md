@@ -154,7 +154,7 @@ Managing container costs on Azure requires understanding your usage patterns and
 
 - [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) - Save up to 72% on AKS node VMs with 1-year or 3-year commitments.
 - [Azure Spot VMs for AKS](/azure/aks/spot-node-pool) - Use spot node pools for interruptible workloads at significant discounts.
-- [Azure Savings Plan for Compute](/azure/cost-management-billing/savings-plan/savings-plan-compute-overview) - Flexible pricing across VMs, Container Instances, and other compute services.
+- [Azure Savings Plan for Compute](/azure/cost-management-billing/savings-plan/savings-plan-overview) - Flexible pricing across VMs, Container Instances, and other compute services.
 - [Right-size resources](/azure/advisor/advisor-cost-recommendations) - Use Azure Advisor recommendations to identify underutilized nodes and optimize pod resource requests.
 - [Container Apps consumption plan](/azure/container-apps/billing) - Pay only for resources consumed during request processing.
 
