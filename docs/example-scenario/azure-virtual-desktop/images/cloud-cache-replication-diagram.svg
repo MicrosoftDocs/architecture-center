@@ -186,12 +186,12 @@
 			</g>
 			<g id="shape1073-23" v:mID="1073" v:groupContext="shape" transform="translate(48.375,-207.125)">
 				<title>Sheet.1073</title>
-				<desc>Virtual Desktop host pool</desc>
+				<desc>Azure Virtual Desktop host pool</desc>
 				<v:textBlock v:margins="rect(4,4,4,4)"/>
 				<v:textRect cx="45" cy="642.242" width="90" height="29.5155"/>
 				<rect x="0" y="627.485" width="90" height="29.5155" class="st8"/>
-				<text x="11.01" y="639.24" class="st9" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Virtual Desktop <tspan
-							x="24.05" dy="1.2em" class="st10">host pool</tspan></text>			</g>
+				<text x="16.63" y="639.24" class="st9" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Virtual <tspan
+							x="4.38" dy="1.2em" class="st10">Desktop host pool</tspan></text>			</g>
 			<g id="group1071-27" transform="translate(121.781,-170.063) scale(-1,1)" v:mID="1071" v:groupContext="group">
 				<title>Sheet.1071</title>
 				<g id="group1058-28" v:mID="1058" v:groupContext="group">
@@ -337,11 +337,11 @@
 			</g>
 			<g id="shape1046-88" v:mID="1046" v:groupContext="shape" transform="translate(194.625,-36.25)">
 				<title>Sheet.1046</title>
-				<desc>Sessionhost</desc>
+				<desc>Session host</desc>
 				<v:textBlock v:margins="rect(4,4,4,4)"/>
 				<v:textRect cx="39.375" cy="647" width="78.75" height="20"/>
 				<rect x="0" y="637" width="78.75" height="20" class="st8"/>
-				<text x="13.32" y="650" class="st9" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Sessionhost</text>			</g>
+				<text x="11.95" y="650" class="st9" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Session host</text>			</g>
 			<g id="shape1047-91" v:mID="1047" v:groupContext="shape" transform="translate(27,-27)">
 				<title>Sheet.1047</title>
 				<rect x="0" y="556.875" width="297" height="100.125" rx="4.5" ry="4.5" class="st26"/>
@@ -433,11 +433,11 @@
 			</g>
 			<g id="shape1045-127" v:mID="1045" v:groupContext="shape" transform="translate(48.375,-36.25)">
 				<title>Sheet.1045</title>
-				<desc>Sessionhost</desc>
+				<desc>Session host</desc>
 				<v:textBlock v:margins="rect(4,4,4,4)"/>
 				<v:textRect cx="39.375" cy="647" width="78.75" height="20"/>
 				<rect x="0" y="637" width="78.75" height="20" class="st8"/>
-				<text x="13.32" y="650" class="st9" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Sessionhost</text>			</g>
+				<text x="11.95" y="650" class="st9" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Session host</text>			</g>
 			<g id="group1049-130" transform="translate(137.25,-223.5)" v:mID="1049" v:groupContext="group">
 				<title>Sheet.1049</title>
 				<g id="group1050-131" v:mID="1050" v:groupContext="group">
@@ -578,16 +578,16 @@
 			</g>
 			<g id="shape1113-182" v:mID="1113" v:groupContext="shape" transform="translate(194.625,-36.25)">
 				<title>Sheet.1113</title>
-				<desc>Sessionhost</desc>
+				<desc>Session host</desc>
 				<v:textBlock v:margins="rect(4,4,4,4)"/>
 				<v:textRect cx="39.375" cy="647" width="78.75" height="20"/>
 				<rect x="0" y="637" width="78.75" height="20" class="st8"/>
-				<text x="13.32" y="650" class="st9" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Sessionhost</text>			</g>
+				<text x="11.95" y="650" class="st9" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Session host</text>			</g>
 			<g id="shape1130-185" v:mID="1130" v:groupContext="shape" transform="translate(36,-13.5)">
 				<title>Sheet.1130</title>
 				<rect x="0" y="433.875" width="112.5" height="223.125" rx="4.5" ry="4.5" class="st7"/>
 			</g>
-			<g id="group1132-187" transform="translate(137.25,-223.5)" v:mID="1132" v:groupContext="group">
+			<g id="group1132-187" transform="translate(138.75,-228.188)" v:mID="1132" v:groupContext="group">
 				<title>Sheet.1132</title>
 				<g id="group1133-188" v:mID="1133" v:groupContext="group">
 					<title>Sheet.1133</title>
@@ -690,11 +690,11 @@
 			</g>
 			<g id="shape1131-226" v:mID="1131" v:groupContext="shape" transform="translate(37.125,-202.375)">
 				<title>Sheet.1131</title>
-				<desc>Virtual Desktop host pool disaster recovery</desc>
+				<desc>Azure Virtual Desktop host pool disaster recovery</desc>
 				<v:textBlock v:margins="rect(4,4,4,4)"/>
 				<v:textRect cx="56.25" cy="644.796" width="112.5" height="24.408"/>
 				<rect x="0" y="632.592" width="112.5" height="24.408" class="st8"/>
-				<text x="22.26" y="635.8" class="st9" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Virtual Desktop <v:newlineChar/><tspan
+				<text x="8.22" y="635.8" class="st9" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Virtual Desktop <v:newlineChar/><tspan
 							x="16.94" dy="1.2em" class="st10">host pool disaster </tspan><tspan x="37.49" dy="1.2em" class="st10">recovery</tspan></text>			</g>
 			<g id="group1076-231" transform="translate(63,-56.6342)" v:mID="1076" v:groupContext="group">
 				<title>Sheet.1076</title>
@@ -783,11 +783,11 @@
 			</g>
 			<g id="shape1112-265" v:mID="1112" v:groupContext="shape" transform="translate(48.375,-36.25)">
 				<title>Sheet.1112</title>
-				<desc>Sessionhost</desc>
+				<desc>Session host</desc>
 				<v:textBlock v:margins="rect(4,4,4,4)"/>
 				<v:textRect cx="39.375" cy="647" width="78.75" height="20"/>
 				<rect x="0" y="637" width="78.75" height="20" class="st8"/>
-				<text x="13.32" y="650" class="st9" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Sessionhost</text>			</g>
+				<text x="11.95" y="650" class="st9" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Session host</text>			</g>
 			<g id="shape1114-268" v:mID="1114" v:groupContext="shape" transform="translate(27,-27)">
 				<title>Sheet.1114</title>
 				<rect x="0" y="556.875" width="297" height="100.125" rx="4.5" ry="4.5" class="st26"/>
