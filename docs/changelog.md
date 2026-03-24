@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: claytonsiemens77
-ms.date: 03/16/2026
+ms.date: 03/23/2026
 ms.topic: whats-new
 ms.author: pnp
 ---
@@ -22,6 +22,9 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
+- [Ambassador Pattern](./patterns/ambassador.md)
+- [Set Up Real-Time Sync of MongoDB Atlas Data Changes to Microsoft Fabric](./example-scenario/analytics/sync-mongodb-atlas-fabric-analytics.yml)
+- [Bulkhead Pattern](./patterns/bulkhead.md)
 - [Get Started with Compute Architecture Design](./solution-ideas/articles/compute-get-started.md)
 - [Multiregion Load Balancing](./high-availability/traffic-manager-application-gateway.yml)
 - [Asynchronous Request-Reply Pattern](./patterns/asynchronous-request-reply.md)
@@ -30,6 +33,8 @@ The following new and updated articles have recently been published in the Azure
 
 ### Updated articles
 
+- [Azure DNS Private Resolver](./networking/architecture/azure-dns-private-resolver.yml) ([#4e5ee92451](https://github.com/MicrosoftDocs/architecture-center/commit/4e5ee92451))
+- [Esri ArcGIS Platform on Azure Virtual Desktop](./example-scenario/data/esri-arcgis-azure-virtual-desktop.yml) ([#91840bcb67](https://github.com/MicrosoftDocs/architecture-center/commit/91840bcb67))
 - [Real-Time Analytics on Data by Using Azure Service Bus and Azure Data Explorer](./solution-ideas/articles/analytics-service-bus.yml) ([#b435877fde](https://github.com/MicrosoftDocs/architecture-center/commit/b435877fde))
 - [Azure Virtual Desktop for Azure Local](./hybrid/azure-local-workload-virtual-desktop.yml) ([#6702dddcc8](https://github.com/MicrosoftDocs/architecture-center/commit/6702dddcc8))
 - [AKS Day-2 Guide - Patch and Upgrade Guidance](./operator-guides/aks/aks-upgrade-practices.md) ([#d778b78dbe](https://github.com/MicrosoftDocs/architecture-center/commit/d778b78dbe))
@@ -76,7 +81,6 @@ The following new and updated articles have recently been published in the Azure
 - [Transient Fault Handling](./best-practices/transient-faults.md) ([#19369cd91b](https://github.com/MicrosoftDocs/architecture-center/commit/19369cd91b))
 - [Automated API deployments using APIOps](./example-scenario/devops/automated-api-deployments-apiops.yml) ([#520a64549e](https://github.com/MicrosoftDocs/architecture-center/commit/520a64549e))
 - [Esri ArcGIS Platform on Azure Virtual Desktop](./example-scenario/data/esri-arcgis-azure-virtual-desktop.yml) ([#5933076273](https://github.com/MicrosoftDocs/architecture-center/commit/5933076273))
-- [Ambassador pattern](./patterns/ambassador.md) ([#cd4298f132](https://github.com/MicrosoftDocs/architecture-center/commit/cd4298f132))
 - [Real-Time Analytics on Data by Using Azure Service Bus and Azure Data Explorer](./solution-ideas/articles/analytics-service-bus.yml) ([#2c388b45b7](https://github.com/MicrosoftDocs/architecture-center/commit/2c388b45b7))
 - [Baseline Highly Available Zone-Redundant App Services Web Application](./web-apps/app-service/architectures/baseline-zone-redundant.yml) ([#484478be40](https://github.com/MicrosoftDocs/architecture-center/commit/484478be40))
 - [IoT Hub-Based Multitenant Solution Architectural Approaches](./guide/multitenant/approaches/iot.md) ([#d856bcf43a](https://github.com/MicrosoftDocs/architecture-center/commit/d856bcf43a))
