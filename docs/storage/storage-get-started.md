@@ -30,7 +30,7 @@ Azure Storage includes the following data services:
 
 - [Azure Disk Storage](https://azure.microsoft.com/products/storage/disks/) is a block-level storage service that provides durable, high-performance disks for Azure virtual machines (VMs).
 
-To evaluate and compare Azure storage services for your workload, see [Storage options](/azure/architecture/guide/technology-choices/storage-options).
+To evaluate and compare Azure storage services for your workload, see [Storage options](../guide/technology-choices/storage-options.md).
 
 ## Architecture
 
@@ -50,27 +50,27 @@ The articles in this section include fully developed architectures that you can 
 
 **Technology choices:** The following articles help you evaluate and select the best storage technologies for your workload requirements:
 
-- [Storage options](/azure/architecture/guide/technology-choices/storage-options). Compare Azure storage services and select the right option for your workload data requirements.
+- [Storage options](../guide/technology-choices/storage-options.md). Compare Azure storage services and select the right option for your workload data requirements.
 
 ### Storage architectures
 
 The following production-ready architectures demonstrate end-to-end storage solutions that you can deploy and customize:
 
-- [Azure file shares in a hybrid environment](/azure/architecture/hybrid/azure-file-share). Deploy Azure file shares alongside on-premises file servers in a hybrid configuration.
+- [Azure file shares in a hybrid environment](../hybrid/azure-file-share.yml). Deploy Azure file shares alongside on-premises file servers in a hybrid configuration.
 
-- [Azure files secured by Active Directory Domain Services (AD DS)](/azure/architecture/example-scenario/hybrid/azure-files-on-premises-authentication). Implement on-premises access to Azure Files with AD DS authentication.
+- [Azure files secured by Active Directory Domain Services (AD DS)](../example-scenario/hybrid/azure-files-on-premises-authentication.yml). Implement on-premises access to Azure Files with AD DS authentication.
 
-- [Hybrid file services](/azure/architecture/hybrid/hybrid-file-services). Implement hybrid file services spanning on-premises and Azure environments.
+- [Hybrid file services](../hybrid/hybrid-file-services.yml). Implement hybrid file services spanning on-premises and Azure environments.
 
 #### Azure NetApp Files solutions
 
-- [Enterprise file shares with disaster recovery (DR)](/azure/architecture/example-scenario/file-storage/enterprise-file-shares-disaster-recovery). Deploy enterprise file share infrastructure with built-in DR by using Azure NetApp Files.
+- [Enterprise file shares with disaster recovery (DR)](../example-scenario/file-storage/enterprise-file-shares-disaster-recovery.yml). Deploy enterprise file share infrastructure with built-in DR by using Azure NetApp Files.
 
-- [Moodle deployment with Azure NetApp Files](/azure/architecture/example-scenario/file-storage/moodle-azure-netapp-files). Deploy Moodle with Azure NetApp Files for scalable, high-performance file storage.
+- [Moodle deployment with Azure NetApp Files](../example-scenario/file-storage/moodle-azure-netapp-files.yml). Deploy Moodle with Azure NetApp Files for scalable, high-performance file storage.
 
-- [Oracle Database with Azure NetApp Files](/azure/architecture/example-scenario/file-storage/oracle-azure-netapp-files). Run Oracle databases on Azure by using Azure NetApp Files for storage.
+- [Oracle Database with Azure NetApp Files](../example-scenario/file-storage/oracle-azure-netapp-files.yml). Run Oracle databases on Azure by using Azure NetApp Files for storage.
 
-- [SQL Server on VMs with Azure NetApp Files](/azure/architecture/example-scenario/file-storage/sql-server-azure-netapp-files). Deploy SQL Server on Azure Virtual Machines with Azure NetApp Files for high-performance storage.
+- [SQL Server on VMs with Azure NetApp Files](../example-scenario/file-storage/sql-server-azure-netapp-files.yml). Deploy SQL Server on Azure Virtual Machines with Azure NetApp Files for high-performance storage.
 
 ### Storage solution ideas
 
