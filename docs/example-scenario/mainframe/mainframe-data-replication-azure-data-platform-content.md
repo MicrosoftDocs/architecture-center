@@ -61,7 +61,7 @@ This solution uses the following components.
     
 ## Scenario details
 
-This article provides information how mLogica product can be use dto perform Bulk data migration from a mainframe to Azure.
+This article provides information on how the mLogica product can be used to perform a bulk data migration from a mainframe system to Azure.
 
 ### Potential use cases
 
