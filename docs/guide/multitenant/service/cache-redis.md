@@ -43,7 +43,7 @@ When you share a cache instance and database between tenants, consider that all 
 Consider monitoring your cache's resources, such as CPU and memory. If you observe resource pressure, consider the following mitigations:
 
 - Scale up to a cache SKU or tier that has higher levels of resources.
-- Scale out to multiple caches by [sharding](../../../patterns/sharding.yml) your cached data. One option is to shard by tenant, where some tenants use cache A and some use cache B. Or you can shard by subsystem, where one part of your solution caches data for all tenants to cache A, and another part of your solution caches onto cache B.
+- Scale out to multiple caches by [sharding](../../../patterns/sharding.md) your cached data. One option is to shard by tenant, where some tenants use cache A and some use cache B. Or you can shard by subsystem, where one part of your solution caches data for all tenants to cache A, and another part of your solution caches onto cache B.
 
 ### Shared cache and database with access control lists
 

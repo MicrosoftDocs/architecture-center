@@ -1,3 +1,15 @@
+---
+title: Sharding pattern
+description: Use the Sharding design pattern to divide a data store into a set of horizontal partitions or shards.
+ms.author: pnp
+author: claytonsiemens77
+ms.date: 03/28/2026
+ms.topic: design-pattern
+ms.subservice: cloud-fundamentals
+---
+
+# Sharding pattern
+
 Divide a data store into a set of horizontal partitions or shards. This can improve scalability when storing and accessing large volumes of data.
 
 ## Context and problem

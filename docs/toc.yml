@@ -507,7 +507,7 @@ items:
     href: patterns/sequential-convoy.yml
   - name: Sharding
     displayName: Horizontal partitioning, database partitioning
-    href: patterns/sharding.yml
+    href: patterns/sharding.md
   - name: Sidecar
     href: patterns/sidecar.md
   - name: Static Content Hosting
