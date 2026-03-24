@@ -428,5 +428,3 @@ If you're new to Azure, review the interactive [Core Cloud Services Introduction
 ## Related resources
 
 - [Discover Google Cloud instances](/azure/migrate/tutorial-discover-gcp)
-- [Assess Google Cloud VM instances](/azure/migrate/tutorial-assess-gcp)
-- [Migrate Google Cloud VMs to Azure](/azure/migrate/tutorial-migrate-gcp-virtual-machines)
