@@ -54,7 +54,7 @@ The articles in this section include fully developed architectures that you can 
 
 ### Storage architectures
 
-The following production-ready architectures demonstrate end-to-end Azure Storage solutions that you can deploy and customize:
+The following production-ready architectures demonstrate end-to-end storage solutions that you can deploy and customize:
 
 - [Azure file shares in a hybrid environment](/azure/architecture/hybrid/azure-file-share). Deploy Azure file shares alongside on-premises file servers in a hybrid configuration.
 
@@ -189,7 +189,7 @@ Best practices for storage help you optimize costs, performance, security, and r
 
 Azure storage services evolve to address modern data challenges. Stay informed about the latest [updates and features](https://azure.microsoft.com/updates/).
 
-To stay current with key Azure Storage services, see the following articles:
+To stay current with key storage services, see the following articles:
 
 - [What's new in Azure Files?](/azure/storage/files/files-whats-new). New features and updates for Azure Files.
 
