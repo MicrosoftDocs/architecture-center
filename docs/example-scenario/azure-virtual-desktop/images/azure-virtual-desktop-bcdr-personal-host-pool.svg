@@ -3673,7 +3673,7 @@
 				<path d="M10.67 2045.8 L0 2039.67 L0 2052 L10.67 2045.8 Z" class="st7"/>
 			</g>
 		</g>
-		<g id="group583-1137" transform="translate(1632.33,-123.742)" v:mID="583" v:groupContext="group">
+		<g id="group583-1137" transform="translate(1629,-123.742)" v:mID="583" v:groupContext="group">
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(131000):26"/>
 			</v:userDefs>
@@ -3694,7 +3694,7 @@
 							 2047.06 C4.04 2047.06 5.07 2048.22 5.07 2049.52 Z" class="st49"/>
 			</g>
 		</g>
-		<g id="shape587-1144" v:mID="587" v:groupContext="shape" transform="translate(1676.68,-110.07)">
+		<g id="shape587-1144" v:mID="587" v:groupContext="shape" transform="translate(1665,-110.07)">
 			<title>Sheet.587</title>
 			<desc>Azure Virtual Desktop subnet</desc>
 			<v:userDefs>
