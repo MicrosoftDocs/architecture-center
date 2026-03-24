@@ -214,4 +214,3 @@ Other contributor:
 - [Private Link in a hub-and-spoke network](../guide/private-link-hub-spoke-network.md)
 - [Limit cross-tenant private endpoint connections in Azure](/azure/cloud-adoption-framework/ready/azure-best-practices/limit-cross-tenant-private-endpoint-connections)
 - [NSP](/azure/private-link/network-security-perimeter-concepts)
-- 
