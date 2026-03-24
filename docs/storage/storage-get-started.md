@@ -1,14 +1,14 @@
 ---
 title: Get Started with Storage Architecture Design
 description: Get started with Azure storage architecture design by comparing storage service types, reviewing reference architectures, and applying readiness guidance.
-ms.author: anaharris; csiemens
-author: anaharris-ms; claytonsiemens77
+ms.author: csiemens
+author: claytonsiemens77
 ms.update-cycle: 1095-days
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-data
 ai-usage: ai-assisted
-ms.date: 03/24/2026
+ms.date: 03/25/2026
 
 ---
 
@@ -18,24 +18,24 @@ Azure Storage provides a foundation for persisting, backing up, and sharing data
 
 Azure Storage includes the following data services:
 
-- [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) is a massively scalable object store for text and binary data. It supports big data analytics through Azure Data Lake Storage Gen2.
+- [Azure Blob Storage](https://azure.microsoft.com/products/storage/blobs/) is a massively scalable object store for text and binary data. It supports big data analytics through Azure Data Lake Storage Gen2.
 
-- [Azure Files](https://azure.microsoft.com/services/storage/files) is a fully managed file share service for cloud or on-premises deployments.
+- [Azure Files](https://azure.microsoft.com/products/storage/files/) is a fully managed file share service for cloud or on-premises deployments.
 
 - [Azure NetApp Files](https://azure.microsoft.com/products/netapp/) is a high‑performance, enterprise-grade file storage service designed for high performance and low latency.
 
-- [Azure Queue Storage](https://azure.microsoft.com/services/storage/queues) is a messaging store that enables reliable communication between application components.
+- [Azure Queue Storage](https://azure.microsoft.com/products/storage/queues/) is a messaging store that enables reliable communication between application components.
 
-- [Azure Table Storage](https://azure.microsoft.com/services/storage/tables) is a NoSQL key-value store for schemaless storage of structured data.
+- [Azure Table Storage](https://azure.microsoft.com/products/storage/tables/) is a NoSQL key-value store for schemaless storage of structured data.
 
-- [Azure Disk Storage](https://azure.microsoft.com/services/storage/disks) is a block-level storage service that provides durable, high-performance disks for Azure virtual machines (VMs).
+- [Azure Disk Storage](https://azure.microsoft.com/products/storage/disks/) is a block-level storage service that provides durable, high-performance disks for Azure virtual machines (VMs).
 
 To evaluate and compare Azure storage services for your workload, see [Storage options](/azure/architecture/guide/technology-choices/storage-options).
 
 ## Architecture
 
 :::image type="complex" border="false" source="images/storage-get-started-diagram.svg" alt-text="Diagram that shows a baseline Azure storage architecture within an Azure subscription." lightbox="images/storage-get-started-diagram.svg":::
-   Diagram that shows the solution journey for storage on Azure, which starts with learning and organizational readiness, then moves to selecting the appropriate Azure Storage services before it advances to implementation guidance and production deployment. A workload client connects to the Azure subscription boundary through VPN, Azure ExpressRoute, or a public IP address. Inside the subscription, a virtual network contains network ingress control like Azure Front Door, Azure Application Gateway, or Azure Load Balancer, along with a compute layer and an Azure Storage grouping. The storage grouping organizes services into three categories: general purpose, file share, and data migration and hybrid. General purpose includes Blob Storage, Data Lake Storage Gen2, Azure Files, Storage Queue, and Table Storage. File share includes Azure NetApp Files. Data migration and hybrid includes Azure Data Box, Azure Data Box Edge, Azure Managed Lustre, and Elastic SAN. Private endpoints connect the compute layer to the storage services. The subscription also includes Azure Bastion, public IP addresses, Azure DNS, user-defined routes (UDRs), network and application security groups, and managed identities. Cross‑cutting platform services include Microsoft Entra ID, Azure Cost Management, Azure Monitor, Microsoft Defender for Cloud, and Microsoft Purview.
+   Diagram that shows the solution journey for storage on Azure, which starts with learning and organizational readiness, then moves to selecting the appropriate Azure Storage services before it advances to implementation guidance and production deployment. A workload client connects to the Azure subscription boundary through VPN, Azure ExpressRoute, or a public IP address. Inside the subscription, a virtual network contains network ingress control like Azure Front Door, Azure Application Gateway, or Azure Load Balancer, along with a compute layer and an Azure Storage grouping. The storage grouping organizes services into three categories: general purpose, file share, and data migration and hybrid. General purpose includes Blob Storage, Data Lake Storage Gen2, Azure Files, Storage Queue, and Table Storage. File share includes Azure NetApp Files. Data migration and hybrid includes Azure Data Box, Azure Data Box Edge, Azure Managed Lustre, and Elastic SAN. Private endpoints connect the compute layer to the storage services. The subscription also includes Azure Bastion, public IP addresses, Azure DNS, user-defined routes (UDRs), network and application security groups, and managed identities. Cross‑cutting platform services include Microsoft Entra ID, Microsoft Cost Management, Azure Monitor, Microsoft Defender for Cloud, and Microsoft Purview.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/storage-get-started-diagram.vsdx) of this architecture.*
@@ -92,7 +92,7 @@ The following solution ideas demonstrate implementation patterns and possibiliti
 
 The following resources provide foundational knowledge for storage implementations on Azure:
 
-- **Developer: [Store data in Azure](/training/paths/store-data-in-azure). Learn the fundamentals of data storage on Azure, including how to choose storage approaches and how to work with different storage services.
+- **Developer: [Store data in Azure](/training/paths/store-data-in-azure/). Learn the fundamentals of data storage on Azure, including how to choose storage approaches and how to work with different storage services.
 
 - **Developer: [Develop solutions that use Blob storage](/training/paths/develop-solutions-that-use-blob-storage/). Create Blob Storage resources, manage data through the blob storage lifecycle, and work with the Blob Storage client library.
 
@@ -139,7 +139,7 @@ Best practices for storage help you optimize costs, performance, security, and r
 
 - [DR and storage account failover](/azure/storage/common/storage-disaster-recovery-guidance). Plan for regional failures and account failover.
 
-- [About Azure file share backup](/azure/backup/azure-file-share-backup-overview). Implement backup protection for Azure Files.
+- [Azure file share backup](/azure/backup/azure-file-share-backup-overview). Implement backup protection for Azure Files.
 
 ### Azure NetApp Files
 
@@ -191,11 +191,11 @@ Azure storage services evolve to address modern data challenges. Stay informed a
 
 To stay current with key Azure Storage services, see the following articles:
 
-- [What's new in Azure Files](/azure/storage/files/files-whats-new). New features and updates for Azure Files.
+- [What's new in Azure Files?](/azure/storage/files/files-whats-new). New features and updates for Azure Files.
 
-- [What's new in Azure NetApp Files](/azure/azure-netapp-files/whats-new). New features and updates for Azure NetApp Files.
+- [What's new in Azure NetApp Files?](/azure/azure-netapp-files/whats-new). New features and updates for Azure NetApp Files.
 
-- [What's new in Azure Disk Storage](/azure/virtual-machines/disks-whats-new). New capabilities and updates for Azure managed disks.
+- [What's new in Azure Disk Storage?](/azure/virtual-machines/disks-whats-new). New capabilities and updates for Azure managed disks.
 
 ## Other resources
 
@@ -205,7 +205,7 @@ To plan for your storage needs, see [Review your storage options](/azure/cloud-a
 
 ### Hybrid storage
 
-Most organizations need a hybrid approach to storage because their data resides both on-premises and in the cloud. Organizations typically [extend on-premises storage solutions to the cloud](/azure/architecture/hybrid/hybrid-file-services). To connect environments, organizations must [choose a hybrid network architecture](/azure/architecture/reference-architectures/hybrid-networking/index).
+Most organizations need a hybrid approach to storage because their data resides both on-premises and in the cloud. Organizations typically [extend on-premises storage solutions to the cloud](/azure/architecture/hybrid/hybrid-file-services). To connect environments, organizations must [choose a hybrid network architecture](/azure/architecture/reference-architectures/hybrid-networking/).
 
 Review the following key hybrid storage scenarios:
 
@@ -233,7 +233,7 @@ Data migration planning helps you choose the right strategy and tools for moving
 
 ## Amazon Web Services (AWS) or Google Cloud professionals
 
-To help you ramp up quickly, the following articles compare Azure Storage options to other cloud services:
+To help you ramp up quickly, the following articles compare Azure storage options to other cloud services:
 
 ### Service comparison
 
