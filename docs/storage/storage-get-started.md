@@ -98,11 +98,11 @@ The following resources provide foundational knowledge for storage implementatio
 
 - **Administrator: [AZ-104: Implement and manage storage in Azure](/training/paths/az-104-manage-storage/).** Set up storage accounts, Blob Storage, Azure Files, and storage security.
 
-- **Data engineer: [Large-Scale Data Processing with Data Lake Storage Gen2](/training/paths/data-processing-with-azure-adls/).** Set up Data Lake Storage Gen2, upload data, and secure your storage account.
+- **Data engineer: [Large-scale data processing with Data Lake Storage Gen2](/training/paths/data-processing-with-azure-adls/).** Set up Data Lake Storage Gen2, upload data, and secure your storage account.
 
 ## Organizational readiness
 
-Organizations that start their cloud adoption can use the [Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/) to access proven guidance that accelerates cloud adoption. For cloud-scale Azure Storage guidance, see [Cloud-scale analytics](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics).
+Organizations that start their cloud adoption can use the [Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/) to access proven guidance that accelerates cloud adoption.
 
 To help ensure the quality of your storage solution on Azure, follow the [Azure Well-Architected Framework](/azure/well-architected/). The Well-Architected Framework provides prescriptive guidance for organizations that seek architectural excellence and describes how to design, provision, and monitor cost-optimized Azure solutions.
 
@@ -131,7 +131,6 @@ Based on the solution technology that you use, see the following best practice r
 
 - [Best practices for using Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-best-practices). Design and operate Data Lake Storage for analytics workloads.
 
-- [Azure Policy Regulatory Compliance controls for Azure Data Lake Storage Gen1](/azure/data-lake-store/security-controls-policy). Apply compliance controls to Data Lake Storage Gen1.
 
 ### Azure Files
 
@@ -155,7 +154,7 @@ Based on the solution technology that you use, see the following best practice r
 
 - [Guidelines for Azure NetApp Files network planning](/azure/azure-netapp-files/azure-netapp-files-network-topologies). Design network connectivity for Azure NetApp Files.
 
-- [Quickstart: Set up Azure NetApp Files and NFS volume](/azure/azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes). Deploy your first Azure NetApp Files volume.
+- [Quickstart: Set up Azure NetApp Files and Network File System (NFS) volume](/azure/azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes). Deploy your first Azure NetApp Files volume.
 
 - [Performance considerations for Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-performance-considerations). Optimize Azure NetApp Files for performance requirements.
 
