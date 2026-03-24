@@ -88,7 +88,6 @@ Diagram that shows a hub and two spokes. The hub contains a gateway subnet and a
 
 *Download a [Visio file](https://arch-center.azureedge.net/<file-name>.vsdx) of this architecture.*
 
-
 This design requires SNAT because traffic in each direction would otherwise pass through a different load balancer. The internal and public Azure load balancers can't guarantee traffic symmetry, so the NVA instances must perform SNAT to attract return traffic. Most stateful NVAs, such as firewalls, require traffic symmetry.
 
 The following diagram shows a slightly different pattern for outbound traffic.
