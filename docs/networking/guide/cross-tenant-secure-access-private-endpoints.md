@@ -12,13 +12,13 @@ ms.subservice: architecture-guide
 
 Like most Azure platform as a service (PaaS) services, web apps and function apps are publicly reachable over the internet by default. You can restrict inbound traffic to web apps and function apps by using private endpoints.
 
-Private endpoints use IP addresses from the Azure virtual network address space. Network traffic between the client and the app traverses the virtual network and Private Link on the Microsoft backbone, which eliminates exposure to the public internet. Private endpoints also support improvised cross-tenant access. A secure connection can run from a consumer virtual network in one tenant to a specific web app or function app in another tenant, which means site-to-site VPNs or virtual network peerings aren't necessary.
+Private endpoints use IP addresses from the Azure virtual network address space. Network traffic between the client and the app traverses the virtual network and Azure Private Link on the Microsoft backbone, which eliminates exposure to the public internet. Private endpoints also support improvised cross-tenant access. A secure connection can run from a consumer virtual network in one tenant to a specific web app or function app in another tenant, which means site-to-site VPNs and virtual network peering aren't necessary.
 
 This guide presents an architecture that uses a private endpoint. A private endpoint securely exposes a web app in one tenant to a client that consumes the web app in another tenant. You can also use this approach for a function app if you have a Premium or App Service plan for Functions.
 
 ## Architecture
 
-:::image type="content" source="./images/cross-tenant-secure-access-private-endpoints-architecture.svg" alt-text="Diagram that shows how a private endpoint securely connects a user on a virtual machine in one tenant to a web app in another tenant." lightbox="./images/cross-tenant-secure-access-private-endpoints-architecture.svg" border="false":::
+:::image type="complex" source="./images/cross-tenant-secure-access-private-endpoints-architecture.svg" alt-text="Diagram that shows how a private endpoint securely connects a user on a virtual machine in one tenant to a web app in another tenant." lightbox="./images/cross-tenant-secure-access-private-endpoints-architecture.svg" border="false":::
    Diagram that shows two tenant areas side by side. On the left, a consumer tenant contains Subscription C with a virtual network, a subnet, a virtual machine (VM), a private endpoint, and a private Domain Name System (DNS) zone. On the right, a provider tenant contains Subscription P with a virtual network, a subnet, a private endpoint, a private DNS zone, and an App Service web app. An internet globe and an Azure DNS service sit above the two tenants. Numbered arrows trace the dataflow: Step 1 goes from the VM to the internet, Step 2 goes from the internet to Azure DNS, Step 3 goes from Azure DNS to the private DNS zones in each tenant, Step 4 returns the private endpoint IP address to the VM, Step 5 sends an HTTPS request from the VM through the private endpoint to the web app, and Step 6 returns the response. A separate path, labeled Step 7, shows a red arrow going from the internet directly to the web app, with a red 403 label that indicates that public access is denied.
 :::image-end:::
 
@@ -60,7 +60,7 @@ This guide presents an architecture that uses a private endpoint. A private endp
 
 1. Secure the web app in the tenant that owns it. Create a private endpoint and restrict access from the public internet to the web app.
 
-1. Evaluate if the service you're using requires additional access controls to disable public access.
+1. Evaluate whether the service you're using requires additional access controls to disable public access.
 
    All Azure services implement their own public access behavior. If you don't complete additional configurations, some Azure services remain publicly available even after you associate them with a private endpoint. Web apps and function apps become unavailable publicly when they're associated with a private endpoint and the [public access setting](/azure/app-service/overview-access-restrictions#app-access) is disabled.
 
@@ -95,7 +95,7 @@ The consumer doesn't own the target resource, so use the full resource ID of the
 
 Some Azure resources have multiple subresources. For instance, an [Azure Storage resource](/azure/storage/common/storage-private-endpoints#dns-changes-for-private-endpoints) has *blob*, *table*, *queue*, *file*, *web*, and *dfs* subresources. The provider must also provide information about the subresources. Web apps and function apps only have one subresource, *sites*. For more information about private endpoint subresources and their values, see [Private-link resource](/azure/private-link/private-endpoint-overview#private-link-resource). Because the private endpoint connection isn't automatically approved, the consumer can enter a message for the provider to read.
 
-It's not possible to automate the DNS zone integration setup. The consumer must  manually configure the DNS records as explained in [Step 3](#step-3-consumer-dns-setup).
+It's not possible to automate the DNS zone integration setup. The consumer must manually configure the DNS records as explained in [Step 3](#step-3-consumer-dns-setup).
 
 When the private endpoint resource is created, the connection status is *Pending*. The connection remains in this unusable state until the provider approves the request.
 
@@ -127,7 +127,7 @@ The consumer needs to set up and configure the private DNS zone to make sure its
 
   These actions create the A record in the private DNS zone. The fully qualified domain name (FQDN) is populated automatically when the connection is approved.
 
-- If the consumer manages their own DNS zones, the consumer needs to configure their environment as described earlier in [Provider setup](#provider-setup).
+- If the consumer manages their own DNS zones, the consumer needs to configure their environment as described in [Provider setup](#provider-setup).
 
 If the provider configures a custom domain name, the consumer can access the web app via that name.
 
@@ -200,7 +200,7 @@ Other contributor:
 - [Restrict your storage account to a virtual network (for Functions)](/azure/azure-functions/configure-networking-how-to#restrict-your-storage-account-to-a-virtual-network)
 - [Microsoft Azure Well-Architected Framework - Security](/azure/architecture/framework/security)
 - [Set up App Service access restrictions](/azure/app-service/app-service-ip-restrictions)
-- [Using private endpoints for Azure web app](/azure/app-service/networking/private-endpoint)
+- [Use private endpoints for App Service apps](/azure/app-service/overview-private-endpoint)
 - [Functions networking options](/azure/azure-functions/functions-networking-options)
 - [What is a private endpoint?](/azure/private-link/private-endpoint-overview)
 - [Manage Azure private endpoints](/azure/private-link/manage-private-endpoint)
@@ -210,8 +210,7 @@ Other contributor:
 ## Related resources
 
 - [Improved-security access to multitenant web apps from an on-premises network](../../web-apps/guides/networking/access-multitenant-web-app-from-on-premises.yml)
-- [Multi-tier App Service with private endpoint](../../example-scenario/web/multi-tier-app-service-private-endpoint.yml)
+- [Baseline highly available zone-redundant web application](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant)
 - [Private Link in a hub-and-spoke network](../guide/private-link-hub-spoke-network.md)
 - [Limit cross-tenant private endpoint connections in Azure](/azure/cloud-adoption-framework/ready/azure-best-practices/limit-cross-tenant-private-endpoint-connections)
 - [NSP](/azure/private-link/network-security-perimeter-concepts)
-
