@@ -50,7 +50,7 @@ For more information, see [Extensions and extension versions for Azure Database 
 
 ### Horizontal scaling with sharding
 
-The [Sharding pattern](/azure/architecture/patterns/sharding) enables you to scale your workload across multiple databases or database servers.
+The [Sharding pattern](../../../patterns/sharding.yml) enables you to scale your workload across multiple databases or database servers.
 
 Solutions that need a high level of scale can use Azure Cosmos DB for PostgreSQL. This deployment mode enables horizontal sharding of tenants across multiple servers or nodes. Use *distributed tables* in multitenant databases to ensure that all data for a tenant is stored on the same node. This approach improves query performance.
 
