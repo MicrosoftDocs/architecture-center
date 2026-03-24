@@ -82,7 +82,7 @@ The Load Balancer design pattern uses two Azure load balancers to expose a clust
 
 The following diagram shows the sequence of hops that packets take from the internet to an application server in a spoke virtual network. These packets traverse a firewall NVA to control traffic to and from the public internet, also called *North-South traffic*.
 
-:::image type="complex" source="./images/nvaha-load-balancer-internet-inbound.svg" lightbox="./images/nvaha-alb-internet-inbound.svg" alt-text="Diagram that shows inbound internet traffic with Load Balancer integration." border="false":::
+:::image type="complex" source="./images/nvaha-load-balancer-internet-inbound.svg" lightbox="./images/nvaha-load-balancer-internet-inbound.svg" alt-text="Diagram that shows inbound internet traffic with Load Balancer integration." border="false":::
 Diagram that shows a hub and two spokes. The hub contains a gateway subnet and an NVA subnet. The gateway subnet contains a VPN or Azure ExpressRoute gateway. The NVA subnet contains an internal load balancer and NVAs. Spoke1 contains an app server in the 10.1.1.0/24 address space. Spoke2 contains an app server in the 10.1.2.0/24 address space. Inbound traffic flows from the public internet to the NVAs through the public load balancer. The NVAs need to perform SNAT before they send the traffic to the app server to guarantee traffic symmetry. The translated traffic then flows to the app server in Spoke2. Return traffic flows from this app server directly to the corresponding NVA instance because of SNAT, which forwards it to the public internet.
 :::image-end:::
 
