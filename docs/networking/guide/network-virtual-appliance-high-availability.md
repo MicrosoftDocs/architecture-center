@@ -82,17 +82,17 @@ The Load Balancer design pattern uses two Azure load balancers to expose a clust
 
 The following diagram shows the sequence of hops that packets take from the internet to an application server in a spoke virtual network. These packets traverse a firewall NVA to control traffic to and from the public internet, also called *North-South traffic*.
 
-:::image type="complex" source="./images/nvaha-alb-internet-inbound.svg" lightbox="./images/nvaha-alb-internet-inbound.svg" alt-text="Diagram that shows inbound internet traffic with Load Balancer integration." border="false":::
+:::image type="complex" source="./images/nvaha-load-balancer-internet-inbound.svg" lightbox="./images/nvaha-alb-internet-inbound.svg" alt-text="Diagram that shows inbound internet traffic with Load Balancer integration." border="false":::
 Diagram that shows a hub and two spokes. The hub contains a gateway subnet and an NVA subnet. The gateway subnet contains a VPN or Azure ExpressRoute gateway. The NVA subnet contains an internal load balancer and NVAs. Spoke1 contains an app server in the 10.1.1.0/24 address space. Spoke2 contains an app server in the 10.1.2.0/24 address space. Inbound traffic flows from the public internet to the NVAs through the public load balancer. The NVAs need to perform SNAT before they send the traffic to the app server to guarantee traffic symmetry. The translated traffic then flows to the app server in Spoke2. Return traffic flows from this app server directly to the corresponding NVA instance because of SNAT, which forwards it to the public internet.
 :::image-end:::
 
-*Download a [Visio file](https://arch-center.azureedge.net/nvaha-alb-internet-inbound.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/nvaha-load-balancer-internet-inbound.vsdx) of this architecture.*
 
 This design requires SNAT because traffic in each direction would otherwise pass through a different load balancer. The internal and public Azure load balancers can't guarantee traffic symmetry, so the NVA instances must perform SNAT to attract return traffic. Most stateful NVAs, such as firewalls, require traffic symmetry.
 
 The following diagram shows a slightly different pattern for outbound traffic.
 
-:::image type="complex" source="./images/nvaha-alb-internet-outbound.svg" lightbox="./images/nvaha-alb-internet-outbound.svg" alt-text="Diagram that shows outbound internet traffic with Load Balancer integration." border="false":::
+:::image type="complex" source="./images/nvaha-load-balancer-internet-outbound.svg" lightbox="./images/nvaha-load-balancer-internet-outbound.svg" alt-text="Diagram that shows outbound internet traffic with Load Balancer integration." border="false":::
   Diagram that shows a hub and two spokes. The hub contains a gateway subnet and an NVA subnet. The gateway subnet contains a VPN or Azure ExpressRoute gateway. The NVA subnet contains an internal load balancer and NVAs. There's a NAT gateway between the NVA subnet and the internet. Each spoke contains an app server. Spoke2 contains a spoke route table for IP address ranges 0.0.0.0/0 to 10.0.0.36, with gateway propagation turned off. Outbound traffic flows from the Spoke2 app server to the NVA through the internal load balancer because of the UDR for 0.0.0.0/0. The NVA sends it to the public internet through the NAT gateway. Return traffic comes back through the NAT gateway, then to the NVA, and finally to the Spoke2 app server.
 :::image-end:::
 
