@@ -92,11 +92,11 @@ The following solution ideas demonstrate implementation patterns and possibiliti
 
 The following resources provide foundational knowledge for storage implementations on Azure:
 
-- **Developer: [Store data in Azure](/training/paths/store-data-in-azure/). Learn the fundamentals of data storage on Azure, including how to choose storage approaches and how to work with different storage services.
+- **Developer: [Store data in Azure](/training/paths/store-data-in-azure/)**. Learn the fundamentals of data storage on Azure, including how to choose storage approaches and how to work with different storage services.
 
-- **Developer: [Develop solutions that use Blob storage](/training/paths/develop-solutions-that-use-blob-storage/). Create Blob Storage resources, manage data through the blob storage lifecycle, and work with the Blob Storage client library.
+- **Developer: [Develop solutions that use Blob storage](/training/paths/develop-solutions-that-use-blob-storage/)**. Create Blob Storage resources, manage data through the blob storage lifecycle, and work with the Blob Storage client library.
 
-- **Administrator: [AZ-104: Implement and manage storage in Azure](/training/paths/az-104-manage-storage/). Set up storage accounts, Blob Storage, Azure Files, and storage security.
+- **Administrator: [AZ-104: Implement and manage storage in Azure](/training/paths/az-104-manage-storage/)**. Set up storage accounts, Blob Storage, Azure Files, and storage security.
 
 - **Data engineer: [Large-Scale Data Processing with Data Lake Storage Gen2](/training/paths/data-processing-with-azure-adls/). Set up Data Lake Storage Gen2, upload data, and secure your storage account.
 
