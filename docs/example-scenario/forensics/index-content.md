@@ -199,6 +199,45 @@ For compliance, some standards or regulations require evidence and the supportin
 
 All the solution components, including the Storage account that archives evidence, are hosted in the same Azure region as the systems being investigated.
 
+### Cost Optimization
+
+Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+
+This architecture has a mix of fixed-cost and variable-cost components. The fixed-cost components run continuously regardless of investigation frequency. The variable-cost components scale with the volume and size of forensic captures.
+
+#### Fixed-cost components
+
+The following components incur ongoing costs whether or not you perform evidence captures:
+
+- **Hybrid runbook worker VM.** This VM runs continuously in the SOC subscription so that it's available for on-demand evidence capture. The VM size is the primary cost lever. Evidence capture is not compute-intensive beyond hash computation, so a general-purpose VM with modest specifications, such as a Standard_D2s_v5, is sufficient. To reduce the cost of this always-on VM, consider [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) or [savings plans](/azure/cost-management-billing/savings-plan/savings-plan-compute-overview) for a one-year or three-year commitment.
+
+- **Azure Automation account.** The Automation account that hosts the `Copy-VmDigitalEvidence` runbook and the hybrid worker configuration contributes a minimal baseline cost.
+
+- **Key Vault.** The SOC key vault stores hash values as secrets. Cost per secret operation is nominal, and the overall Key Vault cost is minimal for this workload.
+
+#### Variable-cost components
+
+The following components scale with the number of investigations and the size of captured evidence:
+
+- **Azure Storage (immutable blob storage).** Storage is the primary cost driver in this architecture. Each forensic capture generates full disk snapshots of the target VM's OS and data disks, which can range from tens to hundreds of gigabytes per VM. Because snapshots under a legal hold policy can't be deleted, storage costs are cumulative. They grow with each investigation and with the number and size of disks per VM. To manage storage costs, evaluate the [access tier](/azure/storage/blobs/access-tiers-overview) for retained snapshots. Snapshots that are rarely accessed after initial hash verification can benefit from the Cool or Cold tier, which offers lower storage rates in exchange for higher access costs.
+
+- **Azure Files.** The temporary file share that computes hash values incurs cost only for the duration that the snapshot data is present. The runbook removes this data after hash computation, so the cost is transient and proportional to snapshot size.
+
+- **Log Analytics workspace.** Log Analytics ingestion costs increase with the number of operations that you perform in the SOC subscription. More frequent evidence captures and more active monitoring generate more log data. Configure [data retention policies](/azure/azure-monitor/logs/data-retention-configure) to match your compliance requirements and avoid retaining data longer than necessary.
+
+#### Scaling behavior
+
+For organizations that perform forensic captures infrequently, storage costs remain low and the fixed-cost VM dominates overall spending. As investigation volume increases, storage becomes the dominant cost because each capture adds permanently retained snapshots. There is no economy of scale on storage: cost grows linearly with the number and size of captured disks.
+
+To estimate the cost of this architecture for your workload, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator). Configure the following components based on your expected investigation volume and VM disk sizes:
+
+- One general-purpose VM (for example, Standard_D2s_v5) for the hybrid runbook worker
+- Azure Blob Storage with the appropriate access tier and estimated total snapshot volume
+- Azure Files with Standard tier for transient usage
+- Key Vault with Standard tier
+- Azure Automation job runs based on expected capture frequency
+- Log Analytics with estimated ingestion volume
+
 ### Operational Excellence
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
