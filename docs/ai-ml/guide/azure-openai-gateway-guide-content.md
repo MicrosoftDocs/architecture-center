@@ -133,7 +133,6 @@ To help manage costs when developing and testing a gateway, consider using a sim
 
 Caching strategies can be implemented in the gateway to optimize costs. Caching can help reduce the number of calls made to Foundry, which can save costs, especially for frequently accessed data or common requests. However, caching strategies need to be carefully designed to ensure that they don't serve stale data or interfere with the freshness requirements of your workload.
 
-
 ### Operational Excellence
 
 When considering how an API gateway benefits your architecture, use the [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist) to evaluate your design. You need to address the following operational excellence considerations:
