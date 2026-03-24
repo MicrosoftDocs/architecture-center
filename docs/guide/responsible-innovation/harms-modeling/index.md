@@ -10,7 +10,7 @@ ms.subservice: architecture-guide
 
 # Foundations of assessing harm
 
-Harms modeling is a practice that helps you anticipate the potential for harm, identify gaps in product that could put people at risk, and ultimately create approaches that proactively address harm.
+Harm modeling is a practice that helps you anticipate the potential for harm, identify gaps in product that could put people at risk, and ultimately create approaches that proactively address harm.
 
 This guidance is for architects who design algorithm-driven systems, such as custom-coded decision-making frameworks. It also applies to outsourced decision-making processes, such as processes that involve AI or machine learning models.
 
@@ -162,7 +162,7 @@ At scale, the way that technology affects people shapes social and economic stru
 
 Use the previous categories, questions, and examples to generate specific ideas for how harm could occur within your workload. Adapt and adopt other categories that are relevant to your scenario.
 
-You can complete this harms modeling activity individually, but ideally, you should collaborate with stakeholders. When you design and implement the technology, involve developers, data scientists, designers, user researchers, business decision-makers, and other disciplines.
+You can complete this harm modeling activity individually, but ideally, you should collaborate with stakeholders. When you design and implement the technology, involve developers, data scientists, designers, user researchers, business decision-makers, and other disciplines.
 
 - **Intended use:** If [feature] is used for [use case], then [stakeholder] could experience [harm description].
 
@@ -174,7 +174,7 @@ You can complete this harms modeling activity individually, but ideally, you sho
 
 Some services provide [transparency documents](https://www.microsoft.com/ai/principles-and-approach#transparency-report). Transparency documents provide insights into how the service operates, its capabilities, limitations, and ethical considerations. You can review these documents to understand the inner workings of the service and help ensure responsible use.
  
-When you build solutions on Azure, read through any transparency documents that your service offers. Factor in how those solutions align with your workload's harms modeling. Consider whether the service's functionalities and limitations introduce or mitigate risks in your specific use case.
+When you build solutions on Azure, read through any transparency documents that your service offers. Factor in how those solutions align with your workload's harm modeling. Consider whether the service's functionalities and limitations introduce or mitigate risks in your specific use case.
 
 ## Evaluate harms
 
