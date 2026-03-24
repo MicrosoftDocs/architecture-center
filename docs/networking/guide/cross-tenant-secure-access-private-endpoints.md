@@ -111,7 +111,7 @@ The provider can retrieve, review, and approve or reject pending requests in the
 
 The provider can read the message that was provided when the private endpoint was created. The provider can also see the name that the consumer gave the private endpoint. In the Azure CLI and Azure PowerShell, the consumer's tenant ID, resource group name, and private endpoint resource name are also available. The Azure portal creates a hyperlink to the private endpoint of the consumer. Because the consumer is in a different tenant, it's typically not available to the provider.
 
-It's not possible to automate private endpoint connection approvals. However,  you can use the autoapproval property to preapprove a set of subscriptions for automated access to the service by using Private Link.
+It's not possible to automate private endpoint connection approvals. However, you can use the autoapproval property to preapprove a set of subscriptions for automated access to the service by using Private Link.
 
 ### Step 3 (consumer): DNS setup
 
@@ -178,7 +178,7 @@ For a GitHub repo with Bicep templates that you can use to deploy this architect
 
 You can configure the resource's internal firewall by using access restrictions to define allow and deny rules. You can base restrictions on IPv4/IPv6 addresses, service tags, or service endpoints. Service endpoints only permit traffic from selected subnets and virtual networks. Access restrictions are free to use and they're available in all Azure App Service and Azure Functions plans. However, it's difficult to maintain rules, and non-Microsoft clients require listed IPs, which could be dynamic or considered sensitive.
 
-For some other PaaS resources, such as Storage Accounts, Key Vault, and Event Hubs, Azure Network Security Perimeter is an additional option to restrict inbound traffic. You can use Azure Network Security define a logical security boundary around certain Azure PaaS resources that aren't deployed inside a virtual network by using a network security perimeter (NSP). NSPs provide you with a virtual perimeter for PaaS resources and they can control who and what can talk to them. NSPs can be used in combination with private endpoints.
+For some other PaaS resources, such as Storage Accounts, Key Vault, and Event Hubs, Azure Network Security Perimeter is an additional option to restrict inbound traffic. You can use Azure Network Security Perimeter to define a logical security boundary around certain Azure PaaS resources that aren't deployed inside a virtual network by using a network security perimeter (NSP). NSPs provide you with a virtual perimeter for PaaS resources and they can control who and what can talk to them. NSPs can be used in combination with private endpoints.
 
 ## Contributors
 
