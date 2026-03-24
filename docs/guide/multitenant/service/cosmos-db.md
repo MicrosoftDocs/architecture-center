@@ -112,17 +112,17 @@ When you use a dedicated Azure Cosmos DB account per tenant, consider the [maxim
 
 ## Summary of recommended isolation models
 
-| Workload need | Partition key per tenant (recommended) | Database account per tenant (recommended) |
+| Workload need | Partition key per tenant | Database account per tenant |
 |---|:---:|:---:|
-| Cost efficiency | Yes. Optimize one container RU/s for workload | Yes. Optimize cost by sharing RU/s within a fleet pool |
+| Cost efficiency | Optimize one container RU/s for workload | Optimize cost by sharing RU/s within a fleet pool |
 | New tenant creation latency | Immediate | Immediate, if you pre-create empty database accounts and just-in-time assign to new tenants |
-| Tenant data deletion | Easy. Use delete by partition key feature to delete all data for tenant | Easy. Delete the database account when tenant leaves |
+| Tenant data deletion | Use delete by partition key feature to delete all data for tenant | Delete the database account when tenant leaves |
 | Data access security isolation | Need to implement within the application | RBAC |
 | Geo-replication | Per tenant geo-replication not possible | Each database account can have custom regions configured |
 | Noisy neighbor prevention | No | Yes |
 | Encryption key | Same for all tenants | Customer-managed key per tenant (CMK is only available at database account level) |
 | Throughput requirements | >0 RUs per tenant | >100 RUs per tenant |
-| Queries across tenants | Easy. Container acts as boundary for queries. | Possible. Use Fabric Mirror for analytical queries |
+| Queries across tenants | Container acts as boundary for queries. | Use Mirroring in Fabric for analytical queries |
 | Example use case | B2C apps | Premium or enterprise offer for B2B apps |
 
 ## Non-recommended models
