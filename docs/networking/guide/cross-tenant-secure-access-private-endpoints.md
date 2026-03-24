@@ -19,7 +19,7 @@ This guide presents an architecture that uses a private endpoint. A private endp
 ## Architecture
 
 :::image type="content" source="./images/cross-tenant-secure-access-private-endpoints-architecture.svg" alt-text="Diagram that shows how a private endpoint securely connects a user on a virtual machine in one tenant to a web app in another tenant." lightbox="./images/cross-tenant-secure-access-private-endpoints-architecture.svg" border="false":::
-   Diagram that shows two tenant areas side by side. On the left, a consumer tenant contains Subscription C with a virtual network, a subnet, a virtual machine (VM), a private endpoint, and a private Domain Name System (DNS) zone. On the right, a provider tenant contains Subscription P with a virtual network, a subnet, a private endpoint, a private DNS zone, and an App Service web app. An internet globe and an Azure DNS service sit above the two tenants. Numbered arrows trace the dataflow: Step 1 goes from the VM to the internet, Step 2 goes from the internet to Azure DNS, Step 3 goes from Azure DNS to the private DNS zones in each tenant, Step 4 returns the private endpoint IP address to the VM, Step 5 sends an HTTPS request from the VM through the private endpoint to the web app, and Step 6 returns the response. A separate path, labeled Step 7, shows a red arrow going from the internet directly to the web app, with a red 403 label indicating that public access is denied.
+   Diagram that shows two tenant areas side by side. On the left, a consumer tenant contains Subscription C with a virtual network, a subnet, a virtual machine (VM), a private endpoint, and a private Domain Name System (DNS) zone. On the right, a provider tenant contains Subscription P with a virtual network, a subnet, a private endpoint, a private DNS zone, and an App Service web app. An internet globe and an Azure DNS service sit above the two tenants. Numbered arrows trace the dataflow: Step 1 goes from the VM to the internet, Step 2 goes from the internet to Azure DNS, Step 3 goes from Azure DNS to the private DNS zones in each tenant, Step 4 returns the private endpoint IP address to the VM, Step 5 sends an HTTPS request from the VM through the private endpoint to the web app, and Step 6 returns the response. A separate path, labeled Step 7, shows a red arrow going from the internet directly to the web app, with a red 403 label that indicates that public access is denied.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-2025459-cross-tenant-secure-access-private-endpoints.vsdx) of this architecture.*
@@ -58,26 +58,28 @@ This guide presents an architecture that uses a private endpoint. A private endp
 
 ## Provider setup
 
-Secure the web app in the tenant that owns it. Create a private endpoint and restrict access to the web app from the public internet.
+1. Secure the web app in the tenant that owns it. Create a private endpoint and restrict access from the public internet to the web app.
 
-All Azure services implement their own public access behavior. If you don't complete additional configurations, some Azure services remain publicly available even after you associate them with a private endpoint. Web apps and function apps become unavailable publicly when they're associated with a private endpoint and the [public access setting](/azure/app-service/overview-access-restrictions#app-access) is disabled. Evaluate if the service you're using requires additional access controls to disable public access.
+1. Evaluate if the service you're using requires additional access controls to disable public access.
 
-Before you create the private endpoint, prepare a virtual network and subnet for the private endpoint NIC. The NIC consumes one IP address from the subnet. Define your DNS strategy so you can register the NIC's A record in the appropriate DNS zone.
+   All Azure services implement their own public access behavior. If you don't complete additional configurations, some Azure services remain publicly available even after you associate them with a private endpoint. Web apps and function apps become unavailable publicly when they're associated with a private endpoint and the [public access setting](/azure/app-service/overview-access-restrictions#app-access) is disabled.
 
-- If you use the default Azure DNS services, we recommend that you use the Azure DNS private zone service and allow automatic integration when creating the private endpoint. This approach ensures that:
-  - The private DNS zone (`privatelink.azurewebsites.net`) is created automatically if needed.
-  - The DNS zone is linked to the virtual network of the private endpoint's NIC.
-  - The A record is registered and managed automatically in the private DNS zone.
+1. Prepare a virtual network and subnet for the private endpoint NIC.
 
-- If you don't use the default Azure DNS services, you must configure and manage your own DNS servers and zones:
-  1. Create a `privatelink.azurewebsites.net` DNS zone.
-  1. Ensure that `privatelink.azurewebsites.net` can be resolved in the virtual networks that need to resolve the NIC of the private endpoint.
-  1. Register the A record in the `privatelink.azurewebsites.net` DNS zone with the IP address of the private endpoint.
-  You might need to configure a DNS forwarder to resolve the Azure DNS public zone, `azurewebsites.net`.
+   The NIC consumes one IP address from the subnet. Define your DNS strategy so you can register the NIC's A record in the appropriate DNS zone.
 
-  For more information, see [Azure private endpoint DNS configuration](/azure/private-link/private-endpoint-dns).
+1. Create the private endpoint.
+   - If you use the default Azure DNS services, we recommend that you use the Azure DNS private zone service and allow automatic integration when you create the private endpoint. This approach ensures that:
+     - The private DNS zone, `privatelink.azurewebsites.net`, is created automatically if needed.
+     - The DNS zone is linked to the virtual network of the private endpoint's NIC.
+     - The A record is registered and managed automatically in the private DNS zone.
 
-In both cases, during the creation of the private endpoint, the Azure DNS public zone, `azurewebsites.net`, is automatically updated with the CNAME record that points to the private DNS zone. Users can try to reach the web app from sources that can't resolve the private DNS zone to retrieve the actual A record and its internal IP address. Those users get a public resolvable IP address, but the response is *403 Forbidden*.
+   - If you don't use the default Azure DNS services, you must configure and manage your own DNS servers and zones:
+     1. Create a `privatelink.azurewebsites.net` DNS zone.
+     1. Ensure that `privatelink.azurewebsites.net` can be resolved in the virtual networks that need to resolve the NIC of the private endpoint.
+     1. Register the A record in the `privatelink.azurewebsites.net` DNS zone with the IP address of the private endpoint. You might need to configure a DNS forwarder to resolve the Azure DNS public zone, `azurewebsites.net`.
+
+During the creation of the private endpoint, the Azure DNS public zone, `azurewebsites.net`, is automatically updated with the CNAME record that points to the private DNS zone. Users can try to reach the web app from sources that can't resolve the private DNS zone to retrieve the actual A record and its internal IP address. Those users get a public resolvable IP address, but the response is *403 Forbidden*. For more information, see [Azure private endpoint DNS configuration](/azure/private-link/private-endpoint-dns).
 
 The provider can configure a [custom domain name](/azure/app-service/app-service-web-tutorial-custom-domain) for the web app via a CNAME record that references the entry in the public zone `azurewebsites.net`. The CNAME record created for this custom domain shouldn't point to the `privatelink.azurewebsites.net` entry.
 
@@ -104,7 +106,7 @@ The consumer needs to inform the provider when a request is made.
 The provider can retrieve, review, and approve or reject pending requests in the Azure portal in the following places:
 
 - On the **Private Link Center** page. The approver can enter an approval message on this page.
-- Under **Networking** in the web app, by selecting **Private endpoints**.
+- Under **Networking** in the web app. Select **Private endpoints**.
 - In the Azure CLI or Azure PowerShell, where the provider can retrieve, review, and approve or reject the pending requests.
 
 The provider can read the message that was provided when the private endpoint was created. The provider can also see the name that the consumer gave the private endpoint. In the Azure CLI and Azure PowerShell, the consumer's tenant ID, resource group name, and private endpoint resource name are also available. The Azure portal creates a hyperlink to the private endpoint of the consumer. Because the consumer is in a different tenant, it's typically not available to the provider.
@@ -113,7 +115,7 @@ It's not possible to automate private endpoint connection approvals. However,  y
 
 ### Step 3 (consumer): DNS setup
 
-You can take the steps in this section immediately after you create the private endpoint resource in step 1. But to avoid having to repeat tasks we recommend that you wait until the provider approves the connection.
+You can take the steps in this section immediately after you create the private endpoint resource in step 1. However, we recommend that you wait until the provider approves the connection.
 
 The consumer needs to set up and configure the private DNS zone to make sure its clients can find the NIC of the private endpoint. As with the provider, the DNS strategy in the tenant determines the required steps.
 
@@ -137,7 +139,7 @@ Both the provider and the consumer can manage the private endpoint connection af
 
 - The consumer can remove the connection independently via the private endpoint resource, the **Private Link Center** page, the Azure CLI, or Azure PowerShell.
 
-- The provider can remove the connections to its service under **Networking** in the web app, the Azure CLI, or Azure PowerShell. After the private endpoint is deleted, the consumer is blocked from accessing the service. The consumer sees that the connection on the private endpoint has the status *Disconnected* and that the DNS record is removed from the private DNS zone. The consumer needs to delete the private endpoint resource manually.
+- The provider can remove the connections to its service under **Networking** in the web app, the Azure CLI, or Azure PowerShell. After the private endpoint is deleted, the consumer's access to the service is blocked. The consumer sees that the connection on the private endpoint has the status *Disconnected* and that the DNS record is removed from the private DNS zone. The consumer needs to delete the private endpoint resource manually.
 
 It's not possible to temporarily pause or disable a connection. After the consumer or the provider deletes a connection, you have to create a new private endpoint to restore the connection.
 
@@ -174,7 +176,7 @@ For a GitHub repo with Bicep templates that you can use to deploy this architect
 
 ## Other solutions
 
-You can configure the resource's internal firewall by using access restrictions to define allow and deny rules. You can base restrictions on IPv4/IPv6 addresses, service tags, or service endpoints. Service endpoints only permit traffic from selected subnets and virtual networks. Access restrictions are free to use and they're available in all Azure App Service and Azure Functions plans. However, it's challenging to maintain rules, and non-Microsoft clients require listed IPs, which could be dynamic or considered sensitive.
+You can configure the resource's internal firewall by using access restrictions to define allow and deny rules. You can base restrictions on IPv4/IPv6 addresses, service tags, or service endpoints. Service endpoints only permit traffic from selected subnets and virtual networks. Access restrictions are free to use and they're available in all Azure App Service and Azure Functions plans. However, it's difficult to maintain rules, and non-Microsoft clients require listed IPs, which could be dynamic or considered sensitive.
 
 For some other PaaS resources, such as Storage Accounts, Key Vault, and Event Hubs, Azure Network Security Perimeter is an additional option to restrict inbound traffic. You can use Azure Network Security define a logical security boundary around certain Azure PaaS resources that aren't deployed inside a virtual network by using a network security perimeter (NSP). NSPs provide you with a virtual perimeter for PaaS resources and they can control who and what can talk to them. NSPs can be used in combination with private endpoints.
 
