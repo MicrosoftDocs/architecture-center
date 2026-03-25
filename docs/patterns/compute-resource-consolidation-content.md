@@ -96,7 +96,7 @@ The following patterns and guidance might also be relevant when implementing thi
 
 - [Choose an Azure compute service](/azure/architecture/guide/technology-choices/compute-decision-tree). Helps solution architects compare Azure compute options (App Service, Azure Functions, Azure Container Apps, AKS, and virtual machines) and select the most appropriate hosting model.
 
-- [Architectural approaches for compute in multitenant solutions](/azure/architecture/guide/multitenant/approaches/compute#compute-resource-consolidation-pattern). Provides guidance about the considerations and requirements that are essential for solution architects, when they're planning the compute services of a multitenant solution.
+- [Architectural approaches for compute in multitenant solutions](/azure/architecture/guide/multitenant/approaches/compute#compute-resource-consolidation-pattern). Provides guidance about the considerations and requirements that are essential for architects, when they're planning the compute services of a multitenant solution.
 
 ## Related resources
 
