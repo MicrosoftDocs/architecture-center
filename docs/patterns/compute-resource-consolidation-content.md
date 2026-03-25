@@ -92,7 +92,7 @@ This pattern can be achieved in different ways, depending on the compute service
 
 The following patterns and guidance might also be relevant when implementing this pattern:
 
-- [Microsoft Azure Well-Architected Framework - Cost optimization](/azure/well-architected/cost-optimization/). Provides guidance for improving cost efficiency by right‑sizing, eliminating idle resources, and optimizing the workload.
+- [Microsoft Azure Well-Architected Framework - Cost optimization](/azure/well-architected/cost-optimization/). Provides guidance for cutting costs by right-sizing, removing idle resources, and tuning the workload.
 
 - [Choose an Azure compute service](/azure/architecture/guide/technology-choices/compute-decision-tree). Helps solution architects compare Azure compute options (App Service, Azure Functions, Azure Container Apps, AKS, and virtual machines) and select the best hosting model.
 
