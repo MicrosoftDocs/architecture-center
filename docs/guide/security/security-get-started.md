@@ -10,6 +10,7 @@ Here are some broad categories to consider when you design a security system:
 ![Image that shows categories to consider when you design a security system.](images/security-overview.png) 
 
 Azure provides a wide range of security tools and capabilities. These are just some of the key security services available in Azure:
+
 - [Microsoft Defender for Cloud](https://azure.microsoft.com/services/defender-for-cloud). A unified infrastructure security management system that strengthens the security posture of your datacenters. It also provides advanced threat protection across your hybrid workloads in the cloud and on-premises.
 - [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory). The Microsoft cloud-based identity and access management service.  
 - [Azure Front Door](https://azure.microsoft.com/services/frontdoor). A global, scalable entry-point that uses the Microsoft global edge network to create fast, highly secure, and widely scalable web applications.
@@ -17,7 +18,7 @@ Azure provides a wide range of security tools and capabilities. These are just s
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault). A high-security secret store for tokens, passwords, certificates, API keys, and other secrets. You can also use Key Vault to create and control the encryption keys used to encrypt your data.
 - [Azure Private Link](https://azure.microsoft.com/services/private-link). A service that enables you to access Azure PaaS services, Azure-hosted services that you own, or partner services over a private endpoint in your virtual network. 
 - [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway). An advanced web traffic load balancer that enables you to manage traffic to your web applications. 
-- [Azure Policy](https://azure.microsoft.com/services/azure-policy). A service that helps you enforce organizational standards and assess compliance. 
+- [Azure Policy](https://azure.microsoft.com/services/azure-policy). A service that helps you enforce organizational standards and assess compliance.
 
 For a more comprehensive description of Azure security tools and capabilities, see [End-to-end security in Azure](/azure/security/fundamentals/end-to-end).
 
@@ -35,8 +36,10 @@ Here are two learning paths to get you started:
 
 - To secure Azure application workloads, you use protective measures like authentication and encryption in the applications themselves. You can also add security layers to the virtual machine (VM) networks that host the applications. See [Firewall and Application Gateway for virtual networks](../../example-scenario/gateway/firewall-application-gateway.yml) for an overview.
 - Zero Trust is a proactive, integrated approach to security across all layers of the digital estate. It explicitly and continuously verifies every transaction, asserts least privilege, and relies on intelligence, advanced detection, and real-time response to threats.
-   - For an implementation strategy for web apps, see [Zero Trust network for web applications with Azure Firewall and Application Gateway](../../example-scenario/gateway/application-gateway-before-azure-firewall.md).
-- Azure governance establishes the tooling needed to support cloud governance, compliance auditing, and automated guardrails. See [Azure governance design area guidance](/azure/cloud-adoption-framework/ready/landing-zone/design-area/governance) for information about governing your Azure environment. 
+
+   For an implementation strategy for web apps, see [Zero Trust network for web applications with Azure Firewall and Application Gateway](../../example-scenario/gateway/application-gateway-before-azure-firewall.md).
+
+- Azure governance establishes the tooling needed to support cloud governance, compliance auditing, and automated guardrails. See [Azure governance design area guidance](/azure/cloud-adoption-framework/ready/landing-zone/design-area/governance) for information about governing your Azure environment.
 
 ## Best practices
 

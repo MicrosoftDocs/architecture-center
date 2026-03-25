@@ -7746,6 +7746,11 @@
       "source_path": "docs/example-scenario/startups/core-startup-stack.yml",
       "redirect_url": "/azure/architecture/guide/startups/startup-architecture",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/security/security-start-here.yml",
+      "redirect_url": "/azure/architecture/guide/security-get-started",
+      "redirect_document_id": false
     }
   ]
 }
