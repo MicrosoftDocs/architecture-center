@@ -83,6 +83,14 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
+#### Recommendations
+
+Follow these general recommendations unless you have a specific requirement that overrides them:
+
+- To reduce network latency, create all Azure resources mentioned in this scenario in one region.
+- Instead of sending a single large file from the mainframe to Azure, split data into multiple files and send them in parallel.
+- For more information about resiliency in Azure, see [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
+
 ### Security
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist). For general guidance on designing secure solutions, see the [Azure security documentation](/azure/security).
@@ -139,18 +147,9 @@ You can upload multiple data sets in parallel from the mainframe to Blob Storage
 
 [Azure SQL DB serverless](/azure/azure-sql/database/serverless-tier-overview?view=azuresql) provides an option for autoscaling based on workload. Other Azure databases can be scaled up and down using automation to meet the workload demands. For more information, see [Autoscaling](/azure/architecture/best-practices/auto-scaling). 
 
-### Recommendations
-
-Follow these general recommendations unless you have a specific requirement that overrides them:
-
-- To reduce network latency, create all Azure resources mentioned in this scenario in one region.
-- Instead of sending a single large file from the mainframe to Azure, split data into multiple files and send them in parallel.
-
 #### Resiliency
 
 Use Azure Monitor and [Application Insights](/azure/azure-monitor/app/app-insights-overview) to monitor the mLogica data migration cluster. Set up alerts for proactive management.
-
-For more information about resiliency in Azure, see [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
 
 #### Availability
 
