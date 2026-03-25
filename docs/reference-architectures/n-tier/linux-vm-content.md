@@ -108,7 +108,7 @@ The networking components include the following resources:
 
 **Diagnostics**. Enable monitoring and diagnostics, including basic health metrics, diagnostics infrastructure logs, and [boot diagnostics](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/). Boot diagnostics can help you diagnose boot failure if your VM gets into a non-bootable state. Create an Azure Storage account to store the logs. A standard locally redundant storage (LRS) account is sufficient for diagnostic logs. For more information, see [Enable monitoring and diagnostics](/azure/monitoring-and-diagnostics/insights-how-to-use-diagnostics).
 
-**Availability**. Your VM might be affected by [planned maintenance](/azure/virtual-machines/maintenance-and-updates) or [unplanned downtime](/azure/virtual-machines/linux/manage-availability). You can use [VM reboot logs](https://azure.microsoft.com/blog/viewing-vm-reboot-logs) to determine whether a VM reboot was caused by planned maintenance. For higher availability, deploy multiple VMs in an [availability set](/azure/virtual-machines/availability#availability-sets) or across [availability zones](/azure/virtual-machines/availability#availability-zones) in a region. Both of these configurations provide a higher [service-level agreement (SLA)](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
+**Availability**. Your VM might be affected by [planned maintenance](/azure/virtual-machines/maintenance-and-updates) or [unplanned downtime](/azure/virtual-machines/linux/manage-availability). You can use [VM reboot logs](https://azure.microsoft.com/blog/viewing-vm-reboot-logs) to determine whether a VM reboot was caused by planned maintenance. For higher availability, deploy multiple VMs across [availability zones](/azure/virtual-machines/availability#availability-zones) in a region. This provides a higher [service-level agreement (SLA)](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services). In situations where compute resources must be deployed within the same datacenter, use [availability sets](/azure/virtual-machines/availability#availability-sets) for an increased level of availability, however availability zones are the recommended option.
 
 **Backups** To protect against accidental data loss, use the [Azure Backup](/azure/backup/) service to back up your VMs to geo-redundant storage. Azure Backup provides application-consistent backups. For performance-sensitive workloads or specialized Linux distributions that don't support traditional backup agents, use the [agentless multi-disk crash consistent backup](/azure/backup/backup-azure-vms-agentless-multi-disk-crash-consistent-overview) feature that enables automated backup protection without affecting application performance.
 
@@ -121,6 +121,20 @@ The networking components include the following resources:
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
+
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](https://learn.microsoft.com/en-us/azure/well-architected/reliability/checklist)
+
+As this is only a simple example using a single virtual machine, this architecture has a minimal level of reliability. Any issue with the virtual machine itself or the host where it is running will cause an outage, resulting in any hosted workloads being unavailable. For any workload that needs higher availability, multiple virtual machines should be deployed that contain the same workload, with those instances behind a load balancing solution of some type. If these are within the same region, those VMs should be deployed across availability zones, and added to the backend of an Azure Standard Load Balancer or an Application Gateway if the workload is HTTP/HTTPS-based. This allows for a single virtual machine in the backend to be down, while all remaining instances can still accept workload traffic.
+
+[Virtual machine scale sets](https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview) are another option to help simplify management of multi-node workloads that need the ability to automatically scale the number of instances in or out depending on any of several metrics such as CPU and/or memory consumption.
+
+#### HA/DR
+
+For an increased "blast radius," the workload should be deployed in multiple regions and leverage the [Azure Landing Zone](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/) guidance. This could be in an Active-Passive configuration with a failover to the secondary region should the primary region become unavailable, or an Active-Active architecture where both regions serve traffic to consumers. For an example, see **Multi-tier web application built for HA/DR** under [Next Steps](#next-steps) below.
+
+This example uses [Azure Site Recovery (ASR)](https://learn.microsoft.com/en-us/azure/site-recovery/site-recovery-overview) to replicate the disks of individual virtual machines to a secondary region, where ASR can be used to failover those virtual machines to the secondary region with a low RPO/RTO.
+
+Be sure to evaluate your architecture to meet your HA/DR requirements across all components, not just the virtual machines. Include networking, identity, data, etc in all of these decisions.
 
 ### Security
 
@@ -173,6 +187,12 @@ Consider using the [Azure Monitor](https://azure.microsoft.com/services/monitor/
 
 ### Sustainability
 
+### Contributors
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+[Donnie Trumpower](https://www.linkedin.com/in/dtrumpower) | Senior Cloud & AI Solutions Architect
 
 ## Next steps
 
@@ -181,6 +201,7 @@ Consider using the [Azure Monitor](https://azure.microsoft.com/services/monitor/
 - To provision a Linux VM, see [Create and Manage Linux VMs with the Azure CLI](/azure/virtual-machines/linux/tutorial-manage-vm)
 - [Default outbound access in Azure](/azure/virtual-network/ip-services/default-outbound-access)
 - For an exmple of a more complex architecture, see [Azure Virtual Machines baseline architecture in an Azure landing zone](https://learn.microsoft.com/en-us/azure/architecture/virtual-machines/baseline-landing-zone)
+- To deploy a web application across regions, see [Multi-tier web application built for HA/DR](https://learn.microsoft.com/en-us/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery)
 
 ## Related resource
 
