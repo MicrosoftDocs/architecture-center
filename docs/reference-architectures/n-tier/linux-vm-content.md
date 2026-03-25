@@ -9,7 +9,7 @@ Provisioning a virtual machine (VM) in Azure requires additional components besi
 ## Workflow
 This is a very simple implementation with a single virtual machine to show an example of a basic deployment with the required components for a functional virtual machine that can run workloads, be managed, and communicate with the public internet without making it directly reachable by potential bad actors
 
-- Any workloads running on this virtual machine are not exposed externally, and are only accessible from within the same, or a peered, virtual network, such as in a hub and spoke configuration
+- Any workloads running on this virtual machine aren't exposed externally, and are only accessible from within the same, or a peered, virtual network, such as in a hub and spoke configuration
 - Management access to the virtual machine is shown using Azure Bastion via SSH, and is not directly permitted from the public internet
 - External internet access is provided through the use of the NAT Gateway and its associated Public IP address
 
@@ -54,7 +54,7 @@ Many Linux images don't configure swap space by default. If your workload requir
 
 We recommend creating one or more [data disks](/azure/virtual-machines/disks-types) for application data. Data disks are persistent managed disks backed by Azure Storage.
 
-When you create a VHD, it is unformatted. Log in to the VM to format the disk. In the Linux shell, data disks are displayed as `/dev/sdc`, `/dev/sdd`, and later letters in the series. You can run `lsblk` to list the block devices, including the disks. To use a data disk, create a partition and file system, and mount the disk. For example:
+When you create a disk, it's unformatted. Log in to the VM to format the disk. In the Linux shell, data disks are displayed as `/dev/sdc`, `/dev/sdd`, and later letters in the series. You can run `lsblk` to list the block devices, including the disks. To use a data disk, create a partition and file system, and mount the disk. For example:
 
 ```bash
 # Create a partition.
@@ -75,7 +75,7 @@ When you add a data disk, a logical unit number (LUN) ID is assigned to the disk
 
 You might want to change the I/O scheduler to optimize for performance on SSDs because the disks for VMs with premium storage accounts are SSDs. A common recommendation is to use the NOOP scheduler for SSDs, but you should use a tool such as [iostat](https://en.wikipedia.org/wiki/Iostat) to monitor disk I/O performance for your workload.
 
-The VM is created with a temporary disk. This disk is stored on a physical drive on the host machine. It is *not* saved in Azure Storage and might be deleted during reboots and other VM lifecycle events. Use this disk only for temporary data, such as page or swap files. For Linux VMs, the temporary disk is `/dev/disk/azure/resource-part1` and is mounted at `/mnt/resource` or `/mnt`.
+The VM is created with a temporary disk, which is stored on a physical drive on the host machine. It's *not* saved in Azure Storage and might be deleted during reboots and other VM lifecycle events. Use this disk only for temporary data, such as page or swap files. For Linux VMs, the temporary disk is `/dev/disk/azure/resource-part1` and is mounted at `/mnt/resource` or `/mnt`.
 
 ### Network
 
@@ -85,7 +85,7 @@ The networking components include the following resources:
 
 - **Network interface (NIC)**. The NIC enables the VM to communicate with the virtual network. If you need multiple NICs for your VM, a maximum number of NICs is defined for each [VM size](/azure/virtual-machines/sizes).
 
-- **Public IP address**. A public IP address *may* be used to communicate with the VM from outside Azure &mdash; for example, via Secure Sockets Host (SSH)). However, this is discouraged as it is a potential security risk. This should **only** be done in extreme circumstances and only in conjunction with other security methods such as filtering traffic using Network Security Groups (see below). The recommended guidance for management access to a virtual machine is through the use of Azure Bastion (see below) or internally when connected through VPN or ExpressRoute.
+- **Public IP address**. A public IP address *may* be used to communicate with the VM from outside Azure &mdash; for example, via Secure Sockets Host (SSH)). However, this is discouraged as it's a potential security risk. This should **only** be done in extreme circumstances and only in conjunction with other security methods such as filtering traffic using Network Security Groups (see below). The recommended guidance for management access to a virtual machine is through the use of Azure Bastion (see below) or internally when connected through VPN or ExpressRoute.
 
   - The public IP address can be dynamic or static. The default is dynamic.
   - Reserve a [static IP address](/azure/virtual-network/virtual-networks-reserved-public-ip) if you need a fixed IP address that doesn't change &mdash; for example, if you need to create a DNS 'A' record or add the IP address to a safe list.
@@ -124,7 +124,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](https://learn.microsoft.com/en-us/azure/well-architected/reliability/checklist)
 
-As this is only a simple example using a single virtual machine, this architecture has a minimal level of reliability. Any issue with the virtual machine itself or the host where it is running will cause an outage, resulting in any hosted workloads being unavailable. For any workload that needs higher availability, multiple virtual machines should be deployed that contain the same workload, with those instances behind a load balancing solution of some type. If these are within the same region, those VMs should be deployed across availability zones, and added to the backend of an Azure Standard Load Balancer or an Application Gateway if the workload is HTTP/HTTPS-based. This allows for a single virtual machine in the backend to be down, while all remaining instances can still accept workload traffic.
+As this architecure is only a simple example using a single virtual machine, has a minimal level of reliability. Any issue with the virtual machine itself or the host where it is running will cause an outage, resulting in any hosted workloads being unavailable. For any workload that needs higher availability, multiple virtual machines should be deployed that contain the same workload, with those instances behind a load balancing solution of some type. If these are within the same region, those VMs should be deployed across availability zones, and added to the backend of an Azure Standard Load Balancer or an Application Gateway if the workload is HTTP/HTTPS-based. This allows for a single virtual machine in the backend to be down, while all remaining instances can still accept workload traffic.
 
 [Virtual machine scale sets](https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview) are another option to help simplify management of multi-node workloads that need the ability to automatically scale the number of instances in or out depending on any of several metrics such as CPU and/or memory consumption.
 
@@ -132,7 +132,7 @@ As this is only a simple example using a single virtual machine, this architectu
 
 For an increased "blast radius," the workload should be deployed in multiple regions and leverage the [Azure Landing Zone](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/) guidance. This could be in an Active-Passive configuration with a failover to the secondary region should the primary region become unavailable, or an Active-Active architecture where both regions serve traffic to consumers. For an example, see **Multi-tier web application built for HA/DR** under [Next Steps](#next-steps) below.
 
-This example uses [Azure Site Recovery (ASR)](https://learn.microsoft.com/en-us/azure/site-recovery/site-recovery-overview) to replicate the disks of individual virtual machines to a secondary region, where ASR can be used to failover those virtual machines to the secondary region with a low RPO/RTO.
+The example in that article uses [Azure Site Recovery (ASR)](https://learn.microsoft.com/en-us/azure/site-recovery/site-recovery-overview) to replicate the disks of individual virtual machines to a secondary region, where ASR can be used to failover those virtual machines to the secondary region with a low RPO/RTO.
 
 Be sure to evaluate your architecture to meet your HA/DR requirements across all components, not just the virtual machines. Include networking, identity, data, etc in all of these decisions.
 
@@ -177,7 +177,7 @@ For more information, see the cost section in [Microsoft Azure Well-Architected 
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-Use Infrastructure-as-Code (IaC) templates to provision Azure resources and their dependencies. These could be written using [Bicep](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/) or JSON in an [Azure Resource Manager template][arm-template] or even [Terraform](https://learn.microsoft.com/en-us/azure/developer/terraform/) if you prefer. These templates allow a Continuous Integration/Continuous Deployment (CI/CD) process as part of a [GitOps](https://learn.microsoft.com/en-us/devops/deliver/iac-github-actions) methodology for deploying and configuring resources. This will allow versioning of architectures and ensure consistency between environments, as well as enforcing reproducability, security, and compliance.
+Use Infrastructure-as-Code (IaC) templates to provision Azure resources and their dependencies. These could be written using [Bicep](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/) or JSON in an [Azure Resource Manager template][arm-template] or even [Terraform](https://learn.microsoft.com/en-us/azure/developer/terraform/) if you prefer. These templates allow a Continuous Integration/Continuous Deployment (CI/CD) process as part of a [GitOps](https://learn.microsoft.com/en-us/devops/deliver/iac-github-actions) methodology for deploying and configuring resources. This will allow versioning of architectures and ensure consistency between environments, as well as enforcing reproducibility, security, and compliance.
 
 To assist in monitoring and diagnosing issues, ensure that diagnostics logs are enabled on your resources and are made available to [Azure Monitor](https://azure.microsoft.com/services/monitor/) to help with analysis and optimization of your resources. These logs can be used to implement alerting and notifications of critical events, and in some cases allow automated remediation or logging a ticket in your ITSM system.
 
@@ -188,14 +188,14 @@ Performance Efficiency focuses on optimizing cloud workloads for speed, responsi
 
 Some key goals include minimizing latency, ensuring scalable architectures, optimizing resource utilization, and continuously improving system performance
 
-As mentioned above, the decisions made regarding workload architecture, VM SKU and disk configurations can have a large impact on how your workload performs. Mkaing the correct choices could prevent having to re-architect the solution in the future, adding flexibility and saving costs.
+As mentioned above, the decisions made regarding workload architecture, VM SKU and disk configurations can have a large impact on how your workload performs. Making the correct choices could prevent having to re-architect the solution in the future, adding flexibility and saving costs.
 
 Be sure to consider these points when developing your architecture:
 - Leverage VM scale sets if the workload will have a dynamic load. For example, scaling out in times of large amounts of traffic and then scaling back in when the traffic reduces. This will ensure adequate processing power while still keeping costs under control.
 - Choose the appropriate VM and disk SKUs to meet required IOPs during processing, and configure caching to further improve performance
 - Where possible, enable accelerated networking to minimize latency between components
 - Design network architecture to minimize unnecessary hops
-- Use Azure Monitor, VM Insights, and other tools to continuously analyze metrics and create updated performance baselines. Use this information to determine where to implement changes, and then test against those baselines
+- Use Azure Monitor, VM Insights, and other tools to continuously analyze metrics and create updated performance baselines. Use the performance information to determine where to implement changes, and then test against those baselines
 
 ### Contributors
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
@@ -210,7 +210,7 @@ Principal author:
 - To install an NVIDIA driver on a Linux VM, see [Install NVIDIA GPU drivers on N-series VMs running Linux](/azure/virtual-machines/linux/n-series-driver-setup)
 - To provision a Linux VM, see [Create and Manage Linux VMs with the Azure CLI](/azure/virtual-machines/linux/tutorial-manage-vm)
 - [Default outbound access in Azure](/azure/virtual-network/ip-services/default-outbound-access)
-- For an exmple of a more complex architecture, see [Azure Virtual Machines baseline architecture in an Azure landing zone](https://learn.microsoft.com/en-us/azure/architecture/virtual-machines/baseline-landing-zone)
+- For an example of a more complex architecture, see [Azure Virtual Machines baseline architecture in an Azure landing zone](https://learn.microsoft.com/en-us/azure/architecture/virtual-machines/baseline-landing-zone)
 - To deploy a web application across regions, see [Multi-tier web application built for HA/DR](https://learn.microsoft.com/en-us/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery)
 
 ## Related resource
