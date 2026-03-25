@@ -70,7 +70,7 @@ The following new and updated articles have recently been published in the Azure
 - [Asynchronous Messaging Options](./guide/technology-choices/messaging.md)
 - [Analytics architecture design](./solution-ideas/articles/analytics-get-started.md)
 - [Container architecture design](./solution-ideas/articles/container-get-started.md)
-- [Virtual Desktop architecture design](./virtual-destkop/virtual-desktop-get-started.md)
+- [Azure Virtual Desktop architecture design](./virtual-destkop/virtual-desktop-get-started.md)
 
 ### Updated articles
 
