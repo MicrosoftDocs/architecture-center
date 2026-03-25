@@ -3,7 +3,7 @@ title: Deploy Highly Available NVAs
 description: Learn how to deploy network virtual appliances in high availability architectures for ingress and egress traffic in Azure.
 author: erjosito
 ms.author: jomore
-ms.date: 03/19/2026
+ms.date: 03/25/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
@@ -98,7 +98,7 @@ The following diagram shows a slightly different pattern for outbound traffic.
 
 To send traffic from spokes to the public internet through the NVAs, this design uses a UDR for `0.0.0.0/0` applied to the application server's subnet in the spoke virtual network. The next hop is the internal load balancer's IP address. The load balancer forwards the traffic to one of the NVA instances, which sends it to the public internet via the NAT gateway. The NAT gateway ensures that return traffic is forwarded to the same NVA instance, which delivers it to the first app server.
 
-The following diagram shows how to use the same load balancer design to inspect traffic between Azure and on-premises networks, or *East-West traffic*, which only involves an internal load balancer. You can also use this method to send traffic between spokes through the NVAs.
+The following diagram shows how to use the same load balancer design to inspect traffic between Azure and on-premises networks, or *East-West traffic*, which involves only an internal load balancer. You can also use this method to send traffic between spokes through the NVAs.
 
 :::image type="complex" source="./images/load-balancer-on-premises.svg" lightbox="./images/load-balancer-on-premises.svg" alt-text="Diagram that shows on-premises traffic with Load Balancer integration." border="false":::
   Diagram that shows a hub and two spokes. The hub contains a gateway subnet and NVA subnet. The gateway subnet contains a VPN or ExpressRoute gateway. The NVA subnet contains an internal load balancer and NVAs. Each spoke contains an app server. Spoke2 contains a spoke route table for IP address ranges 0.0.0.0/0 to 10.0.0.36, with gateway propagation turned off. Inbound traffic flows from on-premises to the NVAs through the VPN or ExpressRoute gateway and then the internal load balancer. This traffic then flows to the app server in Spoke2. Return traffic flows from this app server to the NVAs through the internal load balancer. This traffic then flows to on-premises through the VPN or ExpressRoute gateway.
