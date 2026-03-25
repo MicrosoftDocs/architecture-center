@@ -121,7 +121,7 @@ These transactions rely on the load-balancing capability in the Central Services
 
 ### SAP Central Services cluster
 
-The SAP Central Services contain a single instance of the message server and the enqueue replication service. Unlike the work processes of application servers, these components are single points of failure in the SAP application stack. You can deploy Central Services to a single VM when the Azure single-instance VM availability service-level agreement (SLA) meets your requirement. If your SLA requires higher availability, you need to deploy these services on an HA cluster. For more information, see [Central Services in the application servers tier](#central-services-in-the-application-servers-tier).
+The SAP Central Services contain a single instance of the message server and the enqueue replication service. Unlike the work processes of application servers, these components are single points of failure in the SAP application stack. You can deploy Central Services to a single VM when the Azure single-instance VM availability service-level agreement (SLA) meets your requirement. If your SLO requires higher availability, you need to deploy these services on an HA cluster. For more information, see [Central Services in the application servers tier](#central-services-in-the-application-servers-tier).
 
 ### Networking
 
@@ -206,7 +206,7 @@ Some SAP applications require frequent communication with the database. Because 
 The placement of a network virtual appliance (NVA) between the application and the database layers of any SAP application stack isn't supported. The NVA requires a significant amount of time to process data packets. As a result, it unacceptably slows application performance.
 
 We also recommend that you consider performance when you deploy resources with [availability zones](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones), which can enhance service availability. Consider creating a clear network latency profile between all the zones of a target region. This approach helps you decide on the resource placement for minimum latency between zones. To create this profile, run a test by deploying small VMs in each zone. Recommended tools for the test include
-[PsPing](/sysinternals/downloads/psping) and [Iperf](https://sourceforge.net/projects/iperf). After testing, remove these VMs. For a public domain network latency test tool that you can use instead, see [Availability zone latency test](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/master/AvZone-Latency-Test).
+[PsPing](/sysinternals/downloads/psping) and [Iperf](https://sourceforge.net/projects/iperf). After testing, remove these VMs. For a public domain network latency test tool that you can use instead, see [Availability zone latency test](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/main/AvZone-Latency-Test).
 
 Azure NetApp Files has unique performance features that enable real-time tuning to meet the needs of the most demanding SAP environments. For performance considerations when you use Azure NetApp Files, see [Sizing for HANA database on Azure NetApp Files](/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse#sizing-for-hana-database-on-azure-netapp-files).
 

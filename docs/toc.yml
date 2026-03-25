@@ -405,18 +405,18 @@ items:
       href: pattern-implementations/network-secure-ingress.md
   - name: Ambassador
     displayName: API proxy, cross-cutting concerns
-    href: patterns/ambassador.yml
+    href: patterns/ambassador.md
   - name: Anti-Corruption Layer
     displayName: legacy system integration, system boundary translation
     href: patterns/anti-corruption-layer.yml
   - name: Asynchronous Request-Reply
-    href: patterns/async-request-reply.yml
+    href: patterns/asynchronous-request-reply.md
   - name: Backends for Frontends
     displayName: BFF pattern, frontend-specific API
     href: patterns/backends-for-frontends.md
   - name: Bulkhead
     displayName: Fault isolation, failure containment, resource isolation
-    href: patterns/bulkhead.yml
+    href: patterns/bulkhead.md
   - name: Cache-Aside
     displayName: Lazy loading, caching, read-through
     href: patterns/cache-aside.yml
@@ -484,9 +484,9 @@ items:
     href: patterns/pipes-and-filters.yml
   - name: Priority Queue
     href: patterns/priority-queue.yml
-  - name: Publisher/Subscriber
+  - name: Publisher-Subscriber
     displayName: Pub/sub, pub sub, topic messaging
-    href: patterns/publisher-subscriber.yml
+    href: patterns/publisher-subscriber.md
   - name: Quarantine
     displayName: Deployment validation, input verification, security gate
     href: patterns/quarantine.yml
@@ -561,8 +561,8 @@ items:
         href: example-scenario/analytics/enterprise-bi-microsoft-fabric.yml
       - name: Near real-time lakehouse processing
         href: example-scenario/data/real-time-lakehouse-data-processing.yml
-      - name: Real-time sync of MongoDB Atlas to Azure Synapse Analytics
-        href: example-scenario/analytics/sync-mongodb-atlas-azure-synapse-analytics.yml
+      - name: Real-time sync of MongoDB Atlas to Fabric
+        href: example-scenario/analytics/sync-mongodb-atlas-fabric-analytics.yml
       - name: Stream processing with Azure Databricks
         href: reference-architectures/data/stream-processing-databricks.yml
       - name: Stream processing with Stream Analytics
@@ -582,7 +582,7 @@ items:
   - name: Compute
     items:
     - name: Get started
-      href: topics/high-performance-computing.md
+      href: solution-ideas/articles/compute-get-started.md
     - name: Guides
       items:
       - name: Choose a compute service
@@ -592,6 +592,8 @@ items:
       - name: Build workloads with Azure Spot Virtual Machines
         displayName: VM, spot instances
         href: guide/spot/spot-eviction.yml
+      - name: High-performance computing
+        href: guide/compute/high-performance-computing.md
     - name: Architectures
       items:
       - name: VM baseline
@@ -604,8 +606,8 @@ items:
         href: example-scenario/manufacturing/teamcenter-baseline.yml
       - name: Teamcenter with Azure NetApp Files
         href: example-scenario/manufacturing/teamcenter-plm-netapp-files.yml
-      - name: Multi-region load balancing
-        href: high-availability/reference-architecture-traffic-manager-application-gateway.yml
+      - name: Multiregion load balancing
+        href: high-availability/traffic-manager-application-gateway.yml
       - name: Multi-tier web application built for HA/DR
         displayName: high availability, disaster recovery
         href: example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml
@@ -650,8 +652,6 @@ items:
           href: example-scenario/mainframe/hp-ux-stromasys-charon-par.yml
         - name: Migrate IBM i series to Azure with Skytap
           href: example-scenario/mainframe/migrate-ibm-i-series-to-azure-with-skytap.yml
-        - name: Use Azure NetApp Files to deploy IBM Power in Skytap on Azure
-          href: example-scenario/mainframe/deploy-ibm-power-workloads.yml
         - name: Refactor mainframe with CloudFrame Renovate
           href: example-scenario/mainframe/cloudframe-renovate-mainframe-refactor.yml
         - name: Refactor Adabas & Natural systems
@@ -691,7 +691,7 @@ items:
         - name: SAP HANA scale-up on Linux
           href: reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.yml
         - name: SAP NetWeaver in Windows on Azure
-          href: guide/sap/sap-netweaver.yml
+          href: guide/sap/sap-netweaver.md
         - name: SAP S/4HANA in Linux on Azure
           href: guide/sap/sap-s4hana.md
       - name: Solution ideas
@@ -1104,7 +1104,7 @@ items:
       items:
       - name: Virtual Network security options
         displayName: VNet
-        href: example-scenario/gateway/firewall-application-gateway.yml
+        href: example-scenario/gateway/firewall-application-gateway.md
       - name: Zero Trust network for web applications
         href: example-scenario/gateway/application-gateway-before-azure-firewall.md
     - name: Architectures
@@ -1178,9 +1178,9 @@ items:
         href: landing-zones/azure-virtual-desktop/design-guide.md
       - name: Windows 365 Azure network connection
         href: guide/virtual-desktop/windows-365-azure-network-connection.md
-      - name: Multiregion BCDR for AVD
+      - name: Multiregion BCDR for Azure Virtual Desktop
         displayName: Azure Virtual Desktop, business continuity, disaster recovery
-        href: example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr.yml
+        href: example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr.md
     - name: Architectures
       items:
       - name: Esri ArcGIS on Azure Virtual Desktop

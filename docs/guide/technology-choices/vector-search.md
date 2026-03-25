@@ -1,8 +1,8 @@
 ---
 title: Choose an Azure Service for Vector Search
 description: Learn how to use this information to decide which Azure service for vector search best suits your application.
-author: konabuta
-ms.author: keonabut
+author: miyamam
+ms.author: miyamam
 ms.reviewer: saitoyu
 ms.date: 10/20/2025
 ms.update-cycle: 180-days

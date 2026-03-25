@@ -14,7 +14,7 @@ For an example of a more advanced microservice that's built on the [AKS baseline
 
 ### Data flow
 
-This request flow implements the [Publisher-Subscriber](/azure/architecture/patterns/publisher-subscriber), [Competing Consumers](/azure/architecture/patterns/competing-consumers), and [Gateway Routing](/azure/architecture/patterns/gateway-routing) cloud design patterns.
+This request flow implements the [Publisher-Subscriber](../../../patterns/publisher-subscriber.md), [Competing Consumers](/azure/architecture/patterns/competing-consumers), and [Gateway Routing](/azure/architecture/patterns/gateway-routing) cloud design patterns.
 
 The following data flow corresponds to the previous diagram:
 
@@ -118,7 +118,7 @@ For production microservices deployments on AKS, use [Azure CNI powered by Ciliu
 
 - **Flexible IP address management:** Azure CNI powered by Cilium supports both virtual network routed and overlay pod IP address assignment models based on your workload's network architecture requirements.
 
-When you implement network policies for microservices, follow a zero trust architecture principle by explicitly defining which services can communicate with each other. Start with deny-all policies and selectively allow only necessary traffic between microservices. For more information, see [Best practices for network policies in AKS](/azure/aks/use-network-policies).
+When you implement network policies for microservices, follow a Zero Trust architecture principle by explicitly defining which services can communicate with each other. Start with deny-all policies and selectively allow only necessary traffic between microservices. For more information, see [Best practices for network policies in AKS](/azure/aks/use-network-policies).
 
 #### API gateway
 
@@ -206,9 +206,9 @@ For troubleshooting microservice health problems, use the network observability 
 
 #### Resource constraints
 
-Resource contention can affect the availability of a service. Define [resource constraints for containers](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) so that a single container can't overwhelm the cluster resources, like memory and CPU. For non-container resources, like threads or network connections, consider using the [Bulkhead pattern](../../../patterns/bulkhead.yml) to isolate resources.
+Resource contention can affect the availability of a service. Define [resource constraints for containers](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) so that a single container can't overwhelm the cluster resources, like memory and CPU. For non-container resources, like threads or network connections, consider using the [Bulkhead pattern](../../../patterns/bulkhead.md) to isolate resources.
 
-Use [resource quotas](https://kubernetes.io/docs/concepts/policy/resource-quotas/) to limit the total resources allowed for a namespace. This limitation ensures that front-end services doesn't consume resources that back-end services need, and back-end services don't consume resources that front-end services need. Resource quotas can help allocate resources within the same cluster to multiple microservice development teams.
+Use [resource quotas](https://kubernetes.io/docs/concepts/policy/resource-quotas/) to limit the total resources allowed for a namespace. This limitation ensures that front-end services don't consume resources that back-end services need, and back-end services don't consume resources that front-end services need. Resource quotas can help allocate resources within the same cluster to multiple microservice development teams.
 
 ### Security
 
@@ -228,7 +228,7 @@ Implement network segmentation between microservices by using Kubernetes Network
 
 Follow these best practices for network policies in microservices architectures:
 
-- **Apply zero trust principles.** Start with deny-all network policies at the namespace level and explicitly allow only required traffic between microservices.
+- **Apply Zero Trust principles.** Start with deny-all network policies at the namespace level and explicitly allow only required traffic between microservices.
 
 - **Segment by bounded context.** Create namespaces for each bounded context in your microservices architecture and apply network policies to control traffic between these contexts.
 

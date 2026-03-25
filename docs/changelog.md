@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: claytonsiemens77
-ms.date: 03/02/2026
+ms.date: 03/23/2026
 ms.topic: whats-new
 ms.author: pnp
 ---
@@ -20,8 +20,42 @@ The following new and updated articles have recently been published in the Azure
 
 ## March 2026
 
+### New articles
+
+- [Ambassador Pattern](./patterns/ambassador.md)
+- [Set Up Real-Time Sync of MongoDB Atlas Data Changes to Microsoft Fabric](./example-scenario/analytics/sync-mongodb-atlas-fabric-analytics.yml)
+- [Bulkhead Pattern](./patterns/bulkhead.md)
+- [Get Started with Compute Architecture Design](./solution-ideas/articles/compute-get-started.md)
+- [Multiregion Load Balancing](./high-availability/traffic-manager-application-gateway.yml)
+- [Asynchronous Request-Reply Pattern](./patterns/asynchronous-request-reply.md)
+- [Publisher-Subscriber Pattern](./patterns/publisher-subscriber.md)
+- [Host Name Preservation](./best-practices/host-name-preservation.md)
+
 ### Updated articles
 
+- [Azure DNS Private Resolver](./networking/architecture/azure-dns-private-resolver.yml) ([#4e5ee92451](https://github.com/MicrosoftDocs/architecture-center/commit/4e5ee92451))
+- [Esri ArcGIS Platform on Azure Virtual Desktop](./example-scenario/data/esri-arcgis-azure-virtual-desktop.yml) ([#91840bcb67](https://github.com/MicrosoftDocs/architecture-center/commit/91840bcb67))
+- [Real-Time Analytics on Data by Using Azure Service Bus and Azure Data Explorer](./solution-ideas/articles/analytics-service-bus.yml) ([#b435877fde](https://github.com/MicrosoftDocs/architecture-center/commit/b435877fde))
+- [Azure Virtual Desktop for Azure Local](./hybrid/azure-local-workload-virtual-desktop.yml) ([#6702dddcc8](https://github.com/MicrosoftDocs/architecture-center/commit/6702dddcc8))
+- [AKS Day-2 Guide - Patch and Upgrade Guidance](./operator-guides/aks/aks-upgrade-practices.md) ([#d778b78dbe](https://github.com/MicrosoftDocs/architecture-center/commit/d778b78dbe))
+- [Best practices in cloud applications](./best-practices/index-best-practices.md) ([#83e35e956d](https://github.com/MicrosoftDocs/architecture-center/commit/83e35e956d))
+- [Azure Enterprise Cloud File Share](./hybrid/azure-files-private.yml) ([#601b6bfec1](https://github.com/MicrosoftDocs/architecture-center/commit/601b6bfec1))
+- [Event-Driven Architecture Style](./guide/architecture-styles/event-driven.md) ([#21c2b2898f](https://github.com/MicrosoftDocs/architecture-center/commit/21c2b2898f))
+- [Run a Linux VM on Azure](./reference-architectures/n-tier/linux-vm.yml) ([#bf45694826](https://github.com/MicrosoftDocs/architecture-center/commit/bf45694826))
+- [Choose an Azure storage service](./guide/technology-choices/storage-options.md) ([#3f6a26375d](https://github.com/MicrosoftDocs/architecture-center/commit/3f6a26375d))
+- [Prepare to Choose a Data Store in Azure](./guide/technology-choices/data-stores-getting-started.md) ([#c1a5c84f2d](https://github.com/MicrosoftDocs/architecture-center/commit/c1a5c84f2d))
+- [Use Azure Firewall to help protect an AKS cluster](./guide/aks/aks-firewall.yml) ([#99f9d081b4](https://github.com/MicrosoftDocs/architecture-center/commit/99f9d081b4))
+- [Guidance for using Azure Private Link service in a multitenant solution](./guide/multitenant/service/private-link.md) ([#99f9d081b4](https://github.com/MicrosoftDocs/architecture-center/commit/99f9d081b4))
+- [Run SAP NetWeaver in Windows on Azure](./guide/sap/sap-netweaver.md) ([#99f9d081b4](https://github.com/MicrosoftDocs/architecture-center/commit/99f9d081b4))
+- [SAP S/4HANA in Linux on Azure](./guide/sap/sap-s4hana.md) ([#99f9d081b4](https://github.com/MicrosoftDocs/architecture-center/commit/99f9d081b4))
+- [No-Caching antipattern](./antipatterns/no-caching/index.md) ([#b1a7cae5ab](https://github.com/MicrosoftDocs/architecture-center/commit/b1a7cae5ab))
+- [Caching guidance](./best-practices/caching.yml) ([#b1a7cae5ab](https://github.com/MicrosoftDocs/architecture-center/commit/b1a7cae5ab))
+- [CDN guidance](./best-practices/cdn.yml) ([#b1a7cae5ab](https://github.com/MicrosoftDocs/architecture-center/commit/b1a7cae5ab))
+- [Data partitioning guidance](./best-practices/data-partitioning.yml) ([#b1a7cae5ab](https://github.com/MicrosoftDocs/architecture-center/commit/b1a7cae5ab))
+- [Data partitioning strategies](./best-practices/data-partitioning-strategies.yml) ([#b1a7cae5ab](https://github.com/MicrosoftDocs/architecture-center/commit/b1a7cae5ab))
+- [Administer SQL Server with Azure Arc](./hybrid/azure-arc-sql-server.yml) ([#9073ba5a49](https://github.com/MicrosoftDocs/architecture-center/commit/9073ba5a49))
+- [Azure API Management Landing Zone Architecture](./example-scenario/integration/app-gateway-internal-api-management-function.yml) ([#bfa30f6edb](https://github.com/MicrosoftDocs/architecture-center/commit/bfa30f6edb))
+- [Inbound and outbound internet connections for SAP on Azure](./guide/sap/sap-internet-inbound-outbound.yml) ([#09fe6ea01a](https://github.com/MicrosoftDocs/architecture-center/commit/09fe6ea01a))
 - [Enhanced-security hybrid messaging for client access](./example-scenario/hybrid/secure-hybrid-messaging-client.yml) ([#864bbfff71](https://github.com/MicrosoftDocs/architecture-center/commit/864bbfff71))
 - [Enhanced-security hybrid messaging for mobile access](./example-scenario/hybrid/secure-hybrid-messaging-mobile.yml) ([#864bbfff71](https://github.com/MicrosoftDocs/architecture-center/commit/864bbfff71))
 - [Identity architecture design](./identity/identity-start-here.yml) ([#864bbfff71](https://github.com/MicrosoftDocs/architecture-center/commit/864bbfff71))
@@ -44,12 +78,11 @@ The following new and updated articles have recently been published in the Azure
 - [Siemens Teamcenter baseline architecture on Azure](./example-scenario/manufacturing/teamcenter-baseline.yml) ([#47e344910a](https://github.com/MicrosoftDocs/architecture-center/commit/47e344910a))
 - [Storage architecture](./guide/storage/storage-start-here.md) ([#d8759bd3c2](https://github.com/MicrosoftDocs/architecture-center/commit/d8759bd3c2))
 - [Storage Options for a Kubernetes Cluster](./aws-professional/eks-to-aks/storage.md) ([#3c45ff22aa](https://github.com/MicrosoftDocs/architecture-center/commit/3c45ff22aa))
-- [Run SAP NetWeaver in Windows on Azure](./guide/sap/sap-netweaver.yml) ([#3c45ff22aa](https://github.com/MicrosoftDocs/architecture-center/commit/3c45ff22aa))
+- [Run SAP NetWeaver in Windows on Azure](./guide/sap/sap-netweaver.md) ([#3c45ff22aa](https://github.com/MicrosoftDocs/architecture-center/commit/3c45ff22aa))
 - [Transient Fault Handling](./best-practices/transient-faults.md) ([#19369cd91b](https://github.com/MicrosoftDocs/architecture-center/commit/19369cd91b))
 - [Automated API deployments using APIOps](./example-scenario/devops/automated-api-deployments-apiops.yml) ([#520a64549e](https://github.com/MicrosoftDocs/architecture-center/commit/520a64549e))
 - [Esri ArcGIS Platform on Azure Virtual Desktop](./example-scenario/data/esri-arcgis-azure-virtual-desktop.yml) ([#5933076273](https://github.com/MicrosoftDocs/architecture-center/commit/5933076273))
-- [Ambassador pattern](./patterns/ambassador.yml) ([#cd4298f132](https://github.com/MicrosoftDocs/architecture-center/commit/cd4298f132))
-- [Real-time analytics on data with Azure Service Bus and Azure Data Explorer](./solution-ideas/articles/analytics-service-bus.yml) ([#2c388b45b7](https://github.com/MicrosoftDocs/architecture-center/commit/2c388b45b7))
+- [Real-Time Analytics on Data by Using Azure Service Bus and Azure Data Explorer](./solution-ideas/articles/analytics-service-bus.yml) ([#2c388b45b7](https://github.com/MicrosoftDocs/architecture-center/commit/2c388b45b7))
 - [Baseline Highly Available Zone-Redundant App Services Web Application](./web-apps/app-service/architectures/baseline-zone-redundant.yml) ([#484478be40](https://github.com/MicrosoftDocs/architecture-center/commit/484478be40))
 - [IoT Hub-Based Multitenant Solution Architectural Approaches](./guide/multitenant/approaches/iot.md) ([#d856bcf43a](https://github.com/MicrosoftDocs/architecture-center/commit/d856bcf43a))
 - [Use Domain Analysis to Model Microservices](./microservices/model/domain-analysis.md) ([#d677ad0868](https://github.com/MicrosoftDocs/architecture-center/commit/d677ad0868))
@@ -157,7 +190,7 @@ The following new and updated articles have recently been published in the Azure
 - [Design to Support Foundation Model Life Cycles](./ai-ml/guide/manage-foundation-models-lifecycle.md) ([#f351100aa7](https://github.com/MicrosoftDocs/architecture-center/commit/f351100aa7))
 - [Use Azure Firewall to help protect an AKS cluster](./guide/aks/aks-firewall.yml) ([#f351100aa7](https://github.com/MicrosoftDocs/architecture-center/commit/f351100aa7))
 - [AKS baseline for multiregion clusters](./reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml) ([#f351100aa7](https://github.com/MicrosoftDocs/architecture-center/commit/f351100aa7))
-- [Multiregion BCDR for Azure Virtual Desktop](./example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr.yml) ([#9c9f9b9b79](https://github.com/MicrosoftDocs/architecture-center/commit/9c9f9b9b79))
+- [Multiregion BCDR for Azure Virtual Desktop](./example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr.md) ([#9c9f9b9b79](https://github.com/MicrosoftDocs/architecture-center/commit/9c9f9b9b79))
 - [Azure Local Baseline Reference Architecture](./hybrid/azure-local-baseline.yml) ([#9c9f9b9b79](https://github.com/MicrosoftDocs/architecture-center/commit/9c9f9b9b79))
 - [Compare Java application hosting options on Azure](./guide/technology-choices/service-for-java-comparison.yml) ([#c8b5795c3f](https://github.com/MicrosoftDocs/architecture-center/commit/c8b5795c3f))
 - [Prevent IPv4 Exhaustion in Azure](./networking/guide/internet-protocol-version-4-exhaustion.md) ([#c8b5795c3f](https://github.com/MicrosoftDocs/architecture-center/commit/c8b5795c3f))
