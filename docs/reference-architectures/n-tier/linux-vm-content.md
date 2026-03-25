@@ -177,15 +177,25 @@ For more information, see the cost section in [Microsoft Azure Well-Architected 
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-Use a single [Azure Resource Manager template][arm-template] for provisioning the Azure resources and its dependencies. Because all the resources are in the same virtual network, they are isolated in the same basic workload. It makes it easier to associate the workload's specific resources to a DevOps team, so that the team can independently manage all aspects of those resources. This isolation enables the DevOps Team to perform continuous integration and continuous delivery (CI/CD).
+Use Infrastructure-as-Code (IaC) templates to provision Azure resources and their dependencies. These could be written using [Bicep](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/) or JSON in an [Azure Resource Manager template][arm-template] or even [Terraform](https://learn.microsoft.com/en-us/azure/developer/terraform/) if you prefer. These templates allow a Continuous Integration/Continuous Deployment (CI/CD) process as part of a [GitOps](https://learn.microsoft.com/en-us/devops/deliver/iac-github-actions) methodology for deploying and configuring resources. This will allow versioning of architectures and ensure consistency between environments, as well as enforcing reproducability, security, and compliance.
 
-Also, you can use different [Azure Resource Manager templates][arm-template] and integrate them with [Azure DevOps Services](/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services) to provision different environments in minutes, for example to replicate production like scenarios or load testing environments only when needed, saving cost.
+To assist in monitoring and diagnosing issues, ensure that diagnostics logs are enabled on your resources and are made available to [Azure Monitor](https://azure.microsoft.com/services/monitor/) to help with analysis and optimization of your resources. These logs can be used to implement alerting and notifications of critical events, and in some cases allow automated remediation or logging a ticket in your ITSM system.
 
-Consider using the [Azure Monitor](https://azure.microsoft.com/services/monitor/) to Analyze and optimize the performance of your infrastructure, Monitor and diagnose networking issues without logging into your virtual machines.
 
 ### Performance Efficiency
 
-### Sustainability
+Performance Efficiency focuses on optimizing cloud workloads for speed, responsiveness, and scalability. For more information see [Design review checklist for Performance Efficiency](https://learn.microsoft.com/en-us/azure/well-architected/performance-efficiency/checklist)
+
+Some key goals include minimizing latency, ensuring scalable architectures, optimizing resource utilization, and continuously improving system performance
+
+As mentioned above, the decisions made regarding workload architecture, VM SKU and disk configurations can have a large impact on how your workload performs. Mkaing the correct choices could prevent having to re-architect the solution in the future, adding flexibility and saving costs.
+
+Be sure to consider these points when developing your architecture:
+- Leverage VM scale sets if the workload will have a dynamic load. For example, scaling out in times of large amounts of traffic and then scaling back in when the traffic reduces. This will ensure adequate processing power while still keeping costs under control.
+- Choose the appropriate VM and disk SKUs to meet required IOPs during processing, and configure caching to further improve performance
+- Where possible, enable accelerated networking to minimize latency between components
+- Design network architecture to minimize unnecessary hops
+- Use Azure Monitor, VM Insights, and other tools to continuously analyze metrics and create updated performance baselines. Use this information to determine where to implement changes, and then test against those baselines
 
 ### Contributors
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
