@@ -77,7 +77,7 @@ Get the [latest updates on Azure Virtual Desktop technologies](https://azure.mic
 These are some additional articles about Azure Virtual Desktop:
 
 - [Azure Virtual Desktop RDP Shortpath for managed networks](/azure/virtual-desktop/shortpath?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
-- [Multiregion Business Continuity and Disaster Recovery (BCDR) for Azure Virtual Desktop](../../example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr.yml)
+- [Multiregion business continuity and disaster recovery (BCDR) for Azure Virtual Desktop](../../example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr.md)
 - [Deploy Esri ArcGIS Pro in Azure Virtual Desktop](../../example-scenario/data/esri-arcgis-azure-virtual-desktop.yml)
 
 ### AWS professionals
