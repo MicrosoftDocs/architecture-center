@@ -37,9 +37,11 @@ Applications typically implement [materialized views](./materialized-view.yml) b
 
 The following diagram shows an overview of this pattern combined with the [Command Query Responsibility Segregation (CQRS) pattern](./cqrs.md). The presentation layer reads from a separate read-only store and writes commands to command handlers. The command handlers retrieve the entity's event stream from the event store, run business logic, and push new events to a queue. Event handlers consume events from the queue and write events to the event store, update the read-only store, or integrate with external systems.
 
-  :::image type="complex" source="./_images/event-sourcing-overview.png" border="false" lightbox="./_images/event-sourcing-overview.png" alt-text="Diagram that shows an overview and example of the Event Sourcing pattern.":::
+  :::image type="complex" source="./_images/event-sourcing-overview.svg" border="false" lightbox="./_images/event-sourcing-overview.svg" alt-text="Diagram that shows an overview and example of the Event Sourcing pattern.":::
       At the top of the diagram, a box represents the presentation layer. In the upper right, an arrow labeled reads points from the presentation layer to a box labeled business object, which points to a read-only store. An arrow labeled writes points from the presentation layer to a box on the left that includes command handlers and business objects. From this box, an arrow labeled get cart events points to an event store. Another arrow points from the command handlers box to a box at the bottom labeled queue or topic that contains seven envelope icons. Alongside this arrow, envelope icons represent events like cart created, item 1 added, item 2 added, item 1 removed, and shipping information added. Three arrows point from the queue or topic box to separate event handlers. The leftmost event handler writes events to the event store. The middle event handler updates the read-only store. The rightmost event handler integrates with external systems.
 :::image-end:::
+
+*Download a [Visio file](https://arch-center.azureedge.net/event-sourcing-overview.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -196,9 +198,11 @@ A conference management system needs to track the number of completed bookings f
 
 The following diagram shows how you might use event sourcing to implement the seat reservation subsystem of the conference management system.
 
-  :::image type="complex" source="./_images/event-sourcing-example.png" border="false" lightbox="./_images/event-sourcing-example.png" alt-text="Diagram that shows how to use event sourcing to capture information about seat reservations in a conference management system.":::
+  :::image type="complex" source="./_images/event-sourcing-example.svg" border="false" lightbox="./_images/event-sourcing-example.svg" alt-text="Diagram that shows how to use event sourcing to capture information about seat reservations in a conference management system.":::
       At the top of the diagram, a box represents the presentation layer. An arrow labeled writes points from the presentation layer to a box that includes command handlers and business objects. An arrow labeled get seat availability events points from that box to an event store. An arrow labeled seat reserved (number of seats) points from the command handlers box to a box labeled queue or topic. An arrow points from the queue or topic box to an event handler. Another arrow points from the event handler to the event store.
 :::image-end:::
+
+*Download a [Visio file](https://arch-center.azureedge.net/event-sourcing-example.vsdx) of this architecture.*
 
 ### Workflow
 
