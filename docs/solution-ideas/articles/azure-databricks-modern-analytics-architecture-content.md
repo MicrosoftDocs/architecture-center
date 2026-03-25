@@ -1,13 +1,13 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution outlines the key principles and components of modern data architectures. Azure Databricks forms the core of the solution. This platform works seamlessly with other services, such as Azure Data Lake Storage, Microsoft Fabric, and Power BI.
+This solution outlines the key principles and components of modern data architectures. Azure Databricks is central to the solution. This platform works seamlessly with other services, such as Azure Data Lake Storage, Microsoft Fabric, and Power BI.
 
 *Apache® and Apache Spark™ are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
 ## Architecture
 
 :::image type="complex" source="../media/azure-databricks-modern-analytics-architecture.svg" alt-text="Architecture diagram that shows how a modern data architecture collects, processes, analyzes, and visualizes data." lightbox="../media/azure-databricks-modern-analytics-architecture.svg" border="false":::
-   The diagram contains several gray rectangles. Labels on the rectangles read Sources, Process, Serve, Store, Discover and govern, and Platform. Each rectangle contains icons that represent Azure or partner services. The Azure Databricks and the Data Lake Storage icons are in the center. Arrows point back and forth between icons. The arrows show how data flows through the system, which the diagram explanation steps describe. The lowest rectangle extends across the bottom of the diagram. It contains icons for services that monitor and govern operations and information.
+   Diagram that shows a modern data platform arranged from left to right, with data sources on the left, processing and storage in the center, and analytics, governance, and reporting on the right. Azure Databricks and Azure Data Lake Storage appear in the middle as the visual hub of the diagram. Around them are icons for batch and streaming ingestion, machine learning, SQL querying, Microsoft Fabric, and Power BI. Arrows connect the services in both directions to show how data moves into the platform to be refined and stored, and then used for analytics and business reporting. A horizontal band across the bottom groups services for governance, identity, monitoring, DevOps, and cost management.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-databricks-modern-analytics-architecture.vsdx) of this architecture.*
@@ -22,11 +22,11 @@ The following dataflow corresponds to the previous diagram:
 
 1. For data storage:
 
-   - Data Lake Storage houses all types of data, including structured, unstructured, and partially structured data. It also stores batch and streaming data.
+   - Data Lake Storage stores all types of data, including structured, unstructured, and partially structured data. It also stores batch and streaming data.
 
-   - Delta Lake forms the curated layer of the data lake. It stores the refined data in an open-source format.
+   - Delta Lake is the curated layer of the data lake. It stores the refined data in an open-source format.
 
-   - Azure Databricks works well with a [medallion architecture][Medallion model] that organizes data into layers:
+   - Azure Databricks works well with a [medallion architecture][Medallion model] that organizes data into the following layers:
 
      - Bronze layer: Holds raw data.
    
@@ -34,7 +34,7 @@ The following dataflow corresponds to the previous diagram:
    
      - Gold layer: Stores aggregated data that's useful for business analytics.
 
-1. The analytical platform ingests data from the disparate batch and streaming sources. Data scientists use this data for tasks like:
+1. The analytical platform ingests data from the different batch and stream sources. Data scientists use this data for tasks like:
 
    - Data preparation.
 
@@ -44,7 +44,7 @@ The following dataflow corresponds to the previous diagram:
 
    - Model training.
 
-   MLflow manages parameter, metric, and model tracking in data science code runs. Azure Databricks provides flexible coding options for these workloads:
+   MLflow manages parameter, metric, and model tracking in data science code runs. Azure Databricks provides flexible coding options for the following workloads:
 
    - Code can be in SQL, Python, R, and Scala.
 
@@ -56,9 +56,9 @@ The following dataflow corresponds to the previous diagram:
 
    - Azure Databricks stores information about models in the [MLflow Model Registry][MLflow Model Registry]. The registry makes models available through batch, streaming, and REST APIs.
 
-   - The solution can also deploy models to Azure Machine Learning endpoints, including managed online endpoints, batch endpoints, and AKS-backed Kubernetes endpoints.
+   - The solution can also deploy models to Azure Machine Learning endpoints, which includes managed online endpoints, batch endpoints, and Azure Kubernetes Service (AKS)-backed Kubernetes endpoints.
 
-1. Services that work with the data connect to a single underlying data source to help ensure consistency. For instance, you can run SQL queries on the data lake by using Azure Databricks SQL warehouses. This service:
+1. Services that work with the data connect to a single underlying data source to help ensure consistency. For example, you can run SQL queries on the data lake by using Azure Databricks SQL warehouses. This service:
 
    - Provides a query editor and catalog, the query history, basic dashboarding, and alerting.
 
@@ -66,11 +66,11 @@ The following dataflow corresponds to the previous diagram:
 
    - Uses a [Photon-powered Delta Engine to improve performance][Photon improves performance].
 
-1. You can mirror gold datasets out of Azure Databricks Unity Catalog into Microsoft Fabric OneLake. Use [Azure Databricks mirroring in Fabric][Databricks mirroring in Fabric] to easily integrate without the need to move or replicate data.
+1. You can mirror gold datasets out of Azure Databricks Unity Catalog into Microsoft Fabric OneLake. Use [Azure Databricks mirroring in Fabric][Databricks mirroring in Fabric] to integrate without the need to move or replicate data.
 
 1. Power BI generates analytical and historical reports and dashboards from the unified data platform. This service uses the following features when it works with Azure Databricks:
 
-   - A [built-in Azure Databricks connector][Power BI connector for Azure Databricks] for visualizing the underlying data.
+   - A [built-in Azure Databricks connector][Power BI connector for Azure Databricks] to visualize the underlying data.
 
    - Optimized Java Database Connectivity and Open Database Connectivity drivers.
 
@@ -82,19 +82,19 @@ The following dataflow corresponds to the previous diagram:
 
    - Microsoft Purview provides data discovery services, sensitive data classification, and governance insights across the data estate.
 
-   - Azure DevOps and other DevOps platforms (such as GitHub) offer continuous integration and continuous deployment (CI/CD) and other integrated version control features for automating infrastructure deployment and code management.
+   - Azure DevOps and other DevOps platforms (such as GitHub) offer continuous integration and continuous deployment and other integrated version control features for automating infrastructure deployment and code management.
 
    - For ADLS Gen2 access, use identity-based authentication (managed identity / service principal) as the default across data services. Introduce Azure Key Vault only when a workload requires non-identity credentials (tokens, passwords, shared keys). Treat secrets as a cross-cutting control: centralize, restrict, rotate, and ensure workloads retrieve secrets at runtime, not via embedded connection strings.
 
    - Power BI accesses curated (Gold) data through Azure Databricks SQL endpoints using Microsoft Entra ID–based authentication and authorization. Data access is governed centrally through Databricks Unity Catalog and enterprise governance services, ensuring that Power BI doesn't require direct storage credentials and that data exposure is limited to authorized users and datasets.
 
-   - Microsoft Entra ID provides single sign-on and Automatic Identity Management for Azure Databricks users and groups. Automatic identity management syncs users, service principals, and groups from Microsoft Entra ID without requiring separate provisioning configuration. Azure Databricks supports automated identity provisioning with Microsoft Entra ID to:
+   - Entra ID provides single sign-on and Automatic Identity Management for Azure Databricks users and groups. Automatic identity management syncs users, service principals, and groups from Entra ID without requiring separate provisioning configuration. Azure Databricks supports automated identity provisioning with Entra ID to:
 
      - Create and sync users, groups, and service principals.
    
      - Manage nested group memberships.
    
-     - Remove users and deny access when identities are deleted from Microsoft Entra ID.
+     - Remove users and deny access when identities are deleted from Entra ID.
 
    - Azure Monitor collects and analyzes Azure resource telemetry. By proactively identifying problems, this service maximizes performance and reliability.
 
@@ -112,21 +112,21 @@ This solution uses the following components.
 
 - [Azure Databricks Delta Live Tables][Azure Databricks Delta Live Tables] is a declarative framework for building reliable, maintainable, and testable data processing pipelines. In this architecture, Delta Live Tables helps you define transformations to perform on your data. It also helps you manage task orchestration, cluster management, monitoring, data quality, and error handling within Azure Databricks. 
 
-- [Microsoft Fabric][Microsoft Fabric] is an end-to-end analytics and data platform for organizations that need a unified solution. The platform provides services like Data Engineering, Data Factory, Data Science, Real-Time Intelligence, Data Warehouse, Databases, and a persistence layer known as OneLake. This architecture mirrors Unity Catalog tables into Microsoft Fabric OneLake and uses Direct Lake mode in Power BI for better performance.
+- [Fabric][Microsoft Fabric] is an end-to-end analytics and data platform for organizations that need a unified solution. The platform provides services like Data Engineering, Data Factory, Data Science, Real-Time Intelligence, Data Warehouse, Databases, and a persistence layer known as OneLake. This architecture mirrors Unity Catalog tables into Fabric OneLake and uses Direct Lake mode in Power BI for better performance.
 
-- [Data Factory in Microsoft Fabric][Data Factory in Microsoft Fabric] is a modern data integration platform that you can use to ingest, prepare, and transform data from a rich set of data sources in Fabric. This architecture uses built-in connectors to several data sources for quick ingestion into Data Lake Storage or OneLake. Azure Databricks later retrieves and further transforms the batch data.
+- [Data Factory][Data Factory in Microsoft Fabric] is a modern data integration platform that you can use to ingest, prepare, and transform data from a rich set of data sources in Fabric. This architecture uses built-in connectors to several data sources for quick ingestion into Data Lake Storage or OneLake. Azure Databricks later retrieves and further transforms the batch data.
 
 - [Event Hubs][Event Hubs] is a fully managed, big data streaming platform. As a platform as a service, it provides event ingestion capabilities. This architecture uses Event Hubs for streaming data. Azure Databricks can connect to this data and process it by using Spark Streaming or Delta Live Tables.
 
 - [Data Lake Storage][Azure Data Lake Storage] is a scalable and secure data lake for high-performance analytics. It handles multiple petabytes of data and supports hundreds of gigabits of throughput. Data Lake Storage can store structured, partially structured, and unstructured data. This architecture uses Data Lake Storage to store both batch and streaming data.
 
-- [Machine Learning][Azure Machine Learning] is a cloud-based environment that helps you build, deploy, and manage predictive analytics solutions. By using these models, you can forecast behavior, outcomes, and trends. In this architecture, Machine Learning uses data that Azure Databricks transforms for training and inferring models.
+- [Machine Learning][Azure Machine Learning] is a cloud-based environment that helps you build, deploy, and manage predictive analytics solutions. You can forecast behavior, outcomes, and trends by using these models. In this architecture, Machine Learning uses data that Azure Databricks transforms to train and infer models.
 
 - [AKS][Azure Kubernetes Service] is a highly available, secure, and fully managed Kubernetes service. AKS makes it easy to deploy and manage containerized applications. In this architecture, AKS hosts machine learning models in a containerized environment for scalable inferencing.
 
 - [Delta Lake][Databricks Delta Lake] is a storage layer that uses an open file format. This layer runs on top of cloud storage solutions like Data Lake Storage. Delta Lake supports data versioning, rollback, and transactions for updating, deleting, and merging data. In this architecture, Delta Lake works as the primary file format for writing and reading data from Data Lake Storage.
 
-- [MLflow][MLflow] is an open-source platform for managing the machine learning lifecycle. Its components monitor machine learning models during training and operation. In this architecture, similar to Machine Learning, you can use MLflow in Azure Databricks to manage your machine learning lifecycle. Train and infer models by using the Unity Catalog data that you transformed within Azure Databricks.
+- [MLflow][MLflow] is an open-source platform for machine learning lifecycle management. Its components monitor machine learning models during training and operation. In this architecture, similar to Machine Learning, you can use MLflow in Azure Databricks to manage your machine learning lifecycle. Train and infer models by using the Unity Catalog data that you transformed within Azure Databricks.
 
 #### Reporting and governing components
 
@@ -136,17 +136,17 @@ This solution uses the following components.
 
 - [Microsoft Purview][What is Microsoft Purview?] manages on-premises, multicloud, and software as a service (SaaS) data. This governance service maintains data landscape maps. Its features include automated data discovery, sensitive data classification, and data lineage. This architecture uses Microsoft Purview to scan and track data that's ingested in Unity Catalog, Fabric, Power BI, and Data Lake Storage.
 
-- [Azure DevOps][DevOps solutions on Azure] is a DevOps orchestration platform. This SaaS provides tools and environments to build, deploy, and collaborate on applications. This architecture uses Azure DevOps to automate the deployment of Azure infrastructure. You can also use GitHub for automation and version control of Azure Databricks code for better collaboration, change tracking, and integration with CI/CD pipelines.
+- [Azure DevOps][DevOps solutions on Azure] is a DevOps orchestration platform. This SaaS provides tools and environments to build, deploy, and collaborate on applications. This architecture uses Azure DevOps to automate the deployment of Azure infrastructure. You can also use GitHub for automation and version control of Azure Databricks code for better collaboration, to track changes, and for integration with CI/CD pipelines.
 
 - [Key Vault][Key Vault] stores and controls access to secrets, such as tokens, passwords, and API keys. Key Vault also creates and controls encryption keys and manages security certificates. This architecture uses Key Vault to store shared access signature keys from Data Lake Storage. These keys are then used in Azure Databricks and other services for authentication.
 
-- [Microsoft Entra ID][Microsoft Entra ID] offers cloud-based identity and access management services. These features provide a way for users to sign in and access resources. This architecture uses Microsoft Entra ID to authenticate and authorize users and services in Azure.
+- [Entra ID][Microsoft Entra ID] offers cloud-based identity and access management services. These features provide a way for users to sign in and access resources. This architecture uses Entra ID to authenticate and authorize users and services in Azure.
 
-- [Automatic Identity Management][Automatic Identity Management] automatically syncs users, service principals, and groups from Microsoft Entra ID to Azure Databricks without requiring separate application configuration. This approach is enabled by default and supports nested groups and service principals. SCIM provisioning remains available as an alternative for organizations with specific requirements.
+- [Automatic Identity Management][Automatic Identity Management] automatically syncs users, service principals, and groups from Entra ID to Azure Databricks without the need for separate application configuration. This approach is enabled by default and supports nested groups and service principals. Organizations with specific requirements can still use SCIM provisioning.
   
 - [Azure Monitor][Azure Monitor] collects and analyzes data in environments and Azure resources. This data includes app telemetry, such as performance metrics and activity logs. This architecture uses Azure Monitor to monitor the health of compute resources in Azure Databricks and Machine Learning and other components that send logs to Azure Monitor.
 
-- [Cost Management][Microsoft Cost Management] helps you manage cloud spending. By using budgets and recommendations, this service organizes expenses and shows you how to reduce costs. This architecture uses Cost Management to help monitor and control the cost of the entire solution.
+- [Cost Management][Microsoft Cost Management] helps you to manage cloud spending. This service organizes expenses and shows you how to reduce costs by using budgets and recommendations. This architecture uses Cost Management to help monitor and control the cost of the entire solution.
 
 ## Scenario details
 
@@ -166,16 +166,17 @@ This solution outlines a modern data architecture that achieves these goals. Azu
 
 ### Potential use cases
 
-This solution applies to organizations that already operate both PaaS‑based analytics platforms and SaaS‑based BI tools, often across different teams. It's a strong fit where data engineering and data science teams rely on Azure Databricks for scalable processing and machine learning, while analytics and business users depend on Power BI for standardized reporting, requiring a unified architecture that supports both workloads without duplicating data or fragmenting governance.
+This solution applies to organizations that already operate both PaaS‑based analytics platforms and SaaS‑based BI tools, often across different teams. It's a strong fit where data engineers and data science teams rely on Azure Databricks for scalable processing and machine learning. Analytics and business users use Power BI for standardized reporting, which requires a unified architecture that supports both workloads without data duplication or governance fragmentation.
 
-**This architecture is a strong fit for organizations with any of these characteristics:**
-- Have data engineering and data science teams that already use Azure Databricks for scalable data processing, advanced analytics, and machine learning.
+This architecture is a strong fit for organizations with any of the following characteristics:
+
+- Have data engineers and data science teams that already use Azure Databricks for scalable data processing, advanced analytics, and machine learning.
 
 - Have analytics and business user communities that depend on Power BI for standardized, governed reporting and self‑service insights.
 
 - Require a unified data architecture that enables both platforms to work from a shared data foundation.
 
-- Want to avoid duplicating data or creating parallel pipelines solely to satisfy different analytics workloads.
+- Want to avoid data duplication or the creation of parallel pipelines solely to satisfy different analytics workloads.
 
 - Need to maintain consistent governance, security, and access controls across engineering and BI workloads.
 
@@ -196,13 +197,11 @@ Other contributors:
 ## Next steps
 
 - [Run your first Delta Live Tables pipeline][Run your first DLT pipeline]
-- [Create an end-to-end pipeline with Fabric Data Factory](/fabric/data-factory/tutorial-end-to-end-pipeline)
-- [Use Direct Lake for high‑performance analytics on OneLake data](/fabric/fundamentals/direct-lake-overview)
+- [Create an end-to-end pipeline with Data Factory](/fabric/data-factory/tutorial-end-to-end-pipeline)
+- [Use Direct Lake for high‑performance analytics on OneLake data][Direct Lake]
 - [Understand supported Databricks + Fabric integration patterns](https://techcommunity.microsoft.com/blog/analyticsonazure/approaches-to-integrating-azure-databricks-with-microsoft-fabric-the-better-toge/4453643)
 
 ## Related resources
-
-To learn about related solutions, see the following guides and architectures.
 
 - [Choose a data analytics and reporting technology in Azure][Choose a data analytics and reporting technology in Azure]
 - [Choose a data pipeline orchestration technology in Azure][Choose a data pipeline orchestration technology in Azure]
