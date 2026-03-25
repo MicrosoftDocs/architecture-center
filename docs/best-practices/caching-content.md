@@ -196,10 +196,10 @@ For language-specific connection examples, see [Connect to Azure Managed Redis](
 
 #### Choose a .NET client library
 
-When using Azure Managed Redis for caching, the recommended .NET libraries are:
+When you use Azure Managed Redis for caching, the recommended .NET libraries are:
 
-- **StackExchange.Redis** -- A low-level Redis client with high performance. Use it when you need direct access to Redis commands, atomic operations, transactions, pipelining, or Lua scripting.
-- **Microsoft.Extensions.Caching.StackExchangeRedis** -- Provides an `IDistributedCache` integration for ASP.NET Core. Use it for straightforward key-value caching where values are stored as opaque byte arrays. This abstraction does not expose advanced Redis data structures.
+- **StackExchange.Redis**: A low-level Redis client with high performance. Use it when you need direct access to Redis commands, atomic operations, transactions, pipelining, or Lua scripting.
+- **Microsoft.Extensions.Caching.StackExchangeRedis**: Provides an `IDistributedCache` integration for ASP.NET Core. Use it for straightforward key-value caching where values are stored as opaque byte arrays. This abstraction does not expose advanced Redis data structures.
 
 These libraries provide the primitives required to build common caching patterns, but the application must implement the caching logic itself.
 
@@ -273,7 +273,7 @@ When multiple clients or application instances share a cache, you need to preven
   RedisValue[] values = await cache.StringGetAsync(keys);
   ```
 
-**Transactions (optimistic concurrency).** You can use the `WATCH` command to monitor one or more keys before starting a transaction with `MULTI`/`EXEC`. If any watched key changes before the transaction executes, Redis discards the transaction and the client can retry. The StackExchange library provides support for transactions through the `ITransaction` interface.
+**Transactions (optimistic concurrency).** You can use the `WATCH` command to monitor one or more keys before starting a transaction with `MULTI`/`EXEC`. If any watched key changes before the transaction starts, Redis discards the transaction and the client can retry. The StackExchange library provides support for transactions through the `ITransaction` interface.
 
 You create an `ITransaction` object by using the `IDatabase.CreateTransaction` method. You invoke commands to the transaction by using the methods provided by the `ITransaction` object.
 
@@ -310,7 +310,7 @@ Redis transactions are unlike transactions in relational databases. The `Execute
 
 #### Perform fire and forget cache operations
 
-When a cache update doesn't affect application correctness, such as incrementing a view counter or refreshing a non-critical statistic, you can skip waiting for the server's response. Redis supports fire-and-forget operations through command flags, which reduces round-trip latency for the client:
+When a cache update doesn't affect application correctness, such as incrementing a view counter or refreshing a non-critical statistic, you can skip waiting for the server's response. Redis supports fire-and-forget operations through command flags, which reduce round-trip latency for the client:
 
 ```csharp
 await cache.StringSetAsync("data:key1", 99);
@@ -482,7 +482,7 @@ For workloads that exceed the capacity of a single node, Azure Managed Redis sup
 
 - **Redis Enterprise Clustering Policy:** A proxy provides transparent routing through a single endpoint. Clients do not need to implement cluster-aware logic or handle MOVED/ASK responses. This policy offers simpler client integration but introduces a small routing overhead.
 
-Azure Managed Redis also supports **non-clustered mode**, which uses a single primary/replica pair with no sharding. This mode is suitable for smaller workloads that do not require horizontal scale-out.
+Azure Managed Redis also supports *non-clustered mode*, which uses a single primary/replica pair with no sharding. This mode is suitable for smaller workloads that do not require horizontal scale-out.
 
 > [!NOTE]
 > Custom partitioning models (such as client-side hashing or third-party proxies) are typically only needed in self-managed Redis deployments on VMs or Kubernetes. Azure Managed Redis clustering handles routing, failover, and resharding automatically.
