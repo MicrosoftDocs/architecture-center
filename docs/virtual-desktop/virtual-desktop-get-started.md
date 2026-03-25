@@ -54,7 +54,7 @@ The articles in this section include fully developed architectures that you can 
 
 The following production-ready architectures demonstrate end-to-end virtual desktop solutions that you can deploy and customize:
 
-- **[Deploy Esri ArcGIS Pro in Azure Virtual Desktop](../example-scenario/data/esri-arcgis-azure-virtual-desktop.yml):** Deploy Esri ArcGIS Pro in [Azure Virtual Desktop](https://azure.microsoft.com/products/virtual-desktop/) take advantage of the hyperscale capabilities of Azure. This architecture includes back-end components like ArcGIS Enterprise and supports GPU-enabled virtual machines (VMs) for demanding 2D and 3D geographic information system (GIS) workflows.
+- **[Deploy Esri ArcGIS Pro in Azure Virtual Desktop](../example-scenario/data/esri-arcgis-azure-virtual-desktop.yml):** Deploy Esri ArcGIS Pro in [Azure Virtual Desktop](https://azure.microsoft.com/products/virtual-desktop/) to take advantage of the hyperscale capabilities of Azure. This architecture includes back-end components like ArcGIS Enterprise and supports GPU-enabled virtual machines (VMs) for demanding 2D and 3D geographic information system (GIS) workflows.
 
 ## Learn about virtual desktop on Azure
 
