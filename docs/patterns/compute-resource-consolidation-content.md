@@ -100,4 +100,4 @@ The following patterns and guidance might also be relevant when implementing thi
 
 ## Related resources
 
-- [Sharding](./sharding.yml). Describes strategies for splitting workloads across multiple compute units to improve scalability and performance. This pattern complements compute consolidation by showing the opposite design: when to separate workloads to achieve isolation, resilience, or scale.
+- [Sharding](./sharding.yml). Describes ways to split workloads across compute units for better scaling and performance. This pattern complements compute consolidation by showing the opposite design: when to separate workloads to achieve isolation, resilience, or scale.
