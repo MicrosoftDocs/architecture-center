@@ -22,7 +22,7 @@ Migrating end-user desktops to the cloud helps improve employee productivity and
 
 - [Omnissa Horizon Cloud on Microsoft Azure](https://www.omnissa.com/products/horizon-cloud/): An Omnissa service that simplifies the delivery of virtual desktops and applications on Azure by extending Azure Virtual Desktop.
 
-- [Citrix Virtual Apps and Desktops for Azure](https://docs.citrix.com/citrix-virtual-apps-desktops.html): A desktop and app virtualization service that you can use to provision Windows desktops and apps on Azure with Citrix and Azure Virtual Desktop.
+- [Citrix Virtual Apps and Desktops for Azure](https://docs.citrix.com/en-us/citrix-virtual-apps-desktops.html): A desktop and app virtualization service that you can use to provision Windows desktops and apps on Azure with Citrix and Azure Virtual Desktop.
 
 ## Architecture
 
@@ -48,7 +48,7 @@ The articles in this section include fully developed architectures that you can 
 
 - **[Windows 365 Azure network connection](windows-365-azure-network-connection.md):** Design and implement [Windows 365](https://www.microsoft.com/windows-365) Azure network connections to integrate Cloud PCs with your existing network infrastructure.
 
-- **[Multiregion business continuity and disaster recovery (BCDR) for Azure Virtual Desktop](../example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr.yml):** Design a multiregion BCDR strategy for [Azure Virtual Desktop](https://azure.microsoft.com/products/virtual-desktop/) to provide high availability and resilience.
+- **[Multiregion business continuity and disaster recovery (BCDR) for Azure Virtual Desktop](../example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr.md):** Design a multiregion BCDR strategy for [Azure Virtual Desktop](https://azure.microsoft.com/products/virtual-desktop/) to provide high availability and resilience.
 
 ### Virtual desktop architectures
 
@@ -116,7 +116,7 @@ Focus on the following key operational areas:
 
 - [Monitor and maintain an Azure Virtual Desktop infrastructure](/training/paths/monitor-maintain-azure-virtual-desktop-infrastructure/): Learn how to plan for disaster recovery, set up automation, and optimize session host capacity for [Azure Virtual Desktop](/azure/virtual-desktop/overview).
 
-- [BCDR for Azure Virtual Desktop](../example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr.yml): Design a multiregion BCDR strategy for [Azure Virtual Desktop](/azure/virtual-desktop/overview) to provide high availability and resilience.
+- [BCDR for Azure Virtual Desktop](../example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr.md): Design a multiregion BCDR strategy for [Azure Virtual Desktop](/azure/virtual-desktop/overview) to provide high availability and resilience.
 
 ## Stay current with virtual desktop
 
