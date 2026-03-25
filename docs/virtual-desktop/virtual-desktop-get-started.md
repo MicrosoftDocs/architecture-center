@@ -114,7 +114,7 @@ Focus on the following key operational areas:
 
 - [Set up device redirection](/azure/virtual-desktop/redirection-remote-desktop-protocol): Set up which local devices users can access in their remote sessions.
 
-- [Monitor and maintain an Azure Virtual Desktop infrastructure](/training/paths/monitor-maintain-azure-virtual-desktop-infrastructure/): Learn how to plan for disaster recovery, set up automation, and optimize session host capacity for [Azure Virtual Desktop](/azure/virtual-desktop/overview).
+- [Monitor and maintain an Azure Virtual Desktop infrastructure](/training/paths/monitor-maintain-azure-virtual-desktop-infrastructure/): Learn how to plan for DR, set up automation, and optimize session host capacity for [Azure Virtual Desktop](/azure/virtual-desktop/overview).
 
 - [BCDR for Azure Virtual Desktop](../example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr.md): Design a multiregion BCDR strategy for [Azure Virtual Desktop](/azure/virtual-desktop/overview) to provide high availability and resilience.
 
