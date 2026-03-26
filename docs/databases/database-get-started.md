@@ -180,7 +180,7 @@ To stay current with key database services, see the following articles:
 
 Databases is a broad category and covers a range of solutions. The following resources can help you discover more about Azure.
 
-### Hybrid [and multicloud]
+### Hybrid and multicloud
 
 Most organizations need a hybrid approach to databases because they have workloads that run both on-premises and in the cloud. Organizations typically [extend on-premises database solutions to the cloud](/azure/architecture/databases/guide/hybrid-on-premises-and-cloud). To connect environments, organizations must [choose a hybrid network architecture](/azure/architecture/reference-architectures/hybrid-networking/index).
 
