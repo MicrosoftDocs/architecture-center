@@ -107,6 +107,8 @@ A typical sequence is: the orchestrator sends step messages (for example, step 1
 
 If repeated retries still fail, Service Bus moves the message to a dead-letter queue and preserves failure details. The orchestrator (or a dedicated dead-letter processor) then raises an alert and emits structured telemetry, including failure reason and correlation IDs, to Azure Monitor and Log Analytics (optionally surfaced in Application Insights). This operational path helps teams diagnose why a step failed, identify whether manual intervention is required, and maintain traceability across the original and compensating flows.
 
+Compensation can be triggered through two paths: immediately when a step returns a business error (for example, a rule-validation failure), or after technical retries are exhausted and the message is dead-lettered; in either case, the workflow can start compensation automatically for clear, low-risk conditions, or pause for human review when the situation is ambiguous, high-impact, or requires a manual step.
+
 Use managed identities and Microsoft Entra ID-based authorization between components to avoid shared secrets and enforce least-privilege access. In a simplified reference diagram, these identity and authorization controls can be treated as baseline implementation concerns rather than explicit flow steps, keeping the visual focused on orchestration, retry, compensation, and failure handling.
 
 ## Next steps
