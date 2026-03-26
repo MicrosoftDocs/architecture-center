@@ -135,7 +135,7 @@ For microservices that talk directly to each other, it's important to create wel
 ## Related resources
 
 - [Design a microservices architecture](index.md)
-- [Design patterns for microservices](patterns.yml)
+- [Design patterns for microservices](patterns.md)
 - [Using domain analysis to model microservices](../model/domain-analysis.md)
 - [Using tactical DDD to design microservices](../model/tactical-domain-driven-design.md)
 - [Identify microservice boundaries](../model/microservice-boundaries.yml)
