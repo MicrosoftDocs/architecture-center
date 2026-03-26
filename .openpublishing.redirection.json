@@ -5283,7 +5283,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "docs/guide/networking/cross-tenant-secure-access-private-endpoints.md",
+      "source_path": "docs/guide/networking/cross-tenant-secure-access-private-endpoints.yml",
       "redirect_url": "/azure/architecture/networking/guide/cross-tenant-secure-access-private-endpoints",
       "redirect_document_id": true
     },
