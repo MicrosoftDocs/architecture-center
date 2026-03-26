@@ -35,7 +35,7 @@ To evaluate and compare Azure storage services for your workload, see [Storage o
 ## Architecture
 
 :::image type="complex" border="false" source="images/storage-get-started-diagram.svg" alt-text="Diagram that shows a baseline Azure storage architecture within an Azure subscription." lightbox="images/storage-get-started-diagram.svg":::
-   The diagram shows the solution journey for storage on Azure. It guides you through learning and organizational readiness steps, Azure storage service selection, implementation guidance, and production deployment. A workload client connects to network ingress control. VPN or Azure ExpressRoute connects to a virtual network within an Azure subscription. Public IP addresses and Azure Bastion are inside the virtual network. The virtual network also contains a network ingress control section. This section includes Azure Front Door, Azure Application Gateway, or Azure Load Balancer. An arrow points from the network ingress control section to a box labeled compute layer. Another arrow points from the compute layer to an Azure Storage section. The storage section organizes services into three categories: general purpose, file share, and data migration and hybrid. General purpose includes Blob Storage, Data Lake Storage Gen2, storage queue, and table storage. File share includes Azure NetApp Files, Azure Files, and Azure Managed Lustre. Data migration and hybrid includes Azure Elastic SAN, Azure Data Box Edge, and Azure Data Box. The virtual network also includes private endpoints, user-defined routes (UDRs), and network and application security groups. Managed identities and Azure Monitor are inside the Azure subscription. Under the Azure subscription section, a separate box includes the following platform services: Microsoft Entra ID, Microsoft Cost Management, Microsoft Defender for Cloud, Microsoft Purview, and Azure DNS.
+   The diagram shows the solution journey for storage on Azure. It guides you through learning and organizational readiness steps, Azure storage service selection, implementation guidance, and production deployment. A workload client connects to network ingress control. VPN or Azure ExpressRoute connects to a virtual network within an Azure subscription. Public IP addresses and Azure Bastion are inside the virtual network. The virtual network also contains a network ingress control section. This section includes Azure Front Door, Azure Application Gateway, or Azure Load Balancer. An arrow points from the network ingress control section to a box labeled compute layer. Another arrow points from the compute layer to an Azure Storage section. The storage section organizes services into three categories: general purpose, file share, and data migration and hybrid. General purpose includes Blob Storage, Data Lake Storage, storage queue, and table storage. File share includes Azure NetApp Files, Azure Files, and Azure Managed Lustre. Data migration and hybrid includes Azure Elastic SAN, Azure Data Box Edge, and Azure Data Box. The virtual network also includes private endpoints, user-defined routes (UDRs), and network and application security groups. Managed identities and Azure Monitor are inside the Azure subscription. Under the Azure subscription section, a separate box includes the following platform services: Microsoft Entra ID, Microsoft Cost Management, Microsoft Defender for Cloud, Microsoft Purview, and Azure DNS.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/storage-get-started-diagram.vsdx) of this architecture.*
@@ -101,8 +101,8 @@ The following resources provide foundational knowledge for storage implementatio
 - **Administrator:** [AZ-104: Implement and manage storage in Azure](/training/paths/az-104-manage-storage/)
    Set up storage accounts, Blob Storage, Azure Files, and storage security.
 
-- **Data engineer:** [Large-scale data processing with Data Lake Storage Gen2](/training/paths/data-processing-with-azure-adls/)
-   Set up Data Lake Storage Gen2, upload data, and secure your storage account.
+- **Data engineer:** [Large-scale data processing with Data Lake Storage](/training/paths/data-processing-with-azure-adls/)
+   Set up Data Lake Storage, upload data, and secure your storage account.
 
 ## Organizational readiness
 
@@ -131,9 +131,9 @@ Based on the solution technology that you use, see the following best practice r
 
 - [Performance and scalability checklist for Blob Storage](/azure/storage/blobs/storage-performance-checklist). Optimize blob storage for high-performance scenarios.
 
-### Azure Data Lake Storage
+### Data Lake Storage
 
-- [Best practices for using Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-best-practices). Design and operate Data Lake Storage for analytics workloads.
+- [Best practices for using Data Lake Storage](/azure/storage/blobs/data-lake-storage-best-practices). Design and operate Data Lake Storage for analytics workloads.
 
 ### Azure Files
 
