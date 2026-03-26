@@ -1,3 +1,15 @@
+---
+title: Design patterns for microservices
+description: Learn about design patterns that address common microservices challenges like data consistency, cross-service communication, failure isolation, and legacy integration.
+author: claytonsiemens77
+ms.author: pnp
+ms.date: 03/17/2026
+ms.topic: concept-article
+ms.subservice: architecture-guide
+---
+
+# Design patterns for microservices
+
 A microservices architecture distributes responsibility across independent services. That independence changes how you handle common architectural challenges:
 
 - maintaining data consistency without distributed transactions
@@ -7,7 +19,9 @@ A microservices architecture distributes responsibility across independent servi
 
 The design patterns in this article address these challenges directly. Each pattern targets a specific concern that you're likely to encounter as you design, build, and operate microservices.
 
-![Microservices design patterns](../images/microservices-patterns.png)
+:::image type="complex" source="../images/microservices-patterns.png" border="false" lightbox="../images/microservices-patterns.png" alt-text="Diagram that shows microservices design patterns and their relationships.":::
+  The diagram flow starts on the left with a client application. An arrow points from the client application to a box that represents the microservices application. A second arrow points from the client application to the Strangler Fig pattern. Two arrows point from the Strangler Fig pattern. One arrow points to the microservices application box, and the other arrow points to a rectangle labeled legacy system at the bottom of the diagram. The microservices application box includes design patters and microservices. In a section labeled API gateway, an arrow points from the Gateway Offloading pattern to the Gateway Routing and Gateway Aggregation patterns. An arrow points from the Gateway Routing pattern to a microservice for desktop. An arrow points from the Gateway Aggregation pattern to a microservice for mobile. These microservices are within a section labeled Backends for Frontends. Arrows point from these microservices to another microservice under a box labeled Sidecar. An arrow points from this microservice to a remote service outside of the microservices application box. An arrow points from the microservice for mobile to a section that contains two boxes labeled service. Arrows point from each service to an event bus between them. In another section, an arrow that passes through an anti-corruption layer points from a microservice to the legacy system outside of the microservices application.
+:::image-end:::
 
 ## Common design patterns
 
