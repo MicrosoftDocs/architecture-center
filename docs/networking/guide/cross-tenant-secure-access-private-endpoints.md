@@ -22,7 +22,7 @@ This guide presents an architecture that uses a private endpoint. The private en
    Diagram that shows two tenant areas side by side. On the right, a consumer tenant contains Subscription C with a virtual network, a subnet, a VM, a private endpoint, and a private Domain Name System (DNS) zone. On the left, a provider tenant contains Subscription P with a virtual network, a subnet, a VM, a private endpoint, a private DNS zone, and an App Service web app. An internet globe and an Azure DNS service sit above the two tenants. Numbered arrows trace the data flow. Step 1 goes from each VM to the internet, step 2 goes from the internet to Azure DNS, step 3 goes from Azure DNS to the private DNS zones in each tenant, step 4 returns the private endpoint IP address to the VM, step 5 sends an HTTPS request from the VM through the private endpoint to the web app, and step 6 returns the response. A separate path, labeled step 7, shows a red arrow that goes from the internet to the web app, with a red 403 label that indicates that public access is denied.
 :::image-end:::
 
-*Download a [Visio file](https://arch-center.azureedge.net/US-2025459-cross-tenant-secure-access-private-endpoints.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/cross-tenant-secure-access-private-endpoints-architecture.vsdx) of this architecture.*
 
 ### Data flow
 
@@ -160,16 +160,16 @@ You can't temporarily pause or deactivate a connection. After the consumer or th
 
 In contrast to access restrictions, which are free, private endpoints come with fixed and variable costs for both the provider and consumer.
 
-### Fixed costs
+Fixed costs:
 
-- The [duration of the private endpoint](https://azure.microsoft.com/pricing/details/private-link).
-- The [number of DNS zones](https://azure.microsoft.com/pricing/details/dns).
+- The [duration of the private endpoint](https://azure.microsoft.com/pricing/details/private-link)
+- The [number of DNS zones](https://azure.microsoft.com/pricing/details/dns)
 
-### Variable costs
+Variable costs:
 
-- The volume of data processed on the private endpoint.
-- The [bandwidth charges](https://azure.microsoft.com/pricing/details/bandwidth) if you deploy the web app and the private endpoint in different regions.
-- The number of DNS queries.
+- The volume of data processed on the private endpoint
+- The [bandwidth charges](https://azure.microsoft.com/pricing/details/bandwidth) if you deploy the web app and the private endpoint in different regions
+- The number of DNS queries
 
 VMs aren't included in this pricing overview because they're not an absolute requirement for the architecture.
 
@@ -209,21 +209,21 @@ Other contributor:
 
 ## Next steps
 
+- [Azure private endpoint DNS configuration](/azure/private-link/private-endpoint-dns)
 - [Azure role-based access control (Azure RBAC) permissions for Private Link](/azure/private-link/rbac-permissions)
+- [Functions networking options](/azure/azure-functions/functions-networking-options)
+- [Limit cross-tenant private endpoint connections in Azure](/azure/cloud-adoption-framework/ready/azure-best-practices/limit-cross-tenant-private-endpoint-connections)
+- [Manage Azure private endpoints](/azure/private-link/manage-private-endpoint)
+- [Network security perimeters](/azure/private-link/network-security-perimeter-concepts)
 - [Restrict your storage account to a virtual network for Functions](/azure/azure-functions/configure-networking-how-to#restrict-your-storage-account-to-a-virtual-network)
-- [Azure Well-Architected Framework - Security](/azure/architecture/framework/security)
 - [Set up App Service access restrictions](/azure/app-service/app-service-ip-restrictions)
 - [Use private endpoints for App Service apps](/azure/app-service/overview-private-endpoint)
-- [Functions networking options](/azure/azure-functions/functions-networking-options)
 - [What is a private endpoint?](/azure/private-link/private-endpoint-overview)
-- [Manage Azure private endpoints](/azure/private-link/manage-private-endpoint)
-- [Azure private endpoint DNS configuration](/azure/private-link/private-endpoint-dns)
-- [Multitenancy and Private Link](/azure/architecture/guide/multitenant/service/private-link)
 
 ## Related resources
 
-- [Improved-security access to multitenant web apps from an on-premises network](../../web-apps/guides/networking/access-multitenant-web-app-from-on-premises.yml)
+- [Azure Well-Architected Framework - Security](/azure/architecture/framework/security)
 - [Baseline highly available zone-redundant web application](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant)
+- [Improved-security access to multitenant web apps from an on-premises network](../../web-apps/guides/networking/access-multitenant-web-app-from-on-premises.yml)
+- [Multitenancy and Private Link](/azure/architecture/guide/multitenant/service/private-link)
 - [Private Link in a hub-and-spoke network](../guide/private-link-hub-spoke-network.md)
-- [Limit cross-tenant private endpoint connections in Azure](/azure/cloud-adoption-framework/ready/azure-best-practices/limit-cross-tenant-private-endpoint-connections)
-- [Network security perimeters](/azure/private-link/network-security-perimeter-concepts)
