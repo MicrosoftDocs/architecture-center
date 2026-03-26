@@ -7,7 +7,7 @@ ms.update-cycle: 1095-days
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom: arb-virtual-desktop
-ms.date: 03/27/2026
+ms.date: 03/26/2026
 ai-usage: ai-assisted
 ---
 
@@ -61,7 +61,7 @@ The following production-ready architectures demonstrate end-to-end virtual desk
 
 The following resources provide foundational knowledge for virtual desktop implementations on Azure:
 
-**Azure Virtual Desktop** Use the following resources to build core Azure Virtual Desktop knowledge:
+**Azure Virtual Desktop:** Use the following resources to build core Azure Virtual Desktop knowledge:
 
 - **[Deliver remote desktops and apps by using Azure Virtual Desktop](/training/paths/m365-wvd/):** Learn the fundamentals of planning and deploying [Azure Virtual Desktop](/azure/virtual-desktop/overview).
 
@@ -77,9 +77,9 @@ Organizations that start their cloud adoption can use the [Cloud Adoption Framew
 
 Key [Cloud Adoption Framework](/azure/cloud-adoption-framework/) resources for virtual desktop:
 
-- [Azure Virtual Desktop planning](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/plan): Plan your [Azure Virtual Desktop](https://azure.microsoft.com/products/virtual-desktop/) migration or deployment.
+- **[Azure Virtual Desktop planning](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/plan):** Plan your [Azure Virtual Desktop](https://azure.microsoft.com/products/virtual-desktop/) migration or deployment.
 
-- [Azure Virtual Desktop Azure landing zone review](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/ready): Review your Azure landing zone readiness for [Azure Virtual Desktop](https://azure.microsoft.com/products/virtual-desktop/).
+- **[Azure Virtual Desktop Azure landing zone review](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/ready):** Review your Azure landing zone readiness for [Azure Virtual Desktop](https://azure.microsoft.com/products/virtual-desktop/).
 
 To help ensure the quality of your virtual desktop solution on Azure, follow the [Azure Well-Architected Framework](/azure/well-architected/). The Well-Architected Framework provides prescriptive guidance for organizations that seek architectural excellence and describes how to design, provision, and monitor cost-optimized Azure solutions.
 
