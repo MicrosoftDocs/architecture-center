@@ -78,7 +78,7 @@ The following solution ideas demonstrate implementation patterns and possibiliti
 
 **Mainframe data storage:** Explore solutions for transferring and replicating mainframe data to Azure:
 
-- [Back up mainframe file and tape to Azure by using Luminex](/azure/architecture/example-scenario/mainframe/luminex-mainframe-file-tape-transfer). Transfer mainframe file and tape data to Azure by using Luminex CloudConnect.
+- [Back up mainframe file and tape to Azure by using Luminex](/azure/architecture/example-scenario/mainframe/luminex-mainframe-file-tape-transfer). Transfer mainframe file and tape data to Azure by using Luminex.
 
 - [Mainframe file replication on Azure](/azure/architecture/solution-ideas/articles/mainframe-azure-file-replication). Replicate mainframe files to Azure with high fidelity and minimal disruption.
 
