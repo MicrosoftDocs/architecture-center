@@ -28,21 +28,21 @@ The following dataflow corresponds to the previous diagram:
 
    - Azure Databricks works well with a [medallion architecture][Medallion model] that organizes data into the following layers:
 
-     - Bronze layer: Holds raw data.
+     - **Bronze layer:** Holds raw data.
    
-     - Silver layer: Contains cleaned, filtered data.
+     - **Silver layer:** Contains cleaned, filtered data.
    
-     - Gold layer: Stores aggregated data that's useful for business analytics.
+     - **Gold layer:** Stores aggregated data that's useful for business analytics.
 
 1. The analytical platform ingests data from the different batch and stream sources. Data scientists use this data for tasks like:
 
-   - Data preparation.
+   - Data preparation
 
-   - Data exploration.
+   - Data exploration
 
-   - Model preparation.
+   - Model preparation
 
-   - Model training.
+   - Model training
 
    MLflow manages parameter, metric, and model tracking in data science code runs. Azure Databricks provides flexible coding options for the following workloads:
 
