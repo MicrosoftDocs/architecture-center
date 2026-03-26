@@ -16,7 +16,7 @@ In this scenario, an e-commerce company in the travel industry migrates a legacy
 
 1. API Management makes inbound calls from Azure to the existing internal services.
 
-    - The security team allows traffic from the API Management instance to pass through the corporate firewall to the existing on-premises services [by using secure transport protocols](/azure/api-management/api-management-howto-manage-protocols-ciphers) like Hypertext Transfer Protocol Secure (HTTPS) or Secure Shell (SSH).
+    - The security team allows traffic from the API Management instance to pass through the corporate firewall to the existing on-premises services [by using secure transport protocols](/azure/api-management/api-management-howto-manage-protocols-ciphers) like Hypertext Transfer Protocol Secure (HTTPS) over Transport Layer Security (TLS).
 
     - The operations team allows inbound calls to the services only from the API Management instance. It meets this requirement by [adding the IP address of the API Management instance to the allow list](/azure/api-management/api-management-faq#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-backend-services) within the corporate network perimeter.
 
@@ -30,7 +30,7 @@ In this scenario, an e-commerce company in the travel industry migrates a legacy
 
     - You set up the new API by using the [settings for the Web Apps feature of Azure App Service](/azure/app-service/app-service-ip-restrictions) to accept only the [API Management virtual IP (VIP)](/azure/api-management/api-management-faq#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-backend-services).
 
-    - Web Apps hosts the new API with secure transport protocols like HTTPS or Transport Layer Security (TLS) turned on.
+    - Web Apps hosts the new API with secure transport protocols like HTTPS or TLS turned on.
 
     - [Azure App Service](/azure/app-service/app-service-authentication-overview#identity-providers) provides authorization capabilities via Microsoft Entra ID and Open Authorization (OAuth) 2.
 
