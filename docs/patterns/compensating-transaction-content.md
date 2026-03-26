@@ -24,6 +24,10 @@ A common approach is to use a workflow to implement an eventually consistent ope
 
 </div>
 
+These steps constitute an eventually consistent operation, although each step is a separate action. Besides performing these steps, the system must also record the counter operations for undoing each step. This information is needed in case the customer cancels. The steps that are necessary to perform the counter operations can then run as a compensating transaction.
+
+In many business solutions, failure of a single step doesn't always necessitate rolling back the system by using a compensating transaction. For example, consider the travel website scenario. Suppose the customer books flights F1, F2, and F3 but can't reserve a room at hotel H1. It's preferable to offer the customer a room at a different hotel in the same city rather than canceling the flights. The customer can still decide to cancel. In that case, the compensating transaction runs and undoes the bookings for flights F1, F2, and F3. But the customer should make this decision, not the system. In some cases, especially when decisions are high impact or hard to automate reliably, it can be useful to include a human in the loop during the transaction.
+
 Three important points are:
 
 - A compensating transaction might not have to undo the work in the exact reverse order of the original operation.
@@ -87,27 +91,23 @@ As with any design decision, consider any tradeoffs against the goals of the oth
 
 ## Example
 
-Customers use a travel website to book itineraries. A single itinerary might consist of a series of flights and hotels. A customer who travels from Seattle to London and then on to Paris might perform the following steps when creating an itinerary:
-
-1. Book a seat on flight F1 from Seattle to London.
-1. Book a seat on flight F2 from London to Paris.
-1. Book a seat on flight F3 from Paris to Seattle.
-1. Reserve a room at hotel H1 in London.
-1. Reserve a room at hotel H2 in Paris.
-
-These steps constitute an eventually consistent operation, although each step is a separate action. Besides performing these steps, the system must also record the counter operations for undoing each step. This information is needed in case the customer cancels the itinerary. The steps that are necessary to perform the counter operations can then run as a compensating transaction.
-
-The steps in the compensating transaction might not be the exact opposite of the original steps. Also, the logic in each step in the compensating transaction must take business-specific rules into account. For example, canceling a flight reservation might not entitle the customer to a complete refund.
-
-In many business solutions, failure of a single step doesn't always necessitate rolling back the system by using a compensating transaction. For example, consider the travel website scenario. Suppose the customer books flights F1, F2, and F3 but can't reserve a room at hotel H1. It's preferable to offer the customer a room at a different hotel in the same city rather than canceling the flights. The customer can still decide to cancel. In that case, the compensating transaction runs and undoes the bookings for flights F1, F2, and F3. But the customer should make this decision, not the system.
-
-The following image shows a possible Azure implementation. An application running in an Azure Container Apps environment hosts an orchestrator that coordinates each step of the workflow. The orchestrator records both forward actions and compensating actions in Azure Cosmos DB so that failures can be resumed, correlated, and audited. Communication between the orchestrator and participating microservices occurs through Azure Service Bus. Use managed identities and Microsoft Entra ID-based authorization between components to avoid shared secrets and to enforce least-privilege access. Configure retries, dead-letter queues, and message time-to-live policies in Service Bus so unrecoverable steps can be isolated and investigated without blocking the workflow. Capture end-to-end correlation IDs in Azure Monitor and Application Insights so you can trace original actions and compensation actions across services. If a step fails and can't be recovered by retries, the orchestrator starts the compensating workflow to undo previously completed steps. Because each microservice is typically aligned to a business domain, both the forward operation and its compensating action are often handled by the same service.
+The following image shows one practical Azure implementation of the Compensating Transaction pattern; other valid implementations are possible depending on workload requirements. An orchestrator running in Azure Container Apps coordinates each step of a long-running workflow by sending commands through Azure Service Bus. As each forward step succeeds, the orchestrator records both execution state and the corresponding compensating action in Azure Cosmos DB so the workflow can be resumed, correlated, and audited.
 
 <div align="center">
 
 ![Example Azure implementation of the compensating transaction pattern](./_images/compensating-transaction-azure.png)
 
 </div>
+
+In this model, retries are used first to preserve forward progress. If a step fails, the orchestrator applies retry logic for transient faults and attempts to continue the original operation. Compensation is invoked only when forward progress is no longer possible, such as when retries are exhausted or the failure is classified as non-transient.
+
+Business-specific rules can also prefer forward progress over immediate compensation. If a step fails, the orchestrator can select an alternative path (for example, substituting an equivalent service or fallback option) instead of rolling back the workflow. In higher-impact or ambiguous cases, the workflow can pause for a human-in-the-loop decision before choosing whether to continue on an alternative path or trigger compensation. This approach keeps compensation as a last resort while allowing domain rules to drive recovery behavior.
+
+A typical sequence is: the orchestrator sends step messages (for example, step 1 and step 2) through Service Bus, receives successful outcomes, and stores forward and compensation metadata in Cosmos DB. Compensation can be triggered in two cases: when a later step in the same workflow fails and previously successful steps must be undone, or when a subsequent client request explicitly asks to cancel a previously completed operation. In either case, the orchestrator reads the stored compensation records and sends compensation commands to the corresponding service; if a compensation step fails transiently, Service Bus retries can still complete it without escalating the incident.
+
+If repeated retries still fail, Service Bus moves the message to a dead-letter queue and preserves failure details. The orchestrator (or a dedicated dead-letter processor) then raises an alert and emits structured telemetry, including failure reason and correlation IDs, to Azure Monitor and Log Analytics (optionally surfaced in Application Insights). This operational path helps teams diagnose why a step failed, identify whether manual intervention is required, and maintain traceability across the original and compensating flows.
+
+Use managed identities and Microsoft Entra ID-based authorization between components to avoid shared secrets and enforce least-privilege access. In a simplified reference diagram, these identity and authorization controls can be treated as baseline implementation concerns rather than explicit flow steps, keeping the visual focused on orchestration, retry, compensation, and failure handling.
 
 ## Next steps
 
