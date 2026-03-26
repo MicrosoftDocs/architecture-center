@@ -18,7 +18,7 @@ Azure Storage provides a foundation for persisting, backing up, and sharing data
 
 Azure Storage includes the following data services:
 
-- [Azure Blob Storage](https://azure.microsoft.com/products/storage/blobs/) is a massively scalable object store for text and binary data. It supports big data analytics through Azure Data Lake Storage Gen2.
+- [Azure Blob Storage](https://azure.microsoft.com/products/storage/blobs/) is a massively scalable object store for text and binary data. It supports big data analytics through Azure Data Lake Storage.
 
 - [Azure Files](https://azure.microsoft.com/products/storage/files/) is a fully managed file share service for cloud or on-premises deployments.
 
@@ -35,7 +35,7 @@ To evaluate and compare Azure storage services for your workload, see [Storage o
 ## Architecture
 
 :::image type="complex" border="false" source="images/storage-get-started-diagram.svg" alt-text="Diagram that shows a baseline Azure storage architecture within an Azure subscription." lightbox="images/storage-get-started-diagram.svg":::
-   Diagram that shows the solution journey for storage on Azure, which starts with learning and organizational readiness, then moves to selecting the appropriate Azure Storage services before it advances to implementation guidance and production deployment. A workload client connects to network ingress control. VPN or Azure ExpressRoute connects to the virtual network. Public IP addresses and Azure Bastion are shown. Inside the subscription, a virtual network contains a network ingress control section. This section includes Azure Front Door, Azure Application Gateway, or Azure Load Balancer. The storage grouping organizes services into three categories: general purpose, file share, and data migration and hybrid. General purpose includes Blob Storage, Data Lake Storage Gen2, storage queue, and table storage. File share includes Azure NetApp Files, Azure Files, and Azure Managed Lustre. Data migration and hybrid includes Azure Elastic SAN, Azure Data Box Edge, and Azure Data Box. Private endpoints, user-defined routes (UDRs), and network and application security groups are also included. Managed identities and Azure Monitor are above a section that includes the following platform services: Microsoft Entra ID, Microsoft Cost Management, Microsoft Defender for Cloud, Microsoft Purview, and Azure DNS.
+   The diagram shows the solution journey for storage on Azure. It guides you through learning and organizational readiness steps, Azure storage service selection, implementation guidance, and production deployment. A workload client connects to network ingress control. VPN or Azure ExpressRoute connects to a virtual network within an Azure subscription. Public IP addresses and Azure Bastion are inside the virtual network. The virtual network also contains a network ingress control section. This section includes Azure Front Door, Azure Application Gateway, or Azure Load Balancer. An arrow points from the network ingress control section to a box labeled compute layer. Another arrow points from the compute layer to an Azure Storage section. The storage section organizes services into three categories: general purpose, file share, and data migration and hybrid. General purpose includes Blob Storage, Data Lake Storage Gen2, storage queue, and table storage. File share includes Azure NetApp Files, Azure Files, and Azure Managed Lustre. Data migration and hybrid includes Azure Elastic SAN, Azure Data Box Edge, and Azure Data Box. The virtual network also includes private endpoints, user-defined routes (UDRs), and network and application security groups. Managed identities and Azure Monitor are inside the Azure subscription. Under the Azure subscription section, a separate box includes the following platform services: Microsoft Entra ID, Microsoft Cost Management, Microsoft Defender for Cloud, Microsoft Purview, and Azure DNS.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/storage-get-started-diagram.vsdx) of this architecture.*
@@ -60,7 +60,7 @@ The following production-ready architectures demonstrate end-to-end storage solu
 
 - [Azure files secured by Active Directory Domain Services (AD DS)](../example-scenario/hybrid/azure-files-on-premises-authentication.yml). Implement on-premises access to Azure Files with AD DS authentication.
 
-- [Hybrid file services](../hybrid/hybrid-file-services.yml). Implement hybrid file services spanning on-premises and Azure environments.
+- [Hybrid file services](../hybrid/hybrid-file-services.yml). Implement hybrid file services that span on-premises and Azure environments.
 
 #### Azure NetApp Files solutions
 
@@ -70,11 +70,11 @@ The following production-ready architectures demonstrate end-to-end storage solu
 
 - [Oracle Database with Azure NetApp Files](../example-scenario/file-storage/oracle-azure-netapp-files.yml). Run Oracle databases on Azure by using Azure NetApp Files for storage.
 
-- [SQL Server on VMs with Azure NetApp Files](../example-scenario/file-storage/sql-server-azure-netapp-files.yml). Deploy SQL Server on Azure Virtual Machines with Azure NetApp Files for high-performance storage.
+- [SQL Server on Azure Virtual Machines with Azure NetApp Files](../example-scenario/file-storage/sql-server-azure-netapp-files.yml). Deploy SQL Server workloads on Virtual Machines by using Azure NetApp Files for high-performance storage.
 
 ### Storage solution ideas
 
-The following solution ideas demonstrate implementation patterns and possibilities to explore:
+The following solution ideas demonstrate implementation patterns and possibilities to explore.
 
 **Mainframe data storage:** Explore solutions for transferring and replicating mainframe data to Azure:
 
@@ -84,7 +84,7 @@ The following solution ideas demonstrate implementation patterns and possibiliti
 
 - [BMC AMI Cloud mainframe modernization](/azure/architecture/example-scenario/mainframe/mainframe-modernization-bmc-ami-cloud). Modernize mainframe workloads by using BMC AMI Cloud.
 
-- [Move mainframe archive data to Azure](/azure/architecture/example-scenario/mainframe/move-archive-data-mainframes). Move mainframe archive data to Azure to reduce storage costs and improve accessibility.
+- [Move mainframe archive data to Azure](/azure/architecture/example-scenario/mainframe/move-archive-data-mainframes). Move mainframe archive data to Azure to reduce storage costs and make it easier to access.
 
 ## Learn about storage on Azure
 
@@ -92,13 +92,17 @@ The following solution ideas demonstrate implementation patterns and possibiliti
 
 The following resources provide foundational knowledge for storage implementations on Azure:
 
-- **Developer: [Store data in Azure](/training/paths/store-data-in-azure/).** Learn the fundamentals of data storage on Azure, including how to choose storage approaches and how to work with different storage services.
+- **Developer:**  [Store data in Azure](/training/paths/store-data-in-azure/)
+   Learn the fundamentals of data storage on Azure, including how to choose storage approaches and how to work with different storage services.
 
-- **Developer: [Develop solutions that use Blob storage](/training/paths/develop-solutions-that-use-blob-storage/).** Create Blob Storage resources, manage data through the blob storage lifecycle, and work with the Blob Storage client library.
+- **Developer:** [Develop solutions that use Blob Storage](/training/paths/develop-solutions-that-use-blob-storage/)
+   Create Blob Storage resources, manage data through the blob storage life cycle, and work with the Blob Storage client library.
 
-- **Administrator: [AZ-104: Implement and manage storage in Azure](/training/paths/az-104-manage-storage/).** Set up storage accounts, Blob Storage, Azure Files, and storage security.
+- **Administrator:** [AZ-104: Implement and manage storage in Azure](/training/paths/az-104-manage-storage/)
+   Set up storage accounts, Blob Storage, Azure Files, and storage security.
 
-- **Data engineer: [Large-scale data processing with Data Lake Storage Gen2](/training/paths/data-processing-with-azure-adls/).** Set up Data Lake Storage Gen2, upload data, and secure your storage account.
+- **Data engineer:** [Large-scale data processing with Data Lake Storage Gen2](/training/paths/data-processing-with-azure-adls/)
+   Set up Data Lake Storage Gen2, upload data, and secure your storage account.
 
 ## Organizational readiness
 
@@ -117,7 +121,7 @@ For storage-specific guidance, see the following Well-Architected Framework serv
 
 Best practices for storage help you optimize costs, performance, security, and reliability.
 
-Based on the solution technology that you use, see the following best practice resources:
+Based on the solution technology that you use, see the following best practice resources.
 
 ### Blob Storage
 
@@ -131,12 +135,11 @@ Based on the solution technology that you use, see the following best practice r
 
 - [Best practices for using Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-best-practices). Design and operate Data Lake Storage for analytics workloads.
 
-
 ### Azure Files
 
 - [Plan for an Azure Files deployment](/azure/storage/files/storage-files-planning). Design Azure Files infrastructure for your requirements.
 
-- [Overview of Azure Files identity-based authentication options for SMB access](/azure/storage/files/storage-files-active-directory-overview). Set up Active Directory integration for file shares.
+- [Overview of Azure Files identity-based authentication options for Server Message Block (SMB) access](/azure/storage/files/storage-files-active-directory-overview). Set up Active Directory integration for file shares.
 
 - [DR and storage account failover](/azure/storage/common/storage-disaster-recovery-guidance). Plan for regional failures and account failover.
 
@@ -166,9 +169,9 @@ Based on the solution technology that you use, see the following best practice r
 
 ### Table Storage
 
-- [Authorize access to tables by using Microsoft Entra ID (preview)](/azure/storage/tables/authorize-access-azure-active-directory). Set up identity-based access for table operations.
+- [Authorize access to tables by using Microsoft Entra ID](/azure/storage/tables/authorize-access-azure-active-directory). Set up identity-based access for table operations.
 
-- [Performance and scalability checklist for Table storage](/azure/storage/tables/storage-performance-checklist). Optimize table storage for performance.
+- [Performance and scalability checklist for Table Storage](/azure/storage/tables/storage-performance-checklist). Optimize table storage for performance.
 
 - [Design scalable and performant tables](/azure/storage/tables/table-storage-design). Apply design patterns for efficient table storage.
 
@@ -182,7 +185,7 @@ Based on the solution technology that you use, see the following best practice r
 
 - [Azure Disk Encryption for Windows VMs](/azure/virtual-machines/windows/disk-encryption-overview). Implement full disk encryption for Windows VMs.
 
-- [Azure premium storage: design for high performance](/azure/virtual-machines/premium-storage-performance). Optimize disk performance for demanding workloads.
+- [Azure premium storage: Design for high performance](/azure/virtual-machines/premium-storage-performance). Optimize disk performance for demanding workloads.
 
 - [Scalability and performance targets for VM disks](/azure/virtual-machines/disks-scalability-targets). Learn about disk performance limits and sizing.
 
@@ -192,17 +195,17 @@ Azure storage services evolve to address modern data challenges. Stay informed a
 
 To stay current with key storage services, see the following articles:
 
-- [What's new in Azure Files?](/azure/storage/files/files-whats-new). New features and updates for Azure Files.
+- [What's new in Azure Files?](/azure/storage/files/files-whats-new) New features and updates for Azure Files.
 
-- [What's new in Azure NetApp Files?](/azure/azure-netapp-files/whats-new). New features and updates for Azure NetApp Files.
+- [What's new in Azure NetApp Files?](/azure/azure-netapp-files/whats-new) New features and updates for Azure NetApp Files.
 
-- [What's new in Azure Disk Storage?](/azure/virtual-machines/disks-whats-new). New capabilities and updates for Azure managed disks.
+- [What's new in Azure Disk Storage?](/azure/virtual-machines/disks-whats-new) New capabilities and updates for Azure managed disks.
 
 ## Other resources
 
 Storage is a broad category and covers a range of solutions. The following resources can help you discover more about Azure.
 
-To plan for your storage needs, see [Review your storage options](/azure/cloud-adoption-framework/ready/considerations/storage-options).
+To plan for your storage needs, see [Review your storage options](/azure/architecture/guide/technology-choices/storage-options).
 
 ### Hybrid storage
 
@@ -214,11 +217,11 @@ Review the following key hybrid storage scenarios:
 
 - [Use Azure file shares in a hybrid environment](/azure/architecture/hybrid/azure-file-share). Deploy Azure file shares alongside on-premises file servers in a hybrid configuration.
 
-- [Azure files accessed on-premises and secured by AD DS](/azure/architecture/example-scenario/hybrid/azure-files-on-premises-authentication). Implement on-premises access to Azure Files with Active Directory authentication.
+- [Azure files accessed on-premises and secured by AD DS](/azure/architecture/example-scenario/hybrid/azure-files-on-premises-authentication). Implement on-premises access to Azure Files by using Active Directory authentication.
 
 - [Enterprise file shares with DR](/azure/architecture/example-scenario/file-storage/enterprise-file-shares-disaster-recovery). Deploy enterprise file share infrastructure with built-in DR by using Azure NetApp Files.
 
-- [Hybrid file services](/azure/architecture/hybrid/hybrid-file-services). Implement hybrid file services spanning on-premises and Azure environments.
+- [Hybrid file services](/azure/architecture/hybrid/hybrid-file-services). Implement hybrid file services that span on-premises and Azure environments.
 
 - [Guidelines for Azure NetApp Files network planning](/azure/azure-netapp-files/azure-netapp-files-network-topologies). Design network connectivity for Azure NetApp Files in hybrid scenarios.
 
@@ -234,10 +237,10 @@ Data migration planning helps you choose the right strategy and tools for moving
 
 ## Amazon Web Services (AWS) or Google Cloud professionals
 
-To help you ramp up quickly, the following articles compare Azure storage options to other cloud services:
+To help you ramp up quickly, the following articles compare Azure storage options to other cloud services.
 
 ### Service comparison
 
-- [Compare AWS and Azure Storage services](/azure/architecture/aws-professional/storage): Service mapping and comparison between AWS and Azure storage offerings.
+- [Compare storage on Azure and AWS](/azure/architecture/aws-professional/storage): Service mapping and comparison between AWS and Azure storage offerings.
 
 - [Google Cloud to Azure services comparison](/azure/architecture/gcp-professional/services#storage): Service mapping and comparison between Google Cloud and Azure storage offerings.
