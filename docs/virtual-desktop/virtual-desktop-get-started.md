@@ -28,7 +28,7 @@ Migrating user desktops to the cloud helps improve employee productivity so that
 This section outlines virtual desktop architecture on Azure and shows how the key stages of a virtual desktop solution journey connect from initial learning through production deployment.
 
 :::image type="complex" border="false" source="images/virtual-desktop-get-started-diagram.svg" alt-text="Diagram that shows the virtual desktop solution journey on Azure." lightbox="images/virtual-desktop-get-started-diagram.svg":::
-   The diagram shows the solution journey for virtual desktops on Azure. The journey starts with learning and organizational readiness, then moves to selecting appropriate Azure services, followed by implementation best practices and production deployment. The architecture includes hub-and-spoke virtual networks with connectivity via Azure ExpressRoute, identity components with Microsoft Entra ID and Active Directory Domain Services (AD DS), Azure Virtual Desktop host pools with session hosts, endpoint devices, storage solutions (Azure Files and Azure NetApp Files), and monitoring with Log Analytics.
+   The architecture includes hub-and-spoke virtual networks with connectivity via Azure ExpressRoute, identity components with Microsoft Entra ID and Active Directory Domain Services (AD DS), Azure Virtual Desktop host pools with session hosts, endpoint devices, storage solutions (Azure Files and Azure NetApp Files), and monitoring with Log Analytics.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/virtual-desktop-get-started-diagram.vsdx) of this architecture.*
