@@ -47,7 +47,7 @@ The articles in this section include fully developed architectures that you can 
 
 - **[Windows 365 Azure network connection](windows-365-azure-network-connection.md):** Design and implement [Windows 365](https://www.microsoft.com/windows-365) Azure network connections to integrate Cloud PCs with your existing network infrastructure.
 
-- **[Multiregion business continuity and disaster recovery (BCDR) for Azure Virtual Desktop](../example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr.md):** Design a multiregion BCDR strategy for [Azure Virtual Desktop](https://azure.microsoft.com/products/virtual-desktop/) to provide high availability and resilience.
+- **[Multiregion business continuity and disaster recovery (BCDR) for Azure Virtual Desktop](../example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr.md):** Design a multiregion BCDR strategy for Azure Virtual Desktop to provide high availability and resilience.
 
 ### Virtual desktop architectures
 
@@ -79,7 +79,7 @@ Key [Cloud Adoption Framework](/azure/cloud-adoption-framework/) resources for v
 
 - **[Azure Virtual Desktop planning](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/plan):** Plan your [Azure Virtual Desktop](https://azure.microsoft.com/products/virtual-desktop/) migration or deployment.
 
-- **[Azure Virtual Desktop Azure landing zone review](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/ready):** Review your Azure landing zone readiness for [Azure Virtual Desktop](https://azure.microsoft.com/products/virtual-desktop/).
+- **[Azure Virtual Desktop Azure landing zone review](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/ready):** Review your Azure landing zone readiness for Azure Virtual Desktop.
 
 To help ensure the quality of your virtual desktop solution on Azure, follow the [Azure Well-Architected Framework](/azure/well-architected/). The Well-Architected Framework provides prescriptive guidance for organizations that seek architectural excellence and describes how to design, provision, and monitor cost-optimized Azure solutions.
 
@@ -89,13 +89,13 @@ For virtual desktop-specific guidance, see [Azure Virtual Desktop workloads](/az
 
 To implement virtual desktop solutions, focus on security, performance, and cost management. The following resources provide guidance about best practices for your [Azure Virtual Desktop](/azure/virtual-desktop/overview) environment:
 
-- [Security recommendations for Azure Virtual Desktop](/azure/virtual-desktop/security-recommendations): Follow security recommendations to protect your [Azure Virtual Desktop](https://azure.microsoft.com/products/virtual-desktop/) environment.
+- [Security recommendations for Azure Virtual Desktop](/azure/virtual-desktop/security-recommendations): Follow security recommendations to protect your Azure Virtual Desktop environment.
 
-- [Azure security baseline for Azure Virtual Desktop](/security/benchmark/azure/baselines/azure-virtual-desktop-security-baseline): Apply the Microsoft cloud security benchmark to [Azure Virtual Desktop](https://azure.microsoft.com/products/virtual-desktop/).
+- [Azure security baseline for Azure Virtual Desktop](/security/benchmark/azure/baselines/azure-virtual-desktop-security-baseline): Apply the Microsoft cloud security benchmark to Azure Virtual Desktop.
 
 - [Session host VM sizing guidelines](/windows-server/remote/remote-desktop-services/session-host-virtual-machine-sizing-guidelines): Select the appropriate VM sizes for your session host workloads.
 
-- [Peripheral and resource redirection over the Remote Desktop Protocol (RDP)](/azure/virtual-desktop/redirection-remote-desktop-protocol): Learn which local devices and peripherals users can access in their [Azure Virtual Desktop](https://azure.microsoft.com/products/virtual-desktop/) remote sessions, including redirection methods and supported resource types.
+- [Peripheral and resource redirection over the Remote Desktop Protocol (RDP)](/azure/virtual-desktop/redirection-remote-desktop-protocol): Learn which local devices and peripherals users can access in their Azure Virtual Desktop remote sessions, including redirection methods and supported resource types.
 
 - [Create and assign an autoscale scaling plan for Azure Virtual Desktop](/azure/virtual-desktop/autoscale-create-assign-scaling-plan): Use the native autoscale feature to automatically scale session host VMs in and out based on scaling schedules. This approach optimizes costs and performance for pooled and personal host pools.
 
@@ -143,27 +143,27 @@ Authentication and identity underpin any virtual desktop deployment:
 
 ### FSLogix
 
-[FSLogix](/fslogix/overview-what-is-fslogix) supports roaming profiles in remote computing environments like [Azure Virtual Desktop](https://azure.microsoft.com/products/virtual-desktop/). It stores a complete user profile in a single container. At sign-in, FSLogix dynamically attaches this container to the computing environment:
+[FSLogix](/fslogix/overview-what-is-fslogix) supports roaming profiles in remote computing environments like Azure Virtual Desktop. It stores a complete user profile in a single container. At sign-in, FSLogix dynamically attaches this container to the computing environment:
 
-- [FSLogix configuration examples](/fslogix/concepts-configuration-examples): Review configuration examples for [FSLogix](/fslogix/overview-what-is-fslogix) profile containers.
+- [FSLogix configuration examples](/fslogix/concepts-configuration-examples): Review configuration examples for FSLogix profile containers.
 
-- [FSLogix profile containers and Azure Files](/azure/virtual-desktop/fslogix-profile-containers): Use [Azure Files](/azure/storage/files/storage-files-introduction) as a storage solution for [FSLogix](/fslogix/overview-what-is-fslogix) profile containers.
+- [FSLogix profile containers and Azure Files](/azure/virtual-desktop/fslogix-profile-containers): Use [Azure Files](/azure/storage/files/storage-files-introduction) as a storage solution for FSLogix profile containers.
 
-- [Storage options for FSLogix profile containers in Azure Virtual Desktop](/azure/virtual-desktop/store-fslogix-profile): Compare storage options for [FSLogix](/fslogix/overview-what-is-fslogix) profile containers.
+- [Storage options for FSLogix profile containers in Azure Virtual Desktop](/azure/virtual-desktop/store-fslogix-profile): Compare storage options for FSLogix profile containers.
 
 ### Networking
 
 Network connectivity is a key consideration for virtual desktop deployments:
 
-- [Azure Virtual Desktop network connectivity](/azure/virtual-desktop/network-connectivity): Review a high-level overview of the network connections that [Azure Virtual Desktop](https://azure.microsoft.com/products/virtual-desktop/) uses.
+- [Azure Virtual Desktop network connectivity](/azure/virtual-desktop/network-connectivity): Review a high-level overview of the network connections that Azure Virtual Desktop uses.
 
 - [RDP Shortpath for Azure Virtual Desktop](/azure/virtual-desktop/rdp-shortpath): Set up RDP Shortpath to establish a direct User Datagram Protocol (UDP)-based transport between a client and session host.
 
 ### Hybrid
 
-Most organizations need a hybrid approach to virtual desktops because they integrate cloud-based virtual desktops with on-premises infrastructure. [Azure Virtual Desktop](https://azure.microsoft.com/products/virtual-desktop/) supports hybrid deployment scenarios that extend virtual desktop capabilities to on-premises environments. To connect environments, organizations must [choose a hybrid network architecture](/azure/architecture/reference-architectures/hybrid-networking/).
+Most organizations need a hybrid approach to virtual desktops because they integrate cloud-based virtual desktops with on-premises infrastructure. Azure Virtual Desktop supports hybrid deployment scenarios that extend virtual desktop capabilities to on-premises environments. To connect environments, organizations must [choose a hybrid network architecture](/azure/architecture/reference-architectures/hybrid-networking/).
 
-- [Azure Virtual Desktop for Azure Local](../hybrid/azure-local-workload-virtual-desktop.yml): Deploy [Azure Virtual Desktop](https://azure.microsoft.com/products/virtual-desktop/) on [Azure Local](/azure/azure-local/overview) hardware for scenarios that require on-premises data residency or low-latency connectivity.
+- [Azure Virtual Desktop for Azure Local](../hybrid/azure-local-workload-virtual-desktop.yml): Deploy Azure Virtual Desktop on [Azure Local](/azure/azure-local/overview) hardware for scenarios that require on-premises data residency or low-latency connectivity.
 
 ## Amazon Web Services (AWS) or Google Cloud professionals
 
