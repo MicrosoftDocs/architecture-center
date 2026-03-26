@@ -6,6 +6,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/example-scenario/mainframe/deploy-ibm-power-workloads.yml",
+      "redirect_url": "/azure/architecture/example-scenario/mainframe/migrate-ibm-i-series-to-azure-with-skytap",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/example-scenario/hybrid/public-multi-access-edge-compute-deployment.yml",
       "redirect_url": "https://www.microsoft.com/industry/telecommunications/",
       "redirect_document_id": false
