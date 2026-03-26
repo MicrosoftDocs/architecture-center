@@ -50,9 +50,9 @@ Abstracting the physical location of the data in the sharding logic provides con
 
 The shard key is the most critical design decision in a sharded system. To change a shard key after you choose it, you typically must migrate all data to a new shard layout, which is an expensive and risky operation on a live system. Make this decision carefully before you write any code.
 
-An effective shard key is **immutable**, has **high cardinality**, distributes data and load **evenly**, and **aligns with your dominant query patterns** so that most requests resolve against a single shard. Avoid monotonically increasing values (autoincrement integers and sequential timestamps), low-cardinality attributes (booleans and small enum sets), and volatile attributes that change frequently. These attributes lead to hotspots or costly cross-shard data movement.
+An effective shard key is immutable, has high cardinality, distributes data and load evenly, and aligns with your dominant query patterns so that most requests resolve against a single shard. Avoid monotonically increasing values (autoincrement integers and sequential timestamps), low-cardinality attributes (booleans and small enum sets), and volatile attributes that change frequently. These attributes lead to hotspots or costly cross-shard data movement.
 
-If no single attribute satisfies these criteria, define a composite shard key by combining two or more attributes. If queries need to retrieve data by attributes that aren't part of the shard key, use a pattern such as [Index Table](./index-table.yml) to provide secondary lookups.
+If no single attribute meets these criteria, define a composite shard key by combining two or more attributes. If queries need to retrieve data by attributes that aren't part of the shard key, use a pattern such as the [Index Table](./index-table.yml) pattern to provide secondary lookups.
 
 For more information about how to choose partition keys across Azure services, see [Data partitioning guidance](../best-practices/data-partitioning.yml) and [Data partitioning strategies](../best-practices/data-partitioning-strategies.yml).
 
@@ -72,19 +72,21 @@ The mapping between shard key values and physical storage can be direct, where e
 
 ### Range-based sharding strategy
 
-The range-based strategy groups related items together in the same shard and orders them by sequential shard key. This strategy supports applications that frequently retrieve sets of items by using range queries. Range queries return a set of data items for a shard key that falls within a given range. For example, if an application regularly needs to find all orders placed in a given month, you can retrieve the data faster if you store all orders for a month in date and time order in the same shard. If you store each order in a different shard, the application has to fetch them individually by performing a large number of point queries. The following diagram shows sequential sets, or ranges, of data stored in shards.
+The range-based strategy groups related items together in the same shard and orders them by sequential shard key. This strategy supports applications that frequently retrieve sets of items by using range queries. Range queries return a set of data items for a shard key that falls within a given range.
+
+For example, if an application regularly needs to find all orders placed in a given month, you can retrieve the data faster if you store all orders for a month in date and time order in the same shard. If you store each order in a different shard, the application has to fetch them individually by performing a large number of point queries. The following diagram shows sequential sets, or ranges, of data stored in shards.
 
 :::image type="complex" source="./_images/sharding-sequential-sets.png" lightbox="./_images/sharding-sequential-sets.png" alt-text="Diagram that shows sequential sets, or ranges, of data stored in shards." border="false":::
 Application instances submit queries for orders placed in specific months. A sharding logic component maps each month to a shard, such as October to shard A, November to shard B, and December to shard C. Orders are stored in date and time sequence within each shard.
 :::image-end:::
 
-In this example, the shard key is a composite key that contains the order month as the most significant element, followed by the order day and the time. New orders are naturally sorted as they're created and added to a shard. 
+In this example, the shard key is a composite key that contains the order month as the most significant element, followed by the order day and time. New orders are naturally sorted as they're created and added to a shard. 
 
 Some data stores support two-part shard keys. A partition key identifies the shard, and a row key uniquely identifies an item within the shard. The shard typically stores data in row key order. For items that need range queries and must be grouped together, you can use a shard key that has the same value for the partition key but a unique value for the row key.
 
 ### Hash-based sharding strategy
 
-The hash-based strategy reduces the chance of hotspots, which are shards that receive a disproportionate amount of load. It distributes data across shards to balance the size of each shard and the average load each shard encounters. The sharding logic computes the shard to store an item in based on a hash of one or more attributes of the data. The chosen hashing function should distribute data evenly across the shards. The following diagram shows sharding tenant data based on a hash of tenant IDs.
+The hash-based strategy reduces the chance of hotspots, which are shards that receive a disproportionate amount of load. This strategy distributes data across shards to balance the size of each shard and the average load that each shard encounters. The sharding logic computes the shard to store an item in based on a hash of one or more attributes of the data. The chosen hashing function should distribute data evenly across the shards. The following diagram shows sharding tenant data based on a hash of tenant IDs.
 
 :::image type="complex" source="./_images/sharding-data-hash.png" lightbox="./_images/sharding-data-hash.png" alt-text="Diagram that shows sharding tenant data based on a hash of tenant IDs." border="false":::
 Application instances submit queries for specific tenants. A sharding logic component hashes the tenant ID and routes each request to a shard, such as tenant 55 to shard B and tenant 56 to shard N. Each shard stores a subset of tenant data.
