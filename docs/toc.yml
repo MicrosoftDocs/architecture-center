@@ -953,6 +953,10 @@ items:
         items:
         - name: Minimal storage – change feed replication
           href: databases/idea/minimal-storage-change-feed-replicate-data.yml
+      - name: Relational and NoSQL
+        items:
+        - name: Polyglot persistence with Azure Cosmos DB and Azure SQL Database
+          href: idea/combine-relational-nosql.yml
   - name: DevOps
     items:
     - name: Get started
