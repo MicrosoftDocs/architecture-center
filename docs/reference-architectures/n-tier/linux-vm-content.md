@@ -117,13 +117,13 @@ The networking components include the following resources:
 
 ### Alternatives
 
-- [Virtual machine scale sets](/azure/virtual-machine-scale-sets/overview) - workloads that is critical to business operations should never depend on a single virtual machine. Scale sets provide the ability to spread workloads across nodes and can scale out in times of higher traffic or scale in when traffic is minimal to help minimize costs.
+- [Virtual machine scale sets](/azure/virtual-machine-scale-sets/overview) - workloads that are critical to business operations should never depend on a single virtual machine. Scale sets provide the ability to spread workloads across nodes and can scale out in times of higher traffic or scale in when traffic is minimal to help minimize costs.
 
 - [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer) would be useful to provide load balancing between multiple virtual machines or a VM scale set. It can also be used as alternative to a NAT Gateway to allow access to a workload from the internet while also supporting outbound access.
 
-- [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) would provide load balancing functionality to the Azure Load Balancer, but for HTTP/HTTPS workloads within an Azure region
+- [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) would provide load balancing functionality to the Azure Load Balancer, but for HTTP/HTTPS workloads within an Azure region.
 
-- For a more enterprise-level deployment, see **Azure Virtual Machines baseline architecture in an Azure landing zone** under [Next Steps](#next-steps) below
+- For a more enterprise-level deployment, see **Azure Virtual Machines baseline architecture in an Azure landing zone** under [Next Steps](#next-steps) below.
 
 ## Scenario Details
 
@@ -141,7 +141,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist)
 
-As this architecure is only a simple example using a single virtual machine, has a minimal level of reliability. Any issue with the virtual machine itself or the host where it is running will cause an outage, resulting in any hosted workloads being unavailable. For any workload that needs higher availability, multiple virtual machines should be deployed that contain the same workload, with those instances behind a load balancing solution of some type. If these are within the same region, those VMs should be deployed across availability zones, and added to the backend of an Azure Standard Load Balancer or an Application Gateway if the workload is HTTP/HTTPS-based. This allows for a single virtual machine in the backend to be down, while all remaining instances can still accept workload traffic.
+As this architecure is only a simple example using a single virtual machine, it has a minimal level of reliability. Any issue with the virtual machine itself or the host where it is running will cause an outage, resulting in any hosted workloads being unavailable. For any workload that needs higher availability, multiple virtual machines should be deployed that contain the same workload, with those instances behind an appropriate load balancing solution. If these are within the same region, those VMs should be deployed across availability zones (where supported), and added to the backend of an Azure Standard Load Balancer or an Application Gateway if the workload is HTTP/HTTPS-based. This allows for the workload to still be available if a single virtual machine in the backend were to be down.
 
 [Virtual machine scale sets](/azure/virtual-machine-scale-sets/overview) are another option to help simplify management of multi-node workloads that need the ability to automatically scale the number of instances in or out depending on any of several metrics such as CPU and/or memory consumption.
 
