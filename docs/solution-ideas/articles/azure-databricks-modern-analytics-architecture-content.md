@@ -90,7 +90,7 @@ The following data flow corresponds to the previous diagram:
    
      - Remove users and deny access when identities are deleted from Entra ID.
 
-   - Azure Monitor collects and analyzes Azure resource telemetry. By proactively identifying problems, this service maximizes performance and reliability.
+   - Azure Monitor collects and analyzes Azure resource telemetry. This service maximizes performance and reliability by proactively identifying problems.
 
    - Microsoft Cost Management provides financial governance services for Azure workloads.
 
