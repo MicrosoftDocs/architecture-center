@@ -91,5 +91,5 @@ Tenants won't need to remember separate credentials to access the application, a
 - [Identity management for multitenant applications in Microsoft Azure](/azure/architecture/guide/multitenant/considerations/identity)
 - [Gatekeeper pattern](/azure/architecture/patterns/gatekeeper)
 - [Edge Workload Configuration pattern](/azure/architecture/patterns/edge-workload-configuration)
-- [Compute Resource Consolidation pattern](/azure/architecture/patterns/compute-resource-consolidation)
+- [Compute Resource Consolidation pattern](/azure/architecture/patterns/compute-resource-consolidation.md)
 - [Gateway Offloading pattern](/azure/architecture/patterns/gateway-offloading)

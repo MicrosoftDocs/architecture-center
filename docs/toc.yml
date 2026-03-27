@@ -435,7 +435,7 @@ items:
     displayName: Worker pool, parallel message processing
     href: patterns/competing-consumers.yml
   - name: Compute Resource Consolidation
-    href: patterns/compute-resource-consolidation.yml
+    href: patterns/compute-resource-consolidation.md
   - name: CQRS
     displayName: Command Query Responsibility Segregation, read write separation
     href: patterns/cqrs.md
