@@ -20,13 +20,13 @@ The following dataflow corresponds to the previous diagram:
 
 1. Fabric Data Factory loads raw batch data into Data Lake Storage.
 
-1. For data storage:
+1. Data storage:
 
    - Data Lake Storage stores all types of data, including structured, unstructured, and partially structured data. It also stores batch and streaming data.
 
    - Delta Lake is the curated layer of the data lake. It stores the refined data in an open-source format.
 
-   - Azure Databricks works well with a [medallion architecture][Medallion model] that organizes data into the following layers:
+   - Azure Databricks works with a [medallion architecture][Medallion model] that organizes data into the following layers:
 
      - **Bronze layer:** Holds raw data.
    
@@ -44,21 +44,21 @@ The following dataflow corresponds to the previous diagram:
 
    - Model training
 
-   MLflow manages parameter, metric, and model tracking in data science code runs. Azure Databricks provides flexible coding options for the following workloads:
+   MLflow manages parameter, metric, and model tracking in data science code runs. In Azure Databricks, you can use MLflow with flexible coding options and compute options, including:
 
-   - Code can be in SQL, Python, R, and Scala.
+   - Support for SQL, Python, R, and Scala.
 
-   - Code can use popular open-source libraries and frameworks such as PySpark, pandas API on Spark, pandas, and scikit-learn.
+   - Integration with popular open-source libraries and frameworks such as PySpark, pandas API on Spark, pandas, and scikit-learn.
 
-   - You can optimize performance and cost by using single-node and multiple-node compute options.
+   - Single-node and multiple-node compute options that help optimize performance and cost.
 
-1. Machine learning models are available in the following formats:
+1. Machine learning models are available and deployable through the following options:
 
    - Azure Databricks stores information about models in the [MLflow Model Registry][MLflow Model Registry]. The registry makes models available through batch, streaming, and REST APIs.
 
-   - The solution can also deploy models to Azure Machine Learning endpoints, which includes managed online endpoints, batch endpoints, and Azure Kubernetes Service (AKS)-backed Kubernetes endpoints.
+   - Models can also be made available by deploying them to Azure Machine Learning endpoints, including managed online endpoints, batch endpoints, and Azure Kubernetes Service (AKS)-backed Kubernetes endpoints.
 
-1. Services that work with the data connect to a single underlying data source to help ensure consistency. For example, you can run SQL queries on the data lake by using Azure Databricks SQL warehouses. This service:
+1. To help ensure consistency, the services that work with the data connect to a single underlying data source. For example, you can run SQL queries on the data lake by using Azure Databricks SQL warehouses. This service:
 
    - Provides a query editor and catalog, the query history, basic dashboarding, and alerting.
 
@@ -66,13 +66,13 @@ The following dataflow corresponds to the previous diagram:
 
    - Uses a [Photon-powered Delta Engine to improve performance][Photon improves performance].
 
-1. You can mirror gold datasets out of Azure Databricks Unity Catalog into Microsoft Fabric OneLake. Use [Azure Databricks mirroring in Fabric][Databricks mirroring in Fabric] to integrate without the need to move or replicate data.
+1. You can mirror gold datasets from Azure Databricks Unity Catalog to Microsoft Fabric OneLake. Use [Azure Databricks mirroring in Fabric][Databricks mirroring in Fabric] to integrate data without replication or movement.
 
 1. Power BI generates analytical and historical reports and dashboards from the unified data platform. This service uses the following features when it works with Azure Databricks:
 
-   - A [built-in Azure Databricks connector][Power BI connector for Azure Databricks] to visualize the underlying data.
+   - A [built-in Azure Databricks connector][Power BI connector for Azure Databricks] to visualize the underlying data
 
-   - Optimized Java Database Connectivity and Open Database Connectivity drivers.
+   - Optimized Java Database Connectivity and Open Database Connectivity drivers
 
    - You can use [Direct Lake mode][Direct Lake] with Azure Databricks mirroring into Microsoft Fabric OneLake to load your Power BI semantic models for higher-performance queries. 
 
