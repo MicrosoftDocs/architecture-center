@@ -510,7 +510,7 @@ The following list summarizes best practices for instrumenting a distributed app
 
 ## Collecting and storing data
 
-The collection stage of the monitoring process is concerned with retrieving the information that instrumentation generates, formatting this data to make it easier for the analysis/diagnosis stage to consume, and saving the transformed data in reliable storage. The instrumentation data that you gather from different parts of a distributed system can be held in various locations and with varying formats. For example, your application code might generate trace log files and generate application event log data, whereas performance counters that monitor key aspects of the infrastructure that your application uses can be captured through other technologies. Any third-party components and services that your application uses might provide instrumentation information in different formats, by using separate trace files, blob storage, or even a custom data store.
+The collection stage of the monitoring process is concerned with retrieving the information that instrumentation generates, formatting this data to make it easier for the analysis/diagnosis stage to consume, and saving the transformed data in reliable storage. The instrumentation data that you gather from different parts of a distributed system can be held in various locations and with varying formats. For example, your application code might generate trace log files and generate Application event log data, whereas performance counters that monitor key aspects of the infrastructure that your application uses can be captured through other technologies. Any third-party components and services that your application uses might provide instrumentation information in different formats, by using separate trace files, blob storage, or even a custom data store.
 
 Data collection is often performed through a collection service that can run autonomously from the application that generates the instrumentation data. Figure 2 illustrates an example of this architecture, highlighting the instrumentation data-collection subsystem.
 
@@ -725,7 +725,6 @@ In many cases, batch processes can generate reports according to a defined sched
 - [Azure Monitor overview](/azure/azure-monitor/overview)
 - [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](/azure/storage/storage-monitoring-diagnosing-troubleshooting)
 - [Overview of alerts in Microsoft Azure](/azure/monitoring-and-diagnostics/insights-receive-alert-notifications)
-- [View service health notifications by using the Azure portal](/azure/monitoring-and-diagnostics/insights-service-health)
 - [What is Application Insights?](/azure/application-insights/app-insights-overview)
 - [Performance diagnostics for Azure virtual machines](/azure/virtual-machines/troubleshooting/performance-diagnostics)
 - [Download and install SQL Server Data Tools (SSDT) for Visual Studio](/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-bi)
