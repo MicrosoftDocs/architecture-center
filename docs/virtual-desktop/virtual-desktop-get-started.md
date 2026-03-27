@@ -61,7 +61,7 @@ The following production-ready architectures demonstrate end-to-end virtual desk
 
 The following resources provide foundational knowledge for virtual desktop implementations on Azure.
 
-**Azure Virtual Desktop:** Use the following resources to build core Azure Virtual Desktop knowledge:
+**Azure Virtual Desktop:** Use the following resources to build core Azure Virtual Desktop knowledge.
 
 - [Deliver remote desktops and apps by using Azure Virtual Desktop](/training/paths/m365-wvd/): Learn the fundamentals of planning and deploying [Azure Virtual Desktop](/azure/virtual-desktop/overview).
 
