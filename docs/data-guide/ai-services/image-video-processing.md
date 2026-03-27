@@ -21,8 +21,6 @@ This article describes video and image processing capabilities in Tools, such as
    
    - The latest generation of GPT models that have vision and audio capabilities
 
-   - Sora for video generation
-
    - DALL-E for image generation
 
    - Audio models for real-time voice conversations, audio generation, speech-to-text (STT) transcription, translation, and text-to-speech (TTS)
@@ -39,7 +37,7 @@ This article describes video and image processing capabilities in Tools, such as
 
 ### Azure OpenAI
 
-[Azure OpenAI](/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure#azure-openai-in-microsoft-foundry-models) provides access to OpenAI's powerful language models, including the latest generation of GPT models that have image, video, and audio capabilities. [Sora and Sora 2 video generation models](/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure#video-generation-models), [DALL-E and GPT-image image generation models](/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure#image-generation-models), and [audio models](/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure#audio-models) for real-time voice conversations, audio generation and transcription, STT, speech translation, and TTS are also available.
+[Azure OpenAI](/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure#azure-openai-in-microsoft-foundry-models) provides access to OpenAI's powerful language models, including the latest generation of GPT models that have image, video, and audio capabilities. [DALL-E and GPT-image image generation models](/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure#image-generation-models), and [audio models](/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure#audio-models) for real-time voice conversations, audio generation and transcription, STT, speech translation, and TTS are also available.
 
 | Use Azure OpenAI for these tasks | Don't use Azure OpenAI for these tasks |
 | :----------| :-------------|
