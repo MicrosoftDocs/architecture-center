@@ -272,8 +272,6 @@ items:
     items:
     - name: Mission-critical architecture design
       href: reference-architectures/containers/aks-mission-critical/mission-critical-intro.yml
-    - name: Mission-critical baseline with App Service
-      href: guide/networking/global-web-applications/mission-critical-app-service.yml
     - name: Design areas
       items:
       - name: Application platform
