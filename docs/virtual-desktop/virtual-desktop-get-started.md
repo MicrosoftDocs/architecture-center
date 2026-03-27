@@ -43,17 +43,17 @@ The articles in this section include fully developed architectures that you can 
 
 **Technology choices:** The following articles help you evaluate and select the best virtual desktop technologies for your workload requirements:
 
-- **[Azure Virtual Desktop landing zone design guide](../landing-zones/azure-virtual-desktop/design-guide.md):** Plan and design your [Azure Virtual Desktop](https://azure.microsoft.com/products/virtual-desktop/) deployment aligned with Azure landing zone principles.
+- [Azure Virtual Desktop landing zone design guide](../landing-zones/azure-virtual-desktop/design-guide.md): Plan and design your [Azure Virtual Desktop](https://azure.microsoft.com/products/virtual-desktop/) deployment aligned with Azure landing zone principles.
 
-- **[Windows 365 Azure network connection](windows-365-azure-network-connection.md):** Design and implement [Windows 365](https://www.microsoft.com/windows-365) Azure network connections to integrate Cloud PCs with your existing network infrastructure.
+- [Windows 365 Azure network connection](windows-365-azure-network-connection.md): Design and implement [Windows 365](https://www.microsoft.com/windows-365) Azure network connections to integrate Cloud PCs with your existing network infrastructure.
 
-- **[Multiregion business continuity and disaster recovery (BCDR) for Azure Virtual Desktop](../example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr.md):** Design a multiregion BCDR strategy for Azure Virtual Desktop to provide high availability and resilience.
+- [Multiregion business continuity and disaster recovery (BCDR) for Azure Virtual Desktop](../example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr.md): Design a multiregion BCDR strategy for Azure Virtual Desktop to provide high availability and resilience.
 
 ### Virtual desktop architectures
 
 The following production-ready architectures demonstrate end-to-end virtual desktop solutions that you can deploy and customize:
 
-- **[Deploy Esri ArcGIS Pro in Azure Virtual Desktop](../example-scenario/data/esri-arcgis-azure-virtual-desktop.yml):** Deploy Esri ArcGIS Pro in [Azure Virtual Desktop](https://azure.microsoft.com/products/virtual-desktop/) to take advantage of the hyperscale capabilities of Azure. This architecture includes back-end components like ArcGIS Enterprise and supports GPU-enabled virtual machines (VMs) for demanding 2D and 3D geographic information system (GIS) workflows.
+- [Deploy Esri ArcGIS Pro in Azure Virtual Desktop](../example-scenario/data/esri-arcgis-azure-virtual-desktop.yml): Deploy Esri ArcGIS Pro in [Azure Virtual Desktop](https://azure.microsoft.com/products/virtual-desktop/) to take advantage of the hyperscale capabilities of Azure. This architecture includes back-end components like ArcGIS Enterprise and supports GPU-enabled virtual machines (VMs) for demanding 2D and 3D geographic information system (GIS) workflows.
 
 ## Learn about virtual desktop on Azure
 
@@ -63,13 +63,13 @@ The following resources provide foundational knowledge for virtual desktop imple
 
 **Azure Virtual Desktop:** Use the following resources to build core Azure Virtual Desktop knowledge:
 
-- **[Deliver remote desktops and apps by using Azure Virtual Desktop](/training/paths/m365-wvd/):** Learn the fundamentals of planning and deploying [Azure Virtual Desktop](/azure/virtual-desktop/overview).
+- [Deliver remote desktops and apps by using Azure Virtual Desktop](/training/paths/m365-wvd/): Learn the fundamentals of planning and deploying [Azure Virtual Desktop](/azure/virtual-desktop/overview).
 
-- **[Implement an Azure Virtual Desktop infrastructure](/training/paths/implement-azure-virtual-infrastructure/):** Develop skills for implementing and managing [Azure Virtual Desktop](/azure/virtual-desktop/overview) infrastructure.
+- [Implement an Azure Virtual Desktop infrastructure](/training/paths/implement-azure-virtual-infrastructure/): Develop skills for implementing and managing [Azure Virtual Desktop](/azure/virtual-desktop/overview) infrastructure.
 
-- **[Monitor and maintain an Azure Virtual Desktop infrastructure](/training/paths/monitor-maintain-azure-virtual-desktop-infrastructure/):** Learn how to monitor, maintain, and optimize [Azure Virtual Desktop](/azure/virtual-desktop/overview) environments.
+- [Monitor and maintain an Azure Virtual Desktop infrastructure](/training/paths/monitor-maintain-azure-virtual-desktop-infrastructure/): Learn how to monitor, maintain, and optimize [Azure Virtual Desktop](/azure/virtual-desktop/overview) environments.
 
-- **[Examine Windows 365](/training/modules/examine-windows-365/):** Learn the basics of [Windows 365](https://www.microsoft.com/windows-365) Cloud PCs, including editions, architecture, life cycle, and how they integrate with your environment. Windows 365 provides single-user virtual desktops as an alternative to the multisession model in Azure Virtual Desktop.
+- [Examine Windows 365](/training/modules/examine-windows-365/): Learn the basics of [Windows 365](https://www.microsoft.com/windows-365) Cloud PCs, including editions, architecture, life cycle, and how they integrate with your environment. Windows 365 provides single-user virtual desktops as an alternative to the multisession model in Azure Virtual Desktop.
 
 ## Organizational readiness
 
@@ -77,9 +77,9 @@ Organizations that start their cloud adoption can use the [Cloud Adoption Framew
 
 Key [Cloud Adoption Framework](/azure/cloud-adoption-framework/) resources for virtual desktop:
 
-- **[Azure Virtual Desktop planning](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/plan):** Plan your [Azure Virtual Desktop](https://azure.microsoft.com/products/virtual-desktop/) migration or deployment.
+- [Azure Virtual Desktop planning](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/plan): Plan your [Azure Virtual Desktop](https://azure.microsoft.com/products/virtual-desktop/) migration or deployment.
 
-- **[Azure Virtual Desktop Azure landing zone review](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/ready):** Review your Azure landing zone readiness for Azure Virtual Desktop.
+- [Azure Virtual Desktop Azure landing zone review](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/ready): Review your Azure landing zone readiness for Azure Virtual Desktop.
 
 To help ensure the quality of your virtual desktop solution on Azure, follow the [Azure Well-Architected Framework](/azure/well-architected/). The Well-Architected Framework provides prescriptive guidance for organizations that seek architectural excellence and describes how to design, provision, and monitor cost-optimized Azure solutions.
 
