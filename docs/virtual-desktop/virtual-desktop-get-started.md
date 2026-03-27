@@ -59,7 +59,7 @@ The following production-ready architectures demonstrate end-to-end virtual desk
 
 [Microsoft Learn](/training/?WT.mc_id=learnaka) provides free online training resources for Azure virtual desktop technologies. The platform offers videos, tutorials, and interactive labs for specific products and services, along with learning paths organized by job role.
 
-The following resources provide foundational knowledge for virtual desktop implementations on Azure:
+The following resources provide foundational knowledge for virtual desktop implementations on Azure.
 
 **Azure Virtual Desktop:** Use the following resources to build core Azure Virtual Desktop knowledge:
 
@@ -129,7 +129,7 @@ To stay current with key virtual desktop services, see the following articles:
 
 ## Other resources
 
-Virtual desktop is a broad category and covers a range of solutions. The following resources can help you discover more about Azure.
+The virtual desktop category covers a range of solutions. The following resources can help you discover more about Azure.
 
 ### Identity
 
@@ -167,7 +167,7 @@ Most organizations need a hybrid approach to virtual desktops because they integ
 
 ## Amazon Web Services (AWS) or Google Cloud professionals
 
-To help you ramp up quickly, the following articles compare Azure virtual desktop options to other cloud services:
+To help you ramp up quickly, the following articles compare Azure virtual desktop options to other cloud services.
 
 ### Service comparison
 
