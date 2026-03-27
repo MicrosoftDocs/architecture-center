@@ -90,9 +90,9 @@ The following solution ideas demonstrate implementation patterns and possibiliti
 
 [Microsoft Learn](/training/?WT.mc_id=learnaka) provides free online training resources for Azure storage technologies. The platform provides videos, tutorials, and interactive labs for specific products and services, along with learning paths organized by job role.
 
-The following resources provide foundational knowledge for storage implementations on Azure:
+The following resources provide foundational knowledge for storage implementations on Azure.
 
-- **Developer:**  [Store data in Azure](/training/paths/store-data-in-azure/)
+- **Developer:** [Store data in Azure](/training/paths/store-data-in-azure/)
    Learn the fundamentals of data storage on Azure, including how to choose storage approaches and how to work with different storage services.
 
 - **Developer:** [Develop solutions that use Blob Storage](/training/paths/develop-solutions-that-use-blob-storage/)
