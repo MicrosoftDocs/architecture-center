@@ -83,9 +83,13 @@ Client applications such as web apps, mobile apps, and service applications cons
 
 For the compute plane, consider:
 
-- [Azure Container Apps](/azure/container-apps/overview) for microservices and event-driven workloads. It supports serverless containers and [Kubernetes Event Driven Autoscaler (KEDA)](https://keda.sh/)-based autoscaling without requiring Kubernetes cluster management.
+- [Azure Container Apps](/azure/container-apps/overview) for microservices and event-driven workloads. It supports serverless containers and [KEDA](https://keda.sh/)-based autoscaling without requiring Kubernetes cluster management. This choice replaces both AKS and Application Gateway for Containers because Container Apps provides built-in ingress.
 
-- [Azure Functions](/azure/azure-functions/functions-overview) for serverless API services where you can deploy individual API endpoints as independent functions.
+- [Web App for Containers](/azure/app-service/overview) for teams familiar with App Service that only need HTTP/HTTPS ingress. This choice replaces AKS and Application Gateway for Containers with a fully managed platform but provides less granular scaling control.
+
+- [Azure Functions](/azure/azure-functions/functions-overview) for serverless API services where you can deploy individual API endpoints as independent functions. This choice replaces the microservice model with per-endpoint functions and suits event-driven or low-traffic APIs.
+
+For the data layer, consider [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview) with [Azure Cosmos DB mirroring](/fabric/database/mirrored-database/azure-cosmos-db) when you need analytics on operational data. Fabric adds a reporting and analytics layer alongside the existing transactional stores without consuming request units.
 
 ## Scenario details
 
