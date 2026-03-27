@@ -6,15 +6,17 @@ Provisioning a virtual machine (VM) in Azure requires additional components besi
 
 *Download a [Visio file](https://arch-center.azureedge.net/windows-vm-single-vm-diagram.vsdx) of this architecture.*
 
-## Workflow
+### Workflow
 
-### Resource group
+### Components
+
+#### Resource group
 
 A [resource group][resource-manager-overview] is a logical container that holds related Azure resources. In general, group resources based on their lifetime and who will manage them.
 
 Put closely associated resources that share the same lifecycle into the same [resource group][resource-manager-overview]. Resource groups allow you to deploy and monitor resources as a group and track billing costs by resource group. You can also delete resources as a set, which is useful for test deployments. Assign meaningful resource names to simplify locating a specific resource and understanding its role. For more information, see [Recommended Naming Conventions for Azure Resources](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
 
-### Virtual machine
+#### Virtual machine
 
 You can provision a VM from a list of published images, or from a custom managed image or virtual hard disk (VHD) file uploaded to Azure Blob storage.
 
@@ -28,7 +30,7 @@ az vm list-sizes --location <location>
 
 For information about choosing a published VM image, see [Find Windows VM images](/azure/virtual-machines/windows/cli-ps-findimage).
 
-### Disks
+#### Disks
 
 For best disk I/O performance, we recommend [Premium Storage](/azure/virtual-machines/windows/premium-storage), which stores data on solid-state drives (SSDs). Cost is based on the capacity of the provisioned disk. IOPS and throughput also depend on disk size, so when you provision a disk, consider all three factors (capacity, IOPS, and throughput). Premium storage also features free bursting, combined with an understanding of workload patterns, offers an effective SKU selection and cost optimization strategy for IaaS infrastructure, enabling high performance without excessive over-provisioning and minimizing the cost of unused capacity.
 
@@ -42,7 +44,7 @@ Windows needs a page file for virtual memory management. On SCSI-based VM sizes 
 
 When possible, install applications on a data disk, not the OS disk. Some legacy applications might need to install components on the C: drive; in that case, you can [resize the OS disk](/azure/virtual-machines/windows/expand-os-disk) using PowerShell. We recommend creating one or more [data disks](/azure/virtual-machines/windows/disks-types) for application data. Data disks are persistent managed disks backed by Azure Storage.
 
-### Network
+#### Network
 
 The networking components include the following resources:
 
@@ -75,9 +77,17 @@ The networking components include the following resources:
 
 **Deleting a VM**. If you delete a VM, you have the option to delete or keep its disks. That means you can safely delete the VM without losing data. However, you will still be charged for the disks. You can delete managed disks just like any other Azure resource. To prevent accidental deletion, use a [resource lock](/azure/resource-group-lock-resources) to lock the entire resource group or lock individual resources, such as a VM.
 
+### Alternatives
+
+## Scenario Details
+
+### Potential Use Cases
+
 ## Considerations
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+
+### Reliability
 
 ### Security
 
@@ -125,6 +135,10 @@ Use infrastructure as Code (IaC) either by using a single [Azure Resource Manage
 Also, you can use different [Azure Resource Manager templates][arm-template] and integrate them with [Azure DevOps Services](/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services) to provision different environments in minutes, for example to replicate production like scenarios or load testing environments only when needed, saving cost.
 
 Consider using the [Azure Monitor](https://azure.microsoft.com/services/monitor/) to Analyze and optimize the performance of your infrastructure, Monitor and diagnose networking issues without logging into your virtual machines.
+
+### Performance Efficiency
+
+### Contributors
 
 ## Next steps
 
