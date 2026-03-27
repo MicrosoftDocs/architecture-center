@@ -62,7 +62,7 @@ The following data flow corresponds to the previous diagram:
 
    - Uses a [Photon-powered Delta Engine to improve performance][Photon improves performance].
 
-1. You can mirror gold datasets from Azure Databricks Unity Catalog to Microsoft Fabric OneLake. Use [Azure Databricks mirroring in Fabric][Databricks mirroring in Fabric] to integrate data without replication or movement.
+1. You can mirror gold datasets from Azure Databricks Unity Catalog to Microsoft OneLake. Use [Azure Databricks mirroring in Fabric][Databricks mirroring in Fabric] to integrate data without replication or movement.
 
 1. Power BI generates analytical and historical reports and dashboards from the unified data platform. This service uses the following features when it works with Azure Databricks:
 
@@ -70,7 +70,7 @@ The following data flow corresponds to the previous diagram:
 
    - Optimized Java Database Connectivity and Open Database Connectivity drivers
 
-    To load your Power BI semantic models for higher-performance queries, you can use [Direct Lake mode][Direct Lake] with Azure Databricks mirrored into Microsoft Fabric OneLake. 
+    To load your Power BI semantic models for higher-performance queries, you can use [Direct Lake mode][Direct Lake] with Azure Databricks mirrored into OneLake. 
 
 1. The solution uses Unity Catalog and Azure services for collaboration, performance, reliability, governance, and security. The following services and capabilities support governance, security, operations, and lifecycle management across the platform:
 
@@ -78,9 +78,9 @@ The following data flow corresponds to the previous diagram:
 
    - Microsoft Purview provides data discovery services, sensitive data classification, and governance insights across the data estate.
 
-   - Azure DevOps and other DevOps platforms, such as GitHub, offer continuous integration, continuous deployment, and other integrated version-control features for  infrastructure deployment automation and code management.
+   - Azure DevOps and other DevOps platforms, such as GitHub, offer continuous integration, continuous deployment, and other integrated version-control features for infrastructure deployment automation and code management.
 
-   - Power BI accesses curated (Gold) data through Azure Databricks SQL endpoints using Microsoft Entra ID–based authentication and authorization. Data access is governed through Databricks Unity Catalog and enterprise governance services, which ensures that Power BI doesn't require direct storage credentials and that data exposure is limited to authorized users and datasets.
+   - Power BI accesses curated (Gold) data through Azure Databricks SQL endpoints using Microsoft Entra ID–based authentication and authorization. Data access is governed through Databricks Unity Catalog and enterprise governance services, ensuring that Power BI doesn't require direct storage credentials and that data exposure is limited to authorized users and datasets.
 
    - Entra ID provides single sign-on and Automatic Identity Management for Azure Databricks users and groups. Automatic identity management syncs users, service principals, and groups from Entra ID without separate provisioning configuration. Azure Databricks supports automated identity provisioning with Entra ID to:
 
@@ -106,13 +106,13 @@ This solution uses the following components.
 
 - [Azure Databricks SQL warehouses][Azure Databricks SQL warehouses] are compute resources that you can use to query and explore data on Azure Databricks. In this architecture, you can use SQL endpoints to connect directly to your data from Power BI.
 
-- [Azure Databricks Delta Live Tables][Azure Databricks Delta Live Tables] is a declarative framework for building reliable, maintainable, and testable data processing pipelines. In this architecture, Delta Live Tables helps you define transformations to perform on your data. It also helps you manage task orchestration, cluster management, monitoring, data quality, and error handling within Azure Databricks. 
+- [Lakeflow Spark Declarative Pipelines][Lakeflow Spark Declarative Pipelines], formerly Data Lake Pipelines, is a declarative framework for building reliable, maintainable, and testable data processing pipelines. In this architecture, Lakeflow Spark Declarative Pipelines helps you define transformations to perform on your data. It also helps you manage task orchestration, cluster management, monitoring, data quality, and error handling within Azure Databricks. 
 
-- [Fabric][Microsoft Fabric] is an end-to-end analytics and data platform for organizations that need a unified solution. The platform provides services like Data Engineering, Data Factory, Data Science, Real-Time Intelligence, Data Warehouse, Databases, and a persistence layer known as OneLake. This architecture mirrors Unity Catalog tables into Fabric OneLake and uses Direct Lake mode in Power BI for better performance.
+- [Fabric][Microsoft Fabric] is an end-to-end analytics and data platform for organizations that need a unified solution. The platform provides services like Data Engineering, Fabric Data Factory, Data Science, Real-Time Intelligence, Data Warehouse, Databases, and OneLake. This architecture mirrors Unity Catalog tables into OneLake and uses Direct Lake mode in Power BI for better performance.
 
-- [Data Factory][Data Factory in Microsoft Fabric] is a modern data integration platform that you can use to ingest, prepare, and transform data from a rich set of data sources in Fabric. This architecture uses built-in connectors to several data sources for quick ingestion into Data Lake Storage or OneLake. Azure Databricks later retrieves and further transforms the batch data.
+- [Fabric Data Factory][Fabric Data Factory] is a modern data integration platform that you can use to ingest, prepare, and transform data from a rich set of data sources in Fabric. This architecture uses built-in connectors to several data sources for quick ingestion into Data Lake Storage or OneLake. Azure Databricks later retrieves and further transforms the batch data.
 
-- [Event Hubs][Event Hubs] is a fully managed, big data streaming platform. As a platform as a service, it provides event ingestion capabilities. This architecture uses Event Hubs for streaming data. Azure Databricks can connect to this data and process it by using Spark Streaming or Delta Live Tables.
+- [Event Hubs][Event Hubs] is a fully managed, big data streaming platform. As a platform as a service, it provides event ingestion capabilities. This architecture uses Event Hubs for streaming data. Azure Databricks can connect to this data and process it by using Spark Streaming or Lakeflow Spark Declarative Pipelines.
 
 - [Data Lake Storage][Azure Data Lake Storage] is a scalable and secure data lake for high-performance analytics. It handles multiple petabytes of data and supports hundreds of gigabits of throughput. Data Lake Storage can store structured, partially structured, and unstructured data. This architecture uses Data Lake Storage to store both batch and streaming data.
 
@@ -130,7 +130,7 @@ This solution uses the following components.
 
 - [Power BI][What is Power BI?] is a collection of software services and apps. These services create and share reports that connect and visualize unrelated sources of data. Together with Azure Databricks, Power BI can provide root cause determination and raw data analysis. This architecture uses Power BI to create dashboards and reports that provide insights into the data that Azure Databricks and Fabric process.
 
-- [Microsoft Purview][What is Microsoft Purview?] manages on-premises, multicloud, and software as a service (SaaS) data. This governance service maintains data landscape maps. Its features include automated data discovery, sensitive data classification, and data lineage. This architecture uses Microsoft Purview to scan and track data ingested by Unity Catalog, Fabric, Power BI, and Data Lake Storage.
+- [Microsoft Purview][Data governance with Microsoft Purview] manages on-premises, multicloud, and software as a service (SaaS) data. This governance service maintains data landscape maps. Its features include automated data discovery, sensitive data classification, and data lineage. This architecture uses Microsoft Purview to scan and track data ingested by Unity Catalog, Fabric, Power BI, and Data Lake Storage.
 
 - [Azure DevOps][DevOps solutions on Azure] is a DevOps orchestration platform. This SaaS provides tools and environments to build, deploy, and collaborate on applications. This architecture uses Azure DevOps to automate the deployment of Azure infrastructure. You can also use GitHub for automation and version control of Azure Databricks code for better collaboration, to track changes, and for integration with CI/CD pipelines.
 
@@ -180,11 +180,11 @@ This architecture is useful for organizations that:
 
 *Microsoft maintains this article. The following contributors wrote this article.*
 
-Principal authors:
+Principal author:
 
 - [Lorrin Ferdinand](https://www.linkedin.com/in/lorrin-ferdinand/) | Principal Author
 
-Other contributors:
+Other contributor:
 
 - [Kranthi Kumar Manchhikanti](https://www.linkedin.com/in/kranthimanchikanti/) | Contributor
 
@@ -192,8 +192,8 @@ Other contributors:
 
 ## Next steps
 
-- [Run your first Delta Live Tables pipeline][Run your first DLT pipeline]
-- [Create an end-to-end pipeline with Data Factory](/fabric/data-factory/tutorial-end-to-end-pipeline)
+- [Build an ETL pipeline using change data capture][Build an ETL pipeline using change data capture]
+- [Create an end-to-end pipeline with Fabric Data Factory](/fabric/data-factory/tutorial-end-to-end-pipeline)
 - [Use Direct Lake for high‑performance analytics on OneLake data][Direct Lake]
 - [Understand supported Databricks + Fabric integration patterns](https://techcommunity.microsoft.com/blog/analyticsonazure/approaches-to-integrating-azure-databricks-with-microsoft-fabric-the-better-toge/4453643)
 
@@ -207,21 +207,20 @@ Other contributors:
 
 [Automatic Identity Management]: /azure/databricks/admin/users-groups/automatic-identity-management
 [Azure Data Lake Storage]: /azure/storage/blobs/data-lake-storage-introduction
-[Azure Databricks]: /azure/well-architected/service-guides/azure-databricks-security
-[Azure Databricks Delta Live Tables]: /azure/databricks/delta-live-tables/
+[Azure Databricks]: /azure/well-architected/service-guides/azure-databricks
+[Lakeflow Spark Declarative Pipelines]: /azure/databricks/ldp
 [Azure Databricks SQL warehouses]: /azure/databricks/sql/
 [Azure Kubernetes Service]: /azure/well-architected/service-guides/azure-kubernetes-service
 [Azure Machine Learning]: /azure/well-architected/service-guides/azure-machine-learning
 [Azure Monitor]: /azure/azure-monitor/overview
 [Compare the machine learning products and technologies from Microsoft]: ../../ai-ml/guide/data-science-and-machine-learning.md
 [Databricks Delta Lake]: /azure/databricks/delta/
-[Data Factory in Microsoft Fabric]: /fabric/data-factory/data-factory-overview
+[Fabric Data Factory]: /fabric/data-factory/data-factory-overview
 [Databricks Unity Catalog]: /azure/databricks/data-governance/unity-catalog/
 [Databricks mirroring in Fabric]: /fabric/database/mirrored-database/azure-databricks
 [DevOps solutions on Azure]: /azure/devops/user-guide/what-is-azure-devops?view=azure-devops
-[DevOps solutions with GitHub]: /github/get-started/what-is-github
 [Direct Lake]: /fabric/get-started/direct-lake-overview
-[Event Hubs]: /azure/well-architected/service-guides/event-hubs
+[Event Hubs]: /azure/well-architected/service-guides/azure-event-hubs
 [Key Vault]: /azure/key-vault/general/overview
 [Medallion model]: /azure/databricks/lakehouse/medallion
 [Microsoft Cost Management]: /azure/cost-management-billing/costs/overview-cost-management
@@ -231,11 +230,10 @@ Other contributors:
 [MLflow Model Registry]: https://www.mlflow.org/docs/latest/registry.html
 [Photon improves performance]: /azure/databricks/compute/photon
 [Power BI connector for Azure Databricks]: /azure/databricks/integrations/bi/power-bi
-[Get-Started with Databricks pipelines]: /azure/databricks/getting-started/data-pipeline-get-started/
-[Run your first DLT pipeline]: /azure/databricks/delta-live-tables/tutorial-pipelines/
+[Build an ETL pipeline using change data capture]: /azure/databricks/ldp/tutorial-pipelines/
 [Stream processing with Azure Databricks]: ../../reference-architectures/data/stream-processing-databricks.yml
 [Choosing a stream processing technology in Azure]: ../../data-guide/technology-choices/stream-processing.md
 [Choose a data analytics and reporting technology in Azure]: ../../data-guide/technology-choices/analysis-visualizations-reporting.md
 [Choose a data pipeline orchestration technology in Azure]: ../../data-guide/technology-choices/pipeline-orchestration-data-movement.md
 [What is Power BI?]: /power-bi/fundamentals/power-bi-overview
-[What is Microsoft Purview?]: /azure/purview/overview
+[Data governance with Microsoft Purview]: /azure/purview/data-governance-overview
