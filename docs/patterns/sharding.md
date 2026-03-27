@@ -134,27 +134,31 @@ Most sharding systems implement one of these approaches, but you should also con
 
 Each sharding strategy provides different capabilities and levels of complexity to manage scale in, scale out, data movement, and state maintenance.
 
-**The lookup strategy** permits scaling and data movement operations at the user level, either online or offline. To move data:
+- **The lookup strategy** permits scaling and data movement operations at the user level, either online or offline. To move data:
 
-1. Suspend some or all user activity, typically during off-peak periods.
-1. Move the data to the new virtual partition or physical shard.
-1. Update the mappings.
-1. Invalidate or refresh any caches that hold this data.
-1. Resume user activity.
+   1. Suspend some or all user activity, typically during off-peak periods.
 
-You can often manage this operation centrally. The lookup strategy requires state to be highly cacheable and replica friendly.
+   1. Move the data to the new virtual partition or physical shard.
 
-**The range strategy** limits scaling and data movement operations because you must split and merge data across shards, typically while part or all of the data store is offline. When you move data to rebalance shards, you might not eliminate uneven load if most activity concentrates on adjacent shard keys or data identifiers within the same range. The range strategy might also require state to map ranges to physical partitions.
+   1. Update the mappings.
 
-**The hash strategy** complicates scaling and data movement operations. The partition keys are hashes of the shard keys or data identifiers. With a standard hash function, such as `hash(key) mod N`, adding or removing a shard reassigns most keys and triggers large-scale data migration. Consistent hashing reduces this impact by arranging the hash space so that only a small fraction of keys move when the shard count changes. The hash strategy doesn't require maintenance of a separate mapping state.
+   1. Invalidate or refresh any caches that hold this data.
 
-**The geographic strategy** directly links scaling operations to regional infrastructure provisioning. Adding capacity in one region doesn't relieve load in another region. Regulatory requirements that mandate geographic sharding can also restrict data movement across geographic boundaries. Within each region, scaling uses whichever secondary strategy distributes data across that region's shards.
+   1. Resume user activity.
+
+   You can often manage this operation centrally. The lookup strategy requires state to be highly cacheable and replica friendly.
+
+- **The range strategy** limits scaling and data movement operations because you must split and merge data across shards, typically while part or all of the data store is offline. When you move data to rebalance shards, you might not eliminate uneven load if most activity concentrates on adjacent shard keys or data identifiers within the same range. The range strategy might also require state to map ranges to physical partitions.
+
+- **The hash strategy** complicates scaling and data movement operations. The partition keys are hashes of the shard keys or data identifiers. With a standard hash function, such as `hash(key) mod N`, adding or removing a shard reassigns most keys and triggers large-scale data migration. Consistent hashing reduces this impact by arranging the hash space so that only a small fraction of keys move when the shard count changes. The hash strategy doesn't require maintenance of a separate mapping state.
+
+- **The geographic strategy** directly links scaling operations to regional infrastructure provisioning. Adding capacity in one region doesn't relieve load in another region. Regulatory requirements that mandate geographic sharding can also restrict data movement across geographic boundaries. Within each region, scaling uses whichever secondary strategy distributes data across that region's shards.
 
 ## Problems and considerations
 
 Consider the following points as you decide how to implement this pattern:
 
-- Sharding is complementary to other forms of partitioning, such as vertical partitioning and functional partitioning. For example, a single shard can contain entities that are partitioned vertically, and a functional partition can be implemented as multiple shards. For more information, see [Horizontal, vertical, and functional data partitioning](../best-practices/data-partitioning.yml).
+- Use sharding complementary to other forms of partitioning, such as vertical partitioning and functional partitioning. For example, a single shard can contain vertically partitioned entities, and you can implement a functional partition as multiple shards. For more information, see [Horizontal, vertical, and functional data partitioning](../best-practices/data-partitioning.yml).
 
 - Keep shards balanced so that they can all handle a similar input/output (I/O) volume. Data skew accumulates over time when records are inserted and deleted, which leads to hotspots. Plan to rebalance periodically.
 
@@ -169,16 +173,16 @@ Consider the following points as you decide how to implement this pattern:
   > [!NOTE]
   > Autoincremented values in other fields that aren't shard keys can also cause problems. For example, if you use autoincremented fields to generate unique IDs, two different items in different shards might be assigned the same ID.
 
-- You might not be able to design a shard key that matches the requirements of every query against the data. Shard the data to support the most frequently performed queries. If necessary, create secondary index tables to support queries that retrieve data by attributes that aren't part of the shard key. For more information, see [Index Table pattern](./index-table.yml).
+- Shard the data to support the most frequently performed queries. You might not be able to design a shard key that matches the requirements of every query against the data. If necessary, create secondary index tables to support queries that retrieve data by attributes that aren't part of the shard key. For more information, see [Index Table pattern](./index-table.yml).
 
-- Queries that access only a single shard are more efficient than queries that retrieve data from multiple shards. Design your shard key and data model to keep most operations scoped to a single shard. Denormalize your data to keep related entities that are commonly queried together, such as customers and their orders, in the same shard to reduce the number of separate reads.
+- Design your shard key and data model to keep most operations scoped to a single shard. Queries that access only a single shard are more efficient than queries that retrieve data from multiple shards. Denormalize your data to keep related entities that are commonly queried together, such as customers and their orders, in the same shard to reduce the number of separate reads.
 
   Cross-shard queries add latency, resource consumption, and complexity. When an application must retrieve data from multiple shards, use parallel fan-out queries that run against each shard concurrently and aggregate the results. Even with parallelism, the slowest shard determines overall latency.
 
   > [!TIP]
-  > If an entity in one shard references an entity stored in another shard, include the shard key for the second entity as part of the schema for the first entity. This approach can improve the performance of queries that reference related data across shards.
+  > If an entity in one shard references an entity in another shard, include the shard key for the second entity as part of the schema for the first entity. This approach can improve the performance of queries that reference related data across shards.
 
-- Cross-shard transactions present challenges. Distributed coordination protocols, such as two-phase commit, add latency, introduce failure modes, and reduce throughput. Most sharded systems avoid distributed transactions and adopt eventual consistency instead. In this model, each shard updates independently, and the application handles temporary inconsistencies. If your workload requires strong transactional integrity across shard boundaries, reconsider your shard key or whether sharding fits your needs.
+- Reconsider your shard key or whether sharding fits your needs if your workload requires strong transactional integrity across shard boundaries. Cross-shard transactions present challenges. Distributed coordination protocols, such as two-phase commit, add latency, introduce failure modes, and reduce throughput. Most sharded systems avoid distributed transactions and adopt eventual consistency instead. In this model, each shard updates independently, and the application handles temporary inconsistencies.
 
 - Make sure the resources available to each shard storage node can handle the scalability requirements in terms of data size and throughput. For more information, see [Data partitioning strategies](../best-practices/data-partitioning-strategies.yml).
 
@@ -202,22 +206,24 @@ Consider the following points as you decide how to implement this pattern:
 ## When to use this pattern
 
 > [!TIP]
-> Before you design a custom sharding layer, determine which sharding responsibilities your data platform already handles. Some services manage sharding completely. For example, Azure Cosmos DB distributes data across physical partitions, handles splits, and routes queries without application involvement. Other services manage sharding partially. For example, Azure SQL Database provides [elastic database tools](/azure/azure-sql/database/elastic-scale-introduction) for shard map management and data-dependent routing, but you design the shard key and manage split operations. Use this pattern when you build and operate the sharding logic yourself.
+> Before you design a custom sharding layer, determine which sharding responsibilities your data platform already handles. Some services manage sharding completely. For example, Azure Cosmos DB distributes data across physical partitions, handles splits, and routes queries without application involvement. Other services manage sharding partially. For example, Azure SQL Database provides [elastic database tools](/azure/azure-sql/database/elastic-scale-introduction) for shard map management and data-dependent routing, but you design the shard key and manage split operations. Use the Sharding pattern when you build and operate the sharding logic yourself.
 
-Use this pattern when one or more of the following conditions apply to your scenario:
+Use this pattern when:
 
 - The total data volume exceeds the storage capacity of a single database instance, and no vertical scaling option addresses the shortfall.
 
 - The transaction throughput or query concurrency exceeds what a single instance can sustain, and read replicas alone don't resolve the bottleneck because write load is also high.
 
   > [!NOTE]
-  > Sharding improves the performance and scalability of a system, but it can also improve availability. A failure in one partition doesn't necessarily prevent an application from accessing data in other partitions, and an operator can perform maintenance or recovery of one partition without making all data unavailable. For more information, see [Data partitioning guidance](../best-practices/data-partitioning.yml).
+  > Sharding improves the performance and scalability of a system, but it can also improve availability. A failure in one partition doesn't necessarily prevent an application from accessing data in other partitions. And an operator can perform maintenance or recovery of one partition without making all data unavailable. For more information, see [Data partitioning guidance](../best-practices/data-partitioning.yml).
 
 - Regulatory or compliance requirements mandate that specific data subsets reside in specific geographic jurisdictions, and no single-region deployment can meet all requirements.
 
 - Distinct tenants or customer segments require physical data isolation for security, performance, or contractual reasons.
 
-Sharding introduces substantial and permanent complexity into your data architecture. That complexity affects development, operations, testing, query design, and failure recovery for the system's lifetime. This pattern might not be suitable when:
+Sharding introduces substantial and permanent complexity into your data architecture. That complexity affects development, operations, testing, query design, and failure recovery for the system's lifetime.
+
+This pattern might not be suitable when:
 
 - Your data volume and throughput fit within a single database instance, even with projected growth. Vertical scaling preserves query simplicity and transactional integrity.
 
@@ -241,7 +247,7 @@ If this pattern introduces trade-offs within a pillar, consider them against the
 
 ## Example
 
-Consider a website that surfaces an expansive collection of information on published books worldwide. The number of possible books cataloged in this workload and the typical query and usage patterns exceed what a single relational database can handle. The workload architect decides to shard the data across multiple database instances by using the books' static International Standard Book Number (ISBN) as the shard key. Specifically, the architect uses the [check digit](https://wikipedia.org/wiki/ISBN#Check_digits) (0 - 10) of the ISBN, which gives 11 possible logical shards with fairly balanced data distribution.
+Consider a website that surfaces an expansive collection of information on published books worldwide. The number of possible books cataloged in this workload and the typical query and usage patterns exceed what a single relational database can handle. The workload architect decides to shard the data across multiple database instances by using the books' static International Standard Book Number (ISBN) as the shard key. Specifically, the architect uses the [check digit](https://wikipedia.org/wiki/ISBN#Check_digits) (0 - 10) of the ISBN, which provides 11 possible logical shards with fairly balanced data distribution.
 
 To start, the architect colocates the 11 logical shards into three physical shard databases. In this [virtual partition approach](#problems-and-considerations), many logical partitions map to fewer physical nodes. The architect uses the *lookup* sharding approach and stores the key-to-server mapping in a shard map database.
 
@@ -276,7 +282,7 @@ FROM BookDataShardMap
 
 ### Example website code: single shard access
 
-The website doesn't know how many physical shard databases exist, three in this case, or the logic that maps a shard key to a database instance. It only knows that the check digit of a book's ISBN is the shard key. The website has read-only access to the shard map database and read-write access to all shard databases. In this example, the website uses the system managed identity of its Azure App Service host for authorization, which keeps secrets out of connection strings.
+The website doesn't know how many physical shard databases exist (three in this case) or the logic that maps a shard key to a database instance. It only knows that the check digit of a book's ISBN is the shard key. The website has read-only access to the shard map database and read-write access to all shard databases. In this example, the website uses the system managed identity of its Azure App Service host for authorization, which keeps secrets out of connection strings.
 
 The website is configured with the following connection strings either in an `appsettings.json` file, as shown in this example, or through App Service app settings.
 
@@ -364,18 +370,18 @@ As an alternative to cross-shard queries, this workload can use an externally ma
 
 The workload team knows that if the data catalog or its concurrent usage grows significantly, they might require more than three database instances. The workload team doesn't expect to add database servers dynamically, and they accept workload downtime when a new shard comes online. To bring a new shard instance online, they must move data from existing shards into the new shard and update the shard map table. With this fairly static approach, the workload can confidently cache the shard key database mapping in the website code.
 
-The shard key logic in this example has a hard upper limit of 11 physical shards. If the workload team determines through load estimation that they eventually require more than 11 database instances, they must make an invasive change to the shard key logic. This change involves careful planning of code modifications and data migration to the new key logic.
+The shard key logic in this example has an upper limit of 11 physical shards. If the workload team determines through load estimation that they eventually require more than 11 database instances, they must make an invasive change to the shard key logic. This change involves careful planning of code modifications and data migration to the new key logic.
 
 ### SDK functionality
 
-Instead of writing custom code for shard management and query routing to SQL Database instances, evaluate the [Elastic Database client library](/azure/azure-sql/database/elastic-database-client-library). This library supports shard map management, data-dependent query routing, and cross-shard queries in both C# and Java.
+Instead of writing custom code for shard management and query routing to SQL Database instances, evaluate the [elastic database client library](/azure/azure-sql/database/elastic-database-client-library). This library supports shard map management, data-dependent query routing, and cross-shard queries in both C# and Java.
 
-## Next steps
+## Next step
 
-- [Horizontal, vertical, and functional data partitioning](../best-practices/data-partitioning.yml): This article describes other strategies for partitioning data in the cloud to improve scalability, reduce contention, and optimize performance.
 - [Consistency levels in Azure Cosmos DB](/azure/cosmos-db/consistency-levels): Distributing data across shards introduces consistency trade-offs. This article describes the spectrum of consistency models, from strong to eventual, and their effects on availability and latency.
 
 ## Related resources
 
+- [Horizontal, vertical, and functional data partitioning](../best-practices/data-partitioning.yml): This article describes other strategies for partitioning data in the cloud to improve scalability, reduce contention, and optimize performance.
 - [Index Table pattern](./index-table.yml): Sometimes you can't support all queries through the design of the shard key alone. An application can use the Index Table pattern to retrieve data from a large data store by specifying a key other than the shard key.
 - [Materialized View pattern](./materialized-view.yml): To maintain the performance of some query operations, you can create materialized views that aggregate and summarize data, especially if you distribute that data across shards.
