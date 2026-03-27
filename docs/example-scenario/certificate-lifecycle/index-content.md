@@ -16,7 +16,7 @@ The Azure environment comprises the following platform as a service (PaaS) resou
 
 To monitor the process and status of expired and expiring certificates, Log Analytics stores the data, and the workspace presents it in the form of tabular and graphical dashboards.
 
-This scenario assumes that an existing public key infrastructure (PKI) is already in place and consists of a Microsoft Enterprise CA joined to a domain in Microsoft Entra ID. Both the PKI and the Active Directory domain can reside on Azure or on-premises, and the servers that must be configured for certificate renewal.
+This scenario assumes that an existing public key infrastructure (PKI) is already in place and consists of a Microsoft Enterprise CA joined to an Active Directory domain. Both the PKI and the Active Directory domain can reside on Azure or on-premises, and the servers that must be configured for certificate renewal.
 
 The virtual machines (VMs) with certificates to monitor renewal don't need to be joined to Active Directory or Microsoft Entra ID. The sole requirement is for the CA and the hybrid worker, if located on a different VM from the CA, to be joined to Active Directory.
 
