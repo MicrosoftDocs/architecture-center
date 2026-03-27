@@ -118,6 +118,20 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Reliability
 
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist)
+
+As this architecure is only a simple example using a single virtual machine, it has a minimal level of reliability. Any issue with the virtual machine itself or the host where it is running will cause an outage, resulting in any hosted workloads being unavailable. For any workload that needs higher availability, multiple virtual machines should be deployed that contain the same workload, with those instances behind an appropriate load balancing solution. If these are within the same region, those VMs should be deployed across availability zones (where supported), and added to the backend of an Azure Standard Load Balancer or an Application Gateway if the workload is HTTP/HTTPS-based. This allows for the workload to still be available if a single virtual machine in the backend were to be down.
+
+[Virtual machine scale sets](/azure/virtual-machine-scale-sets/overview) are another option to help simplify management of multi-node workloads that need the ability to automatically scale the number of instances in or out depending on any of several metrics such as CPU and/or memory consumption.
+
+#### HA/DR
+
+For an increased "blast radius," the workload should be deployed in multiple regions and leverage the [Azure Landing Zone](/azure/cloud-adoption-framework/ready/landing-zone/) guidance. This could be in an Active-Passive configuration with a failover to the secondary region should the primary region become unavailable, or an Active-Active architecture where both regions serve traffic to consumers. For an example, see **Multi-tier web application built for HA/DR** under [Next Steps](#next-steps) below.
+
+The example in that article uses [Azure Site Recovery (ASR)](/azure/site-recovery/site-recovery-overview) to replicate the disks of individual virtual machines to a secondary region, where ASR can be used to failover those virtual machines to the secondary region with a low RPO/RTO.
+
+Be sure to evaluate your architecture to meet your HA/DR requirements across all components, not just the virtual machines. Include networking, identity, data, etc in all of these decisions.
+
 ### Security
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
@@ -159,15 +173,32 @@ For more information, see the cost section in [Microsoft Azure Well-Architected 
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-Use infrastructure as Code (IaC) either by using a single [Azure Resource Manager template][arm-template] for provisioning the Azure resources (declarative approach) or by using a single PowerShell script (imperative approach).Because all the resources are in the same virtual network, they're isolated in the same basic workload. That makes it easier to associate the workload's specific resources to a DevOps team, so that the team can independently manage all aspects of those resources. This isolation enables the DevOps Team and Services to perform continuous integration and continuous delivery (CI/CD).
+Use Infrastructure-as-Code (IaC) templates to provision Azure resources and their dependencies. These could be written using [Bicep](/azure/azure-resource-manager/bicep/) or JSON in an [Azure Resource Manager template][arm-template] or even [Terraform](/azure/developer/terraform/) if you prefer. These templates allow a Continuous Integration/Continuous Deployment (CI/CD) process as part of a [GitOps](https://learn.microsoft.com/en-us/devops/deliver/iac-github-actions) methodology for deploying and configuring resources. This will allow versioning of architectures and ensure consistency between environments, as well as enforcing reproducibility, security, and compliance.
 
-Also, you can use different [Azure Resource Manager templates][arm-template] and integrate them with [Azure DevOps Services](/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services) to provision different environments in minutes, for example to replicate production like scenarios or load testing environments only when needed, saving cost.
-
-Consider using the [Azure Monitor](https://azure.microsoft.com/services/monitor/) to Analyze and optimize the performance of your infrastructure, Monitor and diagnose networking issues without logging into your virtual machines.
+To assist in monitoring and diagnosing issues, ensure that diagnostics logs are enabled on your resources and are made available to [Azure Monitor](https://azure.microsoft.com/services/monitor/) to help with analysis and optimization of your resources. These logs can be used to implement alerting and notifications of critical events, and in some cases allow automated remediation or logging a ticket in your ITSM system.
 
 ### Performance Efficiency
 
+Performance Efficiency focuses on optimizing cloud workloads for speed, responsiveness, and scalability. For more information see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist)
+
+Some key goals include minimizing latency, ensuring scalable architectures, optimizing resource utilization, and continuously improving system performance
+
+As mentioned above, the decisions made regarding workload architecture, VM SKU and disk configurations can have a large impact on how your workload performs. Making the correct choices could prevent having to re-architect the solution in the future, adding flexibility and saving costs.
+
+Be sure to consider these points when developing your architecture:
+- Leverage VM scale sets if the workload will have a dynamic load. For example, scaling out in times of large amounts of traffic and then scaling back in when the traffic reduces. This will ensure adequate processing power while still keeping costs under control.
+- Choose the appropriate VM and disk SKUs to meet required IOPs during processing, and configure caching to further improve performance
+- Where possible, enable accelerated networking to minimize latency between components
+- Design network architecture to minimize unnecessary hops
+- Use Azure Monitor, VM Insights, and other tools to continuously analyze metrics and create updated performance baselines. Use the performance information to determine where to implement changes, and then test against those baselines
+
 ### Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+[Donnie Trumpower](https://www.linkedin.com/in/dtrumpower) | Senior Cloud & AI Solutions Architect
 
 ## Next steps
 
@@ -176,10 +207,13 @@ Consider using the [Azure Monitor](https://azure.microsoft.com/services/monitor/
 - To install AMD drivers on a Windows VM, see [Install AMD GPU drivers on N-series VMs running Windows](/azure/virtual-machines/windows/n-series-amd-driver-setup)
 - To provision a Windows VM, see [Create and Manage Windows VMs with Azure PowerShell](/azure/virtual-machines/windows/tutorial-manage-vm)
 - [Default outbound access in Azure](/azure/virtual-network/ip-services/default-outbound-access)
+- For an example of a more complex architecture, see [Azure Virtual Machines baseline architecture in an Azure landing zone](/azure/architecture/virtual-machines/baseline-landing-zone)
+- To deploy a web application across regions, see [Multi-tier web application built for HA/DR](/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery)
 
 ## Related resource
 
 - [Plan deployment for updating Windows VMs in Azure](/azure/architecture/example-scenario/wsus)
+- [Run a Linux VM on Azure](/azure/architecture/reference-architectures/n-tier/linux-vm)
 
 [arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
 [resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview
