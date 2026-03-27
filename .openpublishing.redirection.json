@@ -8,7 +8,7 @@
     {
       "source_path": "docs/guide/networking/global-web-applications/mission-critical-app-service.yml",
       "redirect_url": "/azure/architecture/web-apps/guides/enterprise-app-patterns/overview",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/example-scenario/mainframe/deploy-ibm-power-workloads.yml",
