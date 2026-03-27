@@ -50,7 +50,7 @@ In a partition key per tenant model, all the data for your tenants is stored in 
 
 ### Azure Cosmos DB features for multitenancy
 
-- **Control your throughput:** Explore features that can help control the noisy neighbor problem when you use a partition key to isolate tenants. 
+- **Control your throughput:** Explore features that can help control the noisy neighbor problem when you use a partition key to isolate tenants, or if you have multiple workloads using the same shared container.
 
     | Feature | Description |
     |---|---|
@@ -110,6 +110,14 @@ You can enable fleet analytics for your fleet to monitor usage and track histori
 
 When you use a dedicated Azure Cosmos DB account per tenant, consider the [maximum number of Azure Cosmos DB accounts per Azure subscription](/azure/cosmos-db/concepts-limits#resource-limits). 
 
+- **Control your throughput:** Explore features that can help if you have multiple workloads using the same database accounts.
+
+    | Feature | Description |
+    |---|---|
+    | [Priority based execution](/azure/cosmos-db/priority-based-execution) | Specify high or low priority at a per-request level. When there's contention on RU/s at the container level, high priority requests are prioritized. Useful when you have multiple workloads with different performance requirements, such as a batch job versus an API that serves real-time user requests. |
+    | [Throughput buckets (preview)](/azure/cosmos-db/throughput-buckets) | Assign a set percentage of RU/s that a set of requests can consume. For example, you can configure that requests from a batch job can only consume up to 10% of the container's total RU/s, while a critical user facing API can consume up to 100% of the container's total RU/s. |
+
+
 ## Summary of recommended isolation models
 
 | Workload need | Partition key per tenant | Database account per tenant |
@@ -158,7 +166,7 @@ For more information, see the following resources:
 
 ### Fleet pools
 
-Fleet pools, a feature of Azure Cosmos DB fleets, enables you to get the benefits of performance and security isolation that come with database account per tenant model, while allowing you to optimize your cost by sharing RU/s across multiple accounts in the same pool. You can group similar types of tenants into the same fleet pool and configure the pool to autoscale between a minimum and maximum RU/s. 
+Fleet pools, a feature of Azure Cosmos DB fleets, enables you to get the benefits of performance and security isolation that come with database account per tenant model, while allowing you to optimize your cost by sharing RU/s across multiple accounts in the same pool. You can group similar types of tenants into the same fleet pool and configure the pool to autoscale between a minimum and maximum RU/s.
 
 While the containers in each account retain its own dedicated RU/s, when in a pool, they automatically use extra RU/s when needed from the shared pool. This helps avoid overprovisioning. Rather than provisioning every tenant's containers for peak RU/s, which can be expensive, you can set a typical RU/s per container and use the pool's shared capacity to handle any spikes. To protect against noisy neighbor, by design, any throughput provisioned on a container is dedicated and guaranteed to always be available to that container, while the shared pool RU/s can be used by any container that needs more throughput. 
 
@@ -183,23 +191,35 @@ The Azure Cosmos DB pricing model is based on the number of RU/s that you provis
 
 For tenants that require guaranteed performance and security isolation, we recommend that you isolate tenants by database account, allocate a dedicated RU/s to the tenant, and leverage fleet pools to handle additional capacity needs. For tenants that have less-stringent requirements, we recommend that you isolate tenants by partition key. Use this model to share RU/s among your tenants and optimize the cost per tenant.
 
-Azure Cosmos DB also provides a serverless tier, which suits workloads that have intermittent or unpredictable traffic. Alternatively, you can use autoscaling to configure policies that specify the scaling of provisioned throughput. You can also take advantage of Azure Cosmos DB burst capacity to maximize the usage of your provisioned throughput capacity, which is otherwise restricted by rate limits. In a multitenant solution, you might combine all these approaches to support different types of tenants.
-
+Azure Cosmos DB also provides a serverless tier, which suits workloads that have intermittent or unpredictable traffic. 
 > [!NOTE]
 > When you plan your Azure Cosmos DB configuration, consider the [service quotas and limits](/azure/cosmos-db/concepts-limits).
 
-To monitor and manage the costs that are associated with each tenant, remember that every operation that uses the Azure Cosmos DB API includes the RUs consumed. You can use this information to aggregate and compare the actual RUs that each tenant consumes. You can then identify tenants that have different performance characteristics.
+To monitor and manage the costs that are associated with each tenant, remember that every operation that uses the Azure Cosmos DB API includes the RUs consumed. You can use this information to aggregate and compare the actual RUs that each tenant consumes. You can then identify tenants that have different performance characteristics. If you have a few tenants that have significantly higher performance or isolation requirements than the others, consider isolating them into their own account, with dedicated container RU/s. You can use a container partitioned by tenant Id to store data for the remaining tenants.
+
+#### Resource governance features
+
+Explore features that can help control the noisy neighbor problem when you use a partition key to isolate tenants.
+
+| Feature | Description |
+|---|---|
+| [Burst capacity](/azure/cosmos-db/burst-capacity) | Take advantage of the container's unused capacity in the last five minutes to cover future spikes. |
+| [Priority based execution](/azure/cosmos-db/priority-based-execution) | Specify high or low priority at a per-request level. When there's contention on RU/s at the container level, high priority requests are prioritized. Useful when you have multiple workloads with different performance requirements, such as a batch job versus an API that serves real-time user requests. |
+| [Throughput buckets (preview)](/azure/cosmos-db/throughput-buckets) | Assign a set percentage of RU/s that a set of requests can consume. For example, you can configure that requests from a batch job can only consume up to 10% of the container's total RU/s, while a critical user facing API can consume up to 100% of the container's total RU/s. |
+| [Throughput redistribution (preview)](/azure/cosmos-db/nosql/distribute-throughput-across-partitions) | Use this API to assign more RU/s to hot physical partitions. |
 
 For more information, see the following resources:
 
 - [Provisioned throughput](/azure/cosmos-db/set-throughput)
 - [Autoscale](/azure/cosmos-db/provision-throughput-autoscale)
 - [Serverless](/azure/cosmos-db/serverless)
+- [Burst capacity](/azure/cosmos-db/burst-capacity)
 - [Fleet pools](/azure/cosmos-db/fleet-pools)
-- [Fleet analytics](/azure/cosmos-db/fleet-analytics)
+- [Fleet analytics (preview)](/azure/cosmos-db/fleet-analytics)
+- [Throughput buckets (preview)](/azure/cosmos-db/throughput-buckets)
+- [Priority based execution](/azure/cosmos-db/priority-based-execution)
 - [Measure the RU charge of a request](/azure/cosmos-db/optimize-cost-reads-writes#measuring-the-ru-charge-of-a-request)
 - [Azure Cosmos DB service quotas](/azure/cosmos-db/concepts-limits)
-- [Burst capacity](/azure/cosmos-db/burst-capacity)
 
 ### Customer-managed keys
 
