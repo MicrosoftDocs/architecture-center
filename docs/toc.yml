@@ -447,7 +447,7 @@ items:
     href: patterns/edge-workload-configuration.md
   - name: Event Sourcing
     displayName: Event store, append-only, audit trail
-    href: patterns/event-sourcing.yml
+    href: patterns/event-sourcing.md
   - name: External Configuration Store
     href: patterns/external-configuration-store.yml
   - name: Federated Identity
