@@ -119,9 +119,7 @@ For storage-specific guidance, see the following Well-Architected Framework serv
 
 ## Best practices
 
-Best practices for storage help you optimize costs, performance, security, and reliability.
-
-Based on the solution technology that you use, see the following best practice resources.
+Best practices for storage help you optimize costs, performance, security, and reliability. Based on the solution technology that you use, see the following best practice resources.
 
 ### Blob Storage
 
@@ -203,7 +201,7 @@ To stay current with key storage services, see the following articles:
 
 ## Other resources
 
-The Storage category covers a range of solutions. The following resources can help you discover more about Azure.
+The storage category covers a range of solutions. The following resources can help you discover more about Azure.
 
 To plan for your storage needs, see [Review your storage options](/azure/architecture/guide/technology-choices/storage-options).
 
@@ -238,7 +236,6 @@ Data migration planning helps you choose the right strategy and tools for moving
 ## Amazon Web Services (AWS) or Google Cloud professionals
 
 To help you ramp up quickly, the following articles compare Azure storage options to other cloud services.
-
 
 - [Compare storage on Azure and AWS](/azure/architecture/aws-professional/storage): Service mapping and comparison between AWS and Azure storage offerings.
 
