@@ -176,8 +176,7 @@ Fleet pools, a feature of Azure Cosmos DB fleets, enables you to get the benefit
 
 While the containers in each account retain its own dedicated RU/s, when in a pool, they automatically use extra RU/s when needed from the shared pool. This helps avoid overprovisioning. Rather than provisioning every tenant's containers for peak RU/s, which can be expensive, you can set a typical RU/s per container and use the pool's shared capacity to handle any spikes. To protect against noisy neighbor, by design, any throughput provisioned on a container is dedicated and guaranteed to always be available to that container, while the shared pool RU/s can be used by any container that needs more throughput. 
 
-:::image type="content" source="media/cosmosdb/fleet_overview.png" alt-text="Image of Azure Cosmos DB fleet, with 3 different fleetspaces used to group free tier, mid-size, and enterprise customers, with optional pool configuration.
-":::
+:::image type="content" source="media/cosmosdb/fleet-overview.png" alt-text="Image of Azure Cosmos DB fleet, with 3 different fleetspaces used to group free tier, mid-size, and enterprise customers, with optional pool configuration.":::
 
 For more information, see the following resources:
 
