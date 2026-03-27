@@ -6,24 +6,23 @@ Provisioning a virtual machine (VM) in Azure requires additional components besi
 
 *Download a [Visio file](https://arch-center.azureedge.net/linux-vm-single-vm-diagram.vsdx) of this architecture.*
 
-## Workflow
+### Workflow
 This is a very simple implementation with a single virtual machine to show an example of a basic deployment with the required components for a functional virtual machine that can run workloads, be managed, and communicate with the public internet without making it directly reachable by potential bad actors
 
-- Any workloads running on this virtual machine aren't exposed externally, and are only accessible from within the same, or a peered, virtual network, such as in a hub and spoke configuration
+- Any workloads running on the virtual machine aren't exposed externally, and are only accessible from within the same, or a peered, virtual network, such as in a hub and spoke configuration
 - Management access to the virtual machine is shown using Azure Bastion via SSH, and is not directly permitted from the public internet
 - External internet access is provided through the use of the NAT Gateway and its associated Public IP address
 
-To learn how to deploy a more complex architecture for virtual machines in Azure, see **Azure Virtual Machines baseline architecture in an Azure landing zone** under [Next Steps](#next-steps) below
 
-## Components
+### Components
 
-### Resource group
+#### Resource group
 
 A [resource group][resource-manager-overview] is a logical container that holds related Azure resources. In general, group resources based on their lifetime and who will manage them.
 
 Deploy closely associated resources that share the same lifecycle into the same [resource group][resource-manager-overview]. Resource groups allow you to deploy and monitor resources as a group and track billing costs by resource group. You can also delete resources as a set, which is useful for test deployments. Assign meaningful resource names to simplify locating a specific resource and understanding its role. For more information, see [Recommended Naming Conventions for Azure Resources](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
 
-### Virtual machine
+#### Virtual machine
 
 You can provision a VM from a list of published images, or from a custom managed image or virtual hard disk (VHD) file uploaded to Azure Blob storage. Azure supports running various popular Linux distributions, including Debian, Red Hat Enterprise Linux (RHEL), and Ubuntu. For more information, see [Azure and Linux](/azure/virtual-machines/linux/endorsed-distros).
 
@@ -37,7 +36,7 @@ az vm list-sizes --location <location>
 
 For information about choosing a published VM image, see [Find Linux VM images](/azure/virtual-machines/linux/cli-ps-findimage).
 
-### Disks
+#### Disks
 
 For best disk I/O performance, we recommend [Premium SSDs](/azure/virtual-machines/linux/premium-storage), which stores data on solid-state drives (SSDs). Cost is based on the capacity of the provisioned disk. IOPS and throughput (that is, data transfer rate) also depend on disk size, so when you provision a disk, consider all three factors (capacity, IOPS, and throughput). Premium SSDs feature free bursting which, combined with an understanding of workload patterns, offers an effective SKU selection and cost optimization strategy for IaaS infrastructure. This enables high performance without excessive over-provisioning and minimizing the cost of unused capacity.
 
@@ -77,7 +76,7 @@ You might want to change the I/O scheduler to optimize for performance on SSDs b
 
 The VM is created with a temporary disk, which is stored on a physical drive on the host machine. It's *not* saved in Azure Storage and might be deleted during reboots and other VM lifecycle events. Use this disk only for temporary data, such as page or swap files. For Linux VMs, the temporary disk is `/dev/disk/azure/resource-part1` and is mounted at `/mnt/resource` or `/mnt`.
 
-### Network
+#### Network
 
 The networking components include the following resources:
 
@@ -116,23 +115,41 @@ The networking components include the following resources:
 
 **Deleting a VM**. If you delete a VM, you have the option to delete or keep its disks. That means you can safely delete the VM without losing data. However, you will still be charged for the disks. You can delete managed disks just like any other Azure resource. To prevent accidental deletion, use a [resource lock](/azure/resource-group-lock-resources) to lock the entire resource group or lock individual resources, such as a VM.
 
+### Alternatives
+
+- [Virtual machine scale sets](/azure/virtual-machine-scale-sets/overview) - workloads that is critical to business operations should never depend on a single virtual machine. Scale sets provide the ability to spread workloads across nodes and can scale out in times of higher traffic or scale in when traffic is minimal to help minimize costs.
+
+- [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer) would be useful to provide load balancing between multiple virtual machines or a VM scale set. It can also be used as alternative to a NAT Gateway to allow access to a workload from the internet while also supporting outbound access.
+
+- [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) would provide load balancing functionality to the Azure Load Balancer, but for HTTP/HTTPS workloads within an Azure region
+
+- For a more enterprise-level deployment, see **Azure Virtual Machines baseline architecture in an Azure landing zone** under [Next Steps](#next-steps) below
+
+## Scenario Details
+
+In the diagam above,  this scenario would be useful for providing a non-critical workload that is useful for internal-only users.
+
+### Potential Use Cases
+
+A single VM deployment could be used to host a simple application that does not need to be exposed to the internet and can withstand some downtime. This may be a basic reporting application or one that is not capable of running in a load balanced scenario due to a monolithic architecture.
+
 ## Considerations
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](https://learn.microsoft.com/en-us/azure/well-architected/reliability/checklist)
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist)
 
 As this architecure is only a simple example using a single virtual machine, has a minimal level of reliability. Any issue with the virtual machine itself or the host where it is running will cause an outage, resulting in any hosted workloads being unavailable. For any workload that needs higher availability, multiple virtual machines should be deployed that contain the same workload, with those instances behind a load balancing solution of some type. If these are within the same region, those VMs should be deployed across availability zones, and added to the backend of an Azure Standard Load Balancer or an Application Gateway if the workload is HTTP/HTTPS-based. This allows for a single virtual machine in the backend to be down, while all remaining instances can still accept workload traffic.
 
-[Virtual machine scale sets](https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview) are another option to help simplify management of multi-node workloads that need the ability to automatically scale the number of instances in or out depending on any of several metrics such as CPU and/or memory consumption.
+[Virtual machine scale sets](/azure/virtual-machine-scale-sets/overview) are another option to help simplify management of multi-node workloads that need the ability to automatically scale the number of instances in or out depending on any of several metrics such as CPU and/or memory consumption.
 
 #### HA/DR
 
-For an increased "blast radius," the workload should be deployed in multiple regions and leverage the [Azure Landing Zone](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/) guidance. This could be in an Active-Passive configuration with a failover to the secondary region should the primary region become unavailable, or an Active-Active architecture where both regions serve traffic to consumers. For an example, see **Multi-tier web application built for HA/DR** under [Next Steps](#next-steps) below.
+For an increased "blast radius," the workload should be deployed in multiple regions and leverage the [Azure Landing Zone](/azure/cloud-adoption-framework/ready/landing-zone/) guidance. This could be in an Active-Passive configuration with a failover to the secondary region should the primary region become unavailable, or an Active-Active architecture where both regions serve traffic to consumers. For an example, see **Multi-tier web application built for HA/DR** under [Next Steps](#next-steps) below.
 
-The example in that article uses [Azure Site Recovery (ASR)](https://learn.microsoft.com/en-us/azure/site-recovery/site-recovery-overview) to replicate the disks of individual virtual machines to a secondary region, where ASR can be used to failover those virtual machines to the secondary region with a low RPO/RTO.
+The example in that article uses [Azure Site Recovery (ASR)](/azure/site-recovery/site-recovery-overview) to replicate the disks of individual virtual machines to a secondary region, where ASR can be used to failover those virtual machines to the secondary region with a low RPO/RTO.
 
 Be sure to evaluate your architecture to meet your HA/DR requirements across all components, not just the virtual machines. Include networking, identity, data, etc in all of these decisions.
 
@@ -177,14 +194,14 @@ For more information, see the cost section in [Microsoft Azure Well-Architected 
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-Use Infrastructure-as-Code (IaC) templates to provision Azure resources and their dependencies. These could be written using [Bicep](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/) or JSON in an [Azure Resource Manager template][arm-template] or even [Terraform](https://learn.microsoft.com/en-us/azure/developer/terraform/) if you prefer. These templates allow a Continuous Integration/Continuous Deployment (CI/CD) process as part of a [GitOps](https://learn.microsoft.com/en-us/devops/deliver/iac-github-actions) methodology for deploying and configuring resources. This will allow versioning of architectures and ensure consistency between environments, as well as enforcing reproducibility, security, and compliance.
+Use Infrastructure-as-Code (IaC) templates to provision Azure resources and their dependencies. These could be written using [Bicep](/azure/azure-resource-manager/bicep/) or JSON in an [Azure Resource Manager template][arm-template] or even [Terraform](/azure/developer/terraform/) if you prefer. These templates allow a Continuous Integration/Continuous Deployment (CI/CD) process as part of a [GitOps](https://learn.microsoft.com/en-us/devops/deliver/iac-github-actions) methodology for deploying and configuring resources. This will allow versioning of architectures and ensure consistency between environments, as well as enforcing reproducibility, security, and compliance.
 
 To assist in monitoring and diagnosing issues, ensure that diagnostics logs are enabled on your resources and are made available to [Azure Monitor](https://azure.microsoft.com/services/monitor/) to help with analysis and optimization of your resources. These logs can be used to implement alerting and notifications of critical events, and in some cases allow automated remediation or logging a ticket in your ITSM system.
 
 
 ### Performance Efficiency
 
-Performance Efficiency focuses on optimizing cloud workloads for speed, responsiveness, and scalability. For more information see [Design review checklist for Performance Efficiency](https://learn.microsoft.com/en-us/azure/well-architected/performance-efficiency/checklist)
+Performance Efficiency focuses on optimizing cloud workloads for speed, responsiveness, and scalability. For more information see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist)
 
 Some key goals include minimizing latency, ensuring scalable architectures, optimizing resource utilization, and continuously improving system performance
 
