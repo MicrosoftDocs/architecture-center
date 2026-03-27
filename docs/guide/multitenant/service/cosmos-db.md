@@ -88,7 +88,7 @@ In the database account per tenant model, each of your tenants' data is stored i
 ### Trade-offs / considerations
 
 - **More accounts to manage:** This approach can be more complex because you have multiple Azure Cosmos DB accounts, each representing a tenant or customer.  However, with Azure Cosmos DB fleets, you can simplify your management by sharing throughput (RU/s) across multiple database accounts and use fleet analytics to monitor your usage at scale.
-- **Cross-tenant query limitations:** All tenants are in different accounts, so applications that query multiple tenants require multiple calls within the application's logic. Typically, these cross tenant queries are not part of the core transactional workload that provides the service to each tenant; rather they may be part of an analytical workload to help the provider understand broader trends and usage across different tenants or customers. For these use cases, consider using [Mirroring in Microsoft Fabric](fabric/mirroring/azure-cosmos-db).
+- **Cross-tenant query limitations:** All tenants are in different accounts, so applications that query multiple tenants require multiple calls within the application's logic. Typically, these cross tenant queries are not part of the core transactional workload that provides the service to each tenant; rather they may be part of an analytical workload to help the provider understand broader trends and usage across different tenants or customers. For these use cases, consider using [Fabric mirror](/fabric/mirroring/azure-cosmos-db).
 
 ### Azure Cosmos DB features for multitenancy
 
