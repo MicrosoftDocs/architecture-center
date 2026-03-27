@@ -139,15 +139,21 @@ Partition key per tenant and database account per tenant are the two recommended
 
 ### Container-per-tenant model
 
-You can provision dedicated containers, each with their own RU/s for each tenant and place them all in an Azure Cosmos DB database account. Since each Azure Cosmos DB database account has a limit on number of containers, you may need multiple database accounts to hold data for all tenants. You may also need to keep track of which database account contains data for each customer, adding complexity to your application. 
+You can provision dedicated containers, each with their own RU/s for each tenant and place them all in an Azure Cosmos DB database account. Since each database account has a limit on number of containers, you may need multiple database accounts to hold data for all tenants. You may also need to keep track of which database account contains data for each customer, adding complexity to your application. 
 
-While this model does allow you to achieve performance isolation per tenant (you can set dedicated RU/s at the container level) and increased security with [Azure RBAC](/azure/cosmos-db/role-based-access-control), there is no support for customer managed keys. Customer managed keys are only available at the database account level.
+Azure Cosmos DB also has a limit on the [maximum throughput supported for metadata operations on an account](/azure/cosmos-db/cosmos-db/concepts-limits#resource-limits). Metadata operations include reading the list of databases or containers in an account, reading/updating container settings, and others. While most customers do not run metadata operations at high volume, and it is not recommended to do so, these operations may not scale well when you have a large number of containers in the same account.
+
+While a container per tenant model does allow you to achieve performance isolation per tenant (you can set dedicated RU/s at the container level) and increased security with [Azure RBAC](/azure/cosmos-db/role-based-access-control), there is no support for customer managed keys. Customer managed keys are only available at the database account level.
+
+If you have a high number of containers in a database account and you need to use [Azure Cosmos DB data plane RBAC](/azure/cosmos-db/how-to-connect-role-based-access-control#grant-data-plane-role-based-access) to assign a role to each container, you may run into [limits on the number of role assignments](/azure/cosmos-db/concepts-limits#role-based-access-control) per account.
 
 If performance isolation and/or CMK are required, consider using database account per tenant instead and using fleet pools to optimize cost per tenant. If they are not, consider using partition key per tenant instead.
 
 ### Database-per-tenant model
 
-You can provision databases for each tenant and place them all in the same database account. Like the container-per-tenant model, you may need multiple database accounts to hold data for all tenants and custom application logic to keep track of which database account a tenant belongs to. Similarly, while it does allow performance isolation per tenant (you can either configure shared RU/s at the database level, or dedicated RU/s per container) and [Azure RBAC](/azure/cosmos-db/role-based-access-control), there is no support for CMK. Shared RU/s at the database level is also not typically recommended for high traffic workloads, as there is no guaranteed performance per individual container in the database. 
+You can provision databases for each tenant and place them all in the same database account. Like the container-per-tenant model, you may need multiple database accounts to hold data for all tenants and custom application logic to keep track of which database account a tenant belongs to.
+
+Similarly, while database per tenant does allow performance isolation per tenant (you can either configure shared RU/s at the database level, or dedicated RU/s per container) and [Azure RBAC](/azure/cosmos-db/role-based-access-control), there is no support for CMK. Shared RU/s at the database level is also not typically recommended for high traffic workloads, as there is no guaranteed performance per individual container in the database. 
 
 If performance isolation and/or CMK are required, consider using database account per tenant instead and using fleet pools to optimize cost per tenant. If they are not, consider using partition key per tenant instead.
 
@@ -178,15 +184,15 @@ For more information, see the following resources:
 - [Azure Cosmos DB fleets](/azure/cosmos-db/fleet)
 - [Azure Cosmos DB fleet pools](/azure/cosmos-db/fleet-pools)
 
-### Fleet analytics
+### Fleet analytics (preview)
 
-Fleet analytics, a feature of Azure Cosmos DB fleets, enables you to do long-term trend analysis over the database accounts in your fleet. Performance, usage, and cost data is delivered as open-source Apache Delta Lake tables in both Azure Data Lake Storage Gen2 (ADLS Gen2) and Microsoft Fabric OneLake at an hourly grain.
+[Fleet analytics](/azure/cosmos-db/fleet-analytics), a feature of Azure Cosmos DB fleets, enables you to do long-term trend analysis over the database accounts in your fleet. Performance, usage, and cost data is delivered as open-source Apache Delta Lake tables in both Azure Data Lake Storage Gen2 (ADLS Gen2) and Microsoft Fabric OneLake at an hourly grain.
 
-You can use this data to track trends like which accounts are most active, how resources scale over time, which database accounts or tenants have the highest cost, when access keys were last rotated, and more. The data is also available to allow you to write custom queries or build PowerBI dashboards to analyze your fleet.
+You can use this data to track trends like which accounts are most active, how resources scale over time, which database accounts or tenants have the highest cost, when access keys were last rotated, and more. The data is also available to allow you to write custom queries or build Power BI dashboards to analyze your fleet.
 
 For more information, see the following resources:
 
-- [Azure Cosmos DB fleets](/azure/cosmos-db/fleet-analytics)
+- [Azure Cosmos DB fleet analytics](/azure/cosmos-db/fleet-analytics)
 
 ### Manage RUs
 
