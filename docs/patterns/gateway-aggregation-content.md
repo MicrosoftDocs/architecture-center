@@ -117,6 +117,6 @@ http {
 - [Gateway Offloading pattern](./gateway-offloading.yml)
 - [Gateway Routing pattern](./gateway-routing.yml)
 
-[bulkhead]: ./bulkhead.yml
+[bulkhead]: ./bulkhead.md
 [circuit-breaker]: ./circuit-breaker.md
 [retry]: ./retry.yml

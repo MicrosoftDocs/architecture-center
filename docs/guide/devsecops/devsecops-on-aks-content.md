@@ -99,7 +99,7 @@ Building a more secure AKS-hosted platform is an important step to help ensure s
 #### Best Practice – Enforce secure coding standards
 
 - By using established secure coding best practices and checklists, you can help protect your code from common vulnerabilities like injection and insecure design. The [OWASP](https://owasp.org/www-pdf-archive/OWASP_SCP_Quick_Reference_Guide_v2.pdf) foundation publishes industry standard secure coding recommendations that you should adopt when writing code. These guidelines are especially important when developing public-facing web applications or services.
-- In addition to general security best practices, you should also look at secure coding practices for your specific programming language runtimes, like [Java](https://www.oracle.com/java/technologies/javase/seccodeguide.html) and .NET.
+- In addition to general security best practices, you should also review secure coding practices for your specific programming language runtimes, like [Java](https://www.oracle.com/java/technologies/javase/seccodeguide.html) and .NET.
 - You can enforce logging standards to protect sensitive information from being leaked into application logs. Most popular logging frameworks, like log4j and log4net, provide filters and plugins to mask sensitive information like account numbers or personal data.
 
 #### Best practice – Use IDE tools and plugins to automate security checks

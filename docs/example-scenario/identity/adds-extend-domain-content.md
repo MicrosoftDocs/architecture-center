@@ -48,7 +48,9 @@ You can apply the following recommendations to most scenarios. Follow these reco
 
 Determine your [VM size][vm-windows-sizes] requirements based on the expected volume of authentication requests. Use the specifications of the machines that host AD DS on-premises as a starting point and match them with the Azure VM sizes. After you deploy your application, monitor usage and scale up or down based on the actual load on the VMs. For more information, see [Capacity planning for AD DS][capacity-planning-for-adds].
 
-Create a separate virtual data disk to store the database, logs, and system volume (sysvol) folder for Active Directory. Don't store these items on the same disk as the operating system. By default, data disks are attached to a VM by using write-through caching. However, this form of caching can conflict with the requirements of AD DS. For this reason, set the *Host Cache Preference* setting on the data disk to *None*.
+Create a separate persistent data disk to store the Active Directory database (`NTDS.dit`), logs, and `SYSVOL` folder. Don't store these items on the same disk as the operating system. The ESE database engine that AD DS uses manages its own write ordering, so set *Host Cache Preference* on this data disk to *None* to avoid interference with database consistency.
+
+Use persistent managed disks for the OS disk on domain controller VMs. Don't use [ephemeral OS disks](/azure/virtual-machines/ephemeral-os-disks) for domain controllers. A persistent OS disk allows the domain controller to recover automatically from host maintenance events without requiring re-promotion.
 
 Deploy at least two VMs that run AD DS as domain controllers and add them to different [availability zones](/azure/reliability/availability-zones-overview). If availability zones aren't available in the region, deploy the VMs in an [availability set][availability-set].
 
@@ -101,7 +103,7 @@ Security provides assurances against deliberate attacks and the misuse of your v
 
 AD DS servers provide authentication services and are an appealing target for attacks. To help secure them, prevent direct internet connectivity by placing the AD DS servers in a separate subnet with an NSG as a firewall. Close all ports on the AD DS servers except the ports that are necessary for authentication, authorization, and server synchronization. For more information, see [Configure a firewall for Active Directory domains and trusts][ad-ds-ports].
 
-Use either BitLocker or Azure disk encryption to encrypt the disk that hosts the AD DS database.
+Azure managed disks are encrypted at rest by default. For domain controller VMs that host the AD DS database, enable [encryption at host](/azure/virtual-machines/disk-encryption#encryption-at-host---end-to-end-encryption-for-your-vm-data) on supported VM sizes to add end-to-end encryption between the VM and the storage service, and use in-guest BitLocker encryption when your compliance requirements call for guest-OS-controlled disk encryption.
 
 [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to help defend against DDoS attacks. You should enable [DDoS Protection](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
 

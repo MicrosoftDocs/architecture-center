@@ -159,5 +159,5 @@ For more information about messaging design patterns, see the following resource
 - [Competing Consumers pattern](../../../patterns/competing-consumers.yml)
 - [Event Sourcing pattern](../../../patterns/event-sourcing.yml)
 - [Pipes and Filters pattern](../../../patterns/pipes-and-filters.yml)
-- [Publisher-Subscriber pattern](../../../patterns/publisher-subscriber.yml)
+- [Publisher-Subscriber pattern](../../../patterns/publisher-subscriber.md)
 - [Sequential Convoy pattern](../../../patterns/sequential-convoy.yml)

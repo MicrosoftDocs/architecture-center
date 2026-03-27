@@ -25,7 +25,7 @@ In this article, we review how you can configure Private Link for an Azure-hoste
 
 When you use Private Link, it's important to consider the service that you want to allow inbound connectivity to.
 
-*Azure Private Link service* is used with virtual machines behind a standard load balancer.
+*Azure Private Link service* is used with virtual machines behind an internal Azure load balancer.
 
 You can also use Private Link with other Azure services. These services include application hosting platforms like Azure App Service. They also include Azure Application Gateway or Azure API Management, which are network and API gateways.
 
@@ -55,7 +55,7 @@ If you expect large number of private endpoints or connections, consider buildin
 
 ### Limits
 
-Carefully consider the number of private endpoints that you can create, based on your solution's architecture. If you use a platform as a service (PaaS) application platform, it's important be aware of the maximum number of private endpoints that a single resource can support. If you run virtual machines, you can attach a Private Link service instance to a standard load balancer (SLB). In this configuration, you can generally connect a higher number of private endpoints, but limits still apply. These limits might determine how many tenants you can connect to your resources by using Private Link. Review [Azure subscription and service limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits) to understand the limits to the number of endpoints and connections.
+Carefully consider the number of private endpoints that you can create, based on your solution's architecture. If you use a platform as a service (PaaS) application platform, it's important to be aware of the maximum number of private endpoints that a single resource can support. If you run virtual machines, you can attach a Private Link service instance to an Azure Load Balancer. In this configuration, you can generally connect a higher number of private endpoints, but limits still apply. These limits might determine how many tenants you can connect to your resources by using Private Link. Review [Azure subscription and service limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits) to understand the limits to the number of endpoints and connections.
 
 Additionally, some services require a specialized networking configuration to use Private Link. For example, if you use Private Link with Azure Application Gateway, you must [provision a dedicated subnet](/azure/application-gateway/private-link-configure), in addition to the standard subnet for the Application Gateway resource.
 
@@ -65,7 +65,7 @@ Carefully test your solution, including your deployment and diagnostic configura
 
 You might choose to deploy your solution to be both internet-facing and also to be exposed through private endpoints. For example, some of your tenants might require private connectivity while others rely on public internet connectivity. Consider your overall network topology and the paths that each tenant's traffic follows.
 
-When your solution is based on virtual machines that are behind a standard load balancer, you can expose your endpoint via the Private Link service. In this case, a web application firewall and application routing are likely already part of your virtual machine-based workload.
+When your solution is based on virtual machines that are behind a load balancer, you can expose your endpoint via the Private Link service. In this case, a web application firewall and application routing are likely already part of your virtual machine-based workload.
 
 Many Azure PaaS services support Private Link for inbound connectivity, even across different Azure subscriptions and Microsoft Entra tenants. You can use that service's Private Link capabilities to expose your endpoint.
 
@@ -81,30 +81,30 @@ Private Link is designed to support scenarios where a single application tier ca
 
 ### Isolation models for Private Link service
 
-If you use Private Link service with virtual machines behind a standard load balancer, there are several isolation models that you can consider.
+If you use Private Link service with virtual machines behind an Azure Load Balancer, there are several isolation models that you can consider.
 
 | Consideration | Shared Private Link service and shared load balancer | Dedicated Private Link service and dedicated load balancer | Dedicated Private Link service and shared load balancer |
 |-|-|-|-|
 | **Deployment complexity** | Low | Medium-high, depending on the number of tenants | Medium-high, depending on the number of tenants |
 | **Operational complexity** | Low | Medium-high, depending on the number of resources | Medium-high, depending on the number of resources |
-| **Limits to consider** | Number of private endpoints on the same Private Link service | Number of Private Link services per subscription | Number of Private Link services per standard load balancer | 
+| **Limits to consider** | Number of private endpoints on the same Private Link service | Number of Private Link services per subscription | Number of Private Link services per load balancer |
 | **Example scenario** | Large multitenant solution with shared application tier | Separate deployment stamps for each tenant | Shared application tier in a single stamp, with large numbers of tenants |
 
 In all three models, the level of data isolation and performance depends on the other elements of your solution, and the Private Link service deployment doesn't materially affect these factors.
 
-### Shared Private Link service and shared standard load balancer
+### Shared Private Link service and shared load balancer
 
-You might consider deploying a shared Private Link service, which is connected to a standard load balancer. Each of your tenants can create a private endpoint and use it to connect to your solution.
+You might consider deploying a shared Private Link service, which is connected to a load balancer. Each of your tenants can create a private endpoint and use it to connect to your solution.
 
 A single Private Link service instance supports a large number of private endpoints. If you exhaust the limit, you can deploy more Private Link service instances, although there are also limits to the number of Private Link services you can deploy on a single load balancer. If you expect that you'll approach these limits, consider using a Deployment Stamps-based approach, and deploy shared load balancers and Private Link service instances into each stamp.
 
-### Dedicated Private Link service and dedicated standard load balancer per tenant
+### Dedicated Private Link service and dedicated load balancer per tenant
 
 You can deploy a dedicated Private Link service and dedicated load balancer for each tenant. This approach makes sense when you have a dedicated set of virtual machines for each tenant, such as when your tenants have strict compliance requirements.
 
-### Dedicated Private Link service per tenant and shared standard load balancer
+### Dedicated Private Link service per tenant and shared load balancer
 
-You can also deploy dedicated Private Link service instances for each tenant, with a shared standard load balancer. However, this model is unlikely to provide much benefit. Additionally, because there's a limit to the number of Private Link services that you can deploy on a single standard load balancer, this model isn't likely to scale beyond a small multitenant solution.
+You can also deploy dedicated Private Link service instances for each tenant, with a shared load balancer. However, this model is unlikely to provide much benefit. Additionally, because there's a limit to the number of Private Link services that you can deploy on a single load balancer, this model isn't likely to scale beyond a small multitenant solution.
 
 More commonly, you can deploy multiple shared Private Link services. This approach enables you to expand the number of private endpoints that your solution can support on one shared load balancer.
 

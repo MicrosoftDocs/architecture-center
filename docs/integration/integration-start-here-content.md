@@ -21,7 +21,7 @@ For information about more Azure integration services, see [Integration Services
 
 ## Introduction to integration on Azure
 
-If you're new to integration, the best place to start is Microsoft Learn. This free online platform offers videos, tutorials, and hands-on training for various products and services.
+If you're new to integration, the best place to start is Microsoft Learn. This free online platform offers videos, tutorials, and interactive training for various products and services.
 
 The following resources can help you learn the core concepts of integration:
 

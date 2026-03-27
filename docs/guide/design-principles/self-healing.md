@@ -36,7 +36,7 @@ A self-healing workload design is fundamental in the [Azure Well-Architected Fra
 
 **Protect failing remote services.** It's good practice to retry after a transient failure, but persistent failure can overload a failing service and cause cascading failures. Use the [Circuit Breaker pattern](../../patterns/circuit-breaker.md) to fail fast without making the remote call when an operation is likely to fail.
 
-**Isolate critical resources.** Failures in one subsystem can cascade if resources, such as threads or sockets, aren't released promptly, which can lead to resource exhaustion. Use the [Bulkhead pattern](../../patterns/bulkhead.yml) to partition a system into isolated groups so that a failure in one partition doesn't affect the entire system.
+**Isolate critical resources.** Failures in one subsystem can cascade if resources, such as threads or sockets, aren't released promptly, which can lead to resource exhaustion. Use the [Bulkhead pattern](../../patterns/bulkhead.md) to partition a system into isolated groups so that a failure in one partition doesn't affect the entire system.
 
 **Perform load leveling.** Applications can experience sudden spikes in traffic that overwhelm services on the back end. Use the [Queue-Based Load Leveling pattern](../../patterns/queue-based-load-leveling.yml) to queue work items to run asynchronously. The queue acts as a buffer that smooths out load peaks.
 

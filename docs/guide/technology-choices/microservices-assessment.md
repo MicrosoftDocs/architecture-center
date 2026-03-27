@@ -205,7 +205,7 @@ Consider the following factors:
 
 - Whether you use the [Materialized View pattern](/azure/architecture/patterns/materialized-view) to address the chatty behavior of microservices.
 
-- Whether you plan to implement Retry, Circuit Breaker, Exponential Backoff, or Jitter patterns for reliable communication. A common way to handle these features is to use the [Ambassador pattern](../../patterns/ambassador.yml).
+- Whether you plan to implement Retry, Circuit Breaker, Exponential Backoff, or Jitter patterns for reliable communication. A common way to handle these features is to use the [Ambassador pattern](../../patterns/ambassador.md).
 
 - Whether you have defined domain events to facilitate communication between microservices.
 

@@ -73,4 +73,4 @@ Guides and fully deployable architectures:
 
 - [Choose an analytical data store in Azure](../../data-guide/technology-choices/analytical-data-stores.md)
 - [Stream processing with Azure Databricks](../../reference-architectures/data/stream-processing-databricks.yml)
-- [Databases architecture design](../../databases/index.yml)
+- [Get started with database architecture design](../../databases/database-get-started.md)

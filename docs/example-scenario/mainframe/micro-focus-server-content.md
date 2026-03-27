@@ -66,8 +66,6 @@ Micro Focus Enterprise Server 6.0 is an application deployment environment for I
 
 This sample solution is a prescriptive, well-architected example of a Micro Focus Enterprise Server 6.0 VM-based deployment in Azure. The solution implements high availability (HA) and disaster recovery (DR) by using a secondary Azure failover region. The failover region uses Azure Site Recovery for the VMs in the application tier, and a SQL Server Always On configuration for the data tier. A Micro Focus Performance Availability Cluster (PAC) boosts VM performance, availability, and scalability.
 
-<!--For a similar scenario that uses Azure Kubernetes Service (AKS) for containerized applications, see []().-->
-
 ### Potential use cases
 
 Deploying Enterprise Server on Azure VMs can help businesses:

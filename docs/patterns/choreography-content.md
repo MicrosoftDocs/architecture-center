@@ -19,7 +19,7 @@ Delegate the transaction handling logic among the services. Let each service dec
 
 > The pattern is a way to minimize dependency on custom software that centralizes the communication workflow. The components implement common logic as they choreograph the workflow among themselves without having direct communication with each other.
 
-A common way to implement choreography is to use a message broker that buffers requests until downstream components claim and process them. The image shows request handling through a [publisher-subscriber model](./publisher-subscriber.yml).
+A common way to implement choreography is to use a message broker that buffers requests until downstream components claim and process them. The image shows request handling through a [publisher-subscriber model](./publisher-subscriber.md).
 
 ![A diagram showing processing of a request using a message broker.](./_images/choreography-pattern.png)
 
@@ -113,7 +113,7 @@ The design ensures the choreography to occur in a sequence. A single Azure Servi
 
 This design uses Azure Service Bus to handle high-value messages that can't be lost or duplicated during the entire delivery process. When the package is shipped, it's also published a change of state to Azure Event Grid. In this design, the event sender has no expectation about how the change of state is handled. Downstream organization services that aren't included as part of this design could be listening to this event type, and react executing specific business purpose logic (that is, email the shipped order status to the user).
 
-> If you are planning to deploy this into another compute service such as [AKS](/azure/aks/) pub-sub pattern application boilerplate could be implemented with [two containers in the same pod](https://kubernetes.io/docs/tasks/access-application-cluster/communicate-containers-same-pod-shared-volume/#creating-a-pod-that-runs-two-containers). One container runs the [ambassador](./ambassador.yml) that interacts with your message bus of preference while the another executes the business logic. The approach with two containers in the same pod improves performance and scalability. The ambassador and the business service share the same network allowing for low latency and high throughput.
+> If you are planning to deploy this into another compute service such as [AKS](/azure/aks/) pub-sub pattern application boilerplate could be implemented with [two containers in the same pod](https://kubernetes.io/docs/tasks/access-application-cluster/communicate-containers-same-pod-shared-volume/#creating-a-pod-that-runs-two-containers). One container runs the [ambassador](./ambassador.md) that interacts with your message bus of preference while the another executes the business logic. The approach with two containers in the same pod improves performance and scalability. The ambassador and the business service share the same network allowing for low latency and high throughput.
 
 To avoid cascading retry operations that might lead to multiple efforts, business services should immediately flag unacceptable messages. It's possible to enrich such messages using well-known reason codes or a defined application code, so it can be moved to a [dead letter queue (DLQ)](/azure/service-bus-messaging/service-bus-dead-letter-queues). Consider managing consistency issues implementing [Saga](/azure/architecture/reference-architectures/saga/saga) from downstream services. For example, another service could handle dead lettered messages for remediation purposes only by executing a compensation, retry, or pivot transaction.
 
@@ -123,11 +123,11 @@ The business services are idempotent to make sure retry operations don't result 
 
 Consider these patterns in your design for choreography.
 
-- Modularize the business service by using the [ambassador design pattern](./ambassador.yml).
+- Modularize the business service by using the [ambassador design pattern](./ambassador.md).
 
 - Implement [queue-based load leveling pattern](./queue-based-load-leveling.yml) to handle spikes of the workload.
 
-- Use asynchronous distributed messaging through the [publisher-subscriber pattern](./publisher-subscriber.yml).
+- Use asynchronous distributed messaging through the [publisher-subscriber pattern](./publisher-subscriber.md).
 
 - Use [compensating transactions](./compensating-transaction.yml) to undo a series of successful operations in case one or more related operations fail.
 
