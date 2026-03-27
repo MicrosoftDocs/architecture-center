@@ -48,7 +48,7 @@ The articles in this section include fully developed architectures that you can 
 
 ### Storage guides
 
-**Technology choices:** The following articles help you evaluate and select the best storage technologies for your workload requirements:
+**Technology choices:** The following article helps you evaluate and select the best storage technologies for your workload requirements:
 
 - [Storage options](../guide/technology-choices/storage-options.md). Compare Azure storage services and select the right option for your workload data requirements.
 
@@ -203,7 +203,7 @@ To stay current with key storage services, see the following articles:
 
 ## Other resources
 
-Storage is a broad category and covers a range of solutions. The following resources can help you discover more about Azure.
+The Storage category covers a range of solutions. The following resources can help you discover more about Azure.
 
 To plan for your storage needs, see [Review your storage options](/azure/architecture/guide/technology-choices/storage-options).
 
@@ -239,7 +239,6 @@ Data migration planning helps you choose the right strategy and tools for moving
 
 To help you ramp up quickly, the following articles compare Azure storage options to other cloud services.
 
-### Service comparison
 
 - [Compare storage on Azure and AWS](/azure/architecture/aws-professional/storage): Service mapping and comparison between AWS and Azure storage offerings.
 
