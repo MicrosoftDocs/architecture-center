@@ -3,7 +3,7 @@ title: Event Sourcing Pattern
 description: Learn how to use an append-only store to record the full series of events that describe actions taken on data in a domain.
 ms.author: pnp
 author: claytonsiemens77
-ms.date: 03/24/2026
+ms.date: 03/27/2026
 ms.topic: design-pattern
 ms.subservice: cloud-fundamentals
 ---
@@ -227,30 +227,22 @@ The system can provide a complete history, or audit trail, of the bookings and c
 
 ## Next step
 
-- [CQRS pattern](./cqrs.md)
-
-   The write store that provides the permanent source of information for a CQRS implementation is typically based on an implementation of the Event Sourcing pattern. The pattern segregates the operations that read data in an application from the operations that update data by using separate interfaces.
+- [CQRS pattern](./cqrs.md): The write store that provides the permanent source of information for a CQRS implementation is typically based on an implementation of the Event Sourcing pattern. The pattern segregates the operations that read data in an application from the operations that update data by using separate interfaces.
 
 ## Community resources
 
 - [Object-relational impedance mismatch](https://wikipedia.org/wiki/Object%E2%80%93relational_impedance_mismatch).
 
-- [Event Sourcing](https://martinfowler.com/eaaDev/EventSourcing.html), by Martin Fowler, is the original 2005 description of the pattern that established the foundational vocabulary.
+- [Event Sourcing](https://martinfowler.com/eaaDev/EventSourcing.html), by Martin Fowler: The original 2005 description of the pattern that established the foundational vocabulary.
 
-- [CQRS Documents (PDF)](https://cqrs.files.wordpress.com/2010/11/cqrs_documents.pdf), by Greg Young, is the definitive resource about event sourcing and CQRS from the practitioner who formalized both patterns.
+- [CQRS Documents (PDF)](https://cqrs.files.wordpress.com/2010/11/cqrs_documents.pdf), by Greg Young: The definitive resource about event sourcing and CQRS from the practitioner who formalized both patterns.
 
 ## Related resources
 
 The following patterns and guidance might also be relevant when you implement this pattern:
 
-- [Materialized View pattern](./materialized-view.yml)
+- [Materialized View pattern](./materialized-view.yml): The data store that you use in an event sourcing system typically isn't suited for efficient querying. Instead, a common approach is to generate prepopulated views of the data at regular intervals or when the data changes.
 
-   The data store that you use in an event sourcing system typically isn't suited for efficient querying. Instead, a common approach is to generate prepopulated views of the data at regular intervals or when the data changes.
+- [Compensating Transaction pattern](./compensating-transaction.yml): The system doesn't update existing data in an event sourcing store. Instead, it adds new entries that transition the state of entities to the new values. To reverse a change, it uses compensating entries because it can't reverse the previous change. The Compensating Transaction pattern article describes how to undo the work that a previous operation performed.
 
-- [Compensating Transaction pattern](./compensating-transaction.yml)
-
-   The system doesn't update existing data in an event sourcing store. Instead, it adds new entries that transition the state of entities to the new values. To reverse a change, it uses compensating entries because it can't reverse the previous change. The Compensating Transaction pattern article describes how to undo the work that a previous operation performed.
-
-- [Domain analysis for microservices](../microservices/model/tactical-domain-driven-design.md)
-
-   In systems that use domain-driven design (DDD), the entity that owns an event stream is typically an [aggregate](../microservices/model/tactical-domain-driven-design.md#aggregates), a consistency boundary that receives commands, enforces business rules, and emits events.
+- [Domain analysis for microservices](../microservices/model/tactical-domain-driven-design.md): In systems that use domain-driven design (DDD), the entity that owns an event stream is typically an [aggregate](../microservices/model/tactical-domain-driven-design.md#aggregates), a consistency boundary that receives commands, enforces business rules, and emits events.
