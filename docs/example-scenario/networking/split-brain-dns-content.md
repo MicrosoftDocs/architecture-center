@@ -19,7 +19,7 @@ The following workflow sections describe two configurations: a public internet w
 1. Customers send a request for the `app.contoso.com` application via the public internet.
 
 1. An [Azure DNS zone](/azure/dns/dns-zones-records) is configured for the *contoso.com* domain. The appropriate [canonical name (CNAME) entries](/azure/frontdoor/front-door-custom-domain#create-a-cname-dns-record) are configured for the Azure Front Door endpoints.
-1. External customers access the web application via Azure Front Door, which functions as a global load balancer and a web application firewall (WAF).
+1. External customers access the web application via Azure Front Door Standard or Premium, which functions as a global load balancer and a web application firewall (WAF).
 
    - Within Azure Front Door, `app.contoso.com` is assigned as the FQDN via routes on a configured endpoint. Azure Front Door also hosts the TLS SNI certificates for the applications.
 
@@ -58,7 +58,10 @@ The following workflow sections describe two configurations: a public internet w
 - DNS: For a public internet workflow, you must configure a [public Azure DNS zone](/azure/dns/dns-overview) with the proper CNAME of the Azure Front Door endpoint FQDN. On the private (enterprise) side, configure the local DNS provider (Windows Server Active Directory DNS or a partner solution) to point each application FQDN to the private IP address of Application Gateway.
 
 - [Azure DNS Private Resolver](/azure/architecture/networking/architecture/azure-dns-private-resolver): You can use DNS Private Resolver for the resolution of on-premises customers. Enterprise customers can use this split-brain DNS solution to gain access to applications without traversing the public internet.
-- [Azure Front Door](/azure/well-architected/service-guides/azure-front-door): Azure Front Door is a global load balancer and WAF that provides fast and secure web application delivery to customers around the world. In this architecture, Azure Front Door routes external customers to the Application Gateway instance and provides caching and optimization options to enhance customer experience.
+- [Azure Front Door](/azure/well-architected/service-guides/azure-front-door): Azure Front Door is a global load balancer and WAF that provides fast and secure web application delivery to customers around the world. This architecture uses Azure Front Door Standard or Premium tier. In this architecture, Azure Front Door routes external customers to the Application Gateway instance and provides caching and optimization options to enhance customer experience.
+
+  > [!NOTE]
+  > Azure Front Door (classic) is being retired on March 31, 2027. If you currently use Azure Front Door (classic), [migrate to Azure Front Door Standard or Premium](/azure/frontdoor/tier-migration) before the retirement date. For new deployments, use Azure Front Door Standard or Premium.
 - [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway): Application Gateway is a regional load balancer and WAF that provides high availability, scalability, and security for web applications. In this architecture, Application Gateway routes external and internal customer requests to the back-end compute and protects the web application from common web attacks.
 
   Both Azure Front Door and Application Gateway provide WAF capabilities, but the private workflow in this solution doesn't use Azure Front Door. Therefore, both architectures use the WAF functionality of Application Gateway.
@@ -66,7 +69,7 @@ The following workflow sections describe two configurations: a public internet w
   
 ### Alternatives
 
-As an alternative solution, you can remove Azure Front Door and instead point the public Azure DNS record to the public IP address of Application Gateway. Based on this architecture's requirements, you must do [caching and optimization](/azure/frontdoor/front-door-caching) at the entry point into Azure. Therefore, the alternative solution isn't an option for this scenario. For more information, see [Cost optimization](#cost-optimization).
+As an alternative solution, you can remove Azure Front Door Standard or Premium and instead point the public Azure DNS record to the public IP address of Application Gateway. Based on this architecture's requirements, you must do [caching and optimization](/azure/frontdoor/front-door-caching) at the entry point into Azure. Therefore, the alternative solution isn't an option for this scenario. For more information, see [Cost optimization](#cost-optimization).
 
 :::image type="content" source="./media/split-brain-dns-host-public-alt.svg" alt-text="Diagram of the alternate split-brain DNS hosting architecture." border="false" lightbox="./media/split-brain-dns-host-public-alt.svg":::
 
@@ -74,7 +77,7 @@ As an alternative solution, you can remove Azure Front Door and instead point th
 
 Other possible alternatives for the public ingress traffic in this architecture include:
 
-- [Azure Traffic Manager](/azure/well-architected/service-guides/traffic-manager/reliability): Traffic Manager is a DNS-based traffic routing service that distributes traffic across various regions and endpoints. You can use Traffic Manager instead of Azure Front Door to route external customers to the closest Application Gateway instance. However, Azure Front Door provides features, such as WAF capabilities, caching, and session affinity. Traffic Manager doesn't provide these features.
+- [Azure Traffic Manager](/azure/well-architected/service-guides/traffic-manager/reliability): Traffic Manager is a DNS-based traffic routing service that distributes traffic across various regions and endpoints. You can use Traffic Manager instead of Azure Front Door Standard or Premium to route external customers to the closest Application Gateway instance. However, Azure Front Door provides features, such as WAF capabilities, caching, and session affinity. Traffic Manager doesn't provide these features.
 
 - [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer/reliability): Azure Load Balancer is a network load balancer that provides high availability and scalability for Transmission Control Protocol (TCP) and User Datagram Protocol (UDP) traffic. You can use Load Balancer instead of Application Gateway to route external and internal customer requests to back-end web servers. However, Application Gateway provides features, such as WAF capabilities, Secure Sockets Layer (SSL) termination, and cookie-based session affinity. Load Balancer doesn't provide these features.
 
