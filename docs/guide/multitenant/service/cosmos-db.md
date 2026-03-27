@@ -68,11 +68,11 @@ In a partition key per tenant model, all the data for your tenants is stored in 
       - Hierarchical partition keys work best when you have high cardinality of values and uniform distribution of request volumes for your first level keys. 
       - In a multitenant setting, this means that you should have a high number of tenants (ideally in the order of hundreds to thousands of tenants or higher) and your tenants should roughly have a similar usage pattern. 
       - If you have a small number of tenants, for example, 10 tenants, or a skewed workload where a single tenant consistently consumes 10x the RU/s as your other tenants, even with hierarchical partition keys, you may have a hot partition and possible degraded performance.
-  - **When not to use hierarchical partition keys**
-    - For these workloads where you do not have high cardinality per tenant or need to optimize for write performance, it is recommended to use synthetic partition keys or partition just by /id. Both these approaches will allow you to spread writes evenly across all physical partitions. 
-    - The main advantage of a synthetic key over id is if you're able to construct the key in a way that still allows you to optimize for some queries - for example, a synthetic key of TenantId_UserId will have a slight trade-off in perfectly even distribution of data across all partitions, but will allow you to do efficient queries if you specify both the TenantId_UserId. 
-    - However, if your workload needs to optimize for write throughput, running queries may not be relevant, and you can partition by just /id to simplify your workload.
-    - Finally, if you find you have a small number of tenants that are much larger and have consistently higher request volumes than others, you may consider isolating that tenant into its own database account, while keeping the remaining tenants in a shared container. 
+    - **When not to use hierarchical partition keys**
+      - For these workloads where you do not have high cardinality per tenant or need to optimize for write performance, it is recommended to use synthetic partition keys or partition just by /id. Both these approaches will allow you to spread writes evenly across all physical partitions. 
+      - The main advantage of a synthetic key over id is if you're able to construct the key in a way that still allows you to optimize for some queries - for example, a synthetic key of TenantId_UserId will have a slight trade-off in perfectly even distribution of data across all partitions, but will allow you to do efficient queries if you specify both the TenantId_UserId. 
+      - However, if your workload needs to optimize for write throughput, running queries may not be relevant, and you can partition by just /id to simplify your workload.
+      - Finally, if you find you have a small number of tenants that are much larger and have consistently higher request volumes than others, you may consider isolating that tenant into its own database account, while keeping the remaining tenants in a shared container. 
 
 ## Database account per tenant model (recommended)
 
