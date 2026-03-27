@@ -236,4 +236,4 @@ Other contributor:
 [Choose a data analytics and reporting technology in Azure]: ../../data-guide/technology-choices/analysis-visualizations-reporting.md
 [Choose a data pipeline orchestration technology in Azure]: ../../data-guide/technology-choices/pipeline-orchestration-data-movement.md
 [What is Power BI?]: /power-bi/fundamentals/power-bi-overview
-[Data governance with Microsoft Purview]: /azure/purview/data-governance-overview
+[Data governance with Microsoft Purview]: /purview/data-governance-overview
