@@ -7794,6 +7794,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/example-scenario/web/design-api-developer-experiences-management-github.yml",
+      "redirect_url": "/azure/architecture/web-apps/api-management/architectures/protect-apis",
+      "redirect_document_id": false      
+    },
+    {
       "source_path": "docs/solution-ideas/articles/container-get-started.md",
       "redirect_url": "/azure/architecture/containers/container-get-started",
       "redirect_document_id": false
