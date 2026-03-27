@@ -106,7 +106,11 @@ The networking components include the following resources:
 
 ## Scenario Details
 
+In the diagam above,  this scenario would be useful for providing a non-critical workload that is useful for internal-only users.
+
 ### Potential Use Cases
+
+A single VM deployment could be used to host a simple application that does not need to be exposed to the internet and can withstand some downtime. This may be a basic reporting application or one that is not capable of running in a load balanced scenario due to a monolithic architecture.
 
 ## Considerations
 
