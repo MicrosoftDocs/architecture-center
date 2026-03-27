@@ -644,8 +644,6 @@ items:
           href: example-scenario/mainframe/ibm-zos-online-transaction-processing-azure.yml
         - name: Integrate IBM MQs with Azure
           href: example-scenario/mainframe/integrate-ibm-message-queues-azure.yml
-        - name: Micro Focus Enterprise Server on Azure
-          href: example-scenario/mainframe/micro-focus-server.yml
         - name: Migrate AIX workloads with Skytap
           href: example-scenario/mainframe/migrate-aix-workloads-to-azure-with-skytap.yml
         - name: Migrate HP-UX workloads
@@ -658,8 +656,6 @@ items:
           href: example-scenario/mainframe/refactor-adabas-aks.yml
         - name: Refactor mainframe with Raincode
           href: reference-architectures/app-modernization/raincode-reference-architecture.yml
-        - name: Rehost a general mainframe on Azure
-          href: example-scenario/mainframe/mainframe-rehost-architecture-azure.yml
         - name: Rehost Adabas & Natural applications
           href: example-scenario/mainframe/rehost-adabas-software-ag.yml
         - name: Rehost IMS workloads by using IMSql
@@ -1282,12 +1278,8 @@ items:
         href: hybrid/hybrid-file-services.yml
       - name: Mainframe
         items:
-        - name: Back up mainframe file and tape to Azure by using Luminex
-          href: example-scenario/mainframe/luminex-mainframe-file-tape-transfer.yml
         - name: Mainframe file replication on Azure
           href: solution-ideas/articles/mainframe-azure-file-replication.yml
-        - name: BMC AMI Cloud mainframe modernization
-          href: example-scenario/mainframe/mainframe-modernization-bmc-ami-cloud.yml
         - name: Move mainframe archive data to Azure
           href: example-scenario/mainframe/move-archive-data-mainframes.yml
   - name: Virtual Desktop
