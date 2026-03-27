@@ -94,6 +94,8 @@ In the database account per tenant model, each of your tenants' data is stored i
 
 - **Azure Cosmos DB fleet pools:** Azure Cosmos DB fleets are designed to help customers building multitenant applications manage, monitor, and optimize their fleet of database accounts. Within a fleet, you can organize your tenants (database accounts) into logical groupings called a fleetspace and configure an optional [pool of throughput (RU/s)](/azure/cosmos-db/fleet-pools) that can be shared across all database accounts in the fleetspace, which helps optimize your cost.
 
+:::image type="content" source="media/cosmosdb/fleet-overview.png" alt-text="Image of Azure Cosmos DB fleet, with 3 different fleetspaces used to group free tier, mid-size, and enterprise customers, with optional pool configuration.":::
+
   - **How to organize your fleet**: Many providers create a fleet for each region they operate in and further separate the tenants into fleetspaces based on tenant performance requirements, or "class of tenant." 
     - For example, for their East US 2 fleet, a provider might create one fleetspace for accounts belonging to tenants using a free trial (less pool RU/s required) and another fleetspace for accounts belonging to tenants who have signed an enterprise agreement (more RU/s required). 
   - **Lower cost per tenant**: 
@@ -175,8 +177,6 @@ For more information, see the following resources:
 Fleet pools, a feature of Azure Cosmos DB fleets, enables you to get the benefits of performance and security isolation that come with database account per tenant model, while allowing you to optimize your cost by sharing RU/s across multiple accounts in the same pool. You can group similar types of tenants into the same fleet pool and configure the pool to autoscale between a minimum and maximum RU/s.
 
 While the containers in each account retain its own dedicated RU/s, when in a pool, they automatically use extra RU/s when needed from the shared pool. This helps avoid overprovisioning. Rather than provisioning every tenant's containers for peak RU/s, which can be expensive, you can set a typical RU/s per container and use the pool's shared capacity to handle any spikes. To protect against noisy neighbor, by design, any throughput provisioned on a container is dedicated and guaranteed to always be available to that container, while the shared pool RU/s can be used by any container that needs more throughput. 
-
-:::image type="content" source="media/cosmosdb/fleet-overview.png" alt-text="Image of Azure Cosmos DB fleet, with 3 different fleetspaces used to group free tier, mid-size, and enterprise customers, with optional pool configuration.":::
 
 For more information, see the following resources:
 
