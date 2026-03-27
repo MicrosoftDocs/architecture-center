@@ -1,4 +1,7 @@
-For decades, Software AG Adabas has been the adaptable database system behind many large mission-critical business applications. Now you can bring the convenience of cloud computing to these applications without giving up your Adabas database or the Natural programming language. This architecture presents the option to rehost your system on Azure. It provides a high-level overview of what's possible, whether you keep the green screen or go modern. 
+For decades, Adabas and Natural from Software AG have powered some of the world’s most demanding, mission-critical business systems. From core banking and insurance platforms to government and retail workloads, these technologies have proven their stability, performance, and longevity in environments where reliability is non-negotiable.
+Today, organizations can extend that proven foundation into the cloud—without abandoning the Adabas database or the Natural programming language. By rehosting on Microsoft Azure, you can retain your existing application logic and data structures while gaining the flexibility, scalability, and operational benefits of a modern cloud platform.
+This architecture outlines how Adabas and Natural workloads can run in Azure, providing a high-level view of the available options. Whether you choose to preserve the familiar green-screen experience or modernize the user interface with web technologies and APIs, the cloud enables you to evolve at your own pace. The result is a practical path forward: protect your core systems of record, reduce infrastructure constraints, and unlock innovation opportunities—without rewriting what already works.
+ 
 
 ## Mainframe architecture 
 
@@ -36,15 +39,29 @@ This diagram shows the legacy architecture migrated to Azure. A rehost approach 
 
 ### Workflow
 
-1. Data is input, typically via either Azure ExpressRoute from remote clients or via other applications currently running in Azure. In either case, TCP/IP connections provide the primary means of connection to the system. User access for web-based applications is provided over TLS port 443. You can use the legacy web-application presentation layer with minimal changes to reduce user retraining. Alternatively, you can update the web-application presentation layer with modern UX frameworks. To improve security by minimizing open ports, you can use Azure Bastion hosts for admin access to the VMs.
-1. Azure Application Gateway is used to access the application compute clusters. It provides Layer 7 load balancing services. It can also make routing decisions based on additional attributes in an HTTP request, like a URI path or host headers. For example, you can route traffic based on the incoming URL. In this case, you route traffic to the correct Software AG component (ApplinX or EntireX). 
-1. For application compute clusters, you can use one VM for the Adabas & Natural software. We recommend that you use separate VMs for the application and database for more than 200 MIPS. This example uses two VMs. You can deploy a distributed architecture (Adabas & Natural running on multiple VMs) to provide scalable Natural applications with higher availability and higher consistency for Adabas storage. 
-1. ApplinX provides web connectivity and integration into system applications. No changes to the applications are required. 
-1. EntireX connects services that run on Integration Server to mission-critical programs that are written in languages like COBOL or Natural. 
-1. Online users connect to the Natural application by using Natural Online. Natural Online enables connection via SSH or a web browser.  
-1. Natural Services provides API access to business functions that are programmed in Natural. 
-1. An Adabas NoSQL database stores data. 
-1. Software AG Natural Batch runs batch jobs. 
+Distributed and Resilient Adabas & Natural Architecture on Azure
+1. Data Ingress and Client Connectivity
+Data is input either through Azure ExpressRoute from remote clients or from other applications running within Azure. TCP/IP provides the primary communication protocol for all system connectivity, and web-based user access is secured over TLS port 443. Existing web application presentation layers can be retained to minimize user retraining or modernized using contemporary UX frameworks. Administrative access to virtual machines is secured through Azure Bastion, eliminating the need to expose RDP or SSH endpoints publicly and reducing the overall attack surface.
+2. Application Traffic Routing and Load Balancing
+Azure Application Gateway provides Layer 7 load balancing for inbound application traffic. Routing decisions can be made based on HTTP attributes such as URI paths or host headers. Traffic is distributed across multiple Natural availability server instances deployed in the compute tier, ensuring balanced workload distribution and automatic redirection to healthy nodes in the event of instance-level failures.
+3. Application and Database Compute Architecture
+For smaller dev/test workloads, a single virtual machine can host both Adabas and Natural components, however the recommendation is to keep the application and data tier separate and use at least two separate machines for Natural and Adabas components. Both the components communicate over TCP/IP protocol.
+For production environments, it is recommended to separate the application and database tiers onto dedicated virtual machines. SoftwareAG high availability products like Natural Availability Server (HA mode) and Adabas Cluster should be used. A distributed architecture using multiple VMs improves scalability, resilience, and operational flexibility. Virtual machines should be deployed across multiple Azure Availability Zones to eliminate single points of failure at the infrastructure level.
+4. Natural Availability Server 
+Natural Availability Server is a front-end component that provides a Natural emulator in a modernized Angular-based and REST-enabled web application environment. Natural Availability Server supports Natural sessions on Linux. High Availability functionality is provided at the session level for Linux deployments, enabling scalable and resilient Natural online processing in distributed environments. The Availability Server enables scalable, high-availability Natural applications by externalizing session state to a centralized store such as Redis. This allows multiple server instances or containers to run behind a load balancer, ensuring seamless failover and uninterrupted user sessions.
+5. Natural API Server 
+The Natural OpenAPI Server enables the exposure of Natural Subprograms as OpenAPI services. The calls being received in REST protocol are being translated to Natural calls via the Subprogram Server. The REST API definition is exposed as an OpenAPI document, that can be used by automatic tools to generate REST calls. 
+The calls to REST API can be done by any program written in most of the commonly used Programming language like (Java, C# etc ...)
+Deployed across virtual machines and Availability Zones on Microsoft Azure, and managed through Azure Application Gateway, the architecture provides horizontal scaling, fault tolerance, and automatic traffic redirection. It supports Natural Online users, API access via Natural Services, and resilient batch processing within the same highly available environment.
+6. Failure Handling and Resilience
+In the event of a virtual machine failure, Azure infrastructure services initiate automated recovery processes. If an Availability Zone experiences an outage, Natural application processing continues in the remaining zones and Adabas cluster operations continue using surviving secondary replicas which becomes primary. This distributed architecture minimizes downtime during both planned maintenance and unexpected failures.
+7. Adabas 
+Adabas is a high-performance database management system developed by Software AG. It was originally built in the 1970s and has been widely used in large-scale enterprise and mainframe environments ever since. Unlike traditional relational databases (like Oracle or PostgreSQL), Adabas uses an inverted list data model, which makes it exceptionally fast at handling large volumes of transactional data — particularly in industries where performance and reliability are non-negotiable.
+Adabas serves as the core transactional database platform for both online and batch workloads. When combined with clustering and distributed deployment, the database layer delivers enhanced scalability, consistency, and fault tolerance. Storage configurations should support high durability and zone redundancy to align with the overall high-availability architecture.
+
+
+8. Monitoring and Observability
+Adabas Manager provides browser-based administration and monitoring of Adabas databases on Linux and Windows platforms. It can be used to administer Adabas databases on remote host machines, in addition to Adabas databases on the local machine. Common administration tasks include listing databases and files, starting/stopping and creating databases, viewing and modifying database parameters, managing database containers, and viewing information about high water marks and buffer pools. Adabas Manager can also be used to monitor database health. Database health is based on the twin concepts of pre-defined monitor criteria (e.g. database uptime, space usage, buffer pool hit rate) and so-called monitoring groups
 
 ### Components  
 
@@ -109,11 +126,9 @@ Load balancers and redundant VMs in a distributed environment provide performanc
 
 Principal author:
 
-- Marlon Johnson | Senior Program Manager
+- [Bhaskar Bandam](https://www.linkedin.com/in/bhaskar-bandam-75202a9) | Principal Program Manager
 
-Other contributors:
 
-- [Bhaskar Bandam](https://www.linkedin.com/in/bhaskar-bandam-75202a9) | Senior Program Manager
 
 ## Next steps  
 
