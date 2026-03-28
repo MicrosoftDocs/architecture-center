@@ -16,7 +16,7 @@ The Azure environment comprises the following platform as a service (PaaS) resou
 
 To monitor the process and status of expired and expiring certificates, Log Analytics stores the data, and the workspace presents it in the form of tabular and graphical dashboards.
 
-This scenario assumes that an existing public key infrastructure (PKI) is already in place and consists of a Microsoft Enterprise CA joined to an Active Directory domain. Both the PKI and the Active Directory domain can reside on Azure or on-premises, and the servers that must be configured for certificate renewal.
+This scenario assumes that an existing public key infrastructure (PKI) is already in place and consists of a Microsoft Enterprise CA joined to an Active Directory domain. The PKI, the Active Directory domain, and the servers requiring certificate renewal can all reside either on Azure or on‑premises environments.
 
 The virtual machines (VMs) with certificates to monitor renewal don't need to be joined to Active Directory or Microsoft Entra ID. The sole requirement is for the CA and the hybrid worker, if located on a different VM from the CA, to be joined to Active Directory.
 
@@ -32,11 +32,10 @@ This image shows the automatic workflow for certificate renewal within the Azure
 
 1. **Key Vault configuration:** The initial phase of the renewal process entails storing the certificate object in the designated Certificates section of the key vault.
 
-    While not mandatory, you can set up custom email notifications by tagging the certificate with the recipient's email address. Tagging the certificate ensures timely notifications when the renewal process completes. If multiple recipients are necessary, separate their email addresses by a comma or a semicolon. The tag name for this purpose is *Recipient*, and its value is one or more email addresses of the designated administrators.
+   While not mandatory, we recommend using certificate tags to configure custom email notifications by tagging each certificate with the recipient’s email address. This approach allows you to notify specific administrators per certificate, rather than applying the same recipient to all certificates.
+   Use the *Recipient* tag and set its value to one or more email addresses (separated by a comma or semicolon). Tag-based notifications ensure timely alerts when the certificate renewal completes on the internal CA and when the renewed certificate becomes available in Key Vault.
 
-    When you use tags instead of [built-in certificate notifications](/azure/key-vault/certificates/overview-renew-certificate?tabs=azure-portal#get-notified-about-certificate-expiration), you can apply notifications to a specific certificate with a designated recipient. Built-in certificate notifications apply indiscriminately to all certificates within the key vault and use the same recipient for all.
-
-    You can integrate built-in notifications with the solution but use a different approach. While built-in notifications can only notify about an upcoming certificate expiration, the tags can send notifications when the certificate renews on the internal CA and when it's available in Key Vault.
+    [Built-in Key Vault certificate notifications](/azure/key-vault/certificates/overview-renew-certificate?tabs=azure-portal#get-notified-about-certificate-expiration) can still be used in combination with this approach, but they serve a different purpose: built-in notifications apply globally to all certificates in the key vault and are limited to upcoming certificate expiration alerts, using the same recipient for all certificates.
 
 1. **Key Vault extension configuration:** You must equip the servers that need to use the certificates with the Key Vault extension, a versatile tool compatible with [Windows](/azure/virtual-machines/extensions/key-vault-windows) and [Linux](/azure/virtual-machines/extensions/key-vault-linux) systems. Azure infrastructure as a service (IaaS) servers and on-premises or other cloud servers that integrate through [Azure Arc](/azure/azure-arc/overview) are supported. Configure the Key Vault extension to periodically poll Key Vault for any updated certificates. The polling interval is customizable and flexible so it can align with specific operational requirements.
 
