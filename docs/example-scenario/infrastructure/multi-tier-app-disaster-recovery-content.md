@@ -81,7 +81,7 @@ This architecture uses Traffic Manager for its simplicity and lower cost. The fa
 
 You can use this architecture to:
 
-- Deploy highly resilient applications such as SAP and SharePoint.
+- Deploy highly resilient applications such as SAP and other mission-critical LOB applications.
 - Design a business continuity and disaster recovery plan for LOB applications.
 - Set up disaster recovery and perform related drills for compliance purposes.
 
@@ -138,7 +138,6 @@ Principal author:
 
 <!-- links -->
 
-[architecture]: ./media/architecture-disaster-recovery-multi-tier-app.png
 [security]: /azure/security
 [docs-availability-zones]: /azure/well-architected/service-guides/azure-load-balancer/reliability
 [docs-load-balancer]: /azure/well-architected/service-guides/azure-load-balancer
