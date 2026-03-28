@@ -276,7 +276,7 @@ Coordinating multiple tasks and steps can be challenging, but there are three co
 
 - **Managing execution of the steps for a task**. An application might do tasks composed of several steps, and some of these steps might call remote services or access remote resources. The individual steps might be independent of each other, but they are orchestrated by the application logic that implements the task. For more information, see [Scheduler Agent Supervisor pattern](../patterns/scheduler-agent-supervisor.yml).
 
-- **Managing recovery for task steps that fail**. An application might need to undo the work that is performed by a series of steps (which together define an eventually consistent operation) if one or more of the steps fail. For more information, see the [Compensating Transaction pattern](../patterns/compensating-transaction.yml).
+- **Managing recovery for task steps that fail**. An application might need to undo the work that is performed by a series of steps (which together define an eventually consistent operation) if one or more of the steps fail. For more information, see the [Compensating Transaction pattern](../patterns/compensating-transaction.md).
 
 ## Resiliency considerations
 
@@ -322,6 +322,6 @@ Background tasks must offer sufficient performance to ensure they do not block t
 - [Priority Queue pattern](../patterns/priority-queue.yml)
 - [Pipes and Filters pattern](../patterns/pipes-and-filters.yml)
 - [Scheduler Agent Supervisor pattern](../patterns/scheduler-agent-supervisor.yml)
-- [Compensating Transaction pattern](../patterns/compensating-transaction.yml)
+- [Compensating Transaction pattern](../patterns/compensating-transaction.md)
 - [Leader Election pattern](../patterns/leader-election.yml)
 - [Competing Consumers pattern](../patterns/competing-consumers.yml)

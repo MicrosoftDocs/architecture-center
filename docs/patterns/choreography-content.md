@@ -40,7 +40,7 @@ Decentralizing the orchestrator can cause issues while managing the workflow.
 
 - Handling failures can be challenging. Components in an application might conduct atomic tasks but they might still have a level of dependency. Failure in one component can affect others, which might cause delays in completing the overall request. 
 
-   To handle failures gracefully, implementing [compensating transactions](./compensating-transaction.yml) might introduce complexity. Failure handling logic, such as compensating transactions, is also prone to failures.
+   To handle failures gracefully, implementing [compensating transactions](./compensating-transaction.md) might introduce complexity. Failure handling logic, such as compensating transactions, is also prone to failures.
 
     ![A flowchart showing error handling in the choreography pattern.](./_images/choreography-pattern-handling-errors.png)
 
@@ -129,7 +129,7 @@ Consider these patterns in your design for choreography.
 
 - Use asynchronous distributed messaging through the [publisher-subscriber pattern](./publisher-subscriber.md).
 
-- Use [compensating transactions](./compensating-transaction.yml) to undo a series of successful operations in case one or more related operations fail.
+- Use [compensating transactions](./compensating-transaction.md) to undo a series of successful operations in case one or more related operations fail.
 
 - For information about using a message broker in a messaging infrastructure, see [Asynchronous messaging options in Azure](../guide/technology-choices/messaging.md).
 

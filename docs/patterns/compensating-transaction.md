@@ -1,3 +1,15 @@
+---
+title: Compensating Transaction pattern
+description: Use the Compensating Transaction pattern to undo work when a step of an eventually consistent operation fails.
+ms.author: pnp
+author: claytonsiemens77
+ms.date: 07/28/2022
+ms.topic: design-pattern
+ms.subservice: cloud-fundamentals
+---
+
+# Compensating Transaction pattern
+
 When you use an eventually consistent operation that consists of a series of steps, the Compensating Transaction pattern can be useful. Specifically, if one or more of the steps fail, you can use the Compensating Transaction pattern to undo the work that the steps performed. Typically, you find operations that follow the eventual consistency model in cloud-hosted applications that implement complex business processes and workflows.
 
 ## Context and problem
@@ -18,22 +30,31 @@ The solution is to implement a compensating transaction. The steps in a compensa
 
 A common approach is to use a workflow to implement an eventually consistent operation that requires compensation. As the original operation proceeds, the system records information about each step, including how to undo the work that the step performs. If the operation fails at any point, the workflow rewinds back through the steps it has completed. At each step, the workflow performs the work that reverses that step.
 
-In [event-sourced systems](./event-sourcing.md), this history exists inherently because state changes are stored as a sequence of immutable events. Compensation requires you to append a new event that reverses the effect of a prior one rather than modifying or deleting existing data.
+<div align="center">
 
-Two important points are:
+![Diagram that shows the steps for creating an itinerary. The steps of the compensating transaction that cancels the itinerary are also shown.](./_images/compensating-transaction.png)
+
+</div>
+
+These steps constitute an eventually consistent operation, although each step is a separate action. Besides performing these steps, the system must also record the counter operations for undoing each step. This information is needed in case the customer cancels. The steps that are necessary to perform the counter operations can then run as a compensating transaction.
+
+In many business solutions, failure of a single step doesn't always necessitate rolling back the system by using a compensating transaction. For example, consider the travel website scenario. Suppose the customer books flights F1, F2, and F3 but can't reserve a room at hotel H1. It's preferable to offer the customer a room at a different hotel in the same city rather than canceling the flights. The customer can still decide to cancel. In that case, the compensating transaction runs and undoes the bookings for flights F1, F2, and F3. But the customer should make this decision, not the system. In some cases, especially when decisions are high impact or hard to automate reliably, it can be useful to include a human in the loop during the transaction.
+
+Three important points are:
 
 - A compensating transaction might not have to undo the work in the exact reverse order of the original operation.
 - It might be possible to perform some of the undo steps in parallel.
+- It might be necessary to apply various business-specific rules. For example, canceling a flight reservation might not entitle the customer to a complete refund.  
 
-This approach is similar to the Sagas strategy that's discussed in [Clemens Vasters' blog](https://vasters.com/archive/Sagas.html).
+This approach is similar to the [Saga distributed transactions pattern](./saga.yml).
 
-A compensating transaction is an eventually consistent operation itself, so it can also fail. The system should be able to resume the compensating transaction at the point of failure and continue. It might be necessary to repeat a step that fails, so you should define the steps in a compensating transaction as [idempotent commands](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing). For more information, see [Idempotency Patterns](https://blog.jonathanoliver.com/idempotency-patterns) on Jonathan Oliver's blog.
+Compensating transactions are eventually consistent operations and can fail while executing. To handle this, the system should record progress and resume the compensating transaction from the point of failure. Because retrying a step might execute it more than once, each step must be designed as an [idempotent commands](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing).
 
 In some cases, manual intervention might be the only way to recover from a step that has failed. In these situations, the system should raise an alert and provide as much information as possible about the reason for the failure.
 
-## Issues and considerations
+## Problems and considerations
 
-Consider the following points when you decide how to implement this pattern:
+Consider the following points as you decide how to implement this pattern:
 
 - It might not be easy to determine when a step in an operation that implements eventual consistency fails. A step might not fail immediately. Instead, it might get blocked. You might need to implement a timeout mechanism.
 
@@ -44,7 +65,7 @@ Consider the following points when you decide how to implement this pattern:
 - The infrastructure that handles the steps must meet the following criteria:
   - It's resilient in the original operation and in the compensating transaction.
   - It doesn't lose the information that's required to compensate for a failing step.
-  - It reliably monitors the progress of the compensation logic.
+  - It reliably monitors the progress of the compensation logic. Because compensating transactions execute after the original operations have committed and other transactions might have acted on intermediate states, ensure that both the original operation and its compensation can be correlated and audited end-to-end.
 
 - A compensating transaction doesn't necessarily return the system data to its state at the start of the original operation. Instead, the transaction compensates for the work that the operation completed successfully before it failed.
 
@@ -56,9 +77,19 @@ Consider the following points when you decide how to implement this pattern:
 
 - When you implement a compensating transaction, you face many of the same challenges that you face when you implement eventual consistency. For more information, see the "Considerations for Implementing Eventual Consistency" section in [Data Consistency Primer](/previous-versions/msp-n-p/dn589800(v=pandp.10)).
 
+- Define clear "points of no return" and irreversible steps. In complex workflows, not all operations can be safely or meaningfully undone (for example, external side effects or legally binding actions). Identify which steps are compensable and which are irreversible, and design the workflow so that irreversible steps occur only after all critical validations succeed.
+
 ## When to use this pattern
 
-Use this pattern only for operations that must be undone if they fail. If possible, design solutions to avoid the complexity of requiring compensating transactions.
+Use this pattern when:
+
+- A business operation spans multiple steps, services, or data stores and must be undone if a later step fails. This is common in long‑running workflows that follow an eventual consistency model and can't rely on atomic transactions. 
+- Failure recovery often requires domain-specific logic rather than a simple data rollback. Use compensating actions when undoing work requires applying business rules, such as canceling reservations or issuing partial refunds.
+
+This pattern might not be suitable when:
+
+- If operations can be safely retried and most failures are transient, retry logic alone is often sufficient. In these cases, adding compensating transactions introduces unnecessary complexity.
+- Consider alternative designs if your system can't tolerate temporary inconsistency, or compensation can't reliably restore a valid state. Strong consistency is achievable or the system requires atomic transactions across all steps. 
 
 ## Workload design
 
@@ -72,31 +103,31 @@ As with any design decision, consider any tradeoffs against the goals of the oth
 
 ## Example
 
-Customers use a travel website to book itineraries. A single itinerary might consist of a series of flights and hotels. A customer who travels from Seattle to London and then on to Paris might perform the following steps when creating an itinerary:
+The following image shows one practical Azure implementation of the Compensating Transaction pattern; other valid implementations are possible depending on workload requirements. An orchestrator running in Azure Container Apps coordinates each step of a long-running workflow by sending commands through Azure Service Bus. As each forward step succeeds, the orchestrator records both execution state and the corresponding compensating action in Azure Cosmos DB so the workflow can be resumed, correlated, and audited.
 
-1. Book a seat on flight F1 from Seattle to London.
-1. Book a seat on flight F2 from London to Paris.
-1. Book a seat on flight F3 from Paris to Seattle.
-1. Reserve a room at hotel H1 in London.
-1. Reserve a room at hotel H2 in Paris.
+<div align="center">
 
-These steps constitute an eventually consistent operation, although each step is a separate action. Besides performing these steps, the system must also record the counter operations for undoing each step. This information is needed in case the customer cancels the itinerary. The steps that are necessary to perform the counter operations can then run as a compensating transaction.
+![Example Azure implementation of the compensating transaction pattern](./_images/compensating-transaction-azure.png)
 
-The steps in the compensating transaction might not be the exact opposite of the original steps. Also, the logic in each step in the compensating transaction must take business-specific rules into account. For example, canceling a flight reservation might not entitle the customer to a complete refund.
+</div>
 
-The following figure shows the steps in a long-running transaction for booking a travel itinerary. You can also see the compensating transaction steps that undo the transaction.
+In this model, retries are used first to preserve forward progress. If a step fails, the orchestrator applies retry logic for transient faults and attempts to continue the original operation. Compensation is invoked only when forward progress is no longer possible, such as when retries are exhausted or the failure is classified as non-transient.
 
-:::image type="content" source="./_images/compensating-transaction-diagram.png" alt-text="Diagram that shows the steps for creating an itinerary. The steps of the compensating transaction that cancels the itinerary are also shown.":::
+Business-specific rules can also prefer forward progress over immediate compensation. If a step fails, the orchestrator can select an alternative path (for example, substituting an equivalent service or fallback option) instead of rolling back the workflow. In higher-impact or ambiguous cases, the workflow can pause for a human-in-the-loop decision before choosing whether to continue on an alternative path or trigger compensation. This approach keeps compensation as a last resort while allowing domain rules to drive recovery behavior.
 
-> [!NOTE]
-> You might be able to perform the steps in the compensating transaction in parallel, depending on how you design the compensating logic for each step.
+A typical sequence is: the orchestrator sends step messages (for example, step 1 and step 2) through Service Bus, receives successful outcomes, and stores forward and compensation metadata in Cosmos DB. Compensation can be triggered in two cases: when a later step in the same workflow fails and previously successful steps must be undone, or when a subsequent client request explicitly asks to cancel a previously completed operation. In either case, the orchestrator reads the stored compensation records and sends compensation commands to the corresponding service; if a compensation step fails transiently, Service Bus retries can still complete it without escalating the incident.
 
-In many business solutions, failure of a single step doesn't always necessitate rolling back the system by using a compensating transaction. For example, consider the travel website scenario. Suppose the customer books flights F1, F2, and F3 but can't reserve a room at hotel H1. It's preferable to offer the customer a room at a different hotel in the same city rather than canceling the flights. The customer can still decide to cancel. In that case, the compensating transaction runs and undoes the bookings for flights F1, F2, and F3. But the customer should make this decision, not the system.
+If repeated retries still fail, Service Bus moves the message to a dead-letter queue and preserves failure details. The orchestrator (or a dedicated dead-letter processor) then raises an alert and emits structured telemetry, including failure reason and correlation IDs, to Azure Monitor and Log Analytics (optionally surfaced in Application Insights). This operational path helps teams diagnose why a step failed, identify whether manual intervention is required, and maintain traceability across the original and compensating flows.
+
+Compensation can be triggered through two paths: immediately when a step returns a business error (for example, a rule-validation failure), or after technical retries are exhausted and the message is dead-lettered; in either case, the workflow can start compensation automatically for clear, low-risk conditions, or pause for human review when the situation is ambiguous, high-impact, or requires a manual step.
+
+Use managed identities and Microsoft Entra ID-based authorization between components to avoid shared secrets and enforce least-privilege access. In a simplified reference diagram, these identity and authorization controls can be treated as baseline implementation concerns rather than explicit flow steps, keeping the visual focused on orchestration, retry, compensation, and failure handling.
 
 ## Next steps
 
 - [Data Consistency Primer](/previous-versions/msp-n-p/dn589800(v=pandp.10)). The Compensating Transaction pattern is often used to undo operations that implement the eventual consistency model. This primer provides information about the benefits and trade-offs of eventual consistency.
-- [Idempotency Patterns](https://blog.jonathanoliver.com/idempotency-patterns). In a compensating transaction, it's best to use idempotent commands. This blog post describes factors to consider when you implement idempotency.
+- Use [Transactional Outbox pattern with Azure Cosmos DB pattern](/azure/architecture/databases/guide/transactional-outbox-cosmos) when compensating transactions rely on publishing events or commands reliably. The Transactional Outbox pattern helps ensure state changes and related messages are recorded atomically, reducing the risk of message loss between a successful state update and event publication in distributed systems.
+- [Design for self healing](../guide/design-principles/self-healing.md). This guide explains how to design self-healing applications. You can use compensating transactions as part of a self-healing approach.
 
 ## Related resources
 
@@ -104,4 +135,3 @@ In many business solutions, failure of a single step doesn't always necessitate 
 - [Retry pattern](./retry.yml). Compensating transactions can be computationally demanding. You can try to minimize their use by using the Retry pattern to implement an effective policy of retrying failed operations.
 - [Saga distributed transactions pattern](./saga.yml). This article explains how to use the Saga pattern to manage data consistency across microservices in distributed transaction scenarios. The Saga pattern handles failure recovery with compensating transactions.
 - [Pipes and Filters pattern](./pipes-and-filters.yml). This article describes the Pipes and Filters pattern, which you can use to decompose a complex processing task into a series of reusable elements. You can use the Pipes and Filters pattern with the Compensating Transaction pattern as an alternative to implementing distributed transactions.
-- [Design for self healing](../guide/design-principles/self-healing.md). This guide explains how to design self-healing applications. You can use compensating transactions as part of a self-healing approach.
