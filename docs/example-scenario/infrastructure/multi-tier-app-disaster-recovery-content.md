@@ -4,15 +4,7 @@ This example scenario is applicable to any industry that needs to deploy resilie
 - Business tier: Processes the user interactions and makes logical decisions about the next steps. This layer connects the web tier and the data tier.
 - Data tier: Stores the application data. Either a database, object storage, or file storage is typically used.
 
-Common application scenarios include any mission-critical application running on Windows or Linux. This can be an off-the-shelf application such as SAP and SharePoint or a custom line-of-business application.
-
-## Potential use cases
-
-Other relevant use cases include:
-
-- Deploying highly resilient applications such as SAP and SharePoint
-- Designing a business continuity and disaster recovery plan for line-of-business applications
-- Configure disaster recovery and perform related drills for compliance purposes
+Common application scenarios include any mission-critical application running on Windows or Linux. This can be an off-the-shelf application such as SAP or a custom line-of-business application.
 
 ## Architecture
 
@@ -22,17 +14,12 @@ Other relevant use cases include:
 
 ### Workflow
 
-- Distribute the VMs in each tier across two availability zones in regions that support zones. In other regions, deploy the VMs in each tier within one availability set.
-- The database tier can be configured to use Always On availability groups. With this SQL Server configuration, one primary read/write replica within an availability group is configured with up to eight secondary read-only replicas. If an issue occurs with the primary replica, the availability group fails over primary read/write activity to one of the secondary replicas, allowing the application to remain available. For more information, see [Overview of Always On availability groups for SQL Server][docs-sql-always-on].
-- For disaster recovery scenarios, you can configure SQL Always On asynchronous native replication to the target region used for disaster recovery. You can also configure Azure Site Recovery replication to the target region if the data change rate is within supported limits of Azure Site Recovery.
-- Users access the front-end ASP.NET web tier via the traffic manager endpoint.
-- The traffic manager redirects traffic to the primary public IP endpoint in the primary source region.
-- The public IP redirects the call to one of the web tier VM instances through a public load balancer. All web tier VM instances are in one subnet.
-- From the web tier VM, each call is routed to one of the VM instances in the business tier through an internal load balancer for processing. All business tier VMs are in a separate subnet.
-- The operation is processed in the business tier and the ASP.NET application connects to Microsoft SQL Server cluster in a back-end tier via an Azure internal load balancer. These back-end SQL Server instances are in a separate subnet.
-- The traffic manager's secondary endpoint is configured as the public IP in the target region used for disaster recovery.
-- In the event of a primary region disruption, you invoke Azure Site Recovery failover and the application becomes active in the target region.
-- The traffic manager endpoint automatically redirects the client traffic to the public IP in the target region.
+1. Users access the front-end ASP.NET web tier via the traffic manager endpoint. The traffic manager redirects traffic to the primary public IP endpoint in the primary source region. The public IP redirects the call to one of the web tier VM instances through a public load balancer.
+2. All web tier VM instances are in one subnet. From the web tier VM, each call is routed to one of the VM instances in the business tier through an internal load balancer for processing. All business tier VMs are in a separate subnet. The operation is processed in the business tier and the ASP.NET application connects to Microsoft SQL Server cluster in a back-end tier via an Azure internal load balancer. These back-end SQL Server instances are in a separate subnet.
+3. Distribute the VMs in each tier across two availability zones in regions that support zones.
+4. In other regions, deploy the VMs in each tier within one availability set.
+5. The database tier can be configured to use Always On availability groups. With this SQL Server configuration, one primary read/write replica within an availability group is configured with up to eight secondary read-only replicas. If an issue occurs with the primary replica, the availability group fails over primary read/write activity to one of the secondary replicas, allowing the application to remain available. For more information, see [Overview of Always On availability groups for SQL Server][docs-sql-always-on].
+6. For disaster recovery scenarios, you can configure SQL Always On asynchronous native replication to the target region used for disaster recovery. You can also configure Azure Site Recovery replication to the target region if the data change rate is within supported limits of Azure Site Recovery. The traffic manager's secondary endpoint is configured as the public IP in the target region used for disaster recovery. In the event of a primary region disruption, you invoke Azure Site Recovery failover and the application becomes active in the target region. The traffic manager endpoint automatically redirects the client traffic to the public IP in the target region.
 
 ### Components
 
@@ -75,6 +62,14 @@ You can combine both load balancers, if needed. For example, you want the DNS-ba
 
 This architecture uses Traffic Manager because it's lightweight. The failover timing is sufficient for illustrative purposes.
 
+### Potential use cases
+
+Relevant use cases include:
+
+- Deploying highly resilient applications such as SAP and SharePoint
+- Designing a business continuity and disaster recovery plan for line-of-business applications
+- Configure disaster recovery and perform related drills for compliance purposes
+
 ## Considerations
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
@@ -87,7 +82,7 @@ All the virtual network traffic into the front-end application tier is protected
 
 For general guidance on designing secure scenarios, see the [Azure Security Documentation][security].
 
-## Cost Optimization
+### Cost Optimization
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
@@ -111,7 +106,7 @@ You can add or remove VMs in each tier based on your scaling requirements. Becau
 
 Principal author:
 
-* [Sujay Talasila](https://in.linkedin.com/in/sujay-talasila-7b20247) | Principal Product Lead
+- [Sujay Talasila](https://in.linkedin.com/in/sujay-talasila-7b20247) | Principal Product Lead
 
 ## Next steps
 
