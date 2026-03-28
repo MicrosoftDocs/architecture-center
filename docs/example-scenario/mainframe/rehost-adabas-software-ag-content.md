@@ -38,7 +38,7 @@ H. Partitions run separate workloads or segregate work types within the environm
 
 The following diagram shows the legacy architecture after you migrate to Azure. This solution uses a rehost approach to migrate the system.
 
-:::image type="complex" border="false" source="media/mainframe-software-ag-azure-rehost-after.svg" alt-text="Diagram that shows the mainframe architecture rehosted on Azure." lightbox="media/mainframe-software-ag-azure-rehost-after.svg ":::
+:::image type="complex" border="false" source="media/mainframe-software-ag-azure-rehost-after.svg" alt-text="Diagram that shows the mainframe architecture rehosted on Azure." lightbox="media/mainframe-software-ag-azure-rehost-after.svg":::
 Diagram that shows an on‑premises to Azure architecture that uses Azure ExpressRoute. On‑premises users connect to Azure through web browsing or bastion access over Transport Layer Security (TLS). In Azure, traffic enters a virtual network through Azure Application Gateway and routes to virtual machines (VMs) that run Software AG components. One subnet hosts application services, including a Natural Availability Server, Natural Application Server, Natural services, and supporting components such as Cache Redis, Azure NetApp Files, and Accelerated Networking. A network security group (NSG) protects these components. A separate subnet hosts data services, including primary and secondary Adabas databases, Adabas Manager, and Natural batch processing, with encrypted disks and managed storage. The architecture also shows connectivity to external devices or APIs, with NSGs applied to protect Azure resources.
 :::image-end:::
 
@@ -156,5 +156,5 @@ For more information, contact [legacy2azure@microsoft.com](mailto:legacy2azure
 ## Related resources
 
 - [Refactor mainframe computer systems that run Adabas and Natural](refactor-adabas-aks.yml)
-- [General mainframe refactor to Azure](../../example-scenario/mainframe/general-mainframe-refactor.yml)
+- [General mainframe refactor to Azure](general-mainframe-refactor.yml)
 - [AIX UNIX on-premises to Azure Linux migration](../../example-scenario/unix-migration/migrate-aix-azure-linux.yml)
