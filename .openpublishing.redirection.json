@@ -6,6 +6,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/guide/networking/global-web-applications/mission-critical-app-service.yml",
+      "redirect_url": "/azure/architecture/web-apps/guides/enterprise-app-patterns/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/example-scenario/mainframe/deploy-ibm-power-workloads.yml",
       "redirect_url": "/azure/architecture/example-scenario/mainframe/migrate-ibm-i-series-to-azure-with-skytap",
       "redirect_document_id": false
@@ -2183,8 +2188,8 @@
     },
     {
       "source_path": "docs/example-scenario/mainframe/mainframe-modernization-model9.yml",
-      "redirect_url": "/azure/architecture/example-scenario/mainframe/mainframe-modernization-bmc-ami-cloud",
-      "redirect_document_id": true
+      "redirect_url": "/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure",
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/solution-ideas/articles/example-scenario/ai/intelligent-apps-image-processing.md",
@@ -7695,7 +7700,27 @@
     },
     {
       "source_path": "docs/example-scenario/mainframe/rehost-mainframe-ntt-data-unikix.yml",
-      "redirect_url": "/azure/architecture/example-scenario/mainframe/mainframe-rehost-architecture-azure",
+      "redirect_url": "/azure/architecture/example-scenario/mainframe/general-mainframe-refactor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/mainframe/mainframe-rehost-architecture-azure.yml",
+      "redirect_url": "/azure/architecture/example-scenario/mainframe/general-mainframe-refactor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/mainframe/micro-focus-server.yml",
+      "redirect_url": "/azure/architecture/example-scenario/mainframe/avanade-amt-zos-migration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/mainframe/luminex-mainframe-file-tape-transfer.yml",
+      "redirect_url": "/azure/architecture/example-scenario/mainframe/move-archive-data-mainframes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/mainframe/mainframe-modernization-bmc-ami-cloud.yml",
+      "redirect_url": "/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure",
       "redirect_document_id": false
     },
     {
@@ -7769,6 +7794,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/example-scenario/web/design-api-developer-experiences-management-github.yml",
+      "redirect_url": "/azure/architecture/web-apps/api-management/architectures/protect-apis",
+      "redirect_document_id": false      
+    },
+    {
       "source_path": "docs/solution-ideas/articles/container-get-started.md",
       "redirect_url": "/azure/architecture/containers/container-get-started",
       "redirect_document_id": false
@@ -7780,3 +7810,4 @@
     }
   ]
 }
+
