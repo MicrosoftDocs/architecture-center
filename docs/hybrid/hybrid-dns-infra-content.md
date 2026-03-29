@@ -46,7 +46,7 @@ This reference architecture describes how to design a hybrid DNS solution to res
 
   - [Azure Firewall](/azure/well-architected/service-guides/azure-firewall) is a cloud-native network security service that inspects network traffic and filters it based on configured rules. In this architecture, it serves as a DNS proxy to support fully qualified domain name (FQDN) network rules and DNS logging. For more information, see [Azure Firewall DNS proxy](/azure/firewall/dns-details). Azure Firewall is not an authoritative server for any DNS name, but it just forwards all DNS requests to the inbound endpoint of the Azure DNS Private Resolver (`10.1.0.68` in this example). 
 
-  - [Azure private DNS zones](/azure/dns/private-dns-overview) are containers that host DNS records for private name resolution from linked Azure virtual networks. In this architecture, they provide DNS resolution for Azure workloads, support VM autoregistration, and integrate automatically with private link endpoints through DNS virtual network links.
+  - [Azure private DNS zones](/azure/dns/private-dns-overview) are containers that host DNS records for private name resolution from linked Azure virtual networks. In this architecture, they provide DNS resolution for Azure workloads, support VM autoregistration, and integrate automatically with private link endpoints through DNS virtual network links. It is recommended to shard DNS zones into smaller zones for easier administration and reduced blast radios, as described in [Sharding private DNS zones](/azure/dns/sharding-private-dns-zones).
 
 - The connected workload subscription represents a collection of workloads that require a virtual network and connectivity back to the on-premises network.
 
@@ -59,6 +59,8 @@ This reference architecture describes how to design a hybrid DNS solution to res
 You can modify the topology described in this article and adapt it to your specific requirements. This section describes some of the most common variations:
 
 - Use [Azure Virtual WAN](/azure/virtual-wan/virtual-wan-about) instead of a self-managed hub-and-spoke solution. In this architecture, a virtual hub replaces the hub virtual network. A virtual hub is a Microsoft-managed virtual network that supports only specific resource types. It supports firewalls (Azure Firewall and non-Microsoft firewalls), virtual network gateways for VPN and ExpressRoute, and SD-WAN NVAs. For more information, see [Non-Microsoft integrations with Virtual WAN hub](/azure/virtual-wan/third-party-integrations).
+
+- You don't necessarily need to use Azure Firewall as DNS proxy. If you don't need Azure Firewall FQDN-based network rules or you use third-party NVAs as firewalls, you can configure the spoke VNets to use the Azure Private DNS Resolver directly, as described in [Azure DNS Private Resolver](/azure/architecture/networking/architecture/azure-dns-private-resolver).
 
 - Consolidate shared resources and hub virtual networks. You can deploy your DNS Private Resolver, DNS servers, or other shared resources like Azure Bastion or file shares in the hub virtual network. This approach works only if you don't use Virtual WAN. If you have an Azure firewall in your hub virtual network, be careful with routing from the spoke virtual networks to the shared services subnet. In your UDRs, specify only the shared services subnet prefix, not the whole hub virtual network range.
 
