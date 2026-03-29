@@ -94,7 +94,7 @@ This pattern might not be suitable when:
 
 - Operations can be safely retried and most failures are transient. Retry logic alone is often sufficient in these cases, and compensating transactions add unnecessary complexity.
 
-- The system can't tolerate temporary inconsistency, or compensation can't reliably restore a valid state. Use strong consistency mechanisms or atomic transactions across all steps instead. 
+- The system can't tolerate temporary inconsistency, or compensation can't reliably restore a valid state. Use strong consistency mechanisms or atomic transactions across all steps instead.
 
 ## Workload design
 
