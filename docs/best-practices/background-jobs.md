@@ -159,7 +159,7 @@ For background tasks that run continuously, like a service that constantly proce
 
 - Container Apps jobs require you to build and maintain container images. This approach adds overhead compared to Functions, but it gives you full control over the runtime, dependencies, and operating system-level tooling that your job needs.
 
-- For event-driven jobs, verify that a [KEDA scaler](https://keda.sh/docs/2.19/scalers/) supports your event source. KEDA supports Service Bus, Azure Storage Queues, Apache Kafka, RabbitMQ, and other sources.
+- For event-driven jobs, verify that a [KEDA scaler](https://keda.sh/docs/scalers/) supports your event source. KEDA supports Service Bus, Azure Storage Queues, Apache Kafka, RabbitMQ, and other sources.
 
 - If you need direct access to the Kubernetes APIs and control plane, use [AKS](/azure/aks/what-is-aks) instead.
 
@@ -187,7 +187,7 @@ A Batch job runs on a pool of nodes (VMs). One approach is to allocate a pool on
 
 ### Virtual Machines
 
-Background tasks might require a full operating system environment or specific runtime dependencies that prevent them from using platform or serverless services. Typical examples include Windows services, external executables, and programs written for specialized runtimes. You can choose from a range of operating systems for an Azure VM and run your service or executable on that VM.
+Background tasks might require a full operating system environment or specific runtime dependencies that prevent them from using platform or serverless services. Typical examples include Windows services, executables, and programs written for specialized runtimes. You can choose from a range of operating systems for an Azure VM and run your service or executable on that VM.
 
 To initiate the background task in a separate VM, you have several options:
 
