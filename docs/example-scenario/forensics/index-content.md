@@ -21,12 +21,8 @@ In the architecture, the production virtual machines (VMs) are part of a spoke [
 
 > [!NOTE]
 > This architecture assumes encryption at host with platform-managed keys.
-
-> [!NOTE]
-> If encryption at host doesn't meet your requirements, you can use an in-OS bring-your-own (BYO) encryption solution, such as BitLocker on Windows or dm-crypt on Linux. In-OS BYO encryption implementations are specific to each environment and aren't described in this article. Evaluate your requirements to determine the appropriate approach.
-
-> [!NOTE]
-> The scenario also supports production VMs that have unencrypted disks.
+>
+> If encryption at host doesn't meet your requirements, you can use an OS-level encryption solution, such as BitLocker on Windows or dm-crypt on Linux. These encryption implementations are specific to each environment and aren't described in this article. Evaluate your requirements to determine the appropriate approach.
 
 The security operations center (SOC) team uses a discrete Azure **SOC** subscription. The team has exclusive access to that subscription, which contains the resources that must be kept protected, inviolable, and monitored. The [Azure Storage](/azure/storage/common/storage-introduction) account in the SOC subscription hosts copies of disk snapshots in [immutable blob storage](/azure/storage/blobs/storage-blob-immutable-storage). A dedicated [key vault](/azure/key-vault/general/overview) stores copies of the hash values of the snapshots.
 
@@ -219,15 +215,13 @@ The following components incur ongoing costs whether or not you perform evidence
 
 The following components scale with the number of investigations and the size of captured evidence:
 
-- **Azure Storage (immutable blob storage).** Storage is the primary cost driver in this architecture. Each forensic capture generates full disk snapshots of the target VM's OS and data disks, which can range from tens to hundreds of gigabytes per VM. Because snapshots under a legal hold policy can't be deleted, storage costs are cumulative. They grow with each investigation and with the number and size of disks per VM. To manage storage costs, evaluate the [access tier](/azure/storage/blobs/access-tiers-overview) for retained snapshots. Snapshots that are rarely accessed after initial hash verification can benefit from the Cool or Cold tier, which offers lower storage rates in exchange for higher access costs.
+- **Azure Storage (immutable blob storage).** Storage is the primary variable cost driver in this architecture. Each forensic capture generates full disk snapshots of the target VM's OS and data disks, which can range from tens to hundreds of gigabytes per VM. Because snapshots under a legal hold policy can't be deleted, storage costs are cumulative. They grow with each investigation and with the number and size of disks per VM. To manage storage costs, evaluate the [access tier](/azure/storage/blobs/access-tiers-overview) for retained snapshots. Snapshots that are rarely accessed after initial hash verification can benefit from the Cool or Cold tier, which offers lower storage rates in exchange for higher access costs.
 
 - **Azure Files.** The temporary file share that computes hash values incurs cost only for the duration that the snapshot data is present. The runbook removes this data after hash computation, so the cost is transient and proportional to snapshot size.
 
 - **Log Analytics workspace.** Log Analytics ingestion costs increase with the number of operations that you perform in the SOC subscription. More frequent evidence captures and more active monitoring generate more log data. Configure [data retention policies](/azure/azure-monitor/logs/data-retention-configure) to match your compliance requirements and avoid retaining data longer than necessary.
 
-#### Scaling behavior
-
-For organizations that perform forensic captures infrequently, storage costs remain low and the fixed-cost VM dominates overall spending. As investigation volume increases, storage becomes the dominant cost because each capture adds permanently retained snapshots. There is no economy of scale on storage: cost grows linearly with the number and size of captured disks.
+#### Estimate costs
 
 To estimate the cost of this architecture for your workload, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator). Configure the following components based on your expected investigation volume and VM disk sizes:
 
