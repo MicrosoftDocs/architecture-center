@@ -89,7 +89,7 @@ Consider the following points as you decide how to implement this pattern:
 
   | Field | Description | Notes |
   | :---- | :---------- | :---- |
-  | `status` | The current state of the operation, such as *Pending*, *Running*, *Succeeded*, *Failed*, or *Cancelled*. | Use a consistent, documented set of terminal and non-terminal values. |
+  | `status` | The current state of the operation, such as *Pending*, *Running*, *Succeeded*, *Failed*, or *Canceled*. | Use a consistent, documented set of terminal and non-terminal values. |
   | `createdAt` | The time the operation was accepted. | Helps clients detect stale or abandoned operations. |
   | `lastUpdatedAt` | The time the status was last updated. | Lets clients distinguish a stalled operation from one that is actively progressing. |
   | `percentComplete` | An optional progress indicator. | Useful when the backend can meaningfully estimate progress. |
@@ -109,7 +109,7 @@ Consider the following points as you decide how to implement this pattern:
 
 - Legacy clients might not support this pattern. In that case, you might need to place a façade over the asynchronous API to hide the asynchronous processing from the original client. For example, Logic Apps supports this pattern natively, and you can use it as an integration layer between an asynchronous API and a client that makes synchronous calls. For more information, see [Asynchronous request-response behavior in Azure Logic Apps](/azure/connectors/connectors-native-http#asynchronous-request-response-behavior).
 
-- In some scenarios, you might want to provide a way for clients to cancel a long-running request. In that case, expose a DELETE operation on the status endpoint resource. This request should forward a cancellation instruction to the backend processing component. After the backend handles the cancellation, it should update the status resource to reflect the cancelled state. This process helps prevent incomplete work from consuming resources indefinitely. Consider whether the operation supports partial rollback or is best treated as a compensating transaction.
+- In some scenarios, you might want to provide a way for clients to cancel a long-running request. In that case, expose a DELETE operation on the status endpoint resource. This request should forward a cancelation instruction to the backend processing component. After the backend handles the cancelation, it should update the status resource to reflect the canceled state. This process helps prevent incomplete work from consuming resources indefinitely. Consider whether the operation supports partial rollback or is best treated as a compensating transaction.
 
 - Consider requiring clients to supply an idempotency key (for example, in an [`Idempotency-Key`](https://datatracker.ietf.org/doc/draft-ietf-httpapi-idempotency-key-header/) request header) when submitting the initial request. If the backend receives a duplicate key, it should return the existing status resource rather than enqueue a second work item. This approach protects against network failures that cause the client to retry a POST that the server already accepted. It's especially important in this pattern because the client has no way to distinguish a lost response from a request that was never received.
 
