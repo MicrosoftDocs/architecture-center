@@ -83,13 +83,21 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-#### Recommendations
-
 Follow these general recommendations unless you have a specific requirement that overrides them:
 
 - To reduce network latency, create all Azure resources mentioned in this scenario in one region.
+   
 - Instead of sending a single large file from the mainframe to Azure, split data into multiple files and send them in parallel.
+
+- Use Azure Monitor and [Application Insights](/azure/azure-monitor/app/app-insights-overview) to monitor the mLogica data migration cluster. Set up alerts for proactive management.
+
 - For more information about resiliency in Azure, see [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
+
+#### Availability
+
+This example workflow describes mainframe-to-Azure data migration to replatform, refactor, or archive a workload. This task is discrete, performed a few times during a month-long project. Although high availability isn't required in this scenario, you can design the mLogica data migration cluster to provide high availability.
+
+Azure database services support zone redundancy. You can configure them to fail over if there's an outage or during a maintenance window.
 
 ### Security
 
@@ -98,7 +106,9 @@ Security provides assurances against deliberate attacks and the abuse of your va
 Database services in Azure support various security options:
 
 - Data encryption at rest using [transparent data encryption](/sql/relational-databases/security/encryption/transparent-data-encryption)
+  
 - Data encryption in transit using [TLS](/azure/azure-sql/database/security-overview#transport-layer-security-encryption-in-transit)
+
 - Data encryption while processing using [Always Encrypted with secure enclaves](/sql/relational-databases/security/encryption/always-encrypted-enclaves)
 
 You can control authentication and access control on the mLogica data migration cluster by using Microsoft Entra ID. You can configure Azure resources for authentication and authorization using Microsoft Entra ID and role-based access control.
@@ -146,16 +156,6 @@ If you're migrating multiple large independent datasets, deploy the mLogica data
 You can upload multiple data sets in parallel from the mainframe to Blob Storage.
 
 [Azure SQL DB serverless](/azure/azure-sql/database/serverless-tier-overview?view=azuresql) provides an option for autoscaling based on workload. Other Azure databases can be scaled up and down using automation to meet the workload demands. For more information, see [Autoscaling](/azure/architecture/best-practices/auto-scaling). 
-
-#### Resiliency
-
-Use Azure Monitor and [Application Insights](/azure/azure-monitor/app/app-insights-overview) to monitor the mLogica data migration cluster. Set up alerts for proactive management.
-
-#### Availability
-
-This example workflow describes mainframe-to-Azure data migration to replatform, refactor, or archive a workload. This task is discrete, performed a few times during a month-long project. Although high availability isn't required in this scenario, you can design the mLogica data migration cluster to provide high availability.
-
-Azure database services support zone redundancy. You can configure them to fail over if there's an outage or during a maintenance window.
 
 ## Contributors
 
