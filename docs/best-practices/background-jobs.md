@@ -5,7 +5,7 @@ ms.author: pnp
 author: claytonsiemens77
 ms.date: 03/28/2026
 ms.topic: best-practice
-ms.subservice: best-practice
+ms.service: best-practice
 ---
 
 <!-- cSpell:ignore webjobs -->
@@ -33,13 +33,13 @@ Background jobs typically include one or more of the following types of jobs:
 
 - Long-running workflows, like order fulfillment, or provisioning services and systems.
 
-- Sensitive-data processing where you send the task to a more secure location for processing. For example, you might not want to process sensitive data within a web app. You might instead use a pattern like the [Gatekeeper pattern](../patterns/gatekeeper.yml) to transfer the data to an isolated background process that can access protected storage.
+- Sensitive-data processing in which you send the task to a more secure location for processing. For example, you might not want to process sensitive data within a web app. You might instead use a pattern like the [Gatekeeper pattern](../patterns/gatekeeper.yml) to transfer the data to an isolated background process that can access protected storage.
 
 ## Triggers
 
 You can initiate background jobs in several ways. They fall into one of the following categories:
 
-- **[Event-driven triggers](#event-driven-triggers):** An event, typically a user action, or a step in a workflow, starts the task.
+- **[Event-driven triggers](#event-driven-triggers):** An event, typically a user action or a step in a workflow, starts the task.
 
 - **[Schedule-driven triggers](#schedule-driven-triggers):** A timer invokes the task on a recurring schedule or as a single invocation at a specified time.
 
@@ -61,7 +61,7 @@ Schedule-driven invocation uses a timer to start the background task. Examples o
 
 - A timer that runs locally within the application or as part of the application's operating system regularly invokes a background task.
 
-- A timer that runs in a different application, like Logic Apps, regularly sends a request to an API or web service. The API or web service invokes the background task.
+- A timer that runs in a different application, like Azure Logic Apps, regularly sends a request to an API or web service. The API or web service invokes the background task.
 
 - A separate process or application starts a timer that starts the background task once after a specified time delay, or at a specific time.
 
@@ -77,9 +77,9 @@ If you use a schedule-driven task that must run as a single instance, be aware o
 
 Background jobs run asynchronously in a separate process, or even a separate location, from the UI or the process that invoked them. Ideally, background tasks are *fire and forget* operations, and their processing progress has no impact on the UI or the calling process. The calling process doesn't wait for task completion and can't automatically detect when the task ends.
 
-If you require a background task to communicate with the calling task to indicate progress or completion, you must implement a mechanism for this. Options include:
+If you require a background task to communicate with the calling task to indicate progress or completion, you must implement a mechanism for this task. Options include:
 
-- **Return a status endpoint to the caller.** The caller receives a URL (or resource identifier) when it submits the job and polls that endpoint for status. The [Asynchronous Request-Reply pattern](../patterns/asynchronous-request-reply.md) describes this approach. It suits HTTP-based APIs where the caller initiates a long-running operation and needs to check for completion.
+- **Return a status endpoint to the caller.** The caller receives a URL (or resource identifier) when it submits the job and polls that endpoint for status. The [Asynchronous Request-Reply pattern](../patterns/asynchronous-request-reply.md) describes this approach. It suits HTTP-based APIs in which the caller initiates a long-running operation and needs to check for completion.
 
 - **Use a reply queue.** The background task sends messages to a queue that the caller listens on. The messages indicate status and completion. If you use Azure Service Bus, you can use the `ReplyTo` and `CorrelationId` properties to correlate responses to requests.
 
@@ -99,13 +99,13 @@ You can host background tasks by using a diverse range of Azure platform service
 
 - **[Azure Functions](#functions):** A serverless compute service that supports event-driven and schedule-driven triggers with automatic scaling. Use [Durable Functions](/azure/azure-functions/durable/durable-functions-overview) for long-running or stateful workflows.
 
-- **[Azure Container Apps](#container-apps):** A serverless container platform that supports both long-running services and discrete [jobs](/azure/container-apps/jobs). Jobs run to completion and you can trigger them manually, on a schedule, or by events. Container Apps uses [KEDA](https://keda.sh/) for event-driven autoscaling, including scale to zero.
+- **[Azure Container Apps](#container-apps):** A serverless container platform that supports both long-running services and discrete [jobs](/azure/container-apps/jobs). Jobs run to completion, and you can trigger them manually, on a schedule, or by events. Container Apps uses [KEDA](https://keda.sh/) for event-driven autoscaling, including scale to zero.
 
 - **[Azure Kubernetes Service (AKS)](#aks):** A managed Kubernetes environment that provides full control over container orchestration. Use Kubernetes [CronJobs](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/) and [Jobs](https://kubernetes.io/docs/concepts/workloads/controllers/job/) for background processing when you need direct access to the Kubernetes API and control plane.
 
 - **[Azure Batch](#batch):** A platform service that schedules compute-intensive work to run on a managed collection of VMs. It can automatically scale compute resources across tens, hundreds, or thousands of nodes.
 
-- **[Virtual Machines](#virtual-machines):** An infrastructure as a service (IaaS) option for background tasks that require full control over the operating system or runtime environment, like Windows services, external executables, or specialized runtimes.
+- **[Azure Virtual Machines](#virtual-machines):** An infrastructure as a service (IaaS) option for background tasks that require full control over the operating system or runtime environment, like Windows services, external executables, or specialized runtimes.
 
 - **[Azure App Service WebJobs](#app-service-webjobs):** A feature of App Service that runs background scripts or programs in the same context as a web app. Consider WebJobs when you need background processing that's colocated with an existing App Service application.
 
@@ -143,7 +143,7 @@ Durable Functions supports several orchestration patterns that directly apply to
 
 ### Container Apps
 
-Container Apps supports background processing through [Container Apps jobs](/azure/container-apps/jobs), which run containerized tasks to completion and then stop. Jobs suit batch processing, scheduled tasks, and event-driven work where a short-lived process handles a discrete unit of work. For a general overview of the platform, see [Container Apps overview](/azure/container-apps/overview).
+Container Apps supports background processing through [Container Apps jobs](/azure/container-apps/jobs), which run containerized tasks to completion and then stop. Jobs suit batch processing, scheduled tasks, and event-driven work in which a short-lived process handles a discrete unit of work. For a general overview of the platform, see [Container Apps overview](/azure/container-apps/overview).
 
 Container Apps jobs support three trigger types:
 
@@ -225,7 +225,7 @@ WebJobs can run as continuous or triggered processes:
 
 - By default, WebJobs scale with the web app. You can set up a job to run as a single instance by setting the `is_singleton` configuration property to `true`. Single-instance WebJobs suit tasks that you don't want to run as simultaneous multiple instances, like reindexing or data analysis.
 
-- To reduce job impact on web app performance, consider creating an empty Azure Web App instance in a separate App Service plan to host long-running or resource-intensive WebJobs.
+- To reduce job impact on web app performance, consider creating an empty Azure web app instance in a separate App Service plan to host long-running or resource-intensive WebJobs.
 
 - WebJobs share compute resources with the host web app. Resource-intensive background processing can degrade the responsiveness of the web app.
 
@@ -241,7 +241,7 @@ If you decide to include background tasks within an existing compute instance, c
 
 - **Manageability:** Background tasks often change on a different release cadence than the UI. Separating tasks avoids redeploying the entire application when only the job logic changes.
 
-- **Scalability:** Background tasks typically scale on different signals than the UI. Background systems scale based on queue depth or batch size, while the UI scales based on concurrent users or request rate. Separating them lets each scale independently.
+- **Scalability:** Background tasks typically scale on different signals than the UI. Background systems scale based on queue depth or batch size, while the UI scales based on concurrent users or request rate. Separating them lets each task scale independently.
 
 Separating background tasks into dedicated compute adds hosting cost. Compare that cost to the operational benefits of independent scaling, deployment, and failure isolation.
 
@@ -255,7 +255,7 @@ Ensure that the background task can restart automatically and has sufficient cap
 
 ## Coordination
 
-Background tasks can be complex and require multiple individual tasks to produce a result or fulfill all requirements. In these scenarios, teams often divide the task into smaller discrete steps or subtasks that multiple consumers can run. Multistep jobs often increase efficiency and flexibility because individual steps can be reused in multiple jobs. You can also add, remove, or reorder the steps.
+Background tasks can be complex and require multiple individual tasks to produce a result or fulfill all requirements. In these scenarios, teams often divide the task into smaller, discrete steps or subtasks that multiple consumers can run. Multistep jobs often increase efficiency and flexibility because multiple jobs can reuse individual steps. You can also add, remove, or reorder the steps.
 
 It can be challenging to coordinate tasks, but three common patterns can guide your implementation:
 
@@ -279,9 +279,9 @@ Background tasks must be resilient and recoverable to provide reliable services 
 
 - Background tasks that messages initiate or that process messages must handle inconsistencies, like messages that arrive out of order, messages that repeatedly cause an error (often known as *poison messages*), and messages that are delivered more than once. Consider the following factors:
 
-  - Messages that require ordered processing, like updates that depend on the current data value, might not be delivered in the order that they were sent. Alternatively, different instances of a background task might also handle them in a different order because of varying loads on each instance. Messages that must be processed in a specific order should include a sequence number, key, or another indicator that background tasks can use to ensure correct processing order. If you use Service Bus, you can use message sessions to guarantee the order of delivery. But it's often more efficient, where possible, to design the process so that the message order doesn't matter.
+  - Messages that require ordered processing, like updates that depend on the current data value, might not be delivered in the order that they were sent. Alternatively, different instances of a background task might also handle them in a different order because of varying loads on each instance. Messages that must be processed in a specific order should include a sequence number, key, or another indicator that background tasks can use to ensure correct processing order. If you use Service Bus, you can use message sessions to guarantee the order of delivery. But it's often more efficient, when possible, to design the process so that the message order doesn't matter.
 
-  - A background task typically peeks at messages in the queue, which temporarily hides them from other message consumers. After the task successfully processes a message, it deletes it. If a background task fails when it processes a message, that message reappears on the queue after the peek time-out expires. Another instance of the task or the next processing cycle of this instance then processes it. If the message consistently causes an error in the consumer, it blocks the task, the queue, and eventually the application when the queue becomes full. Detect and remove poison messages from the queue. If you use Service Bus, it can move messages that cause an error automatically or you can move them manually to an associated [dead-letter queue](/azure/service-bus-messaging/service-bus-dead-letter-queues).
+  - A background task typically peeks at messages in the queue, which temporarily hides them from other message consumers. After the task successfully processes a message, it deletes it. If a background task fails when it processes a message, that message reappears on the queue after the peek timeout expires. Another instance of the task or the next processing cycle of this instance then processes it. If the message consistently causes an error in the consumer, it blocks the task, the queue, and eventually the application when the queue becomes full. Detect and remove poison messages from the queue. If you use Service Bus, it can move messages that cause an error automatically, or you can move them manually to an associated [dead-letter queue](/azure/service-bus-messaging/service-bus-dead-letter-queues).
 
   - Queues are guaranteed *at least once* delivery mechanisms, which means that a message can be delivered more than once. If a background task fails after processing a message but before deleting it from the queue, the message becomes available for processing again. All message-driven background tasks must be idempotent. For more information, see [Design for idempotency](#design-for-idempotency).
 
@@ -301,7 +301,7 @@ Background jobs run without a user present, so failures are silent unless you ac
 
 - **Track job completion, not only job start.** Log when a background job starts, completes, and fails. Include the job type, a correlation identifier that ties the job back to the triggering event or message, and the elapsed duration. Without completion tracking, a job that hangs or crashes silently appears to run normally.
 
-- **Alert on missed schedules.** For schedule-driven tasks, monitor that each expected run occurred. If a scheduled job doesn't fire, there's no error to catch because nothing ran. Compare actual run times against the expected schedule and alert when a run is missing.
+- **Alert on missed schedules.** For schedule-driven tasks, monitor that each expected run occurs. If a scheduled job doesn't fire, there's no error to catch because nothing ran. Compare actual run times against the expected schedule and alert when a run is missing.
 
 - **Monitor dead-letter queues.** Dead-lettered messages represent background work that didn't complete. Set up alerts on [dead-letter queue](/azure/service-bus-messaging/service-bus-dead-letter-queues) depth and message age so that your operations team can investigate failures, fix the underlying problem, and resubmit messages. Without monitoring, failed work accumulates silently.
 
@@ -315,7 +315,7 @@ Background tasks must keep pace with the rate at which work arrives. If tasks fa
 
 - **Scale on queue depth, not on CPU alone.** For message-driven background tasks, the most useful scaling signal is how much work waits in the queue, not how busy the current instances are. Functions, Container Apps, and AKS (via [KEDA](https://keda.sh)) all support scaling based on queue length, topic subscription count, or other event-source metrics. This approach adds capacity when work accumulates and removes capacity when queues drain.
 
-- **Use scale-to-zero for intermittent workloads.** If your background jobs run only at specific times, like nightly batch jobs or event-driven processing with idle periods, use a hosting model that scales to zero when there's no work. Functions and Container Apps Jobs can scale to zero, so you don't pay for idle compute.
+- **Use scale-to-zero for intermittent workloads.** If your background jobs run only at specific times, like nightly batch jobs or event-driven processing that has idle periods, use a hosting model that scales to zero when there's no work. Functions and Container Apps jobs can scale to zero, so you don't pay for idle compute.
 
 - **Scale background tasks independently from the application.** Host background tasks in a separate compute service so that the UI and background processing scale on different signals. If you have multiple background task types that have different throughput characteristics, consider separating them so that each type can scale independently.
 
@@ -325,7 +325,7 @@ Background tasks must keep pace with the rate at which work arrives. If tasks fa
 
 ## Next steps
 
-- [Reliability checklist for background jobs](/azure/well-architected/reliability/background-jobs)
+- [Recommendations for developing background jobs](/azure/well-architected/design-guides/background-jobs)
 - [Choose a messaging service](/azure/service-bus-messaging/compare-messaging-services)
 - [Choose an Azure compute service](../guide/technology-choices/compute-decision-tree.md)
 
