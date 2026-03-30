@@ -147,15 +147,10 @@ Other contributor:
 
 ## Next steps
 
-Product documentation:
-
 - [App Service overview](/azure/app-service/overview)
 - [API Management overview](/azure/api-management/api-management-key-concepts)
 - [Set up staging environments in App Service](/azure/app-service/deploy-staging-slots)
 - [Transform and protect your API](/azure/api-management/transform-api)
-
-Learn module:
-
 - [Explore App Service](/training/modules/introduction-to-azure-app-service/)
 
 ## Related resource

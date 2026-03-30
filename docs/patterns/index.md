@@ -53,7 +53,7 @@ Each pattern in this catalog describes the problem that it addresses, considerat
 | [Compute Resource Consolidation](./compute-resource-consolidation.yml) | Consolidate multiple tasks or operations into a single computational unit. | - Cost&nbsp;Optimization<br><br>- Operational&nbsp;Excellence<br><br>- Performance&nbsp;Efficiency |
 | [CQRS](./cqrs.md) | Separate operations that read data from those that update data by using distinct interfaces. | - Performance&nbsp;Efficiency |
 | [Deployment Stamps](./deployment-stamp.yml) | Deploy multiple independent copies of application components, including data stores. | - Operational&nbsp;Excellence<br><br>- Performance&nbsp;Efficiency |
-| [Event Sourcing](./event-sourcing.yml) | Use an append-only store to record a full series of events that describe actions taken on data in a domain. | - Reliability<br><br>- Performance&nbsp;Efficiency |
+| [Event Sourcing](./event-sourcing.md) | Use an append-only store to record a full series of events that describe actions taken on data in a domain. | - Reliability<br><br>- Performance&nbsp;Efficiency |
 | [External Configuration Store](./external-configuration-store.yml) | Move configuration information out of an application deployment package to a centralized location. | - Operational&nbsp;Excellence |
 | [Federated Identity](./federated-identity.yml) | Delegate authentication to an external identity provider. | - Reliability<br><br>- Security<br><br>- Performance&nbsp;Efficiency |
 | [Gateway Aggregation](./gateway-aggregation.yml) | Use a gateway to aggregate multiple individual requests into a single request. | - Reliability<br><br>- Security<br><br>- Operational&nbsp;Excellence<br><br>- Performance&nbsp;Efficiency |
