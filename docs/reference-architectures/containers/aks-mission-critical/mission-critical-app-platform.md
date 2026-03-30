@@ -160,7 +160,7 @@ The cluster is also configured for **automatic node image upgrades** and to scal
 
 Some components such as cert-manager and ingress-nginx require container images from external container registries. If those repositories or images are unavailable, new instances on new nodes (where the image isn't cached) might not be able to start. This risk could be mitigated by importing these images to the environment's Azure Container Registry.
 
-Durably persisting observability data is critical for mission-critical workloads because deployment stamps are ephemeral. Configure diagnostic settings to store all log and metric data in a regional Log Analytics workspace. Also, enable AKS Container Insights through an in-cluster OMS Agent. This agent allows the cluster to send monitoring data to the Log Analytics workspace.
+Durably persisting observability data is critical for mission-critical workloads because deployment stamps are ephemeral. Configure diagnostic settings to store all log and metric data in a regional Log Analytics workspace. Also, enable AKS Container Insights. Container Insights sends monitoring data to the Log Analytics workspace.
 
 > For other considerations about the compute cluster, see [Mission-critical guidance in Well-architected Framework: Container Orchestration and Kubernetes](/azure/architecture/framework/mission-critical/mission-critical-application-platform#container-orchestration-and-kubernetes).
 

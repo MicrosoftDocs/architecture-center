@@ -32,7 +32,7 @@ The geode pattern occurs in big data architectures that use commodity hardware t
 
 Services can use this pattern over dozens or hundreds of geodes. Furthermore, the resiliency of the whole solution increases with each added geode, since any geodes can take over if a regional outage takes one or more geodes offline.
 
-It's also possible to augment local availability techniques, such as availability zones or paired regions, with the geode pattern for global availability. This increases complexity, but is useful if your architecture is underpinned by a storage engine such as blob storage that can only replicate to a paired region. You can deploy geodes into an intra-zone, zonal, or regional footprint, with a mind to regulatory or latency constraints on location.
+It's also possible to augment local availability techniques, such as availability zones or paired regions, with the geode pattern for global availability. This increases complexity, but is useful if your architecture is underpinned by a storage engine such as blob storage that can only replicate to a paired region. You can deploy geodes into an zonal (single zone), multi-zone, or regional footprint, with a mind to regulatory or latency constraints on location.
 
 ## Issues and considerations
 
@@ -40,7 +40,7 @@ Use the following techniques and technologies to implement this pattern:
 
 - Modern DevOps practices and tools to produce and rapidly deploy identical geodes across a large number of regions or instances.
 - Autoscaling to scale out compute and database throughput instances within a geode. Each geode individually scales out, within the common backplane constraints.
-- A front-end service like Azure Front Door that does dynamic content acceleration, split TCP, and Anycast routing.
+- A front-end service like Azure Front Door that does dynamic content acceleration, [routing through an optimal point of presence](/azure/frontdoor/front-door-traffic-acceleration), and [Split TCP](/azure/frontdoor/front-door-traffic-acceleration#connect-to-the-front-door-edge-location-split-tcp).
 - A replicating data store like Azure Cosmos DB to control data consistency.
 - Serverless technologies where possible, to reduce always-on deployment cost, especially when load is frequently rebalanced around the globe. This strategy allows for many geodes to be deployed with minimal additional investment. Serverless and consumption-based billing technologies reduce waste and cost from duplicate geo-distributed deployments.
 - API Management isn't required to implement the design pattern, but can be added to each geode that fronts the region's Azure Function App to provide a more robust API layer, enabling the implementation of additional functionality like rate limiting, for instance.

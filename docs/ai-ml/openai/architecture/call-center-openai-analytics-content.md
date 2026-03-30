@@ -92,7 +92,7 @@ For more information, see the following resources:
 
 - [Azure OpenAI pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service)
 - [Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs)
-- [Language pricing](https://azure.microsoft.com/pricing/details/language/)
+- [Language in Foundry Tools pricing](https://azure.microsoft.com/pricing/details/language/)
 - [Azure Machine Learning pricing](https://azure.microsoft.com/pricing/details/machine-learning)
 
 Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate your solution cost.

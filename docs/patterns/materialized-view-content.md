@@ -46,7 +46,7 @@ This pattern is useful when:
 - Simplifying queries and exposing data for experimentation in a way that doesn't require knowledge of the source data format. For example, by joining different tables in one or more databases, or one or more domains in NoSQL stores, and then formatting the data to fit its eventual use.
 - Providing access to specific subsets of the source data that, for security or privacy reasons, shouldn't be generally accessible, open to modification, or fully exposed to users.
 - Bridging different data stores, to take advantage of their individual capabilities. For example, using a cloud store that's efficient for writing as the reference data store, and a relational database that offers good query and read performance to hold the materialized views.
-- When you use microservices, you are recommended to keep them loosely coupled, including their data storage. Therefore, materialized views can help you consolidate data from your services. If materialized views are not appropriate in your microservices architecture or specific scenario, please consider having well-defined boundaries that align to [domain driven design (DDD)](../microservices/model/tactical-ddd.yml) and aggregate their data when requested.
+- When you use microservices, you are recommended to keep them loosely coupled, including their data storage. Therefore, materialized views can help you consolidate data from your services. If materialized views are not appropriate in your microservices architecture or specific scenario, please consider having well-defined boundaries that align to [domain driven design (DDD)](../microservices/model/tactical-domain-driven-design.md) and aggregate their data when requested.
 
 This pattern isn't useful in the following situations:
 
@@ -83,5 +83,5 @@ Creating this materialized view requires complex queries. However, by exposing t
 The following patterns might also be relevant when implementing this pattern:
 
 - [Command and Query Responsibility Segregation (CQRS) pattern](./cqrs.md). Use to update the information in a materialized view by responding to events that occur when the underlying data values change.
-- [Event Sourcing pattern](./event-sourcing.yml). Use in conjunction with the CQRS pattern to maintain the information in a materialized view. When the data values a materialized view is based on are changed, the system can raise events that describe these changes and save them in an event store.
+- [Event Sourcing pattern](./event-sourcing.md). Use in conjunction with the CQRS pattern to maintain the information in a materialized view. When the data values a materialized view is based on are changed, the system can raise events that describe these changes and save them in an event store.
 - [Index Table pattern](./index-table.yml). The data in a materialized view is typically organized by a primary key, but queries might need to retrieve information from this view by examining data in other fields. Use to create secondary indexes over data sets for data stores that don't support native secondary indexes.

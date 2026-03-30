@@ -115,7 +115,3 @@ Learn modules:
 - [Explore Azure App Service](/training/modules/introduction-to-azure-app-service/)
 - [Deploy a website to Azure with Azure App Service](/training/paths/deploy-a-website-with-azure-app-service/)
 - [Protect your APIs on Azure API Management](/training/modules/protect-apis-on-api-management/)
-
-## Related resource
-
-- [Design great API developer experiences using API Management and GitHub](../../example-scenario/web/design-api-developer-experiences-management-github.yml)

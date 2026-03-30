@@ -108,7 +108,7 @@ This architecture uses the following components:
   - Ultra Disks
   - Premium SSD Managed Disks
   - Standard SSD Managed Disks
-  - Standard hard disk drives (HDD) Managed Disks
+  - Standard HDDs Managed Disks
 
   Premium SSDs or Ultra Disks work best with this architecture.
 
@@ -280,7 +280,6 @@ Principal author:
 - Reference architectures:
 
   - [Unisys mainframe migration to Azure using Avanade AMT][Unisys mainframe migration]
-  - [Micro Focus Enterprise Server on Azure VMs][Micro Focus Enterprise Server on Azure VMs]
   - [Modernize mainframe & midrange data][Modernize mainframe & midrange data]
 
 [Astadia]: https://www.astadia.com/
@@ -304,7 +303,6 @@ Principal author:
 [Mainframe rehosting on Azure virtual machines]: /azure/virtual-machines/workloads/mainframe-rehosting/overview
 [Managed Disks pricing]: https://azure.microsoft.com/pricing/details/managed-disks/
 [Micro Focus]: https://www.microfocus.com/home
-[Micro Focus Enterprise Server on Azure VMs]: ./micro-focus-server.yml
 [Modernize mainframe & midrange data]: /azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure
 [Overview of the performance efficiency pillar]: /azure/architecture/framework/scalability/overview
 [Pricing calculator]: https://azure.microsoft.com/pricing/calculator/

@@ -53,7 +53,7 @@ Azure SQL Database and SQL Server support optimistic concurrency through [snapsh
 [cqrs-pattern]: ../../patterns/cqrs.md
 [cosmos-db-faq]: /azure/cosmos-db/faq
 [domain-event]: https://martinfowler.com/eaaDev/DomainEvent.html
-[event-sourcing]: ../../patterns/event-sourcing.yml
+[event-sourcing]: ../../patterns/event-sourcing.md
 [leader-election]: ../../patterns/leader-election.yml
 [sas-pattern]: ../../patterns/scheduler-agent-supervisor.yml
 [sql-snapshot-isolation]: /sql/t-sql/statements/set-transaction-isolation-level-transact-sql

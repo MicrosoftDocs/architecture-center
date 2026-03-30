@@ -146,7 +146,7 @@ This guide covers the most common considerations when you choose an Azure contai
 
 Many workload teams choose an Azure container service based solely on whether they prefer either PaaS or IaaS. Other teams need to investigate further to determine how service-specific features address workload or organizational requirements.
 
-Use this guide to carefully evaluate your options and avoid making decisions that are difficult to reverse. However, no decision is final until developers try the service and evaluate it based on hands-on experience instead of theory.
+Use this guide to carefully evaluate your options and avoid making decisions that are difficult to reverse. However, no decision is final until developers try the service and evaluate it based on practical experience instead of theory.
 
 ## Contributors
 

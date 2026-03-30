@@ -45,7 +45,7 @@ Events have two categories:
 
 - **Event streams:** The producer raises a sequence of related events over time. Consumers typically evaluate streams for statistical purposes, either within a temporal window or as events arrive. Telemetry is a common use case, like monitoring the health and load of a system. Another use case includes event streaming from Internet of Things (IoT) devices.
 
-You can implement event messaging by using the [Publisher-Subscriber pattern](../../patterns/publisher-subscriber.yml).
+You can implement event messaging by using the [Publisher-Subscriber pattern](../../patterns/publisher-subscriber.md).
 
 :::image type="complex" source="./images/event-pull.png" border="false" lightbox="./images/event-pull.png" alt-text="Diagram of the Publisher-Subscriber pattern for event messaging.":::
 A publisher sends messages to a central message component, which then delivers those messages to two subscribers, labeled subscriber A and subscriber B.

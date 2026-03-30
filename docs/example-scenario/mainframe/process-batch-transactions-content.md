@@ -43,7 +43,7 @@ The numbered circles in the diagram correspond to the numbered steps in the foll
 
 - [Load Balancer](/azure/well-architected/service-guides/azure-load-balancer) is a load balancing service that provides low-latency layer-4 (TCP, UDP) load balancing capabilities to balance traffic between VMs, and across multitiered hybrid apps. In this architecture, Load Balancer distributes incoming traffic among healthy batch processing instances to optimize performance.
 
-- [Azure managed disks](/azure/virtual-machines/managed-disks-overview) are high-performance, highly durable block storage volumes for VMs. There are three disk storage options for the cloud: Azure Ultra Disk Storage, Azure Premium SSD, and Azure Standard SSD. In this architecture, Azure managed disks provide persistent storage for batch processing applications and temporary data.
+- [Azure Managed Disks](/azure/virtual-machines/managed-disks-overview) are high-performance, highly durable block storage volumes for VMs. There are three disk storage options for the cloud: Azure Ultra Disk Storage, Azure Premium SSD, and Azure Standard SSD. In this architecture, Azure Managed Disks provide persistent storage for batch processing applications and temporary data.
 
 - [Azure network interface](/azure/networking/fundamentals/networking-overview) is a component that connects a VM to the internet and to Azure and on-premises resources. You can give each child VM its own network interface and IP address. In this architecture, network interfaces enable connectivity between batch processing VMs and the Service Bus messaging system. For more information about network interfaces, see [Create, change, or delete a network interface](/azure/virtual-network/virtual-network-network-interface).
 
@@ -146,9 +146,11 @@ Performance Efficiency is the ability of your workload to scale to meet the dema
 ## Related resources
 
 - Techniques used in this architecture:
-  - [Azure Service Bus Geo-disaster recovery](/azure/service-bus-messaging/service-bus-geo-dr).
-  - [Use geo-redundancy to design highly available applications](/azure/storage/common/geo-redundant-design?tabs=current).
+
+  - [Azure Service Bus Geo-disaster recovery](/azure/service-bus-messaging/service-bus-geo-dr)
+  - [Use geo-redundancy to design highly available applications](/azure/storage/common/geo-redundant-design?tabs=current)
   - [What are ARM templates?](/azure/azure-resource-manager/templates/overview)
-- Azure reference architectures:
-  - [Micro Focus Enterprise Server on Azure VMs](./micro-focus-server.yml).
-  - [Unisys mainframe migration](../../reference-architectures/migration/unisys-mainframe-migration.yml).
+
+- Azure reference architecture:
+
+  - [Unisys mainframe migration](../../reference-architectures/migration/unisys-mainframe-migration.yml)

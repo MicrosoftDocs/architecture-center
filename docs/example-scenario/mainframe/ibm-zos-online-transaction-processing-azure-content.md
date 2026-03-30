@@ -54,7 +54,7 @@ The following diagram shows how to migrate this architecture to Azure.
 
 ### Components
 
-This architecture consists of several Azure cloud services. It's divided into four categories of resources: networking and identity, application, storage, and monitoring. The following sections describe the services for each resource and their roles.
+This architecture consists of several Azure services. It's divided into four categories of resources: networking and identity, application, storage, and monitoring. The following sections describe the services for each resource and their roles.
 
 #### Networking and identity
 
@@ -208,7 +208,6 @@ See the following related architectures and related technical information.
 
 - [High-volume batch transaction processing](./process-batch-transactions.yml)
 - [IBM z/OS mainframe migration by using Avanade AMT](./avanade-amt-zos-migration.yml)
-- [Micro Focus Enterprise Server on Azure VMs](./micro-focus-server.yml)
 - [Replicate and sync mainframe data in Azure](../../reference-architectures/migration/sync-mainframe-data-with-azure.yml)
 
 ### Related technical information

@@ -4,7 +4,7 @@ description: Implement the Reliable Web App pattern for Java. Get essential guid
 author: nishanil
 ms.author: nanil
 ms.reviewer: ssumner
-ms.date: 10/15/2024
+ms.date: 03/23/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
@@ -123,7 +123,7 @@ The following list provides guidance to select the right Azure services for your
 
   - *Routing flexibility:* It allows the application team to configure ingress needs to support future changes in the application.
 
-  - *Traffic acceleration:* It uses anycast routing to reach the nearest Azure point of presence and find the fastest route to the web app.
+  - *Traffic acceleration:* It routes traffic to an optimal point of presence to find the fastest route to the web app.
 
   - *Custom domains:* It supports custom domain names with flexible domain validation.
 
@@ -213,7 +213,7 @@ Use [Spring Cloud Circuit Breaker](https://docs.spring.io/spring-cloud-circuitbr
 
 - *Use an identity platform.* Use the [Microsoft identity platform for developers](/entra/identity-platform/v2-overview) to [set up web app authentication](/entra/identity-platform/index-web-app). This platform supports applications that use a single Microsoft Entra directory, multiple Microsoft Entra directories from different organizations, and Microsoft identities or social accounts.
 
-  The [Spring Boot Starter for Microsoft Entra ID](/azure/developer/java/spring-framework/spring-boot-starter-for-entra-developer-guide uses [Spring Security](/azure/developer/java/spring-framework/spring-security-support) and Spring Boot to ensure easy configuration and integration. It provides various authentication flows, automatic token management, customizable authorization policies, and integration capabilities with Spring Cloud components. This tool enables straightforward Microsoft Entra ID and OAuth 2.0 integration into Spring Boot applications without manual library or settings configuration.
+  The [Spring Boot Starter for Microsoft Entra ID](/azure/developer/java/spring-framework/spring-boot-starter-for-entra-developer-guide) uses [Spring Security](/azure/developer/java/spring-framework/spring-security-support) and Spring Boot to ensure easy configuration and integration. It provides various authentication flows, automatic token management, customizable authorization policies, and integration capabilities with Spring Cloud components. This tool enables straightforward Microsoft Entra ID and OAuth 2.0 integration into Spring Boot applications without manual library or settings configuration.
 
   The reference implementation uses the Microsoft identity platform (Microsoft Entra ID) as the identity provider for the web app. It uses the [OAuth 2.0 authorization code grant](/entra/identity-platform/v2-oauth2-auth-code-flow) to sign in a user who has a Microsoft Entra account. The following XML snippet defines the two required dependencies of the OAuth 2.0 authorization code grant flow. The dependency `com.azure.spring: spring-cloud-azure-starter-active-directory` enables Microsoft Entra authentication and authorization in a Spring Boot application. The dependency `org.springframework.boot: spring-boot-starter-oauth2-client` enables OAuth 2.0 authentication and authorization in a Spring Boot application.
 

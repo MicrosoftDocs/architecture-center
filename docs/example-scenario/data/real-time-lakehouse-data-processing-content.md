@@ -35,7 +35,7 @@ This article describes an end-to-end solution for near real-time data processing
 
 1. Power BI uses the data that's exposed through the dedicated SQL pool to build enterprise-grade dashboards and reports.
 
-1. You can also use captured raw data in Data Lake Store and the validated data in the Delta format for the following tasks:
+1. You can also use captured raw data in Data Lake Storage and the validated data in the Delta format for the following tasks:
 
    - Unplanned and exploratory analysis through Azure Synapse Analytics serverless SQL pools
 
@@ -111,7 +111,7 @@ Reliability helps ensure that your application can meet the commitments that you
 
 - Event Hubs provides 90-day data retention on the premium and dedicated tiers. For failover scenarios, you can set up a secondary namespace in the paired region and activate it during failover. Enable zone redundancy to ensure resilience against datacenter failures. You can use the Event Hubs capture feature to persist data to Data Lake Storage for replay and recovery scenarios.
 
-- Azure Synapse Analytics Spark pool jobs are recycled every seven days as nodes are taken down for maintenance. Consider this activity as you work through the service-level agreements (SLAs) tied to the system. This limitation isn't a problem for many scenarios where the recovery time objective (RTO) is around 15 minutes. Ensure autoscaling is configured to handle load spikes and node failures.
+- Azure Synapse Analytics Spark pool jobs are recycled every seven days as nodes are taken down for maintenance. Consider this activity as you work through the service-level objectives (SLOs) tied to the system. This limitation isn't a problem for many scenarios where the recovery time objective (RTO) is around 15 minutes. Ensure autoscaling is configured to handle load spikes and node failures.
 
 - Use dedicated SQL pools that have geo-backup and zone-redundant storage (ZRS) to protect against regional and zone outages.
 
@@ -185,5 +185,5 @@ Other contributor:
 
 ## Related resources
 
-- [Databases architecture design](../../databases/index.yml)
+- [Get started with database architecture design](../../databases/database-get-started.md)
 - [Analytics architecture design](../../solution-ideas/articles/analytics-get-started.md)
