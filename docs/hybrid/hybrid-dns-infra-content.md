@@ -118,7 +118,7 @@ On-premises systems might need name resolution for workloads that you deploy in 
 
 ## Multiregional design
 
-Microsoft recommends spreading workloads across multiple regions to increase their resiliency to regional catastrophic events, and DNS resolution is no exception. If your Azure Landing Zone is spread out over two or more regions, you should deploy an Azure DNS Private Resolver in each region. In this case, on-premises DNS servers should have forwarding rules that include the firewalls (or the private resolver inbound endpoints) of both locations for resiliency, so that even in the case of an Azure regional failure they are able to resolve Azure DNS names.
+Microsoft recommends spreading workloads across multiple regions to increase their resiliency to regional catastrophic events, and DNS resolution is no exception. If your platform landing zone is spread out over two or more regions, you should deploy an Azure DNS Private Resolver in each region. In this case, on-premises DNS servers should have forwarding rules that include the firewalls (or the private resolver inbound endpoints) of both locations, so that even in the case of an Azure regional failure they are able to resolve Azure DNS names.
 
 However, there is a required design decision concerning whether you will use global or regional private DNS zones. This question is intimately related with your [Private Link](/azure/private-link/private-link-overview) design.
 
@@ -170,7 +170,11 @@ Although this approach might seem intuitive, it is fraught with a high degree of
 
   - BIND servers with a version lower than 9.4, CoreDNS and Windows DNS servers will query the upstream DNS servers in order: they will only use a DNS server configured in a conditional forwarding rule if all of the previous servers in the list are unreachable. Consequently, the DNS resolution when using these DNS servers is predictable, returning the records configured in the private DNS zone closest to the on-premises DNS server under normal circumstances.
     Windows Server 2012 introduced Dynamic Forwarder Reordering, where the server reorders forwarders by measured response times. However, this can be disabled using PowerShell (`Set-DnsServerForwarder -EnableReordering $False`) to enforce strict sequential use of the listed order.
+
+    Windows Server introduced Dynamic Forwarder Reordering, where the server reorders forwarders by measured response times. However, this can be disabled using PowerShell (`Set-DnsServerForwarder -EnableReordering $False`) to enforce strict sequential use of the listed order.
+
     CoreDNS uses a round-robin distribution by default, but it can also be configured to use a deterministic order by setting the policy in the forward plugin to `sequential`.
+
   - Other DNS servers such as modern BIND (version 9.4 or higher) or Infoblox prefer the servers with the lowest latency. To that purpose they send a fraction of the DNS requests to all target servers configured in their forwarding rules to measure their response times. This means that some on-premises name resolutions will be forwarded to a different Azure region, potentially returning a different IP address, hence making on-premises name resolution not deterministic.
   - Finally, some DNS servers such as dnsmasq support sending parallel queries to multiple servers (with the `--all-servers` option) and taking the answer that arrives first, although this behavior is also configurable.
 
