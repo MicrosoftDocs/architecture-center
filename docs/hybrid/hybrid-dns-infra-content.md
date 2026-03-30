@@ -4,7 +4,7 @@ This reference architecture describes how to design a hybrid DNS solution to res
 
 ## Architecture
 
-:::image type="complex" border="false" source="./images/hybrid-dns-infrastructure.svg" alt-text="Diagram that shows a hybrid DNS." lightbox="./images/hybrid-dns-infrastructure.svg":::
+:::image type="complex" border="false" source="./images/hybrid-dns-infrastructure.png" alt-text="Diagram that shows a hybrid DNS." lightbox="./images/hybrid-dns-infrastructure.png":::
    The diagram shows a hybrid DNS architecture. It includes three subscriptions: on-premises, connectivity, and workload. The on-premises section on the left includes DNS servers and on-premises VPN/Azure ExpressRoute termination. A double-sided arrow points from on-premises VPN/ExpressRoute termination to VPN/ExpressRoute gateway in the gateway subnet (10.0.1.0/27). The connectivity subscription in the center includes two main sections: the shared services virtual network (10.1.0.0/16) and the hub virtual network (10.0.0.0/16). A double-sided arrow labeled DNS virtual network link points from Azure private DNS zone to the shared services virtual network. Two double-sided arrows point from the forwarding ruleset and DNS Private Resolver to the outbound endpoint (10.1.0.0/26). Another double-sided arrow points from Azure DNS Private Resolver to the inbound endpoint (10.1.0.64/26). Virtual network peering connects the virtual networks. The hub virtual network includes the gateway subnet and Azure Firewall subnets. The gateway subnet includes the VPN/ExpressRoute gateway. The Azure Firewall subnet (10.0.1.64/26) includes the Azure Firewall DNS server (10.1.0.4). The workload subscription on the right has two parts: the workload subnet (10.2.1.0/24) enclosed in the spoke virtual network (10.2.0.0/16) and custom DNS servers (10.0.1.68).
 :::image-end:::
 
@@ -32,7 +32,7 @@ This reference architecture describes how to design a hybrid DNS solution to res
 
     - [Virtual network peering](/azure/virtual-network/virtual-network-peering-overview) is a connection between two virtual networks that lets resources communicate privately. In this architecture, peerings connect spoke virtual networks to the hub and grant them connectivity to the rest of the environment. You must set up virtual network peering to use the virtual network gateway (VPN or ExpressRoute) in the hub so that the gateway propagates the workload and shared services virtual network IP address prefixes to on-premises.
 
-  - [DNS Private Resolver](/azure/dns/dns-private-resolver-overview) is a Microsoft-managed service that provides DNS resolution in Azure, including conditional forwarding of DNS requests to other DNS servers. In this architecture, it handles DNS resolution between Azure and on-premises environments without requiring you to manage the underlying operating system.
+  - [DNS Private Resolver](/azure/dns/dns-private-resolver-overview) is a Microsoft-managed service that provides DNS resolution in Azure, including conditional forwarding of DNS requests to other DNS servers. In this architecture, it handles DNS resolution between Azure and on-premises environments without requiring you to manage the underlying operating system. The DNS Private Resolver is already highly available as described in [Resiliency in Azure DNS Private Resolver](/azure/dns/private-resolver-reliability), so you only need to deploy one instance per region.
 
     - [DNS forwarding rulesets](/azure/dns/private-resolver-endpoints-rulesets#dns-forwarding-rulesets) are collections of rules that define which name domains forward to which external DNS servers. In this architecture, the rulesets include all on‑premises domains and the IP addresses of the on‑premises DNS servers as forwarding targets. You link forwarding rulesets to virtual networks to provide external DNS resolution. The previous diagram shows the [centralized DNS architecture](/azure/dns/private-resolver-architecture) for external name resolution with DNS Private Resolver. This architecture requires linking the forwarding ruleset to the virtual network where the private resolver is deployed, which is the shared services virtual network in this architecture.
 
@@ -86,7 +86,7 @@ This section explains how hybrid resolution flows work in two main cases:
 
 Azure VMs might need to access on-premises systems like database or monitoring applications. They must be able to resolve domain names for which the authoritative servers are the on-premises DNS servers. This flow has different scenarios, as the following image shows.
 
-:::image type="complex" border="false" source="./images/hybrid-dns-infrastructure-outbound.svg" alt-text="Diagram that shows hybrid resolution from Azure to on-premises." lightbox="./images/hybrid-dns-infrastructure-outbound.svg":::
+:::image type="complex" border="false" source="./images/hybrid-dns-infrastructure-outbound.png" alt-text="Diagram that shows hybrid resolution from Azure to on-premises." lightbox="./images/hybrid-dns-infrastructure-outbound.png":::
    Diagram that shows hybrid resolution from Azure to on-premises. It includes three main subscriptions: on-premises, connectivity, and workload. The on-premises section on the left includes DNS servers and on-premises VPN/ExpressRoute termination. The connectivity subscription in the center includes two main sections: the shared services virtual network and the hub virtual network. A double-sided arrow labeled DNS virtual network link points from Azure private DNS zone to the shared services virtual network. Two double-sided arrows point from the forwarding ruleset and DNS Private Resolver to the outbound endpoint (10.1.0.0/26). Another double-sided arrow points from DNS Private Resolver to the inbound endpoint (10.1.0.64/26). Virtual network peering connects the virtual networks. The hub virtual network includes both the gateway and Azure Firewall subnets. The gateway subnet (10.0.1.0/27) includes the VPN or ExpressRoute gateway. The Azure Firewall subnet, which uses the address range 10.0.1.64 to 10.0.1.127, contains the Azure Firewall at 10.0.1.68. The firewall is configured to use a DNS server at 10.1.0.4 in the shared services virtual network, and the firewall's IP address, 10.0.1.68, is set as the custom DNS server for the spoke or workload virtual network. The workload subscription on the right has two parts: the workload subnet (10.2.1.0/24) enclosed in the spoke virtual network (10.2.0.0/16) and custom DNS servers (10.0.1.68). There are four steps in the diagram. In step 1, an arrow points from the workload in the workload subscription section to Azure Firewall in the hub virtual network. In step 2, an arrow points from the Azure Firewall subnet to the inbound endpoint in the shared services virtual network. In step 3, an arrow points from the outbound endpoint to the DNS servers in the on-premises section. The DNS servers are labeled step 4.
 :::image-end:::
 
@@ -104,7 +104,7 @@ The previous model in this article uses the IP address of the inbound endpoint a
 
 On-premises systems might need name resolution for workloads that you deploy in Azure or for private endpoints of Azure PaaS services. This name resolution follows this workflow.
 
-:::image type="complex" border="false" source="./images/hybrid-dns-infrastructure-inbound.svg" alt-text="Diagram that shows hybrid resolution from on-premises to Azure." lightbox="./images/hybrid-dns-infrastructure-inbound.svg":::
+:::image type="complex" border="false" source="./images/hybrid-dns-infrastructure-inbound.png" alt-text="Diagram that shows hybrid resolution from on-premises to Azure." lightbox="./images/hybrid-dns-infrastructure-inbound.png":::
   Diagram that shows hybrid resolution from on-premises to Azure. The architecture includes three main subscription sections: on-premises, connectivity, and workload. The on-premises section on the left includes a workload, DNS servers, and on-premises VPN or ExpressRoute termination. In step 1, an arrow points from the workload to the DNS servers. In step 2, an arrow points from DNS servers to the Azure Firewall subnet in the hub virtual network. The connectivity subscription in the center includes two main sections: the shared services virtual network and the hub virtual network. A double-sided arrow labeled DNS virtual network link points from Azure private DNS zone to the shared services virtual network. Two double-sided arrows point from the forwarding ruleset and DNS Private Resolver to the outbound endpoint (10.1.0.0/26). Another double-sided arrow points from DNS Private Resolver to the inbound endpoint (10.1.0.64/26). The hub virtual network includes the gateway subnet and Azure Firewall subnet. The gateway subnet (10.0.1.0/27) includes the VPN or ExpressRoute gateway. The Azure Firewall subnet (10.0.1.64/26) includes the Azure Firewall DNS server (10.1.0.4). Virtual network peering connects the shared services virtual network and the hub virtual network. In step 3, an arrow points from the Azure Firewall subnet to the inbound endpoint in the shared services virtual network. In step 4, DNS Private Resolver resolves queries for any private DNS zone linked to the virtual network where it's deployed. The workload subscription on the right has two parts: the workload subnet (10.2.1.0/24) enclosed in the spoke virtual network (10.2.0.0/16) and custom DNS servers (10.0.1.68).
 :::image-end:::
 
@@ -115,6 +115,64 @@ On-premises systems might need name resolution for workloads that you deploy in 
 1. The Azure Firewall forwards the DNS query to the Azure DNS Private Resolver inbound enpoint's IP address (`10.1.0.68`).
 
 1. The Azure DNS Private Resolver will resolve the domain name if it matches one of the Azure private DNS zones linked with its virtual network.
+
+## Multiregional design
+
+Microsoft recommends spreading workloads across multiple regions to increase their resiliency to regional catastrophic events, and DNS resolution is no exception. If your Azure Landing Zone is spread out over two or more regions, you should deploy an Azure DNS Private Resolver in each region. In this case, on-premises DNS servers should have forwarding rules that include the firewalls (or the private resolver inbound endpoints) of both locations for resiliency, so that even in the case of an Azure regional failure they are able to resolve Azure DNS names.
+
+However, there is a required design decision concerning whether you will use global or regional private DNS zones. This question is intimately related with your [Private Link](/azure/private-link/private-link-overview) design.
+
+### Global private DNS zones
+
+The most simple and recommended design is using a single private DNS zone across all your Azure regions. Azure private DNS zones are global resources not attached to any region in particular, so even in a catastrophic Azure regional failure private, private DNS zones should continue to operate. The following diagram describes this design:
+
+:::image type="complex" border="false" source="./images/hybrid-dns-infrastructure-multiregion-single-zone.png" alt-text="Diagram that shows hybrid DNS infrastructure with two on-premises locations, two Azure regions and one single private DNS zone." lightbox="./images/hybrid-dns-infrastructure-multiregion-single-zone.png":::
+:::image-end:::
+
+The main benefit of this design is its simplicity and consistency:
+
+- Automating the registration of private endpoints to private DNS zones with Azure Policy as described in [Private Link and DNS integration at scale](/azure/cloud-adoption-framework/ready/azure-best-practices/private-link-and-dns-integration-at-scale) is relatively simple.
+
+- All DNS private resolvers will use the same private DNS zones, so domain resolutions from Azure and on-premises will consistently deliver the same result.
+
+However, this approach also has some inconvenients:
+
+- In the case of a catastrophic Azure regional failure, you might lose administrative access to some private DNS zones. Even if the private DNS zones are global resources, they need to be deployed in an Azure resource group associated to a specific region, which is where all metadata for the resources contained in the resource group will be stored. In the extremely unlikely event that Azure Resource Manager (ARM) in that region became unavailable, you might not able to operate your private DNS zones to view metrics or perform administrative changes. You can mitigate this risk with disaster recovery runbooks that describe how to build the private DNS zones in a different region if this situation occurs.
+
+- Some Azure PaaS services that support multiregional access recommend havinng multiple regional private endpoints associated to the same domain, which in practice means that you would also need as many private DNS zones. Exmaples of these services include:
+
+   - Cosmos DB: [Failover considerations for Azure Cosmos DB accounts with private endpoints](/azure/cosmos-db/failover-considerations-for-private-endpoints).
+   - Azure Storage (geo-redundant): [Failover considerations for storage accounts with private endpoints](/storage/common/storage-failover-private-endpoints).
+
+  Other multiregional PaaS services include the region code in each regional endpoint domain, so they don't require multiple DNS zones. Examples of these services include:
+
+   - Azure Backup Recovery Services Vaults use the zone `privatelink.{region}.backup.windowsazure.com`.
+   - Azure Data Explorer clusters use the zone `privatelink.{region}.kusto.windows.net`.
+
+In spite of these inconvenients, Microsoft's overall recommendation is to use global private DNS zone whenever possible.
+
+### Regional private DNS zones
+
+In certain situations you might want to maintain separate private DNS zones in each region, as the following diagram shows:
+
+:::image type="complex" border="false" source="./images/hybrid-dns-infrastructure-multiregion-multizone.png" alt-text="Diagram that shows hybrid DNS infrastructure with two on-premises locations, two Azure regions and one a private DNS zone per region." lightbox="./images/hybrid-dns-infrastructure-multiregion-multizone.png":::
+:::image-end:::
+
+Although this approach might seem intuitive, it is fraught with a high degree of complexity:
+
+- On-premises DNS forwarders will only ask one DNS private resolver for a given domain. Consequently, this DNS private resolver needs to be able to resolve all records for the zones it owns. This means that you need to make sure that all different private DNS zones are consistent with each other. Microsoft private DNS zones do not offer a replication service, so you need to replicate the DNS records yourself. This can be ideally achieved in your infrastructure deployment pipelines with Infrastructure-as-Code (IaC), or with post-deployment scripts that make sure that all DNS zones stay consistent.
+
+- If you need different DNS zones to return different records, for example as described in [Failover considerations for Azure Cosmos DB accounts with private endpoints](/azure/cosmos-db/failover-considerations-for-private-endpoints) and [Failover considerations for storage accounts with private endpoints](/storage/common/storage-failover-private-endpoints), resolution from on-premises might not be consistent. The reason is that not all DNS servers behave in the same way when dealing with forwarding rules that have more than one target DNS server:
+
+  - BIND servers with a version lower than 9.4, CoreDNS and Windows DNS servers will query the upstream DNS servers in order: they will only use a DNS server configured in a conditional forwarding rule if all of the previous servers in the list are unreachable. Consequently, the DNS resolution when using these DNS servers is predictable, returning the records configured in the private DNS zone closest to the on-premises DNS server under normal circumstances.
+    Windows Server 2012 introduced Dynamic Forwarder Reordering, where the server reorders forwarders by measured response times. However, this can be disabled using PowerShell (`Set-DnsServerForwarder -EnableReordering $False`) to enforce strict sequential use of the listed order.
+    CoreDNS uses a round-robin distribution by default, but it can also be configured to use a deterministic order by setting the policy in the forward plugin to `sequential`.
+  - Other DNS servers such as modern BIND (version 9.4 or higher) or Infoblox prefer the servers with the lowest latency. To that purpose they send a fraction of the DNS requests to all target servers configured in their forwarding rules to measure their response times. This means that some on-premises name resolutions will be forwarded to a different Azure region, potentially returning a different IP address, hence making on-premises name resolution not deterministic.
+  - Finally, some DNS servers such as dnsmasq support sending parallel queries to multiple servers (with the `--all-servers` option) and taking the answer that arrives first, although this behavior is also configurable.
+
+It is important to understand that a DNS server will move on to the next server in the list of forwarding targets only if the upstream DNS server is not reachable, but not if it returns NXDOMAIN (the requested domain does not exist) or SERVFAIL (something went wrong during the resolution process) responses. 
+
+Due to this complexity and the dependencies with the DNS server implementation, Microsoft recommends using the single-zone design whenever possible. 
 
 ## Recommendations
 
@@ -139,6 +197,10 @@ This mechanism lets you control name resolution when you deploy an Azure private
 When you set up a virtual network link by using a private DNS zone, you can optionally turn on [autoregistration for all VMs](/azure/dns/private-dns-autoregistration). When you use DNS private zone autoregistration, new VMs automatically create DNS records in the private DNS zone so that other systems in Azure and on‑premises can resolve their names.
 
 Azure private DNS zone autoregistration is especially useful for Linux VMs because Linux doesn't provide built-in mechanisms that automatically register their IP addresses in a DNS server. In on-premises environments, Dynamic Host Configuration Protocol (DHCP) servers often provide this automatic registration of all systems in DNS, but Azure virtual networks don't support DHCP.
+
+### Use global private DNS zones
+
+For simplicity reasons global private DNS zones are recommended in multiregion environments. This will simplify the operations of the DNS infrastructure, although it requires creating disaster recovery runbooks that describe how to restore DNS in the unlikely event of losing administrative access. 
 
 ## Considerations
 
