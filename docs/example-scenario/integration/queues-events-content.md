@@ -10,7 +10,7 @@ The back-end systems that this design references include software as a service (
 
 ### Scenario details
 
-The preceding architecture builds on the simpler [basic enterprise integration architecture][basic-enterprise-integration] that uses [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) to orchestrate workflows directly with back-end systems and uses [Azure API Management](/azure/api-management) to create catalogs of APIs.
+The preceding architecture builds on the [basic enterprise integration architecture][basic-enterprise-integration]. It uses [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) to orchestrate workflows directly with back-end systems and uses [Azure API Management](/azure/api-management) to create catalogs of APIs.
 
 This version of the architecture adds two components that help make the system more reliable and scalable:
 
@@ -94,7 +94,7 @@ Consider network security throughout your design.
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs. Here are some other considerations.
+Use the [Azure pricing calculator](https://azure.com/e/2890122cb1d34ffe916e34e3a3744dac) to estimate costs. Here are some other considerations.
 
 #### API Management
 
