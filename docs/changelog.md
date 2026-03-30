@@ -85,7 +85,7 @@ The following new and updated articles have recently been published in the Azure
 - [Baseline Highly Available Zone-Redundant App Services Web Application](./web-apps/app-service/architectures/baseline-zone-redundant.yml) ([#484478be40](https://github.com/MicrosoftDocs/architecture-center/commit/484478be40))
 - [IoT Hub-Based Multitenant Solution Architectural Approaches](./guide/multitenant/approaches/iot.md) ([#d856bcf43a](https://github.com/MicrosoftDocs/architecture-center/commit/d856bcf43a))
 - [Use Domain Analysis to Model Microservices](./microservices/model/domain-analysis.md) ([#d677ad0868](https://github.com/MicrosoftDocs/architecture-center/commit/d677ad0868))
-- [Choreography pattern](./patterns/choreography.yml) ([#d677ad0868](https://github.com/MicrosoftDocs/architecture-center/commit/d677ad0868))
+- [Choreography pattern](./patterns/choreography.md) ([#d677ad0868](https://github.com/MicrosoftDocs/architecture-center/commit/d677ad0868))
 - [Greenfield Lakehouse on Microsoft Fabric](./example-scenario/data/greenfield-lakehouse-fabric.yml) ([#c5864e12e3](https://github.com/MicrosoftDocs/architecture-center/commit/c5864e12e3))
 - [Build and Deploy Custom Document Processing Models on Azure](./ai-ml/architecture/build-deploy-custom-models.yml) ([#2542b61a21](https://github.com/MicrosoftDocs/architecture-center/commit/2542b61a21))
 - [Overview of Microsoft Machine Learning Products and Technologies](./ai-ml/guide/data-science-and-machine-learning.md) ([#2542b61a21](https://github.com/MicrosoftDocs/architecture-center/commit/2542b61a21))

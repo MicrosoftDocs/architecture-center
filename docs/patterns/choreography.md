@@ -1,50 +1,46 @@
-```
+---
 title: Choreography Pattern
-description: Let each service decide when and how a business operation is processed, instead of depending on a central orchestrator.
+description: Learn how to configure services to decide when and how to process a business operation, instead of depending on a central orchestrator.
 ms.author: pnp
 author: claytonsiemens77
 ms.date: 07/01/2022
 ms.topic: design-pattern
 ms.subservice: cloud-fundamentals
-```
+---
 
 # Choreography pattern
 
-Decentralize workflow logic and distribute the responsibilities to other components within a system.
+The Choreography pattern decentralizes workflow logic and distributes responsibilities to other components within a system. Instead of depending on a central orchestrator, services decide when and how to process a business operation.
 
 ## Context and problem
 
-A cloud-based application is often divided into several small services that work together to process a business transaction end-to-end. Even a single operation (within a transaction) can result in multiple point-to-point calls among all services. Ideally, those services should be loosely coupled. It's challenging to design a workflow that's distributed, efficient, and scalable because it often involves complex interservice communication.
+You typically divide a cloud-based application into several small services that work together to process an end-to-end business transaction. A single operation within a transaction can result in multiple point-to-point calls among all services. Ideally, those services are loosely coupled. It's challenging to design a distributed, efficient, and scalable workflow because it involves complex interservice communication.
 
-A common pattern for communication is to use a centralized service or an *orchestrator*. Incoming requests flow through the orchestrator as it delegates operations to the respective services. Each service just completes their responsibility and isn't aware of the overall workflow.
+A common pattern for communication is to use a centralized service or an *orchestrator*. Incoming requests flow through the orchestrator as it delegates operations to the respective services. Each service completes their responsibility and isn't aware of the overall workflow.
 
 ![A diagram of a workflow that processes requests using a central orchestrator.](./_images/orchestrator.png)
 
-The orchestrator pattern is typically implemented as custom software and has domain knowledge about the responsibilities of those services. A benefit is that the orchestrator can consolidate the status of a transaction based on the results of individual operations conducted by the downstream services. 
+You typically implement the orchestrator pattern as custom software that has domain knowledge about the responsibilities of the services within the system. One benefit of this approach is that the orchestrator can consolidate the status of a transaction based on the results of individual operations that the downstream services conduct.
 
-However, there are some drawbacks. Adding or removing services might break existing logic because you need to rewire portions of the communication path. This dependency makes orchestrator implementation complex and hard to maintain. The orchestrator might have a negative impact on the reliability of the workload. Under load, it can introduce performance bottleneck and be the single point of failure. It can also cause cascading failures in the downstream services.
-
+This approach also creates some obstacles. Service addition or removal might break existing logic because you need to rewire portions of the communication path. This dependency makes orchestrator implementation complex and hard to maintain. The orchestrator might negatively affect the workload's reliability. Under load, it can introduce performance bottlenecks and be the single point of failure. It can also cause cascading failures in the downstream services.
 
 ## Solution
 
-Delegate the transaction handling logic among the services. Let each service decide and participate in the communication workflow for a business operation.
+Delegate the transaction handling logic among the services. Let each service participate in the communication workflow for a business operation and decide when and how to process it.
 
-> The pattern is a way to minimize dependency on custom software that centralizes the communication workflow. The components implement common logic as they choreograph the workflow among themselves without having direct communication with each other.
+The Choreography pattern minimizes the dependency on custom software that centralizes the communication workflow. The components implement common logic as they choreograph the workflow among themselves without directly communicating with each other.
 
-A common way to implement choreography is to use a message broker that buffers requests until downstream components claim and process them. The image shows request handling through a [publisher-subscriber model](./publisher-subscriber.md).
+A common way to implement choreography is to use a message broker that buffers requests until downstream components claim and process them. The following image shows request handling through a [publisher-subscriber model](./publisher-subscriber.md).
 
 ![A diagram showing processing of a request using a message broker.](./_images/choreography-pattern.png)
 
+1. Client requests are queued as messages in a message broker.
 
-1. A client requests are queued as messages in a message broker. 
+1. The services or the subscriber poll the broker to determine whether they can process that message based on their implemented business logic. The broker can also push messages to subscribers interested in that message.
 
-1. The services or the subscriber poll the broker to determine if they can process that message based on their implemented business logic. The broker can also push messages to subscribers who are interested in that message. 
-
-1. Each subscribed service does their operation as indicated by the message and responds to the broker with success or failure of the operation. 
+1. Each subscribed service does their operation as indicated by the message and responds to the broker with success or failure of the operation.
 
 1. If successful, the service can push a message back to the same queue or a different message queue so that another service can continue the workflow if needed. If the operation fails, the message broker works with other services to compensate that operation or the entire transaction.
-
-
 
 ## Problems and considerations
 
