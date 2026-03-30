@@ -28,11 +28,11 @@ The following data flow corresponds to the previous diagram:
 
    Azure Databricks uses a [medallion architecture][Medallion model] to organize data into the following layers:
 
-     - **Bronze layer:** Holds raw data.
+     - **The Bronze layer** holds raw data.
    
-     - **Silver layer:** Contains cleaned, filtered data.
+     - **The Silver layer** dontains cleaned, filtered data.
    
-     - **Gold layer:** Stores aggregated data that supports business analytics.
+     - **The Gold layer** stores aggregated data that supports business analytics.
 
 1. The analytical platform ingests data from the different batch and stream sources. Data scientists use this data for tasks like:
 
@@ -78,24 +78,23 @@ The following data flow corresponds to the previous diagram:
 
    - Microsoft Purview provides data discovery services, sensitive data classification, and governance insights across the data estate.
 
+   - For Data Lake Storage access, use identity-based authentication tools, like managed identities and service principals, as the default across data services. Use Azure Key Vault only when a workload requires nonidentity credentials, such as tokens, passwords, or shared keys. Treat secrets as a cross-cutting control. Centralize storage, restrict access, rotate regularly, and set up workloads to retrieve secrets at runtime rather than via embedded connection strings.
+
    - Azure DevOps and other DevOps platforms, such as GitHub, offer continuous integration and continuous delivery (CI/CD) and other integrated version-control features for automating infrastructure deployment and code management.
 
    - Power BI accesses curated (Gold) data through Azure Databricks SQL endpoints by using Microsoft Entra ID-based authentication and authorization. Databricks Unity Catalog and enterprise governance services control data access, which means that Power BI doesn't need direct storage credentials and only authorized users and datasets can access the data.
 
-
-   - Entra ID provides single sign-on (SSO) and automatic identity management for Azure Databricks users and groups. Automatic identity management syncs users, service principals, and groups from Entra ID without separate provisioning configuration. Azure Databricks supports automated identity provisioning with Entra ID to:
+   - Microsoft Entra ID provides single sign-on (SSO) and automatic identity management for Azure Databricks users and groups. Automatic identity management syncs users, service principals, and groups from Microsoft Entra ID without separate provisioning configuration. Azure Databricks supports automated identity provisioning with Microsoft Entra ID to:
 
      - Create and sync users, groups, and service principals.
    
      - Manage nested group memberships.
    
-     - Remove users and deny access when identities are deleted from Entra ID.
+     - Remove users and deny access when identities are deleted from Microsoft Entra ID.
 
    - Azure Monitor collects and analyzes Azure resource telemetry. This service maximizes performance and reliability by proactively identifying problems.
 
    - Microsoft Cost Management provides financial governance services for Azure workloads.
-
-     For Data Lake Storage access, use identity-based authentication tools, like managed identities and service principals, as the default across data services. Use Azure Key Vault only when a workload requires nonidentity credentials, such as tokens, passwords, or shared keys. Treat secrets as a cross-cutting control. Centralize storage, restrict access, rotate regularly, and set up workloads to retrieve secrets at runtime rather than via embedded connection strings.
 
 ### Components
 
@@ -129,21 +128,21 @@ This solution uses the following components.
 
 - [Azure Databricks Unity Catalog][Databricks Unity Catalog] provides centralized access control, auditing, lineage, and data discovery capabilities across Azure Databricks workspaces. In this architecture, Unity Catalog serves as the primary tool within Azure Databricks to manage and secure data access. 
 
-- [Power BI][What is Power BI?] is a collection of software services and apps. These services create and share reports that connect and visualize unrelated sources of data. Together with Azure Databricks, Power BI can provide root cause determination and raw data analysis. This architecture uses Power BI to create dashboards and reports that provide insights into the data that Azure Databricks and Fabric process.
+- [Power BI][What is Power BI?] is a collection of software services and apps. These services create and share reports that connect and visualize unrelated sources of data. Together with Azure Databricks, Power BI can provide root cause determination and raw data analysis. In this architecture, you can use Power BI to create dashboards and reports that provide insights into the data that Azure Databricks and Fabric process.
 
-- [Microsoft Purview][Data governance with Microsoft Purview] manages on-premises, multicloud, and software as a service (SaaS) data. This governance service maintains data landscape maps. Its features include automated data discovery, sensitive data classification, and data lineage. This architecture uses Microsoft Purview to scan and track data ingested by Unity Catalog, Fabric, Power BI, and Data Lake Storage.
+- [Microsoft Purview][Data governance with Microsoft Purview] manages on-premises, multicloud, and software as a service (SaaS) data. This governance service maintains data landscape maps. Its features include automated data discovery, sensitive data classification, and data lineage. In this architecture, Microsoft Purview scans and tracks data ingested by Unity Catalog, Fabric, Power BI, and Data Lake Storage.
 
-- [Azure DevOps][DevOps solutions on Azure] is a DevOps orchestration platform. This SaaS provides tools and environments to build, deploy, and collaborate on applications. This architecture uses Azure DevOps to automate the deployment of Azure infrastructure. You can also use GitHub for automation and version control of Azure Databricks code for better collaboration, change tracking, and integration with CI/CD pipelines.
+- [Azure DevOps][DevOps solutions on Azure] is a DevOps orchestration platform. This SaaS provides tools and environments to build, deploy, and collaborate on applications. In this architecture, Azure DevOps automates the deployment of Azure infrastructure. You can also use GitHub for automation and version control of Azure Databricks code for better collaboration, change tracking, and integration with CI/CD pipelines.
 
-- [Key Vault][Key Vault] stores and controls access to secrets, such as tokens, passwords, and API keys. Key Vault also creates and controls encryption keys and manages security certificates. This architecture uses Key Vault to store shared access signature keys from Data Lake Storage. These keys are then used in Azure Databricks and other services for authentication.
+- [Key Vault][Key Vault] stores and controls access to secrets, such as tokens, passwords, and API keys. Key Vault also creates and controls encryption keys and manages security certificates. In this architecture, Key Vault stores shared access signature keys from Data Lake Storage. These keys are then used in Azure Databricks and other services for authentication.
 
-- [Entra ID][Microsoft Entra ID] offers cloud-based identity and access management services. These features provide a way for users to sign in and access resources. This architecture uses Entra ID to authenticate and authorize users and services in Azure.
+- [Microsoft Entra ID][Microsoft Entra ID] offers cloud-based identity and access management services. These features provide a way for users to sign in and access resources. In this architecture, Microsoft Entra ID authenticates and authorizes users and services in Azure.
 
-- [Automatic identity management][Automatic Identity Management] automatically syncs users, service principals, and groups from Entra ID to Azure Databricks without separate application configuration. Azure Databricks activates this feature by default and includes support for nested groups and service principals. If your organization has specific requirements, you can use System for Cross-domain Identity Management (SCIM) provisioning instead.
+- [Automatic identity management][Automatic Identity Management] automatically syncs users, service principals, and groups from Microsoft Entra ID to Azure Databricks without separate application configuration. Azure Databricks activates this feature by default and includes support for nested groups and service principals. In this architecture, you can use System for Cross-domain Identity Management (SCIM) provisioning if your organization has specific identity management requirements.
   
-- [Azure Monitor][Azure Monitor] collects and analyzes data in environments and Azure resources. This data includes app telemetry, such as performance metrics and activity logs. This architecture uses Azure Monitor to monitor the health of compute resources in Azure Databricks and Machine Learning, and other components that send logs to Azure Monitor.
+- [Azure Monitor][Azure Monitor] collects and analyzes data in environments and Azure resources. This data includes app telemetry, such as performance metrics and activity logs. In this architecture, Azure Monitor tracks the health of compute resources in Azure Databricks and Machine Learning, and other components that send logs to Azure Monitor.
 
-- [Cost Management][Microsoft Cost Management] helps you manage cloud spending. This service organizes expenses and shows you how to reduce costs by using budgets and recommendations. This architecture uses Cost Management to help monitor and control the cost of the entire solution.
+- [Cost Management][Microsoft Cost Management] helps you manage cloud spending. This service organizes expenses and shows you how to reduce costs by using budgets and recommendations. In this architecture, Cost Management helps to monitor and control the cost of the entire solution.
 
 ## Scenario details
 
