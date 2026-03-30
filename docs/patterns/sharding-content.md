@@ -129,7 +129,9 @@ Consider the following points when deciding how to implement this pattern:
 Use this pattern when a data store is likely to need to scale beyond the resources available to a single storage node, or to improve performance by reducing contention in a data store.
 
 > [!NOTE]
-> The primary focus of sharding is to improve the performance and scalability of a system, but as a by-product it can also improve availability due to how the data is divided into separate partitions. A failure in one partition doesn't necessarily prevent an application from accessing data held in other partitions, and an operator can perform maintenance or recovery of one or more partitions without making the entire data for an application inaccessible. For more information, see the [Data Partitioning Guidance](/previous-versions/msp-n-p/dn589795(v=pandp.10)).
+> A primary focus of sharding is to improve performance and scalability, but it can also improve availability. A failure in one partition doesn't prevent an application from accessing data in other partitions, and an operator can maintain or recover individual partitions without making the entire dataset inaccessible. For more information, see [Data partitioning guidance](../best-practices/data-partitioning.yml).
+>
+> The sharding pattern also applies beyond traditional data stores. For example, a DNS zone management system could be sharded by team, environment, or region to reduce the blast radius of DNS changes and establish clear ownership boundaries. In that context, the primary motivation is operational segmentation rather than scalability. For more information, see [Sharding private DNS zones](/azure/dns/sharding-private-dns-zones).
 
 ## Workload design
 
