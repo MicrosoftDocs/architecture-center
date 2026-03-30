@@ -94,7 +94,7 @@ Consider network security throughout your design.
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-Use the [Azure pricing calculator](https://azure.com/e/2890122cb1d34ffe916e34e3a3744dac) to estimate costs. Here are some other considerations.
+Use the [Azure pricing calculator](https://azure.com/e/10293baaffb94e21a83d7fb4ef91a75a) to estimate costs. Here are some other considerations.
 
 #### API Management
 
