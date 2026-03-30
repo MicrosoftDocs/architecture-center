@@ -30,7 +30,7 @@ The following data flow corresponds to the previous diagram:
 
      - **The Bronze layer** holds raw data.
    
-     - **The Silver layer** dontains cleaned, filtered data.
+     - **The Silver layer** contains cleaned, filtered data.
    
      - **The Gold layer** stores aggregated data that supports business analytics.
 
