@@ -419,7 +419,7 @@ items:
     displayName: Lazy loading, caching, read-through
     href: patterns/cache-aside.yml
   - name: Choreography
-    href: patterns/choreography.yml
+    href: patterns/choreography.md
   - name: Circuit Breaker
     displayName: failure prevention, fault tolerance, resilience pattern
     href: patterns/circuit-breaker.md

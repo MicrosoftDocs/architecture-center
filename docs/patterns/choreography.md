@@ -1,3 +1,15 @@
+```
+title: Choreography Pattern
+description: Let each service decide when and how a business operation is processed, instead of depending on a central orchestrator.
+ms.author: pnp
+author: claytonsiemens77
+ms.date: 07/01/2022
+ms.topic: design-pattern
+ms.subservice: cloud-fundamentals
+```
+
+# Choreography pattern
+
 Decentralize workflow logic and distribute the responsibilities to other components within a system.
 
 ## Context and problem
