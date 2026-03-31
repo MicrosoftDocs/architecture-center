@@ -16,7 +16,7 @@ The following workflow corresponds to the previous diagram:
 
 1. Calls from the existing web app to the existing HTTP services remain unchanged. These calls are internal to the corporate network.
 
-1. API Management makes inbound calls from Azure to the existing internal services.
+1. API Management makes calls from Azure to the existing internal services.
 
     - The security team allows traffic from the API Management instance to pass through the corporate firewall to the existing on-premises services [by using secure transport protocols](/azure/api-management/api-management-howto-manage-protocols-ciphers) like Hypertext Transfer Protocol Secure (HTTPS) over Transport Layer Security (TLS).
 
@@ -104,7 +104,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-- Activate [availability zones](/azure/reliability/reliability-api-management) when you deploy your API Management instance. The option to deploy API Management into availability zones is only available in the Premium service tier.
+- Activate [availability zones](/azure/reliability/reliability-api-management) when you deploy your API Management instance. The option to deploy API Management into availability zones is only available in the Premium service tiers.
 
 - Use availability zones that have [extra gateway instances deployed to different regions](/azure/api-management/api-management-howto-deploy-multi-region). This combination improves service availability if one region goes offline. Multiregion deployment is only available in the Premium service tier.
 
@@ -116,11 +116,13 @@ Reliability helps ensure that your application can meet the commitments that you
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-API Management has four tiers: 
+API Management has eight tiers: 
+
+- Consumption
 - Developer
-- Basic
-- Standard
-- Premium
+- Basic and Basic v2
+- Standard and Standard v2
+- Premium and Premium v2
 
 For more information about the differences in these tiers, see [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/).
 
