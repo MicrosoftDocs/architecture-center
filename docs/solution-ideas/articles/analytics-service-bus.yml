@@ -1,12 +1,13 @@
 ### YamlMime:Architecture
 metadata:
-  title: Real-Time Analytics with Azure Service Bus and Microsoft Fabric - A Retail-Focused Architecture
-  description: Learn how to use Microsoft Fabric with Azure Service Bus for near real-time solutions.
+  title: Real-Time Analytics with Azure Service Bus and Microsoft Fabric
+  description: Learn how to use Microsoft Fabric with Azure Service Bus for near real-time solutions at enterprise scale in production environments.
   author: genloz
   ms.author: laurenbaird
-  ms.date: 09/05/2025
+  ms.date: 3/31/2026
   ms.topic: solution-idea
   ms.subservice: solution-idea
+  ai-usage: ai-assisted
   ms.custom:
   - arb-data
 azureCategories:
@@ -16,6 +17,6 @@ products:
   - real-time-analytics
 name: Real-Time Analytics with Azure Service Bus and Microsoft Fabric
 summary: Learn how to use Microsoft Fabric with Azure Service Bus for near real-time solutions.
-thumbnailUrl: /azure/architecture/browse/thumbs/fabric-realtimeintelligence-service-bus-thumb.png <!-- Thumbnail to be updated during Phase 4 edits. -->
+thumbnailUrl: /azure/architecture/browse/thumbs/fabric-real-time-intelligence-service-bus-thumb.png
 content: |
   [!INCLUDE[](analytics-service-bus-content.md)]
