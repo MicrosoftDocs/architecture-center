@@ -5,7 +5,7 @@ Cloud architects, data engineers, and retail solution strategists can use this a
 ## Architecture
 
 :::image type="complex" border="false" source="../media/fabric-real-time-intelligence-service-bus.svg" alt-text="Diagram that shows an architecture for implementing near real-time analytics in Fabric with Service Bus." lightbox="../media/fabric-real-time-intelligence-service-bus.svg":::
-   The diagram shows a near real-time analytics architecture across Azure and Fabric. On the left, two source streams feed ingestion: user interaction events from mobile and inventory updates flow into Service Bus, and high-velocity clickstream and browsing data flow into an eventstream. Inside the Fabric boundary, an eventstream routes events to eventhouse. From eventhouse, one path stores data in OneLake through the Lakehouse SQL endpoint for downstream consumption, and another path supports analysis through a KQL queryset. A Fabric data agent also connects to the stored and queried data to provide conversational access. On the right, analysis and action outputs branch to a Fabric activator and to real-time dashboards and Power BI for visualization. Microsoft Purview appears as a governance layer for the Fabric data estate.
+   The diagram shows a near real-time analytics architecture across Azure and Fabric. On the left, two source streams feed ingestion. User interaction events from mobile and inventory updates flow into Service Bus, and high-velocity clickstream and browsing data flow into an eventstream. Inside the Fabric boundary, an eventstream routes events to an eventhouse. From the eventhouse, one path stores data in OneLake through the lakehouse SQL endpoint for downstream consumption, and another path supports analysis through a KQL queryset. A Fabric data agent also connects to the stored and queried data to provide conversational access. On the right, analysis and action outputs branch to a Fabric activator and to real-time dashboards and Power BI for visualization. Microsoft Purview appears as a governance layer for the Fabric data estate.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/fabric-real-time-intelligence-service-bus.vsdx) of this architecture.*
@@ -48,15 +48,15 @@ The following workflow corresponds to the previous diagram.
 
    *Example:* Store managers view live dashboards that show top-selling items and customer sentiment.
 
-8. Monitor live streams and trigger actions based on patterns. A Fabric activator monitors data at multiple stages, including from the eventstream during ingestion or from the reporting layer. Actions include Teams notifications, email, Fabric items like running a pipeline or notebook, or Power Automate flows.
+8. Monitor live streams and trigger actions based on patterns. A Fabric activator monitors data at multiple stages, including from the eventstream during ingestion or from the reporting layer. Actions include Microsoft Teams notifications, email, Fabric items like running a pipeline or notebook, or Power Automate flows.
 
-   *Example:* If a product's stock drops below threshold, trigger a restock workflow.
+   *Example:* If a product's stock doesn't meet a specific threshold, trigger a restock workflow.
 
 #### AI capabilities
 
 9. Fabric data agents expose data connected to eventhouse for conversational experiences against real-time data. You can use Microsoft Copilot Studio to expose this chat experience directly in Teams, or use Microsoft Foundry for app-based chat experiences.
 
-   *Example:* Provide natural language interface for store managers to determine what are the top selling items in the last five minutes.
+   *Example:* Provide a natural language interface for store managers to determine the top-selling items in the last five minutes.
 
 ### Components
 
@@ -74,7 +74,7 @@ The following workflow corresponds to the previous diagram.
 
 - [Fabric data agents](/fabric/data-science/how-to-create-data-agent) are conversational agents grounded in Fabric data sources. In this architecture, Fabric data agents provide natural language access to eventhouse data for real-time operational questions.
 
-- [Copilot Studio](/microsoft-copilot-studio/fundamentals-what-is-copilot-studio) is a platform to build and publish copilots across channels. In this architecture, Copilot Studio exposes the data agent experience in Microsoft Teams.
+- [Copilot Studio](/microsoft-copilot-studio/fundamentals-what-is-copilot-studio) is a platform to build and publish copilots across channels. In this architecture, Copilot Studio exposes the data agent experience in Teams.
 
 - [Foundry](/azure/foundry/what-is-foundry) is a platform to build and operate AI applications and agents. In this architecture, Foundry supports app-based chat experiences over real-time analytics data.
 
@@ -96,13 +96,13 @@ Security and governance are foundational to this architecture:
 
 - **Conditional access and private networking:** Use conditional access policies and private networking boundaries to reduce unauthorized access and data exposure.
 
-## Common challenges resolved
+## Resolve common challenges
 
 This solution architecture resolves the following challenges:
 
 - **Latency and scalability bottlenecks:** Real-Time Intelligence enables subsecond latency for streaming analytics, which allows organizations to ingest and process billions of events per day without manual scaling. It supports automatic scaling and low-latency ingestion from diverse sources like Internet of Things (IoT) devices, telemetry systems, and customer interactions.
 
-- **Fragmented data streams:** Real-Time Intelligence unifies internal and external streaming sources into a central Real-Time hub, which eliminates silos and enables holistic operational visibility.
+- **Fragmented data streams:** Real-Time Intelligence unifies internal and external streaming sources into a central real-time hub, which eliminates silos and enables holistic operational visibility.
 
 - **Delayed decision-making:** Real-time dashboards and alerting mechanisms in tools like Power BI, Teams, and automated workflows give teams immediate insight into anomalies, service-level agreement (SLA) breaches, or operational triggers. This immediate insight supports fast action and prevents delays.
 
@@ -110,7 +110,7 @@ This solution architecture resolves the following challenges:
 
 ## Scenario details
 
-A customer browses a retail app, selects products, adds items to a cart, or scans a loyalty card in store. Each interaction streams in real time, which allows the system to immediately analyze behavior, recommend complementary products, apply targeted discounts, or notify staff to restock shelves.
+A customer browses a retail app, selects products, adds items to a cart, or scans a loyalty card in-store. Each interaction streams in real time, which allows the system to immediately analyze behavior, recommend complementary products, apply targeted discounts, or notify staff to restock shelves.
 
 ### Potential use cases
 
@@ -212,7 +212,7 @@ Principal authors:
 - [Service Bus samples](/azure/service-bus-messaging/service-bus-samples)
 - [Real-Time Intelligence end-to-end sample](/fabric/real-time-intelligence/sample-end-to-end)
 - [Implement real-time intelligence with Fabric](/training/paths/explore-real-time-analytics-microsoft-fabric/)
-- [Alert and act on data from the Real-Time hub](https://blog.fabric.microsoft.com/blog/alerting-and-acting-on-data-from-the-real-time-hub/)
+- [Alert and act on data from the real-time hub](https://blog.fabric.microsoft.com/blog/alerting-and-acting-on-data-from-the-real-time-hub/)
 - [Real-Time Intelligence documentation](/fabric/real-time-intelligence/)
-- [Get events from Service Bus into Real-Time hub (preview)](/fabric/real-time-hub/add-source-azure-service-bus)
+- [Get events from Service Bus into real-time hub (preview)](/fabric/real-time-hub/add-source-azure-service-bus)
 - [Create a data agent](/fabric/data-science/how-to-create-data-agent)
