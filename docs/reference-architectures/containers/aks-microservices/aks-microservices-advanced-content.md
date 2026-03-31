@@ -14,11 +14,7 @@ If you prefer to start with a more basic microservices example on AKS, see [Micr
 
 ### Workflow
 
-<<<<<<< HEAD
-This request flow implements the [Publisher-Subscriber](/azure/architecture/patterns/publisher-subscriber), [Competing Consumers](../../../patterns/competing-consumers.md), and [Gateway Routing](/azure/architecture/patterns/gateway-routing) cloud design patterns.
-=======
 This request flow implements the [Publisher-Subscriber](../../../patterns/publisher-subscriber.md), [Competing Consumers](/azure/architecture/patterns/competing-consumers), and [Gateway Routing](/azure/architecture/patterns/gateway-routing) cloud design patterns.
->>>>>>> a680388ded160b6d07e3e7ae0388a7632604141a
 
 The following workflow corresponds to the previous diagram:
 
