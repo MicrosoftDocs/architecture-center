@@ -169,9 +169,9 @@ Principal authors:
 
 Other contributors:
 
-- [Rodrigo Rodríguez](https://www.linkedin.com/in/rod2k10/) | Senior Cloud Solution Architect, AI & Quantum
 - [Brijesh Kachalia](https://www.linkedin.com/in/brijeshkachalia/) | Cloud Solution Architect, Cloud & AI
-  
+- [Rodrigo Rodríguez](https://www.linkedin.com/in/rod2k10/) | Senior Cloud Solution Architect, AI & Quantum
+
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
