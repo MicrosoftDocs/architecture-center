@@ -156,7 +156,7 @@ Consider the following use cases.
 
 - Enable predictive maintenance to reduce downtime and improve worker safety.
 
-- Apply AI-powered video and image analysis to live camera feeds to detect defects and assure quality.
+- Apply AI-powered video and image analysis to live camera feeds for defect detection and quality assurance. 
 
 - Monitor production metrics and defect reports to detect bottlenecks and optimize throughput.
 
