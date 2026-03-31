@@ -78,11 +78,7 @@ The following solution ideas demonstrate implementation patterns and possibiliti
 
 **Mainframe data storage:** Explore solutions for transferring and replicating mainframe data to Azure:
 
-- [Back up mainframe file and tape to Azure by using Luminex](/azure/architecture/example-scenario/mainframe/luminex-mainframe-file-tape-transfer). Transfer mainframe file and tape data to Azure by using Luminex.
-
 - [Mainframe file replication on Azure](/azure/architecture/solution-ideas/articles/mainframe-azure-file-replication). Replicate mainframe files to Azure with high fidelity and minimal disruption.
-
-- [BMC AMI Cloud mainframe modernization](/azure/architecture/example-scenario/mainframe/mainframe-modernization-bmc-ami-cloud). Modernize mainframe workloads by using BMC AMI Cloud.
 
 - [Move mainframe archive data to Azure](/azure/architecture/example-scenario/mainframe/move-archive-data-mainframes). Move mainframe archive data to Azure to reduce storage costs and make it easier to access.
 
@@ -92,17 +88,19 @@ The following solution ideas demonstrate implementation patterns and possibiliti
 
 The following resources provide foundational knowledge for storage implementations on Azure.
 
-- **Developer:** [Store data in Azure](/training/paths/store-data-in-azure/)
-   Learn the fundamentals of data storage on Azure, including how to choose storage approaches and how to work with different storage services.
+**Developer:** Use the following resources to build core storage development skills on Azure.
 
-- **Developer:** [Develop solutions that use Blob Storage](/training/paths/develop-solutions-that-use-blob-storage/)
-   Create Blob Storage resources, manage data through the blob storage life cycle, and work with the Blob Storage client library.
+- [Store data in Azure](/training/paths/store-data-in-azure/). Learn the fundamentals of data storage on Azure, including how to choose storage approaches and how to work with different storage services.
 
-- **Administrator:** [AZ-104: Implement and manage storage in Azure](/training/paths/az-104-manage-storage/)
-   Set up storage accounts, Blob Storage, Azure Files, and storage security.
+- [Develop solutions that use Blob Storage](/training/paths/develop-solutions-that-use-blob-storage/). Create Blob Storage resources, manage data through the blob storage life cycle, and work with the Blob Storage client library.
 
-- **Data engineer:** [Large-scale data processing with Data Lake Storage](/training/paths/data-processing-with-azure-adls/)
-   Set up Data Lake Storage, upload data, and secure your storage account.
+**Admin:** Use the following resource to build core Azure storage administration skills.
+
+- [AZ-104: Implement and manage storage in Azure](/training/paths/az-104-manage-storage/). Set up storage accounts, Blob Storage, Azure Files, and storage security.
+
+**Data engineer:** Use the following resource to build core Azure data storage engineering skills.
+
+- [Large-scale data processing with Data Lake Storage](/training/paths/data-processing-with-azure-adls/). Set up Data Lake Storage, upload data, and secure your storage account.
 
 ## Organizational readiness
 
