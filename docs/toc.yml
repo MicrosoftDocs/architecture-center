@@ -67,7 +67,7 @@ items:
             - name: Container orchestration
               href: microservices/design/orchestration.yml
             - name: Design patterns for microservices
-              href: microservices/design/patterns.yml
+              href: microservices/design/patterns.md
     - name: N-tier application
       displayName: Layered architecture, three tier
       href: guide/architecture-styles/n-tier.md
