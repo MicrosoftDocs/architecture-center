@@ -6,7 +6,6 @@ author: claytonsiemens77
 ms.update-cycle: 1095-days
 ms.topic: concept-article
 ms.subservice: architecture-guide
-ms.custom: arb-data
 ai-usage: ai-assisted
 ms.date: 03/26/2026
 
