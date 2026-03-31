@@ -108,10 +108,10 @@ This pattern can be deployed in different ways, depending on the compute service
 
 ## Next steps
 
-- [Microsoft Azure Well-Architected Framework - Cost optimization](/azure/well-architected/cost-optimization/).
+- [Microsoft Azure Well-Architected Framework - Cost optimization](/azure/well-architected/cost-optimization/)
 
 ## Related resources
 
-- [Sharding](./sharding.yml).
-- [Choose an Azure compute service](./guide/technology-choices/compute-decision-tree).
-- [Architectural approaches for compute in multitenant solutions](./guide/multitenant/approaches/compute#compute-resource-consolidation-pattern).
+- [Sharding](./sharding.yml)
+- [Choose an Azure compute service](../guide/technology-choices/compute-decision-tree.md)
+- [Architectural approaches for compute in multitenant solutions](../guide/multitenant/approaches/compute.md#compute-resource-consolidation-pattern)
