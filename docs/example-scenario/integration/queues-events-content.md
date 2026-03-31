@@ -116,7 +116,7 @@ Service Bus queues are included in all tiers: Basic, Standard, and Premium. Serv
 
 Event Grid uses a serverless model. Billing is calculated based on the number of operations. Operations include events that go to domains or topics, advanced matches, delivery attempts, and management calls. Usage of up to 100,000 operations is free of charge.
 
-For more information, see [Event Grid pricing](https://azure.microsoft.com/pricing/details/event-grid/) and [Well-Architected Framework Cost Optimization](/azure/architecture/framework/cost/overview).
+For more information, see [Event Grid pricing](https://azure.microsoft.com/pricing/details/event-grid/).
 
 ### Operational Excellence
 
