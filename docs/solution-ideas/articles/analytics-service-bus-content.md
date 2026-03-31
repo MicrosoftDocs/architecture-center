@@ -16,11 +16,11 @@ The following workflow corresponds to the previous diagram.
 
 #### Ingestion
 
-1. Service Bus receives discrete, transactional events like inventory updates, purchase transactions, loyalty program updates, and customer feedback submissions.  
+1. Service Bus receives discrete, transactional events like inventory updates, purchase transactions, loyalty program updates, and customer feedback submissions.
 
    *Example:* A customer redeems loyalty points at checkout. This action initiates a Service Bus message to update the customer profile and inventory.
 
-2. The eventstream ingests continuous, high‑velocity data with subsecond latency.
+2. The eventstream ingests continuous, high-velocity data with subsecond latency.
 
    *Example:* A user browses 20 products in 30 seconds. Clickstream data flows into the eventstream for immediate analysis.
 
