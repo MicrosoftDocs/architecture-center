@@ -73,7 +73,7 @@ The following resources provide foundational knowledge for virtual desktop imple
 
 ## Organizational readiness
 
-Organizations that start their cloud adoption can use the [Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/) to access proven guidance that accelerates cloud adoption. For virtual desktop migration and deployment guidance, see [Migrate user desktops to Azure Virtual Desktop](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/).
+Organizations that start their cloud adoption can use the [Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/) to access proven guidance that accelerates cloud adoption. For cloud-scale virtual desktop guidance, see [Cloud-scale analytics](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics).
 
 Key [Cloud Adoption Framework](/azure/cloud-adoption-framework/) resources for virtual desktop:
 
