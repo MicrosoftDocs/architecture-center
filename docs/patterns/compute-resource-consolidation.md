@@ -14,12 +14,12 @@ Consolidate multiple tasks or operations into one computational unit. This patte
 
 ## Context and problem
 
-A cloud application often implements different types of operations. You can organize these operations into separate computational units that are hosted and deployed individually. For example, you can keep different App Service web apps or virtual machines separate from each other. This strategy can help to simplify the design of the solution, but if you deploy a large number of computational units as part of the same application, this can increase runtime hosting costs and make system management more complex.
+A cloud application often implements different types of operations. You can organize these operations into separate computational units that are hosted and deployed individually. For example, you can keep different Azure App Service web apps or virtual machines separate from each other. This strategy can help to simplify the design of the solution, but if you deploy a large number of computational units as part of the same application, this deployment can increase runtime hosting costs and make system management more complex.
 
 The following figure shows the simplified structure of a cloud-hosted solution that's implemented by using more than one computational unit. Each computational unit runs in its own virtual environment. Each function is implemented as a separate task that runs in its own computational unit.
 
 :::image type="complex" source="./_images/compute-resource-consolidation-diagram.png" alt-text="Diagram that shows tasks that are using a set of dedicated computational units in a cloud environment." lightbox="./_images/compute-resource-consolidation-diagram.png" border="false":::
-  Diagram that shows a large blue cloud-shaped environment that contains five separate computational units distributed across the image. Each computational unit is located above its own task. Tasks are labeled task A to task E. There are no connecting lines or shared containers between tasks. The diagram shows a one-to-one relationship between each computational unit and each task within the same cloud-hosted solution.
+  Diagram that shows a large blue cloud-shaped environment that contains five separate computational units distributed across the image. Each computational unit is located above its own task. The tasks are labeled task A to task E. There are no connecting lines or shared containers between tasks. The diagram shows a one-to-one relationship between each computational unit and each task within the same cloud-hosted solution.
 :::image-end:::
 
 Each computational unit consumes chargeable resources even when it's idle or lightly used. This approach isn't always the most cost-effective solution.
@@ -28,14 +28,14 @@ Each computational unit consumes chargeable resources even when it's idle or lig
 
 To help reduce costs, increase utilization, improve communication speed, and reduce management, it's possible to consolidate multiple tasks or operations into a single computational unit.
 
-Tasks can be grouped according to criteria based on the features provided by the environment and the costs associated with these features. It's common to look for tasks that have similar scalability, lifetime, and processing requirements. To scale the tasks as a unit, you can group them together. Many cloud environments offer elasticity for additional instances of a computational unit to be started and stopped depending on the workload. For example, Azure provides autoscaling that you can apply to App Services and Virtual Machine Scale Sets.
+Tasks can be grouped according to criteria based on the features provided by the environment and the costs associated with these features. It's common to look for tasks that have similar scalability, lifetime, and processing requirements. To scale the tasks as a unit, you can group them together. Many cloud environments offer elasticity so that additional instances of a computational unit can be started and stopped depending on the workload. For example, Azure provides autoscaling that you can apply to App Service and Azure Virtual Machine Scale Sets.
 
 You can also use scalability to determine which operations you shouldn't group together. Consider the following two tasks:
 
 - Task 1 polls a queue of infrequent, time-insensitive messages.
 - Task 2 handles high-volume bursts of network traffic.
 
-Task 2 requires elasticity to start and stop a large number of compute instances. If you apply the same scaling behavior to Task 1, more resource is deployed to listen to Task 1's infrequent, nonurgent messages, which is a waste of resources.
+Task 2 requires elasticity to start and stop a large number of compute instances. If you apply the same scaling behavior to Task 1, more resource is deployed to listen to its infrequent, nonurgent messages, which is a waste of resources.
 
 In many cloud environments, it's possible to specify the resources available to a computational unit, such as the number of CPU cores, memory, and disk space. If you specify more resources, the solution usually becomes more expensive. To save money, it's important to maximize the work an expensive computational unit performs and not let it become inactive.
 
@@ -47,11 +47,11 @@ Consider the following points as you decide how to implement this pattern:
 
 - **Scalability and elasticity:** Many cloud solutions implement computational unit scalability and elasticity by starting and stopping instances of units. Try not to group tasks that have conflicting scalability requirements in the same computational unit.
 
-- **Lifetime:** The cloud infrastructure periodically recycles the virtual environment that hosts a computational unit. If there are many long-running tasks inside a computational unit, you might need to prevent it from being recycled until these tasks are completed. Alternatively, use a checkpointing approach that enables the tasks to stop cleanly and continue from where they were interrupted when the computational unit is restarted.
+- **Lifetime:** The cloud infrastructure periodically recycles the virtual environment that hosts a computational unit. If there are many long-running tasks inside a computational unit, you might need to prevent the virtual environment from being recycled until these tasks are completed. Alternatively, use a checkpointing approach that enables the tasks to stop cleanly and continue from where they were interrupted when the computational unit is restarted.
 
 - **Release cadence:** If the implementation or configuration of a task changes frequently, you might need to stop the computational unit that hosts the updated code, then reconfigure and redeploy the unit, and then restart it. All other tasks within the same computational unit must be stopped, redeployed, and restarted.
 
-- **Security:** Tasks in the same computational unit might share the same security context and might be able to access the same resources. However, there must be a high degree of trust between the tasks, and you must be confident that one task isn't going to corrupt or adversely affect another. Additionally, if you increase the number of tasks running in a computational unit, this increases the attack surface of the unit. Each task is only as secure as the task with the most vulnerabilities.
+- **Security:** Tasks in the same computational unit might share the same security context and might be able to access the same resources. However, there must be a high degree of trust between the tasks, and you must be confident that one task isn't going to corrupt or adversely affect another. Additionally, if you increase the number of tasks that are running in a computational unit, this increases the attack surface of the unit. Each task is only as secure as the task with the most vulnerabilities.
 
 - **Fault tolerance:** If one task in a computational unit fails or behaves abnormally, it can affect the other tasks in the same unit. For example, if one task fails to start correctly it can cause the entire startup logic for the computational unit to fail, and it can prevent other tasks in the same unit from running.
 
@@ -96,15 +96,15 @@ If this pattern introduces trade-offs within a pillar, consider them against the
 
 This pattern can be deployed in different ways, depending on the compute service you use. For example:
 
-- **Azure App Service** and **Azure Functions:** Deploy shared App Service plans, which represent the hosting server infrastructure. One or more apps can be configured to run on the same compute resources or in the same App Service plan.
+- **App Service** and **Azure Functions:** Deploy shared App Service plans, which represent the hosting server infrastructure. One or more apps can be configured to run on the same compute resources or in the same App Service plan.
 
-- **Azure Container Apps:** Deploy container apps to the same shared environments, especially if you need to manage related services or you need to deploy different applications to the same virtual network.
+- **Azure Container Apps:** Deploy Container Apps to the same shared environments, especially if you need to manage related services or you need to deploy different applications to the same virtual network.
 
 - **Azure Kubernetes Service (AKS):** AKS is a container-based hosting infrastructure in which multiple applications or application components can be configured to run colocated on the same compute resources (nodes), grouped by computational requirements, such as CPU or memory needs (node pools).
 
 - **Virtual machines:** Deploy a single set of virtual machines for all tenants to use so that management costs are shared across the tenants. Virtual Machine Scale Sets supports shared resource management, load-balancing, and horizontal scaling of virtual machines.
 
-- **Consumption-based compute (serverless):** Use fully managed, pay‑per‑execution compute models with scale‑to‑zero, such as Azure Functions (Consumption plan) and Azure Container Apps, to run multiple independent workloads on a shared global pool of compute resources. These platforms automatically allocate and release compute so that multiple applications can benefit from elastic scaling and cost efficiency without a dedicated infrastructure.
+- **Consumption-based compute (serverless):** Use fully managed, pay‑per‑execution compute models with scale‑to‑zero, such as Functions (Consumption plan) and Azure Container Apps, to run multiple independent workloads on a shared global pool of compute resources. These platforms automatically allocate and release compute so that multiple applications can benefit from elastic scaling and cost efficiency without a dedicated infrastructure.
 
 ## Next steps
 
