@@ -21,7 +21,7 @@ An event-driven architecture consists of *event producers* that generate a strea
 
 Events are delivered in near real time, so consumers can respond immediately to events as they occur. Producers are decoupled from consumers, which means that a producer doesn't know which consumers are listening. Consumers are also decoupled from each other, and every consumer sees all of the events.
 
-This process differs from a [Competing Consumers pattern](/azure/architecture/patterns/competing-consumers). In the Competing Consumers pattern, consumers pull messages from a queue. Each message is processed only one time, assuming that there are no errors. In some systems, such as [Azure IoT](/azure/iot-fundamentals/iot-introduction), events must be ingested at high volumes.
+This process differs from a [Competing Consumers pattern](../../patterns/competing-consumers.md). In the Competing Consumers pattern, consumers pull messages from a queue. Each message is processed only one time, assuming that there are no errors. In some systems, such as [Azure IoT](/azure/iot-fundamentals/iot-introduction), events must be ingested at high volumes.
 
 An event-driven architecture can use a [publish-subscribe model](/azure/architecture/patterns/publisher-subscriber) or an event stream model.
 

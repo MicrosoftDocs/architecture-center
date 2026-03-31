@@ -83,7 +83,7 @@ Choose the example that suits your needs and follow the provided link to view th
 ## Related resources
 
 - [Asynchronous Request-Reply Pattern](./async-request-reply.yml)
-- [Competing Consumers pattern](./competing-consumers.yml)
+- [Competing Consumers pattern](./competing-consumers.md)
 - [Sequential Convoy pattern](./sequential-convoy.yml)
 
 <!-- links -->

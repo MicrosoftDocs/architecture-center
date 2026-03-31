@@ -1,3 +1,15 @@
+---
+title: Competing Consumers Pattern
+description: Explore the Competing Consumers pattern. This pattern lets many concurrent consumers process messages that are received on the same messaging channel.
+author: claytonsiemens77
+ms.author: pnp
+ms.date: 04/02/2026
+ms.topic: design-pattern
+ms.subservice: cloud-fundamentals
+---
+
+# Competing Consumers pattern
+
 Enable multiple concurrent consumers to process messages received on the same messaging channel. With multiple concurrent consumers, a system can process multiple messages concurrently to optimize throughput, to improve scalability and availability, and to balance the workload.
 
 ## Context and problem

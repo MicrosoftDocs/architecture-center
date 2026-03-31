@@ -256,7 +256,7 @@ If you decide to include background tasks within an existing compute instance, y
 
 - **Cost**: Adding compute instances to execute background tasks increases hosting costs. You should carefully consider the trade-off between additional capacity and these extra costs.
 
-For more information, see the [Leader Election pattern](../patterns/leader-election.yml) and the [Competing Consumers pattern](../patterns/competing-consumers.yml).
+For more information, see the [Leader Election pattern](../patterns/leader-election.yml) and the [Competing Consumers pattern](../patterns/competing-consumers.md).
 
 ## Conflicts
 
@@ -324,4 +324,4 @@ Background tasks must offer sufficient performance to ensure they do not block t
 - [Scheduler Agent Supervisor pattern](../patterns/scheduler-agent-supervisor.yml)
 - [Compensating Transaction pattern](../patterns/compensating-transaction.yml)
 - [Leader Election pattern](../patterns/leader-election.yml)
-- [Competing Consumers pattern](../patterns/competing-consumers.yml)
+- [Competing Consumers pattern](../patterns/competing-consumers.md)
