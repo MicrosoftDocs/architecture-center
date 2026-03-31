@@ -12,7 +12,7 @@ ms.custom:
 
 # Autoscaling
 
-Autoscaling is the process of dynamically allocating resources to match performance requirements. As the volume of work grows, an application might need more resources to maintain the desired performance levels and satisfy service-level agreements (SLAs). As demand slackens and the extra resources are no longer needed, they can be de-allocated to minimize costs.
+Autoscaling is the process of dynamically allocating resources to match performance requirements. As the volume of work grows, an application might need more resources to maintain the desired performance levels and satisfy service-level objectives (SLOs). As demand slackens and the extra resources are no longer needed, they can be de-allocated to minimize costs.
 
 Autoscaling takes advantage of the elasticity of cloud-hosted environments while easing management overhead. It reduces the need for an operator to continually monitor the performance of a system and make decisions about adding or removing resources.
 

@@ -39,7 +39,11 @@ Consider the following points when implementing the Messaging Bridge pattern:
 
 - You can use a single queue in each messaging infrastructure, designated as the *bridging queue*. In this topology, configure the sending system to use that specific queue as the destination for message types that are sent to the other system. You can also use multiple pairs of queues in each messaging infrastructure, so the sender is unaware of the bridge. A *shadow queue* is created for each destination queue in the destination system's messaging infrastructure. The bridge forwards messages between the shadow queues and their counterparts.
 
+<<<<<<< HEAD
 - In order to meet the desired availability service-level agreements (SLAs), you might need to scale out the Messaging Bridge by using the [Competing consumers](./competing-consumers.md) approach.
+=======
+- In order to meet the desired availability service-level objectives (SLOs), you might need to scale out the Messaging Bridge by using the [Competing consumers](./competing-consumers.yml) approach.
+>>>>>>> a680388ded160b6d07e3e7ae0388a7632604141a
 
 - Regular message-processing components use the [Retry pattern](./retry.yml) to handle transient failures. The retry counter limit enables components to detect *poison* messages and remove them from the queue to unblock processing. The bridge might require a different retry policy to prevent falsely identifying messages as poison if an infrastructure failure occurs. You might use the [Circuit Breaker](./circuit-breaker.md) pattern to pause forwarding.
 

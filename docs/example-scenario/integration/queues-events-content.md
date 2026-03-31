@@ -16,13 +16,13 @@ This version of the architecture adds two components that help make the system m
 
 - [Azure Service Bus](/azure/service-bus-messaging) is a secure, reliable message broker.
 
-- [Azure Event Grid](/azure/event-grid) is an event-routing service. It uses a [publish and subscribe](../../patterns/publisher-subscriber.yml) eventing model.
+- [Azure Event Grid](/azure/event-grid/overview) is an event-routing service. It uses a [publish and subscribe](../../patterns/publisher-subscriber.md) eventing model.
 
 This architecture uses asynchronous communication via a message broker instead of making direct, synchronous calls to back-end services. Asynchronous communication provides the following advantages:
 
 - Uses the [Queue-Based Load Leveling pattern](../../patterns/queue-based-load-leveling.yml) to handle bursts in workloads via load-leveling
 
-- Uses the [Publisher-Subscriber pattern](../../patterns/publisher-subscriber.yml) so that you can broadcast messages to multiple consumers
+- Uses the [Publisher-Subscriber pattern](../../patterns/publisher-subscriber.md) so that you can broadcast messages to multiple consumers
 - Tracks the progress of long-running workflows reliably, even when they involve multiple steps or multiple applications
 - Helps to decouple applications
 - Integrates with existing message-based systems

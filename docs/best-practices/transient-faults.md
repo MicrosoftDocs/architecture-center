@@ -89,7 +89,7 @@ A combination of factors contribute to the overall maximum timeout for a retried
 
 - The maximum number of retries.
 
- The total of these times can result in long overall operation times, especially when you use an exponential delay strategy where the interval between retries grows rapidly after each failure. If a process must meet a specific service-level agreement (SLA), the overall operation time, including all timeouts and delays, must be within the limits defined in the SLA.
+ The total of these times can result in long overall operation times, especially when you use an exponential delay strategy where the interval between retries grows rapidly after each failure. If a process must meet a specific service-level objective (SLO), the overall operation time, including all timeouts and delays, must be within the limits defined in the SLO.
 
 Account for the timeout of the operations when you choose retry intervals to avoid launching a subsequent attempt immediately, like if the timeout period is similar to the retry interval. Determine whether you need to keep the total possible period, which is the timeout plus the retry intervals, under a specific total time threshold. If an operation has an unusually short or long timeout, the timeout might influence how long to wait and how often to retry the operation.
 

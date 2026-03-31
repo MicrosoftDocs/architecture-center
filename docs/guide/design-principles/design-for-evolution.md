@@ -24,7 +24,7 @@ Microservices are becoming a popular way to achieve an evolutionary design, beca
 
 **Encapsulate domain knowledge**. When a client consumes a service, the responsibility for enforcing the business rules of the domain should not fall on the client. Instead, the service should encapsulate all of the domain knowledge that falls under its responsibility. Otherwise, every client has to enforce the business rules, and you end up with domain knowledge spread across different parts of the application.
 
-**Use asynchronous messaging**. Asynchronous messaging is a way to decouple the message producer from the consumer. The producer doesn't depend on the consumer responding to the message or taking any particular action. With a pub/sub architecture, the producer might not even know who is consuming the message. New services can easily consume the messages without any modifications to the producer.
+**Use asynchronous messaging**. Asynchronous messaging is a way to decouple the message producer from the consumer. The producer doesn't depend on the consumer responding to the message or taking any particular action. With a [pub/sub architecture](../../patterns/publisher-subscriber.md), the producer might not even know who is consuming the message. New services can easily consume the messages without any modifications to the producer.
 
 **Don't build domain knowledge into a gateway**. Gateways can be useful in a microservices architecture, for things like request routing, protocol translation, load balancing, or authentication. However, the gateway should be restricted to this sort of infrastructure functionality. It should not implement any domain knowledge, to avoid becoming a heavy dependency.
 

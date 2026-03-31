@@ -670,7 +670,7 @@ Also, expect a small amount of extra network latency in node communication betwe
 
 ### Test with simulations and forced failovers
 
-Test your solution's reliability through forced failover testing with simulated outages. Simulations can include stopping a node, bringing down all AKS resources in a particular zone to simulate a zonal failure, or invoking an external dependency failure. You can also use Azure Chaos Studio to simulate various types of outages in Azure and on the cluster.
+Test your solution's reliability through forced failover testing with simulated outages. Simulations can include stopping a node, bringing down all AKS resources in a particular zone to simulate a zone failure, or invoking an external dependency failure. You can also use Azure Chaos Studio to simulate various types of outages in Azure and on the cluster.
 
 For more information, see [Chaos Studio](/azure/chaos-studio/chaos-studio-overview).
 
@@ -922,7 +922,9 @@ Advanced deployment techniques, like [blue-green deployment](https://martinfowle
 
 ## Cost management
 
-Start by reviewing the cost optimization design checklist and list of recommendations outlined in [Well-Architected Framework for AKS](/azure/well-architected/service-guides/azure-kubernetes-service#cost-optimization). Use the [Azure pricing calculator](https://azure.com/e/16fc0fecb81e49ddadc91f2a0d0ecffc) to estimate costs for the services you use in the architecture. For other best practices, see [Cost Optimization](/azure/architecture/framework/cost/overview).
+Start by reviewing the cost optimization design checklist and list of recommendations outlined in [Well-Architected Framework for AKS](/azure/well-architected/service-guides/azure-kubernetes-service#cost-optimization). For general workload recommendations, see the [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+
+You can find a cost estimate for the components used in this baseline architecture in the [Azure pricing calculator](https://azure.com/e/16fc0fecb81e49ddadc91f2a0d0ecffc). Modify your estimate to include the components required for your use case.
 
 Consider using [AKS cost analysis](/azure/aks/cost-analysis) for granular cluster infrastructure cost allocation by Kubernetes-specific constructs.
 
