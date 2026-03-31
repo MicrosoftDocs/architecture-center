@@ -169,7 +169,5 @@ Most organizations need a hybrid approach to virtual desktops because they integ
 
 To help you ramp up quickly, the following articles compare Azure virtual desktop options to other cloud services.
 
-### Service comparison
-
 - [AWS to Azure services comparison - User computing](../aws-professional/index.md#end-user-computing)
 - [Google Cloud to Azure services comparison](../gcp-professional/services.md)
