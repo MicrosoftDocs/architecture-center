@@ -6,7 +6,6 @@ author: anaharris-ms
 ms.update-cycle: 1095-days
 ms.topic: concept-article
 ms.subservice: architecture-guide
-ms.custom: arb-virtual-desktop
 ms.date: 03/26/2026
 ai-usage: ai-assisted
 ---
