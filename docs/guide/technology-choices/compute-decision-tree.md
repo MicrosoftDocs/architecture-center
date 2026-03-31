@@ -250,7 +250,7 @@ Some workloads have specific requirements and don't typically follow the general
 | SAP on Azure VMs | [Use Azure to host and run SAP workload scenarios](/azure/sap/workloads/get-started) |
 | Oracle on Azure VMs | [Oracle databases on Azure infrastructure](/azure/virtual-machines/workloads/oracle/oracle-overview#oracle-databases-on-azure-infrastructure) <br><br> [Applications on Oracle Linux and WebLogic server](/azure/virtual-machines/workloads/oracle/oracle-overview#applications-on-oracle-linux-and-weblogic-server) |
 | Complex, intermixed state and compute with opinionated programming models | [Azure Service Fabric](/azure/service-fabric/service-fabric-application-scenarios) |
-| Mainframe | [Rehost a mainframe on Azure](/azure/architecture/example-scenario/mainframe/mainframe-rehost-architecture-azure) <br><br> [Refactor a mainframe application for Azure](/azure/architecture/example-scenario/mainframe/general-mainframe-refactor) |
+| Mainframe | [Refactor a mainframe application for Azure](/azure/architecture/example-scenario/mainframe/general-mainframe-refactor) |
 | Marketplace offerings | [Browse partner offerings on Azure compute](https://marketplace.microsoft.com/search/products?product=azure) |
 | Quantum computing | [Azure Quantum](/azure/quantum/overview-azure-quantum) |
 | Virtual desktop hosting | [Virtual desktop architecture design](/azure/architecture/guide/virtual-desktop/start-here) |
