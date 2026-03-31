@@ -100,7 +100,7 @@ For detailed information on using Azure Service Bus queues, see [Service Bus que
 
 For information on Queue triggered Azure Functions, see [Azure Service Bus trigger for Azure Functions](/azure/azure-functions/functions-bindings-service-bus-trigger).
 
-To see how you can use the Azure Service Bus client library for .NET to send messages to a Service Bus Queue, see the published [Examples](/dotnet/api/overview/azure/messaging.servicebus-readme?view=azure-dotnet#examples).
+To see how you can use the Azure Service Bus client library for .NET to send messages to a Service Bus Queue, see the published [Examples](/dotnet/api/overview/azure/messaging.servicebus-readme#examples).
 
 ## Next steps
 

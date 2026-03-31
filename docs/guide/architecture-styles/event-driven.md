@@ -163,6 +163,6 @@ This architecture provides the following benefits:
 ## Related resources
 
 - [Publisher-Subscriber](../../patterns/publisher-subscriber.md)
-- [Competing Consumers](../../patterns/competing-consumers.yml)
+- [Competing Consumers](../../patterns/competing-consumers.md)
 - [Event Sourcing](../../patterns/event-sourcing.md)
 - [Compensating Transaction](../../patterns/compensating-transaction.yml)
