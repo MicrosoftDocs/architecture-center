@@ -34,7 +34,9 @@ The Choreography pattern minimizes the dependency on custom software that centra
 
 A common way to implement choreography is to use a message broker that buffers requests until downstream components claim and process them. The following image shows request handling through a [publisher-subscriber model](./publisher-subscriber.md).
 
-![A diagram showing processing of a request using a message broker.](./_images/choreography-pattern.png)
+:::image type="complex" source="./_images/choreography-pattern.png" border="false" lightbox="./_images/choreography-pattern.png" alt-text="A diagram that shows how a message broker processes a request.":::
+    The diagram shows a choreography pattern implementation that uses a message broker to coordinate service communication. On the left, an arrow points from a client request icon to three envelope symbols in a box that represent a central message broker. Three bidirectional arrows connect the message broker and services A, service B, and service C. These arrows show that services both receive messages from and send responses to the broker.
+:::image-end:::
 
 1. Client requests queue as messages in a message broker.
 
@@ -52,11 +54,15 @@ Consider the following points as you decide how to implement this pattern:
 
    To handle failures gracefully, you implement failure handling logic, which introduces complexity. Failure handling logic, such as [compensating transactions](./compensating-transaction.yml), is also prone to failures.
 
-    ![A flowchart showing error handling in the choreography pattern.](./_images/choreography-pattern-handling-errors.png)
+    :::image type="complex" source="./_images/choreography-pattern-handling-errors.png" border="false" lightbox="./_images/choreography-pattern-handling-errors.png" alt-text="A flowchart that shows how the choreography pattern handles error.":::
+        The flowchart shows error handling and compensation logic in a choreography pattern that has sequential service dependencies. At the top, a start node points to service A. Service A connects to a diamond that points to service B on the left and service C on the right. Arrows point from each of these services to a decision diamond that asks whether the request fails. The path labeled Yes branches upward in a loop back to the diamond that connects all three services. The path labeled No continues to a box with the text "both services succeeded." From this success state, the flow continues downward to service D, which connects to a final decision diamond that asks whether the request fails. The Yes path from this diamond loops back upward to re-enter the flow before service D, and the No path continues downward to an end node.
+    :::image-end:::
 
 - This pattern suits a workflow that processes independent business operations in parallel. The workflow can become complicated when choreography needs to occur in a sequence. For example, Service D can start its operation only after Service B and Service C complete their operations successfully.
 
-    ![A diagram of workflow in an messaging system that implements the choreography pattern in parallel and subsequently.](./_images/choreography-pattern-parallel-workflow.png)
+    :::image type="complex" source="./_images/choreography-pattern-parallel-workflow.png" border="false" lightbox="./_images/choreography-pattern-parallel-workflow.png" alt-text="A diagram of workflow in a messaging system that implements the choreography pattern in parallel.":::
+        The diagram shows message flow in a choreography pattern in which services process operations in parallel and sequentially. At the top are five components arranged horizontally: service A, a message broker, service B, service C, and service D. On the far left, a user sends a request to service A. Service A converts the request into message m1_a and publishes it to the message broker. Below the message broker, a vertical timeline shows how each service handles messages. Inside a shaded region labeled par for parallel processing, the message broker delivers m1_a to both service B and service C simultaneously via dashed arrows. Service B processes the message and returns m1_b to the message broker. Service C processes the message and returns m1_c to the message broker. On the right side of the diagram, two small boxes represent wait conditions for service D. The first condition states "Wait until m1_b and m1_c," which indicates that service D can't proceed until it receives both messages. The second condition states "Wait until m1_b.". After parallel processing completes and both service B and service C respond, the message broker sends m1_c to service D, followed by m1_b. Service D processes these messages and returns m1_d to the message broker. Below the diagram, a legend explains each notation. Request refers to the original HTTP request sent to a public endpoint. M1_a is the HTTP request converted into a message. M1_b is the message processed and sent back to the message broker from service B. M1_c is the message processed and sent back to the message broker from service C, and m1_d indicates that m1_b and m1_c are processed and sent back as the final confirmation to the message broker. Solid arrows indicate publish messages, and dashed arrows indicate subscribe messages.
+    :::image-end:::
 
 - This pattern presents challenges if the number of services grows rapidly. Many independent moving parts complicates the workflow between services. You must consistently use [distributed tracing](/dotnet/core/diagnostics/distributed-tracing) and correlation identifiers to maintain observability.
 
@@ -107,7 +113,9 @@ If this pattern introduces trade-offs within a pillar, consider them against the
 
 This example shows the Choreography pattern by creating an event-driven, cloud-native workload that runs functions alongside microservices. When a client requests to ship a package, the workload assigns a drone. After the package is ready for pickup by the scheduled drone, the delivery process starts. While the package is in transit, the workload handles the delivery until it receives the shipped status.
 
-![Diagram of an event driven cloud native example workload implementing choreography pattern](./_images/choreography-example.png)
+:::image type="complex" source="./_images/choreography-example.png" border="false" lightbox="./_images/choreography-example.png" alt-text="Diagram of an event-driven, cloud-native example workload that implements the Choreography pattern.":::
+    The diagram shows an event-driven choreography implementation for a drone delivery system that uses Azure services. On the far left, an arrow that represents a client request points from a user icon to a box labeled ingestion, which is the entry point into the Azure Container Apps environment. Within the Container Apps environment, arrows connect the ingestion service, the package microservice, the drone scheduler, and the delivery microservice via Azure Service Bus. Another arrow points from the package microservice to a box labeled Azure Cosmos DB above the Container Apps environment. An arrow labeled shipped flows from the delivery service upward to Azure Event Grid. Below the box labeled Service Bus, an arrow points downward to a dead letter queue (DLQ) represented by a circle icon.
+:::image-end:::
 
 The ingestion service receives client requests and converts them into messages that include the delivery details. Business transactions start after services consume those new messages.
 
