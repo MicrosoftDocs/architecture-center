@@ -1252,7 +1252,7 @@ items:
   - name: Storage
     items:
     - name: Get started
-      href: guide/storage/storage-start-here.md
+      href: storage/storage-get-started.md
     - name: Architectures
       items:
       - name: Azure file shares in a hybrid environment
