@@ -207,6 +207,8 @@ Principal authors:
 - [Lauren Baird](https://www.linkedin.com/in/laurenkbaird/) | Cloud Solution Architect
 - [Christopher Schmidt](https://www.linkedin.com/in/christophermschmidt/) | Enterprise AI & Data Strategy Leader
 
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [Service Bus samples](/azure/service-bus-messaging/service-bus-samples)
