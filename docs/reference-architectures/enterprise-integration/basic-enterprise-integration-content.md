@@ -1,20 +1,20 @@
-This reference architecture uses [Azure Integration Services][integration-services] to orchestrate calls to enterprise backend systems. The backend systems can include software as a service (SaaS) systems, Azure services, and existing web services in your enterprise.
+This reference architecture uses [Azure Integration Services][integration-services] to orchestrate calls to enterprise backend systems. Azure Integration Services encompasses several components, including Logic Apps, API Management, Service Bus, Event Grid, Azure Functions and Data Factory. This basic architecture uses only Logic Apps and API Management; more advanced scenarios that incorporate message queues and events are covered in the companion article referenced under Related Resources. The backend systems can include software as a service (SaaS) systems, Azure services, or existing web services in your enterprise.
 
 ## Architecture
 
-![Architecture diagram showing a simple enterprise integration](./_images/simple-enterprise-integration.png)
+:::image type="content" source="./_images/simple-enterprise-integration.png" alt-text="Architecture diagram showing a simple enterprise integration":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/simple-enterprise-integration.vsdx) of this architecture.*
+*Download a [Visio file][integration-arch-visio] of this architecture.*
 
 ### Workflow
 
-1. **Application**. The application is a client that calls the API gateway after authenticating with Microsoft Entra. The application can be a web app, mobile app, or any other client that can make HTTP requests.
+1. **Application**. The application is a client that calls the API gateway after authenticating with Microsoft Entra ID. The application can be a web app, mobile app, or any other client that can make HTTP requests.
 
-1. **Microsoft Entra ID**. Is used to authenticate the client application. The client application obtains an access token from Microsoft Entra ID and includes it in the request to the API gateway.
+1. **Microsoft Entra ID**. Microsoft Entra ID is used to authenticate the client application. The client application obtains an access token from Microsoft Entra ID and includes it in the request to the API gateway.
 
 1. **Azure API Management**. API Management consists of two related components:
 
-   - **API gateway**. The API gateway accepts HTTP call from the client application, validates the token from Microsoft Entra ID, and forwards the request to the backend service. The API gateway can also transform requests and responses, and cache responses.
+   - **API gateway**. The API gateway accepts HTTP calls from the client application, validates the token from Microsoft Entra ID, and forwards the request to the backend service. The API gateway can also transform requests and responses, and cache responses.
 
    - **Developer portal**. The [developer portal][apim-dev-portal] is used by developers to discover and interact with the APIs. The developer portal can be customized to match your organization's branding.
 
@@ -24,11 +24,12 @@ This reference architecture uses [Azure Integration Services][integration-servic
 
 ### Components
 
-- [Integration Services](/azure/logic-apps/azure-integration-services-choose-capabilities) is a collection of services that you can use to integrate applications, data, and processes. In this solution, two of these services are used: Logic Apps and API Management. Logic Apps is used to facilitate message based integration between systems and facilitate connectivity with connectors. API Management is used to provide a façade  for the backend services, allowing for a consistent interface for clients to interact with.
-  - [Logic Apps](/azure/logic-apps/logic-apps-overview) is a serverless platform for building enterprise workflows that integrate applications, data, and services.  In this solution Logic Apps is used to orchestrate the calls to the backend services and provide connectivity through connectors, reducing the need for custom code.
-  - [API Management](/azure/well-architected/service-guides/api-management/reliability) is a managed service for publishing catalogs of HTTP APIs. You can use it to promote the reuse and discoverability of your APIs and to deploy an API gateway to proxy API requests. In this solution, API Management provides additional capabilities such as rate limiting, authentication, and caching to the backend services.  Additionally, API Management provides a developer portal for clients to discover and interact with the APIs.
-- [Azure DNS](/azure/dns/dns-overview) is a hosting service for DNS domains.  Azure DNS is hosting the public DNS records for the API Management service. This allows clients to resolve the DNS name to the IP address of the API Management service.
-- [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based identity and access management service. Enterprise employees can use Microsoft Entra ID to access external and internal resources. Here Entra ID is used to secure the API Management service using [OAuth 2.0](/azure/api-management/api-management-howto-protect-backend-with-aad) and the developer portal using [Microsoft Entra External ID](/azure/api-management/api-management-howto-entra-external-id).
+- [Integration Services][integration-services] is a collection of services that you can use to integrate applications, data, and processes. In this solution, two of these services are used:
+  - [Logic Apps][logic-apps] is a serverless platform for building enterprise workflows that integrate applications, data, and services.  In this solution Logic Apps is used to facilitate message-based integration between systems, orchestrate the calls to the backend services and provide connectivity through connectors, reducing the need for custom code.
+  - [API Management][apim-reliability] is a managed service for publishing catalogs of HTTP APIs. You can use it to promote the reuse and discoverability of your APIs and to deploy an API gateway to proxy API requests. Additionally, API Management provides a developer portal for clients to discover and interact with the APIs. In this solution, API Management is used to provide a façade  for the backend services, allowing for a consistent interface for clients to interact with. It also provides additional capabilities such as rate limiting, authentication, and caching to the backend services.  
+- [Azure DNS][dns] is a hosting service for DNS domains.  Azure DNS is hosting the public DNS records for the API Management service. This allows clients to resolve the DNS name to the IP address of the API Management service.
+- [Microsoft Entra ID][entra] is a cloud-based identity and access management service. Enterprise employees can use Microsoft Entra ID to access external and internal resources. Here Entra ID is used to secure the API Management service using [OAuth 2.0][apim-oauth] and the developer portal using [Microsoft Entra External ID][apim-ext-id].
+- [Azure Key Vault][keyvault] is a cloud service for securely storing and managing secrets, encryption keys, and certificates. In this architecture, Key Vault provides centralised secret storage for both Logic Apps and API Management.
 
 ## Scenario details
 
@@ -36,7 +37,7 @@ Integration Services is a collection of services that you can use to integrate a
 
 In this architecture, composite APIs are built by [importing logic apps][apim-logic-app] as APIs. You can also import existing web services by [importing OpenAPI][apim-openapi] (Swagger) specifications or [importing SOAP APIs][apim-soap] from WSDL specifications.
 
-The API gateway helps to decouple front-end clients from the back end. For example, it can rewrite URLs, or transform requests before they reach the backend. It also handles many cross-cutting concerns such as authentication, cross-origin resource sharing (CORS) support, and response caching.
+The API gateway helps to decouple front-end clients from the backend. For example, it can rewrite URLs, or transform requests before they reach the backend. It also handles many cross-cutting concerns such as authentication, cross-origin resource sharing (CORS) support, and response caching.
 
 ### Potential use cases
 
@@ -48,15 +49,19 @@ Your specific requirements might differ from the generic architecture shown here
 
 ### API Management
 
-Use the API Management Basic, Standard, or Premium tiers. These tiers offer a production service level agreement (SLA) and support scale-out within the Azure region. Throughput capacity for API Management is measured in *units*. Each pricing tier has a maximum scale-out. The Premium tier also supports scale-out across multiple Azure regions. Choose your tier based on your feature set and the level of required throughput. For more information, see [API Management pricing][apim-pricing] and [Capacity of an Azure API Management instance][apim-capacity].
+There are [8 tiers][apim-features] available for API Management. These tiers offer a production service level agreement (SLA) and support scale-out within the Azure region. 
 
-The API Management Consumption tier isn't recommended for this solution because it doesn't support the developer portal which is required for this architecture. The Developer Tier is specifically for non-production environments and isn't recommended for production workloads. To see the differences between the tiers, see the [Feature-based comparison of the Azure API Management tiers](/azure/api-management/api-management-features).
+The API Management Consumption tier isn't recommended for this solution because it doesn't support the developer portal or Microsoft Entra integration — both of which are required components of this architecture. 
+
+The Developer tier is specifically for non-production environments and isn't recommended for production workloads. 
+
+Throughput capacity for API Management is measured in *units*. Each pricing tier has a maximum scale-out. The Premium tier supports scale-out across multiple Azure regions. Choose your tier based on your feature set and the level of required throughput. To see the differences between the tiers, see the [Feature-based comparison of the Azure API Management tiers][apim-features]. For more information, see [API Management pricing][apim-pricing] and [Capacity of an Azure API Management instance][apim-capacity].
 
 Each Azure API Management instance has a default domain name, which is a subdomain of `azure-api.net`, for example, `contoso.azure-api.net`. Consider configuring a [custom domain][apim-domain] for your organization.
 
 ### Logic Apps
 
-Logic Apps works best in scenarios that don't require low latency for a response, such as asynchronous or semi long-running API calls. If low latency is required, for example in a call that blocks a user interface, use a different technology. For example, use Azure Functions or a web API deployed to Azure App Service. Use API Management to front the API to your API consumers.
+Logic Apps works best in scenarios that don't require low latency for a response, such as asynchronous or moderately long-running API calls. If low latency is required, for example in a call that blocks a user interface, use a different technology. For example, use Azure Functions or a web API deployed to Azure App Service. Use API Management to front the API to your API consumers.
 
 ### Region
 
@@ -64,19 +69,19 @@ To minimize network latency, put API Management and Logic Apps in the same regio
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework][waf].
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability][waf-rel-checklist].
 
-Review the SLAs for each service [here](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services)
+Review the SLAs for each service [here][sla].
 
 If you deploy API Management across two or more regions with Premium tier, it's eligible for a higher SLA. See [API Management pricing][apim-pricing].
 
 #### Backups
 
-Regularly [back up][apim-backup] your API Management configuration. Store your backup files in a location or Azure region that differs from the region where the service is deployed. Based on your RTO, choose a disaster recovery strategy:
+Regularly [back up][apim-backup] your API Management configuration (note: the built-in backup and restore feature is available on classic Developer, Basic, Standard, and Premium tiers only — it is not supported on v2 tiers or the Consumption tier). For v2 deployments, adopt an Infrastructure as Code approach to ensure recoverability. Store your backup files in a location or Azure region that differs from the region where the service is deployed. Based on your RTO, choose a disaster recovery strategy:
 
 - In a disaster recovery event, provision a new API Management instance, restore the backup to the new instance, and repoint the DNS records.
 
@@ -88,17 +93,17 @@ If you deploy a logic app to a different region, update the configuration in API
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security][waf-sec-checklist].
 
 Although this list doesn't completely describe all security best practices, here are some security considerations that apply specifically to this architecture:
 
-- The Azure API Management service has a fixed public IP address. Restrict access for calling Logic Apps endpoints to only the IP address of API Management. For more information, see [Restrict inbound IP addresses][logic-apps-restrict-ip].
+The Azure API Management service has a fixed public IP address on the classic (non-v2) tiers. If you are using a v2 tier, note that a static IP is not provided; consider alternative approaches (such as using a custom domain with Azure DNS) for IP-based access restrictions on Logic Apps endpoints. Restrict access for calling Logic Apps endpoints to only the IP address of API Management. For more information, see [Restrict inbound IP addresses][logic-apps-restrict-ip].
 
 - To make sure users have appropriate access levels, use Azure role-based access control (Azure RBAC).
 
 - Secure public API endpoints in API Management by using OAuth or OpenID Connect. To secure public API endpoints, configure an identity provider, and add a JSON Web Token (JWT) validation policy. For more information, see [Protect an API by using OAuth 2.0 with Microsoft Entra ID and API Management][apim-oauth].
 
-- Connect to back-end services from API Management by using [mutual certificates](/azure/api-management/api-management-howto-mutual-certificates).
+- Connect to backend services from API Management by using [mutual certificates][apim-cert].
 
 - Enforce HTTPS on the API Management APIs.
 
@@ -110,9 +115,11 @@ If a logic app works with sensitive data, see [Secure access and data for workfl
 
 API Management manages secrets by using objects called *named values* or *properties*. These objects securely store values that you can access through API Management policies. For more information, see [How to use Named Values in Azure API Management policies][apim-properties].
 
+Use Azure Key Vault to centrally store and manage passwords, API keys, connection strings, and certificates. Key Vault provides a hardened, encrypted secrets store with fine-grained access control and audit logging. Logic Apps can retrieve secrets from Key Vault using managed identities or the built-in Key Vault connector, and API Management Named Values support direct references to Key Vault secrets — keeping sensitive configuration out of application code and deployment templates. For detailed recommendations, see the [Azure Well-Architected Framework guidance on protecting application secrets][waf-sec-secret].
+
 ### Cost Optimization
 
-Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization][waf-cost-checklist].
 
 In general, use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Here are some other considerations.
 
@@ -122,13 +129,13 @@ You're charged for all API Management instances when they're running. If you hav
 
 #### Logic Apps
 
-Logic Apps uses a serverless model. Billing is calculated based on action and connector execution. For more information, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
+Logic Apps (Consumption plan) uses a serverless billing model calculated based on action and connector execution. If you use Logic Apps Standard (single-tenant), billing is based on the hosting plan. For more information, see [Logic Apps pricing][logic-apps-pricing].
 
 For more information, see the cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
 ### Operational Excellence
 
-Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence][waf-op-checklist].
 
 #### DevOps 
 
@@ -146,11 +153,11 @@ When you assign resources to resource groups, consider these factors:
 
 ##### Deployment
 
-Use [Azure Resource Manager templates][arm] to deploy the Azure resources and follow the infrastructure as Code (IaC) Process. Templates make it easier to automate deployments using [Azure DevOps Services][az-devops], or other CI/CD solutions.
+Use [Azure Resource Manager templates][arm] to deploy the Azure resources and follow the infrastructure as Code (IaC) process. Templates make it easier to automate deployments using [Azure DevOps Services][az-devops], or other CI/CD solutions.
 
 ##### Staging
 
-Consider staging your workloads, which means deploying to various stages and running validations at each stage before you continue to the next stage. If you use this approach, you can push updates to your production environments in a highly controlled way and minimize unanticipated deployment issues. [Blue-green deployment][blue-green-dep] and [Canary releases][canary-releases] are recommended deployment strategies for updating live production environments. Also consider having a good rollback strategy for when a deployment fails. For example, you could automatically redeploy an earlier, successful deployment from your deployment history. The `--rollback-on-error` flag parameter in Azure CLI is a good example.
+Consider staging your workloads, which means deploying to various stages and running validations at each stage before you continue to the next stage. If you use this approach, you can push updates to your production environments in a highly controlled way and minimize unanticipated deployment issues. [Blue-green deployment][blue-green-dep] and [Canary releases][canary-releases] are recommended deployment strategies for updating live production environments. Also consider having a good rollback strategy for when a deployment fails. For example, you could automatically redeploy an earlier, successful deployment from your deployment history. The `--rollback-on-error` flag parameter on the a`az deployment group create` Azure CLI command can automatically redeploy an earlier successful deployment from your deployment history if the current deployment fails.
 
 ##### Workload isolation
 
@@ -187,9 +194,9 @@ Each service also has these options:
 
 ### Performance Efficiency
 
-Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency][waf-perf-checklist].
 
-To increase the scalability of API Management, add [caching policies][apim-caching] where appropriate. Caching also helps reduce the load on back-end services.
+To increase the scalability of API Management, add [caching policies][apim-caching] where appropriate. Caching also helps reduce the load on backend services.
 
 To offer greater capacity, you can scale out Azure API Management Basic, Standard, and Premium tiers in an Azure region. To analyze the usage for your service, select **Capacity Metric** on the **Metrics** menu and then scale up or scale down as appropriate. The upgrade or scale process can take from 15 to 45 minutes to apply.
 
@@ -233,8 +240,11 @@ You might also be interested in these articles from the Azure Architecture Cente
 [apim-backup]: /azure/api-management/api-management-howto-disaster-recovery-backup-restore
 [apim-caching]: /azure/api-management/api-management-howto-cache
 [apim-capacity]: /azure/api-management/api-management-capacity
+[apim-cert]: /azure/api-management/api-management-howto-mutual-certificates
 [apim-dev-portal]: /azure/api-management/api-management-key-concepts#developer-portal
 [apim-domain]: /azure/api-management/configure-custom-domain
+[apim-ext-id]: /azure/api-management/api-management-howto-entra-external-id
+[apim-features]: /azure/api-management/api-management-features
 [apim-logic-app]: /azure/api-management/import-logic-app-as-api
 [apim-monitor]: /azure/api-management/api-management-howto-use-azure-monitor
 [apim-oauth]: /azure/api-management/api-management-howto-protect-backend-with-aad
@@ -242,6 +252,7 @@ You might also be interested in these articles from the Azure Architecture Cente
 [apim-pbi]: https://azure.microsoft.com/updates/azure-api-management-analytics-powerbi-solution-template
 [apim-pricing]: https://azure.microsoft.com/pricing/details/api-management
 [apim-properties]: /azure/api-management/api-management-howto-properties
+[apim-reliability]: /azure/well-architected/service-guides/api-management/reliability
 [apim-soap]: /azure/api-management/import-soap-api
 [apim-versions]: /azure/api-management/api-management-get-started-publish-versions
 [arm]: /azure/azure-resource-manager/resource-group-authoring-templates
@@ -250,12 +261,24 @@ You might also be interested in these articles from the Azure Architecture Cente
 [blue-green-dep]: https://martinfowler.com/bliki/BlueGreenDeployment.html
 [canary-releases]: https://martinfowler.com/bliki/CanaryRelease.html
 [dns]: /azure/dns
+[entra]: /entra/fundamentals/whatis
+[integration-arch-visio]: https://arch-center.azureedge.net/simple-enterprise-integration.vsdx
 [integration-services]: https://azure.microsoft.com/product-categories/integration
+[keyvault]: /azure/key-vault/general/overview
 [logic-apps]: /azure/logic-apps/logic-apps-overview
 [logic-apps-connectors]: /azure/connectors/apis-list
 [logic-apps-log-analytics]: /azure/logic-apps/logic-apps-monitor-your-logic-apps-oms
 [logic-apps-monitor]: /azure/logic-apps/logic-apps-monitor-your-logic-apps
+[logic-apps-pricing]: https://azure.microsoft.com/pricing/details/logic-apps/
 [logic-apps-restrict-ip]: /azure/logic-apps/logic-apps-securing-a-logic-app#restrict-inbound-ip-addresses
 [logic-apps-secure]: /azure/logic-apps/logic-apps-securing-a-logic-app
 [monitor]: /azure/azure-monitor/overview
 [rbac]: /azure/role-based-access-control/overview
+[sla]: https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services
+[waf]: /azure/well-architected/
+[waf-cost-checklist]: /azure/well-architected/cost-optimization/checklist
+[waf-op-checklist]: /azure/well-architected/operational-excellence/checklist
+[waf-perf-checklist]: /azure/well-architected/performance-efficiency/checklist
+[waf-rel-checklist]: /azure/well-architected/reliability/checklist
+[waf-sec-checklist]: /azure/well-architected/security/checklist
+[waf-sec-secret]: /azure/well-architected/security/application-secrets
