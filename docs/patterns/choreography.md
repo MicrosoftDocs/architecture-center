@@ -96,7 +96,7 @@ This pattern might not be suitable when:
 
 - Point-to-point communication between the components is inevitable.
 
-- You need to use business logic to consolidate all operations that downstream components handle. 
+- You need to use business logic to consolidate all operations that downstream components handle.
 
 ## Workload design
 
