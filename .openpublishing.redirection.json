@@ -7809,6 +7809,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/guide/virtual-desktop/start-here.md",
+      "redirect_url": "/azure/architecture/virtual-desktop/virtual-desktop-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/virtual-desktop/windows-365-azure-network-connection.md",
+      "redirect_url": "/azure/architecture/virtual-desktop/windows-365-azure-network-connection",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/guide/storage/storage-start-here.md",
       "redirect_url": "/azure/architecture/storage/storage-get-started",
       "redirect_document_id": false
