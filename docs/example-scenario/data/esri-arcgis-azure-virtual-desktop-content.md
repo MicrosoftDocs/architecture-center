@@ -126,7 +126,7 @@ GPU-enabled VMs are the largest cost driver in this architecture. Match VM SKUs 
 #### Reserved instances and savings plans
 
 - Use [Azure Reserved Virtual Machine Instances](/azure/cost-management-billing/reservations/save-compute-costs-reservations) for predictable, always-on workloads to save up to 72% compared to pay-as-you-go pricing.
-- Consider [Azure savings plans](https://docs.azure.cn/en-us/cost-management-billing/savings-plan/savings-plan-compute-overview) for flexible compute commitments across VM families.
+- Consider [Azure savings plans](/azure/cost-management-billing/savings-plan/savings-plan-overview) for flexible compute commitments across VM families.
 
 #### Monitoring and optimization
 

@@ -269,7 +269,7 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 - [Stop node pools](/azure/aks/start-stop-nodepools) or [scale down AKS clusters](/azure/aks/start-stop-cluster) when you don't use them.
 
-- Take advantage of cost management tools, such as [Azure Advisor](/azure/advisor/advisor-overview), [Azure reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations), and [Azure savings plans](https://docs.azure.cn/en-us/cost-management-billing/savings-plan/savings-plan-compute-overview) to monitor and optimize costs.
+- Take advantage of cost management tools, such as [Azure Advisor](/azure/advisor/advisor-overview), [Azure reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations), and [Azure savings plans](/azure/cost-management-billing/savings-plan/savings-plan-overview) to monitor and optimize costs.
 
 - Consider using [spot node pools](/azure/aks/spot-node-pool) to benefit from unused capacity in Azure and reduce cost.
 
