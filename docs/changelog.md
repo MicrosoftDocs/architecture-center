@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: claytonsiemens77
-ms.date: 03/23/2026
+ms.date: 03/30/2026
 ms.topic: whats-new
 ms.author: pnp
 ---
@@ -22,6 +22,10 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
+- [Event Sourcing Pattern](./patterns/event-sourcing.md)
+- [Get Started with Database Architecture Design](./databases/database-get-started.md)
+- [Multiregion BCDR for Azure Virtual Desktop](./example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr.md)
+- [Run SAP NetWeaver in Windows on Azure](./guide/sap/sap-netweaver.md)
 - [Ambassador Pattern](./patterns/ambassador.md)
 - [Set Up Real-Time Sync of MongoDB Atlas Data Changes to Microsoft Fabric](./example-scenario/analytics/sync-mongodb-atlas-fabric-analytics.yml)
 - [Bulkhead Pattern](./patterns/bulkhead.md)
@@ -33,11 +37,20 @@ The following new and updated articles have recently been published in the Azure
 
 ### Updated articles
 
+- [Scalable Cloud Applications and SRE](./example-scenario/apps/scalable-apps-performance-modeling-site-reliability.yml) ([#21f5db9233](https://github.com/MicrosoftDocs/architecture-center/commit/21f5db9233))
+- [High-volume batch transaction processing](./example-scenario/mainframe/process-batch-transactions.yml) ([#87db146580](https://github.com/MicrosoftDocs/architecture-center/commit/87db146580))
 - [Azure DNS Private Resolver](./networking/architecture/azure-dns-private-resolver.yml) ([#4e5ee92451](https://github.com/MicrosoftDocs/architecture-center/commit/4e5ee92451))
 - [Esri ArcGIS Platform on Azure Virtual Desktop](./example-scenario/data/esri-arcgis-azure-virtual-desktop.yml) ([#91840bcb67](https://github.com/MicrosoftDocs/architecture-center/commit/91840bcb67))
 - [Real-Time Analytics on Data by Using Azure Service Bus and Azure Data Explorer](./solution-ideas/articles/analytics-service-bus.yml) ([#b435877fde](https://github.com/MicrosoftDocs/architecture-center/commit/b435877fde))
 - [Azure Virtual Desktop for Azure Local](./hybrid/azure-local-workload-virtual-desktop.yml) ([#6702dddcc8](https://github.com/MicrosoftDocs/architecture-center/commit/6702dddcc8))
 - [AKS Day-2 Guide - Patch and Upgrade Guidance](./operator-guides/aks/aks-upgrade-practices.md) ([#d778b78dbe](https://github.com/MicrosoftDocs/architecture-center/commit/d778b78dbe))
+- [Monitoring and diagnostics guidance](./best-practices/monitoring.yml) ([#974cee33fe](https://github.com/MicrosoftDocs/architecture-center/commit/974cee33fe))
+- [Caching guidance](./best-practices/caching.yml) ([#43e7bb1b7b](https://github.com/MicrosoftDocs/architecture-center/commit/43e7bb1b7b))
+- [Azure AI Video Processing Guide](./data-guide/ai-services/image-video-processing.md) ([#5dbc809c58](https://github.com/MicrosoftDocs/architecture-center/commit/5dbc809c58))
+- [Choose an Azure Speech Recognition and Generation Technology](./data-guide/ai-services/speech-recognition-generation.md) ([#5dbc809c58](https://github.com/MicrosoftDocs/architecture-center/commit/5dbc809c58))
+- [Choose an Azure AI Targeted Language Processing Technology](./data-guide/ai-services/targeted-language-processing.md) ([#5dbc809c58](https://github.com/MicrosoftDocs/architecture-center/commit/5dbc809c58))
+- [Choose an Azure AI Technology](./data-guide/technology-choices/ai-services.md) ([#5dbc809c58](https://github.com/MicrosoftDocs/architecture-center/commit/5dbc809c58))
+- [AKS Backup and Recovery](./operator-guides/aks/aks-backup-and-recovery.md) ([#b9a40efebf](https://github.com/MicrosoftDocs/architecture-center/commit/b9a40efebf))
 - [Best practices in cloud applications](./best-practices/index-best-practices.md) ([#83e35e956d](https://github.com/MicrosoftDocs/architecture-center/commit/83e35e956d))
 - [Azure Enterprise Cloud File Share](./hybrid/azure-files-private.yml) ([#601b6bfec1](https://github.com/MicrosoftDocs/architecture-center/commit/601b6bfec1))
 - [Event-Driven Architecture Style](./guide/architecture-styles/event-driven.md) ([#21c2b2898f](https://github.com/MicrosoftDocs/architecture-center/commit/21c2b2898f))
@@ -46,10 +59,8 @@ The following new and updated articles have recently been published in the Azure
 - [Prepare to Choose a Data Store in Azure](./guide/technology-choices/data-stores-getting-started.md) ([#c1a5c84f2d](https://github.com/MicrosoftDocs/architecture-center/commit/c1a5c84f2d))
 - [Use Azure Firewall to help protect an AKS cluster](./guide/aks/aks-firewall.yml) ([#99f9d081b4](https://github.com/MicrosoftDocs/architecture-center/commit/99f9d081b4))
 - [Guidance for using Azure Private Link service in a multitenant solution](./guide/multitenant/service/private-link.md) ([#99f9d081b4](https://github.com/MicrosoftDocs/architecture-center/commit/99f9d081b4))
-- [Run SAP NetWeaver in Windows on Azure](./guide/sap/sap-netweaver.md) ([#99f9d081b4](https://github.com/MicrosoftDocs/architecture-center/commit/99f9d081b4))
 - [SAP S/4HANA in Linux on Azure](./guide/sap/sap-s4hana.md) ([#99f9d081b4](https://github.com/MicrosoftDocs/architecture-center/commit/99f9d081b4))
 - [No-Caching antipattern](./antipatterns/no-caching/index.md) ([#b1a7cae5ab](https://github.com/MicrosoftDocs/architecture-center/commit/b1a7cae5ab))
-- [Caching guidance](./best-practices/caching.yml) ([#b1a7cae5ab](https://github.com/MicrosoftDocs/architecture-center/commit/b1a7cae5ab))
 - [CDN guidance](./best-practices/cdn.yml) ([#b1a7cae5ab](https://github.com/MicrosoftDocs/architecture-center/commit/b1a7cae5ab))
 - [Data partitioning guidance](./best-practices/data-partitioning.yml) ([#b1a7cae5ab](https://github.com/MicrosoftDocs/architecture-center/commit/b1a7cae5ab))
 - [Data partitioning strategies](./best-practices/data-partitioning-strategies.yml) ([#b1a7cae5ab](https://github.com/MicrosoftDocs/architecture-center/commit/b1a7cae5ab))
@@ -68,9 +79,6 @@ The following new and updated articles have recently been published in the Azure
 - [Use Tactical DDD to Design Microservices](./microservices/model/tactical-domain-driven-design.md)
 - [Sidecar Pattern](./patterns/sidecar.md)
 - [Asynchronous Messaging Options](./guide/technology-choices/messaging.md)
-- [Analytics architecture design](./solution-ideas/articles/analytics-get-started.md)
-- [Container architecture design](./solution-ideas/articles/container-get-started.md)
-- [Storage architecture design](./storage/storage-get-started.md)
 
 ### Updated articles
 
@@ -78,7 +86,6 @@ The following new and updated articles have recently been published in the Azure
 - [Siemens Teamcenter baseline architecture on Azure](./example-scenario/manufacturing/teamcenter-baseline.yml) ([#47e344910a](https://github.com/MicrosoftDocs/architecture-center/commit/47e344910a))
 - [Storage architecture](./guide/storage/storage-start-here.md) ([#d8759bd3c2](https://github.com/MicrosoftDocs/architecture-center/commit/d8759bd3c2))
 - [Storage Options for a Kubernetes Cluster](./aws-professional/eks-to-aks/storage.md) ([#3c45ff22aa](https://github.com/MicrosoftDocs/architecture-center/commit/3c45ff22aa))
-- [Run SAP NetWeaver in Windows on Azure](./guide/sap/sap-netweaver.md) ([#3c45ff22aa](https://github.com/MicrosoftDocs/architecture-center/commit/3c45ff22aa))
 - [Transient Fault Handling](./best-practices/transient-faults.md) ([#19369cd91b](https://github.com/MicrosoftDocs/architecture-center/commit/19369cd91b))
 - [Automated API deployments using APIOps](./example-scenario/devops/automated-api-deployments-apiops.yml) ([#520a64549e](https://github.com/MicrosoftDocs/architecture-center/commit/520a64549e))
 - [Esri ArcGIS Platform on Azure Virtual Desktop](./example-scenario/data/esri-arcgis-azure-virtual-desktop.yml) ([#5933076273](https://github.com/MicrosoftDocs/architecture-center/commit/5933076273))
@@ -153,8 +160,6 @@ The following new and updated articles have recently been published in the Azure
 - [Mission-Critical Global HTTP Ingress](./guide/networking/global-web-applications/mission-critical-global-http-ingress.md) ([#58972970f9](https://github.com/MicrosoftDocs/architecture-center/commit/58972970f9))
 - [Considerations for Using Azure Container Apps in a Multitenant Solution](./guide/multitenant/service/container-apps.md) ([#fc0c872e88](https://github.com/MicrosoftDocs/architecture-center/commit/fc0c872e88))
 - [Guidance for Using Azure Database for PostgreSQL in a Multitenant Solution](./guide/multitenant/service/postgresql.md) ([#36889f673c](https://github.com/MicrosoftDocs/architecture-center/commit/36889f673c))
-- [Micro Focus Enterprise Server on Azure VMs](./example-scenario/mainframe/micro-focus-server.yml) ([#af1669497e](https://github.com/MicrosoftDocs/architecture-center/commit/af1669497e))
-- [Mission-Critical Baseline with App Service](./guide/networking/global-web-applications/mission-critical-app-service.yml) ([#716fa977a5](https://github.com/MicrosoftDocs/architecture-center/commit/716fa977a5))
 - [AI Architecture Design](./ai-ml/index.md) ([#5a16064af7](https://github.com/MicrosoftDocs/architecture-center/commit/5a16064af7))
 - [Baseline Highly Available Zone-Redundant App Services Web Application](./web-apps/app-service/architectures/baseline-zone-redundant.yml) ([#2b8460a1f5](https://github.com/MicrosoftDocs/architecture-center/commit/2b8460a1f5))
 - [Modern Data Warehouses for Small or Medium-Sized Businesses](./example-scenario/data/small-medium-data-warehouse.yml) ([#69a9025819](https://github.com/MicrosoftDocs/architecture-center/commit/69a9025819))
@@ -190,7 +195,6 @@ The following new and updated articles have recently been published in the Azure
 - [Design to Support Foundation Model Life Cycles](./ai-ml/guide/manage-foundation-models-lifecycle.md) ([#f351100aa7](https://github.com/MicrosoftDocs/architecture-center/commit/f351100aa7))
 - [Use Azure Firewall to help protect an AKS cluster](./guide/aks/aks-firewall.yml) ([#f351100aa7](https://github.com/MicrosoftDocs/architecture-center/commit/f351100aa7))
 - [AKS baseline for multiregion clusters](./reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml) ([#f351100aa7](https://github.com/MicrosoftDocs/architecture-center/commit/f351100aa7))
-- [Multiregion BCDR for Azure Virtual Desktop](./example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr.md) ([#9c9f9b9b79](https://github.com/MicrosoftDocs/architecture-center/commit/9c9f9b9b79))
 - [Azure Local Baseline Reference Architecture](./hybrid/azure-local-baseline.yml) ([#9c9f9b9b79](https://github.com/MicrosoftDocs/architecture-center/commit/9c9f9b9b79))
 - [Compare Java application hosting options on Azure](./guide/technology-choices/service-for-java-comparison.yml) ([#c8b5795c3f](https://github.com/MicrosoftDocs/architecture-center/commit/c8b5795c3f))
 - [Prevent IPv4 Exhaustion in Azure](./networking/guide/internet-protocol-version-4-exhaustion.md) ([#c8b5795c3f](https://github.com/MicrosoftDocs/architecture-center/commit/c8b5795c3f))
