@@ -10,8 +10,8 @@ Common application scenarios include any mission-critical application that runs 
 
 ## Architecture
 
-:::image type="complex" source="./media/architecture-disaster-recovery-multi-tier-app.png" border="false" lightbox="./media/architecture-disaster-recovery-multi-tier-app.png" alt-text="Diagram that shows the architecture overview of a highly resilient multitier web application.":::
-
+:::image type="complex" source="./media/architecture-disaster-recovery-multi-tier-app.svg" border="false" lightbox="./media/architecture-disaster-recovery-multi-tier-app.svg" alt-text="Diagram that shows the architecture overview of a highly resilient multitier web application.":::
+Architecture diagram showing a disaster recovery setup for a multitier application across two Azure regions. In the primary region, user traffic enters through Azure Traffic Manager and routes to a public IP address. The traffic flows through a public load balancer to the web tier virtual machines (VMs) in a subnet. An internal load balancer distributes requests from the web tier to the business tier VMs in a separate subnet. Another internal load balancer routes traffic from the business tier to the SQL Server cluster in the data tier subnet. The VMs in each tier are distributed across either two availability zones or within an availability set, depending on region support. For disaster recovery, the architecture shows asynchronous replication from the primary region to a secondary target region by using either SQL Always On native replication or Azure Site Recovery. The secondary region mirrors the primary architecture with its own public IP address, load balancers, and three-tier VM deployment. Azure Traffic Manager monitors both regions and automatically redirects traffic to the secondary region during a primary region outage.
 :::image-end:::
 
 *Download a [Visio file][visio-download] of this architecture.*
