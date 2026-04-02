@@ -28,7 +28,9 @@ Determine the level of isolation that you need between your tenants. For most so
 - A partition key per tenant is often used for business-to-consumer software as a service (B2C SaaS) solutions. For example, a conversational chatbot application that stores user chat history in Azure Cosmos DB.
 - A database account per tenant is often used for business-to-business (B2B) SaaS solutions. For example, a Content Management System (CMS) sold to enterprises to publish digital content.
 
-To choose the most appropriate isolation model, consider your business model and the tenants' requirements. For example, in B2C models, where a business sells a product or service directly to an individual customer, strong security and performance isolation for each individual customer is often not required. For these applications, for highest cost efficiency, the data for all tenants can be stored in the same container, with partition key providing logical isolation. However, in B2B models, providers often sell different SKUs corresponding to different performance levels or SLA guarantees. In addition, providers often want to offer their customers the option to manage their own encryption keys, known as cross-tenant or hosted on behalf of customer managed keys. For these applications, using a separate database account per tenant ensures the ability to tune and guarantee performance per customer, as well as provide customer managed keys, a feature only available at the Azure Cosmos DB database account level.
+To choose the most appropriate isolation model, consider your business model and the tenants' requirements. For example, in B2C models, where a business sells a product or service directly to an individual customer, strong security and performance isolation for each individual customer is often not required. For these applications, for highest cost efficiency, the data for all tenants can be stored in the same container, with partition key providing logical isolation.
+
+However, in B2B models, providers often sell different SKUs corresponding to different performance levels or SLA guarantees. In addition, providers often want to offer their customers the option to manage their own encryption keys, known as cross-tenant or hosted on behalf of customer managed keys. For these applications, using a separate database account per tenant ensures the ability to tune and guarantee performance per customer, as well as provide customer managed keys, a feature only available at the Azure Cosmos DB database account level.
 
 ## Partition key per tenant model (recommended)
 
@@ -111,14 +113,14 @@ In the database account per tenant model, each of your tenants' data is stored i
  
 - **Custom configuration:** You can configure the location of the database account according to the tenant's requirements. You can also tune the configuration of Azure Cosmos DB features, such as geo-replication and customer-managed encryption keys, to suit each tenant's requirements. 
 
-When you use a dedicated Azure Cosmos DB account per tenant, consider the [maximum number of Azure Cosmos DB accounts per Azure subscription](/azure/cosmos-db/concepts-limits#resource-limits). 
+  When you use a dedicated Azure Cosmos DB account per tenant, consider the [maximum number of Azure Cosmos DB accounts per Azure subscription](/azure/cosmos-db/concepts-limits#resource-limits).
 
 - **Control your throughput:** Explore features that can help if you have multiple workloads using the same database accounts.
 
-| Feature | Description |
-|---|---|
-| [Priority based execution](/azure/cosmos-db/priority-based-execution) | Specify high or low priority at a per-request level. When there's contention on RU/s at the container level, high priority requests are prioritized. Useful when you have multiple workloads with different performance requirements, such as a batch job versus an API that serves real-time user requests. |
-| [Throughput buckets (preview)](/azure/cosmos-db/throughput-buckets) | Assign a set percentage of RU/s that a set of requests can consume. For example, you can configure that requests from a batch job can only consume up to 10% of the container's total RU/s, while a critical user facing API can consume up to 100% of the container's total RU/s. |
+  | Feature | Description |
+  |---|---|
+  | [Priority based execution](/azure/cosmos-db/priority-based-execution) | Specify high or low priority at a per-request level. When there's contention on RU/s at the container level, high priority requests are prioritized. Useful when you have multiple workloads with different performance requirements, such as a batch job versus an API that serves real-time user requests. |
+  | [Throughput buckets (preview)](/azure/cosmos-db/throughput-buckets) | Assign a set percentage of RU/s that a set of requests can consume. For example, you can configure that requests from a batch job can only consume up to 10% of the container's total RU/s, while a critical user facing API can consume up to 100% of the container's total RU/s. |
 
 
 ## Summary of recommended isolation models
