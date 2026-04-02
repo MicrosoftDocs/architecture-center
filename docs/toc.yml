@@ -1283,7 +1283,7 @@ items:
   - name: Virtual Desktop
     items:
     - name: Get started
-      href: guide/virtual-desktop/start-here.md
+      href: virtual-desktop/virtual-desktop-get-started.md
     - name: Guides
       items:
       - name: Azure Virtual Desktop design guide
