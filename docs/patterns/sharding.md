@@ -221,7 +221,7 @@ Use this pattern when:
 
 - Distinct tenants or customer segments require physical data isolation for security, performance, or contractual reasons.
 
-  In this scenario, the sharding pattern is sometimes applied beyond traditional data stores. For example, a DNS zone management system could be sharded by team, environment, or region to reduce the blast radius of DNS changes and establish clear ownership boundaries. In that context, the primary motivation is operational segmentation rather than scalability. For more information, see [Sharding private DNS zones](/azure/dns/sharding-private-dns-zones).
+  In scenarios like these, the sharding pattern is sometimes applied beyond traditional data stores. For example, a DNS zone management system could be sharded by team, environment, or region to reduce the blast radius of DNS changes and establish clear ownership boundaries. In that context, the primary motivation is operational segmentation rather than scalability. For more information, see [Sharding private DNS zones](/azure/dns/sharding-private-dns-zones).
 
 Sharding introduces substantial and permanent complexity into your data architecture. That complexity affects development, operations, testing, query design, and failure recovery for the system's lifetime.
 
