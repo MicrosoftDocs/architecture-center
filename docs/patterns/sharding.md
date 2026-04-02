@@ -1,9 +1,9 @@
 ---
 title: Sharding Pattern
-description: Use the Sharding design pattern to divide a data store into a set of horizontal partitions or shards.
+description: Use the Sharding design pattern to divide a data store into horizontal partitions or shards to improve scalability and performance in distributed systems.
 ms.author: pnp
 author: claytonsiemens77
-ms.date: 03/28/2026
+ms.date: 04/02/2026
 ms.topic: design-pattern
 ms.subservice: cloud-fundamentals
 ---
@@ -16,11 +16,11 @@ Divide a data store into a set of horizontal partitions or shards. This approach
 
 A data store on a single server has the following limitations:
 
-- **Storage space:** A data store for a large-scale cloud application can contain a large volume of data that grows over time. A server provides a finite amount of disk storage, and you can replace existing disks with larger ones or add more disks as data volumes grow. Eventually the system reaches a limit where you can't increase storage capacity on a single server.
+- **Storage space:** A data store for a large-scale cloud application can contain a large volume of data that grows over time. A server provides a finite amount of disk storage, and you can replace existing disks with larger ones or add more disks as data volumes grow. The system eventually reaches a limit where you can't increase storage capacity on a single server.
 
-- **Computing resources:** A cloud application must support a large number of concurrent users that each run queries against the data store. A single server might not provide enough computing power for this load, which results in extended response times and timeouts. You can add memory or upgrade processors, but the system reaches a limit where you can't increase compute resources any further.
+- **Computing resources:** A cloud application must support a large number of concurrent users who each run queries against the data store. A single server might not provide enough computing power for this load, which results in extended response times and timeouts. You can add memory or upgrade processors, but the system reaches a limit where you can't increase compute resources any further.
 
-- **Network bandwidth:** The rate at which a single server can receive requests and send replies bounds data store performance. The volume of network traffic can exceed the capacity of the network connection, which results in failed requests.
+- **Network bandwidth:** The rate at which a single server can receive requests and send replies limits data store performance. The volume of network traffic can exceed the capacity of the network connection, which results in failed requests.
 
 - **Geography:** Legal, compliance, or performance requirements might require you to store user data in the same geographic region as the users. If users span across countries/regions, you might not be able to store all the application's data in a single data store.
 
@@ -28,7 +28,7 @@ To postpone these limitations temporarily, you can scale vertically by adding di
 
 ## Solution
 
-Divide the data store into horizontal partitions or shards. Each shard has the same schema but holds its own distinct subset of the data. Each shard is a complete data store that can contain data for many entities of different types. A shard runs on a server that functions as a storage node.
+Divide the data store into horizontal partitions or shards. Each shard has the same schema but contains its own distinct subset of the data. Each shard is a complete data store that can contain data for many entities of different types. A shard runs on a server that functions as a storage node.
 
 This pattern has the following benefits:
 
@@ -38,7 +38,7 @@ This pattern has the following benefits:
 
 - You can reduce contention and improve performance by balancing the workload across shards.
 
-- In the cloud, shards can reside physically close to the users that access the data.
+- In the cloud, shards can reside physically close to the users who access the data.
 
 When you divide a data store into shards, decide which data to place in each shard. Each shard typically holds items grouped by one or more data attributes. These attributes form the shard key, sometimes referred to as the *partition key*.
 
@@ -68,7 +68,7 @@ In the lookup strategy, also called the *directory-based strategy*, the sharding
 Two application instances send queries for specific tenants to a sharding logic component. The sharding logic routes each request to the correct shard, such as shard A, shard B, or shard C, based on tenant ID. Each shard stores a distinct subset of the data.
 :::image-end:::
 
-The mapping between shard key values and physical storage can be direct, where each shard key value maps to a physical partition. A more flexible technique is virtual partitioning, where shard key values map to virtual shards, which in turn map to fewer physical partitions. An application locates data by using a shard key value that refers to a virtual shard, and the system transparently maps virtual shards to physical partitions. The mapping between a virtual shard and a physical partition can change without requiring application code modifications.
+The mapping between shard key values and physical storage can be direct, where each shard key value maps to a physical partition. A more flexible technique is virtual partitioning, where shard key values map to virtual shards, and the system then maps those virtual shards to fewer physical partitions. An application locates data by using a shard key value that refers to a virtual shard, and the system transparently maps virtual shards to physical partitions. The mapping between a virtual shard and a physical partition can change without requiring application code modifications.
 
 ### Range-based sharding strategy
 
@@ -96,7 +96,7 @@ To understand the advantage of the hash strategy over other sharding strategies,
 
 ### Geographic sharding strategy
 
-The geographic strategy assigns data to shards based on the geographic origin or intended consumption region of that data. In many workloads, users and the data that they generate are concentrated in specific regions. Regulatory requirements such as data residency laws might require that certain data remain within a specific jurisdiction. Even without regulatory drivers, placing data close to the users who access it most frequently reduces network latency for reads and writes.
+The geographic strategy assigns data to shards based on the geographic origin or intended consumption region of that data. In many workloads, users and the data that they generate are concentrated in specific regions. Regulatory requirements such as data residency laws might require that specific data remain within a specific jurisdiction. Even without regulatory drivers, placing data close to the users who access it most frequently reduces network latency for reads and writes.
 
 :::image type="complex" source="./_images/sharding-geographic.svg" lightbox="./_images/sharding-geographic.svg" alt-text="Diagram that shows sharding data based on the geography of the application instance." border="false":::
 Application instances route queries through a sharding logic component that maps regions to shards. Requests from Asia-Pacific route to shard A, Europe to shard B, and the Americas to shard C. Each shard stores data for its assigned region.
@@ -112,11 +112,11 @@ Geographic sharding introduces the risk of uneven data distribution. If most of 
 
 The four sharding strategies have the following advantages and considerations:
 
-- **The lookup strategy** offers more control over shard configuration. Virtual shards reduce the impact of rebalancing because you can add new physical partitions to balance the workload. You can modify the mapping between a virtual shard and its physical partitions without affecting application code. Looking up shard locations adds overhead.
+- **The lookup strategy** provides more control over shard configuration. Virtual shards reduce the impact of rebalancing because you can add new physical partitions to balance the workload. You can modify the mapping between a virtual shard and its physical partitions without affecting application code. Looking up shard locations adds overhead.
 
 - **The range strategy** is easy to implement and works well with range queries. Range queries can retrieve multiple data items from a single shard in one operation. Data management is simpler. For example, you can schedule updates per time zone based on local load patterns when users in the same region share a shard. However, this strategy doesn't balance load evenly across shards. Rebalancing is difficult and might not resolve uneven load when most activity concentrates on adjacent shard keys.
 
-- **The hash strategy** offers a better chance of even data and load distribution. You can route requests directly by using the hash function without maintaining a map. Computing the hash adds some overhead. Rebalancing is difficult without consistent hashing.
+- **The hash strategy** provides a better chance of even data and load distribution. You can route requests directly by using the hash function without maintaining a map. Computing the hash adds some overhead. Rebalancing is difficult without consistent hashing.
 
 - **The geographic strategy** meets data residency and sovereignty requirements that other strategies don't inherently address. It reduces read and write latency when users access data in their region. However, geographic sharding can create significant data and load imbalance when user populations aren't evenly distributed across regions. Queries that span regions, such as global reporting, must retrieve data from all geographic shards and incur higher latency. Combine geographic sharding with another strategy within each region when you need both compliance and even load distribution.
 
@@ -134,7 +134,7 @@ Most sharding systems implement one of these approaches, but you should also con
 
 Each sharding strategy provides different capabilities and levels of complexity to manage scale in, scale out, data movement, and state maintenance.
 
-- **The lookup strategy** permits scaling and data movement operations at the user level, either online or offline. To move data:
+- **The lookup strategy** allows scaling and data movement operations at the user level, either online or offline. To move data:
 
    1. Suspend some or all user activity, typically during off-peak periods.
 
@@ -152,7 +152,7 @@ Each sharding strategy provides different capabilities and levels of complexity 
 
 - **The hash strategy** complicates scaling and data movement operations. The partition keys are hashes of the shard keys or data identifiers. With a standard hash function, such as `hash(key) mod N`, adding or removing a shard reassigns most keys and triggers large-scale data migration. Consistent hashing reduces this impact by arranging the hash space so that only a small fraction of keys move when the shard count changes. The hash strategy doesn't require maintenance of a separate mapping state.
 
-- **The geographic strategy** directly links scaling operations to regional infrastructure provisioning. Adding capacity in one region doesn't relieve load in another region. Regulatory requirements that mandate geographic sharding can also restrict data movement across geographic boundaries. Within each region, scaling uses whichever secondary strategy distributes data across that region's shards.
+- **The geographic strategy** directly links scaling operations to regional infrastructure provisioning. Adding capacity in one region doesn't relieve load in another region. Regulatory requirements that mandate geographic sharding can also restrict data movement across geographic boundaries. Within each region, scaling uses the secondary strategy that distributes data across that region's shards.
 
 ## Problems and considerations
 
@@ -164,11 +164,11 @@ Consider the following points as you decide how to implement this pattern:
 
   Rebalancing moves data between shards and often causes downtime or reduced throughput. To rebalance less frequently, use virtual partitions. Map many logical partitions to fewer physical shards. When a shard is overloaded, redistribute its virtual partitions to new physical shards without rehashing the entire dataset. Azure Cosmos DB uses this approach to decouple the partition scheme from the physical infrastructure.
 
-  Prefer many small shards over few large ones. Smaller shards migrate faster, balance load more evenly, and give you more flexibility for data redistribution.
+  Prefer many small shards over few large ones. Smaller shards migrate faster, balance load more evenly, and provide more flexibility for data redistribution.
 
 - Use stable data for the shard key. If the shard key changes, you must move the corresponding data item between shards, which increases update operation overhead. Avoid basing the shard key on potentially volatile information. Choose attributes that are invariant or naturally form a key.
 
-- Ensure that shard keys are unique. For example, avoid using autoincrementing fields as the shard key. In some systems, autoincremented fields can't coordinate across shards, which can assign the same shard key to items in different shards.
+- Ensure that shard keys are unique. For example, avoid using autoincrementing fields as the shard key. In some systems, autoincremented fields can't coordinate across shards, which can result in items in different shards having the same shard key.
 
   > [!NOTE]
   > Autoincremented values in other fields that aren't shard keys can also cause problems. For example, if you use autoincremented fields to generate unique IDs, two different items in different shards might be assigned the same ID.
@@ -189,7 +189,7 @@ Consider the following points as you decide how to implement this pattern:
 - Consider replicating reference data to all shards. If a query against a shard also references static or slow-moving data, add this data to the shard. The application can then fetch all data for the query without making a round trip to a separate data store.
 
   > [!NOTE]
-  > If reference data held in multiple shards changes, the system must synchronize these changes across all shards. Some degree of inconsistency can occur while this synchronization runs. Design your applications to tolerate this inconsistency.
+  > If reference data held in multiple shards changes, the system must sync these changes across all shards. Some degree of inconsistency can occur while this synchronization runs. Design your applications to tolerate this inconsistency.
 
 - Sharded systems multiply operational burden. Plan for these concerns:
 
@@ -215,7 +215,7 @@ Use this pattern when:
 - The transaction throughput or query concurrency exceeds what a single instance can sustain, and read replicas alone don't resolve the bottleneck because write load is also high.
 
   > [!NOTE]
-  > Sharding improves the performance and scalability of a system, but it can also improve availability. A failure in one partition doesn't necessarily prevent an application from accessing data in other partitions. And an operator can perform maintenance or recovery of one partition without making all data unavailable. For more information, see [Data partitioning guidance](../best-practices/data-partitioning.yml).
+  > Sharding improves the performance and scalability of a system, and it can also improve availability. A failure in one partition doesn't necessarily prevent an application from accessing data in other partitions. And an operator can perform maintenance or recovery of one partition without making all data unavailable. For more information, see [Data partitioning guidance](../best-practices/data-partitioning.yml).
 
 - Regulatory or compliance requirements mandate that specific data subsets reside in specific geographic jurisdictions, and no single-region deployment can meet all requirements.
 
@@ -247,7 +247,7 @@ If this pattern introduces trade-offs within a pillar, consider them against the
 
 ## Example
 
-Consider a website that surfaces an expansive collection of information on published books worldwide. The number of possible books cataloged in this workload and the typical query and usage patterns exceed what a single relational database can handle. The workload architect decides to shard the data across multiple database instances by using the books' static International Standard Book Number (ISBN) as the shard key. Specifically, the architect uses the [check digit](https://wikipedia.org/wiki/ISBN#Check_digits) (0 - 10) of the ISBN, which provides 11 possible logical shards with fairly balanced data distribution.
+Consider a website that surfaces an expansive collection of information about published books worldwide. The number of possible books cataloged in this workload and the typical query and usage patterns exceed what a single relational database can handle. The workload architect decides to shard the data across multiple database instances by using the books' static ISBN as the shard key. Specifically, the architect uses the [check digit](https://wikipedia.org/wiki/ISBN#Check_digits) (0 - 10) of the ISBN, which provides 11 possible logical shards with fairly balanced data distribution.
 
 To start, the architect colocates the 11 logical shards into three physical shard databases. In this [virtual partition approach](#problems-and-considerations), many logical partitions map to fewer physical nodes. The architect uses the *lookup* sharding approach and stores the key-to-server mapping in a shard map database.
 
@@ -282,7 +282,7 @@ FROM BookDataShardMap
 
 ### Example website code: single shard access
 
-The website doesn't know how many physical shard databases exist (three in this case) or the logic that maps a shard key to a database instance. It only knows that the check digit of a book's ISBN is the shard key. The website has read-only access to the shard map database and read-write access to all shard databases. In this example, the website uses the system managed identity of its Azure App Service host for authorization, which keeps secrets out of connection strings.
+The website isn't aware of how many physical shard databases exist (three in this case) or the logic that maps a shard key to a database instance. It only knows that the check digit of a book's ISBN is the shard key. The website has read-only access to the shard map database and read-write access to all shard databases. In this example, the website uses the system managed identity of its Azure App Service host for authorization, which keeps secrets out of connection strings.
 
 The website is configured with the following connection strings either in an `appsettings.json` file, as shown in this example, or through App Service app settings.
 
@@ -354,7 +354,7 @@ Parallel.ForEachAsync(shardKeys, async (shardKey, cancellationToken) =>
 
     while (await reader.ReadAsync(cancellationToken))
     {
-      // Read the results into a thread-safe data structure.
+      // Collect the results into a thread-safe data structure.
     }
 
     reader.Close();
