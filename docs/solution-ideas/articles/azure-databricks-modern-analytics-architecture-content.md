@@ -128,7 +128,7 @@ This solution uses the following components.
 
 - [Azure Databricks Unity Catalog][Databricks Unity Catalog] provides centralized access control, auditing, lineage, and data discovery capabilities across Azure Databricks workspaces. In this architecture, Unity Catalog serves as the primary tool within Azure Databricks to manage and secure data access. 
 
-- [Power BI][What is Power BI?] is a collection of software services and apps. These services create and share reports that connect and visualize unrelated sources of data. Together with Azure Databricks, Power BI can provide root cause determination and raw data analysis. In this architecture, you can use Power BI to create dashboards and reports that provide insights into the data that Azure Databricks and Fabric process.
+- [Power BI][What is Power BI?] is a collection of software services and apps. These services create and share reports that connect and visualize unrelated sources of data. Together with Azure Databricks, Power BI can provide root cause determination and raw data analysis. In this architecture, you use Power BI to create dashboards and reports that provide insights into the data that Azure Databricks and Fabric process.
 
 - [Microsoft Purview][Data governance with Microsoft Purview] manages on-premises, multicloud, and software as a service (SaaS) data. This governance service maintains data landscape maps. Its features include automated data discovery, sensitive data classification, and data lineage. In this architecture, Microsoft Purview scans and tracks data ingested by Unity Catalog, Fabric, Power BI, and Data Lake Storage.
 
