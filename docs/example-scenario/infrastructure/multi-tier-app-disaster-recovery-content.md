@@ -11,7 +11,7 @@ Common application scenarios include any mission-critical application that runs 
 ## Architecture
 
 :::image type="complex" source="./media/architecture-disaster-recovery-multi-tier-app.svg" border="false" lightbox="./media/architecture-disaster-recovery-multi-tier-app.svg" alt-text="Diagram that shows the architecture overview of a highly resilient multitier web application.":::
-Architecture diagram showing a disaster recovery setup for a multitier application across two Azure regions. In the primary region, user traffic enters through Azure Traffic Manager and routes to a public IP address. The traffic flows through a public load balancer to the web tier virtual machines (VMs) in a subnet. An internal load balancer distributes requests from the web tier to the business tier VMs in a separate subnet. Another internal load balancer routes traffic from the business tier to the SQL Server cluster in the data tier subnet. The VMs in each tier are distributed across either two availability zones or within an availability set, depending on region support. For disaster recovery, the architecture shows asynchronous replication from the primary region to a secondary target region by using either SQL Always On native replication or Azure Site Recovery. The secondary region mirrors the primary architecture with its own public IP address, load balancers, and three-tier VM deployment. Azure Traffic Manager monitors both regions and automatically redirects traffic to the secondary region during a primary region outage.
+Architecture diagram that shows a disaster recovery (DR) setup for a multitier application across two Azure regions. In the primary region, user traffic enters through Azure Traffic Manager and routes to a public IP address. The traffic flows through a public load balancer to the web tier virtual machines (VMs) in a subnet. An internal load balancer distributes requests from the web tier to the business tier VMs in a separate subnet. Another internal load balancer routes traffic from the business tier to the SQL Server cluster in the data tier subnet. The VMs in each tier are distributed across either two availability zones or within an availability set, depending on region support. For DR, the architecture shows asynchronous replication from the primary region to a secondary target region by using either SQL Always On native replication or Azure Site Recovery. The secondary region mirrors the primary architecture with its own public IP address, load balancers, and three-tier VM deployment. Traffic Manager monitors both regions and automatically redirects traffic to the secondary region during a primary region outage.
 :::image-end:::
 
 *Download a [Visio file][visio-download] of this architecture.*
@@ -34,19 +34,19 @@ The following workflow corresponds to the previous diagram:
 
 1. For disaster recovery scenarios, you can set up SQL Always On asynchronous native replication to the target region that you use for disaster recovery. You can also set up Azure Site Recovery replication to the target region if the data change rate is within supported limits of Site Recovery.
 
-   The Traffic Manager secondary endpoint is set to the public IP address in the target region that you use for disaster recovery. When a primary region disruption occurs, you invoke Site Recovery failover and the application becomes active in the target region. The Traffic Manager endpoint automatically redirects the client traffic to the public IP address in the target region.
+   The Traffic Manager secondary endpoint is set to the public IP address in the target region that you use for disaster recovery. When a disruption occurs in the primary region, you invoke Site Recovery failover and the application becomes active in the target region. The Traffic Manager endpoint automatically redirects the client traffic to the public IP address in the target region.
 
 ### Components
 
 - [Availability sets][docs-availability-sets] are a fault-tolerance feature that you can use to distribute VMs across multiple isolated hardware nodes in a cluster. In this architecture, availability sets protect against hardware and software failures by ensuring that outages affect only a subset of VMs. This approach maintains application availability and operational continuity across the multitier application.
 
-- [Availability zones][docs-availability-zones] are separate physical locations within an Azure region that protect applications and data from datacenter failures. In this architecture, availability zones provide higher resilience by distributing VMs across multiple datacenters with independent power, cooling, and networking infrastructure.
+- [Availability zones][docs-availability-zones] are separate physical locations within an Azure region that protect applications and data from datacenter failures. In this architecture, availability zones provide higher resilience by distributing VMs across multiple datacenters that have independent power, cooling, and networking infrastructure.
 
 - [Azure Load Balancer][docs-load-balancer] is a layer-4 load balancer that distributes inbound traffic according to defined rules and health probes for high throughput and low latency. In this architecture, a public load balancer distributes incoming client traffic across web tier VMs. Internal load balancers route traffic from the web tier to the business tier and from the business tier to the back-end SQL Server cluster.
 
 - [Traffic Manager][docs-traffic-manager] is a Domain Name System (DNS)-based traffic load balancer that distributes traffic across global Azure regions. In this architecture, Traffic Manager provides global load balancing. It routes user traffic to the primary region during normal operations and automatically redirects traffic to the disaster recovery region during outages.
 
-- [Site Recovery][docs-azure-site-recovery] is a disaster recovery service that replicates VMs to another Azure region for business continuity and disaster recovery. In this architecture, Site Recovery replicates VMs to a target region. This replication recovers applications during source region outages and supports compliance requirements through periodic disaster recovery drills.
+- [Site Recovery][docs-azure-site-recovery] is a disaster recovery service that replicates VMs to another Azure region for business continuity and disaster recovery (BC/DR). In this architecture, Site Recovery replicates VMs to a target region. This replication recovers applications during source region outages and supports compliance requirements through periodic disaster recovery drills.
 
 ### Alternatives
 
@@ -58,12 +58,12 @@ The following workflow corresponds to the previous diagram:
 
 ## Scenario details
 
-This scenario demonstrates a multitier application that uses ASP.NET and SQL Server. In [Azure regions that support availability zones](/azure/reliability/availability-zones-region-support), you can deploy your VMs in a source region across availability zones and replicate the VMs to the target region that you use for disaster recovery. In Azure regions that don't support availability zones, you can deploy your VMs within an [availability set](/azure/virtual-machines/availability-set-overview) and replicate the VMs to the target region.
+This scenario demonstrates a multitier application that uses ASP.NET and SQL Server. In [Azure regions that support availability zones](/azure/reliability/regions-list), you can deploy your VMs in a source region across availability zones and replicate the VMs to the target region that you use for disaster recovery. In Azure regions that don't support availability zones, you can deploy your VMs within an [availability set](/azure/virtual-machines/availability-set-overview) and replicate the VMs to the target region.
 
 To route traffic between regions, you need a global load balancer. Azure offerings include:
 
 - Azure Front Door
-- Azure Traffic Manager
+- Traffic Manager
 
 When you choose a load balancer, consider your requirements and the feature set of the two offerings. Consider failover speed, Transport Layer Security (TLS) management overhead, and organizational cost constraints.
 
