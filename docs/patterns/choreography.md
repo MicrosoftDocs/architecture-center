@@ -50,7 +50,7 @@ A common way to implement choreography is to use a message broker that buffers r
 
 Consider the following points as you decide how to implement this pattern:
 
-- Handling failures can be challenging. Components in an application might manage atomic tasks and rely on other parts of the system. Failure in one component can affect other components, which might cause delays in completing the overall request.
+- Handling failures can be challenging. Components in an application might manage atomic tasks and depend on other parts of the system. Failure in one component can affect other components, which might cause delays in completing the overall request.
 
    To handle failures gracefully, you implement failure-handling logic, which introduces complexity. Failure-handling logic, such as [compensating transactions](./compensating-transaction.yml), is also prone to failures.
 
