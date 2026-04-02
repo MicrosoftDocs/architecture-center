@@ -8,7 +8,7 @@ ms.topic: design-pattern
 ms.subservice: cloud-fundamentals
 ---
 
-# Compute resource consolidation pattern
+# Compute Resource Consolidation pattern
 
 Consolidate multiple tasks or operations into one computational unit. This pattern can increase compute resource utilization and reduce the costs and management overhead associated with compute processing in cloud-hosted applications.
 
