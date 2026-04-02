@@ -29,7 +29,7 @@ This reference architecture uses [Azure Integration Services][integration-servic
   - [API Management][apim-reliability] is a managed service for publishing catalogs of HTTP APIs. You can use it to promote the reuse and discoverability of your APIs and to deploy an API gateway to proxy API requests. Additionally, API Management provides a developer portal for clients to discover and interact with the APIs. In this solution, API Management is used to provide a façade  for the backend services, allowing for a consistent interface for clients to interact with. It also provides additional capabilities such as rate limiting, authentication, and caching to the backend services.  
 - [Azure DNS][dns] is a hosting service for DNS domains.  Azure DNS is hosting the public DNS records for the API Management service. This allows clients to resolve the DNS name to the IP address of the API Management service.
 - [Microsoft Entra ID][entra] is a cloud-based identity and access management service. Enterprise employees can use Microsoft Entra ID to access external and internal resources. Here Entra ID is used to secure the API Management service using [OAuth 2.0][apim-oauth] and the developer portal using [Microsoft Entra External ID][apim-ext-id].
-- [Azure Key Vault][keyvault] is a cloud service for securely storing and managing secrets, encryption keys, and certificates. In this architecture, Key Vault provides centralised secret storage for both Logic Apps and API Management.
+- [Azure Key Vault][keyvault] is a cloud service for securely storing and managing secrets, encryption keys, and certificates. In this architecture, Key Vault provides centralized secret storage for both Logic Apps and API Management.
 
 ## Scenario details
 
