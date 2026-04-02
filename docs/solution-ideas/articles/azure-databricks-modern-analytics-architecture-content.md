@@ -16,7 +16,7 @@ This solution outlines the key principles and components of modern data architec
 
 The following data flow corresponds to the previous diagram:
 
-1. Azure Databricks ingests raw streaming data from Azure Event Hubs by using Delta Live Tables.
+1. Azure Databricks ingests raw streaming data from Azure Event Hubs by using Lakeflow Spark Declarative Pipelines (SDP).
 
 1. Fabric Data Factory loads raw batch data into Data Lake Storage.
 
@@ -106,13 +106,13 @@ This solution uses the following components.
 
 - [Azure Databricks SQL warehouses][Azure Databricks SQL warehouses] are compute resources that you can use to query and explore data on Azure Databricks. In this architecture, you can use SQL endpoints to connect directly to your data from Power BI.
 
-- [Lakeflow Spark Declarative Pipelines][Lakeflow Spark Declarative Pipelines], formerly Delta Live Tables, is a declarative framework for building reliable, maintainable, and testable data processing pipelines. In this architecture, Lakeflow Spark Declarative Pipelines helps you define transformations to perform on your data. It also helps you manage task orchestration, cluster management, monitoring, data quality, and error handling within Azure Databricks. 
+- [Lakeflow SDP][Lakeflow SDP], formerly Delta Live Tables, is a declarative framework for building reliable, maintainable, and testable data processing pipelines. In this architecture, Lakeflow SDP helps you define transformations to perform on your data. It also helps you manage task orchestration, cluster management, monitoring, data quality, and error handling within Azure Databricks.
 
 - [Fabric][Microsoft Fabric] is an end-to-end analytics and data platform for organizations that need a unified solution. The platform provides services like Fabric Data Engineering, Fabric Data Factory, Fabric Data Science, Fabric Real-Time Intelligence, Fabric Data Warehouse, Fabric Databases, and OneLake. This architecture mirrors Unity Catalog tables into OneLake and uses Direct Lake mode in Power BI for better performance.
 
 - [Data Factory][Fabric Data Factory] is a modern data integration platform that you can use to ingest, prepare, and transform data from a set of data sources in Fabric. This architecture uses built-in connectors to several data sources for quick ingestion into Data Lake Storage or OneLake. Azure Databricks later retrieves and further transforms the batch data.
 
-- [Event Hubs][Event Hubs] is a fully managed, big data streaming platform. As a platform as a service (PaaS), it provides event ingestion capabilities. This architecture uses Event Hubs for streaming data. Azure Databricks can connect to this data and process it by using Spark Streaming or Lakeflow Spark Declarative Pipelines.
+- [Event Hubs][Event Hubs] is a fully managed, big data streaming platform. As a platform as a service (PaaS), it provides event ingestion capabilities. This architecture uses Event Hubs for streaming data. Azure Databricks can connect to this data and process it by using Spark Streaming or Lakeflow SDP.
 
 - [Data Lake Storage][Azure Data Lake Storage] is a scalable and secure data lake for high-performance analytics. It handles multiple petabytes of data and supports hundreds of gigabits of throughput. Data Lake Storage can store structured, partially structured, and unstructured data. This architecture uses Data Lake Storage to store both batch and streaming data.
 
@@ -208,7 +208,7 @@ Other contributor:
 [Automatic Identity Management]: /azure/databricks/admin/users-groups/automatic-identity-management
 [Azure Data Lake Storage]: /azure/storage/blobs/data-lake-storage-introduction
 [Azure Databricks]: /azure/well-architected/service-guides/azure-databricks
-[Lakeflow Spark Declarative Pipelines]: /azure/databricks/ldp
+[Lakeflow SDP]: /azure/databricks/ldp
 [Azure Databricks SQL warehouses]: /azure/databricks/sql/
 [Azure Kubernetes Service]: /azure/well-architected/service-guides/azure-kubernetes-service
 [Azure Machine Learning]: /azure/well-architected/service-guides/azure-machine-learning
