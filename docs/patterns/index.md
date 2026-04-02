@@ -75,7 +75,7 @@ Each pattern in this catalog describes the problem that it addresses, considerat
 | [Saga](./saga.yml) | Manage data consistency across microservices in distributed transaction scenarios. | - Reliability |
 | [Scheduler Agent Supervisor](./scheduler-agent-supervisor.yml) | Coordinate a set of actions across distributed services and resources. | - Reliability<br><br>- Performance&nbsp;Efficiency |
 | [Sequential Convoy](./sequential-convoy.yml) | Process a set of related messages in a defined order without blocking other message groups. | - Reliability |
-| [Sharding](./sharding.yml) | Divide a data store into a set of horizontal partitions or shards. | - Reliability<br><br>- Cost&nbsp;Optimization |
+| [Sharding](./sharding.md) | Divide a data store into a set of horizontal partitions or shards. | - Reliability<br><br>- Cost&nbsp;Optimization |
 | [Sidecar](./sidecar.md) | Deploy components into a separate process or container to provide isolation and encapsulation. | - Security<br><br>- Operational&nbsp;Excellence |
 | [Static Content Hosting](./static-content-hosting.yml) | Deploy static content to a cloud-based storage service for direct client delivery. | - Cost&nbsp;Optimization |
 | [Strangler Fig](./strangler-fig.md) | Incrementally migrate a legacy system by gradually replacing pieces of functionality with new applications and services. | - Reliability<br><br>- Cost&nbsp;Optimization<br><br>- Operational&nbsp;Excellence |
