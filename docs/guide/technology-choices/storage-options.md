@@ -133,7 +133,7 @@ Azure Elastic SAN supports LRS and ZRS but doesn't support geo-redundant options
 
 To learn more about these capabilities and how to decide on the best redundancy option for your use cases, see [Azure Storage redundancy](/azure/storage/common/storage-redundancy) and [Azure Files redundancy](/azure/storage/files/files-redundancy).
 
-SLAs for storage services provide financially backed guarantees. For more information, see the [Service Level Agreements for Microsoft Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
+SLAs for storage services provide financially backed commitments. For more information, see the [Service Level Agreements for Microsoft Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
 For help with planning the right solution for Azure disks, see [Backup and disaster recovery for Azure disk storage](/azure/virtual-machines/backup-and-disaster-recovery-for-azure-iaas-disks).
 

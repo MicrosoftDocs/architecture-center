@@ -386,7 +386,7 @@ Every architecture is susceptible to failures. The exercise of failure mode anal
 
 #### Reliability targets
 
-To make design decisions, it's important to calculate the reliability targets, such as the composite service-level objectives (SLOs) of the workload. Doing so involves understanding the service-level agreements (SLAs) provided by Azure services used in the architecture. Workload SLOs must not be higher than the SLAs guaranteed by Azure. Carefully examine each component, from VMs and their dependencies, networking, and storage options.
+To make design decisions, it's important to calculate the reliability targets, such as the composite service-level objectives (SLOs) of the workload. Doing so involves understanding the [service-level agreements (SLAs)](/azure/reliability/concept-service-level-agreements) provided by Azure services used in the architecture. Workload SLOs must not exceed the commitments defined in Azure SLAs. Carefully examine each component, from VMs and their dependencies, networking, and storage options.
 
 Here's an example calculation where the main goal is to provide an approximate composite SLO. While this is a rough guideline, you should arrive at something similar. You shouldn't get a higher maximum composite SLO for the same flows unless you make modifications to the architecture.
 
@@ -412,7 +412,7 @@ Here's an example calculation where the main goal is to provide an approximate c
 
 In the preceding example, reliability of VMs and the dependencies are included, such as disks associated with VMs. The SLAs associated with disk storage affect the overall reliability.
 
-There are some challenges when calculating the composite SLO. Different service tiers might have different SLAs, and these SLAs often include financially backed guarantees that set reliability targets. Finally, there might be components of the architecture that don't have SLAs defined. For example, in terms of networking, NICs and virtual networks don't have their own SLAs.
+There are some challenges when calculating the composite SLO. Different service tiers might have different SLAs, and these SLAs often include financially backed commitments that set reliability targets. Finally, there might be components of the architecture that don't have SLAs defined. For example, in terms of networking, NICs and virtual networks don't have their own SLAs.
 
 The business requirements and their targets must be clearly defined and factored into the calculation. Be aware of the service limits and other constraints imposed by the organization. Sharing your subscription with other workloads could affect the resources available for your VMs. The workload might be allowed to use a limited number of cores available for the VMs. Understanding the resource usage of your subscription can help you design your VMs more effectively.
 
