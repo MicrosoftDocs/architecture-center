@@ -100,6 +100,6 @@ To see how you can use the Azure Service Bus client library for .NET to send mes
 
 The following patterns and guidance might be relevant when implementing this pattern:
 
-- [Compute Resource Consolidation pattern](./compute-resource-consolidation.yml). It might be possible to consolidate multiple instances of a consumer service into a single process to reduce costs and management overhead. The Compute Resource Consolidation pattern describes the benefits and tradeoffs of following this approach.
+- [Compute Resource Consolidation pattern](./compute-resource-consolidation.md). It might be possible to consolidate multiple instances of a consumer service into a single process to reduce costs and management overhead. The Compute Resource Consolidation pattern describes the benefits and tradeoffs of following this approach.
 
 - [Queue-based Load Leveling pattern](./queue-based-load-leveling.yml). Introducing a message queue can add resiliency to the system, enabling service instances to handle widely varying volumes of requests from application instances. The message queue acts as a buffer, which levels the load. The Queue-based Load Leveling pattern describes this scenario in more detail.

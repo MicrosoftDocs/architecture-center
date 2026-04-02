@@ -419,7 +419,7 @@ items:
     displayName: Lazy loading, caching, read-through
     href: patterns/cache-aside.yml
   - name: Choreography
-    href: patterns/choreography.yml
+    href: patterns/choreography.md
   - name: Circuit Breaker
     displayName: failure prevention, fault tolerance, resilience pattern
     href: patterns/circuit-breaker.md
@@ -433,7 +433,7 @@ items:
     displayName: Worker pool, parallel message processing
     href: patterns/competing-consumers.yml
   - name: Compute Resource Consolidation
-    href: patterns/compute-resource-consolidation.yml
+    href: patterns/compute-resource-consolidation.md
   - name: CQRS
     displayName: Command Query Responsibility Segregation, read write separation
     href: patterns/cqrs.md
@@ -575,7 +575,7 @@ items:
         href: solution-ideas/articles/azure-databricks-modern-analytics-architecture.yml
       - name: Modern data platform for small and medium businesses
         href: solution-ideas/articles/small-medium-modern-data-platform.yml      
-      - name: Real-time analytics with Azure Data Explorer
+      - name: Real-time analytics with Azure Service Bus and Microsoft Fabric
         href: solution-ideas/articles/analytics-service-bus.yml
   - name: Compute
     items:

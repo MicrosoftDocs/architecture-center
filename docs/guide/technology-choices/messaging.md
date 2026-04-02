@@ -328,7 +328,7 @@ Consider the following patterns when you implement asynchronous messaging:
 
 - [Scheduler Agent Supervisor pattern](../../patterns/scheduler-agent-supervisor.yml): Workflows often require messaging to coordinate distributed services. This pattern demonstrates how messaging coordinates distributed actions and helps systems recover from failures by retrying failed operations.
 
-- [Choreography pattern](../../patterns/choreography.yml): This pattern shows how services can use messaging to control the workflow of a business transaction.
+- [Choreography pattern](../../patterns/choreography.md): This pattern shows how services can use messaging to control the workflow of a business transaction.
 
 - [Claim-Check pattern](../../patterns/claim-check.yml): This pattern shows how to divide a large message into a claim check and a payload.
 
