@@ -77,10 +77,6 @@ To learn how to migrate your Apache Kafka applications to use Event Hubs, see [M
 
 You can migrate Kafka to Kafka on HDInsight. For more information, see [What is Apache Kafka in HDInsight?](/azure/hdinsight/kafka/apache-kafka-introduction).
 
-### Use AKS with Kafka on HDInsight
-
-For more information, see [Use AKS with Apache Kafka on HDInsight](https://docs.azure.cn/hdinsight/kafka/apache-kafka-azure-container-services).
-
 ### Use Kafka on AKS with the Strimzi Operator
 
 For more information, see [Deploy a Kafka cluster on AKS by using Strimzi](/azure/aks/kafka-overview).
