@@ -214,6 +214,20 @@ With the Premium tier, you can scale an API Management instance across multiple 
 
 The Logic Apps serverless model means administrators don't have to plan for service scalability. The service automatically scales to meet demand.
 
+## Contributors
+
+*Microsoft maintains this article. The following contributors wrote this article.*
+
+Principal authors:
+
+- [Karl Rissland](https://www.linkedin.com/in/karl-rissland/) | Solutions Engineer, Azure AI and Applications
+
+Other contributors:
+
+- Pooya Tolouei | Cloud Solution Architect
+
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [Logic Apps][logic-apps]
