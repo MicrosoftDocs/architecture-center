@@ -575,7 +575,7 @@ items:
         href: solution-ideas/articles/azure-databricks-modern-analytics-architecture.yml
       - name: Modern data platform for small and medium businesses
         href: solution-ideas/articles/small-medium-modern-data-platform.yml      
-      - name: Real-time analytics with Azure Data Explorer
+      - name: Real-time analytics with Azure Service Bus and Microsoft Fabric
         href: solution-ideas/articles/analytics-service-bus.yml
   - name: Compute
     items:
