@@ -166,7 +166,7 @@ Consider the following points as you decide how to implement this pattern:
 
   Prefer many small shards over few large ones. Smaller shards migrate faster, balance load more evenly, and provide more flexibility for data redistribution.
 
-- Use stable data for the shard key. If the shard key changes, you must move the corresponding data item between shards, which increases update operation overhead. Avoid basing the shard key on potentially volatile information. Choose attributes that are invariant or naturally form a key.
+- Use stable data for the shard key. If the shard key changes, you might need to move the corresponding data item between shards, which increases update operation overhead. Avoid basing the shard key on potentially volatile information. Choose attributes that are invariant or naturally form a key.
 
 - Ensure that shard keys are unique. For example, avoid using autoincrementing fields as the shard key. In some systems, autoincremented fields can't coordinate across shards, which can result in items in different shards having the same shard key.
 
