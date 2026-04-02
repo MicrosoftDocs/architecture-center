@@ -22,7 +22,7 @@ When you work with a multitenant system that uses Azure Managed Redis, you need 
 The following table summarizes the differences between the main tenancy isolation models for Azure Managed Redis:
 
 | Consideration | Shared cache instance | Cache instance per tenant |
-|---|---|---|
+| --- | --- | --- |
 | **Data isolation** | Low. Use Redis data structures or key prefixes to identify each tenant's data. Your application enforces tenant separation. | High |
 | **Performance isolation** | Low. All tenants share the same compute resources. | High |
 | **Deployment complexity** | Low | Medium-high |
@@ -76,9 +76,9 @@ The following Azure Managed Redis features support multitenancy.
 
 ### Microsoft Entra ID authentication
 
-Azure Managed Redis uses [Microsoft Entra ID for authentication by default](/azure/redis/entra-for-authentication). When you create a new cache, managed identity is enabled and access key authentication is disabled. Azure Managed Redis provides three built-in access policies: **Data Owner**, **Data Contributor**, and **Data Reader**. These policies operate at the cache instance level and apply to all keys in the cache. You assign individual Microsoft Entra users or service principals to these policies.
+Azure Managed Redis uses [Microsoft Entra ID for authentication by default](/azure/redis/entra-for-authentication). When you create a new cache, managed identity is enabled and access key authentication is disabled. You add individual Microsoft Entra users or service principals to the cache's Redis users list. Authenticated users receive full data access to all keys in the cache. Azure Managed Redis doesn't currently support custom data access policies that restrict access to specific keys or key patterns.
 
-In multitenant solutions, the instance-level scope of these access policies means that you can't restrict a specific identity to access only a specific tenant's keys within a shared cache. If your solution requires per-tenant access control at the cache level, consider using separate cache instances for each tenant.
+In multitenant solutions, the lack of key-level access restriction means that you can't restrict a specific identity to access only a specific tenant's keys within a shared cache. If your solution requires per-tenant access control at the cache level, consider using separate cache instances for each tenant.
 
 > [!NOTE]
 > Microsoft Entra groups aren't supported for Azure Managed Redis authentication. You must add individual users or service principals to the Redis users list. For more information, see [Use Microsoft Entra ID for cache authentication](/azure/redis/entra-for-authentication).
