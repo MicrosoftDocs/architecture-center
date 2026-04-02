@@ -131,7 +131,7 @@ You're charged for all API Management instances when they're running. If you hav
 
 Logic Apps (Consumption plan) uses a serverless billing model calculated based on action and connector execution. If you use Logic Apps Standard (single-tenant), billing is based on the hosting plan. For more information, see [Logic Apps pricing][logic-apps-pricing].
 
-For more information, see the cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
+For more information, see the cost section in the [Azure Architecture Framework][aaf-cost].
 
 ### Operational Excellence
 
