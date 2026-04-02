@@ -114,10 +114,10 @@ When you use a dedicated Azure Cosmos DB account per tenant, consider the [maxim
 
 - **Control your throughput:** Explore features that can help if you have multiple workloads using the same database accounts.
 
-    | Feature | Description |
-    |---|---|
-    | [Priority based execution](/azure/cosmos-db/priority-based-execution) | Specify high or low priority at a per-request level. When there's contention on RU/s at the container level, high priority requests are prioritized. Useful when you have multiple workloads with different performance requirements, such as a batch job versus an API that serves real-time user requests. |
-    | [Throughput buckets (preview)](/azure/cosmos-db/throughput-buckets) | Assign a set percentage of RU/s that a set of requests can consume. For example, you can configure that requests from a batch job can only consume up to 10% of the container's total RU/s, while a critical user facing API can consume up to 100% of the container's total RU/s. |
+| Feature | Description |
+|---|---|
+| [Priority based execution](/azure/cosmos-db/priority-based-execution) | Specify high or low priority at a per-request level. When there's contention on RU/s at the container level, high priority requests are prioritized. Useful when you have multiple workloads with different performance requirements, such as a batch job versus an API that serves real-time user requests. |
+| [Throughput buckets (preview)](/azure/cosmos-db/throughput-buckets) | Assign a set percentage of RU/s that a set of requests can consume. For example, you can configure that requests from a batch job can only consume up to 10% of the container's total RU/s, while a critical user facing API can consume up to 100% of the container's total RU/s. |
 
 
 ## Summary of recommended isolation models
