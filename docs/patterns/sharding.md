@@ -80,7 +80,7 @@ For example, if an application regularly needs to find all orders placed in a gi
 Application instances submit queries for orders placed in specific months. A sharding logic component maps each month to a shard, such as October to shard A, November to shard B, and December to shard C. Orders are stored in date and time sequence within each shard.
 :::image-end:::
 
-In this example, the shard key is a composite key that contains the order month as the most significant element, followed by the order day and time. New orders are naturally sorted as they're created and added to a shard. 
+In this example, the shard key is a composite key that contains the order month as the most significant element, followed by the order day and time. New orders are naturally sorted as they're created and added to a shard.
 
 Some data stores support two-part shard keys. A partition key identifies the shard, and a row key uniquely identifies an item within the shard. The shard typically stores data in row key order. For items that need range queries and must be grouped together, you can use a shard key that has the same value for the partition key but a unique value for the row key.
 
@@ -220,6 +220,8 @@ Use this pattern when:
 - Regulatory or compliance requirements mandate that specific data subsets reside in specific geographic jurisdictions, and no single-region deployment can meet all requirements.
 
 - Distinct tenants or customer segments require physical data isolation for security, performance, or contractual reasons.
+
+  In this scenario, the sharding pattern is sometimes applied beyond traditional data stores. For example, a DNS zone management system could be sharded by team, environment, or region to reduce the blast radius of DNS changes and establish clear ownership boundaries. In that context, the primary motivation is operational segmentation rather than scalability. For more information, see [Sharding private DNS zones](/azure/dns/sharding-private-dns-zones).
 
 Sharding introduces substantial and permanent complexity into your data architecture. That complexity affects development, operations, testing, query design, and failure recovery for the system's lifetime.
 
