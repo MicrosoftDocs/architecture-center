@@ -185,7 +185,7 @@ These availability and reliability considerations don't fully pertain to multite
 
 - Enable [zone redundancy in Container Registry](/azure/container-registry/zone-redundancy) for intra-region resiliency and high availability.
 - Use [pod topology spread constraints](https://kubernetes.io/docs/concepts/workloads/pods/pod-topology-spread-constraints) to control how you spread pods across your AKS cluster among failure domains, such as regions, availability zones, and nodes.
-- Consider using an uptime service-level agreement (SLA) for AKS clusters that host mission-critical workloads. An [uptime SLA](/azure/aks/uptime-sla) is an optional feature to enable a financially backed, higher SLA for a cluster. An uptime SLA guarantees 99.95% availability of the Kubernetes API server endpoint for clusters that use availability zones. It guarantees 99.90% availability for clusters that don't use availability zones. AKS uses control plane node replicas across update and fault domains to help meet SLA requirements.
+- Consider using an uptime service-level agreement (SLA) for AKS clusters that host mission-critical workloads. An [uptime SLA](/azure/aks/uptime-sla) is an optional feature to enable a financially backed, higher SLA for a cluster. An uptime SLA commits to 99.95% availability of the Kubernetes API server endpoint for clusters that use availability zones. It commits to 99.90% availability for clusters that don't use availability zones. AKS uses control plane node replicas across update and fault domains to help meet SLA requirements.
 
 #### Disaster recovery and business continuity
 
