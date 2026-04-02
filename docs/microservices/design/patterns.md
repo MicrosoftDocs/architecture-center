@@ -31,7 +31,7 @@ The design patterns in this article address these challenges directly. Each patt
 
 - [**Bulkhead**](../../patterns/bulkhead.md) isolates critical resources, such as connection pools, memory, and CPU, for each workload or service. This isolation prevents a single workload or service from consuming all resources. This pattern increases workload resiliency by preventing one service from causing cascading failures.
 
-- [**Choreography**](../../patterns/choreography.yml) lets each service decide when and how to process a business operation, rather than depending on a central orchestrator. This pattern reduces coupling between services and supports frequent service updates or changes.
+- [**Choreography**](../../patterns/choreography.md) lets each service decide when and how to process a business operation, rather than depending on a central orchestrator. This pattern reduces coupling between services and supports frequent service updates or changes.
 
 - [**Command Query Responsibility Segregation (CQRS)**](../../patterns/cqrs.md) segregates read operations from write operations into separate data models. This pattern improves performance, scalability, and security in microservices where reads and writes have different performance or scaling requirements.
 
