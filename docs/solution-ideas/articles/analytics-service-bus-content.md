@@ -60,7 +60,7 @@ The following workflow corresponds to the previous diagram.
 
 ### Components
 
-- [Service Bus](/azure/well-architected/service-guides/azure-service-bus) is a fully managed enterprise message broker for decoupled communication between applications and services. In this architecture, Service Bus receives transactional events like inventory updates, purchase transactions, loyalty updates, and customer feedback.
+- [Service Bus](/azure/well-architected/service-guides/azure-service-bus) is a managed message broker for decoupled communication between applications and services. In this architecture, Service Bus receives transactional events from mobile clients.
 
 - A [Fabric eventstream](/fabric/real-time-intelligence/event-streams/overview) is a streaming data capability in Fabric that ingests, transforms, and routes real-time events. In this architecture, the Fabric eventstream ingests high-velocity clickstream and operational data and routes the processed stream to downstream analytics.
 
@@ -70,13 +70,13 @@ The following workflow corresponds to the previous diagram.
 
 - [Power BI](/power-bi/fundamentals/power-bi-overview) is a business intelligence (BI) platform for interactive analytics and reporting. In this architecture, Power BI provides near real-time dashboards for store and operations teams.
 
-- A [Fabric activator](/fabric/real-time-intelligence/data-activator/activator-introduction) is an event-driven capability that evaluates real-time signals and initiates actions when conditions are met. In this architecture, the Fabric activator monitors event patterns and triggers responses like notifications and automated workflows.
+- A [Fabric activator](/fabric/real-time-intelligence/data-activator/activator-introduction) is an event-driven capability that evaluates real-time signals and initiates actions when conditions are met. In this architecture, the Fabric activator monitors data patterns and triggers responses like notifications and automated workflows.
 
 - [Fabric data agents](/fabric/data-science/how-to-create-data-agent) are conversational agents grounded in Fabric data sources. In this architecture, Fabric data agents provide natural language access to eventhouse data for real-time operational questions.
 
 - [Copilot Studio](/microsoft-copilot-studio/fundamentals-what-is-copilot-studio) is a platform to build and publish copilots across channels. In this architecture, Copilot Studio exposes the data agent experience in Teams.
 
-- [Foundry](/azure/foundry/what-is-foundry) is a platform to build and operate AI applications and agents. In this architecture, Foundry supports app-based chat experiences over real-time analytics data.
+- [Foundry](/azure/foundry/what-is-foundry) is a platform to build and operate AI applications and agents. In this architecture, Foundry supports custom app-based chat experiences if solutions cannot be delivered through Copilot Studio.
 
 - [Microsoft Purview](/purview/purview) is a data governance and compliance solution that supports data cataloging, classification, lineage, and policy management. In this architecture, Microsoft Purview helps govern Fabric data assets and enforce data access and compliance requirements.
 
