@@ -468,7 +468,7 @@ builder.AddProject<Projects.ProductService>()
     .WithReference(cache);
 ```
 
-Consuming services register the distributed cache in the same way as any other `IDistributedCache` provider. For more information, see [.NET Aspire Azure Cache for Redis hosting integration](https://aspire.dev/integrations/caching/redis/).
+Consuming services register the distributed cache in the same way as any other `IDistributedCache` provider. For more information, see [Get started with Redis integration](https://aspire.dev/integrations/caching/redis/).
 
 ### High availability, scalability, and partitioning
 

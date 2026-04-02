@@ -151,7 +151,7 @@ This architecture provides the following benefits:
 
 - A request is only visible to the request-handling component. But events are often visible to multiple components in a workload, even if those components don't consume them or aren't meant to consume them. To operate with an "assume breach" mindset, be mindful of what information you include in events to prevent unintended information exposure.
 
-- Many applications use event-driven architecture as their primary architecture. You can combine this approach with other architectural styles to create a hybrid architecture. Typical combinations include [microservices](./microservices.md) and [pipes and filters](../../patterns/pipes-and-filters.yml). Integrate an event-driven architecture to enhance system performance by eliminating bottlenecks and providing [back pressure](https://wikipedia.org/wiki/Back_pressure) during high-request volumes.
+- Many applications use event-driven architecture as their primary architecture. You can combine this approach with other architectural styles to create a hybrid architecture. Typical combinations include [microservices](./microservices.md), [pipes and filters](../../patterns/pipes-and-filters.yml), and [event sourcing](../../patterns/event-sourcing.md). Integrate an event-driven architecture to enhance system performance by eliminating bottlenecks and providing [back pressure](https://wikipedia.org/wiki/Back_pressure) during high-request volumes.
 
 - [Specific domains](../../microservices/model/domain-analysis.md) often span multiple event producers, consumers, or event channels. Changes to a specific domain might affect many components.
 
@@ -164,5 +164,5 @@ This architecture provides the following benefits:
 
 - [Publisher-Subscriber](../../patterns/publisher-subscriber.md)
 - [Competing Consumers](../../patterns/competing-consumers.yml)
-- [Event Sourcing](../../patterns/event-sourcing.yml)
+- [Event Sourcing](../../patterns/event-sourcing.md)
 - [Compensating Transaction](../../patterns/compensating-transaction.yml)

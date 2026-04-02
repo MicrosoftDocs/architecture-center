@@ -116,7 +116,7 @@ Cost Optimization is about looking at ways to reduce unnecessary expenses and im
   
 - Use [reserved capacity](/azure/azure-netapp-files/reservations) for Azure NetApp Files. 
   
-- To monitor and optimize costs, use cost management tools like [Azure Advisor](/azure/advisor/advisor-overview), [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations), and [Azure savings plans](/azure/cost-management-billing/savings-plan/savings-plan-compute-overview).
+- To monitor and optimize costs, use cost management tools like [Azure Advisor](/azure/advisor/advisor-overview), [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations), and [Azure savings plans](/azure/cost-management-billing/savings-plan/savings-plan-overview).
 
 - To estimate usage costs, use the [Azure cost calculator](https://azure.microsoft.com/pricing/calculator).
 

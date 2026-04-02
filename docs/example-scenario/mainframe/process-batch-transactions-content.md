@@ -146,9 +146,11 @@ Performance Efficiency is the ability of your workload to scale to meet the dema
 ## Related resources
 
 - Techniques used in this architecture:
-  - [Azure Service Bus Geo-disaster recovery](/azure/service-bus-messaging/service-bus-geo-dr).
-  - [Use geo-redundancy to design highly available applications](/azure/storage/common/geo-redundant-design?tabs=current).
+
+  - [Azure Service Bus Geo-disaster recovery](/azure/service-bus-messaging/service-bus-geo-dr)
+  - [Use geo-redundancy to design highly available applications](/azure/storage/common/geo-redundant-design?tabs=current)
   - [What are ARM templates?](/azure/azure-resource-manager/templates/overview)
-- Azure reference architectures:
-  - [Micro Focus Enterprise Server on Azure VMs](./micro-focus-server.yml).
-  - [Unisys mainframe migration](../../reference-architectures/migration/unisys-mainframe-migration.yml).
+
+- Azure reference architecture:
+
+  - [Unisys mainframe migration](../../reference-architectures/migration/unisys-mainframe-migration.yml)

@@ -72,7 +72,7 @@ Use this pattern when:
 - The processing steps performed by an application have different scalability requirements.
 
     > [!NOTE]
-    > You can group filters that should scale together in the same process. For more information, see the [Compute Resource Consolidation pattern](./compute-resource-consolidation.yml).
+    > You can group filters that should scale together in the same process. For more information, see the [Compute Resource Consolidation pattern](./compute-resource-consolidation.md).
 
 - You require the flexibility to allow reordering of the processing steps the application performs, or to allow the capability to add and remove steps.
 
@@ -170,6 +170,6 @@ The following patterns might also be relevant when you implement this pattern:
 
 - [Claim-Check pattern](./claim-check.yml). A pipeline implemented using a queue might not hold the actual item being sent through the filters, but instead a pointer to the data that needs to be processed. The example uses a claim check in Azure Queue Storage for images stored in Azure Blob Storage.
 - [Competing Consumers pattern](./competing-consumers.yml). A pipeline can contain multiple instances of one or more filters. This approach is useful for running parallel instances of slow filters. It enables the system to spread the load and improve throughput. Each instance of a filter competes for input with the other instances, but two instances of a filter shouldn't be able to process the same data. This article explains the approach.
-- [Compute Resource Consolidation pattern](./compute-resource-consolidation.yml). It might be possible to group filters that should scale together into a single process. This article provides more information about the benefits and tradeoffs of this strategy.
+- [Compute Resource Consolidation pattern](./compute-resource-consolidation.md). It might be possible to group filters that should scale together into a single process. This article provides more information about the benefits and tradeoffs of this strategy.
 - [Compensating Transaction pattern](./compensating-transaction.yml). You can implement a filter as an operation that can be reversed, or that has a compensating operation that restores the state to a previous version if there's a failure. This article explains how you can implement this pattern to maintain or achieve eventual consistency.
 - [Pipes and Filters - Enterprise Integration Patterns](https://www.enterpriseintegrationpatterns.com/patterns/messaging/PipesAndFilters.html).
