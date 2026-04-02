@@ -67,7 +67,7 @@ items:
             - name: Container orchestration
               href: microservices/design/orchestration.yml
             - name: Design patterns for microservices
-              href: microservices/design/patterns.yml
+              href: microservices/design/patterns.md
     - name: N-tier application
       displayName: Layered architecture, three tier
       href: guide/architecture-styles/n-tier.md
@@ -419,7 +419,7 @@ items:
     displayName: Lazy loading, caching, read-through
     href: patterns/cache-aside.yml
   - name: Choreography
-    href: patterns/choreography.yml
+    href: patterns/choreography.md
   - name: Circuit Breaker
     displayName: failure prevention, fault tolerance, resilience pattern
     href: patterns/circuit-breaker.md
@@ -433,7 +433,7 @@ items:
     displayName: Worker pool, parallel message processing
     href: patterns/competing-consumers.yml
   - name: Compute Resource Consolidation
-    href: patterns/compute-resource-consolidation.yml
+    href: patterns/compute-resource-consolidation.md
   - name: CQRS
     displayName: Command Query Responsibility Segregation, read write separation
     href: patterns/cqrs.md
@@ -505,7 +505,7 @@ items:
     href: patterns/sequential-convoy.yml
   - name: Sharding
     displayName: Horizontal partitioning, database partitioning
-    href: patterns/sharding.yml
+    href: patterns/sharding.md
   - name: Sidecar
     href: patterns/sidecar.md
   - name: Static Content Hosting
@@ -575,7 +575,7 @@ items:
         href: solution-ideas/articles/azure-databricks-modern-analytics-architecture.yml
       - name: Modern data platform for small and medium businesses
         href: solution-ideas/articles/small-medium-modern-data-platform.yml      
-      - name: Real-time analytics with Azure Data Explorer
+      - name: Real-time analytics with Azure Service Bus and Microsoft Fabric
         href: solution-ideas/articles/analytics-service-bus.yml
   - name: Compute
     items:
@@ -1252,7 +1252,7 @@ items:
   - name: Storage
     items:
     - name: Get started
-      href: guide/storage/storage-start-here.md
+      href: storage/storage-get-started.md
     - name: Architectures
       items:
       - name: Azure file shares in a hybrid environment
@@ -1283,7 +1283,7 @@ items:
   - name: Virtual Desktop
     items:
     - name: Get started
-      href: guide/virtual-desktop/start-here.md
+      href: virtual-desktop/virtual-desktop-get-started.md
     - name: Guides
       items:
       - name: Azure Virtual Desktop design guide

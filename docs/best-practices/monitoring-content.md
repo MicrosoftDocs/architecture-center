@@ -205,16 +205,16 @@ A key feature of security monitoring is that it collects data from many sources.
 
 ## SLA monitoring
 
-Many commercial systems that support paying customers make guarantees about the performance of the system in the form of SLAs. Essentially, SLAs state that the system can handle a defined volume of work within an agreed time frame and without losing critical information. SLA monitoring is concerned with ensuring that the system can meet measurable SLAs.
+Many commercial systems that support paying customers make commitments about the performance of the system in the form of [SLAs](/azure/reliability/concept-service-level-agreements). Essentially, SLAs state that the system can handle a defined volume of work within an agreed time frame and without losing critical information. SLA monitoring is concerned with ensuring that the system can meet measurable SLAs.
 
 > [!NOTE]
 > SLA monitoring is closely related to performance monitoring. But whereas performance monitoring is concerned with ensuring that the system functions *optimally*, SLA monitoring is governed by a contractual obligation that defines what *optimally* actually means.
 
 SLAs are often defined in terms of:
 
-- Overall system availability. For example, an organization might guarantee that the system is available for 99.9 percent of the time. This equates to no more than 9 hours of downtime per year, or approximately 10 minutes a week.
-- Operational throughput. This aspect is often expressed as one or more high-water marks, such as guaranteeing that the system can support up to 100,000 concurrent user requests or handle 10,000 concurrent business transactions.
-- Operational response time. The system might also make guarantees for the rate at which requests are processed. An example is that 99 percent of all business transactions finish within two seconds, and no single transaction takes longer than 10 seconds.
+- Overall system availability. For example, an organization might commit to the system being available 99.9 percent of the time. This equates to no more than 9 hours of downtime per year, or approximately 10 minutes a week.
+- Operational throughput. This aspect is often expressed as one or more high-water marks, such as committing that the system can support up to 100,000 concurrent user requests or handle 10,000 concurrent business transactions.
+- Operational response time. The system might also make commitments for the rate at which requests are processed. An example is that 99 percent of all business transactions finish within two seconds, and no single transaction takes longer than 10 seconds.
 
 > [!NOTE]
 > Some contracts for commercial systems might also include SLAs for customer support. An example is that all help-desk requests elicit a response within five minutes, and that 99 percent of all problems are fully addressed within one working day. Effective [issue tracking](#issue-tracking) (described later in this section) is key to meeting SLAs such as these.
