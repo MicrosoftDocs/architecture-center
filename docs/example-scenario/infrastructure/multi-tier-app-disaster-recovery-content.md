@@ -1,4 +1,4 @@
-This example scenario applies to any industry that needs to deploy resilient multitier applications built for high availability and disaster recovery. In this scenario, the application consists of three layers.
+This example scenario applies to any industry that needs to deploy resilient multitier applications built for high availability and disaster recovery (DR). In this scenario, the application consists of three layers.
 
 - **The web tier** is the top layer that includes the UI. This layer parses user interactions and passes actions to the next layer for processing.
 
@@ -11,7 +11,7 @@ Common application scenarios include any mission-critical application that runs 
 ## Architecture
 
 :::image type="complex" source="./media/architecture-disaster-recovery-multi-tier-app.svg" border="false" lightbox="./media/architecture-disaster-recovery-multi-tier-app.svg" alt-text="Diagram that shows the architecture overview of a highly resilient multitier web application.":::
-Architecture diagram that shows a disaster recovery (DR) setup for a multitier application across two Azure regions. In the primary region, user traffic enters through Azure Traffic Manager and routes to a public IP address. The traffic flows through a public load balancer to the web tier virtual machines (VMs) in a subnet. An internal load balancer distributes requests from the web tier to the business tier VMs in a separate subnet. Another internal load balancer routes traffic from the business tier to the SQL Server cluster in the data tier subnet. The VMs in each tier are distributed across either two availability zones or within an availability set, depending on region support. For DR, the architecture shows asynchronous replication from the primary region to a secondary target region by using either SQL Always On native replication or Azure Site Recovery. The secondary region mirrors the primary architecture with its own public IP address, load balancers, and three-tier VM deployment. Traffic Manager monitors both regions and automatically redirects traffic to the secondary region during a primary region outage.
+Architecture diagram that shows a DR setup for a multitier application across two Azure regions. In the primary region, user traffic enters through Azure Traffic Manager and routes to a public IP address. The traffic flows through a public load balancer to the web tier virtual machines (VMs) in a subnet. An internal load balancer distributes requests from the web tier to the business tier VMs in a separate subnet. Another internal load balancer routes traffic from the business tier to the SQL Server cluster in the data tier subnet. The VMs in each tier are distributed across either two availability zones or within an availability set, depending on region support. For DR, the architecture shows asynchronous replication from the primary region to a secondary target region by using either SQL Always On native replication or Azure Site Recovery. The secondary region mirrors the primary architecture with its own public IP address, load balancers, and three-tier VM deployment. Traffic Manager monitors both regions and automatically redirects traffic to the secondary region during a primary region outage.
 :::image-end:::
 
 *Download a [Visio file][visio-download] of this architecture.*
@@ -32,9 +32,9 @@ The following workflow corresponds to the previous diagram:
 
 1. You can set up the database tier to use Always On availability groups. This SQL Server configuration uses one primary read/write replica within an availability group and up to eight secondary read-only replicas. If the primary replica fails, the availability group promotes a secondary replica to primary. The secondary replica performs the read/write activity and keeps the application available. For more information, see [Overview of Always On availability groups for SQL Server][docs-sql-always-on].
 
-1. For disaster recovery scenarios, you can set up SQL Always On asynchronous native replication to the target region that you use for disaster recovery. You can also set up Azure Site Recovery replication to the target region if the data change rate is within supported limits of Site Recovery.
+1. For DR scenarios, you can set up SQL Always On asynchronous native replication to the target region that you use for DR. You can also set up Azure Site Recovery replication to the target region if the data change rate is within supported limits of Site Recovery.
 
-   The Traffic Manager secondary endpoint is set to the public IP address in the target region that you use for disaster recovery. When a disruption occurs in the primary region, you invoke Site Recovery failover and the application becomes active in the target region. The Traffic Manager endpoint automatically redirects the client traffic to the public IP address in the target region.
+   The Traffic Manager secondary endpoint is set to the public IP address in the target region that you use for DR. When a disruption occurs in the primary region, you invoke Site Recovery failover and the application becomes active in the target region. The Traffic Manager endpoint automatically redirects the client traffic to the public IP address in the target region.
 
 ### Components
 
@@ -44,9 +44,9 @@ The following workflow corresponds to the previous diagram:
 
 - [Azure Load Balancer][docs-load-balancer] is a layer-4 load balancer that distributes inbound traffic according to defined rules and health probes for high throughput and low latency. In this architecture, a public load balancer distributes incoming client traffic across web tier VMs. Internal load balancers route traffic from the web tier to the business tier and from the business tier to the back-end SQL Server cluster.
 
-- [Traffic Manager][docs-traffic-manager] is a Domain Name System (DNS)-based traffic load balancer that distributes traffic across global Azure regions. In this architecture, Traffic Manager provides global load balancing. It routes user traffic to the primary region during normal operations and automatically redirects traffic to the disaster recovery region during outages.
+- [Traffic Manager][docs-traffic-manager] is a Domain Name System (DNS)-based traffic load balancer that distributes traffic across global Azure regions. In this architecture, Traffic Manager provides global load balancing. It routes user traffic to the primary region during normal operations and automatically redirects traffic to the DR region during outages.
 
-- [Site Recovery][docs-azure-site-recovery] is a disaster recovery service that replicates VMs to another Azure region for business continuity and disaster recovery (BC/DR). In this architecture, Site Recovery replicates VMs to a target region. This replication recovers applications during source region outages and supports compliance requirements through periodic disaster recovery drills.
+- [Site Recovery][docs-azure-site-recovery] is a DR service that replicates VMs to another Azure region for business continuity and disaster recovery (BC/DR). In this architecture, Site Recovery replicates VMs to a target region. This replication recovers applications during source region outages and supports compliance requirements through periodic DR drills.
 
 ### Alternatives
 
@@ -58,7 +58,7 @@ The following workflow corresponds to the previous diagram:
 
 ## Scenario details
 
-This scenario demonstrates a multitier application that uses ASP.NET and SQL Server. In [Azure regions that support availability zones](/azure/reliability/regions-list), you can deploy your VMs in a source region across availability zones and replicate the VMs to the target region that you use for disaster recovery. In Azure regions that don't support availability zones, you can deploy your VMs within an [availability set](/azure/virtual-machines/availability-set-overview) and replicate the VMs to the target region.
+This scenario demonstrates a multitier application that uses ASP.NET and SQL Server. In [Azure regions that support availability zones](/azure/reliability/regions-list), you can deploy your VMs in a source region across availability zones and replicate the VMs to the target region that you use for DR. In Azure regions that don't support availability zones, you can deploy your VMs within an [availability set](/azure/virtual-machines/availability-set-overview) and replicate the VMs to the target region.
 
 To route traffic between regions, you need a global load balancer. Azure offerings include:
 
@@ -82,8 +82,8 @@ This architecture uses Traffic Manager for its simplicity and lower cost. The fa
 You can use this architecture to:
 
 - Deploy highly resilient applications such as SAP and other mission-critical LOB applications.
-- Design a business continuity and disaster recovery plan for LOB applications.
-- Set up disaster recovery and perform related drills for compliance purposes.
+- Design a BC/DR plan for LOB applications.
+- Set up DR and perform related drills for compliance purposes.
 
 ## Considerations
 
@@ -101,7 +101,7 @@ For more information about how to design secure scenarios, see [Azure security d
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-Using Site Recovery for disaster recovery in Azure VMs incurs the following ongoing charges:
+Using Site Recovery for DR in Azure VMs incurs the following ongoing charges:
 
 - Site Recovery licensing per VM.
 
@@ -109,7 +109,7 @@ Using Site Recovery for disaster recovery in Azure VMs incurs the following ongo
 
 - Storage on the recovery site. Recovery site storage typically matches source region storage plus extra storage for recovery point snapshots.
 
-Use this [sample cost calculator][calculator] to estimate disaster recovery costs for a three-tier application that uses six VMs. The calculator includes preconfigured services. Change the variables to see pricing for your use case.
+Use this [sample cost calculator][calculator] to estimate DR costs for a three-tier application that uses six VMs. The calculator includes preconfigured services. Change the variables to see pricing for your use case.
 
 ### Performance Efficiency
 
@@ -130,7 +130,7 @@ Principal author:
 ## Next steps
 
 - [Deploy Traffic Manager in Azure][Deploy-Traffic-Manager-in-Azure]
-- [Set up disaster recovery for Azure VMs][Set-up-disaster-recovery-for-Azure-VMs]
+- [Set up DR for Azure VMs][Set-up-disaster-recovery-for-Azure-VMs]
 
 ## Related resource
 
