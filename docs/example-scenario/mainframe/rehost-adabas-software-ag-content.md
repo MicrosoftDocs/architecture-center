@@ -124,7 +124,7 @@ The VMs in this architecture use either Premium SSDs or Ultra Disks. For more in
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-In addition to supporting faster cloud adoption, rehosting also promotes the adoption of DevOps and Agile working principles. It provides flexibility in development and production deployment options.
+Rehosting supports faster cloud adoption and promotes the adoption of DevOps and Agile working principles. It provides flexibility in development and production deployment options.
 
 ### Performance Efficiency
 
