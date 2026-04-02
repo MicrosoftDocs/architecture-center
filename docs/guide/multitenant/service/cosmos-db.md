@@ -94,7 +94,7 @@ In the database account per tenant model, each of your tenants' data is stored i
 
 - **Azure Cosmos DB fleet pools:** Azure Cosmos DB fleets are designed to help customers building multitenant applications manage, monitor, and optimize their fleet of database accounts. Within a fleet, you can organize your tenants (database accounts) into logical groupings called a fleetspace and configure an optional [pool of throughput (RU/s)](/azure/cosmos-db/fleet-pools) that can be shared across all database accounts in the fleetspace, which helps optimize your cost.
 
-:::image type="content" source="media/cosmosdb/fleet-overview.png" alt-text="Image of Azure Cosmos DB fleet, with 3 different fleetspaces used to group free tier, mid-size, and enterprise customers, with optional pool configuration.":::
+:::image type="content" source="media/cosmosdb/fleet-overview.png" alt-text="Azure Cosmos DB fleet with three fleetspaces used to group free tier, mid-size, and enterprise customers, each with optional pool configuration.":::
 
   - **How to organize your fleet**: Many providers create a fleet for each region they operate in and further separate the tenants into fleetspaces based on tenant performance requirements, or "class of tenant." 
     - For example, for their East US 2 fleet, a provider might create one fleetspace for accounts belonging to tenants using a free trial (less pool RU/s required) and another fleetspace for accounts belonging to tenants who have signed an enterprise agreement (more RU/s required). 
