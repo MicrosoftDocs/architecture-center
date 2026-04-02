@@ -45,7 +45,7 @@ Each pattern in this catalog describes the problem that it addresses, considerat
 | [Backends for Frontends](./backends-for-frontends.md) | Create separate backend services for specific frontend applications or interfaces. | - Reliability<br><br>- Security<br><br>- Performance&nbsp;Efficiency |
 | [Bulkhead](./bulkhead.md) | Isolate elements of an application into pools so that if one fails, the others continue to function. | - Reliability<br><br>- Security<br><br>- Performance&nbsp;Efficiency |
 | [Cache-Aside](./cache-aside.yml) | Load data on demand into a cache from a data store. | - Reliability<br><br>- Performance&nbsp;Efficiency |
-| [Choreography](./choreography.yml) | Let individual services decide when and how a business operation is processed, instead of depending on a central orchestrator. | - Operational&nbsp;Excellence<br><br>- Performance&nbsp;Efficiency |
+| [Choreography](./choreography.md) | Let individual services decide when and how a business operation is processed, instead of depending on a central orchestrator. | - Operational&nbsp;Excellence<br><br>- Performance&nbsp;Efficiency |
 | [Circuit Breaker](./circuit-breaker.md) | Handle faults that might take a variable amount of time to fix when an application connects to a remote service or resource. | - Reliability<br><br>- Performance&nbsp;Efficiency |
 | [Claim Check](./claim-check.yml) | Split a large message into a claim check and a payload to avoid overwhelming a message bus. | - Reliability<br><br>- Security<br><br>- Cost&nbsp;Optimization<br><br>- Performance&nbsp;Efficiency |
 | [Compensating Transaction](./compensating-transaction.yml) | Undo the work performed by a sequence of steps that collectively form an eventually consistent operation. | - Reliability |

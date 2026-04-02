@@ -72,7 +72,7 @@ Use this pattern when:
 - The processing steps performed by an application have different scalability requirements.
 
     > [!NOTE]
-    > You can group filters that should scale together in the same process. For more information, see the [Compute Resource Consolidation pattern](./compute-resource-consolidation.yml).
+    > You can group filters that should scale together in the same process. For more information, see the [Compute Resource Consolidation pattern](./compute-resource-consolidation.md).
 
 - You require the flexibility to allow reordering of the processing steps the application performs, or to allow the capability to add and remove steps.
 

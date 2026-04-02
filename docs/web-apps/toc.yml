@@ -28,7 +28,7 @@ items:
         - name: Protect APIs by using Application Gateway and API Management
           displayName: APIM
           href: api-management/architectures/protect-apis.yml
-        - name: Migrate a web app with APIM
+        - name: Migrate a web app by using API Management
           displayName: API Management
           href: ../example-scenario/apps/apim-api-scenario.yml
     - name: Apply guidance
