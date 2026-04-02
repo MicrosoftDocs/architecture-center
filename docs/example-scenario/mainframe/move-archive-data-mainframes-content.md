@@ -10,7 +10,7 @@ To decide which method to use for moving data between the mainframe system and A
 
 - **Microsoft solutions.**
 
-  - The Azure Data Factory FTP connector.
+  - The Azure Data Factory FTP/SFTP connector.
   - The Data Factory copy activity, which can copy data to any Azure storage solution.
   - *Mainframe JCL to Azure Blob using Java*, a custom solution for moving data from the mainframe system to Azure via Job Control Language (JCL). For more information, contact [datasqlninja@microsoft.com](mailto:datasqlninja@microsoft.com).
 
@@ -20,7 +20,7 @@ To decide which method to use for moving data between the mainframe system and A
 
 1. The Azure Data Factory [FTP connector moves data from the mainframe system to Azure Blob Storage](https://techcommunity.microsoft.com/t5/modernization-best-practices-and/copy-files-from-mainframe-to-azure-data-platform-using-adf-ftp/ba-p/3042555). This solution requires an intermediate virtual machine (VM) on which a self-hosted integration runtime is installed.
 1. The Data Factory [copy activity connects to the Db2 database to copy data into Azure storage](/azure/data-factory/v1/data-factory-onprem-db2-connector). This solution also requires an intermediate VM on which a self-hosted integration runtime is installed.
-1. The Microsoft *Mainframe JCL to Azure Blob using Java* custom solution moves data between the mainframe system and Blob Storage, and vice versa. This solution is based on Java and runs on Unix System Services on the mainframe. You can get this solution by contacting [datasqlninja@microsoft.com](mailto:datasqlninja@microsoft.com).
+1. The Microsoft *Mainframe JCL to Azure Blob using Java* custom solution moves data between the mainframe system and Blob Storage, and vice versa. This solution is based on Java and runs on Unix System Services on the mainframe.
 
     1. You need to complete a one-time configuration of the solution. This configuration involves getting the Blob Storage access keys and moving required artifacts to the mainframe system.
 
@@ -65,6 +65,7 @@ Archiving data to the cloud can help you:
 - Optimize performance for queries by storing only relevant data on the active system.
 - Reduce operational costs by storing data in a more economical way.
 - Use archived data for analytics to create new opportunities and make better business decisions.
+- can help meet the compliance and regulations regarding data retention and archiving. 
 
 ## Recommendations
 
@@ -102,7 +103,7 @@ Recall of archived data is an important aspect of archive solutions. Few of the 
 
 Principal author:
 
-- [Pratim Dasgupta](https://www.linkedin.com/in/pratimdasgupta) | Engineering Architect
+- [Nithish Aruldoss](https://www.linkedin.com/in/nithish-aruldoss-b4035b2b) | Engineering Architect
 
 Other contributors:
 
