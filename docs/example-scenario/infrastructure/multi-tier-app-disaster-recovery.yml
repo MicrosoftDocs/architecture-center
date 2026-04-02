@@ -4,7 +4,7 @@ metadata:
   description: Learn how to create a resilient multitier web application built for high availability and disaster recovery on Azure by using VMs.
   author: shubhamsangal-msft
   ms.author: shsangal
-  ms.date: 03/31/2026
+  ms.date: 04/03/2026
   ms.topic: example-scenario
   ms.subservice: example-scenario
   ai-usage: ai-assisted
