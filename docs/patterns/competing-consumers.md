@@ -1,6 +1,6 @@
 ---
 title: Competing Consumers Pattern
-description: Explore the Competing Consumers pattern. This pattern lets many concurrent consumers process messages received on the same messaging channel.
+description: Learn how the Competing Consumers pattern supports multiple concurrent consumers processing messages received on the same messaging channel.
 author: claytonsiemens77
 ms.author: pnp
 ms.date: 04/02/2026
