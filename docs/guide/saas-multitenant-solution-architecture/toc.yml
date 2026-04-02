@@ -103,6 +103,8 @@ items:
             items:
             - name: Azure Cache for Redis
               href: ../multitenant/service/cache-redis.md
+            - name: Azure Managed Redis
+              href: ../multitenant/service/managed-redis.md
             - name: Azure Cosmos DB
               href: ../multitenant/service/cosmos-db.md
             - name: Azure Database for PostgreSQL
