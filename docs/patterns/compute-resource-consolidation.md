@@ -57,8 +57,8 @@ Consider the following points as you decide how to implement this pattern:
 
 - **Contention:** Avoid introducing contention between tasks that compete for resources in the same computational unit. Tasks that share the same computational unit should exhibit different resource utilization characteristics. For example, two compute-intensive tasks shouldn't reside in the same computational unit and neither should two tasks that consume large amounts of memory. However, you can combine a compute-intensive task with a task that requires a large amount of memory.
 
-> [!NOTE]
-> Consider consolidating compute resources only for systems that are in production long enough so that operators and developers can monitor the system and create a *heat map* that identifies how each task uses resources. This map helps determine which tasks are good candidates for sharing compute resources.
+   > [!NOTE]
+   > Consider consolidating compute resources only for systems that are in production long enough so that operators and developers can monitor the system and create a *heat map* that identifies how each task uses resources. This map helps determine which tasks are good candidates for sharing compute resources.
 
 - **Complexity:** Multiple tasks in a single computational unit adds complexity to the code in the unit, which might make it more difficult to test, debug, and maintain.
 
