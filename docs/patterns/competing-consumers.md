@@ -118,6 +118,6 @@ To learn how you can use the Service Bus client library for .NET to send message
 
 ## Related resources
 
-- [Compute Resource Consolidation pattern](./compute-resource-consolidation.yml): You might be able to consolidate multiple instances of a consumer service into a single process to reduce costs and management overhead. The Compute Resource Consolidation pattern describes the benefits and trade-offs of this approach.
+- [Compute Resource Consolidation pattern](./compute-resource-consolidation.md): You might be able to consolidate multiple instances of a consumer service into a single process to reduce costs and management overhead. The Compute Resource Consolidation pattern describes the benefits and trade-offs of this approach.
 
 - [Queue-based Load Leveling pattern](./queue-based-load-leveling.yml): Introducing a message queue can add resiliency to the system. Resiliency lets service instances handle widely varying volumes of requests from application instances. The message queue functions as a buffer that levels the load. The Queue-based Load Leveling pattern describes this scenario in more detail.
