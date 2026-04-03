@@ -48,7 +48,7 @@ The `Copy-VmDigitalEvidence` runbook implements the following macro steps:
 
 - [Azure Storage](/azure/storage/common/storage-introduction) is a scalable cloud storage solution for various data types, including object, file, disk, queue, and table storage. In this architecture, it stores VM disk snapshots in immutable blob containers to preserve digital evidence in a tamper-proof format.
 
-- [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is a cloud-based solution that provides object storage optimized for unstructured data. In this architecture, it holds the immutable snapshots of VM disks to ensure the integrity and non-repudiation of digital evidence.
+- [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is a cloud-based solution that provides object storage optimized for unstructured data. In this architecture, it holds the immutable snapshots of VM disks to ensure the integrity and nonrepudiation of digital evidence.
 
 - [Azure Files](/azure/well-architected/service-guides/azure-files) is a fully managed cloud file storage service that provides shared file systems that can be accessed via the industry-standard Server Message Block (SMB) protocol, the Network File System (NFS) protocol, and the Azure Files REST API. You can concurrently mount shares through cloud or on-premises deployments of Windows, Linux, and macOS. You can also cache file shares on Windows Server by using Azure File Sync for quick access near the data usage location. In this architecture, Azure Files temporarily stores disk snapshots to compute hash values before transferring them to immutable storage.
 
@@ -66,7 +66,7 @@ The SOC team uses an [Automation](/azure/automation/overview) account to create 
 
 The [hybrid runbook worker](/azure/automation/extension-based-hybrid-runbook-worker-install) VM is integrated into the Automation account. The SOC team uses this VM exclusively to run the `Copy-VmDigitalEvidence` runbook.
 
-You must place the hybrid runbook worker VM in a subnet that can access the Storage account. Configure access to the Storage account by adding the hybrid runbook worker VM subnet to the Storage account's firewall allowlist rules.
+You must place the hybrid runbook worker VM in a subnet that can access the Storage account. Configure access to the Storage account by adding the hybrid runbook worker VM subnet to the Storage account's firewall allow list rules.
 
 Grant access to this VM only to the SOC team members for maintenance activities.
 
@@ -82,11 +82,9 @@ The minimum Azure role-based access control (Azure RBAC) permissions required fo
 Access to the SOC Azure architecture includes the following roles:
 
 - **Storage Account Contributor** on the SOC immutable Storage account
-- **Key Vault Secrets Officer** on the SOC key vault for hash value management
+- **Key Vault Secrets Officer** on the SOC key vault for hash-value management
 
-Access to the target architecture includes the following roles:
-
-- **Contributor** on the target VM's resource group, which provides snapshot rights on VM disks
+Access to the target architecture includes the **Contributor** role on the target VM's resource group, which provides snapshot rights on VM disks.
 
 #### Storage account
 
@@ -98,7 +96,7 @@ The storage account also hosts an [Azure file share](/azure/storage/files/storag
 
 #### Key Vault
 
-The SOC subscription has its own instance of [Key Vault](/azure/key-vault/general/overview), which stores the hash values of disk snapshots that the hybrid runbook worker computes during the capture operations.
+The SOC subscription has its own instance of [Key Vault](/azure/key-vault/general/overview), which stores the hash values of disk snapshots that the hybrid runbook worker computes during capture operations.
 
 Ensure that the [firewall](/azure/key-vault/general/network-security#key-vault-firewall-enabled-virtual-networks---dynamic-ips) is enabled on the key vault. It must grant access exclusively from the SOC virtual network.
 
@@ -175,7 +173,7 @@ Azure audit logs can document the evidence acquisition by recording the action o
 
 Use [Automation](/azure/automation/overview) to move evidence to its final archive destination, without human intervention. This approach helps guarantee that evidence artifacts remain unaltered.
 
-When you apply a legal hold policy to the destination storage, the evidence is immediately frozen as soon as it's written. A legal hold demonstrates that the chain of custody is fully maintained within Azure. It also indicates that there's no opportunity to tamper with the evidence from the time the disk images are on a live VM to when they are stored as evidence in the storage account.
+When you apply a legal hold policy to the destination storage, the evidence is immediately frozen as soon as it's written. A legal hold demonstrates that the chain of custody is fully maintained within Azure. It also indicates that there's no opportunity to tamper with the evidence from the time the disk images are on a live VM to when they're stored as evidence in the storage account.
 
 Lastly, you can use the provided solution as an integrity mechanism to compute the hash values of the disk images. The supported hash algorithms are MD5, SHA256, SKEIN, and KECCAK (or SHA3).
 
@@ -187,7 +185,7 @@ Provide investigators with a [shared access signatures (SAS) uniform resource id
 
 For example, if a legal team needs to transfer a preserved virtual hard drive, one of the two SOC team custodians generates a read-only SAS URI key that expires after eight hours. The SAS restricts access to the investigators within a specified time frame.
 
-The SOC team must explicitly place the IP addresses of investigators that require access on an allowlist in the Storage firewall.
+The SOC team must explicitly place the IP addresses of investigators that require access on an allow list in the Storage firewall.
 
 #### Regional store
 
@@ -199,29 +197,29 @@ All the solution components, including the Storage account that archives evidenc
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-This architecture has a mix of fixed-cost and variable-cost components. The fixed-cost components run continuously regardless of investigation frequency. The variable-cost components scale with the volume and size of forensic captures.
+This architecture has a mix of fixed-cost and variable-cost components. The fixed-cost components run continuously and regardless of investigation frequency. The variable-cost components scale with the volume and size of forensic captures.
 
 #### Fixed-cost components
 
 The following components incur ongoing costs whether or not you perform evidence captures:
 
-- **Hybrid runbook worker VM.** This VM runs continuously in the SOC subscription so that it's available for on-demand evidence capture. The VM size is the primary cost lever. Evidence capture is not compute-intensive beyond hash computation, so a general-purpose VM with modest specifications, such as a Standard_D2s_v5, is sufficient. To reduce the cost of this always-on VM, consider [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) or [savings plans](/azure/cost-management-billing/savings-plan/savings-plan-compute-overview) for a one-year or three-year commitment.
+- **Hybrid runbook worker VM:** This VM runs continuously in the SOC subscription so that it's available for on-demand evidence capture. The VM size is the primary cost lever. Evidence capture isn't compute-intensive, except for hash computation, so a small general-purpose VM, such as a Standard_D2s_v5, is sufficient. To reduce the cost of this VM, consider [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) or [savings plans](/azure/cost-management-billing/savings-plan/savings-plan-compute-overview) for a one-year or three-year contract.
 
-- **Azure Automation account.** The Automation account that hosts the `Copy-VmDigitalEvidence` runbook and the hybrid worker configuration contributes a minimal baseline cost.
+- **Azure Automation account:** The Automation account that hosts the `Copy-VmDigitalEvidence` runbook and the hybrid worker configuration has a small baseline cost.
 
-- **Key Vault.** The SOC key vault stores hash values as secrets. Cost per secret operation is nominal, and the overall Key Vault cost is minimal for this workload.
+- **Key Vault:** The SOC key vault stores hash values as secrets. Cost per secret operation is nominal, and the overall Key Vault cost is minimal for this workload.
 
 #### Variable-cost components
 
 The following components scale with the number of investigations and the size of captured evidence:
 
-- **Azure Storage (immutable blob storage).** Storage is the primary variable cost driver in this architecture. Each forensic capture generates full disk snapshots of the target VM's OS and data disks, which can range from tens to hundreds of gigabytes per VM. Because snapshots under a legal hold policy can't be deleted, storage costs are cumulative. They grow with each investigation and with the number and size of disks per VM. To manage storage costs, evaluate the [access tier](/azure/storage/blobs/access-tiers-overview) for retained snapshots. Snapshots that are rarely accessed after initial hash verification can benefit from the Cool or Cold tier, which offers lower storage rates in exchange for higher access costs.
+- **Azure Storage:** The size of the required immutable blob storage is the primary variable cost in this architecture. Each forensic capture generates snapshots of the target VM's OS and data disks, which vary widely in size. Storage costs are cumulative because you can't delete snapshots under a legal hold policy. The size of a snapshot grows with each investigation and with the number and the size of disks in each VM. To manage storage costs, evaluate the [access tier](/azure/storage/blobs/access-tiers-overview) for retained snapshots. Snapshots that are accessed only rarely after initial hash verification can benefit from the Cool or Cold tier, which offers lower storage rates in exchange for higher access costs.
 
-- **Azure Files.** The temporary file share that computes hash values incurs cost only for the duration that the snapshot data is present. The runbook removes this data after hash computation, so the cost is transient and proportional to snapshot size.
+- **Azure Files:** The temporary file share that computes hash values incurs a cost only for the duration that the snapshot data is present. The runbook removes this data after hash computation, so the cost is transient and proportional to snapshot size.
 
-- **Log Analytics workspace.** Log Analytics ingestion costs increase with the number of operations that you perform in the SOC subscription. More frequent evidence captures and more active monitoring generate more log data. Configure [data retention policies](/azure/azure-monitor/logs/data-retention-configure) to match your compliance requirements and avoid retaining data longer than necessary.
+- **Log Analytics workspace:** Log Analytics ingestion costs increase with the number of operations that you perform in the SOC subscription. More frequent evidence captures and more active monitoring generate more log data. Configure [data retention policies](/azure/azure-monitor/logs/data-retention-configure) to match your compliance requirements and avoid unnecessary data retention.
 
-#### Estimate costs
+#### Cost estimation
 
 To estimate the cost of this architecture for your workload, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator). Configure the following components based on your expected investigation volume and VM disk sizes:
 
@@ -258,9 +256,7 @@ Select **Deploy to Azure** to deploy only the SOC resource group in a production
 [![Deploy to Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fforensics%2Fmain%2F.armtemplate%2Fcoc-soc.json)
 
 > [!NOTE]
-> If you deploy the solution in a production environment, make sure that the system-assigned managed identity of the Automation account has the following permissions:
->
->- A Contributor in the production resource group of the VM to be processed. This role creates the snapshots.
+> If you deploy the solution in a production environment, make sure that the system-assigned managed identity of the Automation account has Contributor permissions in the production resource group of the target VM. The Contributor role creates snapshots.
 >
 > If the key vault has the firewall enabled, be sure that the public IP address of the hybrid runbook worker VM is allowed through the firewall.
 
