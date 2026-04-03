@@ -139,7 +139,7 @@ In the database account per tenant model, each of your tenants' data is stored i
 ## Summary of recommended isolation models
 
 | Workload need | Partition key per tenant | Database account per tenant |
-|---|:---:|:---:|
+| :--- | :--- | :--- |
 | Cost efficiency | Optimize one container RU/s for workload | Optimize cost by sharing RU/s within a fleet pool |
 | New tenant creation latency | Immediate | Immediate, if you pre-create empty database accounts and just-in-time assign to new tenants |
 | Tenant data deletion | Use delete by partition key feature to delete all data for tenant | Delete the database account when tenant leaves |
