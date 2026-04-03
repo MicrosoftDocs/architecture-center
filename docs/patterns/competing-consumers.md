@@ -10,7 +10,7 @@ ms.subservice: cloud-fundamentals
 
 # Competing Consumers pattern
 
-Use the Competing Consumers pattern when multiple concurrent consumers process messages received on the same messaging channel. With multiple concurrent consumers, a system can process multiple messages at the same time to optimize throughput, improve scalability and availability, and balance the workload.
+Enable multiple concurrent consumers to process messages received on the same messaging channel. With multiple concurrent consumers, a system can process multiple messages at the same time to optimize throughput, improve scalability and availability, and balance the workload.
 
 ## Context and problem
 
