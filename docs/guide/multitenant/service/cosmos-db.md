@@ -33,7 +33,7 @@ To choose the most appropriate isolation model, consider your business model and
 
 However, in B2B models, providers often sell different SKUs corresponding to different performance levels, SLA guarantees, or isolation promisses. In addition, providers often want to offer their customers the option to manage their own encryption keys, known as cross-tenant or hosted on behalf of customer managed keys. For these applications, using a separate database account per tenant ensures the ability to tune and guarantee performance per customer, as well as provide customer managed keys, a feature only available at the Azure Cosmos DB database account level.
 
-## Partition key per tenant model (recommended)
+## Partition key per tenant model
 
 In a partition key per tenant model, all the data for your tenants is stored in the same Azure Cosmos DB container, often using a partition key like `/TenantId`. All the throughput (RU/s) of the container is shared by the tenants.
 
@@ -83,15 +83,15 @@ In a partition key per tenant model, all the data for your tenants is stored in 
 
     - For these workloads where you do not have high cardinality per tenant or need to optimize for write performance, it is recommended to use synthetic partition keys or partition just by `/id`. Both these approaches will allow you to spread writes evenly across all physical partitions.
 
-    - The main advantage of a synthetic key over id is if you're able to construct the key in a way that still allows you to optimize for some queries - for example, a synthetic key of TenantId_UserId will have a slight trade-off in perfectly even distribution of data across all partitions, but will allow you to do efficient queries if you specify both the TenantId_UserId.
+    - The main advantage of a synthetic key over id is if you're able to construct the key in a way that still allows you to optimize for some queries - for example, a synthetic key of TenantId_UserId will have a slight trade-off in perfectly even distribution of data across all partitions, but will allow you to do efficient queries for a specific user in a tenant if you specify the full partition key TenantId_UserId.
 
       However, if your workload needs to optimize for write throughput, running queries may not be relevant, and you can partition by just `/id` to simplify your workload.
 
     - Finally, if you find you have a small number of tenants that are much larger and have consistently higher request volumes than others, you may consider isolating that tenant into its own database account, while keeping the remaining tenants in a shared container.
 
-## Database account per tenant model (recommended)
+## Database account per tenant model
 
-In the database account per tenant model, each of your tenants' data is stored in their own Azure Cosmos DB database account. Within each account, you can have multiple containers for different workloads or microservices that access data for a tenant, each with dedicated throughput (RU/s). You can also use [Azure Cosmos DB fleets](/azure/cosmos-db/fleet) to optimize your cost by [sharing throughput (RU/s) across different database accounts](/azure/cosmos-db/fleet-pools), as well as [monitor your fleet of database accounts](/azure/cosmos-db/how-to-enable-fleet-analytics) at scale.
+In the database account per tenant model, each of your tenants' data is stored in their own Azure Cosmos DB database account. Within each account, you can have multiple containers for different workloads or microservices that access data for a tenant, each with dedicated throughput (RU/s).
 
 ### Benefits
 
@@ -132,13 +132,6 @@ In the database account per tenant model, each of your tenants' data is stored i
 - **Custom configuration:** You can configure the location of the database account according to the tenant's requirements. You can also tune the configuration of Azure Cosmos DB features, such as geo-replication and customer-managed encryption keys, to suit each tenant's requirements.
 
 - When you use a dedicated Azure Cosmos DB account per tenant, consider the [maximum number of Azure Cosmos DB accounts per Azure subscription](/azure/cosmos-db/concepts-limits#resource-limits).
-
-- **Control your throughput:** Explore features that can help if you have multiple workloads using the same database accounts.
-
-  | Feature | Description |
-  | :--- | :--- |
-  | [Priority based execution](/azure/cosmos-db/priority-based-execution) | Specify high or low priority at a per-request level. When there's contention on RU/s at the container level, high priority requests are prioritized. Useful when you have multiple workloads with different performance requirements, such as a batch job versus an API that serves real-time user requests. |
-  | [Throughput buckets (preview)](/azure/cosmos-db/throughput-buckets) | Assign a set percentage of RU/s that a set of requests can consume. For example, you can configure that requests from a batch job can only consume up to 10% of the container's total RU/s, while a critical user facing API can consume up to 100% of the container's total RU/s. |
 
 ## Summary of recommended isolation models
 
@@ -183,7 +176,7 @@ If performance isolation and/or CMK are required, consider using database accoun
 
 ### Partitioning
 
-Use partitions with your Azure Cosmos DB containers to create containers that multiple tenants share. Typically you use the tenant identifier as a partition key, but you might also consider using multiple partition keys for a single tenant. A well-planned partitioning strategy effectively implements the [Sharding pattern](../../../patterns/sharding.yml). When you have large containers, Azure Cosmos DB spreads your tenants across multiple physical nodes to achieve a high degree of scale.
+Use partitions with your Azure Cosmos DB containers to create containers that multiple tenants share. Typically you use the tenant identifier as a partition key, but you might also consider using multiple partition keys for a single tenant. A well-planned partitioning strategy effectively implements the [Sharding pattern](../../../patterns/sharding.md). When you have large containers, Azure Cosmos DB spreads your tenants across multiple physical nodes to achieve a high degree of scale.
 
 Consider [hierarchical partition keys](/azure/cosmos-db/hierarchical-partition-keys) to help improve the performance of your multitenant solution. Use hierarchical partition keys to create a partition key that includes multiple values. For example, you might use a hierarchical partition key that includes the tenant ID as a first level key, and a high cardinality field like `/id` for the next level to guarantee unlimited storage per tenant. Or you can specify a hierarchical partition key that includes a property that queries frequently use. This approach helps you avoid cross-partition queries. Use hierarchical partition keys to scale beyond the logical partition limit of 20 GB per partition key value and limit expensive fan-out queries. Hierarchical partition keys work best when you have a high cardinality of tenants and need to optimize for a read-heavy workload.
 
