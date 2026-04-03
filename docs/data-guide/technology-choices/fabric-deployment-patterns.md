@@ -28,7 +28,7 @@ The deployment hierarchy flows from your Microsoft 365 tenant down to individual
 
 - **Tenant level.** At the top is your Microsoft 365 tenant, which serves as the identity and administrative boundary for your organization. Your [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview) tenant exists within this Microsoft 365 tenant, and all Fabric resources live within this single tenant boundary. Tenant-level settings, including [Microsoft Entra Conditional Access](/entra/identity/conditional-access/overview), [private links](/fabric/security/security-private-links-overview), and [sensitivity labels](/fabric/governance/information-protection), apply across all capacities and workspaces.
 
-- **Capacity level.** Within an M365 tenant, you provision one or more Fabric capacities. Each capacity is bound to a specific Azure region and has a specific [F SKU](/fabric/enterprise/capacity-licensing-purchasing) that determines available compute resources measured in capacity units (CUs). Capacities control data residency and provide billing boundaries. You can pause an F SKU capacity to stop billing when it's not in use, but pausing makes all workloads on that capacity unavailable. A single capacity can host multiple workspaces.
+- **Capacity level.** Within an M365 tenant, you provision one or more Fabric capacities. Each capacity is bound to a specific Azure region and has a specific [F SKU](/fabric/enterprise/capacity-licensing-purchasing) that determines available compute resources measured in capacity units (CUs). Capacities control data residency and provide billing boundaries. A single capacity can host multiple workspaces.
 
 - **Workspace level.** Each capacity contains one or more [workspaces](/fabric/get-started/workspaces). Workspaces are the primary containers for collaboration and governance. They define access control through four roles (Admin, Member, Contributor, and Viewer), support [Git integration](/fabric/cicd/git-integration/intro-to-git-integration) for version control, and serve as the scope for [deployment pipelines](/fabric/cicd/deployment-pipelines/intro-to-deployment-pipelines). A workspace belongs to exactly one capacity at a time. Same-region capacity migration is straightforward; cross-region migration is technically possible but most Fabric item types — including lakehouses, warehouses, notebooks, and pipelines — must be removed and recreated, so same-region migration is strongly preferred.
 
@@ -38,7 +38,7 @@ The following licensing and workspace-type constraints often determine which dep
 
 - **New workspaces start on shared capacity unless you reassign them.** Every tenant has a shared capacity that hosts My Workspaces and can host Pro or Premium Per User (PPU) workspaces. To implement a governed Fabric deployment pattern for production workloads, you typically reassign workspaces to a dedicated Fabric capacity in the tenant.
 
-- **PPU is not a substitute for Fabric capacity.** PPU provides Power BI Premium features on a per-user basis, but it doesn't provision a Fabric capacity. To create or run non-Power BI Fabric items such as lakehouses, warehouses, and notebooks, you need an F capacity or a Trial Fabric capacity.
+- **PPU is not a substitute for Fabric capacity.** PPU provides Power BI Premium features on a per-user basis, but it doesn't provision a Fabric capacity. To create or run non-Power BI Fabric items such as lakehouses, warehouses, and notebooks, you need an F capacity.
 
 - **Workspace type affects what the pattern can host.** Fabric deployment patterns in this article assume Fabric workspaces backed by F SKUs. A and EM SKUs support Power BI items only, so they aren't sufficient for end-to-end Fabric deployment patterns.
 
@@ -253,18 +253,19 @@ You might choose to implement this deployment pattern for the following reasons:
 
 ## Evaluate alternative platforms
 
-Some architectural approaches discussed here are no longer recommended for net-new workloads. While these platforms may remain in use within existing environments, reduced strategic investment and future roadmap considerations make them unsuitable as default choices going forward. They are included for completeness, migration planning, and to clarify architectural trade-offs—not as peer alternatives to Microsoft Fabric.
-
-If your organization’s requirements don’t align with Fabric-based deployment models, consider the following constrained alternatives.
+If your organization’s requirements don't align with Fabric-based deployment models, consider the following constrained alternatives.
 
 - **[Azure Data Factory](/azure/data-factory/introduction) + [Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction) or [OneLake](/fabric/onelake/onelake-overview) (including hybrid ADF-Fabric architectures).**  
+- **[Azure Data Factory](/azure/data-factory/introduction) + [Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction) or [OneLake](/fabric/onelake/onelake-overview) (including hybrid ADF-Fabric architectures).**
+
   Organizations that need explicit orchestration control or phased modernization can use Azure Data Factory for ingestion and pipeline orchestration, with ADLS Gen2 as the storage foundation. In a hybrid model, ADF-managed data pipelines can load OneLake, while Microsoft Fabric handles all creation of analytical data assets. This approach supports incremental adoption of Fabric while preserving established integration patterns.
 
-- **[Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction) + [Azure Databricks](/azure/databricks/introduction/) + [Power BI](/power-bi/fundamentals/power-bi-overview).**  
+- **[Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction) + [Azure Databricks](/azure/databricks/introduction/) + [Power BI](/power-bi/fundamentals/power-bi-overview).**
+
   Organizations that intentionally prefer a PaaS-based architecture over a unified SaaS platform may choose to build a data estate using ADLS Gen2 for storage, Databricks for data engineering and analytics, and Power BI for semantic modeling and reporting. This approach offers maximum control and flexibility at the cost of increased integration effort, operational complexity, and governance overhead compared to Fabric.
 
 
-## Apply Well-Architected Framework guidance 
+## Apply Well-Architected Framework considerations
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
 
@@ -437,6 +438,7 @@ The following tables summarize the key differences in capabilities among Pattern
 ## Contributors
 
 *Microsoft maintains this article. The following contributors wrote this article.*
+
 Principal author:
 
 - [Amanjeet Singh](https://www.linkedin.com/in/amanjeetsingh2004/) | Principal Program Manager
