@@ -537,6 +537,9 @@ items:
         - name: Batch processing
           displayName: choose
           href: data-guide/technology-choices/batch-processing.md
+        - name: Choose a Microsoft Fabric deployment pattern
+          displayName: choose, fabric
+          href: data-guide/technology-choices/fabric-deployment-patterns.md
         - name: Choose an analytical data store in Microsoft Fabric
           href: data-guide/technology-choices/fabric-analytical-data-stores.md
       - name: Disaster recovery for Azure data platform

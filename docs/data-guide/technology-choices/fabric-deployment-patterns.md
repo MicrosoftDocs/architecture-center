@@ -4,6 +4,8 @@ description: Learn about common deployment scenarios for Microsoft Fabric.
 author: lferdinand
 ms.author: lferdinand
 ms.date: 03/08/2026
+ms.topic: concept-article
+ms.subservice: architecture-guide
 ai-usage: ai-assisted
 # Pandora-managed document. Edit freely, chunks sync automatically.
 ---
@@ -15,7 +17,7 @@ When you deploy [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overvie
 > [!NOTE]
 > This guide focuses on [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview) deployment patterns that use Fabric capacities, workspaces, and domains. For organizations that need more granular control over networking or prefer to assemble individual services, see [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) or a custom architecture using [Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction), [Azure Databricks](/azure/databricks/introduction/), and [Power BI](/power-bi/fundamentals/power-bi-overview).
 
-## Four-level hierarchy 
+## Four-level hierarchy
 
 The following diagram shows the four-level hierarchy that defines all Fabric deployments.
 
@@ -129,7 +131,7 @@ The following table presents considerations that might influence your decision t
 | **Governance** | Lower governance mandates and restrictions on the platform are required. Suits smaller organizations that prefer faster time to market. Challenges might develop if governance requirements evolve to become more complex. |
 | **Security: data plane** | Data can be shared across teams, so there's no need to restrict data between teams. Teams have ownership rights on the semantic models. They can read, edit, and modify data in OneLake. |
 | **Security: control plane** | All users can collaborate in the same workspace. There are no restrictions on items. All users can read and edit all items. |
-| **Administration** | Lower administration costs. No stringent need to track and monitor access and usage per team. Less stringent Fabric workload load monitoring across teams. |
+| **Administration** | Lower administration costs. No stringent need to track and monitor access and usage per team. Less stringent Fabric workload monitoring across teams. |
 | **DevOps** | A single release for the entire platform. Less complicated release pipelines. |
 | **Usability: administrators** | Fewer items to manage. No need for other provisioning or to handle requests from teams for new capacities or workspaces. Capacity administrators can be tenant administrators, so there's no need to create or manage other groups or teams. |
 | **Usability: other roles** | Sharing the workspace with other users is acceptable. Collaboration among users is encouraged. |

@@ -59,7 +59,7 @@ A Fabric deployment has four levels: [Tenant](/fabric/enterprise/licenses#tenant
 
 An organization's structure or objectives in the areas of security, scale, governance, and application lifecycle might influence its choice of deployment pattern. Different deployment patterns offer varying flexibility and emphasis in the levels of a deployment.
 
-For example, an organization can use [domains](/fabric/governance/domains) to group workspaces in Fabric. Similarly, organizations that require centralized collaboration and content discovery can adopt the [OneLake catalog](/fabric/governance/onelake-catalog-overview) in Fabric. OneLake provides a single access layer that integrates with Microsoft Teams, Excel, and other familiar tools.
+For example, an organization can use [domains](/fabric/governance/domains) to group workspaces in Fabric. Similarly, organizations that require centralized collaboration and content discovery can leverage the [OneLake catalog](/fabric/governance/onelake-catalog-overview), which surfaces a unified discovery and governance experience over the Tenant's OneLake data access layer and enables users to find and interact with content from familiar tools such as Microsoft Teams and Excel.
 
 In Fabric, a large organization that has business units in separate geographical locations can use capacities to control where its data resides. Fabric domains allow a geographically distributed business unit to be governed as a single unit. This is possible because domains can span workspaces and their associated capacities across regions.
 
@@ -125,7 +125,7 @@ The following table presents considerations that might influence your decision t
 | **Governance** | - Lower governance mandates and restrictions on the platform are required. <br/>- It suits smaller organizations that prefer faster time to market. <br/>- Challenges might develop if governance requirements evolve to become more complex. |
 | **Security - Data plane** | - Data can be shared across teams, so there's no need to have restrictions on data between teams. <br/>- Teams have ownership rights on the semantic models. They can read, edit, and modify data in OneLake. |
 | **Security - Control plane** | - All users can collaborate in the same workspace. <br/>- There are no restrictions on items. All users can read and edit all items. |
-| **Administration** | The organization has:<br/><br/>- Lower administration costs. <br/>- No stringent need to track and monitor access and usage per team. <br/>- Less stringent Fabric workload load monitoring across teams. |
+| **Administration** | The organization has:<br/><br/>- Lower administration costs. <br/>- No stringent need to track and monitor access and usage per team. <br/>- Less stringent Fabric workload monitoring across teams. |
 | **DevOps** | DevOps benefits from:<br/><br/>- A single release for the entire platform. <br/>- Less complicated release pipelines. |
 | **Usability - Administrators** | - It's easier for administrators to manage because they have fewer items to manage. <br/>- There's no need for other provisioning or to handle requests from teams for new capacities or workspaces. <br/>- Capacity administrators can be tenant administrators, so there's no need to create or manage other groups or teams. |
 |  **Usability - Other roles** | - It's acceptable to share the workspace with other users. <br/>- Collaboration among users is encouraged. |
@@ -191,7 +191,7 @@ When you provision multiple Fabric capacities with their own workspaces, the fol
 - [Capacity limitations](/fabric/enterprise/licenses#capacity-license) that are associated with a specific SKU apply, but you can scale CUs by provisioning separate capacities.
 - All Fabric items in all workspaces in the tenant and their certification statuses can be discovered by using a OneLake catalog.
 - Domains can group workspaces together so that a single business unit can operate and manage multiple workspaces.
-- [OneLake shortcuts](/fabric/onelake/onelake-shortcuts) reduce data movement, and they also reduce data usability across workspaces.
+- [OneLake shortcuts](/fabric/onelake/onelake-shortcuts) reduce data movement by eliminating physical copies of data, while enabling controlled, cross‑workspace access through OneLake without transferring ownership of the underlying data.
 
 You might choose to implement this deployment pattern for one or more of the following reasons:
 
