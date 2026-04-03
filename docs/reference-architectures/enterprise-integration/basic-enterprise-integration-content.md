@@ -131,7 +131,7 @@ You're charged for all API Management instances when they're running. If you hav
 
 Logic Apps (Consumption plan) uses a serverless billing model calculated based on action and connector execution. If you use Logic Apps Standard (single-tenant), billing is based on the hosting plan. For more information, see [Logic Apps pricing][logic-apps-pricing].
 
-For more information, see the cost section in the [Azure Architecture Framework][aaf-cost].
+For more information, see the cost section in the [Well-Archtitected Framework][waf-cost].
 
 ### Operational Excellence
 
@@ -291,6 +291,7 @@ You might also be interested in these articles from the Azure Architecture Cente
 [sla]: https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services
 [waf]: /azure/well-architected/
 [waf-cost-checklist]: /azure/well-architected/cost-optimization/checklist
+[waf-cost]:/azure/well-architected/cost-optimization
 [waf-op-checklist]: /azure/well-architected/operational-excellence/checklist
 [waf-perf-checklist]: /azure/well-architected/performance-efficiency/checklist
 [waf-rel-checklist]: /azure/well-architected/reliability/checklist
