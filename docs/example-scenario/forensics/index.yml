@@ -4,7 +4,7 @@ metadata:
   description: Learn how to create an infrastructure and workflow to help ensure a valid digital evidence chain of custody (CoC) for computer forensics in Azure.
   author: simonesavi
   ms.author: sisavi
-  ms.date: 02/11/2025
+  ms.date: 03/13/2026
   ms.topic: example-scenario
   ms.subservice: example-scenario
   ai-usage: ai-assisted
@@ -12,7 +12,6 @@ azureCategories:
   - security
 products:
   - azure-automation
-  - azure-disk-encryption
   - azure-key-vault
   - azure-storage-accounts
 name: Computer forensics chain of custody in Azure
