@@ -89,7 +89,7 @@ Azure helps you avoid unnecessary costs by identifying the correct number of res
 
 Azure also provides cost optimization by running on VMs. You can turn off the VMs when they're not being used and script a schedule for known usage patterns. For more information about cost optimization for [VM instances](/azure/architecture/framework/cost/optimize-vm), see [Azure Well-Architected Framework](/azure/well-architected/). 
 
-The VMs in this architecture use either Premium SSDs or Ultra Disks. For more information about disk options and pricing, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks). 
+The VMs in this architecture use either Premium SSDs or Ultra Disks. For more information about disk options and pricing, see [managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks). 
 
 ### Operational Excellence  
 

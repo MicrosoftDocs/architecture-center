@@ -111,12 +111,12 @@ Here are pricing considerations for specific components:
 
 - Most enterprises already have a Microsoft Active Directory implementation. If not, [Microsoft Entra ID P1 or P2](https://azure.microsoft.com/services/active-directory/) is low cost.
 - [Windows VM pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) and [Linux VM pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) depend on your compute capacity.
-- For Premium SSD or Ultra managed storage disks pricing, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
+- For Premium SSD or Ultra managed storage disks pricing, see [managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
 - There are no upfront costs for [Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/); you pay for resources as used.
 - For [ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute/), you pay a monthly port fee and outbound data transfer charges.
 - [Azure Storage](https://azure.microsoft.com/pricing/details/storage/) costs depend on data redundancy options and volume.
 - [Azure Files](https://azure.microsoft.com/pricing/details/storage/files/) pricing depends on many factors: data volume, data redundancy, transaction volume, and the number of file sync servers that you use.
-- For SSD managed disk pricing, see [Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/) pricing.
+- For SSD managed disk pricing, see [managed disks](https://azure.microsoft.com/pricing/details/managed-disks/) pricing.
 - For [Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/), you pay for each protected instance.
 - These services are free with your Azure subscription, but you pay for usage and traffic:
   - [Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/).

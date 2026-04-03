@@ -122,7 +122,7 @@ Performance Efficiency refers to your workload's ability to scale to meet user d
 
 - Use [Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview) so each set of servers can scale out to provide more throughput.
 - Use the SQL Database hyperscale tier or business-critical tier for high input/output operations per second (IOPS) and high-uptime service-level agreements (SLAs). For pricing information, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/azure-sql-database/single).
-- Use SSD or Ultra Disk Storage for best performance. For pricing information, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks).
+- Use SSD or Ultra Disk Storage for best performance. For pricing information, see [managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks).
 
 ## Contributors
 

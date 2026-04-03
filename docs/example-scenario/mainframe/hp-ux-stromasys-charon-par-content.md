@@ -86,7 +86,7 @@ Azure avoids unnecessary costs by identifying the correct number of resource typ
 
 - [Azure Files](https://azure.microsoft.com/pricing/details/storage/files) pricing depends on many factors: data volume, data redundancy, transaction volume, and the number of file sync servers that you use.
 - [Azure Storage](https://azure.microsoft.com/pricing/details/storage) costs depend on your data redundancy configurations and volume.
-- The VMs in this architecture use either Premium SSDs or Ultra Disks. For more information, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks).
+- The VMs in this architecture use either Premium SSDs or Ultra Disks. For more information, see [managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks).
 - For [ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute), you pay a monthly port fee and outbound data transfer charges.
 
 To estimate the cost of Azure products and configurations, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator). For more information about Stromasys products and their related services, see the [Stromasys website](https://www.stromasys.com).

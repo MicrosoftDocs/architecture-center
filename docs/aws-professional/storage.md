@@ -81,7 +81,7 @@ On Azure, you can configure many VM types for host caching. When host caching is
 
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
-| [Elastic Block Store (EBS)](https://aws.amazon.com/ebs/) | [Managed Disks](https://azure.microsoft.com/services/storage/disks/) | SSD storage that's optimized for I/O-intensive read/write operations. For use as high-performance Azure virtual machine storage. |
+| [Elastic Block Store (EBS)](https://aws.amazon.com/ebs/) | [managed disks](https://azure.microsoft.com/services/storage/disks/) | SSD storage that's optimized for I/O-intensive read/write operations. For use as high-performance Azure virtual machine storage. |
 | [Amazon FSX for NetApp ONTAP](https://aws.amazon.com/fsx/netapp-ontap/) iSCSI or NVMe/TCP LUNs | [Azure Elastic SAN](https://azure.microsoft.com/products/storage/elastic-san/?msockid=20b4ccc8ef0360d20a2dd85cee9a6140) |  Storage area network (SAN) capabilities in the cloud. Uses industry-standard storage protocols. |
 
 ### Shared files

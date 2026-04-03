@@ -22,7 +22,7 @@ Answer the following questions about your workloads to help make decisions about
 
 - **Do your workloads require disk storage to support the deployment of infrastructure as a service (IaaS) virtual machines?** [Azure managed disks](/azure/virtual-machines/managed-disks-overview) provide virtual disk capabilities for IaaS virtual machines.
 
-  Do you need to **consolidate that block storage across** or **are you migrating an on-premises SAN?** [Azure Elastic SAN](/azure/storage/elastic-san/elastic-san-introduction) is an Azure-based storage area network that provides network-attached block storage over the iSCSI protocol. It connects to Azure Virtual Machines, Azure Kubernetes Service, and Azure VMware Solution. Elastic SAN pools performance at the SAN level and shares it across all volumes. For single-VM workloads or scenarios that require locally attached storage, use Azure Managed Disks instead.
+  Do you need to **consolidate that block storage across** or **are you migrating an on-premises SAN?** [Azure Elastic SAN](/azure/storage/elastic-san/elastic-san-introduction) is an Azure-based storage area network that provides network-attached block storage over the iSCSI protocol. It connects to Azure Virtual Machines, Azure Kubernetes Service, and Azure VMware Solution. Elastic SAN pools performance at the SAN level and shares it across all volumes. For single-VM workloads or scenarios that require locally attached storage, use Azure managed disks instead.
 
 - **Will you need to provide downloadable images, documents, or other media as part of your workloads?** [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction) hosts static files, which are then accessible for download over the internet. For more information, see [Static website hosting in Azure Storage](/azure/storage/blobs/storage-blob-static-website).
 - **Will you need a location to store virtual machine logs, application logs, and analytics data?** Azure Monitor has [native storage for metrics, logs, and distributed traces](/azure/azure-monitor/data-platform).
@@ -129,7 +129,7 @@ Azure Storage has various redundancy options to help ensure durability and high 
 
 \* Not available for Azure Files.
 
-Azure Elastic SAN supports LRS and ZRS but doesn't support geo-redundant options. If your workload requires cross-region redundancy, use Azure Managed Disks or another storage service that supports GRS.
+Azure Elastic SAN supports LRS and ZRS but doesn't support geo-redundant options. If your workload requires cross-region redundancy, use Azure managed disks or another storage service that supports GRS.
 
 To learn more about these capabilities and how to decide on the best redundancy option for your use cases, see [Azure Storage redundancy](/azure/storage/common/storage-redundancy) and [Azure Files redundancy](/azure/storage/files/files-redundancy).
 
@@ -156,7 +156,7 @@ Azure Storage provides encryption at rest and safeguards your data. Azure Storag
 > [!IMPORTANT]
 > [Azure Disk Encryption](/azure/security/fundamentals/azure-disk-encryption-vms-vmss) (ADE), which uses BitLocker on Windows and dm-crypt on Linux, is scheduled for retirement on September 15, 2028. Use encryption at host for new VMs. Existing ADE-enabled VMs must [migrate to encryption at host](/azure/virtual-machines/disk-encryption-migrate) before that date.
 
-Azure Elastic SAN supports encryption at rest but doesn't support encryption in transit. If your workload requires in-transit encryption for block storage, evaluate Azure Managed Disks instead. For more information, see [Azure Elastic SAN supported features](/azure/storage/elastic-san/elastic-san-introduction#support-for-azure-storage-features).
+Azure Elastic SAN supports encryption at rest but doesn't support encryption in transit. If your workload requires in-transit encryption for block storage, evaluate Azure managed disks instead. For more information, see [Azure Elastic SAN supported features](/azure/storage/elastic-san/elastic-san-introduction#support-for-azure-storage-features).
 
 ## Regional availability
 
