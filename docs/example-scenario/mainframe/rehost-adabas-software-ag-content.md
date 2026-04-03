@@ -1,4 +1,4 @@
-For decades, Software AG Adabas has been the adaptable database system behind many large mission-critical business applications. Now you can bring the convenience of cloud computing to these applications without giving up your Adabas database or the Natural programming language. This architecture presents the option to rehost your system on Azure. It provides a high-level look at what's possible, whether you keep the green screen or go modern. 
+For decades, Software AG Adabas has been the adaptable database system behind many large mission-critical business applications. Now you can bring the convenience of cloud computing to these applications without giving up your Adabas database or the Natural programming language. This architecture presents the option to rehost your system on Azure. It provides a high-level overview of what's possible, whether you keep the green screen or go modern. 
 
 ## Mainframe architecture 
 
@@ -53,7 +53,7 @@ This diagram shows the legacy architecture migrated to Azure. A rehost approach 
 - [Azure Application Gateway](/azure/well-architected/service-guides/azure-application-gateway). Application Gateway provides a customizable Layer 7 load-balancing solution.
 - [Virtual network interfaces](/azure/virtual-network/virtual-network-network-interface). A network interface enables a VM to communicate with internet, Azure, and on-premises resources. You can add network interface cards to a VM to provide child VMs with their own dedicated network interface device and IP address.  
 - [Azure Managed Disks](/azure/virtual-machines/managed-disks-overview). Azure Managed Disks are block-level storage volumes that Azure manages on its VMs. Ultra Disks, Premium SSDs, Standard SSDs, and Standard HDDs are available. For this architecture, we recommend either Premium SSDs or Ultra Disks.  
-- [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute). You can use ExpressRoute to extend your on-premises networks into the Azure cloud via a private connection that's facilitated by a connectivity provider. By using ExpressRoute, you can establish connections to Microsoft cloud services like Azure and Office 365.
+- [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute). You can use ExpressRoute to extend your on-premises networks into the Azure cloud via a private connection that's facilitated by a connectivity provider. By using ExpressRoute, you can establish connections to Microsoft cloud services like Azure and Microsoft 365.
 
 ## Scenario details
 
@@ -61,7 +61,7 @@ For decades, Software AG Adabas has been the adaptable database system behind ma
 
 Most organizations are pragmatic in their approach to digital transformation. They want to reuse what they can and make cost-effective choices about the rest. That's why the rehost approach to cloud migration is so popular. You move your workload as is, if possible, to Azure virtual machines (VMs). These machines are a type of infrastructure as a service (IaaS). VMs run in Azure datacenters that Microsoft manages, so you benefit from the efficiency, scalability, and performance of a distributed platform without the overhead of hardware management.
 
-This architecture presents the rehost option. It provides a high-level look at what's possible, whether you keep the green screen or go modern. 
+This architecture presents the rehost option. It provides a high-level overview of what's possible, whether you keep the green screen or go modern. 
 
 ### Potential use cases
 

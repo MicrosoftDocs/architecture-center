@@ -125,7 +125,7 @@ You can do the following steps to help identify this problem:
 3. Load test each suspected operation, in a controlled test environment rather than the production system.
 4. Review the source code and examine how the broker objects are managed.
 
-Look at stack traces for operations that are slow-running or that generate exceptions when the system is under load. This information can help to identify how these operations are using resources. Exceptions can help to determine whether errors are caused by shared resources being exhausted.
+Examine stack traces for operations that are slow-running or that generate exceptions when the system is under load. This information can help to identify how these operations are using resources. Exceptions can help to determine whether errors are caused by shared resources being exhausted.
 
 ## Example diagnosis
 
@@ -145,7 +145,7 @@ The next image shows data captured using thread profiling, over the same period 
 
 ### Performing load testing
 
-Use load testing to simulate the typical operations that users might do. This can help to identify which parts of a system suffer from resource exhaustion under varying loads. Run these tests in a controlled environment rather than the production system. The following graph shows the throughput of requests handled by the `NewHttpClientInstancePerRequest` controller as the user load increases to 100 concurrent users.
+Use load testing to simulate the typical operations that users might do. This can help to identify which parts of a system experience resource exhaustion under varying loads. Run these tests in a controlled environment rather than the production system. The following graph shows the throughput of requests handled by the `NewHttpClientInstancePerRequest` controller as the user load increases to 100 concurrent users.
 
 ![Throughput of the sample application creating a new instance of an HttpClient object for each request][throughput-new-HTTPClient-instance]
 

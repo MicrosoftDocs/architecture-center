@@ -5,13 +5,14 @@ metadata:
   author: nishanil
   ms.author: nanil
   ms.reviewer: ssumner
-  ms.date: 10/15/2024
+  ms.date: 3/23/2026
   ms.topic: concept-article
   ms.subservice: architecture-guide
   ms.category:
   - featured
   ms.custom:
     - devx-track-dotnet
+    - arb-web
 azureCategories:
   - migration
   - web

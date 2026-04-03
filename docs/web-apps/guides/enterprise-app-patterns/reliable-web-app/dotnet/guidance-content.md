@@ -17,7 +17,7 @@ The Reliable Web App pattern is a set of principles and implementation technique
 
 ## Business context
 
-The first step in replatforming a web app is to define your business objectives. You should set immediate goals, like service-level objectives (SLO) and cost optimization targets, and also future goals for your web application. These objectives influence your choice of cloud services and the architecture of your web application in the cloud. Define a target SLO for your web app, such as 99.9% uptime. Calculate the [composite SLA](/azure/well-architected/reliability/metrics#slos-and-slas) for all the services that affect the availability of your web app.
+The first step in replatforming a web app is to define your business objectives. You should set immediate goals, like service-level objectives (SLO) and cost optimization targets, and also future goals for your web application. These objectives influence your choice of cloud services and the architecture of your web application in the cloud. Define a target SLO for your web app, such as 99.9% uptime. Calculate the [composite SLA](/azure/well-architected/reliability/metrics#slos-and-slas) for all the services that affect the availability of your web app. To understand what each service's SLA commits to, [learn how to read a service-level agreement](/azure/reliability/concept-service-level-agreements).
 
 For example, Relecloud has a positive sales forecast and anticipates increased demand on their ticketing web app. To meet this demand, they defined the goals for the web application:
 
@@ -125,6 +125,10 @@ For example, before it was moved to the cloud, Relecloud's ticketing web app was
     - *Minimal effort.* The private endpoints support the web app platform and database platform that the web app uses. Both platforms mirror existing on-premises configurations, so minimal change is required.
 
 - *Network security.* Use [Azure Firewall](/azure/firewall/overview) to control inbound and outbound traffic at the network level. Use [Azure Bastion](/azure/bastion/bastion-overview) to connect to virtual machines with enhanced security, without exposing RDP/SSH ports. Relecloud adopted a hub-and-spoke network topology and wanted to put shared network security services in the hub. Azure Firewall improves security by inspecting all outbound traffic from the spokes to increase network security. Relecloud needed Azure Bastion for enhanced-security deployments from a jump host in the DevOps subnet.
+
+## Architecture cost estimate
+
+You can find a cost estimate for the components used in this architecture in the [Azure pricing calculator](https://azure.com/e/a8aa90b9851f434885cc7a322c96c36b). Modify your estimate to include the components required for your use case.
 
 ## Code guidance
 

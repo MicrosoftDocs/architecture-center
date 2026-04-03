@@ -142,7 +142,7 @@ This architecture uses the following components:
 
 ## Scenario details
 
-Unisys Dorado mainframe systems are full-featured operating environments. You can scale them up vertically to handle mission-critical workloads. But emulating or modernizing these systems into Azure can provide similar or better performance and SLA guarantees. Azure systems also offer added flexibility, reliability, and the benefit of future capabilities.
+Unisys Dorado mainframe systems are full-featured operating environments. You can scale them up vertically to handle mission-critical workloads. But emulating or modernizing these systems into Azure can provide similar or better performance and SLA commitments. Azure systems also offer added flexibility, reliability, and the benefit of future capabilities.
 
 This architecture uses emulation technology from two Microsoft partners, [Astadia][Astadia] and [Micro Focus][Micro Focus]. The solution provides an accelerated way to move to Azure. There's no need for these steps:
 
@@ -280,7 +280,6 @@ Principal author:
 - Reference architectures:
 
   - [Unisys mainframe migration to Azure using Avanade AMT][Unisys mainframe migration]
-  - [Micro Focus Enterprise Server on Azure VMs][Micro Focus Enterprise Server on Azure VMs]
   - [Modernize mainframe & midrange data][Modernize mainframe & midrange data]
 
 [Astadia]: https://www.astadia.com/
@@ -304,7 +303,6 @@ Principal author:
 [Mainframe rehosting on Azure virtual machines]: /azure/virtual-machines/workloads/mainframe-rehosting/overview
 [Managed Disks pricing]: https://azure.microsoft.com/pricing/details/managed-disks/
 [Micro Focus]: https://www.microfocus.com/home
-[Micro Focus Enterprise Server on Azure VMs]: ./micro-focus-server.yml
 [Modernize mainframe & midrange data]: /azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure
 [Overview of the performance efficiency pillar]: /azure/architecture/framework/scalability/overview
 [Pricing calculator]: https://azure.microsoft.com/pricing/calculator/

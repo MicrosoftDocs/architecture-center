@@ -190,7 +190,7 @@ SAS workloads are often chatty. As a result, they can transfer a significant amo
 SAS has specific fully qualified domain name (FQDN) requirements for VMs. Set machine FQDNs correctly, and ensure that domain name system (DNS) services are working. You can set the names with Azure DNS. You can also edit the `hosts` file in the `etc` configuration folder.
 
 > [!NOTE]
-> Turn on accelerated networking on all nodes in the SAS deployment. When you turn this feature off, performance suffers significantly.
+> Turn on accelerated networking on all nodes in the SAS deployment. When you turn this feature off, performance degrades significantly.
 >
 > To turn on accelerated networking on a VM, follow these steps:
 >
@@ -342,9 +342,7 @@ Use [network security groups](/azure/virtual-network/security-overview) to filte
 - Giving access to CAS worker ports from on-premises IP address ranges.
 - Blocking access to SAS services from the internet.
 
-You can use [Azure Disk Encryption](/azure/security/azure-security-disk-encryption-faq) for encryption within the operating system. This solution uses the DM-Crypt feature of Linux. But we currently don't recommend using Azure Disk Encryption. It can severely degrade performance, especially when you use `SASWORK` files locally.
-
-[Server-side encryption (SSE) of Azure Disk Storage](/azure/virtual-machines/disk-encryption) protects your data. It also helps you meet organizational security and compliance commitments. With Azure Managed Disks, SSE encrypts the data at rest when persisting it to the cloud. This behavior applies by default to both OS and data disks. You can use platform-managed keys or your own keys to encrypt your managed disk.
+[Server-side encryption (SSE) of Azure Disk Storage](/azure/virtual-machines/disk-encryption) protects your data. It also helps you meet organizational security and compliance commitments. With Azure Managed Disks, SSE encrypts the data at rest when persisting it to the cloud. This behavior applies by default to both OS and data disks. You can use platform-managed keys or your own keys to encrypt your managed disk. Enable [encryption at host](/azure/virtual-machines/disk-encryption#encryption-at-host---end-to-end-encryption-for-your-vm-data) for end-to-end encryption that extends to temp disks and disk caches without consuming VM CPU resources. This approach is important for SAS workloads that use `SASWORK` files on local temp disks, where guest-based encryption can severely degrade I/O performance. Temp disks are encrypted with platform-managed keys only.
 
 #### Protect your infrastructure
 

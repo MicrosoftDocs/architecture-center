@@ -13,7 +13,7 @@ Use a message queue to implement the communication channel between the applicati
 ![Using a message queue to distribute work to instances of a service](./_images/competing-consumers-diagram.png)
 
 >[!NOTE]
->Although there are multiple consumers of these messages, this isn't the same as the [Publish Subscribe pattern](publisher-subscriber.yml) (pub/sub). With the Competing Consumers approach, each message is passed to a single consumer for processing, whereas with the Pub/Sub approach, **all** consumers get passed **every** message.
+>Although there are multiple consumers of these messages, this isn't the same as the [Publish Subscribe pattern](publisher-subscriber.md) (pub/sub). With the Competing Consumers approach, each message is passed to a single consumer for processing, whereas with the Pub/Sub approach, **all** consumers get passed **every** message.
 
 This solution has the following benefits:
 
@@ -78,7 +78,7 @@ As with any design decision, consider any tradeoffs against the goals of the oth
 
 ## Example
 
-Azure provides Service Bus Queues and Azure Function queue triggers that, when combined, are a direct implementation of this cloud design pattern. Azure Functions integrate with Azure Service Bus via triggers and bindings. Integrating with Service Bus allows you to build functions that consume queue messages sent by publishers. The publishing application(s) will post messages to a queue, and consumers, implemented as Azure Functions, can retrieve messages from this queue and handle them.
+Azure provides Service Bus Queues and Azure Function queue triggers that, when combined, are a direct implementation of this cloud design pattern. Azure Functions integrates with Azure Service Bus via triggers and bindings. Integrating with Service Bus allows you to build functions that consume queue messages sent by publishers. The publishing application(s) will post messages to a queue, and consumers, implemented as Azure Functions, can retrieve messages from this queue and handle them.
 
 For resiliency, a Service Bus queue enables a consumer to use `PeekLock` mode when it retrieves a message from the queue. This mode doesn't remove the message, but hides it from other consumers. The Azure Functions runtime receives a message in PeekLock mode, if the function finishes successfully it calls Complete on the message, or it might call Abandon if the function fails, and the message will become visible again, allowing another consumer to retrieve it. If the function runs for a period longer than the PeekLock timeout, the lock is automatically renewed as long as the function is running.
 
@@ -100,6 +100,6 @@ To see how you can use the Azure Service Bus client library for .NET to send mes
 
 The following patterns and guidance might be relevant when implementing this pattern:
 
-- [Compute Resource Consolidation pattern](./compute-resource-consolidation.yml). It might be possible to consolidate multiple instances of a consumer service into a single process to reduce costs and management overhead. The Compute Resource Consolidation pattern describes the benefits and tradeoffs of following this approach.
+- [Compute Resource Consolidation pattern](./compute-resource-consolidation.md). It might be possible to consolidate multiple instances of a consumer service into a single process to reduce costs and management overhead. The Compute Resource Consolidation pattern describes the benefits and tradeoffs of following this approach.
 
 - [Queue-based Load Leveling pattern](./queue-based-load-leveling.yml). Introducing a message queue can add resiliency to the system, enabling service instances to handle widely varying volumes of requests from application instances. The message queue acts as a buffer, which levels the load. The Queue-based Load Leveling pattern describes this scenario in more detail.

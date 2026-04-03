@@ -45,7 +45,7 @@ Events have two categories:
 
 - **Event streams:** The producer raises a sequence of related events over time. Consumers typically evaluate streams for statistical purposes, either within a temporal window or as events arrive. Telemetry is a common use case, like monitoring the health and load of a system. Another use case includes event streaming from Internet of Things (IoT) devices.
 
-You can implement event messaging by using the [Publisher-Subscriber pattern](../../patterns/publisher-subscriber.yml).
+You can implement event messaging by using the [Publisher-Subscriber pattern](../../patterns/publisher-subscriber.md).
 
 :::image type="complex" source="./images/event-pull.png" border="false" lightbox="./images/event-pull.png" alt-text="Diagram of the Publisher-Subscriber pattern for event messaging.":::
 A publisher sends messages to a central message component, which then delivers those messages to two subscribers, labeled subscriber A and subscriber B.
@@ -328,7 +328,7 @@ Consider the following patterns when you implement asynchronous messaging:
 
 - [Scheduler Agent Supervisor pattern](../../patterns/scheduler-agent-supervisor.yml): Workflows often require messaging to coordinate distributed services. This pattern demonstrates how messaging coordinates distributed actions and helps systems recover from failures by retrying failed operations.
 
-- [Choreography pattern](../../patterns/choreography.yml): This pattern shows how services can use messaging to control the workflow of a business transaction.
+- [Choreography pattern](../../patterns/choreography.md): This pattern shows how services can use messaging to control the workflow of a business transaction.
 
 - [Claim-Check pattern](../../patterns/claim-check.yml): This pattern shows how to divide a large message into a claim check and a payload.
 

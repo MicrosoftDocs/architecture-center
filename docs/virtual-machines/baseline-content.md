@@ -213,7 +213,7 @@ Two public IP addresses are used for ingress flows. One address is for Applicati
 
 #### Egress traffic
 
-This architecture uses standard SKU Load Balancer with outbound rules defined from the VM instances. Load Balancer was chosen because it's zone redundant.
+This architecture uses a public Load Balancer with outbound rules defined from the VM instances. Load Balancer was chosen because it's zone redundant.
 
 :::image type="content" source="./media/baseline-network-egress.svg" alt-text="Diagram of a virtual machine baseline that shows ingress flow." lightbox="./media/baseline-network-egress.svg" border="false":::
 
@@ -262,9 +262,9 @@ This table links to logs and metrics collected by Azure Monitor. The available a
 | -------------- | ---------------- | ------ |
 | Application Gateway | [Application Gateway metrics and logs description](/azure/application-gateway/monitor-application-gateway-reference) | [Application Gateway alerts](/azure/application-gateway/high-traffic-support#alerts-for-application-gateway-v2-sku-standard_v2waf_v2) |
 | Application Insights | [Application Insights metrics and the OpenTelemetry API](/azure/azure-monitor/app/opentelemetry-add-modify) | [Application Insights alerts](/azure/azure-monitor/alerts/alerts-smart-detections-migration) |
-| Azure Bastion |[Azure Bastion metrics](/azure/bastion/howto-metrics-monitor-alert)|
+| Azure Bastion | [Azure Bastion metrics](/azure/bastion/howto-metrics-monitor-alert) |
 | Key Vault | [Key Vault metrics and logs descriptions](/azure/key-vault/general/monitor-key-vault-reference) | [Key Vault alerts](/azure/key-vault/general/monitor-key-vault#alerts) |
-| Standard Load Balancer |[Load balancer logs and metrics](/azure/load-balancer/load-balancer-standard-diagnostics) | [Load Balancer alerts](/azure/load-balancer/load-balancer-standard-diagnostics#configure-alerts-for-multi-dimensional-metrics)
+| Load Balancer | [Load balancer logs and metrics](/azure/load-balancer/load-balancer-standard-diagnostics) | [Load Balancer alerts](/azure/load-balancer/load-balancer-standard-diagnostics#configure-alerts-for-multi-dimensional-metrics)
 | Public IP address | [Public IP address metrics and logs description](/azure/virtual-network/ip-services/monitor-public-ip) | [Public IP address metrics alerts](/azure/virtual-network/ip-services/monitor-public-ip#alerts) |
 | Virtual Network | [Virtual network metrics and logs reference](/azure/virtual-network/monitor-virtual-network-reference) | [Virtual network alerts](/azure/virtual-network/monitor-virtual-network#alerts) |
 | Virtual Machines and Virtual Machine Scale Sets | [VM metrics and logs reference](/azure/virtual-machines/monitor-vm-reference) | [VM alerts and tutorials](/azure/virtual-machines/monitor-vm#alerts) |
@@ -386,7 +386,7 @@ Every architecture is susceptible to failures. The exercise of failure mode anal
 
 #### Reliability targets
 
-To make design decisions, it's important to calculate the reliability targets, such as the composite service-level objectives (SLOs) of the workload. Doing so involves understanding the service-level agreements (SLAs) provided by Azure services used in the architecture. Workload SLOs must not be higher than the SLAs guaranteed by Azure. Carefully examine each component, from VMs and their dependencies, networking, and storage options.
+To make design decisions, it's important to calculate the reliability targets, such as the composite service-level objectives (SLOs) of the workload. Doing so involves understanding the [service-level agreements (SLAs)](/azure/reliability/concept-service-level-agreements) provided by Azure services used in the architecture. Workload SLOs must not exceed the commitments defined in Azure SLAs. Carefully examine each component, from VMs and their dependencies, networking, and storage options.
 
 Here's an example calculation where the main goal is to provide an approximate composite SLO. While this is a rough guideline, you should arrive at something similar. You shouldn't get a higher maximum composite SLO for the same flows unless you make modifications to the architecture.
 
@@ -412,7 +412,7 @@ Here's an example calculation where the main goal is to provide an approximate c
 
 In the preceding example, reliability of VMs and the dependencies are included, such as disks associated with VMs. The SLAs associated with disk storage affect the overall reliability.
 
-There are some challenges when calculating the composite SLO. Different service tiers might have different SLAs, and these SLAs often include financially backed guarantees that set reliability targets. Finally, there might be components of the architecture that don't have SLAs defined. For example, in terms of networking, NICs and virtual networks don't have their own SLAs.
+There are some challenges when calculating the composite SLO. Different service tiers might have different SLAs, and these SLAs often include financially backed commitments that set reliability targets. Finally, there might be components of the architecture that don't have SLAs defined. For example, in terms of networking, NICs and virtual networks don't have their own SLAs.
 
 The business requirements and their targets must be clearly defined and factored into the calculation. Be aware of the service limits and other constraints imposed by the organization. Sharing your subscription with other workloads could affect the resources available for your VMs. The workload might be allowed to use a limited number of cores available for the VMs. Understanding the resource usage of your subscription can help you design your VMs more effectively.
 
@@ -426,9 +426,9 @@ This architecture uses zone-redundancy for several components. Each zone is made
 
   Consider a scenario where there are three availability zones in your Azure region. If you have three instances, each instance is allocated to a different availability zone and placed in a different fault domain. Azure guarantees that only one fault domain is updated at a time in each availability zone. However, there could be a situation in which all three fault domains hosting your VMs across the three availability zones are updated simultaneously. All zones and domains are affected. Having at least two instances in each zone provides a buffer during upgrades.
 
-- Managed disks can only be attached to a VM in the same region. Their availability typically affects the availability of the VM. For single-region deployments, disks can be configured for redundancy to withstand zonal failures. In this architecture, data disks are configured zone-redundant storage (ZRS) on the back-end VMs. It requires a recovery strategy to take advantage of availability zones. The recovery strategy is to redeploy the solution. Ideally pre-provision compute in alternate availability zones ready to recover from a zonal failure.
+- Managed disks can only be attached to a VM in the same region. Their availability typically affects the availability of the VM. For single-region deployments, disks can be configured for redundancy to withstand zone failures. In this architecture, data disks are configured zone-redundant storage (ZRS) on the back-end VMs. It requires a recovery strategy to take advantage of availability zones. The recovery strategy is to redeploy the solution. Ideally pre-provision compute in alternate availability zones ready to recover from a zone failure.
 
-- A zone-redundant Application Gateway or standard load balancer can route traffic to VMs across zones using a single IP address, ensuring continuity even if zone failures occur. These services use health probes to check VM availability. As long as one zone in the region remains operational, routing continues despite potential failures in other zones. However, inter-zone routing might have higher latency compared to intra-zone routing.
+- A zone-redundant Application Gateway or Azure Load Balancer can route traffic to VMs across zones using a single IP address, ensuring continuity even if zone failures occur. These services use health probes to check VM availability. As long as one zone in the region remains operational, routing continues despite potential failures in other zones. However, inter-zone routing might have higher latency compared to intra-zone routing.
 
   All public IPs used in this architecture are zone redundant.
 
@@ -448,7 +448,7 @@ Although Azure Virtual Machine Scale Sets in Flexible mode supports heterogeneou
 
 Consider other aspects such as bootstrapping, graceful shutdowns, installing the workload and all its dependencies, and disk management when creating or deleting VMs instances. 
 
-Stateful workloads might require extra management for managed disks that need to live beyond a workload instance. Design your workload for data management under scaling events for consistency, synchronization, replication, and integrity of the workload’s data. For those scenarios, consider [adding prepopulated disks to scale sets](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks#adding-pre-populated-data-disks-to-an-existing-scale-set). For use cases where scaling is used to prevent bottlenecks when accessing data, plan for partitioning and sharding. For more information, see [Autoscale best practices](/azure/azure-monitor/autoscale/autoscale-best-practices#autoscale-best-practices).
+Stateful workloads might require extra management for managed disks that need to live beyond a workload instance. Design your workload for data management under scaling events for consistency, synchronization, replication, and integrity of the workload’s data. For those scenarios, consider [adding prepopulated disks to scale sets](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks#adding-pre-populated-data-disks-to-an-existing-scale-set). For use cases where scaling is used to prevent bottlenecks when accessing data, plan for [partitioning](../best-practices/data-partitioning.yml) and [sharding](../patterns/sharding.md). For more information, see [Autoscale best practices](/azure/azure-monitor/autoscale/autoscale-best-practices#autoscale-best-practices).
 
 > Refer to Well-Architected Framework: [RE:06 - Recommendations for designing a reliable scaling strategy](/azure/well-architected/reliability/scaling).
 
