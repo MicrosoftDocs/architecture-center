@@ -20,7 +20,7 @@ Azure Storage is the Azure platform's managed service for providing cloud storag
 
 Answer the following questions about your workloads to help make decisions about your storage needs:
 
-- **Do your workloads require disk storage to support the deployment of infrastructure as a service (IaaS) virtual machines?** [Azure Managed Disks](/azure/virtual-machines/managed-disks-overview) provide virtual disk capabilities for IaaS virtual machines.
+- **Do your workloads require disk storage to support the deployment of infrastructure as a service (IaaS) virtual machines?** [Azure managed disks](/azure/virtual-machines/managed-disks-overview) provide virtual disk capabilities for IaaS virtual machines.
 
   Do you need to **consolidate that block storage across** or **are you migrating an on-premises SAN?** [Azure Elastic SAN](/azure/storage/elastic-san/elastic-san-introduction) is an Azure-based storage area network that provides network-attached block storage over the iSCSI protocol. It connects to Azure Virtual Machines, Azure Kubernetes Service, and Azure VMware Solution. Elastic SAN pools performance at the SAN level and shares it across all volumes. For single-VM workloads or scenarios that require locally attached storage, use Azure Managed Disks instead.
 
