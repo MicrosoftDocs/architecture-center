@@ -3,7 +3,7 @@ This reference architecture implements a hub-spoke network pattern with customer
 ## Architecture
 
 :::image type="complex" border="false" source="./_images/hub-spoke.png" alt-text="Diagram that shows the hub-spoke virtual network topology architecture." lightbox="./_images/hub-spoke.png":::
-   Diagram that shows a hub-spoke network layout in Azure. A large outer frame labeled Azure Virtual Network Manager contains a central hub virtual network and four spoke virtual networks around it. On the left, outside the hub, a cross-premises network contains two virtual machines and a gateway icon. In the middle, the hub virtual network contains three services: Azure Bastion at the top, Azure Firewall in the center, and Azure VPN Gateway or Azure ExpressRoute at the bottom. Azure Monitor appears to the right of the hub, connected to the hub services by dashed lines labeled Diagnostics. Two production spoke virtual networks appear on the right, one above the other. Each production spoke contains a resource subnet with three virtual machines. Green dashed lines labeled Forced Tunnel run from both production spokes toward the hub firewall area. At the bottom are two nonproduction spoke virtual networks, each with a resource subnet and three virtual machines. Dotted arrows between the lower spokes indicate that they can be peered or directly connected. Additional dotted arrows show spoke virtual networks connecting or peering through the hub. Across the top, a dotted double-arrow labeled VNet peering connects the hub to the upper production spoke.
+   Diagram that shows a hub-spoke network layout in Azure. A large outer frame labeled Azure Virtual Network Manager contains a central hub virtual network and four spoke virtual networks around it. On the left, outside the hub, a cross-premises network contains two virtual machines and a gateway icon. In the middle, the hub virtual network contains three services: Azure Bastion at the top, Azure Firewall in the center, and Azure VPN Gateway or Azure ExpressRoute at the bottom. Azure Monitor appears to the right of the hub, connected to the hub services by dashed lines labeled Diagnostics. Two production spoke virtual networks appear on the right, one above the other. Each production spoke contains a resource subnet with three virtual machines. Dashed lines labeled Forced Tunnel run from both production spokes toward the hub firewall area. At the bottom there are two nonproduction spoke virtual networks, each with a resource subnet and three virtual machines. Dotted arrows between the lower spokes indicate that they can be peered or directly connected. Additional dotted arrows show spoke virtual networks connecting or peering through the hub. Across the top, a dotted double-arrow labeled VNet peering connects the hub to the upper production spoke.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/hub-spoke-network-topology-architecture.vsdx) of this architecture.*
@@ -26,7 +26,7 @@ Hub-spoke network topologies typically include many of the following architectur
 
   - **Remote spoke access for virtual machines (VMs):** A cross-organization remote connectivity solution for Remote Desktop Protocol (RDP) and Secure Shell Protocol (SSH) access to VMs distributed throughout spoke networks.
 
-  - **Routing:** The management of traffic between the hub and the connected spokes. Routing enables secure and efficient communication.
+  - **Routing:** The management of traffic between the hub and the connected spokes. Routing supports secure and efficient communication.
 
 - **Spoke virtual networks:** Spoke virtual networks isolate and manage workloads separately in each spoke. Each workload can include multiple tiers, with multiple subnets connected through Azure load balancers. Spokes can exist in different subscriptions and represent different environments, such as production and nonproduction. One workload can spread across multiple spokes.
 
@@ -40,15 +40,15 @@ Hub-spoke network topologies typically include many of the following architectur
 
 ### Components
 
-- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block for private networks in Azure. Virtual Network enables many Azure resources, such as VMs, to securely communicate with cross-premises networks, the internet, and each other. In this architecture, virtual networks connect to the hub by using Virtual Network [peering connections](/azure/virtual-network/virtual-network-peering-overview), which are nontransitive, low-latency connections between virtual networks. Peered virtual networks can exchange traffic over the Azure backbone without a router. In a hub-spoke architecture, direct peering between virtual networks is only used in special circumstances.
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block for private networks in Azure. Virtual Network supports many Azure resources, such as VMs, to securely communicate with cross-premises networks, the internet, and each other. In this architecture, virtual networks connect to the hub by using Virtual Network [peering connections](/azure/virtual-network/virtual-network-peering-overview), which are nontransitive, low-latency connections between virtual networks. Peered virtual networks can exchange traffic over the Azure backbone without a router. In a hub-spoke architecture, direct peering between virtual networks is only used in special circumstances.
 
 - [Azure Bastion](/azure/bastion/bastion-overview) is a fully managed service that provides secure and seamless RDP and SSH access to VMs without exposing their public IP addresses. In this architecture, Azure Bastion is used as a managed offering to support direct VM access across connected spokes.
 
 - [Azure Firewall](/azure/well-architected/service-guides/azure-firewall) is a managed cloud-based network security service that protects Virtual Network resources. This stateful firewall service has built-in high availability and unrestricted cloud scalability to help you create, enforce, and log application and network connectivity policies across subscriptions and virtual networks. In this architecture, Azure Firewall has multiple potential roles. The firewall is the primary egress point for traffic from peered spoke virtual networks to the internet. The firewall can also inspect inbound traffic by using network intrusion detection and prevention system (IDPS) rules. The firewall can also be used as a DNS proxy server to support fully qualified domain name (FQDN) traffic rules.
 
-- [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) is a virtual network gateway that sends encrypted traffic between a virtual network on Azure and different networks over the public internet. You can also use VPN Gateway to send encrypted traffic between other virtual networks over the Microsoft network. In this architecture, VPN Gateway can be used to connect spokes to the remote network. Spokes typically don't deploy their own VPN Gateway, they use the centralized solution offered by the hub. To manage this connectivity, establish routing configuration.
+- [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) is a virtual network gateway that sends encrypted traffic between a virtual network on Azure and different networks over the public internet. You can also use VPN Gateway to send encrypted traffic between other virtual networks over the Microsoft network. In this architecture, VPN Gateway can be used to connect spokes to the remote network. Spokes typically don't deploy their own VPN Gateway. They use the centralized solution offered by the hub. To manage this connectivity, establish routing configuration.
 
-- An [ExpressRoute gateway](/azure/expressroute/expressroute-about-virtual-network-gateways) exchanges IP routes and routes network traffic between your on-premises network and your Azure virtual network. In this architecture, ExpressRoute can be used to connect spokes to a remote network. Spokes don't deploy their own ExpressRoute, they use the centralized solution offered by the hub. To manage this connectivity, establish routing configuration.
+- An [ExpressRoute gateway](/azure/expressroute/expressroute-about-virtual-network-gateways) exchanges IP routes and routes network traffic between your on-premises network and your Azure virtual network. In this architecture, ExpressRoute can be used to connect spokes to a remote network. Spokes don't deploy their own ExpressRoute. They use the centralized solution offered by the hub. To manage this connectivity, establish routing configuration.
 
 - [Azure Monitor](/azure/azure-monitor/fundamentals/overview) can collect, analyze, and act on telemetry data from cross-premises environments including Azure and on-premises. Azure Monitor helps you maximize the performance and availability of your applications and quickly identify problems. In this architecture, Azure Monitor is the log and metric sink for the hub resources and for network metrics. Azure Monitor can also be used as a logging sink for resources in spoke networks, but this architecture doesn't mandate that usage.
 
@@ -56,13 +56,13 @@ Hub-spoke network topologies typically include many of the following architectur
 
 This architecture involves the creation, configuration, and maintenance of `virtualNetworkPeerings`, `routeTables`, and `subnets`. [Azure Virtual Network Manager](/azure/virtual-network-manager/overview) is a management service that helps you group, configure, deploy, and manage virtual networks at scale across Azure subscriptions, regions, and Microsoft Entra directories.
 
-With Virtual Network Manager, you can define [network groups](/azure/virtual-network-manager/concept-network-groups) to identify and segment your virtual networks. You can also use [connected groups](/azure/virtual-network-manager/concept-connectivity-configuration) that support groups of virtual networks to communicate with each other as if they are connected manually. This approach adds a layer of abstraction so that you can describe the networking topology without changing its implementation.
+With Virtual Network Manager, you can define [network groups](/azure/virtual-network-manager/concept-network-groups) to identify and segment your virtual networks. You can also use [connected groups](/azure/virtual-network-manager/concept-connectivity-configuration) that support groups of virtual networks to communicate with each other as if they're connected manually. This approach adds a layer of abstraction so that you can describe the networking topology without changing its implementation.
 
 We recommend that you evaluate Virtual Network Manager to optimize your network management operations. To determine whether Virtual Network Manager provides net value for your network's size and complexity, compare the service cost with the time savings and operational benefits.
 
 ## Scenario details
 
-This reference architecture implements a hub-spoke network pattern where the hub virtual network acts as a central point of connectivity to many spoke virtual networks. The spoke virtual networks connect with the hub and can be used to isolate workloads. You can also enable cross-premises scenarios by using the hub to connect to on-premises networks.
+This reference architecture implements a hub-spoke network pattern where the hub virtual network acts as a central point of connectivity to many spoke virtual networks. The spoke virtual networks connect with the hub and can be used to isolate workloads. You can also use this architecture in cross-premises scenarios by using the hub to connect to on-premises networks.
 
 This architecture describes a network pattern with customer-managed hub infrastructure components. For a Microsoft-managed hub infrastructure solution, see [Hub-spoke network topology with Azure Virtual WAN](/azure/architecture/networking/architecture/hub-spoke-virtual-wan-architecture).
 
@@ -113,7 +113,7 @@ When you peer virtual networks in different subscriptions, you can associate the
 
 #### Azure landing zones
 
-The [Azure landing zone architecture](/azure/cloud-adoption-framework/ready/landing-zone/) is based on hub-spoke topology. In that architecture, a centralized platform team manages the hub's shared resources and network, while spokes share a co-ownership model with the platform team and the workload team that uses the spoke network. All hubs reside in a Connectivity subscription for centralized management. Spoke virtual networks exist across multiple individual application landing zone subscriptions.
+The [Azure landing zone architecture](/azure/cloud-adoption-framework/ready/landing-zone/) is based on hub-spoke topology. In that architecture, a centralized platform team manages the hub's shared resources and network, while spokes share a coownership model with the platform team and the workload team that uses the spoke network. All hubs reside in a Connectivity subscription for centralized management. Spoke virtual networks exist across multiple individual application landing zone subscriptions.
 
 ### Virtual network subnets
 
@@ -139,7 +139,7 @@ Virtual network peering or connected groups are nontransitive relationships betw
 
 The number of virtual network peerings per virtual network is limited. If you have many spokes that need to connect with each other, you might not have enough peering connections. Connected groups also have limitations. For more information, see [Networking limits](/azure/azure-subscription-service-limits#networking-limits) and [Connected groups limits](/azure/virtual-network-manager/faq#what-are-the-service-limitations-of-azure-virtual-network-manager).
 
-In this scenario, consider using user-defined routes (UDRs) to force spoke traffic to be sent to Azure Firewall or another NVA that acts as a router at the hub. This change allows the spokes to connect to each other. To support this configuration, implement Azure Firewall with forced tunnel configuration enabled. For more information, see [Azure Firewall forced tunneling](/azure/firewall/forced-tunneling).
+In this scenario, consider using user-defined routes (UDRs) to force spoke traffic to be sent to Azure Firewall or another NVA that acts as a router at the hub. This change allows the spokes to connect to each other. To support this configuration, implement Azure Firewall with forced tunnel configuration turned on. For more information, see [Azure Firewall forced tunneling](/azure/firewall/forced-tunneling).
 
 The topology in this architectural design facilitates egress flows. While Azure Firewall is primarily for egress security, it can also be an ingress point. For more considerations about hub NVA ingress routing, see [Azure Firewall and Azure Application Gateway for virtual networks](/azure/architecture/example-scenario/gateway/firewall-application-gateway).
 
@@ -178,7 +178,7 @@ For more information about spoke-to-spoke networking patterns, see [Virtual netw
 If you need connectivity between spokes, consider deploying Azure Firewall or another NVA in the hub, then create routes to forward traffic from a spoke to the firewall or NVA, which can then route to the second spoke. In this scenario, you must configure the peering connections to allow forwarded traffic.
 
 :::image type="complex" border="false" source="./_images/spoke-spoke-routing.png" alt-text="Diagram that shows routing between spokes using Azure Firewall." lightbox="./_images/spoke-spoke-routing.png":::
-   Diagram that shows three large dashed boxes arranged in a row. A spoke virtual network is on the left, a hub virtual network is in the center, and another spoke virtual network is on the right. Inside each spoke virtual network is a dotted box labeled Resource subnet that contains three virtual machine icons. Inside the hub virtual network is a dotted box containing an Azure Firewall icon. Between the left spoke and the hub, and between the hub and the right spoke, dotted double-headed arrows labeled Peering show the network connections. Green dashed arrows near the bottom run horizontally from each spoke toward the hub and point inward to the Azure Firewall, indicating that traffic from both spokes is directed to the firewall in the center rather than flowing directly between the two spokes. The overall layout highlights the hub as the middle point through which communication between the two spoke networks is routed.
+   Diagram that shows three large dashed boxes arranged in a row. A spoke virtual network is on the left, a hub virtual network is in the center, and another spoke virtual network is on the right. Inside each spoke virtual network is a dotted box labeled Resource subnet that contains three virtual machine icons. Inside the hub virtual network is a dotted box containing an Azure Firewall icon. Between the left spoke and the hub, and between the hub and the right spoke, dotted double-headed arrows labeled Peering show the network connections. Dashed arrows near the bottom run horizontally from each spoke toward the hub and point inward to the Azure Firewall, indicating that traffic from both spokes is directed to the firewall in the center rather than flowing directly between the two spokes. The overall layout highlights the hub as the middle point through which communication between the two spoke networks is routed.
 :::image-end:::
 
 You can also use a VPN gateway to route traffic between spokes, although this choice affects latency and throughput. For configuration details, see [Configure VPN gateway transit for virtual network peering](/azure/vpn-gateway/vpn-gateway-peering-gateway-transit).
@@ -194,7 +194,7 @@ When you use Virtual Network Manager, you can add spoke virtual networks to netw
 The following diagram illustrates using Virtual Network Manager for direct connectivity between spokes.
 
 :::image type="complex" border="false" source="./_images/spoke-spoke-avnm.png" alt-text="Diagram that shows using Virtual Network Manager for direct connectivity between spokes." lightbox="./_images/spoke-spoke-avnm.png":::
-   Diagram that shows a large rectangular frame labeled Azure Virtual Network Manager, with the label Network group across the top. Inside the frame are three dashed boxes arranged left to right: a spoke virtual network, a hub virtual network, and another spoke virtual network. The two spoke boxes each contain a dotted inner box labeled Resource subnet with three virtual machine icons. The center hub box contains a dotted inner box with an Azure Firewall icon. Between the left spoke and the hub, and between the hub and the right spoke, dotted double-headed arrows are labeled Connected Virtual Networks. Along the bottom, a green dashed line labeled Directly Connected Virtual Networks runs between the two spoke networks, with upward arrowheads into each spoke, visually indicating a direct spoke-to-spoke path that sits below and separate from the hub connections.
+   Diagram that shows a large rectangular frame labeled Azure Virtual Network Manager, with the label Network group across the top. Inside the frame are three dashed boxes arranged left to right: a spoke virtual network, a hub virtual network, and another spoke virtual network. The two spoke boxes each contain a dotted inner box labeled Resource subnet with three virtual machine icons. The center hub box contains a dotted inner box with an Azure Firewall icon. Between the left spoke and the hub, and between the hub and the right spoke, dotted double-headed arrows are labeled Connected Virtual Networks. Along the bottom, a dashed line labeled Directly Connected Virtual Networks runs between the two spoke networks, with upward arrowheads into each spoke, visually indicating a direct spoke-to-spoke path that sits below and separate from the hub connections.
 :::image-end:::
 
 ## Considerations
@@ -217,7 +217,7 @@ Ensure that all resources that egress through the firewall use the same DNS prov
 
 Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-To protect against DDoS attacks, enable [Azure DDOS Protection](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network. Any resource that has a public IP is susceptible to a DDoS attack. The following public IPs need to be protected even if your workloads aren't exposed publicly.
+To protect against DDoS attacks, turn on [Azure DDOS Protection](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network. Any resource that has a public IP is susceptible to a DDoS attack. The following public IPs need to be protected even if your workloads aren't exposed publicly.
 
 - Public IPs from Azure Firewall.
 - Public IPs from the VPN gateway.
@@ -225,13 +225,13 @@ To protect against DDoS attacks, enable [Azure DDOS Protection](/azure/ddos-prot
 
 To minimize the risk of unauthorized access and to enforce strict security policies, always set explicit `deny` rules in NSGs.
 
-Use the [Azure Firewall Premium](/azure/firewall/premium-portal) version to enable Transport Layer Security inspection, IDPS, and URL filtering.
+Use the [Azure Firewall Premium](/azure/firewall/premium-portal) version to turn on Transport Layer Security inspection, IDPS, and URL filtering.
 
 #### Virtual Network Manager security
 
-To ensure a baseline set of security rules, make sure to associate [security admin rules](/azure/virtual-network-manager/concept-security-admins) with virtual networks in network groups. Security admin rules take precedence over and are evaluated before NSG rules. Like NSG rules, security admin rules support prioritization, service tags, and network layer (L3) - transport layer (L4) protocols.
+To ensure a baseline set of security rules, associate [security admin rules](/azure/virtual-network-manager/concept-security-admins) with virtual networks in network groups. Security admin rules take precedence over and are evaluated before NSG rules. Security admin rules support prioritization, service tags, and network layer (L3) - transport layer (L4) protocols.
 
-Use Virtual Network Manager [deployments](/azure/virtual-network-manager/concept-deployments) to facilitate controlled rollout of potentially breaking changes to network group security rules.
+Use Virtual Network Manager [deployments](/azure/virtual-network-manager/concept-deployments) to facilitate controlled rollout of critical changes to network group security rules.
 
 ### Cost Optimization
 
@@ -243,33 +243,33 @@ Consider the following cost-related factors when you deploy and manage hub-spoke
 
 This architecture deploys an Azure Firewall instance in the hub network. Using an Azure Firewall deployment as a shared solution consumed by multiple workloads can significantly save cloud costs compared to other NVAs. For more information, see [Azure Firewall vs. NVAs](https://azure.microsoft.com/blog/azure-firewall-and-network-virtual-appliances).
 
-To use all deployed resources effectively, choose the right Azure Firewall size. Decide what features you need and which tier best suits your current set of workloads. To learn about the available Azure Firewall SKUs, see [What is Azure Firewall?](/azure/firewall/overview)
+To use your deployed resources effectively, choose the right Azure Firewall size. Decide what features you need and which tier best suits your current set of workloads. To learn about the available Azure Firewall SKUs, see [What is Azure Firewall?](/azure/firewall/overview)
 
 #### Direct peering
 
-Selective use of direct peering or other nonhub routed communication between spokes can avoid the cost of Azure Firewall processing. Savings can be significant for networks that have workloads with high-throughput, low-risk communication between spokes, such as database synchronization or large file copy operations.
+Selective use of direct peering or other nonhub-routed communication between spokes can reduce or eliminate Azure Firewall processing costs. Savings can be significant for networks that have workloads with high-throughput, low-risk communication between spokes, such as database synchronization or large file copy operations.
 
 ### Operational Excellence
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-Enable diagnostic settings for all services, such as Azure Bastion, Azure Firewall, and your cross-premises gateway. Determine which settings are meaningful to your operations. Turn off settings that aren't meaningful to avoid undue costs. Resources such as Azure Firewall can be verbose with logging and you can incur high monitoring costs.
+Configure diagnostic settings for all services, such as Azure Bastion, Azure Firewall, and your cross-premises gateway. To reduce costs, turn off any settings that aren't related to your operations. Resources such as Azure Firewall can be verbose with logging and can lead to high monitoring costs.
 
 Use [Connection monitor](/azure/network-watcher/connection-monitor-overview) for end-to-end monitoring to detect anomalies and to identify and troubleshoot network issues.
 
-Use [Azure Network Watcher](/azure/network-watcher/network-watcher-overview) to monitor and troubleshoot network components, including using [Traffic analytics](/azure/network-watcher/traffic-analytics) to show you the systems in your virtual networks that generate the most traffic. You can visually identify bottlenecks before they become problems.
+Use [Azure Network Watcher](/azure/network-watcher/network-watcher-overview) to monitor and troubleshoot network components, including using [traffic analytics](/azure/network-watcher/traffic-analytics) to show you the systems in your virtual networks that generate the most traffic. You can use traffic analytics to identify potential bottlenecks.
 
-If you're using ExpressRoute, use [ExpressRoute Traffic Collector](/azure/expressroute/traffic-collector) where you can analyze flow logs for the network flows sent over your ExpressRoute circuits. ExpressRoute Traffic Collector gives you visibility into traffic flowing over Microsoft enterprise edge routers.
+If you're using ExpressRoute, use [ExpressRoute Traffic Collector](/azure/expressroute/traffic-collector) to analyze flow logs for the network flows sent over your ExpressRoute circuits. ExpressRoute Traffic Collector gives you visibility into traffic flowing over Microsoft enterprise edge routers.
 
-Use FQDN-based rules in Azure Firewall for protocols other than HTTP(S) or when you configure SQL Server. Using FQDNs reduces the management burden compared to managing individual IP addresses.
+Use FQDN-based rules in Azure Firewall for non-HTTP(S) protocols or for when you configure SQL Server. Using FQDNs reduces the management burden compared to individual IP address management.
 
-[Plan for IP addressing](/azure/cloud-adoption-framework/ready/azure-best-practices/plan-for-ip-addressing) based on your peering requirements, and make sure the address space doesn't overlap across cross-premises locations and Azure locations.
+[Plan for IP addressing](/azure/cloud-adoption-framework/ready/azure-best-practices/plan-for-ip-addressing) based on your peering requirements. Ensure the address space doesn't overlap across cross-premises locations and Azure locations.
 
 #### Automation with Virtual Network Manager
 
-To centrally manage connectivity and security controls, use Virtual Network Manager to create new hub-spoke virtual network topologies or onboard existing topologies. Using Virtual Network Manager ensures that your hub-spoke network topologies are prepared for large-scale future growth across multiple subscriptions, management groups, and regions.
+To manage connectivity and security controls, use Virtual Network Manager to create new hub-spoke virtual network topologies or onboard existing topologies. Using Virtual Network Manager ensures that your hub-spoke network topologies are prepared for large-scale future growth across multiple subscriptions, management groups, and regions.
 
-Example Virtual Network Manager use case scenarios include:
+Example Virtual Network Manager use-case scenarios include:
 
 - Democratization of spoke virtual network management to groups such as business units or application teams. Democratization can result in large numbers of virtual network-to-virtual network connectivity and network security rules requirements.
 
@@ -277,39 +277,39 @@ Example Virtual Network Manager use case scenarios include:
 
 To ensure uniform connectivity and network security rules, you can use network groups to group virtual networks in any subscription, management group, or region under the same Microsoft Entra tenant. You can automatically or manually onboard virtual networks to network groups through dynamic or static membership assignments.
 
-You define discoverability of the virtual networks that Virtual Network Manager manages by using [Scopes](/azure/virtual-network-manager/concept-network-manager-scope). This feature provides flexibility for a desired number of network manager instances, which allows further management democratization for virtual network groups.
+Define virtual networks discoverability in Virtual Network Manager by using [Scopes](/azure/virtual-network-manager/concept-network-manager-scope). Scopes provides flexibility for network manager instances, which allows further management democratization for virtual network groups.
 
-To connect spoke virtual networks in the same network group to each other, use Virtual Network Manager to implement virtual network peering or [direct connectivity](/azure/virtual-network-manager/concept-connectivity-configuration#enable-direct-connectivity). Use the [global mesh](/azure/virtual-network-manager/concept-connectivity-configuration#global-mesh) option to extend mesh direct connectivity to spoke networks in different regions. The following diagram shows global mesh connectivity between regions.
+To connect spoke virtual networks in the same network group, use Virtual Network Manager to implement virtual network peering or [direct connectivity](/azure/virtual-network-manager/concept-connectivity-configuration#enable-direct-connectivity). Use the [global mesh](/azure/virtual-network-manager/concept-connectivity-configuration#global-mesh) option to extend mesh direct connectivity to spoke networks in different regions. The following diagram shows global mesh connectivity between regions.
 
 :::image type="complex" border="false" source="./_images/hub-and-spoke.png" alt-text="Diagram showing spoke global mesh direct connectivity over regions." lightbox="./_images/hub-and-spoke.png":::
-   Diagram that shows two large dashed rectangles side by side, labeled Azure Region 1 on the left and Azure Region 2 on the right. Each region contains a central box labeled Hub Virtual Network, surrounded by several smaller dotted boxes that represent spoke networks. Short dashed blue lines radiate from each hub to its surrounding spokes, forming a star-like hub-and-spoke pattern in both regions. A single dashed blue line connects the hub in Azure Region 1 to the hub in Azure Region 2 across the gap between the two region rectangles. The two sides mirror each other visually: each hub sits near the center of its region, each has multiple spokes around it, and each spoke is linked inward to its local hub. The diagram emphasizes two separate regional hub-and-spoke layouts with one direct inter-region connection between the two hubs.
+   Diagram that shows two large dashed rectangles side by side, labeled Azure Region 1 on the left and Azure Region 2 on the right. Each region contains a central box labeled Hub Virtual Network, surrounded by several smaller dotted boxes that represent spoke networks. Short dashed lines come from each hub to its surrounding spokes, forming a star-like hub-spoke pattern in both regions. A single dashed line connects the hub in Azure Region 1 to the hub in Azure Region 2 across the gap between the two region rectangles. The two sides mirror each other visually: each hub sits near the center of its region, each has multiple spokes around it, and each spoke is linked inward to its local hub. The diagram emphasizes two separate regional hub-spoke layouts with one direct interregion connection between the two hubs.
 :::image-end:::
 
-You can associate virtual networks within a network group to a baseline set of security admin rules. Network group security admin rules prevent spoke virtual network owners from overwriting baseline security rules, while letting them independently add their own sets of security rules and NSGs. For an example of using security admin rules in hub- spoke topologies, see [Tutorial: Create a secured hub-and-spoke network](/azure/virtual-network-manager/tutorial-create-secured-hub-and-spoke).
+You can associate virtual networks within a network group to a baseline set of security admin rules. Network group security admin rules prevent baseline security rules from being overwritten by spoke virtual network owners. Network group security admin rules help spoke virtual network owners to add their own security rules and NSGs. For an example of how to use security admin rules in hub-spoke topologies, see [Tutorial: Create a secured hub-and-spoke network](/azure/virtual-network-manager/tutorial-create-secured-hub-and-spoke).
 
-To facilitate a controlled rollout of network groups, connectivity, and security rules, Virtual Network Manager configuration deployments help you safely release potentially breaking configuration changes to hub-spoke environments.
+To facilitate a controlled rollout of network groups, connectivity, and security rules, Virtual Network Manager configuration deployments help you safely release critical configuration changes to hub-spoke environments.
 
-To simplify and streamline the process of creating and maintaining route configurations, you can use [automated management of UDRs in Virtual Network Manager](/azure/virtual-network-manager/concept-user-defined-route).
+To simplify the process of creating and maintaining route configurations, you can use [automated management of UDRs in Virtual Network Manager](/azure/virtual-network-manager/concept-user-defined-route).
 
-To simplify and centralize the management of IP addresses, you can use [IP address management (IPAM) in Virtual Network Manager](/azure/virtual-network-manager/concept-ip-address-management). IPAM prevents IP address space conflicts across on-premises and cloud virtual networks.
+To centralize the management of IP addresses, you can use [IP address management (IPAM) in Virtual Network Manager](/azure/virtual-network-manager/concept-ip-address-management). IPAM prevents IP address space conflicts across on-premises and cloud virtual networks.
 
 ### Performance Efficiency
 
 Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-For workloads that communicate from on-premises to VMs in an Azure virtual network that require low latency and high bandwidth, consider using [ExpressRoute FastPath](/azure/expressroute/about-fastpath). FastPath allows you to send traffic directly to VMs in your virtual network from on-premises, bypassing the ExpressRoute virtual network gateway, increasing performance.
+For workloads that communicate from on-premises to VMs in an Azure virtual network that requires low latency and high bandwidth, consider using [ExpressRoute FastPath](/azure/expressroute/about-fastpath). FastPath allows you to send traffic directly to VMs in your virtual network from on-premises and to bypass the ExpressRoute virtual network gateway, which improves performance.
 
-For spoke-to-spoke communications that require low-latency, consider configuring spoke-to-spoke networking.
+For spoke-to-spoke communications that require low-latency, you can configure spoke-to-spoke networking.
 
-Choose the appropriate [gateway SKU](/azure/vpn-gateway/about-gateway-skus) that meet your requirements, such as number of point-to-site or site-to-site connections, required packets-per-second, bandwidth requirements, and TCP flows.
+Choose a [gateway SKU](/azure/vpn-gateway/about-gateway-skus) that meets your requirements, such as the number of point-to-site or site-to-site connections, required packets-per-second, bandwidth requirements, or TCP flows.
 
-For latency-sensitive flows, such as SAP or access to storage, consider bypassing Azure Firewall or even routing through the hub at all. You can [test latency introduced by Azure Firewall](/azure/firewall/firewall-best-practices#testing-and-monitoring) to help inform your decision. You can use features such as VNet peering, which connects two or more networks or [Private Link](/azure/private-link/private-link-overview) that enables you to connect to a service over a private endpoint in your virtual network.
+For latency-sensitive flows, such as SAP or access to storage, you can bypass Azure Firewall or hub routing. To help you decide the best approach, you can [test the latency introduced by Azure Firewall](/azure/firewall/firewall-best-practices#testing-and-monitoring). You can use features such as VNet peering, which connects two or more networks, or you can use [Private Link](/azure/private-link/private-link-overview) to connect to a service over a private endpoint in your virtual network.
 
-Understand that enabling certain features in Azure Firewall, such as IDPS, reduces your throughput. For more information, see [Azure Firewall performance](/azure/firewall/firewall-performance#performance-data).
+You can reduce your throughput by using Azure Firewall features such as IDPS. For more information, see [Azure Firewall performance](/azure/firewall/firewall-performance#performance-data).
 
 ## Deploy this scenario
 
-This deployment includes one hub virtual network and two connected spokes, and deploys an Azure Firewall instance and Azure Bastion host. The deployment can include VMs in the first spoke network and a VPN gateway. You can choose between virtual network peering or Virtual Network Manager connected groups to create the network connections. Each method has several deployment options.
+This deployment includes one hub virtual network and two connected spokes, and deploys an Azure Firewall instance and Azure Bastion host. The deployment can include VMs in the first spoke network and a VPN gateway. To create network connections, you can choose between virtual network peering or Virtual Network Manager connected groups. Each method has several deployment options.
 
 - [Hub-and-spoke with virtual network peering deployment](/samples/mspnp/samples/hub-and-spoke-deployment)
 - [Hub-and-spoke with Virtual Network Manager connected groups deployment](/samples/mspnp/samples/hub-and-spoke-deployment-with-connected-groups/)
