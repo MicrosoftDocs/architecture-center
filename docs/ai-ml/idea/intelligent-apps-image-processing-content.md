@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-By using Azure services, such as the Computer Vision API and Azure Functions, companies can eliminate the need to manage individual servers, while reducing costs and utilizing the expertise that Microsoft has already developed with processing images with Azure AI services. This solution idea specifically addresses an image-processing use case. If you have different AI needs, consider the full suite of [Azure AI services](/azure/ai-services/what-are-ai-services).
+By using Azure services, such as the Computer Vision API and Azure Functions, companies can eliminate the need to manage individual servers, while reducing costs and utilizing the expertise that Microsoft has already developed with processing images with Foundry Tools. This solution idea specifically addresses an image-processing use case. If you have different AI needs, consider the full suite of [Foundry Tools](/azure/ai-services/what-are-ai-services).
 
 ## Architecture
 
@@ -14,13 +14,13 @@ This scenario covers the back-end components of a web or mobile application. Dat
 
 1. Adding new files (image uploads) in Blob storage triggers an event in Azure Event Grid. The uploading process can be orchestrated via the web or a mobile application. Alternatively, images can be uploaded separately to the Azure Blob storage.
 2. Event Grid sends a notification that triggers the Azure functions.
-3. Azure Functions calls the Azure AI Vision API to analyze the newly uploaded image. Azure AI Vision accesses the image via the blob URL that's parsed by Azure Functions.
+3. Azure Functions calls the Azure Vision in Foundry Tools API to analyze the newly uploaded image. Vision accesses the image via the blob URL that's parsed by Azure Functions.
 4. Azure Functions persists the AI Vision API response in Azure Cosmos DB. This response includes the results of the analysis, along with the image metadata.
 5. The results can be consumed and reflected on the web or mobile front end. This approach retrieves the results of the classification but not the uploaded image.
 
 ### Components
 
-- [Azure AI Vision](/azure/ai-services/computer-vision/overview) is part of the Azure AI services suite. In this architecture, it retrieves information about each image. It analyzes newly uploaded images and provides metadata and classification results. These results enable automated image understanding.
+- [Vision](/azure/ai-services/computer-vision/overview) is part of the Foundry Tools suite. In this architecture, it retrieves information about each image. It analyzes newly uploaded images and provides metadata and classification results. These results enable automated image understanding.
 
 - [Azure Functions](/azure/well-architected/service-guides/azure-functions) is a serverless solution that you can use to build robust apps with less code and less infrastructure. In this architecture, Azure Functions provides the back-end API for the web application. This platform also provides event processing for uploaded images. Azure Functions orchestrates workflow steps, including calling the AI Vision API, processing analysis results, and persisting metadata in the database.
 
@@ -36,7 +36,7 @@ This scenario covers the back-end components of a web or mobile application. Dat
 - [Custom Vision Service](/azure/ai-services/custom-vision-service/overview). The Computer Vision API returns a set of [taxonomy-based categories][cv-categories]. If you need to process information that isn't returned by the Computer Vision API, consider the Custom Vision Service, which lets you build custom image classifiers. To learn about this service, follow the quick start [Build an image classification model with the Custom Vision](/azure/ai-services/custom-vision-service/getting-started-build-a-classifier).
 - [Azure AI Search](/azure/search/search-what-is-azure-search). If your use case involves querying the metadata to find images that meet specific criteria, consider using Azure AI Search.
 - [Logic Apps](https://azure.microsoft.com/services/logic-apps). If you don't need to react in real-time on added files to a blob, you might consider using Logic Apps. A logic app which can check if a file was added might be start by the [recurrence trigger or sliding windows trigger](/azure/logic-apps/concepts-schedule-automated-recurring-tasks-workflows).
-- If you have images embedded in documents, use [Azure AI Document Intelligence](/azure/ai-services/document-intelligence/concept-layout#figures) to locate those images. With that information, you can extract and perform further computer vision tasks on the embedded images. Use Document Intelligence to gather data about those embedded images, such page number or caption text which can be stored along with the images' other metadata received through the Computer Vision API. If your images are mainly photos or scans of documents, use the [Document Intelligence custom classification models](/azure/ai-services/document-intelligence/train/custom-classifier?view=doc-intel-4.0.0) to classify an input file one page at a time to identify the documents within. This approach can also identify multiple documents or multiple instances of a single document within an input file.
+- If you have images embedded in documents, use [Azure Document Intelligence in Foundry Tools](/azure/ai-services/document-intelligence/concept-layout#figures) to locate those images. With that information, you can extract and perform further computer vision tasks on the embedded images. Use Document Intelligence to gather data about those embedded images, such as page number or caption text, which can be stored along with the images' other metadata received through the Computer Vision API. If your images are mainly photos or scans of documents, use the [Document Intelligence custom classification models](/azure/ai-services/document-intelligence/train/custom-classifier?view=doc-intel-4.0.0) to classify an input file one page at a time to identify the documents within. This approach can also identify multiple documents or multiple instances of a single document within an input file.
 
 ## Scenario details
 
@@ -58,7 +58,7 @@ This solution is ideal for the retail, game, finance, and insurance industries. 
 
 Product documentation
 
-- [What is Azure AI Vision?](/azure/ai-services/computer-vision/overview)
+- [What is Vision?](/azure/ai-services/computer-vision/overview)
 - [AI enrichment in Azure AI Search](/azure/search/cognitive-search-concept-intro)
 - [Introduction to Azure Functions](/azure/azure-functions/functions-overview)
 - [What is Azure Event Grid?](/azure/event-grid/overview)

@@ -6,7 +6,7 @@ Applications that run in the cloud frequently modify data. This data is sometime
 
 The [Data Consistency Primer](/previous-versions/msp-n-p/dn589800(v=pandp.10)) provides information about why distributed transactions don't scale well. This resource also lists principles of the eventual consistency model.
 
-A challenge in the eventual consistency model is how to handle a step that fails. After a failure, you might need to undo all the work that previous steps in the operation completed. However, you can't always roll back the data, because other concurrent instances of the application might have changed it. Even in cases where concurrent instances haven't changed the data, undoing a step might be more complex than restoring the original state. It might be necessary to apply various business-specific rules. For an example, see the travel website that the [Example](#example) section describes later in this article.
+A challenge in the eventual consistency model is how to handle a step that fails. After a failure, you might need to undo the work that previous steps in the operation completed. However, you can't always roll back the data, because other concurrent instances of the application might have changed it. Even in cases where concurrent instances haven't changed the data, undoing a step might be more complex than restoring the original state. It might be necessary to apply various business-specific rules. For an example, see the travel website that the [Example](#example) section describes later in this article.
 
 If an operation that implements eventual consistency spans several heterogeneous data stores, undoing the steps in the operation requires visiting each data store in turn. To prevent the system from remaining inconsistent, you must reliably undo the work that you performed in every data store.
 
@@ -17,6 +17,8 @@ The data that's affected by an operation that implements eventual consistency is
 The solution is to implement a compensating transaction. The steps in a compensating transaction undo the effects of the steps in the original operation. An intuitive approach is to replace the current state with the state the system was in at the start of the operation. But a compensating transaction can't always take that approach, because it might overwrite changes that other concurrent instances of an application have made. Instead, a compensating transaction must be an intelligent process that takes into account any work that concurrent instances do. This process is usually application-specific, driven by the nature of the work that the original operation performs.
 
 A common approach is to use a workflow to implement an eventually consistent operation that requires compensation. As the original operation proceeds, the system records information about each step, including how to undo the work that the step performs. If the operation fails at any point, the workflow rewinds back through the steps it has completed. At each step, the workflow performs the work that reverses that step.
+
+In [event-sourced systems](./event-sourcing.md), this history exists inherently because state changes are stored as a sequence of immutable events. Compensation requires you to append a new event that reverses the effect of a prior one rather than modifying or deleting existing data.
 
 Two important points are:
 
@@ -33,7 +35,7 @@ In some cases, manual intervention might be the only way to recover from a step 
 
 Consider the following points when you decide how to implement this pattern:
 
-- It might not be easy to determine when a step in an operation that implements eventual consistency fails. A step might not fail immediately. Instead, it might get blocked. You might need to implement a time-out mechanism.
+- It might not be easy to determine when a step in an operation that implements eventual consistency fails. A step might not fail immediately. Instead, it might get blocked. You might need to implement a timeout mechanism.
 
 - It's not easy to generalize compensation logic. A compensating transaction is application-specific. It relies on the application having sufficient information to be able to undo the effects of each step in a failed operation.
 
@@ -48,9 +50,9 @@ Consider the following points when you decide how to implement this pattern:
 
 - The order of the steps in the compensating transaction isn't necessarily the exact opposite of the steps in the original operation. For example, one data store might be more sensitive to inconsistencies than another. The steps in the compensating transaction that undo the changes to this store should occur first.
 
-- Certain measures can help increase the likelihood that the overall activity succeeds. Specifically, you can place a short-term, time-out–based lock on each resource that's required to complete an operation. You can also obtain these resources in advance. Then, perform the work only after you've acquired all the resources. Finalize all actions before the locks expire.
+- Certain measures can help increase the likelihood that the overall activity succeeds. Specifically, you can place a short-term, timeout-based lock on each resource that's required to complete an operation. You can also obtain these resources in advance. Then, perform the work only after you've acquired all the resources. Finalize all actions before the locks expire.
 
-- Retry logic that's more forgiving than usual can help minimize failures that trigger a compensating transaction. If a step in an operation that implements eventual consistency fails, try handling the failure as a transient exception and repeating the step. Stop the operation and initiate a compensating transaction only if a step fails repeatedly or can't be recovered.
+- Retry logic that treats more errors as transient can help minimize failures that trigger a compensating transaction. If a step in an operation that implements eventual consistency fails, try handling the failure as a transient exception and repeating the step. Stop the operation and initiate a compensating transaction only if a step fails repeatedly or can't be recovered. For guidance about how to design retry strategies, see [Transient fault handling](../best-practices/transient-faults.md).
 
 - When you implement a compensating transaction, you face many of the same challenges that you face when you implement eventual consistency. For more information, see the "Considerations for Implementing Eventual Consistency" section in [Data Consistency Primer](/previous-versions/msp-n-p/dn589800(v=pandp.10)).
 

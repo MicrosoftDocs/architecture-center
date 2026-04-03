@@ -104,7 +104,7 @@ To deploy a Microsoft Sentinel playbook, proceed as follows:
   - Choose how to authenticate within the playbook's components. Authentication is required for:
     - Microsoft Entra ID
     - Microsoft Sentinel
-    - Office 365 Outlook
+    - Microsoft 365 Outlook
     > [!NOTE]
     > You can authenticate the resources during playbook customization under the logic app resource if you wish to enable later. To authenticate the above resources at this point, you need permissions to update a user on Microsoft Entra ID, and the user must have access to an email mailbox and must be able to send emails.
   - Select **Next: Review and create >** to get to the **Review and create** tab of **Create playbook**.
@@ -127,7 +127,6 @@ Other contributors:
 
 ## Related content
 
-- [Overview of Azure Cloud Services?](/azure/cloud-services/cloud-services-choose-me)
 - [What is Microsoft Sentinel?](/azure/sentinel/overview)
 - [Security orchestration, automation, and response (SOAR) in Microsoft Sentinel.](/azure/sentinel/automation)
 - [Automate threat response with playbooks in Microsoft Sentinel](/azure/sentinel/automate-responses-with-playbooks)

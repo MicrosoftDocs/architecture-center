@@ -21,7 +21,7 @@ Mission-critical systems strive to minimize single points of failure by building
 The [architecture for a mission-critical application](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro) uses Azure Front Door because of its high uptime service-level agreement (SLA) and a rich feature set:
 
 - Route traffic to multiple regions, in either an active-active or active-passive model
-- Transparent failover using TCP anycast
+- Automatic rerouting to the next optimal point of presence (PoP) when a PoP is unhealthy
 - Serve static content from edge nodes by using integrated content delivery networks (CDNs)
 - Block unauthorized access with integrated web application firewall
 
@@ -176,7 +176,7 @@ Include these questions in your health model design:
 
 Global load balancing solutions let you switch to a secondary platform if an outage occurs. Traffic Manager works well for most scenarios.
 
-When you use Traffic Manager with Azure Front Door, use your own external or custom monitoring solution to detect when Azure Front Door becomes unavailable and initiate your response processes. Azure Front Door is a globally distributed system that uses anycast networking, so you must run connectivity checks from within the same geographic regions as your clients.
+When you use Traffic Manager with Azure Front Door, use your own external or custom monitoring solution to detect when Azure Front Door becomes unavailable and initiate your response processes. Azure Front Door is a globally distributed system, so you must run connectivity checks from within the same geographic regions as your clients.
 
 > [!IMPORTANT]
 > For global workloads that require health validation from multiple geographies, turn off Traffic Manager endpoint monitoring and use manual failover procedures instead.

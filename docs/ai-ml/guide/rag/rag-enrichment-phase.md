@@ -7,6 +7,7 @@ ms.date: 10/10/2025
 ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
+ms.custom: arb-aiml
 ---
 
 # RAG chunk enrichment phase

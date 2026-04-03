@@ -134,7 +134,7 @@ Similar to the account-per-tenant model, this approach provides the highest leve
 
 ### Partitioning
 
-Use partitions with your Azure Cosmos DB containers to create containers that multiple tenants share. Typically you use the tenant identifier as a partition key, but you might also consider using multiple partition keys for a single tenant. A well-planned partitioning strategy effectively implements the [Sharding pattern](../../../patterns/sharding.yml). When you have large containers, Azure Cosmos DB spreads your tenants across multiple physical nodes to achieve a high degree of scale.
+Use partitions with your Azure Cosmos DB containers to create containers that multiple tenants share. Typically you use the tenant identifier as a partition key, but you might also consider using multiple partition keys for a single tenant. A well-planned partitioning strategy effectively implements the [Sharding pattern](../../../patterns/sharding.md). When you have large containers, Azure Cosmos DB spreads your tenants across multiple physical nodes to achieve a high degree of scale.
 
 Consider [hierarchical partition keys](/azure/cosmos-db/hierarchical-partition-keys) to help improve the performance of your multitenant solution. Use hierarchical partition keys to create a partition key that includes multiple values. For example, you might use a hierarchical partition key that includes the tenant identifier, like a high-cardinality GUID, to allow for almost unbounded scale. Or you can specify a hierarchical partition key that includes a property that queries frequently use. This approach helps you avoid cross-partition queries. Use hierarchical partition keys to scale beyond the logical partition limit of 20 GB per partition key value and limit expensive fan-out queries.
 
@@ -208,4 +208,4 @@ Learn more about multitenancy and Azure Cosmos DB:
 Refer to some of our other Azure Cosmos DB architectural scenarios:
 
 - [Storage and data approaches for multitenancy](../approaches/storage-data.md)
-- [Transactional Outbox pattern with Azure Cosmos DB](../../../databases/guide/transactional-outbox-cosmos.yml)
+- [Transactional Outbox pattern with Azure Cosmos DB](../../../databases/guide/transactional-out-box-cosmos.md)

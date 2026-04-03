@@ -145,7 +145,7 @@
 		</g>
 		<g id="group16-31" transform="translate(263.641,-553.511)" v:mID="16" v:groupContext="group">
 			<title>Virtual machine (opaque).1109</title>
-			<desc>Jumpbox</desc>
+			<desc>Jump box</desc>
 			<g id="shape17-32" v:mID="17" v:groupContext="shape">
 				<title>Sheet.17</title>
 				<path d="M20.27 671.55 L0.94 671.55 C0.42 671.55 0 671.97 0 672.48 L0 687.58 C-0 688.09 0.42 688.51 0.94 688.51 L20.27
@@ -201,7 +201,7 @@
 			<g id="shape16-39" v:mID="16" v:groupContext="groupContent">
 				<v:textBlock v:margins="rect(0,0,0,0)" v:verticalAlign="0"/>
 				<v:textRect cx="11.5145" cy="700.625" width="35.68" height="20.4693"/>
-				<text x="-4.5" y="697.59" class="st11" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Jumpbox</text>			</g>
+				<text x="-4.5" y="697.59" class="st11" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Jump box</text>			</g>
 		</g>
 		<g id="group21-41" transform="translate(364.885,-549.687)" v:mID="21" v:groupContext="group">
 			<title>Sheet.21</title>

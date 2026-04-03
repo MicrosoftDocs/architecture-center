@@ -2,9 +2,9 @@
 metadata:
   title: Create a Modern Analytics Architecture by Using Azure Databricks
   description: Learn how to create a modern analytics architecture by using Azure Databricks and Data Lake Storage. Unify data, analytics, and AI workloads at any scale.
-  author: josearper
-  ms.author: agarrido
-  ms.date: 01/30/2025
+  author: lferdinand
+  ms.author: lferdinand
+  ms.date: 03/31/2026
   ms.topic: solution-idea
   ms.custom:
     - arb-data

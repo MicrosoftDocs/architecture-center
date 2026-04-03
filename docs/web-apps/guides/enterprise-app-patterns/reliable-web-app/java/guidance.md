@@ -4,7 +4,7 @@ description: Implement the Reliable Web App pattern for Java. Get essential guid
 author: nishanil
 ms.author: nanil
 ms.reviewer: ssumner
-ms.date: 10/15/2024
+ms.date: 03/23/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
@@ -31,7 +31,7 @@ The Reliable Web App pattern is a set of principles and implementation technique
 
 ## Business context
 
-The first step in replatforming a web app is to define your business objectives. Set immediate goals such as service-level objectives (SLOs) and cost optimization targets, along with future goals for your web application. These objectives influence your choice of cloud services and the architecture of your application in the cloud. Define a target SLO for your web app, such as 99.9% uptime. Calculate the [composite service-level agreement (SLA)](/azure/cloud-adoption-framework/manage/protect#manage-cloud-resources-reliability) for all the services that affect the availability of your web app.
+The first step in replatforming a web app is to define your business objectives. Set immediate goals such as service-level objectives (SLOs) and cost optimization targets, along with future goals for your web application. These objectives influence your choice of cloud services and the architecture of your application in the cloud. Define a target SLO for your web app, such as 99.9% uptime. Calculate the [composite service-level agreement (SLA)](/azure/cloud-adoption-framework/manage/protect#manage-cloud-resources-reliability) for all the services that affect the availability of your web app. To understand what each service's SLA commits to, [learn how to read a service-level agreement](/azure/reliability/concept-service-level-agreements).
 
 Contoso Fiber wants to expand its on-premises CAMS web app to reach other regions. To meet the increased demand on the web app, the company establishes the following goals:
 
@@ -123,7 +123,7 @@ The following list provides guidance to select the right Azure services for your
 
   - *Routing flexibility:* It allows the application team to configure ingress needs to support future changes in the application.
 
-  - *Traffic acceleration:* It uses anycast routing to reach the nearest Azure point of presence and find the fastest route to the web app.
+  - *Traffic acceleration:* It routes traffic to an optimal point of presence to find the fastest route to the web app.
 
   - *Custom domains:* It supports custom domain names with flexible domain validation.
 
@@ -213,7 +213,7 @@ Use [Spring Cloud Circuit Breaker](https://docs.spring.io/spring-cloud-circuitbr
 
 - *Use an identity platform.* Use the [Microsoft identity platform for developers](/entra/identity-platform/v2-overview) to [set up web app authentication](/entra/identity-platform/index-web-app). This platform supports applications that use a single Microsoft Entra directory, multiple Microsoft Entra directories from different organizations, and Microsoft identities or social accounts.
 
-  The [Spring Boot Starter for Microsoft Entra ID](/azure/developer/java/spring-framework/spring-boot-starter-for-entra-developer-guide uses [Spring Security](/azure/developer/java/spring-framework/spring-security-support) and Spring Boot to ensure easy configuration and integration. It provides various authentication flows, automatic token management, customizable authorization policies, and integration capabilities with Spring Cloud components. This tool enables straightforward Microsoft Entra ID and OAuth 2.0 integration into Spring Boot applications without manual library or settings configuration.
+  The [Spring Boot Starter for Microsoft Entra ID](/azure/developer/java/spring-framework/spring-boot-starter-for-entra-developer-guide) uses [Spring Security](/azure/developer/java/spring-framework/spring-security-support) and Spring Boot to ensure easy configuration and integration. It provides various authentication flows, automatic token management, customizable authorization policies, and integration capabilities with Spring Cloud components. This tool enables straightforward Microsoft Entra ID and OAuth 2.0 integration into Spring Boot applications without manual library or settings configuration.
 
   The reference implementation uses the Microsoft identity platform (Microsoft Entra ID) as the identity provider for the web app. It uses the [OAuth 2.0 authorization code grant](/entra/identity-platform/v2-oauth2-auth-code-flow) to sign in a user who has a Microsoft Entra account. The following XML snippet defines the two required dependencies of the OAuth 2.0 authorization code grant flow. The dependency `com.azure.spring: spring-cloud-azure-starter-active-directory` enables Microsoft Entra authentication and authorization in a Spring Boot application. The dependency `org.springframework.boot: spring-boot-starter-oauth2-client` enables OAuth 2.0 authentication and authorization in a Spring Boot application.
 
@@ -341,31 +341,29 @@ azd env set APP_ENVIRONMENT prod
   - [Enable Azure Monitor OpenTelemetry for Java applications](/azure/azure-monitor/app/opentelemetry-enable)
   - [Use Azure Monitor Application Insights with Spring Boot](/azure/azure-monitor/app/java-spring-boot)
 
-- *Create custom application metrics.* Implement code-based instrumentation to capture [custom application telemetry](/azure/azure-monitor/app/metrics-overview) by adding the Application Insights SDK and using its API.
+- *Create custom application metrics.* Implement code-based instrumentation to capture [custom application telemetry](/azure/azure-monitor/app/metrics-overview) by adding the [Azure Monitor OpenTelemetry Distro](/azure/azure-monitor/app/java-get-started-supplemental).
 
 - *Monitor the platform.* Enable diagnostics for all supported services. Send diagnostics to the same destination as the application logs for correlation. Azure services create platform logs automatically but only store them when you enable diagnostics. Enable diagnostic settings for each service that supports diagnostics.
 
   The reference implementation uses Terraform to enable Azure diagnostics on supported services. The following Terraform code configures the diagnostic settings for the app service:
 
-    ```terraform
-    # Configure diagnostic settings for app service
-    resource "azurerm_monitor_diagnostic_setting" "app_service_diagnostic" {
-      name                           = "app-service-diagnostic-settings"
-      target_resource_id             = azurerm_linux_web_app.application.id
-      log_analytics_workspace_id     = var.log_analytics_workspace_id
-      #log_analytics_destination_type = "AzureDiagnostics"
+  ```terraform
+  # Configure diagnostic settings for app service
+  resource "azurerm_monitor_diagnostic_setting" "app_service_diagnostic" {
+    name                       = "app-service-diagnostic-settings"
+    target_resource_id         = azurerm_linux_web_app.application.id
+    log_analytics_workspace_id = var.log_analytics_workspace_id
 
-      enabled_log {
-        category_group = "allLogs"
-
-      }
-
-      metric {
-        category = "AllMetrics"
-        enabled  = true
-      }
+    enabled_log {
+      category_group = "allLogs"
     }
-    ```
+
+    metric {
+      category = "AllMetrics"
+      enabled  = true
+    }
+  }
+  ```
 
 ## Deploy the reference implementation
 

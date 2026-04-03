@@ -88,7 +88,7 @@ The read data store can use its own data schema that's optimized for queries. Fo
 
 Consider the following points as you decide how to implement this pattern:
 
-- **Increased complexity.** The core concept of CQRS is straightforward, but it can introduce significant complexity into the application design, specifically when combined with the [Event Sourcing pattern](./event-sourcing.yml).
+- **Increased complexity.** The core concept of CQRS is straightforward, but it can introduce significant complexity into the application design, specifically when combined with the [Event Sourcing pattern](./event-sourcing.md).
 
 - **Messaging challenges.** Messaging isn't a requirement for CQRS, but you often use it to process commands and publish update events. When messaging is included, the system must account for potential problems such as message failures, duplicates, and retries. For more information about strategies to handle commands that have varying priorities, see [Priority queues](priority-queue.yml).
 
@@ -132,7 +132,7 @@ Consider any trade-offs against the goals of the other pillars that this pattern
 
 ## Combine the Event Sourcing and CQRS patterns
 
-Some implementations of CQRS incorporate the [Event Sourcing pattern](./event-sourcing.yml). This pattern stores the system's state as a chronological series of events. Each event captures the changes made to the data at a specific time. To determine the current state, the system replays these events in order. In this setup:
+Some implementations of CQRS incorporate the [Event Sourcing pattern](./event-sourcing.md). This pattern stores the system's state as a chronological series of events. Each event captures the changes made to the data at a specific time. To determine the current state, the system replays these events in order. In this setup:
 
 - The event store is the *write model* and the single source of truth.
 
@@ -148,7 +148,7 @@ Because the event store acts as the single source of truth, you can easily regen
 
 ### Considerations for how to combine the Event Sourcing and CQRS patterns
 
-Before you combine the CQRS pattern with the [Event Sourcing pattern](./event-sourcing.yml), evaluate the following considerations:
+Before you combine the CQRS pattern with the [Event Sourcing pattern](./event-sourcing.md), evaluate the following considerations:
 
 - **Eventual consistency:** Because the write and read data stores are separate, updates to the read data store might lag behind event generation. This delay results in eventual consistency.
 
@@ -271,6 +271,6 @@ The following information might be relevant when you implement this pattern:
 
 ## Related resources
 
-- [Event Sourcing pattern](./event-sourcing.yml). This pattern describes how to simplify tasks in complex domains and improve performance, scalability, and responsiveness. It also explains how to provide consistency for transactional data while maintaining full audit trails and history that can enable compensating actions.
+- [Event Sourcing pattern](./event-sourcing.md). This pattern describes how to simplify tasks in complex domains and improve performance, scalability, and responsiveness. It also explains how to provide consistency for transactional data while maintaining full audit trails and history that can enable compensating actions.
 
 - [Materialized View pattern](./materialized-view.yml). This pattern creates prepopulated views, known as *materialized views*, for efficient querying and data extraction from one or more data stores. The read model of a CQRS implementation can contain materialized views of the write model data, or the read model can be used to generate materialized views.

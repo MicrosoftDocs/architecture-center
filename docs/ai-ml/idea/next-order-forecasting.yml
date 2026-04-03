@@ -8,6 +8,7 @@ metadata:
   ms.topic: solution-idea
   ms.subservice: solution-idea
   ai-usage: ai-assisted
+  ms.custom: arb-aiml
 azureCategories:
   - ai-machine-learning
   - analytics

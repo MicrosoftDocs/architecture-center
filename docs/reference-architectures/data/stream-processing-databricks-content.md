@@ -1,4 +1,4 @@
-<!-- cSpell:ignore eventhubs shapefile malformedrides malformedfares Dropwizard dropoff timechart DBUs DBCU -->
+<!-- cSpell:ignore eventhubs shapefile malformedrides malformedfares Dropwizard dropoff timechart DBUs -->
 
 This reference architecture shows an end-to-end stream processing pipeline. The four stages of this pipeline include ingest, process, store, and analyze and report. For this reference architecture, the pipeline ingests data from two sources, performs a join on related records from each stream, enriches the result, and calculates an average in real time. The results are then stored for further analysis.
 

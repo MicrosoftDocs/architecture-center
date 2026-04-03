@@ -74,7 +74,7 @@ The following diagram shows a layer, labeled as **DEFENDER**, that represents th
 
 Microsoft Intune is a cloud-based service that helps organizations manage and secure their devices, apps, and data. It allows IT administrators to control how company devices such as laptops, smartphones, and tablets are used, ensuring compliance with security policies. With Intune, you can enforce device configurations, deploy software, manage mobile applications, and protect corporate data by using features like Conditional Access and remote wipe. It is particularly useful for enabling secure remote work, managing both corporate-owned and personal (BYOD) devices, and ensuring data security across diverse platforms like Windows, iOS, Android, and macOS.
 
-Another service that was part of Endpoint Manager is the Configuration Manager, an on-premises management solution that allows you to manage client and server computers that are on your network, connected directly or via the internet. You can enable cloud functionality to integrate Configuration Manager with Intune, Microsoft Entra ID, Defender for Endpoint, and other cloud services. Use it to deploy apps, software updates, and operating systems. You can also monitor compliance, query for objects, act on clients in real time, and much more. To learn about all the services that are available, see [Microsoft Endpoint Manager overview](/mem/endpoint-manager-overview).
+Another service that was part of Endpoint Manager is the Configuration Manager, an on-premises management solution that allows you to manage client and server computers that are on your network, connected directly or via the internet. You can enable cloud functionality to integrate Configuration Manager with Intune, Microsoft Entra ID, Defender for Endpoint, and other cloud services. Use it to deploy apps, software updates, and operating systems. You can also monitor compliance, query for objects, act on clients in real time, and much more. To learn about all the services that are available, see [Endpoint management at Microsoft](/mem/endpoint-manager-overview).
 
 ### Attack order of example threats
 
@@ -102,7 +102,7 @@ The following diagram shows which portals are currently available and their rela
 
 *Security.microsoft.com* is currently the most important portal available because it brings functionalities from Microsoft Defender for Office 365 (1), from Defender for Endpoint (2), from Defender for Office (3), Defender for Identity (5), Defender for Apps (4) and also for Microsoft Sentinel. 
 
-It is important to mention that Microsoft Sentinel has some features that still run only on the Azure Portal (portal.azure.com). 
+It is important to mention that Microsoft Sentinel has some features that still run only on the Azure portal (portal.azure.com). 
 
 Lastly, `endpoint.microsoft.com` provides functionality mainly for Intune and Configuration Manager, but also for other services that are part of Endpoint Manager. Because `security.microsoft.com` and `endpoint.microsoft.com` deliver security protection for endpoints, they have many interactions between them (9) to offer a great security posture for your endpoints.
 

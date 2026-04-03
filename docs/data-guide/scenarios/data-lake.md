@@ -107,9 +107,9 @@ Contributors:
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
+
 - [What is OneLake?](/fabric/onelake/onelake-overview)
 - [Introduction to Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction)
-- [Azure Data Lake Analytics documentation](/azure/data-lake-analytics)
 - [Training: Introduction to Data Lake Storage](/training/modules/intro-to-azure-data-lake-storage)
 - [Integration of Hadoop and Azure Data Lake Storage](/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2)
 - [Connect to Data Lake Storage and Blob Storage](/azure/databricks/connect/storage/azure-storage)

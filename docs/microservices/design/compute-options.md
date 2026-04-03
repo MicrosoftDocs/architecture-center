@@ -37,7 +37,7 @@ If your microservice requires GPU capacity, for example, to run machine learning
 
 ## Use service orchestrators
 
-An orchestrator handles tasks that relate to deploying and managing a set of services. These tasks include placing services on nodes, monitoring the health of services, restarting unhealthy services, load balancing network traffic across service instances, service discovery, scaling the number of instances of a service, and applying configuration updates. Popular orchestrators include Kubernetes, Azure Service Fabric, DC/OS, and Docker Swarm.
+An orchestrator handles tasks that relate to deploying and managing a set of services. These tasks include placing services on nodes, monitoring the health of services, restarting unhealthy services, load balancing network traffic across service instances, service discovery, scaling the number of instances of a service, and applying configuration updates. Popular orchestrators include Kubernetes and HashiCorp Nomad.
 
 On the Azure platform, consider the following options:
 
@@ -45,11 +45,9 @@ On the Azure platform, consider the following options:
 
 - [Container Apps](/azure/container-apps) is a managed service built on Kubernetes that abstracts the complexities of container orchestration and other management tasks. Container Apps simplifies the deployment and management of containerized applications and microservices in a serverless environment while providing the features of Kubernetes. Container Apps is ideal for scenarios where direct access to Kubernetes APIs isn't required.
 
-- [Service Fabric](/azure/service-fabric/) is a distributed systems platform for packaging, deploying, and managing microservices. You can deploy microservices to Service Fabric as containers, as binary executables, or as [Reliable Services](/azure/service-fabric/service-fabric-reliable-services-introduction). By using the Reliable Services programming model, services can directly use Service Fabric programming APIs to query the system, report health, receive notifications about configuration and code changes, and discover other services.
-
 - Use [Azure Red Hat OpenShift](/azure/openshift) to deploy fully managed OpenShift clusters. Azure Red Hat OpenShift extends Kubernetes. Azure Red Hat OpenShift is jointly engineered, operated, and supported by Red Hat and Microsoft.
 
-- Other options, such as Docker Enterprise Edition, can run in a cloud-computing environment on Azure. You can find deployment templates on [Azure Marketplace](https://azuremarketplace.microsoft.com).
+- You can find additional Kubernetes-based container solutions from partners on [Microsoft Marketplace](https://marketplace.microsoft.com).
 
 ### Use Kubernetes APIs
 
@@ -91,9 +89,9 @@ When you use an orchestrator, you pay for the virtual machines that run in the c
 
 Azure Functions, Container Apps, and AKS provide autoscaling options. Container Apps and Functions provide serverless platforms where the cost is based on consumption and can be zero. AKS provides only dedicated compute options.
 
-If you choose AKS as the compute platform to deploy microservices, you need to understand cost optimization best practices. For more information, see [Optimize costs in Azure Kubernetes Service](/azure/aks/best-practices-cost). 
+If you choose AKS as the compute platform to deploy microservices, you need to understand cost optimization best practices. For more information, see [Optimize costs in Azure Kubernetes Service](/azure/aks/best-practices-cost).
 
-If you choose Container Apps as your microservices compute platform, you need to understand the various billing models and decide on the deployment model for your microservices based on your workload requirements. For more information, see [Billing in Container Apps](/azure/container-apps/billing). 
+If you choose Container Apps as your microservices compute platform, you need to understand the various billing models and decide on the deployment model for your microservices based on your workload requirements. For more information, see [Billing in Container Apps](/azure/container-apps/billing).
 
 If you choose Azure Functions as your microservices compute platform, you need to understand the various billing models and decide on the Functions plan based on your workload requirements. For more information, see [Estimate consumption-based costs](/azure/azure-functions/functions-consumption-costs) and [Azure Functions plan details](/azure/azure-functions/functions-scale#billing).
 
@@ -107,7 +105,7 @@ Consider the following factors when you choose between an orchestrator approach 
 
 - **Flexibility and control:** An orchestrator gives you control over configuring and managing your services and the cluster. The trade-off is more complexity. With a serverless architecture, you give up some degree of control because these details are abstracted.
 
-- **Portability:** All of the orchestrators listed in this article, including Kubernetes, DC/OS, Docker Swarm, and Service Fabric, can run on-premises or in multiple public clouds.
+- **Portability:** Kubernetes-based workloads are portable across environments because Kubernetes runs on-premises and across multiple public clouds. However, the managed Azure services listed in this article, such as AKS, Container Apps, and Azure Red Hat OpenShift, are Azure-specific. If you design your workloads against standard Kubernetes APIs, you reduce the effort to host between Kubernetes environments.
 
 - **Application integration:** It can be challenging to build a complex application that uses a serverless architecture because you need to coordinate, deploy, and manage many small, independent functions. One option in Azure is to use [Azure Logic Apps](/azure/logic-apps/) to coordinate a set of Azure functions. For an example of this approach, see [Create a function that integrates with Logic Apps](/azure/azure-functions/functions-twitter-email).
 

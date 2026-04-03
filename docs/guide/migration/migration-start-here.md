@@ -73,7 +73,6 @@ The following sections provide links to reference architectures in a few high-le
 
 - [Modernize mainframe and midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure)
 - [General mainframe refactor to Azure](../../example-scenario/mainframe/general-mainframe-refactor.yml)
-- [Rehost a general mainframe on Azure](../../example-scenario/mainframe/mainframe-rehost-architecture-azure.yml)
 
 ### Oracle migrations
 

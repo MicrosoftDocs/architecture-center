@@ -24,6 +24,8 @@ Benefits of this pattern include:
 
 - Provide some consistency for request and response logging and monitoring. Even if a service isn't correctly instrumented, the gateway can be configured to ensure a minimum level of monitoring and logging.
 
+- Centralize carbon-aware traffic management. A gateway can adjust caching, rate limiting, and logging behaviors based on real-time carbon intensity signals.
+
 ## Issues and considerations
 
 - Ensure the gateway is highly available and resilient to failure. Avoid single points of failure by running multiple instances of your gateway.

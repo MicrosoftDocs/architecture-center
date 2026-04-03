@@ -1,6 +1,6 @@
 This article describes how to use Precisely Connect to migrate mainframe and midrange systems to Azure. Precisely Connect provides real-time data replication from legacy systems to Azure by using change data capture (CDC) technology.
 
-This solution provides data consistency between on-premises mainframe environments and Azure cloud services while minimizing the effect on source system performance. The architecture supports various mainframe and midrange data sources and replicates data to Azure targets like Azure SQL Database, Azure Event Hubs, and Microsoft Fabric.
+This solution provides data consistency between on-premises mainframe environments and Azure while minimizing the effect on source system performance. The architecture supports various mainframe and midrange data sources and replicates data to Azure targets like Azure SQL Database, Azure Event Hubs, and Microsoft Fabric.
 
 *Apache®, [Spark](https://spark.apache.org), and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 

@@ -1,0 +1,20 @@
+### YamlMime:Architecture
+metadata:
+  title: Set Up Real-Time Sync of MongoDB Atlas Data Changes to Microsoft Fabric
+  description: Learn how to integrate MongoDB Atlas with Microsoft Fabric by using open mirroring to keep data tables in sync with operational data changes.
+  author: rod2k24
+  ms.author: rodrigr
+  ms.date: 03/10/2026
+  ms.topic: example-scenario
+  ms.subservice: example-scenario
+  ms.custom:
+  - arb-data
+azureCategories:
+  - analytics
+products:
+  - fabric
+name: Set up real-time sync of MongoDB Atlas data changes to Microsoft Fabric
+summary: Learn how to integrate MongoDB Atlas with Microsoft Fabric by using open mirroring to keep data tables in sync with operational data changes.
+thumbnailUrl: /azure/architecture/browse/thumbs/mongodb-atlas-fabric.png
+content: |
+  [!INCLUDE[](sync-mongodb-atlas-fabric-analytics-content.md)]

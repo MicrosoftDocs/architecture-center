@@ -57,6 +57,7 @@ Use this pattern when:
 - You want to simplify client applications by using a single endpoint.
 - You need to route requests from externally addressable endpoints to internal virtual endpoints, such as exposing ports on a VM to cluster virtual IP addresses.
 - A client needs to consume services running in multiple regions for latency or availability benefits.
+- You want to route traffic away from regions with high carbon emissions when lower-emission alternatives exist in the backend pool.
 - A client needs to consume a variable number of service instances.
 - You want to implement a deployment strategy where clients access multiple versions of the service at the same time.
 

@@ -181,7 +181,7 @@ In modern solutions, you should combine network-layer security with other securi
 
 When you use the [Gateway Offloading pattern](../../../patterns/gateway-offloading.yml), you might consider rewriting the `Host` header of HTTP requests. This practice can simplify the configuration of your back-end web application service by offloading the custom domain and TLS management to the gateway.
 
-But `Host` header rewrites can cause problems for some back-end services. If your application issues HTTP redirects or cookies, the mismatch in host names can break the application's functionality. In particular, this problem can occur when you use back-end services that run on multitenant infrastructure, like App Service and Azure Functions. For more information, see [Host name preservation best practices](../../../best-practices/host-name-preservation.yml).
+But `Host` header rewrites can cause problems for some back-end services. If your application issues HTTP redirects or cookies, the mismatch in host names can break the application's functionality. In particular, this problem can occur when you use back-end services that run on multitenant infrastructure, like App Service and Azure Functions. For more information, see [Host name preservation best practices](../../../best-practices/host-name-preservation.md).
 
 Test your application's behavior with the gateway configuration that you plan to use.
 

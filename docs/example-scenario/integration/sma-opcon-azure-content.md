@@ -170,7 +170,7 @@ If you want to take advantage of the SMA service offering later, you can seamles
 - [OpCon Cloud](https://assets.smatechnologies.com/production/assets/files/Hosting-OpCon-in-the-Cloud-FAQ.pdf) is a fully managed, cloud-hosted version of the OpCon automation platform deployed in Azure.
 
   In the OpCon Cloud architecture, OpCon Cloud automates workflows across the enterprise, both on-premises and in Azure. An OpCon instance runs in a Linux container within a Kubernetes replica-set and SQL Server serves as the OpCon database. The virtual network is private and secure.
-- [OpCon Self Service](https://help.smatechnologies.com/opcon/core/v21.0/Files/UI/Solution-Manager/Working-with-Self-Service) is a web-based implementation that allows users to run on-demand tasks, often with the option to input arguments within the OpCon environment.
+- [OpCon Self Service](https://smatechnologies.com/product-opcon/opcon-self-service) is a web-based implementation that allows users to run on-demand tasks, often with the option to input arguments within the OpCon environment.
 
   These architectures use OpCon Self Service to provide a user interface for task implementation and monitoring.
 

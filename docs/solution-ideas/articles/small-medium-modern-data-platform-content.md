@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This article describes how small and medium businesses (SMBs) can build a modern data platform architecture by combining existing investments in Azure Databricks with a fully managed software as a service (SaaS) data platform such as Microsoft Fabric. SaaS data platforms are end-to-end data analytics solutions that integrate easily with tools like Azure Machine Learning, Azure AI Services, Power Platform, Microsoft Dynamics 365, and other Microsoft technologies.
+This article describes how small and medium businesses (SMBs) can build a modern data platform architecture by combining existing investments in Azure Databricks with a fully managed software as a service (SaaS) data platform such as Microsoft Fabric. SaaS data platforms are end-to-end data analytics solutions that integrate easily with tools like Azure Machine Learning, Foundry Tools, Power Platform, Microsoft Dynamics 365, and other Microsoft technologies.
 
 ## Simplified architecture
 

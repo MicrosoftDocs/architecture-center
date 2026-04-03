@@ -8,7 +8,7 @@ ms.topic: design-pattern
 ms.subservice: best-practice
 ---
 
-<!-- cSpell:ignore DTUs LTRIM RTRIM RDBMS Linq processingindatabasemonitor -->
+<!-- cSpell:ignore DTUs LTRIM RTRIM RDBMS processingindatabasemonitor -->
 
 # Busy Database antipattern
 

@@ -140,6 +140,9 @@ properties: {
 }]
 ```
 
+> [!NOTE]
+> The `pickHostNameFromBackendAddress` setting overrides the HTTP `Host` header with the back-end address. This approach can cause problems with cookies, redirect URLs, and session affinity. For more information about the implications and alternative configurations, see [Preserve the original HTTP host name](../../../best-practices/host-name-preservation.md).
+
 ##### Web Application Firewall
 
 [Web Application Firewall on Application Gateway](/azure/web-application-firewall/ag/ag-overview) protects the web apps from malicious attacks, like SQL injection. It also integrates with Azure Monitor to monitor attacks by using a real-time log. To enable Web Application Firewall, you must [configure the gateway to meet its requirements](/azure/web-application-firewall/ag/application-gateway-web-application-firewall-portal). The reference implementation enables WAF programmatically in the `appgw.bicep` file by using the following code.

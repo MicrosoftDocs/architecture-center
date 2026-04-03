@@ -2165,56 +2165,7 @@
 			<rect x="0" y="718" width="97.6964" height="20" class="st44"/>
 			<text x="17.66" y="724.7" class="st13" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Spring <tspan
 						x="36.5" dy="1.2em" class="st20">Apps</tspan></text>		</g>
-		<g id="group1399-612" transform="translate(530.882,-450)" v:mID="1399" v:groupContext="group">
-			<v:userDefs>
-				<v:ud v:nameU="visNavOrder" v:val="VT0(113000):26"/>
-			</v:userDefs>
-			<title>Service Fabric Clusters</title>
-			<g id="shape1400-613" v:mID="1400" v:groupContext="shape" transform="translate(2.93547,-3.36714)">
-				<title>Sheet.1400</title>
-				<v:userDefs>
-					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
-				</v:userDefs>
-				<path d="M23.22 723.7 L13.67 716.56 L11.61 714.99 L9.59 716.55 L0 723.7 L3.73 735.5 L4.51 738 L18.77 738 L19.52 735.5
-							 L23.22 723.79 L23.22 723.7 ZM6.24 735.5 L2.92 724.71 L11.61 718.14 L20.37 724.72 L17.05 735.52 L6.24
-							 735.5 Z" class="st85"/>
-			</g>
-			<g id="shape1401-615" v:mID="1401" v:groupContext="shape" transform="translate(3.93054,1.13687E-13)">
-				<title>Sheet.1401</title>
-				<v:userDefs>
-					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
-				</v:userDefs>
-				<ellipse cx="4.09639" cy="733.713" rx="4.09639" ry="4.28703" class="st86"/>
-			</g>
-			<g id="shape1402-619" v:mID="1402" v:groupContext="shape" transform="translate(16.7338,1.13687E-13)">
-				<title>Sheet.1402</title>
-				<v:userDefs>
-					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
-				</v:userDefs>
-				<ellipse cx="4.09639" cy="733.713" rx="4.09639" ry="4.28703" class="st87"/>
-			</g>
-			<g id="shape1403-623" v:mID="1403" v:groupContext="shape" transform="translate(20.8965,-12.8437)">
-				<title>Sheet.1403</title>
-				<v:userDefs>
-					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
-				</v:userDefs>
-				<ellipse cx="4.09639" cy="733.713" rx="4.09639" ry="4.28703" class="st87"/>
-			</g>
-			<g id="shape1404-626" v:mID="1404" v:groupContext="shape" transform="translate(1.45883E-13,-12.8437)">
-				<title>Sheet.1404</title>
-				<v:userDefs>
-					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
-				</v:userDefs>
-				<ellipse cx="4.09639" cy="733.713" rx="4.09639" ry="4.28703" class="st87"/>
-			</g>
-			<g id="shape1405-629" v:mID="1405" v:groupContext="shape" transform="translate(10.4483,-20.5153)">
-				<title>Sheet.1405</title>
-				<v:userDefs>
-					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
-				</v:userDefs>
-				<ellipse cx="4.09639" cy="733.713" rx="4.09639" ry="4.28703" class="st87"/>
-			</g>
-		</g>
+		<!-- Service Fabric Clusters icon removed -->
 		<g id="shape1406-632" v:mID="1406" v:groupContext="shape" transform="translate(430.676,-477)">
 			<title>Sheet.1406</title>
 			<desc>Azure microservices</desc>
@@ -2225,17 +2176,7 @@
 			<v:textRect cx="114.75" cy="727.504" width="229.5" height="20.9915"/>
 			<rect x="0" y="717.008" width="229.5" height="20.9915" class="st4"/>
 			<text x="65.17" y="730.8" class="st80" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure microservices</text>		</g>
-		<g id="shape1472-635" v:mID="1472" v:groupContext="shape" transform="translate(496.328,-423.912)">
-			<title>Sheet.1472</title>
-			<desc>Azure Service Fabric</desc>
-			<v:userDefs>
-				<v:ud v:nameU="visNavOrder" v:val="VT0(131000):26"/>
-			</v:userDefs>
-			<v:textBlock v:margins="rect(4,4,4,4)"/>
-			<v:textRect cx="49.0982" cy="728" width="98.2" height="20"/>
-			<rect x="0" y="718" width="98.1964" height="20" class="st44"/>
-			<text x="16.56" y="724.7" class="st13" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Service <tspan
-						x="34.6" dy="1.2em" class="st20">Fabric </tspan> </text>		</g>
+		<!-- Azure Service Fabric label removed -->
 		<g id="group1569-639" transform="translate(454.5,-450)" v:mID="1569" v:groupContext="group">
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(140000):26"/>

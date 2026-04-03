@@ -96,6 +96,20 @@ validate API requests and responses against an OpenAPI schema. These features ar
 
 - Private endpoints for Azure Functions allow you to securely connect to your function apps over a private IP address within your virtual network. This setup prevents exposure of your functions to the public internet, which reduces the risk of unauthorized access. In this architecture, private endpoints ensure that only trusted resources within your network can access Azure Functions.
 
+### Handling API Management policies behind a reverse proxy
+
+Application Gateway with Web Application Firewall (WAF) is positioned in front of API Managment and handles all API traffic before it reaches the internal API Management instance. The intent is to add an edge-level security layer that inspects, filters, and routes client requests, while API Management focuses on API governance, transformation, and backend integration.
+
+However, this layered topology comes with behavioral implications for certain API Management policies: when TLS termination, routing decisions, or header/connection transformations occur at the Application Gateway boundary, the API Management policy engine may not see the original client request details it expects. That can lead to policies behaving differently than when API Management is directly exposed. For example:
+
+- **Client IP-based filtering**: Policies such as `ip-filter` where you can allow or deny traffic based on source IP addresses will now see the Application Gateway’s private IP as the source, not the actual client address. As a result, the `ip-filter` policy needs to be carefully planned and managed to ensure the correct traffic is being filtered.
+
+- **Policy ordering and context assumptions**: API Management policies expect to run against requests with certain headers, host names, or request characteristics. If Application Gateway rewrites headers (for routing, custom domains, or SSL offload), the context that downstream API Management policies rely on may not match what was defined in those policies. This can cause routing policies, validation, or transformation logic inside API Management to mismatch client intent.
+
+Application Gateway and API Management become two enforcement layers, and API Management's view of incoming requests is one step removed from the original client context. You must avoid use policies in API Management that depend on raw client attributes unless those attributes are preserved end-to-end, and might need to create custom policies based off of the data available in the HTTP request.
+
+For some additional recommendations on how to preserve data such as host headers, see [Preserve the original HTTP host name between a reverse proxy and its back-end web application](/azure/architecture/best-practices/host-name-preservation).
+
 ### Cost Optimization
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).

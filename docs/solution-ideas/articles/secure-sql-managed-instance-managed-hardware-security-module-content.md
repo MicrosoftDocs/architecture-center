@@ -38,7 +38,7 @@ The following workflow corresponds to the previous diagram:
 
 ## Scenario details
 
-In this solution, a customer aims to meet strict service-level agreement thresholds for their mission-critical system while ensuring full functionality of the listed services. To achieve this goal, they use SQL Managed Instance with a customer-managed TDE protector key. The key is stored in a vault that supports their chosen regions and meets all compliance and security requirements. Private endpoint access is also enforced for enhanced protection.
+In this solution, a customer aims to meet strict service-level objective (SLO) thresholds for their mission-critical system while ensuring full functionality of the listed services. To achieve this goal, they use SQL Managed Instance with a customer-managed TDE protector key. The key is stored in a vault that supports their chosen regions and meets all compliance and security requirements. Private endpoint access is also enforced for enhanced protection.
 
 ### Potential use cases
 

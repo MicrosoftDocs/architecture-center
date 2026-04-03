@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Extract text from objects using Power Automate and AI Builder
-  description: Use AI Builder and Azure AI Document Intelligence in a Power Automate workflow to extract text from images, for indexing and retrieval.
+  description: Use AI Builder and Azure Document Intelligence in Foundry Tools in a Power Automate workflow to extract text from images, for indexing and retrieval.
   author: Spucelik
   ms.author: stpuceli
   ms.date: 09/12/2025
@@ -19,7 +19,7 @@ products:
   - power-platform
   - azure-functions
 name: Extract text from objects using Power Automate and AI Builder
-summary: Use AI Builder and Azure AI Document Intelligence in a Power Automate workflow to extract text from images, for indexing and retrieval.
+summary: Use AI Builder and Azure Document Intelligence in Foundry Tools in a Power Automate workflow to extract text from images, for indexing and retrieval.
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-extract-object-text-thumbnail.png
 content: |
   [!INCLUDE[](extract-object-text-content.md)]

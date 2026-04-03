@@ -48,7 +48,7 @@ Relational database management systems organize data into normalized tables by u
 
 **Strengths:** Multi-row transactional consistency, complex joins, strong relational constraints, and mature tooling for reporting, administration, and governance.
 
-**Considerations:** Horizontal scale generally requires sharding or partitioning, and normalization can increase join cost for read-heavy denormalized views.
+**Considerations:** Horizontal scale generally requires [sharding](../../patterns/sharding.md) or partitioning, and normalization can increase join cost for read-heavy denormalized views.
 
 **Workloads:** Order management, inventory tracking, financial ledger recording, billing, and operational reporting.
 

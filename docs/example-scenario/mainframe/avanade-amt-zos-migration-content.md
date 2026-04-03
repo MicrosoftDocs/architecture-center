@@ -42,7 +42,7 @@ The preceding diagram shows how the typical components of an IBM z/OS mainframe 
 
 - [Azure Files](/azure/well-architected/service-guides/azure-files) is a fully managed file share service that provides file shares in an Azure Storage account that can be accessed from the cloud or on-premises. In this architecture, Azure Files provides shared storage capabilities for the migrated mainframe applications and supports the file handling requirements after the conversion from VSAM files.
 
-- [Azure managed disks](/azure/virtual-machines/managed-disks-overview) are block-level storage volumes that Azure manages for Azure VMs, including Ultra Disk Storage, Premium SSD, and Azure Standard SSD. In this architecture, Azure managed disks provide high-performance storage for the VMs that run the converted mainframe applications, with Premium SSD or Ultra Disk Storage options for optimal performance.
+- [Azure Managed Disks](/azure/virtual-machines/managed-disks-overview) are block-level storage volumes that Azure manages for Azure VMs, including Ultra Disk Storage, Premium SSD, and Azure Standard SSD. In this architecture, Azure Managed Disks provide high-performance storage for the VMs that run the converted mainframe applications, with Premium SSD or Ultra Disk Storage options for optimal performance.
 
 - [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database) is a fully managed PaaS database engine that handles most database management functions like upgrading, patching, backups, and monitoring. In this architecture, SQL Database serves as the modern database platform for migrated mainframe data. It replaces IBM Db2, IMS, Adabas, and other legacy database systems.
 

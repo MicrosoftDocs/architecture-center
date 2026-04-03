@@ -109,7 +109,7 @@ From a name resolution perspective, this chain of records accurately resolves re
 
 Name resolution is only part of the problem. All web components within Contoso's European deployment must know how to handle requests that include Fabrikam's domain name in their `Host` request header. Depending on the specific web technologies that Contoso uses, each tenant's domain name might require further configuration, which adds extra operational overhead to tenant onboarding.
 
-You can also rewrite host headers so that regardless of the incoming request's `Host` header, your web server sees a consistent header value. For example, Azure Front Door enables you to rewrite `Host` headers so that regardless of the request, your application server receives a single `Host` header. Azure Front Door propagates the original host header in the `X-Forwarded-Host` header so that your application can inspect it and then look up the tenant. However, rewriting a `Host` header can cause other problems. For more information, see [Host name preservation](../../../best-practices/host-name-preservation.yml).
+You can also rewrite host headers so that regardless of the incoming request's `Host` header, your web server sees a consistent header value. For example, Azure Front Door enables you to rewrite `Host` headers so that regardless of the request, your application server receives a single `Host` header. Azure Front Door propagates the original host header in the `X-Forwarded-Host` header so that your application can inspect it and then look up the tenant. However, rewriting a `Host` header can cause other problems. For more information, see [Host name preservation](../../../best-practices/host-name-preservation.md).
 
 ### Domain validation
 

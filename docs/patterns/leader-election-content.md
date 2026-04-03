@@ -22,7 +22,7 @@ The system must provide a robust mechanism for selecting the leader. This method
 There are multiple strategies for electing a leader among a set of tasks in a distributed environment, including:
 
 - Racing to acquire a shared, distributed mutex. The first task instance that acquires the mutex is the leader. However, the system must ensure that, if the leader terminates or becomes disconnected from the rest of the system, the mutex is released to allow another task instance to become the leader. This strategy is demonstrated in the following example.
-- Implementing one of the common leader election algorithms such as the [Bully Algorithm](https://www.cs.colostate.edu/~cs551/CourseNotes/Synchronization/BullyExample.html), the [Raft Consensus Algorithm](https://raft.github.io/), or the [Ring Algorithm](https://www.cs.colostate.edu/~cs551/CourseNotes/Synchronization/RingElectExample.html). These algorithms assume that each candidate in the election has a unique ID, and that it can communicate with the other candidates reliably.
+- Implementing one of the common leader election algorithms such as the [Bully Algorithm](https://en.wikipedia.org/wiki/Bully_algorithm), the [Raft Consensus Algorithm](https://raft.github.io/), or the [Chang and Roberts algorithm](https://en.wikipedia.org/wiki/Chang_and_Roberts_algorithm). These algorithms assume that each candidate in the election has a unique ID, and that it can communicate with the other candidates reliably.
 
 ## Issues and considerations
 
@@ -194,7 +194,5 @@ The following guidance might also be relevant when implementing this pattern:
 - This pattern has a downloadable [sample application](https://github.com/mspnp/cloud-design-patterns/tree/main/leader-election).
 - [Autoscaling Guidance](/previous-versions/msp-n-p/dn589774(v=pandp.10)). It's possible to start and stop instances of the task hosts as the load on the application varies. Autoscaling can help to maintain throughput and performance during times of peak processing.
 - The [Task-based Asynchronous pattern](/dotnet/standard/asynchronous-programming-patterns/task-based-asynchronous-pattern-tap).
-- An example illustrating the [Bully Algorithm](https://www.cs.colostate.edu/~cs551/CourseNotes/Synchronization/BullyExample.html).
-- An example illustrating the [Ring Algorithm](https://www.cs.colostate.edu/~cs551/CourseNotes/Synchronization/RingElectExample.html).
 - [Apache Curator](https://curator.apache.org/) a client library for Apache ZooKeeper.
 - The article [Lease Blob (REST API)](/rest/api/storageservices/Lease-Blob) on MSDN.

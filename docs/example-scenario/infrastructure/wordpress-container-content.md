@@ -1,5 +1,3 @@
-<!-- cSpell:ignore wordpress -->
-
 This article describes a container solution that hosts a large, storage-intensive installation of WordPress on Azure. The solution maximizes scalability and security. Key components include [Azure Front Door](/azure/frontdoor/front-door-overview), [Azure Kubernetes Service (AKS)](/azure/aks/what-is-aks), and [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction).
 
 ## Architecture
@@ -43,7 +41,7 @@ The following dataflow corresponds to the previous diagram:
 
 - [Key Vault](/azure/key-vault/general/overview) is a cloud service that stores and controls access to secrets, certificates, keys, and passwords. In this architecture, Key Vault provides secrets to the AKS cluster if pods need them.
 
-- [Load Balancer](/azure/well-architected/service-guides/azure-load-balancer/reliability) is a layer-4 load balancer that distributes inbound traffic based on rules and health probe results. In this architecture, the load balancer distributes traffic from Azure Front Door to the ingress controller pods with low latency and high throughput.
+- [Load Balancer](/azure/well-architected/service-guides/azure-load-balancer/reliability) is a layer-4 load balancer that distributes inbound traffic based on rules and health probe results. In this architecture, an internal load balancer distributes traffic from Azure Front Door Premium tier to the ingress controller pods with low latency and high throughput.
 
 - [Network security groups (NSGs)](/azure/virtual-network/network-security-groups-overview) are security features that use security rules to allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol. In this architecture, NSG rules restrict traffic flow between the application components in the subnets.
 

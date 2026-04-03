@@ -23,7 +23,7 @@ Running applications in an emulator on Azure has several benefits, such as reduc
 1. The Charon-SSP Agent runs on Linux distributions on Azure VMs. This component runs the child Solaris VMs and emulates the SPARC processor architecture.
 1. The child Solaris VMs are based on the SPARC processor architecture.
 1. The child Solaris VMs each get their own Azure network interface, and therefore have their own dedicated private IP addresses. Optionally, you can easily set up Azure public IP addresses on the same network interfaces.
-1. The Solaris VM images can reside on the solid-state drive (SSD) managed disk of the host Azure VM. Azure Ultra SSD managed disks are also a potential option for even higher input/output operations per second (IOPS).
+1. The Solaris VM images can reside on the solid-state drive (SSD) managed disk of the host Azure VM. Ultra Disks are also a potential option for even higher input/output operations per second (IOPS).
 1. Azure Storage Account file shares mounted on the Linux VM allow mapping of the Charon-SSP Virtual Tape Manager to a locally mounted device, which is backed by an Azure Files storage account in the cloud. This mapping allows for low-cost storage of archived tapes for regulatory and compliance purposes.
 1. The management VM that runs Charon-SSP Director and Manager can be either Windows-based, or Linux-based with a graphic user interface like [GNOME](https://www.gnome.org).
 1. End users can secure-shell (SSH) connect directly to the Solaris VMs, which have their own dedicated network interface cards and IP addresses.
@@ -38,7 +38,7 @@ Running applications in an emulator on Azure has several benefits, such as reduc
 
 - [Azure Virtual Network interface cards](/azure/virtual-network/virtual-network-network-interface) enable an Azure VM to communicate with internet, Azure, and on-premises resources. As shown in this architecture, you can add additional network interface cards to the same Azure VM, which allows the Solaris child VMs to have their own dedicated network interface devices and IP addresses.
 
-- [Azure SSD managed disks](/azure/virtual-machines/managed-disks-overview) are block-level storage volumes managed by Azure that are used with Azure VMs. The available types of disks are ultra disks, premium SSDs, standard SSDs, and standard hard disk drives (HDDs). For this architecture, we recommend either Premium SSDs or Ultra Disk SSDs.
+- [Azure Managed Disks](/azure/virtual-machines/managed-disks-overview) are block-level storage volumes managed by Azure that are used with Azure VMs. The available types of disks are Ultra Disks, Premium SSDs, Standard SSDs, and Standard HDDs. For this architecture, we recommend either Premium SSDs or Ultra Disks.
 
 - [Azure Files](/azure/well-architected/service-guides/azure-files) storage accounts offer fully managed file shares in the cloud that are accessible via the industry standard Server Message Block (SMB) protocol. Azure file shares can be mounted concurrently by cloud and on-premises deployments of Windows, Linux, and macOS. In this architecture, Azure Files is used as the storage for tape files for regulatory and compliance purposes.
 

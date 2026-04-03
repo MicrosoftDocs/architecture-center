@@ -46,7 +46,7 @@ Our strategy was to build a product that new customers would love. While we were
 
 We chose this strategy because we knew it would work well for an ERP system. In other products, it might be possible to pick a subset of the product's features to move first, and then add more features over time. But in an ERP, components are tightly interconnected. The product isn't useful until there’s a slice of functionality across all these components, providing a suitable end-to-end experience to customers. The MVP scope is a horizontal slice of features across each component. We decided to select a cross-cutting set of functionalities that would support use cases for new customers:
 
-:::image type="content" alt-text="Diagram showing a set of components, each with multiple features. Features within the MVP scope are highlighted." source="./images/dynamics-365-journey-saas/minimum-viable-product.png" border="false" :::
+:::image type="content" alt-text="Diagram showing a set of components, each with multiple features. Features within the MVP scope are highlighted." source="./images/dynamics-365-journey-saas/minimum-viable-product.svg" border="false" :::
 
 For other solutions, it might make sense to instead scope an MVP as a whole component. Be intentional about the strategy you choose when starting your SaaS journey. The initial deliverable should be minimal yet complete enough to enable real usage.
 
@@ -92,7 +92,7 @@ In the cloud, it's critical to move from *scaling up* to *scaling out* wherever 
 
 In conjunction with your tenant model and scale-out architecture, you can follow the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml), with each stamp supporting a set of customers. When a stamp approaches its maximum capacity, you can provision a new stamp and start to deploy new customers there. By using stamps, you can support continued customer growth, and you can expand your regional presence to new geographies.
 
-:::image type="content" alt-text="Diagram of deployment stamps deployed across multiple regions, with different numbers and sizes of customers on each stamp." source="./images/dynamics-365-journey-saas/deployment-stamps.png" border="false" :::
+:::image type="content" alt-text="Diagram of deployment stamps deployed across multiple regions, with different numbers and sizes of customers on each stamp." source="./images/dynamics-365-journey-saas/deployment-stamps.svg" border="false" :::
 
 By using deployment stamps, you also gain reliability benefits. You can roll out our updates progressively, and safe deployment processes help you to gradually roll changes out across a global fleet. Each stamp is independent of others, so if a stamp experiences a problem, only the subset of customers allocated to that stamp are affected. Stamps help you to reduce the *blast radius* of a problem or fault and contribute to an overall disaster recovery strategy.
 
@@ -185,7 +185,7 @@ We learned a lot by operating Dynamics 365 in the cloud for a large and growing 
 
 Wherever possible, the best solution is eliminating an issue altogether, followed quickly by automated detection and automated mitigation. When that’s not possible, *shifting left* helps to empower the frontline support team to detect and correct the issue or perform the task, or even better, empower the customer to self-serve and perform the task themselves. The following diagram shows how support cases start with a customer, go to a frontline support team, and then to the engineering team. An arrow indicates that we shift the resolution action to the left to reduce the impact of incidents.
 
-:::image type="content" alt-text="Diagram showing the resolution action directed by an arrow pointing to the left." source="./images/dynamics-365-journey-saas/shift-left.png" border="false" :::
+:::image type="content" alt-text="Diagram showing the resolution action directed by an arrow pointing to the left." source="./images/dynamics-365-journey-saas/shift-left.svg" border="false" :::
 
 **Keep things standard**: It can be tempting to mitigate an issue by making special arrangements for one customer. At scale, everything that's special becomes a corner case that causes something else to fail. Aim to keep all tenants using standard code, settings, and configuration.
 

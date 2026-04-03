@@ -1,4 +1,4 @@
-This article describes an architecture that processes various documents. The architecture uses the durable functions feature of Azure Functions to implement pipelines. The pipelines process documents via Azure AI Document Intelligence for document splitting, named entity recognition (NER), and classification. Retrieval-augmented generation (RAG)-based natural language processing (NLP) uses document content and metadata to find and generate relevant information.
+This article describes an architecture that processes various documents. The architecture uses the durable functions feature of Azure Functions to implement pipelines. The pipelines process documents via Azure Document Intelligence in Foundry Tools for document splitting, named entity recognition (NER), and classification. Retrieval-augmented generation (RAG)-based natural language processing (NLP) uses document content and metadata to find and generate relevant information.
 
 ## Architecture
 
@@ -57,7 +57,7 @@ The following workflow corresponds to the previous diagram:
 
 - To trigger durable functions instances, you can use other messaging platforms, including [Azure Event Grid](/azure/event-grid/overview).
 
-- Instead of Semantic Kernel, you can use [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) or [Azure AI services](/azure/ai-services/what-are-ai-services) to create embeddings.
+- Instead of Semantic Kernel, you can use [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) or [Foundry Models](/azure/ai-foundry/openai/how-to/embeddings) to create embeddings.
 
 - You can use the [Microsoft Agent Framework](/agent-framework/overview/agent-framework-overview) instead of Semantic Kernel to orchestrate the workflows.
 
@@ -153,7 +153,7 @@ To optimize costs, consider the following recommendations:
 
 Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-This solution can expose performance bottlenecks when you process high volumes of data. To ensure proper performance efficiency for your solution, understand and plan for [Azure Functions scaling options](/azure/azure-functions/functions-scale#scale), [AI services autoscaling](/azure/ai-services/autoscale), and [Azure Cosmos DB partitioning](/azure/cosmos-db/partitioning-overview).
+This solution can expose performance bottlenecks when you process high volumes of data. To ensure proper performance efficiency for your solution, understand and plan for [Azure Functions scaling options](/azure/azure-functions/functions-scale#scale), [Foundry Tools autoscaling](/azure/ai-services/autoscale), and [Azure Cosmos DB partitioning](/azure/cosmos-db/partitioning-overview).
 
 - **Apply scalable compute and orchestration** by using durable functions, which is part of Azure Functions, for the document-processing pipeline and tune its scaling behavior. For more information, see [Performance and scale in durable functions](/azure/azure-functions/durable/durable-functions-perf-and-scale).
 

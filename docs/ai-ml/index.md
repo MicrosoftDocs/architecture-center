@@ -7,6 +7,7 @@ ms.date: 12/17/2025
 ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
+ms.custom: arb-aiml
 ---
 
 # AI architecture design
@@ -61,7 +62,6 @@ For more information, see [Deep learning overview](https://azure.microsoft.com/r
 - [Foundry](/azure/ai-foundry/what-is-foundry) is a development platform as a service (PaaS) that provides access to agent hosting and a catalog of language models, including the following options:
 
    - GPT-5.2 (OpenAI)
-   - Sora2 (OpenAI)
    - Claude (Anthropic)
    - Phi (Microsoft)
    - Grok (xAI)
@@ -202,7 +202,7 @@ For more information, see the following resources:
 
 - [What is Fabric?](/fabric/fundamentals/microsoft-fabric-overview)
 - [Learning path: Get started with Fabric](/training/paths/get-started-fabric/)
-- [AI services in Fabric](/fabric/data-science/ai-services/ai-services-overview)
+- [Foundry Tools in Fabric](/fabric/data-science/ai-services/ai-services-overview)
 - [Use Azure OpenAI in Fabric with REST API](/fabric/data-science/ai-services/how-to-use-openai-via-rest-api)
 - [Use Fabric for generative AI: A guide to building and improving RAG systems](https://blog.fabric.microsoft.com/blog/using-microsoft-fabric-for-generative-ai-a-guide-to-building-and-improving-rag-systems)
 - [Build custom AI applications with Fabric: Implement RAG for enhanced language models](https://blog.fabric.microsoft.com/blog/building-custom-ai-applications-with-microsoft-fabric-implementing-retrieval-augmented-generation-for-enhanced-language-models)

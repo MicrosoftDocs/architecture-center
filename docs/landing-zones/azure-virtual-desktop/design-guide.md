@@ -195,7 +195,7 @@ When you're ready for deployment, do the following steps:
 
 ###### [Custom image build deployment](#tab/custom-image)
 
-You can optionally create a custom image build that generates a new image from Azure Marketplace. This image is stored in an Azure compute gallery. It's optimized, patched, and ready to use. You can customize this deployment to extend functionality, such as adding scripts.
+You can optionally create a custom image build that generates a new image from the [Microsoft Marketplace](https://marketplace.microsoft.com). This image is stored in an Azure compute gallery. It's optimized, patched, and ready to use. You can customize this deployment to extend functionality, such as adding scripts.
 
 When you're ready for deployment, do the following steps:
 

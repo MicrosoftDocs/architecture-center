@@ -141,7 +141,7 @@ This pattern might not be suitable when:
 
 The following patterns might be relevant when you implement this pattern:
 
-- The [Choreography pattern](./choreography.yml) has each component of the system participate in the decision-making process about the workflow of a business transaction, instead of relying on a central point of control.
+- The [Choreography pattern](./choreography.md) has each component of the system participate in the decision-making process about the workflow of a business transaction, instead of relying on a central point of control.
 
 - The [Compensating Transaction pattern](./compensating-transaction.yml) undoes work performed by a series of steps, and eventually defines a consistent operation if one or more steps fail. Cloud-hosted applications that implement complex business processes and workflows often follow this *eventual consistency model*.
 

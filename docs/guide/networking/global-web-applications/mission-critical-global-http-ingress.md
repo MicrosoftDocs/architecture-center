@@ -64,7 +64,7 @@ Weighted routing on the first profile also lets you divert some production traff
 
 Azure Front Door is a global service, while Application Gateway is a regional service.
 
-Azure Front Door's points of presence are deployed globally, and TCP and TLS connections [terminate at the closest point of presence to the client](/azure/frontdoor/front-door-traffic-acceleration). This behavior improves the performance of your application. In contrast, when clients connect to Application Gateway, their TCP and TLS connections terminate at the Application Gateway that receives the request, regardless of where the traffic originated.
+Azure Front Door's points of presence are deployed globally, and TCP and TLS connections [terminate at an optimal point of presence](/azure/frontdoor/front-door-traffic-acceleration). This behavior improves the performance of your application. In contrast, when clients connect to Application Gateway, their TCP and TLS connections terminate at the Application Gateway that receives the request, regardless of where the traffic originated.
 
 #### Connections from clients
 

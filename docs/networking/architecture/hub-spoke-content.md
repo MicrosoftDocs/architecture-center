@@ -342,7 +342,7 @@ Your architecture might differ from this simple hub-spoke architecture. The foll
 
 Explore the following related architectures:
 
-- [Firewall and Application Gateway for virtual networks](../../example-scenario/gateway/firewall-application-gateway.yml)
+- [Firewall and Application Gateway for virtual networks](../../example-scenario/gateway/firewall-application-gateway.md)
 - [Troubleshoot a hybrid VPN connection](../../reference-architectures/hybrid-networking/troubleshoot-vpn.yml)
 - [Spoke-to-spoke networking](../../reference-architectures/hybrid-networking/virtual-network-peering.yml#spoke-to-spoke-communication-patterns)
 - [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../../reference-architectures/containers/aks/baseline-aks.yml)

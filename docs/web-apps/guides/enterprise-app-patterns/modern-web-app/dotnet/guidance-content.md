@@ -143,7 +143,7 @@ Implement the [Queue-Based Load Leveling pattern](/azure/architecture/patterns/q
 
 ### Implement the Competing Consumers pattern
 
-Implement the [Competing Consumers pattern](/azure/architecture/patterns/competing-consumers) in the decoupled services to manage incoming tasks from the message queue. This pattern involves distributing tasks across multiple instances of decoupled services. These services process messages from the queue, enhancing load balancing and boosting the system's capacity to handle simultaneous requests. The Competing Consumers pattern is effective when:
+Implement the [Competing Consumers pattern](../../../../../patterns/competing-consumers.md) in the decoupled services to manage incoming tasks from the message queue. This pattern involves distributing tasks across multiple instances of decoupled services. These services process messages from the queue, enhancing load balancing and boosting the system's capacity to handle simultaneous requests. The Competing Consumers pattern is effective when:
 
 - The sequence of message processing isn't crucial.
 - The queue remains unaffected by malformed messages.

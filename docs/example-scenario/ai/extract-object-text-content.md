@@ -1,4 +1,4 @@
-This article presents a solution for extracting text from images so it can be indexed and retrieved in SharePoint. By using AI Builder and Azure AI Document Intelligence, you can configure a Power Automate workflow to use a trained model to extract text from an image. Once you've configured a workflow, you can quickly search documents for meaningful text that's embedded in shapes and objects.
+This article presents a solution for extracting text from images so it can be indexed and retrieved in SharePoint. By using AI Builder and Azure Document Intelligence in Foundry Tools, you can configure a Power Automate workflow to use a trained model to extract text from an image. Once you've configured a workflow, you can quickly search documents for meaningful text that's embedded in shapes and objects.
 
 ## Architecture
 
@@ -31,7 +31,7 @@ This article presents a solution for extracting text from images so it can be in
 
 ### Alternatives
 
-- [Azure AI Document Intelligence](/azure/ai-services/document-intelligence/overview) can do a full OCR scan of documents, with the resulting metadata stored in SharePoint.
+- [Document Intelligence](/azure/ai-services/document-intelligence/overview) can do a full OCR scan of documents, with the resulting metadata stored in SharePoint.
 - SharePoint can run OCR scans on documents and add content output to the index for retrieval. Use search techniques to target key information in documents.
 - If you want to process a high rate of documents, consider using Azure Logic Apps to configure the components. Azure Logic Apps helps avoid consumption limits primarily through its integration with a dedicated workflow engine and its ability to run under different pricing tiers, and is cost-effective. For more information, see [Azure Logic Apps](/azure/logic-apps/logic-apps-limits-and-config?tabs=consumption).
 
