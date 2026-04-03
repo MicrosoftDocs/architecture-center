@@ -38,11 +38,11 @@ As a prerequisite to this article, we recommend you review [Build and deploy app
    1. [Microsoft Defender for Key Vault](/azure/defender-for-cloud/defender-for-key-vault-introduction) detects harmful and unusual, suspicious attempts to access key vault accounts.
 1. [Azure Policy](/azure/governance/policy/overview) can be applied to Container Registry and Azure Kubernetes Service (AKS) for policy compliance and enforcement. Common security policies for Container Registry and AKS are built in for quick enablement.
 1. [Azure Key Vault](/azure/key-vault/key-vault-overview) is used to securely inject secrets and credentials into an application at runtime, separating sensitive information from developers.
-1. The AKS network policy engine is configured to help secure traffic between application pods by using Kubernetes network policies.
+1. The AKS network policy engine is configured to help secure traffic between application pods by using Kubernetes network policies. [Azure CNI Powered by Cilium](/azure/aks/azure-cni-powered-by-cilium) is the recommended network policy engine, providing eBPF-based enforcement, Layer 7 policy, and FQDN filtering.
 1. Continuous monitoring of the AKS cluster can be set up by using [Azure Monitor](/azure/azure-monitor/overview) and [Container insights](/azure/azure-monitor/containers/container-insights-overview) to ingest performance metrics and analyze application and security logs.
    1. Container insights retrieve performance metrics and application and cluster logs.
    1. Diagnostic and application logs are pulled into an Azure Log Analytics workspace to run log queries.
-1. Microsoft Sentinel, which is a security information and event management (SIEM) solution, can be used to ingest and further analyze the AKS cluster logs for any security threats based on defined patterns and rules.
+1. Microsoft Sentinel should be used as the centralized SIEM to correlate AKS telemetry with signals from Microsoft Defender for Cloud, Microsoft Entra ID, and network resources. Sentinel enables detection, investigation, and automated response to security incidents across the entire AKS environment.
 1. Open-Source tools such as Zed Attack Proxy (ZAP) ([ZAP](https://www.zaproxy.org/)) can be used to do penetration testing for web applications and services.
 1. Defender for DevOps, a service available in Defender for Cloud, empowers security teams to manage DevOps security across multi-pipeline environments including GitHub and Azure DevOps.
 
@@ -107,7 +107,7 @@ Building a more secure AKS-hosted platform is an important step to help ensure s
 Most popular IDEs, like Visual Studio, Visual Studio Code, IntelliJ IDEA, and Eclipse, support extensions that you can use to get immediate feedback and recommendations for potential security issues you might have introduced while writing application code.
 
 - [SonarLint](https://www.sonarsource.com/products/sonarlint/#learn) is an IDE plugin available for most popular languages and developer environments. SonarLint provides valuable feedback and automatically scans your code for common programming errors and potential security issues.
-- Other free and commercial plugins are focused on security specific items, like the OWASP top 10 common vulnerabilities. The [Synk](https://snyk.io/ide-plugins/) plugin, for example, also scans your application source and third-party dependencies and alerts you if any vulnerabilities are found.
+- Other free and commercial plugins are focused on security specific items, like the OWASP top 10 common vulnerabilities. The [Snyk](https://snyk.io/ide-plugins/) plugin, for example, also scans your application source and third-party dependencies and alerts you if any vulnerabilities are found.
 - The [Static Analysis Results Interchange Format (SARIF)](https://github.com/microsoft/sarif-vscode-extension) plugin for Visual Studio and Visual Studio Code lets you easily view vulnerabilities from popular Static Application Security Testing (SAST) tools in an intuitive and easy to read manner versus interpreting results from raw JSON output files.
 
 #### Best practice – Establish controls on your source code repositories
@@ -125,7 +125,7 @@ Most popular IDEs, like Visual Studio, Visual Studio Code, IntelliJ IDEA, and Ec
 
 #### Best practice – Secure your container images
 
-- Use lightweight images with a minimal OS footprint to reduce the overall surface-attack area. Consider minimal images like Alpine or even distroless images that only contain your application and its associated runtime. [Mariner](/azure/aks/use-mariner), the Microsoft open-source Linux distribution, is a lightweight, hardened distribution designed for AKS to host containerized workloads.
+- Use lightweight images with a minimal OS footprint to reduce the overall surface-attack area. Consider minimal images like Alpine or even distroless images that only contain your application and its associated runtime. [Azure Linux](/azure/aks/use-azure-linux), the Microsoft open-source Linux distribution, is a lightweight, hardened distribution designed for AKS to host containerized workloads.
 - Use only trusted base images when building your containers. These base images should be retrieved from a private registry that is frequently scanned for vulnerabilities.
 - Use developer tools to evaluate image vulnerabilities locally.
   - [Trivy](https://trivy.dev/) is an example of an open-source tool that you can use to analyze security vulnerabilities within your container images.
@@ -176,7 +176,7 @@ During the build phase, developers work with the site reliability engineers and 
 
 - Azure Key Vault stores a signing key that can be used by [notation](/azure/container-registry/container-registry-tutorial-sign-build-push) with the notation Key Vault plugin (azure-kv) to [sign](/azure/container-registry/container-registry-tutorial-sign-build-push) and verify container images and other artifacts. Container Registry lets you attach these signatures by using the Azure CLI commands.
 - The signed containers let users make sure that deployments are built from a trusted entity and verify an artifact hasn't been tampered with since its creation. The signed artifact ensures integrity and authenticity before the user pulls an artifact into any environment, which helps avoid attacks.
-  - [Ratify](https://github.com/deislabs/ratify/blob/main/README.md) lets Kubernetes clusters verify artifact security metadata before deployment and admit for deployment only those that comply with an admission policy that you create.
+  - [Ratify](https://github.com/notaryproject/ratify/blob/main/README.md) lets Kubernetes clusters verify artifact security metadata before deployment and admit for deployment only those that comply with an admission policy that you create.
 
 ### Deploy phase
 
@@ -229,7 +229,7 @@ During this phase, operation monitoring and security monitoring tasks are perfor
 - Apply policy definitions to your cluster and verify those assignments are being enforced.
 - Use Gatekeeper to configure an admission controller that allows or denies deployments based on rules specified. Azure Policy extends Gatekeeper.
 - Secure traffic between workload pods by using network policies in AKS.
-  - Install the network policy engine and create Kubernetes [network policies](/azure/aks/use-network-policies) to control the flow of traffic between pods in AKS. Network policy can be used for Linux-based or Windows-based nodes and pods in AKS.
+  - Use [Azure CNI Powered by Cilium](/azure/aks/azure-cni-powered-by-cilium) as the network policy engine. Cilium uses an eBPF-based dataplane and supports Kubernetes-native policies, Layer 7 policy, and FQDN filtering.
 
 #### Best practice – Use Azure Monitor for Continuous monitoring and alerting
 
