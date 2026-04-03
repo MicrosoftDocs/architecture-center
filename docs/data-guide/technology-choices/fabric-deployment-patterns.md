@@ -437,11 +437,11 @@ The following tables summarize the key differences in capabilities among Pattern
 ## Contributors
 
 *Microsoft maintains this article. The following contributors wrote this article.*
-**Principal author:**
+Principal author:
 
 - [Amanjeet Singh](https://www.linkedin.com/in/amanjeetsingh2004/) | Principal Program Manager
 
-**Other contributors:**
+Other contributors:
 
 - [Holly Kelly](https://www.linkedin.com/in/holly-kelly-9466063/) | Principal Program Manager
 - [Gabi Muenster](https://www.linkedin.com/in/gabimuenster/) | Senior Program Manager
