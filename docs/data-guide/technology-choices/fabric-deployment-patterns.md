@@ -58,7 +58,7 @@ For more information about Fabric levels and their role in choosing a deployment
 
 - **Capacities control data residency and geographic distribution.** A large organization that has business units in separate geographical locations can use capacities to control where its data resides. Each capacity is bound to a specific Azure region, so provisioning capacities in different regions enables multi-geo deployments. [Fabric Domains](/fabric/governance/domains) allow a geographically distributed business unit to be governed as a single unit because domains can span workspaces and their associated capacities across regions.
 
-- **Workspaces serve as the primary governance and security boundary.** Each workspace defines access control through four roles, supports version control through Git integration, and serves as the scope for deployment pipelines. For a full description of workspace roles and lifecycle features, see [Four-level hierarchy](#four-level-hierarchy). Organizations that require centralized collaboration and content discovery can use the [OneLake catalog](/fabric/governance/onelake-catalog-overview), which integrates with Microsoft Teams, Excel, and other familiar tools.
+- **Workspaces serve as the primary governance and security boundary.** Each workspace defines access control through four roles, supports version control through Git integration, and serves as the scope for deployment pipelines. For a full description of workspace roles and lifecycle features, see [Four-level hierarchy](#four-level-hierarchy). Organizations that require centralized collaboration and content discovery can leverage the [OneLake catalog](/fabric/governance/onelake-catalog-overview), which surfaces a unified discovery and governance experience over the Tenant's OneLake data access layer and enables users to find and interact with content from familiar tools such as Microsoft Teams and Excel.
 - **Each level influences application lifecycle choices.** Features such as [deployment pipelines](/fabric/cicd/deployment-pipelines/intro-to-deployment-pipelines) and [lifecycle management](/fabric/cicd/cicd-overview) require separate workspaces, so they aren't available in single-workspace patterns. Similarly, organizations that use [domains](/fabric/governance/domains) to group workspaces can delegate domain-level administration without granting tenant-admin privileges, which affects how teams manage releases and governance across business units.
 
 ### Common patterns across all deployments
@@ -200,7 +200,7 @@ When you provision multiple Fabric capacities with their own workspaces, the fol
 - [Capacity limitations](/fabric/enterprise/licenses#capacity-license) that are associated with a specific SKU apply, but you can scale CUs by provisioning separate capacities.
 - All Fabric items in all workspaces in the tenant and their certification statuses can be discovered by using the [OneLake catalog](/fabric/governance/onelake-catalog-overview).
 - Domains can group workspaces together so that a single business unit can operate and manage multiple workspaces.
-- [OneLake shortcuts](/fabric/onelake/onelake-shortcuts) reduce data movement and data duplication across workspaces.
+- [OneLake shortcuts](/fabric/onelake/onelake-shortcuts) reduce data movement by eliminating physical copies of data, while enabling controlled, cross‑workspace access through OneLake without transferring ownership of the underlying data.
 
 #### When to choose this pattern
 
