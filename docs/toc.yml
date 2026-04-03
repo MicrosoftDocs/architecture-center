@@ -932,7 +932,7 @@ items:
       - name: Big data
         items:
         - name: Microsoft Fabric deployment patterns
-          href: analytics/architecture/fabric-deployment-patterns.yml
+          href: data-guide/technology-choices/fabric-deployment-patterns.md
     - name: Solution ideas
       items:
       - name: Relational
