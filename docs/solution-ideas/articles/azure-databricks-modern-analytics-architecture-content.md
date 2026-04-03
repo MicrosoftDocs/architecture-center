@@ -72,7 +72,7 @@ The following data flow corresponds to the previous diagram:
 
     To load your Power BI semantic models for higher-performance queries, you can use [Direct Lake mode][Direct Lake] with Azure Databricks mirrored into OneLake. 
 
-1. The solution uses Unity Catalog and Azure services for collaboration, performance, reliability, governance, and security. The following services and capabilities support governance, security, operations, and life cycle management across the platform:
+1. The solution uses Unity Catalog and Azure services for collaboration, performance, reliability, governance, and security. The following services and capabilities support platform governance and management:
 
    - Azure Databricks Unity Catalog provides centralized access control, auditing, lineage, and data discovery capabilities across Azure Databricks workspaces.
 
