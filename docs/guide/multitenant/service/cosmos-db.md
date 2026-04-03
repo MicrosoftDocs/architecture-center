@@ -117,9 +117,9 @@ In the database account per tenant model, each of your tenants' data is stored i
   - **Protection against nosiy neighbor**: By design, any throughput provisioned on a container is dedicated and guaranteed to always be available to that container. These dedicated RU/s are not usable by other containers. Only the shared pool RU/s can be used by any container that needs more throughput.
   - **Autoscaling**: Pools are always autoscale, and you can configure the pool to autoscale between a minimum and maximum RU/s. Pool RU/s have the same unit price as regular RU/s you provision on a container, so shifting usage to a shared pool helps you save costs.
  
-  - Use Azure Cosmos DB fleet analytics.
+  - Use Azure Cosmos DB fleet analytics. You should enable fleet analytics for your fleet to monitor usage and track historical trends across tenants.
 
-    You should enable fleet analytics for your fleet to monitor usage and track historical trends across tenants. Fleet analytics streams usage and cost data for every database account, database, and container within the fleet to either Microsoft Fabric or an Azure Storage account, enabling long-term analysis of accounts within your fleet. You use this to track trends like which accounts are most active, how resources scale over time, and when access keys were last rotated. The raw telemetry data is also available to allow you to write custom queries or build Power BI dashboards to analyze your tenants' usage data.
+    Fleet analytics streams usage and cost data for every database account, database, and container within the fleet to either Microsoft Fabric or an Azure Storage account, enabling long-term analysis of accounts within your fleet. You use this to track trends like which accounts are most active, how resources scale over time, and when access keys were last rotated. The raw telemetry data is also available to allow you to write custom queries or build Power BI dashboards to analyze your tenants' usage data.
 
 - **Security features:** The account per tenant model provides increased data access security isolation via [Azure role-based access control (RBAC)](/azure/cosmos-db/role-based-access-control). This is also the only model that provides tenant level security isolation through [customer-managed keys](/azure/cosmos-db/how-to-setup-customer-managed-keys).
  
