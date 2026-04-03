@@ -301,7 +301,7 @@ Principal author:
 [Email address for information on migrating legacy systems to Azure]: mailto:legacy2azure@microsoft.com
 [Load Balancing pricing]: https://azure.microsoft.com/pricing/details/load-balancer/
 [Mainframe rehosting on Azure virtual machines]: /azure/virtual-machines/workloads/mainframe-rehosting/overview
-[managed disks pricing]: https://azure.microsoft.com/pricing/details/managed-disks/
+[Managed disks pricing]: https://azure.microsoft.com/pricing/details/managed-disks/
 [Micro Focus]: https://www.microfocus.com/home
 [Modernize mainframe & midrange data]: /azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure
 [Overview of the performance efficiency pillar]: /azure/architecture/framework/scalability/overview
