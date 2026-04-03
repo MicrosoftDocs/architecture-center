@@ -142,7 +142,7 @@ This architecture uses the following components:
 
 ## Scenario details
 
-Unisys Dorado mainframe systems are full-featured operating environments. You can scale them up vertically to handle mission-critical workloads. But emulating or modernizing these systems into Azure can provide similar or better performance and SLA guarantees. Azure systems also offer added flexibility, reliability, and the benefit of future capabilities.
+Unisys Dorado mainframe systems are full-featured operating environments. You can scale them up vertically to handle mission-critical workloads. But emulating or modernizing these systems into Azure can provide similar or better performance and SLA commitments. Azure systems also offer added flexibility, reliability, and the benefit of future capabilities.
 
 This architecture uses emulation technology from two Microsoft partners, [Astadia][Astadia] and [Micro Focus][Micro Focus]. The solution provides an accelerated way to move to Azure. There's no need for these steps:
 

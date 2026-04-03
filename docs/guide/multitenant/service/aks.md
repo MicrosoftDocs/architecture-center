@@ -285,7 +285,7 @@ You can implement different variations of this tenancy model. For example, you c
 
 - **Standard tier:** Each tenant has a dedicated Kubernetes application that runs in a separate namespace. This approach provides isolation for security, networking, and resource consumption. Each tenant application shares the same AKS cluster and node pool with other Standard-tier tenants.
 
-- **Premium tier:** Each tenant application runs in a dedicated node pool or AKS cluster. This approach guarantees a higher SLA, better performance, and stronger isolation. Cost is based on the number and SKU of agent nodes that host the tenant application. To isolate distinct tenant workloads, [pod sandboxing](#pod-sandboxing) provides an alternative to dedicated clusters or node pools.
+- **Premium tier:** Each tenant application runs in a dedicated node pool or AKS cluster. This approach provides a higher SLA, better performance, and stronger isolation. Cost is based on the number and SKU of agent nodes that host the tenant application. To isolate distinct tenant workloads, [pod sandboxing](#pod-sandboxing) provides an alternative to dedicated clusters or node pools.
 
 The following diagram shows a scenario where tenants A and B run on a shared AKS cluster, and tenant C runs on a separate AKS cluster.
 
