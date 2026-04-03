@@ -250,7 +250,7 @@ Use [Unified Catalog health management](/purview/unified-catalog-data-health-man
 
 ### Platform services
 
-Fabric supports several [deployment patterns](/azure/architecture/analytics/architecture/fabric-deployment-patterns) that help organizations align their data architecture with business needs, governance models, and performance requirements. These patterns are defined at the tenant, capacity, workspace, and item levels of deployment. Each pattern provides different trade-offs in scalability, isolation, cost, and operational complexity.
+Fabric supports several [deployment patterns](/azure/architecture/data-guide/technology-choices/fabric-deployment-patterns) that help organizations align their data architecture with business needs, governance models, and performance requirements. These patterns are defined at the tenant, capacity, workspace, and item levels of deployment. Each pattern provides different trade-offs in scalability, isolation, cost, and operational complexity.
 
 The design incorporates several foundational Azure services. Microsoft Entra ID provides identity services, single sign-on (SSO), and multifactor authentication across Azure workloads. Cost Management delivers financial governance for your Azure workloads. Key Vault manages credentials and certificates securely. When you configure a [key vault in Fabric](/fabric/data-factory/azure-key-vault-reference-overview), you can retrieve credentials and certificates from the Key Vault service. Use these credentials to access data stores that don't support integrated authentication, like on-premises or external sources.
 
