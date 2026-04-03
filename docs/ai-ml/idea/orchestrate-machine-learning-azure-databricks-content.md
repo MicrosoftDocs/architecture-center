@@ -104,7 +104,7 @@ You can tailor this solution to your Azure infrastructure. Consider the followin
 
 - Integrate with your existing CI/CD tooling via Git and Azure Databricks REST APIs.
 
-- Use [Microsoft Fabric](/fabric/data-science/machine-learning-model) as an alternative service for machine learning capabilities. Fabric provides integrated workloads for data engineering (lakehouses with Apache Spark), data warehousing, and OneLake for unified storage.
+- Adopt [Microsoft Fabric](/fabric/data-science/machine-learning-model) to enhance MLOps by delivering machine learning and data science capabilities within a unified analytics platform. Fabric combines Apache Spark‑based data engineering, OneLake lakehouse storage, and Power BI. This approach reduces operational complexity and improves enterprise alignment.
 
 ## Scenario details
 
@@ -169,6 +169,7 @@ Principal authors:
 
 Other contributors:
 
+- [Brijesh Kachalia](https://www.linkedin.com/in/brijeshkachalia/) | Cloud Solution Architect, Cloud & AI
 - [Rodrigo Rodríguez](https://www.linkedin.com/in/rod2k10/) | Senior Cloud Solution Architect, AI & Quantum
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*

@@ -431,7 +431,7 @@ items:
     href: patterns/compensating-transaction.yml
   - name: Competing Consumers
     displayName: Worker pool, parallel message processing
-    href: patterns/competing-consumers.yml
+    href: patterns/competing-consumers.md
   - name: Compute Resource Consolidation
     href: patterns/compute-resource-consolidation.md
   - name: CQRS

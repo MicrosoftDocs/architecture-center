@@ -156,7 +156,7 @@ Other contributors:
 For more information about messaging design patterns, see the following resources:
 
 - [Claim-Check pattern](../../../patterns/claim-check.yml)
-- [Competing Consumers pattern](../../../patterns/competing-consumers.yml)
+- [Competing Consumers pattern](../../../patterns/competing-consumers.md)
 - [Event Sourcing pattern](../../../patterns/event-sourcing.md)
 - [Pipes and Filters pattern](../../../patterns/pipes-and-filters.yml)
 - [Publisher-Subscriber pattern](../../../patterns/publisher-subscriber.md)
