@@ -16,6 +16,7 @@ This article describes features of Azure Cosmos DB that you can use for multiten
 ## Multitenancy requirements
 
 When you plan a multitenant solution, you have two key requirements:
+
 - Ensure security and performance isolation between tenants. As the provider, meet security requirements and ensure good performance per tenant.
 - Maintain a low cost per tenant. As the provider, ensure that the cost to run the application remains sustainable as it scales.
 
@@ -37,7 +38,7 @@ However, in B2B models, providers often sell different SKUs corresponding to dif
 In a partition key per tenant model, all the data for your tenants is stored in the same Azure Cosmos DB container, often using a partition key like `/TenantId`. All the throughput (RU/s) of the container is shared by the tenants.
 
 > [!NOTE]
-> A *request unit* (RU) is a logical abstraction of the cost of a database operation or query. Typically, you provision a defined number of request units per second (RU/s) for your workload, which is referred to as *throughput*. 
+> A *request unit* (RU) is a logical abstraction of the cost of a database operation or query. Typically, you provision a defined number of request units per second (RU/s) for your workload, which is referred to as *throughput*.
 
 ### Benefits
 
@@ -55,13 +56,13 @@ In a partition key per tenant model, all the data for your tenants is stored in 
 - **Control your throughput:** Explore features that can help control the noisy neighbor problem when you use a partition key to isolate tenants, or if you have multiple workloads using the same shared container.
 
   | Feature | Description |
-  |---|---|
+  | :--- | :--- |
   | [Burst capacity](/azure/cosmos-db/burst-capacity) | Take advantage of the container's unused capacity in the last five minutes to cover future spikes. |
   | [Priority based execution](/azure/cosmos-db/priority-based-execution) | Specify high or low priority at a per-request level. When there's contention on RU/s at the container, high priority requests are prioritized. Useful when you have multiple workloads with different performance requirements, such as a batch job versus an API that serves real-time user requests. |
   | [Throughput buckets (preview)](/azure/cosmos-db/throughput-buckets) | Assign a set percentage of RU/s that a set of requests can consume. For example, you can configure that requests from a batch job can only consume up to 10% of the container's total RU/s, while a critical user facing API can consume up to 100% of the container's total RU/s. |
   | [Throughput redistribution (preview)](/azure/cosmos-db/nosql/distribute-throughput-across-partitions) | Use this API to assign more RU/s to hot physical partitions. |
 
-- **Hierarchical partition keys:** For read-heavy workloads where your most common queries are by tenant, it is recommended to use [hierarchical partition keys](/azure/cosmos-db/hierarchical-partition-keys). 
+- **Hierarchical partition keys:** For read-heavy workloads where your most common queries are by tenant, it is recommended to use [hierarchical partition keys](/azure/cosmos-db/hierarchical-partition-keys).
 
   - **Achieve unlimited storage per tenant**: By setting `/TenantId` as your first level key and a high cardinality field, such as `/id` as your second level key, you can guarantee that you can have unlimited storage per tenant. If you have an additional hierarchy in your workload, such as storing data per users in each tenant, you can set `/TenantId` as your first level, `/UserId` as your second level, and a last level of `/id` to guarantee unlimited storage for each user in a tenant.
 
@@ -70,20 +71,23 @@ In a partition key per tenant model, all the data for your tenants is stored in 
 
     - **Efficient queries**: Queries that specify /TenantId, or both /TenantId and /UserId, are efficiently routed only to the subset of physical partitions that contains the relevant data, which avoids a full fan-out query. If the container has 1,000 physical partitions but a specific `TenantId` value is only on five physical partitions, the query is routed to the smaller number of relevant physical partitions.
 
-      When to use hierarchical partition keys:
+  - When to use hierarchical partition keys:
 
-      - Hierarchical partition keys work best when you have high cardinality of values and uniform distribution of request volumes for your first level keys.
-      - In a multitenant setting, this means that you should have a high number of tenants (ideally in the order of hundreds to thousands of tenants or higher) and your tenants should roughly have a similar usage pattern.
-      - If you have a small number of tenants, for example, 10 tenants, or a skewed workload where a single tenant consistently consumes 10x the RU/s as your other tenants, even with hierarchical partition keys, you may have a hot partition and possible degraded performance.
+    - Hierarchical partition keys work best when you have high cardinality of values and uniform distribution of request volumes for your first level keys.
 
-      When not to use hierarchical partition keys:
+    - In a multitenant setting, this means that you should have a high number of tenants (ideally in the order of hundreds to thousands of tenants or higher) and your tenants should roughly have a similar usage pattern.
 
-      - For these workloads where you do not have high cardinality per tenant or need to optimize for write performance, it is recommended to use synthetic partition keys or partition just by `/id`. Both these approaches will allow you to spread writes evenly across all physical partitions.
-      - The main advantage of a synthetic key over id is if you're able to construct the key in a way that still allows you to optimize for some queries - for example, a synthetic key of TenantId_UserId will have a slight trade-off in perfectly even distribution of data across all partitions, but will allow you to do efficient queries if you specify both the TenantId_UserId. 
+    - If you have a small number of tenants, for example, 10 tenants, or a skewed workload where a single tenant consistently consumes 10x the RU/s as your other tenants, even with hierarchical partition keys, you may have a hot partition and possible degraded performance.
 
-        However, if your workload needs to optimize for write throughput, running queries may not be relevant, and you can partition by just `/id` to simplify your workload.
+  - When not to use hierarchical partition keys:
 
-      - Finally, if you find you have a small number of tenants that are much larger and have consistently higher request volumes than others, you may consider isolating that tenant into its own database account, while keeping the remaining tenants in a shared container.
+    - For these workloads where you do not have high cardinality per tenant or need to optimize for write performance, it is recommended to use synthetic partition keys or partition just by `/id`. Both these approaches will allow you to spread writes evenly across all physical partitions.
+
+    - The main advantage of a synthetic key over id is if you're able to construct the key in a way that still allows you to optimize for some queries - for example, a synthetic key of TenantId_UserId will have a slight trade-off in perfectly even distribution of data across all partitions, but will allow you to do efficient queries if you specify both the TenantId_UserId.
+
+      However, if your workload needs to optimize for write throughput, running queries may not be relevant, and you can partition by just `/id` to simplify your workload.
+
+    - Finally, if you find you have a small number of tenants that are much larger and have consistently higher request volumes than others, you may consider isolating that tenant into its own database account, while keeping the remaining tenants in a shared container.
 
 ## Database account per tenant model (recommended)
 
@@ -110,31 +114,31 @@ In the database account per tenant model, each of your tenants' data is stored i
   - Many providers create a fleet for each region they operate in and further separate the tenants into fleetspaces based on tenant performance requirements, or "class of tenant."
 
     For example, for their East US 2 fleet, a provider might create one fleetspace for accounts belonging to tenants using a free trial (less pool RU/s required) and another fleetspace for accounts belonging to tenants who have signed an enterprise agreement (more RU/s required).
+
   - These pools let you share RU/s across multiple accounts, even if they span different subscriptions and resource groups within a fleet. While the resources in each account retain its own dedicated RU/s, pools allow accounts to automatically use extra RU/s when needed from the shared pool. This helps avoid overprovisioning. 
 
     Rather than provisioning every tenant's containers for peak RU/s, which can be expensive, you can set a typical RU/s per container and use the pool's shared capacity to handle any spikes.
 
   - **Protection against nosiy neighbor**: By design, any throughput provisioned on a container is dedicated and guaranteed to always be available to that container. These dedicated RU/s are not usable by other containers. Only the shared pool RU/s can be used by any container that needs more throughput.
+
   - **Autoscaling**: Pools are always autoscale, and you can configure the pool to autoscale between a minimum and maximum RU/s. Pool RU/s have the same unit price as regular RU/s you provision on a container, so shifting usage to a shared pool helps you save costs.
- 
+
   - Use Azure Cosmos DB fleet analytics. You should enable fleet analytics for your fleet to monitor usage and track historical trends across tenants.
 
     Fleet analytics streams usage and cost data for every database account, database, and container within the fleet to either Microsoft Fabric or an Azure Storage account, enabling long-term analysis of accounts within your fleet. You use this to track trends like which accounts are most active, how resources scale over time, and when access keys were last rotated. The raw telemetry data is also available to allow you to write custom queries or build Power BI dashboards to analyze your tenants' usage data.
 
 - **Security features:** The account per tenant model provides increased data access security isolation via [Azure role-based access control (RBAC)](/azure/cosmos-db/role-based-access-control). This is also the only model that provides tenant level security isolation through [customer-managed keys](/azure/cosmos-db/how-to-setup-customer-managed-keys).
- 
-- **Custom configuration:** You can configure the location of the database account according to the tenant's requirements. You can also tune the configuration of Azure Cosmos DB features, such as geo-replication and customer-managed encryption keys, to suit each tenant's requirements.
 
+- **Custom configuration:** You can configure the location of the database account according to the tenant's requirements. You can also tune the configuration of Azure Cosmos DB features, such as geo-replication and customer-managed encryption keys, to suit each tenant's requirements.
 
 - When you use a dedicated Azure Cosmos DB account per tenant, consider the [maximum number of Azure Cosmos DB accounts per Azure subscription](/azure/cosmos-db/concepts-limits#resource-limits).
 
 - **Control your throughput:** Explore features that can help if you have multiple workloads using the same database accounts.
 
   | Feature | Description |
-  |---|---|
+  | :--- | :--- |
   | [Priority based execution](/azure/cosmos-db/priority-based-execution) | Specify high or low priority at a per-request level. When there's contention on RU/s at the container level, high priority requests are prioritized. Useful when you have multiple workloads with different performance requirements, such as a batch job versus an API that serves real-time user requests. |
   | [Throughput buckets (preview)](/azure/cosmos-db/throughput-buckets) | Assign a set percentage of RU/s that a set of requests can consume. For example, you can configure that requests from a batch job can only consume up to 10% of the container's total RU/s, while a critical user facing API can consume up to 100% of the container's total RU/s. |
-
 
 ## Summary of recommended isolation models
 
