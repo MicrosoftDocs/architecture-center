@@ -44,7 +44,7 @@ This solution uses the following components.
 
 - [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) is a connectivity service that extends on-premises networks into Azure through a connectivity provider. In this architecture, ExpressRoute provides a secure private connection to transfer data definition files and extraction scripts between the mainframe and Azure.
 
-- [Microsoft Entra ID](/entra/fundamentals/whatis) is an identity and access management service that can sync with an on-premises directory. In this architecture, Microsoft Entra ID provides authentication and access control for the mLogica data migration cluster and Azure resources.
+- [Microsoft Entra ID](/entra/fundamentals/what-is-entra) is an identity and access management service that can sync with an on-premises directory. In this architecture, Microsoft Entra ID provides authentication and access control for the mLogica data migration cluster and Azure resources.
 
 #### Compute
 
@@ -52,7 +52,7 @@ This solution uses the following components.
 
 #### Databases and storage
 
-- [Azure SQL](/azure/azure-sql/), [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql), and [Azure Database for MySQL](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) are fully managed platform as a service (PaaS) services for SQL Server, PostgreSQL, and MySQL respectively. In this architecture, these services provide high-performance, highly available options for mainframe relational data, emulated nonrelational data, and emulated Virtual Storage Access Method (VSAM) data.
+- [Azure SQL](/azure/azure-sql/), [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql), and [Azure Database for MySQL](/azure/well-architected/service-guides/azure-database-for-mysql) are fully managed platform as a service (PaaS) services for SQL Server, PostgreSQL, and MySQL respectively. In this architecture, these services provide high-performance, highly available options for mainframe relational data, emulated nonrelational data, and emulated Virtual Storage Access Method (VSAM) data.
 
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a fully managed NoSQL database service that provides low latency and elastic scalability. In this architecture, it migrates nonrelational mainframe sources like Information Management System (IMS), Integrated Database Management System (IDMS), and Adaptable Database System (ADABAS).
 
@@ -60,7 +60,7 @@ This solution uses the following components.
 
 #### Monitoring
 
-- [Azure Monitor](/azure/azure-monitor/overview) is a monitoring platform that collects, analyzes, and acts on telemetry from cloud and on-premises environments. In this architecture, Azure Monitor monitors the mLogica data migration cluster and supports proactive alerting.
+- [Azure Monitor](/azure/azure-monitor/fundamentals/overview) is a monitoring platform that collects, analyzes, and acts on telemetry from cloud and on-premises environments. In this architecture, Azure Monitor monitors the mLogica data migration cluster and sets up alerts for proactive management.
 
   - [Application Insights](/azure/well-architected/service-guides/application-insights) is an Azure Monitor feature that monitors application performance by collecting and analyzing telemetry. In this architecture, Application Insights monitors the mLogica data migration cluster for performance insights and diagnostics.
 
@@ -96,11 +96,11 @@ Follow these general recommendations unless you have a specific requirement that
 
 - Use Azure Monitor and [Application Insights](/azure/azure-monitor/app/app-insights-overview) to monitor the mLogica data migration cluster. Set up alerts for proactive management.
 
-For more information, see [Design reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
+For more information, see [Design reliable Azure applications](/azure/well-architected/reliability/checklist).
 
 #### Availability
 
-This workflow describes mainframe-to-Azure data migration to replatform, refactor, or archive a workload. You typically run this discrete task a few times during a month-long project. This scenario doesn't require high availability, but you can design the mLogica data migration cluster for high availability.
+This example workflow describes mainframe-to-Azure data migration to replatform, refactor, or archive a workload. You typically run this discrete task a few times during a month-long project. This scenario doesn't require high availability, but you can design the mLogica data migration cluster to provide high availability.
 
 Azure database services support zone redundancy. You can set up failover for outages and maintenance windows.
 
@@ -136,7 +136,7 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 - Use [Azure Advisor](https://azure.microsoft.com/products/advisor) to find underused resources. Get recommendations on how to reconfigure or consolidate resources to reduce your spending.
 
-- Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate Azure component costs for this solution.
+- Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate Azure component costs for this solution.
 
 ### Operational Excellence
 
