@@ -176,7 +176,7 @@ Principal author:
 
 ## Next steps
 
-Review the [Azure Database Migration Guides](/data-migration).
+Review the [Azure database migration guides](/data-migration).
 
 For more information, contact [Azure Data Engineering - Mainframe & Midrange Modernization](mailto:datasqlninja@microsoft.com).
 
@@ -192,4 +192,4 @@ For more information, contact [Azure Data Engineering - Mainframe & Midrange Mod
 - [Analytics end-to-end with Microsoft Fabric](../dataplate2e/data-platform-end-to-end.yml)
 - [Modernize mainframe and midrange data](modernize-mainframe-data-to-azure.yml)
 - [Rehost ADABAS and Natural applications in Azure](rehost-adabas-software-ag.yml)
-- [Rehost a general mainframe on Azure](mainframe-rehost-architecture-azure.yml)
+
