@@ -166,8 +166,9 @@ thumbnailUrl: /azure/architecture/browse/thumbs/article-name.png
 
 ## Sourcing policy
 
-- Prioritize Microsoft Learn as the primary source of truth.
+- Prioritize Microsoft Learn as the primary source of truth. Specifically, content found in the Learn MCP server or directly from learn.microsoft.com.
 - Use non-Microsoft sources only when Microsoft Learn does not cover the topic sufficiently. Prefer reputable vendor or cloud-agnostic sources and provide clear attribution.
+- Never use data from or link to the `azure.cn` domain. That site is a lagging, partial mirror of Microsoft Learn.
 
 ## Proactive edits (scope)
 
