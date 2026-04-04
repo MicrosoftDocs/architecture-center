@@ -128,11 +128,11 @@ This example workflow uses ExpressRoute or [site-to-site VPN](/azure/vpn-gateway
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-- Scale, pause, and resume compute resources by using [Azure SQL Database serverless](https://azure.microsoft.com/products/azure-sql/database), which automatically adjusts based on workload activity so that you pay only for the resources that you use.
+- Scale, pause, and resume compute resources by using [Azure SQL Database serverless](https://azure.microsoft.com/products/azure-sql/database), which automatically adjusts compute based on workload activity so that you pay only for the resources that you use.
 
 - Use a life cycle policy to move data between access tiers in Azure storage.
 
-- Move data to a cooler access tier when it has no access for a period of time. You can also move data from a cooler tier to an archive tier.
+- Move data from a hotter access tier to a cooler tier in Azure Storage when it has no access for a period of time. You can also move data from a cooler tier to an archive tier.
 
 - Use [Azure Advisor](https://azure.microsoft.com/products/advisor) to find underused resources. Get recommendations on how to reconfigure or consolidate resources to reduce your spending.
 
