@@ -18,7 +18,7 @@ ai-usage: ai-assisted
 Natural language processing (NLP) encompasses techniques for analyzing, understanding, and generating human language from text data. Azure provides managed API-driven services and distributed open-source frameworks that address NLP workloads ranging from sentiment analysis and entity recognition to document classification and text summarization. This guide helps you evaluate and choose between the primary NLP options on Azure so you can match the right technology to your workload requirements.
 
 > [!NOTE]
-> This guide focuses on NLP capabilities available through [Azure Language in Foundry Tools](/azure/ai-services/language-service/overview) and Apache Spark with Spark NLP on [Azure Databricks](/azure/databricks/introduction) or [Microsoft Fabric](/fabric/data-engineering/spark-compute). It doesn't cover large language model (LLM) selection or Azure OpenAI Service scenarios. For guidance on choosing AI services more broadly, see [Choose an Azure AI services technology](/azure/architecture/data-guide/technology-choices/ai-services).
+> This guide focuses on NLP capabilities available through [Azure Language in Foundry Tools](/azure/ai-services/language-service/overview) and Apache Spark with Spark NLP on [Azure Databricks](/azure/databricks/introduction) or [Microsoft Fabric](/fabric/data-engineering/spark-compute). It doesn't provide guidance for selecting large language models (LLMs) or designing Azure OpenAI Service solutions. Some platform descriptions might reference supported foundation-model or speech-model integrations as implementation details, but this guide remains focused on NLP service selection. For guidance on choosing AI services more broadly, see [Choose an Azure AI services technology](/azure/architecture/data-guide/technology-choices/ai-services).
 
 ## Understand NLP and language models
 
@@ -158,7 +158,6 @@ Apache Spark with Spark NLP is a distributed, open-source approach to NLP that o
 - **[Public benchmarks](https://sparknlp.org/) show significant speed improvements over other NLP libraries.** Compared to frameworks like spaCy and NLTK, Spark NLP demonstrates faster training and inference on distributed clusters. Custom models trained with Spark NLP deliver accuracy on par with other NLP frameworks, making it suitable for production workloads that require both speed and precision.
 
 - **Optimized builds for CPUs, GPUs, and Intel Xeon chips fully utilize Spark clusters.** These builds enable training and inference to scale efficiently across cluster nodes.
-- **Llama 3.x and OpenAI Whisper integration enhances conversational interfaces and multilingual speech recognition.** Llama 3.x models provide advanced language generation capabilities, and OpenAI Whisper adds multilingual speech-to-text processing for conversational AI scenarios.
 
 - **MPNet embeddings and ONNX support enable precise, context-aware processing.** MPNet produces dense vector representations that capture semantic meaning, and [ONNX support](https://sparknlp.org/docs/en/concepts#onnx-support) lets you import and run optimized models for inference.
 
