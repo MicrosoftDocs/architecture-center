@@ -75,7 +75,7 @@ A [NAT gateway v2](/azure/virtual-network/nat-gateway/nat-overview) is a service
 
 Depending on your requirements, you might be able to use the NAT gateway as an alternative to the central firewall, for all or most outbound connections. By doing so, you can reduce load on the central firewall while communicating with NSG-allowed public endpoints. You also get outbound IP control, because you can configure destination firewall rules on a set IP of the NAT gateway. Examples include reaching Azure public endpoints that are used by public services or third-party interfaces.
 
-For a high-availability configuration, keep in mind that NAT gateway v2 needs to be deployed to achieve [cross zonal resiliency](/azure/nat-gateway/faq#how-does-a-nat-gateway-work-with-availability-zones).
+For a high-availability configuration, keep in mind that NAT gateway v2 needs to be deployed to achieve [cross-zone resiliency](/azure/nat-gateway/faq#how-does-a-nat-gateway-work-with-availability-zones).
 
 ### Use of network components across an SAP landscape
 
@@ -140,7 +140,7 @@ Keep in mind that you need to secure the SAP Web Dispatcher in any situation, ev
 
 #### Azure Firewall and Application Gateway
 
-All web traffic provided by Application Gateway is HTTPS-based and encrypted with the provided TLS certificate. You can use Azure Firewall as an entry point to the corporate network, via its public IP, and then route SAP Fiori traffic from the firewall to Application Gateway through an internal IP address. For more information, see [Azure Firewall in front of Application Gateway](../../example-scenario/gateway/firewall-application-gateway.yml#azure-firewall-in-front-of-application-gateway-design). Because the TCP/IP layer-7 encryption is already in place via TLS, there's limited benefit to using  a firewall in this scenario, and you can't perform packet inspection. Fiori communicates through the same external IP address for both inbound and outbound traffic, which typically isn't required for SAP Fiori deployments.
+All web traffic provided by Application Gateway is HTTPS-based and encrypted with the provided TLS certificate. You can use Azure Firewall as an entry point to the corporate network, via its public IP, and then route SAP Fiori traffic from the firewall to Application Gateway through an internal IP address. For more information, see [Azure Firewall in front of Application Gateway](../../example-scenario/gateway/firewall-application-gateway.md#azure-firewall-in-front-of-application-gateway-design). Because the TCP/IP layer-7 encryption is already in place via TLS, there's limited benefit to using  a firewall in this scenario, and you can't perform packet inspection. Fiori communicates through the same external IP address for both inbound and outbound traffic, which typically isn't required for SAP Fiori deployments.
 
 There are some benefits of a tandem Application Gateway and layer-4 firewall deployment:
 
@@ -247,5 +247,5 @@ Consider using these communities to get answers to questions and for help with s
 ## Related resources
 
 - [SAP workloads on Azure: planning and deployment checklist](/azure/virtual-machines/workloads/sap/sap-deployment-checklist?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
-- [Run SAP NetWeaver in Windows on Azure](./sap-netweaver.yml)
+- [Run SAP NetWeaver in Windows on Azure](./sap-netweaver.md)
 - [SAP S/4HANA in Linux on Azure](./sap-s4hana.md)

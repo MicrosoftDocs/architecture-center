@@ -166,7 +166,7 @@ Reliability helps ensure that your application can meet the commitments that you
 
   - The SQL Server Always On availability group replicas in the secondary region use [asynchronous commit with manual failover](/azure/azure-sql/virtual-machines/windows/availability-group-manually-configure-multi-subnet-multiple-regions). Because the commit mode is asynchronous, the secondary region might not receive some committed transactions during a regional outage, so plan for potential data loss. Define your recovery point objective (RPO) and test whether the replication lag under your workload's write volume remains within that target. Failover to the secondary region is a manual operation that requires an operator or runbook to promote the asynchronous replica.
 
-- **Zonal resiliency:** This architecture deploys Application Gateway, Azure Firewall, Load Balancer, and Virtual Machine Scale Sets across multiple [availability zones](/azure/reliability/availability-zones-overview) within each region to provide resiliency against datacenter-level failures.
+- **Zone resiliency:** This architecture deploys Application Gateway, Azure Firewall, Load Balancer, and Virtual Machine Scale Sets across multiple [availability zones](/azure/reliability/availability-zones-overview) within each region to provide resiliency against datacenter-level failures.
 
 - **Virtual Machine Scale Sets:** Flexible orchestration distributes VM instances across fault domains within each availability zone, which reduces the blast radius of a single host failure. It also provides the per-VM placement control that the [multi-subnet SQL Server availability group](/azure/azure-sql/virtual-machines/windows/hadr-cluster-best-practices) configuration requires.
 
@@ -182,7 +182,7 @@ Reliability helps ensure that your application can meet the commitments that you
 
 To maintain reliable traffic flow through Application Gateway, follow these practices:
 
-- Rely on the platform to distribute instances across fault domains and update domains. In regions that support availability zones, Application Gateway is zone redundant by default, so instances also span availability zones for zonal fault tolerance.
+- Rely on the platform to distribute instances across fault domains and update domains. In regions that support availability zones, Application Gateway is zone redundant by default, so instances also span availability zones for zone fault tolerance.
 
 - Turn on autoscaling and set the minimum instance count to at least two. This reserved capacity ensures that Application Gateway can serve traffic without the three-to-five-minute delay to provision new instances. For more information, see [Application Gateway autoscaling](/azure/application-gateway/application-gateway-autoscaling-zone-redundant).
 
@@ -258,7 +258,7 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 - **Multiregion baseline cost:** This architecture deploys a full infrastructure stamp in each region, including Virtual Machine Scale Sets across three tiers, Application Gateway, Azure Firewall Premium, and load balancers. The secondary region incurs cost whether it serves traffic or not. In an active-passive configuration, scale the secondary region's Virtual Machine Scale Sets instances to the minimum required for a timely failover rather than run them at full production capacity.
 
-- **VMs:** VMs are the primary cost driver because every tier in both regions runs compute continuously. Use [Azure Reserved Virtual Machine Instances](/azure/virtual-machines/prepay-reserved-vm-instances) or [Azure savings plans for compute](/azure/cost-management-billing/savings-plan/savings-plan-compute-overview). Reserved instances work well for the minimum always-on capacity, while savings plans provide flexibility if VM sizes change over time.
+- **VMs:** VMs are the primary cost driver because every tier in both regions runs compute continuously. Use [Azure Reserved Virtual Machine Instances](/azure/virtual-machines/prepay-reserved-vm-instances) or [Azure savings plans for compute](/azure/cost-management-billing/savings-plan/savings-plan-overview). Reserved instances work well for the minimum always-on capacity, while savings plans provide flexibility if VM sizes change over time.
 
 - **Azure Firewall Premium:** Azure Firewall Premium has a fixed per-deployment-unit hourly charge plus variable per-gigabyte (GB) processing fees, and it runs in both regions. If your workload doesn't require intrusion detection and prevention system (IDPS) or TLS inspection, determine whether [Azure Firewall Standard](/azure/firewall/choose-firewall-sku) meets your security requirements at a lower price point.
 
