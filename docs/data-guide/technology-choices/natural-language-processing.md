@@ -1,122 +1,255 @@
 ---
-title: Natural Language Processing Technology
-description: Choose a natural language processing service for sentiment analysis, topic and language detection, key phrase extraction, and document categorization.
-author: jessica-writes-code
-ms.author: moorejessica
-ms.date: 02/10/2025
+title: Choose a natural language processing technology
+description: Choose a natural language processing technology for sentiment analysis, topic and language detection, key phrase extraction, and document categorization.
+author: ogkranthi
+ms.author: kmanchikanti
+ms.reviewer: ananyagc5
+ms.date: 02/24/2026
 ms.update-cycle: 180-days
 ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: architecture-guide
 ms.custom: arb-aiml
+ai-usage: ai-assisted
 ---
 
-# Natural language processing technology
+# Choose a natural language processing technology
 
-Natural language processing has many applications, such as sentiment analysis, topic detection, language detection, key phrase extraction, and document categorization.
-
-Specifically, you can use natural language processing to:
-
-- Classify documents. For example, you can label them as sensitive or spam.
-- Conduct subsequent processing or searches by using natural language processing outputs.
-- Summarize text by identifying entities in the document.
-- Tag documents with keywords by using identified entities.
-- Conduct content-based search and retrieval by using tags.
-- Summarize a document's key topics by using identified entities.
-- Categorize documents for navigation by using detected topics.
-- Enumerate related documents based on a selected topic.
-- Assess text sentiment to understand its positive or negative tone.
-
-As technology advances, you can use natural language processing to categorize and analyze text data. You can also use it to enhance interpretable AI functions across diverse domains. The integration of language models significantly enhances the capabilities of natural language processing. Language models like GPT and BERT can generate humanlike, contextually aware text. This capability makes them highly effective for complex language processing tasks. They complement existing natural language processing techniques by handling broader cognitive tasks, which improve conversation systems and customer engagement, especially with models like [Databricks' Dolly 2.0](https://github.com/databrickslabs/dolly).
-
-## Relationship and differences between language models and natural language processing
-
-Natural language processing is a comprehensive field that encompasses various techniques for processing human language. In contrast, language models are a specific subset of natural language processing. They focus on deep learning to perform high-level language tasks. Language models enhance natural language processing by providing advanced text generation and understanding capabilities, but they aren't synonymous with natural language processing. Instead, they serve as powerful tools within the broader natural language processing domain by enabling more sophisticated language processing.
+Natural language processing (NLP) encompasses techniques for analyzing, understanding, and generating human language from text data. Azure provides managed API-driven services and distributed open-source frameworks that address NLP workloads ranging from sentiment analysis and entity recognition to document classification and text summarization. This guide helps you evaluate and choose between the primary NLP options on Azure so you can match the right technology to your workload requirements.
 
 > [!NOTE]
-> This article focuses on natural language processing. The relationship between natural language processing and language models demonstrates that language models enhance natural language processing processes through superior language understanding and generation capabilities.
+> This guide focuses on NLP capabilities available through [Azure Language in Foundry Tools](/azure/ai-services/language-service/overview) and Apache Spark with Spark NLP on [Azure Databricks](/azure/databricks/introduction) or [Microsoft Fabric](/fabric/data-engineering/spark-compute). It doesn't cover large language model (LLM) selection or Azure OpenAI Service scenarios. For guidance on choosing AI services more broadly, see [Choose an Azure AI services technology](/azure/architecture/data-guide/technology-choices/ai-services).
 
-## Potential use cases
+## Understand NLP and language models
 
-Business scenarios that can benefit from custom natural language processing include:
+Before evaluating Azure services, understand what NLP is, how it differs from language models, and what tasks it addresses. 
 
-- Document intelligence for handwritten or machine-created documents in finance, healthcare, retail, government, and other sectors.
+### Distinguish NLP from language models
 
-- Industry-agnostic natural language processing tasks for text processing, such as named-entity recognition (NER), classification, summarization, and relation extraction. 
+This section clarifies the boundary between NLP and language models, and surveys the core capabilities that NLP techniques enable.
 
-   These tasks help you automatically retrieve, identify, and analyze document information like text and unstructured data. Examples of these tasks include risk stratification models, ontology classification, and retail summarizations.
+| Dimension | NLP | Language models |
+|-----------|-----|-----------------|
+| **Scope** | Broad field covering diverse text-processing techniques including tokenization, stemming, entity recognition, sentiment analysis, and document classification. | A deep-learning subset of NLP focused on high-level language understanding and generation tasks. |
+| **Examples** | Rule-based parsers, TF-IDF classifiers, named entity recognizers, sentiment analyzers. | GPT, BERT, and similar transformer-based models that generate humanlike, contextually aware text. |
+| **Output** | Structured signals: labels, scores, extracted spans, parsed syntax. | Fluent natural language: generated text, summaries, answers, and completions. |
+| **Relationship** | The parent domain. NLP encompasses the full spectrum of text-processing methods. | A tool within NLP. Language models enhance NLP without replacing it — they handle broader cognitive tasks but are not synonymous with NLP itself. |
 
-- Information retrieval and knowledge graph creation for semantic search. This functionality makes it possible to create medical knowledge graphs that support drug discovery and clinical trials.
+### NLP capabilities
 
-- Text translation for conversational AI systems in customer-facing applications across retail, finance, travel, and other industries.
+- **Classify documents by labeling them as sensitive or spam.** NLP automatically categorizes documents based on content to support compliance and filtering workflows.
+- **Summarize text by identifying entities in the document.** Key entities are extracted to produce concise summaries that capture the most important information.
+- **Tag documents with keywords using identified entities.** After identifying entities, you can generate keyword tags that make documents easier to organize. Use these tags for content-based search and retrieval.
+- **Detect topics for navigation and related document discovery.** NLP identifies key topics using extracted entities, enabling document categorization and topic-based navigation.
+- **Assess text sentiment.** Sentiment analysis evaluates the emotional tone of text, classifying content as positive, negative, or neutral.
+- **Feed NLP outputs into downstream workflows.** Results like extracted entities, sentiment scores, and topic labels serve as inputs for processing, search indexing, and analytics.
 
-- Sentiment and enhanced emotional intelligence in analytics, particularly for monitoring brand perception and customer feedback analytics.
+## Identify potential use cases
 
-- Automated report generation. Synthesize and generate comprehensive textual reports from structured data inputs. These tasks help sectors such as finance and compliance where thorough documentation is necessary.
+Business scenarios across many industries benefit from NLP solutions. The following use cases illustrate how NLP techniques address real-world challenges, from processing unstructured documents to enabling emerging applications in cybersecurity and accessibility.
 
-- Voice-activated interfaces that integrate natural language processing for voice recognition and natural conversation capabilities. This integration enhances user interactions in Internet of Things applications and smart device applications.
+### Process documents and unstructured text
 
-- Adaptive language models that can dynamically adjust language output to suit various audience comprehension levels. This capability is crucial for educational content and accessibility improvements.
+- **Extract intelligence from machine-created documents.** NLP enables document processing across finance, healthcare, retail, government, and other sectors. You can analyze digitally created documents to extract structured information from unstructured inputs. For handwritten documents, use [Azure AI Document Intelligence](/azure/ai-services/document-intelligence/overview) to convert handwritten content to text before you apply NLP techniques.
 
-- Cybersecurity text analysis to analyze communication patterns and language usage in real time. This analysis helps you identify potential security threats in digital communication and improve the detection of phishing attempts or misinformation.
+- **Apply industry-agnostic NLP tasks for text processing.** Named-entity recognition (NER), classification, summarization, and relation extraction help you automatically process and analyze unstructured document content. These tasks work across domains without requiring industry-specific customization.
+- **Build domain-specific models for specialized analysis.** Examples of these tasks include risk stratification models for healthcare, ontology classification for knowledge management, and retail summarizations for product and customer data. Custom model training in both [Azure Language in Foundry Tools](/azure/ai-services/language-service/overview) and Spark NLP helps improve accuracy for these domain-specific document formats.
 
-## Apache Spark as a customized natural language processing framework
+- **Generate automated reports from structured data inputs.** You can synthesize and generate comprehensive textual reports from structured data. This capability helps sectors like finance and compliance that require thorough documentation.
 
-Apache Spark is a powerful parallel processing framework that enhances the performance of big-data analytic applications by using in-memory processing. [Microsoft Fabric](/fabric/data-engineering/spark-compute), [Azure HDInsight](/azure/hdinsight/spark/apache-spark-overview), and [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) provide robust access to Spark's processing capabilities. This access helps you run large-scale data operations.
+### Enable search, translation, and analytics
 
-Spark NLP is an efficient framework that can process large volumes of text for customized natural language processing workloads. This open-source library provides extensive functionality by using Python, Java, and Scala libraries. These libraries deliver the sophistication that you can find in prominent natural language processing libraries like spaCy and Natural Language Toolkit. Spark NLP includes advanced features like spell check, sentiment analysis, and document classification. These features help you consistently ensure optimal accuracy and scalability.
+- **Create knowledge graphs and enable semantic search through information retrieval.** NLP powers knowledge graph creation and semantic search, enabling systems that understand query meaning rather than relying on keyword matching alone.
+- **Support drug discovery and clinical trials with medical knowledge graphs.** Medical knowledge graphs built from NLP-processed clinical text support drug discovery pipelines and clinical trial matching. These graphs connect entities like drugs, conditions, and outcomes to accelerate research workflows. [Text Analytics for Health](/azure/ai-services/language-service/text-analytics-for-health/overview) in Azure Language in Foundry Tools extracts medical entities, relations, and assertions that you can use to construct these graphs.
 
-:::image type="content" border="false" source="../images/natural-language-processing-functionality.png" alt-text="Diagram that shows areas of natural language processing functionality, such as entity recognition. Various boxes list natural language processing annotators, models, and supported languages." lightbox="../images/natural-language-processing-functionality.png":::
+- **Translate text for conversational AI in customer-facing applications.** Text translation enables conversational AI across multiple industries. You can build multilingual customer-facing applications that process and respond in the user's preferred language. Spark NLP provides translation capabilities directly. On Azure, use [Azure AI Translator](/azure/ai-services/translator/overview), which is a separate service from Azure Language in Foundry Tools.
+
+- **Analyze sentiment and emotional intelligence for brand perception.** Sentiment analysis helps you monitor brand perception and analyze customer feedback by surfacing positive, negative, and nuanced emotional signals from text.
+
+### Extend NLP to emerging domains
+
+- **Build voice-activated interfaces for IoT and smart devices.** NLP processes the text output of speech recognition systems to understand user intent and extract meaning in IoT and smart device scenarios. Voice-activated scenarios require [Azure AI Speech](/azure/ai-services/speech-service/overview) for speech-to-text conversion before NLP processing.
+
+- **Adjust language output dynamically with adaptive language models.** Adaptive language models dynamically adjust language output to suit different audience comprehension levels, which supports educational content delivery and accessibility.
+- **Detect phishing and misinformation through cybersecurity text analysis.** NLP analyzes communication patterns and language usage in real time to identify potential security threats in digital communication. This analysis helps detect phishing attempts and misinformation campaigns.
+
+## Evaluate Azure Language in Foundry Tools
+
+[Azure Language in Foundry Tools](/azure/ai-services/language-service/overview) is a cloud-based service that provides NLP features for understanding and analyzing text. You can access it through the [Microsoft Foundry portal](https://ai.azure.com), REST APIs, and client libraries for Python, C#, Java, and JavaScript with no infrastructure to manage. For AI agent development, these capabilities are also available through the Azure Language MCP server. You can access it as a remote server in the Microsoft Foundry Tool Catalog or as a local self-hosted server.
+
+### Prebuilt features
+
+Prebuilt features require no model training and work out of the box:
+
+- **[Named Entity Recognition (NER)](/azure/ai-services/language-service/named-entity-recognition/overview).** Identifies and categorizes entities in text into predefined types such as people, organizations, locations, and dates.
+
+- **[PII detection](/azure/ai-services/language-service/personally-identifiable-information/overview?tabs=text-pii).** Identifies and redacts sensitive personal and health information in text and transcribed conversations.
+
+- **[Language detection](/azure/ai-services/language-service/language-detection/overview).** Detects the language a document is written in across a wide range of languages and dialects.
+
+- **[Sentiment analysis and opinion mining](/azure/ai-services/language-service/sentiment-opinion-mining/overview).** Identifies positive, negative, or neutral sentiment in text and links opinions to specific elements such as product attributes or service aspects.
+- **[Key phrase extraction](/azure/ai-services/language-service/key-phrase-extraction/overview).** Evaluates unstructured text and returns a list of main concepts and key phrases.
+
+- **[Summarization](/azure/ai-services/language-service/summarization/overview?tabs=text-summarization).** Condenses documents and conversations using extractive or abstractive approaches, supporting text, chat, and call center summarization.
+- **[Text analytics for health](/azure/ai-services/language-service/text-analytics-for-health/overview?tabs=ner).** Extracts and labels relevant health information from unstructured clinical text, including medical entities, relations, and assertions.
+
+- **[Entity linking](/azure/ai-services/language-service/entity-linking/overview).** Disambiguates entities found in unstructured text by linking them to a structured knowledge base.
+
+> [!IMPORTANT]
+> Entity Linking is retiring from Azure Language in Foundry Tools effective September 1, 2028. Microsoft recommends migrating to Named Entity Recognition or an alternative solution before that date.
+
+### Train custom models
+
+Customizable features let you train models on your own data to handle domain-specific NLP tasks:
+
+- **[Custom NER](/azure/ai-services/language-service/custom-named-entity-recognition/overview).** Build custom models to extract domain-specific entity categories from unstructured text. Use this when prebuilt NER categories don't cover your domain vocabulary.
+
+- **[Custom text classification](/azure/ai-services/language-service/custom-text-classification/overview).** Build custom models to classify documents into categories you define. Supports both single-label and multi-label classification scenarios.
+
+- **[Conversational Language Understanding (CLU)](/azure/ai-services/language-service/conversational-language-understanding/overview).** Build custom models to predict user intent and extract information from conversational inputs. CLU is the recommended replacement for LUIS, which retired October 1, 2025.
+
+- **[Question Answering](/azure/ai-services/language-service/question-answering/overview).** Build a knowledge base that identifies the most suitable answer for user inputs, typically used in chatbots and conversational applications that require precise, curated responses.
+- **[Orchestration Workflow](/azure/ai-services/language-service/orchestration-workflow/overview).** Connect CLU and Question Answering projects into a unified conversational pipeline that routes user inputs to the appropriate project based on intent.
+
+### Azure Language MCP server and agents
+
+> [!NOTE]
+> The Azure Language MCP server and both agents (Intent Routing and Exact Question Answering) are currently in public preview. Preview features don't include a service-level agreement and aren't recommended for production workloads. Some features might not be supported or might have limited capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Azure Language provides prebuilt agents and flexible deployment options for production NLP workloads:
+
+- **Intent Routing agent.** Manages conversation flows by understanding user intentions and routing to accurate responses through deterministic, auditable logic. This agent is useful when you need transparent, deterministic conversational routing.
+- **Exact Question Answering agent.** Provides reliable, word-for-word responses to business-critical questions while maintaining human oversight and quality control. Use this agent when response accuracy and consistency are essential.
+Both agents are accessible through the Microsoft Foundry Tool Catalog. For more information, see [Azure Language MCP server and agents](/azure/ai-services/language-service/concepts/foundry-tools-agents#azure-language-mcp-server-preview).
+
+The Azure Language MCP server supports multiple deployment options:
+
+- **Remote cloud-hosted MCP server.** Accessible from the Microsoft Foundry Tool Catalog and provides cloud-managed access to Azure Language capabilities without requiring local infrastructure.
+- **Local self-hosted MCP server.** Supports on-premises or self-managed deployments for compliance, security, or data residency requirements.
+
+- **Containerized deployment.** The following features support containerized deployment for scenarios that require local processing or air-gapped environments. For the full list of available containers and their availability status, see [Azure AI containers support](/azure/ai-services/cognitive-services-container-support).
+  - Sentiment analysis
+  - Language detection
+  - Key phrase extraction
+  - Named Entity Recognition (NER)
+  - PII detection
+  - Custom NER
+  - Text analytics for health
+  - Conversational Language Understanding (CLU)
+  - Summarization (public preview)
+
+## Evaluate Apache Spark with Spark NLP
+
+Apache Spark with Spark NLP is a distributed, open-source approach to NLP that operates at cluster scale. Spark NLP's platform architecture, performance, and prebuilt model ecosystem make it a strong option for large-scale, customizable NLP workloads on [Azure Databricks](/azure/databricks/introduction) or [Microsoft Fabric](/fabric/data-engineering/spark-compute).
+
+### Understand platform and architecture
+
+> [!IMPORTANT]
+> Azure HDInsight 4.0 and 5.0 were retired on March 31, 2025. HDInsight 5.1 remains on Standard support, but we recommend that you use [Microsoft Fabric](/fabric/data-engineering/spark-compute) or [Azure Databricks](/azure/databricks/introduction) for new Spark-based NLP workloads. For more information, see [Azure HDInsight retirement](/azure/hdinsight/hdinsight-component-retirements-and-action-required).
+
+- **Apache Spark provides parallel, in-memory processing for big-data analytics.** Microsoft Fabric and Azure Databricks give you access to Spark's processing capabilities for large-scale NLP workloads.
+- **Spark NLP operates as a native extension of Spark ML on data frames.** This integration enables unified NLP and machine learning pipelines with improved performance on distributed clusters.
+- **Spark NLP is an open-source library with Python, Java, and Scala support.** The library provides functionality comparable to [spaCy](https://spacy.io/) and [Natural Language Toolkit (NLTK)](https://www.nltk.org/), including spell check, sentiment analysis, and document classification.
+    :::image type="content" border="false" source="../images/natural-language-processing-functionality.png" alt-text="Diagram that shows areas of natural language processing functionality, such as entity recognition, information extraction, summarization and translation." lightbox="../images/natural-language-processing-functionality.png":::
 
 *Apache®, [Apache Spark](https://spark.apache.org), and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
-Recent public benchmarks highlight Spark NLP's performance. These benchmarks show significant speed improvements over other libraries. Spark NLP also maintains comparable accuracy for training custom models. Notably, the integration of the Llama 2 models and OpenAI Whisper enhances conversational interfaces and multilingual speech recognition. These capabilities mark significant strides in optimized processing capabilities.
+### Assess performance and scalability
 
-Spark NLP effectively utilizes a distributed Spark cluster that functions as a native extension of Spark ML and operates directly on data frames. This integration supports enhanced performance gains on clusters, which facilitates the creation of unified natural language processing and machine learning pipelines for tasks like document classification and risk prediction. MPNet embeddings and extensive ONNX support further enrich these capabilities and allow for precise and context-aware processing.
+- **[Public benchmarks](https://sparknlp.org/docs/en/benchmark) show significant speed improvements over other NLP libraries.** Compared to frameworks like spaCy and NLTK, Spark NLP demonstrates faster training and inference on distributed clusters. Custom models trained with Spark NLP deliver accuracy on par with other NLP frameworks, making it suitable for production workloads that require both speed and precision.
 
-Spark NLP delivers highly accurate results across an expanding array of natural language processing tasks. The library comes with prebuilt deep learning models for named entity recognition, document classification, and sentiment detection. Its feature-rich design includes pretrained language models that support word, chunk, sentence, and document embeddings.
+- **Optimized builds for CPUs, GPUs, and Intel Xeon chips fully utilize Spark clusters.** These builds enable training and inference to scale efficiently across cluster nodes.
+- **Llama 3.x and OpenAI Whisper integration enhances conversational interfaces and multilingual speech recognition.** Llama 3.x models provide advanced language generation capabilities, and OpenAI Whisper adds multilingual speech-to-text processing for conversational AI scenarios.
 
-Spark NLP's infrastructure scales by using optimized builds for CPUs, GPUs, and the latest Intel Xeon chips, which enable training and inference processes to fully utilize Spark clusters. This capability helps ensure efficient handling of natural language processing tasks across diverse environments and applications.
+- **MPNet embeddings and ONNX support enable precise, context-aware processing.** MPNet produces dense vector representations that capture semantic meaning, and [ONNX support](https://sparknlp.org/docs/en/concepts#onnx-support) lets you import and run optimized models for inference.
 
-## Challenges
+### Use prebuilt models and pipelines
 
-- **Resource processing**: Processing a collection of free-form text documents requires a significant amount of computational resources. The processing is also time intensive. This kind of processing often involves GPU compute deployment. Recent advancements that support quantization, such as optimizations in Spark NLP architectures like Llama 2, help streamline these intensive tasks by allocating resources more efficiently.
+- **Prebuilt deep learning models handle NER, document classification, and sentiment detection.** The library comes with prebuilt deep learning models for named entity recognition, document classification, and sentiment detection.
+- **Pretrained language models support word, chunk, sentence, and document embeddings.** The library includes pretrained language models that support multiple embedding levels: word, chunk, sentence, and document. These embeddings provide dense vector representations that enable downstream tasks like similarity search and classification.
+- **Unified NLP and machine learning pipelines support document classification and risk prediction.** The integration with Spark ML supports the creation of unified NLP and machine learning pipelines for tasks like document classification and risk prediction. This unified approach lets you combine text processing with traditional ML models in a single pipeline, reducing architectural complexity.
 
-- **Standardization**: Without a standardized document format, it can be difficult to achieve consistently accurate results when you use free-form text processing to extract specific facts from a document. For example, extracting the invoice number and date from various invoices poses challenges. The integration of adaptable natural language processing models like M2M100 improves processing accuracy across multiple languages and formats. This improved accuracy leads to more consistent results.
+## Address common NLP challenges
 
-- **Data variety and complexity**: Addressing the various document structures and linguistic nuances remains complex. Innovations such as MPNet embeddings provide enhanced contextual understanding, which leads to more intuitive handling of diverse textual formats and more reliable data processing.
+Both [Azure Language in Foundry Tools](/azure/ai-services/language-service/overview) and Apache Spark with Spark NLP face common challenges when processing natural language at scale. Understanding these challenges helps you plan resources, design pipelines, and set accuracy expectations before committing to either option.
+### Resource processing
 
-## Key selection criteria
+- **Processing free-form text requires significant computational resources and time.** Analyzing collections of free-form text documents is both computationally expensive and time intensive. Every document requires tokenization, normalization, and model inference before producing usable results.
+- **Spark NLP workloads often require GPU compute deployment.** For large-scale Spark NLP pipelines, GPU-accelerated clusters on [Azure Databricks](/azure/databricks/introduction) or [Microsoft Fabric](/fabric/data-engineering/spark-compute) provide the parallel processing power needed for training and inference. Optimizations like Llama 3.x model quantization help reduce memory footprint and improve throughput for these intensive tasks.
 
-In Azure, Spark services like Azure Databricks, Microsoft Fabric, and HDInsight provide natural language processing functionality when you use them with Spark NLP. Foundry Tools is another option for natural language processing functionality. To help you decide which service to use, consider the following aspects:
+- **Azure Language in Foundry Tools requires throughput planning and quota management.** The service handles resource management, but high-volume API calls require careful throughput planning. Monitor your request rates against [data and service limits](/azure/ai-services/language-service/concepts/data-limits) and [Azure AI Services request rate limits](/azure/ai-services/cognitive-services-quotas-limits) to avoid throttling and ensure consistent processing performance.
 
-- If you want to use prebuilt or pretrained models, consider using the APIs that Foundry Tools provides. Or you can download your model of choice through Spark NLP, which includes advanced models like Llama 2 and MPNet for enhanced capabilities.
+### Document standardization
 
-- If you need to train custom models against a large collection of text data, consider using Azure Databricks, Fabric, or HDInsight with Spark NLP. These platforms provide the computational power and flexibility that you need for extensive model training.
+Real-world documents rarely follow a consistent structure. This inconsistency creates challenges for extraction pipelines and requires deliberate strategies to maintain accuracy across sources.
 
-- If you need low-level natural language processing capabilities like tokenization, stemming, lemmatization, and term frequency/inverse document frequency (TF/IDF), consider using Azure Databricks, Fabric, or HDInsight with Spark NLP. Alternatively, use an open-source software library in your processing tool of choice.
+- **Inconsistent formats.** Without a standardized document format, extracting specific facts from free-form text consistently is difficult. For example, extracting invoice numbers and dates from different vendors is challenging because field layouts, labels, and formatting vary across sources.
+- **Custom model training.** Custom model training in both Spark NLP and [Azure Language in Foundry Tools](/azure/ai-services/language-service/overview) helps you adapt to domain-specific document formats. By training on representative samples of your actual documents, you can improve extraction accuracy for fields, entities, and patterns that prebuilt models don't handle well.
 
-- If you need straightforward, high‑level natural language processing capabilities like entity and intent identification, topic detection, spell check, or sentiment analysis, consider using the APIs that Foundry Tools provide. Or download your model of choice through Spark NLP and apply its prebuilt functions for these tasks.
+### Data variety and complexity
+
+- **Diverse document structures and linguistic nuances add complexity.** Real-world text data comes in many formats, writing styles, and languages. Addressing these variations requires models that can handle ambiguity, slang, abbreviations, and domain-specific terminology without degrading accuracy.
+
+- **MPNet embeddings in Spark NLP provide enhanced contextual understanding.** MPNet embeddings capture contextual relationships between words and phrases, which helps Spark NLP pipelines handle nuanced text more effectively. These embeddings produce dense vector representations that preserve semantic meaning across different document formats.
+- **Custom models in Azure Language in Foundry Tools adapt to domain-specific text patterns.** [Custom NER](/azure/ai-services/language-service/custom-named-entity-recognition/overview) and [custom text classification](/azure/ai-services/language-service/custom-text-classification/overview) let you train models on your own labeled data to recognize patterns specific to your domain. This approach improves reliability by teaching the model to recognize entities and categories that prebuilt models miss.
+
+## Apply key selection criteria
+
+
+Use the following criteria to determine which Azure NLP option best fits your requirements. Each criterion describes a workload characteristic and points you toward the service that addresses it.
+
+- **Managed NLP capabilities.** Use [Azure Language in Foundry Tools](/azure/ai-services/language-service/overview) APIs for entity recognition, intent identification, topic detection, or sentiment analysis. These capabilities are available as managed services with minimal setup, and you don't need to provision or manage any infrastructure.
+
+- **Prebuilt or pretrained models.** Use Azure Language in Foundry Tools if you want to use prebuilt or pretrained models without managing infrastructure. This approach suits small to medium datasets and standard NLP tasks where out-of-the-box models deliver sufficient accuracy. It provides automatic scaling, built-in security, and pay-per-call pricing without cluster management overhead.
+- **Custom model training on large text corpora.** Use [Azure Databricks](/azure/databricks/introduction) or [Microsoft Fabric](/fabric/data-engineering/spark-compute) with Spark NLP. These platforms provide the computational power and flexibility you need for extensive model training on large text corpora. You can also download your model of choice through Spark NLP, which includes advanced models like Llama 3.x and MPNet for enhanced capabilities.
+
+- **Low-level NLP primitives.** Use Azure Databricks or Microsoft Fabric with Spark NLP for tokenization, stemming, lemmatization, and term frequency/inverse document frequency (TF/IDF). Alternatively, use an open-source library such as spaCy or NLTK. Azure Language in Foundry Tools doesn't provide these low-level text-processing primitives.
+
+## Build NLP pipelines with Spark NLP
+
+Spark NLP follows the same development pattern as traditional Spark ML models when running an NLP pipeline. You manage trained models by using [MLflow](https://mlflow.org) for experiment tracking and production deployment.
+:::image type="content" border="false" source="../images/spark-natural-language-processing-pipeline.png" alt-text="Diagram that shows the stages of a natural language processing pipeline, such as document assembly, sentence detection, tokenization, normalization, and word embedding." lightbox="../images/spark-natural-language-processing-pipeline.png":::
+
+### Assemble core pipeline components
+
+A Spark NLP pipeline chains annotators together in sequence. Each annotator transforms the output of the previous stage, building from raw text to semantic vectors.
+
+- **DocumentAssembler is the entry point for every Spark NLP pipeline.** Use `setCleanupMode` to apply optional text preprocessing, such as removing HTML tags or normalizing whitespace, before downstream annotators run.
+- **SentenceDetector identifies sentence boundaries in the assembled document.** It returns detected sentences either as an `Array` within a single row or as separate rows, depending on your pipeline configuration. Accurate sentence detection is important because many downstream annotators operate at the sentence level.
+
+- **Tokenizer divides raw text into discrete tokens such as words, numbers, and symbols.** If the default rules are insufficient for your domain, add custom rules to handle specialized vocabulary, hyphenated terms, or domain-specific patterns.
+- **Normalizer refines tokens by applying regular expressions and dictionary transformations.** It cleans text to reduce noise before embedding. For example, you can strip accents, convert to lowercase, or apply custom dictionary mappings to standardize terminology.
+- **WordEmbeddings maps tokens to semantic vectors to facilitate contextual processing.** Each token is represented as a dense vector that captures its meaning relative to other tokens. Unresolved tokens that don't appear in the embeddings vocabulary default to zero vectors.
+
+### Manage models with MLflow
+
+- **Spark NLP uses Spark MLlib pipelines with native [MLflow](https://mlflow.org) support.** You don't need to write custom serialization or integration code.
+- **MLflow manages experiment tracking, model versioning, and deployment.** You can log pipeline parameters, metrics, and artifacts during training runs. MLflow tracks each experiment so you can compare results across iterations and reproduce successful configurations.
+
+- **MLflow integrates directly with [Azure Databricks](/azure/databricks/introduction) and [Microsoft Fabric](/fabric/data-science/data-science-overview).** On Azure Databricks, MLflow is preinstalled and tightly integrated with the workspace. Microsoft Fabric also provides a [built-in MLflow experience](/fabric/data-science/machine-learning-experiment) with native experiment tracking and autologging, so you don't need to install MLflow separately. If you run Spark NLP on another Spark-based environment, you can install MLflow separately and configure it to track experiments against a remote tracking server.
+
+- **Use the MLflow Model Registry to promote models to production and maintain governance.** The Model Registry provides a central repository for managing model versions across your NLP pipelines. In classic deployments, transition models through stages like Staging, Production, and Archived. On [Azure Databricks](/azure/databricks/machine-learning/manage-model-lifecycle/), newer deployments use [Models in Unity Catalog](/azure/databricks/machine-learning/manage-model-lifecycle/), which replaces fixed stages with custom aliases and tags for more flexible lifecycle management. On [Microsoft Fabric](/fabric/data-science/data-science-overview), the workspace provides its own MLflow-based model registry.
 
 ## Capability matrix
 
-The following tables summarize the key differences in the capabilities of natural language processing services.
+The following tables summarize the key differences in capabilities between Spark NLP on Azure Databricks or Microsoft Fabric and Azure Language in Foundry Tools.
 
 ### General capabilities
 
-| Capability | Spark service (Azure Databricks, Fabric, HDInsight) with Spark NLP | Foundry Tools |
-| --- | --- | --- |
-| Provides pretrained models as a service | Yes | Yes |
+| Capability | Spark NLP (Azure Databricks or Microsoft Fabric) | Azure Language in Foundry Tools |
+| :--- | :--- | :--- |
+| Pretrained models as a service | Yes | Yes |
 | REST API | Yes | Yes |
-| Programmability | Python, Scala | See [supported programming languages](/azure/ai-foundry/model-inference/supported-languages) |
-| Supports processing of large datasets and large documents | Yes | No |
+| Programmability | Python, Scala | See [Supported programming languages](/azure/foundry-classic/foundry-models/supported-languages) |
+| Supports processing of large datasets and large documents | Yes | Limited [5] |
+
+[5] Azure Language in Foundry Tools has per-request document size limits (typically 5,120 characters) and supports up to 25 documents per API call. You can process large dataset volumes through batching and pagination, but individual documents that exceed the character limit require chunking.
 
 ### Annotator capabilities
 
-| Capability | Spark service (Azure Databricks, Fabric, HDInsight) with Spark NLP | Foundry Tools |
-| --- | --- | --- |
+| Capability | Spark NLP (Azure Databricks or Microsoft Fabric) | Azure Language in Foundry Tools |
+| :--- | :--- | :--- |
 | Sentence detector | Yes | No |
-| Deep sentence detector | Yes | Yes |
+| Deep sentence detector | Yes | No |
 | Tokenizer | Yes | Yes |
 | N-gram generator | Yes | No |
 | Word segmentation | Yes | Yes |
@@ -130,62 +263,33 @@ The following tables summarize the key differences in the capabilities of natura
 | Normalizer | Yes | Yes |
 | Text matcher | Yes | No |
 | TF/IDF | Yes | No |
-| Regular expression matcher | Yes | Embedded in the conversational language understanding (CLU) feature |
-| Date matcher | Yes | Possible in CLU through DateTime recognizers |
+| Regular expression matcher | Yes | Limited [1] |
+| Date matcher | Yes | Limited [2] |
 | Chunker | Yes | No |
 
-### High-level natural language processing capabilities
+[1] Regular expression matching is embedded in the conversational language understanding (CLU) feature rather than available as a standalone annotator.
 
-| Capability | Spark service (Azure Databricks, Fabric, HDInsight) with Spark NLP | Foundry Tools |
-| --- | --- | --- |
+[2] Date matching is possible in CLU through DateTime recognizers rather than as a dedicated annotator.
+
+### High-level NLP capabilities
+
+| Capability | Spark NLP (Azure Databricks or Microsoft Fabric) | Azure Language in Foundry Tools |
+| :--- | :--- | :--- |
 | Spell check | Yes | No |
 | Summarization | Yes | Yes |
 | Question answering | Yes | Yes |
 | Sentiment detection | Yes | Yes |
-| Emotion detection | Yes | Supports opinion mining |
-| Token classification | Yes | Yes, through custom models |
-| Text classification | Yes | Yes, through custom models |
+| Emotion detection | Yes | Limited [3] |
+| Token classification | Yes | Limited [4] |
+| Text classification | Yes | Limited [4] |
 | Text representation | Yes | No |
-| NER | Yes | Yes, text analytics provide a set of NER |
-| Entity recognition | Yes | Yes, through custom models |
+| Named entity recognition (NER) | Yes | Yes (prebuilt); custom NER available through custom models [4] |
 | Language detection | Yes | Yes |
-| Supports languages besides English | Yes, supports over 200 languages | Yes, supports over 97 languages |
+| Supports languages besides English | Yes. See [Spark NLP supported languages](https://sparknlp.org/docs/en/models). | Yes. See [Azure Language supported languages](/azure/ai-services/language-service/concepts/language-support). |
 
-## Set up Spark NLP in Azure
+[3] Azure Language in Foundry Tools supports opinion mining, which identifies sentiments linked to specific aspects of text, but doesn't provide dedicated emotion detection (such as joy, anger, or sadness classification).
 
-To install Spark NLP, follow the [Install Spark NLP](https://sparknlp.org/docs/en/install) instructions in the Spark NLP documentation.
-
-## Develop natural language processing pipelines
-
-Spark NLP follows the same development concept as traditional Spark ML machine learning models when it runs a natural language processing pipeline. It also applies specialized natural language processing techniques.
-
-:::image type="content" border="false" source="../images/spark-natural-language-processing-pipeline.png" alt-text="Diagram that shows the stages of a natural language processing pipeline, such as document assembly, sentence detection, tokenization, normalization, and word embedding." lightbox="../images/spark-natural-language-processing-pipeline.png":::
-
-A Spark NLP pipeline includes the following core components:
-
-- **DocumentAssembler** is a transformer that prepares data by converting it into a format that Spark NLP can process. This stage is the entry point for every Spark NLP pipeline. DocumentAssembler reads either a `String` column or an `Array[String]` and can preprocess the text by using `setCleanupMode`, which is off by default.
-
-- **SentenceDetector** is an annotator that identifies sentence boundaries by using predefined approaches. It can return each detected sentence in an `Array` or in separate rows when `explodeSentences` is set to true.
-
-- **Tokenizer** is an annotator that divides raw text into discrete tokens, like words, numbers, and symbols, and outputs them as a `TokenizedSentence`. Tokenizer is nonfitted and uses input configuration within the `RuleFactory` to create tokenizing rules. You can add custom rules if the default ones are insufficient.
-
-- **Normalizer** is an annotator tasked with refining tokens. Normalizer applies regular expressions and dictionary transformations to clean text and remove extraneous characters.
-
-- **WordEmbeddings** are lookup annotators that map tokens to vectors and facilitate semantic processing. You can specify a custom embedding dictionary by using `setStoragePath`, where each line contains a token and its vector, separated by spaces. Unresolved tokens default to zero vectors.
-
-Spark NLP uses Spark MLlib pipelines that have native support from [MLflow](https://mlflow.org), an open-source platform that manages the machine learning lifecycle. MLflow has the following key components:
-
-- **MLflow Tracking** records experimental runs and provides robust querying capabilities to analyze outcomes.
-
-- **MLflow Projects** lets you run data science code on diverse platforms. This capability enhances portability and reproducibility.
-
-- **MLflow Models** supports versatile model deployment across different environments through a consistent framework.
-
-- **Model Registry** provides comprehensive model management by storing versions centrally for streamlined access and deployment. This step facilitates production-readiness.
-
-MLflow is integrated with platforms like Azure Databricks, but you can also install it in other Spark-based environments to manage and track your experiments. This integration allows you to use the MLflow Model Registry to make models available for production purposes. You can streamline the deployment process and maintain model governance.
-
-By using MLflow alongside Spark NLP, you can ensure more efficient management and deployment of natural language processing pipelines. You can also address modern requirements for scalability and integration while supporting advanced techniques like word embeddings and language model adaptations.
+[4] Available through custom models. You train custom NER, custom text classification, or custom entity recognition models on your own labeled data.
 
 ## Contributors
 
@@ -193,8 +297,8 @@ By using MLflow alongside Spark NLP, you can ensure more efficient management an
 
 Principal authors:
 
-- [Freddy Ayala](https://www.linkedin.com/in/freddyayala/) |  Cloud Solution Architect
-- [Moritz Steller](https://www.linkedin.com/in/moritz-steller-426430116) | Senior Cloud Solution Architect
+- [Ananya Ghosh Chowdhury](https://www.linkedin.com/in/ananyaghoshchowdhury/) | Senior Cloud Solution Architect
+- [Kranthi Manchikanti](https://www.linkedin.com/in/kranthimanchikanti/) | Senior AI Solutions Engineer
 
 Other contributors:
 
@@ -204,30 +308,31 @@ Other contributors:
 
 ## Next steps
 
+- [Introduction to AI in Azure](/training/paths/introduction-to-ai-on-azure)
+- [Develop natural language processing solutions with Foundry Tools](/training/paths/develop-language-solutions-azure-ai)
+
+## Related resources
+
+- Azure Language in Foundry Tools documentation:
+
+  - [Azure Language overview](/azure/ai-services/language-service/overview)
+  - [Microsoft Foundry documentation](/azure/foundry/what-is-foundry)
+
 - Spark NLP documentation:
 
   - [Spark NLP](https://sparknlp.org/)
   - [Spark NLP general documentation](https://sparknlp.org/docs/en/quickstart)
   - [Spark NLP demo](https://github.com/JohnSnowLabs/spark-nlp-workshop)
-  - [Spark NLP pipelines](https://sparknlp.org/docs/en/pipelines)
-  - [Spark NLP annotators](https://sparknlp.org/docs/en/annotators#available-annotators)
-  - [Spark NLP transformers](https://sparknlp.org/docs/en/annotators#available-transformers)
 
 - Azure components:
 
-  - [Fabric](/fabric/)
-  - [HDInsight](/azure/hdinsight/spark/apache-spark-overview)
-  - [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks)
+  - [Microsoft Fabric](/fabric/)
+  - [Azure Databricks](/azure/databricks/introduction)
   - [Foundry Tools](/azure/ai-services/what-are-ai-services)
 
 - Learn resources:
 
-  - [Microsoft Azure AI fundamentals: Explore natural language processing](/training/paths/explore-natural-language-processing)
-  - [Develop natural language processing solutions with Foundry Tools](/training/paths/develop-language-solutions-azure-ai)
-
-## Related resources
-
-- [Choose an AI services technology](./ai-services.md)
-- [Compare the machine learning products and technologies from Microsoft](../../ai-ml/guide/data-science-and-machine-learning.md)
-- [MLflow and Azure Machine Learning](/azure/machine-learning/concept-mlflow)
-- [AI enrichment with image and natural language processing in Azure AI Search](../../solution-ideas/articles/ai-search-skillsets.yml)
+  - [Choose an AI services technology](/azure/architecture/data-guide/technology-choices/ai-services)
+  - [Compare the machine learning products and technologies from Microsoft](/azure/architecture/ai-ml/guide/data-science-and-machine-learning)
+  - [MLflow and Azure Machine Learning](/azure/machine-learning/concept-mlflow)
+  - [AI enrichment with image and natural language processing in Azure AI Search](/azure/architecture/solution-ideas/articles/ai-search-skillsets)
