@@ -155,7 +155,7 @@ Apache Spark with Spark NLP is a distributed, open-source approach to NLP that o
 
 ### Assess performance and scalability
 
-- **[Public benchmarks](https://sparknlp.org/docs/en/benchmark) show significant speed improvements over other NLP libraries.** Compared to frameworks like spaCy and NLTK, Spark NLP demonstrates faster training and inference on distributed clusters. Custom models trained with Spark NLP deliver accuracy on par with other NLP frameworks, making it suitable for production workloads that require both speed and precision.
+- **[Public benchmarks](https://sparknlp.org/) show significant speed improvements over other NLP libraries.** Compared to frameworks like spaCy and NLTK, Spark NLP demonstrates faster training and inference on distributed clusters. Custom models trained with Spark NLP deliver accuracy on par with other NLP frameworks, making it suitable for production workloads that require both speed and precision.
 
 - **Optimized builds for CPUs, GPUs, and Intel Xeon chips fully utilize Spark clusters.** These builds enable training and inference to scale efficiently across cluster nodes.
 - **Llama 3.x and OpenAI Whisper integration enhances conversational interfaces and multilingual speech recognition.** Llama 3.x models provide advanced language generation capabilities, and OpenAI Whisper adds multilingual speech-to-text processing for conversational AI scenarios.
@@ -176,7 +176,7 @@ Both [Azure Language in Foundry Tools](/azure/ai-services/language-service/overv
 - **Processing free-form text requires significant computational resources and time.** Analyzing collections of free-form text documents is both computationally expensive and time intensive. Every document requires tokenization, normalization, and model inference before producing usable results.
 - **Spark NLP workloads often require GPU compute deployment.** For large-scale Spark NLP pipelines, GPU-accelerated clusters on [Azure Databricks](/azure/databricks/introduction) or [Microsoft Fabric](/fabric/data-engineering/spark-compute) provide the parallel processing power needed for training and inference. Optimizations like Llama 3.x model quantization help reduce memory footprint and improve throughput for these intensive tasks.
 
-- **Azure Language in Foundry Tools requires throughput planning and quota management.** The service handles resource management, but high-volume API calls require careful throughput planning. Monitor your request rates against [data and service limits](/azure/ai-services/language-service/concepts/data-limits) and [Azure AI Services request rate limits](/azure/ai-services/cognitive-services-quotas-limits) to avoid throttling and ensure consistent processing performance.
+- **Azure Language in Foundry Tools requires throughput planning and quota management.** The service handles resource management, but high-volume API calls require careful throughput planning. Monitor your request rates against service limits and rate limits to avoid throttling and ensure consistent processing performance.
 
 ### Document standardization
 
@@ -285,7 +285,7 @@ The following tables summarize the key differences in capabilities between Spark
 | Text representation | Yes | No |
 | Named entity recognition (NER) | Yes | Yes (prebuilt); custom NER available through custom models [4] |
 | Language detection | Yes | Yes |
-| Supports languages besides English | Yes. See [Spark NLP supported languages](https://sparknlp.org/docs/en/models). | Yes. See [Azure Language supported languages](/azure/ai-services/language-service/concepts/language-support). |
+| Supports languages besides English | Yes. See [Spark NLP supported languages](https://sparknlp.org/models). | Yes. See [Azure Language supported languages](/azure/ai-services/language-service/concepts/language-support). |
 
 [3] Azure Language in Foundry Tools supports opinion mining, which identifies sentiments linked to specific aspects of text, but doesn't provide dedicated emotion detection (such as joy, anger, or sadness classification).
 
@@ -297,7 +297,7 @@ The following tables summarize the key differences in capabilities between Spark
 
 Principal authors:
 
-- [Ananya Ghosh Chowdhury](https://www.linkedin.com/in/ananyaghoshchowdhury/) | Senior Cloud Solution Architect
+- [Ananya Ghosh Chowdhury](https://www.linkedin.com/in/ananyaghoshchowdhury/) | Principal Cloud Solution Architect
 - [Kranthi Manchikanti](https://www.linkedin.com/in/kranthimanchikanti/) | Senior AI Solutions Engineer
 
 Other contributors:
