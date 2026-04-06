@@ -1051,7 +1051,7 @@ items:
     - name: Guides
       items:
       - name: Cross-tenant secure access to apps
-        href: networking/guide/cross-tenant-secure-access-private-endpoints.yml
+        href: networking/guide/cross-tenant-secure-access-private-endpoints.md
     - name: Architectures
       items:
       - name: AD DS resource forests in Azure
