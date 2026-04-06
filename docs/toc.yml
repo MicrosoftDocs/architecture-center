@@ -1133,9 +1133,6 @@ items:
       - name: IoT Hub private file upload to Azure Storage
         displayName: Internet of Things
         href: example-scenario/iot/iot-private-file-upload.yml
-      - name: Project 15 IoT sustainability
-        displayName: Internet of Things
-        href: solution-ideas/articles/project-15-iot-sustainability.yml
   - name: Management + Governance
     items:
     - name: Get started
