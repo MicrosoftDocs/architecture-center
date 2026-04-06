@@ -144,4 +144,4 @@ Other contributors:
 - [Storage and data approaches for multitenancy](../approaches/storage-data.md)
 - [Multitenancy and Azure Cache for Redis](cache-redis.md)
 - [Cache-Aside pattern](../../../patterns/cache-aside.yml)
-- [Sharding pattern](../../../patterns/sharding.yml)
+- [Sharding pattern](../../../patterns/sharding.md)
