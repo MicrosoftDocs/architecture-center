@@ -89,7 +89,7 @@ The package data isn't relational, so a document-oriented database works well. A
 
 ## Related resources
 
-- [Design patterns for microservices](./patterns.yml)
+- [Design patterns for microservices](./patterns.md)
 - [Use domain analysis to model microservices](../model/domain-analysis.md)
 - [Design a microservices architecture](index.md)
 - [Design APIs for microservices](api-design.md)

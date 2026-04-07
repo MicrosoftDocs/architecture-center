@@ -33,7 +33,7 @@ For more information, see the following resources:
 
 ### Elastic database tools
 
-You can use the [Sharding pattern](../../../patterns/sharding.yml) to scale your workload across multiple databases. SQL Database provides tools to support sharding. These tools include the management of *shard maps*, which serve as databases that track the tenants assigned to each shard. These tools also include the capability to initiate and track queries and management operations on multiple shards by using *elastic jobs*.
+You can use the [Sharding pattern](../../../patterns/sharding.md) to scale your workload across multiple databases. SQL Database provides tools to support sharding. These tools include the management of *shard maps*, which serve as databases that track the tenants assigned to each shard. These tools also include the capability to initiate and track queries and management operations on multiple shards by using *elastic jobs*.
 
 For more information, see:
 

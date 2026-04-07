@@ -57,8 +57,6 @@ The following production-ready architectures demonstrate comprehensive compute s
 
 - [AIX UNIX to Azure Linux migration](../../example-scenario/unix-migration/migrate-aix-azure-linux.yml): Migrate IBM AIX workloads to Azure Linux.
 - [General mainframe refactor to Azure](../../example-scenario/mainframe/general-mainframe-refactor.yml): Modernize mainframe applications by using Azure services.
-- [Rehost a general mainframe on Azure](../../example-scenario/mainframe/mainframe-rehost-architecture-azure.yml): Rehost mainframe workloads on Azure infrastructure.
-- [Micro Focus Enterprise Server on Azure](../../example-scenario/mainframe/micro-focus-server.yml): Run Micro Focus Enterprise Server for mainframe modernization.
 - [Solaris emulator on Azure virtual machines](./solaris-azure.yml): Emulate legacy Sun SPARC systems on Azure virtual machines.
 
 ### SAP

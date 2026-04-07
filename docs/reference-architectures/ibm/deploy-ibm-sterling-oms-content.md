@@ -179,7 +179,7 @@ Also consider these points:
 
 If you need access to your other, non–Azure Red Hat OpenShift nodes, you can optionally use [Azure Bastion](/azure/bastion/bastion-overview) to access your VMs. For security reasons, don't expose VMs to a network or the internet without configuring [network security groups](/azure/virtual-network/network-security-groups-overview) to control access to them.
 
-[Server-side encryption (SSE) of Azure disk storage](/azure/virtual-machines/disk-encryption) helps protect your data. SSE also helps you meet organizational security and compliance commitments. With Azure Managed Disks, SSE encrypts the data at rest when persisting it to the cloud. This behavior applies by default to both OS and data disks. OpenShift uses SSE by default. Azure Red Hat OpenShift also supports customer-managed encryption keys (CMEK) for the OS disks in your cluster.
+[Server-side encryption (SSE) of Azure disk storage](/azure/virtual-machines/disk-encryption) helps protect your data. SSE also helps you meet organizational security and compliance commitments. With Azure managed disks, SSE encrypts the data at rest when persisting it to the cloud. This behavior applies by default to both OS and data disks. OpenShift uses SSE by default. Azure Red Hat OpenShift also supports customer-managed encryption keys (CMEK) for the OS disks in your cluster.
 
 #### Authentication
 

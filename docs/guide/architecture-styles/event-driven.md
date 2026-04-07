@@ -21,7 +21,7 @@ An event-driven architecture consists of *event producers* that generate a strea
 
 Events are delivered in near real time, so consumers can respond immediately to events as they occur. Producers are decoupled from consumers, which means that a producer doesn't know which consumers are listening. Consumers are also decoupled from each other, and in a publish-subscribe model, every consumer sees all of the events.
 
-This process differs from a [Competing Consumers pattern](/azure/architecture/patterns/competing-consumers). In the Competing Consumers pattern, consumers pull messages from a queue. Each message is processed only one time, assuming that there are no errors. In some systems, such as [Azure IoT](/azure/iot/iot-introduction), events must be ingested at high volumes.
+This process differs from a [Competing Consumers pattern](../../patterns/competing-consumers.md). In the Competing Consumers pattern, consumers pull messages from a queue. Each message is processed only one time, assuming that there are no errors. In some systems, such as [Azure IoT](/azure/iot/iot-introduction), events must be ingested at high volumes.
 
 An event-driven architecture can use a [publish-subscribe model](../../patterns/publisher-subscriber.md) or an event stream model.
 
@@ -151,7 +151,7 @@ This architecture provides the following benefits:
 
 - A request is only visible to the request-handling component. But events are often visible to multiple components in a workload, even if those components don't consume them or aren't meant to consume them. To operate with an "assume breach" mindset, be mindful of what information you include in events to prevent unintended information exposure.
 
-- Many applications use event-driven architecture as their primary architecture. You can combine this approach with other architectural styles to create a hybrid architecture. Typical combinations include [microservices](./microservices.md) and [pipes and filters](../../patterns/pipes-and-filters.yml). Integrate an event-driven architecture to enhance system performance by eliminating bottlenecks and providing [back pressure](https://wikipedia.org/wiki/Back_pressure) during high-request volumes.
+- Many applications use event-driven architecture as their primary architecture. You can combine this approach with other architectural styles to create a hybrid architecture. Typical combinations include [microservices](./microservices.md), [pipes and filters](../../patterns/pipes-and-filters.yml), and [event sourcing](../../patterns/event-sourcing.md). Integrate an event-driven architecture to enhance system performance by eliminating bottlenecks and providing [back pressure](https://wikipedia.org/wiki/Back_pressure) during high-request volumes.
 
 - [Specific domains](../../microservices/model/domain-analysis.md) often span multiple event producers, consumers, or event channels. Changes to a specific domain might affect many components.
 
@@ -163,6 +163,6 @@ This architecture provides the following benefits:
 ## Related resources
 
 - [Publisher-Subscriber](../../patterns/publisher-subscriber.md)
-- [Competing Consumers](../../patterns/competing-consumers.yml)
-- [Event Sourcing](../../patterns/event-sourcing.yml)
+- [Competing Consumers](../../patterns/competing-consumers.md)
+- [Event Sourcing](../../patterns/event-sourcing.md)
 - [Compensating Transaction](../../patterns/compensating-transaction.yml)
