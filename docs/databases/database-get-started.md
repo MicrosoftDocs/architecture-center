@@ -119,8 +119,11 @@ The following production-ready architectures demonstrate end-to-end database sol
 
 **NoSQL**
 
-- [Polyglot persistence with Azure Cosmos DB and Azure SQL Database](../databases/idea/combine-relational-nosql.yml)
 - [Replicate data by using a change feed to minimize storage](../databases/idea/minimal-storage-change-feed-replicate-data.yml)
+
+**Relational and NoSQL**
+
+- [Polyglot persistence with Azure Cosmos DB and Azure SQL Database](../databases/idea/combine-relational-nosql.yml)
 
 ## Learn about databases on Azure
 
