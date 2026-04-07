@@ -1,13 +1,13 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Applications often handle diverse data workloads with different characteristics. Some data is structured and transactional, requiring relational integrity and complex queries. Other data is semi-structured, rapidly changing, or high-volume, requiring flexible schemas and horizontal scalability. A single database technology can't handle all of these requirements efficiently.
+Applications often handle diverse data workloads with different characteristics. Some data is structured and transactional, requiring relational integrity and complex queries. Other data is semi-structured, rapidly changing, or high-volume, requiring flexible schemas and horizontal scalability. A single database technology can't handle all of these requirements efficiently.  For background on polyglot persistence and data management principles in microservices, see [Data considerations for microservices](../../microservices/design/data-considerations.md).
 
 This article describes a polyglot persistence approach that pairs Azure SQL Database with Azure Cosmos DB so each workload uses the database best suited to its requirements:
 
 * **Azure SQL Database** manages structured, transactional data that requires relational integrity
 * **Azure Cosmos DB** handles high-volume, schema-flexible, or globally distributed data that requires low-latency access
 
-A domain-driven microservices layer allows each service to independently manage the database that matches its data characteristics.
+A domain-driven microservices approach allows each service to use the database that matches its data characteristics. Each microservice owns its private data store, which prevents unintentional coupling between services and preserves the agility of independent deployments.
 
 ## Architecture
 
@@ -33,7 +33,9 @@ Diagram of an e-commerce polyglot persistence architecture. Users access the sys
 
 ## Scenario details
 
-A polyglot persistence strategy assigns each data workload to the database technology that best matches its requirements. Domain-driven microservices enforce this separation, allowing each service to independently manage its own data store. This approach provides several advantages:
+Applications often handle diverse data workloads with different characteristics. Some data is structured and transactional, requiring relational integrity and complex queries. Other data is semi-structured, rapidly evolving, or high-volume, requiring flexible schemas and horizontal scalability. A single database technology isn't designed to handle all of these requirements efficiently.
+
+A polyglot persistence strategy assigns each data workload to the database technology that best matches its requirements. Domain-driven microservices enforce this separation, allowing each service to independently manage its own data store. This approach leads to many of the [challenges described in the microservices data considerations guide](../../microservices/design/data-considerations.md#challenges), such as data redundancy across stores and eventual consistency between services. The following advantages help offset those challenges:
 
 - **Independent scalability.** Each database scales according to its workload. Azure Cosmos DB handles read/write bursts of millions of operations per second with guaranteed low latency. Azure SQL Database efficiently processes complex transactional queries and scales predictably.
 - **Appropriate data modeling.** Azure SQL Database provides fixed schemas, foreign keys, and joins for data that has well-defined relationships. Azure Cosmos DB provides schema-agnostic storage with automatic indexing for data that evolves frequently.
@@ -62,5 +64,7 @@ Cost Optimization is about reducing unnecessary expenses and improving operation
 
 ## Related content
 
+- [Data considerations for microservices](../../microservices/design/data-considerations.md)
+- [Design a microservices architecture](../../microservices/design/index.md)
 - [Azure Cosmos DB](/azure/cosmos-db/introduction)
 - [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview)
