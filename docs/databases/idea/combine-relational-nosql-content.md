@@ -1,13 +1,13 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This article describes a polyglot persistence architecture that uses Azure Cosmos DB and Azure SQL Database together. 
+Applications often handle diverse data workloads with different characteristics. Some data is structured and transactional, requiring relational integrity and complex queries. Other data is semi-structured, rapidly changing, or high-volume, requiring flexible schemas and horizontal scalability. A single database technology can't handle all of these requirements efficiently.
 
-Each database is selected based on its characteristics to handle specific workload types: 
+This article describes a polyglot persistence approach that pairs Azure SQL Database with Azure Cosmos DB so each workload uses the database best suited to its requirements:
 
 * **Azure SQL Database** manages structured, transactional data that requires relational integrity
 * **Azure Cosmos DB** handles high-volume, schema-flexible, or globally distributed data that requires low-latency access
 
-A domain-driven microservices approach allows each service to use the database that matches its data characteristics.
+A domain-driven microservices layer allows each service to independently own the database that matches its data characteristics.
 
 ## Architecture
 
@@ -31,8 +31,6 @@ Diagram of an e-commerce polyglot persistence architecture. Users access the sys
 - [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a fully managed relational database engine based on the latest stable version of Microsoft SQL Server. In this architecture, it stores structured, transactional data for workloads that require ACID compliance, relational integrity, and complex query support. Examples include order management, inventory tracking, and payment processing.
 
 ## Scenario details
-
-Applications often handle diverse data workloads with different characteristics. Some data is structured and transactional, requiring relational integrity and complex queries. Other data is semi-structured, rapidly evolving, or high-volume, requiring flexible schemas and horizontal scalability. A single database technology isn't designed to handle all of these requirements efficiently.
 
 A polyglot persistence strategy assigns each data workload to the database technology that best matches its requirements. Domain-driven microservices enforce this separation, allowing each service to independently manage its own data store. This approach provides several advantages:
 
