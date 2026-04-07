@@ -162,7 +162,7 @@ During the build phase, developers work with the site reliability engineers and 
 #### Best practice – Generate a software bill of materials (SBOM) for your container images
 
 - An SBOM provides a complete inventory of the components, libraries, and dependencies that make up your container images. Use SBOM generation tools like [Microsoft sbom-tool](https://github.com/microsoft/sbom-tool) or [Syft](https://github.com/anchore/syft) during the CI build to produce an SPDX or CycloneDX manifest.
-- Attaching an SBOM to your container images stored in [Container Registry](/azure/container-registry/container-registry-sbom) enables downstream vulnerability scanning and license compliance tracking across the supply chain.
+- Attaching an SBOM to your container images stored in [Container Registry](/azure/security/container-secure-supply-chain/articles/attach-sbom) enables downstream vulnerability scanning and license compliance tracking across the supply chain.
 
 #### Best practice – Enable security scans of Infrastructure as Code (IaC) templates to minimize cloud misconfigurations reaching production environments
 
