@@ -1,8 +1,8 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This article describes a polyglot persistence architecture that uses Azure Cosmos DB and Azure SQL Database together. For background on polyglot persistence and data management principles in microservices, see [Data considerations for microservices](../../microservices/design/data-considerations.md).
+Applications often handle diverse data workloads with different characteristics. Some data is structured and transactional, requiring relational integrity and complex queries. Other data is semi-structured, rapidly changing, or high-volume, requiring flexible schemas and horizontal scalability. A single database technology can't handle all of these requirements efficiently.  For background on polyglot persistence and data management principles in microservices, see [Data considerations for microservices](../../microservices/design/data-considerations.md).
 
-Each database is selected based on its characteristics to handle specific workload types: 
+This article describes a polyglot persistence approach that pairs Azure SQL Database with Azure Cosmos DB so each workload uses the database best suited to its requirements:
 
 * **Azure SQL Database** manages structured, transactional data that requires relational integrity
 * **Azure Cosmos DB** handles high-volume, schema-flexible, or globally distributed data that requires low-latency access
@@ -21,6 +21,7 @@ Diagram of an e-commerce polyglot persistence architecture. Users access the sys
 1. API Management routes requests to the appropriate domain-driven microservices. Each microservice owns its data store independently.
 1. Microservices that handle flexible-schema, high-volume, or globally distributed workloads, such as user profiles, session state, product catalogs, and shopping carts, use Azure Cosmos DB. Azure Cosmos DB stores this data as JSON documents, provides single-digit millisecond response times, and scales horizontally.
 1. Microservices that handle structured, transactional workloads, such as order management, inventory, and payments, use Azure SQL Database. Azure SQL Database provides full ACID compliance, complex query support, and relational integrity for these operations.
+1. Some microservices communicate with each other to fulfill cross-domain data requirements. For example, the shopping cart service queries the user session service for session context, and both the inventory and order management services interact with the product catalog service for product information. These inter-service calls use service APIs rather than directly accessing another service's database, which preserves data ownership boundaries.
 
 ### Components
 
@@ -52,19 +53,7 @@ This architecture is appropriate for applications that handle multiple data work
 - **Financial services.** Payment and trading platforms that use Azure SQL Database for transactional integrity over financial records and Azure Cosmos DB for globally distributed, low-latency access to portfolio or operational data.
 - **AI-enhanced applications.** Solutions that use Azure SQL Database for relational records of transactions and agreements, and Azure Cosmos DB for storing AI-generated metadata, chat sessions, or contextual artifacts that require flexible schema and fast access.
 
-## Considerations
-
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
-
-### Reliability
-
-Reliability helps ensure that your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
-
-- Azure Cosmos DB provides a [99.999% availability SLA](/azure/cosmos-db/high-availability) for multi-region configurations, which helps ensure that globally distributed workloads remain accessible during regional outages.
-- Azure SQL Database supports [active geo-replication](/azure/azure-sql/database/active-geo-replication-overview) and [failover groups](/azure/azure-sql/database/failover-group-sql-db) for high availability and disaster recovery.
-- Design each microservice to degrade gracefully if either database becomes temporarily unavailable. Service isolation provided by independent data ownership limits the blast radius of component failures.
-
-### Cost Optimization
+## Cost Optimization
 
 Cost Optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
