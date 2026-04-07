@@ -16,7 +16,7 @@ products:
   - azure-sql-database
   - azure-api-management
 name: Polyglot persistence with Azure Cosmos DB and Azure SQL Database
-summary: Learn how to use Azure Cosmos DB and Azure SQL Database together in a polyglot persistence architecture. Domain-driven microservices assign each database to the workload it handles best. Azure SQL Database manages structured, transactional data that requires ACID compliance and relational integrity. Azure Cosmos DB handles high-volume, schema-flexible, or globally distributed data that requires low-latency access and horizontal scalability.
+summary: Use Azure Cosmos DB and Azure SQL Database together in a polyglot persistence architecture, with each database handling the workload it fits best.
 thumbnailUrl: /azure/architecture/browse/thumbs/combine-relational-nosql.png
 content: |
   [!INCLUDE[](combine-relational-nosql-content.md)]

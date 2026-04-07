@@ -2,6 +2,10 @@
 
 Applications often handle diverse data workloads with different characteristics. Some data is structured and transactional, requiring relational integrity and complex queries. Other data is semi-structured, rapidly changing, or high-volume, requiring flexible schemas and horizontal scalability. A single database technology can't handle all of these requirements efficiently.  For background on polyglot persistence and data management principles in microservices, see [Data considerations for microservices](../../microservices/design/data-considerations.md).
 
+:::image type="complex" source="_images/combine-relational-nosql/scenario-diagram.svg" alt-text="Diagram that shows a client calling an API proxy that routes to two APIs and separate NoSQL and relational databases.":::
+The diagram is a left-to-right architecture flow with six labeled components. On the far left, a box labeled Client sends requests to a central box labeled API Proxy. From API Proxy, two routed paths branch to the right: an upper path to API 1 and a lower path to API 2. API 1 connects to a NoSQL Database on the upper-right side. API 2 connects to a Relational Database on the lower-right side. The two API components are also connected by a vertical two-way arrow, indicating bidirectional interaction or synchronization between API 1 and API 2. All main traffic arrows point from left to right through the proxy to each API and then to its corresponding data store, showing a split data architecture where NoSQL and relational persistence are handled by different API paths.
+:::image-end:::
+
 This article describes a polyglot persistence approach that pairs Azure SQL Database with Azure Cosmos DB so each workload uses the database best suited to its requirements:
 
 * **Azure SQL Database** manages structured, transactional data that requires relational integrity
