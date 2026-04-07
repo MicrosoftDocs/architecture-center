@@ -106,9 +106,9 @@ This architecture uses the following components:
 - [Azure solid-state drive (SSD) managed disks](/azure/virtual-machines/managed-disks-overview) are block-level storage volumes that Azure manages. VMs use these disks. Available types include:
 
   - Ultra Disks
-  - Premium SSD Managed Disks
-  - Standard SSD Managed Disks
-  - Standard HDDs Managed Disks
+  - Premium SSD managed disks
+  - Standard SSD managed disks
+  - Standard HDDs managed disks
 
   Premium SSDs or Ultra Disks work best with this architecture.
 
@@ -142,7 +142,7 @@ This architecture uses the following components:
 
 ## Scenario details
 
-Unisys Dorado mainframe systems are full-featured operating environments. You can scale them up vertically to handle mission-critical workloads. But emulating or modernizing these systems into Azure can provide similar or better performance and SLA guarantees. Azure systems also offer added flexibility, reliability, and the benefit of future capabilities.
+Unisys Dorado mainframe systems are full-featured operating environments. You can scale them up vertically to handle mission-critical workloads. But emulating or modernizing these systems into Azure can provide similar or better performance and SLA commitments. Azure systems also offer added flexibility, reliability, and the benefit of future capabilities.
 
 This architecture uses emulation technology from two Microsoft partners, [Astadia][Astadia] and [Micro Focus][Micro Focus]. The solution provides an accelerated way to move to Azure. There's no need for these steps:
 
@@ -204,7 +204,7 @@ To estimate the cost of implementing this solution, use the [Azure pricing calcu
 - With ExpressRoute, you pay a [monthly port fee and outbound data transfer charges][Azure ExpressRoute pricing].
 - Azure Storage costs depend on [data redundancy options and volume][Azure Storage Overview pricing].
 - Azure Files pricing depends on many factors: [data volume, data redundancy, transaction volume, and the number of file sync servers][Azure Files Pricing] that you use.
-- For SSD managed disk pricing, see [Managed disks pricing][Managed Disks pricing].
+- For SSD managed disk pricing, see [managed disks pricing][managed disks pricing].
 - With Site Recovery, you pay for each [protected instance][Azure Site Recovery pricing].
 
 - Other services are free with your Azure subscription, but you pay for usage and traffic:
@@ -301,7 +301,7 @@ Principal author:
 [Email address for information on migrating legacy systems to Azure]: mailto:legacy2azure@microsoft.com
 [Load Balancing pricing]: https://azure.microsoft.com/pricing/details/load-balancer/
 [Mainframe rehosting on Azure virtual machines]: /azure/virtual-machines/workloads/mainframe-rehosting/overview
-[Managed Disks pricing]: https://azure.microsoft.com/pricing/details/managed-disks/
+[Managed disks pricing]: https://azure.microsoft.com/pricing/details/managed-disks/
 [Micro Focus]: https://www.microfocus.com/home
 [Modernize mainframe & midrange data]: /azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure
 [Overview of the performance efficiency pillar]: /azure/architecture/framework/scalability/overview

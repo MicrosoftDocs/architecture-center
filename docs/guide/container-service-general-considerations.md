@@ -560,7 +560,7 @@ Reliability is commonly measured by [business-driven metrics](/azure/well-archit
 
 Azure provides many SLAs for specific services. There's no such thing as total service availability because failures can occur in software, hardware, or even natural events like storms and earthquakes. An SLA isn't a guarantee but a financially backed commitment to a defined level of availability.
 
-For SLAs and details, [download the latest SLA for Microsoft online services document](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
+For SLAs and details, [download the latest SLA for Microsoft online services document](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services). To learn how to interpret SLAs and use them as engineering inputs, see [How to read a service-level agreement](/azure/reliability/concept-service-level-agreements).
 
 #### Free tiers versus paid tiers
 
