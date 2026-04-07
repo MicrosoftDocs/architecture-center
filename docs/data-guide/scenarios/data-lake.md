@@ -11,7 +11,7 @@ ai-usage: ai-assisted
 
 # What is a data lake?
 
-A data lake is a storage repository that holds large volumes of data in its native, raw format. Data lake stores scale cost-effectively to handle terabytes (TBs) and petabytes (PBs) of data, which makes them suitable for handling massive and diverse datasets. The data typically comes from many different sources and can include structured data like relational tables, semistructured data like JSON, XML, or log files, and unstructured data like images, audio, or video.
+A data lake is a storage repository that holds large volumes of data in its native, raw format. Data lakes scale cost-effectively to handle terabytes (TBs) and petabytes (PBs) of data, which makes them suitable for handling massive and diverse datasets. The data typically comes from many different sources and can include structured data like relational tables, semistructured data like JSON, XML, or log files, and unstructured data like images, audio, or video.
 
 Data lakes store all data types in their original, untransformed state and apply transformation only when the data is needed. This approach is known as *schema-on-read*. In contrast, a [data warehouse](../relational-data/data-warehousing.yml) enforces structure and applies transformations as it ingests data. This approach is known as *schema-on-write*.
 
