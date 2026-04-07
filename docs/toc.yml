@@ -1051,7 +1051,7 @@ items:
     - name: Guides
       items:
       - name: Cross-tenant secure access to apps
-        href: networking/guide/cross-tenant-secure-access-private-endpoints.yml
+        href: networking/guide/cross-tenant-secure-access-private-endpoints.md
     - name: Architectures
       items:
       - name: AD DS resource forests in Azure
@@ -1133,9 +1133,6 @@ items:
       - name: IoT Hub private file upload to Azure Storage
         displayName: Internet of Things
         href: example-scenario/iot/iot-private-file-upload.yml
-      - name: Project 15 IoT sustainability
-        displayName: Internet of Things
-        href: solution-ideas/articles/project-15-iot-sustainability.yml
   - name: Management + Governance
     items:
     - name: Get started
