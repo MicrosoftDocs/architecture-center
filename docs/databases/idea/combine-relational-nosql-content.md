@@ -62,6 +62,9 @@ Cost Optimization is about reducing unnecessary expenses and improving operation
 - Azure Cosmos DB offers [provisioned throughput](/azure/cosmos-db/set-throughput) and [serverless](/azure/cosmos-db/throughput-serverless) modes. Use serverless for development and low-traffic workloads, and provisioned throughput with autoscale for production workloads with variable demand.
 - Avoid over-provisioning by segregating workloads by data characteristics. Placing high-volume NoSQL reads in Azure Cosmos DB and complex transactional queries in Azure SQL Database allows each service to operate within its optimal cost profile.
 
+> [!TIP]
+> To estimate the cost of this architecture, use the [Azure pricing calculator](https://azure.com/e/b699ade4c29b4af4b13699451c4bbcc5).
+
 ## Related content
 
 - [Data considerations for microservices](../../microservices/design/data-considerations.md)
