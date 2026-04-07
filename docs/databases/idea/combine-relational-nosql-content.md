@@ -73,15 +73,6 @@ Cost Optimization is about reducing unnecessary expenses and improving operation
 - Azure Cosmos DB offers [provisioned throughput](/azure/cosmos-db/set-throughput) and [serverless](/azure/cosmos-db/throughput-serverless) modes. Use serverless for development and low-traffic workloads, and provisioned throughput with autoscale for production workloads with variable demand.
 - Avoid over-provisioning by segregating workloads by data characteristics. Placing high-volume NoSQL reads in Azure Cosmos DB and complex transactional queries in Azure SQL Database allows each service to operate within its optimal cost profile.
 
-### Operational Excellence
-
-Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
-
-- When data relationships span Azure Cosmos DB and Azure SQL Database, you can't use traditional cross-database transactions. Minimize these cross-service data dependencies through careful domain analysis and service boundary design. When cross-service coordination is unavoidable, use patterns like [Compensating Transaction](../../patterns/compensating-transaction.yml) or [Scheduler Agent Supervisor](../../patterns/scheduler-agent-supervisor.yml) to maintain consistency.
-- Use an [event-driven architecture](../../guide/architecture-styles/event-driven.md) to propagate changes between microservices. When a service updates its data store, it publishes an event that other services consume to update their own stores. This approach supports eventual consistency without direct coupling between services.
-- Designate a single source of truth for each domain entity. For example, the order management service is the authoritative source for order records in Azure SQL Database. Other services, like the product catalog service in Azure Cosmos DB, might hold a cached subset of order-related data but defer to the order management service for the canonical record.
-- For a deeper discussion of these data management patterns, including guidance on when to prefer eventual consistency over strong consistency, see [Data considerations for microservices](../../microservices/design/data-considerations.md#approaches-to-managing-data).
-
 ## Related content
 
 - [Data considerations for microservices](../../microservices/design/data-considerations.md)
