@@ -7,7 +7,7 @@ This article describes a polyglot persistence approach that pairs Azure SQL Data
 * **Azure SQL Database** manages structured, transactional data that requires relational integrity
 * **Azure Cosmos DB** handles high-volume, schema-flexible, or globally distributed data that requires low-latency access
 
-A domain-driven microservices layer allows each service to independently own the database that matches its data characteristics.
+A domain-driven microservices layer allows each service to independently manage the database that matches its data characteristics.
 
 ## Architecture
 
