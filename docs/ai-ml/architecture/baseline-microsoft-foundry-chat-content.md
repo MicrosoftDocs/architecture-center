@@ -1,4 +1,4 @@
-Enterprise chat applications let employees interact with AI agents through natural language conversations. These applications use language models, like OpenAI GPT models, and open-source development kits, like the Microsoft Foundry SDKs or the Microsoft Agent Framework. These chat applications typically consist of the following components:
+Enterprise chat applications let employees interact with AI agents through natural language conversations. These applications use language models, like OpenAI GPT models, and open-source development kits, like the [Microsoft Agent Framework](/agent-framework/overview/). These chat applications typically consist of the following components:
 
 - A chat user interface (UI) that's integrated into a larger enterprise application. It provides users with a conversational experience alongside other business functions.
 
@@ -32,7 +32,7 @@ This architecture uses the [Foundry Agent Service standard agent setup](/azure/a
 
 1. An application user interacts with a chat UI. The requests route through Azure Application Gateway. Azure Web Application Firewall inspects these requests before it forwards them to the back-end App Service instance.
 
-1. When the web application receives a user query or instruction, it invokes the purpose-built agent. The web application communicates with the agent endpoints via the [Foundry C# SDK](/azure/ai-foundry/how-to/develop/sdk-overview?view=foundry&preserve-view=true&pivots=programming-language-csharp). The web application calls the agent over a private endpoint and authenticates to Foundry by using its managed identity.
+1. When the web application receives a user query or instruction, it invokes the purpose-built agent. The web application communicates with the agent endpoints via the [Microsoft Agent Framework](/agent-framework/overview/). The web application calls the agent over a private endpoint and authenticates to Foundry by using its managed identity.
 
 1. The agent processes the user's request based on the instructions in its system prompt. To fulfill the user's intent, the agent has a configured language model, connected tools, and connected knowledge stores.
 
@@ -573,6 +573,14 @@ When you plan your experimentation, testing, and production environments, establ
 Microsoft manages the serverless compute platform for Foundry Agent Service REST APIs and the orchestration implementation logic. A [self-hosted orchestration](#alternatives) provides more control over runtime characteristics and capacity, but you must directly manage the day-2 operations for that platform. Evaluate the constraints and responsibilities of your approach to understand which day-2 operations you must implement to support your orchestration layer.
 
 In both approaches, you must manage state storage, like chat history and agent configuration for durability, backup, and recovery.
+
+#### Agent interaction SDK
+
+Use [Microsoft Agent Framework](/agent-framework/overview/) in your client application to interact with Foundry agents. Agent Framework supports C# and Python. If your client application requires JavaScript or Java, use the Foundry SDK directly. The Foundry SDK provides lower-level access to the same data plane APIs for agent invocation, conversations, and responses.
+
+Use the Foundry SDK directly for administrative operations regardless of your client SDK choice. Long-lived Foundry agent lifecycle concerns, including versioning and publishing are operations that belong in CI/CD pipelines and IaC processes, not in client application code.
+
+For more information about integrating Agent Framework with Foundry, see [Microsoft Agent Framework Foundry provider](/agent-framework/agents/providers/microsoft-foundry).
 
 #### Monitoring
 
