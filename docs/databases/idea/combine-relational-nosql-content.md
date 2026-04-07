@@ -1,13 +1,13 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This article describes a polyglot persistence architecture that uses Azure Cosmos DB and Azure SQL Database together. 
+This article describes a polyglot persistence architecture that uses Azure Cosmos DB and Azure SQL Database together. For background on polyglot persistence and data management principles in microservices, see [Data considerations for microservices](../../microservices/design/data-considerations.md).
 
 Each database is selected based on its characteristics to handle specific workload types: 
 
 * **Azure SQL Database** manages structured, transactional data that requires relational integrity
 * **Azure Cosmos DB** handles high-volume, schema-flexible, or globally distributed data that requires low-latency access
 
-A domain-driven microservices approach allows each service to use the database that matches its data characteristics.
+A domain-driven microservices approach allows each service to use the database that matches its data characteristics. Each microservice owns its private data store, which prevents unintentional coupling between services and preserves the agility of independent deployments.
 
 ## Architecture
 
@@ -34,7 +34,7 @@ Diagram of an e-commerce polyglot persistence architecture. Users access the sys
 
 Applications often handle diverse data workloads with different characteristics. Some data is structured and transactional, requiring relational integrity and complex queries. Other data is semi-structured, rapidly evolving, or high-volume, requiring flexible schemas and horizontal scalability. A single database technology isn't designed to handle all of these requirements efficiently.
 
-A polyglot persistence strategy assigns each data workload to the database technology that best matches its requirements. Domain-driven microservices enforce this separation, allowing each service to independently manage its own data store. This approach provides several advantages:
+A polyglot persistence strategy assigns each data workload to the database technology that best matches its requirements. Domain-driven microservices enforce this separation, allowing each service to independently manage its own data store. This approach leads to many of the [challenges described in the microservices data considerations guide](../../microservices/design/data-considerations.md#challenges), such as data redundancy across stores and eventual consistency between services. The following advantages help offset those challenges:
 
 - **Independent scalability.** Each database scales according to its workload. Azure Cosmos DB handles read/write bursts of millions of operations per second with guaranteed low latency. Azure SQL Database efficiently processes complex transactional queries and scales predictably.
 - **Appropriate data modeling.** Azure SQL Database provides fixed schemas, foreign keys, and joins for data that has well-defined relationships. Azure Cosmos DB provides schema-agnostic storage with automatic indexing for data that evolves frequently.
@@ -73,7 +73,18 @@ Cost Optimization is about reducing unnecessary expenses and improving operation
 - Azure Cosmos DB offers [provisioned throughput](/azure/cosmos-db/set-throughput) and [serverless](/azure/cosmos-db/throughput-serverless) modes. Use serverless for development and low-traffic workloads, and provisioned throughput with autoscale for production workloads with variable demand.
 - Avoid over-provisioning by segregating workloads by data characteristics. Placing high-volume NoSQL reads in Azure Cosmos DB and complex transactional queries in Azure SQL Database allows each service to operate within its optimal cost profile.
 
+### Operational Excellence
+
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
+
+- When data relationships span Azure Cosmos DB and Azure SQL Database, you can't use traditional cross-database transactions. Use patterns like [Compensating Transaction](../../patterns/compensating-transaction.yml) or [Scheduler Agent Supervisor](../../patterns/scheduler-agent-supervisor.yml) to maintain consistency across services.
+- Use an [event-driven architecture](../../guide/architecture-styles/event-driven.md) to propagate changes between microservices. When a service updates its data store, it publishes an event that other services consume to update their own stores. This approach supports eventual consistency without direct coupling between services.
+- Designate a single source of truth for each domain entity. For example, the Order Management service in Azure SQL Database is the authoritative source for order records. Other services, like Product Catalog in Azure Cosmos DB, might hold a cached subset of order-related data but defer to the Order Management service for the canonical record.
+- For a deeper discussion of these data management patterns, including guidance on when to prefer eventual consistency over strong consistency, see [Data considerations for microservices](../../microservices/design/data-considerations.md#approaches-to-managing-data).
+
 ## Related content
 
+- [Data considerations for microservices](../../microservices/design/data-considerations.md)
+- [Design a microservices architecture](../../microservices/design/index.md)
 - [Azure Cosmos DB](/azure/cosmos-db/introduction)
 - [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview)
