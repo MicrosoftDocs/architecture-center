@@ -195,6 +195,8 @@ Consider a multiagent approach when your workload exhibits the following charact
 
 Multiagent approaches introduce coordination complexity and increased latency because of communication between agents. For well‑defined scenarios without strict access‑isolation requirements, a single agent that uses one model and appropriate tools meets the requirements.
 
+Foundry Agent Service supports connecting agents to external agents and tools through standard protocols. You can connect to tools hosted on [Model Context Protocol (MCP) servers](/azure/foundry/agents/how-to/tools/model-context-protocol) and to other agents through [Agent-to-Agent (A2A) endpoints](/azure/foundry/agents/how-to/tools/agent-to-agent). Both connection types behave as external HTTP endpoints from the agent's perspective. They require firewall rules for egress and appropriate authentication configuration.
+
 For more information about how to implement multiple coordinated agents, see [AI agent orchestration patterns](../guide/ai-agent-design-patterns.md). This article covers sequential, concurrent, group chat, handoff, and magentic orchestration approaches. You can implement some patterns within Foundry Agent Service. Other patterns require self-hosted orchestration by using an SDK like Agent Framework.
 
 ## Considerations
@@ -353,7 +355,7 @@ If a connection doesn't support Microsoft Entra ID, you must supply a secret, li
 
 Use this key vault only for Foundry. Don't share it with other workload components. All non-Microsoft Entra ID connections across all projects in the account store their secrets in this vault. Other workload components don't need access to these secrets to use Foundry capabilities. Don't grant read or write permissions on this vault to other components unless you have a clear operational requirement or accept the trade-off.
 
-This architecture includes two API-key-based connections: Application Insights for Foundry metrics and Grounding with Bing Search.
+This architecture includes two API-key-based connections: Application Insights for Foundry metrics and Grounding with Bing Search. As you extend this architecture with tools that call external HTTP endpoints, like [MCP servers](/azure/foundry/agents/how-to/tools/model-context-protocol) or OpenAPI-defined APIs, each tool adds a project connection that carries its authentication credentials.
 
 If you use customer-managed keys for encryption, you can host both the customer-managed keys and the connection secrets in the same dedicated vault, if your security governance policies allow colocation of encryption keys and secrets.
 
@@ -439,7 +441,7 @@ The agent service uses the virtual network's DNS configuration to resolve privat
 
 The NSG attached to the agent egress subnet blocks all inbound traffic because no legitimate ingress should occur. Outbound NSG rules allow access only to private endpoint subnets within the virtual network and to Transmission Control Protocol (TCP) port 443 for internet-bound traffic. The NSG denies all other traffic.
 
-To further restrict internet traffic, this architecture applies a UDR to the subnet, which directs all HTTPS traffic through Azure Firewall. The firewall controls which FQDNs the agent can reach through HTTPS connections. For example, if the agent only needs to access `https://example.org/api`, configure Azure Firewall to allow traffic to `api.example.org` on port 443 from this subnet and ensure that the NSG allows that traffic.
+To further restrict internet traffic, this architecture applies a UDR to the subnet, which directs all HTTPS traffic through Azure Firewall. The firewall controls which FQDNs the agent can reach through HTTPS connections. For example, if the agent connects to an MCP server at `https://zava-online.com/mcp` or calls an external API through an OpenAPI tool definition, configure Azure Firewall to allow traffic to those specific FQDNs on port 443 from this subnet and ensure that the NSG allows that traffic.
 
 > [!NOTE]
 > Not all knowledge tools connected to your agents egress through this subnet. For example, [Grounding with Bing](/azure/foundry/agents/how-to/tools/web-search) calls `api.bing.microsoft.com`, which you might expect to route through Azure Firewall by allowing port 443 from this subnet. But the agent service invokes this tool through an internal mechanism that bypasses the egress subnet entirely. Test all built-in knowledge and tool connections for your workload to verify whether they align with your network egress control policies.
@@ -633,6 +635,11 @@ To prevent service disruptions, ensure safe and controlled agent deployment by i
 - **Version and track agents.** Assign clear version identifiers to each agent. Maintain records of which agent versions are active, along with their dependencies like models, data sources, and tools. Deploy new agent versions alongside existing versions to support progressive rollout, rollback, and controlled migration of users or sessions.
 
   When publishing agents using Agent Applications, each change to an agent creates an immutable agent version that you [reference in your published Agent Application](/azure/foundry/agents/how-to/publish-agent#update-a-published-agent-application). An Agent Application supports one active deployment, so updating the version atomically switches 100% of traffic to the new version.
+
+  Not every runtime variation requires a new version. [Structured inputs](/azure/foundry/agents/how-to/structured-inputs) parameterize agent definitions. The client supplies actual values at request time, so a single agent version can serve user-specific or context-specific configurations without redeployment.
+
+  > [!NOTE]
+  > Limit structured inputs to instruction text, like injecting a user name into the system prompt. Avoid templating tool-endpoint properties like MCP server URLs. Templated tool endpoints let the calling client redirect the agent to arbitrary external services at runtime, which undermines the static governance posture of this architecture. Your firewall FQDN allow list still blocks unapproved destinations, but the agent definition itself no longer documents which endpoints the agent is designed to reach.
 
 - **Publish and share agents.** After you author and validate agents in production Foundry instances, publish them to expose a dedicated endpoint that has its own identity and governance controls. Publishing creates a managed [Azure agent application resource](/azure/foundry/agents/how-to/publish-agent) that lets external clients access the agent without granting access to the production Foundry project itself.
 
