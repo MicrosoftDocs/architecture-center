@@ -143,21 +143,21 @@ Vector search is typical for retrieval-augmented generation (RAG) but not always
 
 #### Client-managed chat history
 
-**Current approach:** This architecture uses [service-managed conversations](/azure/ai-foundry/agents/concepts/runtime-components#conversations-and-conversation-items) in Foundry Agent Service to persist chat history. The service stores all conversation items, including messages, tool calls, and tool outputs, in the associated Azure Cosmos DB. This approach provides multi-turn and cross-session continuity without requiring the client application to manage state or maintain sessions. The service automatically provides the full conversation as context to the model during response generation.
+**Current approach:** This architecture uses [service-managed conversations](/azure/ai-foundry/agents/concepts/runtime-components#conversations-and-conversation-items) in Foundry Agent Service to persist chat history in Azure Cosmos DB. The service provides multi-turn and cross-session continuity without requiring the client to manage state, and automatically supplies the full conversation as context during response generation.
 
-**Alternative approach:** The client application manages conversation history instead of delegating it to the agent service. In this approach, each response from the agent is generated statelessly. The client carries forward output items from the previous response as input to the next request as it sees fit.
+**Alternative approach:** The client application manages conversation history instead of delegating it to the agent service. Each response is generated statelessly, and the client carries forward output items from previous responses as input to subsequent requests.
 
 Consider client-managed conversation history when your workload meets one or more of the following conditions:
 
-- **Published agents.** [Published agents (Agent Applications)](/azure/ai-foundry/agents/how-to/publish-responses) currently support only the stateless Responses API. The `/conversations` endpoint is inaccessible on the published agent's application endpoint. If your architecture uses published agents, the client must manage conversation state for multi-turn interactions.
+- **Published agents.** [Published agents (Agent Applications)](/azure/ai-foundry/agents/how-to/publish-responses) only support the stateless Responses API. The `/conversations` endpoint is inaccessible on the published agent's application endpoint, so the client must manage conversation state for multi-turn interactions.
 
-- **Zero data retention.** Your compliance or regulatory requirements prohibit server-side persistence of conversation content.
+- **Zero data retention.** Compliance or regulatory requirements prohibit server-side persistence of conversation content.
 
-- **Custom context window control.** You need to selectively include, exclude, summarize, or compact prior turns before sending them to the model. Client-managed history lets you apply your own truncation, summarization, or [compaction](/azure/foundry/openai/how-to/responses#compact-a-response) logic before each request.
+- **Custom context window control.** You need to selectively include, exclude, summarize, or [compact](/azure/foundry/openai/how-to/responses#compact-a-response) prior turns before sending them to the model.
 
-- **Multiple UX channels with independent session semantics.** The same agent is consumed by different applications (web, mobile, voice) where each channel needs its own session management, storage, and retention policies. Client-managed history lets each channel control its own state without coupling to the shared service-managed conversation store.
+- **Multiple UX channels with independent session semantics.** The same agent is consumed by different applications (web, mobile, voice) that each need their own session management, storage, and retention policies.
 
-Client-managed conversation history shifts responsibility for state durability, context management, and session isolation to your application code. You must implement your own storage, retention, compliance, and recovery mechanisms. Ensure that you account for context window limits and the increased HTTP request payload size of carrying forward conversation items in each request. For multi-turn reliability, use a persistent store like Redis or your existing application database rather than in-memory state alone.
+This approach shifts responsibility for state durability, context management, conversation data governance, and session isolation to your application code. Account for context window limits and the increased HTTP request payload size from carrying forward conversation items. For multi-turn reliability, use a persistent store such as Redis or your existing application database rather than in-memory state alone.
 
 #### Predefined agent or dynamically created agent
 
