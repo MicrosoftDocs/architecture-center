@@ -93,7 +93,7 @@ This architecture includes multiple components that you can substitute with othe
 
 Consider hosted agents instead of prompt-based agents when your workload requires one or more of the following capabilities:
 
-- Use of models not [supported by Foundry Agent Service](/azure/foundry/agents/concepts/model-region-support), or integration with tools not exposed by the service
+- Use of models not [supported by Foundry Agent Service](/azure/foundry/agents/concepts/limits-quotas-regions), or integration with tools not exposed by the service
 
 - Fine-grained, deterministic control over the agent execution path, including explicit orchestration patterns, external systems or tools invocations, prompt engineering, connection with multiple agents, or human-in-the-loop intervention
 
@@ -442,7 +442,7 @@ The NSG attached to the agent egress subnet blocks all inbound traffic because n
 To further restrict internet traffic, this architecture applies a UDR to the subnet, which directs all HTTPS traffic through Azure Firewall. The firewall controls which FQDNs the agent can reach through HTTPS connections. For example, if the agent only needs to access `https://example.org/api`, configure Azure Firewall to allow traffic to `api.example.org` on port 443 from this subnet and ensure that the NSG allows that traffic.
 
 > [!NOTE]
-> Not all knowledge tools connected to your agents egress through this subnet. For example, [Grounding with Bing](/azure/foundry/agents/how-to/tools-classic/bing-grounding) calls `api.bing.microsoft.com`, which you might expect to route through Azure Firewall by allowing port 443 from this subnet. But the agent service invokes this tool through an internal mechanism that bypasses the egress subnet entirely. Test all built-in knowledge and tool connections for your workload to verify whether they align with your network egress control policies.
+> Not all knowledge tools connected to your agents egress through this subnet. For example, [Grounding with Bing](/azure/foundry/agents/how-to/tools/web-search) calls `api.bing.microsoft.com`, which you might expect to route through Azure Firewall by allowing port 443 from this subnet. But the agent service invokes this tool through an internal mechanism that bypasses the egress subnet entirely. Test all built-in knowledge and tool connections for your workload to verify whether they align with your network egress control policies.
 
 ##### Virtual network segmentation and security
 
@@ -551,7 +551,7 @@ To control consumption model costs in this architecture, use a combination of th
 
 - **Choose the right model for the agent.** Select the least expensive model that meets your agent's requirements. Avoid using higher cost models unless they're essential. For example, the reference implementation uses GPT-4o instead of a more expensive model and achieves sufficient results.
 
-- **Monitor and manage usage.** Use [Microsoft Cost Management](/azure/foundry/concepts/manage-costs) and model-usage metrics to track token usage, set budgets, and create alerts for anomalies. Regularly review usage patterns and adjust quotas or client access as needed. For more information, see [Plan and manage costs for Foundry](/azure/foundry/how-to/costs-plan-manage).
+- **Monitor and manage usage.** Use [Microsoft Cost Management](/azure/foundry/concepts/manage-costs) and model-usage metrics to track token usage, set budgets, and create alerts for anomalies. Regularly review usage patterns and adjust quotas or client access as needed.
 
 - **Use the right deployment type.** Use pay-as-you-go pricing for unpredictable workloads, and switch to provisioned throughput when usage is stable and predictable. Combine both options when you establish a reliable baseline.
 
@@ -610,7 +610,7 @@ Evaluate custom alerts, like those from the Azure Monitor baseline alerts, for t
 - [AI services alerts](https://azure.github.io/azure-monitor-baseline-alerts/services/CognitiveServices/accounts/)
 - [Web Apps alerts](https://azure.github.io/azure-monitor-baseline-alerts/services/Web/serverFarms/)
 
-Monitor the usage of tokens against your model deployments. In this architecture, Foundry tracks [token usage](/azure/foundry/how-to/monitor-quality-safety) through its integration with Application Insights.
+Monitor the usage of tokens against your model deployments. In this architecture, Foundry tracks [token usage](/azure/foundry/observability/how-to/how-to-monitor-agents-dashboard) through its integration with Application Insights.
 
 Your jump boxes and build agent VMs reside in a highly privileged location, which provides those VMs direct network access to the data plane of all components in your architecture. Ensure that those VMs emit enough logs to show when users access them, who accesses them, and what users do on them.
 
@@ -660,7 +660,7 @@ If index server-tuning alone doesn't resolve all bottlenecks, consider the follo
 
 - Determine whether your application needs [provisioned throughput](/azure/foundry/openai/concepts/provisioned-throughput) or can use the shared (consumption) model. Provisioned throughput provides reserved capacity and predictable latency, which supports production workloads that have strict service-level objectives (SLOs). The consumption model provides best-effort service and might experience noisy neighbor effects.
 
-- Monitor [provision-managed usage](/azure/foundry/openai/how-to/monitor-openai) to avoid overprovisioning or underprovisioning.
+- Monitor [provision-managed usage](/azure/foundry/openai/monitor-openai-reference) to avoid overprovisioning or underprovisioning.
 
 - Choose a conversational model that meets your inference latency requirements.
 
@@ -711,5 +711,5 @@ Other contributors:
 
 - [AI workloads on Azure](/azure/well-architected/ai/get-started)
 - [Azure OpenAI models](/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure)
-- [Content filtering](/azure/foundry/openai/concepts/content-filter)
+- [Guardrails and controls](/azure/foundry/guardrails/guardrails-overview)
 - [AI agent orchestration patterns](/azure/architecture/ai-ml/guide/ai-agent-design-patterns)
