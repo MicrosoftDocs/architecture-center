@@ -127,7 +127,7 @@ This basic architecture doesn't represent the costs for a production-ready solut
 
 - This architecture assumes limited model calls. Use the Global Standard deployment type (pay-as-you-go) instead of provisioned throughput. As you move toward production, follow the [cost optimization guidance](baseline-microsoft-foundry-chat.yml#cost-optimization) in the baseline architecture.
 
-- Agent Service incurs costs for files uploaded during chat interactions. Don't make file upload functionality available to application users if it's not part of the desired user experience. Extra knowledge connections, such as the [Grounding with Bing tool](https://www.microsoft.com/bing/apis/grounding-pricing), have their own pricing structures.
+- Agent Service incurs costs for files uploaded during chat interactions. Don't make file upload functionality available to application users if it's not part of the desired user experience. Extra knowledge connections, such as the [Web Search tool](https://www.microsoft.com/bing/apis/grounding-pricing), have their own pricing structures.
 
   Agent Service is a no-code solution. You can't deterministically control which tools or knowledge sources each request invokes. In cost modeling, assume maximum usage of each connection.
 

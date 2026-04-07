@@ -34,7 +34,7 @@ This architecture uses the [Foundry Agent Service standard agent setup](/azure/f
 
 1. When the web application receives a user query or instruction, it invokes the purpose-built agent. The web application communicates with the agent endpoints via the [Microsoft Agent Framework](/agent-framework/overview/). The web application calls the agent over a private endpoint and authenticates to Foundry by using its managed identity.
 
-1. The agent processes the user's request based on the instructions in its system prompt. To fulfill the user's intent, the agent has a configured language model and connected [tools](/azure/foundry/agents/concepts/tool-catalog). In this architecture, tools include the Azure AI Search tool for grounding data and Grounding with Bing Search for web data.
+1. The agent processes the user's request based on the instructions in its system prompt. To fulfill the user's intent, the agent has a configured language model and connected [tools](/azure/foundry/agents/concepts/tool-catalog). In this architecture, tools include the Azure AI Search tool for grounding data and the [Web Search tool](/azure/foundry/agents/how-to/tools/web-search) for web data.
 
 1. The agent connects to Azure AI Search through the AI Search tool in the private network via a private endpoint.
 
@@ -355,7 +355,7 @@ If a connection doesn't support Microsoft Entra ID, you must supply a secret, li
 
 Use this key vault only for Foundry. Don't share it with other workload components. All non-Microsoft Entra ID connections across all projects in the account store their secrets in this vault. Other workload components don't need access to these secrets to use Foundry capabilities. Don't grant read or write permissions on this vault to other components unless you have a clear operational requirement or accept the trade-off.
 
-This architecture includes two API-key-based connections: Application Insights for Foundry metrics and Grounding with Bing Search. As you extend this architecture with tools that call external HTTP endpoints, like [MCP servers](/azure/foundry/agents/how-to/tools/model-context-protocol) or OpenAPI-defined APIs, each tool adds a project connection that carries its authentication credentials.
+This architecture includes two API-key-based connections: Application Insights for Foundry metrics and the Web Search tool. As you extend this architecture with tools that call external HTTP endpoints, like [MCP servers](/azure/foundry/agents/how-to/tools/model-context-protocol) or OpenAPI-defined APIs, each tool adds a project connection that carries its authentication credentials.
 
 If you use customer-managed keys for encryption, you can host both the customer-managed keys and the connection secrets in the same dedicated vault, if your security governance policies allow colocation of encryption keys and secrets.
 
@@ -444,7 +444,7 @@ The NSG attached to the agent egress subnet blocks all inbound traffic because n
 To further restrict internet traffic, this architecture applies a UDR to the subnet, which directs all HTTPS traffic through Azure Firewall. The firewall controls which FQDNs the agent can reach through HTTPS connections. For example, if the agent connects to an MCP server at `https://zava-online.com/mcp` or calls an external API through an OpenAPI tool definition, configure Azure Firewall to allow traffic to those specific FQDNs on port 443 from this subnet and ensure that the NSG allows that traffic.
 
 > [!NOTE]
-> Not all knowledge tools connected to your agents egress through this subnet. For example, [Grounding with Bing](/azure/foundry/agents/how-to/tools/web-search) calls `api.bing.microsoft.com`, which you might expect to route through Azure Firewall by allowing port 443 from this subnet. But the agent service invokes this tool through an internal mechanism that bypasses the egress subnet entirely. Test all built-in knowledge and tool connections for your workload to verify whether they align with your network egress control policies.
+> Not all knowledge tools connected to your agents egress through this subnet. For example, the [Web Search tool](/azure/foundry/agents/how-to/tools/web-search) calls `api.bing.microsoft.com`, which you might expect to route through Azure Firewall by allowing port 443 from this subnet. But the agent service invokes this tool through an internal mechanism that bypasses the egress subnet entirely. Test all built-in knowledge and tool connections for your workload to verify whether they align with your network egress control policies.
 
 ##### Virtual network segmentation and security
 
