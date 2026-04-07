@@ -25,7 +25,7 @@ As a prerequisite to this article, we recommend you review [Build and deploy app
 > While this article references AKS and GitHub, these recommendations apply to any container orchestration or CI/CD platform. While the implementation details might vary, most of the concepts and practices mentioned in each stage are still relevant and applicable.
 
 1. [Microsoft Entra ID](/entra/fundamentals/whatis) is configured as the identity provider for GitHub. Configure multifactor authentication (MFA) to help provide extra authentication security.
-1. Developers use [Visual Studio Code](https://code.visualstudio.com) or [Visual Studio](https://visualstudio.microsoft.com/vs/) with security extensions enabled to proactively analyze their code for security vulnerabilities.
+1. Developers use [Visual Studio Code](https://code.visualstudio.com) or [Visual Studio](https://visualstudio.microsoft.com/vs/) with [security extensions](#best-practice--use-ide-tools-and-plugins-to-automate-security-checks) enabled to proactively analyze their code for security vulnerabilities.
 1. Developers commit application code to a corporate owned and governed GitHub Enterprise repository.
 1. GitHub Enterprise integrates automatic security and dependency scanning through [GitHub Advanced Security](https://docs.github.com/enterprise-cloud@latest/get-started/learning-about-github/about-github-advanced-security).
 1. Pull requests trigger continuous integration (CI) builds and automated testing via [GitHub Actions](https://docs.github.com/actions).
@@ -87,14 +87,14 @@ Building a more secure AKS-hosted platform is an important step to help ensure s
 - Threat modeling is usually a manual activity that involves security and development teams. It's used to model and find threats within a system so that vulnerabilities can be addressed before any code development or changes to a system. Threat modeling can occur at different times, triggered by events such as a significant software change, solution architectural change, or security incidents.
 - We recommend you use the [STRIDE threat model](/azure/security/develop/threat-modeling-tool-threats#stride-model). This methodology starts with a data-flow diagram and uses the STRIDE mnemonic (Spoofing, Tampering, Info Disclosure, Repudiation, Denial of Service, and Elevation of Privilege) threat categories to empower teams to identify, mitigate, and validate risk. It also includes a [modeling tool](https://www.microsoft.com/securityengineering/sdl/threatmodeling) to notate and visualize system components, data flows, and security boundaries. Building threat modeling into your SDLC processes introduces new processes and more work to maintain updated threat models. But it helps ensure security is in place early, which helps reduce the potential cost of dealing with security issues found in later SDLC stages.
 
-#### Best Practice – Apply Azure Well Architect Framework (WAF)
+#### Best Practice – Apply Azure Well-Architect Framework
 
-- Apply [WAF security pillar](/azure/architecture/framework/#security) best practices that provide guidance for things like identity management, application security, infrastructure protection, date security, and DevOps as it applies to cloud native environments.
-- Apply [WAF operational](/azure/architecture/framework/#operational-excellence) best practices as it applies to DevSecOps and monitoring of your production environments.
+- Apply [Security](/azure/well-architected/security/checklist) best practices that provide guidance for things like identity management, application security, infrastructure protection, data security, and DevOps as it applies to cloud native environments.
+- Apply [WAF operational](/azure/well-architected/operational-excellence/checklist) best practices as it applies to DevSecOps and monitoring of your production environments.
 
 ### Develop phase
 
-"Shifting left" is a key tenant of the DevSecOps mindset. This process begins before code is even committed into a repository and deployed via a pipeline. Adopting secure coding best practices and using IDE tools and plugins for code analysis during the development phase can help address security issues earlier in the development lifecycle when they're easier to fix.
+"Shifting left" is a key tenent of the DevSecOps mindset. This process begins before code is even committed into a repository and deployed via a pipeline. Adopting secure coding best practices and using IDE tools and plugins for code analysis during the development phase can help address security issues earlier in the development lifecycle when they're easier to fix.
 
 #### Best Practice – Enforce secure coding standards
 
@@ -107,7 +107,7 @@ Building a more secure AKS-hosted platform is an important step to help ensure s
 Most popular IDEs, like Visual Studio, Visual Studio Code, IntelliJ IDEA, and Eclipse, support extensions that you can use to get immediate feedback and recommendations for potential security issues you might have introduced while writing application code.
 
 - [SonarQube for IDE](https://www.sonarsource.com/products/sonarqube/ide/) is an IDE plugin available for most popular languages and developer environments. SonarQube for IDE provides valuable feedback and automatically scans your code for common programming errors and potential security issues.
-- Other free and commercial plugins are focused on security specific items, like the OWASP top 10 common vulnerabilities. The [Snyk](https://snyk.io/ide-plugins/) plugin, for example, also scans your application source and third-party dependencies and alerts you if any vulnerabilities are found.
+- Other free and commercial plugins are focused on security specific items, like the OWASP top 10 common vulnerabilities. The [Snyk](https://snyk.io/platform/ide-plugins/) plugin, for example, also scans your application source and third-party dependencies and alerts you if any vulnerabilities are found.
 - The [Static Analysis Results Interchange Format (SARIF)](https://github.com/microsoft/sarif-vscode-extension) plugin for Visual Studio and Visual Studio Code lets you easily view vulnerabilities from popular Static Application Security Testing (SAST) tools in an intuitive and easy to read manner versus interpreting results from raw JSON output files.
 
 #### Best practice – Establish controls on your source code repositories
