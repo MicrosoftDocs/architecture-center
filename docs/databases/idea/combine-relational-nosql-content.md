@@ -21,6 +21,7 @@ Diagram of an e-commerce polyglot persistence architecture. Users access the sys
 1. API Management routes requests to the appropriate domain-driven microservices. Each microservice owns its data store independently.
 1. Microservices that handle flexible-schema, high-volume, or globally distributed workloads, such as user profiles, session state, product catalogs, and shopping carts, use Azure Cosmos DB. Azure Cosmos DB stores this data as JSON documents, provides single-digit millisecond response times, and scales horizontally.
 1. Microservices that handle structured, transactional workloads, such as order management, inventory, and payments, use Azure SQL Database. Azure SQL Database provides full ACID compliance, complex query support, and relational integrity for these operations.
+1. Some microservices communicate with each other to fulfill cross-domain data requirements. For example, the shopping cart service queries the user session service for session context, and both the inventory and order management services interact with the product catalog service for product information. These inter-service calls use service APIs rather than directly accessing another service's database, which preserves data ownership boundaries.
 
 ### Components
 
