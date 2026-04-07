@@ -106,6 +106,9 @@ A golden image is the version of a marketplace image that's published to Compute
 
 You can use VM Image Builder to customize images by adjusting operating system settings and by running custom scripts and commands. VM Image Builder supports Windows and Linux images. For more information on customizing images, see [Azure Policy Regulatory Compliance controls for Azure Virtual Machines][Azure Policy Regulatory Compliance controls for Azure Virtual Machines].
 
+> [!IMPORTANT]
+> As of March 2026, new Azure virtual networks default to private subnets that don't have default outbound connectivity. If your VM Image Builder builds require outbound internet access—for example, to download updates or agents—ensure the subnets you specify have outbound access explicitly configured. Also note that VM Image Builder API version 2024-02-01 and later enforces case sensitivity for all field names and values in templates.
+
 #### Track image tattoos
 
 Image tattooing is the process of keeping track of all image versioning information that a VM uses. This information is invaluable during troubleshooting and can include:
@@ -132,7 +135,10 @@ A failed test should interrupt the process. Repeat the test after addressing the
 
 #### Publish golden images
 
-Publish final images on Compute Gallery as a managed image or as a virtual hard disk (VHD) that DevOps teams can use. Mark any earlier images as aged. If you haven't set an end-of-life date for an image version in Compute Gallery, you might prefer to discontinue the oldest image. This decision depends on your company's policies.
+Publish final images on Compute Gallery as a managed image that DevOps teams can use. Since Azure retired unmanaged disks on March 31, 2026, VHD artifacts can no longer be used to provision new Azure VMs. If you previously distributed images as VHDs, migrate to managed images in Compute Gallery. Mark any earlier images as aged. If you haven't set an end-of-life date for an image version in Compute Gallery, you might prefer to discontinue the oldest image. This decision depends on your company's policies.
+
+> [!NOTE]
+> Azure Compute Gallery supports [Soft Delete](/azure/virtual-machines/shared-image-galleries#soft-delete), which provides a 7-day recovery window for accidentally deleted images. Consider enabling Soft Delete on your gallery to protect against unintended image loss.
 
 For information on limits that apply when you use Compute Gallery, see [Store and share images in an Azure Compute Gallery][Store and share images in an Azure Compute Gallery - Limits].
 
@@ -164,7 +170,7 @@ Consider these guidelines when refreshing pet servers:
 Generally, you should use Azure Policy to manage any control-plane compliance activity. You can also use Azure Policy for:
 
 - Tracking VM compliance.
-- Installing Azure agents.
+- Installing Azure agents. Use the [Azure Monitor Agent (AMA)](/azure/azure-monitor/agents/azure-monitor-agent-overview) for monitoring. The legacy Microsoft Monitoring Agent (MMA) has been deprecated and is no longer supported by Azure Automanage.
 - Capturing diagnostic logs.
 - Improving the visibility of VM compliance.
 
@@ -177,6 +183,9 @@ Each DevOps team can track its applications' compliance levels in the Azure Poli
 IT risk managers and security officers can also use the Azure Policy dashboard to manage company risks according to their company's risk appetite.
 
 By using the Azure Automanage Machine configuration feature of Azure Policy with remediation options, you can apply corrective actions automatically. But interrogating a VM frequently or making changes on a VM that you use for a business-critical application can degrade performance. Plan remediation actions carefully for production workloads. Give a DevOps team ownership of application compliance in all environments. This approach is essential for pet servers and environments, which are usually long-term Azure components.
+
+> [!NOTE]
+> The Azure Automanage Best Practices service is scheduled for retirement on September 30, 2027. Plan to migrate compliance and configuration management workflows to Azure Policy and Azure Machine Configuration before that date. For migration guidance, see [Upgrade your machines to the latest Automanage version](/azure/automanage/automanage-upgrade).
 
 ## Considerations
 
@@ -239,13 +248,13 @@ Principal author:
 [Control and audit your resources by using Azure Policy]: /training/modules/build-cloud-governance-strategy-azure/6-control-audit-resources-azure-policy
 [Custom Script Extensions]: /azure/virtual-machines/extensions/custom-script-windows
 [Deployment Stamps pattern]: ../../patterns/deployment-stamp.yml
-[Designing resilient applications for Azure]: /azure/architecture/framework/resiliency/principles
+[Designing resilient applications for Azure]: /azure/well-architected/reliability/principles
 [DevSecOps on AKS]: ../../guide/devsecops/devsecops-on-aks.yml
 [DevTest and DevOps for IaaS solutions]: ../../solution-ideas/articles/dev-test-iaas.yml
 [Geode pattern]: ../../patterns/geodes.yml
 [How to find a Marketplace image version]: /azure/virtual-machines/windows/cli-ps-findimage#view-purchase-plan-properties
 [Only allow certain image publishers from the Marketplace]: https://github.com/Azure/azure-policy/tree/master/samples/Compute/allowed-image-publishers
-[Overview of the reliability pillar]: /azure/architecture/framework/resiliency/overview
+[Overview of the reliability pillar]: /azure/well-architected/reliability/
 [Scaling for Azure Compute Gallery]: /azure/virtual-machines/shared-image-galleries#scaling
 [Store and share images in an Azure Compute Gallery]: /azure/virtual-machines/shared-image-galleries
 [Store and share images in an Azure Compute Gallery - Limits]: /azure/virtual-machines/shared-image-galleries#limits
