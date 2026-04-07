@@ -112,6 +112,6 @@ You can deploy this pattern in different ways, depending on your compute service
 
 ## Related resources
 
-- [Sharding](./sharding.yml)
+- [Sharding](./sharding.md)
 - [Choose an Azure compute service](../guide/technology-choices/compute-decision-tree.md)
 - [Architectural approaches for compute in multitenant solutions](../guide/multitenant/approaches/compute.md#compute-resource-consolidation-pattern)

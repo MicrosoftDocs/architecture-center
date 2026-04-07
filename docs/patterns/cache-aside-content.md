@@ -132,7 +132,7 @@ public async Task<MyEntity> GetMyEntityAsync(int id)
 ```
 
 > [!NOTE]
-> The examples use Azure Managed Redis to access the store and retrieve information from the cache. For more information, see [Create an Azure Managed Redis instance](/azure/redis/quickstart-create-managed-redis) and [Use Azure Cache for Redis in .NET Core](/azure/redis/dotnet-core-quickstart).
+> The examples use Azure Managed Redis to access the store and retrieve information from the cache. For more information, see [Create an Azure Managed Redis instance](/azure/redis/quickstart-create-managed-redis) and [Use Azure Managed Redis in .NET Core](/azure/redis/dotnet-core-quickstart).
 
 The following `UpdateEntityAsync` method demonstrates how to invalidate an object in the cache when the application changes the value. The code updates the original data store and then removes the cached item from the cache.
 
