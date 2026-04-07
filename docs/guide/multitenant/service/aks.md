@@ -628,7 +628,6 @@ Use open-source tools like [KubeCost](https://www.apptio.com/products/kubecost/?
 
 For more information, see the following articles:
 
-- [Cost governance with Kubecost](/azure/cloud-adoption-framework/scenarios/app-platform/aks/cost-governance-with-kubecost)
 - [Architectural approaches for cost management and allocation in a multitenant solution](/azure/architecture/guide/multitenant/approaches/cost-management-allocation)
 - [Overview of the Cost Optimization pillar](/azure/well-architected/cost-optimization)
 
