@@ -39,8 +39,8 @@ As a prerequisite to this article, we recommend you review [Build and deploy app
 1. [Azure Policy](/azure/governance/policy/overview) can be applied to Container Registry and Azure Kubernetes Service (AKS) for policy compliance and enforcement. Common security policies for Container Registry and AKS are built in for quick enablement.
 1. [Azure Key Vault](/azure/key-vault/key-vault-overview) is used to securely inject secrets and credentials into an application at runtime, separating sensitive information from developers.
 1. The AKS network policy engine is configured to help secure traffic between application pods by using Kubernetes network policies. [Azure CNI Powered by Cilium](/azure/aks/azure-cni-powered-by-cilium) is the recommended network policy engine, providing eBPF-based enforcement, Layer 7 policy, and FQDN filtering.
-1. Continuous monitoring of the AKS cluster can be set up by using [Azure Monitor](/azure/azure-monitor/overview) and [Container insights](/azure/azure-monitor/containers/container-insights-overview) to ingest performance metrics and analyze application and security logs.
-   1. Container insights retrieve performance metrics and application and cluster logs.
+1. Continuous monitoring of the AKS cluster can be set up by using [Azure Monitor](/azure/azure-monitor/containers/kubernetes-monitoring-enable) to collect Prometheus metrics, container logs, and Kubernetes events. Use [Azure Managed Grafana](/azure/managed-grafana/overview) dashboards for visualization and [Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) for query-based alerting.
+   1. Azure Monitor collects performance metrics via Managed Prometheus and application and cluster logs via container log collection.
    1. Diagnostic and application logs are pulled into an Azure Log Analytics workspace to run log queries.
 1. Microsoft Sentinel should be used as the centralized SIEM to correlate AKS telemetry with signals from Microsoft Defender for Cloud, Microsoft Entra ID, and network resources. Sentinel enables detection, investigation, and automated response to security incidents across the entire AKS environment.
 1. Open-Source tools such as Zed Attack Proxy (ZAP) ([ZAP](https://www.zaproxy.org/)) can be used to do penetration testing for web applications and services.
@@ -60,7 +60,7 @@ Building applications on the cloud by using containers and Kubernetes can simpli
 
 ### Cluster operators
 
-Cluster operators are responsible for configuring and managing the cluster infrastructure. They often use infrastructure as code (IaC) best practices and frameworks like [GitOps](/azure/architecture/example-scenario/gitops-aks/gitops-blueprint-aks) to provision and maintain their clusters. They use various monitoring tools like Azure Monitor Container insights and Prometheus/Grafana to monitor overall cluster health. They're responsible for patching, cluster upgrades, permissions, and role-based access control on the cluster. In DevSecOps teams, they ensure that the clusters meet the security requirements of the team, and they work with the security team to create those standards.
+Cluster operators are responsible for configuring and managing the cluster infrastructure. They often use infrastructure as code (IaC) best practices and frameworks like [GitOps](/azure/architecture/example-scenario/gitops-aks/gitops-blueprint-aks) to provision and maintain their clusters. They use various monitoring tools like Azure Monitor with Managed Prometheus and Azure Managed Grafana to monitor overall cluster health. They're responsible for patching, cluster upgrades, permissions, and role-based access control on the cluster. In DevSecOps teams, they ensure that the clusters meet the security requirements of the team, and they work with the security team to create those standards.
 
 ### Security team
 
@@ -98,7 +98,7 @@ Building a more secure AKS-hosted platform is an important step to help ensure s
 
 #### Best Practice – Enforce secure coding standards
 
-- By using established secure coding best practices and checklists, you can help protect your code from common vulnerabilities like injection and insecure design. The [OWASP](https://owasp.org/www-pdf-archive/OWASP_SCP_Quick_Reference_Guide_v2.pdf) foundation publishes industry standard secure coding recommendations that you should adopt when writing code. These guidelines are especially important when developing public-facing web applications or services.
+- By using established secure coding best practices and checklists, you can help protect your code from common vulnerabilities like injection and insecure design. The [OWASP](https://owasp.org/www-project-secure-coding-practices-quick-reference-guide/) foundation publishes industry standard secure coding recommendations that you should adopt when writing code. These guidelines are especially important when developing public-facing web applications or services.
 - In addition to general security best practices, you should also review secure coding practices for your specific programming language runtimes, like [Java](https://www.oracle.com/java/technologies/javase/seccodeguide.html) and .NET.
 - You can enforce logging standards to protect sensitive information from being leaked into application logs. Most popular logging frameworks, like log4j and log4net, provide filters and plugins to mask sensitive information like account numbers or personal data.
 
@@ -106,7 +106,7 @@ Building a more secure AKS-hosted platform is an important step to help ensure s
 
 Most popular IDEs, like Visual Studio, Visual Studio Code, IntelliJ IDEA, and Eclipse, support extensions that you can use to get immediate feedback and recommendations for potential security issues you might have introduced while writing application code.
 
-- [SonarLint](https://www.sonarsource.com/products/sonarlint/#learn) is an IDE plugin available for most popular languages and developer environments. SonarLint provides valuable feedback and automatically scans your code for common programming errors and potential security issues.
+- [SonarQube for IDE](https://www.sonarsource.com/products/sonarqube/ide/) is an IDE plugin available for most popular languages and developer environments. SonarQube for IDE provides valuable feedback and automatically scans your code for common programming errors and potential security issues.
 - Other free and commercial plugins are focused on security specific items, like the OWASP top 10 common vulnerabilities. The [Snyk](https://snyk.io/ide-plugins/) plugin, for example, also scans your application source and third-party dependencies and alerts you if any vulnerabilities are found.
 - The [Static Analysis Results Interchange Format (SARIF)](https://github.com/microsoft/sarif-vscode-extension) plugin for Visual Studio and Visual Studio Code lets you easily view vulnerabilities from popular Static Application Security Testing (SAST) tools in an intuitive and easy to read manner versus interpreting results from raw JSON output files.
 
@@ -121,16 +121,16 @@ Most popular IDEs, like Visual Studio, Visual Studio Code, IntelliJ IDEA, and Ec
 - Establish role-based access control within your version control system.
   - Create well-defined roles by using the principle of least privileges. A CI/CD pipeline is your supply chain for production deployments.
   - Apply established user or group [roles](https://docs.github.com/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise) within your organization. Roles like Admin, Developer, Security admin, and Operator must be created to group individuals based on their specific role and function regarding your CI/CD workflows.
-- Enable [auditing](https://docs.github.com/enterprise-server@3.2/admin/user-management/managing-users-in-your-enterprise/auditing-users-across-your-enterprise) of your workflows so there's transparency and traceability for configuration and other changes with respect to your CI/CD pipelines.
+- Enable [auditing](https://docs.github.com/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise) of your workflows so there's transparency and traceability for configuration and other changes with respect to your CI/CD pipelines.
 
 #### Best practice – Secure your container images
 
-- Use lightweight images with a minimal OS footprint to reduce the overall surface-attack area. Consider minimal images like Alpine or even distroless images that only contain your application and its associated runtime. [Azure Linux](/azure/aks/use-azure-linux), the Microsoft open-source Linux distribution, is a lightweight, hardened distribution designed for AKS to host containerized workloads.
+- Use lightweight images with a minimal OS footprint to reduce the overall surface-attack area. Consider minimal images like Alpine or even distroless images that only contain your application and its associated runtime.
 - Use only trusted base images when building your containers. These base images should be retrieved from a private registry that is frequently scanned for vulnerabilities.
 - Use developer tools to evaluate image vulnerabilities locally.
   - [Trivy](https://trivy.dev/) is an example of an open-source tool that you can use to analyze security vulnerabilities within your container images.
 - Prevent root user access/context for an image. By default, containers run as root.
-  - For containers that need enhanced security, consider using an AppArmor profile within your Kubernetes cluster to further help enforce security for your running containers.
+  - For containers that need enhanced security, consider using an [AppArmor](/azure/aks/secure-container-access?pivots=apparmor#configure-an-apparmor-profile) or [seccomp](/azure/aks/secure-container-access?pivots=seccomp#configure-a-custom-seccomp-profile) profile within your Kubernetes cluster to further help enforce security for your running containers.
 
 ### Build phase
 
@@ -142,6 +142,7 @@ During the build phase, developers work with the site reliability engineers and 
   - [Code scanning](https://docs.github.com/enterprise-cloud@latest/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning) is a feature that you use to analyze the code in a GitHub repository to find security vulnerabilities and coding errors. Any problems identified by the analysis are shown in GitHub Enterprise Cloud.
   - If code scanning finds a potential vulnerability or error in your code, GitHub displays an alert in the repository.
   - You can also configure branch rules for [required status checks](https://docs.github.com/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/troubleshooting-required-status-checks), for example, to enforce that a feature branch is up to date with the base branch before merging any new code. This practice ensures that your branch has always been tested with the latest code.
+  - Enable [Copilot Autofix](https://docs.github.com/enterprise-cloud@latest/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning) to receive AI-generated fix suggestions for code scanning alerts. Copilot Autofix proposes remediation directly in pull requests, which helps developers resolve security findings faster.
 - Use tools like [kube-score](https://kube-score.com/) to analyze your Kubernetes deployment objects.
   - kube-score is a tool that does static code analysis of your Kubernetes object definitions.
   - The output is a list of recommendations of what you can improve to help make your application more secure and resilient.
@@ -157,6 +158,11 @@ During the build phase, developers work with the site reliability engineers and 
 
 - [Dependency review](https://docs.github.com/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review) lets you catch insecure dependencies before you introduce them to your environment, and provides information on license, dependents, and age of dependencies. It provides an easily understandable visualization of dependency changes with a rich diff on the "Files Changed" tab of a pull request.
 - [Dependabot](https://docs.github.com/enterprise-cloud@latest/code-security/dependabot/dependabot-alerts/about-dependabot-alerts) performs a scan to detect insecure dependencies and sends Dependabot alerts when a new advisory is added to the GitHub Advisory Database or when dependency graph for a repository changes.
+
+#### Best practice – Generate a software bill of materials (SBOM) for your container images
+
+- An SBOM provides a complete inventory of the components, libraries, and dependencies that make up your container images. Use SBOM generation tools like [Microsoft sbom-tool](https://github.com/microsoft/sbom-tool) or [Syft](https://github.com/anchore/syft) during the CI build to produce an SPDX or CycloneDX manifest.
+- Attaching an SBOM to your container images stored in [Container Registry](/azure/container-registry/container-registry-sbom) enables downstream vulnerability scanning and license compliance tracking across the supply chain.
 
 #### Best practice – Enable security scans of Infrastructure as Code (IaC) templates to minimize cloud misconfigurations reaching production environments
 
@@ -176,7 +182,7 @@ During the build phase, developers work with the site reliability engineers and 
 
 - Azure Key Vault stores a signing key that can be used by [notation](/azure/container-registry/container-registry-tutorial-sign-build-push) with the notation Key Vault plugin (azure-kv) to [sign](/azure/container-registry/container-registry-tutorial-sign-build-push) and verify container images and other artifacts. Container Registry lets you attach these signatures by using the Azure CLI commands.
 - The signed containers let users make sure that deployments are built from a trusted entity and verify an artifact hasn't been tampered with since its creation. The signed artifact ensures integrity and authenticity before the user pulls an artifact into any environment, which helps avoid attacks.
-  - [Ratify](https://github.com/notaryproject/ratify/blob/main/README.md) lets Kubernetes clusters verify artifact security metadata before deployment and admit for deployment only those that comply with an admission policy that you create.
+  - [Ratify](https://github.com/notaryproject/ratify/blob/main/README.md) lets Kubernetes clusters verify artifact security metadata before deployment and admit for deployment only those that comply with an admission policy that you create. [AKS Image Integrity](/azure/aks/image-integrity) uses Ratify as a built-in verifier to validate image signatures and SBOM attestations before pods are admitted to the cluster.
 
 ### Deploy phase
 
@@ -233,7 +239,7 @@ During this phase, operation monitoring and security monitoring tasks are perfor
 
 #### Best practice – Use Azure Monitor for Continuous monitoring and alerting
 
-- Use Azure Monitor to collect logs and metrics from AKS. You gain insights on the availability and performance of your application and infrastructure. It also gives you access to signals to monitor your solution's health and spot abnormal activity early.
+- Use [Azure Monitor](/azure/azure-monitor/containers/kubernetes-monitoring-enable) to collect logs and metrics from AKS. Collect Prometheus metrics via [Azure Monitor managed service for Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview), query container and platform logs in [Log Analytics](/azure/azure-monitor/logs/log-analytics-overview), and visualize cluster health through [Azure Managed Grafana](/azure/managed-grafana/overview) dashboards.
   - Continuous monitoring with Azure Monitor extends to release pipelines to gate or rollback releases based on monitoring data. Azure Monitor also ingests security logs and can alert on suspicious activity.
   - Onboard your AKS instances to Azure Monitor and configure diagnostic settings for your cluster.
     - See [Azure security baseline for Azure Kubernetes Service](/security/benchmark/azure/baselines/aks-security-baseline).
