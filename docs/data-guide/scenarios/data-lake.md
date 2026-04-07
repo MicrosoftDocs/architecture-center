@@ -121,7 +121,7 @@ When you build a comprehensive data lake solution on Azure, consider the followi
 
 - [Fabric](/fabric/fundamentals/microsoft-fabric-overview) is an end-to-end data analytics platform that unifies data movement, data science, real-time analytics, and BI into a single software as a service (SaaS) experience.
 
-  Microsoft automatically provisions each Fabric tenant with a single logical data lake known as *OneLake*. OneLake is built on Data Lake Storage and provides a unified storage layer that can handle structured and unstructured data.
+  Each Microsoft Fabric tenant is automatically provisioned with a single logical data lake known as *OneLake*. OneLake is built on Data Lake Storage and provides a unified storage layer that can handle structured and unstructured data.
 
 ## Contributors
 
