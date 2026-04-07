@@ -101,12 +101,12 @@ items:
               href: ../multitenant/service/private-link.md
           - name: Storage and data
             items:
-            - name: Azure Managed Redis
-              href: ../multitenant/service/managed-redis.md
             - name: Azure Cosmos DB
               href: ../multitenant/service/cosmos-db.md
             - name: Azure Database for PostgreSQL
               href: ../multitenant/service/postgresql.md
+            - name: Azure Managed Redis
+              href: ../multitenant/service/managed-redis.md
             - name: Azure SQL Database
               href: ../multitenant/service/sql-database.md
             - name: Azure Storage
