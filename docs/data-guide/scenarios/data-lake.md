@@ -47,7 +47,7 @@ Common data lake use cases include:
 
 - **Foundation for hybrid architectures:** Data lakes often coexist with warehouses in a lakehouse approach that combines raw storage with structured query performance.
 
-A modern data lake solution comprises two core elements:
+A modern data lake solution comprises two core components:
 
 - **Storage:** Provides durability, fault tolerance, infinite scalability, and high-throughput ingestion of diverse data types.
 
@@ -69,7 +69,7 @@ Common layers include:
 
 This layered design, known as the *medallion architecture*, improves data quality, governance, and performance.
 
-## When you should use a data lake
+## When to use a data lake
 
 We recommend that you use a data lake for exploratory analytics, advanced data science, and machine learning workloads. Data lakes retain data in raw form and support schema-on-read, so teams can experiment with diverse data types and uncover insights that traditional warehouses might not capture.
 
@@ -91,7 +91,7 @@ The following table compares data lakes and data warehouses.
 | Data transformation stage | Transformation occurs at query time, which affects overall processing time | Transformation occurs during the ETL or ELT process |
 | Scalability | Highly scalable and cost-effective for large volumes of diverse data | Scalable but more expensive, especially at large scale |
 | Cost | Lower storage cost because of low-cost storage for raw data. Compute costs are incurred when data is processed or queried. | Higher cost because of dedicated compute and performance optimizations for analytical workloads |
-| Use case fit | Best for big data, machine learning, and exploratory analytics. In medallion architectures, teams use the gold layer for reporting | Ideal for BI, reporting, and structured data analysis |
+| Use case fit | Best for big data, machine learning, and exploratory analytics. In medallion architectures, teams use the gold layer for reporting. | Ideal for BI, reporting, and structured data analysis |
 
 ## Challenges of data lakes
 
