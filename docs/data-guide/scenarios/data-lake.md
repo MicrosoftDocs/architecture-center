@@ -39,11 +39,11 @@ Common data lake use cases include:
 
 - **Flexible data support:** Unlike warehouses that require structured formats, data lakes handle structured, semistructured, and unstructured data natively.
 
-- **Scalable and performant:** In distributed architectures, data lakes ingest and process data in parallel at scale, and they can frequently outperform traditional extract, transform, and load (ETL) pipelines in high-volume workloads. Gain these performance benefits through:
+- **Scalable and performant:** In distributed architectures, data lakes ingest and process data in parallel at scale. They frequently outperform traditional extract, transform, and load (ETL) pipelines in high-volume workloads. Gain these performance benefits through:
 
-  - **Parallelism:** Distributed compute engines like Apache Spark partition data and run transformations across many nodes at the same time. Traditional ETL frameworks usually process data in sequence or use only limited multithreaded processing.
+  - **Parallelism:** Distributed compute engines like Apache Spark partition data and run transformations across many nodes at the same time. Traditional ETL frameworks often depend on sequential or limited multithreaded processing.
 
-  - **Scalability:** Distributed systems scale horizontally by adding compute and storage nodes as needed. Traditional ETL pipelines usually depend on scaling a single host vertically, which meets resource limits quickly.
+  - **Scalability:** Distributed systems scale horizontally by elastically adding compute and storage nodes as needed. Traditional ETL pipelines usually depend on scaling a single host vertically, which meets resource limits quickly.
 
 - **Foundation for hybrid architectures:** Data lakes often coexist with warehouses in a lakehouse approach that combines raw storage with structured query performance.
 
@@ -71,11 +71,11 @@ This layered design, known as the *medallion architecture*, improves data qualit
 
 ## When to use a data lake
 
-We recommend that you use a data lake for exploratory analytics, advanced data science, and machine learning workloads. Data lakes retain data in raw form and support schema-on-read, so teams can experiment with diverse data types and uncover insights that traditional warehouses might not capture.
+We recommend that you use a data lake for exploratory analytics, advanced data science, and machine learning workloads. Data lakes retain data in raw form and support schema-on-read, so teams can experiment with diverse data types and uncover insights that traditional warehouses might miss.
 
 ### Data lake as a source for data warehouses
 
-A data lake can function as the upstream source for a data warehouse, where raw data is ingested from source systems and loaded into the lake. Modern warehouses like the Fabric Warehouse use built-in massively parallel processing (MPP) SQL engines to transform that raw data into a structured format through [extract, load, transform (ELT)](../relational-data/etl.yml#extract-load-and-transform-elt). This approach differs from traditional ETL pipelines, where the ETL engine extracts and transforms data before it loads it into the warehouse. Both approaches provide flexibility depending on your use case. Balance data quality, performance, and resource utilization while you keep the warehouse optimized for analytics.
+A data lake can function as the upstream source for a data warehouse, where raw data is ingested from source systems and loaded into the lake. Modern warehouses like the Fabric Warehouse use built-in massively parallel processing (MPP) SQL engines to transform that raw data into a structured format through [extract, load, transform (ELT)](../relational-data/etl.yml#extract-load-and-transform-elt). This approach differs from traditional ETL pipelines, where the ETL engine extracts and transforms data before it loads it into the warehouse. Both approaches provide flexibility for each use case. They also balance data quality, performance, and resource utilization to keep the warehouse optimized for analytics.
 
 ### Event streaming and IoT scenarios
 
@@ -101,7 +101,7 @@ The following table compares data lakes and data warehouses.
 
 - **Data integrity risks:** Without strong validation and monitoring, errors or incomplete ingestions can compromise the reliability of the lake's contents.
 
-- **Data quality and governance:** Diverse sources and formats complicate standards enforcement. You must implement metadata management, cataloging, and governance frameworks.
+- **Data quality and governance:** Diverse sources and formats complicate standards enforcement. Implementing metadata management, cataloging, and governance frameworks is critical.
 
 - **Performance at scale:** Query performance and storage efficiency can degrade as the lake grows, which requires optimization strategies like partitioning, indexing, and caching.
 
