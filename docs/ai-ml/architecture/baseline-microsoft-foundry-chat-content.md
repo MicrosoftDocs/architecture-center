@@ -302,13 +302,13 @@ This baseline architecture lacks multiregion capabilities, so regional outages a
 
 Chat architectures contain stateful components, so you must plan for DR. These workloads typically require a memory store for active or paused chat sessions. They also require storage for supplemental data, like documents or images, added to chat conversations. The agent orchestration layer might also maintain state that's specific to conversation flows. In this architecture, Foundry Agent Service uses Azure Cosmos DB, Storage, and AI Search to persist operational and transactional state. The life cycle and coupling of this state across components determines your DR strategy and recovery operations.
 
-For Foundry Agent Service, ensure that you can recover all dependencies to a consistent point in time. This approach helps maintain transactional integrity across the three external dependencies.
+Foundry Agent Service doesn't provide built-in DR capabilities. It doesn't replicate state, create backups, or support point-in-time restore on its own. Recovery is reconstruction, not promotion of a replica. An incident can permanently remove agents, conversations, and knowledge data. Plan for the possibility of total state loss for stateful content and set recovery expectations with stakeholders accordingly.
 
-The following recommendations summarize guidance from the [Foundry Agent Service DR guide](/azure/foundry/how-to/agent-service-disaster-recovery):
+The following compensating controls, based on the [Foundry Agent Service DR guide](/azure/foundry/how-to/agent-service-disaster-recovery), reduce the likelihood and scope of data loss but don't eliminate it.
 
 - **Azure Cosmos DB:** Turn on [continuous backup](/azure/cosmos-db/online-backup-and-restore) for the `enterprise_memory` database. This setup provides point-in-time restore (PITR) with a seven-day RPO, which includes agent definitions and chat conversations. Test your restore process regularly to confirm that it meets your RTO and that the restored data remains available to the agent service. Always restore to the same account and database.
 
-- **AI Search:** AI Search lacks built-in restore capabilities and doesn't support direct index manipulation. If data loss or corruption occurs, you must contact Microsoft support for assistance with index restoration. This limitation can significantly affect your RTO. If your chat UI doesn't support file uploads and you don't have agents that use static files as knowledge, you might not need a DR plan for AI Search.
+- **AI Search:** AI Search lacks built-in restore capabilities and doesn't support direct index manipulation. If data loss or corruption occurs, you must contact Microsoft Support for assistance with index restoration options available. This limitation can significantly affect your RTO. If your chat UI doesn't support file uploads and you don't have agents that use static files as knowledge, you might not need a DR plan for AI Search.
 
   Maintain a separate, regularly updated source of truth for your enterprise grounding knowledge. This practice ensures that you can rebuild indexes when necessary.
 
@@ -543,7 +543,7 @@ To control consumption model costs in this architecture, use a combination of th
 
   - Approve all model consumers. Don't expose models in a way that allows unrestricted access.
 
-  - Enforce token-limiting constraints like `max_tokens` and `max_completions` through agent logic. This control is only available in self-hosted orchestration. Foundry Agent Service doesn't support this functionality.
+  - Enforce token-limiting constraints like [`max_tokens` and `max_completion_tokens`](/azure/foundry/openai/reference#components) through agent logic. This control is only available in self-hosted orchestration. Foundry Agent Service doesn't support this functionality.
 
   - Optimize prompt input and response length. Longer prompts consume more tokens, which increases cost. Prompts that lack sufficient context reduce model effectiveness. Create concise prompts that provide enough context to allow the model to generate a useful response. Ensure that you optimize the limit of the response length.
 
@@ -630,13 +630,15 @@ To prevent service disruptions, ensure safe and controlled agent deployment by i
 
   Agents defined in Foundry Agent Service behave nondeterministically, so you must determine how to measure and maintain your desired quality level. Create and run a test suite that checks for ideal responses to realistic user questions and scenarios.
 
-- **Version and track agents.** Assign clear version identifiers to each agent. Maintain records of which agent versions are active, along with their dependencies like models, data sources, and tools. Deploy new agent versions alongside existing versions to support progressive rollout, rollback, and controlled migration of users or sessions. [Foundry supports multiple published agent versions](/azure/foundry/agents/how-to/publish-agent#update-a-published-agent-application) to help manage rollouts.
+- **Version and track agents.** Assign clear version identifiers to each agent. Maintain records of which agent versions are active, along with their dependencies like models, data sources, and tools. Deploy new agent versions alongside existing versions to support progressive rollout, rollback, and controlled migration of users or sessions.
+
+  When publishing agents using Agent Applications, each change to an agent creates an immutable agent version that you [reference in your published Agent Application](/azure/foundry/agents/how-to/publish-agent#update-a-published-agent-application). An Agent Application supports one active deployment, so updating the version atomically switches 100% of traffic to the new version.
 
 - **Publish and share agents.** After you author and validate agents in production Foundry instances, publish them to expose a dedicated endpoint that has its own identity and governance controls. Publishing creates a managed [Azure agent application resource](/azure/foundry/agents/how-to/publish-agent) that lets external clients access the agent without granting access to the production Foundry project itself.
 
   Before you publish, any user that has the Azure AI User RBAC role on the Foundry project can interact with all contained agents, and conversation context and state is shared across users. After you publish, an application deployment is created. It runs a specific agent version and enforces user-level data isolation by scoping interactions and associated data to the calling identity. You can start, stop, and update the deployment to reference a new agent version. The application endpoint remains stable across version updates, which avoids downstream client configuration changes.
 
-- **Plan for failback.** Foundry doesn't provide built-in support for blue-green or canary deployments of agents. If you require these deployment patterns, implement a routing layer, like an API gateway or custom router, in front of the agent API. This routing layer lets you shift traffic incrementally between agent versions, monitor the effect, and perform a full switchover when ready.
+- **Plan for progressive rollout and failback.** Foundry doesn't provide built-in support for blue-green or canary deployments of agents. If you require these deployment patterns or controlled migration of users between agent versions, implement a routing layer, like an API gateway or custom router, in front of the agent API. This routing layer lets you shift traffic incrementally between agent versions, monitor the effect, and perform a full switchover when ready.
 
 - **Coordinate agent removal.** When you remove agents, coordinate the process with your application's state management and user experience requirements. Handle active chat sessions appropriately. Depending on your workload's functional requirements, you can migrate sessions, pin users to the old agent version, or require users to start new sessions.
 
