@@ -52,19 +52,7 @@ This architecture is appropriate for applications that handle multiple data work
 - **Financial services.** Payment and trading platforms that use Azure SQL Database for transactional integrity over financial records and Azure Cosmos DB for globally distributed, low-latency access to portfolio or operational data.
 - **AI-enhanced applications.** Solutions that use Azure SQL Database for relational records of transactions and agreements, and Azure Cosmos DB for storing AI-generated metadata, chat sessions, or contextual artifacts that require flexible schema and fast access.
 
-## Considerations
-
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
-
-### Reliability
-
-Reliability helps ensure that your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
-
-- Azure Cosmos DB provides a [99.999% availability SLA](/azure/cosmos-db/high-availability) for multi-region configurations, which helps ensure that globally distributed workloads remain accessible during regional outages.
-- Azure SQL Database supports [active geo-replication](/azure/azure-sql/database/active-geo-replication-overview) and [failover groups](/azure/azure-sql/database/failover-group-sql-db) for high availability and disaster recovery.
-- Design each microservice to degrade gracefully if either database becomes temporarily unavailable. Service isolation provided by independent data ownership limits the blast radius of component failures.
-
-### Cost Optimization
+## Cost Optimization
 
 Cost Optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
