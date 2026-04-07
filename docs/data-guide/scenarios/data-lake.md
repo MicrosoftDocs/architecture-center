@@ -57,7 +57,7 @@ Mature solutions incorporate metadata management, security, and governance to ma
 
 ## Typical data lake architecture
 
-A typical Azure data lake architecture consists of multiple layers that organize data as it moves through ingestion, transformation, and consumption stages.
+A typical Azure data lake architecture consists of multiple layers that organize data as it moves through the ingestion, transformation, and consumption stages.
 
 Common layers include:
 
