@@ -95,13 +95,13 @@ The following table compares data lakes and data warehouses.
 
 ## Challenges of data lakes
 
-- **Scalability and complexity:** Managing PBs of raw, unstructured, and semistructured data requires robust infrastructure, distributed processing, and careful cost management.
+- **Scalability and complexity:** The management of PBs of raw, unstructured, and semistructured data requires robust infrastructure, distributed processing, and careful cost management.
 
 - **Processing bottlenecks:** As data volume and diversity increase, transformation and query workloads can introduce latency, which requires careful pipeline design and workload orchestration.
 
 - **Data integrity risks:** Without strong validation and monitoring, errors or incomplete ingestions can compromise the reliability of the lake's contents.
 
-- **Data quality and governance:** Diverse sources and formats complicate standards enforcement. Implementing metadata management, cataloging, and governance frameworks is critical.
+- **Data quality and governance:** Diverse sources and formats complicate standards enforcement. Metadata management, cataloging, and governance frameworks are critical.
 
 - **Performance at scale:** Query performance and storage efficiency can degrade as the lake grows, which requires optimization strategies like partitioning, indexing, and caching.
 
