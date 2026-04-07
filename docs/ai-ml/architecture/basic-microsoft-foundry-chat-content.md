@@ -1,4 +1,4 @@
-This article provides a basic architecture to help you learn how to run chat applications by using [Microsoft Foundry](/azure/foundry/what-is-foundry) and [Azure OpenAI in Foundry Models](/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure#azure-openai-in-azure-ai-foundry-models). The architecture includes a client user interface (UI) that runs in Azure App Service. To fetch grounding data for the language model, the UI uses an agent hosted in Foundry Agent Service to orchestrate the workflow from incoming prompts to data stores. The architecture runs in a single region.
+This article provides a basic architecture to help you learn how to run chat applications by using [Microsoft Foundry](/azure/foundry/what-is-foundry) and [Azure OpenAI in Foundry Models](/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure#azure-openai-in-microsoft-foundry-models). The architecture includes a client user interface (UI) that runs in Azure App Service. To fetch grounding data for the language model, the UI uses an agent hosted in Foundry Agent Service to orchestrate the workflow from incoming prompts to data stores. The architecture runs in a single region.
 
 > [!IMPORTANT]
 > This architecture isn't for production. It's an introductory architecture for learning and proof of concept (POC) purposes. When you design production chat applications, use the [Baseline Foundry chat reference architecture](baseline-microsoft-foundry-chat.yml), which adds production design decisions.
@@ -40,7 +40,7 @@ Many of this architecture's components are the same as the [basic App Service we
 
   - [Agent Service](/azure/foundry/agents/overview) is a capability hosted in Foundry. You use this service to define and host agents to handle chat requests. It manages chat threads, orchestrates tool calls, enforces content safety, and integrates with identity, networking, and observability systems. In this architecture, Agent Service orchestrates the flow that fetches grounding data from AI Search and other connected tools and passes it with the prompt to the deployed model.
 
-    The agents defined in Agent Service are codeless and effectively nondeterministic. Your agent's system prompt, combined with `temperature` and `top_p` parameters, and constrained knowledge connections define how the agent behave for all requests.
+    The agents defined in Agent Service are codeless and effectively nondeterministic. Your agent's system prompt, combined with `temperature` and `top_p` parameters, and constrained knowledge connections define how the agent behaves for all requests.
   
   - [Foundry Models](/azure/foundry/foundry-models/how-to/deploy-foundry-models) allow you to deploy flagship models, including OpenAI models, from the Azure AI catalog in a Microsoft-hosted environment. This approach is considered a MaaS deployment. This architecture deploys models by using the [Global Standard](/azure/foundry/foundry-models/concepts/deployment-types#global-standard) configuration with a fixed quota.
 
@@ -194,6 +194,5 @@ Architects should design AI and machine learning workloads, such as this one, wi
 ## Related resources
 
 - [A Well-Architected Framework perspective on AI workloads on Azure](/azure/well-architected/ai/get-started)
-- [Deploy AI models in the Foundry portal](/azure/foundry/concepts/foundry-models-overview)
 - [Explore Models](/azure/foundry/concepts/foundry-models-overview)
 - [What is Agent Service?](/azure/foundry/agents/overview)
