@@ -7829,7 +7829,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "docs/guide/multitenant/service/cache-redis",
+      "source_path": "docs/guide/multitenant/service/cache-redis.md",
       "redirect_url": "/azure/architecture/guide/multitenant/service/managed-redis",
       "redirect_document_id": false
     }

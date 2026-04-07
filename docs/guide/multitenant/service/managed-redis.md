@@ -114,7 +114,6 @@ Other contributors:
 ## Related resources
 
 - [Storage and data approaches for multitenancy](../approaches/storage-data.md)
-- [Multitenancy and Azure Cache for Redis](cache-redis.md)
 - [Cache-Aside pattern](../../../patterns/cache-aside.yml)
 - [Sharding pattern](../../../patterns/sharding.md)
 - [Migrate to Azure Managed Redis](/azure/redis/migrate/migrate-basic-standard-premium-overview)
