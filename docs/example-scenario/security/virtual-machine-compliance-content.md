@@ -26,6 +26,8 @@ The golden image publishing process runs monthly and contains these steps:
 :::image type="content" source="./media/virtual-machine-compliance-track-compliance-architecture.svg" alt-text="Architecture diagram showing how the solution manages compliance by assigning policy definitions, evaluating machines, and displaying data in a dashboard." border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/virtual-machine-compliance-track-compliance-architecture.vsdx) of this architecture.*
+> [!NOTE]
+> Azure Image Builder supports automatic image creation when certain criteria are met in your build pipline. Set up a trigger in Azure Image Builder to automatically refresh images on a monthly basis. See [How to enable Automatic Image Creation with Azure Image Builder triggers](/azure/virtual-machines/image-builder-triggers-how-to).
 
 The process of tracking VM compliance contains these steps:
 
@@ -40,7 +42,7 @@ The process of tracking VM compliance contains these steps:
 
 - [Azure Policy][Azure Policy and the policy dashboard] offers policy definitions. You can use these definitions to enforce your organization's standards and to assess compliance at scale. The Azure Policy dashboard displays results from Azure Policy evaluations. This data keeps you informed about the compliance status of your resources.
 
-- The [Azure Automanage Machine Configuration feature of Azure Policy][Azure Automanage Machine configuration] provides a way to dynamically audit or assign configurations to machines through code. The configurations generally include environment or operating system settings.
+- The [Azure Machine Configuration feature of Azure Policy][Azure Automanage Machine configuration] provides a way to dynamically audit or assign configurations to machines through code. The configurations generally include environment or operating system settings.
 
 ### Alternatives
 
