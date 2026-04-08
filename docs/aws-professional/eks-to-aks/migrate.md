@@ -15,7 +15,7 @@ ms.custom:
 This article describes strategies to migrate typical stateless and stateful workloads from Amazon Elastic Kubernetes Service (EKS) to Azure Kubernetes Service (AKS).
 
 > [!NOTE]
-> This guide focuses on the migration process and considerations for moving workloads from EKS to AKS. If you're looking to learn more generally about AKS configurations, best practices, similarities, and differences compared to Amazon EKS then start with [AKS for Amazon EKS professionals](./index.md).
+> This guide focuses on the migration process and considerations for moving workloads from EKS to AKS. If you want to learn more about AKS configurations, best practices, and similarities and differences compared to Amazon EKS, start with [AKS for Amazon EKS professionals](./index.md).
 
 ## Considerations
 
