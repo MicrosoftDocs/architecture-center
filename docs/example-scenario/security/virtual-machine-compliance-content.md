@@ -135,7 +135,7 @@ A failed test should interrupt the process. Repeat the test after addressing the
 
 #### Publish golden images
 
-Publish final images in Azure Compute Gallery as managed images that DevOps teams can use. Azure's retirement applies to unmanaged-disk-based VM provisioning workflows, not to VHD files as artifacts in every scenario. If you previously distributed images as VHDs for unmanaged-disk deployments, migrate those workflows to managed images in Azure Compute Gallery. For the retirement date and impact, see [Retirement: Unmanaged disks on Azure IaaS VMs](https://azure.microsoft.com/updates/retirement-unmanaged-disks-on-azure-iaas-vms-will-be-retired-on-31-march-2026/). Mark any earlier images as aged. If you haven't set an end-of-life date for an image version in Compute Gallery, you might prefer to discontinue the oldest image. This decision depends on your company's policies.
+Publish final images in Azure Compute Gallery as managed images that DevOps teams can use. Mark any earlier images as aged. If you haven't set an end-of-life date for an image version in Compute Gallery, you might prefer to discontinue the oldest image. This decision depends on your company's policies.
 
 > [!NOTE]
 > Azure Compute Gallery supports [Soft Delete](/azure/virtual-machines/shared-image-galleries#soft-delete), which provides a 7-day recovery window for accidentally deleted images. Consider enabling Soft Delete on your gallery to protect against unintended image loss.
@@ -170,11 +170,11 @@ Consider these guidelines when refreshing pet servers:
 Generally, you should use Azure Policy to manage any control-plane compliance activity. You can also use Azure Policy for:
 
 - Tracking VM compliance.
-- Installing Azure agents. Use the [Azure Monitor Agent (AMA)](/azure/azure-monitor/agents/azure-monitor-agent-overview) for monitoring. The legacy Microsoft Monitoring Agent (MMA), also called the Log Analytics agent, is deprecated. For retirement dates and migration guidance, see [Migrate from the Log Analytics agent to Azure Monitor Agent](/azure/azure-monitor/agents/azure-monitor-agent-migration).
+- Installing Azure agents. Use the [Azure Monitor Agent (AMA)](/azure/azure-monitor/agents/azure-monitor-agent-overview) for monitoring.
 - Capturing diagnostic logs.
 - Improving the visibility of VM compliance.
 
-Use the Azure Automanage Machine Configuration feature of Azure Policy to audit the configuration changes that you make during image customization. When drift occurs, the Azure Policy dashboard lists the affected VM as non-compliant. Azure Policy can use image tattooing information to track when you use outdated images or operating systems.
+Use the Machine Configuration feature of Azure Policy to audit the configuration changes that you make during image customization. When drift occurs, the Azure Policy dashboard lists the affected VM as non-compliant. Azure Policy can use image tattooing information to track when you use outdated images or operating systems.
 
 Audit pet servers for each application. By using Azure Policies with an audit effect, you can improve the visibility of these servers. Adjust the audit process according to your company's risk appetite and internal risk management processes.
 
@@ -182,10 +182,7 @@ Each DevOps team can track its applications' compliance levels in the Azure Poli
 
 IT risk managers and security officers can also use the Azure Policy dashboard to manage company risks according to their company's risk appetite.
 
-By using the Azure Automanage Machine configuration feature of Azure Policy with remediation options, you can apply corrective actions automatically. But interrogating a VM frequently or making changes on a VM that you use for a business-critical application can degrade performance. Plan remediation actions carefully for production workloads. Give a DevOps team ownership of application compliance in all environments. This approach is essential for pet servers and environments, which are usually long-term Azure components.
-
-> [!NOTE]
-> The Azure Automanage Best Practices service is scheduled for retirement on September 30, 2027. Plan to migrate compliance and configuration management workflows to Azure Policy and Azure Machine Configuration before that date. For migration guidance, see [Upgrade your machines to the latest Automanage version](/azure/automanage/automanage-upgrade).
+By using the Machine configuration feature of Azure Policy with remediation options, you can apply corrective actions automatically. But interrogating a VM frequently or making changes on a VM that you use for a business-critical application can degrade performance. Plan remediation actions carefully for production workloads. Give a DevOps team ownership of application compliance in all environments. This approach is essential for pet servers and environments, which are usually long-term Azure components.
 
 ## Considerations
 
