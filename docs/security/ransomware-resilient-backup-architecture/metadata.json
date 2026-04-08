@@ -1,9 +1,0 @@
-{
-  "title": "Designing ransomware-resilient backups in Azure using immutable vaults",
-  "description": "Learn how to design ransomware-resilient backup architectures in Azure using immutable vaults, subscription isolation, and multi-user authorization, with clear responsibility boundaries.",
-  "ms.service": "azure-backup",
-  "ms.topic": "architecture",
-  "ms.subservice": "design",
-  "author": "<marinfrankovic",
-  "ms.date": "2026-04-08"
-}
