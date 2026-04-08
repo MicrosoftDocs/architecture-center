@@ -26,9 +26,9 @@ The articles compare AKS with Amazon EKS in the following Kubernetes design area
 - [Cost optimization and management](cost-management.md)
 - [Agent node and node pool management](node-pools.md)
 - [Cluster governance](governance.md)
-- [Workload migration](migrate.md)
 
-These articles provide recommended architectures and practices to improve AKS deployment security, compliance, management, and observability. Specifically, the [Migrate EKS to AKS](migrate.md) article provides strategies to migrate typical stateless and stateful workloads. For greenfield AKS implementations, see [Baseline architecture for an AKS cluster](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks).
+> [!NOTE]
+> If you're looking to learn how to migrate typical stateless and stateful workloads from EKS to AKS, see [Migrate EKS to AKS](migrate.md). For greenfield AKS implementations, see [Baseline architecture for an AKS cluster](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks).
 
 AKS isn't the only way to run containers in Azure, and Amazon EKS is only one of the container options for Amazon Web Services (AWS). These articles don't compare Azure services like Azure Container Apps, Azure Container Instances, and Azure App Service with AWS services like Amazon Elastic Container Service or AWS Fargate.
 

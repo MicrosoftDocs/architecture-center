@@ -347,7 +347,7 @@ items:
         items:
         - name: Microsoft Entra identity management for AWS
           href: reference-architectures/aws/aws-azure-ad-security.yml
-      - name: AKS for AWS
+      - name: Azure Kubernetes Service for AWS
         items:
         - name: AKS for Amazon EKS professionals
           displayName: Azure Kubernetes Service
@@ -373,13 +373,9 @@ items:
         - name: Cluster governance
           displayName: AWS, EKS
           href: aws-professional/eks-to-aks/governance.md
-      - name: Migration from AWS
-        items:
-        - name: Containers
-          items:
-          - name: Migrate Amazon EKS to AKS
-            displayName: Azure Kubernetes Service
-            href: aws-professional/eks-to-aks/migrate.md
+        - name: Migrate Amazon EKS to AKS
+          displayName: Azure Kubernetes Service
+          href: aws-professional/eks-to-aks/migrate.md
       - name: Security for AWS
         items:
         - name: Microsoft security for AWS
