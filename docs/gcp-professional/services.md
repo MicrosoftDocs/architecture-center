@@ -3,7 +3,7 @@ title: Google Cloud to Azure Services Comparison
 description: Compare Google Cloud and Microsoft Azure services. Not every Google Cloud service or Azure service is listed, and not every matched service has exact feature parity.
 author: juanlldc
 ms.author: juanll
-ms.date: 03/25/2026
+ms.date: 04/08/2026
 ms.topic: concept-article
 ms.subservice: cloud-fundamentals
 ms.collection: 
@@ -117,7 +117,6 @@ View all [analytics architectures](../browse/index.yml?azure_categories=analytic
 
 | Google Cloud service | Azure service | Description |
 | --- | --- | --- |
-<<<<<<< HEAD
 | [Vertex AI](https://cloud.google.com/vertex-ai) | [Azure Machine Learning](/azure/machine-learning/) | A cloud service that trains, deploys, automates, and manages machine learning and foundation models. Also provides notebook, designer, and automate options. |
 | [TensorFlow](https://www.tensorflow.org) | [Microsoft ML.NET](https://dotnet.microsoft.com/apps/machinelearning-ai/ml-dotnet) | ML.NET is an open-source and cross-platform framework for both machine learning and AI. |
 | [TensorFlow](https://www.tensorflow.org/) | [Open Neural Network Exchange (ONNX)](https://onnx.ai) | ONNX is an open format built to represent machine learning models. It facilitates maximum compatibility and improves inference performance. |
@@ -254,7 +253,7 @@ View all [IoT architectures](../browse/index.yml?azure_categories=iot).
 
 | Google Cloud service | Azure service | Description |
 | --- | --- | --- |
-| [Cloud Billing](https://docs.cloud.google.com/billing/docs) | [Azure Cost Management APIs](/azure/cost-management-billing/automate/automation-overview) | Generate, monitor, forecast, and share billing data for resource usage by time, organization, or product resources. |
+| [Cloud Billing](https://docs.cloud.google.com/billing/docs) | [Microsoft Cost Management APIs](/azure/cost-management-billing/automate/automation-overview) | Generate, monitor, forecast, and share billing data for resource usage by time, organization, or product resources. |
 | [Cloud Console](https://cloud.google.com/cloud-console) | The [Azure portal](https://azure.microsoft.com/get-started/azure-portal/) | A unified management console that simplifies building, deploying, and operating your cloud resources. |
 | [Google Cloud operations suite (formerly Stackdriver)](https://cloud.google.com/products/observability) | [Azure Monitor](https://azure.microsoft.com/products/monitor/) | Collect, analyze, and act on telemetry from your cloud and on-premises environments. |
 | [Cost Management](https://cloud.google.com/cost-management) | [Microsoft Cost Management](https://azure.microsoft.com/pricing/details/cost-management/) | Understand your Azure invoice, manage your billing account and subscriptions, control Azure spending, and optimize resource use. |
@@ -422,8 +421,8 @@ View all [web architectures](../browse/index.yml?azure_categories=web).
 
 ## Next steps
 
-If you're new to Azure, review the interactive [Core Cloud Services Introduction to Azure](/training/paths/microsoft-azure-fundamentals-describe-cloud-concepts/) module on [Microsoft Learn training](/training).
+If you're new to Azure, review the interactive [Core Cloud Services Introduction to Azure](/training/paths/microsoft-azure-fundamentals-describe-cloud-concepts/) module on Microsoft Learn training.
 
-## Related resources
+## Related resource
 
 - [Discover Google Cloud instances](/azure/migrate/tutorial-discover-gcp)
