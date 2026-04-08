@@ -391,7 +391,7 @@ Learn more about [storage services in Azure](../guide/technology-choices/storage
 
 | Architecture | Description |
 | --- | --- |
-| [Serverless web application](azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant) | This reference architecture describes a zone-redundant serverless web application, built on Azure App Service. The App Service application uses virtual network integration and Private Link to communicate securely with Azure platform as a service (PaaS) solutions like Azure Key Vault and Azure SQL Database. |
+| [Serverless web application](azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant) | This reference architecture describes a zone-redundant serverless web application, built on Azure App Service. The Azure App Service application uses virtual network integration and Azure Private Link to communicate securely with Azure PaaS solutions like Azure Key Vault and Azure SQL Database. |
 
 View all [web architectures](../browse/index.yml?azure_categories=web).
 
