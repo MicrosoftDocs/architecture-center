@@ -257,8 +257,6 @@ Select **Deploy to Azure** to deploy only the SOC resource group in a production
 
 > [!NOTE]
 > If you deploy the solution in a production environment, make sure that the system-assigned managed identity of the Automation account has Contributor permissions in the production resource group of the target VM. The Contributor role creates snapshots.
->
-> If the key vault has the firewall enabled, be sure that the public IP address of the hybrid runbook worker VM is allowed through the firewall.
 
 ### Extended configuration
 
