@@ -203,7 +203,7 @@ This architecture has a mix of fixed-cost and variable-cost components. The fixe
 
 The following components incur ongoing costs whether or not you perform evidence captures:
 
-- **Hybrid runbook worker VM:** This VM runs continuously in the SOC subscription so that it's available for on-demand evidence capture. The VM size is the primary cost lever. Evidence capture isn't compute-intensive, except for hash computation, so a small general-purpose VM, such as a Standard_D2s_v5, is sufficient. To reduce the cost of this VM, consider [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) or [savings plans](/azure/cost-management-billing/savings-plan/savings-plan-compute-overview) for a one-year or three-year contract.
+- **Hybrid runbook worker VM:** This VM runs continuously in the SOC subscription so that it's available for on-demand evidence capture. The VM size is the primary cost lever. Evidence capture isn't compute-intensive, except for hash computation, so a small general-purpose VM, such as a Standard_D2s_v5, is sufficient. To reduce the cost of this VM, consider [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) or [savings plans](/azure/cost-management-billing/savings-plan/savings-plan-overview) for a one-year or three-year contract.
 
 - **Azure Automation account:** The Automation account that hosts the `Copy-VmDigitalEvidence` runbook and the hybrid worker configuration has a small baseline cost.
 
