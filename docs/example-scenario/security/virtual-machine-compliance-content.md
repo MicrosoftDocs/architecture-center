@@ -180,6 +180,37 @@ Consider these guidelines when refreshing pet servers:
 
 - Tag each pet server as a pet. Configure a policy in Azure Policy to take this tag into account during refreshes.
 
+#### Emergency patching for critical vulnerabilities
+The monthly golden image refresh cadence works well for routine updates, but critical security vulnerabilities and CVEs can't wait for the next scheduled cycle. Establish an **out-of-band emergency patching process** that runs independently of the monthly cadence and can be triggered on demand.
+
+##### Discontinue affected images
+When a critical CVE affects a published golden image, act immediately to prevent DevOps teams from provisioning new VMs with the vulnerable version:
+1. **Mark the affected image version as excluded from latest.** In Compute Gallery, set the [`excludeFromLatest`](/azure/virtual-machines/shared-image-galleries#image-versions) property to `true` on every affected image version. This ensures that any automation or user requesting the "latest" image no longer receives the vulnerable version. You can apply this at the region level for staggered responses.
+2. **Set an end-of-life date.** Configure the end-of-life property on the affected image version to formally deprecate it. Use the [`blockDeletionBeforeEndOfLife`](/azure/virtual-machines/compute-gallery-whats-new) property to prevent premature deletion if retention policies or audit requirements apply.
+3. **Notify DevOps teams.** Use the Azure Policy assignment description to link to a runbook or internal wiki that lists the CVE, the affected image versions, and the required remediation actions.
+
+##### Trigger an out-of-band image build
+Use the same VM Image Builder pipeline that produces the monthly golden image, but trigger it on demand:
+1. **Apply the security patch.** Add the critical fix to the image customization step — either as an operating system update, a configuration change, or a script that remediates the specific vulnerability.
+2. **Run the automated test suite.** Don't skip validation. The same tests that run during the monthly cycle should run for emergency builds. If the CVE is time-sensitive, consider running a reduced test set that covers boot validation, Trusted Launch attestation, and the specific fix, then follow up with the full suite.
+3. **Publish the patched image.** Publish the new image version to Compute Gallery and replicate it to all required regions. Because the affected version is already excluded from latest, the patched version automatically becomes the version that new deployments use.
+4. **Update the image tattoo.** Record the out-of-band nature of the update in the image tattoo — include the CVE identifier, the patch date, and a flag that distinguishes it from a scheduled monthly release. This data is essential for compliance audits.
+
+##### Refresh running VMs
+Publishing a patched image prevents new VMs from being vulnerable, but existing VMs still run the affected version. Handle cattle and pet servers differently:
+
+- **Cattle servers.** Coordinate with DevOps teams to trigger a rolling reimage or scale-set update using the patched golden image. In Virtual Machine Scale Sets, [set the upgrade policy](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-policy) to apply the new image automatically or during the next maintenance window.
+- **Pet servers.** Apply the patch directly by using the [Azure Automanage Machine Configuration](/en-us/azure/governance/machine-configuration) feature of Azure Policy or [Run Command](/azure/virtual-machines/run-command-overview). Use Azure Policy with an audit effect to flag pet servers that haven't been remediated. Track compliance in the Azure Policy dashboard until all affected VMs are patched.
+
+##### Automate the trigger
+To minimize response time, integrate the out-of-band process into your operational workflow:
+- Subscribe to [Azure Service Health](/en-us/azure/service-health/overview) and Microsoft Security Response Center (MSRC) notifications for CVE alerts that affect your base images.
+- Use an Azure DevOps or GitHub Actions pipeline with a manual or webhook trigger that initiates the emergency image build, test, and publish cycle.
+- Define a severity threshold in your runbook. Not every CVE warrants an out-of-band response — reserve it for critical and high-severity vulnerabilities that affect your published images.
+
+> [!IMPORTANT]
+> The goal of out-of-band patching is not to replace the monthly cadence but to complement it. Continue the regular monthly refresh to capture cumulative updates, and use the emergency process strictly for vulnerabilities that cannot wait.
+
 #### Improve visibility
 
 Generally, you should use Azure Policy to manage any control-plane compliance activity. You can also use Azure Policy for:
