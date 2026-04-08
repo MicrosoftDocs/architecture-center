@@ -42,7 +42,7 @@ The process of tracking VM compliance contains these steps:
 
 - [Azure Policy][Azure Policy and the policy dashboard] offers policy definitions. You can use these definitions to enforce your organization's standards and to assess compliance at scale. The Azure Policy dashboard displays results from Azure Policy evaluations. This data keeps you informed about the compliance status of your resources.
 
-- The [Azure Machine Configuration feature of Azure Policy][Azure Automanage Machine configuration] provides a way to dynamically audit or assign configurations to machines through code. The configurations generally include environment or operating system settings.
+- The [Azure Machine Configuration feature of Azure Policy][Azure Machine configuration] provides a way to dynamically audit or assign configurations to machines through code. The configurations generally include environment or operating system settings.
 
 ### Alternatives
 
@@ -217,7 +217,7 @@ Cost Optimization is about looking at ways to reduce unnecessary expenses and im
 
 Unless you use a non-Microsoft service such as Ansible or Terraform, this approach is nearly free of charge. Storage and egress costs might apply. Other potential charges involve these components:
 
-- Azure Policy and [Azure Automanage Machine configuration][Azure Automanage Machine configuration] are free of charge for Azure resources. If your company uses a hybrid approach, there are extra charges for Azure Arc resources.
+- Azure Policy and [Azure Machine configuration][Azure Machine configuration] are free of charge for Azure resources. If your company uses a hybrid approach, there are extra charges for Azure Arc resources.
 - [VM Image Builder][Azure VM Image Builder - pricing] uses a single compute instance type with 1 vCPU and 3.5 GB of RAM. Charges might apply for data storage and transfer.
 - [Compute Gallery][Azure Shared Image Galleries] has no charges except:
 
@@ -241,7 +241,7 @@ Principal author:
 - [Azure VM Image Builder][Azure VM Image Builder]
 - [Azure Compute Gallery][Azure Compute Gallery]
 - [Azure Policy and the policy dashboard][Azure Policy and the policy dashboard]
-- [Azure Automanage Machine Configuration][Azure Automanage Machine configuration]
+- [Azure Machine Configuration][Azure Machine configuration]
 
 ## Related resources
 
@@ -251,7 +251,7 @@ Principal author:
 [Azure Compute Gallery]: /azure/virtual-machines/shared-image-galleries
 [Azure VM Image Builder]: /azure/virtual-machines/image-builder-overview
 [Azure landing zone]: /azure/cloud-adoption-framework/ready/landing-zone
-[Azure Automanage Machine configuration]: /azure/governance/machine-configuration
+[Azure Machine configuration]: /azure/governance/machine-configuration
 [Azure Policy and the policy dashboard]: /azure/governance/policy/overview
 [Azure Policy Regulatory Compliance controls for Azure Virtual Machines]: /azure/virtual-machines/security-controls-policy
 [Azure Shared Image Galleries]: /azure/virtual-machines/shared-image-galleries#billing
