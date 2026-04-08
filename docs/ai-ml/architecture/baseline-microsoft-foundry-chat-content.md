@@ -610,9 +610,9 @@ In both approaches, you must manage state storage, like chat history and agent c
 
 #### Agent interaction SDK
 
-Use [Microsoft Agent Framework](/agent-framework/overview/) in your client application to interact with Foundry agents. Agent Framework supports C# and Python. If your client application requires JavaScript or Java, use the Foundry SDK directly. The Foundry SDK provides lower-level access to the same data plane APIs for agent invocation, conversations, and responses.
+Use [Microsoft Agent Framework](/agent-framework/overview/) as the runtime SDK in your client application for sending messages to agents, managing conversations, and processing responses. Agent Framework supports C# and Python. If your client application requires JavaScript or Java, use the Foundry SDK directly for these runtime interactions.
 
-Use the Foundry SDK directly for administrative operations regardless of your client SDK choice. Long-lived Foundry agent lifecycle concerns, including versioning and publishing are operations that belong in CI/CD pipelines and IaC processes, not in client application code.
+Use the Foundry SDK for platform management operations regardless of your client SDK choice. Creating and versioning long-lived agents, publishing Agent Applications, and so on belong in CI/CD pipelines and IaC processes, not in client application code.
 
 For more information about integrating Agent Framework with Foundry, see [Microsoft Agent Framework Foundry provider](/agent-framework/agents/providers/microsoft-foundry).
 
