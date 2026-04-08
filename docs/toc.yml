@@ -373,7 +373,7 @@ items:
         - name: Cluster governance
           displayName: AWS, EKS
           href: aws-professional/eks-to-aks/governance.md
-        - name: Migrate Amazon EKS to AKS
+        - name: Migrate EKS workloads to AKS
           displayName: Azure Kubernetes Service
           href: aws-professional/eks-to-aks/migrate.md
       - name: Security for AWS
