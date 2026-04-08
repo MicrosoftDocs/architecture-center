@@ -170,7 +170,7 @@ Consider these guidelines when refreshing pet servers:
 Generally, you should use Azure Policy to manage any control-plane compliance activity. You can also use Azure Policy for:
 
 - Tracking VM compliance.
-- Installing Azure agents. Use the [Azure Monitor Agent (AMA)](/azure/azure-monitor/agents/azure-monitor-agent-overview) for monitoring. The legacy Microsoft Monitoring Agent (MMA) has been deprecated and is no longer supported by Azure Automanage.
+- Installing Azure agents. Use the [Azure Monitor Agent (AMA)](/azure/azure-monitor/agents/azure-monitor-agent-overview) for monitoring. The legacy Microsoft Monitoring Agent (MMA), also called the Log Analytics agent, is deprecated. For retirement dates and migration guidance, see [Migrate from the Log Analytics agent to Azure Monitor Agent](/azure/azure-monitor/agents/azure-monitor-agent-migration).
 - Capturing diagnostic logs.
 - Improving the visibility of VM compliance.
 
