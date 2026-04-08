@@ -15,7 +15,7 @@ ms.custom:
 
 # AKS for Amazon EKS professionals
 
-This series of articles helps professionals who are familiar with Amazon Elastic Kubernetes Service (EKS) understand [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes). The series highlights key similarities and differences between these two managed Kubernetes solutions.
+This series of articles helps professionals who are familiar with Amazon Elastic Kubernetes Service (EKS) understand [Azure Kubernetes Service (AKS)](/azure/aks/what-is-aks). The series highlights key similarities and differences between these two managed Kubernetes solutions.
 
 The articles compare AKS with Amazon EKS in the following Kubernetes design areas:
 
@@ -27,7 +27,7 @@ The articles compare AKS with Amazon EKS in the following Kubernetes design area
 - [Agent node and node pool management](node-pools.md)
 - [Cluster governance](governance.md)
 
-For greenfield AKS implementations, see [Baseline architecture for an AKS cluster](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks).
+For greenfield AKS implementations, see [Baseline architecture for an AKS cluster](../../reference-architectures/containers/aks/baseline-aks.yml).
 
 AKS isn't the only way to run containers in Azure, and Amazon EKS is only one of the container options for Amazon Web Services (AWS). These articles don't compare Azure services like Azure Container Apps, Azure Container Instances, and Azure App Service with AWS services like Amazon Elastic Container Service or AWS Fargate.
 
