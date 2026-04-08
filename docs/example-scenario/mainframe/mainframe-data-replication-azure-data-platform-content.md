@@ -131,7 +131,7 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 - Use a life cycle policy to move data between access tiers in Azure storage.
 
-- Move data from a hotter access tier to a cooler tier in Azure Storage when it has no access for a period of time. You can also move data from a cooler tier to an archive tier.
+- Move data from a hotter access tier to a cooler one in Azure storage when no one accesses it for a period of time. You can also move data from a cooler access tier to an archive access tier.
 
 - Use [Azure Advisor](https://azure.microsoft.com/products/advisor) to find underused resources. Get recommendations on how to reconfigure or consolidate resources to reduce your spending.
 
@@ -143,15 +143,15 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 You can use Azure DevOps to reengineer mainframe applications on Azure during every phase of software development and team collaboration. Azure DevOps provides these services:
 
-- **[Azure Boards](https://azure.microsoft.com/products/devops/boards):** Agile planning, work item tracking, visualization, and reporting.
+- [Azure Boards](https://azure.microsoft.com/products/devops/boards): Agile planning, work item tracking, visualization, and reporting.
 
-- **[Azure Pipelines](https://azure.microsoft.com/products/devops/pipelines):** A language, platform, and cloud-independent continuous integration and continuous delivery (CI/CD) platform that supports containers or Kubernetes.
+- [Azure Pipelines](https://azure.microsoft.com/products/devops/pipelines): A language, platform, and cloud-independent continuous integration and continuous delivery (CI/CD) platform that supports containers or Kubernetes.
 
-- **[Azure Repos](https://azure.microsoft.com/products/devops/repos):** Cloud-hosted private Git repositories.
+- [Azure Repos](https://azure.microsoft.com/products/devops/repos): Cloud-hosted private Git repositories.
 
-- **[Azure Artifacts](https://azure.microsoft.com/products/devops/artifacts):** Integrated package management that supports Maven, npm, Python, and NuGet package feeds from public or private sources.
+- [Azure Artifacts](https://azure.microsoft.com/products/devops/artifacts): Integrated package management that supports Maven, npm, Python, and NuGet package feeds from public or private sources.
 
-- **[Azure Test Plans](https://azure.microsoft.com/products/devops/test-plans):** An integrated planned and exploratory testing solution.
+- [Azure Test Plans](https://azure.microsoft.com/products/devops/test-plans): An integrated planned and exploratory testing solution.
 
 ### Performance Efficiency
 
