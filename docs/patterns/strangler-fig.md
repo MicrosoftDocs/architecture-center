@@ -91,7 +91,14 @@ Legacy systems typically depend on a centralized database. Over time, a centrali
 1. In the next phase, you introduce a new database. You migrate data load history to the new database by using an extract, transform, and load (ETL) process. The ETL process synchronizes the new database with the legacy database. During this phase, the new system performs shadow writes. The new system updates both databases in parallel. The new system continues to read from the legacy database to validate consistency.
 
 1. Finally, the new database becomes the system of record. The new database takes over all read and write operations. You can start deprecating the legacy database and legacy system. After you validate the new database, you can retire the legacy database. This retirement completes the migration process with minimal disruption.
+## Contributors
 
+*Microsoft maintains this article. The following specialists contributed to this article.*
+
+- [Adnan Khan](https://www.linkedin.com/in/adnan-khan-04311939/) | Senior Cloud Solutions Architect
+- [Ovais Mehboob Ahmed Khan](https://www.linkedin.com/in/ovaismehboob/) | Senior Cloud Solution Architect
+
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 ## Next step
 
 Read Martin Fowler's blog post about [Strangler Fig pattern application](https://martinfowler.com/bliki/StranglerFigApplication.html).
