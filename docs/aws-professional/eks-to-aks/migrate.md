@@ -14,6 +14,9 @@ ms.custom:
 
 This article describes strategies to migrate typical stateless and stateful workloads from Amazon Elastic Kubernetes Service (EKS) to Azure Kubernetes Service (AKS).
 
+> [!NOTE]
+> This guide focuses on the migration process and considerations for moving workloads from EKS to AKS. If you want to learn more about AKS configurations, best practices, and similarities and differences compared to Amazon EKS, start with [AKS for Amazon EKS professionals](./index.md).
+
 ## Considerations
 
 The deployment process of a real-world production workload varies depending on the following factors:
@@ -47,19 +50,19 @@ Analyze your existing EKS environment to understand the current architecture, re
 
 - **Review EKS configuration:** Assess EKS cluster configuration, such as node types, number of nodes, Kubernetes version and support policy, and scaling configuration.
 
-   > [!NOTE]
-   > EKS allows the creation of [custom AMI images](https://github.com/aws-samples/amazon-eks-custom-amis) for EKS nodes. AKS doesn't allow the use of custom node images. If your deployment requires node customization, you can apply [kubelet customization](/azure/aks/custom-node-configuration) and [DaemonSets](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) to customize your nodes.
+  > [!NOTE]
+  > EKS allows the creation of [custom AMI images](https://github.com/aws-samples/amazon-eks-custom-amis) for EKS nodes. AKS doesn't allow the use of custom node images. If your deployment requires node customization, you can apply [kubelet customization](/azure/aks/custom-node-configuration) and [DaemonSets](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) to customize your nodes.
 
 - **Review application workloads:** Identify all Kubernetes workloads that run on the EKS cluster, including deployments, services, stateful sets, ingress configurations, and persistent volume claims (PVCs). Create a complete list of applications and their associated resources.
 
 - **Check dependencies:** Identify any dependencies on AWS services that are specific to EKS.
 
-   | AWS service | Dependency |
-   | ----------- | ---------- |
-   | AWS Secrets Manager | [Azure Key Vault](/azure/key-vault/general/overview) |
-   | Amazon GuardDuty agent | [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) |
-   | EKS Pod Identity agent | [Microsoft Entra Workload ID](/azure/aks/workload-identity-overview) |
-   | Amazon Elastic File System (EFS) or Elastic Block Store (EBS) Container Storage Interface (CSI) drivers | [AKS CSI drivers](/azure/aks/csi-storage-drivers) |
+  | AWS service | Dependency |
+  | ----------- | ---------- |
+  | AWS Secrets Manager | [Azure Key Vault](/azure/key-vault/general/overview) |
+  | Amazon GuardDuty agent | [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) |
+  | EKS Pod Identity agent | [Microsoft Entra Workload ID](/azure/aks/workload-identity-overview) |
+  | Amazon Elastic File System (EFS) or Elastic Block Store (EBS) Container Storage Interface (CSI) drivers | [AKS CSI drivers](/azure/aks/csi-storage-drivers) |
 
 - **Back up the EKS cluster:** You can use a non-Microsoft tool like [Velero](https://velero.io/) to back up and migrate Kubernetes resources and persistent volumes (PVs).
 
@@ -88,9 +91,10 @@ Follow these steps to successfully create an AKS cluster and help ensure compati
 A migration from Amazon EKS to AKS involves the following steps:
 
 - **Container image migration:** Use tools like kubectl, Docker, or container registries to export and import images.
-   1. [Export images from EKS](https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-pull-ecr-image.html).
-   1. [Set up an Azure container registry](/azure/container-registry/container-registry-get-started-portal), and attach it to AKS if needed.
-   1. [Push images](/azure/container-registry/container-registry-get-started-portal#push-image-to-registry) to the container registry.
+
+  1. [Export images from EKS](https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-pull-ecr-image.html).
+  1. [Set up an Azure container registry](/azure/container-registry/container-registry-get-started-portal), and attach it to AKS if needed.
+  1. [Push images](/azure/container-registry/container-registry-get-started-portal#push-image-to-registry) to the container registry.
 
   You can also import container images into a container registry directly from a non-Azure public or private repository. For more information, see [Import container images](/azure/container-registry/container-registry-import-images).
 
@@ -107,6 +111,7 @@ When you migrate your Kubernetes manifests, you must adapt the configuration to 
    1. Review your existing Kubernetes manifest files for AWS-specific configurations, such as VPC and IAM roles.
 
    1. Review the EKS IAM roles that are associated with nodes, service accounts, and other resources. Map the roles with equivalent Azure AKS role-based access control (Azure RBAC) roles. For more information, see [Kubernetes workload identity and access](workload-identity.md).
+
    1. Modify the manifest files to replace AWS-specific settings with Azure-specific settings, like annotations.
 
 1. **Apply manifests to AKS:**
@@ -126,9 +131,13 @@ Follow these steps to back up persistent data:
 1. Set up Velero in [AKS](https://github.com/vmware-tanzu/velero-plugin-for-microsoft-azure) and [EKS](https://github.com/vmware-tanzu/velero-plugin-for-aws) clusters.
 
 1. Perform a [backup of your EKS cluster](https://velero.io/docs/main/file-system-backup/).
+
 1. Copy the Velero backup from an S3 bucket to Azure Blob Storage by using the [AzCopy command](/azure/storage/common/storage-use-azcopy-s3).
-1. If AKS and EKS use different `storageClassNames` for the PVCs, create a [`configMap`](https://velero.io/docs/v1.13/restore-reference/#changing-pvpvc-storage-classes) that translates the source `storageClassNames` to an AKS-compatible class name. If you use the same storage solution on the EKS and AKS Kubernetes clusters, skip this step. 
+
+1. If AKS and EKS use different `storageClassNames` for the PVCs, create a [`configMap`](https://velero.io/docs/v1.13/restore-reference/#changing-pvpvc-storage-classes) that translates the source `storageClassNames` to an AKS-compatible class name. If you use the same storage solution on the EKS and AKS Kubernetes clusters, skip this step.
+
 1. Restore the backup to AKS by using the [Velero restore command](https://velero.io/docs/main/restore-reference/).
+
 1. Apply necessary changes to the restored objects, such as references to container images in Amazon Elastic Container Registry or access to secrets.
 
 ## Contributors
@@ -140,11 +149,11 @@ Follow these steps to back up persistent data:
 Principal authors:
 
 - Dixit Arora | Senior Customer Engineer, ISV DN CoE
-- [Ketan Chawda](https://www.linkedin.com/in/ketanchawda1402) | Senior Customer Engineer, ISV DN CoE
+- [Ketan Chawda](https://www.linkedin.com/in/ketanchawda1402/) | Senior Customer Engineer, ISV DN CoE
 
 Other contributors:
 
-- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, ISV & DN CoE
+- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori/) | Principal Customer Engineer, ISV & DN CoE
 - [Anthony Nevico](https://www.linkedin.com/in/anthonynevico/) | Principal Cloud Solution Architect
 - [Francis Simy Nazareth](https://www.linkedin.com/in/francis-simy-nazereth-971440a/) | Senior Technical Specialist
 
