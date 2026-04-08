@@ -1,3 +1,12 @@
+---
+"title": "Designing ransomware-resilient backups in Azure using immutable vaults",
+"description": "Learn how to design ransomware-resilient backup architectures in Azure using immutable vaults, subscription isolation, and multi-user authorization, with clear responsibility boundaries.",
+"ms.service": "azure-backup",
+"ms.topic": "architecture",
+"ms.subservice": "design",
+"author": "marinfrankovic",
+"ms.date": "08/04/2026"
+---
 # Designing ransomware‑resilient backups in Azure using immutable vaults
 
 Ransomware attacks increasingly target not only production workloads but also backup infrastructure. In cloud environments, attackers often combine credential compromise, privilege escalation, and destructive administrative actions to prevent recovery without paying ransom.
@@ -64,10 +73,10 @@ Understanding this boundary is critical for accurate threat modeling and custome
 
 ## Reference architecture
 
-![The reference architecture uses layered isolation to protect backups even in high‑risk scenarios](images/Reference%20architecture.png)
+![The reference architecture uses layered isolation to protect backups even in high‑risk scenarios](images/reference-architecture.png)
 
 ### Key components
-
+clea
 - **Production subscriptions**  
   Host business workloads such as virtual machines, databases, and platforms. Production administrators do not have destructive access to backup governance components.
 
