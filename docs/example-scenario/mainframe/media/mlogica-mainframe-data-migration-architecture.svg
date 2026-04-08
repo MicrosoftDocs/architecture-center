@@ -269,7 +269,7 @@
 		<v:userDefs>
 			<v:ud v:nameU="visNavType" v:val="VT0(1):26"/>
 		</v:userDefs>
-		<title>Main01</title>
+		<title>mlogica-mainframe-data-migration-architecture</title>
 		<v:pageProperties v:drawingScale="1" v:pageScale="1" v:drawingUnits="19" v:shadowOffsetX="9" v:shadowOffsetY="-9"/>
 		<v:layer v:name="Connector" v:index="0"/>
 		<v:layer v:name="Network" v:index="1"/>
@@ -2530,14 +2530,14 @@
 		</g>
 		<g id="shape1260-569" v:mID="1260" v:groupContext="shape" transform="translate(63,-819)">
 			<title>Sheet.1260</title>
-			<desc>Enterprise mainframe data center</desc>
+			<desc>Enterprise mainframe datacenter</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(88000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="171" cy="868.5" width="342" height="27"/>
 			<rect x="0" y="855" width="342" height="27" class="st19"/>
-			<text x="29.39" y="873.9" class="st83" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Enterprise mainframe data center</text>		</g>
+			<text x="31.87" y="873.9" class="st83" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Enterprise mainframe datacenter</text>		</g>
 		<g id="shape1261-572" v:mID="1261" v:groupContext="shape" transform="translate(684,-823.5)">
 			<title>Sheet.1261</title>
 			<desc>Azure cloud</desc>
