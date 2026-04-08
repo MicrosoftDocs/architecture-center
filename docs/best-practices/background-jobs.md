@@ -337,4 +337,4 @@ Background tasks must keep pace with the rate at which work arrives. If tasks fa
 - [Scheduler Agent Supervisor pattern](../patterns/scheduler-agent-supervisor.yml)
 - [Compensating Transaction pattern](../patterns/compensating-transaction.md)
 - [Leader Election pattern](../patterns/leader-election.yml)
-- [Competing Consumers pattern](../patterns/competing-consumers.yml)
+- [Competing Consumers pattern](../patterns/competing-consumers.md)

@@ -983,7 +983,6 @@ For more information, see [AKS pricing](https://azure.microsoft.com/pricing/deta
 ## Next steps
 
 - [AKS roadmap on GitHub](https://github.com/orgs/Azure/projects/685)
-- [AKS landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/aks/landing-zone-accelerator)
 
 ## Related resources
 

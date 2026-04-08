@@ -6,6 +6,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/solution-ideas/articles/project-15-iot-sustainability.yml",
+      "redirect_url": "/azure/architecture/browse/?azure_categories=iot",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/guide/networking/global-web-applications/mission-critical-app-service.yml",
       "redirect_url": "/azure/architecture/web-apps/guides/enterprise-app-patterns/overview",
       "redirect_document_id": false
@@ -7806,6 +7811,21 @@
     {
       "source_path": "docs/example-scenario/startups/core-startup-stack.yml",
       "redirect_url": "/azure/architecture/guide/startups/startup-architecture",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/virtual-desktop/start-here.md",
+      "redirect_url": "/azure/architecture/virtual-desktop/virtual-desktop-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/virtual-desktop/windows-365-azure-network-connection.md",
+      "redirect_url": "/azure/architecture/virtual-desktop/windows-365-azure-network-connection",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/guide/storage/storage-start-here.md",
+      "redirect_url": "/azure/architecture/storage/storage-get-started",
       "redirect_document_id": false
     }
   ]

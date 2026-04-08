@@ -14,7 +14,7 @@ For an example of a more advanced microservice that's built on the [AKS baseline
 
 ### Data flow
 
-This request flow implements the [Publisher-Subscriber](../../../patterns/publisher-subscriber.md), [Competing Consumers](/azure/architecture/patterns/competing-consumers), and [Gateway Routing](/azure/architecture/patterns/gateway-routing) cloud design patterns.
+This request flow implements the [Publisher-Subscriber](../../../patterns/publisher-subscriber.md), [Competing Consumers](../../../patterns/competing-consumers.md), and [Gateway Routing](/azure/architecture/patterns/gateway-routing) cloud design patterns.
 
 The following data flow corresponds to the previous diagram:
 
