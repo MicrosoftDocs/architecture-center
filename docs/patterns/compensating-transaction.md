@@ -28,7 +28,7 @@ Implement a compensating transaction that undoes the effects of completed steps 
 
 You can use a workflow to implement an eventually consistent operation that requires compensation. As the original operation runs, the system records information about each step and how to undo it. If the operation fails, the workflow rewinds through the completed steps and reverses each step.
 
-:::image type="complex" source="./_images/compensating-transaction.png" alt-text="Diagram that shows the steps to create an itinerary and the steps of the compensating transaction that cancel the itinerary." border="false":::
+:::image type="complex" source="./_images/compensating-transaction.svg" alt-text="Diagram that shows the steps to create an itinerary and the steps of the compensating transaction that cancel the itinerary." border="false":::
 Diagram that shows a workflow with forward steps and compensating actions. A user initiates an operation that runs step 1, step 2, and step 3 sequentially. If all steps succeed, the process completes. If a failure occurs after any step, compensating actions run in reverse order to undo completed work, which ends in a compensated state.
 :::image-end:::
 
@@ -108,7 +108,7 @@ If this pattern introduces trade-offs within a pillar, consider them against the
 
 The following diagram shows a practical Azure implementation of the Compensating Transaction pattern. Other implementations might also work for your workload requirements. An orchestrator that runs in Azure Container Apps coordinates each step of a long-running workflow by sending commands through Azure Service Bus. As each forward step succeeds, the orchestrator records both execution state and the corresponding compensating action in Azure Cosmos DB so that the workflow can be resumed, correlated, and audited.
 
-:::image type="complex" source="./_images/compensating-transaction-azure.png" alt-text="Diagram that shows an Azure implementation of the Compensating Transaction pattern." border="false":::
+:::image type="complex" source="./_images/compensating-transaction-azure.svg" alt-text="Diagram that shows an Azure implementation of the Compensating Transaction pattern." border="false":::
 Diagram that shows a workflow in an Azure Container Apps environment. A client sends a request to an orchestrator container, which coordinates Service A and Service B and records operations. Step 1 and step 2 messages flow through Azure Service Bus. If a step fails, compensating actions run in reverse order. Failed messages move to a dead-letter queue. The environment integrates with Microsoft Entra ID for identity and Application Insights and Azure Monitor for observability.
 :::image-end:::
 
