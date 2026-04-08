@@ -157,7 +157,9 @@ Consider client-managed conversation history when your workload meets one or mor
 
 - **Multiple UX channels with independent session semantics.** The same agent is consumed by different applications (web, mobile, voice) that each need their own session management, storage, and retention policies.
 
-This approach shifts responsibility for state durability, context management, conversation data governance, and session isolation to your application code. Account for context window limits and the increased HTTP request payload size from carrying forward conversation items. For multi-turn reliability, use a persistent store such as Azure Cosmos DB or your existing application database rather than in-memory state alone.
+This approach shifts responsibility for state persistence, context management, conversation data governance, and session isolation to your application code. Because conversation state lives in a data store that you own, you must apply your own backup, replication, and restore processes.
+
+Account for context window limits and the increased HTTP request payload size from carrying forward conversation items. For multi-turn reliability, use a persistent store such as Azure Cosmos DB or your existing application database rather than in-memory state alone.
 
 #### Predefined agent or dynamically created agent
 
