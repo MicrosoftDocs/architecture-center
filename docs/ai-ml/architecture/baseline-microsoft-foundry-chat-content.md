@@ -379,6 +379,12 @@ When you establish [connections](/azure/foundry/how-to/connections-add) to exter
 
 Avoid creating connections at the Foundry account level because account-level connections apply to all current and future projects in the account. They can inadvertently grant broad access to resources, violate least privilege principles, and increase the risk of unauthorized data exposure. Create project-level connections only.
 
+#### Conversation isolation
+
+Foundry Agent Service doesn't enforce per-user authorization on conversations. The application server's identity has project-level credentials that can read from or write to any conversation by supplying its ID. If the chat UI application passes a client-supplied conversation ID directly to Agent Service without validation, a user can access or inject messages into another user's conversation. This is a [Broken Object Level Authorization](https://owasp.org/API-Security/editions/2023/en/0xa1-broken-object-level-authorization/) vulnerability.
+
+Your application server must enforce conversation ownership. Don't trust conversation identifiers from the client. On every request, verify that the authenticated user owns the referenced conversation before forwarding the request to Agent Service.
+
 #### Networking
 
 In addition to identity-based access, this architecture requires network confidentiality.
