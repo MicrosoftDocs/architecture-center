@@ -135,7 +135,7 @@ A failed test should interrupt the process. Repeat the test after addressing the
 
 #### Publish golden images
 
-Publish final images on Compute Gallery as a managed image that DevOps teams can use. Since Azure retired unmanaged disks on March 31, 2026, VHD artifacts can no longer be used to provision new Azure VMs. If you previously distributed images as VHDs, migrate to managed images in Compute Gallery. Mark any earlier images as aged. If you haven't set an end-of-life date for an image version in Compute Gallery, you might prefer to discontinue the oldest image. This decision depends on your company's policies.
+Publish final images in Azure Compute Gallery as managed images that DevOps teams can use. Azure's retirement applies to unmanaged-disk-based VM provisioning workflows, not to VHD files as artifacts in every scenario. If you previously distributed images as VHDs for unmanaged-disk deployments, migrate those workflows to managed images in Azure Compute Gallery. For the retirement date and impact, see [Retirement: Unmanaged disks on Azure IaaS VMs](https://azure.microsoft.com/updates/retirement-unmanaged-disks-on-azure-iaas-vms-will-be-retired-on-31-march-2026/). Mark any earlier images as aged. If you haven't set an end-of-life date for an image version in Compute Gallery, you might prefer to discontinue the oldest image. This decision depends on your company's policies.
 
 > [!NOTE]
 > Azure Compute Gallery supports [Soft Delete](/azure/virtual-machines/shared-image-galleries#soft-delete), which provides a 7-day recovery window for accidentally deleted images. Consider enabling Soft Delete on your gallery to protect against unintended image loss.
