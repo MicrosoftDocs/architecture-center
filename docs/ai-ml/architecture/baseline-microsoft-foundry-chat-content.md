@@ -473,6 +473,12 @@ When you implement network segmentation and security in this architecture, follo
 
 - Apply [forced tunneling](/azure/firewall/forced-tunneling) to all supported subnets so that your egress firewall can inspect all outbound traffic. Use forced tunneling even on subnets where you don't expect egress. This method adds a defense-in-depth measure that protects against intentional or accidental misuse of the subnet.
 
+#### Web application firewall tuning
+
+Chat applications frequently produce content that triggers false positives from Web Application Firewall managed rules. User prompts and model responses often contain code snippets, SQL statements, or HTML fragments. Chat content can trigger false positives across many managed rule categories, including remote code execution, local file inclusion, and threat intelligence rules. In multi-turn conversations, the OWASP anomaly score accumulates across messages until the WAF blocks the request with an HTTP 403 error, which means blocking can appear spontaneously as conversations get longer.
+
+To address this, [tune your WAF policy](/azure/web-application-firewall/ag/best-practices) by creating [exclusions](/azure/web-application-firewall/ag/application-gateway-waf-configuration) scoped to the request body field that carries chat messages. Scope exclusions to the affected rule groups rather than disabling rules globally. Also verify that the [request body inspection limits](/azure/web-application-firewall/ag/application-gateway-waf-request-size-limits) accommodate the payload sizes typical in your chat interactions.
+
 #### Governance through policy
 
 To align with your workload's security baseline, use Azure Policy and network policies to ensure that all workload resources meet your requirements. Platform automation through policy reduces the risk of security configuration drift and helps reduce manual validation activities.
