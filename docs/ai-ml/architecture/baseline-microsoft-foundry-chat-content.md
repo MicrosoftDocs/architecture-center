@@ -149,7 +149,7 @@ Vector search is typical for retrieval-augmented generation (RAG) but not always
 
 Consider client-managed conversation history when your workload meets one or more of the following conditions:
 
-- **Published agents.** [Published agents (Agent Applications)](/azure/foundry/agents/how-to/publish-responses) only support the stateless Responses API. The `/conversations` endpoint is inaccessible on the published agent's application endpoint, so the client must manage conversation state for multi-turn interactions.
+- **Published agents.** [Published agents (Agent Applications)](/azure/foundry/agents/how-to/publish-responses) only support the stateless Responses API. The client must manage conversation state for multi-turn interactions.
 
 - **Zero data retention.** Compliance or regulatory requirements prohibit server-side persistence of conversation content.
 
