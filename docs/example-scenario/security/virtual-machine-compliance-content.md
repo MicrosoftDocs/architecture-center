@@ -137,6 +137,37 @@ The amount and type of information that you track depends on your organization's
 
 For image tattooing on Windows VMs, set up a custom registry. Add all required information to this registry path as key-value pairs. On Linux VMs, enter image tattooing data into environment variables or a file. Put the file in the `/etc/` folder, where it doesn't conflict with developer work or applications. If you'd like to use Azure Policy to track the tattooing data or report on it, store each piece of data as a unique key-value pair. For information on determining the version of a Marketplace image, see [How to find a Marketplace image version][How to find a Marketplace image version].
 
+#### Generate a software bill of materials for golden images
+
+Image tattooing records metadata *about* the image — its source, version, and publish date. A **software bill of materials (SBOM)** complements tattooing by recording what is *inside* the image: every operating system package, agent, library, and patch. This inventory is essential for vulnerability response, compliance audits, and supply chain transparency.
+
+##### Why an SBOM matters for golden images
+
+- **Faster CVE response.** When a critical vulnerability is disclosed, an SBOM lets you instantly identify which golden image versions contain the affected component — without manually inspecting each image.
+- **Regulatory compliance.** Frameworks such as [US Executive Order 14028](https://www.nist.gov/itl/executive-order-14028-improving-nations-cybersecurity), the EU Cyber Resilience Act, and standards like FedRAMP and HIPAA increasingly require SBOMs for software artifacts that run in production. VM images are part of that software supply chain.
+- **Audit traceability.** Pairing image tattoos with SBOMs gives auditors a complete picture: which image a VM runs, and exactly what software components were in that image at build time.
+
+##### Generate the SBOM during the image build
+Add SBOM generation as a step in the VM Image Builder pipeline, immediately after customization and before validation:
+1. **Use the Microsoft SBOM Tool.** The open-source [Microsoft SBOM Tool](https://github.com/microsoft/sbom-tool) generates SBOMs in [SPDX 2.2 and 3.0](https://spdx.dev) format. It uses Microsoft's Component Detection libraries to enumerate installed operating system packages, agents, and dependencies. Run the tool on the customized image as a VM Image Builder customization step or as a post-customization script in your pipeline.
+2. **Choose a standard format.** Use [SPDX](https://spdx.dev) or [CycloneDX](https://cyclonedx.org) — both are widely accepted industry standards. SPDX is the ISO/IEC 5962:2021 standard and is the format produced by the Microsoft SBOM Tool. Consistency across all golden images simplifies tooling and reporting.
+3. **Sign the SBOM.** Cryptographically sign the generated SBOM to ensure its integrity. Use [Notation](https://notaryproject.dev) or a similar signing tool to prevent tampering after generation. A signed SBOM provides a verifiable chain of trust from the image build to the compliance audit.
+
+##### Store and link the SBOM to the image version
+- **Store the SBOM alongside the image.** Upload the SBOM to an Azure Storage account or an artifact store that is linked to the Compute Gallery image version. Use a consistent naming convention that maps each SBOM file to its image definition, version, and build date.
+- **Reference the SBOM in the image tattoo.** Add the SBOM storage location and its hash to the image tattoo metadata. This creates a direct link from any running VM back to the exact SBOM that describes its contents.
+- **Retain SBOMs for the image lifecycle.** Keep the SBOM available for at least as long as the image version is in use. Align retention with your organization's compliance and audit requirements.
+
+##### Use the SBOM for ongoing governance
+- **Query SBOMs during incident response.** When a new CVE is published, search across stored SBOMs to identify affected image versions. Use this data to trigger the [out-of-band emergency patching process](#emergency-patching-for-critical-vulnerabilities) and to set `excludeFromLatest` on affected versions in Compute Gallery.
+- **Integrate with Microsoft Defender for Cloud.** [Defender for Cloud](/azure/defender-for-cloud/defender-for-containers-introduction) can generate and [query SBOMs](/azure/defender-for-cloud/query-software-bill-of-materials) across your environment, providing cross-repository visibility into software components and their vulnerabilities. Use [Cloud Security Explorer](/azure/defender-for-cloud/concept-attack-path) to answer questions like "which images contain a specific library version" across your organization.
+- **Report on SBOM coverage.** Use Azure Policy with a custom policy definition to audit whether deployed VMs are running image versions that have an associated SBOM. Surface coverage gaps in the Azure Policy dashboard.
+
+> [!NOTE]
+> SBOM generation adds minimal time to the image build process and has no impact on the resulting image. The SBOM is a build artifact — it is stored externally, not embedded in the image itself.
+
+
+
 #### Validate golden images with automated tests
 
 Generally, you should refresh golden images monthly to stay current with the latest updates and changes in Microsoft Marketplace images. Use a recurrent testing procedure for this purpose. As part of the image creation process, use an Azure pipeline or other automated workflow for testing. Set up the pipeline to deploy a new VM for running tests before the beginning of each month. The tests should confirm pared images before publishing them for consumption. Automate tests by using a test automation solution or by running commands or batches on the VM.
