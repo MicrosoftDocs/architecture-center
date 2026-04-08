@@ -107,7 +107,7 @@ A golden image is the version of a marketplace image that's published to Compute
 You can use VM Image Builder to customize images by adjusting operating system settings and by running custom scripts and commands. VM Image Builder supports Windows and Linux images. For more information on customizing images, see [Azure Policy Regulatory Compliance controls for Azure Virtual Machines][Azure Policy Regulatory Compliance controls for Azure Virtual Machines].
 
 > [!IMPORTANT]
-> As of March 2026, new Azure virtual networks default to private subnets that don't have default outbound connectivity. If your VM Image Builder builds require outbound internet access—for example, to download updates or agents—ensure the subnets you specify have outbound access explicitly configured. Also note that VM Image Builder API version 2024-02-01 and later enforces case sensitivity for all field names and values in templates.
+> Azure virtual networks default to private subnets that don't have default outbound connectivity. If your VM Image Builder builds require outbound internet access, for example, to download updates, ensure the subnets you specify have outbound access explicitly configured.
 
 #### Track image tattoos
 
