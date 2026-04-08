@@ -64,9 +64,9 @@ This solution uses the following components.
 
   - [Application Insights](/azure/well-architected/service-guides/application-insights) is an Azure Monitor feature that monitors application performance by collecting and analyzing telemetry. In this architecture, Application Insights monitors the mLogica data migration cluster for performance insights and diagnostics.
 
-  - [Azure Monitor logs](/azure/azure-monitor/logs/data-platform-logs) is an Azure Monitor feature that collects and organizes log and performance data from monitored resources. In this architecture, Azure Monitor logs consolidates data from multiple sources into a single workspace, including platform logs from Azure services, log and performance data from VM agents, and usage and performance data from applications.
+  - [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs) is an Azure Monitor feature that collects and organizes log and performance data from monitored resources. In this architecture, Azure Monitor Logs consolidates data from multiple sources into a single workspace, including platform logs from Azure services, log and performance data from VM agents, and usage and performance data from applications.
 
-  - [Log Analytics](/azure/well-architected/service-guides/azure-log-analytics) is an Azure Monitor feature that runs log queries to help you use the data collected in Azure Monitor logs. In this architecture, Log Analytics analyzes mLogica load script execution logs that Blob Storage stores. It uses a query language to join data from multiple tables, aggregate large sets of data, and perform complex operations.
+  - [Log Analytics](/azure/well-architected/service-guides/azure-log-analytics) is an Azure Monitor feature that runs log queries to help you use the data collected in Azure Monitor Logs. In this architecture, Log Analytics analyzes mLogica load script execution logs that Blob Storage stores. It uses a query language to join data from multiple tables, aggregate large sets of data, and perform complex operations.
 
 ## Scenario details
 
@@ -96,7 +96,6 @@ Follow these general recommendations unless you have a specific requirement that
 
 - Use Azure Monitor and [Application Insights](/azure/azure-monitor/app/app-insights-overview) to monitor the mLogica data migration cluster. Set up alerts for proactive management.
 
-For more information, see [Design reliable Azure applications](/azure/well-architected/reliability/checklist).
 
 #### Availability
 
@@ -110,7 +109,7 @@ Security provides assurances against deliberate attacks and the misuse of your v
 
 Database services in Azure support various security options:
 
-- Data encryption at rest by using [transparent data encryption](/sql/relational-databases/security/encryption/transparent-data-encryption)
+- Data encryption at rest by using [transparent data encryption (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption)
   
 - Data encryption in transit by using [Transport Layer Security (TLS)](/azure/azure-sql/database/security-overview#transport-layer-security-encryption-in-transit)
 
@@ -120,7 +119,7 @@ You can control authentication and access control on the mLogica data migration 
 
 TLS encrypts data in transit between the mLogica data migration cluster and the mainframe. You can store TLS certificates in [Azure Key Vault](https://azure.microsoft.com/products/key-vault) for enhanced security. Secure Shell (SSH) encrypts data in transit from the mainframe to Blob Storage.
 
-The mainframe data and load scripts are temporarily stored in Azure Blob Storage, where they're encrypted at rest. Data is deleted from Blob Storage after the migration completes.
+The mainframe data and load scripts are temporarily stored in Blob Storage, where they're encrypted at rest. Data is deleted from Blob Storage after the migration completes.
 
 This example workflow uses ExpressRoute or [site-to-site VPN](/azure/vpn-gateway/tutorial-site-to-site-portal) for a private and efficient connection to Azure from your on-premises environment.
 
@@ -146,11 +145,11 @@ You can use Azure DevOps to reengineer mainframe applications on Azure during ev
 
 - **[Azure Boards](https://azure.microsoft.com/products/devops/boards):** Agile planning, work item tracking, visualization, and reporting.
 
-- **[Azure Pipelines](https://azure.microsoft.com/products/devops/pipelines):** A language, platform, and cloud independent continuous integration and continuous delivery (CI/CD) platform with support for containers or Kubernetes.
+- **[Azure Pipelines](https://azure.microsoft.com/products/devops/pipelines):** A language, platform, and cloud-independent continuous integration and continuous delivery (CI/CD) platform that supports containers or Kubernetes.
 
 - **[Azure Repos](https://azure.microsoft.com/products/devops/repos):** Cloud-hosted private Git repositories.
 
-- **[Azure Artifacts](https://azure.microsoft.com/products/devops/artifacts):** Integrated package management with support for Maven, npm, Python, and NuGet package feeds from public or private sources.
+- **[Azure Artifacts](https://azure.microsoft.com/products/devops/artifacts):** Integrated package management that supports Maven, npm, Python, and NuGet package feeds from public or private sources.
 
 - **[Azure Test Plans](https://azure.microsoft.com/products/devops/test-plans):** An integrated planned and exploratory testing solution.
 
@@ -160,7 +159,7 @@ Performance Efficiency refers to your workload's ability to scale to meet user d
 
 Use the following recommendations to improve performance efficiency:
 
-- Deploy the mLogica data migration cluster on multiple VMs if you migrate multiple large independent datasets to maximize data loading speed. You can upload multiple data sets in parallel from the mainframe to Blob Storage.
+- Deploy the mLogica data migration cluster on multiple VMs if you migrate multiple large independent datasets to maximize data loading speed. You can upload multiple datasets in parallel from the mainframe to Blob Storage.
 
 - Consider [SQL Database serverless](/azure/azure-sql/database/serverless-tier-overview) for workload-based autoscaling. You can scale other Azure databases up and down by using automation to meet your workload demands. For more information, see [Autoscaling](../../best-practices/auto-scaling.md).
 
@@ -180,12 +179,12 @@ Review the [Azure database migration guides](/data-migration).
 
 For more information, contact [Azure Data Engineering - Mainframe & Midrange Modernization](mailto:datasqlninja@microsoft.com).
 
-- [Azure Monitor overview](/azure/azure-monitor/overview)
+- [Azure Monitor overview](/azure/azure-monitor/fundamentals/overview)
 - [Introduction to Blob Storage](/azure/storage/blobs/storage-blobs-introduction)
 - [mLogica LIBER*IRIS](https://www.mlogica.com/products/liber-m-mainframe-modernization)
 - [Quickstart: Create a Linux VM in the Azure portal](/azure/virtual-machines/linux/quick-create-portal)
 - [VMs in Azure](/azure/virtual-machines/overview)
-- [Azure Cosmos DB overview](/azure/cosmos-db/introduction)
+- [Azure Cosmos DB overview](/azure/cosmos-db/overview)
 
 ## Related resources
 
