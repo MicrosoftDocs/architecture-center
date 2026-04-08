@@ -38,7 +38,7 @@ Many of this architecture's components are the same as the [basic App Service we
 
   - [Foundry projects](/azure/foundry/how-to/create-projects) establish connections to data sources, define agents, and invoke deployed models, including Azure OpenAI models. This architecture has only one Foundry project within the Foundry account.
 
-  - [Agent Service](/azure/foundry/agents/overview) is a capability hosted in Foundry. You use this service to define and host agents to handle chat requests. It manages chat threads, orchestrates tool calls, enforces content safety, and integrates with identity, networking, and observability systems. In this architecture, Agent Service orchestrates the flow that fetches grounding data from AI Search and other connected tools and passes it with the prompt to the deployed model.
+  - [Agent Service](/azure/foundry/agents/overview) is a capability hosted in Foundry. You use this service to define and host agents to handle chat requests. It manages the chat conversation history, orchestrates tool calls, enforces content safety, and integrates with identity, networking, and observability systems. In this architecture, Agent Service orchestrates the flow that fetches grounding data from AI Search and other connected tools and passes it with the prompt to the deployed model.
 
     The agents defined in Agent Service are codeless and effectively nondeterministic. Your agent's system prompt, combined with `temperature` and `top_p` parameters, and constrained knowledge connections define how the agent behaves for all requests.
   
