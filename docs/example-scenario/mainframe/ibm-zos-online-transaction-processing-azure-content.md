@@ -163,20 +163,6 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for your implementation.
 
-### Operational Excellence
-
-Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
-
-This scenario uses Azure Monitor and Application Insights to monitor the health of the Azure resources. You can set alerts for proactive management.
-
-### Performance Efficiency
-
-Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
-
-- This architecture uses Azure PaaS services like App Service, which has autoscaling capabilities.
-
-- For more information, see [Autoscaling](../../best-practices/auto-scaling.md).
-
 ## Contributors
 
 *Microsoft maintains this article. The following contributors wrote this article.*
