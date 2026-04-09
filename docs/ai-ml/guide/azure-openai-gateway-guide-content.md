@@ -34,7 +34,7 @@ Security controls must help protect workload confidentiality, integrity, and ava
 
 - **Network security:** Depending on client location relative to your Foundry resource instances, public internet access to language models might be necessary.
 
-- **Data sovereignty:** Data sovereignty in the context of Foundry are the regulatory requirements related to storing and processing data in a specific country or region. Your workload needs to ensure regional affinity so that clients can comply with data residency and sovereignty laws. This process involves multiple Foundry resource instances.
+- **Data sovereignty:** Data sovereignty in the context of Foundry is the regulatory requirements related to storing and processing data in a specific country or region. Your workload needs to ensure regional affinity so that clients can comply with data residency and sovereignty laws. This process involves multiple Foundry resource instances.
 
   You should be aware that when you are using [global](/azure/ai-foundry/foundry-models/concepts/deployment-types#global-standard) or [data zone](/azure/ai-foundry/foundry-models/concepts/deployment-types#data-zone-standard) Foundry model deployments, data at rest remains in the designated Azure geography, but data may be transmitted and processed for inferencing in any Foundry model location.
 
@@ -68,7 +68,7 @@ Without a gateway, your workload puts responsibility on clients to be individual
 
 ## Solution
 
-:::image type="complex" source="_images/azure-openai-gateway-conceptual-architecture.svg" lightbox="_images/azure-openai-gateway-conceptual-architecture.svg" alt-text="Diagram that shows a conceptual architecture that injects a gateway between an intelligent application and Foundry.":::
+:::image type="complex" source="_images/foundry-gateway-conceptual-architecture.svg" lightbox="_images/foundry-gateway-conceptual-architecture.svg" alt-text="Diagram that shows a conceptual architecture that injects a gateway between an intelligent application and Foundry.":::
     The diagram shows an intelligent application icon with an arrow pointing into a dashed line box labeled gateway. The arrow goes through a line that is labeled 'Federated Authentication,' pointing to a 'rate limiter' icon. The 'rate limiter' has an arrow that points to a 'router' icon. The 'router' has four arrows pointing to different icons. The first arrow points to a 'load balancer,' which points to 'Foundry model deployment' or 'LLM' icons in two regions and on-premises. The second arrow points to a 'monitoring' icon that later points to a 'cost' and a 'usage' icon. The third arrow points to a 'compute' icon. The fourth points to a 'message queue' icon, which then points to the 'Load balancer.'
 :::image-end:::
 *Figure 1: Conceptual architecture of accessing Foundry through a gateway*
@@ -129,7 +129,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 All implemented API gateways have runtime costs that need to be budgeted and accounted for. Those costs usually increase with added features to address the reliability, security, and performance of the gateway itself along with operational costs introduced with added APIOps management. These added costs need to be measured against the new value delivered from the system with the gateway. You want to reach a point where the new capabilities introduced by using a gateway outweigh the cost to implement and maintain the gateway. Depending on your workload's relationship to its users, you might be able to chargeback usage.
 
-To help manage costs when developing and testing a gateway, consider using a simulated endpoint for Azure OpenAI. For example, use the solution in the [Azure OpenAI API simulator](https://github.com/microsoft/aoai-api-simulator/) GitHub repository.
+To help manage costs when developing and testing a gateway, consider using a simulated endpoint for Foundry models. For example, use the solution in the [Azure OpenAI API simulator](https://github.com/microsoft/aoai-api-simulator/) GitHub repository.
 
 Caching strategies can be implemented in the gateway to optimize costs. Caching can help reduce the number of calls made to Foundry, which can save costs, especially for frequently accessed data or common requests. However, caching strategies need to be carefully designed to ensure that they don't serve stale data or interfere with the freshness requirements of your workload.
 
@@ -155,7 +155,7 @@ When considering how an API gateway benefits your architecture, use the [Design 
 
 - In most cases, the gateway should be geographically near both the users and Foundry resource instances to reduce latency. While network latency is usually a small percentage of time in overall API calls to language models, it might be a competitive factor for your workload.
 
-- Evaluate the impact of the gateway on Foundry features, such as streaming responses or instance pinning for stateful interactions, such as the Assistants API.
+- The gateway service can affect Foundry features that depend on persistent connections or stateful behavior. For example, streaming responses require the gateway to support long-lived connections without premature timeouts or buffering. Stateful interactions, such as the Responses API, require the gateway to maintain session affinity so that subsequent requests from the same session are routed to the same backend instance. Ensure that your gateway implementation supports these capabilities when your workload relies on them.
 
 - Evaluate caching strategies that can be implemented in the gateway to improve performance and cost optimization.
 
@@ -164,17 +164,17 @@ When considering how an API gateway benefits your architecture, use the [Design 
 
 ## Implementation options
 
-Azure doesn't offer a turn-key solution designed specifically to proxy Foundry's HTTP API or other custom language model inferencing APIs to cover all of these scenarios. But there are still several options for your workload team to implement, such as a gateway in Azure.
-
 ### Use Azure API Management
 
-[Azure API Management](/azure/api-management/api-management-key-concepts) is a platform-managed service designed to offload cross-cutting concerns for HTTP-based APIs. It's configuration driven and supports customization through its inbound and outbound request processing policy system. It supports highly available, zone-redundant, and even multi-region replicas by using a single control plane.
+Foundry has [built-in integration](/azure/foundry/configuration/enable-ai-api-management-gateway-portal) with Azure API Management as an AI gateway. You can leverage APIM integrated with Foundry or use APIM as a standalone gateway.
 
-Most of the gateway routing, security, caching and request handling logic must be implemented in the policy system of API Management. You can combine [built-in policies](/azure/api-management/api-management-policies) specific to AI, such as [Limit large language model API token usage](/azure/api-management/llm-token-limit-policy), [Emit metrics for consumption of large language model tokens](/azure/api-management/llm-emit-token-metric-policy), [Enforce content safety](/azure/api-management/llm-content-safety-policy) or [Cache responses](/azure/api-management/llm-semantic-cache-store-policy), and your own custom policies. The [GenAI gateway toolkit](https://github.com/Azure-Samples/apim-genai-gateway-toolkit) GitHub repository contains multiple custom API Management policies, along with a load-testing setup for testing the behavior of the policies.
+[Azure API Management](/azure/api-management/api-management-key-concepts) is a platform-managed service designed to offload cross-cutting concerns for HTTP-based APIs. APIM has [AI gateway capabilities](/azure/api-management/genai-gateway-capabilities). It's configuration driven and supports customization through its inbound and outbound request processing policy system. It supports highly available, zone-redundant, and even multi-region replicas by using a single control plane.
+
+Most of the gateway routing, security, caching and request handling logic must be implemented in the policy system of API Management. You can combine [built-in policies](/azure/api-management/api-management-policies) specific to AI, such as [Limit large language model API token usage](/azure/api-management/llm-token-limit-policy), [Emit metrics for consumption of large language model tokens](/azure/api-management/llm-emit-token-metric-policy), [Enforce content safety](/azure/api-management/llm-content-safety-policy) or [Cache responses](/azure/api-management/llm-semantic-cache-store-policy), and your own [custom policies](/azure/api-management/set-edit-policies). The [GenAI gateway toolkit](https://github.com/Azure-Samples/apim-genai-gateway-toolkit) GitHub repository contains multiple custom API Management policies, along with a load-testing setup for testing the behavior of the policies.
 
 Use the [Well-Architected Framework service guide for API Management](/azure/well-architected/service-guides/api-management/reliability) when designing a solution that involves Azure API Management. If your workload exists as part of an application landing zone, review the guidance available in the Cloud Adoption Framework for Azure on implementing an [Azure API Management landing zone](/azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator).
 
-Using Azure API Management for your gateway implementation is generally the preferred approach to building and operating Foundry gateway. It's preferred because the service is a platform as a service (PaaS) offering with rich built-in capabilities, high availability, and networking options. It also has robust APIOps approaches to managing your completion APIs.
+Using Azure API Management for your gateway implementation is generally the preferred approach to building and operating a Foundry gateway. It's preferred because the service is a platform as a service (PaaS) offering with rich built-in capabilities, high availability, and networking options. It also has robust APIOps approaches to managing your completion APIs.
 
 ### Use custom code
 
@@ -188,8 +188,8 @@ The use of non-Microsoft gateway technology, which is a product or service that 
 
 ## Example architecture
 
-:::image type="complex" source="_images/azure-openai-gateway-example-architecture.svg" lightbox="_images/azure-openai-gateway-example-architecture.svg" alt-text="Diagram that shows an example architecture that injects a gateway between an intelligent application and Foundry.":::
-    The diagram shows an intelligent application icon with an arrow that points to two Azure API Management icons, one of which is gateway only. The icons have arrows that point to two Azure Foundry icons in one region and one in another. One of the Azure API Management icons has an arrow labeled Batch request that points to Azure Event Hubs. The same icon has an arrow that points to an Azure Function with the arrow labeled Compute service. The Azure function has an arrow that points to API Management with a label Replay batched request and an arrow that points to Azure Event Hubs labeled Batched request. A Microsoft Entra ID icon, an Azure Traffic Manager icon, and an Application Insights and Azure Monitor icon are at the bottom of the diagram.
+:::image type="complex" source="_images/foundry-gateway-example-architecture.svg" lightbox="_images/foundry-gateway-example-architecture.svg" alt-text="Diagram that shows an example architecture that injects a gateway between an intelligent application and Foundry.":::
+    The diagram shows an intelligent application icon with an arrow that points to two Azure API Management icons, one of which is gateway only. The icons have arrows that point to two Foundry icons in one region and one in another. One of the Azure API Management icons has an arrow labeled Batch request that points to Azure Event Hubs. The same icon has an arrow that points to an Azure Function with the arrow labeled Compute service. The Azure function has an arrow that points to API Management with a label Replay batched request and an arrow that points to Azure Event Hubs labeled Batched request. A Microsoft Entra ID icon, an Azure Traffic Manager icon, and an Application Insights and Azure Monitor icon are at the bottom of the diagram.
 :::image-end:::
 *Figure 2: Example architecture of accessing Azure Foundry through an Azure API Management-based gateway*
 
@@ -207,3 +207,4 @@ Learn about a specific scenario where deploying a gateway between an intelligent
 - [API Management landing zone](https://github.com/Azure/apim-landing-zone-accelerator/blob/main/scenarios/workload-genai/README.md) GitHub repository covering generative AI scenarios
 - [API Management gateway toolkit](https://github.com/Azure-Samples/apim-genai-gateway-toolkit)
 - [OpenAI API Simulator](https://github.com/microsoft/aoai-api-simulator/)
+- [AI Hub Gateway Landing Zone (Citadel)](https://github.com/Azure-Samples/ai-hub-gateway-solution-accelerator)
