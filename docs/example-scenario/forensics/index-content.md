@@ -7,20 +7,20 @@ This article outlines an infrastructure and workflow process designed to help te
 
 The architecture design follows the [Azure landing zone principles](/azure/cloud-adoption-framework/ready/landing-zone/design-principles) in the Cloud Adoption Framework for Azure.
 
-This scenario uses a hub-and-spoke network topology, which is shown in the following diagram:
+This scenario uses a hub-and-spoke network topology, which is shown in the following diagram.
 
 :::image type="complex" border="false" source="media/chain-of-custody.svg" alt-text="Diagram that shows the chain of custody architecture." lightbox="media/chain-of-custody.svg":::
-  This diagram shows the chain of custody architecture where production virtual machines reside in a spoke Azure virtual network. These machines have their disks encrypted by using encryption at host with platform-managed keys. A separate, secure Azure SOC subscription that's accessible only by the security operations center (SOC) team contains an Azure Storage account that holds disk snapshots in immutable blob storage. It also includes a dedicated Azure Key Vault that stores the hash values of the snapshots. When a request is made to capture digital evidence, a SOC team member logs in to the SOC subscription and uses an Azure Automation hybrid runbook worker VM to run the Copy-VmDigitalEvidence runbook. The runbook uses a system-assigned managed identity to access the target VM's resources and generates snapshots of its operating system and data disks. It transfers these snapshots to both the immutable blob storage and a temporary file share, computes their hash values, and stores the hash values in the SOC key vault. Finally, it removes all temporary copies except for the immutable snapshot.
+  This diagram shows the chain of custody architecture where production virtual machines (VMs) reside in a spoke Azure virtual network. The machine's disks are encrypted by using encryption at host via platform-managed keys. A separate, secure Azure security operations center (SOC) subscription contains an Azure Storage account that holds disk snapshots in immutable blob storage. The subscription also includes a dedicated Azure Key Vault that stores the hash values of the snapshots. Only the SOC team can access the subscription. When a request is made to capture digital evidence, an SOC team member signs in to the SOC subscription and uses an Azure Automation hybrid runbook worker VM to run the Copy-VmDigitalEvidence runbook. The runbook uses a system-assigned managed identity to access the target VM's resources and generates snapshots of its OS and data disks. It transfers these snapshots to both the immutable blob storage and a temporary file share, computes their hash values, and stores the hash values in the SOC key vault. Finally, it removes all temporary copies except for the immutable snapshot.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/chain-of-custody.vsdx) of this architecture.*
 
 ### Workflow
 
-In the architecture, the production virtual machines (VMs) are part of a spoke [Azure virtual network](/azure/virtual-network/virtual-networks-overview). The VM disks are encrypted with [encryption at host](/azure/virtual-machines/disk-encryption#encryption-at-host---end-to-end-encryption-for-your-vm-data) by using platform-managed keys. For more information, see [Overview of managed disk encryption options](/azure/virtual-machines/disk-encryption-overview).
+In the architecture, the production virtual machines (VMs) are part of a spoke [Azure virtual network](/azure/virtual-network/virtual-networks-overview). The VM disks are encrypted via [encryption at host](/azure/virtual-machines/disk-encryption#encryption-at-host---end-to-end-encryption-for-your-vm-data) by using platform-managed keys. For more information, see [Overview of managed disk encryption options](/azure/virtual-machines/disk-encryption-overview).
 
 > [!NOTE]
-> This architecture assumes encryption at host with platform-managed keys.
+> This architecture assumes encryption at host via platform-managed keys.
 >
 > If encryption at host doesn't meet your requirements, you can use an OS-level encryption solution, such as BitLocker on Windows or dm-crypt on Linux. These encryption implementations are specific to each environment and aren't described in this article. Evaluate your requirements to determine the appropriate approach.
 
@@ -203,17 +203,17 @@ This architecture has a mix of fixed-cost and variable-cost components. The fixe
 
 The following components incur ongoing costs whether or not you perform evidence captures:
 
-- **Hybrid runbook worker VM:** This VM runs continuously in the SOC subscription so that it's available for on-demand evidence capture. The VM size is the primary cost lever. Evidence capture isn't compute-intensive, except for hash computation, so a small general-purpose VM, such as a Standard_D2s_v5, is sufficient. To reduce the cost of this VM, consider [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) or [savings plans](/azure/cost-management-billing/savings-plan/savings-plan-overview) for a one-year or three-year contract.
+- **Hybrid runbook worker VM:** This VM runs continuously in the SOC subscription so that it's available for on-demand evidence capture. The VM size is the primary cost lever. Evidence capture isn't compute intensive except for hash computation, so use a small general-purpose VM, such as a Standard_D2s_v5. To reduce the cost of this VM, consider [Azure reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) or [savings plans](/azure/cost-management-billing/savings-plan/savings-plan-overview) for a one-year or three-year contract.
 
 - **Azure Automation account:** The Automation account that hosts the `Copy-VmDigitalEvidence` runbook and the hybrid worker configuration has a small baseline cost.
 
-- **Key Vault:** The SOC key vault stores hash values as secrets. Cost per secret operation is nominal, and the overall Key Vault cost is minimal for this workload.
+- **Key Vault:** The SOC key vault stores hash values as secrets. The cost per secret operation is nominal, and the overall Key Vault cost is minimal for this workload.
 
 #### Variable-cost components
 
 The following components scale with the number of investigations and the size of captured evidence:
 
-- **Azure Storage:** The size of the required immutable blob storage is the primary variable cost in this architecture. Each forensic capture generates snapshots of the target VM's OS and data disks, which vary widely in size. Storage costs are cumulative because you can't delete snapshots under a legal hold policy. The size of a snapshot grows with each investigation and with the number and the size of disks in each VM. To manage storage costs, evaluate the [access tier](/azure/storage/blobs/access-tiers-overview) for retained snapshots. Snapshots that are accessed only rarely after initial hash verification can benefit from the Cool or Cold tier, which offers lower storage rates in exchange for higher access costs.
+- **Azure Storage (immutable blob storage):** Storage is the primary variable cost in this architecture. Each forensic capture generates full disk snapshots of the target VM's OS and data disks, which can range from tens to hundreds of GB per VM. Storage costs are cumulative because you can't delete snapshots that have a legal hold policy applied. The size of a snapshot increases with each investigation and with the number and the size of disks in each VM. To manage storage costs, evaluate the [access tier](/azure/storage/blobs/access-tiers-overview) for retained snapshots. Snapshots that you rarely access after initial hash verification can benefit from the Cool or Cold tier, which offers lower storage rates in exchange for higher access costs.
 
 - **Azure Files:** The temporary file share that computes hash values incurs a cost only for the duration that the snapshot data is present. The runbook removes this data after hash computation, so the cost is transient and proportional to snapshot size.
 
@@ -223,10 +223,10 @@ The following components scale with the number of investigations and the size of
 
 To estimate the cost of this architecture for your workload, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator). Configure the following components based on your expected investigation volume and VM disk sizes:
 
-- One general-purpose VM (for example, Standard_D2s_v5) for the hybrid runbook worker
+- One general-purpose VM, for example Standard_D2s_v5, for the hybrid runbook worker
 - Azure Blob Storage with the appropriate access tier and estimated total snapshot volume
-- Azure Files with Standard tier for transient usage
-- Key Vault with Standard tier
+- Azure Files with the Standard tier for transient usage
+- Key Vault with the Standard tier
 - Azure Automation job runs based on expected capture frequency
 - Log Analytics with estimated ingestion volume
 
