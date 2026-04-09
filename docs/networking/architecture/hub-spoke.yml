@@ -23,6 +23,6 @@ products:
   - azure-network-watcher
   - azure-virtual-network
   - azure-vpn-gateway
-thumbnailUrl: /azure/architecture/browse/thumbs/hub-spoke.png
+thumbnailUrl: /azure/architecture/browse/thumbs/hub-spoke-network-topology-architecture.png
 content: |
    [!INCLUDE[](hub-spoke-content.md)]

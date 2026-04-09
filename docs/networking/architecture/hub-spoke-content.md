@@ -2,7 +2,7 @@ This reference architecture implements a hub-spoke network pattern with customer
 
 ## Architecture
 
-:::image type="complex" border="false" source="./_images/hub-spoke.png" alt-text="Diagram that shows the hub-spoke virtual network topology architecture." lightbox="./_images/hub-spoke.png":::
+:::image type="complex" border="false" source="./_images/hub-spoke-network-topology-architecture.svg" alt-text="Diagram that shows the hub-spoke virtual network topology architecture." lightbox="./_images/hub-spoke.png":::
    Diagram that shows a hub-spoke network layout in Azure. A large outer frame labeled Azure Virtual Network Manager contains a central hub virtual network and four spoke virtual networks around it. On the left, outside the hub, a cross-premises network contains two virtual machines and a gateway icon. In the middle, the hub virtual network contains three services: Azure Bastion at the top, Azure Firewall in the center, and Azure VPN Gateway or Azure ExpressRoute at the bottom. Azure Monitor appears to the right of the hub, connected to the hub services by dashed lines labeled Diagnostics. Two production spoke virtual networks appear on the right, one above the other. Each production spoke contains a resource subnet with three virtual machines. Dashed lines labeled Forced Tunnel run from both production spokes toward the hub firewall area. At the bottom, there are two nonproduction spoke virtual networks, each with a resource subnet and three virtual machines. Dotted arrows between the lower spokes indicate that they can be peered or directly connected. Other dotted arrows show spoke virtual networks connecting or peering through the hub. Across the top, a dotted bidirectional arrow labeled virtual network peering connects the hub to the upper production spoke.
 :::image-end:::
 
@@ -79,7 +79,9 @@ The benefits of using a customer-managed hub-spoke configuration include:
 
 Your architecture might differ from the simple hub-spoke architecture described in this article. The following list describes guidance for advanced scenarios:
 
-- To add more regions and fully mesh the hubs to each other, use [spoke-to-spoke networking](../../reference-architectures/hybrid-networking/virtual-network-peering.yml#spoke-to-spoke-communication-patterns) for multiregion connectivity patterns and [multiregion networking with Azure Route Server](/azure/route-server/multiregion).
+- To add more regions, [use Azure Firewall to route a multi-hub-spoke topology](/azure/firewall/firewall-multi-hub-spoke).
+
+- To use advanced spoke-to-spoke patterns, use [Spoke-to-spoke networking](../../reference-architectures/hybrid-networking/virtual-network-peering.yml#spoke-to-spoke-communication-patterns).
 
 - To replace Azure Firewall with a custom NVA, [deploy highly available NVAs](/azure/architecture/networking/guide/network-virtual-appliance-high-availability).
 
@@ -267,7 +269,7 @@ Use FQDN-based rules in Azure Firewall for non-HTTP(S) protocols or for when you
 
 #### Automation with Virtual Network Manager
 
-To manage connectivity and security controls, use Virtual Network Manager to create new hub-spoke virtual network topologies or onboard existing topologies. Using Virtual Network Manager ensures that your hub-spoke network topologies are prepared for large-scale future growth across multiple subscriptions, management groups, and regions.
+To centrally manage connectivity and security controls, use [Virtual Network Manager](/azure/virtual-network-manager/overview) to create new hub-spoke virtual network topologies or onboard existing topologies. Use Virtual Network Manager to prepare your hub-spoke network topologies for large-scale future growth across multiple subscriptions, management groups, and regions.
 
 Example Virtual Network Manager use-case scenarios include:
 
@@ -275,9 +277,10 @@ Example Virtual Network Manager use-case scenarios include:
 
 - Standardization of multiple replica architectures in multiple Azure regions to ensure a global footprint for applications.
 
-To ensure uniform connectivity and network security rules, you can use network groups to group virtual networks in any subscription, management group, or region under the same Microsoft Entra tenant. You can automatically or manually onboard virtual networks to network groups through dynamic or static membership assignments.
+To ensure uniform connectivity and network security rules, you can use [network groups](/azure/virtual-network-manager/concept-network-groups) to group virtual networks in any subscription, management group, or region under the same Microsoft Entra tenant. You can automatically or manually onboard virtual networks to network groups through dynamic or static membership assignments.
 
-Define virtual networks discoverability in Virtual Network Manager by using [Scopes](/azure/virtual-network-manager/concept-network-manager-scope). Scopes provides flexibility for network manager instances, which allows further management democratization for virtual network groups.
+Define virtual networks discoverability in Virtual Network Manager by using [scopes](/azure/virtual-network-manager/concept-network-manager-scope). Scopes make network manager instances flexible so that you can distribute management responsibilities across virtual network groups.
+ 
 
 To connect spoke virtual networks in the same network group, use Virtual Network Manager to implement virtual network peering or [direct connectivity](/azure/virtual-network-manager/concept-connectivity-configuration#enable-direct-connectivity). Use the [global mesh](/azure/virtual-network-manager/concept-connectivity-configuration#global-mesh) option to extend mesh direct connectivity to spoke networks in different regions. The following diagram shows global mesh connectivity between regions.
 
@@ -293,13 +296,15 @@ To simplify the process of creating and maintaining route configurations, you ca
 
 To centralize the management of IP addresses, you can use [IP address management (IPAM) in Virtual Network Manager](/azure/virtual-network-manager/concept-ip-address-management). IPAM prevents IP address space conflicts across on-premises and cloud virtual networks.
 
+To get started with Virtual Network Manager, see [Create a hub-spoke topology by using Virtual Network Manager](/azure/virtual-network-manager/how-to-create-hub-and-spoke).
+
 ### Performance Efficiency
 
 Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-For workloads that communicate from on-premises to VMs in an Azure virtual network that requires low latency and high bandwidth, consider using [ExpressRoute FastPath](/azure/expressroute/about-fastpath). FastPath allows you to send traffic directly to VMs in your virtual network from on-premises and to bypass the ExpressRoute virtual network gateway, which improves performance.
+For workloads that communicate from on-premises to VMs in an Azure virtual network that require low latency and high bandwidth, consider using [ExpressRoute FastPath](/azure/expressroute/about-fastpath). Improve performance by using FastPath to send traffic directly from on-premises to virtual machines (VMs) in your virtual network and to bypass the ExpressRoute virtual network gateway.
 
-For spoke-to-spoke communications that require low-latency, you can configure spoke-to-spoke networking.
+For spoke-to-spoke communications that require low-latency, you can set up spoke-to-spoke networking.
 
 Choose a [gateway SKU](/azure/vpn-gateway/about-gateway-skus) that meets your requirements, such as the number of point-to-site or site-to-site connections, required packets-per-second, bandwidth requirements, or TCP flows.
 
@@ -311,8 +316,8 @@ You can reduce your throughput by using Azure Firewall features such as IDPS. Fo
 
 This deployment includes one hub virtual network and two connected spokes and deploys an Azure Firewall instance and Azure Bastion host. Optionally, the deployment can include VMs in the first spoke network and a VPN gateway. To create network connections, you can choose between virtual network peering or Virtual Network Manager connected groups. Each method has several deployment options.
 
-- [Hub-and-spoke with virtual network peering deployment](/samples/mspnp/samples/hub-and-spoke-deployment)
-- [Hub-and-spoke with Virtual Network Manager connected groups deployment](/samples/mspnp/samples/hub-and-spoke-deployment-with-connected-groups/)
+- [Hub-spoke with virtual network peering deployment](/samples/mspnp/samples/hub-and-spoke-deployment)
+- [Hub-spoke with Virtual Network Manager connected groups deployment](/samples/mspnp/samples/hub-and-spoke-deployment-with-connected-groups/)
 
 ## Contributors
 
@@ -322,7 +327,7 @@ Principal authors:
 
 - [Jose Moreno](https://www.linkedin.com/in/erjosito/) | Solutions Engineer
 - [Alejandra Palacios](https://www.linkedin.com/in/alejandrampalacios/) | Senior Customer Engineer
-- Adam Torkar | Azure Networking Global Blackbelt at Microsoft
+- [Adam Torkar](https://www.linkedin.com/in/adam-torkar-41652311/) | Senior Customer Experience Engineer
 
 Other contributors:
 
