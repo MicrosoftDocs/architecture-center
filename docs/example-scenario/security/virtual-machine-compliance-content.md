@@ -113,16 +113,6 @@ You can use VM Image Builder to customize images by adjusting operating system s
 
 #### Strengthen images with Trusted Launch
 
-Beyond application-level customizations, golden images should establish a hardware-rooted chain of trust from boot to runtime. Trusted Launch provides this foundation for Generation 2 VMs at no additional cost. It is now the default for new Gen2 VM deployments and can be enabled in-place for existing VMs without redeployment. Configure golden images with the following Trusted Launch capabilities:
-
- - Secure Boot. Ensures only signed and trusted OS loaders, kernels, and drivers execute during startup. This protects against bootkits and rootkits — threats that traditional OS hardening cannot address because they load before the operating system.
- - Virtual Trusted Platform Module (vTPM). Emulates a hardware TPM inside the VM, providing secure storage for encryption keys, certificates, and boot measurements. vTPM enables scenarios such as BitLocker disk encryption and cryptographic guest attestation, which are often required for regulatory compliance (for example, FedRAMP, HIPAA, 
-and PCI DSS).
- - Boot Integrity Monitoring. Measures the entire boot chain and surfaces telemetry to Microsoft Defender for Cloud. If a VM's boot integrity is compromised, administrators receive an alert — providing continuous validation that the golden image hasn't been tampered with after deployment.
-
-When you build golden images, enable Secure Boot and vTPM as part of the image definition in Compute Gallery. This ensures every VM that DevOps teams provision inherits these protections by default, without requiring manual configuration. For existing VMs that predate Trusted Launch, use the in-place upgrade path to enable these capabilities without rebuilding the VM.
-
-> [!NOTE]
 Beyond application-level customizations, golden images should establish a hardware-rooted chain of trust from boot to runtime. Trusted Launch provides this foundation for Generation 2 VMs. Configure golden images with the following Trusted Launch capabilities:
 
  - **Secure Boot.** Ensures only signed and trusted OS loaders, kernels, and drivers execute during startup. This protects against bootkits and rootkits.
