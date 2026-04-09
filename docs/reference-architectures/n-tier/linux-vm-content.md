@@ -84,7 +84,12 @@ The networking components include the following resources:
 
 - **Network interface (NIC)**. The NIC enables the VM to communicate with the virtual network. If you need multiple NICs for your VM, a maximum number of NICs is defined for each [VM size](/azure/virtual-machines/sizes).
 
-- **Public IP address**. A public IP address *may* be used to communicate with the VM from outside Azure &mdash; for example, via Secure Sockets Host (SSH)). However, this is discouraged as it's a potential security risk. This should **only** be done in extreme circumstances and only in conjunction with other security methods such as filtering traffic using Network Security Groups (see below). The recommended guidance for management access to a virtual machine is through the use of Azure Bastion (see below) or internally when connected through VPN or ExpressRoute.
+- **Public IP address**. A public IP address *may* be used to communicate with the VM from outside Azure &mdash; for example, via Secure Sockets Host (SSH)). However, this is discouraged as it's a potential security risk.
+
+  > [!WARNING]
+  > Attaching a public IP address directly represents a potential security risk. It should **only** be done in extreme circumstances and only in conjunction with other security methods such as filtering traffic using Network Security Groups (see below). 
+  
+  For management access to a virtual machine, we recommend you use Azure Bastion (see below) or internally when connected through a VPN or Azure ExpressRoute.
 
   - The public IP address can be dynamic or static. The default is dynamic.
   - Reserve a [static IP address](/azure/virtual-network/virtual-networks-reserved-public-ip) if you need a fixed IP address that doesn't change &mdash; for example, if you need to create a DNS 'A' record or add the IP address to a safe list.
