@@ -213,7 +213,7 @@ As mentioned above, the decisions made regarding workload architecture, VM SKU a
 
 Be sure to consider these points when developing your architecture:
 - Use VM scale sets if the workload will have a dynamic load. For example, scale out in times of large amounts of traffic and then scale back in when the traffic reduces. This will ensure adequate processing power while still keeping costs under control.
-- Choose the appropriate VM and disk SKUs to meet required IOPs during processing, and configure caching to further improve performance
+- Choose the appropriate VM and disk SKUs to meet required IOPS during processing. Configure caching to further improve performance
 - Where possible, enable accelerated networking to minimize latency between components
 - Design network architecture to minimize unnecessary hops
 - Use Azure Monitor, VM Insights, and other tools to continuously analyze metrics and create updated performance baselines. Use the performance information to determine where to implement changes, and then test against those baselines
