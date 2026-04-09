@@ -1,6 +1,6 @@
 ---
 title: Multitenancy and Azure Cosmos DB
-description: Learn about features of Azure Cosmos DB that you can use with multitenant systems. Find other resources about how to use Azure Cosmos DB in a multitenant solution.
+description: Learn about Azure Cosmos DB features that you can use for multitenant systems. See more resources that explain how to use Azure Cosmos DB in a multitenant solution.
 author: sesmyrnov
 ms.author: sesmyrno
 ms.date: 03/30/2026
@@ -15,101 +15,116 @@ This article describes features of Azure Cosmos DB that you can use for multiten
 
 ## Multitenancy requirements
 
-When you plan a multitenant solution, you have two key requirements:
+When you plan a multitenant solution, you must meet two key requirements:
 
-- Ensure security and performance isolation between tenants. As the provider, meet security requirements and ensure good performance per tenant.
-- Maintain a low cost per tenant. As the provider, ensure that the cost to run the application remains sustainable as it scales.
+- Ensure security and performance isolation between tenants. As the provider, you must meet security requirements and ensure that each tenant meets performance requirements.
 
-These two needs can often conflict and introduce a trade-off where you must prioritize one over the other. The guidance in this article can help you better understand the trade-offs that you must make to address these needs. This article helps you navigate these considerations so you can make informed decisions when you design your multitenant solution.
+- Maintain a low cost for each tenant. As the provider, you must ensure that the cost to run the application remains sustainable as it scales.
+
+These two requirements often conflict and require you to prioritize one over the other. The guidance in this article helps you understand these trade-offs and make informed decisions when you design your multitenant solution.
 
 ## Isolation models
 
 Determine the level of isolation that you need between your tenants. For most solutions, we recommend that you use one of the following strategies, depending on your workload:
 
-- A partition key per tenant is often used for business-to-consumer software as a service (B2C SaaS) solutions. For example, a conversational chatbot application that stores user chat history in Azure Cosmos DB.
-- A database account per tenant is often used for business-to-business (B2B) SaaS solutions. For example, a Content Management System (CMS) sold to enterprises to publish digital content.
+- Business-to-consumer (B2C) software as a service (SaaS) solutions typically use a partition key for each tenant. One example of this type of solution is a conversational chatbot application that stores user chat history in Azure Cosmos DB.
 
-To choose the most appropriate isolation model, consider your business model and the tenants' requirements. For example, in B2C models, where a business sells a product or service directly to an individual customer, strong security and performance isolation for each individual customer is often not required. For these applications, for highest cost efficiency, the data for all tenants can be stored in the same container, with partition key providing logical isolation.
+- Business-to-business (B2B) SaaS solutions typically use a database account for each tenant. One example of this type of solution is a content management system (CMS) that enterprises buy to publish digital content.
 
-However, in B2B models, providers often sell different SKUs corresponding to different performance levels, SLA guarantees, or isolation promisses. In addition, providers often want to offer their customers the option to manage their own encryption keys, known as cross-tenant or hosted on behalf of customer managed keys. For these applications, using a separate database account per tenant ensures the ability to tune and guarantee performance per customer, as well as provide customer managed keys, a feature only available at the Azure Cosmos DB database account level.
+To choose the most appropriate isolation model, consider your business model and the tenants' requirements. For example, in B2C models, a business sells a product or service directly to an individual customer. Strong security and performance isolation for each individual customer typically isn't required. For the highest cost efficiency, these applications can store the data for all tenants in the same container, and partition keys provide logical isolation.
 
-## Partition key per tenant model
+However, in B2B models, providers sell different SKUs that correspond to different performance levels, service-level agreement (SLA) guarantees, or isolation requirements. Providers want to give their customers the option to manage their own encryption keys, also known as cross-tenant or customer-managed keys. For these applications, use a separate database account for each tenant so that you can tune and guarantee performance for each customer. When you use separate database accounts, you can also provide customer-managed keys. This feature is only available at the Azure Cosmos DB database-account level.
 
-In a partition key per tenant model, all the data for your tenants is stored in the same Azure Cosmos DB container, often using a partition key like `/TenantId`. All the throughput (RU/s) of the container is shared by the tenants.
+## Partition key per-tenant model
+
+In a partition-key-per-tenant model, the same Azure Cosmos DB container stores all the data for your tenants by using a partition key like `/TenantId`. The tenants share all the container's throughput.
 
 > [!NOTE]
-> A *request unit* (RU) is a logical abstraction of the cost of a database operation or query. Typically, you provision a defined number of request units per second (RU/s) for your workload, which is referred to as *throughput*.
+> A *request unit* (RU) is a logical abstraction of the cost of a database operation or query. Typically, you provision a defined number of request units per second (RU/s) for your workload, which is called *throughput*.
 
 ### Benefits
 
-- **Simplified management:** You place all tenants in one container, which is partitioned by the tenant ID. This approach has only one billable resource that provisions and shares RU/s among multiple tenants. This model is usually easier to manage, as there is only one RU/s setting that affects cost for the entire multitenant workload.
+- **Simplified management:** You place all tenants in one container that the tenant ID partitions. This approach creates only one billable resource that provisions and shares RU/s among multiple tenants. This model is usually easier to manage because only one RU/s setting affects cost for the entire multitenant workload.
 
-### Trade-offs / considerations
+### Trade-offs and considerations
 
-- **Resource contention:** Shared throughput (RU/s) across tenants that are in the same container can lead to contention during peak usage. This contention can create [noisy neighbor problems](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml) and performance challenges if your tenants have high or overlapping workloads. Use this isolation model for workloads that don't need guaranteed RU/s on a single tenant and can share throughput.
+- **Resource contention:** Shared throughput (RU/s) across tenants in the same container can cause contention during peak usage. This contention can create [noisy neighbor problems](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml) and performance challenges if your tenants have high or overlapping workloads. Use this isolation model for workloads that don't need guaranteed RU/s on a single tenant and can share throughput.
 
-- **Limited isolation:** This approach provides logical isolation, not physical isolation. Use this isolation model for workloads that don't need guaranteed performance per tenant or customer managed keys per tenant.
-- **Less flexibility:** You can't customize account-level features, like geo-replication, point-in-time restore, and customer-managed keys, for each tenant if you isolate by partition key.
+- **Limited isolation:** This approach provides logical isolation, not physical isolation. Use this isolation model for workloads that don't need guaranteed performance for each tenant or customer-managed keys for each tenant.
+
+- **Less flexibility:** If you isolate tenants by partition key, you can't customize account-level features like geo-replication, point-in-time restore, and customer-managed keys for each tenant.
 
 ### Azure Cosmos DB features for multitenancy
 
-- **Control your throughput:** Explore features that can help control the noisy neighbor problem when you use a partition key to isolate tenants, or if you have multiple workloads using the same shared container.
+Azure Cosmos DB provides several features that help you optimize performance and manage costs for multitenant solutions. These features address common challenges like noisy neighbor problems and help you store data efficiently and query across tenants.
+
+#### Throughput control
+
+The following features help control the noisy neighbor problem when you use a partition key to isolate tenants or have multiple workloads that use the same shared container.
 
   | Feature | Description |
   | :--- | :--- |
   | [Burst capacity](/azure/cosmos-db/burst-capacity) | Take advantage of the container's unused capacity in the last five minutes to cover future spikes. |
-  | [Priority based execution](/azure/cosmos-db/priority-based-execution) | Specify high or low priority at a per-request level. When there's contention on RU/s at the container, high priority requests are prioritized. Useful when you have multiple workloads with different performance requirements, such as a batch job versus an API that serves real-time user requests. |
-  | [Throughput buckets (preview)](/azure/cosmos-db/throughput-buckets) | Assign a set percentage of RU/s that a set of requests can consume. For example, you can configure that requests from a batch job can only consume up to 10% of the container's total RU/s, while a critical user facing API can consume up to 100% of the container's total RU/s. |
-  | [Throughput redistribution (preview)](/azure/cosmos-db/nosql/distribute-throughput-across-partitions) | Use this API to assign more RU/s to hot physical partitions. |
+  | [Priority-based execution](/azure/cosmos-db/priority-based-execution) | Specify high or low priority at a per-request level. When throughput contention occurs at the container, high-priority requests are prioritized. Use this feature when multiple workloads have different performance requirements, such as a batch job versus an API that serves real-time user requests. |
+  | [Throughput buckets (preview)](/azure/cosmos-db/throughput-buckets) | Assign a specific percentage of RU/s that a set of requests can consume. For example, specify that requests from a batch job can only consume up to 10% of the container's total RU/s, but a critical user-facing API can consume up to 100% of the container's total RU/s. |
+  | [Throughput redistribution (preview)](/azure/cosmos-db/how-to-redistribute-throughput-across-partitions) | Use this API to assign more RU/s to hot physical partitions. |
 
-- **Hierarchical partition keys:** For read-heavy workloads where your most common queries are by tenant, it is recommended to use [hierarchical partition keys](/azure/cosmos-db/hierarchical-partition-keys).
+#### Hierarchical partition keys
 
-  - **Achieve unlimited storage per tenant**: By setting `/TenantId` as your first level key and a high cardinality field, such as `/id` as your second level key, you can guarantee that you can have unlimited storage per tenant. If you have an additional hierarchy in your workload, such as storing data per users in each tenant, you can set `/TenantId` as your first level, `/UserId` as your second level, and a last level of `/id` to guarantee unlimited storage for each user in a tenant.
+For read-heavy workloads in which you typically query by tenant, we recommend using [hierarchical partition keys](/azure/cosmos-db/hierarchical-partition-keys) to achieve the following benefits:
 
-    > [!NOTE]
-    > Features in Azure Cosmos DB like stored procedures and atomic batch transactions are only available at the full logical partition key level. This means if you partition by `/id` as your last level key using hierarchical partition keys, you will not be able to run stored procedures or do an atomic batch transaction at partial levels. For example, if you partition by `/TenantId`, `/UserId`, `/id`, you will not be able to run a stored procedure or do an atomic batch transaction by specifying only the `TenantId` or only the `TenantId` and `UserId`. If you need to use such features, do not set `/id` as your last level key.
+- **Unlimited storage for each tenant:** Set `/TenantId` as your first-level key and a high cardinality field like `/id` as your second-level key to guarantee that each tenant has unlimited storage. You might have another hierarchy in your workload. For example, you might need to store data for each user in each tenant. In this scenario, set `/TenantId` as your first-level key, `/UserId` as your second-level key, and `/id` as your third-level key to guarantee unlimited storage for each user in a tenant.
 
-    - **Efficient queries**: Queries that specify /TenantId, or both /TenantId and /UserId, are efficiently routed only to the subset of physical partitions that contains the relevant data, which avoids a full fan-out query. If the container has 1,000 physical partitions but a specific `TenantId` value is only on five physical partitions, the query is routed to the smaller number of relevant physical partitions.
+  > [!NOTE]
+  > Features in Azure Cosmos DB, like stored procedures and atomic batch transactions, are only available at the full logical partition-key level. If you use hierarchical partition keys and partition by `/id` as your last-level key, you can't run stored procedures or do an atomic batch transaction at partial levels.
+  >
+  > For example, if you partition by `/TenantId`, `/UserId`, and `/id`, you can't run a stored procedure or do an atomic batch transaction by specifying only the `/TenantId` or only the `/TenantId` and `/UserId`. If you need to use these features, don't set `/id` as your last-level key.
 
-  - When to use hierarchical partition keys:
+- **Efficient queries:** Queries that specify `/TenantId` or both `/TenantId` and `/UserId` are efficiently routed only to the subset of physical partitions that contains the relevant data, which avoids a full fan-out query. If the container has 1,000 physical partitions, but a specific `/TenantId` value is only on 5 physical partitions, the query is routed to the smaller number of relevant physical partitions.
 
-    - Hierarchical partition keys work best when you have high cardinality of values and uniform distribution of request volumes for your first level keys.
+Use hierarchical partition keys when you have high cardinality of values and uniform distribution of request volumes for your first-level keys. In a multitenant setting, you should have many tenants, ideally in the order of hundreds to thousands of tenants or more, and your tenants should have a similar usage pattern.
 
-    - In a multitenant setting, this means that you should have a high number of tenants (ideally in the order of hundreds to thousands of tenants or higher) and your tenants should roughly have a similar usage pattern.
+A hot partition and possible degraded performance might occur in the following scenarios:
 
-    - If you have a small number of tenants, for example, 10 tenants, or a skewed workload where a single tenant consistently consumes 10x the RU/s as your other tenants, even with hierarchical partition keys, you may have a hot partition and possible degraded performance.
+- You work with a small number of tenants.
 
-  - When not to use hierarchical partition keys:
+- You work with a skewed workload in which a single tenant consistently consumes exponentially more RU/s than your other tenants, even when you use hierarchical partition keys.
 
-    - For these workloads where you do not have high cardinality per tenant or need to optimize for write performance, it is recommended to use synthetic partition keys or partition just by `/id`. Both these approaches will allow you to spread writes evenly across all physical partitions.
+Don't use hierarchical partition keys for workloads in which you don't have high cardinality for each tenant or when you need to optimize for write performance. In these scenarios, we recommend using synthetic partition keys or partitioning only by `/id`. These approaches let you spread writes evenly across all physical partitions.
 
-    - The main advantage of a synthetic key over id is if you're able to construct the key in a way that still allows you to optimize for some queries - for example, a synthetic key of TenantId_UserId will have a slight trade-off in perfectly even distribution of data across all partitions, but will allow you to do efficient queries for a specific user in a tenant if you specify the full partition key TenantId_UserId.
+You can construct a synthetic key in a way that optimizes for some queries. For example, a `TenantId_UserId` synthetic key slightly reduces the even distribution of data across all partitions, but it lets you efficiently query for a specific user in a tenant when you specify the full partition key. Query optimization is the main advantage of using a synthetic key instead of `/id`.
 
-      However, if your workload needs to optimize for write throughput, running queries may not be relevant, and you can partition by just `/id` to simplify your workload.
+However, if your workload optimizes for write throughput, queries might not be relevant. You can partition by only `/id` to simplify your workload.
 
-    - Finally, if you find you have a small number of tenants that are much larger and have consistently higher request volumes than others, you may consider isolating that tenant into its own database account, while keeping the remaining tenants in a shared container.
+If you work with a small number of large tenants that consistently need higher request volumes than other tenants, consider isolating those tenants into their own database accounts. Keep the remaining tenants in a shared container.
 
-## Database account per tenant model
+## Database account per-tenant model
 
-In the database account per tenant model, each of your tenants' data is stored in their own Azure Cosmos DB database account. Within each account, you can have multiple containers for different workloads or microservices that access data for a tenant, each with dedicated throughput (RU/s).
+In the database account per-tenant model, each tenant's data is stored in its own Azure Cosmos DB database account. Within each account, multiple containers for different workloads or microservices access data for a tenant. Each container has dedicated throughput (RU/s).
 
 ### Benefits
 
-- **High isolation:** This approach avoids contention or noisy neighbor because each tenant's data is in their own dedicated Azure Cosmos DB account, with dedicated RU/s on each container within the account.
-- **Custom service-level agreements (SLAs):** Each tenant has its own account, so you can provide specific tailored resources, customer-facing SLAs, and guarantees because you can tune the resources in each tenant's database account independently to meet their performance needs.
-- **Enhanced security:** This approach allows the provider to offer customer managed keys per tenant by enabling it at the database account level. If customer managed keys are a requirement, use must use database account per tenant isolation.
-- **Flexibility:** You can enable account-level features like geo-replication, point-in-time restore, and customer-managed keys at a per-tenant (database account) level as needed.
+- **High isolation:** This approach avoids contention or noisy neighbor problems because each tenant's data is in its own dedicated Azure Cosmos DB account. Each container within the account has dedicated RU/s.
 
-### Trade-offs / considerations
+- **Custom SLAs:** Each tenant has its own account, so you can provide specific tailored resources, customer-facing SLAs, and guarantees because you can tune the resources in each tenant's database account independently to meet its performance needs.
 
-- **More accounts to manage:** This approach can be more complex because you have multiple Azure Cosmos DB accounts, each representing a tenant or customer.  However, with Azure Cosmos DB fleets, you can simplify your management by sharing throughput (RU/s) across multiple database accounts and use fleet analytics to monitor your usage at scale.
-- **Cross-tenant query limitations:** All tenants are in different accounts, so applications that query multiple tenants require multiple calls within the application's logic. Typically, these cross tenant queries are not part of the core transactional workload that provides the service to each tenant; rather they may be part of an analytical workload to help the provider understand broader trends and usage across different tenants or customers. For these use cases, use [Mirroring in Microsoft Fabric](/fabric/mirroring/azure-cosmos-db).
+- **Enhanced security:** This approach allows customer-managed keys at the database-account level, so the provider can offer customer-managed keys for each tenant. If customer-managed keys are required, you must use database account per-tenant isolation.
+
+- **Flexibility:** You can turn on account-level features like geo-replication, point-in-time restore, and customer-managed keys at a per-tenant (database account) level as needed.
+
+### Trade-offs and considerations
+
+- **More accounts to manage:** This approach can be more complex because you have multiple Azure Cosmos DB accounts that each represent a tenant or customer.  However, you can use Azure Cosmos DB fleets to simplify account management by sharing throughput (RU/s) across multiple database accounts. You can also use fleet analytics to monitor your usage at scale.
+
+- **Cross-tenant query limitations:** All tenants are in different accounts, so applications that query multiple tenants require multiple calls within the application's logic. Typically, these cross-tenant queries aren't part of the core transactional workload that provides the service to each tenant. Instead, they're part of an analytical workload that helps the provider understand broader trends and usage across different tenants or customers. For these use cases, use [mirroring in Microsoft Fabric](/fabric/mirroring/azure-cosmos-db).
 
 ### Azure Cosmos DB features for multitenancy
 
 - **Azure Cosmos DB fleet pools:** Azure Cosmos DB fleets are designed to help customers building multitenant applications manage, monitor, and optimize their fleet of database accounts. Within a fleet, you can organize your tenants (database accounts) into logical groupings called a fleetspace and configure an optional [pool of throughput (RU/s)](/azure/cosmos-db/fleet-pools) that can be shared across all database accounts in the fleetspace, which helps optimize your cost.
 
-  :::image type="content" source="media/cosmosdb/fleet-overview.png" alt-text="Azure Cosmos DB fleet with three fleetspaces used to group free tier, mid-size, and enterprise customers, each with optional pool configuration.":::
+  :::image type="complex" source="media/cosmos-db/fleet-overview.svg" alt-text="A diagram of an Azure Cosmos DB fleet that has three fleetspaces to group free-tier, mid-size, and enterprise customers. Each fleetspace has optional pool configuration." lightbox=""media/cosmos-db/fleet-overview.svg":::
+     The diagram shows the hierarchical structure of an Azure Cosmos DB fleet and its components. At the top, a building icon labeled fleet accompanies a callout. The callout explains that a fleet is a high-level entity that stores fleetspaces and maps to multitenant apps. Below the fleet icon, a horizontal line that indicates shared throughput available across fleetspaces connects to a box labeled fleet pool with a capacity of 100,000 RU/s. The fleet pool contains three fleetspaces. Alongside the fleetspaces, another callout  explains that fleetspaces are logical groupings of database accounts within a fleet, that you can spread fleetspaces across multiple subscriptions, that you can use fleetspaces to group similar classes of tenants, and that you can set up an optional pool to share RU/s. Each fleetspace includes multiple database icons and an ellipsis to indicate more databases. Another callout notes that all resources in a fleetspace share pool RU/s.
+  :::image-end:::
 
   - Many providers create a fleet for each region they operate in and further separate the tenants into fleetspaces based on tenant performance requirements, or "class of tenant."
 
@@ -123,7 +138,7 @@ In the database account per tenant model, each of your tenants' data is stored i
 
   - **Autoscaling**: Pools are always autoscale, and you can configure the pool to autoscale between a minimum and maximum RU/s. Pool RU/s have the same unit price as regular RU/s you provision on a container, so shifting usage to a shared pool helps you save costs.
 
-  - Use Azure Cosmos DB fleet analytics. You should enable fleet analytics for your fleet to monitor usage and track historical trends across tenants.
+  - Use Azure Cosmos DB fleet analytics. You should turn on fleet analytics for your fleet to monitor usage and track historical trends across tenants.
 
     Fleet analytics streams usage and cost data for every database account, database, and container within the fleet to either Microsoft Fabric or an Azure Storage account, enabling long-term analysis of accounts within your fleet. You use this to track trends like which accounts are most active, how resources scale over time, and when access keys were last rotated. The raw telemetry data is also available to allow you to write custom queries or build Power BI dashboards to analyze your tenants' usage data.
 
@@ -187,7 +202,7 @@ For more information, see the following resources:
 
 ### Fleet pools
 
-Fleet pools, a feature of Azure Cosmos DB fleets, enables you to get the benefits of performance and security isolation that come with database account per tenant model, while allowing you to optimize your cost by sharing RU/s across multiple accounts in the same pool. You can group similar types of tenants into the same fleet pool and configure the pool to autoscale between a minimum and maximum RU/s.
+Use fleet pools, a feature of Azure Cosmos DB fleets, to get the benefits of performance and security isolation that come with database account per tenant model, while allowing you to optimize your cost by sharing RU/s across multiple accounts in the same pool. You can group similar types of tenants into the same fleet pool and configure the pool to autoscale between a minimum and maximum RU/s.
 
 While the containers in each account retain its own dedicated RU/s, when in a pool, they automatically use extra RU/s when needed from the shared pool. This helps avoid overprovisioning. Rather than provisioning every tenant's containers for peak RU/s, which can be expensive, you can set a typical RU/s per container and use the pool's shared capacity to handle any spikes. To protect against noisy neighbor, by design, any throughput provisioned on a container is dedicated and guaranteed to always be available to that container, while the shared pool RU/s can be used by any container that needs more throughput. 
 
@@ -198,7 +213,7 @@ For more information, see the following resources:
 
 ### Fleet analytics (preview)
 
-[Fleet analytics](/azure/cosmos-db/fleet-analytics), a feature of Azure Cosmos DB fleets, enables you to do long-term trend analysis over the database accounts in your fleet. Performance, usage, and cost data is delivered as open-source Apache Delta Lake tables in both Azure Data Lake Storage Gen2 (ADLS Gen2) and Microsoft Fabric OneLake at an hourly grain.
+Use [fleet analytics](/azure/cosmos-db/fleet-analytics), a feature of Azure Cosmos DB fleets, to do long-term trend analysis over the database accounts in your fleet. Performance, usage, and cost data is delivered as open-source Apache Delta Lake tables in both Azure Data Lake Storage Gen2 (ADLS Gen2) and Microsoft Fabric OneLake at an hourly grain.
 
 You use this data to track trends like which accounts are most active, how resources scale over time, which database accounts or tenants have the highest cost, when access keys were last rotated, and more. The data is also available to allow you to write custom queries or build Power BI dashboards to analyze your fleet.
 
