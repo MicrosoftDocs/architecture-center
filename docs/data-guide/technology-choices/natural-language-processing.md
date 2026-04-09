@@ -241,7 +241,7 @@ The following tables summarize the key differences in capabilities between Spark
 | Programmability | Python, Scala | See [Supported programming languages](/azure/foundry-classic/foundry-models/supported-languages) |
 | Supports processing of large datasets and large documents | Yes | Limited [5] |
 
-[5] Azure Language in Foundry Tools has per-request document size limits (typically 5,120 characters) and supports up to 25 documents per API call. You can process large dataset volumes through batching and pagination, but individual documents that exceed the character limit require chunking.
+[5] Azure Language in Foundry Tools has per-request document size limits that vary by mode: synchronous requests support up to 5,120 characters per document, and asynchronous requests support up to 125,000 characters per document. Both modes support up to 25 documents per API call. You can process large dataset volumes through batching and pagination, but individual documents that exceed the character limit for your chosen mode require chunking. For the full list of data and rate limits, see [Data and rate limits for the Language service](/azure/ai-services/language-service/concepts/data-limits).
 
 ### Annotator capabilities
 
