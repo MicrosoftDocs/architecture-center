@@ -424,7 +424,6 @@ Other contributors:
 - [Deployment Safeguards](/azure/aks/deployment-safeguards)
 - [Define day-2 operations](https://dzone.com/articles/defining-day-2-operations)
 - [A practical guide for zone-redundant AKS clusters](https://techcommunity.microsoft.com/blog/fasttrackforazureblog/a-practical-guide-to-zone-redundant-aks-clusters-and-storage/4036254)
-- [Cloud Adoption Framework for Azure guidance for adopting AKS in an Azure landing zone](/azure/cloud-adoption-framework/scenarios/app-platform/aks/landing-zone-accelerator)
 
 ## Related resources
 
