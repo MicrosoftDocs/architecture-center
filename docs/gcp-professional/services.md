@@ -148,6 +148,7 @@ Learn more about [AI and machine learning services in Azure](../data-guide/techn
 
 | Architecture | Description |
 | --- | --- |
+| [Baseline Microsoft Foundry chat reference architecture](../ai-ml/architecture/baseline-microsoft-foundry-chat.yml) | Learn how to build network-secured, highly available, and zone-redundant enterprise chat applications by using Microsoft Foundry tools and Azure App Service. |
 | [Image classification on Azure](../ai-ml/idea/intelligent-apps-image-processing.yml) | Learn how to build image processing into your applications by using Azure services such as the Computer Vision API and Azure Functions. |
 
 View all [AI and machine learning architectures](../browse/index.yml?azure_categories=ai-machine-learning).
@@ -190,7 +191,7 @@ The following architectures use AKS as the orchestrator.
 
 | Architecture | Description |
 | --- | --- |
-| [Baseline architecture on AKS](../reference-architectures/containers/aks/baseline-aks.yml) | Deploy a baseline infrastructure that deploys an AKS cluster and focuses on security. |
+| [Baseline architecture on AKS](../reference-architectures/containers/aks/baseline-aks.yml) | Learn about the architecture of the recommended baseline AKS infrastructure. |
 | [Microservices architecture on AKS](../reference-architectures/containers/aks-microservices/aks-microservices.yml) | Deploy a microservices architecture on AKS. |
 | [Continuous integration and continuous deployment (CI/CD) baseline architecture that uses Azure Pipelines](/azure/devops/pipelines/architectures/devops-pipelines-baseline-architecture) | This architecture supports businesses that want to modernize end-to-end application development by using containers, continuous integration for build, and GitOps for continuous deployment. |
 
