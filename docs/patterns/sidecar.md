@@ -104,7 +104,7 @@ You can apply the Sidecar pattern to many scenarios. Consider the following exam
 
   Service meshes like [Istio](https://istio.io/latest/about/service-mesh/) use sidecar proxies to implement these capabilities without requiring changes to application code.
 
-- **Ambassador sidecar:** Deploy an [ambassador](./ambassador.yml) service as a sidecar. The application routes calls through the ambassador, which handles request logging, routing, circuit breaking, and other connectivity features.
+- **Ambassador sidecar:** Deploy an [ambassador](./ambassador.md) service as a sidecar. The application routes calls through the ambassador, which handles request logging, routing, circuit breaking, and other connectivity features.
 
 - **Protocol adapters:** Deploy a sidecar to translate between incompatible protocols or data formats, or to [bridge messaging systems](messaging-bridge.yml). This approach lets the application use simpler or legacy interfaces.
 
@@ -118,4 +118,4 @@ You can apply the Sidecar pattern to many scenarios. Consider the following exam
 
 ## Related resource
 
-- [Ambassador pattern](./ambassador.yml)
+- [Ambassador pattern](./ambassador.md)
