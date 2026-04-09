@@ -37,7 +37,22 @@ When you use Azure as a modern data platform, you have your choice of platform a
 
 ### Alternatives
 
-- For the data layer, you have your choice of managed services, including [Azure Database for PostgreSQL](/azure/postgresql/), [Azure Database for MySQL](/azure/mysql/overview), [Azure Cosmos DB](/azure/cosmos-db/introduction), and [Azure SQL](/azure/azure-sql/).
+- For the data layer, you have your choice of managed services,
+  
+  [Azure SQL Database](https://azure.microsoft.com/services/sql-database/). Part of the Azure SQL family, Azure SQL Database is the intelligent, scalable, relational database service built for the cloud. Always up to date, it includes automated features that optimize performance, durability, and scalability, so you can focus on building new applications.
+
+  [Azure SQL Managed Instance](https://azure.microsoft.com/services/azure-sql/sql-managed-instance/). Part of the Azure SQL service portfolio, SQL Managed Instance combines the broadest SQL Server engine compatibility with all the benefits of a fully managed PaaS.
+
+  [Azure SQL on Azure Virtual Machines](https://azure.microsoft.com/en-in/services/virtual-machines/sql-server/). Part of the Azure SQL family, this cost-effective option is designed for lifting and shifting SQL Server workloads to Azure. It combines the performance, security, and analytics of SQL Server with the flexibility and hybrid connectivity of Azure—with 100 percent code compatibility. Now includes SQL Server 2019 images.
+
+  [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/). This fully managed relational database service is based on the community edition of the open-source PostgreSQL database engine. You can focus on application innovation instead of database management and easily scale your workloads.
+
+  [Azure Database for MySQL](/azure/mysql/overview). This fully managed relational database service is based on the community edition of the open-source MySQL database engine.
+
+  [Azure Cosmos DB](/azure/cosmos-db/introduction). A globally distributed, multi-model database, Azure Cosmos DB provides throughput and storage that scales elastically and independently across any number of geographic regions. It is a fully managed NoSQL database service that guarantees single-digit-millisecond latencies at the 99th percentile anywhere in the world.
+
+  [Data Warehouse in Microsoft Fabric](/fabric/data-warehouse/data-warehousing). This enterprise analytics service accelerates time to insight across data warehouses and big data systems.
+
 
 - For the storage layer, create an enterprise data lake using [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction).
 
@@ -81,7 +96,9 @@ For example, applications on-premises can communicate with a modern data platfor
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-Azure service-level agreements (SLAs) describe your uptime guarantees. The SLAs for various components can vary. For example, Azure Logic Apps is available at least 99.9 percent of the time. Configuration settings you choose can improve SLA.
+This architecture benefits from Azure managed services, which provide built‑in high availability, automated patching, and platform-level resiliency. Using PaaS components reduces operational risk and helps absorb infrastructure-level failures with minimal impact to the application.
+
+Overall reliability is constrained by deployment and design choices, including single-region or non–zone‑redundant components and tightly coupled service dependencies. Without explicit application-level resiliency—such as retries, graceful degradation, and fault isolation—failures in downstream services can still lead to customer-facing outages despite strong individual service SLAs.
 
 ### Cost Optimization
 
@@ -104,21 +121,7 @@ In this example architecture, Logic Apps connectors can be used to send messages
 
 *Download a [Visio file](https://arch-center.azureedge.net/integrate-ibm-message-queues-azure.vsdx) of this architecture.*
 
-Both the PaaS and IaaS architecture options support many popular managed database services. You can load data using a custom-built loader, a vendor solution, or a managed service such as [Azure Data Factory](/azure/data-factory/introduction). Database options include:
-
-- [Azure SQL Database](https://azure.microsoft.com/services/sql-database/). Part of the Azure SQL family, Azure SQL Database is the intelligent, scalable, relational database service built for the cloud. Always up to date, it includes automated features that optimize performance, durability, and scalability, so you can focus on building new applications.
-
-- [Azure SQL Managed Instance](https://azure.microsoft.com/services/azure-sql/sql-managed-instance/). Part of the Azure SQL service portfolio, SQL Managed Instance combines the broadest SQL Server engine compatibility with all the benefits of a fully managed PaaS.
-
-- [Azure SQL on Azure Virtual Machines](https://azure.microsoft.com/en-in/services/virtual-machines/sql-server/). Part of the Azure SQL family, this cost-effective option is designed for lifting and shifting SQL Server workloads to Azure. It combines the performance, security, and analytics of SQL Server with the flexibility and hybrid connectivity of Azure—with 100 percent code compatibility. Now includes SQL Server 2019 images.
-
-- [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/). This fully managed relational database service is based on the community edition of the open-source PostgreSQL database engine. You can focus on application innovation instead of database management and easily scale your workloads.
-
-- [Azure Database for MySQL](/azure/mysql/overview). This fully managed relational database service is based on the community edition of the open-source MySQL database engine.
-
-- [Azure Cosmos DB](/azure/cosmos-db/introduction). A globally distributed, multi-model database, Azure Cosmos DB provides throughput and storage that scales elastically and independently across any number of geographic regions. It is a fully managed NoSQL database service that guarantees single-digit-millisecond latencies at the 99th percentile anywhere in the world.
-
-- [Data Warehouse in Microsoft Fabric](/fabric/data-warehouse/data-warehousing). This enterprise analytics service accelerates time to insight across data warehouses and big data systems.
+Both the PaaS and IaaS architecture options support many popular managed database services. You can load data using a custom-built loader, a vendor solution, or a managed service such as [Azure Data Factory](/azure/data-factory/introduction).
 
 ### Performance Efficiency
 
