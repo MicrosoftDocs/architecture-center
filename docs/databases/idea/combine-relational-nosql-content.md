@@ -43,7 +43,7 @@ A polyglot persistence strategy assigns each data workload to the database techn
 
 The following advantages help offset those challenges:
 
-- **Independent scalability.** Each database scales according to its workload. Azure Cosmos DB handles read/write bursts of millions of operations per second with guaranteed low latency. Azure SQL Database offers both provisioned compute (for steady workloads) and serverless auto-scaling, with scale-to-zero capabilities (for unpredictable workloads).
+- **Independent scalability.** Each database scales according to its workload. Azure Cosmos DB handles read/write bursts of millions of operations per second with guaranteed low latency. Azure SQL Database offers both provisioned compute (for steady workloads) and serverless autoscaling, with scale-to-zero capabilities (for unpredictable workloads).
 - **Appropriate data modeling.** Azure SQL Database provides relational schemas, foreign keys, and joins for data that has well-defined relationships. Azure Cosmos DB provides schema-agnostic storage with automatic indexing for data that evolves frequently.
 - **Global data distribution.** Azure Cosmos DB provides automatic multi-region replication with a 99.999% read availability service level agreement (SLA) for workloads that require low-latency data access worldwide. Azure SQL Database provides geo-replication for multi-region read scenarios, and Hyperscale named replicas for read scale within a region.
 - **Optimized cost allocation.** Each service uses its own pricing model. Azure SQL Database offers predictable pricing for steady transactional workloads. Azure Cosmos DB offers pay-per-request throughput for highly dynamic or spiky workloads. Segregating tasks avoids over-provisioning a single system.
