@@ -212,7 +212,7 @@ Some key goals include minimizing latency, ensuring scalable architectures, opti
 As mentioned above, the decisions made regarding workload architecture, VM SKU and disk configurations can have a large impact on how your workload performs. Making the correct choices could prevent having to re-architect the solution in the future, adding flexibility and saving costs.
 
 Be sure to consider these points when developing your architecture:
-- Leverage VM scale sets if the workload will have a dynamic load. For example, scaling out in times of large amounts of traffic and then scaling back in when the traffic reduces. This will ensure adequate processing power while still keeping costs under control.
+- Use VM scale sets if the workload will have a dynamic load. For example, scale out in times of large amounts of traffic and then scale back in when the traffic reduces. This will ensure adequate processing power while still keeping costs under control.
 - Choose the appropriate VM and disk SKUs to meet required IOPs during processing, and configure caching to further improve performance
 - Where possible, enable accelerated networking to minimize latency between components
 - Design network architecture to minimize unnecessary hops
