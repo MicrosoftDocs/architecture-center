@@ -82,15 +82,18 @@ Consider any trade-offs against the goals of the other pillars that this pattern
 
 ## Example
 
-Legacy systems typically depend on a centralized database. Over time, a centralized database can become difficult to manage and evolve because of its many dependencies. To address these challenges, various database patterns can facilitate the transition away from such legacy systems. The Strangler Fig pattern is one of these patterns. Apply the Strangler Fig pattern as a phased approach to gradually transition from a legacy system to a new system and minimize disruption.
+Legacy systems typically depend on a centralized monolithic database that serves multiple domains. Over time, this shared database becomes difficult to manage and evolve because of its many cross-domain dependencies. The Strangler Fig pattern addresses this challenge by incrementally extracting domain-specific tables, stored procedures, and related data from the monolithic database into isolated domain databases. Each domain service gets its own database, and you repeat the process domain by domain until the monolithic database is fully decomposed.
 
 :::image type="content" border="false" source="./_images/strangler-fig-database.png" alt-text="Diagram of the Strangler Fig pattern applied to a database." lightbox="./_images/strangler-fig-database.png":::
 
-1. You introduce a new system, and the new system starts handling some requests from the client app. However, the new system still depends on the legacy database for all read and write operations. The legacy system remains operational, which facilitates a smooth transition without immediate structural changes.
+1. You introduce a new system service, and the new service starts handling requests for its domain. However, the new service still reads from and writes to the monolithic database for the domain tables it owns. The legacy system continues to serve all other domains, which facilitates a smooth transition without immediate structural changes.
 
-1. In the next phase, you introduce a new database. You migrate data load history to the new database by using an extract, transform, and load (ETL) process. The ETL process synchronizes the new database with the legacy database. During this phase, the new system performs shadow writes. The new system updates both databases in parallel. The new system continues to read from the legacy database to validate consistency.
+1. In the next phase, you introduce an isolated domain database for the new system. You migrate the relevant domain tables and their historical data to the new database by using an extract, transform, and load (ETL) process. A change data capture (CDC) process keeps the domain data synchronized from the monolithic database to the new domain database. During this phase, the legacy system continues to read from and write to the monolithic database, and the new system writes to the new domain database. You validate consistency between both databases before cutover.
 
-1. Finally, the new database becomes the system of record. The new database takes over all read and write operations. You can start deprecating the legacy database and legacy system. After you validate the new database, you can retire the legacy database. This retirement completes the migration process with minimal disruption.
+1. After you validate the new domain database, it becomes the system of record for that domain. The new system performs all read and write operations against the domain database. You remove the corresponding domain tables, stored procedures, and dependencies from the monolithic database. You repeat this process for each subsequent system domain until the monolithic database is fully decomposed.
+
+   Rollback to the monolithic database is feasible during phases 2 and at the start of phase 3, while the domain tables and synchronization processes still exist in the monolithic database. After you remove the domain tables, stored procedures, and synchronization processes from the monolithic database, rollback requires you to restore those objects and replay data changes, which significantly increases effort and risk. Treat the removal of legacy objects as a deliberate final step for each domain, only after the new system has been thoroughly validated.
+
 ## Contributors
 
 *Microsoft maintains this article. The following specialists contributed to this article.*
