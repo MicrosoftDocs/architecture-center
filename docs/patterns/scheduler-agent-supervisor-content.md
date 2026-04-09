@@ -12,7 +12,7 @@ If the application detects a more permanent fault it can't easily recover from, 
 
 The Scheduler Agent Supervisor pattern defines the following actors. These actors orchestrate the steps to be performed as part of the overall task.
 
-- The **Scheduler** arranges for the steps that make up the task to be executed and orchestrates their operation. These steps can be combined into a pipeline or workflow. The Scheduler is responsible for ensuring that the steps in this workflow are performed in the correct order. As each step is performed, the Scheduler records the state of the workflow, such as "step not yet started," "step running," or "step completed." The state information should also include an upper limit of the time allowed for the step to finish, called the complete-by time. If a step requires access to a remote service or resource, the Scheduler invokes the appropriate Agent, passing it the details of the work to be performed. The Scheduler typically communicates with an Agent using [asynchronous request/response messaging](asynchronous-request-reply.md). This can be implemented using queues, although other distributed messaging technologies could be used instead.
+- The **Scheduler** arranges for the steps that make up the task to be executed and orchestrates their operation. These steps can be combined into a pipeline or workflow. The Scheduler is responsible for ensuring that the steps in this workflow are performed in the correct order. As each step is performed, the Scheduler records the state of the workflow, such as "step not yet started," "step running," or "step completed." The state information should also include an upper limit of the time allowed for the step to finish, called the complete-by time. If a step requires access to a remote service or resource, the Scheduler invokes the appropriate Agent, passing it the details of the work to be performed. The Scheduler typically communicates with an Agent using asynchronous request/response messaging. This can be implemented using queues, although other distributed messaging technologies could be used instead.
 
     > The Scheduler performs a similar function to the Process Manager in the [Process Manager pattern](https://www.enterpriseintegrationpatterns.com/patterns/messaging/ProcessManager.html). The actual workflow is typically defined and implemented by a workflow engine that's controlled by the Scheduler. This approach decouples the business logic in the workflow from the Scheduler.
 
@@ -63,7 +63,7 @@ You should consider the following points when deciding how to implement this pat
 
 ## When to use this pattern
 
-Use this pattern when a process that runs in a distributed environment, such as the cloud, must be resilient to communications failure and/or operational failure.
+Use this pattern when a process that runs in a distributed environment, like the cloud, must remain resilient to both communications failures and operational failures. This pattern is common in [background jobs](../best-practices/background-jobs.md) that orchestrate multistep workflows, like order processing or resource provisioning.
 
 This pattern might not be suitable for tasks that don't invoke remote services or access remote resources.
 

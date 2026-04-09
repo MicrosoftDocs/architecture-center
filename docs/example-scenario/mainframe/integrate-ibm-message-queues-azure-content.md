@@ -96,9 +96,7 @@ For example, applications on-premises can communicate with a modern data platfor
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-This architecture benefits from Azure managed services, which provide built‑in high availability, automated patching, and platform-level resiliency. Using PaaS components reduces operational risk and helps absorb infrastructure-level failures with minimal impact to the application.
-
-Overall reliability is constrained by deployment and design choices, including single-region or non–zone‑redundant components and tightly coupled service dependencies. Without explicit application-level resiliency—such as retries, graceful degradation, and fault isolation—failures in downstream services can still lead to customer-facing outages despite strong individual service SLAs.
+Azure [service-level agreements (SLAs)](/azure/reliability/concept-service-level-agreements) describe the uptime commitments for each service, but SLAs are only one input into your reliability planning. The SLAs for various components can vary. For example, Azure Logic Apps has an SLA of at least 99.9 percent. Configuration settings, deployment topology, and your own application design also affect the reliability of the overall solution.
 
 ### Cost Optimization
 

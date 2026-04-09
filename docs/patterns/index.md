@@ -39,21 +39,21 @@ Each pattern in this catalog describes the problem that it addresses, considerat
 
 | Pattern | Summary | Well-Architected Framework pillars |
 | :------ | :------ | :-------------------------------------- |
-| [Ambassador](./ambassador.yml) | Create helper services that send network requests on behalf of a consumer service or application. | - Reliability<br><br>- Security |
+| [Ambassador](./ambassador.md) | Create helper services that send network requests on behalf of a consumer service or application. | - Reliability<br><br>- Security |
 | [Anti-Corruption Layer](./anti-corruption-layer.yml) | Implement a façade or adapter layer between a modern application and a legacy system. | - Operational&nbsp;Excellence |
 | [Asynchronous Request-Reply](asynchronous-request-reply.md) | Decouple back-end processing from a front-end host. This pattern is useful when back-end processing must be asynchronous, but the front end requires a clear and timely response. | - Performance&nbsp;Efficiency |
 | [Backends for Frontends](./backends-for-frontends.md) | Create separate backend services for specific frontend applications or interfaces. | - Reliability<br><br>- Security<br><br>- Performance&nbsp;Efficiency |
-| [Bulkhead](./bulkhead.yml) | Isolate elements of an application into pools so that if one fails, the others continue to function. | - Reliability<br><br>- Security<br><br>- Performance&nbsp;Efficiency |
+| [Bulkhead](./bulkhead.md) | Isolate elements of an application into pools so that if one fails, the others continue to function. | - Reliability<br><br>- Security<br><br>- Performance&nbsp;Efficiency |
 | [Cache-Aside](./cache-aside.yml) | Load data on demand into a cache from a data store. | - Reliability<br><br>- Performance&nbsp;Efficiency |
-| [Choreography](./choreography.yml) | Let individual services decide when and how a business operation is processed, instead of depending on a central orchestrator. | - Operational&nbsp;Excellence<br><br>- Performance&nbsp;Efficiency |
+| [Choreography](./choreography.md) | Let individual services decide when and how a business operation is processed, instead of depending on a central orchestrator. | - Operational&nbsp;Excellence<br><br>- Performance&nbsp;Efficiency |
 | [Circuit Breaker](./circuit-breaker.md) | Handle faults that might take a variable amount of time to fix when an application connects to a remote service or resource. | - Reliability<br><br>- Performance&nbsp;Efficiency |
 | [Claim Check](./claim-check.yml) | Split a large message into a claim check and a payload to avoid overwhelming a message bus. | - Reliability<br><br>- Security<br><br>- Cost&nbsp;Optimization<br><br>- Performance&nbsp;Efficiency |
 | [Compensating Transaction](./compensating-transaction.yml) | Undo the work performed by a sequence of steps that collectively form an eventually consistent operation. | - Reliability |
-| [Competing Consumers](./competing-consumers.yml) | Enable multiple concurrent consumers to process messages that they receive on the same messaging channel. | - Reliability<br><br>- Cost&nbsp;Optimization<br><br>- Performance&nbsp;Efficiency |
-| [Compute Resource Consolidation](./compute-resource-consolidation.yml) | Consolidate multiple tasks or operations into a single computational unit. | - Cost&nbsp;Optimization<br><br>- Operational&nbsp;Excellence<br><br>- Performance&nbsp;Efficiency |
+| [Competing Consumers](./competing-consumers.md) | Enable multiple concurrent consumers to process messages that they receive on the same messaging channel. | - Reliability<br><br>- Cost&nbsp;Optimization<br><br>- Performance&nbsp;Efficiency |
+| [Compute Resource Consolidation](./compute-resource-consolidation.md) | Consolidate multiple tasks or operations into a single computational unit. | - Cost&nbsp;Optimization<br><br>- Operational&nbsp;Excellence<br><br>- Performance&nbsp;Efficiency |
 | [CQRS](./cqrs.md) | Separate operations that read data from those that update data by using distinct interfaces. | - Performance&nbsp;Efficiency |
 | [Deployment Stamps](./deployment-stamp.yml) | Deploy multiple independent copies of application components, including data stores. | - Operational&nbsp;Excellence<br><br>- Performance&nbsp;Efficiency |
-| [Event Sourcing](./event-sourcing.yml) | Use an append-only store to record a full series of events that describe actions taken on data in a domain. | - Reliability<br><br>- Performance&nbsp;Efficiency |
+| [Event Sourcing](./event-sourcing.md) | Use an append-only store to record a full series of events that describe actions taken on data in a domain. | - Reliability<br><br>- Performance&nbsp;Efficiency |
 | [External Configuration Store](./external-configuration-store.yml) | Move configuration information out of an application deployment package to a centralized location. | - Operational&nbsp;Excellence |
 | [Federated Identity](./federated-identity.yml) | Delegate authentication to an external identity provider. | - Reliability<br><br>- Security<br><br>- Performance&nbsp;Efficiency |
 | [Gateway Aggregation](./gateway-aggregation.yml) | Use a gateway to aggregate multiple individual requests into a single request. | - Reliability<br><br>- Security<br><br>- Operational&nbsp;Excellence<br><br>- Performance&nbsp;Efficiency |
@@ -75,7 +75,7 @@ Each pattern in this catalog describes the problem that it addresses, considerat
 | [Saga](./saga.yml) | Manage data consistency across microservices in distributed transaction scenarios. | - Reliability |
 | [Scheduler Agent Supervisor](./scheduler-agent-supervisor.yml) | Coordinate a set of actions across distributed services and resources. | - Reliability<br><br>- Performance&nbsp;Efficiency |
 | [Sequential Convoy](./sequential-convoy.yml) | Process a set of related messages in a defined order without blocking other message groups. | - Reliability |
-| [Sharding](./sharding.yml) | Divide a data store into a set of horizontal partitions or shards. | - Reliability<br><br>- Cost&nbsp;Optimization |
+| [Sharding](./sharding.md) | Divide a data store into a set of horizontal partitions or shards. | - Reliability<br><br>- Cost&nbsp;Optimization |
 | [Sidecar](./sidecar.md) | Deploy components into a separate process or container to provide isolation and encapsulation. | - Security<br><br>- Operational&nbsp;Excellence |
 | [Static Content Hosting](./static-content-hosting.yml) | Deploy static content to a cloud-based storage service for direct client delivery. | - Cost&nbsp;Optimization |
 | [Strangler Fig](./strangler-fig.md) | Incrementally migrate a legacy system by gradually replacing pieces of functionality with new applications and services. | - Reliability<br><br>- Cost&nbsp;Optimization<br><br>- Operational&nbsp;Excellence |

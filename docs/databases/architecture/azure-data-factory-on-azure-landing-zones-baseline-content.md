@@ -195,7 +195,7 @@ Reliability ensures your application can meet the commitments you make to your c
 
 To align with the reliability targets for a business intelligence analytical and reporting system:
 
-- The default Azure [SLAs](https://www.azure.cn/support/sla/summary/) across the solution meet the requirements, so no high-availability or multi-regional uplift is required.
+- The individual [Microsoft SLAs](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services) for the services in this solution each exceed the 99.5% target, but [review each service's SLA](/azure/reliability/concept-service-level-agreements) to understand the definitions, conditions, and exclusions that affect coverage before you conclude that no high-availability or multi-regional uplift is required.
 
 - The architecture uses a [Wait for Microsoft](/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-recommendations#dr-strategy-impacts) disaster recovery strategy because of the low service criticality of the solution and the use of PaaS services.
 

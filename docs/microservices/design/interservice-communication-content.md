@@ -85,7 +85,7 @@ Notice that delivery status events are derived from drone location events. For e
 A *service mesh* is a software layer that handles service-to-service communication. Service meshes are designed to address many of the concerns listed in the previous section, and to move responsibility for these concerns away from the microservices themselves and into a shared layer. The service mesh acts as a proxy that intercepts network communication between microservices in the cluster. Currently, the service mesh concept applies mainly to container orchestrators, rather than serverless architectures.
 
 > [!NOTE]
-> Service mesh is an example of the [Ambassador pattern](../../patterns/ambassador.yml) &mdash; a helper service that sends network requests on behalf of the application.
+> Service mesh is an example of the [Ambassador pattern](../../patterns/ambassador.md) &mdash; a helper service that sends network requests on behalf of the application.
 
 Right now, the main options for a service mesh in Kubernetes are [Linkerd](https://linkerd.io/) and [Istio](https://istio.io/). Both of these technologies are evolving rapidly. However, some features that both Linkerd and Istio have in common include:
 
@@ -135,6 +135,7 @@ For microservices that talk directly to each other, it's important to create wel
 ## Related resources
 
 - [Design a microservices architecture](index.md)
+- [Design patterns for microservices](patterns.md)
 - [Using domain analysis to model microservices](../model/domain-analysis.md)
 - [Using tactical DDD to design microservices](../model/tactical-domain-driven-design.md)
 - [Identify microservice boundaries](../model/microservice-boundaries.yml)

@@ -12,7 +12,7 @@ ms.custom:
 
 # Autoscaling
 
-Autoscaling is the process of dynamically allocating resources to match performance requirements. As the volume of work grows, an application might need more resources to maintain the desired performance levels and satisfy service-level agreements (SLAs). As demand slackens and the extra resources are no longer needed, they can be de-allocated to minimize costs.
+Autoscaling is the process of dynamically allocating resources to match performance requirements. As the volume of work grows, an application might need more resources to maintain the desired performance levels and satisfy service-level objectives (SLOs). As demand slackens and the extra resources are no longer needed, they can be de-allocated to minimize costs.
 
 Autoscaling takes advantage of the elasticity of cloud-hosted environments while easing management overhead. It reduces the need for an operator to continually monitor the performance of a system and make decisions about adding or removing resources.
 
@@ -112,7 +112,7 @@ Consider the following points when you use autoscaling:
 
 Autoscaling isn't an instant solution. Adding resources to a system or running more instances of a process doesn't guarantee improved performance. Consider the following points when you design an autoscaling strategy:
 
-- The system must be designed to be horizontally scalable. Avoid making assumptions about instance affinity. Don't design solutions that require that the code is always running in a specific instance of a process. When scaling a cloud service or website horizontally, don't assume that a series of requests from the same source are always routed to the same instance. For the same reason, design services to be stateless to avoid requiring a series of requests from an application to always be routed to the same instance of a service. When designing a service that reads messages from a queue and processes them, don't make any assumptions about which instance of the service handles a specific message. Autoscaling could start more instances of a service as the queue length grows. The [Competing Consumers pattern](../patterns/competing-consumers.yml) describes how to handle this scenario.
+- The system must be designed to be horizontally scalable. Avoid making assumptions about instance affinity. Don't design solutions that require that the code is always running in a specific instance of a process. When scaling a cloud service or website horizontally, don't assume that a series of requests from the same source are always routed to the same instance. For the same reason, design services to be stateless to avoid requiring a series of requests from an application to always be routed to the same instance of a service. When designing a service that reads messages from a queue and processes them, don't make any assumptions about which instance of the service handles a specific message. Autoscaling could start more instances of a service as the queue length grows. The [Competing Consumers pattern](../patterns/competing-consumers.md) describes how to handle this scenario.
 
 - If the solution implements a long-running task, design this task to support both scaling out and scaling in. Without proper design, such a task could prevent an instance of a process from being shut down cleanly when the system scales in. Or it could lose data if the process is forcibly terminated. Ideally, refactor a long-running task and break up the processing that it performs into smaller, discrete chunks. For an example, see [Pipes and Filters pattern](../patterns/pipes-and-filters.yml).
 
@@ -144,7 +144,7 @@ The following patterns and guidance might also be relevant to your scenario when
 
 - The [Throttling pattern](../patterns/throttling.yml) describes how an application can continue to function and meet SLAs when an increase in demand places an extreme load on resources. Throttling can be used with autoscaling to prevent a system from being overwhelmed while the system scales out.
 
-- The [Competing Consumers pattern](../patterns/competing-consumers.yml) describes how to implement a pool of service instances that can handle messages from any application instance. Autoscaling can be used to start and stop service instances to match the anticipated workload. This approach enables a system to process multiple messages concurrently to optimize throughput, improve scalability and availability, and balance the workload.
+- The [Competing Consumers pattern](../patterns/competing-consumers.md) describes how to implement a pool of service instances that can handle messages from any application instance. Autoscaling can be used to start and stop service instances to match the anticipated workload. This approach enables a system to process multiple messages concurrently to optimize throughput, improve scalability and availability, and balance the workload.
 
 - [Monitoring and diagnostics](./monitoring.yml), including instrumentation and metrics, are vital for gathering the information that can drive the autoscaling process.
 

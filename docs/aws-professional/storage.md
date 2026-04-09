@@ -60,7 +60,7 @@ AWS customers often replicate their S3 buckets to another region by using cross-
 
 Both platforms provide different types of disks to meet particular performance needs. Although the performance characteristics don't match exactly, the following table provides a generalized comparison. You should always perform testing to determine which storage configurations best suit your application. For higher-performing disks, on both AWS and Azure you need to match the storage performance of the VM with the provisioned disk type and configuration.
 
-| AWS EBS volume type | Azure Managed Disk | Use | Can this managed disk be used as an OS Disk |
+| AWS EBS volume type | Azure managed disk | Use | Can this managed disk be used as an OS Disk |
 | ----------- | ------------- | ----------- | ----------- |
 | gp2/gp3 |  Standard SSD | Web servers and lightly used application servers or dev/test environments | Yes |
 | gp2 |  Premium SSD | Production and performance-sensitive workloads | Yes |
@@ -81,7 +81,7 @@ On Azure, you can configure many VM types for host caching. When host caching is
 
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
-| [Elastic Block Store (EBS)](https://aws.amazon.com/ebs/) | [Managed Disks](https://azure.microsoft.com/services/storage/disks/) | SSD storage that's optimized for I/O-intensive read/write operations. For use as high-performance Azure virtual machine storage. |
+| [Elastic Block Store (EBS)](https://aws.amazon.com/ebs/) | [Managed disks](https://azure.microsoft.com/services/storage/disks/) | SSD storage that's optimized for I/O-intensive read/write operations. For use as high-performance Azure virtual machine storage. |
 | [Amazon FSX for NetApp ONTAP](https://aws.amazon.com/fsx/netapp-ontap/) iSCSI or NVMe/TCP LUNs | [Azure Elastic SAN](https://azure.microsoft.com/products/storage/elastic-san/?msockid=20b4ccc8ef0360d20a2dd85cee9a6140) |  Storage area network (SAN) capabilities in the cloud. Uses industry-standard storage protocols. |
 
 ### Shared files

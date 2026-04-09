@@ -670,7 +670,7 @@ Also, expect a small amount of extra network latency in node communication betwe
 
 ### Test with simulations and forced failovers
 
-Test your solution's reliability through forced failover testing with simulated outages. Simulations can include stopping a node, bringing down all AKS resources in a particular zone to simulate a zonal failure, or invoking an external dependency failure. You can also use Azure Chaos Studio to simulate various types of outages in Azure and on the cluster.
+Test your solution's reliability through forced failover testing with simulated outages. Simulations can include stopping a node, bringing down all AKS resources in a particular zone to simulate a zone failure, or invoking an external dependency failure. You can also use Azure Chaos Studio to simulate various types of outages in Azure and on the cluster.
 
 For more information, see [Chaos Studio](/azure/chaos-studio/chaos-studio-overview).
 
@@ -983,7 +983,6 @@ For more information, see [AKS pricing](https://azure.microsoft.com/pricing/deta
 ## Next steps
 
 - [AKS roadmap on GitHub](https://github.com/orgs/Azure/projects/685)
-- [AKS landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/aks/landing-zone-accelerator)
 
 ## Related resources
 
