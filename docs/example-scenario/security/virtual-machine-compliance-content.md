@@ -112,6 +112,7 @@ You can use VM Image Builder to customize images by adjusting operating system s
 > Azure virtual networks default to private subnets that don't have default outbound connectivity. If your VM Image Builder builds require outbound internet access, for example, to download updates, ensure the subnets you specify have outbound access explicitly configured.
 
 #### Strengthen images with Trusted Launch
+
 Beyond application-level customizations, golden images should establish a hardware-rooted chain of trust from boot to runtime. Trusted Launch provides this foundation for Generation 2 VMs at no additional cost. It is now the default for new Gen2 VM deployments and can be enabled in-place for existing VMs without redeployment. Configure golden images with the following Trusted Launch capabilities:
 
  - Secure Boot. Ensures only signed and trusted OS loaders, kernels, and drivers execute during startup. This protects against bootkits and rootkits — threats that traditional OS hardening cannot address because they load before the operating system.
@@ -120,6 +121,13 @@ and PCI DSS).
  - Boot Integrity Monitoring. Measures the entire boot chain and surfaces telemetry to Microsoft Defender for Cloud. If a VM's boot integrity is compromised, administrators receive an alert — providing continuous validation that the golden image hasn't been tampered with after deployment.
 
 When you build golden images, enable Secure Boot and vTPM as part of the image definition in Compute Gallery. This ensures every VM that DevOps teams provision inherits these protections by default, without requiring manual configuration. For existing VMs that predate Trusted Launch, use the in-place upgrade path to enable these capabilities without rebuilding the VM.
+
+> [!NOTE]
+Beyond application-level customizations, golden images should establish a hardware-rooted chain of trust from boot to runtime. Trusted Launch provides this foundation for Generation 2 VMs. Configure golden images with the following Trusted Launch capabilities:
+
+ - **Secure Boot.** Ensures only signed and trusted OS loaders, kernels, and drivers execute during startup. This protects against bootkits and rootkits.
+ - **Virtual Trusted Platform Module (vTPM).** Emulates a hardware TPM inside the VM, providing secure storage for encryption keys, certificates, and boot measurements. vTPM enables scenarios such as BitLocker disk encryption and cryptographic guest attestation.
+ - **Boot Integrity Monitoring.** Measures the entire boot chain and surfaces telemetry to Microsoft Defender for Cloud.
 
 > [!NOTE]
 > Not all VM sizes and OS images support Trusted Launch. Verify compatibility during the image validation step described in the Validate golden images with automated tests section.
@@ -141,32 +149,19 @@ For image tattooing on Windows VMs, set up a custom registry. Add all required i
 
 Image tattooing records metadata *about* the image — its source, version, and publish date. A **software bill of materials (SBOM)** complements tattooing by recording what is *inside* the image: every operating system package, agent, library, and patch. This inventory is essential for vulnerability response, compliance audits, and supply chain transparency.
 
-##### Why an SBOM matters for golden images
+A SBOM for golden images to helps in the following ways:
 
-- **Faster CVE response.** When a critical vulnerability is disclosed, an SBOM lets you instantly identify which golden image versions contain the affected component — without manually inspecting each image.
-- **Regulatory compliance.** Frameworks such as [US Executive Order 14028](https://www.nist.gov/itl/executive-order-14028-improving-nations-cybersecurity), the EU Cyber Resilience Act, and standards like FedRAMP and HIPAA increasingly require SBOMs for software artifacts that run in production. VM images are part of that software supply chain.
-- **Audit traceability.** Pairing image tattoos with SBOMs gives auditors a complete picture: which image a VM runs, and exactly what software components were in that image at build time.
+- **Faster CVE response.** When a critical vulnerability is disclosed, an SBOM lets you identify which golden image versions contain the affected component.
+- **Regulatory compliance.** Regulatory laws and standards often require SBOMs for software artifacts. VM images are part of that software supply chain.
+- **Audit traceability.** Pairing image tattoos with SBOMs gives auditors a complete picture of which image a VM runs and exactly what software components were in that image at build time.
 
 ##### Generate the SBOM during the image build
-Add SBOM generation as a step in the VM Image Builder pipeline, immediately after customization and before validation:
-1. **Use the Microsoft SBOM Tool.** The open-source [Microsoft SBOM Tool](https://github.com/microsoft/sbom-tool) generates SBOMs in [SPDX 2.2 and 3.0](https://spdx.dev) format. It uses Microsoft's Component Detection libraries to enumerate installed operating system packages, agents, and dependencies. Run the tool on the customized image as a VM Image Builder customization step or as a post-customization script in your pipeline.
-2. **Choose a standard format.** Use [SPDX](https://spdx.dev) or [CycloneDX](https://cyclonedx.org) — both are widely accepted industry standards. SPDX is the ISO/IEC 5962:2021 standard and is the format produced by the Microsoft SBOM Tool. Consistency across all golden images simplifies tooling and reporting.
-3. **Sign the SBOM.** Cryptographically sign the generated SBOM to ensure its integrity. Use [Notation](https://notaryproject.dev) or a similar signing tool to prevent tampering after generation. A signed SBOM provides a verifiable chain of trust from the image build to the compliance audit.
 
-##### Store and link the SBOM to the image version
-- **Store the SBOM alongside the image.** Upload the SBOM to an Azure Storage account or an artifact store that is linked to the Compute Gallery image version. Use a consistent naming convention that maps each SBOM file to its image definition, version, and build date.
-- **Reference the SBOM in the image tattoo.** Add the SBOM storage location and its hash to the image tattoo metadata. This creates a direct link from any running VM back to the exact SBOM that describes its contents.
-- **Retain SBOMs for the image lifecycle.** Keep the SBOM available for at least as long as the image version is in use. Align retention with your organization's compliance and audit requirements.
+Add SBOM generation as a step in the VM Image Builder pipeline, immediately after customization and before validation.
 
-##### Use the SBOM for ongoing governance
-- **Query SBOMs during incident response.** When a new CVE is published, search across stored SBOMs to identify affected image versions. Use this data to trigger the [out-of-band emergency patching process](#emergency-patching-for-critical-vulnerabilities) and to set `excludeFromLatest` on affected versions in Compute Gallery.
-- **Integrate with Microsoft Defender for Cloud.** [Defender for Cloud](/azure/defender-for-cloud/defender-for-containers-introduction) can generate and [query SBOMs](/azure/defender-for-cloud/query-software-bill-of-materials) across your environment, providing cross-repository visibility into software components and their vulnerabilities. Use [Cloud Security Explorer](/azure/defender-for-cloud/concept-attack-path) to answer questions like "which images contain a specific library version" across your organization.
-- **Report on SBOM coverage.** Use Azure Policy with a custom policy definition to audit whether deployed VMs are running image versions that have an associated SBOM. Surface coverage gaps in the Azure Policy dashboard.
+Use the open-source [Microsoft SBOM Tool](https://github.com/microsoft/sbom-tool) to generate SBOMs in [SPDX](https://spdx.dev) format. The tool enumerates installed operating system packages, agents, and dependencies. Run the tool on the customized image as a VM Image Builder customization step or as a post-customization script in your pipeline. Cryptographically sign the generated SBOM to ensure its integrity.
 
-> [!NOTE]
-> SBOM generation adds minimal time to the image build process and has no impact on the resulting image. The SBOM is a build artifact — it is stored externally, not embedded in the image itself.
-
-
+Store the SBOM alongside the image. Upload the SBOM to an Azure Storage account or an artifact store that is linked to the Compute Gallery image version. Use a consistent naming convention that maps each SBOM file to its image definition, version, and build date. Keep the SBOM available for at least as long as the image version is in use.
 
 #### Validate golden images with automated tests
 
@@ -212,35 +207,22 @@ Consider these guidelines when refreshing pet servers:
 - Tag each pet server as a pet. Configure a policy in Azure Policy to take this tag into account during refreshes.
 
 #### Emergency patching for critical vulnerabilities
-The monthly golden image refresh cadence works well for routine updates, but critical security vulnerabilities and CVEs can't wait for the next scheduled cycle. Establish an **out-of-band emergency patching process** that runs independently of the monthly cadence and can be triggered on demand.
 
-##### Discontinue affected images
-When a critical CVE affects a published golden image, act immediately to prevent DevOps teams from provisioning new VMs with the vulnerable version:
-1. **Mark the affected image version as excluded from latest.** In Compute Gallery, set the [`excludeFromLatest`](/azure/virtual-machines/shared-image-galleries#image-versions) property to `true` on every affected image version. This ensures that any automation or user requesting the "latest" image no longer receives the vulnerable version. You can apply this at the region level for staggered responses.
-2. **Set an end-of-life date.** Configure the end-of-life property on the affected image version to formally deprecate it. Use the [`blockDeletionBeforeEndOfLife`](/azure/virtual-machines/compute-gallery-whats-new) property to prevent premature deletion if retention policies or audit requirements apply.
-3. **Notify DevOps teams.** Use the Azure Policy assignment description to link to a runbook or internal wiki that lists the CVE, the affected image versions, and the required remediation actions.
+The monthly golden image refresh cadence works well for routine updates, but critical security vulnerabilities and CVEs can't wait for the next scheduled cycle. Establish an **out-of-band emergency patching process** that runs independently of the monthly cadence and can be triggered on demand.  Subscribe to [Azure Service Health](/azure/service-health/overview) and Microsoft Security Response Center (MSRC) notifications for CVE alerts that affect your base images.
+
+When a critical CVE affects a published golden image you need to act immediately to prevent provisioning new VMs with the vulnerable version. Start by marking the affected image version as excluded from latest. In Compute Gallery, set the [`excludeFromLatest`](/azure/virtual-machines/shared-image-galleries#image-versions) property to `true` on every affected image version. This ensures that any automation or user requesting the "latest" image no longer receives the vulnerable version. Then use the Azure Policy assignment description to link to a runbook or internal wiki that lists the CVE, the affected image versions, and the required remediation actions.
 
 ##### Trigger an out-of-band image build
+
 Use the same VM Image Builder pipeline that produces the monthly golden image, but trigger it on demand:
-1. **Apply the security patch.** Add the critical fix to the image customization step — either as an operating system update, a configuration change, or a script that remediates the specific vulnerability.
-2. **Run the automated test suite.** Don't skip validation. The same tests that run during the monthly cycle should run for emergency builds. If the CVE is time-sensitive, consider running a reduced test set that covers boot validation, Trusted Launch attestation, and the specific fix, then follow up with the full suite.
+
+1. **Apply the security patch.** Add the critical fix to the image customization step as an operating system update, a configuration change, or a script that remediates the specific vulnerability.
+2. **Run the automated test suite.** Don't skip validation. The same tests that run during the monthly cycle should run for emergency builds.
 3. **Publish the patched image.** Publish the new image version to Compute Gallery and replicate it to all required regions. Because the affected version is already excluded from latest, the patched version automatically becomes the version that new deployments use.
-4. **Update the image tattoo.** Record the out-of-band nature of the update in the image tattoo — include the CVE identifier, the patch date, and a flag that distinguishes it from a scheduled monthly release. This data is essential for compliance audits.
-
-##### Refresh running VMs
-Publishing a patched image prevents new VMs from being vulnerable, but existing VMs still run the affected version. Handle cattle and pet servers differently:
-
-- **Cattle servers.** Coordinate with DevOps teams to trigger a rolling reimage or scale-set update using the patched golden image. In Virtual Machine Scale Sets, [set the upgrade policy](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-policy) to apply the new image automatically or during the next maintenance window.
-- **Pet servers.** Apply the patch directly by using the [Azure Automanage Machine Configuration](/en-us/azure/governance/machine-configuration) feature of Azure Policy or [Run Command](/azure/virtual-machines/run-command-overview). Use Azure Policy with an audit effect to flag pet servers that haven't been remediated. Track compliance in the Azure Policy dashboard until all affected VMs are patched.
-
-##### Automate the trigger
-To minimize response time, integrate the out-of-band process into your operational workflow:
-- Subscribe to [Azure Service Health](/en-us/azure/service-health/overview) and Microsoft Security Response Center (MSRC) notifications for CVE alerts that affect your base images.
-- Use an Azure DevOps or GitHub Actions pipeline with a manual or webhook trigger that initiates the emergency image build, test, and publish cycle.
-- Define a severity threshold in your runbook. Not every CVE warrants an out-of-band response — reserve it for critical and high-severity vulnerabilities that affect your published images.
+4. **Update the image tattoo.** Record the out-of-band nature of the update in the image tattoo and include the CVE identifier, the patch date, and a flag that distinguishes it from a scheduled monthly release. This data can be helpful for compliance audits.
 
 > [!IMPORTANT]
-> The goal of out-of-band patching is not to replace the monthly cadence but to complement it. Continue the regular monthly refresh to capture cumulative updates, and use the emergency process strictly for vulnerabilities that cannot wait.
+> The goal of out-of-band patching is not to replace the monthly cadence but to complement it. Continue the regular monthly refresh to capture cumulative updates and use your emergency process strictly for vulnerabilities that cannot wait.
 
 #### Improve visibility
 
@@ -264,12 +246,12 @@ By using the Machine configuration feature of Azure Policy with remediation opti
 #### Best practices for golden image hygiene
 
 A well-structured image build process prevents common mistakes that lead to security incidents, configuration drift, and operational friction. Follow these guidelines when you customize and maintain golden images:
-- **Never bake secrets into images.** Don't embed API keys, connection strings, passwords, certificates' private keys, or tokens in the image. Secrets that are baked into an image are exposed to every VM that uses it and to anyone with read access to Compute Gallery. Instead, retrieve secrets at runtime from [Azure Key Vault](/azure/key-vault/general/overview) by using a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview). This approach keeps secrets rotatable and auditable without rebuilding the image.
-- **Prefer external configuration over hardcoded values.** Any setting that might change between environments or before the next image build — such as endpoints, feature flags, regional settings, or log levels — should be externalized. Use [Azure App Configuration](/azure/azure-app-configuration/overview), environment variables injected at deployment time, or the [Machine Configuration feature of Azure Policy](/azure/governance/machine-configuration) to apply configuration after the VM boots. Reserve image customization for settings that are truly static and universal across all deployments.
-- **Minimize the software footprint.** Only install components that every consumer of the image needs. Additional tooling that's specific to a single DevOps team or workload should be deployed after provisioning, using extensions or configuration management. A smaller footprint reduces the attack surface and the number of components that require patching.
-- **Don't store application code or deployment artifacts in the image.** Golden images should provide a secure, compliant operating system foundation — not a pre-packaged application. Application code should be deployed separately through CI/CD pipelines. This separation ensures the image lifecycle and the application lifecycle can move independently.
-- **Use deterministic, repeatable build scripts.** Pin package versions in your customization scripts. Avoid commands like `apt-get upgrade` or `yum update` without version constraints, which can produce different images on different build days. Deterministic builds make it easier to reproduce issues and ensure that the SBOM accurately reflects the image contents.
-- **Tag images with their intended scope.** Use Compute Gallery metadata and tags to clearly indicate which image is for which purpose — for example, operating system type, target workload family, or compliance tier. This metadata helps DevOps teams select the correct image and helps governance teams audit usage.
+
+- **Never bake secrets into images.** Don't embed API keys, connection strings, passwords, certificates' private keys, or tokens in the image. Secrets that are baked into an image are exposed to every VM that uses it and to anyone with read access to Compute Gallery. Instead, retrieve secrets at runtime from [Azure Key Vault](/azure/key-vault/general/overview) by using a [managed identity](/entra/identity/managed-identities-azure-resources/overview).
+- **Prefer external configuration over hardcoded values.** Any setting that might change between environments or before the next image build, such as endpoints, feature flags, regional settings, or log levels, should be externalized. Reserve image customization for settings that are static and universal across all deployments.
+- **Minimize the software footprint.** Only install components that every consumer of the image needs. Additional tooling that's specific to a single use case or workload should be deployed after provisioning, using extensions or configuration management. A smaller footprint reduces the attack surface and the number of components that require patching.
+- **Don't store application code or deployment artifacts in the image.** Golden images should provide a secure, compliant operating system foundation. Application code should be deployed separately through CI/CD pipelines. This separation ensures the image lifecycle and the application lifecycle can move independently.
+- **Use deterministic, repeatable build scripts.** Pin package versions in your customization scripts. Avoid commands like `apt-get upgrade` or `yum update` which can produce different images on different build days.
 
 ## Considerations
 
