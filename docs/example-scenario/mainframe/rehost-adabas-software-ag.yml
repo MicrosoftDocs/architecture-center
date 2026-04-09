@@ -4,7 +4,7 @@ metadata:
   description: Learn how to migrate a Software AG Adabas and Natural mainframe system to Azure by using a rehost approach with minimal changes to your existing workload.
   author: Mvrs
   ms.author: bhbandam
-  ms.date: 03/31/2026
+  ms.date: 04/09/2026
   ms.topic: example-scenario
   ms.subservice: example-scenario
   ms.collection:
