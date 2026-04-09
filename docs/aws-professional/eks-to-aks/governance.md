@@ -106,7 +106,7 @@ Other contributors:
 
 - [Policy for Kubernetes](/azure/governance/policy/concepts/policy-for-kubernetes)
 - [Secure your AKS cluster by using Azure Policy](/azure/aks/use-azure-policy)
-- [Governance disciplines for AKS](/azure/cloud-adoption-framework/scenarios/app-platform/aks/security)
+- [AKS security best practices](/azure/aks/concepts-security)
 - [OPA Gatekeeper: Policy and governance for Kubernetes](https://kubernetes.io/blog/2019/08/06/opa-gatekeeper-policy-and-governance-for-kubernetes/)
 
 ## Related resources
