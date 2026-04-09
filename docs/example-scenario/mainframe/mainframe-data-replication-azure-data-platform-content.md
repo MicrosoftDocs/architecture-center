@@ -129,9 +129,9 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 - Scale, pause, and resume compute resources by using [Azure SQL Database serverless](https://azure.microsoft.com/products/azure-sql/database). It automatically adjusts compute based on workload activity so that you pay only for the resources that you use.
 
-- Use a life cycle policy to move data between access tiers in Azure storage.
+- Use a lifecycle management policy to move data between access tiers in Azure Blob Storage.
 
-- Move data from a hotter access tier to a cooler one in Azure storage when no one accesses it for a period of time. You can also move data from a cooler access tier to an archive access tier.
+  Move data from a hotter access tier to a cooler one when no one accesses it for a period of time. You can also move data from a cooler access tier to an archive access tier.
 
 - Use [Azure Advisor](https://azure.microsoft.com/products/advisor) to find underused resources. Get recommendations on how to reconfigure or consolidate resources to reduce your spending.
 
