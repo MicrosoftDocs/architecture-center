@@ -104,7 +104,7 @@ The platform team owns and maintains the following centralized resources. This a
 
   *Change from the baseline:* In the baseline architecture, the workload team owns this network. In this architecture, the platform team manages this component under the connectivity subscription.
 
-- **DNS resolution service** supports spoke virtual networks and cross-premises workstations. This service typically uses Azure Firewall as a DNS proxy or Azure DNS Private Resolver. In this architecture, the service resolves private endpoint DNS records for all DNS requests from the spoke. DNS Private Resolver and linked rulesets is the recommended way for the platform team to enable this architecture resolution requirements due to the DNS resolution characteristics of Agent Service.
+- **DNS resolution service** supports spoke virtual networks and cross-premises workstations. This service typically uses Azure Firewall as a DNS proxy or Azure DNS Private Resolver. In this architecture, the service resolves private endpoint DNS records for all DNS requests from the spoke. To enable the resolution requirements of Agent Service, the platform team should use DNS Private Resolver and linked rulesets.
 
 - **[Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview)** helps protect public IP addresses from distributed attacks. In this architecture, DDoS Protection helps safeguard the public IP address that's associated with Application Gateway.
 
