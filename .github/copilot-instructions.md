@@ -162,7 +162,7 @@ thumbnailUrl: /azure/architecture/browse/thumbs/article-name.png
 
 ## Multi-agent usage
 
-- Invoke Learn MCP tool to query existing Microsoft Learn documentation as needed.
+- Invoke the Learn MCP tool to query existing Microsoft Learn documentation as needed.
 - Invoke your Web Search tool to query general knowledge from the Internet as needed.
 
 ## Sourcing policy
