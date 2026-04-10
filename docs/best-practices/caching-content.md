@@ -141,7 +141,7 @@ To support large caches that hold relatively long-lived data, some cache service
 
 To reduce the latency that's associated with writing to multiple destinations, the replication to the secondary server might occur asynchronously when data is written to the cache on the primary server. This approach leads to the possibility that some cached information might be lost if there's a failure, but the proportion of this data should be small, compared to the overall size of the cache.
 
-If a shared cache is large, it might be beneficial to partition the cached data across nodes to reduce the chances of contention and improve scalability. Many shared caches support the ability to dynamically add (and remove) nodes and rebalance the data across partitions. This approach might involve clustering, in which the collection of nodes is presented to client applications as a single cache. Internally, however, the data is dispersed between nodes following a predefined distribution strategy that balances the load evenly. For more information, see the [Sharding pattern](../patterns/sharding.yml).
+If a shared cache is large, it might be beneficial to partition the cached data across nodes to reduce the chances of contention and improve scalability. Many shared caches support the ability to dynamically add (and remove) nodes and rebalance the data across partitions. This approach might involve clustering, in which the collection of nodes is presented to client applications as a single cache. Internally, however, the data is dispersed between nodes following a predefined distribution strategy that balances the load evenly. For more information, see the [Sharding pattern](../patterns/sharding.md).
 
 Clustering can also increase the availability of the cache. If a node fails, the remainder of the cache is still accessible. Clustering is frequently used with replication and failover. Each node can be replicated, and the replica can be quickly brought online if the node fails.
 
@@ -468,7 +468,7 @@ builder.AddProject<Projects.ProductService>()
     .WithReference(cache);
 ```
 
-Consuming services register the distributed cache in the same way as any other `IDistributedCache` provider. For more information, see [.NET Aspire Azure Cache for Redis hosting integration](https://aspire.dev/integrations/caching/redis/).
+Consuming services register the distributed cache in the same way as any other `IDistributedCache` provider. For more information, see [Get started with Redis integration](https://aspire.dev/integrations/caching/redis/).
 
 ### High availability, scalability, and partitioning
 
@@ -587,4 +587,4 @@ The following patterns might also be relevant to your scenario when you implemen
 
 - [Cache-aside pattern](../patterns/cache-aside.yml): This pattern describes how to load data on demand into a cache from a data store. This pattern also helps to maintain consistency between data that's held in the cache and the data in the original data store.
 
-- The [Sharding pattern](../patterns/sharding.yml) provides information about implementing horizontal partitioning to help improve scalability when storing and accessing large volumes of data.
+- The [Sharding pattern](../patterns/sharding.md) provides information about implementing horizontal partitioning to help improve scalability when storing and accessing large volumes of data.
