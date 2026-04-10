@@ -11,7 +11,7 @@ ai-usage: ai-assisted
 
 # What is a data lake?
 
-A data lake is a storage repository that holds large volumes of data in its native, raw format. Data lakes scale cost-effectively to handle terabytes (TBs) and petabytes (PBs) of data, which makes them suitable for handling massive and diverse datasets. The data typically comes from many different sources and can include structured data like relational tables, semistructured data like JSON, XML, or log files, and unstructured data like images, audio, or video.
+A data lake is a storage repository that holds large volumes of data in its native, raw format. Data lakes scale cost effectively to handle terabytes (TB) and petabytes (PB) of data, which makes them suitable for handling massive and diverse datasets. The data typically comes from many different sources and can include structured data like relational tables, semistructured data like JSON, XML, or log files, and unstructured data like images, audio, or video.
 
 Data lakes store all data types in its original, untransformed state and apply transformation only when the data is needed. This approach is known as *schema-on-read*. In contrast, a [data warehouse](../relational-data/data-warehousing.yml) enforces structure and applies transformations as it ingests data. This approach is known as *schema-on-write*.
 
@@ -35,7 +35,7 @@ Common data lake use cases include:
 
 - **Retains raw data for future use:** Data lakes store data in its raw format, which ensures long-term availability for future use. This approach is especially valuable in big data environments where the potential insights from the data might not be known in advance. You can also archive data as needed without losing its raw state.
 
-- **Self-service exploration:** Analysts and data scientists can query data directly, which lets them experiment and discover patterns.
+- **Self-service exploration:** Analysts and data scientists can query data directly to experiment and discover patterns.
 
 - **Flexible data support:** Unlike warehouses that require structured formats, data lakes handle structured, semistructured, and unstructured data natively.
 
@@ -89,13 +89,13 @@ The following table compares data lakes and data warehouses.
 | Query performance | Query performance depends on processing engines, and transformation might occur at query time (schema-on-read) | Optimized for high-performance analytical queries on structured data (schema-on-write) |
 | Latency | Higher latency because of on-the-fly processing | Low latency with preprocessed, structured data |
 | Data transformation stage | Transformation occurs at query time, which affects overall processing time | Transformation occurs during the ETL or ELT process |
-| Scalability | Highly scalable and cost-effective for large volumes of diverse data | Scalable but more expensive, especially at large scale |
+| Scalability | Highly scalable and cost effective for large volumes of diverse data | Scalable but more expensive, especially at large scale |
 | Cost | Lower storage cost because of low-cost storage for raw data. Compute costs are incurred when data is processed or queried. | Higher cost because of dedicated compute and performance optimizations for analytical workloads |
 | Use case fit | Best for big data, machine learning, and exploratory analytics. In medallion architectures, teams use the gold layer for reporting. | Ideal for BI, reporting, and structured data analysis |
 
 ## Challenges of data lakes
 
-- **Scalability and complexity:** The management of PBs of raw, unstructured, and semistructured data requires robust infrastructure, distributed processing, and careful cost management.
+- **Scalability and complexity:** The management of PB of raw, unstructured, and semistructured data requires robust infrastructure, distributed processing, and careful cost management.
 
 - **Processing bottlenecks:** As data volume and diversity increase, transformation and query workloads can introduce latency, which requires careful pipeline design and workload orchestration.
 
@@ -121,7 +121,7 @@ When you build a comprehensive data lake solution on Azure, consider the followi
 
 - [Fabric](/fabric/fundamentals/microsoft-fabric-overview) is an end-to-end data analytics platform that unifies data movement, data science, real-time analytics, and BI into a single software as a service (SaaS) experience.
 
-  Each Microsoft Fabric tenant is automatically provisioned with a single logical data lake known as *OneLake*. OneLake is built on Data Lake Storage and provides a unified storage layer that can handle structured and unstructured data.
+  Each Fabric tenant is automatically provisioned with a single logical data lake known as *OneLake*. OneLake is built on Data Lake Storage and provides a unified storage layer that can handle structured and unstructured data.
 
 ## Contributors
 
@@ -144,7 +144,7 @@ Other contributor:
 - [Training: Introduction to Data Lake Storage](/training/modules/introduction-to-azure-data-lake-storage/)
 - [Use Data Lake Storage with Azure HDInsight clusters](/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2)
 - [Use Azure managed identities in Unity Catalog to access storage](/azure/databricks/connect/unity-catalog/cloud-storage/azure-managed-identities)
-- [Load data into Data Lake Storage with Data Factory](/azure/data-factory/load-azure-data-lake-storage-gen2)
+- [Load data into Data Lake Storage by using Data Factory](/azure/data-factory/load-azure-data-lake-storage-gen2)
 - [Connect to Data Lake Storage in Microsoft Purview](/purview/register-scan-adls-gen2)
 - [Best practices for using Data Lake Storage](/azure/storage/blobs/data-lake-storage-best-practices)
 
