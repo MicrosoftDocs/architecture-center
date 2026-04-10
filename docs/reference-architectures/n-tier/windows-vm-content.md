@@ -12,7 +12,7 @@ This is a very simple implementation with a single virtual machine to show an ex
 
 - Any workloads running on the virtual machine aren't exposed externally, and are only accessible from within the same, or a peered, virtual network, such as in a hub and spoke configuration
 - Management access to the virtual machine is shown using Azure Bastion via Remote Desktop Protocol (RDP), and is not directly permitted from the public internet
-- External internet access is provided through the use of the NAT Gateway and its associated Public IP address
+- Outbound external internet access is provided through the use of the NAT Gateway and its associated Public IP address
 
 ### Components
 
@@ -45,7 +45,7 @@ For best disk I/O performance, we recommend [Premium SSDs](/azure/virtual-machin
 
 [Managed disks](/azure/storage/storage-managed-disks-overview) simplify disk management by handling the storage for you. Managed disks don't require a storage account. You specify the size and type of disk and it's deployed as a highly available resource. Managed disks also offer cost optimization by providing desired performance without the need for over-provisioning, accounting for fluctuating workload patterns, and minimizing unused provisioned capacity.
 
-By default, the OS disk is a managed disk stored in [Azure Storage](/azure/storage/common/storage-introduction), so it persists even when the host machine is down. In the case of stateless, scale-set workloads where fast provisioning and no OS persistence is desired, [ephemeral OS disks](/azure/virtual-machines/ephemeral-os-disks) are recommended. These place the OS image on the VM host's local storage instead of remote Azure Storage, lowering read latency, speeding up reimaging, and eliminating the managed disk cost. However, all data on an ephemeral OS disk is lost on stop-deallocate, reimage, or host maintenance healing events, and ephemeral OS disks don't support snapshots or Azure Backup. Use ephemeral OS disks only when VMs are fully redeployable from automation.
+By default, the OS disk is a managed disk stored in [Azure Disk Storage](/azure/virtual-machines/managed-disks-overview), so it persists even when the host machine is down. In the case of stateless workloads, where fast provisioning and no OS persistence is desired, [ephemeral OS disks](/azure/virtual-machines/ephemeral-os-disks) are recommended. These place the OS image on the VM host's local storage instead of remote Azure Storage, lowering read latency, speeding up reimaging, and eliminating the managed disk cost. However, all data on an ephemeral OS disk is lost on stop-deallocate, reimage, or host maintenance healing events, and ephemeral OS disks don't support snapshots or Azure Backup. Use ephemeral OS disks only when VMs are fully redeployable from automation.
 
 Depending on the chosen SKU, the VM may also have a temporary disk stored on a physical drive on the host machine (the `D:` drive on Windows). The temp disk isn't persisted to Azure Storage and can be deleted during reboots and other VM lifecycle events. Use the temp disk only for scratch data that doesn't need to survive a reboot, such as application-specific temporary files or swap space.
 
@@ -65,10 +65,14 @@ The networking components include the following resources:
 
 - **Network interface (NIC)**. The NIC enables the VM to communicate with the virtual network. If you need multiple NICs for your VM, a maximum number of NICs is defined for each [VM size](/azure/virtual-machines/sizes).
 
-- **Public IP address**. A public IP address *may* be used to communicate with the VM from outside Azure &mdash; for example, via Remote Desktop Protocol (RDP)). However, this is discouraged as it's a potential security risk. This should **only** be done in extreme circumstances and only in conjunction with other security methods such as filtering traffic using Network Security Groups (see below). The recommended guidance for management access to a virtual machine is through the use of Azure Bastion (see below) or internally when connected through VPN or ExpressRoute.
+- **Public IP address**. A public IP address *may* be used to communicate with the VM from outside Azure &mdash; for example, via Secure Sockets Host (SSH)). However, this is discouraged as it's a potential security risk.
 
-  - The public IP address can be dynamic or static. The default is dynamic.
-  - Reserve a [static IP address](/azure/virtual-network/virtual-networks-reserved-public-ip) if you need a fixed IP address that doesn't change &mdash; for example, if you need to create a DNS 'A' record or add the IP address to a safe list.
+  > [!WARNING]
+  > Attaching a public IP address directly represents a potential security risk. It should **only** be done in extreme circumstances and only in conjunction with other security methods such as filtering traffic using Network Security Groups (see below). 
+  
+  For management access to a virtual machine, we recommend you use Azure Bastion (see below) or internally when connected through a VPN or Azure ExpressRoute.
+
+  - The public IP address can be dynamic or static. The default is dynamic. Reserve a [static IP address](/azure/virtual-network/virtual-networks-reserved-public-ip) if you need a fixed IP address that doesn't change &mdash; for example, if you need to create a DNS 'A' record or add the IP address to a safe list.
   - You can also create a fully qualified domain name (FQDN) for the IP address. You can then register a [CNAME record](https://en.wikipedia.org/wiki/CNAME_record) in DNS that points to the FQDN. For more information, see [Create a fully qualified domain name in the Azure portal](/azure/virtual-machines/create-fqdn).
 
 - **Network security group (NSG)**. [Network security groups](/azure/virtual-network/virtual-networks-nsg) are used to allow or deny network traffic to VMs and/or subnets. They can be associated with the subnets or with individual NICs attached to VMs.
