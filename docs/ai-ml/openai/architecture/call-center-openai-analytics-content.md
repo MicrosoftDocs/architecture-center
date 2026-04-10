@@ -46,7 +46,8 @@ This article describes how to extract insights from customer conversations at a 
 ### Alternatives
 
 Depending on your scenario, you can add the following workflows.
-
+- PII detection can also be done by configuring the [guardrails](/azure/foundry/guardrails/how-to-create-guardrails?tabs=python) in Microsoft Foundry and can be applied deployed models (LLMs including Azure OpenAI models) in Microsoft Foundry. Different types of personal data including personal infomation like email, phone number , address etc, Financial information, Government Ids etc can be filtered under two modes - Annotate (flags the personal data in the output), Annotate and Block (the entire output is blocked if personal data is detected). These modes must be set for each personal catergory individually.
+- [Fast Transcription API](/azure/ai-services/speech-service/fast-transcription-create?tabs=new-foundry%2Clocale-specified%2Cwindows&pivots=programming-language-python) can also be used to convert speech to text synchronously. Additionally [LLM Speech](/azure/ai-services/speech-service/llm-speech?tabs=new-foundry%2Cwindows&pivots=programming-language-python) powered by LLM enhanced speech model transcribing the audio files with morebuilt in capabilities like translation, generating captions and subtitles from audio files etc.
 - Perform [conversation summarization](/azure/ai-services/language-service/summarization/overview) by using the prebuilt model in Language.
 - Azure also offers Speech Analytics which provides the entire orchestration for post call analytics in batch.
 
@@ -113,8 +114,8 @@ The batch speech API is designed for high volumes, but other Foundry Tools APIs 
 
 Principal authors:
 
-- Dixit Arora | Senior Customer Engineer, ISV DN CoE
-- [Jyotsna Ravi](https://www.linkedin.com/in/jyotsna-ravi-50182624) | Principal Customer Engineer, ISV DN CoE
+- Dixit Arora | Senior Customer Engineer, EngOps CRE
+- [Jyotsna Ravi](https://www.linkedin.com/in/jyotsna-ravi-50182624) | Sr.Account Executive
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
