@@ -1,3 +1,17 @@
+---
+title: DevSecOps on Azure Kubernetes Service (AKS)
+description: Learn how DevSecOps helps you incorporate security best practices from the start of software development.
+author: akhan-msft
+ms.author: adnankhan 
+ms.date: 04/02/2026
+ms.reviewer: ssumner
+ms.topic: concept-article
+ms.subservice: architecture-guide
+ms.custom:
+  - e2e-hybrid
+  - kr2b-contr-experiment
+---
+
 DevSecOps, also called Secure DevOps, builds on the practice of DevOps by incorporating security at different stages of a traditional DevOps lifecycle. Some of the benefits of building security in DevOps practices include:
 
 - Making your applications and systems more secure by providing visibility into security threats and preventing vulnerabilities from reaching deployed environments

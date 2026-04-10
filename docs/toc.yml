@@ -957,7 +957,7 @@ items:
         href: guide/azure-sandbox/azure-sandbox.md
       - name: DevSecOps on AKS
         displayName: Azure Kubernetes Service
-        href: guide/devsecops/devsecops-on-aks.yml
+        href: guide/devsecops/devsecops-on-aks.md
       - name: Use deployment scripts to check resource properties
         href: guide/devops/deployment-scripts-property-check.yml
     - name: Architectures
