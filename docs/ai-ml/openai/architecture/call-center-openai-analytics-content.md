@@ -115,7 +115,7 @@ The batch speech API is designed for high volumes, but other Foundry Tools APIs 
 Principal authors:
 
 - Dixit Arora | Senior Customer Engineer, EngOps CRE
-- [Jyotsna Ravi](https://www.linkedin.com/in/jyotsna-ravi-50182624) | Sr.Account Executive
+- [Jyotsna Ravi](https://www.linkedin.com/in/jyotsna-ravi-50182624) | Sr. Account Executive
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
