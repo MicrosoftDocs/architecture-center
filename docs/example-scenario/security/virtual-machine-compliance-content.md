@@ -26,8 +26,6 @@ The golden image publishing process runs monthly and contains these steps:
 :::image type="content" source="./media/virtual-machine-compliance-track-compliance-architecture.svg" alt-text="Architecture diagram showing how the solution manages compliance by assigning policy definitions, evaluating machines, and displaying data in a dashboard." border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/virtual-machine-compliance-track-compliance-architecture.vsdx) of this architecture.*
-> [!NOTE]
-> Azure Image Builder supports automatic image creation when certain criteria are met in your build pipline. Set up a trigger in Azure Image Builder to automatically refresh images on a monthly basis. See [How to enable Automatic Image Creation with Azure Image Builder triggers](/azure/virtual-machines/image-builder-triggers-how-to).
 
 The process of tracking VM compliance contains these steps:
 
@@ -178,7 +176,6 @@ Another good practice is to publish the latest images across different regions. 
 For more information on Compute Gallery, see [Store and share images in an Azure Compute Gallery][Store and share images in an Azure Compute Gallery].
 
 #### Refresh golden images
-
 When an image is used for an application, it can be hard to update the underlying operating system image with recent compliance changes. Strict business requirements can complicate the process of refreshing the underlying VM. Refreshing is also complex when the VM is critical to the business.
 
 Because cattle servers are dispensable, you can coordinate with DevOps teams to refresh these servers in a planned maintenance window as a business-as-usual activity.
@@ -195,6 +192,9 @@ Consider these guidelines when refreshing pet servers:
   - [Bulkhead pattern][Bulkhead pattern]
 
 - Tag each pet server as a pet. Configure a policy in Azure Policy to take this tag into account during refreshes.
+
+> [!NOTE]
+> Azure Image Builder supports automatic image creation when certain criteria are met in your build pipline. Set up a trigger in Azure Image Builder to automatically refresh images on a monthly basis. See [How to enable Automatic Image Creation with Azure Image Builder triggers](/azure/virtual-machines/image-builder-triggers-how-to).
 
 #### Emergency patching for critical vulnerabilities
 
