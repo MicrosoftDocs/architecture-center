@@ -98,7 +98,7 @@ Regularly [back up your API Management configuration][apim-backup]. The built-in
 
 For Logic Apps, we recommend a configuration as code (CAC) approach for backup and restore. Logic apps are serverless, so you can quickly recreate them from Azure Resource Manager templates. Save the templates in source control and integrate the templates with your continuous integration and continuous deployment (CI/CD) process. In a DR event, deploy the template to a new region.
 
-If you deploy a logic app to a different region, update the configuration in API Management. You can update the API's `Back end` property by using a PowerShell script.
+If you deploy a logic app to a different region, update the configuration in API Management. You can update the API's `Backend` property by using a PowerShell script.
 
 ### Security
 
