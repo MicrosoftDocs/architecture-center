@@ -3,7 +3,7 @@ title: Conceptual planning for IPv6 networking
 description: Learn strategies for transitioning an IPv4 network environment on Azure to IPv6. IPv6 provides a larger pool of internet addresses to accommodate growth.
 author: brsteph
 ms.author: leuthaeusern
-ms.date: 01/17/2025
+ms.date: 04/10/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
@@ -21,7 +21,7 @@ IPv6 has such a large address space that you should use consistent IPv6 address 
 | IPv4 | 4,294,967,296 |
 | IPv6 | 340,282,366,920,938,463,463,374,607,431,768,211,456 |
 
-**Dual stacking**. Azure virtual networks support dual stacking. A network that supports dual stacking can process IPv4 and IPv6 traffic simultaneously. You can assign a new IPv6 address block to a subnet that has an existing IPv4 block. Services that use IPv6 can coexist with services that use IPv4. You can therefore start the IPv6 transition before all services support IPv6.
+**Dual-Stack**. Azure virtual networks support dual-stack. A network that supports dual-stack can process IPv4 and IPv6 traffic simultaneously. You can assign a new IPv6 address block to a subnet that has an existing IPv4 block. Services that use IPv6 can coexist with services that use IPv4. You can therefore start the IPv6 transition before all services support IPv6.
 
 **IPv6 in Azure**. In your Azure environment, network interfaces receive one of three types of IPv6 addresses:
   
@@ -29,7 +29,7 @@ IPv6 has such a large address space that you should use consistent IPv6 address 
 
 - *Public IP addresses*. You can apply public IPv6 addresses to network interfaces. Public IP addresses must be globally unique and routable on the internet. You need to generate a unique IPv6 address that can be used for public endpoints on Azure, like load balancers or application gateways. You can use the `New-AzPublicIpAddress` cmdlet to create an IPv6 public address in PowerShell.
 
-  The operating system configuration doesn't show the public IP address, but you can see the public IP address in the Azure portal. You can use public IPv6 addresses for inbound and outbound communication to and from the internet. You might need to update the route table with user defined routes to support IPv6. Many organizations use shared network virtual appliances (NVAs) for public communication and don't assign a public IP address to network interfaces. You aren't charged for Azure public IPv6 addresses, although you're charged for IPv4 addresses. For more information, see [IP Addresses pricing](https://azure.microsoft.com/pricing/details/ip-addresses/).
+  The operating system configuration doesn't show the public IP address, but you can see the public IP address in the Azure portal. You can use public IPv6 addresses for inbound and outbound communication to and from the internet. You might need to update the route table with user defined routes to support IPv6. Many organizations use shared network virtual appliances (NVAs) for public communication and don't assign a public IP address to network interfaces. You aren't charged for Azure public IPv6 addresses. For more information, see [IP Addresses pricing](https://azure.microsoft.com/pricing/details/ip-addresses/).
 
 - *Link-local addresses*. Link-local addresses are a special type of private IP address. In IPv6, link-local addresses are automatically configured on all interfaces. They're used for communication within a single network segment and aren't routable on the internet. They come from the `fe80::/10` space instead of from your subnet's address block. You can see the `fe80::/10` address assigned to your interface from within the operating system.
 
@@ -39,9 +39,9 @@ For more information about other specialty address blocks, see [IANA IPv6 Specia
 
 If your organization already has IPv6 addresses, you can benefit from using them in your Azure environment. If not, you need to acquire new ones. Using existing addresses can be more cost-effective and efficient, but acquiring new ones ensures that you have a sufficient and continuous block of addresses for your needs. It also reduces the chance of address conflicts. If you don't have IPv6 space secured for your organization, you can use global addresses or local addresses.
 
-**Global addresses**: Global addresses are public IP addresses that are unique across the internet. You can contact a registrar to request a continuous block of general allocation or global addresses. These IPv6 addresses can be used in subnets, virtual networks, and regional supernets in Azure. To have sufficient space for growth in multiple regions, you should plan to allocate a /36 address space to your whole Azure environment. You can use global addresses for both private networks and public endpoints, or you can allocate different ranges. Unique global addresses can't have IP address conflicts.
+**Global Unicast Addresses**: Global addresses are public IPv6 addresses that are unique across the internet. You can contact a registrar to request a continuous block of general allocation or global addresses. These IPv6 addresses can be used in subnets, virtual networks, and regional supernets in Azure. To have sufficient space for growth in multiple regions, you should plan to allocate a larger parent address space (/36 or similar) for your entire Azure environment. You can use global addresses for both private networks and public endpoints, or you can allocate different ranges. Azure only advertises IPv6 addresses that are configured as [Custom IP address prefixes (BYOIP)](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/custom-ip-address-prefix). Global IPv6 addresses used only in virtual networks are not advertised to the internet.
 
-**Local addresses**: Local addresses are private IP addresses that are used within a virtual network. You can use IPs in the unique local address range. This address range functions like the IPv4 private address range, such as the `10.0.0.0/8` address space. IPv6 reserves the `fc00::/7` address blocks for unique local addresses. These addresses aren't globally reachable, even though they're a part of the IPv6 Global Unicast Address range.
+**Unique Local Addresses**: Local addresses are private IP addresses that are used within a virtual network. You can use IPs in the unique local address range. This address range functions like the IPv4 private address range, such as the `10.0.0.0/8` address space. IPv6 reserves the `fc00::/7` address blocks for unique local addresses. These addresses aren't routable over the internet.
 
 If you use the unique local address range, your IP addresses might overlap with the IP address range of another organization. If there's an overlap, you might experience challenges with integrating networks. For more information, see [the Unique Local IPv6 Unicast Addresses memo](https://www.rfc-editor.org/rfc/rfc4193.html).
 
@@ -66,7 +66,7 @@ Some of the practices that are necessary in IPv4 to conserve addresses aren't ap
 | Azure region 2 | `fd00:db8:ded0::/44` | fd00:db8:ded0:0000:0000:0000:0000:0000 | fd00:db8:dedf:ffff:ffff:ffff:ffff:ffff |
 | Azure region 3 | `fd00:db8:def0::/44` | fd00:db8:def0:0000:0000:0000:0000:0000 | fd00:db8:deff:ffff:ffff:ffff:ffff:ffff |
 
-After this IP address space is allocated to the region, you can deploy new networks and workloads by defining virtual networks and subnets from that IP space.
+After this IP address space is allocated to the region, you can deploy new networks and workloads by defining virtual networks and subnets from that IP space. Azure Virtual Network Manager can manage IPv6 address pools for virtual newtorks using the IPAM feature. For more information, see [IP Address Management Overview](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-ip-address-management)
 
 **Transitioning virtual networks to IPv6.** You should assign a /56 IPv6 address space to each virtual network. This assignment facilitates networking management and streamlines the creation process. It enables you to create 4,096 virtual networks in a region and 256 subnets in a single virtual network.
 
@@ -74,11 +74,11 @@ After this IP address space is allocated to the region, you can deploy new netwo
 
 **Transitioning subnets to IPv6.** You can continue to use your existing subnet architecture and assign a /64 address block to each subnet. This subnet size also enables you to plan your network conceptually. You don't need to worry about resizing subnets due to address exhaustion.
 
-One significant difference between IPv6 networks and IPv4 networks on Azure is the minimum size of subnets. The minimum size of IPv6 subnets on Azure is /64. Each subnet contains 18,446,744,073,709,551,616 hosts, minus the hosts that are used for Azure management. Like IPv4 networks, IPv6 subnets reserve the first four IP addresses for management. The reason for the IPv6 minimum subnet size is to maintain compatibility with network appliances outside of Azure. If the subnets were smaller, routing issues could occur.
+One significant difference between IPv6 networks and IPv4 networks on Azure is the size of subnets. IPv6 subnets in Azure are a fixed size of /64. Each subnet contains 18,446,744,073,709,551,616 hosts, minus the hosts that are used for Azure management. Similar to IPv4 networks, IPv6 subnets reserve the first four IP addresses for management. /64 is the standard minimum subnet size as defined by the IETF.
 
 To calculate the number of subnets of a certain size that can fit into a larger address block, you can use the formula 2^(X-Y). X is the smaller address block size, and Y is the larger block size. For example, to determine how many /64 subnets can fit into a /44 address block, you can use 2^(64-44). The result is 1,048,576.
 
-**Reusing IPv4 addresses.** As you transition to IPv6 addresses, you can repurpose private IPv4 addresses in different virtual networks within your Azure environment. This transferability enables you to maintain active services while transitioning to IPv6 and effectively manage your IP space during the transition. The reuse option gives you a larger effective IPv4 space. For any peered virtual network, you must ensure that the IPv4 address ranges don't overlap.
+**Reusing IPv4 addresses.** As you transition to IPv6 addresses, you can repurpose private IPv4 addresses in different virtual networks within your Azure environment. This transferability enables you to maintain active services while transitioning to IPv6 and effectively manage your IP space during the transition. The reuse option gives you a larger effective IPv4 space. For any peered virtual network, you must ensure that the IPv4 address ranges don't overlap. Subnet peering supports peering over the IPv6 address space between two dual-stack subnets to enable IPv4 reuse with overlapping address ranges. For more information, see [Configure subnet peering](https://learn.microsoft.com/en-us/azure/virtual-network/how-to-configure-subnet-peering).
 
 ## Configure Azure services to use IPv6
 
