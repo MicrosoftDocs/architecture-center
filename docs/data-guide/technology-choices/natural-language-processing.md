@@ -1,9 +1,9 @@
 ---
 title: Choose a natural language processing technology
 description: Choose a natural language processing technology for sentiment analysis, topic and language detection, key phrase extraction, and document categorization.
-author: ogkranthi
-ms.author: kmanchikanti
-ms.reviewer: ananyag
+author: ananyagc5
+ms.author: ananyag
+ms.reviewer: kmanchikanti
 ms.date: 02/24/2026
 ms.update-cycle: 180-days
 ms.topic: concept-article
