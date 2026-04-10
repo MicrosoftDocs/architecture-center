@@ -2,7 +2,7 @@ This reference architecture uses [Azure Integration Services][integration-servic
 
 ## Architecture
 
-:::image type="complex" source="_images/simple-enterprise-integration.svg" border="false" lightbox="_images/simple-enterprise-integration.svg" alt-text="Architecture diagram that shows a simple enterprise integration.":::
+:::image type="complex" source="images/simple-enterprise-integration.svg" border="false" lightbox="images/simple-enterprise-integration.svg" alt-text="Architecture diagram that shows a simple enterprise integration.":::
    The diagram shows how an application authenticates through Microsoft Entra and interacts with APIs, workflows, and back-end systems inside a resource group. On the left, Microsoft Entra connects to an application through a dotted line labeled authentication. The application sends an HTTP request to an API gateway in the API Management section. Inside this section, the API gateway sits above a developer portal. A dotted line labeled publish interfaces extends downward from Logic Apps to the developer portal. To the right, a workflow and orchestration section contains a Logic Apps icon. Two arrows point from Logic Apps to Azure services and SaaS services in the back-end systems section. A dashed border encloses API Management, the developer portal, and the workflow and orchestration box, with a label at the bottom that reads resource group.
 :::image-end:::
 
