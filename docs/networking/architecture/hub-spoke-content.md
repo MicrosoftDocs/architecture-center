@@ -195,7 +195,7 @@ When you use Virtual Network Manager, you can add spoke virtual networks to netw
 
 The following diagram illustrates how to use Virtual Network Manager for direct connectivity between spokes.
 
-:::image type="complex" border="false" source="./_images/spoke-spoke-azure-virtual-network-manager.svg" alt-text="Diagram that shows using Virtual Network Manager for direct connectivity between spokes." lightbox="spoke-spoke-azure-virtual-network-manager.svg":::
+:::image type="complex" border="false" source="./_images/spoke-spoke-azure-virtual-network-manager.svg" alt-text="Diagram that shows using Virtual Network Manager for direct connectivity between spokes." lightbox="./_images/spoke-spoke-azure-virtual-network-manager.svg":::
    Diagram that shows a large rectangular frame labeled Azure Virtual Network Manager, with the label Network group across the top. Inside the frame are three dashed boxes arranged left to right: a spoke virtual network, a hub virtual network, and another spoke virtual network. The two spoke boxes each contain a dotted inner box labeled Resource subnet with three virtual machine icons. The center hub box contains a dotted inner box with an Azure Firewall icon. Between the left spoke and the hub and between the hub and the right spoke, dotted double-headed arrows are labeled Connected virtual networks. Along the bottom, a dashed line labeled Directly connected virtual networks runs between the two spoke networks, with upward arrowheads into each spoke, which indicates a direct spoke-to-spoke path that sits below and separate from the hub connections.
 :::image-end:::
 
