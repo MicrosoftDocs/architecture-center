@@ -16,11 +16,11 @@ This pattern incrementally migrates a legacy system by gradually replacing speci
 
 As systems age, the development tools, hosting technology, and system architectures that they're built on can become obsolete. As new features and functionality are added, these applications become more complex, which can make them harder to maintain or extend.
 
-Replacing an entire complex system is a huge undertaking. Instead, many teams prefer to migrate to a new system gradually and keep the old system to handle unmigrated features. However, running two separate versions of an application forces clients to track which version has individual features. Every time teams migrate a feature or service, they must direct clients to the new location. To overcome these challenges, you can adopt an approach that supports incremental migration and minimizes disruptions to clients.
+Replacing an entire complex system is a huge undertaking. Instead, many teams prefer to migrate to a new system gradually and keep the old system to handle unmigrated features. However, running parallel versions of an application forces clients to track which version has individual features. Every time teams migrate a feature or service, they must direct clients to the new location. To overcome these challenges, you can adopt an approach that supports incremental migration and minimizes disruptions to clients.
 
 ## Solution
 
-Use an incremental process to replace specific pieces of functionality with new applications and services. Customers can continue using the same interface, unaware that this migration is taking place.
+After identifying new [service boundaries](/azure/architecture/microservices/model/tactical-domain-driven-design), use an incremental process to replace specific pieces of functionality with new applications and services. Customers can continue using the same interface, unaware that this migration is taking place.
 
 :::image type="content" border="false" source="./_images/strangler.png" alt-text="Diagram of the Strangler Fig pattern." lightbox="./_images/strangler.png":::
 
@@ -47,6 +47,8 @@ Consider the following points as you decide how to implement this pattern:
 - Structure new applications and services so that you can easily intercept and replace them in future strangler fig migrations. For example, strive to have clear demarcations between parts of your solution so that you can migrate each part individually.
 
 - After the migration is complete, you typically remove the strangler fig façade. Alternatively, you can maintain the façade as an adaptor for legacy clients to use while you update the core system for newer clients.
+
+  This should be deliberately thought of as transitional architecture. A such, you must ensure risks being mitigated using this approach outweigh the cost of throwaway infrastructure.
 
 - Make sure that the façade keeps up with the migration.
 
@@ -108,4 +110,5 @@ Read Martin Fowler's blog post about [Strangler Fig pattern application](https:/
 
 ## Related resource
 
-[Messaging Bridge pattern](./messaging-bridge.yml)
+- [Messaging Bridge pattern](./messaging-bridge.yml)
+- Consider the Stranger Fig pattern when you [Plan your workload migration from Amazon Web Services (AWS) to Azure](/azure/migration/migrate-workload-from-aws-plan)
