@@ -114,7 +114,7 @@ In the diagam above,  this scenario would be useful for providing a non-critical
 
 ### Potential Use Cases
 
-A single VM deployment could be used to host a simple application that does not need to be exposed to the internet and can withstand some downtime. This may be a basic reporting application or one that is not capable of running in a load balanced scenario due to a monolithic architecture.
+A single VM deployment could be used to host a simple application that does not need to be exposed to the internet and can withstand some downtime. For example, this may be a basic internal reporting application.
 
 ## Considerations
 
@@ -177,7 +177,7 @@ For more information, see the cost section in [Microsoft Azure Well-Architected 
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-Use Infrastructure-as-Code (IaC) templates to provision Azure resources and their dependencies. These could be written using [Bicep](/azure/azure-resource-manager/bicep/) or JSON in an [Azure Resource Manager template][arm-template] or even [Terraform](/azure/developer/terraform/) if you prefer. These templates allow a Continuous Integration/Continuous Deployment (CI/CD) process as part of a [GitOps](https://learn.microsoft.com/en-us/devops/deliver/iac-github-actions) methodology for deploying and configuring resources. This will allow versioning of architectures and ensure consistency between environments, as well as enforcing reproducibility, security, and compliance.
+Use Infrastructure-as-Code (IaC) templates to provision Azure resources and their dependencies. These could be written using [Bicep](/azure/azure-resource-manager/bicep/), [Azure Resource Manager templates (ARM templates)][arm-template], or [Terraform](/azure/developer/terraform/), depending on your preference and established tool choices. These templates allow a Continuous Integration/Continuous Deployment (CI/CD) process as part of an [automated deployment](/devops/deliver/iac-github-actions) methodology for deploying and configuring resources. This approach enables versioning of architectures and ensure consistency between environments, as well as enforcing reproducibility, security, and compliance.
 
 To assist in monitoring and diagnosing issues, ensure that diagnostics logs are enabled on your resources and are made available to [Azure Monitor](https://azure.microsoft.com/services/monitor/) to help with analysis and optimization of your resources. These logs can be used to implement alerting and notifications of critical events, and in some cases allow automated remediation or logging a ticket in your ITSM system.
 
@@ -190,8 +190,9 @@ Some key goals include minimizing latency, ensuring scalable architectures, opti
 As mentioned above, the decisions made regarding workload architecture, VM SKU and disk configurations can have a large impact on how your workload performs. Making the correct choices could prevent having to re-architect the solution in the future, adding flexibility and saving costs.
 
 Be sure to consider these points when developing your architecture:
-- Leverage VM scale sets if the workload will have a dynamic load. For example, scaling out in times of large amounts of traffic and then scaling back in when the traffic reduces. This will ensure adequate processing power while still keeping costs under control.
-- Choose the appropriate VM and disk SKUs to meet required IOPs during processing, and configure caching to further improve performance
+- Use VM scale sets if the workload will have a dynamic load. For example, scale out in times of large amounts of traffic and then scale back in when the traffic reduces. This will ensure adequate processing power while still keeping costs under control.
+- Choose the appropriate VM and disk SKUs to meet required IOPS during processing. Configure caching to further improve performance
+- If your workload is unusually latency-sensitive, use [Proximity Placement Groups (PPGs)](/azure/virtual-machines/co-location) to ensure that multiple VMs are located physically close to each other to achieve better performance. PPGs can also be used in conjunction with availability sets to combine low latency with high availability within a single physical datacenter
 - Where possible, enable accelerated networking to minimize latency between components
 - Design network architecture to minimize unnecessary hops
 - Use Azure Monitor, VM Insights, and other tools to continuously analyze metrics and create updated performance baselines. Use the performance information to determine where to implement changes, and then test against those baselines
