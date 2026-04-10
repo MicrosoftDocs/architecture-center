@@ -179,7 +179,7 @@ For more information about spoke-to-spoke networking patterns, see [Virtual netw
 
 If you need connectivity between spokes, consider deploying Azure Firewall or another NVA in the hub. Then create routes to forward traffic from a spoke to the firewall or NVA, which can then route to the second spoke. In this scenario, you must configure the peering connections to accept forwarded traffic.
 
-:::image type="complex" border="false" source="./_images/spoke-spoke-routing.png" alt-text="Diagram that shows routing between spokes that uses Azure Firewall." lightbox="./_images/spoke-spoke-routing.png":::
+:::image type="complex" border="false" source="./_images/spoke-spoke-routing.svg" alt-text="Diagram that shows routing between spokes that uses Azure Firewall." lightbox="./_images/spoke-spoke-routing.svg":::
    Diagram that shows three large dashed boxes arranged in a row. A spoke virtual network is on the left, a hub virtual network is in the center, and another spoke virtual network is on the right. Inside each spoke virtual network is a dotted box labeled Resource subnet that contains three virtual machine icons. Inside the hub virtual network is a dotted box that contains an Azure Firewall icon. Between the left spoke and the hub, and between the hub and the right spoke, dotted double-headed arrows labeled Peering show the network connections. Dashed arrows near the bottom run horizontally from each spoke toward the hub and point inward to Azure Firewall, which indicates that traffic from both spokes is directed to the firewall in the center rather than flowing directly between the two spokes. The overall layout highlights the hub as the middle point through which communication between the two spoke networks is routed.
 :::image-end:::
 
@@ -195,7 +195,7 @@ When you use Virtual Network Manager, you can add spoke virtual networks to netw
 
 The following diagram illustrates how to use Virtual Network Manager for direct connectivity between spokes.
 
-:::image type="complex" border="false" source="./_images/spoke-spoke-avnm.png" alt-text="Diagram that shows using Virtual Network Manager for direct connectivity between spokes." lightbox="./_images/spoke-spoke-avnm.png":::
+:::image type="complex" border="false" source="./_images/spoke-spoke-azure-virtual-network-manager.svg" alt-text="Diagram that shows using Virtual Network Manager for direct connectivity between spokes." lightbox="spoke-spoke-azure-virtual-network-manager.svg":::
    Diagram that shows a large rectangular frame labeled Azure Virtual Network Manager, with the label Network group across the top. Inside the frame are three dashed boxes arranged left to right: a spoke virtual network, a hub virtual network, and another spoke virtual network. The two spoke boxes each contain a dotted inner box labeled Resource subnet with three virtual machine icons. The center hub box contains a dotted inner box with an Azure Firewall icon. Between the left spoke and the hub and between the hub and the right spoke, dotted double-headed arrows are labeled Connected virtual networks. Along the bottom, a dashed line labeled Directly connected virtual networks runs between the two spoke networks, with upward arrowheads into each spoke, which indicates a direct spoke-to-spoke path that sits below and separate from the hub connections.
 :::image-end:::
 
@@ -284,7 +284,7 @@ Define virtual networks discoverability in Virtual Network Manager by using [sco
 
 To connect spoke virtual networks in the same network group, use Virtual Network Manager to implement virtual network peering or [direct connectivity](/azure/virtual-network-manager/concept-connectivity-configuration#enable-direct-connectivity). Use the [global mesh](/azure/virtual-network-manager/concept-connectivity-configuration#global-mesh) option to extend mesh direct connectivity to spoke networks in different regions. The following diagram shows global mesh connectivity between regions.
 
-:::image type="complex" border="false" source="./_images/hub-and-spoke.png" alt-text="Diagram that shows spoke global mesh direct connectivity over regions." lightbox="./_images/hub-and-spoke.png":::
+:::image type="complex" border="false" source="./_images/hub-spoke.svg" alt-text="Diagram that shows spoke global mesh direct connectivity over regions." lightbox="./_images/hub-spoke.svg":::
    Diagram that shows two large dashed rectangles side by side, labeled Azure region 1 on the left and Azure region 2 on the right. Each region contains a central box labeled Hub virtual network, surrounded by several smaller dotted boxes that represent spoke networks. Short dashed lines come from each hub to its surrounding spokes, which form a star-like hub-spoke pattern in both regions. A single dashed line connects the hub in Azure region 1 to the hub in Azure region 2 across the gap between the two region rectangles. The two sides mirror each other visually: each hub sits near the center of its region, each has multiple spokes around it, and each spoke is linked inward to its local hub. The diagram emphasizes two separate regional hub-spoke layouts with one direct interregion connection between the two hubs.
 :::image-end:::
 
