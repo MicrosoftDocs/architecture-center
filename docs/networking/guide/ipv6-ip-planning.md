@@ -91,9 +91,9 @@ You can use the following table to find instructions for transitioning specific 
 | Azure custom IP address prefix | You need to create new prefixes for your IPv6 address ranges. For instructions, see [Create a custom IPv6 address prefix using the Azure portal](/azure/virtual-network/ip-services/create-custom-ip-address-prefix-ipv6-portal). |
 | Azure Data Explorer | You must perform an API request to update the `publicIPType` property to `DualStack`. For more information, see [Create or update clusters](/rest/api/azurerekusto/clusters/create-or-update#kustoclusterscreateorupdate). |
 | Azure DNS zone (public and private) | To add new IPv6 records, see [Manage DNS records and record sets](/azure/dns/dns-operations-recordsets-portal#update-a-record). |
-| Azure ExpressRoute gateway |  To transition ExpressRoute gateways, see [Azure ExpressRoute: Add IPv6 support](/azure/expressroute/expressroute-howto-add-ipv6-portal). |
+| Azure ExpressRoute gateway | To transition ExpressRoute gateways, see [Azure ExpressRoute: Add IPv6 support](/azure/expressroute/expressroute-howto-add-ipv6-portal). |
 | Azure Front Door | Azure Front Door can target a back end with IPv6. You don't need a special transition, other than updating the back-end information. |
-| Azure Kubernetes Service (AKS) |  For more information, see [Use kubenet with dual-stack networking](/azure/aks/configure-kubenet-dual-stack). |
+| Azure Kubernetes Service (AKS) | For more information, see [Configure Azure CNI Overlay with dual-stack networking](/azure/aks/azure-cni-overlay?pivots=aks-cni-overlay-cluster-dual-stack). |
 | Azure Load Balancer |  To create or modify new load balancers with IPv6, see [Standard public load balancer with IPv6](/azure/load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell) and [Standard internal load balancer with IPv6](/azure/load-balancer/ipv6-dual-stack-standard-internal-load-balancer-powershell). |
 | Azure public IP address (basic) | You need to create new public IP addresses with IPv6 addresses. For instructions, see [Create an IPv6 public IP address](/azure/virtual-network/ip-services/add-dual-stack-ipv6-vm-portal#create-ipv6-public-ip-address). |
 | Azure Service Fabric | For more information, see [Configure managed cluster network settings](/azure/service-fabric/how-to-managed-cluster-networking#ipv6). |
