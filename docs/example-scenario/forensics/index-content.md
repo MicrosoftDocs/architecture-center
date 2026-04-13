@@ -238,9 +238,9 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 Azure provides services to all customers for monitoring and alerting about anomalies related to their subscriptions and resources. These services include:
 
-- [Microsoft Sentinel](https://azure.microsoft.com/products/microsoft-sentinel).
-- [Microsoft Defender for Cloud](https://azure.microsoft.com/products/defender-for-cloud).
-- [Microsoft Defender for Storage](/azure/defender-for-cloud/defender-for-storage-introduction).
+- [Microsoft Sentinel](https://azure.microsoft.com/products/microsoft-sentinel)
+- [Microsoft Defender for Cloud](https://azure.microsoft.com/products/defender-for-cloud)
+- [Microsoft Defender for Storage](/azure/defender-for-cloud/defender-for-storage-introduction)
 
 > [!NOTE]
 > The configuration of these services isn't described in this article.
