@@ -1,4 +1,6 @@
-This reference architecture implements a hub-spoke network pattern with customer-managed hub infrastructure components. The hub-spoke network pattern is a network topology that the Cloud Adoption Framework for Azure recommends.
+This reference architecture implements a hub-spoke network pattern with customer-managed hub infrastructure components. The hub-spoke network pattern, also known as *hub and spoke*, is the network topology that the Cloud Adoption Framework for Azure recommends. See, [Define an Azure network topology](/azure/cloud-adoption-framework/ready/azure-best-practices/define-an-azure-network-topology) to understand why this topology is considered a best practice for many organizations.
+
+For a Microsoft-managed hub infrastructure solution, see [Hub-spoke network topology with Azure Virtual WAN](./hub-spoke-virtual-wan-architecture.yml).
 
 ## Architecture
 
