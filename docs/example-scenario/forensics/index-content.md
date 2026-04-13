@@ -265,7 +265,7 @@ You can deploy a hybrid runbook worker on-premises or in different cloud environ
 In this scenario, you must customize the `Copy‑VmDigitalEvidence` runbook to enable the capture of evidence in different target environments and archive them in storage.
 
 > [!NOTE]
-> The `Copy-VmDigitalEvidence` runbook provided in the [Deploy this scenario section](#deploy-this-scenario) was developed and tested only in Azure. To extend the solution to other platforms, you must customize the runbook to work with those platforms. If you enable the key vault firewall, allow the hybrid runbook worker VM’s public IP address.
+> The `Copy-VmDigitalEvidence` runbook provided in the [Deploy this scenario section](#deploy-this-scenario) was developed and tested only in Azure. To extend the solution to other platforms, you must customize the runbook to work with those platforms. If you enable the key vault firewall, allow the hybrid runbook worker VM's public IP address.
 
 ## Contributors
 
