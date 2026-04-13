@@ -315,15 +315,13 @@ In this reference implementation, [Microsoft Entra Workload ID on AKS](/azure/ak
 
 ## Select a networking model
 
-[!INCLUDE [kubenet retirement](~/reusable-content/ce-skilling/azure/includes/aks/includes/preview/retirement/kubenet-retirement-callout.md)]
+AKS provides Container Networking Interface (CNI) plugins in two networking models: **overlay** and **flat**. Both models support network policies for in-cluster traffic control.
 
-AKS supports multiple networking models, including kubenet, CNI, and Azure CNI Overlay. The CNI models are the more advanced models, and provide high performance. When they communicate between pods, the performance of CNI is similar to the performance of VMs in a virtual network. CNI also provides enhanced security control because it enables the use of Azure network policy. We recommend a CNI-based networking model.
+With a flat networking plugin, such as Azure CNI Pod Subnet, every pod gets an IP address from the virtual network subnet. Resources in the same network or peered networks can access pods directly by their IP address without network address translation (NAT). Use a flat networking model when your workload requires pods to be directly routable from the virtual network.
 
-In the nonoverlay CNI model, every pod gets an IP address from the subnet address space. Resources within the same network (or peered resources) can access the pods directly through their IP address. Network address translation (NAT) isn't needed to route that traffic.
+This reference implementation uses Azure CNI Overlay, which is an overlay networking plugin. It allocates virtual network IP addresses only to nodes and assigns pod IPs from a separate CIDR range. Because Azure CNI Overlay consumes far fewer virtual network IP addresses than flat models, we recommend it for most deployments.
 
-In this reference implementation, we use Azure CNI Overlay. It only allocates IP addresses from the node pool subnet for the nodes and uses an optimized overlay layer for pod IPs. Because Azure CNI Overlay uses fewer virtual network IP addresses than many other approaches, we recommend it for IP address-constrained deployments.
-
-For more information about the models, see [Configure Azure CNI Overlay networking in AKS](/azure/aks/azure-cni-overlay#choosing-a-network-model-to-use) and [Best practices for network connectivity and security in AKS](/azure/aks/operator-best-practices-network#choose-the-appropriate-network-model).
+For more information about the models, see [AKS CNI networking overview](/azure/aks/concepts-network-cni-overview) and [Best practices for network connectivity and security in AKS](/azure/aks/operator-best-practices-network#choose-the-appropriate-network-model).
 
 ## Deploy ingress resources
 
