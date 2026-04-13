@@ -156,6 +156,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/analytics/architecture/fabric-deployment-patterns.yml",
+      "redirect_url": "/azure/architecture/data-guide/technology-choices/fabric-deployment-patterns",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/aws-professional/services.md",
       "redirect_url": "/azure/architecture/aws-professional/",
       "redirect_document_id": true
