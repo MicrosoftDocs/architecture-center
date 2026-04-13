@@ -478,7 +478,7 @@ In the reference implementation, we use Azure Bastion to tunnel to the AKS API s
 
 - **Operators use insecure devices.** A jump-box VM can provide stronger security hardening if your client devices aren't trusted.
 - **Operators connect through unstable networks.** A jump-box VM can provide a more stable connection to the cluster, especially for long-running or batch management operations.
-- **Operators use advanced diagnostic tooling.** Some types of diagnostic tooling, like packet capture, might not work well with tunnelling approahces.
+- **Operators use advanced diagnostic tooling.** Some types of diagnostic tooling, like packet capture, might not work well with tunnelling approaches.
 
 ## Add secret management
 
@@ -893,7 +893,7 @@ You can also set policies that govern how the changes are deployed.
 The following example diagram shows how to automate cluster configuration with GitOps and Flux.
 
 :::image type="complex" border="false" source="images/gitops-flow.svg" alt-text="Diagram that shows the GitOps flow." lightbox="images/gitops-flow.svg":::
-  The diagram illustrates the GitOps workflow with four numbered steps from left to right. At the far left, a developer icon with a laptop appears as Step 1, where the user pushes IaC changes to a Git repository. Step 2 shows the Git repository connecting via an arrow labeled git clone --mirror to a Flux icon inside the AKS cluster boundary. Step 3 shows an arrow labeled kubectl apply that points from from the Flux icon to the Kubernetes API server icon within the cluster. Step 4 displays a red circle with a diagonal line between the developer and the Kubernetes API server with a crossed‑out kubectl label.
+  The diagram illustrates the GitOps workflow with four numbered steps from left to right. At the far left, a developer icon with a laptop appears as Step 1, where the user pushes IaC changes to a Git repository. Step 2 shows the Git repository connecting via an arrow labeled git clone --mirror to a Flux icon inside the AKS cluster boundary. Step 3 shows an arrow labeled kubectl apply that points from the Flux icon to the Kubernetes API server icon within the cluster. Step 4 displays a red circle with a diagonal line between the developer and the Kubernetes API server with a crossed‑out kubectl label.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/secure-baseline-aks-gitops-flow.vsdx) of this architecture.*
