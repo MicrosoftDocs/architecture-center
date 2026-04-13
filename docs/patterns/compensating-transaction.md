@@ -1,9 +1,9 @@
 ---
-title: Compensating Transaction pattern
+title: Compensating Transaction Pattern
 description: Use the Compensating Transaction pattern to undo work when a step of an eventually consistent operation fails in distributed systems.
 ms.author: pnp
 author: claytonsiemens77
-ms.date: 03/31/2026
+ms.date: 04/13/2026
 ms.topic: design-pattern
 ms.subservice: cloud-fundamentals
 ---
