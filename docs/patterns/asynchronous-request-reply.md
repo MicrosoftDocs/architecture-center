@@ -64,7 +64,7 @@ The following diagram shows a typical flow.
 
 1. The client sends a request and receives an HTTP 202 (Accepted) response.
 
-1. The client sends an HTTP GET request to the status endpoint. This call returns HTTP 200 because the work is still pending.
+1. The client sends an HTTP GET request to the status endpoint. This call returns HTTP 200 because the work is pending.
 
 1. At some point, the work completes and the status endpoint returns HTTP 303 (See Other) to redirect to the resource.
 
@@ -81,7 +81,7 @@ Consider the following points as you decide how to implement this pattern:
   | Header | Description | Notes |
   | :----- | :---------- | :---- |
   | `Location` | A URL that the client polls for a response status | This URL can be a shared access signature token. The [Valet Key pattern](./valet-key.yml) works well when this location needs access control. The pattern also applies when response polling needs to move to another back end. |
-  | `Retry-After` | An estimate of when processing completes | This header is designed to prevent polling clients from sending too many requests to the back end. |
+  | `Retry-After` | An estimated completion time | This header is designed to prevent polling clients from sending too many requests to the back end. |
 
   Consider expected client behavior when you design this response. A client that you control can follow these response values exactly. Clients that others author, including clients built by using no-code or low-code tools like Azure Logic Apps, can apply their own handling for HTTP 202.
 
@@ -91,9 +91,9 @@ Consider the following points as you decide how to implement this pattern:
   | :---- | :---------- | :---- |
   | `status` | The current state of the operation, such as *Pending*, *Running*, *Succeeded*, *Failed*, or *Canceled*. | Use a consistent, documented set of terminal and nonterminal values. |
   | `createdAt` | The time the operation was accepted. | Helps clients detect stale or abandoned operations. |
-  | `lastUpdatedAt` | The time the status was last updated. | Helps clients distinguish between stalled and in-progress operations. |
-  | `percentComplete` | An optional progress indicator. | Useful if the back end can estimate progress. |
-  | `error` | A structured error object if the status is *Failed*. | For consistency, consider using the [RFC 9457](https://www.rfc-editor.org/rfc/rfc9457) format. |
+  | `lastUpdatedAt` | The time the status was last updated | This helps clients distinguish between stalled and in-progress operations. |
+  | `percentComplete` | An optional progress indicator | This is useful if the back end can estimate progress. |
+  | `error` | A structured error object if the status is *Failed* | For consistency, consider using the [RFC 9457](https://www.rfc-editor.org/rfc/rfc9457) format. |
 
 - You might need to use a processing proxy to adjust the response headers or payload, depending on the underlying services that you use.
 
