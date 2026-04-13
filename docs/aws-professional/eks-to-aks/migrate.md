@@ -73,7 +73,7 @@ Analyze your existing EKS environment to understand the current architecture, re
 
 The [Amazon VPC Container Network Interface (CNI)](https://docs.aws.amazon.com/eks/latest/userguide/eks-networking.html) is the default networking plugin that EKS supports. AKS provides several CNI plugins across two networking models. For more information, see [AKS CNI networking overview](/azure/aks/concepts-network-cni-overview).
 
-- **Overlay model**: [Azure CNI Overlay](/azure/aks/azure-cni-overlay) (default and recommended for most clusters)
+- **Overlay model**: [Azure CNI Overlay](/azure/aks/azure-cni-overlay) (recommended for most clusters)
 - **Flat model**: [Azure CNI Pod Subnet](/azure/aks/configure-azure-cni-dynamic-ip-allocation) for workloads that require pods to be directly routable from the virtual network
 - **Overlay model with advanced dataplane**: [Azure CNI Powered by Cilium](/azure/aks/azure-cni-powered-by-cilium)
 - **Non-Microsoft CNIs**: [Bring your own CNI plugin](/azure/aks/use-byo-cni)
