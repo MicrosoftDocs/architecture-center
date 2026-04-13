@@ -103,18 +103,18 @@ Consider the following points as you decide how to implement this pattern:
 
 - If an error occurs during processing, persist the error at the resource URL that the `Location` header specifies and return a 4xx status code from that resource that matches the failure. Use a structured error format, such as [RFC 9457 (Problem Details for HTTP APIs)](https://www.rfc-editor.org/rfc/rfc9457), so that clients can programmatically parse and handle failures.
 
-- The status resource and any stored results consume storage and compute. Define a retention policy to clean them up after a reasonable period. To inform clients of the retention window, you can add `Expires` header on the status response.
+- The status resource and any stored results consume storage and compute. Define a retention policy to clean them up after a reasonable period. To inform clients of the retention window, you can add an `Expires` header to the status response.
 
 - Solutions don't all implement this pattern the same way, and some services include extra or alternate headers. For example, Azure Resource Manager uses a modified variant of this pattern. For more information, see [Resource Manager asynchronous operations](/azure/azure-resource-manager/management/async-operations).
 
-- Legacy clients might not support this pattern. To isolate the original client from asynchronous processing from the original client, you can introduce an abstraction layer between the client and the asynchronous API. For example, Logic Apps supports this pattern natively, and you can use it as an integration layer between an asynchronous API and a client that makes synchronous calls. For more information, see [Asynchronous request-response behavior in Azure Logic Apps](/azure/connectors/connectors-native-http#asynchronous-request-response-behavior).
+- Legacy clients might not support this pattern. To isolate the original client from asynchronous processing, you can introduce an abstraction layer between the client and the asynchronous API. For example, Logic Apps supports this pattern natively, and you can use it as an integration layer between an asynchronous API and a client that makes synchronous calls. For more information, see [Asynchronous request-response behavior in Azure Logic Apps](/azure/connectors/connectors-native-http#asynchronous-request-response-behavior).
 
-- To provide a way for clients to cancel a long-running request, expose a DELETE operation on the status endpoint resource. This request forwards a cancelation instruction to the back-end processing component. After the back end handles the cancelation, it updates the status resource to reflect the canceled state. This process helps prevent incomplete work from consuming resources indefinitely. Determine whether the operation supports partial rollback or requires a compensating transaction.
+- To provide a way for clients to cancel a long-running request, expose a DELETE operation on the status endpoint resource. This request forwards a cancellation instruction to the back-end processing component. After the back end handles the cancellation, it updates the status resource to reflect the canceled state. This process helps prevent incomplete work from consuming resources indefinitely. Determine whether the operation supports partial rollback or requires a compensating transaction.
 
-- You can require clients to supply an idempotency key, for example in an [`Idempotency-Key`](https://datatracker.ietf.org/doc/draft-ietf-httpapi-idempotency-key-header/) request header, when they submit the initial request. If the backend receives a duplicate key, it returns the existing status resource instead of enqueuing a second work item. This approach protects against network failures that cause the client to retry a POST that the server already accepts. It's especially important in this pattern because the client can't distinguish between a lost response and a request that was never received.
+- You can require clients to supply an idempotency key, for example in an [`Idempotency-Key`](https://datatracker.ietf.org/doc/draft-ietf-httpapi-idempotency-key-header/) request header, when they submit the initial request. If the back end receives a duplicate key, it returns the existing status resource instead of enqueuing a second work item. This approach protects against network failures that cause the client to retry a POST that the server already accepts. It's especially important in this pattern because the client can't distinguish between a lost response and a request that was never received.
 
 > [!NOTE]
-> This pattern describes HTTP polling, in which the client periodically issues new requests to check status. In *Long polling*, the client sends a request and the server holds the connection open until new data is available or a timeout occurs. Long polling reduces response latency compared to periodic polling but it introduces complexity around connection management and timeouts.
+> This pattern describes HTTP polling, in which the client periodically issues new requests to check status. In *long polling*, the client sends a request and the server holds the connection open until new data is available or a timeout occurs. Long polling reduces response latency compared to periodic polling but it introduces complexity around connection management and timeouts.
 
 ## When to use this pattern
 
@@ -320,7 +320,7 @@ public class AsyncOperationStatusChecker(ILogger<AsyncOperationStatusChecker> _l
 
                     // Return 303 (See Other) to redirect the client to the result resource.
                     // GenerateUserDelegationSasUri is a custom helper. See the full implementation on GitHub.
-                    req.HttpContext.Response.Headers.Location = GenerateUserDelegationSasUri(inputBlob, userDelegationKey);;
+                    req.HttpContext.Response.Headers.Location = GenerateUserDelegationSasUri(inputBlob, userDelegationKey);
                     return new StatusCodeResult(StatusCodes.Status303SeeOther);
                 }
 
