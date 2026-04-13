@@ -3,7 +3,7 @@ title: Conceptual planning for IPv6 networking
 description: Learn strategies for transitioning an IPv4 network environment on Azure to IPv6. IPv6 provides a larger pool of internet addresses to accommodate growth.
 author: brsteph
 ms.author: leuthaeusern
-ms.date: 04/10/2026
+ms.date: 04/13/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
@@ -21,7 +21,7 @@ IPv6 has such a large address space that you should use consistent IPv6 address 
 | IPv4 | 4,294,967,296 |
 | IPv6 | 340,282,366,920,938,463,463,374,607,431,768,211,456 |
 
-**Dual-Stack**. Azure virtual networks support dual-stack. A network that supports dual-stack can process IPv4 and IPv6 traffic simultaneously. You can assign a new IPv6 address block to a subnet that has an existing IPv4 block. Services that use IPv6 can coexist with services that use IPv4. You can therefore start the IPv6 transition before all services support IPv6.
+**Dual-stack**. Azure virtual networks support dual-stack. A network that supports dual-stack can process IPv4 and IPv6 traffic simultaneously. You can assign a new IPv6 address block to a subnet that has an existing IPv4 block. Services that use IPv6 can coexist with services that use IPv4. You can therefore start the IPv6 transition before all services support IPv6.
 
 **IPv6 in Azure**. In your Azure environment, network interfaces receive one of three types of IPv6 addresses:
   
@@ -39,11 +39,11 @@ For more information about other specialty address blocks, see [IANA IPv6 Specia
 
 If your organization already has IPv6 addresses, you can benefit from using them in your Azure environment. If not, you need to acquire new ones. Using existing addresses can be more cost-effective and efficient, but acquiring new ones ensures that you have a sufficient and continuous block of addresses for your needs. It also reduces the chance of address conflicts. If you don't have IPv6 space secured for your organization, you can use global addresses or local addresses.
 
-**Global Unicast Addresses**: Global addresses are public IPv6 addresses that are unique across the internet. You can contact a registrar to request a continuous block of general allocation or global addresses. These IPv6 addresses can be used in subnets, virtual networks, and regional supernets in Azure. To have sufficient space for growth in multiple regions, you should plan to allocate a larger parent address space (/36 or similar) for your entire Azure environment. You can use global addresses for both private networks and public endpoints, or you can allocate different ranges. Azure only advertises customer-owned IPv6 addresses that are configured as [Custom IP address prefixes (BYOIP)](/azure/virtual-network/ip-services/custom-ip-address-prefix). Global IPv6 addresses used only in virtual networks are not advertised to the internet.
+**Global unicast addresses**: Global addresses are public IPv6 addresses that are unique across the internet. You can contact a registrar to request a continuous block of general allocation or global addresses. These IPv6 addresses can be used in subnets, virtual networks, and regional supernets in Azure. To have sufficient space for growth in multiple regions, you should plan to allocate a larger parent address space (/36 or similar) for your entire Azure environment. You can use global addresses for both private networks and public endpoints, or you can allocate different ranges. Azure advertises only customer-owned IPv6 addresses that are configured as [Custom IP address prefixes (BYOIP)](/azure/virtual-network/ip-services/custom-ip-address-prefix). Global IPv6 addresses that are used only in virtual networks aren't advertised to the internet.
 
-**Unique Local Addresses**: Local addresses are private IP addresses that are used within a virtual network. You can use IPs in the unique local address range. This address range functions like the IPv4 private address range, such as the `10.0.0.0/8` address space. IPv6 reserves the `fc00::/7` address blocks for unique local addresses. These addresses aren't routable over the internet.
+**Unique local addresses**: Local addresses are private IP addresses that are used within a virtual network. You can use IPs in the unique local address range. This address range functions like the IPv4 private address range, such as the `10.0.0.0/8` address space. IPv6 reserves the `fc00::/7` address blocks for unique local addresses. These addresses aren't routable over the internet.
 
-If you use the unique local address range, your IP addresses might overlap with the IP address range of another organization. If there's an overlap, you might experience challenges with integrating networks. For more information, see [the Unique Local IPv6 Unicast Addresses memo](https://www.rfc-editor.org/rfc/rfc4193.html).
+If you use the unique local address range, your IP addresses might overlap with the IP address range of another organization. If there's an overlap, you might experience challenges with integrating networks. For more information, see the [Unique local IPv6 unicast addresses memo](https://www.rfc-editor.org/rfc/rfc4193.html).
 
 ## Transition to IPv6
 
@@ -66,7 +66,7 @@ Some of the practices that are necessary in IPv4 to conserve addresses aren't ap
 | Azure region 2 | `fd00:db8:ded0::/44` | fd00:db8:ded0:0000:0000:0000:0000:0000 | fd00:db8:dedf:ffff:ffff:ffff:ffff:ffff |
 | Azure region 3 | `fd00:db8:def0::/44` | fd00:db8:def0:0000:0000:0000:0000:0000 | fd00:db8:deff:ffff:ffff:ffff:ffff:ffff |
 
-After this IP address space is allocated to the region, you can deploy new networks and workloads by defining virtual networks and subnets from that IP space. Azure Virtual Network Manager can manage IPv6 address pools for virtual networks using the IPAM feature. For more information, see [IP Address Management Overview](/azure/virtual-network-manager/concept-ip-address-management)
+After this IP address space is allocated to the region, you can deploy new networks and workloads by defining virtual networks and subnets from that IP space. Azure Virtual Network Manager can manage IPv6 address pools for virtual networks by using the IPAM feature. For more information, see [IP address management overview](/azure/virtual-network-manager/concept-ip-address-management).
 
 **Transitioning virtual networks to IPv6.** You should assign a /56 IPv6 address space to each virtual network. This assignment facilitates networking management and streamlines the creation process. It enables you to create 4,096 virtual networks in a region and 256 subnets in a single virtual network.
 
@@ -74,7 +74,7 @@ After this IP address space is allocated to the region, you can deploy new netwo
 
 **Transitioning subnets to IPv6.** You can continue to use your existing subnet architecture and assign a /64 address block to each subnet. This subnet size also enables you to plan your network conceptually. You don't need to worry about resizing subnets due to address exhaustion.
 
-One significant difference between IPv6 networks and IPv4 networks on Azure is the size of subnets. IPv6 subnets in Azure are a fixed size of /64. Each subnet contains 18,446,744,073,709,551,616 hosts, minus the hosts that are used for Azure management. Similar to IPv4 networks, IPv6 subnets reserve the first four IP addresses for management. /64 is the standard minimum subnet size as defined by the IETF.
+One significant difference between IPv6 networks and IPv4 networks on Azure is the size of subnets. IPv6 subnets in Azure are a fixed size of /64. Each subnet contains 18,446,744,073,709,551,616 hosts, minus the hosts that are used for Azure management. Similar to IPv4 networks, IPv6 subnets reserve the first four IP addresses for management. The Internet Engineering Task Force (IETF) defines /64 as the standard minimum subnet size.
 
 To calculate the number of subnets of a certain size that can fit into a larger address block, you can use the formula 2^(X-Y). X is the smaller address block size, and Y is the larger block size. For example, to determine how many /64 subnets can fit into a /44 address block, you can use 2^(64-44). The result is 1,048,576.
 
