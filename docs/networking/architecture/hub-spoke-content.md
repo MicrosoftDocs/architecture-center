@@ -14,9 +14,9 @@ For a Microsoft-managed hub infrastructure solution, see [Hub-spoke network topo
 
 Hub-spoke network topologies typically include many of the following architectural concepts:
 
-- **Hub virtual network:** The hub virtual network hosts shared Azure services. Workloads hosted in the spoke virtual networks can use these services. The hub virtual network is the central point of connectivity for cross-premises networks. The hub contains your primary point of egress and provides a way to connect one spoke to another for cross-virtual network traffic.
+- **Hub virtual network:** The hub virtual network hosts shared Azure networking services. Workloads hosted in the spoke virtual networks can use these services. The hub virtual network is the central point of connectivity for cross-premises networks. The hub contains your primary point of egress and provides a way to connect one spoke to another for cross-virtual network traffic when needed.
 
-   A hub is a regional resource. If your workloads reside in multiple regions, place one hub in each region. The hub provides the following features and options:
+  A hub is a regional resource. If your workloads reside in multiple regions, place one hub in each region. The hub provides the following features and options:
 
   - **Cross-premises gateway:** The ability to connect and integrate different network environments. This gateway is usually a VPN or an Azure ExpressRoute circuit.
   
@@ -32,17 +32,19 @@ Hub-spoke network topologies typically include many of the following architectur
 
 - **Spoke virtual networks:** Spoke virtual networks isolate and manage workloads separately in each spoke. Each workload can include multiple tiers, with multiple subnets connected through Azure load balancers. Spokes can exist in different subscriptions and represent different environments, such as production and nonproduction. One workload can spread across multiple spokes.
 
-   In most scenarios, you should peer each spoke to a single hub network in the same region.
+  In most scenarios, you should peer each spoke to a single hub network in the same region.
 
-   Spoke networks follow the rules for [default outbound access](/azure/virtual-network/ip-services/default-outbound-access). A core purpose of the hub-spoke network topology is to direct outbound internet traffic through the control mechanisms in the hub.
+  Spoke networks follow the rules for [default outbound access](/azure/virtual-network/ip-services/default-outbound-access). A core purpose of the hub-spoke network topology is to direct outbound internet traffic through the control mechanisms in the hub.
 
-- **Virtual network cross-connectivity:** Virtual network connectivity facilitates communication between isolated virtual networks. A control mechanism enforces permissions and determines the permitted direction of communications between networks. A hub provides an option to support cross-network connections to flow through the centralized network.
+- **Virtual network cross-connectivity:** Virtual network connectivity facilitates communication between isolated virtual networks. A control mechanism enforces permissions and determines the permitted direction of communications between networks. A hub provides an option to support select cross-network connections to flow through the centralized network.
 
 - **DNS:** Hub-spoke solutions often provide a Domain Name System (DNS) solution that all peered spokes use, especially for cross-premises routing and private endpoint DNS records.
 
 ### Components
 
-- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block for private networks in Azure. Virtual Network provides secure communication between Azure resources, such as VMs, and cross-premises networks, the internet, and each other. In this architecture, virtual networks connect to the hub by using Virtual Network [peering connections](/azure/virtual-network/virtual-network-peering-overview), which are nontransitive, low-latency connections between virtual networks. Peered virtual networks can exchange traffic over the Azure backbone without a router. In a hub-spoke architecture, use direct peering between virtual networks only in special circumstances.
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is the fundamental building block for private networks in Azure. Virtual Network provides secure communication between Azure resources, such as VMs, and cross-premises networks, the internet, and each other.
+
+  In this architecture, virtual networks connect to the hub by using Virtual Network [peering connections](/azure/virtual-network/virtual-network-peering-overview), which are nontransitive, low-latency connections between virtual networks. Peered virtual networks can exchange traffic over the Azure backbone without a router. In a hub-spoke architecture, use direct peering between virtual networks only in special circumstances.
 
 - [Azure Bastion](/azure/bastion/bastion-overview) is a fully managed service that provides secure and seamless RDP and SSH access to VMs without exposing their public IP addresses. In this architecture, Azure Bastion is used as a managed offering to support direct VM access across connected spokes.
 
