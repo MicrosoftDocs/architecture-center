@@ -1,4 +1,4 @@
-This article describes how to extract insights from customer conversations at a call center by using Foundry Tools and Azure OpenAI in Foundry Models. Use these services to improve your customer interactions and satisfaction by analyzing call intent and sentiment, extracting key entities, and summarizing call content.
+This article describes how to extract insights from customer conversations at a call center by using Foundry Tools and Azure OpenAI in Foundry Models through batch processing of the post-call transcripts. Use these services to improve your customer interactions and satisfaction by analyzing call intent and sentiment, extracting key entities, and summarizing call content.
 
 ## Architecture
 
@@ -33,7 +33,7 @@ This article describes how to extract insights from customer conversations at a 
 
 - [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is the object storage solution for raw files in this scenario. Blob Storage supports libraries for languages like .NET, Node.js, and Python. Applications can access files on Blob Storage via HTTP or HTTPS. Blob Storage has [hot, cool, and archive access tiers](/azure/storage/blobs/access-tiers-overview) for storing large amounts of data, which optimizes cost.
 
-- [Azure OpenAI](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure) provides access to the Azure OpenAI language models, including GPT-3, Codex, and the embeddings model series, for content generation, summarization, semantic search, and natural language-to-code translation. You can access the service through REST APIs, Python SDK, or the Microsoft Foundry portal.
+- [Azure OpenAI](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure) provides access to [multiple models](/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure?tabs=global-standard-aoai%2Cglobal-standard&pivots=azure-openai#azure-openai-in-microsoft-foundry-models) with different capabilities  including language models,audio models, image & video generation models, Codex, and the embeddings model series.  You can access the service through REST APIs, Python SDK, or the Microsoft Foundry portal.
 
 - [Speech](/azure/ai-services/speech-service/overview) is an AI-based API that provides speech capabilities like speech-to-text, text-to-speech, speech translation, and speaker recognition. This architecture uses the Speech batch transcription functionality.
 
@@ -45,11 +45,17 @@ This article describes how to extract insights from customer conversations at a 
 
 ### Alternatives
 
-Depending on your scenario, you can add the following workflows.
-- PII detection can also be done by configuring the [guardrails](/azure/foundry/guardrails/how-to-create-guardrails?tabs=python) in Microsoft Foundry and can be applied deployed models (LLMs including Azure OpenAI models) in Microsoft Foundry. Different types of personal data including personal information like email, phone number , address etc, Financial information, Government Ids etc can be filtered under two modes - Annotate (flags the personal data in the output), Annotate and Block (the entire output is blocked if personal data is detected). These modes must be set for each personal catergory individually.
-- [Fast Transcription API](/azure/ai-services/speech-service/fast-transcription-create?tabs=new-foundry%2Clocale-specified%2Cwindows&pivots=programming-language-python) can also be used to convert speech to text synchronously. Additionally [LLM Speech](/azure/ai-services/speech-service/llm-speech?tabs=new-foundry%2Cwindows&pivots=programming-language-python) powered by LLM enhanced speech model transcribing the audio files with more built-in capabilities like translation, generating captions and subtitles from audio files etc.
+Depending on your scenario, you can choose the following workflows.
+- PII detection can also be done by configuring the [guardrails](/azure/foundry/guardrails/how-to-create-guardrails?tabs=python) in Microsoft Foundry and can be applied deployed models (LLMs including Azure OpenAI models) in Microsoft Foundry. Different types of personal data including personal information like email, phone number , address etc, Financial information, Government IDs etc can be filtered under two modes - Annotate (flags the personal data in the output), Annotate and Block (the entire output is blocked if personal data is detected). These modes must be set for each personal category individually.
+- [Fast Transcription API](/azure/ai-services/speech-service/fast-transcription-create?tabs=new-foundry%2Clocale-specified%2Cwindows&pivots=programming-language-python) can also be used to convert speech to text synchronously. Additionally [LLM Speech](/azure/ai-services/speech-service/llm-speech?tabs=new-foundry%2Cwindows&pivots=programming-language-python) powered by LLM enhanced speech model transcribing the audio files with built-in capabilities like translation, generating captions and subtitles from audio files etc.
 - Perform [conversation summarization](/azure/ai-services/language-service/summarization/overview) by using the prebuilt model in Language.
 - Azure also offers Speech Analytics which provides the entire orchestration for post call analytics in batch.
+- In the case of Virtual agents:
+ a.[Voice Live API](/azure/ai-services/speech-service/voice-live) may be used for speech-speech conversation through [telephony integration without PSTIN](/azure/ai-services/speech-service/voice-live-telephony). This service offers flexibility to [choose different generative AI models](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/voice-live#supported-models-and-regions) including [Azure OpenAI realtime models](/azure/foundry/openai/how-to/realtime-audio?tabs=keyless%2Cwindows&pivots=ai-foundry-portal). If you chose to use a non-multimodal model like gpt-4o, then Azure Speech to text is automatically chosen as the audio input. The audio and transcription of the conversation can be stored in the Azure blob storage for analyzing and gathering insights relevant for the business.Voice Live API currently does not support SIP, instead may be used with third party SIP trunking solutions.
+b. [GPT-realtime models](/azure/foundry/openai/how-to/realtime-audio?tabs=keyless%2Cwindows&pivots=ai-foundry-portal) may also also used for acheiving low latency speech-speech conversations. The Realtime API can be used via [webRTC](/azure/foundry/openai/how-to/realtime-audio-webrtc), [WebSockets](/azure/foundry/openai/how-to/realtime-audio-websockets?tabs=ga) or [SIP](/azure/foundry/openai/how-to/realtime-audio-sip) to send audio input and receive audio responses in real time, which can be stored along with the transcription for analytics.
+- [Speech to text models](/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure?tabs=global-standard-aoai%2Cglobal-standard&pivots=azure-openai#speech-to-text-models) in the family of [GPT audio models] can be used for transcript generation from the audio, persist to Azure blob storage for call analytics.
+- [Ingestion client](/azure/ai-services/speech-service/ingestion-client) can also be used to quickly deploy the post-call analytics solution to Azure utilizing Azure Speech and Language services as the intelligence layer (without the GenAI capability provided by Azure OpenAI models).
+ 
 
 ## Scenario details
 
@@ -128,7 +134,6 @@ Principal authors:
 - [What is Language?](/azure/ai-services/language-service/overview)
 - [Introduction to Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
 - [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
-- [Ingestion Client with Foundry Tools](/azure/ai-services/speech-service/ingestion-client)
 - [Post-call transcription and analytics](/azure/ai-services/speech-service/call-center-quickstart)
 
 ## Related resource
