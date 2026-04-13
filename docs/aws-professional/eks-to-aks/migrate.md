@@ -8,6 +8,9 @@ ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
   - arb-containers
+ms.collection:
+  - migration
+  - aws-to-azure
 ---
 
 # Migrate from Amazon EKS to Azure Kubernetes Service
