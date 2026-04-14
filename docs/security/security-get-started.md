@@ -33,7 +33,7 @@ For more information about Azure security tools and capabilities, see [End-to-en
 
 *Download a [Visio file]() of this architecture.*
 
-The previous diagram demonstrates a typical baseline security implementation. The architecture shows how Azure security services work together to protect workloads across identity, networking, data, and application layers. For real-world solutions that you can build in Azure, see [Security architectures](#security-architectures).
+The previous diagram demonstrates a typical baseline security implementation. The architecture shows how Azure security services work together to protect workloads across identity, networking, data, and application layers. For real-world solutions that you can build in Azure, see [Security architectures](#example-solutions).
 
 ## Explore security architectures and guides
 
@@ -162,7 +162,7 @@ Identity is the primary security perimeter in cloud environments. In Azure, iden
 - [Integrate on-premises Active Directory domains with Microsoft Entra ID](/azure/architecture/reference-architectures/identity/azure-ad). A reference architecture for integrating on-premises Active Directory with Microsoft Entra ID to provide cloud-based identity authentication, including Microsoft Entra Connect Sync, application proxy, and Conditional Access.
 - [Identity architecture design](/azure/architecture/identity/identity-start-here). A hub page for identity architecture in Azure that covers learning paths, design options, implementation guidance, and baseline identity implementations.
 - [Create an AD DS resource forest in Azure](/azure/architecture/reference-architectures/identity/adds-forest). A reference architecture for creating a separate Active Directory domain in Azure that is trusted by domains in an on-premises Active Directory forest.
-- [Deploy AD DS in an Azure virtual network](/azure/architecture/reference-architectures/identity/adds-extend-domain). A reference architecture for extending an on-premises Active Directory domain to Azure to provide distributed authentication services.
+- [Deploy AD DS in an Azure virtual network](/azure/architecture/example-scenario/identity/adds-extend-domain). A reference architecture for extending an on-premises Active Directory domain to Azure to provide distributed authentication services.
 - [Extend on-premises AD FS to Azure](/azure/architecture/reference-architectures/identity/adfs). A reference architecture for implementing Active Directory Federation Services (AD FS) authorization in Azure as part of a secure hybrid network.
 
 ### Threat protection
