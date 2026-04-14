@@ -3,7 +3,7 @@ title: What Is a Data Lake?
 description: Learn about the advantages of using data lake storage repositories, which can store terabytes and petabytes of data in its native, raw format.
 author: PRASADA1207
 ms.author: prasada
-ms.date: 04/08/2026
+ms.date: 04/09/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ai-usage: ai-assisted
