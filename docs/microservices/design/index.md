@@ -15,7 +15,7 @@ Microservices are a popular architectural style for building cloud applications 
 
 This set of articles explores how to build a microservices architecture on Azure. It includes the following guidance:
 
-- [Compute options for microservices](./compute-options.md): Compare Azure compute platforms for microservices, including AKS, Container Apps, Functions, App Service, and Azure Red Hat OpenShift. Evaluate each platform based on inter-service communication, independent scaling, and deployability.
+- [Compute options for microservices](./compute-options.md): Compare Azure compute platforms for microservices, including Azure Kubernetes Service (AKS), Azure Container Apps, Azure Functions, Azure App Service, and Azure Red Hat OpenShift. Evaluate each platform based on inter-service communication, independent scaling, and deployability.
 
 - [Interservice communication](./interservice-communication.yml): Design effective communication patterns between microservices by using synchronous and asynchronous approaches. Learn about REST APIs, messaging patterns, [event-driven architectures](../../guide/architecture-styles/event-driven.md), and service mesh technologies for reliable service-to-service communication.
 
