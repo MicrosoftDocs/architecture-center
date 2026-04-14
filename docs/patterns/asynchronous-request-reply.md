@@ -46,13 +46,13 @@ The following steps describe the solution:
 - The API responds synchronously as quickly as possible. It returns an HTTP 202 (Accepted) status code to acknowledge that it received the request for processing.
 
   > [!NOTE]
-  > The API validates the request and the action to be performed before it starts the long-running process. If the request isn't valid, reply immediately with an error code like HTTP 400 (Bad Request).
+  > The API should validate the request and the action to be performed before it starts the long-running process. If the request isn't valid, reply immediately with an error code like HTTP 400 (Bad Request).
 
 - The response includes a location reference that points to an endpoint that the client can poll to check the result of the long-running operation.
 
 - The API offloads processing to another component, like a message queue.
 
-- For every successful call to the status endpoint, the endpoint returns HTTP 200 (OK). While the work is in progress, the status endpoint returns a resource that indicates that state. The status response body includes enough information for the client to understand the current state of the operation.
+- For every successful call to the status endpoint, the endpoint returns HTTP 200 (OK). While the work is in progress, the status endpoint returns a resource that indicates that state. The status response body should include enough information for the client to understand the current state of the operation.
 
   When the work completes, the status endpoint returns a resource that indicates completion or redirects to another resource URL. For example, if the asynchronous operation creates a new resource, the status endpoint redirects to the URL for that resource.
 
@@ -74,14 +74,14 @@ The following diagram shows a typical flow.
 
 Consider the following points as you decide how to implement this pattern:
 
-- Multiple ways exist to implement this pattern over HTTP, and upstream services don't always use the same semantics. For example, some implementations don't use a separate status endpoint. Instead, the client polls the target resource URL directly and receives HTTP 404 (Not Found) until the resource is created. This response is generated because the resource doesn't exist yet. However, this approach can be ambiguous if 404 is also returned for invalid request IDs. A dedicated status endpoint that returns HTTP 200 with a status body, as described in this pattern, avoids this ambiguity.
+- Multiple ways exist to implement this pattern over HTTP, and upstream services don't always use the same semantics. For example, some implementations don't use a separate status endpoint. Instead, the client polls the target resource URL directly and receives HTTP 404 (Not Found) until the resource is created. This response is generated because the resource doesn't exist yet. However, this approach can be unclear because invalid request IDs also return HTTP 404. A dedicated status endpoint that returns HTTP 200 with a status body, as described in this pattern, avoids this confusion.
 
-- An HTTP 202 response indicates where the client polls and how often. It might include the following headers.
+- An HTTP 202 response indicates where the client polls and how often. It should include the following headers.
 
   | Header | Description | Notes |
   | :----- | :---------- | :---- |
-  | `Location` | A URL that the client polls for a response status | This URL can be a shared access signature token. The [Valet Key pattern](./valet-key.yml) works well when this location needs access control. The pattern also applies when response polling needs to move to another back end. |
-  | `Retry-After` | An estimated completion time | This header is designed to prevent polling clients from sending too many requests to the back end. |
+  | `Location` | A URL that the client polls for a response status | This URL can be a shared access signature (SAS) token. The [Valet Key pattern](./valet-key.yml) works well when this location needs access control. The pattern also applies when response polling needs to move to another back end. |
+  | `Retry-After` | An estimated completion time for processing | This header prevents polling clients from sending too many requests to the back end. |
 
   Consider expected client behavior when you design this response. A client that you control can follow these response values exactly. Clients that others author, including clients built by using no-code or low-code tools like Azure Logic Apps, can apply their own handling for HTTP 202.
 
@@ -89,11 +89,11 @@ Consider the following points as you decide how to implement this pattern:
 
   | Field | Description | Notes |
   | :---- | :---------- | :---- |
-  | `status` | The current state of the operation, such as *Pending*, *Running*, *Succeeded*, *Failed*, or *Canceled*. | Use a consistent, documented set of terminal and nonterminal values. |
-  | `createdAt` | The time the operation was accepted. | Helps clients detect stale or abandoned operations. |
-  | `lastUpdatedAt` | The time the status was last updated | This helps clients distinguish between stalled and in-progress operations. |
-  | `percentComplete` | An optional progress indicator | This is useful if the back end can estimate progress. |
-  | `error` | A structured error object if the status is *Failed* | For consistency, consider using the [RFC 9457](https://www.rfc-editor.org/rfc/rfc9457) format. |
+  | `status` | The current state of the operation, such as *Pending*, *Running*, *Succeeded*, *Failed*, or *Canceled* | Uses a consistent, documented set of terminal and nonterminal values |
+  | `createdAt` | The time that the operation is accepted | Helps clients detect stale or abandoned operations |
+  | `lastUpdatedAt` | The time that the status is last updated | Helps clients distinguish between stalled and in-progress operations |
+  | `percentComplete` | An optional progress indicator | Useful when the back end can estimate progress |
+  | `error` | A structured error object when the status is *Failed* | For consistency, consider using the [RFC 9457](https://www.rfc-editor.org/rfc/rfc9457) format. |
 
 - You might need to use a processing proxy to adjust the response headers or payload, depending on the underlying services that you use.
 
@@ -101,20 +101,20 @@ Consider the following points as you decide how to implement this pattern:
 
 - After the server successfully processes the request, the resource that the `Location` header specifies returns an HTTP status code like 200, 201 (Created), or 204 (No Content).
 
-- If an error occurs during processing, persist the error at the resource URL that the `Location` header specifies and return a 4xx status code from that resource that matches the failure. Use a structured error format, such as [RFC 9457 (Problem Details for HTTP APIs)](https://www.rfc-editor.org/rfc/rfc9457), so that clients can programmatically parse and handle failures.
+- If an error occurs during processing, persist the error at the resource URL that the `Location` header specifies and return a 4xx status code from the resource that matches the failure. Use a structured error format, such as [RFC 9457 (Problem Details for HTTP APIs)](https://www.rfc-editor.org/rfc/rfc9457), so that clients can programmatically parse and handle failures.
 
 - The status resource and any stored results consume storage and compute. Define a retention policy to clean them up after a reasonable period. To inform clients of the retention window, you can add an `Expires` header to the status response.
 
 - Solutions don't all implement this pattern the same way, and some services include extra or alternate headers. For example, Azure Resource Manager uses a modified variant of this pattern. For more information, see [Resource Manager asynchronous operations](/azure/azure-resource-manager/management/async-operations).
 
-- Legacy clients might not support this pattern. To isolate the original client from asynchronous processing, you can introduce an abstraction layer between the client and the asynchronous API. For example, Logic Apps supports this pattern natively, and you can use it as an integration layer between an asynchronous API and a client that makes synchronous calls. For more information, see [Asynchronous request-response behavior in Azure Logic Apps](/azure/connectors/connectors-native-http#asynchronous-request-response-behavior).
+- Legacy clients might not support this pattern. In that case, you might need to place a façade over the asynchronous API to hide the asynchronous processing from the original client. For example, Logic Apps supports this pattern natively, and you can use it as an integration layer between an asynchronous API and a client that makes synchronous calls. For more information, see [Asynchronous request-response behavior in Logic Apps](/azure/connectors/connectors-native-http#asynchronous-request-response-behavior).
 
-- To provide a way for clients to cancel a long-running request, expose a DELETE operation on the status endpoint resource. This request forwards a cancellation instruction to the back-end processing component. After the back end handles the cancellation, it updates the status resource to reflect the canceled state. This process helps prevent incomplete work from consuming resources indefinitely. Determine whether the operation supports partial rollback or requires a compensating transaction.
+- To provide a way for clients to cancel a long-running request, expose a DELETE operation on the status endpoint resource. This request should forward a cancellation instruction to the back-end processing component. After the back end handles the cancellation, it should update the status resource to reflect the canceled state. This process helps prevent incomplete work from consuming resources indefinitely. Determine whether the operation supports partial rollback or requires a compensating transaction.
 
-- You can require clients to supply an idempotency key, for example in an [`Idempotency-Key`](https://datatracker.ietf.org/doc/draft-ietf-httpapi-idempotency-key-header/) request header, when they submit the initial request. If the back end receives a duplicate key, it returns the existing status resource instead of enqueuing a second work item. This approach protects against network failures that cause the client to retry a POST that the server already accepts. It's especially important in this pattern because the client can't distinguish between a lost response and a request that was never received.
+- You can require clients to supply an idempotency key, for example in an [`Idempotency-Key`](https://datatracker.ietf.org/doc/draft-ietf-httpapi-idempotency-key-header/) request header, when they submit the initial request. If the back end receives a duplicate key, it should return the existing status resource instead of enqueuing a second work item. This approach protects against network failures that cause the client to retry a POST that the server already accepted. It's especially important in this pattern because the client can't distinguish between a lost response and a request that was never received.
 
 > [!NOTE]
-> This pattern describes HTTP polling, in which the client periodically issues new requests to check status. In *long polling*, the client sends a request and the server holds the connection open until new data is available or a timeout occurs. Long polling reduces response latency compared to periodic polling but it introduces complexity around connection management and timeouts.
+> This pattern describes HTTP polling, in which the client periodically issues new requests to check status. In *long polling*, the client sends a request and the server holds the connection open until new data is available or a timeout occurs. Long polling reduces response latency compared to periodic polling, but it introduces complexity around connection management and timeouts.
 
 ## When to use this pattern
 
@@ -130,9 +130,9 @@ This pattern might not be suitable when:
 
 - You can use a service built for asynchronous notifications instead, like Azure Event Grid.
 
-- Responses must stream in real time to the client. Consider using Server-Sent Events, which provide a lightweight, HTTP-native, unidirectional push channel from server to client without requiring the client to poll.
+- Responses must stream in real time to the client. Consider using Server-Sent Events (SSEs), which provide a lightweight, HTTP-native, unidirectional push channel from server to client without requiring the client to poll.
 
-- The client needs to collect many results and the latency of those results is important. Consider using a message broker instead.
+- The client needs to collect many results, and the latency of those results is important. Consider using a message broker instead.
 
 - Server-side persistent network connections like WebSockets or SignalR are available. You can use these connections to notify the caller of the result.
 
@@ -162,7 +162,7 @@ The following code shows excerpts from an application that uses Azure Functions 
 
 ![GitHub logo.](../_images/github.png) This sample is available on [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/main/async-request-reply).
 
-The implementation uses managed identity to authenticate with Azure Service Bus and Azure Blob Storage, which avoids storing connection strings or account keys. Dependencies are registered in `Program.cs` using `DefaultAzureCredential` and are injected through primary constructors.
+The implementation uses managed identity to authenticate with Azure Service Bus and Azure Blob Storage, which avoids storing connection strings or account keys. Dependencies are registered in `Program.cs` by using `DefaultAzureCredential` and are injected through primary constructors.
 
 ### AsyncProcessingWorkAcceptor function
 
@@ -314,7 +314,7 @@ public class AsyncOperationStatusChecker(ILogger<AsyncOperationStatusChecker> _l
         {
             case OnCompleteEnum.Redirect:
                 {
-                    // Generate a user delegation SAS URI that uses managed identity credentials.
+                    // Generate a user delegation SAS URI by using managed identity credentials.
                     BlobServiceClient blobServiceClient = inputBlob.GetParentBlobContainerClient().GetParentBlobServiceClient();
                     var userDelegationKey = await blobServiceClient.GetUserDelegationKeyAsync(DateTimeOffset.UtcNow, DateTimeOffset.UtcNow.AddDays(7));
 
@@ -355,6 +355,8 @@ public enum OnPendingEnum
 ## Next steps
 
 - [Azure Logic Apps - Asynchronous request-response behavior](/azure/connectors/connectors-native-http#asynchronous-request-response-behavior)
+- [Web API design](../best-practices/api-design.md)
+
 
 ## Related resources
 
