@@ -161,7 +161,7 @@ When you assign resources to resource groups, consider these factors:
 
 - **Billing:** You can view rollup costs for the resource group.
 
-- **Pricing tier for API Management:** Use the Developer tier for dev/test environments. To minimize costs during preproduction, deploy a replica of your production environment, run your tests, and shut down the API Management instance.
+- **Pricing tier for API Management:** Use the Developer tier for dev/test environments. To minimize costs during preproduction, deploy a replica of your production environment, run your tests, and shut down the replica.
 
 ##### Deployment
 
