@@ -87,8 +87,6 @@ Consider using Azure high-performance computing capabilities for your AI and mac
 
 Model training typically requires many interactions with your data stores, so it's also important to consider your data strategy and the performance that your data tier provides. For more information about multitenancy and data services, see [Architectural approaches for storage and data in multitenant solutions](storage-data.md).
 
-Consider profiling your solution's performance. For example, [Azure Machine Learning provides profiling capabilities](/azure/machine-learning/how-to-deploy-profile-model) that you can use when you develop and instrument your solution.
-
 ### Implementation complexity
 
 When you build a solution to use AI and machine learning, you can use prebuilt components or build custom components. You must make two key decisions. First, select the *platform or service* to use for AI and machine learning. Second, decide whether to use pretrained models or build your own custom models.
