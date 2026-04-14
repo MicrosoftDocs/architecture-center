@@ -610,7 +610,7 @@ In both approaches, you must manage state storage, like chat history and agent c
 
 Use [Microsoft Agent Framework](/agent-framework/overview/) as the runtime SDK in your client application for sending messages to agents, managing conversations, and processing responses. Agent Framework supports C# and Python. If your client application requires JavaScript or Java, use the Foundry SDK directly for these runtime interactions.
 
-Use the Foundry SDK for platform management operations regardless of your client SDK choice. Creating and versioning predefined agents belong in CI/CD pipelines and IaC processes, not in client application code.
+Use the Foundry SDK for platform management operations regardless of your client SDK choice. Creating and versioning centrally managed agent definitions belong in CI/CD pipelines and IaC processes, not in client application code.
 
 For more information about integrating Agent Framework with Foundry, see [Microsoft Agent Framework Foundry provider](/agent-framework/agents/providers/microsoft-foundry).
 
@@ -655,7 +655,7 @@ To prevent service disruptions, ensure safe and controlled agent deployment by i
 
 - **Enforce access control and user-level data isolation.** In this architecture, the chat UI application layer is the access boundary between end users and your agents. The Foundry project API sits behind private endpoints and isn't directly accessible to consumers. Your application code must authenticate end users through Microsoft Entra ID and scope each conversation and its associated data to the authenticated identity.
 
-  When you use project-level APIs, any principal that has the Azure AI User role on the Foundry project can interact with all agents in that project. Your applications' authentication and authorization layer, not Foundry's project RBAC, is what enforces which users can access which agents and conversations. Design your session management to prevent cross-user data access, and apply your workload's data governance and retention policies to the conversation data your application stores.
+  When you use project-level APIs, any principal that has the Azure AI User role on the Foundry project can interact with all agents in that project. Your application's authentication and authorization layer, not Foundry's project RBAC, is what enforces which users can access which agents and conversations. Design your session management to prevent cross-user data access, and apply your workload's data governance and retention policies to the conversation data your application stores.
 
 - **Plan for progressive rollout and failback.** Foundry doesn't provide built-in support for blue-green or canary deployments of agents. If you require these deployment patterns or controlled migration of users between agent versions, implement a routing layer, like an API gateway or custom router, in front of the agent API. This routing layer lets you shift traffic incrementally between agent versions, monitor the effect, and perform a full switchover when ready.
 
