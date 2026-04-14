@@ -23,7 +23,7 @@ This article describes a batch-processing architecture for extracting insights f
 
    1. Pass the raw data to the Azure Language in Foundry Tools service to [detect and redact personal data](/azure/ai-services/language-service/personally-identifiable-information/how-to-call-for-conversations) in the transcript.
 
-   1. Send the redacted data to Azure OpenAI to perform various post call analytics like understand the intent and sentiment of the call, extract entities, or [summarize the conversation](/azure/ai-services/openai/quickstart#try-text-summarization) to evaluate the effectiveness of the call.
+   1. Send the redacted data to Azure OpenAI text processing models including (but not limited to) gpt-5, gpt-5.1, gpt 5.2 _etc._ to perform various post call analytics like understand the intent and sentiment of the call, extract entities, or [summarize the conversation](/azure/ai-services/openai/quickstart#try-text-summarization) to evaluate the effectiveness of the call.
 
    1. Store the processed output in Azure Storage for visualization or consumption by downstream applications for further processing.
 
