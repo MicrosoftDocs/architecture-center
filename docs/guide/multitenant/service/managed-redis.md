@@ -67,7 +67,7 @@ Consider the following points when evaluating deploying a cache for each tenant:
 
 - **Cost management:** Each cache is billed as a separate Azure resource. This isolation model means that as you grow to large numbers of tenants, you might incur more cost. Furthermore, this approach often doesn't make efficient use of each cache's resources because each Azure Managed Redis instance generally supports large volumes of requests. It's best to only consider this isolation approach if you have strict data or performance isolation requirements.
 
-- **Networking:** Azure Managed Redis uses [private endpoints](/azure/redis/private-link) for network isolation. VNet injection isn't supported. If your solution requires per-tenant network isolation, each tenant needs a separate cache instance with its own private endpoint.
+- **Networking:** Azure Managed Redis uses [private endpoints](/azure/redis/private-link) for network isolation. Virtual network injection isn't supported. If your solution requires per-tenant network isolation, each tenant needs a separate cache instance with its own private endpoint.
 
 - **Encryption:** Azure Managed Redis encrypts data in transit via TLS and supports [customer-managed keys (CMK)](/azure/redis/how-to-encryption) for disk encryption. CMK is scoped per cache instance, not per tenant. Data stored in memory isn't encrypted by the service. If your tenants have strict data protection requirements, consider implementing application-level encryption before writing sensitive data to the cache.
 
@@ -95,7 +95,7 @@ Azure Managed Redis supports [Redis modules](/azure/redis/redis-modules), which 
 - **RedisTimeSeries** provides optimized time series storage that can be useful for per-tenant telemetry or monitoring data. RedisTimeSeries isn't available on the Flash Optimized tier.
 
 > [!NOTE]
-> Some modules requires your cache instance to have specific configuration.
+> Some modules require your cache instance to have specific configuration.
 
 ## Contributors
 
