@@ -34,7 +34,7 @@ The following data flow corresponds to the previous diagram:
 
   - [API Management][apim-reliability] is a managed service for publishing catalogs of HTTP APIs. You can use it to promote the reuse and discoverability of your APIs and deploy an API gateway to proxy API requests. API Management also provides a developer portal for clients to discover and interact with the APIs. In this architecture, API Management provides a façade for the back-end services that gives clients a consistent interface. It also provides capabilities like rate limiting, authentication, and caching to the back-end services.
 
-- [Azure DNS][dns] is a hosting service for Domain Name System (DNS) domains. Azure DNS hosts the public DNS records for the API Management service. With DNS hosting, clients resolve the DNS name to the IP address of the API Management service.
+- [Azure DNS][dns] is a hosting service for Domain Name System (DNS) domains. In this architecture, Azure DNS hosts the public DNS records for the API Management service. With DNS hosting, clients resolve the DNS name to the IP address of the API Management service.
 
 - [Microsoft Entra ID][entra] is a cloud-based identity and access management service. Enterprise employees can use Microsoft Entra ID to access external and internal resources. In this architecture, Microsoft Entra ID secures the API Management service by using [OAuth 2.0][apim-oauth] and the developer portal by using [Microsoft Entra External ID][apim-ext-id].
 
