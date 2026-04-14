@@ -1,9 +1,9 @@
-This reference architecture uses [Azure Integration Services][integration-services] to orchestrate calls to enterprise back-end systems. Integration Services encompasses several components, including Azure Logic Apps, Azure API Management, Azure Service Bus, Azure Event Grid, Azure Functions, and Azure Data Factory. This basic architecture uses only Logic Apps and API Management. The companion article [Use a message broker and events to integrate enterprise systems](../../example-scenario/integration/queues-events.yml) covers more advanced scenarios that incorporate message queues and events. For greater reliability and scalability, use message queues and events to decouple the back-end systems. Back-end systems can include software as a service (SaaS) systems, Azure services, or existing web services in your enterprise.
+This reference architecture uses [Azure Integration Services][integration-services] to orchestrate calls to enterprise back-end systems. Back-end systems can include software as a service (SaaS) systems, Azure services, or existing web services in your enterprise. Integration Services encompasses several components, including Azure Logic Apps, Azure API Management, Azure Service Bus, Azure Event Grid, Azure Functions, and Azure Data Factory. This basic architecture uses only Logic Apps and API Management.
 
 ## Architecture
 
 :::image type="complex" source="images/simple-enterprise-integration.svg" border="false" lightbox="images/simple-enterprise-integration.svg" alt-text="Architecture diagram that shows a simple enterprise integration.":::
-   The diagram shows how an application authenticates through Microsoft Entra and interacts with APIs, workflows, and back-end systems inside a resource group. On the left, Microsoft Entra connects to an application through a dotted line labeled authentication. The application sends an HTTP request to an API gateway in the API Management section. Inside this section, the API gateway sits above a developer portal. A dotted line labeled publish interfaces extends downward from Logic Apps to the developer portal. To the right, a workflow and orchestration section contains a Logic Apps icon. Two arrows point from Logic Apps to Azure services and SaaS services in the back-end systems section. A dashed border encloses API Management, the developer portal, and the workflow and orchestration box, with a label at the bottom that reads resource group.
+   The diagram shows how an application authenticates through Microsoft Entra and interacts with APIs, workflows, and back-end systems inside a resource group. On the left, Microsoft Entra connects to an application through a dotted line labeled authentication. The application sends an HTTP request to an API gateway in the API Management section. Inside this section, the API gateway sits above a developer portal. To the right, a workflow and orchestration section contains a Logic Apps icon.  A dotted line labeled publish interfaces extends downward from Logic Apps to the developer portal. Two arrows point from Logic Apps to Azure services and SaaS services in the back-end systems section. A dashed border encloses the API Management box and the workflow and orchestration box, with a label at the bottom that reads resource group.
 :::image-end:::
 
 *Download a [Visio file][integration-arch-visio] of this architecture.*
@@ -46,11 +46,11 @@ Integration Services is a collection of services that you can use to integrate a
 
 In this architecture, you build composite APIs by [importing logic apps][apim-logic-app] as APIs. You can also import existing web services by [importing OpenAPI][apim-openapi] (Swagger) specifications or [importing SOAP APIs][apim-soap] from Web Services Description Language (WSDL) specifications.
 
-The API gateway helps to decouple front-end clients from the back end. For example, it can rewrite URLs or transform requests before they reach the back end. It also handles cross-cutting concerns like authentication, cross-origin resource sharing (CORS) support, and response caching.
+The API gateway helps decouple front-end clients from the back end. For example, it can rewrite URLs or transform requests before they reach the back end. It also handles cross-cutting concerns like authentication, cross-origin resource sharing (CORS) support, and response caching.
 
 ### Potential use cases
 
-This architecture is sufficient for basic integration scenarios in which synchronous calls to back-end services trigger the workflow. A more advanced architecture that uses [queues and events](../../example-scenario/integration/queues-events.yml) builds on this basic architecture.
+This architecture is sufficient for basic integration scenarios in which synchronous calls to back-end services trigger the workflow. A more advanced architecture that uses [queues and events](../../example-scenario/integration/queues-events.yml) builds on this basic architecture. For greater reliability and scalability, use message queues and events to decouple back-end systems. 
 
 ## Recommendations
 
@@ -64,13 +64,16 @@ We don't recommend the API Management Consumption tier for this solution. It doe
 
 The Developer tier is specifically for nonproduction environments and not recommended for production workloads.
 
-API Management measures throughput capacity in *units*. Each pricing tier has a maximum scale-out. The Premium tier supports scale-out across multiple Azure regions. Choose your tier based on your feature set and the level of required throughput. To learn about differences between the tiers, see the [feature-based comparison of the API Management tiers][apim-features]. For more information, see [API Management pricing][apim-pricing] and [Capacity of an API Management instance][apim-capacity].
+API Management measures throughput capacity in *units*. Each pricing tier has a maximum scale-out. The Premium tier supports scale-out across multiple Azure regions. Choose your tier based on your feature set and the level of required throughput. For more information, see the following articles:
+- [Feature-based comparison of the API Management tiers][apim-features]
+- [API Management pricing][apim-pricing]
+- [Capacity of an API Management instance][apim-capacity]
 
 Each API Management instance has a default domain name, which is a subdomain of `azure-api.net`, like `contoso.azure-api.net`. Consider configuring a [custom domain][apim-domain] for your organization.
 
 ### Logic Apps
 
-Logic Apps works best in scenarios that don't require low latency for a response, like asynchronous or API calls with moderate run times. If low latency is required, like in a call that blocks a user interface (UI), use a different technology. For example, use Functions or a web API deployed to Azure App Service. Use API Management to front the API to your API consumers.
+Logic Apps works best in scenarios that don't require low latency for a response, like asynchronous or API calls with moderate run times. If low latency is required, like in a call that blocks a UI, use a different technology. For example, use Functions or a web API deployed to Azure App Service. Use API Management to front the API to your API consumers.
 
 ### Region
 
@@ -90,13 +93,13 @@ If you deploy API Management across two or more regions with the Premium tier, A
 
 #### Backups
 
-Regularly [back up your API Management configuration][apim-backup]. The built-in backup and restore feature is available on classic Developer, Basic, Standard, and Premium tiers only. v2 tiers and the Consumption tier don't support it. For v2 deployments, adopt an infrastructure as code (IaC) approach to ensure recoverability. Store your backup files in a location or Azure region that differs from the region where you deploy the service. Based on your recovery time objective (RTO), choose a disaster recovery (DR) strategy:
+Regularly [back up your API Management configuration][apim-backup]. The built-in backup and restore feature is available on classic Developer, Basic, Standard, and Premium tiers only. The Consumption tier and v2 tiers don't support it. For v2 deployments, adopt an infrastructure as code (IaC) approach to ensure recoverability. Store your backup files in a location or Azure region that differs from the region where you deploy the service. Based on your recovery time objective (RTO), choose a disaster recovery (DR) strategy:
 
 - In a DR event, provision a new API Management instance, restore the backup to the new instance, and repoint the DNS records.
 
 - Keep a passive instance of the API Management service in another Azure region. Regularly restore backups to that instance to keep it synced with the active service. To restore the service during a DR event, you only need to repoint the DNS records. This approach incurs extra costs because you pay for the passive instance, but it reduces recovery time.
 
-For Logic Apps, we recommend a configuration as code (CAC) approach for backup and restore. Logic apps are serverless, so you can quickly recreate them from Azure Resource Manager templates. Save the templates in source control and integrate the templates with your continuous integration and continuous deployment (CI/CD) process. In a DR event, deploy the template to a new region.
+For Logic Apps, we recommend a configuration as code (CAC) approach for backup and restore. Logic apps are serverless, so you can quickly re-create them from Azure Resource Manager templates (ARM templates). Save the templates in source control, and integrate the templates with your continuous integration and continuous deployment (CI/CD) process. In a DR event, deploy the template to a new region.
 
 If you deploy a logic app to a different region, update the configuration in API Management. You can update the API's `Backend` property by using a PowerShell script.
 
@@ -106,7 +109,7 @@ Security provides assurances against deliberate attacks and the misuse of your v
 
 This list doesn't cover all security best practices. The following security considerations apply to this architecture:
 
-- Restrict access to Logic Apps endpoints to only the IP address of API Management. On classic (non-v2) tiers, API Management has a fixed public IP address. If you use a v2 tier, a static IP isn't provided. In that case, consider alternative approaches like a custom domain with Azure DNS for IP address-based access restrictions. For more information, see [Restrict inbound IP addresses][logic-apps-restrict-ip].
+- Restrict access to Logic Apps endpoints to only the IP address of API Management. On classic (non-v2) tiers, API Management has a fixed public IP address. If you use a v2 tier, a static IP address isn't provided. In that case, consider alternative approaches like a custom domain with Azure DNS for IP address-based access restrictions. For more information, see [Restrict inbound IP addresses][logic-apps-restrict-ip].
 
 - Use Azure role-based access control (Azure RBAC) to ensure that users have appropriate access levels.
 
@@ -134,13 +137,13 @@ Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs.
 
 #### API Management
 
-The service charges for all API Management instances while they run. If you scale up and don't need that performance level at all times, scale down manually or set up [autoscaling][apim-autoscale].
+Azure charges for all API Management instances while they run. If you scale up and don't need that performance level at all times, scale down manually or set up [autoscaling][apim-autoscale].
 
 #### Logic Apps
 
-The Logic Apps Consumption plan uses a serverless model to calculate bills based on action and connector runs. If you use Logic Apps Standard (single-tenant), the hosting plan determines costs. For more information, see [Logic Apps pricing][logic-apps-pricing].
+The Logic Apps Consumption plan uses a serverless billing model to calculate cost based on action and connector runs. If you use Logic Apps Standard (single-tenant), the hosting plan determines costs. For more information, see [Logic Apps pricing][logic-apps-pricing].
 
-For more information, see the cost section in the [Well-Architected Framework][waf-cost].
+For more information, see the [cost section in the Well-Architected Framework][waf-cost].
 
 ### Operational Excellence
 
@@ -162,7 +165,7 @@ When you assign resources to resource groups, consider these factors:
 
 ##### Deployment
 
-Use [Resource Manager templates][arm] to deploy the Azure resources and follow the infrastructure as code (IaC) process. Templates make it easier to automate deployments by using [Azure DevOps services][az-devops] or other CI/CD solutions.
+Use [ARM templates][arm] to deploy the Azure resources and follow the IaC process. Templates make it easier to automate deployments by using [Azure DevOps services][az-devops] or other CI/CD solutions.
 
 ##### Staging
 
@@ -170,11 +173,11 @@ Consider staging your workloads, which means that you deploy to various stages a
 
 ##### Workload isolation
 
-Put API Management and any individual logic apps in their own separate Resource Manager templates. With separate templates, you can store the resources in source control systems. You can deploy the templates together or individually as part of a CI/CD process.
+Put API Management and any individual logic apps in their own separate ARM templates. With separate templates, you can store the resources in source control systems. You can deploy the templates together or individually as part of a CI/CD process.
 
 ##### Versions
 
-Each time you change a logic app's configuration or deploy an update through a Resource Manager template, Azure keeps a copy of that version and all versions that have a run history. You can use these versions to track historical changes or promote a version as the logic app's current configuration. For example, you can roll back a logic app to a previous version.
+Each time you change a logic app's configuration or deploy an update through an ARM template, Azure keeps a copy of that version and all versions that have a run history. You can use these versions to track historical changes or promote a version as the logic app's current configuration. For example, you can roll back a logic app to a previous version.
 
 API Management supports two distinct but complementary versioning concepts:
 
@@ -182,9 +185,9 @@ API Management supports two distinct but complementary versioning concepts:
 
 - With **revisions**, API admins can make nonbreaking changes in an API and deploy those changes, along with a changelog to inform API consumers.
 
-You can make a revision in a development environment and deploy that change in other environments by using Resource Manager templates. For more information, see [Publish multiple versions of your API][apim-versions].
+You can make a revision in a development environment and deploy that change in other environments by using ARM templates. For more information, see [Publish multiple versions of your API][apim-versions].
 
-You can also use revisions to test an API before you make the changes current and reachable to users. We don't recommend this method for load testing or integration testing. Use separate test or preproduction environments instead.
+You can also use revisions to test an API before you make the changes current and available to users. We don't recommend this method for load testing or integration testing. Use separate test or preproduction environments instead.
 
 #### Diagnostics and monitoring
 
@@ -195,11 +198,11 @@ Use [Azure Monitor][monitor] to monitor operations in API Management and Logic A
 
 Each service also has these options:
 
-- For deeper analysis and dashboarding, send Logic Apps logs to [Azure Log Analytics][logic-apps-log-analytics].
+- For deeper analysis and dashboarding, send Logic Apps logs to [Log Analytics][logic-apps-log-analytics].
 
 - For DevOps monitoring, set up Azure Application Insights for API Management.
 
-- API Management supports the [Power BI solution template for custom API analytics][apim-pbi]. You can use this solution template to create your own analytics solution. For business users, Power BI makes reports available.
+- API Management supports the [Power BI solution template for custom API analytics][apim-pbi]. You can use this solution template to create your own analytics solution. Power BI makes reports available for business users.
 
 ### Performance Efficiency
 
@@ -207,7 +210,7 @@ Performance Efficiency refers to your workload's ability to scale to meet user d
 
 To increase the scalability of API Management, add [caching policies][apim-caching] where appropriate. Caching also helps reduce the load on back-end services.
 
-To provide greater capacity, you can scale out API Management Basic, Standard, and Premium tiers in an Azure region. To analyze the usage for your service, select **Capacity Metric** on the **Metrics** menu and then scale up or scale down as appropriate. The upgrade or scale process can take from 15 to 45 minutes to apply.
+To provide greater capacity, you can scale out API Management Basic, Standard, and Premium tiers in an Azure region. To analyze the usage for your service, select **Capacity Metric** on the **Metrics** menu and then scale up or scale down as appropriate. The upgrade or scale process can take 15 to 45 minutes to apply.
 
 Recommendations for scaling an API Management service:
 
@@ -217,7 +220,7 @@ Recommendations for scaling an API Management service:
 
 - Consistent capacity that's less than 20% might indicate an opportunity to scale down.
 
-- Before you enable the load in production, always load-test your API Management service with a representative load.
+- Before you enable the load in production, always load test your API Management service with a representative load.
 
 With the Premium tier, you can scale an API Management instance across multiple Azure regions. This configuration makes API Management eligible for a higher SLA. You can also provision services near users in multiple regions.
 
@@ -233,7 +236,7 @@ Principal author:
 
 Other contributor:
 
-- [Pooya Tolouei](https://au.linkedin.com/in/nicolas-tolou) | Cloud Solution Architect
+- [Pooya Tolouei](https://www.linkedin.com/in/tpooya/) | Cloud Solution Architect
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
