@@ -1,4 +1,4 @@
-This article describes how to extract insights from customer conversations at a call center by using Foundry Tools and Azure OpenAI in Foundry Models through batch processing of the post-call transcripts. Use these services to improve your customer interactions and satisfaction by analyzing call intent and sentiment, extracting key entities, and summarizing call content.
+This article describes a batch-processing architecture for extracting insights from customer conversations in a call center. Using Foundry Tools and Azure OpenAI in Foundry Models, post-call transcripts are analyzed after calls have completed, rather than in near real time. This approach enables offline analysis of call intent and sentiment, key entity extraction, and call summarization to help improve customer interactions and satisfaction.
 
 ## Architecture
 
@@ -17,7 +17,7 @@ This article describes how to extract insights from customer conversations at a 
 
 1. The Azure function will trigger an Azure App Service which will execute the following steps in sequence:
 
-   1. Call Azure Speech in Foundry Tools to transcribe the files.
+   1. Call [Azure Speech batch transcription] (/azure/ai-services/speech-service/batch-transcription) to transcribe the files.
 
    1. Optionally, save this raw file in Azure blob storage for future reference.
 
@@ -51,23 +51,23 @@ Depending on your scenario, you can choose the following workflows.
 
 - [Fast Transcription API](/azure/ai-services/speech-service/fast-transcription-create) can also be used to convert speech to text synchronously. Additionally [LLM Speech](/azure/ai-services/speech-service/llm-speech) powered by LLM enhanced speech model transcribing the audio files with built-in capabilities like translation.
 
-- Perform [conversation summarization](/azure/ai-services/language-service/summarization/overview) by using the prebuilt model in Language.
+- Azure also offers [Speech Analytics using Azure Content Understanding](/azure/ai-services/content-understanding/audio/overview) which provides the entire orchestration for post call analytics in batch.
 
-- Azure also offers Speech Analytics which provides the entire orchestration for post call analytics in batch.
+- [Speech to text models](/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure?pivots=azure-openai#speech-to-text-models) in the family of [GPT audio models](/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure?pivots=azure-openai#audio-models) can be used for transcript generation from the audio and subsequently persist to Azure blob storage for call analytics.
 
+- [Ingestion client](/azure/ai-services/speech-service/ingestion-client) can also be used to deploy the post-call analytics solution to Azure utilizing Azure Speech and Language services as the intelligence layer (without the generative AI capability provided by Azure OpenAI models).
+  
 - In the case of Virtual agents use:
   
   - [Voice Live API](/azure/ai-services/speech-service/voice-live) may be used for speech-speech conversation through [telephony integration without PSTIN](/azure/ai-services/speech-service/voice-live-telephony). This service offers flexibility to [choose different generative AI models](/azure/ai-services/speech-service/voice-live#supported-models-and-regions) including [Azure OpenAI realtime models](/azure/foundry/openai/how-to/realtime-audio). If you chose to use a non-multimodal model like gpt-4o, then Azure Speech to text is automatically chosen as the audio input. The audio and transcription of the conversation can be stored in the Azure blob storage for analyzing and gathering insights relevant for the business.Voice Live API currently does not support SIP, instead may be used with third party SIP trunking solutions.
 
   - [GPT-realtime models](/azure/foundry/openai/how-to/realtime-audio) may also also used for acheiving low latency speech-speech conversations. The Realtime API can be used via [webRTC](/azure/foundry/openai/how-to/realtime-audio-webrtc), [WebSockets](/azure/foundry/openai/how-to/realtime-audio-websockets) or [SIP](/azure/foundry/openai/how-to/realtime-audio-sip) to send audio input and receive audio responses in real time, which can be stored along with the transcription for analytics.
 
-- [Speech to text models](/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure?pivots=azure-openai#speech-to-text-models) in the family of [GPT audio models](/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure?pivots=azure-openai#audio-models) can be used for transcript generation from the audio and subsequently persist to Azure blob storage for call analytics.
 
-- [Ingestion client](/azure/ai-services/speech-service/ingestion-client) can also be used to deploy the post-call analytics solution to Azure utilizing Azure Speech and Language services as the intelligence layer (without the generative AI capability provided by Azure OpenAI models).
 
 ## Scenario details
 
-This solution uses Speech to Text to convert call-center audio into written text. Language redacts sensitive information in the conversation transcription. Azure OpenAI extracts insights from customer conversation to improve call center efficiency and customer satisfaction. Use this solution to process transcribed text, recognize and remove sensitive information, and perform analytics on the extractions like reason for the call, resolution provided or not, sentiment of the call, and listing product /service offering based on the number of queries/customer complaints. Scale the services and the pipeline to accommodate any volume of recorded data.
+This solution uses Azure Speech to Text (batch transcription API) to convert call-center audio into written text. Language redacts sensitive information in the conversation transcription. Azure OpenAI extracts insights from customer conversation to improve call center efficiency and customer satisfaction. Use this solution to process transcribed text, recognize and remove sensitive information, and perform analytics on the extractions like reason for the call, resolution provided or not, sentiment of the call, and listing product /service offering based on the number of queries/customer complaints. Scale the services and the pipeline to accommodate any volume of recorded data.
 
 ### Potential use cases
 
@@ -104,11 +104,10 @@ The total cost of this solution depends on the pricing tier of your services. Fa
 - Your deployment region.
 
 For more information, see the following resources:
-
+- [Microsoft Foundry](https://azure.microsoft.com/pricing/details/ai-foundry/)
 - [Azure OpenAI pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service)
 - [Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs)
 - [Language in Foundry Tools pricing](https://azure.microsoft.com/pricing/details/language/)
-- [Azure Machine Learning pricing](https://azure.microsoft.com/pricing/details/machine-learning)
 
 Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate your solution cost.
 
@@ -135,7 +134,6 @@ Principal authors:
 
 - [What is Speech?](/azure/ai-services/speech-service/overview)
 - [What is Azure OpenAI?](/azure/ai-services/openai/overview)
-- [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-ml)
 - [Introduction to Blob Storage](/azure/storage/blobs/storage-blobs-introduction)
 - [What is Language?](/azure/ai-services/language-service/overview)
 - [Introduction to Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
