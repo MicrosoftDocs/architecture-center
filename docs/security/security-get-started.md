@@ -114,9 +114,7 @@ To stay current with key security services, see the following articles:
 - [What's new for Azure Key Vault](/azure/key-vault/general/whats-new)
 - [What's new in Microsoft Sentinel](/azure/sentinel/whats-new)
 - [What's new in Azure Firewall](https://azure.microsoft.com/updates?filters=%5B%22Azure+Firewall%22%5D)
-- [What's new in Azure Front Door](/azure/frontdoor/whats-new)
 - [What's new in Azure Application Gateway](/azure/application-gateway/whats-new)
-- [What's new in Azure Policy](/azure/governance/policy/whats-new)
 
 ### Other resources
 
