@@ -75,7 +75,7 @@ We recommend that you use a data lake for exploratory analytics, advanced data s
 
 ### Data lake as a source for data warehouses
 
-A data lake can function as the upstream source for a data warehouse, where raw data is ingested from source systems and loaded into the lake. Modern warehouses like the Fabric Warehouse use built-in massively parallel processing (MPP) SQL engines to transform that raw data into a structured format through [extract, load, transform (ELT)](../relational-data/etl.yml#extract-load-and-transform-elt). This approach differs from traditional ETL pipelines, where the ETL engine extracts and transforms data before it loads it into the warehouse. Both approaches provide flexibility depending on the use case. They balance data quality, performance, and resource utilization and ensure that the warehouse is optimized for analytics.
+A data lake can function as the upstream source for a data warehouse, where raw data is ingested from source systems and loaded into the lake. Modern warehouses like the Fabric Data Warehouse use built-in massively parallel processing (MPP) SQL engines to transform that raw data into a structured format through [extract, load, transform (ELT)](../relational-data/etl.yml#extract-load-and-transform-elt). This approach differs from traditional ETL pipelines, where the ETL engine extracts and transforms data before it loads it into the warehouse. Both approaches provide flexibility depending on the use case. They balance data quality, performance, and resource utilization and ensure that the warehouse is optimized for analytics.
 
 ### Event streaming and IoT scenarios
 
