@@ -62,18 +62,18 @@ Azure Cosmos DB provides several features that help you optimize performance and
 
 The following features help control the noisy neighbor problem when you use a partition key to isolate tenants or have multiple workloads that use the same shared container.
 
-  | Feature | Description |
-  | :--- | :--- |
-  | [Burst capacity](/azure/cosmos-db/burst-capacity) | Take advantage of the container's unused capacity in the last five minutes to cover future spikes. |
-  | [Priority-based execution](/azure/cosmos-db/priority-based-execution) | Specify high or low priority at a per-request level. When throughput contention occurs at the container level, high-priority requests are prioritized. Use this feature when multiple workloads have different performance requirements, such as a batch job versus an API that serves real-time user requests. |
-  | [Throughput buckets (preview)](/azure/cosmos-db/throughput-buckets) | Assign a specific percentage of RU/s that a set of requests can consume. For example, specify that requests from a batch job can only consume up to 10% of the container's total RU/s, but a critical user-facing API can consume up to 100% of the container's total RU/s. |
-  | [Throughput redistribution (preview)](/azure/cosmos-db/how-to-redistribute-throughput-across-partitions) | Use this API to assign more RU/s to hot physical partitions. |
+| Feature | Description |
+| :--- | :--- |
+| [Burst capacity](/azure/cosmos-db/burst-capacity) | Take advantage of the container's unused capacity in the last five minutes to cover future spikes. |
+| [Priority-based execution](/azure/cosmos-db/priority-based-execution) | Specify high or low priority at a per-request level. When throughput contention occurs at the container level, high-priority requests are prioritized. Use this feature when multiple workloads have different performance requirements, such as a batch job versus an API that serves real-time user requests. |
+| [Throughput buckets (preview)](/azure/cosmos-db/throughput-buckets) | Assign a specific percentage of RU/s that a set of requests can consume. For example, specify that requests from a batch job can only consume up to 10% of the container's total RU/s, but a critical user-facing API can consume up to 100% of the container's total RU/s. |
+| [Throughput redistribution (preview)](/azure/cosmos-db/how-to-redistribute-throughput-across-partitions) | Use this API to assign more RU/s to hot physical partitions. |
 
 #### Hierarchical partition keys
 
 For read-heavy workloads in which you typically query by tenant, we recommend using [hierarchical partition keys](/azure/cosmos-db/hierarchical-partition-keys) to achieve the following benefits:
 
-- **Unlimited storage for each tenant:** Set `/TenantId` as your first-level key and a high cardinality field like `/id` as your second-level key to guarantee that each tenant has unlimited storage. You might have another hierarchy in your workload. For example, you might need to store data for each user in each tenant. In this scenario, set `/TenantId` as your first-level key, `/UserId` as your second-level key, and `/id` as your third-level key to guarantee unlimited storage for each user in a tenant.
+- **Unlimited storage for each tenant:** Set `/TenantId` as your first-level key and a high-cardinality field like `/id` as your second-level key to guarantee that each tenant has unlimited storage. You might have another hierarchy in your workload. For example, you might need to store data for each user in each tenant. In this scenario, set `/TenantId` as your first-level key, `/UserId` as your second-level key, and `/id` as your third-level key to guarantee unlimited storage for each user in a tenant.
 
   > [!NOTE]
   > Features in Azure Cosmos DB, like stored procedures and atomic batch transactions, are only available at the full logical partition-key level. If you use hierarchical partition keys and partition by `/id` as your last-level key, you can't run stored procedures or do an atomic batch transaction at partial levels.
@@ -120,7 +120,7 @@ In the database-account-per-tenant model, each tenant's data is stored in its ow
 
 ### Azure Cosmos DB features for multitenancy
 
-- **Azure Cosmos DB fleet pools:** Fleet pools help customers who build multitenant applications manage, monitor, and optimize their fleet of database accounts. Within a fleet, you can organize your tenants, or database accounts, into logical groupings called *fleetspaces.* You can also set up an optional [pool of throughput (RU/s)](/azure/cosmos-db/fleet-pools) that all database accounts in the fleetspace can share. This approach helps optimize costs.
+- **Azure Cosmos DB fleet pools:** Fleet pools help customers who build multitenant applications manage, monitor, and optimize their fleet of database accounts. Within a fleet, you can organize your tenants, or database accounts, into logical groupings called *fleetspaces*. You can also set up an optional [pool of throughput (RU/s)](/azure/cosmos-db/fleet-pools) that all database accounts in the fleetspace can share. This approach helps optimize costs.
 
    :::image type="complex" source="media/cosmos-db/fleet-overview.svg" border="false" lightbox="media/cosmos-db/fleet-overview.svg" alt-text="A diagram of an Azure Cosmos DB fleet that has three fleetspaces to group free-tier, mid-size, and enterprise customers. Each fleetspace has optional pool configuration.":::
        The diagram shows the structure of an Azure Cosmos DB fleet and its components. At the top, a building icon labeled fleet accompanies a callout. The callout explains that a fleet is a high-level entity that stores fleetspaces and maps to multitenant apps. Below the fleet icon, a horizontal line that indicates shared throughput across fleetspaces connects to a box labeled fleet pool that has a capacity of 100,000 RU/s. The fleet pool contains three fleetspaces. Alongside the fleetspaces, another callout explains that fleetspaces are logical groupings of database accounts within a fleet, that you can spread fleetspaces across multiple subscriptions, and that you can use fleetspaces to group similar classes of tenants. The callout also mentions that you can set up an optional pool to share RU/s. Each fleetspace includes multiple database icons and an ellipsis to indicate more databases. Another callout explains that all resources in a fleetspace share pool RU/s.
@@ -138,9 +138,9 @@ In the database-account-per-tenant model, each tenant's data is stored in its ow
 
 - **Autoscaling:** Pools can always scale automatically, and you can set up the pool to automatically scale between a minimum and maximum number of RU/s. Pool RU/s have the same unit price as the regular RU/s that you provision on a container, so shifting usage to a shared pool helps you save costs.
 
-- **Analytics:** Use Azure Cosmos DB fleet analytics. Turn on fleet analytics for your fleet to monitor usage and track historical trends across tenants.
+- **Analytics:** Turn on Azure Cosmos DB fleet analytics for your fleet to monitor usage and track historical trends across tenants.
 
-   Fleet analytics streams usage and cost data for every database account, database, and container within the fleet to either Microsoft Fabric or an Azure Storage account, so you can do long-term analysis of accounts within your fleet. Use this data to track trends like which accounts are most active, how resources scale over time, and the most recent rotation of access keys. You can also use raw telemetry data to write custom queries or build Power BI dashboards to analyze your tenants' usage data.
+   Fleet analytics streams usage and cost data for every database account, database, and container within the fleet to either Fabric or to an Azure Storage account, so you can do long-term analysis of accounts within your fleet. Use this data to track trends like which accounts are most active, how resources scale over time, and the most recent rotation of access keys. You can also use raw telemetry data to write custom queries or build Power BI dashboards to analyze your tenants' usage data.
 
 - **Security features:** The account-per-tenant model provides increased data access security isolation via [Azure role-based access control (RBAC)](/azure/cosmos-db/role-based-access-control). This model is also the only option that provides tenant-level security isolation through [customer-managed keys](/azure/cosmos-db/how-to-setup-customer-managed-keys).
 
@@ -163,7 +163,7 @@ In the database-account-per-tenant model, each tenant's data is stored in its ow
 | Queries across tenants | The container acts as a boundary for queries. | Use mirroring in Fabric for analytical queries. |
 | Example use case | B2C apps | Premium or enterprise offer for B2B apps |
 
-## Nonrecommended models
+## Isolation models not recommended
 
 We recommend the partition-key-per-tenant and database-account-per-tenant isolation models for most multitenant scenarios. Isolation by container or database is possible, but these approaches typically have trade-offs that the recommended isolation models address more effectively.
 
@@ -252,7 +252,7 @@ For more information, see the following resources:
 
 Some tenants might need to use their own encryption keys. Azure Cosmos DB provides a customer-managed key feature. You apply this feature only at the level of an Azure Cosmos DB account. If tenants require their own encryption keys, you must use dedicated Azure Cosmos DB accounts to deploy the tenants.
 
-For more information, see [Set up customer-managed keys for your Azure Cosmos DB account with Azure Key Vault](/azure/cosmos-db/how-to-setup-customer-managed-keys).
+For more information, see [Set up customer-managed keys for your Azure Cosmos DB account by using Azure Key Vault](/azure/cosmos-db/how-to-setup-customer-managed-keys).
 
 ## Contributors
 
@@ -260,18 +260,18 @@ For more information, see [Set up customer-managed keys for your Azure Cosmos DB
 
 Principal authors:
 
-- [Deborah Chen](https://www.linkedin.com/in/deborah-chen-62212437) | Principal Program Manager
 - [Tara Bhatia](https://www.linkedin.com/in/tarabhatia01) | Program Manager
 - [Paul Burpo](https://www.linkedin.com/in/paul-burpo) | Principal Customer Engineer, FastTrack for Azure
+- [Deborah Chen](https://www.linkedin.com/in/deborah-chen-62212437) | Principal Program Manager
 - [John Downs](https://www.linkedin.com/in/john-downs/) | Principal Software Engineer, Azure Patterns & Practices
 
 Other contributors:
 
 - [Mark Brown](https://www.linkedin.com/in/markjbrown1) | Principal PM Manager, Azure Cosmos DB
+- [Vic Perdana](https://www.linkedin.com/in/vperdana) | Cloud Solution Architect, Azure ISV
 - [Theo van Kraay](https://www.linkedin.com/in/theo-van-kraay-3388b130) | Senior Program Manager, Azure Cosmos DB
 - [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 - Thomas Weiss | Principal Program Manager
-- [Vic Perdana](https://www.linkedin.com/in/vperdana) | Cloud Solution Architect, Azure ISV
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
@@ -283,7 +283,7 @@ To learn more about multitenancy and Azure Cosmos DB, watch the following videos
 
 - [Multitenant applications with Azure Cosmos DB](https://www.youtube.com/watch?v=fOQoQnQqwwU): A session at Build 2019 that covers performance isolation, cost management, consistency, latency, availability trade-offs, and security patterns for multitenant applications.
 
-- [Build a multitenant SaaS with Azure Cosmos DB and Azure](https://www.youtube.com/watch?v=Tht_RV5QPJ0): A real-world case study about how Whally, a multitenant SaaS startup, builds a modern platform from scratch on Azure Cosmos DB and Azure. Whally makes design and implementation decisions that relate to partitioning, data modeling, secure multitenancy, performance, and real-time streaming from change feed to SignalR. All these solutions use ASP.NET Core on Azure App Service.
+- [Build a multitenant SaaS on Azure Cosmos DB and Azure](https://www.youtube.com/watch?v=Tht_RV5QPJ0): A real-world case study about how Whally, a multitenant SaaS startup, builds a modern platform from scratch on Azure Cosmos DB and Azure. Whally makes design and implementation decisions that relate to partitioning, data modeling, secure multitenancy, performance, and real-time streaming from change feed to SignalR. All these solutions use ASP.NET Core on Azure App Service.
 
 ## Related resources
 
