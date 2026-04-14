@@ -357,7 +357,6 @@ public enum OnPendingEnum
 - [Azure Logic Apps - Asynchronous request-response behavior](/azure/connectors/connectors-native-http#asynchronous-request-response-behavior)
 - [Web API design](../best-practices/api-design.md)
 
-
 ## Related resources
 
 - [Backends for Frontends pattern](./backends-for-frontends.md)
