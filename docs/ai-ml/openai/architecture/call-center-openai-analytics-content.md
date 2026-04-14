@@ -17,7 +17,7 @@ This article describes a batch-processing architecture for extracting insights f
 
 1. The Azure function will trigger an Azure App Service which will execute the following steps in sequence:
 
-   1. Call [Azure Speech batch transcription] (/azure/ai-services/speech-service/batch-transcription) to transcribe the files.
+   1. Call [Azure Speech batch transcription](/azure/ai-services/speech-service/batch-transcription) to transcribe the files.
 
    1. Optionally, save this raw file in Azure blob storage for future reference.
 
