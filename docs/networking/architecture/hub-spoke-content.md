@@ -46,7 +46,7 @@ Hub-spoke network topologies typically include many of the following architectur
 
   In this architecture, virtual networks connect to the hub by using Virtual Network [peering connections](/azure/virtual-network/virtual-network-peering-overview), which are nontransitive, low-latency connections between virtual networks. Peered virtual networks can exchange traffic over the Azure backbone without a router. In a hub-spoke architecture, use direct peering between virtual networks only in special circumstances.
 
-- [Azure Bastion](/azure/bastion/bastion-overview) is a fully managed service that provides secure and seamless RDP and SSH access to VMs without exposing their public IP addresses. In this architecture, Azure Bastion is used as a managed offering to support direct VM access across connected spokes.
+- [Azure Bastion](/azure/bastion/bastion-overview) is a fully managed service that provides RDP and SSH access to VMs without exposing their public IP addresses. In this architecture, Azure Bastion is used as a managed offering to support direct VM access across connected spokes.
 
 - [Azure Firewall](/azure/well-architected/service-guides/azure-firewall) is a managed cloud-based network security service that protects Virtual Network resources. This stateful firewall service has built-in high availability and unrestricted cloud scalability to help you create, enforce, and log application and network connectivity policies across subscriptions and virtual networks.
 
@@ -64,15 +64,11 @@ Hub-spoke network topologies typically include many of the following architectur
 
 This architecture involves the creation, configuration, and maintenance of `virtualNetworkPeerings`, `routeTables`, and `subnets`. [Azure Virtual Network Manager](/azure/virtual-network-manager/overview) is a management service that helps you group, configure, deploy, and manage virtual networks at scale across Azure subscriptions, regions, and Microsoft Entra directories.
 
-With Virtual Network Manager, you can define [network groups](/azure/virtual-network-manager/concept-network-groups) to identify and logically segment your virtual networks. You can also use [connected groups](/azure/virtual-network-manager/concept-connectivity-configuration) to provide communication between groups of virtual networks as if they're connected manually. This approach adds a layer of abstraction so that you can describe the networking topology without changing its implementation.
+With Virtual Network Manager, you can define [network groups](/azure/virtual-network-manager/concept-network-groups) to identify and logically segment your virtual networks. You can also use [connected groups](/azure/virtual-network-manager/concept-connectivity-configuration) to provide communication between groups of virtual networks as if they're connected manually. This approach adds a layer of abstraction to describe your desired networking topology without changing its implementation.
 
 We recommend that you evaluate whether you should use Virtual Network Manager to optimize your network management operations. To determine whether Virtual Network Manager provides net value for your network's size and complexity, compare the service cost with the time savings and operational benefits.
 
-## Scenario details
-
-This reference architecture implements a hub-spoke network pattern where the hub virtual network acts as a central point of connectivity to many spoke virtual networks. The spoke virtual networks connect with the hub and can isolate workloads. You can also support cross-premises scenarios by using the hub to connect to on-premises networks.
-
-For more information, see [Hub-and-spoke network topology](/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology).
+### Azure Virtual WAN
 
 This architecture describes a network pattern that includes customer-managed hub infrastructure components. For a Microsoft-managed hub infrastructure solution, see [Hub-spoke network topology that uses Azure Virtual WAN](/azure/architecture/networking/architecture/hub-spoke-virtual-wan-architecture).
 
@@ -84,6 +80,12 @@ The benefits of using a customer-managed hub-spoke configuration include:
 - Flexibility
   - More control over how network virtual appliances (NVAs) are deployed, such as number of NICs, number of instances, or the compute size
   - Use of NVAs that aren't supported by Virtual WAN
+
+## Scenario details
+
+This reference architecture implements a hub-spoke network pattern where the hub virtual network acts as a central point of connectivity to many spoke virtual networks. The spoke virtual networks connect with the hub and can isolate workloads. You can also support cross-premises scenarios by using the hub to connect to on-premises networks.
+
+For more information, see [Hub-and-spoke network topology](/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology).
 
 ### Advanced scenarios
 
