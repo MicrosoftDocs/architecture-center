@@ -87,7 +87,7 @@ The following table compares data lakes and data warehouses.
 |---|---|---|
 | Data type | Raw, unstructured, semistructured, and structured | Structured and curated data organized into relational schemas |
 | Query performance | Query performance depends on processing engines, and transformation might occur at query time (schema-on-read) | Optimized for high-performance analytical queries on structured data (schema-on-write) |
-| Latency | Higher latency because of on-the-fly processing | Low latency with preprocessed, structured data |
+| Latency | Higher latency because of processing at query time | Low latency with preprocessed, structured data |
 | Data transformation stage | Transformation occurs at query time, which affects overall processing time | Transformation occurs during the ETL or ELT process |
 | Scalability | Highly scalable and cost effective for large volumes of diverse data | Scalable but more expensive, especially at large scale |
 | Cost | Lower storage cost because of low-cost storage for raw data. Compute costs are incurred when data is processed or queried. | Higher cost because of dedicated compute and performance optimizations for analytical workloads |
