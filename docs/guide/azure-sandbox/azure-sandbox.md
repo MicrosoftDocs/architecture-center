@@ -6,7 +6,6 @@ ms.author: rdoherty
 ms.date: 08/24/2025
 ms.topic: concept-article
 ms.subservice: architecture-guide
-ms.custom: arb-devops
 ---
 
 # Azure Sandbox
