@@ -646,10 +646,16 @@ To prevent service disruptions, ensure safe and controlled agent deployment by i
 
 - **Version and track agents.** Assign clear version identifiers to each agent. Maintain records of which agent versions are active, along with their dependencies like models, data sources, and tools. Deploy new agent versions alongside existing versions to support progressive rollout, rollback, and controlled migration of users or sessions.
 
+  Foundry natively supports immutable agent versions. Each time you make changes to an agent definition, Foundry creates a new version snapshot that preserves the prior configuration. Use this built-in version history for audit trails and rollback targets.
+
   Not every runtime variation requires a new version. [Structured inputs](/azure/foundry/agents/how-to/structured-inputs) parameterize agent definitions. The client supplies actual values at request time, so a single agent version can serve user-specific or context-specific configurations without redeployment.
 
   > [!NOTE]
   > Limit structured inputs to instruction text, like injecting a user name into the system prompt. Avoid templating tool-endpoint properties like MCP server URLs. Templated tool endpoints let the calling client redirect the agent to arbitrary external services at runtime, which undermines the static governance posture of this architecture. Your firewall FQDN allow list still blocks unapproved destinations, but the agent definition itself no longer documents which endpoints the agent is designed to reach.
+
+- **Enforce access control and user-level data isolation.** In this architecture, the chat UI application layer is the access boundary between end users and your agents. The Foundry project API sits behind private endpoints and isn't directly accessible to consumers. Your application code must authenticate end users through Microsoft Entra ID and scope each conversation and its associated data to the authenticated identity.
+
+  When you use project-level APIs, any principal that has the Azure AI User role on the Foundry project can interact with all agents in that project. Your applications' authentication and authorization layer, not Foundry's project RBAC, is what enforces which users can access which agents and conversations. Design your session management to prevent cross-user data access, and apply your workload's data governance and retention policies to the conversation data your application stores.
 
 - **Plan for progressive rollout and failback.** Foundry doesn't provide built-in support for blue-green or canary deployments of agents. If you require these deployment patterns or controlled migration of users between agent versions, implement a routing layer, like an API gateway or custom router, in front of the agent API. This routing layer lets you shift traffic incrementally between agent versions, monitor the effect, and perform a full switchover when ready.
 
