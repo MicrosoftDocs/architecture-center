@@ -16,7 +16,7 @@ This scenario covers a scalable installation of [WordPress that runs on Azure Ap
 - Users access the front-end website through Azure Front Door with Azure Web Application Firewall enabled.
 - Azure Front Door distributes requests across the App Service web apps that run WordPress. If the requested content isn't cached, Azure Front Door retrieves it from the web apps.
 - The WordPress application connects to Azure Database for MySQL Flexible Server through a private endpoint and retrieves dynamic content from the database.
-- High availability is enabled for Azure Database for MySQL via a standby server.
+- Enable high availability for Azure Database for MySQL via a standby server.
 - All static content is hosted in Azure Blob Storage.
 
 ### Components
@@ -105,7 +105,7 @@ Review the following cost considerations when you deploy this solution:
 - **Amount of hosted data**. It's important to consider the amount of data that you host in Blob Storage. Storage pricing is based on used capacity.
 - **Write percentage**. Consider how much new data you write to your website and host in Azure Storage. Determine whether the new data is needed. For multi-region deployments, the amount of new data that you write to your website correlates with the amount of data that's mirrored across your regions.
 - **Static versus dynamic content**. Monitor your database storage performance and capacity to determine whether a lower-cost SKU can support your site. The database stores dynamic content, and Azure Front Door caches static content.
-- **App Service optimization**. For general tips for optimizing App Service costs, see [Azure App Service and cost optimization](/azure/well-architected/service-guides/app-service-web-apps).
+- **App Service optimization**. For general tips for optimizing App Service costs, see [Azure App Service and cost optimization](/azure/well-architected/service-guides/app-service-web-apps#cost-optimization).
 
 ### Performance Efficiency
 

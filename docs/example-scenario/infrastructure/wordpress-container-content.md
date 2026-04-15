@@ -19,7 +19,7 @@ The following dataflow corresponds to the previous diagram:
 
 1. Azure Front Door uses an internal instance of Azure Load Balancer as the origin. The internal load balancer is a component of AKS. Azure Front Door retrieves any data that it hasn't cached.
 1. The internal load balancer distributes ingress traffic to an ingress controller within AKS. You can use the [managed NGINX ingress controller with the application routing add-on](/azure/aks/app-routing) or [Application Gateway for Containers](/azure/application-gateway/for-containers/overview) as the ingress controller.
-1. Azure Key Vault stores secrets, including the private key, which is an X.509 certificate.
+1. Azure Key Vault stores secrets such as TLS certificates and their private keys.
 1. The WordPress application uses a private endpoint to access a Flexible Server instance of Azure Database for MySQL. The WordPress application retrieves dynamic information from this managed database service.
 1. All static content is hosted in Azure NetApp Files. The solution uses the [Trident](https://docs.netapp.com/us-en/trident/index.html) Container Storage Interface (CSI) driver with the Network File System (NFS) protocol.
 
