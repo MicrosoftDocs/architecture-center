@@ -115,7 +115,7 @@ As their AI assistant, you can help the author with any of these steps if you ar
 
     Make editorial changes in the article that improve the content's clarity. You should switch to being a professional editor for Microsoft Learn for this step. Edit the whole article for clarity and conciseness. The author doesn't need to be involved in this step, you can take care of the editing. Make minimal changes to ensure quality and clarity. Avoid large subjective changes.
 
-     **Required attestation**: Only proceed once the author has attested to assuring that the article is clear and of high editorial quality.
+    **Required attestation**: Only proceed once the author has attested to assuring that the article is clear and of high editorial quality.
 
 11. **Markdown linting** - Do a Markdown linting pass.
 
