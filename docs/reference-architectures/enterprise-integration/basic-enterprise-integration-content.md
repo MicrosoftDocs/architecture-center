@@ -89,7 +89,7 @@ Reliability helps ensure that your application can meet the commitments that you
 
 Review the [SLAs for each service][sla].
 
-If you deploy API Management across two or more regions with the Premium tier, API Management is eligible for a higher SLA. For more information, see [API Management pricing][apim-pricing].
+If you deploy the Premium tier of API Management across two or more regions, API Management is eligible for a higher SLA. For more information, see [API Management pricing][apim-pricing].
 
 #### Backups
 
