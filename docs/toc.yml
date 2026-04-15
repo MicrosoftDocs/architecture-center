@@ -1223,7 +1223,7 @@ items:
         href: ai-ml/architecture/secure-compute-for-research.yml
       - name: Computer forensics
         href: example-scenario/forensics/index.yml
-      - name: Certificate lifecycle management on Azure
+      - name: Certificate life cycle management on Azure
         href: example-scenario/certificate-lifecycle/index.yml
     - name: Solution ideas
       items:

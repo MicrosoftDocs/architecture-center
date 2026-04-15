@@ -267,38 +267,41 @@ Integration with Azure Monitor, Microsoft Sentinel, Microsoft Security Copilot, 
 
 ## Deploy this scenario
 
-Select the following button to deploy the environment described in this article. The deployment takes about two minutes to complete and creates a key vault, an Event Grid system topic configured with the two subscriptions, a storage account containing the *certlc* queue, and an Automation account containing the *runbook* and the *webhook* linked to Event Grid.
+Select the following button to deploy the environment described in this article. The deployment takes about two minutes to complete and creates a key vault, an Event Grid system topic configured with the two subscriptions, a storage account that contains the *certlc* queue, and an Automation account that contains the *runbook* and the *webhook* linked to Event Grid.
 
 [![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fcertlc%2Fmain%2F.armtemplate%2Fmindeploy.json)
 
-Detailed information about the parameters needed for the deployment can be found in the [code sample](/samples/azure/certlc/certlc/) portal.
+For more information about the parameters that you need for the deployment, see the [code sample](/samples/azure/certlc/certlc/) portal.
 
 > [!IMPORTANT]
 > You can deploy a full lab environment to demonstrate the entire automatic certificate renewal workflow. Use the [code sample](/samples/azure/certlc/certlc/) to deploy the following resources:
 >
 > - **Active Directory Domain Services (AD DS)** within a domain controller VM.
+>
 > - **Active Directory Certificate Services (AD CS)** within a CA VM, joined to the domain, configured with a template, *WebServerShort*, for enrolling the certificates to renew.
-> - A **Windows Simple Mail Transfer Protocol (SMTP) server** installed on the same VM of the CA for sending email notifications. MailViewer also installs to verify the email notifications sent.
-> - The **Key Vault extension** installed on the VM of the domain controller for retrieving the renewed certificates from the Key Vault extension.
+>
+> - A **Windows Simple Mail Transfer Protocol (SMTP) server** installed on the same VM as the CA for sending email notifications. MailViewer also installs to verify the email notifications sent.
+>
+> - The **Key Vault extension** installed on the domain controller VM for retrieving the renewed certificates from the Key Vault extension.
 >
 > [![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fcertlc%2Fmain%2F.armtemplate%2Ffulllabdeploy.json)
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
+*Microsoft maintains this article. The following contributors wrote this article.*
 
 Principal authors:
 
 - [Fabio Masciotra](https://www.linkedin.com/in/fabiomasciotra/) | Senior Cloud Solution Architect
 - [Angelo Mazzucchi](https://www.linkedin.com/in/angelo-mazzucchi-a5a94270) | Principal Consultant
 
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Related resources
 
 - [Key Vault](/azure/key-vault/general/overview)
-- [Key Vault extension for Windows](/azure/virtual-machines/extensions/key-vault-windows?tabs=version3)
+- [Key Vault extension for Windows](/azure/virtual-machines/extensions/key-vault-windows)
 - [Key Vault extension for Linux](/azure/virtual-machines/extensions/key-vault-linux)
 - [Automation overview](/azure/automation/overview)
-- [Automation Hybrid Runbook Worker](/azure/automation/automation-hybrid-runbook-worker)
-- [Azure Event Grid](/azure/event-grid/overview)
+- [Automation Hybrid Runbook Worker overview](/azure/automation/automation-hybrid-runbook-worker)
+- [Event Grid overview](/azure/event-grid/overview)
