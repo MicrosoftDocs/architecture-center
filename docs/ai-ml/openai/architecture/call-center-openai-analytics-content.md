@@ -23,7 +23,7 @@ This article describes a batch-processing architecture for extracting insights f
 
    1. Pass the raw data to the Azure Language in Foundry Tools service to [detect and redact personal data](/azure/ai-services/language-service/personally-identifiable-information/how-to-call-for-conversations) in the transcript.
 
-   1. Send the redacted data to Azure OpenAI text processing models including (but not limited to) gpt-5, gpt-5.1, gpt 5.2 _etc._ to perform various post call analytics like understand the intent and sentiment of the call, extract entities, or [summarize the conversation](/azure/ai-services/openai/quickstart#try-text-summarization) to evaluate the effectiveness of the call.
+   1. Send the redacted data to Azure OpenAI text processing models such as gpt-5 models to perform various post call analytics like understand the intent and sentiment of the call, extract entities, or [summarize the conversation](/azure/ai-services/openai/quickstart#try-text-summarization) to evaluate the effectiveness of the call.
 
    1. Store the processed output in Azure Storage for visualization or consumption by downstream applications for further processing.
 
@@ -33,7 +33,7 @@ This article describes a batch-processing architecture for extracting insights f
 
 - [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is the object storage solution for raw files in this scenario. Blob Storage supports libraries for languages like .NET, Node.js, and Python. Applications can access files on Blob Storage via HTTP or HTTPS. Blob Storage has [hot, cool, and archive access tiers](/azure/storage/blobs/access-tiers-overview) for storing large amounts of data, which optimizes cost.
 
-- [Azure OpenAI](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure) provides access to [multiple models](/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure?&pivots=azure-openai#azure-openai-in-microsoft-foundry-models) with different capabilities including language models,audio models, image & video generation models, Codex, and the embeddings model series. You can access the service through REST APIs, Python SDK, or the Microsoft Foundry portal.
+- [Microsoft Foundry Models](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure) provides access to multiple models with different capabilities including language models, audio models, image, and video generation models, and the embeddings model series. You can access the service through REST APIs, SDKs, or the Microsoft Foundry portal.
 
 - [Speech](/azure/ai-services/speech-service/overview) is an AI-based API that provides speech capabilities like speech-to-text, text-to-speech, speech translation, and speaker recognition. This architecture uses the Speech batch transcription functionality.
 
@@ -104,6 +104,7 @@ The total cost of this solution depends on the pricing tier of your services. Fa
 - Your deployment region.
 
 For more information, see the following resources:
+
 - [Microsoft Foundry](https://azure.microsoft.com/pricing/details/ai-foundry/)
 - [Azure OpenAI pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service)
 - [Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs)
