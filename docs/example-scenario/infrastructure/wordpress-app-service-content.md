@@ -1,4 +1,4 @@
-This article describes a solution for small to medium-sized WordPress installations. The solution provides the scalability, reliability, and security of the Azure platform without the need for complex configuration or management. For solutions for larger or storage-intensive installations, see [WordPress hosting options on Azure](../../guide/infrastructure/wordpress-overview.yml#wordpress-hosting-options-on-azure).
+This article describes an architecture for small to medium-sized WordPress installations on Azure. The architecture uses Azure App Service to host WordPress and managed Azure services for the database, networking, and content delivery layers. For larger or storage-intensive installations, see [WordPress hosting options on Azure](../../guide/infrastructure/wordpress-overview.yml#wordpress-hosting-options-on-azure).
 
 ## Architecture
 
@@ -14,33 +14,32 @@ This article describes a solution for small to medium-sized WordPress installati
 This scenario covers a scalable installation of [WordPress that runs on Azure App Service](/azure/app-service/quickstart-wordpress).
 
 - Users access the front-end website through Azure Front Door with Azure Web Application Firewall enabled.
-- Azure Front Door distributes requests across the App Service web apps that WordPress runs on. Azure Front Door retrieves any data that isn't cached from the WordPress web apps.
-- The WordPress application uses a service endpoint to access a flexible server instance of Azure Database for MySQL. The WordPress application retrieves dynamic information from the database.
-- Locally redundant high availability is enabled for Azure Database for MySQL via a standby server in the same availability zone.
+- Azure Front Door distributes requests across the App Service web apps that run WordPress. If the requested content isn't cached, Azure Front Door retrieves it from the web apps.
+- The WordPress application connects to Azure Database for MySQL Flexible Server through a private endpoint and retrieves dynamic content from the database.
+- High availability is enabled for Azure Database for MySQL via a standby server.
 - All static content is hosted in Azure Blob Storage.
 
 ### Components
 
-- [App Service](/azure/well-architected/service-guides/app-service-web-apps) is a platform as a service (PaaS) offering that provides a framework for building, deploying, and scaling web apps. In this architecture, App Service hosts the WordPress application.
+- [App Service](/azure/well-architected/service-guides/app-service-web-apps) is a PaaS offering for building, deploying, and scaling web apps. In this architecture, App Service hosts the WordPress application.
 
-- [Azure Database for MySQL - flexible server](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) is a managed relational database service based on the open-source MySQL database engine. In this architecture, the database option stores WordPress data.
+- [Azure Database for MySQL - Flexible Server](/azure/well-architected/service-guides/azure-database-for-mysql) is a managed relational database service based on the open-source MySQL database engine. In this architecture, it stores WordPress data.
 
 - [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) is a network security service that provides enhanced DDoS mitigation features. In this architecture, DDoS Protection helps defend against DDoS attacks against the public IP address.
 
 - [Azure Front Door](/azure/well-architected/service-guides/azure-front-door) is a modern cloud content delivery network and global load balancer. In this architecture, Azure Front Door is the application entry point for web users.
 
-- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is a networking service that provides a way for deployed resources to communicate with each other, the internet, and on-premises networks. In this solution, Azure App Service and backend components are only reachable through private connections in the virtual network.
+- [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) provides network isolation for deployed resources. In this architecture, App Service and backend components are reachable only through private connections in the virtual network.
 
-- [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is a scalable, optimized object storage service. In this architecture, Blob Storage hosts all static content for the WordPress application.
+- [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is an object storage service optimized for large amounts of unstructured data. In this architecture, Blob Storage hosts all static content for the WordPress application.
 
-- [Network security groups (NSGs)](/azure/virtual-network/network-security-groups-overview) are security features that use a list of security rules to allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol. In this architecture, NSG rules restrict traffic flow between the application components in the subnets.
+- [Network security groups](/azure/virtual-network/network-security-groups-overview) use security rules to allow or deny network traffic based on source or destination IP address, port, and protocol. In this architecture, network security group rules restrict traffic flow between subnets.
 
 - [WordPress on App Service template](/azure/app-service/quickstart-wordpress) is a managed solution template for hosting WordPress on App Service. In this architecture, the template provides a preconfigured WordPress deployment that includes App Service and the other Azure services described in this section.
 
 ### Alternatives
 
 - You can use [Azure Managed Redis](/azure/redis/overview) to host a key-value cache for WordPress performance optimization plug-ins. The cache can be shared among the App Service web apps.
-- Instead of Azure Front Door, you can use Content Delivery Network to deliver web content to users.
 
 ## Scenario details
 
@@ -64,9 +63,9 @@ Reliability helps ensure that your application can meet the commitments that you
 Consider the following recommendations when you deploy this solution:
 
 - App Service provides built-in load balancing and health checks. These features help you maintain availability when an App Service web app fails.
-- When you use a content delivery network to cache all responses, you gain a small availability benefit. Specifically, when the origin doesn't respond, you can still access content. But caching doesn't provide a complete availability solution.
+- Azure Front Door can serve cached responses when the origin is temporarily unavailable. This capability provides a limited availability benefit but isn't a complete availability solution.
 - You can replicate Blob Storage to a paired region for data redundancy across multiple regions. For more information, see [Azure Storage redundancy](/azure/storage/common/storage-disaster-recovery-guidance).
-- To increase Azure Database for MySQL availability, enable same-zone high availability. This feature creates a standby server in the same availability zone as the primary server. You need to use the General Purpose or Business Critical compute tier to enable same-zone high availability. For more information, see the [high availability options](/azure/mysql/flexible-server/concepts-high-availability) that apply to your needs.
+- To increase Azure Database for MySQL availability, enable high availability. Same-zone high availability creates a standby server in the same availability zone as the primary server. For stronger fault isolation, use zone-redundant high availability, which places the standby server in a different availability zone. You need to use the General Purpose or Business Critical compute tier to enable high availability. For more information, see the [high availability options](/azure/mysql/flexible-server/concepts-high-availability) that apply to your needs.
 
 ### Security
 
@@ -75,10 +74,26 @@ Security provides assurances against deliberate attacks and the misuse of your v
 Consider the following recommendations when you deploy this solution:
 
 - Use Azure Web Application Firewall on Azure Front Door to help protect the virtual network traffic that flows into the front-end application tier. For more information, see [Azure Web Application Firewall on Azure Front Door](/azure/web-application-firewall/afds/afds-overview).
+- Use private endpoints for all backend services, including Azure Database for MySQL and Blob Storage. Private endpoints keep traffic within the virtual network and prevent exposure to the public internet. For more information, see [Azure Private Link](/azure/private-link/private-link-overview).
 - Don't allow outbound internet traffic to flow from the database tier.
 - Don't allow public access to private storage.
+- Keep WordPress core, themes, and plugins updated to their latest versions to address known security vulnerabilities. Uninstall any plugins and themes that you don't use.
+- Restrict access to the WordPress admin panel (`/wp-admin`) by using IP restrictions on App Service or by configuring Azure Front Door rules to limit access to known IP ranges. For more information, see [Azure App Service access restrictions](/azure/app-service/app-service-ip-restrictions).
+- Store secrets, such as database connection strings and API keys, in [Azure Key Vault](/azure/key-vault/general/overview). Use Key Vault references in App Service to retrieve secrets without storing them in application settings or code.
 
 For more information about WordPress security, see [General WordPress security and performance tips](../../guide/infrastructure/wordpress-overview.yml#general-wordpress-security-and-performance-tips) and [Azure security documentation][security].
+
+### Operational Excellence
+
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
+
+Consider the following recommendations when you deploy this solution:
+
+- Enable [Application Insights](/azure/azure-monitor/app/app-insights-overview) to monitor application performance, availability, and usage patterns. Use the monitoring data to identify and resolve issues before they affect users.
+- Configure [automated backups](/azure/mysql/flexible-server/concepts-backup-restore) for Azure Database for MySQL. Define a retention period that aligns with your recovery point objectives. Test your restoration process periodically to verify that backups are reliable.
+- Use [deployment slots](/azure/app-service/deploy-staging-slots) in App Service to stage updates before you swap them into production. Deployment slots help you validate changes and reduce downtime during deployments.
+- Automate your infrastructure deployments by using Azure Resource Manager templates or Bicep. Infrastructure as code helps you maintain consistency across environments and makes it possible to rebuild environments reliably.
+- Set up [Azure Monitor alerts](/azure/azure-monitor/alerts/alerts-overview) for key metrics, such as App Service CPU utilization, database connection counts, and response times. Alerts help you respond to operational issues before they affect users.
 
 ### Cost Optimization
 
@@ -86,17 +101,22 @@ Cost Optimization focuses on ways to reduce unnecessary expenses and improve ope
 
 Review the following cost considerations when you deploy this solution:
 
-- **Traffic expectations (GB/month)**. Your traffic volume is the factor that has the greatest effect on your cost. The amount of traffic that you receive determines the number of App Service instances that you need and the price for outbound data transfer. The traffic volume also directly correlates with the amount of data that's provided by your content delivery network, where outbound data transfer costs are cheaper.
+- **Traffic expectations (GB/month)**. Your traffic volume is the factor that has the greatest effect on your cost. The amount of traffic that you receive determines the number of App Service instances that you need and the price for outbound data transfer. Serving content through Azure Front Door can reduce outbound data transfer costs.
 - **Amount of hosted data**. It's important to consider the amount of data that you host in Blob Storage. Storage pricing is based on used capacity.
 - **Write percentage**. Consider how much new data you write to your website and host in Azure Storage. Determine whether the new data is needed. For multi-region deployments, the amount of new data that you write to your website correlates with the amount of data that's mirrored across your regions.
-- **Static versus dynamic content**. Monitor your database storage performance and capacity to determine whether a cheaper SKU can support your site. The database stores dynamic content, and the content delivery network caches static content.
-- **App Service optimization**. For general tips for optimizing App Service costs, see [Azure App Service and cost optimization](/azure/well-architected/services/compute/azure-app-service/cost-optimization).
+- **Static versus dynamic content**. Monitor your database storage performance and capacity to determine whether a lower-cost SKU can support your site. The database stores dynamic content, and Azure Front Door caches static content.
+- **App Service optimization**. For general tips for optimizing App Service costs, see [Azure App Service and cost optimization](/azure/well-architected/service-guides/app-service-web-apps).
 
 ### Performance Efficiency
 
 Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-This scenario hosts the WordPress front end in App Service. You should enable the autoscale feature to automatically scale the number of App Service instances. You can set an autoscale trigger to respond to customer demand. You can also set a trigger that's based on a defined schedule. For more information, see [Get started with autoscale in Azure](/azure/azure-monitor/autoscale/autoscale-get-started).
+Consider the following recommendations when you deploy this solution:
+
+- Enable the autoscale feature in App Service to automatically scale the number of instances. You can set an autoscale trigger to respond to customer demand or based on a defined schedule. For more information, see [Get started with autoscale in Azure](/azure/azure-monitor/autoscale/autoscale-get-started).
+- Use [Azure Managed Redis](/azure/redis/overview) to cache PHP session data and frequently accessed WordPress objects. Offloading these items from the database reduces query load and improves page load times.
+- Configure Azure Front Door caching rules to serve static assets from edge locations. Caching at the edge reduces latency for users who are geographically distant from the App Service region.
+- Use the latest supported PHP version in App Service for performance and security improvements. Verify that your WordPress version and plugins are compatible before you upgrade.
 
 ## Contributors
 
@@ -127,7 +147,6 @@ Product documentation:
 
 Microsoft training modules:
 
-- [Load balance your web service traffic with Azure Front Door](/training/modules/create-first-azure-front-door)
 - [Implement Azure Key Vault](/training/modules/implement-azure-key-vault)
 - [Introduction to Azure Virtual Network](/training/modules/introduction-to-azure-virtual-networks)
 

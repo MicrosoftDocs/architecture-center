@@ -4,7 +4,7 @@ metadata:
   description: Use Azure Front Door, Azure App Service, and other Azure services to deploy a highly scalable and secure installation of WordPress.
   author: claytonsiemens77
   ms.author: pnp
-  ms.date: 06/30/2023
+  ms.date: 04/15/2026
   ms.topic: example-scenario
   ms.subservice: example-scenario
   ai-usage: ai-assisted

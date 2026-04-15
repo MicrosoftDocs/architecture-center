@@ -1,4 +1,4 @@
-This article describes a container solution that hosts a large, storage-intensive installation of WordPress on Azure. The solution maximizes scalability and security. Key components include [Azure Front Door](/azure/frontdoor/front-door-overview), [Azure Kubernetes Service (AKS)](/azure/aks/what-is-aks), and [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction).
+This article describes a container-based architecture for hosting a large, storage-intensive WordPress installation on Azure. Key components include [Azure Front Door](/azure/frontdoor/front-door-overview), [Azure Kubernetes Service (AKS)](/azure/aks/what-is-aks), and [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction).
 
 ## Architecture
 
@@ -9,7 +9,7 @@ This article describes a container solution that hosts a large, storage-intensiv
 *Download a [Visio file](https://arch-center.azureedge.net/azure-wordpress-container.vsdx) of this architecture.*
 
 > [!NOTE]
-> You can extend this solution by implementing tips and recommendations that apply to any WordPress hosting method. For general tips about how to deploy a WordPress installation, see [WordPress on Azure](../../guide/infrastructure/wordpress-overview.yml).
+> You can extend this solution with recommendations that apply to any WordPress hosting method. For general WordPress deployment guidance, see [WordPress on Azure](../../guide/infrastructure/wordpress-overview.yml).
 
 ### Dataflow
 
@@ -17,31 +17,33 @@ The following dataflow corresponds to the previous diagram:
 
 1. Users access the front-end website through Azure Front Door with Azure Web Application Firewall enabled.
 
-1. Azure Front Door uses an internal instance of Azure Load Balancer as the origin. The internal load balancer is a hidden component of AKS. Azure Front Door retrieves any data that isn't cached.
-1. The internal load balancer distributes ingress traffic to pods within AKS.
+1. Azure Front Door uses an internal instance of Azure Load Balancer as the origin. The internal load balancer is a component of AKS. Azure Front Door retrieves any data that it hasn't cached.
+1. The internal load balancer distributes ingress traffic to an ingress controller within AKS. You can use the [managed NGINX ingress controller with the application routing add-on](/azure/aks/app-routing) or [Application Gateway for Containers](/azure/application-gateway/for-containers/overview) as the ingress controller.
 1. Azure Key Vault stores secrets, including the private key, which is an X.509 certificate.
 1. The WordPress application uses a private endpoint to access a Flexible Server instance of Azure Database for MySQL. The WordPress application retrieves dynamic information from this managed database service.
-1. All static content is hosted in Azure NetApp Files. The solution uses the Astra Trident Container Storage Interface (CSI) driver with the Network File System (NFS) protocol.
+1. All static content is hosted in Azure NetApp Files. The solution uses the [Trident](https://docs.netapp.com/us-en/trident/index.html) Container Storage Interface (CSI) driver with the Network File System (NFS) protocol.
 
 ### Components
 
-- [AKS](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed Kubernetes service that you can use to deploy, manage, and scale containerized applications. In this architecture, AKS hosts the WordPress containers and provides the orchestration platform that runs the containerized WordPress application to ensure high availability and scalability.
+- [AKS](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed Kubernetes service that you can use to deploy, manage, and scale containerized applications. In this architecture, AKS hosts the WordPress containers and provides the orchestration platform for high availability and scalability.
 
-- [Azure Managed Redis](/azure/redis/overview) is a managed in-memory data store and caching service. In this architecture, Azure Managed Redis hosts a key-value cache that all pods share. WordPress performance optimization plug-ins use the cache to improve response times.
+- [Azure Managed Redis](/azure/redis/overview) is a managed in-memory data store and caching service. In this architecture, all pods share an Azure Managed Redis cache. WordPress performance optimization plug-ins use this cache to reduce response times.
 
-- [Azure Database for MySQL - Flexible Server](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) is a managed relational database service based on the open-source MySQL database engine. In this architecture, this database stores WordPress data.
+- [Azure Database for MySQL - Flexible Server](/azure/well-architected/service-guides/azure-database-for-mysql) is a managed relational database service based on the open-source MySQL database engine. In this architecture, this database stores WordPress data.
 
-- [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) is a network security service that provides enhanced distributed denial-of-service (DDoS) mitigation features. In this architecture, DDoS Protection helps defend against DDoS attacks when combined with application-design best practices and enabled on the perimeter network.
+- [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) is a network security service that provides enhanced DDoS mitigation features. Azure DDoS Protection has two tiers: [DDoS Network Protection and DDoS IP Protection](/azure/ddos-protection/ddos-protection-sku-comparison). In this architecture, DDoS Protection helps defend against DDoS attacks when combined with application-design best practices and enabled on the perimeter network.
 
-- [Azure Front Door](/azure/well-architected/service-guides/azure-front-door) is a modern cloud content delivery network and global load balancer. In this architecture, Azure Front Door is the public entry point into the WordPress deployment.
+- [Azure Front Door](/azure/well-architected/service-guides/azure-front-door) is a modern cloud content delivery network and global load balancer. This architecture requires the [Azure Front Door Premium tier](/azure/frontdoor/standard-premium/tier-comparison) because it uses Private Link to connect to the internal load balancer origin. In this architecture, Azure Front Door is the public entry point into the WordPress deployment.
 
 - [Azure NetApp Files](/azure/well-architected/service-guides/azure-netapp-files) is a managed, performance-intensive, and latency-sensitive storage solution. In this architecture, Azure NetApp Files hosts the WordPress content so that all pods have access to the shared data through high-performance file storage.
 
 - [Azure Virtual Network](/azure/well-architected/service-guides/virtual-network) is a networking service that enables deployed resources to communicate with each other, the internet, and on-premises networks. In this architecture, virtual networks provide isolation and segmentation.
 
-- [Key Vault](/azure/key-vault/general/overview) is a cloud service that stores and controls access to secrets, certificates, keys, and passwords. In this architecture, Key Vault provides secrets to the AKS cluster if pods need them.
+- [Key Vault](/azure/key-vault/general/overview) is a cloud service that stores and controls access to secrets, certificates, keys, and passwords. In this architecture, Key Vault stores secrets such as database credentials and TLS certificates that pods retrieve at runtime.
 
-- [Load Balancer](/azure/well-architected/service-guides/azure-load-balancer/reliability) is a layer-4 load balancer that distributes inbound traffic based on rules and health probe results. In this architecture, an internal load balancer distributes traffic from Azure Front Door Premium tier to the ingress controller pods with low latency and high throughput.
+- [Load Balancer](/azure/well-architected/service-guides/azure-load-balancer) is a layer-4 load balancer that distributes inbound traffic based on rules and health probe results. In this architecture, an internal load balancer distributes traffic from Azure Front Door Premium tier to the ingress controller pods with low latency and high throughput.
+
+- [Azure Container Registry](/azure/container-registry/container-registry-intro) is a managed container image registry service. In this architecture, Container Registry stores the WordPress container images and makes them available to the AKS cluster through a private endpoint.
 
 - [Network security groups (NSGs)](/azure/virtual-network/network-security-groups-overview) are security features that use security rules to allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol. In this architecture, NSG rules restrict traffic flow between the application components in the subnets.
 
@@ -49,7 +51,7 @@ The following dataflow corresponds to the previous diagram:
 
 - Instead of using the Azure Managed Redis managed service, you can use a self-hosted Redis pod within the AKS cluster as the cache.
 
-- Instead of using a managed storage solution like Azure NetApp Files, you can use a self-hosted solution like [Rook-Ceph storage](https://rook.io). For more information, see [Use Rook Ceph on AKS](https://github.com/Azure/kubernetes-volume-drivers/tree/master/rook-ceph).
+- Instead of using a managed storage solution like Azure NetApp Files, you can use a self-hosted solution like [Rook-Ceph storage](https://rook.io). A self-hosted storage solution increases operational complexity and requires your team to manage the storage layer directly. Evaluate whether the operational overhead is acceptable for your organization before choosing this approach.
 - Instead of using AKS, you can use [Azure Container Apps](/azure/container-apps/overview) to host containerized WordPress workloads. Container Apps is a managed serverless container service that suits simpler or smaller-scale scenarios. For large, storage-intensive, and highly customizable deployments, use AKS.
 
 ## Scenario details
@@ -73,12 +75,12 @@ Consider the following recommendations when you deploy this solution:
 
 - Use pods in AKS and a load balancer to distribute ingress traffic. This approach provides high availability even if a pod failure occurs.
 
-- Place all networking components behind Azure Front Door. This approach makes the networking resources and application resilient to problems that can otherwise disrupt traffic and affect user access.
-- Use Azure Front Door to cache all responses to gain a small availability benefit. Specifically, when the origin doesn't respond, you can still access content. But caching doesn't provide a complete availability solution.
+- Place all networking components behind Azure Front Door. This approach provides resilience against problems that can disrupt traffic and affect user access.
+- Enable caching in Azure Front Door. When the origin is unavailable, Azure Front Door can continue to serve cached content. Caching alone doesn't provide a complete availability solution.
 - Replicate Azure NetApp Files storage between paired regions to increase availability. For more information, see [Understand Azure NetApp Files replication](/azure/azure-netapp-files/replication).
 - Follow [high availability options](/azure/mysql/flexible-server/concepts-high-availability) that meet your needs to increase Azure Database for MySQL availability.
-- The solution supports multiple regions, data replication, and autoscaling. The components distribute traffic to the pods. Health probes ensure that only healthy pods receive traffic.
-- Azure Front Door is a global service that supports virtual machine scale sets deployed in another region.
+- The architecture supports multi-region deployment, data replication, and autoscaling. Health probes ensure that only healthy pods receive traffic.
+- Azure Front Door is a global service that can route traffic to origins in multiple regions.
 
 ### Security
 
@@ -93,6 +95,17 @@ Consider the following best practices when you deploy this solution:
 
 For more information, see [General WordPress security and performance tips](../../guide/infrastructure/wordpress-overview.yml#general-wordpress-security-and-performance-tips) and [Azure security documentation](/azure/security).
 
+### Operational Excellence
+
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
+
+Consider the following recommendations when you deploy this solution:
+
+- Use [Azure Monitor Container insights](/azure/azure-monitor/containers/container-insights-overview) to monitor AKS cluster performance and health. Configure alerts for node and pod resource utilization so you can respond to issues before they affect users.
+- Store your Kubernetes manifests, Helm charts, and infrastructure-as-code templates in a version control system. Use a CI/CD pipeline to deploy changes to your AKS cluster to reduce manual errors and ensure repeatable deployments.
+- Use [AKS node image upgrades](/azure/aks/node-image-upgrade) and regular Kubernetes version upgrades to stay current with security patches and bug fixes.
+- Use [Azure Policy for AKS](/azure/aks/policy-reference) to enforce organizational standards across your clusters, such as requiring private registries or restricting privileged containers.
+
 ### Cost Optimization
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
@@ -104,7 +117,7 @@ Review the following cost considerations when you deploy this solution:
 - **Amount of hosted data:** Consider the amount of data that you host, because Azure NetApp Files pricing is based on reserved capacity. To optimize costs, reserve the minimum capacity required for your data.
 - **Write percentage:** Consider how much new data you write to your website and the cost to store it. For multi-region deployments, the amount of new data that you write to your website correlates with the amount of data mirrored across your regions.
 - **Static versus dynamic content:** Monitor your database storage performance and capacity to determine whether a cheaper SKU can support your site. The database stores dynamic content, and the content delivery network caches static content.
-- **AKS cluster optimization:** Follow general tips for AKS, such as guidance about virtual machine (VM) size and Azure reservations, to optimize your AKS cluster costs. For more information, see [AKS Cost Optimization](/azure/well-architected/services/compute/azure-kubernetes-service/azure-kubernetes-service#cost-optimization).
+- **AKS cluster optimization:** Follow general tips for AKS, such as guidance about virtual machine (VM) size and Azure reservations, to optimize your AKS cluster costs. For more information, see [AKS Cost Optimization](/azure/well-architected/service-guides/azure-kubernetes-service#cost-optimization).
 
 ### Performance Efficiency
 

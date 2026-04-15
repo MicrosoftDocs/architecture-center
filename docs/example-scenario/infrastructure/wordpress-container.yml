@@ -4,7 +4,7 @@ metadata:
   description: "Use Azure Kubernetes Service (AKS) to deploy a highly scalable and secure installation of WordPress for large, storage-intensive applications."
   author: andrwca
   ms.author: andrewcardy
-  ms.date: 08/15/2025
+  ms.date: 04/15/2026
   ms.topic: example-scenario
   ms.subservice: example-scenario
   ai-usage: ai-assisted
