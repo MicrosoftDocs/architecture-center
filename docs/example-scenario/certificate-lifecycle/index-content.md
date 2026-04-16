@@ -6,11 +6,11 @@ Azure Key Vault supports [automatic certificate renewal](/azure/key-vault/certif
 
 This section provides an overview of the underlying architecture that powers this solution.
 
-:::image type="complex" source="./media/certlc-arch.svg" alt-text="Diagram of the certificate life cycle management architecture." border="false" lightbox="./media/certlc-arch.svg":::
+:::image type="complex" source="./media/certificate-life-cycle-architecture.svg" alt-text="Diagram of the certificate life cycle management architecture." border="false" lightbox="./media/certificate-life-cycle-architecture.svg":::
    The diagram has two main sections. One section is labeled Azure landing zone subscription, and the other section is labeled on-premises. In the landing zone subscription section, a large box labeled CERTLC contains smaller boxes for Azure Virtual Network and an Automation account. In the Virtual Network box, two computer icons are labeled DC and ENT-CA. On the ENT-CA icon, a dotted line that represents the Hybrid Runbook Worker begins. The line connects the runbook worker to the CERTLC runbook in the Automation account box. The Virtual Network box also contains computer icons that represent two servers, one with the Key Vault extension and one with a custom script. A solid line connects the Virtual Network box to the on-premises section of the diagram. The Automation account box also contains the dashboard ingestion runbook. A dotted line connects this runbook to the Log Analytics workspace in the CERTLC box. The CERTLC box also contains icons that represent a storage account, Event Grid, Key Vault, and a workbook. The Azure landing zone subscription section includes icons that represent a recovery services vault, role assignments, policy assignments, Azure Network Watcher, and Microsoft Defender for Cloud. In the on-premises section, a box labeled Active Directory contains two smaller boxes for Azure Arc-enabled servers. One server uses the Key Vault extension, and the other server uses a custom script.
 :::image-end:::
 
-*Download a [Visio file](https://arch-center.azureedge.net/certlc-arch.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/certificate-life-cycle-architecture.vsdx) of this architecture.*
 
 The Azure environment comprises the following platform as a service (PaaS) resources: 
 
@@ -34,9 +34,11 @@ The following sections provide details about the automatic renewal process.
 
 The following diagram shows the automatic workflow for certificate renewal within the Azure ecosystem.
 
-:::image type="complex" source="./media/workflow.png" alt-text="Diagram of the automatic workflow for certificate renewal within the Azure ecosystem." border="false" lightbox="./media/workflow.png":::
+:::image type="complex" source="./media/certificate-life-cycle-workflow.svg" alt-text="Diagram of the automatic workflow for certificate renewal within the Azure ecosystem." border="false" lightbox="./media/certificate-life-cycle-workflow.svg":::
    The diagram uses arrows and numbers to show the automatic workflow for certificate renewal within the Azure ecosystem. Icons for Key Vault, a server, a CA, Event Grid, a storage account, and an Automation account are at the top of the diagram. Arrows are labeled 1 through 9. Number 1 goes from a certificate in the CA to Key Vault. Number 2 goes from a certificate in Key Vault to the server. Number 3 goes from a certificate in Key Vault to Event Grid. Number 4 goes from Event Grid to both the storage account and the webhook in the Automation account. Number 5 is a double-sided arrow that goes to and from the certificate in the storage account and the Automation account. Number 6 is a double-sided arrow that goes to and from the certificate in the CA and the Automation account. Number 7 goes from the certificate in the Automation account to the server. Number 9 goes from the certificate in Key Vault to the server.
 :::image-end:::
+
+*Download a [Visio file](https://arch-center.azureedge.net/certificate-life-cycle-workflow.vsdx) of this workflow.*
 
 The following workflow corresponds to the previous diagram:
 
@@ -261,7 +263,7 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 The automatic certificate renewal procedure securely stores certificates by applying standardized processes across all certificates within the key vault.
 
-Integration with Event Grid triggers supplementary actions, such as notifying Microsoft Teams or Microsoft 365 and streamlining the renewal process. This integration significantly reduces certificate renewal time and mitigates the potential for errors that migiht lead to business disruptions and SLA violations.
+Integration with Event Grid triggers supplementary actions, such as notifying Microsoft Teams or Microsoft 365 and streamlining the renewal process. This integration significantly reduces certificate renewal time and mitigates the potential for errors that might lead to business disruptions and SLA violations.
 
 Integration with Azure Monitor, Microsoft Sentinel, Microsoft Security Copilot, and Microsoft Defender for Cloud facilitates continuous monitoring of the certificate renewal process. It supports anomaly detection and ensures that robust security measures are maintained. Defender for Cloud contributes primarily through posture management and alert correlation rather than direct certificate renewal event handling.
 

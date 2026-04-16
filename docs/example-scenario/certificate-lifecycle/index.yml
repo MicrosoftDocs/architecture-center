@@ -16,6 +16,6 @@ products:
   - azure-key-vault
 name: Certificate life cycle management on Azure
 summary: Learn how to create an infrastructure and workflow to automate the renewal process for certificates issued by a nonintegrated certification authority (CA).
-thumbnailUrl: ../../browse/thumbs/certlc-thumb.png
+thumbnailUrl: ../../browse/thumbs/certificate-life-cycle-architecture.png
 content: |
    [!INCLUDE[](index-content.md)]
