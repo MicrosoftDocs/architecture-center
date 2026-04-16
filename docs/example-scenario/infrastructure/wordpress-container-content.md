@@ -17,7 +17,7 @@ The following dataflow corresponds to the previous diagram:
 
 1. Users access the front-end website through Azure Front Door with Azure Web Application Firewall enabled.
 
-1. Azure Front Door uses an internal instance of Azure Load Balancer as the origin. The internal load balancer is a hidden component of AKS. Azure Front Door retrieves any data that isn't cached.
+1. Azure Front Door Premium connects to the AKS internal load balancer origin through a [Private Link Service](/azure/private-link/private-link-service-overview) that exposes the internal load balancer. The internal load balancer is a hidden component of AKS. Azure Front Door retrieves any data that isn't cached.
 1. The internal load balancer distributes ingress traffic to pods within AKS.
 1. Azure Key Vault stores secrets, including the private key, which is an X.509 certificate.
 1. The WordPress application uses a private endpoint to access a Flexible Server instance of Azure Database for MySQL. The WordPress application retrieves dynamic information from this managed database service.
@@ -41,7 +41,7 @@ The following dataflow corresponds to the previous diagram:
 
 - [Key Vault](/azure/key-vault/general/overview) is a cloud service that stores and controls access to secrets, certificates, keys, and passwords. In this architecture, Key Vault provides secrets to the AKS cluster if pods need them.
 
-- [Load Balancer](/azure/well-architected/service-guides/azure-load-balancer/reliability) is a layer-4 load balancer that distributes inbound traffic based on rules and health probe results. In this architecture, an internal load balancer distributes traffic from Azure Front Door Premium tier to the ingress controller pods with low latency and high throughput.
+- [Load Balancer](/azure/well-architected/service-guides/azure-load-balancer/reliability) is a layer-4 load balancer that distributes inbound traffic based on rules and health probe results. In this architecture, an internal load balancer sits behind a [Private Link Service](/azure/private-link/private-link-service-overview), which enables Azure Front Door Premium to reach the origin privately. The internal load balancer then distributes traffic to the ingress controller pods.
 
 - [Network security groups (NSGs)](/azure/virtual-network/network-security-groups-overview) are security features that use security rules to allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol. In this architecture, NSG rules restrict traffic flow between the application components in the subnets.
 
