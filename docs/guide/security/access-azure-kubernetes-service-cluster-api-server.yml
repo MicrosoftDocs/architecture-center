@@ -2,9 +2,9 @@
 metadata:
   title: Access an Azure Kubernetes Service (AKS) API Server
   description: Learn more about how to connect to an Azure Kubernetes Service (AKS) cluster's API server. Possibilities include Azure Bastion, ExpressRoute, and Cloud Shell.
-  author: ArielRam99
-  ms.author: arrami
-  ms.date: 02/04/2025
+  author: samcogan
+  ms.author: samcogan
+  ms.date: 04/16/2025
   ms.topic: concept-article
   ms.subservice: architecture-guide
   ms.custom: arb-containers
