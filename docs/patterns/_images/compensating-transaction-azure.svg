@@ -160,12 +160,12 @@
 		<title>compensating-transaction-azure</title>
 		<v:pageProperties v:drawingScale="1" v:pageScale="1" v:drawingUnits="19" v:shadowOffsetX="9" v:shadowOffsetY="-9"/>
 		<v:layer v:name="Connector" v:index="0"/>
-		<g id="shape164-1" v:mID="164" v:groupContext="shape" transform="translate(-0.328125,2.52128E-06)">
+		<g id="shape164-1" v:mID="164" v:groupContext="shape" transform="translate(-6.32813,3.43651)">
 			<title>Rectangle.164</title>
 			<v:userDefs>
 				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
 			</v:userDefs>
-			<rect x="0" y="-0.562516" width="891.75" height="510.75" class="st1"/>
+			<rect x="0" y="-3.99902" width="897.75" height="514.187" class="st1"/>
 		</g>
 		<g id="shape153-3" v:mID="153" v:groupContext="shape" transform="translate(155.109,-132.75)">
 			<title>Rectangle.153</title>
@@ -1062,7 +1062,7 @@
 			<title>Dynamic connector.162</title>
 			<path d="M-7.68 501.19 L-8.04 501.19 L-131.48 501.19" class="st36"/>
 		</g>
-		<g id="shape165-360" v:mID="165" v:groupContext="shape" transform="translate(48.6,-7.2)">
+		<g id="shape165-360" v:mID="165" v:groupContext="shape" transform="translate(0,-13)">
 			<title>Sheet.165</title>
 			<rect v:rectContext="foreign" x="0" y="453.843" width="101.597" height="56.3441" class="st15"/>
 			<image x="0" y="453.843" width="101.597" height="56.3441" preserveAspectRatio="none" xlink:href="data:image/png;base64,
