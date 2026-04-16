@@ -237,7 +237,7 @@ Spark NLP follows the same development pattern as traditional Spark ML models wh
 
 ### Assemble core pipeline components
 
-A Spark NLP pipeline chains annotators together in sequence. Each annotator transforms the output of the previous stage and builds from raw text to semantic vectors.
+A Spark NLP pipeline chains annotators in sequence. Each annotator transforms the output of the previous stage and builds from raw text to semantic vectors.
 
 - **DocumentAssembler is the entry point for every Spark NLP pipeline.** Use `setCleanupMode` to apply optional text preprocessing, like HTML tag removal or whitespace normalization, before downstream annotators run.
 
