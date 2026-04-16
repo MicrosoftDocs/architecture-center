@@ -7,7 +7,7 @@ Provisioning a virtual machine (VM) in Azure requires additional components besi
 *Download a [Visio file](https://arch-center.azureedge.net/linux-vm-single-vm-diagram.vsdx) of this architecture.*
 
 ### Workflow
-This is a very simple implementation with a single virtual machine to show an example of a basic deployment with the required components for a functional virtual machine that can run workloads, be managed, and communicate with the public internet without making it directly reachable by potential bad actors
+This example shows a basic deployment using a single virtual machine with the required components. The virtual machine can run workloads, is manageable, and can communicate with the public internet. It is designed to avoid direct exposure to external threats.
 
 - Any workloads running on the virtual machine aren't exposed externally, and are only accessible from within the same, or a peered, virtual network, such as in a hub and spoke configuration
 - Management access to the virtual machine is shown using Azure Bastion via SSH, and is not directly permitted from the public internet
