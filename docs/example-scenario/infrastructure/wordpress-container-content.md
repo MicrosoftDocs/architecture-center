@@ -17,7 +17,7 @@ The following dataflow corresponds to the previous diagram:
 
 1. Users access the front-end website through Azure Front Door with Azure Web Application Firewall enabled.
 
-1. Azure Front Door uses an internal instance of Azure Load Balancer as the origin. The internal load balancer is a component of AKS. Azure Front Door retrieves any data that it hasn't cached.
+1. Azure Front Door Premium connects to the AKS internal load balancer origin through a [Private Link Service](/azure/private-link/private-link-service-overview) that exposes the internal load balancer. The internal load balancer is a component of AKS. Azure Front Door retrieves any data that it hasn't cached.
 1. The internal load balancer distributes ingress traffic to an ingress controller within AKS. You can use the [managed NGINX ingress controller with the application routing add-on](/azure/aks/app-routing) or [Application Gateway for Containers](/azure/application-gateway/for-containers/overview) as the ingress controller.
 1. Azure Key Vault stores secrets such as TLS certificates and their private keys.
 1. The WordPress application uses a private endpoint to access a Flexible Server instance of Azure Database for MySQL. The WordPress application retrieves dynamic information from this managed database service.
@@ -33,7 +33,7 @@ The following dataflow corresponds to the previous diagram:
 
 - [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) is a network security service that provides enhanced DDoS mitigation features. Azure DDoS Protection has two tiers: [DDoS Network Protection and DDoS IP Protection](/azure/ddos-protection/ddos-protection-sku-comparison). In this architecture, DDoS Protection helps defend against DDoS attacks when combined with application-design best practices and enabled on the perimeter network.
 
-- [Azure Front Door](/azure/well-architected/service-guides/azure-front-door) is a modern cloud content delivery network and global load balancer. This architecture requires the [Azure Front Door Premium tier](/azure/frontdoor/standard-premium/tier-comparison) because it uses Private Link to connect to the internal load balancer origin. In this architecture, Azure Front Door is the public entry point into the WordPress deployment.
+- [Azure Front Door](/azure/well-architected/service-guides/azure-front-door) is a modern cloud content delivery network and global load balancer. This architecture requires the [Azure Front Door Premium tier](/azure/frontdoor/standard-premium/tier-comparison) because it uses Private Link to connect to the origin through a [Private Link Service](/azure/private-link/private-link-service-overview) that exposes the internal load balancer. In this architecture, Azure Front Door is the public entry point into the WordPress deployment.
 
 - [Azure NetApp Files](/azure/well-architected/service-guides/azure-netapp-files) is a managed, performance-intensive, and latency-sensitive storage solution. In this architecture, Azure NetApp Files hosts the WordPress content so that all pods have access to the shared data through high-performance file storage.
 
@@ -41,7 +41,7 @@ The following dataflow corresponds to the previous diagram:
 
 - [Key Vault](/azure/key-vault/general/overview) is a cloud service that stores and controls access to secrets, certificates, keys, and passwords. In this architecture, Key Vault stores secrets such as database credentials and TLS certificates that pods retrieve at runtime.
 
-- [Load Balancer](/azure/well-architected/service-guides/azure-load-balancer) is a layer-4 load balancer that distributes inbound traffic based on rules and health probe results. In this architecture, an internal load balancer distributes traffic from Azure Front Door Premium tier to the ingress controller pods with low latency and high throughput.
+- [Load Balancer](/azure/well-architected/service-guides/azure-load-balancer) is a layer-4 load balancer that distributes inbound traffic based on rules and health probe results. In this architecture, an internal load balancer sits behind a [Private Link Service](/azure/private-link/private-link-service-overview), which enables Azure Front Door Premium to reach the origin privately. The internal load balancer then distributes traffic to the ingress controller pods.
 
 - [Azure Container Registry](/azure/container-registry/container-registry-intro) is a managed container image registry service. In this architecture, Container Registry stores the WordPress container images and makes them available to the AKS cluster through a private endpoint.
 
