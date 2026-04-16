@@ -70,7 +70,7 @@ sudo mount /dev/sdc1 /data1
 
 When you add a data disk, a logical unit number (LUN) ID is assigned to the disk. Optionally, you can specify the LUN ID &mdash; for example, if you're replacing a disk and want to retain the same LUN ID, or you have an application that looks for a specific LUN ID. However, remember that LUN IDs must be unique for each disk.
 
-You might want to change the I/O scheduler to optimize for performance on SSDs because the disks for VMs with premium storage accounts are SSDs. A common recommendation is to use the NOOP scheduler for SSDs, but you should use a tool such as [iostat](https://en.wikipedia.org/wiki/Iostat) to monitor disk I/O performance for your workload.
+You might want to change the I/O scheduler to optimize for performance on SSDs when using Premium Storage disks. A common recommendation is to use the No Operation (NOOP) scheduler for SSDs, but you should use a tool such as [iostat](https://en.wikipedia.org/wiki/Iostat) to monitor disk I/O performance for your workload.
 
 Many VMs are created with a temporary disk, which is stored on a physical drive on the host machine. It's *not* saved in Azure Storage and might be deleted during reboots and other VM lifecycle events. Use this disk only for temporary data, such as page or swap files. For Linux VMs, the temporary disk is `/dev/disk/azure/resource-part1` and is mounted at `/mnt/resource` or `/mnt`.
 
