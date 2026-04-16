@@ -208,7 +208,6 @@ See the following related architectures and related technical information.
 
 - [High-volume batch transaction processing](./process-batch-transactions.yml)
 - [IBM z/OS mainframe migration by using Avanade AMT](./avanade-amt-zos-migration.yml)
-- [Micro Focus Enterprise Server on Azure VMs](./micro-focus-server.yml)
 - [Replicate and sync mainframe data in Azure](../../reference-architectures/migration/sync-mainframe-data-with-azure.yml)
 
 ### Related technical information
