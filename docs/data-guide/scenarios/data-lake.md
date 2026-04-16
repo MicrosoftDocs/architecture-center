@@ -3,7 +3,7 @@ title: What Is a Data Lake?
 description: Learn about the advantages of using data lake storage repositories, which can store terabytes and petabytes of data in its native, raw format.
 author: PRASADA1207
 ms.author: prasada
-ms.date: 04/09/2026
+ms.date: 04/16/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ai-usage: ai-assisted
@@ -11,7 +11,7 @@ ai-usage: ai-assisted
 
 # What is a data lake?
 
-A data lake is a storage repository that holds large volumes of data in its native, raw format. Data lakes scale cost effectively to handle terabytes (TB) and petabytes (PB) of data, which makes them suitable for handling massive and diverse datasets. The data typically comes from many different sources and can include structured data like relational tables, semistructured data like JSON, XML, or log files, and unstructured data like images, audio, or video.
+A data lake is a storage repository that holds large volumes of data in its native, raw format. Data lakes scale cost effectively to handle terabytes and petabytes of data, which makes them suitable for handling massive and diverse datasets. The data typically comes from many different sources and can include structured data like relational tables, semistructured data like JSON, XML, or log files, and unstructured data like images, audio, or video.
 
 Data lakes store all data types in its original, untransformed state and apply transformation only when the data is needed. This approach is known as *schema-on-read*. In contrast, a [data warehouse](../relational-data/data-warehousing.yml) enforces structure and applies transformations as it ingests data. This approach is known as *schema-on-write*.
 
@@ -95,7 +95,7 @@ The following table compares data lakes and data warehouses.
 
 ## Challenges of data lakes
 
-- **Scalability and complexity:** The management of PB of raw, unstructured, and semistructured data requires robust infrastructure, distributed processing, and careful cost management.
+- **Scalability and complexity:** The management of petabytes of raw, unstructured, and semistructured data requires robust infrastructure, distributed processing, and careful cost management.
 
 - **Processing bottlenecks:** As data volume and diversity increase, transformation and query workloads can introduce latency, which requires careful pipeline design and workload orchestration.
 
