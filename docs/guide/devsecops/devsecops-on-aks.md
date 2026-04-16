@@ -293,67 +293,67 @@ During the deployment phase, developers, application operators, and cluster oper
 
 ### Operate phase
 
-During this phase, operation monitoring and security monitoring tasks are performed to proactively monitor, analyze, and alert on potential security incidents. Production observability tools like Azure Monitor and Microsoft Sentinel are used to monitor and ensure compliance with enterprise security standards.
+During this phase, perform operation monitoring and security monitoring tasks to proactively monitor, analyze, and alert on potential security incidents. Use production observability tools like Azure Monitor and Microsoft Sentinel to monitor and ensure compliance with enterprise security standards.
 
-#### Best practice – Use Defender for cloud to enable automated scanning and monitoring of your production configurations
+#### Best practice: Use Defender for Cloud to automatically scan and monitor your production configurations
 
 - Run continual scanning to detect drift in the vulnerability state of your application and implement a process to patch and replace the vulnerable images.
 
 - Implement automated configuration monitoring for operating systems.
 
-  - Use Defender for Cloud container recommendations (under the **Compute and apps** section) to perform baseline scans for your AKS clusters. Get notified in the Defender for Cloud dashboard when configuration issues or vulnerabilities are found.
+  - Use the container recommendations in Defender for Cloud (under **Compute and apps**) to perform baseline scans for your AKS clusters. Defender for Cloud displays any configuration problems or vulnerabilities in its dashboard.
 
-  - Use Defender for Cloud and follow its network protection recommendations to help [secure](/azure/defender-for-cloud/protect-network-resources) the network resources being used by your AKS clusters.
+  - Use Defender for Cloud and follow its network protection recommendations to help [secure](/azure/defender-for-cloud/protect-network-resources) the network resources that your AKS clusters use.
 
 - Conduct a vulnerability assessment for images stored in Container Registry.
 
   - Implement continuous scans for running images in Container Registry by enabling [Defender for Containers](/azure/defender-for-cloud/defender-for-containers-vulnerability-assessment-azure).
 
-#### Best practice – Keep your Kubernetes clusters updated
+#### Best practice: Keep your Kubernetes clusters updated
 
-- Kubernetes releases are rolled out frequently. It's important to have a life cycle management strategy in place to ensure you don't fall behind and out of support. AKS is a managed offering that provides you with tools and flexibility to manage this upgrade process. You can use the AKS platform's planned maintenance features to have more control over maintenance windows and upgrades.
+- Kubernetes releases new versions frequently. Maintain a life cycle management strategy to keep your clusters supported and up-to-date. AKS provides tools to manage cluster upgrades. Use the AKS planned maintenance features to control when maintenance windows and upgrades occur.
 
-- AKS worker nodes should be [upgraded](/azure/architecture/operator-guides/aks/aks-upgrade-practices) more frequently. We provide weekly OS and runtime updates, which can be applied automatically via unattended mode or through the Azure CLI for more control and comprehensive updates.
+- [Upgrade](/azure/architecture/operator-guides/aks/aks-upgrade-practices) AKS worker nodes frequently. Azure releases weekly OS and runtime updates. Apply these updates automatically through unattended mode or manually through the Azure CLI for greater control.
 
-#### Best practice – Use Azure Policy to secure and govern your AKS clusters
+#### Best practice: Use Azure Policy to secure and govern your AKS clusters
 
-- After installing the [Azure Policy Add-on for AKS](/azure/aks/use-azure-policy), you can apply individual policy definitions or groups of policy definitions called initiatives (also called policy sets) to your cluster.
+- After you install the [Azure Policy add-on for AKS](/azure/aks/use-azure-policy), you can apply individual policy definitions or groups of policy definitions called initiatives or policy sets to your cluster.
 
-- Use [Built-in Azure policies](/azure/aks/policy-reference) for common scenarios like preventing privileged containers from running or only approving allowlisted external IPs. You can also create custom policies for specific use cases.
+- Use [built-in Azure policies](/azure/aks/policy-reference) for common scenarios like preventing privileged containers from running or restricting external IP addresses to an allow list. You can also create custom policies for specific use cases.
 
-- Apply policy definitions to your cluster and verify those assignments are being enforced.
+- Apply policy definitions to your cluster and verify that Azure Policy enforces those assignments.
 
 - Use Gatekeeper to configure an admission controller that allows or denies deployments based on rules specified. Azure Policy extends Gatekeeper.
 
 - Secure traffic between workload pods by using network policies in AKS.
 
-  - Use [Azure CNI Powered by Cilium](/azure/aks/azure-cni-powered-by-cilium) as the network policy engine. Cilium uses an eBPF-based dataplane and supports Kubernetes-native policies, Layer 7 policy, and FQDN filtering.
+  - Use [Azure CNI Powered by Cilium](/azure/aks/azure-cni-powered-by-cilium) as the network policy engine. Cilium uses an eBPF-based dataplane and supports Kubernetes-native policies, layer-7 policy, and FQDN filtering.
 
-#### Best practice – Use Azure Monitor for Continuous monitoring and alerting
+#### Best practice: Use Azure Monitor for continuous monitoring and alerting
 
 - Use [Azure Monitor](/azure/azure-monitor/containers/kubernetes-monitoring-enable) to collect logs and metrics from AKS. Collect Prometheus metrics via [Azure Monitor managed service for Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview), query container and platform logs in [Log Analytics](/azure/azure-monitor/logs/log-analytics-overview), and visualize cluster health through [Azure Managed Grafana](/azure/managed-grafana/overview) dashboards.
 
-  - Continuous monitoring with Azure Monitor extends to release pipelines to gate or rollback releases based on monitoring data. Azure Monitor also ingests security logs and can alert on suspicious activity.
+  - Azure Monitor extends continuous monitoring to release pipelines. Use monitoring data to approve or roll back releases. Azure Monitor also ingests security logs and alerts on suspicious activity.
 
   - Onboard your AKS instances to Azure Monitor and configure diagnostic settings for your cluster.
 
-    - See [Azure security baseline for Azure Kubernetes Service](/security/benchmark/azure/baselines/aks-security-baseline).
+    - For more information, see [Azure security baseline for AKS](/security/benchmark/azure/baselines/aks-security-baseline).
 
-#### Best practice – Use Defender for Cloud for active threat monitoring
+#### Best practice: Use Defender for Cloud for active threat monitoring
 
-- Defender for Cloud provides active threat monitoring on the AKS at the node level (VM threats) and for internals.
+- Defender for Cloud provides active threat monitoring for AKS at the node level (VM threats) and cluster workloads.
 
-- Defender for DevOps should be used for comprehensive visibility and provides security and operator teams with a centralized dashboard for all your CI/CD pipelines. This functionality is especially useful if you're using multi-pipeline platforms like Azure DevOps and GitHub or are running pipelines across public clouds.
+- Use Defender for DevOps to gain comprehensive visibility across all CI/CD pipelines. It provides security and operator teams with a centralized dashboard. This functionality is especially useful when you use multipipeline platforms like Azure DevOps and GitHub or run pipelines across public clouds.
 
-- Defender for Key Vault can be used to detect unusual, suspicious attempts to access key vault accounts and can alert administrators based on configuration.
+- Defender for Key Vault detects unusual and suspicious attempts to access key vault accounts and can send alerts to administrators based on configuration.
 
-- Defender for Containers can alert on vulnerabilities found within your container images stored on Container Registry.
+- Defender for Containers can alert on vulnerabilities found within your container images stored in Container Registry.
 
-#### Best Practice – Enable centralized log monitoring and use SIEM products to monitor for real time security threats
+#### Best practice: Enable centralized log monitoring and use SIEM products to monitor for real-time security threats
 
 - Connect AKS diagnostics logs to Microsoft Sentinel for centralized security monitoring based on patterns and rules. Microsoft Sentinel enables this access by way of [data connectors](/azure/sentinel/data-connectors-reference#azure-kubernetes-service-aks).
 
-#### Best Practice – Enable audit logging to monitor activity on your production clusters
+#### Best practice: Enable audit logging to monitor activity on your production clusters
 
 - Use Activity logs to monitor actions on AKS resources to view all activity and their status. Determine what operations were performed on the resources and by whom.
 
