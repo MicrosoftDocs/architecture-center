@@ -3,7 +3,7 @@ title: Choose a Kubernetes at the Edge Compute Option
 description: Learn about trade-offs and considerations for various Kubernetes options available for extending compute on the edge.
 author: prabhkaur1977
 ms.author: prkau
-ms.date: 06/07/2024
+ms.date: 04/10/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
@@ -36,7 +36,8 @@ This article helps you identify which option best fits your scenario and the env
 |---------------------------------|----------------------|---------------------------|-----------------|----------------|-------------------------------------------------------------------------------------------------------------------------------------------|
 | **Bare-metal Kubernetes**       | High\*\*             | Difficult\*\*             | High\*\*        | Yes            | A ground-up configuration on any available infrastructure at location with the option to use Azure Arc for added Azure capabilities |
 | **Kubernetes on Azure Stack Edge Pro** | Low                  | Easy                      | Low             | Linux only     | Kubernetes deployed on Azure Stack Edge appliance deployed at location                                                                   |
-| **Azure Kubernetes Service (AKS) hybrid**                  | Low                  | Easy                      | Medium          | Yes            | AKS deployed on Azure Local or Windows Server 2019                                                                                   |
+| **Azure Kubernetes Service (AKS) hybrid**                  | Low                  | Easy                      | Medium          | Yes            | AKS deployed on Azure Local                                                                                   |
+| **AKS Edge Essentials**         | Low                  | Easy                      | Medium          | Yes            | Lightweight Kubernetes (K8s/K3s) on PC-class or "light" edge hardware with Azure Arc management |
 
 \*Other managed edge platforms, such as OpenShift and Tanzu, aren't in scope for this document.
 
@@ -112,7 +113,7 @@ This approach is ideal if you have existing (Linux) IoT workloads or you're upgr
 
 - In addition to Kubernetes, Azure Stack Edge also comes with the IoT runtime, which means that workloads might also be deployed to your Azure Stack Edge clusters via Azure IoT Edge.
 
-- Support for two node clusters isn't available. Therefore, this option isn't a highly available solution.
+- Azure Stack Edge Pro GPU 2-node devices now support 2-node HA Kubernetes clusters (master failover).
 
 ### Considerations
 
@@ -130,11 +131,13 @@ Flexibility:
 
 ## AKS hybrid
 
-AKS hybrid uses predefined settings and configurations to deploy one or more Kubernetes clusters. You can deploy these clusters by using Windows Admin Center or PowerShell modules on a multiple-node cluster that runs Windows Server.
+AKS hybrid uses predefined settings and configurations to deploy one or more Kubernetes clusters. AKS on Azure Local (23H2+) now uses Azure CLI and Azure portal-based provisioning via Azure Arc.
 
 ### Scenario
 
 This approach is ideal if you want a simplified and streamlined way to get a Microsoft-supported cluster on compatible devices, such as Azure Local or Windows Server. Operations and configuration complexity are reduced at the expense of flexibility when compared to the bare-metal Kubernetes option.
+
+Azure Local also extends Azure governance into sovereign environments, enabling Kubernetes-based applications to run within Government, Defense, or regulated industry data boundaries while maintaining Azure-aligned policy and lifecycle control. For more information, see [Azure Local overview](/azure/azure-local/).
 
 ### Considerations
 
@@ -150,13 +153,44 @@ Flexibility:
 
 - The cluster configuration itself is set, but Admin permissions are granted. The underlying infrastructure must either be Azure Local or Windows Server 2019. This option is more flexible than Kubernetes on Azure Stack Edge and less flexible than bare-metal Kubernetes.
 
+## AKS Edge Essentials
+
+[AKS Edge Essentials](/azure/aks/aksarc/aks-edge-overview) is an on-premises Kubernetes implementation of Azure Kubernetes Service (AKS) designed for lightweight, PC-class, or constrained edge hardware. It includes a Microsoft-supported Kubernetes platform with a small footprint and simple installation experience, making it well suited for IoT, retail, and industrial edge scenarios.
+
+AKS Edge Essentials supports both a CNCF-conformant K8s distribution and a lightweight K3s distribution. Each machine in a cluster can run one Linux VM, one Windows VM, or both. Unlike AKS hybrid, AKS Edge Essentials uses static, predefined VM configurations and doesn't support dynamic VM creation or cluster lifecycle management, which keeps the resource overhead low.
+
+### Scenario
+
+This approach is ideal if you need to run Kubernetes on resource-constrained devices such as industrial PCs, point-of-sale terminals, or IoT gateways. Use this option when your hardware doesn't meet the requirements for server-class solutions like AKS hybrid.
+
+- AKS Edge Essentials has minimal compute and memory requirements (4 GB RAM and 2 vCPUs), making it suitable for PC-class or "light" edge hardware.
+- It supports both Linux and Windows containers running side-by-side with native Windows applications, enabling interoperability without introducing a separate Linux management plane.
+- Clusters can be connected to [Azure Arc](/azure/azure-arc/) for centralized management from the Azure portal, including [Azure Policy](/azure/governance/policy/), [Azure Monitor](/azure/azure-monitor/), and [GitOps](https://learn.microsoft.com/azure/azure-arc/kubernetes/conceptual-gitops-flux2)-based application deployments.
+- Installation and cluster creation are performed by using PowerShell cmdlets, supporting both single-machine and multi-machine cluster topologies.
+- The Microsoft-managed Linux VM image is based on CBL-Mariner and receives monthly security updates. Kubernetes distribution updates are also managed by Microsoft.
+
+### Considerations
+
+Operational cost:
+
+- Microsoft manages the Kubernetes distribution and VM images, which minimizes the operational burden. Cluster updates and security patches are delivered automatically.
+
+Ease of configuration:
+
+- PowerShell-based installation and preconfigured VM images simplify setup compared to bare-metal Kubernetes. The static configuration model reduces the complexity of cluster management.
+
+Flexibility:
+
+- The static VM allocation model limits dynamic scaling. Customization is possible but constrained compared to bare-metal Kubernetes. The underlying infrastructure must be a Windows 10/11 or Windows Server device. This option is more flexible than Kubernetes on Azure Stack Edge and comparable to AKS hybrid for most edge scenarios.
+
 ## Contributors
 
 *Microsoft maintains this article. The following contributors wrote this article.*
 
-Principal author:
+Principal authors:
 
- - [Prabhjot Kaur](https://www.linkedin.com/in/kaur-profile/) | Principal Cloud Solution Architect
+ - [Prabhjot Kaur](https://www.linkedin.com/in/prabhkaur1/) | Senior Solution Engineer
+ - [Avneesh Kaushik](http://www.linkedin.com/in/avneeshk/) | Principal Partner Solution Architect
  
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
