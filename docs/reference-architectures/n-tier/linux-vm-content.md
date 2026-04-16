@@ -9,7 +9,7 @@ Provisioning a virtual machine (VM) in Azure requires additional components besi
 ### Workflow
 This example shows a basic deployment using a single virtual machine with the required components. The virtual machine can run workloads, is manageable, and can communicate with the public internet. It is designed to avoid direct exposure to external threats.
 
-- Any workloads running on the virtual machine aren't exposed externally, and are only accessible from within the same, or a peered, virtual network, such as in a hub and spoke configuration
+- Any workloads running on the virtual machine aren't exposed externally, and are only accessible from within the same, or a peered, virtual network, such as in a hub and spoke configuration.
 - Management access to the virtual machine is shown using Azure Bastion via SSH, and is not directly permitted from the public internet
 - Outbound external internet access is provided through the use of the NAT Gateway and its associated Public IP address
 
