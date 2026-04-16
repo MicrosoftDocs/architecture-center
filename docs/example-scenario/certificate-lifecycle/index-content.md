@@ -26,7 +26,7 @@ To monitor the process and status of expired and expiring certificates, Log Anal
 
 This scenario assumes that an existing public key infrastructure (PKI) is already in place and consists of a Microsoft Enterprise CA joined to an Active Directory domain. The PKI, the Active Directory domain, and the servers that require certificate renewal can reside on Azure or on‑premises environments.
 
-You don't need to join the virtual machines (VMs) that have certificates that monitor renewal to Active Directory or to Microsoft Entra ID. You only need to join the CA and the hybrid worker, if it's located on a different VM than the CA, to Active Directory.
+You don't need to join the virtual machines (VMs) that host certificates to monitor for renewal to Active Directory or to Microsoft Entra ID. You only need to join the CA and the hybrid worker, if it's located on a different VM than the CA, to Active Directory.
 
 The following sections provide details about the automatic renewal process.
 
@@ -35,7 +35,7 @@ The following sections provide details about the automatic renewal process.
 The following diagram shows the automatic workflow for certificate renewal within the Azure ecosystem.
 
 :::image type="complex" source="./media/certificate-life-cycle-workflow.svg" alt-text="Diagram of the automatic workflow for certificate renewal within the Azure ecosystem." border="false" lightbox="./media/certificate-life-cycle-workflow.svg":::
-   The diagram uses arrows and numbers to show the automatic workflow for certificate renewal within the Azure ecosystem. Icons for Key Vault, a server, a CA, Event Grid, a storage account, and an Automation account are at the top of the diagram. Arrows are labeled 1 through 9. Number 1 goes from a certificate in the CA to Key Vault. Number 2 goes from a certificate in Key Vault to the server. Number 3 goes from a certificate in Key Vault to Event Grid. Number 4 goes from Event Grid to both the storage account and the webhook in the Automation account. Number 5 is a double-sided arrow that goes to and from the certificate in the storage account and the Automation account. Number 6 is a double-sided arrow that goes to and from the certificate in the CA and the Automation account. Number 7 goes from the certificate in the Automation account to the server. Number 9 goes from the certificate in Key Vault to the server.
+   The diagram uses arrows and numbers to show the automatic workflow for certificate renewal within the Azure ecosystem. Icons for Key Vault, a user, a server with a Key Vault extension, a CA with a Key Vault extension, an Event Grid system topic, a storage account, and an Automation account are at the top of the diagram. Arrows are labeled 1 through 9. Arrow 1 points from a certificate in the CA to Key Vault. Arrow 2 points from a certificate in Key Vault to the server. Arrow 3 points from a certificate in Key Vault to Event Grid. Arrow 4 points from Event Grid to both the storage account and the webhook in the Automation account. Arrow 5 is a bidirectional arrow that points to and from the certificate in the storage account and the Automation account. Arrow 6 is a bidirectional arrow that points to and from the certificate in the CA and the Automation account. Arrow 7 points from the certificate in the Automation account to Key Vault. Arrow 8 points from a message icon in the Automation account to a user icon at the server. Arrow 9 points from the certificate in Key Vault to the server.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/certificate-life-cycle-workflow.vsdx) of this workflow.*
@@ -223,7 +223,7 @@ Security provides assurances against deliberate attacks and the misuse of your v
 Key Vault securely stores certificates as encrypted secrets protected by Azure role-based access control (RBAC).
 
 > [!TIP]
-> In environments that have strict compliance requirements, such as NIS2 or public-sector regulations, consider evaluating [Azure Key Vault Managed HSM](/azure/key-vault/managed-hsm/overview) for key protection while keeping the same renewal workflow.
+> In environments that have strict compliance requirements, such as NIS2 or public-sector regulations, consider evaluating [Azure Key Vault Premium](/azure/key-vault/general/overview#premium-tier) for HSM-backed key protection if you need to keep the certificate renewal workflow that this article describes.
 
 Throughout the certificate renewal process, the following components use identities:
 
