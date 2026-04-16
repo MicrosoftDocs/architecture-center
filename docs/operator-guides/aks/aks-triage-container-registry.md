@@ -1,9 +1,9 @@
 ---
 title: AKS triage—Container registry connectivity
 description: Learn about verifying the connection to a container registry. This step is part of the triage practice for Azure Kubernetes Service (AKS) clusters.
-author: francisnazareth
-ms.author: fnazaret
-ms.date: 01/20/2025
+author: samcogan
+ms.author: samcogan
+ms.date: 04/16/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ms.custom:
@@ -19,7 +19,7 @@ To successfully deploy containerized applications in your Azure Kubernetes Servi
 
 ## Identify symptoms
 
-When the kubelet that runs on an agent node creates the containers for a pod, one or more container might end up in the [waiting state](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-state-waiting) because of the `ImagePullBackOff` error. [ImagePullBackoff](https://kubernetes.io/docs/concepts/containers/images/#imagepullbackoff) is a common error message in Kubernetes that indicates a failure to pull the required container image from a public or private registry. Various factors can cause this error, including network connectivity problems, an incorrect image name or tag, insufficient permissions, or missing credentials.
+When the kubelet that runs on an agent node creates the containers for a pod, one or more container might end up in the [waiting state](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-state-waiting) because of an `ErrImagePull` or `ImagePullBackOff` error. [ImagePullBackoff](https://kubernetes.io/docs/concepts/containers/images/#imagepullbackoff) is a common error message in Kubernetes that indicates a failure to pull the required container image from a public or private registry. `ErrImagePull` often precedes `ImagePullBackOff` and indicates the initial pull attempt failed. Various factors can cause these errors, including network connectivity problems, an incorrect image name or tag, insufficient permissions, or missing credentials.
 
 The `BackOff` part of the status signifies that Kubernetes continuously attempts to pull the image with an increasing delay between each subsequent attempt. The delay gradually increases until it reaches a predetermined limit, which is typically set to 300 seconds (5 minutes) in Kubernetes.
 
@@ -44,6 +44,22 @@ AZURE_CONTAINER_REGISTRY_ID=$(az acr show --name <container-registry-name> --que
 az role assignment create --assignee $ASSIGNEE --scope $AZURE_CONTAINER_REGISTRY_ID --role acrpull
 ```
 
+### ABAC-enabled registries
+
+If your Azure Container Registry uses [Azure attribute-based access control (ABAC) repository permissions](/azure/container-registry/container-registry-rbac-abac-repository-permissions), the classic `AcrPull` role is not honored. The `az aks --attach-acr` integration is also not supported for ABAC-enabled registries. Instead, you must manually assign the `Container Registry Repository Reader` role to the kubelet managed identity. For more information, see [Azure ABAC repository permissions](/azure/container-registry/container-registry-rbac-abac-repository-permissions).
+
+If your registry was recently migrated to ABAC-enabled mode and image pulls begin to fail, verify that the kubelet identity has been assigned an ABAC-compatible role.
+
+### Validate connectivity
+
+Run the following command to validate that your AKS cluster can reach the container registry:
+
+```azurecli-interactive
+az aks check-acr --name $NAME --resource-group $RESOURCE_GROUP --acr <container-registry-name>.azurecr.io
+```
+
+This command checks DNS resolution, network routing, and authentication between the AKS cluster and the registry. Use it as a first diagnostic step when you suspect connectivity or permission problems.
+
 ## Troubleshoot Container Registry problems
 
 The following sections provide guides that you can refer to if you encounter networking, sign-in, or performance problems with an Azure Container Registry.
@@ -61,18 +77,18 @@ If you encounter problems that are related to accessing an Azure Container Regis
 
 If you encounter authentication and authorization problems when you sign in to an Azure Container Registry, consider the following solutions:
 
-- [Check the Docker configuration in your environment](/azure/container-registry/container-registry-troubleshoot-login#check-docker-configuration).
-- [Specify the correct registry name](/azure/container-registry/container-registry-troubleshoot-login#specify-correct-registry-name).
-- [Verify the credentials to access the registry](/azure/container-registry/container-registry-troubleshoot-login#confirm-credentials-to-access-registry).
+- [Check the Docker configuration in your environment](/azure/container-registry/container-registry-troubleshoot-login-authn-authz#check-docker-configuration).
+- [Specify the correct registry name](/azure/container-registry/container-registry-troubleshoot-login-authn-authz#specify-correct-registry-name).
+- [Verify the credentials to access the registry](/azure/container-registry/container-registry-troubleshoot-login-authn-authz#confirm-credentials-to-access-registry).
 - [Configure the public access to the registry](/azure/container-registry/container-registry-troubleshoot-access#configure-public-access-to-registry).
-- [Troubleshoot registry sign-in problems](/azure/container-registry/container-registry-troubleshoot-login).
-- [Check that credentials aren't expired](/azure/container-registry/container-registry-troubleshoot-login#check-that-credentials-arent-expired).
+- [Troubleshoot registry sign-in problems](/azure/container-registry/container-registry-troubleshoot-login-authn-authz).
+- [Check that credentials aren't expired](/azure/container-registry/container-registry-troubleshoot-login-authn-authz#check-that-credentials-arent-expired).
 
 ### Troubleshoot performance problems
 
 If you encounter performance issues with an Azure Container Registry, consider the following solutions:
 
-- [Enable the artifact cache](/azure/container-registry/tutorial-artifact-cache).
+- [Optimize image pulls with artifact cache](/azure/container-registry/artifact-cache-overview).
 - [Check the network connection speed](/azure/container-registry/container-registry-troubleshoot-performance#check-expected-network-speed).
 - [Inspect client hardware that might affect image layer compression or extraction speed](/azure/container-registry/container-registry-troubleshoot-performance#check-client-hardware).
 - [Review configured limits in the registry service tier or environment](/azure/container-registry/container-registry-troubleshoot-performance#review-configured-limits).
@@ -93,6 +109,10 @@ Principal authors:
 
 - [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal Customer Engineer
 - [Francis Simy Nazareth](https://www.linkedin.com/in/francis-simy-nazereth-971440a) | Senior Technical Specialist
+
+Other Contributors:
+
+- [Sam Cogan](https://www.linkedin.com/in/samcogan82/) | Senior Cloud Solution Architect
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
