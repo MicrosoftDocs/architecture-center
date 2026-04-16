@@ -165,7 +165,7 @@ This approach is ideal if you need to run Kubernetes on resource-constrained dev
 
 - AKS Edge Essentials has minimal compute and memory requirements (4 GB RAM and 2 vCPUs), making it suitable for PC-class or "light" edge hardware.
 - It supports both Linux and Windows containers running side-by-side with native Windows applications, enabling interoperability without introducing a separate Linux management plane.
-- Clusters can be connected to [Azure Arc](/azure/azure-arc/) for centralized management from the Azure portal, including [Azure Policy](/azure/governance/policy/), [Azure Monitor](/azure/azure-monitor/), and [GitOps](https://learn.microsoft.com/azure/azure-arc/kubernetes/conceptual-gitops-flux2)-based application deployments.
+- Clusters can be connected to [Azure Arc](/azure/azure-arc/) for centralized management from the Azure portal, including [Azure Policy](/azure/governance/policy/), [Azure Monitor](/azure/azure-monitor/), and [GitOps](/azure/azure-arc/kubernetes/conceptual-gitops-flux2)-based application deployments.
 - Installation and cluster creation are performed by using PowerShell cmdlets, supporting both single-machine and multi-machine cluster topologies.
 - The Microsoft-managed Linux VM image is based on CBL-Mariner and receives monthly security updates. Kubernetes distribution updates are also managed by Microsoft.
 
@@ -190,7 +190,7 @@ Flexibility:
 Principal authors:
 
  - [Prabhjot Kaur](https://www.linkedin.com/in/prabhkaur1/) | Senior Solution Engineer
- - [Avneesh Kaushik](http://www.linkedin.com/in/avneeshk/) | Principal Partner Solution Architect
+ - [Avneesh Kaushik](https://www.linkedin.com/in/avneeshk/) | Principal Partner Solution Architect
  
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
