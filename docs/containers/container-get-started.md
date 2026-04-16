@@ -9,7 +9,7 @@ ms.subservice: architecture-guide
 ai-usage: ai-assisted
 ---
 
-# Container architecture design
+# Get started with container architecture design
 
 Containers have become the standard for packaging and deploying modern applications. Azure provides a comprehensive set of container services that range from fully managed Kubernetes clusters to serverless container platforms. Whether you're modernizing existing applications, building cloud-native microservices, or running stateful workloads, Azure container services offer the flexibility, portability, and scalability your organization needs.
 

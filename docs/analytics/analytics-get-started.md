@@ -10,7 +10,7 @@ ai-usage: ai-assisted
 ms.custom: arb-data
 ---
 
-# Analytics architecture design
+# Get started with analytics architecture design
 
 With the exponential growth in data, organizations rely on the limitless compute, storage, and analytical power of Azure to scale, stream, predict, and see their data. Analytics solutions turn volumes of data into useful business intelligence (BI), such as reports and visualizations, and inventive artificial intelligence (AI), such as forecasts based on machine learning.
 

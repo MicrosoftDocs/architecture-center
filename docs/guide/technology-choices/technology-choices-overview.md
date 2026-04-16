@@ -137,6 +137,15 @@ Internet of Things (IoT) solutions use a combination of technologies to connect 
 | [Learn about Azure IoT services and technologies](/azure/iot/iot-services-and-technologies) | Learn about Azure IoT services and technologies, including Azure IoT Hub, Azure IoT Operations, Azure IoT Edge, and Azure IoT Central. Choose between cloud-based and edge-based solution types. |
 | [Compare IoT Hub and Event Hubs](/azure/iot-hub/iot-hub-compare-event-hubs) | Review a comparison between Azure IoT Hub and Event Hubs that highlights functional differences and use cases. The comparison includes supported protocols, device management, monitoring, and file uploads. |
 
+## Map services from other cloud providers to Azure
+
+If you're [migrating](/azure/migration) from another cloud provider or designing a multicloud solution, these articles map Amazon Web Services (AWS) and Google Cloud services to functionally similar Azure services.
+
+| Article | Summary |
+| :------ | :------ |
+| [Azure for AWS professionals](../../aws-professional/index.md) | Map AWS services to their Azure equivalents across category-specific articles that cover compute, storage, databases, networking, and more. |
+| [Azure for Google Cloud professionals](../../gcp-professional/index.md) | Look up Azure equivalents for Google Cloud services organized by technology category. |
+
 ## Next step
 
 > [!div class="nextstepaction"]

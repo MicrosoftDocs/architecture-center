@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: claytonsiemens77
-ms.date: 04/06/2026
+ms.date: 04/13/2026
 ms.topic: whats-new
 ms.author: pnp
 ---
@@ -22,6 +22,7 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
+- [Cross-tenant Secure Access to Apps by Using Private Endpoints](./networking/guide/cross-tenant-secure-access-private-endpoints.md)
 - [Competing Consumers Pattern](./patterns/competing-consumers.md)
 - [Sharding Pattern](./patterns/sharding.md)
 - [Compute Resource Consolidation Pattern](./patterns/compute-resource-consolidation.md)
@@ -30,8 +31,16 @@ The following new and updated articles have recently been published in the Azure
 
 ### Updated articles
 
+- [Deploy Highly Available NVAs](./networking/guide/network-virtual-appliance-high-availability.md) ([#11e7e0144a](https://github.com/MicrosoftDocs/architecture-center/commit/11e7e0144a))
 - [Multitier Web Application Built for High Availability and Disaster Recovery](./example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml) ([#dbd7c4c7af](https://github.com/MicrosoftDocs/architecture-center/commit/dbd7c4c7af))
 - [Real-Time Analytics with Azure Service Bus and Microsoft Fabric](./solution-ideas/articles/analytics-service-bus.yml) ([#756841f2f9](https://github.com/MicrosoftDocs/architecture-center/commit/756841f2f9))
+- [Rehost Adabas and Natural Applications on Azure](./example-scenario/mainframe/rehost-adabas-software-ag.yml) ([#cd88e4fdcd](https://github.com/MicrosoftDocs/architecture-center/commit/cd88e4fdcd))
+- [Google Cloud to Azure Services Comparison](./gcp-professional/services.md) ([#e2b4e26415](https://github.com/MicrosoftDocs/architecture-center/commit/e2b4e26415))
+- [Migrate Mainframe Data Tier to Azure with mLogica LIBER*IRIS](./example-scenario/mainframe/mainframe-data-replication-azure-data-platform.yml) ([#6103284d22](https://github.com/MicrosoftDocs/architecture-center/commit/6103284d22))
+- [Baseline Microsoft Foundry Chat Reference Architecture](./ai-ml/architecture/baseline-microsoft-foundry-chat.yml) ([#50f44be345](https://github.com/MicrosoftDocs/architecture-center/commit/50f44be345))
+- [Basic Microsoft Foundry Chat Reference Architecture](./ai-ml/architecture/basic-microsoft-foundry-chat.yml) ([#50f44be345](https://github.com/MicrosoftDocs/architecture-center/commit/50f44be345))
+- [AKS for Amazon EKS Professionals](./aws-professional/eks-to-aks/index.md) ([#2714794667](https://github.com/MicrosoftDocs/architecture-center/commit/2714794667))
+- [Migrate from Amazon Elastic Kubernetes Service to Azure Kubernetes Service](./aws-professional/eks-to-aks/migrate.md) ([#2714794667](https://github.com/MicrosoftDocs/architecture-center/commit/2714794667))
 - [Storage Options for a Kubernetes Cluster](./aws-professional/eks-to-aks/storage.md) ([#3e8aa15ecf](https://github.com/MicrosoftDocs/architecture-center/commit/3e8aa15ecf))
 - [Create a Modern Analytics Architecture by Using Azure Databricks](./solution-ideas/articles/azure-databricks-modern-analytics-architecture.yml) ([#184027cbb1](https://github.com/MicrosoftDocs/architecture-center/commit/184027cbb1))
 

@@ -2,12 +2,20 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2026-04-06T17:44:12.203Z</updated>
+    <updated>2026-04-13T18:01:31.754Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Cross-tenant Secure Access to Apps by Using Private Endpoints]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/networking/guide/cross-tenant-secure-access-private-endpoints</id>
+        <link href="https://learn.microsoft.com/azure/architecture/networking/guide/cross-tenant-secure-access-private-endpoints"/>
+        <updated>2026-04-06T20:52:08.000Z</updated>
+        <summary type="html"><![CDATA[Restrict inbound traffic to a web app or function app. Use private endpoints in Azure to give consumer tenants secure access to provider tenant apps.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Competing Consumers Pattern]]></title>
         <id>https://learn.microsoft.com/azure/architecture/patterns/competing-consumers</id>
@@ -49,6 +57,14 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
+        <title type="html"><![CDATA[Deploy Highly Available NVAs]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/networking/guide/network-virtual-appliance-high-availability</id>
+        <link href="https://learn.microsoft.com/azure/architecture/networking/guide/network-virtual-appliance-high-availability"/>
+        <updated>2026-04-06T20:47:37.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to deploy network virtual appliances in high availability architectures for ingress and egress traffic in Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Multitier Web Application Built for High Availability and Disaster Recovery]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery</id>
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery"/>
@@ -62,6 +78,62 @@
         <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/analytics-service-bus"/>
         <updated>2026-04-02T16:10:14.000Z</updated>
         <summary type="html"><![CDATA[Learn how to use Microsoft Fabric with Azure Service Bus for near real-time solutions at enterprise scale in production environments.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Rehost Adabas and Natural Applications on Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/rehost-adabas-software-ag</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/rehost-adabas-software-ag"/>
+        <updated>2026-04-10T14:39:00.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to migrate a Software AG Adabas and Natural mainframe system to Azure by using a rehost approach with minimal changes to your existing workload.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Google Cloud to Azure Services Comparison]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/gcp-professional/services</id>
+        <link href="https://learn.microsoft.com/azure/architecture/gcp-professional/services"/>
+        <updated>2026-04-09T15:16:57.000Z</updated>
+        <summary type="html"><![CDATA[Compare Google Cloud and Microsoft Azure services. Not every Google Cloud service or Azure service is listed, and not every matched service has exact feature parity.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Migrate Mainframe Data Tier to Azure with mLogica LIBER*IRIS]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/mainframe-data-replication-azure-data-platform</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/mainframe-data-replication-azure-data-platform"/>
+        <updated>2026-04-09T14:58:27.000Z</updated>
+        <summary type="html"><![CDATA[Learn how mLogica LIBER*IRIS provides a proven solution for bulk data migration from a mainframe to Azure for enterprise workloads.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Baseline Microsoft Foundry Chat Reference Architecture]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-chat</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-chat"/>
+        <updated>2026-04-09T14:48:26.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to build network-secured, highly available, and zone-redundant enterprise chat applications by using Microsoft Foundry tools and Azure App Service.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Basic Microsoft Foundry Chat Reference Architecture]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/basic-microsoft-foundry-chat</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/basic-microsoft-foundry-chat"/>
+        <updated>2026-04-09T14:48:26.000Z</updated>
+        <summary type="html"><![CDATA[Establish foundational knowledge for how to build and deploy enterprise chat applications by using Microsoft Foundry and Azure App Service.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[AKS for Amazon EKS Professionals]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/aws-professional/eks-to-aks</id>
+        <link href="https://learn.microsoft.com/azure/architecture/aws-professional/eks-to-aks"/>
+        <updated>2026-04-08T15:02:22.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the AKS managed solution, configurations, best practices, and similarities and differences compared to Amazon EKS.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Migrate from Amazon Elastic Kubernetes Service to Azure Kubernetes Service]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/aws-professional/eks-to-aks/migrate</id>
+        <link href="https://learn.microsoft.com/azure/architecture/aws-professional/eks-to-aks/migrate"/>
+        <updated>2026-04-08T15:02:22.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to migrate stateless and stateful workloads from Amazon Elastic Kubernetes Service (EKS) to Azure Kubernetes Service (AKS).]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>

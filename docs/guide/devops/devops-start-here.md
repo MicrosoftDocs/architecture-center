@@ -6,7 +6,6 @@ ms.author: pnp
 ms.date: 07/25/2022
 ms.topic: concept-article
 ms.subservice: architecture-guide
-ms.custom: arb-devops
 ---
 
 # DevOps architecture design

@@ -12,7 +12,6 @@ metadata:
     - devops
     - hybrid
   ms.custom:
-    - arb-devops
     - e2e-hybrid
     - kr2b-contr-experiment
 name: DevSecOps on Azure Kubernetes Service (AKS)

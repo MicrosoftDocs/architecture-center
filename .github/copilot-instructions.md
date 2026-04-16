@@ -21,6 +21,7 @@ The data in the repo helps professional cloud architects and software engineers 
 - This data avoids risky decisions without proper warnings.
 - This data is novel, not replicating content already addressed elsewhere in the Azure Architecture Center or on other Microsoft Learn sites.
 - This data is truthful, even while being opinionated.
+- This data does not showcase deprecated technology or solution approaches. It focuses on what durable greenfield success looks like. Deprecation notices are never a valid workaround.
 
 ## Repository structure
 
@@ -161,8 +162,8 @@ thumbnailUrl: /azure/architecture/browse/thumbs/article-name.png
 
 ## Multi-agent usage
 
-- Invoke the GitHub Copilot for Azure `#azure_query_learn` agent tool to query existing Microsoft Learn documentation as needed.
-- Invoke the Web Search for Copilot `#websearch` agent tool to query general knowledge from the Internet as needed.
+- Invoke the Learn MCP tool to query existing Microsoft Learn documentation as needed.
+- Invoke your Web Search tool to query general knowledge from the Internet as needed.
 
 ## Sourcing policy
 
@@ -185,7 +186,7 @@ The following items must be addressed during a freshness update (when explicitly
 - Update the content to include the best guidance possible. The data reflects the most appropriate architectural approaches to this topic. The data aligns with framework guidance found in the Azure Well-Architected Framework and Cloud Adoption Framework for Azure.
 
   This task is the most critical task in the freshness pass list. Bring your subject matter expertise so that the article provides the best customer experience. Ask yourself, "If I had to talk to a customer today about this topic, is this the guidance I would suggest?" If not, then you must update the article accordingly.
-
+- Apply the existing Repository facts rule about deprecated technologies and solutions.
 - The data discloses or identifies previously undisclosed solution shortcomings.
 - The data aligns with the template for the content type.
 - The data is edited for quality.
