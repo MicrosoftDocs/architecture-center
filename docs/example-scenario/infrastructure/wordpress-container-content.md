@@ -19,7 +19,7 @@ The following dataflow corresponds to the previous diagram:
 
 1. Azure Front Door Premium connects to the AKS internal load balancer origin through a [Private Link Service](/azure/private-link/private-link-service-overview) that exposes the internal load balancer. The internal load balancer is a component of AKS. Azure Front Door retrieves any data that it hasn't cached.
 1. The internal load balancer distributes ingress traffic to an ingress controller within AKS. You can use the [managed NGINX ingress controller with the application routing add-on](/azure/aks/app-routing) or [Application Gateway for Containers](/azure/application-gateway/for-containers/overview) as the ingress controller.
-1. Azure Key Vault stores secrets such as TLS certificates and their private keys.
+1. Azure Key Vault stores secrets such as database passwords, TLS certificates and their private keys.
 1. The WordPress application uses a private endpoint to access a Flexible Server instance of Azure Database for MySQL. The WordPress application retrieves dynamic information from this managed database service.
 1. All static content is hosted in Azure NetApp Files. The solution uses the [Trident](https://docs.netapp.com/us-en/trident/index.html) Container Storage Interface (CSI) driver with the Network File System (NFS) protocol.
 
@@ -101,7 +101,7 @@ Operational Excellence covers the operations processes that deploy an applicatio
 
 Consider the following recommendations when you deploy this solution:
 
-- Use [Azure Monitor Container insights](/azure/azure-monitor/containers/container-insights-overview) to monitor AKS cluster performance and health. Configure alerts for node and pod resource utilization so you can respond to issues before they affect users.
+- Enable [Kubernetes monitoring in Azure Monitor](/azure/azure-monitor/containers/kubernetes-monitoring-enable) for the AKS cluster, including Managed Prometheus metrics and container logging. Configure alerts for node and pod resource utilization so you can respond to issues before they affect users.
 - Store your Kubernetes manifests, Helm charts, and infrastructure-as-code templates in a version control system. Use a CI/CD pipeline to deploy changes to your AKS cluster to reduce manual errors and ensure repeatable deployments.
 - Use [AKS node image upgrades](/azure/aks/node-image-upgrade) and regular Kubernetes version upgrades to stay current with security patches and bug fixes.
 - Use [Azure Policy for AKS](/azure/aks/policy-reference) to enforce organizational standards across your clusters, such as requiring private registries or restricting privileged containers.

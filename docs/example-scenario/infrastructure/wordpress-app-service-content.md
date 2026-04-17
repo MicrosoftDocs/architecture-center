@@ -62,6 +62,7 @@ Reliability helps ensure that your application can meet the commitments that you
 
 Consider the following recommendations when you deploy this solution:
 
+- Configure [automated backups](/azure/mysql/flexible-server/concepts-backup-restore) for Azure Database for MySQL. Define a retention period that aligns with your recovery point objectives. Test your restoration process periodically to verify that backups are reliable.
 - App Service provides built-in load balancing and health checks. These features help you maintain availability when an App Service web app fails.
 - Azure Front Door can serve cached responses when the origin is temporarily unavailable. This capability provides a limited availability benefit but isn't a complete availability solution.
 - You can replicate Blob Storage to a paired region for data redundancy across multiple regions. For more information, see [Azure Storage redundancy](/azure/storage/common/storage-disaster-recovery-guidance).
@@ -78,8 +79,7 @@ Consider the following recommendations when you deploy this solution:
 - Don't allow outbound internet traffic to flow from the database tier.
 - Don't allow public access to private storage.
 - Keep WordPress core, themes, and plugins updated to their latest versions to address known security vulnerabilities. Uninstall any plugins and themes that you don't use.
-- Restrict access to the WordPress admin panel (`/wp-admin`) by using IP restrictions on App Service or by configuring Azure Front Door rules to limit access to known IP ranges. For more information, see [Azure App Service access restrictions](/azure/app-service/app-service-ip-restrictions).
-- Store secrets, such as database connection strings and API keys, in [Azure Key Vault](/azure/key-vault/general/overview). Use Key Vault references in App Service to retrieve secrets without storing them in application settings or code.
+- Restrict access to the WordPress admin panel (`/wp-admin`) by creating [Azure Web Application Firewall custom rules](/azure/web-application-firewall/afds/waf-front-door-custom-rules) on Azure Front Door. Use the `RequestUri` match condition to match `/wp-admin` paths, combined with an IP address condition to allow access only from known IP ranges. App Service access restrictions apply to the entire site, not to individual URL paths, so they aren't suitable for path-specific controls. For more information, see [Azure Web Application Firewall custom rules](/azure/web-application-firewall/afds/waf-front-door-custom-rules).
 
 For more information about WordPress security, see [General WordPress security and performance tips](../../guide/infrastructure/wordpress-overview.yml#general-wordpress-security-and-performance-tips) and [Azure security documentation][security].
 
@@ -90,8 +90,7 @@ Operational Excellence covers the operations processes that deploy an applicatio
 Consider the following recommendations when you deploy this solution:
 
 - Enable [Application Insights](/azure/azure-monitor/app/app-insights-overview) to monitor application performance, availability, and usage patterns. Use the monitoring data to identify and resolve issues before they affect users.
-- Configure [automated backups](/azure/mysql/flexible-server/concepts-backup-restore) for Azure Database for MySQL. Define a retention period that aligns with your recovery point objectives. Test your restoration process periodically to verify that backups are reliable.
-- Use [deployment slots](/azure/app-service/deploy-staging-slots) in App Service to stage updates before you swap them into production. Deployment slots help you validate changes and reduce downtime during deployments.
+- Use [deployment slots](/azure/app-service/deploy-staging-slots) in App Service to stage WordPress core upgrades. Deploy the new version to a staging slot and validate theme and plugin compatibility before you swap into production. Back up the Azure Database for MySQL instance before the swap because WordPress automatically applies schema migrations against the shared database when an administrator signs in after an upgrade.
 - Automate your infrastructure deployments by using Azure Resource Manager templates or Bicep. Infrastructure as code helps you maintain consistency across environments and makes it possible to rebuild environments reliably.
 - Set up [Azure Monitor alerts](/azure/azure-monitor/alerts/alerts-overview) for key metrics, such as App Service CPU utilization, database connection counts, and response times. Alerts help you respond to operational issues before they affect users.
 
