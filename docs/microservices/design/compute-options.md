@@ -22,7 +22,7 @@ The following Azure platforms support microservices workloads. They differ in ho
 
 [Azure Kubernetes Service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed Kubernetes service that provides direct access to Kubernetes APIs and the control plane. AKS provides node management, patching, and optional automatic upgrades. You configure the cluster, networking, and scaling policies.
 
-For microservices, AKS supports service meshes like [Istio](/azure/aks/istio-about) for traffic management and mutual TLS (mTLS), per-deployment scaling through Horizontal Pod Autoscaler and [KEDA](/azure/aks/keda-about), and Kubernetes-native deployment strategies like rolling updates and canary releases.
+For microservices, AKS supports service meshes like [Istio](/azure/aks/istio-about) for traffic management and mutual TLS (mTLS), per-deployment scaling through Horizontal Pod Autoscaler (HPA) and [Kubernetes Event-driven Autoscaling (KEDA)](/azure/aks/keda-about), and Kubernetes-native deployment strategies like rolling updates and canary releases.
 
 [AKS Automatic](/azure/aks/intro-aks-automatic) is a mode of AKS that preconfigures node management, scaling, security, and observability based on AKS well-architected recommendations, so teams get a production-ready cluster without per-capability configuration.
 
@@ -58,18 +58,18 @@ The following table compares how each platform supports the capabilities that ma
 
 | Capability | AKS | Container Apps | Functions | App Service |
 | :--------- | :-- | :------------- | :-------- | :---------- |
-| Service discovery | Kubernetes DNS, service mesh | [Built-in](/azure/container-apps/connect-apps), [Dapr](/azure/container-apps/dapr-overview) | None (app-level) | None (app-level) |
+| Service discovery | Kubernetes Domain Name System (DNS), service mesh | [Built-in](/azure/container-apps/connect-apps), [Dapr](/azure/container-apps/dapr-overview) | None (app-level) | None (app-level) |
 | Inter-service communication | Service mesh ([Istio](/azure/aks/istio-about)) | [Dapr](/azure/container-apps/dapr-overview), [environment-level](/azure/container-apps/networking) | None (app-level) | None (app-level) |
 | Pub/sub messaging | App-level (like Azure Service Bus, Azure Event Hubs) | [Dapr pub/sub](/azure/container-apps/dapr-overview) | [Bindings](/azure/azure-functions/functions-triggers-bindings) | App-level |
-| Independent scaling | Per-deployment (Horizontal Pod Autoscaler, [KEDA](/azure/aks/keda-about)) | Per-app ([KEDA](/azure/container-apps/scale-app)) | Per-function app ([per-function on Flex](/azure/azure-functions/flex-consumption-plan)) | Per-App Service plan |
-| Scale to zero | Partial. [User node pools only](/azure/aks/scale-cluster). | Yes | Yes (Consumption or Flex Consumption plans) | No |
+| Independent scaling | Per-deployment (HPA, [KEDA](/azure/aks/keda-about)) | Per-app ([KEDA](/azure/container-apps/scale-app)) | Per-function app ([per-function on Flex](/azure/azure-functions/flex-consumption-plan)) | Per-App Service plan |
+| Scale to zero | Partial ([user node pools only](/azure/aks/scale-cluster)) | Yes | Yes (Consumption or Flex Consumption plans) | No |
 | Cold start mitigation | [Minimum node count](/azure/aks/scale-cluster), minimum pod replicas | [Minimum replica count](/azure/container-apps/scale-app) | [Prewarmed or always-ready instances](/azure/azure-functions/functions-premium-plan#eliminate-cold-starts) (Premium or Flex Consumption) | Not applicable (Always On) |
-| Traffic splitting and canary deployments | Kubernetes-native, service mesh | [Revision-based](/azure/container-apps/revisions) | Deployment slots | [Deployment slots that include traffic routing](/azure/app-service/deploy-staging-slots) |
+| Traffic splitting and canary deployments | Kubernetes-native, service mesh | [Revision-based](/azure/container-apps/revisions) | Deployment slots (Premium/Dedicated) | [Deployment slots that include traffic routing](/azure/app-service/deploy-staging-slots) |
 | Distributed tracing | OpenTelemetry, open-source tooling | [Built-in](/azure/container-apps/observability), Dapr tracing | [Application Insights](/azure/azure-monitor/app/app-insights-overview) | [Application Insights](/azure/azure-monitor/app/app-insights-overview) |
 | Stateful services | Persistent volumes, StatefulSets | [Volume mounts](/azure/container-apps/storage-mounts), [Dapr state](/azure/container-apps/dapr-overview) | [Durable Functions](/azure/azure-functions/durable/durable-functions-overview) | [Azure Files mount](/azure/app-service/configure-connect-to-azure-storage) |
 | Per-service identity | [Workload identity](/azure/aks/workload-identity-overview) | [Managed identity](/azure/container-apps/managed-identity) | [Managed identity](/azure/azure-functions/security-concepts#managed-identities) | [Managed identity](/azure/app-service/overview-managed-identity) |
 | Kubernetes API access | Yes | No | No | No |
-| Independent deployability | Yes (per pod or deployment) | Yes (per container app) | Yes (per function app) | Yes (per app or [deployment slot](/azure/app-service/deploy-staging-slots)) |
+| Independent deployability | Yes (per-pod or per-deployment) | Yes (per-container app) | Yes (per-function app) | Yes (per-app or [per-deployment slot](/azure/app-service/deploy-staging-slots)) |
 | Runs containers | Yes | Yes | Yes | Yes |
 | Runs code without containers | No | No | Yes | Yes |
 
@@ -78,7 +78,7 @@ The following table compares how each platform supports the capabilities that ma
 > [!NOTE]
 > This table doesn't include Azure Red Hat OpenShift. It provides the full Kubernetes API, so its core microservices capabilities, like per-deployment scaling, service discovery, and rolling updates, are comparable to AKS.
 >
-> The platforms differ in their operational tooling, not in their core microservices capabilities. For example, AKS provides Dapr and KEDA as managed add-ons, while on OpenShift you install and maintain them yourself. For more information, see [Azure Red Hat OpenShift documentation](/azure/openshift/).
+> The platforms differ in their operational tooling, not in their core microservices capabilities. For example, AKS provides Dapr and KEDA as managed add-ons, but on OpenShift, you install and maintain them yourself. For more information, see [Azure Red Hat OpenShift documentation](/azure/openshift/).
 
 ## Choose your platform
 
@@ -162,7 +162,7 @@ For platform-specific security guidance, see the security sections of the Well-A
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-A microservices architecture can include dozens of services, and each service handles different traffic volumes. Match each service to the billing model that fits its traffic pattern. Consumption-based platforms like Container Apps and Functions scale idle services to zero, while dedicated compute like AKS can be more cost-effective for services with sustained load. In a mixed-platform composition, per-service billing flexibility is one of the main cost advantages. However, account for the overhead of maintaining separate deployment pipelines, monitoring configurations, and team expertise across platforms.
+A microservices architecture can include dozens of services, and each service handles different traffic volumes. Match each service to the billing model that fits its traffic pattern. Consumption-based platforms like Container Apps and Functions scale idle services to zero, but dedicated compute like AKS can be more cost-effective for services that have sustained load. In a mixed-platform composition, per-service billing flexibility is one of the main cost advantages. However, account for the overhead of maintaining separate deployment pipelines, monitoring configurations, and team expertise across platforms.
 
 For platform-specific cost guidance, see the cost optimization sections of the Well-Architected Framework service guides for [AKS](/azure/well-architected/service-guides/azure-kubernetes-service#cost-optimization), [Container Apps](/azure/well-architected/service-guides/azure-container-apps#cost-optimization), and [Functions](/azure/well-architected/service-guides/azure-functions#cost-optimization).
 
