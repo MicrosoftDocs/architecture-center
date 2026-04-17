@@ -14,7 +14,7 @@ This section provides an overview of the underlying architecture that supports t
 
 The Azure environment comprises the following platform as a service (PaaS) resources: 
 
-- A key vault that only stores certificates issued by the same nonintegrated CA
+- A key vault that stores only certificates issued by the same nonintegrated CA
 
 - An Event Grid system topic
 
