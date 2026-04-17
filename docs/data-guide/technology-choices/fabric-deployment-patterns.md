@@ -106,31 +106,31 @@ The following scenarios describe some common business requirements and the deplo
 
 ### Pattern 1: Monolithic deployment
 
-In this deployment pattern, you provision a single workspace for all your use cases. All business units work within the same, single workspace.
+In this deployment pattern, you allocate one workspace for all use cases. All business units work within the same workspace.
 
 :::image type="complex" source="../images/fabric-deployment-pattern-1-monolithic-deployment.svg" alt-text="Diagram that shows a single Fabric tenant with a single capacity and a single workspace." lightbox="../images/fabric-deployment-pattern-1-monolithic-deployment.svg" border="false":::
    Diagram that shows a single Microsoft Fabric tenant containing one capacity. Within the capacity is a single workspace. Inside the workspace are Fabric items such as lakehouses, warehouses, notebooks, and semantic models. At the bottom, all data flows to Microsoft OneLake.
 :::image-end:::
 
-When you provision a single Fabric capacity and attach a single workspace to it, the following constraints and characteristics apply:
+The following constraints and characteristics apply to this pattern:
 
-- All Fabric items share the same provisioned capacity. The amount of time a query or job takes to finish varies because other workloads use the same capacity.
+- Fabric items share the same capacity. The time a query or job takes varies because other workloads use the same capacity.
 
-- The workspace maximum CUs are limited to the largest possible F SKU. For data engineering and data science experiences, capacity administrators can configure Autoscale Billing for Spark to move the compute capacity that the Spark Engine uses outside of provisioned CUs.
+- Workspace maximum CUs are limited to the largest possible F SKU. For data engineering and data science experiences, capacity administrators can configure Autoscale Billing for Spark to move the compute capacity that the Spark Engine uses outside of the provisioned CUs.
 
-- Features that are scoped to a workspace apply across all business units that share that workspace.
+- Features that are scoped to a workspace apply across all business units that share the workspace.
 
 - All workspace items and data are in one region. You can't use this pattern for multi-geo scenarios.
 
-- Features that rely on multiple workspaces, like [deployment pipelines](/fabric/cicd/deployment-pipelines/intro-to-deployment-pipelines) and lifecycle management, aren't available.
+- Features that rely on multiple workspaces aren't available, for example [deployment pipelines](/fabric/cicd/deployment-pipelines/intro-to-deployment-pipelines) and lifecycle management.
 
-- [Workspace limitations](/fabric/fundamentals/workspaces#considerations-and-limitations) that are associated with a single workspace apply.
+- Single-workspace [limitations](/fabric/fundamentals/workspaces#considerations-and-limitations) apply.
 
-- Capacity limitations that are associated with a specific SKU apply.
+- Specific SKU capacity limitations apply.
 
 #### When to choose this pattern
 
-You might implement this deployment pattern for one or more of the following reasons:
+You might implement this deployment pattern because:
 
 - Your organization doesn't have complex engineering requirements, it has a small user base, or its semantic models are small.
 
@@ -140,11 +140,11 @@ You might implement this deployment pattern for one or more of the following rea
 
 - Your organization doesn't require workspace-scoped features, such as sharing code repositories with Git.
 
-- You want to implement a lakehouse medallion architecture. If your organization uses a single workspace, you can achieve separation between bronze, silver, and gold layers by creating separate lakehouses within the workspace.
+- You want to implement a lakehouse medallion architecture. If your organization uses a single workspace, you can create separate lakehouses within the workspace  to configure bronze, silver, and gold layers.
 
 - Your organization's business units share roles, and it's acceptable to have the same workspace-level permissions for users in the workspace. For example, if multiple users from different business units are administrators of a single workspace, they have the same rights on all items in the workspace.
 
-- Your organization tolerates variable job completion times. If your organization doesn't have performance guarantee requirements, for example that a job must finish within a specific time period, it's acceptable to share a single provisioned capacity across business units. If a capacity is shared, users can run queries at any time. The number of CUs that are available to run a job varies depending on the other queries that run on the capacity, which can lead to variable job completion times.
+- Your organization tolerates variable job completion times. If your organization doesn't set performance-based service-level objectives (SLOs), for example that a job must finish within a specific time period, it's acceptable to share a single provisioned capacity across business units. If a capacity is shared, users can run queries at any time. The number of CUs that are available to run a job varies depends on the other queries that run on the capacity, which can lead to variable job completion times.
 
 - Your organization can meet its CU business requirements by using a single Fabric capacity.
 
@@ -161,22 +161,22 @@ The following table presents considerations that might influence your decision t
 | **DevOps** | A single release for the entire platform. Simpler release pipelines. |
 | **Usability: administrators** | Fewer items to manage. No need for other provisioning or to handle requests from teams for new capacities or workspaces. Capacity administrators can be tenant administrators, so there's no need to create or manage other groups or teams. |
 | **Usability: other roles** | Sharing the workspace with other users is acceptable. Collaboration between users is encouraged. |
-| **Performance** | Isolation of workloads isn't mandatory. No strict performance-based service-level objectives (SLOs) need to be met. Throttling is possible if workloads compete for the same shared CUs. This pattern suits organizations with low concurrency or predictable workloads. |
+| **Performance** | Isolation of workloads isn't mandatory. No strict performance-based SLOs need to be met. Throttling is possible if workloads compete for the same shared CUs. This pattern suits organizations with low concurrency or predictable workloads. |
 | **Billing and cost management** | One team can handle costs. No need to chargeback to different teams. |
 
 ### Pattern 2: Multiple workspaces, single capacity
 
-In this deployment pattern, you provision multiple workspaces on a single shared capacity. Because that capacity is shared across workspaces, concurrent workloads can affect the performance of jobs and interactive queries.
+In this deployment pattern, you allocate  multiple workspaces on a single shared capacity. Because that capacity is shared across workspaces, concurrent workloads can affect the performance of jobs and interactive queries.
 
 :::image type="complex" source="../images/fabric-deployment-pattern-2-multiple-workspaces-single-capacity.svg" alt-text="Diagram that shows a single Fabric tenant with a single capacity and two workspaces." lightbox="../images/fabric-deployment-pattern-2-multiple-workspaces-single-capacity.svg" border="false":::
    Diagram that shows a single Microsoft Fabric tenant containing one shared capacity. Within the capacity are two workspaces, Workspace A and Workspace B. Each workspace contains Fabric items such as lakehouses, warehouses, notebooks, and semantic models. All data from both workspaces flows to OneLake.
 :::image-end:::
 
-When you provision a single Fabric capacity and attach multiple workspaces to it, the following characteristics apply:
+The following constraints and characteristics apply to this pattern:
 
-- All Fabric items share the same provisioned capacity. The amount of time a query or job takes to finish varies because other workloads use the same capacity.
+- Fabric items share the same  capacity. The time a query or job takes varies because other workloads use the same capacity.
 
-- The workspace maximum CUs are limited to the largest possible F SKU. For data engineering and data science experiences, capacity administrators can configure Autoscale Billing for Spark to move the compute capacity used by the Spark Engine outside of provisioned CUs.
+- Workspace maximum CUs are limited to the largest possible F SKU. For data engineering and data science experiences, capacity administrators can configure Autoscale Billing for Spark to move the compute capacity used by the Spark Engine outside of the provisioned CUs.
 
 - Features that are scoped to a workspace apply across all business units that share that workspace.
 
@@ -184,27 +184,27 @@ When you provision a single Fabric capacity and attach multiple workspaces to it
 
 - You can use DevOps features that require separate workspaces, like deployment pipelines and [lifecycle management](/fabric/cicd/cicd-overview).
 
-- Workspace limitations that are associated with a single workspace apply.
+- Single-workspace limitations apply.
 
-- Capacity limitations that are associated with a specific SKU apply.
+- Specific SKU capacity limitations apply.
 
 #### When to choose this pattern
 
-You might choose to implement this deployment pattern for one or more of the following reasons:
+You might implement this deployment pattern because:
 
-- You want a hub-spoke architecture in which your organization centralizes some aspects of operating the analytics environment and decentralizes others.
+- You want a hub-spoke architecture that centralizes some aspects of operating the analytics environment and decentralizes others.
 
-- You want decentralization from an operational and management aspect but to varying degrees. For example, when building a medallion architecture, your organization might choose to host the bronze and silver layers in one workspace, with the gold layer deployed in a separate workspace. This separation often reflects distinct operational responsibilities, where one team manages the bronze and silver layers and another team operates and governs the gold layer.
+- You want varying degrees of operational and management decentralization. For example, your organization might choose to host the bronze and silver layers of a medallion archtecture in one workspace, with the gold layer deployed in a separate workspace. This separation often reflects distinct operational responsibilities, for example where one team manages the bronze and silver layers and another team manages the gold layer.
 
-- You aren't primarily concerned about performance management and isolating workloads from a performance perspective.
+- You aren't primarily concerned about performance management and workload isolation.
 
-- Your organization doesn't need to deploy workloads across different geographical regions (all data must reside in one region).
+- Your organization doesn't need to deploy workloads across different geographical regions. All data must reside in one region.
 
-- Your organization might require separation of workspaces for one or more of the following reasons:
+- Your organization might require separate workspaces because:
   
   - Members of the team that's responsible for workloads are in different workspaces.
   
-  - You want to create separate workspaces for each type of workload. For example, you might create a workspace for data ingestion (data pipelines, dataflow, or data engineering) and create a separate workspace for consumption through a data warehouse. This design works well when separate teams are responsible for each of the workloads.
+  - You want to create separate workspaces for each type of workload. For example, you might create a workspace for data ingestion, like data pipelines, dataflows, or data engineering, and a separate workspace for consumption through a data warehouse. This design works well when separate teams are responsible for each of the workloads.
   
   - You want to implement a data mesh architecture in which one or more workspaces are grouped together in a [Fabric domain](/fabric/governance/domains).
 
@@ -212,7 +212,7 @@ You might choose to implement this deployment pattern for one or more of the fol
 
 #### Design-area considerations
 
-The following table presents considerations that might influence your decision to choose this deployment pattern:
+The following table presents considerations that might influence your decision to choose this deployment pattern.
 
 | Aspect | Considerations |
 |---|---|
@@ -220,62 +220,62 @@ The following table presents considerations that might influence your decision t
 | **Security: data plane** | Data restrictions are required, and you need to provide data protection based on access controls for departments, teams, and members. |
 | **Security: control plane** | To avoid accidental corruption or actions by malicious users, you might need to provide controlled access on Fabric items by role. |
 | **Administration** | You don't need to manage capacities because it's a single-capacity model. You can use workspaces to isolate departments, teams, and users. |
-| **DevOps** | You can do independent releases per department, team, or workload. It's easier to meet development, testing, acceptance, and production (DTAP) requirements for teams when multiple workspaces are provisioned to address each release environment. |
-| **Usability: administrators** | You don't need to provision multiple capacities. Tenant administrators typically administer capacity, so you don't need to manage other groups or teams. |
+| **DevOps** | You can do independent releases per department, team, or workload. It's easier to meet development, testing, acceptance, and production (DTAP) requirements for teams when multiple workspaces are configured to address each release environment. |
+| **Usability: administrators** | You don't need to allocate multiple capacities. Tenant administrators typically administer capacity, so you don't need to manage other groups or teams. |
 | **Usability: other roles** | Workspaces are available for each medallion layer. Fabric items are isolated per workspace, which helps to prevent accidental corruption. |
 | **Performance** | Strict performance SLOs don't need to be met. Throttling is acceptable during peak periods. |
-| **Billing and cost management** | You don't have a specific requirement to chargeback per team. A central team bears all costs. Infrastructure teams are owners of Fabric capacities in the organization. |
+| **Billing and cost management** | You don't have a specific requirement to chargeback per team. A central team is responsible for costs. Infrastructure teams are owners of Fabric capacities in the organization. |
 
 ### Pattern 3: Multiple workspaces, separate capacities
 
-In this deployment pattern, you provision multiple workspaces across separate Fabric capacities, which provides governance and performance isolation between business units.
+In this deployment pattern, you allocate multiple workspaces across separate Fabric capacities, which provides governance and performance isolation between business units.
 
 :::image type="complex" source="../images/fabric-deployment-pattern-3-multiple-workspaces-multiple-capacities.svg" alt-text="Diagram that shows a single Fabric tenant with two capacities, where the first capacity has two workspaces and the second capacity has one workspace." lightbox="../images/fabric-deployment-pattern-3-multiple-workspaces-multiple-capacities.svg" border="false":::
    Diagram that shows a single Microsoft Fabric tenant containing Fabric capacity A and Fabric capacity B. Fabric capacity A contains two workspaces, Workspace A and Workspace B. Fabric capacity B contains one workspace, Workspace C. Each workspace contains Fabric items such as lakehouses, warehouses, notebooks, and semantic models. The data from all the workspaces flows to OneLake.
 :::image-end:::
 
-When you provision multiple Fabric capacities with their own workspaces, the following characteristics apply:
+The following constraints and characteristics apply to this pattern:
 
-- The largest possible F SKU or P SKU attached to a workspace determines the maximum CUs that a workspace can use.
+- The largest possible F SKU or P SKU that is attached to a workspace determines the maximum number of CUs that a workspace can use.
 
 - Organizational and management decentralization is achieved by provisioning separate workspaces.
 
 - Organizations can scale beyond one region by provisioning capacities and workspaces in different geographical regions.
 
-- You can use the full capabilities of Fabric because business units can have one or more workspaces that are in separate capacities and grouped together through Fabric domains.
+- You can use the full capabilities of Fabric because business units can have multiple workspaces that are in separate capacities and are grouped together through Fabric domains.
 
-- [Workspace limitations](/fabric/fundamentals/workspaces#considerations-and-limitations) that are associated with a single workspace apply, but you can scale beyond these limits by creating new workspaces.
+- [Workspace limitations](/fabric/fundamentals/workspaces#considerations-and-limitations) that are associated with a single workspace apply, but you can create new workspaces to scale beyond these limits.
 
-- Capacity limitations that are associated with a specific SKU apply, but you can scale CUs by provisioning separate capacities.
+- Specific SKU capacity limitations apply, but you can scale CUs by provisioning separate capacities.
 
-- All Fabric items in all workspaces in the tenant and their certification statuses can be discovered by using the [OneLake catalog](/fabric/governance/onelake-catalog-overview).
+- Fabric items and their certification statuses can be discovered by using the [OneLake catalog](/fabric/governance/onelake-catalog-overview).
 
 - Domains can group workspaces together so that a single business unit can operate and manage multiple workspaces.
 
-- [OneLake shortcuts](/fabric/onelake/onelake-shortcuts) reduce data movement by eliminating physical copies of data, while enabling controlled, cross‑workspace access through OneLake without transferring ownership of the underlying data.
+- [OneLake shortcuts](/fabric/onelake/onelake-shortcuts) eliminate physical copies of data to reduce data movement. OneLake shortcuts also enable controlled, cross‑workspace access through OneLake and don't transfer ownership of the underlying data.
 
 #### When to choose this pattern
 
-You might choose to implement this deployment pattern for one or more of the following reasons:
+You might implement this deployment pattern because:
 
 - Your organization wants to deploy architectural frameworks like data mesh or data fabric.
 
 - You want to prioritize flexibility in how you structure capacities and workspaces.
 
-- You operate in different geographical regions. In this case, provisioning a separate capacity and workspace is the driving force to move toward this multi-capacity and multi-workspace deployment pattern.
+- You operate in different geographical regions. In this case, you want to create a separate capacity and workspace to move toward a multi-capacity and multi-workspace deployment pattern.
 
-- You operate at large scale and have requirements to scale beyond the limits of a single-capacity SKU or a single workspace.
+- You operate at a large scale and have requirements to scale beyond the limits of a single-capacity SKU or a single workspace.
 
-- You have workloads that must always finish within a specific time or meet a specific performance SLO. You can provision a separate workspace that's backed by a Fabric capacity to meet performance guarantees for those workloads.
+- You have workloads that must always finish within a specific time orneed to meet performance-based SLOs. You can provision separate a Fabric capacity-backed workspace to meet SLOs for those workloads.
 
 #### Design-area considerations
 
-The following table presents considerations that might influence your decision to choose this deployment pattern:
+The following table presents considerations that might influence your decision to choose this deployment pattern.
 
 | Aspect | Considerations |
 |---|---|
 | **Governance** | You have a high degree of governance and management, and you need independence for each workspace. You can manage usage per department or business unit. You can conform to data residency requirements. You can isolate data based on regulatory requirements. |
-| **Security: data plane** | Data access can be controlled per department, team, or users. You can isolate data based on Fabric item type. |
+| **Security: data plane** | Data access can be controlled at the department, team, or user level. You can isolate data based on Fabric item type. |
 | **Security: control plane** | You can provide controlled access on Fabric items by role to avoid accidental corruption or actions by malicious users. |
 | **Administration** | Granular administrator capabilities are restricted to departments, teams, or users. You have access to detailed monitoring requirements on usage or patterns of workloads. |
 | **DevOps** | You can isolate DTAP environments by using different capacities. Independent releases are based on a department, team, or workload. |
