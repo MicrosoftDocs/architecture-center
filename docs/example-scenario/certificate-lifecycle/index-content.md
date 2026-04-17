@@ -1,13 +1,13 @@
-Organizations that use an internal or nonintegrated certification authority (CA) often rely on manual processes to renew Transport Layer Security (TLS) and Secure Sockets Layer (SSL) certificates. Manual renewal can lead to expired certificates that cause service outages, for example when a web server certificate expires unnoticed and disrupts customer-facing applications.
+Organizations that use an internal or nonintegrated certificate authority (CA) often rely on manual processes to renew Transport Layer Security (TLS) and Secure Sockets Layer (SSL) certificates. Manual renewal can lead to expired certificates that cause service outages, like when a web server certificate expires unnoticed and disrupts customer-facing applications.
 
-Azure Key Vault supports [automatic certificate renewal](/azure/key-vault/certificates/overview-renew-certificate) for integrated CAs like *DigiCert* or *GlobalSign*, but nonintegrated CAs require a [manual approach](/azure/key-vault/certificates/overview-renew-certificate#renew-a-nonintegrated-ca-certificate). This article presents an architecture that automates certificate renewal for nonintegrated CAs by using Key Vault, Azure Event Grid, Azure Automation, and the Key Vault extension. The solution reduces human error, minimizes service interruptions, and enforces the principle of least privilege across all identities in the renewal process.
+Azure Key Vault supports [automatic certificate renewal](/azure/key-vault/certificates/overview-renew-certificate) for integrated CAs like *DigiCert* or *GlobalSign*, but nonintegrated CAs require a [manual approach](/azure/key-vault/certificates/overview-renew-certificate#renew-a-nonintegrated-ca-certificate). This article presents an architecture that automates certificate renewal for nonintegrated CAs by using Key Vault, Azure Event Grid, Azure Automation, and the Key Vault extension. The solution reduces human error, minimizes service interruptions, and enforces principle of least privilege (PoLP) across all identities in the renewal process.
 
 ## Architecture
 
-This section provides an overview of the underlying architecture that powers this solution.
+This section provides an overview of the underlying architecture that supports this solution.
 
 :::image type="complex" source="./media/certificate-life-cycle-architecture.svg" alt-text="Diagram of the certificate life cycle management architecture." border="false" lightbox="./media/certificate-life-cycle-architecture.svg":::
-   The diagram has two main sections. One section is labeled Azure landing zone subscription, and the other section is labeled on-premises. In the landing zone subscription section, a large box labeled CERTLC contains smaller boxes for Azure Virtual Network and an Automation account. In the Virtual Network box, two computer icons are labeled DC and ENT-CA. On the ENT-CA icon, a dotted line that represents the Hybrid Runbook Worker begins. The line connects the runbook worker to the CERTLC runbook in the Automation account box. The Virtual Network box also contains computer icons that represent two servers, one with the Key Vault extension and one with a custom script. A solid line connects the Virtual Network box to the on-premises section of the diagram. The Automation account box also contains the dashboard ingestion runbook. A dotted line connects this runbook to the Log Analytics workspace in the CERTLC box. The CERTLC box also contains icons that represent a storage account, Event Grid, Key Vault, and a workbook. The Azure landing zone subscription section includes icons that represent a recovery services vault, role assignments, policy assignments, Azure Network Watcher, and Microsoft Defender for Cloud. In the on-premises section, a box labeled Active Directory contains two smaller boxes for Azure Arc-enabled servers. One server uses the Key Vault extension, and the other server uses a custom script.
+   The diagram has two main sections. One section is labeled Azure landing zone subscription, and the other section is labeled on-premises. In the landing zone subscription section, a large box labeled CERTLC contains smaller boxes for Azure Virtual Network and an Automation account. In the Virtual Network box, two computer icons are labeled DC and ENT-CA. A dotted line that represents the Hybrid Runbook Worker connects the ENT-CA icon to the runbook worker and the CERTLC runbook in the Automation account box. The Virtual Network box also contains computer icons that represent two servers, one with the Key Vault extension and one with a custom script. A solid line connects the Virtual Network box to the on-premises section of the diagram. The Automation account box also contains the dashboard ingestion runbook. A dotted line connects this runbook to the Log Analytics workspace in the CERTLC box. The CERTLC box also contains icons that represent a storage account, Event Grid, Key Vault, and a workbook. The Azure landing zone subscription section includes icons that represent a recovery services vault, role assignments, policy assignments, Azure Network Watcher, and Microsoft Defender for Cloud. In the on-premises section, a box labeled Active Directory contains two smaller boxes for Azure Arc-enabled servers. One server uses the Key Vault extension, and the other server uses a custom script.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/certificate-life-cycle-architecture.vsdx) of this architecture.*
@@ -44,7 +44,7 @@ The following workflow corresponds to the previous diagram:
 
 1. **Key Vault configuration:** The initial phase of the renewal process entails storing the certificate object in the designated certificates section of the key vault.
 
-   We recommend that you use certificate tags to configure custom email notifications by tagging each certificate with the recipient's email address. This approach lets you notify specific administrators for each certificate, rather than applying the same recipient to all certificates.
+   We recommend that you use certificate tags to configure custom email notifications by tagging each certificate with the recipient's email address. This approach lets you notify specific admins for each certificate rather than applying the same recipient to all certificates.
    Use the *Recipient* tag and set its value to one or more email addresses separated by a comma or semicolon. Tag-based notifications ensure timely alerts when the certificate renewal completes on the internal CA and when the renewed certificate becomes available in Key Vault.
 
     You can use [built-in Key Vault certificate notifications](/azure/key-vault/certificates/overview-renew-certificate#get-notified-about-certificate-expiration) in combination with this approach, but they serve a different purpose. Built-in notifications apply globally to all certificates in the key vault and are limited to upcoming certificate expiration alerts. They use the same recipient for all certificates.
@@ -54,7 +54,7 @@ The following workflow corresponds to the previous diagram:
    > [!NOTE]
    > On some Linux distributions or hardened enterprise images, the Key Vault extension might not be available or supported. In these cases, schedule the [script_for_not_supported_ARC_on_Linux_distro script](https://github.com/Azure/certlc/tree/main/.scripts) as a recommended fallback. The script periodically checks Key Vault for certificate updates and applies them to the server. It can run on Azure native VMs (IaaS) and on-premises servers integrated with Azure Arc.
 
-1. **Event Grid integration:** As a certificate approaches expiration, two Event Grid subscriptions intercept this important lifetime event from the key vault.
+1. **Event Grid integration:** As a certificate nears expiration, two Event Grid subscriptions intercept this important lifetime event from the key vault.
 
 1. **Event Grid triggers:** One Event Grid subscription sends certificate renewal information to a storage account queue. The other subscription triggers the launch of a runbook through the configured webhook in the Automation account. If the runbook fails to renew the certificate, or if the CA is unavailable, a scheduled process retries renewing the runbook from that point until the queue clears. This process makes the solution robust.
 
@@ -64,7 +64,7 @@ The following workflow corresponds to the previous diagram:
 
 1. **Certificate renewal:** The script in the runbook connects to Azure to retrieve the certificate's template name that you set up during generation. The template is the configuration component of the CA that defines the attributes and purpose of the certificates that it generates.
 
-   After the script interfaces with Key Vault, it initiates a certificate renewal request. This request triggers Key Vault to generate a certificate signing request (CSR) and applies the same template that generated the original certificate. This process ensures that the renewed certificate aligns with the predefined security policies. For more information about security in the authentication and authorization process, see the [Security](#security) section.
+   After the script interfaces with Key Vault, it initiates a certificate renewal request. This request triggers Key Vault to generate a certificate signing request (CSR) and applies the same template that generated the original certificate. This process ensures that the renewed certificate aligns with the predefined security policies. For more information about security in the authentication and authorization process, see [Security](#security).
 
    The script downloads the CSR and submits it to the CA.
 
@@ -74,7 +74,7 @@ The following workflow corresponds to the previous diagram:
 
 1. **Monitoring and email notification:** To enable monitoring, the Azure Monitor Logs workspace logs all operations that various Azure components run, including the Automation account, Key Vault, the storage account queue, and Event Grid. After the certificate merges into the key vault, the script sends an email message to administrators to notify them of the outcome.
 
-1. **Certificate retrieval:** The Key Vault extension on the server plays an important role during this phase. It automatically downloads the latest version of the certificate from the key vault into the local store of the server that uses the certificate. You can configure multiple servers with the Key Vault extension to retrieve the same certificate, including wildcard or with multiple Subject Alternative Name (SAN) certificates, from the key vault.
+1. **Certificate retrieval:** The Key Vault extension on the server plays an important role during this phase. It automatically downloads the latest version of the certificate from the key vault into the local store of the server that uses the certificate. You can configure multiple servers with the Key Vault extension to retrieve the same certificate from the key vault, including wildcard or with multiple Subject Alternative Name (SAN) certificates.
 
    For Linux distributions in which you can't install the Key Vault extension, schedule the [script_for_not_supported_ARC_on_Linux_distro script](https://github.com/Azure/certlc/tree/main/.scripts) to achieve the same functionality as the extension.
 
@@ -84,7 +84,7 @@ This solution uses various components to handle automatic certificate renewal on
 
 #### Key Vault extension
 
-The Key Vault extension is a tool installed on servers that provides automatic refresh of certificates stored in an Azure key vault. In this architecture, the Key Vault extension plays a vital role in automating certificate renewal. You must install it on servers that require the automation. For more information about installation procedures for various servers, see the following articles:
+The Key Vault extension is a tool installed on servers that provides automatic refresh of certificates stored in an Azure key vault. In this architecture, you must install the Key Vault extension on servers that require automatic certificate renewal. For more information about installation procedures for various servers, see the following articles:
 
 - [Key Vault extension for Windows](/azure/virtual-machines/extensions/key-vault-windows)
 - [Key Vault extension for Linux](/azure/virtual-machines/extensions/key-vault-linux)
@@ -113,7 +113,7 @@ The Key Vault extension configuration parameters include:
 - **authenticationSetting:** The authentication setting for the Key Vault extension. For Azure servers, you can omit this setting so that the VM's system-assigned managed identity is used against the key vault. For on-premises servers, if you specify the setting `msiEndpoint = "http://localhost:40342/metadata/identity"`, the service principal associated with the computer object created during the Azure Arc onboarding is used.
 
 > [!NOTE]
-> Specify the Key Vault extension parameters only during the initial setup. This approach ensures that they won't undergo any changes throughout the renewal process.
+> Specify the Key Vault extension parameters only during the initial setup. This approach ensures that the parameters remain unchanged throughout the renewal process.
 
 #### Automation account
 
@@ -129,7 +129,7 @@ The storage account queue is a message queue within Azure Storage. In this archi
 
 #### Hybrid Runbook Worker
 
-The Hybrid Runbook Worker is a feature of Automation that you use to run runbooks on machines located in a data center. In this architecture, it runs the certificate renewal runbook. Install the Hybrid Runbook Worker by using the [Azure Hybrid Worker extension](/azure/automation/extension-based-hybrid-runbook-worker-install) method, which is the supported mode for a new installation. You create the worker and associate it with a Windows Server member in the same Active Directory domain of the CA, ideally the CA itself.
+The Hybrid Runbook Worker is a feature of Automation that you use to run runbooks on machines located in a datacenter. In this architecture, it runs the certificate renewal runbook. Install the Hybrid Runbook Worker by using the [Azure Hybrid Worker extension](/azure/automation/extension-based-hybrid-runbook-worker-install) method, which is the supported mode for a new installation. You create the worker and associate it with a Windows Server member in the same Active Directory domain of the CA, ideally the CA itself.
 
 #### Key Vault
 
@@ -151,7 +151,7 @@ Event Grid is an event-routing service. In this architecture, it handles event-d
 
   - **Endpoint Type:** The type of endpoint to use. For example, the endpoint type for this solution is `Webhook`.
 
-  - **Endpoint:** The URL of the webhook associated with the Automation account runbook. For more information, see the [Automation account](#automation-account) section.
+  - **Endpoint:** The URL of the webhook associated with the Automation account runbook. For more information, see [Automation account](#automation-account).
 
 - **Subscription for StorageQueue:**
 
@@ -163,7 +163,7 @@ Event Grid is an event-routing service. In this architecture, it handles event-d
 
 #### Log Analytics workspace and Azure workbook
 
-Log Analytics workspaces and Azure workbooks are Azure resources that collect, aggregate, and analyze data. In this architecture, they enhance monitoring and visualization of certificate statuses stored in Key Vault. These components play a crucial role in maintaining visibility into certificate health:
+Log Analytics workspaces and Azure workbooks are Azure resources that collect, aggregate, and analyze data. In this architecture, they enhance monitoring and visualization of certificate statuses stored in Key Vault. These components are crucial for maintaining visibility into certificate health:
 
 - **Log Analytics workspace:** Collects and stores data about certificate states. It identifies expired certificates, certificates that expire soon, and valid  certificates.
 
@@ -171,7 +171,7 @@ Log Analytics workspaces and Azure workbooks are Azure resources that collect, a
 
 The following components retrieve and present certificate information in the workbook:
 
-- **Data ingestion runbook execution:** A runbook, run directly from Azure without requiring the context of a Hybrid Worker, retrieves certificate data from the Key Vault and sends this information to a custom table defined in the Log Analytics workspace. The runbook runs on a scheduled cadence.
+- **Data ingestion runbook execution:** A runbook runs directly from Azure, without requiring the context of a Hybrid Worker. The runbook retrieves certificate data from the key vault and sends it to a custom table defined in the Log Analytics workspace. The runbook runs on a scheduled cadence.
 
 - **Workbook visualization:** A workbook queries the data from the custom table and displays it in both a pie chart and a detailed table. It highlights certificates based on their expiration status.
 
@@ -185,7 +185,7 @@ This solution uses an Automation account to orchestrate the certificate renewal 
 
 An alternative approach is to use Azure Logic Apps. The main difference between the two approaches is that the Automation account is a PaaS solution, and Logic Apps is a software as a service (SaaS) solution.
 
-The main advantage of Logic Apps is that it's a fully managed service. You don't need to manage the underlying infrastructure. Also, Logic Apps can easily integrate with external connectors. This capability expands the range of notification possibilities, such as engagement with Microsoft Teams or Microsoft 365.
+Logic Apps is a fully managed service, so you don't need to manage the underlying infrastructure. It can also integrate with external connectors. This capability expands the range of notification options, such as engagement with Microsoft Teams or Microsoft 365.
 
 Logic Apps doesn't have a feature similar to Hybrid Runbook Worker, which results in less flexible integration with the CA, so an Automation account is the preferred approach.
 
@@ -220,7 +220,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-Key Vault securely stores certificates as encrypted secrets protected by Azure role-based access control (RBAC).
+Key Vault securely stores certificates as encrypted secrets protected by Azure role-based access control (Azure RBAC).
 
 > [!TIP]
 > In environments that have strict compliance requirements, such as NIS2 or public-sector regulations, consider evaluating [Azure Key Vault Premium](/azure/key-vault/general/overview#premium-tier) for HSM-backed key protection if you need to keep the certificate renewal workflow that this article describes.
@@ -233,7 +233,7 @@ Throughout the certificate renewal process, the following components use identit
 
 - The Automation account, which uses its designated managed identity
 
-The principle of least privilege is rigorously enforced across all identities engaged in the certificate renewal procedure.
+PoLP is rigorously enforced across all identities engaged in the certificate renewal procedure.
 
 The system account of the Hybrid Runbook Worker server must have the right to enroll certificates on one or more certificate templates that generate new certificates.
 
@@ -253,7 +253,7 @@ Expenses that result from the Key Vault extension and the Hybrid Runbook Worker 
 
 The cost of Key Vault depends on various factors, including Standard or Premium SKUs, the quantity of stored certificates, and the frequency of operations conducted on the certificates.
 
-Similar considerations for Key Vault configuration apply to the storage account. In this scenario, a Standard SKU with locally redundant storage replication suffices for the storage account. Generally, the cost of the storage account queue is minimal.
+Similar considerations for Key Vault configuration apply to the storage account. In this scenario, a Standard SKU with locally redundant storage replication is sufficient for the storage account. Generally, the cost of the storage account queue is minimal.
 
 To estimate the cost of implementing this solution, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator). Input the services described in this article.
 
@@ -269,7 +269,7 @@ Integration with Azure Monitor, Microsoft Sentinel, Microsoft Security Copilot, 
 
 ## Deploy this scenario
 
-Select the following button to deploy the environment described in this article. The deployment takes about two minutes to complete and creates a key vault, an Event Grid system topic configured with the two subscriptions, a storage account that contains the *certlc* queue, and an Automation account that contains the *runbook* and the *webhook* linked to Event Grid.
+Select the following button to deploy the environment described in this article. The deployment takes about two minutes to complete and creates a key vault, an Event Grid system topic configured with the two subscriptions, a storage account that contains the *CERTLC* queue, and an Automation account that contains the *runbook* and the *webhook* linked to Event Grid.
 
 [![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fcertlc%2Fmain%2F.armtemplate%2Fmindeploy.json)
 
