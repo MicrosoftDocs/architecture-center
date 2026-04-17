@@ -239,7 +239,7 @@ Use the same VM Image Builder pipeline that produces the monthly golden image, b
 
 1. **Run the automated test suite.** Don't skip validation. The same tests that run during the monthly cycle should run for emergency builds.
 
-1. **Publish the patched image.** Publish the new image version to Compute Gallery and replicate it to all required regions. Because the affected version is excluded from latest version selection, the patched version automatically becomes the version that new deployments use.
+1. **Publish the patched image.** Publish the new image version to Compute Gallery and replicate it to all required regions. The affected version is excluded from the latest version selection, so the patched version automatically becomes the version that new deployments use.
 
 1. **Update the image tattoo.** Record the OOB nature of the update in the image tattoo and include the CVE identifier, the patch date, and a flag that distinguishes it from a scheduled monthly release. This data can be helpful for compliance audits.
 
