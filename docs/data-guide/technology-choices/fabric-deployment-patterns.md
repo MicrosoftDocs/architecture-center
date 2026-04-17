@@ -19,7 +19,7 @@ When you deploy [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overvie
 The following diagram shows the four-level hierarchy that defines all Fabric deployments.
 
 :::image type="complex" source="../images/fabric-deployment-pattern.svg" alt-text="Diagram that shows the Microsoft Fabric deployment hierarchy, which includes the tenant, capacities, workspaces, and items." lightbox="../images/fabric-deployment-pattern.svg"  border="false":::
-   Diagram that shows the Microsoft Fabric deployment architecture within a Microsoft 365 tenant boundary. Two layers represent capacities and Fabric domains. Within these layers are workspaces. Inside the workspaces are items, represented by icons for pipelines, bar chart reports, tables or grids, and lakehouses. At the bottom of the diagram is Microsoft OneLake. On the left side of the diagram, under Inbound networking, are Microsoft Entra Conditional Access and Azure Private Link. On the right side, under Outbound networking, are managed private endpoint, managed virtual network, on-premises data gateway, service tags, virtual network data gateway, and Microsoft Entra ID managed identity.
+   Diagram that shows the Microsoft Fabric deployment architecture within a Microsoft 365 tenant boundary. Two layers represent capacities and Fabric domains. Within these layers are workspaces. The workspaces contain Fabric items, represented by icons for semantic models, data pipelines, reports, and lakehouses. At the bottom of the diagram is Microsoft OneLake. On the left side of the diagram, under Inbound networking, are Microsoft Entra Conditional Access and Azure Private Link. On the right side, under Outbound networking, are managed private endpoint, managed virtual network, on-premises data gateway, service tags, virtual network data gateway, and Microsoft Entra ID managed identity.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/fabric-deployment-pattern.vsdx) of this architecture.*
@@ -52,7 +52,7 @@ The following licensing and workspace-type constraints often determine which dep
 
 - Fabric capacity: A compute and billing resource used in a specific Azure region, for example, East US or West Europe. To reduce costs, you can pause capacities when not in use.
 
-- **Fabric workspace: A collaboration container for Fabric items. Supports role-based access control, Git integration, and deployment pipelines. For logical grouping, workspaces can be assigned to Fabric domains.
+- Fabric workspace: A collaboration container for Fabric items. Supports role-based access control, Git integration, and deployment pipelines. For logical grouping, workspaces can be assigned to Fabric domains.
 
 - [Fabric items](/fabric/fundamentals/fabric-home): Data and analytics artifacts such as lakehouses, data warehouses, notebooks, pipelines, dataflows, semantic models, reports, and dashboards.
 
@@ -109,12 +109,12 @@ The following scenarios describe some common business requirements and the deplo
 In this deployment pattern, you allocate one workspace for all use cases. All business units work within the same workspace.
 
 :::image type="complex" source="../images/fabric-deployment-pattern-1-monolithic-deployment.svg" alt-text="Diagram that shows a single Fabric tenant with a single capacity and a single workspace." lightbox="../images/fabric-deployment-pattern-1-monolithic-deployment.svg" border="false":::
-   Diagram that shows a single Microsoft Fabric tenant containing one capacity. Within the capacity is a single workspace. Inside the workspace are Fabric items such as lakehouses, warehouses, notebooks, and semantic models. At the bottom, all data flows to Microsoft OneLake.
+   Diagram that shows a single Microsoft Fabric tenant containing one capacity. Within the capacity is a single workspace. The workspace contains icons next to text that reads Semantic model, Data pipeline, Report, and Lakehouse. Data flows to Microsoft OneLake.
 :::image-end:::
 
 The following characteristics apply to this pattern:
 
-- Fabric items share the same capacity. The time a query or job takes varies because other workloads use the same capacity.
+- Fabric items share the same capacity. The time a query or job takes varies, depending on the other workloads that use the same capacity.
 
 - Workspace maximum CUs are limited to the largest possible F SKU. For data engineering and data science experiences, capacity administrators can configure Autoscale Billing for Spark to move the compute capacity that the Spark Engine uses outside of the allocated CUs.
 
@@ -144,7 +144,7 @@ You might implement this deployment pattern because:
 
 - Your organization's business units share roles, and it's acceptable to have the same workspace-level permissions for users in the workspace. For example, if multiple users from different business units are administrators of a single workspace, they have the same rights on all items in the workspace.
 
-- Your organization tolerates variable job completion times. c. If a capacity is shared, users can run queries at any time. The number of CUs that are available to run a job depends on the other queries that run on the capacity, which can lead to variable job completion times.
+- Your organization tolerates variable job completion times. If a capacity is shared, users can run queries at any time. The number of CUs that are available to run a job depends on the other queries that run on the capacity, which can lead to variable job completion times.
 
 - Your organization can meet its CU business requirements by using a single Fabric capacity.
 
@@ -169,12 +169,12 @@ The following table presents considerations that might influence your decision t
 In this deployment pattern, you allocate  multiple workspaces on a single shared capacity. Because that capacity is shared across workspaces, concurrent workloads can affect the performance of jobs and interactive queries.
 
 :::image type="complex" source="../images/fabric-deployment-pattern-2-multiple-workspaces-single-capacity.svg" alt-text="Diagram that shows a single Fabric tenant with a single capacity and two workspaces." lightbox="../images/fabric-deployment-pattern-2-multiple-workspaces-single-capacity.svg" border="false":::
-   Diagram that shows a single Microsoft Fabric tenant containing one shared capacity. Within the capacity are two workspaces, Workspace A and Workspace B. Each workspace contains Fabric items such as lakehouses, warehouses, notebooks, and semantic models. All data from both workspaces flows to OneLake.
+   Diagram that shows a single Microsoft Fabric tenant containing one shared capacity. Within the capacity are two workspaces, Workspace A and Workspace B. Each workspace contains icons next to text that reads Semantic model, Data pipeline, Report, and Lakehouse. Data from both workspaces flows to Microsoft OneLake.
 :::image-end:::
 
 The following characteristics apply to this pattern:
 
-- Fabric items share the same  capacity. The time a query or job varies because other workloads use the same capacity.
+- Fabric items share the same  capacity. The time a query or job takes varies, depending on the other workloads that use the same capacity.
 
 - Workspace maximum CUs are limited to the largest possible F SKU. For data engineering and data science experiences, capacity administrators can configure Autoscale Billing for Spark to move the compute capacity used by the Spark Engine outside of the allocated CUs.
 
@@ -194,7 +194,7 @@ You might implement this deployment pattern because:
 
 - You want a hub-spoke architecture that centralizes some aspects of analytics environment operation and decentralizes others.
 
-- You want varying degrees of operational and management decentralization. For example, your organization might host the bronze and silver layers of a medallion architecture in one workspace, with the gold layer deployed in a separate workspace. This separation often reflects distinct operational responsibilities, for example where one team manages the bronze and silver layers and another team manages the gold layer.
+- You want variable operational and management decentralization. For example, your organization might host the bronze and silver layers of a medallion architecture in one workspace, with the gold layer deployed in a separate workspace. This separation often reflects distinct operational responsibilities, for example where one team manages the bronze and silver layers and another team manages the gold layer.
 
 - You aren't primarily concerned about performance management and workload isolation.
 
@@ -231,7 +231,7 @@ The following table presents considerations that might influence your decision t
 In this deployment pattern, you allocate multiple workspaces across separate Fabric capacities, which provides governance and performance isolation between business units.
 
 :::image type="complex" source="../images/fabric-deployment-pattern-3-multiple-workspaces-multiple-capacities.svg" alt-text="Diagram that shows a single Fabric tenant with two capacities, where the first capacity has two workspaces and the second capacity has one workspace." lightbox="../images/fabric-deployment-pattern-3-multiple-workspaces-multiple-capacities.svg" border="false":::
-   Diagram that shows a single Microsoft Fabric tenant that contains Fabric capacity A and Fabric capacity B. Fabric capacity A contains two workspaces, Workspace A and Workspace B. Fabric capacity B contains one workspace, Workspace C. Each workspace contains Fabric items such as lakehouses, warehouses, notebooks, and semantic models. The data from all the workspaces flows to OneLake.
+   Diagram that shows a single Microsoft Fabric tenant that contains Fabric capacity A and Fabric capacity B. Fabric capacity A contains two workspaces, Workspace A and Workspace B. Fabric capacity B contains one workspace, Workspace C. Each workspace contains icons next to text that reads Semantic model, Data pipeline, Report, and Lakehouse. Data from all the workspaces flows to Microsoft OneLake.
 :::image-end:::
 
 The following characteristics apply to this pattern:
@@ -339,7 +339,7 @@ Reliability helps ensure that your application can meet the commitments that you
 
 - **Multicapacity patterns provide natural regional isolation.** In patterns 3 and 4, capacities in different regions mean a regional outage affects only the capacities in that region. Workloads in other regions continue to operate. These patterns support data residency requirements and provide the foundation for active-passive or active-active regional strategies.
 
-- **Capacity pausing affects reliability.** if you pause a Fabric capacity to reduce costs, all workloads on that capacity become unavailable. Consider the reliability effect before you pause a capacity that supports production workloads.
+- **Capacity pausing affects reliability.** If you pause a Fabric capacity to reduce costs, all workloads on that capacity become unavailable. Consider the reliability effect before you pause a capacity that supports production workloads.
 
 - **OneLake shortcuts introduce external dependencies.** Shortcuts to external data sources introduce dependence on source availability. If the external source is unavailable, items that rely on shortcuts might fail. Monitor the health of external data sources and plan for graceful degradation.
 
