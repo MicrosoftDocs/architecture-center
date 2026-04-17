@@ -84,7 +84,7 @@ The following table compares how each platform supports the capabilities that ma
 
 - **Choose AKS** when you need direct Kubernetes API access, custom service mesh configuration, or fine-grained control over cluster infrastructure like node pools, networking policies, or scheduling constraints.
 
-- **Use Functions** for event-driven microservices that have sporadic or bursty traffic patterns that benefit from scale-to-zero billing and trigger-based execution.
+- **Use Functions** for event-driven microservices that have sporadic or sudden-spike traffic patterns that benefit from scale-to-zero billing and trigger-based execution.
 
 - **Use App Service** for straightforward HTTP-based services that don't need platform-level service discovery or inter-service communication features.
 
@@ -106,7 +106,7 @@ If your services communicate primarily through asynchronous messaging like queue
 
 Each microservice in a composition has different load characteristics.
 
-If your services have highly variable or bursty traffic, Container Apps and Functions scale per service and can scale idle services to zero. This approach avoids unused capacity charges. For Functions, each function app is the scaling unit, so deploy each microservice as its own function app. AKS provides per-deployment scaling. You manage shared node pools that remain provisioned, and user node pools can scale to zero.
+If your services have highly variable or sudden-spike traffic, Container Apps and Functions scale per service and can scale idle services to zero. This approach avoids unused capacity charges. For Functions, each function app is the scaling unit, so deploy each microservice as its own function app. AKS provides per-deployment scaling. You manage shared node pools that remain provisioned, and user node pools can scale to zero.
 
 Scale-to-zero platforms introduce cold start latency when an idle service receives its first request. In a microservices architecture, a single user request can traverse multiple services. If several services in the call chain are cold, the latency compounds. For synchronous inter-service calls that require low latency, use the platform's cold start mitigation features or pay the cost to keep minimum instances active to avoid cold starts.
 
