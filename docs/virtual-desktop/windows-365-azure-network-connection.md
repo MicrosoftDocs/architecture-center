@@ -233,7 +233,7 @@ To optimize routing for the Windows 365 network architecture, follow these recom
   
   - The user's physical device
   - The network that the physical device connects to
-  - The Cloud PC & underlying network within Azure
+  - The Cloud PC and underlying network within Azure
     
   For more information, see [Optimization of RDP traffic](/windows-365/enterprise/optimization-of-rdp).
   
