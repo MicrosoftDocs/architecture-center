@@ -12,14 +12,14 @@ ai-usage: ai-assisted
 
 # Choose a Microsoft Fabric deployment pattern
 
-When you deploy [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview), you need to decide how to structure capacities, workspaces, and items across your organization. The right deployment pattern depends on your requirements for governance, security, performance isolation, and cost management. This guide helps architects and platform teams evaluate four deployment patterns and understand the considerations and tradeoffs for each one.
+When you deploy [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview), you need to decide how to structure capacities, workspaces, and items across your organization. The right deployment pattern depends on your requirements for governance, security, performance isolation, and cost management. This guide helps architects and platform teams evaluate four deployment patterns and understand the considerations and trade-offs for each one.
 
 ## Four-level hierarchy
 
 The following diagram shows the four-level hierarchy that defines all Fabric deployments.
 
 :::image type="complex" source="../images/fabric-deployment-pattern.svg" alt-text="Diagram that shows the Microsoft Fabric deployment hierarchy, which includes the tenant, capacities, workspaces, and items." lightbox="../images/fabric-deployment-pattern.svg"  border="false":::
-   Diagram that shows the Microsoft Fabric deployment architecture within a Microsoft 365 tenant boundary. Two layers represent capacities and Fabric domains. Within these layers are workspaces. The workspaces contain Fabric items, represented by icons for semantic models, data pipelines, reports, and lakehouses. At the bottom of the diagram is Microsoft OneLake. On the left side of the diagram, under Inbound networking, are Microsoft Entra Conditional Access and Azure Private Link. On the right side, under Outbound networking, are managed private endpoint, managed virtual network, on-premises data gateway, service tags, virtual network data gateway, and Microsoft Entra ID managed identity.
+   Diagram that shows the Microsoft Fabric deployment architecture within a Microsoft 365 tenant boundary. Two layers represent capacities and Fabric domains. Within these layers are workspaces. The workspaces contain Fabric items, represented by icons for semantic models, data pipelines, reports, and lakehouses. At the bottom of the diagram is Microsoft OneLake. On the left side of the diagram, under inbound networking, are Microsoft Entra Conditional Access and Azure Private Link. On the right side, under outbound networking, are managed private endpoint, managed virtual network, on-premises data gateway, service tags, virtual network data gateway, and Microsoft Entra ID managed identity.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/fabric-deployment-pattern.vsdx) of this architecture.*
@@ -30,21 +30,21 @@ The deployment hierarchy flows from your Microsoft 365 tenant down to individual
 
 - **Capacity level.** Set up at least one Fabric capacity within a Microsoft 365 tenant. Each capacity is bound to a specific Azure region and has a specific [F SKU](/fabric/enterprise/licenses) that determines available compute resources measured in capacity units (CUs). Capacities control data residency and provide billing boundaries. A single capacity can host multiple workspaces.
 
-- **Workspace level.** Each capacity contains one or more [workspaces](/fabric/fundamentals/workspaces). Workspaces are the primary containers for collaboration and governance. They define access control through four workspace roles (administrator, member, contributor, and viewer), support [Git integration](/fabric/cicd/git-integration/intro-to-git-integration) for version control, and serve as the scope for [deployment pipelines](/fabric/cicd/deployment-pipelines/intro-to-deployment-pipelines). A workspace belongs to one capacity at a time. Same‑region capacity migration is straightforward. Cross‑region migration is possible, but you must remove and recreate most Fabric items, including lakehouses, warehouses, notebooks, and pipelines. Therefore, prefer same‑region migration.
+- **Workspace level.** Each capacity contains one or more [workspaces](/fabric/fundamentals/workspaces). Workspaces are the primary containers for collaboration and governance. They define access control through four workspace roles (Administrator, Member, Contributor, and Viewer), support [Git integration](/fabric/cicd/git-integration/intro-to-git-integration) for version control, and serve as the scope for [deployment pipelines](/fabric/cicd/deployment-pipelines/intro-to-deployment-pipelines). A workspace belongs to one capacity at a time. Same‑region capacity migration is straightforward. Cross‑region migration is possible, but you must remove and re-create most Fabric items, including lakehouses, warehouses, notebooks, and pipelines. Therefore, prefer same‑region migration.
 
-- **Item level.** Workspaces contain Fabric items such as lakehouses, warehouses, notebooks, pipelines, semantic models, reports, and dashboards. Items inherit workspace permissions by default. [Microsoft OneLake security roles](/fabric/onelake/security/get-started-security#onelake-security-preview) provide granular access control at the table, folder, column, and row level, but they apply only to users in the viewer role. Workspace admins, members, and contributors bypass OneLake security roles.
+- **Item level.** Workspaces contain Fabric items such as lakehouses, warehouses, notebooks, pipelines, semantic models, reports, and dashboards. Items inherit workspace permissions by default. [Microsoft OneLake security roles](/fabric/onelake/security/get-started-security#onelake-security-preview) provide granular access control at the table, folder, column, and row level, but they apply only to users in the Viewer role. Workspace admins, members, and contributors bypass OneLake security roles.
 
 The following licensing and workspace-type constraints often determine which deployment pattern is most practical:
 
-- **New workspaces start on shared capacity unless you reassign them.** Every tenant has a shared capacity that hosts My Workspaces and can host Power BI Pro or Power BI Premium Per User (PPU) workspaces. To implement a governed Fabric deployment pattern for production workloads, you typically need to reassign workspaces to a dedicated Fabric capacity in the tenant.
+- **New workspaces start on shared capacity unless you reassign them.** Every tenant has a shared capacity that hosts My Workspaces and can host Power BI Pro or Premium Per User (PPU) workspaces. To implement a governed Fabric deployment pattern for production workloads, you typically need to reassign workspaces to a dedicated Fabric capacity in the tenant.
 
-- **PPU is not a substitute for Fabric capacity.** PPU provides Power BI Premium features on a per-user basis, but it doesn't include Fabric capacity. To create or run non-Power BI Fabric items such as lakehouses, warehouses, and notebooks, you need an F capacity.
+- **PPU isn't a substitute for Fabric capacity.** PPU provides Power BI Premium features on a per-user basis, but it doesn't include Fabric capacity. To create or run non-Power BI Fabric items such as lakehouses, warehouses, and notebooks, you need an F capacity.
 
 - **Workspace type affects what the pattern can host.** The Fabric deployment patterns in this article assume F SKU-backed Fabric workspaces. A and EM SKUs support only Power BI items, so they can't support end-to-end Fabric deployment patterns.
 
-- **Power BI viewer licensing can change the economics of a pattern.** On F64 and larger capacities, users with the viewer role can access Power BI content with a free license. On smaller capacities, Power BI consumers need a Pro, PPU, or trial license. This threshold can reduce the cost-effectiveness of a centralized pattern for large reader populations.
+- **Power BI viewer licensing can change the cost of a pattern.** On F64 and larger capacities, users with the Viewer role can access Power BI content with a free license. On smaller capacities, Power BI consumers need a Pro, PPU, or trial license. This threshold can reduce the cost effectiveness of a centralized pattern for large reader populations.
 
-- **At least one Pro or PPU user is needed for Power BI authoring and sharing.** Even if a workspace uses Fabric capacity, organizations need users with Pro or PPU licenses to create and share Power BI items.
+- **Power BI authoring and sharing requires at least one Pro or PPU user.** Even if a workspace uses Fabric capacity, organizations need users with Pro or PPU licenses to create and share Power BI items.
 
 ### Components
 
@@ -52,7 +52,7 @@ The following licensing and workspace-type constraints often determine which dep
 
 - Fabric capacity: A compute and billing resource used in a specific Azure region, for example, East US or West Europe. To reduce costs, you can pause capacities when not in use.
 
-- Fabric workspace: A collaboration container for Fabric items. Supports role-based access control, Git integration, and deployment pipelines. For logical grouping, workspaces can be assigned to Fabric domains.
+- Fabric workspace: A collaboration container for Fabric items. Supports role-based access control (RBAC), Git integration, and deployment pipelines. For logical grouping, workspaces can be assigned to Fabric domains.
 
 - [Fabric items](/fabric/fundamentals/fabric-home): Data and analytics artifacts such as lakehouses, data warehouses, notebooks, pipelines, dataflows, semantic models, reports, and dashboards.
 
@@ -64,7 +64,7 @@ The following licensing and workspace-type constraints often determine which dep
 
 ## Understand Fabric deployment levels
 
-Your organization's structure, objectives, security requirements, scale, governance model, and application lifecycle influence decisions at each deployment level. For more information about each level, see [Four-level hierarchy](#four-level-hierarchy).
+Your organization's structure, objectives, security requirements, scale, governance model, and application life cycle influence decisions at each deployment level. For more information about each level, see [Four-level hierarchy](#four-level-hierarchy).
 
 - **Capacities control data residency and geographic distribution.** Organizations that operate in multiple geographic locations can use capacities in different Azure regions to control where data is stored. Each capacity is bound to a specific Azure region, which supports multi‑geo deployments across regions. To support centralized governance, Fabric domains can group workspaces and their associated capacities across regions.
 
