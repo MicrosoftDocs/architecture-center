@@ -3,7 +3,7 @@ This article describes how to manage virtual machine (VM) compliance without dis
 ## Architecture
 
 :::image type="complex" border="false" source="./media/virtual-machine-compliance-golden-image-publishing-architecture.svg" alt-text="Diagram that shows how the solution manages Microsoft Marketplace images for Azure." lightbox="./media/virtual-machine-compliance-golden-image-publishing-architecture.svg":::
-   The diagram shows the golden image publishing process as a numbered workflow with seven steps. In step 1, an arrow points from the Marketplace icon to the workflow. In step 2, a VM icon with a gear overlay represents the VM Image Builder customization step. In step 3, a VM icon with a synchronization overlay represents the image tattoo step. In step 4, an arrow points down to a VM icon with a monitor overlay that represents automated tests. In step 5, a feedback arrow points left from the test icon back to the customization icon to indicate a return for repairs on failure. In step 6, an arrow points right to a VM Image Builder icon to indicate that the process publishes the finalized image. In step 7, an arrow points up to the Compute Gallery icon at the upper right. A label at the bottom reads golden image publishing process.
+   The diagram shows the golden image publishing process as a numbered workflow with seven steps. In step 1, an arrow points from the Marketplace icon to the Marketplace image. In step 2, an arrow points from the Marketplace image to VM Image Builder. In step 3, an arrow points from VM Image Builder to the image tattooing icon. In step 4, an arrow points from the automated tests to the image versions icon. In step 5, a feedback arrow points from the test icon back to the customization icon to indicate a return for repairs on failure. In step 6, an arrow points to the image versions. In step 7, an arrow points to the Compute Gallery icon.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/virtual-machine-compliance-golden-image-publishing-architecture.vsdx) of this architecture.*
@@ -76,7 +76,7 @@ This solution applies to organizations that have Azure [landing zones][Azure lan
 
 - Supply *golden images* to DevOps teams. A golden image is the published version of a marketplace image.
 
-- Test and validate images before you make them them available to DevOps teams.
+- Test and validate images before you make them available to DevOps teams.
 
 - Track which image each DevOps team uses.
 
