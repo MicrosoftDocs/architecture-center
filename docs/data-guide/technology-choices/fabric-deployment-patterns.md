@@ -509,7 +509,7 @@ Other contributors:
 - [Fabric concepts and licenses](/fabric/enterprise/licenses)
 - [Fabric workspaces](/fabric/fundamentals/workspaces)
 - [Fabric domains](/fabric/governance/domains)
-- [What is OneLake?]
+- [What is OneLake?](/fabric/onelake/onelake-overview)
 - [Fabric deployment pipelines](/fabric/cicd/deployment-pipelines/intro-to-deployment-pipelines)
 - [Reliability in Fabric](/azure/reliability/reliability-fabric)
 - [Fabric security overview](/fabric/security/security-overview)
