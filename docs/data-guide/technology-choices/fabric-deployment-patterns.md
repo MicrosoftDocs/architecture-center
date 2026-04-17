@@ -19,7 +19,7 @@ When you deploy [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overvie
 The following diagram shows the four-level hierarchy that defines all Fabric deployments.
 
 :::image type="complex" source="../images/fabric-deployment-pattern.svg" alt-text="Diagram that shows the Microsoft Fabric deployment hierarchy, which includes the tenant, capacities, workspaces, and items." lightbox="../images/fabric-deployment-pattern.svg"  border="false":::
-   Diagram that shows the Microsoft Fabric deployment architecture within a Microsoft 365 tenant boundary. Two overlapping layers represent capacities and Fabric domains. Within these layers are workspaces. Inside the workspaces are items, represented by icons for pipelines, bar chart reports, tables or grids, and lakehouses. At the bottom of the diagram is Microsoft OneLake. On the left side of the diagram, under Inbound networking, are Microsoft Entra Conditional Access and Azure Private Link. On the right side, under Outbound networking, are managed private endpoint, managed virtual network, on-premises data gateway, service tags, virtual network data gateway, and Microsoft Entra ID managed identity.
+   Diagram that shows the Microsoft Fabric deployment architecture within a Microsoft 365 tenant boundary. Two layers represent capacities and Fabric domains. Within these layers are workspaces. Inside the workspaces are items, represented by icons for pipelines, bar chart reports, tables or grids, and lakehouses. At the bottom of the diagram is Microsoft OneLake. On the left side of the diagram, under Inbound networking, are Microsoft Entra Conditional Access and Azure Private Link. On the right side, under Outbound networking, are managed private endpoint, managed virtual network, on-premises data gateway, service tags, virtual network data gateway, and Microsoft Entra ID managed identity.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/fabric-deployment-pattern.vsdx) of this architecture.*
@@ -30,7 +30,7 @@ The deployment hierarchy flows from your Microsoft 365 tenant down to individual
 
 - **Capacity level.** Set up at least one Fabric capacity within a Microsoft 365 tenant. Each capacity is bound to a specific Azure region and has a specific [F SKU](/fabric/enterprise/licenses) that determines available compute resources measured in capacity units (CUs). Capacities control data residency and provide billing boundaries. A single capacity can host multiple workspaces.
 
-- **Workspace level.** Each capacity contains one or more [workspaces](/fabric/fundamentals/workspaces). Workspaces are the primary containers for collaboration and governance. They define access control through four workspace roles (admin, member, contributor, and viewer), support [Git integration](/fabric/cicd/git-integration/intro-to-git-integration) for version control, and serve as the scope for [deployment pipelines](/fabric/cicd/deployment-pipelines/intro-to-deployment-pipelines). A workspace belongs to one capacity at a time. Same‑region capacity migration is straightforward. Cross‑region migration is possible, but you must remove and recreate most Fabric items, including lakehouses, warehouses, notebooks, and pipelines. Therefore, prefer same‑region migration.
+- **Workspace level.** Each capacity contains one or more [workspaces](/fabric/fundamentals/workspaces). Workspaces are the primary containers for collaboration and governance. They define access control through four workspace roles (administrator, member, contributor, and viewer), support [Git integration](/fabric/cicd/git-integration/intro-to-git-integration) for version control, and serve as the scope for [deployment pipelines](/fabric/cicd/deployment-pipelines/intro-to-deployment-pipelines). A workspace belongs to one capacity at a time. Same‑region capacity migration is straightforward. Cross‑region migration is possible, but you must remove and recreate most Fabric items, including lakehouses, warehouses, notebooks, and pipelines. Therefore, prefer same‑region migration.
 
 - **Item level.** Workspaces contain Fabric items such as lakehouses, warehouses, notebooks, pipelines, semantic models, reports, and dashboards. Items inherit workspace permissions by default. [Microsoft OneLake security roles](/fabric/onelake/security/get-started-security#onelake-security-preview) provide granular access control at the table, folder, column, and row level, but they apply only to users in the viewer role. Workspace admins, members, and contributors bypass OneLake security roles.
 
@@ -38,19 +38,19 @@ The following licensing and workspace-type constraints often determine which dep
 
 - **New workspaces start on shared capacity unless you reassign them.** Every tenant has a shared capacity that hosts My Workspaces and can host Power BI Pro or Power BI Premium Per User (PPU) workspaces. To implement a governed Fabric deployment pattern for production workloads, you typically need to reassign workspaces to a dedicated Fabric capacity in the tenant.
 
-- **PPU is not a substitute for Fabric capacity.** PPU provides Power BI Premium features on a per-user basis, but it doesn't provision a Fabric capacity. To create or run non-Power BI Fabric items such as lakehouses, warehouses, and notebooks, you need an F capacity.
+- **PPU is not a substitute for Fabric capacity.** PPU provides Power BI Premium features on a per-user basis, but it doesn't include Fabric capacity. To create or run non-Power BI Fabric items such as lakehouses, warehouses, and notebooks, you need an F capacity.
 
-- **Workspace type affects what the pattern can host.** The Fabric deployment patterns in this article assume that Fabric workspaces are backed by F SKUs. A and EM SKUs support only Power BI items, so they can't support end-to-end Fabric deployment patterns.
+- **Workspace type affects what the pattern can host.** The Fabric deployment patterns in this article assume F SKU-backed Fabric workspaces. A and EM SKUs support only Power BI items, so they can't support end-to-end Fabric deployment patterns.
 
 - **Power BI viewer licensing can change the economics of a pattern.** On F64 and larger capacities, users with the viewer role can access Power BI content with a free license. On smaller capacities, Power BI consumers need a Pro, PPU, or trial license. This threshold can reduce the cost-effectiveness of a centralized pattern for large reader populations.
 
-- **At least one Pro or PPU user is needed for Power BI authoring and sharing.** Even when a workspace is backed by Fabric capacity, organizations need users with Pro or PPU licenses to create and share Power BI items.
+- **At least one Pro or PPU user is needed for Power BI authoring and sharing.** Even if a workspace uses Fabric capacity, organizations need users with Pro or PPU licenses to create and share Power BI items.
 
 ### Components
 
 - Microsoft 365 tenant: An identity and administrative boundary for your organization. Hosts Microsoft Entra ID (formerly Azure Active Directory) for authentication and authorization.
 
-- Fabric capacity: A compute and billing resource provisioned in a specific Azure region, for example, East US or West Europe. To reduce costs, you can pause capacities when not in use.
+- Fabric capacity: A compute and billing resource used in a specific Azure region, for example, East US or West Europe. To reduce costs, you can pause capacities when not in use.
 
 - **Fabric workspace: A collaboration container for Fabric items. Supports role-based access control, Git integration, and deployment pipelines. For logical grouping, workspaces can be assigned to Fabric domains.
 
@@ -70,7 +70,7 @@ Your organization's structure, objectives, security requirements, scale, governa
 
 - **Workspaces serve as the primary governance and security boundary.** Each workspace defines access control through four roles, supports version control through Git integration, and serves as the scope for deployment pipelines. For more information about workspace roles and lifecycle features, see [Four-level hierarchy](#four-level-hierarchy). To centralize collaboration and content discovery, use the OneLake catalog to implement a unified discovery and governance experience over the tenant's OneLake data. Users can find and interact with content from tools like Teams and Excel through this catalog.
 
-- **Each level influences application lifecycle choices.** Features such as deployment pipelines and [lifecycle management](/fabric/cicd/cicd-overview) aren't available in single-workspace patterns because they require separate workspaces. Organizations that use domains to group workspaces can delegate domain-level administration without tenant-admin privileges, which affects how teams manage releases and governance across business units.
+- **Each level influences application lifecycle choices.** Features such as deployment pipelines and [lifecycle management](/fabric/cicd/cicd-overview) aren't available in single-workspace patterns because they require separate workspaces. Organizations that use domains to group workspaces can delegate domain-level administration without tenant-administrator privileges, which affects how teams manage releases and governance across business units.
 
 ### Common patterns across all deployments
 
@@ -78,13 +78,13 @@ All Fabric deployment patterns share the following foundational characteristics:
 
 - **Workspaces as boundaries for scale, governance, and security.** Deployment patterns use Fabric workspaces as the primary unit for item organization, permissions, and DevOps feature scope. Regardless of which pattern you choose, workspaces define the boundary for collaboration and access control.
 
-- **Fabric domains for delegation across multiple workspaces and business units.** Use Fabric domains for delegation, to manage multiple workspaces that might belong to the same business unit, or when data that belongs to a business domain spans more than one workspace. To manage and govern data [at the domain level](/fabric/governance/domains#domain-settings-delegation), you can adjust some tenant-level settings and use a domain-specific configuration for those settings.
+- **Fabric domains for delegation across multiple workspaces and business units.** Use Fabric domains for delegation, to manage multiple workspaces that might belong to the same business unit, or if data that belongs to a business domain spans more than one workspace. To manage and govern data [at the domain level](/fabric/governance/domains#domain-settings-delegation), you can adjust some tenant-level settings and use a domain-specific configuration for those settings.
 
-- **Capacities for compute scaling with dedicated capacity per workspace for performance guarantees.** When specific performance levels must be met, use Fabric capacities to scale compute resources and offer dedicated capacities per workspace. Organizations that need workload isolation for performance-sensitive jobs can assign those workspaces to a separate capacity with a guaranteed CU allocation.
+- **Capacities for compute scaling with dedicated capacity per workspace for performance guarantees.** If specific performance levels must be met, use Fabric capacities to scale compute resources and offer dedicated capacities per workspace. Organizations that need workload isolation for performance-sensitive jobs can assign those workspaces to a separate capacity with a guaranteed CU allocation.
 
 - **OneLake catalog for asset discovery and Secure tab for data security policies.** To promote discovery and the use of data assets across your tenant, use the OneLake catalog. To view, monitor, and configure security roles across workspaces and items, use the [Secure tab in the OneLake catalog](/fabric/governance/secure-your-data).
 
-- **Extension to Microsoft Cloud features when native Fabric features are unavailable.** When a native feature isn't available, deployment patterns can extend to use equivalent features from the Microsoft Cloud, such as Azure and Microsoft 365. For example, organizations can use [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) or [GitHub Actions](/azure/developer/github/github-actions) for continuous integration and continuous delivery orchestration when Fabric deployment pipelines don't cover their cross-workspace automation requirements. Organizations can also use [Microsoft Purview](/purview/purview) for enterprise-wide data governance that spans Fabric and non-Fabric data sources.
+- **Extension to Microsoft Cloud features if native Fabric features are unavailable.** If a native feature isn't available, deployment patterns can extend to use equivalent features from the Microsoft Cloud, such as Azure and Microsoft 365. For example, organizations can use [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) or [GitHub Actions](/azure/developer/github/github-actions) for continuous integration and continuous delivery orchestration if Fabric deployment pipelines don't cover their cross-workspace automation requirements. Organizations can also use [Microsoft Purview](/purview/purview) for enterprise-wide data governance that spans Fabric and non-Fabric data sources.
 
 ## Select a deployment pattern
 
@@ -102,7 +102,7 @@ The following scenarios describe some common business requirements and the deplo
 
   Use [Pattern 3: multiple workspaces, separate capacities](#pattern-3-multiple-workspaces-separate-capacities) or [Pattern 4: multiple Fabric tenants](#pattern-4-multiple-fabric-tenants).
 
-- **Scenario 4: Hybrid approach combining multiple patterns.** If your organization wants a hybrid solution that uses multiple pattern to meet its requirements, you can implement a hybrid approach. For example, you might set up a single workspace for specific business units, like in a monolithic deployment pattern, and separate, dedicated workspaces and separate capacities for other business units.
+- **Scenario 4: Hybrid approach that combines multiple patterns.** If your organization wants a hybrid solution that uses multiple patterns to meet its requirements, you can implement a hybrid approach. For example, you might set up a single workspace for specific business units, like in a monolithic deployment pattern, and separate, dedicated workspaces and separate capacities for other business units.
 
 ### Pattern 1: Monolithic deployment
 
@@ -112,15 +112,15 @@ In this deployment pattern, you allocate one workspace for all use cases. All bu
    Diagram that shows a single Microsoft Fabric tenant containing one capacity. Within the capacity is a single workspace. Inside the workspace are Fabric items such as lakehouses, warehouses, notebooks, and semantic models. At the bottom, all data flows to Microsoft OneLake.
 :::image-end:::
 
-The following constraints and characteristics apply to this pattern:
+The following characteristics apply to this pattern:
 
 - Fabric items share the same capacity. The time a query or job takes varies because other workloads use the same capacity.
 
-- Workspace maximum CUs are limited to the largest possible F SKU. For data engineering and data science experiences, capacity administrators can configure Autoscale Billing for Spark to move the compute capacity that the Spark Engine uses outside of the provisioned CUs.
+- Workspace maximum CUs are limited to the largest possible F SKU. For data engineering and data science experiences, capacity administrators can configure Autoscale Billing for Spark to move the compute capacity that the Spark Engine uses outside of the allocated CUs.
 
 - Features that are scoped to a workspace apply across all business units that share the workspace.
 
-- All workspace items and data are in one region. You can't use this pattern for multi-geo scenarios.
+- All workspace items and data are in one region. You can't use this pattern for multigeo scenarios.
 
 - Features that rely on multiple workspaces aren't available, for example [deployment pipelines](/fabric/cicd/deployment-pipelines/intro-to-deployment-pipelines) and lifecycle management.
 
@@ -128,7 +128,7 @@ The following constraints and characteristics apply to this pattern:
 
 - Specific SKU capacity limitations apply.
 
-#### When to choose this pattern
+#### When to use this pattern
 
 You might implement this deployment pattern because:
 
@@ -140,17 +140,17 @@ You might implement this deployment pattern because:
 
 - Your organization doesn't require workspace-scoped features, such as sharing code repositories with Git.
 
-- You want to implement a lakehouse medallion architecture. If your organization uses a single workspace, you can create separate lakehouses within the workspace  to configure bronze, silver, and gold layers.
+- You want to implement a lakehouse medallion architecture. If your organization uses a single workspace, you can create separate lakehouses within the workspace  to manage bronze, silver, and gold layers.
 
 - Your organization's business units share roles, and it's acceptable to have the same workspace-level permissions for users in the workspace. For example, if multiple users from different business units are administrators of a single workspace, they have the same rights on all items in the workspace.
 
-- Your organization tolerates variable job completion times. If your organization doesn't set performance-based service-level objectives (SLOs), for example that a job must finish within a specific time period, it's acceptable to share a single provisioned capacity across business units. If a capacity is shared, users can run queries at any time. The number of CUs that are available to run a job varies depends on the other queries that run on the capacity, which can lead to variable job completion times.
+- Your organization tolerates variable job completion times. c. If a capacity is shared, users can run queries at any time. The number of CUs that are available to run a job depends on the other queries that run on the capacity, which can lead to variable job completion times.
 
 - Your organization can meet its CU business requirements by using a single Fabric capacity.
 
 #### Design-area considerations
 
-The following table presents considerations that might influence your decision to adopt this deployment pattern.
+The following table presents considerations that might influence your decision to use this deployment pattern.
 
 | Aspect | Considerations |
 |---|---|
@@ -159,8 +159,8 @@ The following table presents considerations that might influence your decision t
 | **Security: control plane** | All users can collaborate in the same workspace. There are no restrictions on items. All users can read and edit all items. |
 | **Administration** | Lower administration costs. No need to track and monitor access and usage per team. Less stringent Fabric workload monitoring across teams. |
 | **DevOps** | A single release for the entire platform. Simpler release pipelines. |
-| **Usability: administrators** | Fewer items to manage. No need for other provisioning or to handle requests from teams for new capacities or workspaces. Capacity administrators can be tenant administrators, so there's no need to create or manage other groups or teams. |
-| **Usability: other roles** | Sharing the workspace with other users is acceptable. Collaboration between users is encouraged. |
+| **Usability: administrators** | Fewer items to manage. No need for other setup or to handle requests from teams for new capacities or workspaces. Capacity administrators can be tenant administrators, so there's no need to create or manage other groups or teams. |
+| **Usability: other roles** | Workspace sharing is acceptable. Collaboration between users is encouraged. |
 | **Performance** | Isolation of workloads isn't mandatory. No strict performance-based SLOs need to be met. Throttling is possible if workloads compete for the same shared CUs. This pattern suits organizations with low concurrency or predictable workloads. |
 | **Billing and cost management** | One team can handle costs. No need to chargeback to different teams. |
 
@@ -172,15 +172,15 @@ In this deployment pattern, you allocate  multiple workspaces on a single shared
    Diagram that shows a single Microsoft Fabric tenant containing one shared capacity. Within the capacity are two workspaces, Workspace A and Workspace B. Each workspace contains Fabric items such as lakehouses, warehouses, notebooks, and semantic models. All data from both workspaces flows to OneLake.
 :::image-end:::
 
-The following constraints and characteristics apply to this pattern:
+The following characteristics apply to this pattern:
 
-- Fabric items share the same  capacity. The time a query or job takes varies because other workloads use the same capacity.
+- Fabric items share the same  capacity. The time a query or job varies because other workloads use the same capacity.
 
-- Workspace maximum CUs are limited to the largest possible F SKU. For data engineering and data science experiences, capacity administrators can configure Autoscale Billing for Spark to move the compute capacity used by the Spark Engine outside of the provisioned CUs.
+- Workspace maximum CUs are limited to the largest possible F SKU. For data engineering and data science experiences, capacity administrators can configure Autoscale Billing for Spark to move the compute capacity used by the Spark Engine outside of the allocated CUs.
 
 - Features that are scoped to a workspace apply across all business units that share that workspace.
 
-- All workspace items and data are in one region. You can't use this pattern for multi-geo scenarios.
+- All workspace items and data are in one region. You can't use this pattern for multigeo scenarios.
 
 - You can use DevOps features that require separate workspaces, like deployment pipelines and [lifecycle management](/fabric/cicd/cicd-overview).
 
@@ -188,13 +188,13 @@ The following constraints and characteristics apply to this pattern:
 
 - Specific SKU capacity limitations apply.
 
-#### When to choose this pattern
+#### When to use this pattern
 
 You might implement this deployment pattern because:
 
-- You want a hub-spoke architecture that centralizes some aspects of operating the analytics environment and decentralizes others.
+- You want a hub-spoke architecture that centralizes some aspects of analytics environment operation and decentralizes others.
 
-- You want varying degrees of operational and management decentralization. For example, your organization might choose to host the bronze and silver layers of a medallion archtecture in one workspace, with the gold layer deployed in a separate workspace. This separation often reflects distinct operational responsibilities, for example where one team manages the bronze and silver layers and another team manages the gold layer.
+- You want varying degrees of operational and management decentralization. For example, your organization might host the bronze and silver layers of a medallion architecture in one workspace, with the gold layer deployed in a separate workspace. This separation often reflects distinct operational responsibilities, for example where one team manages the bronze and silver layers and another team manages the gold layer.
 
 - You aren't primarily concerned about performance management and workload isolation.
 
@@ -204,15 +204,15 @@ You might implement this deployment pattern because:
   
   - Members of the team that's responsible for workloads are in different workspaces.
   
-  - You want to create separate workspaces for each type of workload. For example, you might create a workspace for data ingestion, like data pipelines, dataflows, or data engineering, and a separate workspace for consumption through a data warehouse. This design works well when separate teams are responsible for each of the workloads.
+  - You want to create separate workspaces for each type of workload. For example, you might create a workspace for data ingestion, like data pipelines, dataflows, or data engineering, and a separate workspace for consumption through a data warehouse. This design works well if separate teams are responsible for each of the workloads.
   
   - You want to implement a data mesh architecture in which one or more workspaces are grouped together in a [Fabric domain](/fabric/governance/domains).
 
-- Your organization might choose to deploy separate workspaces based on data classification.
+- Your organization might deploy separate workspaces based on data classification.
 
 #### Design-area considerations
 
-The following table presents considerations that might influence your decision to choose this deployment pattern.
+The following table presents considerations that might influence your decision to use this deployment pattern.
 
 | Aspect | Considerations |
 |---|---|
@@ -220,9 +220,9 @@ The following table presents considerations that might influence your decision t
 | **Security: data plane** | Data restrictions are required, and you need to provide data protection based on access controls for departments, teams, and members. |
 | **Security: control plane** | To avoid accidental corruption or actions by malicious users, you might need to provide controlled access on Fabric items by role. |
 | **Administration** | You don't need to manage capacities because it's a single-capacity model. You can use workspaces to isolate departments, teams, and users. |
-| **DevOps** | You can do independent releases per department, team, or workload. It's easier to meet development, testing, acceptance, and production (DTAP) requirements for teams when multiple workspaces are configured to address each release environment. |
+| **DevOps** | You can do independent releases per department, team, or workload. It's easier to meet development, testing, acceptance, and production (DTAP) requirements for teams if multiple workspaces are configured to address each release environment. |
 | **Usability: administrators** | You don't need to allocate multiple capacities. Tenant administrators typically administer capacity, so you don't need to manage other groups or teams. |
-| **Usability: other roles** | Workspaces are available for each medallion layer. Fabric items are isolated per workspace, which helps to prevent accidental corruption. |
+| **Usability: other roles** | Workspaces are available for each medallion layer. Fabric items are isolated per workspace, which helps prevent accidental corruption. |
 | **Performance** | Strict performance SLOs don't need to be met. Throttling is acceptable during peak periods. |
 | **Billing and cost management** | You don't have a specific requirement to chargeback per team. A central team is responsible for costs. Infrastructure teams are owners of Fabric capacities in the organization. |
 
@@ -231,30 +231,30 @@ The following table presents considerations that might influence your decision t
 In this deployment pattern, you allocate multiple workspaces across separate Fabric capacities, which provides governance and performance isolation between business units.
 
 :::image type="complex" source="../images/fabric-deployment-pattern-3-multiple-workspaces-multiple-capacities.svg" alt-text="Diagram that shows a single Fabric tenant with two capacities, where the first capacity has two workspaces and the second capacity has one workspace." lightbox="../images/fabric-deployment-pattern-3-multiple-workspaces-multiple-capacities.svg" border="false":::
-   Diagram that shows a single Microsoft Fabric tenant containing Fabric capacity A and Fabric capacity B. Fabric capacity A contains two workspaces, Workspace A and Workspace B. Fabric capacity B contains one workspace, Workspace C. Each workspace contains Fabric items such as lakehouses, warehouses, notebooks, and semantic models. The data from all the workspaces flows to OneLake.
+   Diagram that shows a single Microsoft Fabric tenant that contains Fabric capacity A and Fabric capacity B. Fabric capacity A contains two workspaces, Workspace A and Workspace B. Fabric capacity B contains one workspace, Workspace C. Each workspace contains Fabric items such as lakehouses, warehouses, notebooks, and semantic models. The data from all the workspaces flows to OneLake.
 :::image-end:::
 
-The following constraints and characteristics apply to this pattern:
+The following characteristics apply to this pattern:
 
 - The largest possible F SKU or P SKU that is attached to a workspace determines the maximum number of CUs that a workspace can use.
 
-- Organizational and management decentralization is achieved by provisioning separate workspaces.
+- Organizational and management decentralization is achieved by using separate workspaces.
 
-- Organizations can scale beyond one region by provisioning capacities and workspaces in different geographical regions.
+- Organizations can scale beyond one region by using capacities and workspaces in different geographical regions.
 
 - You can use the full capabilities of Fabric because business units can have multiple workspaces that are in separate capacities and are grouped together through Fabric domains.
 
 - [Workspace limitations](/fabric/fundamentals/workspaces#considerations-and-limitations) that are associated with a single workspace apply, but you can create new workspaces to scale beyond these limits.
 
-- Specific SKU capacity limitations apply, but you can scale CUs by provisioning separate capacities.
+- Specific SKU capacity limitations apply, but you can scale CUs by using separate capacities.
 
 - Fabric items and their certification statuses can be discovered by using the [OneLake catalog](/fabric/governance/onelake-catalog-overview).
 
 - Domains can group workspaces together so that a single business unit can operate and manage multiple workspaces.
 
-- [OneLake shortcuts](/fabric/onelake/onelake-shortcuts) eliminate physical copies of data to reduce data movement. OneLake shortcuts also enable controlled, cross‑workspace access through OneLake and don't transfer ownership of the underlying data.
+- [OneLake shortcuts](/fabric/onelake/onelake-shortcuts) eliminate physical copies of data to reduce data movement. OneLake shortcuts also offer controlled, cross‑workspace access through OneLake and don't transfer ownership of the underlying data.
 
-#### When to choose this pattern
+#### When to use this pattern
 
 You might implement this deployment pattern because:
 
@@ -262,15 +262,15 @@ You might implement this deployment pattern because:
 
 - You want to prioritize flexibility in how you structure capacities and workspaces.
 
-- You operate in different geographical regions. In this case, you want to create a separate capacity and workspace to move toward a multi-capacity and multi-workspace deployment pattern.
+- You operate in different geographical regions. In this case, you want to create a separate capacity and workspace to move toward a multicapacity and multiworkspace deployment pattern.
 
 - You operate at a large scale and have requirements to scale beyond the limits of a single-capacity SKU or a single workspace.
 
-- You have workloads that must always finish within a specific time orneed to meet performance-based SLOs. You can provision separate a Fabric capacity-backed workspace to meet SLOs for those workloads.
+- You have workloads that must always finish within a specific time or need to meet performance-based SLOs. You can set up separate a Fabric capacity-backed workspace to meet SLOs for those workloads.
 
 #### Design-area considerations
 
-The following table presents considerations that might influence your decision to choose this deployment pattern.
+The following table presents considerations that might influence your decision to use this deployment pattern.
 
 | Aspect | Considerations |
 |---|---|
@@ -278,81 +278,84 @@ The following table presents considerations that might influence your decision t
 | **Security: data plane** | Data access can be controlled at the department, team, or user level. You can isolate data based on Fabric item type. |
 | **Security: control plane** | You can provide controlled access on Fabric items by role to avoid accidental corruption or actions by malicious users. |
 | **Administration** | Granular administrator capabilities are restricted to departments, teams, or users. You have access to detailed monitoring requirements on usage or patterns of workloads. |
-| **DevOps** | You can isolate DTAP environments by using different capacities. Independent releases are based on a department, team, or workload. |
+| **DevOps** | You can isolate DTAP environments by using different capacities. Independent releases are based on department, team, or workload. |
 | **Usability: administrators** | You get granular visibility into usage by department or team. You delegate capacity rights per department or team to support scaling and granular configuration. |
-| **Usability: other roles** | Workspaces are available per medallion layer and capacity. Fabric items are isolated per workspace, which helps prevent accidental corruption. You have more options to prevent throttling that's caused by surges on shared capacity. |
-| **Performance** | Performance requirements are high, and workloads need to meet higher SLOs. You have flexibility in scaling up individual workloads per department or team. |
-| **Billing and cost management** | Cross-charging requirements can be easily met by assigning dedicated capacities to an organizational entity (department, team, or project). Cost management can be delegated to respective teams to manage. |
+| **Usability: other roles** | Workspaces are available per medallion layer and capacity. Fabric items are isolated per workspace, which helps prevent accidental corruption. You have more options to prevent throttling caused by surges on shared capacity. |
+| **Performance** | Performance requirements are high and workloads need to meet higher SLOs. You have flexibility in scaling up individual workloads per department or team. |
+| **Billing and cost management** | Cross-charging requirements can be met by using dedicated capacities for each organizational entity (department, team, or project). You can delegate cost management to respective teams to manage. |
 
 ### Pattern 4: Multiple Fabric tenants
 
-When separate Fabric tenants are deployed, all instances of Fabric are separate entities with respect to governance, management, administration, scale, and storage.
+In this deployment pattern, all instances of Fabric are separate entities with respect to governance, management, administration, scale, and storage.
 
-The following characteristics apply when you use multiple Fabric tenants:
+The following characteristics apply to this pattern:
 
 - Tenant resources are strictly segregated.
+
 - Management planes between tenants are separate.
-- Tenants are separate entities, each with its own governance and management processes, and each administered independently.
+
+- Tenants are separate entities, each with its own governance and management processes and each administered independently.
+
 - You can use [data pipelines](/fabric/data-factory/data-factory-overview#data-pipelines) or [data engineering](/fabric/data-engineering/data-engineering-overview) capabilities to share or access data between Fabric tenants.
 
-#### When to choose this pattern
+#### When to use this pattern
 
-You might choose to implement this deployment pattern for the following reasons:
+You might implement this deployment pattern because:
 
-- Your organization might end up with multiple Fabric tenants because of a business acquisition.
-- Your organization might choose to set up a Fabric tenant specifically for a business unit or smaller subsidiary.
+- Your organization has multiple Fabric tenants because of a business acquisition.
+
+- Your organization wants to set up a Fabric tenant specifically for a business unit or smaller subsidiary.
 
 ## Evaluate alternative platforms
 
-If your organization’s requirements don't align with Fabric-based deployment models, consider the following constrained alternatives.
+If your organization’s requirements don't align with Fabric-based deployment models, consider the following constrained alternatives:
 
-- [Azure Data Factory](/azure/data-factory/introduction) + [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) or [OneLake](/fabric/onelake/onelake-overview) (including hybrid Data Factory-Fabric architectures).
+- [Azure Data Factory](/azure/data-factory/introduction) and [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) or [OneLake](/fabric/onelake/onelake-overview), including hybrid Data Factory-Fabric architectures.
 
-  Organizations that need explicit orchestration control or phased modernization can use Data Factory for ingestion and pipeline orchestration, with Data Lake Storage as the storage foundation. In a hybrid model, Data Factory-managed data pipelines can load OneLake, while Fabric handles all creation of analytical data assets. This approach supports incremental adoption of Fabric while preserving established integration patterns.
+  Organizations that need explicit orchestration control or phased modernization can use Data Factory for ingestion and pipeline orchestration and Data Lake Storage as the storage foundation. In a hybrid model, Data Factory-managed data pipelines can load OneLake while Fabric manages the creation of analytical data assets. This approach supports incremental adoption of Fabric and preserves established integration patterns.
 
-- Data Lake Storage + [Azure Databricks](/azure/databricks/introduction/) + [Power BI](/power-bi/fundamentals/power-bi-overview).
+- Data Lake Storage, [Azure Databricks](/azure/databricks/introduction/), and [Power BI](/power-bi/fundamentals/power-bi-overview).
 
-  Organizations that intentionally prefer a PaaS-based architecture over a unified software as a service platform may choose to build a data estate using Data Lake Storage for storage, Azure Databricks for data engineering and analytics, and Power BI for semantic modeling and reporting. This approach offers maximum control and flexibility at the cost of increased integration effort, operational complexity, and governance overhead compared to Fabric.
-
+  Organizations that prefer a platform as a service-based architecture instead of a unified software as a service platform might build a data estate by using Data Lake Storage for storage, Azure Databricks for data engineering and analytics, and Power BI for semantic modeling and reporting. This approach offers maximum control and flexibility but requires increased integration effort and increases operational complexity and governance overhead.
 
 ## Apply Azure Well-Architected Framework considerations
 
 These considerations implement the pillars of the Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see the [Well-Architected Framework](/azure/well-architected/).
 
-The per-pattern tables earlier in this article use design areas (governance, security, administration, DevOps, usability, performance, and billing) that are specific to Fabric deployment decisions. The following subsections provide complementary guidance organized by Well-Architected Framework pillar. Use the per-pattern tables to compare patterns side by side, and use these subsections for cross-cutting architectural guidance that applies regardless of which pattern you choose.
+The per-pattern tables earlier in this article use design areas that are specific to Fabric deployment decisions, like governance, security, administration, DevOps, usability, performance, and billing. The following subsections provide complementary guidance organized by Well-Architected Framework pillar. Use the per-pattern tables to compare patterns side by side. Use these subsections for cross-cutting architectural guidance that applies regardless of which pattern you choose.
 
 ### Reliability
 
 Reliability helps ensure that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-- **Built-in regional resiliency.** Fabric provides built-in regional resiliency through availability zones where supported, automatically distributing resources across multiple zones without customer configuration. Availability zone support varies by Azure region. To verify whether your target region supports availability zones for Fabric, see [Fabric region availability](/fabric/admin/region-availability).
+- **Built-in regional resiliency.** Fabric provides built-in regional resiliency through availability zones, where supported. Fabric automatically distributes resources across multiple zones without customer configuration. Availability zone support varies by Azure region. To verify whether your target region supports availability zones for Fabric, see [Fabric region availability](/fabric/admin/region-availability).
 
-- **Disaster recovery requires opt-in and has caveats.** Cross-region recovery is available through an opt-in disaster recovery setting on the capacity settings page. Enabling the disaster recovery capacity setting replicates OneLake data across Azure paired regions using asynchronous replication.
+- **Disaster recovery (DR) requires opt-in and has caveats.** Cross-region recovery is available through an opt-in DR setting on the capacity settings page. Turn on the DR capacity setting to replicate OneLake data across Azure paired regions by using asynchronous replication.
 
   > [!IMPORTANT]
-  > Some Azure regions lack paired regions that support Fabric, which may compromise disaster recovery capabilities even if data is replicated. Additionally, data replication is asynchronous, meaning data written immediately before a regional disaster may be lost. For more information, see [Reliability in Fabric](/azure/reliability/reliability-fabric).
+  > Some Azure regions aren't paired with regions that support Fabric, which might compromise DR capabilities even if data is replicated. Because data replication is asynchronous, data written immediately before a regional disaster might be lost. For more information, see [Reliability in Fabric](/azure/reliability/reliability-fabric).
 
-- **Single-capacity patterns (1 and 2) concentrate risk in one region.** All workloads are in one Azure region. If the region experiences an outage, all workspaces are affected simultaneously. To protect against regional failure, configure the capacity setting to replicate OneLake data to a paired region. Plan for the recovery time needed to restore service in the paired region.
+- **Single-capacity patterns concentrate risk in one region.** In patterns 1 and 2, workloads are in one Azure region. If the region experiences an outage, all workspaces are affected simultaneously. To protect against regional failure, configure the capacity setting to replicate OneLake data to a paired region. Plan for the recovery time needed to restore service in the paired region.
 
-- **Multi-capacity patterns (3 and 4) provide natural regional isolation.** Capacities in different regions mean a regional outage affects only the capacities in that region. Workloads in other regions continue to operate. This pattern supports data residency requirements and provides the foundation for active-passive or active-active regional strategies.
+- **Multicapacity patterns provide natural regional isolation.** In patterns 3 and 4, capacities in different regions mean a regional outage affects only the capacities in that region. Workloads in other regions continue to operate. These patterns support data residency requirements and provide the foundation for active-passive or active-active regional strategies.
 
-- **Capacity pausing affects reliability.** When you pause a Fabric capacity to reduce costs, all workloads on that capacity become unavailable. Consider the reliability effect before you pause a capacity that supports production workloads.
+- **Capacity pausing affects reliability.** if you pause a Fabric capacity to reduce costs, all workloads on that capacity become unavailable. Consider the reliability effect before you pause a capacity that supports production workloads.
 
-- **OneLake shortcuts introduce external dependencies.** Shortcuts to external data sources introduce a dependency on the availability of those sources. If the external source is unavailable, items that rely on shortcuts might fail. Monitor the health of external data sources and plan for graceful degradation.
+- **OneLake shortcuts introduce external dependencies.** Shortcuts to external data sources introduce dependence on source availability. If the external source is unavailable, items that rely on shortcuts might fail. Monitor the health of external data sources and plan for graceful degradation.
 
 ### Security
 
 Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-- **Layered security model spans three levels.** Fabric implements a layered security model that spans the tenant, workspace, and item levels. Your choice of deployment pattern determines how you segment security boundaries. Single-workspace patterns (Pattern 1) enforce uniform access, while multi-workspace patterns (Patterns 2, 3, and 4) enable per-team or per-business-unit security boundaries.
+- **The layered security model spans three levels.** Fabric implements a layered security model that spans the tenant, workspace, and item levels. Your choice of deployment pattern determines how you segment security boundaries. Single-workspace patterns, like Pattern 1, enforce uniform access. Multiworkspace patterns, like patterns 2, 3, and 4, support per-team or per-business-unit security boundaries.
 
 #### Identity and access
 
 - **Enforce tenant-level authentication policies with Conditional Access.** Use [Conditional Access](/entra/identity/conditional-access/overview) to enforce tenant-level authentication policies such as multifactor authentication, device compliance, and location-based restrictions. Conditional Access requires a [Microsoft Entra ID P1](/entra/fundamentals/what-is-entra#license-microsoft-entra-features) license.
 
-- **Use workspace roles to control item access.** Assign [workspace roles](/fabric/fundamentals/roles-workspaces) (admin, member, contributor, and viewer) to control who can create, edit, and consume items within a workspace. In multi-workspace patterns (2, 3, and 4), use separate workspaces to enforce role boundaries between business units.
+- **Use workspace roles to control item access.** Assign [workspace roles](/fabric/fundamentals/roles-workspaces) to control who can create, edit, and consume items within a workspace. In multiworkspace patterns, like patterns 2, 3, and 4, use separate workspaces to enforce role boundaries between business units.
 
-- **Apply granular data-level access with OneLake security roles.** Use [OneLake security roles](/fabric/onelake/security/get-started-security#onelake-security-preview) to apply granular access control at the table, folder, column, and row level for users in the viewer role. Workspace admins, members, and Contributors bypass these roles.
+- **Apply granular data-level access with OneLake security roles.** Use [OneLake security roles](/fabric/onelake/security/get-started-security#onelake-security-preview) to apply granular access control at the table, folder, column, and row level for users in the viewer role. Workspace administrators, members, and contributors bypass these roles.
 
 #### Network security
 
@@ -360,67 +363,67 @@ Security provides assurances against deliberate attacks and the misuse of your v
 
 - **Use managed private endpoints for outbound Spark connections.** Use [managed private endpoints](/fabric/security/security-managed-private-endpoints-overview) to secure outbound connections from Spark workloads to firewall-protected data sources such as Data Lake Storage and [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview).
 
-- **Use virtual network data gateways when tenant-level private links block on-premises gateways.** When tenant-level private links are enabled, on-premises data gateways can't register. Use a [virtual network data gateway](/data-integration/vnet/overview) as a replacement for bridging on-premises or virtual network-protected data sources.
+- **Use virtual network data gateways if tenant-level private links block on-premises gateways.** If tenant-level private links are supported, on-premises data gateways can't register. Use a [virtual network data gateway](/data-integration/vnet/overview) instead of bridges that connect on-premises or virtual network-protected data sources.
 
 #### Data protection
 
-- **Apply sensitivity labels for end-to-end data classification.** For data classification and protection, apply [sensitivity labels](/fabric/governance/information-protection) from [Microsoft Purview Information Protection](/purview/information-protection) as data flows through Fabric. Labels follow the data from source to report.
+- **Apply sensitivity labels for end-to-end data classification.** For data classification and protection, apply [sensitivity labels](/fabric/governance/information-protection) from [Microsoft Purview Information Protection](/purview/information-protection) to data that flows through Fabric. Labels follow the data from source to report.
 
-- **Use audit logs and compliance tools for policy enforcement.** Review [audit logs](/fabric/security/security-overview#audit-logs) and use [Microsoft Purview Compliance Manager](/purview/compliance-manager-alert-policies) to detect and respond to policy violations.
+- **Use audit logs and compliance tools for policy enforcement.** To detect and respond to policy violations, review [audit logs](/fabric/security/security-overview#audit-logs) and use [Microsoft Purview Compliance Manager](/purview/compliance-manager-alert-policies).
 
 ### Cost Optimization
 
 Cost Optimization focuses on ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-- **Model costs before you deploy.** The deployment pattern you choose directly affects your cost structure. Use [Fabric pricing](https://azure.microsoft.com/pricing/details/microsoft-fabric/) and the [Fabric capacity estimator](https://www.microsoft.com/en-us/microsoft-fabric/capacity-estimator) to model costs for your scenario.
+- **Model costs before you deploy.** Deployment patterns affect your cost structure. Model costs for your scenario by using [Fabric pricing](https://azure.microsoft.com/pricing/details/microsoft-fabric/) and the [Fabric capacity estimator](https://www.microsoft.com/en-us/microsoft-fabric/capacity-estimator).
 
-- **Right-size your capacity SKU.** Right-size your F SKU based on actual workload demand. Start with a smaller SKU and scale up as needed. Use the [Fabric capacity metrics app](/fabric/enterprise/metrics-app) to monitor consumption and identify over-provisioned or under-provisioned capacities.
+- **Right-size your capacity SKU.** Right-size your F SKU based on workload demand. Start with a smaller SKU and scale up as needed. Monitor consumption and identify over-provisioned or under-provisioned capacities by using the [Fabric capacity metrics app](/fabric/enterprise/metrics-app).
 
-- **Automate capacity pausing for non-production environments.** F SKU capacities can be paused to stop billing when not in use. In development or test environments, pause capacities outside of working hours. Consider automation through [Azure Resource Manager Fabric APIs](/rest/api/microsoftfabric/fabric-capacities/suspend) or scheduled pipelines. Pausing makes all workloads unavailable.
+- **Automate capacity pausing for nonproduction environments.** Reduce costs by pausing F SKU capacities when they're not in use. In development or test environments, pause capacities outside of working hours. Pausing makes all workloads unavailable, so consider automation through [Azure Resource Manager Fabric APIs](/rest/api/microsoftfabric/fabric-capacities/suspend) or scheduled pipelines.
 
-- **Single-capacity patterns (1 and 2) centralize billing but limit chargeback.** One capacity means one bill. Cost management is centralized, but chargeback to individual business units isn't possible because all workloads share the same capacity.
+- **Single-capacity patterns, such as patterns 1 and 2, centralize billing but limit chargeback.** One capacity means one bill. Cost management is centralized, but chargeback to individual business units isn't possible because all workloads share the same capacity.
 
-- **Multi-capacity patterns (3 and 4) enable per-team chargeback.** Each capacity generates its own Azure billing meter. You can chargeback costs to the business unit responsible for each capacity. You can independently right-size or pause each capacity based on the workload it supports.
+- **Multicapacity patterns, such as patterns 3 and 4, support per-team chargeback.** Each capacity generates its own Azure billing meter. You can charge costs to the business unit responsible for each capacity. You can independently right-size or pause each capacity based on the workload it supports.
 
-- **Manage OneLake storage costs independently.** OneLake storage is billed at a pay-as-you-go rate per GB and doesn't consume CUs. Regularly delete unused data (including soft-deleted data) and monitor storage through the Fabric capacity metrics app.
+- **Manage OneLake storage costs independently.** OneLake storage is billed at a pay-as-you-go rate per GB and it doesn't consume CUs. Regularly delete unused data, including soft-deleted data, and monitor storage through the Fabric capacity metrics app.
 
-- **Monitor Spark compute separately.** For data engineering workloads, you can provision separate Spark pools to move compute outside of the provisioned CU budget. Monitor Spark CU consumption to avoid unexpected costs.
+- **Monitor Spark compute separately.** For data engineering workloads, you can use separate Spark pools to move compute outside the CU budget. To avoid unexpected costs, monitor Spark CU consumption.
 
 ### Operational Excellence
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-- **Use deployment pipelines for staged promotion.** Use [Fabric deployment pipelines](/fabric/cicd/deployment-pipelines/intro-to-deployment-pipelines) to promote content through development, test, and production stages. Deployment pipelines require separate workspaces, so they aren't available in Pattern 1 (monolithic). In Patterns 2, 3, and 4, create dedicated workspaces for each DTAP stage.
+- **Use deployment pipelines for staged promotion.** Use [Fabric deployment pipelines](/fabric/cicd/deployment-pipelines/intro-to-deployment-pipelines) to promote content through development, test, and production stages. Deployment pipelines require separate workspaces, so they aren't available in Pattern 1. In patterns 2, 3, and 4, create dedicated workspaces for each DTAP stage.
 
   Capacity strategy varies by pattern.
 
-  - In Pattern 2, all DTAP workspaces share the same capacity, which is cost-effective but provides no performance isolation between environments.
+  - In Pattern 2, all DTAP workspaces share the same capacity, which is cost-effective but doesn't provide performance isolation between environments.
   
-  - In Pattern 3, you can provision dedicated capacities per environment for full isolation, or use a shared capacity for dev/test with a separate production capacity to balance cost and isolation.
+  - In Pattern 3, you can use dedicated capacities per environment for full isolation, or you can balance cost and isolation by using a shared capacity for dev/test with a separate production capacity.
 
-- **Plan pre-production environments as a workspace-level design decision.** Pattern 1 provides no preproduction separation because development and testing occur in the production workspace. Pattern 2 supports separate dev, test, and production workspaces on one shared capacity, which is suitable for functional validation but not production-like performance or resilience testing. Pattern 3 is the pattern that supports production-like preproduction validation through environment-aligned workspaces with capacity-level isolation. Pattern 4 is a tenant-boundary decision; each tenant can independently choose its own environment topology and doesn't need to match other tenants.
+- **Plan preproduction environments as a workspace-level design decision.** Pattern 1 provides no preproduction separation because dev/test occurs in the production workspace. Pattern 2 supports separate development, testing, and production workspaces on one shared capacity, which is suitable for functional validation but not production-like performance or resilience testing. Pattern 3 supports production-like preproduction validation through environment-aligned workspaces with capacity-level isolation. Pattern 4 is a tenant-boundary decision. Each tenant can independently choose its own environment topology and doesn't need to match other tenants.
 
-- **Connect workspaces to Git repositories for source control.** Connect workspaces to [Git repositories](/fabric/cicd/git-integration/intro-to-git-integration) for source control. Separate workspaces per team or workload (Patterns 2 and 3) align with standard branching strategies. In Pattern 1, all teams share a single repository, which can create merge contention.
+- **Connect workspaces to [Git repositories](/fabric/cicd/git-integration/intro-to-git-integration) for source control.** In patterns 2 and 3, separate workspaces per team or workload align with standard branching strategies. In Pattern 1, all teams share a single repository, which can create merge contention.
 
-- **Monitor capacity and workload health.** Use the Fabric capacity metrics app to monitor capacity consumption (CU usage, throttling, and overages). Use [workspace monitoring](/fabric/fundamentals/workspace-monitoring-overview) for detailed telemetry about individual workloads. In multi-capacity patterns (3 and 4), you can delegate monitoring to the team responsible for each capacity.
+- **Monitor capacity and workload health.** Use the Fabric capacity metrics app to monitor capacity consumption, like CU usage, throttling, and overages. You can access detailed telemetry about individual workloads by using [workspace monitoring](/fabric/fundamentals/workspace-monitoring-overview). In multicapacity patterns, like patterns 3 and 4, you can delegate monitoring to the team responsible for each capacity.
 
-- **Delegate administration through Fabric domains.** In Patterns 2 and 3, you can use [Fabric domains](/fabric/governance/domains) to delegate tenant settings and workspace management to domain-level administrators without granting tenant-admin privileges. Pattern 1 can't use domains because all items are in one workspace.
+- **Delegate administration through Fabric domains.** In patterns 2 and 3, delegate tenant settings and workspace management to domain-level administrators without tenant-administrator privileges by using [Fabric domains](/fabric/governance/domains). Pattern 1 can't use domains because all items are in one workspace.
 
-- **Manage with infrastructure as code.** Provision and manage Fabric capacities by using [Bicep](/azure/templates/microsoft.fabric/capacities?pivots=deployment-language-bicep) or [Terraform](/azure/templates/microsoft.fabric/capacities?pivots=deployment-language-terraform). Store infrastructure definitions in source control alongside application code.
+- **Manage with infrastructure as code.** Create and manage Fabric capacities by using [Bicep](/azure/templates/microsoft.fabric/capacities?pivots=deployment-language-bicep) or [Terraform](/azure/templates/microsoft.fabric/capacities?pivots=deployment-language-terraform). Store infrastructure definitions in source control alongside application code.
 
 ### Performance Efficiency
 
 Performance Efficiency refers to your workload's ability to scale to meet user demands efficiently. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-- **Understand capacity sizing and throttling behavior.** Each capacity has a fixed CU allocation determined by its SKU. When demand exceeds available CUs, Fabric applies [throttling](/fabric/enterprise/throttling) and queues requests. Monitor throttling events through the Fabric capacity metrics app and scale up the SKU or distribute workloads across multiple capacities as needed.
+- **Understand capacity sizing and throttling behavior.** Each capacity has a fixed CU allocation determined by its SKU. If demand exceeds available CUs, Fabric applies [throttling](/fabric/enterprise/throttling) and queues requests. Monitor throttling events by using the Fabric capacity metrics app and scale up the SKU or distribute workloads across multiple capacities as needed.
 
-- **Isolate performance-sensitive workloads on dedicated capacity.** In single-capacity patterns (1 and 2), all workloads compete for the same CUs. An expensive query or data pipeline can degrade interactive query performance for other users. In multi-capacity patterns (3 and 4), you can isolate performance-sensitive workloads on a dedicated capacity with a guaranteed CU allocation.
+- **Isolate performance-sensitive workloads on a dedicated capacity.** In patterns 1 and 2, all workloads compete for the same CUs. An expensive query or data pipeline can degrade interactive query performance for other users. In patterns 3 and 4, you can isolate performance-sensitive workloads on a dedicated capacity with a guaranteed CU allocation.
 
-- **Configure Spark pools for data engineering workloads.** For data engineering workloads, provision [custom Spark pools](/fabric/data-engineering/create-custom-spark-pools) to control min/max node counts and enable autoscaling. Managed virtual networks disable Starter pools (prewarmed shared clusters), which increases session start time from seconds to 3 to 5 minutes.
+- **Configure Spark pools for data engineering workloads.** For data engineering workloads, use [custom Spark pools](/fabric/data-engineering/create-custom-spark-pools) to control min/max node counts and support autoscaling. Managed virtual networks disable Starter pools, which are prewarmed shared clusters, which increases session start time from seconds to between 3 and 5 minutes.
 
-- **Place capacities close to data producers and consumers.** In Pattern 3, you can provision capacities in regions close to data producers or consumers, which reduces cross-region latency. [OneLake shortcuts](/fabric/onelake/onelake-shortcuts) can reference data in other regions, but cross-region reads incur latency and egress costs.
+- **Place capacities close to data producers and consumers.** In Pattern 3, you can use capacities in regions close to data producers or consumers, which reduces cross-region latency. [OneLake shortcuts](/fabric/onelake/onelake-shortcuts) can reference data in other regions, but cross-region reads incur latency and egress costs.
 
-- **Apply workload-specific optimization techniques.** Use [Z-Ordering and V-Ordering](/fabric/data-engineering/delta-optimization-and-v-order?tabs=sparksql) for Lakehouses to improve scan performance. For Warehouses, optimize query patterns to read smaller batches. Implement [Direct Lake](/fabric/fundamentals/direct-lake-overview) mode for Power BI reports to reduce capacity load compared to Import mode.
+- **Apply workload-specific optimization techniques.** Improve scan performance by using [Z-Ordering and V-Ordering](/fabric/data-engineering/delta-optimization-and-v-order?tabs=sparksql) for lakehouses. For warehouses, optimize query patterns to read smaller batches. Reduce capacity load compared to Import mode by using [Direct Lake](/fabric/fundamentals/direct-lake-overview) mode for Power BI reports.
 
 ## Capability matrix
 
@@ -433,8 +436,8 @@ The following tables summarize the key differences in the capabilities of each p
 | Governance complexity | Low | Medium | High | High |
 | Per-department usage tracking | No | Limited [1] | Yes | Yes |
 | Domain-based delegation | No | Yes | Yes | N/A [2] |
-| Granular admin delegation | No | Limited [1] | Yes | Yes |
-| Data residency compliance | Single region only | Single region only | Multi-region | Multi-region |
+| Granular administrator delegation | No | Limited [1] | Yes | Yes |
+| Data residency compliance | Single region only | Single region only | Multiregion | Multiregion |
 | Regulatory data isolation | No | Limited [1] | Yes | Yes |
 
 [1] Workspaces provide some isolation, but all workspaces share a single capacity, which limits the granularity of usage tracking and administration.
@@ -468,12 +471,12 @@ The following tables summarize the key differences in the capabilities of each p
 | Capability | Pattern 1: monolithic | Pattern 2: multiple workspaces, single capacity | Pattern 3: multiple workspaces, separate capacities | Pattern 4: multiple tenants |
 | :--- | :--- | :--- | :--- | :--- |
 | Workload isolation for performance | No | No | Yes | Yes |
-| Multi-geo deployment | No | No | Yes | Yes |
+| Multigeo deployment | No | No | Yes | Yes |
 | Scale beyond single SKU limits | No | No | Yes | Yes |
 | Performance SLO guarantees | No | No | Yes | Yes |
 | Throttling risk from shared capacity | High | High | Low [5] | Low |
 
-[5] Throttling risk is low when workloads are on dedicated capacities, but throttling can still occur within a single capacity if demand exceeds available CUs.
+[5] Throttling risk is low if workloads are on dedicated capacities, but throttling can still occur within a single capacity if demand exceeds available CUs.
 
 ### Billing and cost management
 
