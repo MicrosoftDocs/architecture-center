@@ -92,7 +92,7 @@ Consider the following recommendations when you deploy this solution:
 - Enable [Application Insights](/azure/azure-monitor/app/app-insights-overview) to monitor application performance, availability, and usage patterns. Use the monitoring data to identify and resolve issues before they affect users.
 - Configure [automated backups](/azure/mysql/flexible-server/concepts-backup-restore) for Azure Database for MySQL. Define a retention period that aligns with your recovery point objectives. Test your restoration process periodically to verify that backups are reliable.
 - Use [deployment slots](/azure/app-service/deploy-staging-slots) in App Service to stage updates before you swap them into production. Deployment slots help you validate changes and reduce downtime during deployments.
-- Automate your infrastructure deployments by using Azure Resource Manager templates or Bicep. Infrastructure as code helps you maintain consistency across environments and makes it possible to rebuild environments reliably.
+- Automate your infrastructure deployments by using Bicep or Terraform. Infrastructure as code helps you maintain consistency across environments and makes it possible to rebuild environments reliably.
 - Set up [Azure Monitor alerts](/azure/azure-monitor/alerts/alerts-overview) for key metrics, such as App Service CPU utilization, database connection counts, and response times. Alerts help you respond to operational issues before they affect users.
 
 ### Cost Optimization
