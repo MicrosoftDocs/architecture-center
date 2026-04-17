@@ -58,7 +58,7 @@ The following licensing and workspace-type constraints often determine which dep
 
 - **[Fabric domains](/fabric/governance/domains):** Logical groupings that organize workspaces by business unit or subject area. Domains support delegated governance and appear in the OneLake catalog for discovery and oversight.
 
-- **[OneLake]:** A unified, hierarchical data lake where tenants contain workspaces, which contain items. Fabric stores data in OneLake. OneLake supports Azure Data Lake Storage APIs, shortcuts to external storage, and integration with Data Lake Storage tools, such as Azure Storage Explorer and AzCopy.
+- **[OneLake](/fabric/onelake/onelake-overview):** A unified, hierarchical data lake where tenants contain workspaces, which contain items. Fabric stores data in OneLake. OneLake supports Azure Data Lake Storage APIs, shortcuts to external storage, and integration with Data Lake Storage tools, such as Azure Storage Explorer and AzCopy.
 
 - **[OneLake catalog](/fabric/governance/onelake-catalog-overview):** A centralized interface to find, govern, and secure Fabric data across the tenant. Users can access the catalog by using tools like Microsoft Teams, Excel, and Microsoft Copilot Studio.
 
