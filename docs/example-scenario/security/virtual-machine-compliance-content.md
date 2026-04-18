@@ -68,7 +68,7 @@ Differing standards can be harder to follow in dynamically scaling cloud environ
 
 Azure Policy and role-based access control (RBAC) assignments can help enterprises enforce standards on Azure resources. But for VMs, these controls apply only to the control plane, or the route to the VM. The system images that run on the VM pose a security threat. Some companies prevent developers from accessing VMs, which reduces agility and makes it difficult to follow DevOps practices.
 
-This article presents a solution for managing VM compliance on Azure. The solution tracks compliance, minimizes the risk from system images that run on VMs, and is compatible with DevOps practices.
+This article presents a solution for managing VM compliance on Azure. The solution tracks compliance, minimizes the risk from system images that run on VMs, and is compatible with DevOps practices. Key components include VM Image Builder, Compute Gallery, and Azure Policy.
 
 ### Potential use cases
 
@@ -181,7 +181,7 @@ Store the SBOM alongside the image. Upload the SBOM to an Azure Storage account 
 
 #### Validate golden images with automated tests
 
-Generally, you should refresh golden images monthly to remain current with the latest updates and changes in Marketplace images. Use a recurrent testing procedure for this purpose. As part of the image creation process, use an Azure pipeline or other automated workflow for testing. Set up the pipeline to deploy a new VM to run tests before the beginning of each month. The tests should confirm the prepared image before you publish it for consumption. Automate tests by using a test automation solution or running commands or batches on the VM.
+Generally, you should refresh golden images monthly to remain current with the latest updates and changes in Marketplace images. Use a recurrent testing procedure for this purpose. As part of the image creation process, use an Azure pipeline or other automated workflow for testing. Set up the pipeline to deploy a new VM to run tests before the beginning of each month. The tests should confirm pared images before you publish it for consumption. Automate tests by using a test automation solution or running commands or batches on the VM.
 
 Common test scenarios include:
 
