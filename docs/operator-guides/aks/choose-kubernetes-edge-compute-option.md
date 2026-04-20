@@ -151,7 +151,7 @@ Ease of configuration:
 
 Flexibility:
 
-- The cluster configuration itself is set, but Admin permissions are granted. The underlying infrastructure must either be Azure Local or Windows Server 2019. This option is more flexible than Kubernetes on Azure Stack Edge and less flexible than bare-metal Kubernetes.
+- The cluster configuration itself is set, but Admin permissions are granted. The underlying infrastructure must be Azure Local (23H2 or later). This option is more flexible than Kubernetes on Azure Stack Edge and less flexible than bare-metal Kubernetes.
 
 ## AKS Edge Essentials
 
