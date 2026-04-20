@@ -13,7 +13,7 @@ ai-usage: ai-assisted
 
 A data lake is a storage repository that holds large volumes of data in its native, raw format. Data lakes scale cost effectively to handle terabytes and petabytes of data, which makes them suitable for handling massive and diverse datasets. The data typically comes from many different sources and can include structured data like relational tables, semistructured data like JSON, XML, or log files, and unstructured data like images, audio, or video.
 
-Data lakes store all data types in its original, untransformed state and apply transformation only when the data is needed. This approach is known as *schema-on-read*. In contrast, a [data warehouse](../relational-data/data-warehousing.yml) enforces structure and applies transformations as it ingests data. This approach is known as *schema-on-write*.
+Data lakes store all data types in their original, untransformed state and apply transformation only when the data is needed. This approach is known as *schema-on-read*. In contrast, a [data warehouse](../relational-data/data-warehousing.yml) enforces structure and applies transformations as it ingests data. This approach is known as *schema-on-write*.
 
 :::image type="complex" border="false" source="./images/data-lake-use-cases.jpg" alt-text="Diagram that shows data lake use cases." lightbox="./images/data-lake-use-cases.jpg":::
    The diagram includes five use cases for a data lake: data ingestion, big data processing, analytics and machine learning, business intelligence (BI) and reporting, and data archiving. A connecting line points from these sections and merges into an arrow that points to the data lake.
