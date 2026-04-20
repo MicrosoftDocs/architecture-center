@@ -3,7 +3,7 @@ title: Azure Sandbox
 description: Accelerate your Azure project by using a fully functional sandbox environment that includes virtual networks, virtual machines, and databases.
 author: doherty100
 ms.author: rdoherty
-ms.date: <REVERT_TO_PREVIOUS_VALUE>
+ms.date: 08/24/2025
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
@@ -48,7 +48,7 @@ You can deploy each of the following sandbox configurations or only the configur
 
 - [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview) is a Windows VM that runs SQL Server with full administrative control. In this architecture, it supports testing of legacy applications and custom SQL configurations that require specific database engine features.
 
-- [Windows Server jump box](/samples/azure/azure-quickstart-templates/vmss-windows-jumpbox) is a domain-joined Windows VM that provides administrative tools, including Remote Server Administration Tools (RSAT), Azure Storage Explorer, and SQL Server Management Studio. In this architecture, it provides a secure management platform for administering sandbox resources and demonstrates traditional Windows administration patterns.
+- [Windows Server jump box](/samples/azure/azure-quickstart-templates/vmss-windows-jumpbox) is a domain-joined Windows VM that provides administrative tools, including Remote Server Administration Tools (RSAT) and SQL Server Management Studio. In this architecture, it provides a secure management platform for administering sandbox resources and demonstrates traditional Windows administration patterns.
 
 ## Deploy the sandbox
 
@@ -124,7 +124,6 @@ For example, you can use the following capabilities and configurations that the 
 
   - Visual Studio Code preinstalled with Remote-SSH into a Linux jump box
 
-  - Azure Storage Explorer preinstalled
   - SQL Server Management Studio preinstalled
 
   - MySQL Workbench preinstalled
