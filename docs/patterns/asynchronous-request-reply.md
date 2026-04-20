@@ -81,7 +81,7 @@ Consider the following points as you decide how to implement this pattern:
   | Header | Description | Notes |
   | :----- | :---------- | :---- |
   | `Location` | A URL that the client polls for a response status | This URL can be a shared access signature (SAS) token. The [Valet Key pattern](./valet-key.yml) works well when this location needs access control. The pattern also applies when response polling needs to move to another back end. |
-  | `Retry-After` | An estimated completion time for processing | This header prevents polling clients from sending too many requests to the back end. |
+  | `Retry-After` | An estimated completion time for processing | This header helps polling clients avoid sending too many requests to the back end. |
 
   Consider expected client behavior when you design this response. A client that you control can follow these response values exactly. Clients that others author, including clients built by using no-code or low-code tools like Azure Logic Apps, can apply their own handling for HTTP 202.
 
@@ -90,8 +90,8 @@ Consider the following points as you decide how to implement this pattern:
   | Field | Description | Notes |
   | :---- | :---------- | :---- |
   | `status` | The current state of the operation, such as *Pending*, *Running*, *Succeeded*, *Failed*, or *Canceled* | Uses a consistent, documented set of terminal and nonterminal values |
-  | `createdAt` | The time that the operation is accepted | Helps clients detect stale or abandoned operations |
-  | `lastUpdatedAt` | The time that the status is last updated | Helps clients distinguish between stalled and in-progress operations |
+  | `createdAt` | The time that the operation was accepted | Helps clients detect stale or abandoned operations |
+  | `lastUpdatedAt` | The time that the status was last updated | Helps clients distinguish between stalled and in-progress operations |
   | `percentComplete` | An optional progress indicator | Useful when the back end can estimate progress |
   | `error` | A structured error object when the status is *Failed* | For consistency, consider using the [RFC 9457](https://www.rfc-editor.org/rfc/rfc9457) format. |
 
