@@ -32,8 +32,8 @@ The following data flow corresponds to the previous diagram:
 
 #### VM compliance tracking
 
-:::image type="complex" border="false" source="./media/virtual-machine-compliance-track-compliance-architecture.svg" alt-text="Diagram that shows how the solution manages compliance by assigning policy definitions, evaluating machines, and displaying data in a dashboard" lightbox="./media/virtual-machine-compliance-track-compliance-architecture.svg":::
-   The diagram shows a two-step workflow. In step 1, an arrow points from Azure Policy to a VM to indicate that Azure Policy assigns policy definitions to VMs and evaluates them for compliance. In step 2, an arrow points from Azure Policy to the dashboard which indicates that Azure Policy publishes compliance data for the VMs and other Azure resources to the Azure Policy dashboard.
+:::image type="complex" border="false" source="./media/virtual-machine-compliance-track-compliance-architecture.svg" alt-text="Diagram that shows how the solution manages compliance by assigning policy definitions, evaluating machines, and displaying data in a dashboard." lightbox="./media/virtual-machine-compliance-track-compliance-architecture.svg":::
+   The diagram shows a two-step workflow. In step 1, an arrow points from Azure Policy to a VM to indicate that Azure Policy assigns policy definitions to VMs and evaluates them for compliance. In step 2, an arrow points from Azure Policy to the dashboard to indicate that Azure Policy publishes compliance data for the VMs and other Azure resources to the Azure Policy dashboard.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/virtual-machine-compliance-track-compliance-architecture.vsdx) of this architecture.*
@@ -99,9 +99,9 @@ DevOps teams use a *pets and cattle* analogy to define service models. To track 
 - Cattle servers are part of an identical group and easy to replace. For example, VMs that run in a Virtual Machine Scale Set are cattle. Test environment servers are another example of cattle when they meet the following conditions:
 
   - You use an automated procedure to create the servers from scratch.
-  - After you finish running the tests, you decommission the servers.
+  - After you run the tests, you decommission the servers.
 
-An environment might contain only pet servers, or it might contain only cattle servers. In contrast, a set of VMs in an environment could be pets. A different set of VMs in that same environment could be cattle.
+An environment might contain only pet servers or only cattle servers. In contrast, a set of VMs in an environment could be pets. A different set of VMs in that same environment could be cattle.
 
 Compliance considerations differ for pet and cattle environments:
 
@@ -181,7 +181,7 @@ Store the SBOM alongside the image. Upload the SBOM to an Azure Storage account 
 
 #### Validate golden images with automated tests
 
-Generally, you should refresh golden images monthly to remain current with the latest updates and changes in Marketplace images. Use a recurrent testing procedure for this purpose. As part of the image creation process, use an Azure pipeline or other automated workflow for testing. Set up the pipeline to deploy a new VM to run tests before the beginning of each month. The tests should confirm pared images before you publish it for consumption. Automate tests by using a test automation solution or running commands or batches on the VM.
+Generally, you should refresh golden images monthly to remain current with the latest updates and changes in Marketplace images. Use a recurrent testing procedure for this purpose. As part of the image creation process, use an Azure pipeline or other automated workflow for testing. Set up the pipeline to deploy a new VM to run tests before the beginning of each month. The tests should confirm prepared images before you publish it for consumption. Automate tests by using a test automation solution or running commands or batches on the VM.
 
 Common test scenarios include:
 
@@ -278,7 +278,7 @@ A well-structured image build process prevents common mistakes that lead to secu
 
 - **Minimize the software footprint.** Only install components that every consumer of the image needs. Deploy extra tooling that's specific to a single use case or workload after provisioning by using extensions or configuration management. A smaller footprint reduces the attack surface and the number of components that require patching.
 
-- **Don't store application code or deployment artifacts in the image.** Golden images should provide a secure, compliant OS foundation. Deploy application code separately through continuous integration and continuous delivery (CI/CD) pipelines. This separation keeps the image life cycle and the application life cycle independent.
+- **Exclude application code and deployment artifacts from the image.** Golden images should provide a secure, compliant OS foundation. Deploy application code separately through continuous integration and continuous delivery (CI/CD) pipelines. This separation keeps the image life cycle and the application life cycle independent.
 
 - **Use deterministic, repeatable build scripts.** Pin package versions in your customization scripts. Avoid commands like `apt-get upgrade` or `yum update` which can produce different images on different build days.
 
