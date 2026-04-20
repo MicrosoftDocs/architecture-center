@@ -83,7 +83,7 @@ Business scenarios across many industries benefit from natural language processi
 
 ## Evaluate Azure Language
 
-[Azure Language](/azure/ai-services/language-service/overview) is a cloud-based service that provides natural language processing features for understanding and analyzing text. You can access it through the [Foundry portal](https://ai.azure.com), REST APIs, and client libraries for Python, C#, Java, and JavaScript with no infrastructure to manage. For AI agent development, you can also access these capabilities through the Azure Language MCP server. You can access it as a remote server in the Microsoft Foundry tool catalog or as a local self-hosted server.
+[Azure Language](/azure/ai-services/language-service/overview) is a cloud-based service that provides natural language processing features for understanding and analyzing text. You can access it through the [Foundry portal](https://ai.azure.com), REST APIs, and client libraries for Python, C#, Java, and JavaScript with no infrastructure to manage. For AI agent development, you can also access these capabilities through the Azure Language Model Context Protocol (MCP) server. You can access it as a remote server in the Microsoft Foundry tool catalog or as a local self-hosted server.
 
 ### Prebuilt features
 
@@ -137,7 +137,7 @@ You can access both agents through the Foundry tool catalog. For more informatio
 
 The Azure Language MCP server supports multiple deployment options:
 
-- **Remote cloud-hosted Model Context Protocol (MCP) server:** The Foundry tool catalog lists this server. The server provides cloud-managed access to Azure Language capabilities and requires no local infrastructure.
+- **Remote cloud-hosted MCP server:** The Foundry tool catalog lists this server. The server provides cloud-managed access to Azure Language capabilities and requires no local infrastructure.
 
 - **Local self-hosted MCP server:** Supports on-premises or self-managed deployments for compliance, security, or data residency requirements.
 
@@ -178,7 +178,7 @@ Apache Spark with Spark NLP is a distributed, open-source approach to natural la
 
 - **[Public benchmarks](https://sparknlp.org/) show significant speed improvements over other natural language processing libraries.** Compared to frameworks like spaCy and NLTK, Spark NLP demonstrates faster training and inference on distributed clusters. Custom models that Spark NLP trains reach accuracy levels that match those of other natural language processing frameworks, which makes it suitable for production workloads that require speed and precision.
 
-- **Optimized builds for CPUs, GPUs, and Intel Xeon chips fully use Spark clusters.** These builds enable training and inference to scale efficiently across cluster nodes.
+- **Optimized builds for CPUs, GPUs, and Intel Xeon chips fully use Apache Spark clusters.** These builds enable training and inference to scale efficiently across cluster nodes.
 
 - **MPNet embeddings and ONNX support enable precise, context-aware processing.** MPNet produces dense vector representations that capture semantic meaning, and [ONNX support](https://sparknlp.org/docs/en/concepts#onnx-support) lets you import and run optimized models for inference.
 
