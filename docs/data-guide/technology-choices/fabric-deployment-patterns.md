@@ -3,7 +3,7 @@ title: Choose a Microsoft Fabric Deployment Pattern
 description: Evaluate four Microsoft Fabric deployment patterns to structure capacities, workspaces, and items based on your requirements.
 author: lferdinand
 ms.author: lferdinand
-ms.date: 04/13/2026
+ms.date: 04/20/2026
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ai-usage: ai-assisted
