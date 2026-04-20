@@ -4,7 +4,7 @@ description: Choose a natural language processing technology for sentiment analy
 author: ananyagc5
 ms.author: ananyag
 ms.reviewer: kmanchikanti
-ms.date: 04/17/2026
+ms.date: 04/20/2026
 ms.update-cycle: 180-days
 ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
