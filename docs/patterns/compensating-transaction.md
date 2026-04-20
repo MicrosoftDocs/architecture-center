@@ -14,7 +14,7 @@ Use this pattern to undo work when one or more steps fail in an eventually consi
 
 ## Context and problem
 
-Cloud applications frequently modify data. Sometimes the data is spread across various data sources in different geographic locations. To avoid contention and improve performance in a distributed environment, applications should implement eventual consistency instead of strong transactional consistency. In the eventual consistency model, a typical business operation consists of a series of separate steps. During these steps, the overall view of the system state might be inconsistent. But the system should become consistent again when all steps finish.
+Cloud applications frequently modify data that is spread across various data sources in different geographic locations. To avoid contention and improve performance in a distributed environment, applications should implement eventual consistency instead of strong transactional consistency. In the eventual consistency model, a typical business operation consists of a series of separate steps. During these steps, the overall view of the system state might be inconsistent. But the system should become consistent again when all steps finish.
 
 Handling step failures presents a key challenge in the eventual consistency model. After a failure, you might need to undo work from completed operation steps. However, you can't always roll back the data because other concurrent application instances might change the data. Even when concurrent instances don't change the data, it can be more complex to undo a step than to restore the original state. You might need to apply business-specific rules. For an example, see the [travel website example](#example).
 
