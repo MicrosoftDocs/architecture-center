@@ -16,7 +16,7 @@ Store the configuration information in external storage, and provide an interfac
 
 The backing store you choose for configuration information should have an interface that provides consistent and easy-to-use access. It should expose the information in a correctly typed and structured format. The implementation might also need to authorize users' access in order to protect configuration data, and be flexible enough to allow storage of multiple versions of the configuration (such as development, staging, or production, including multiple release versions of each one).
 
-> Many built-in configuration systems read the data when the application starts up, and cache the data in memory to provide fast access and minimize the impact on application performance. Depending on the type of backing store used, and the latency of this store, it might be helpful to implement a caching mechanism within the external configuration store. For more information, see the [Caching Guidance](/previous-versions/msp-n-p/dn589802(v=pandp.10)). The figure illustrates an overview of the External Configuration Store pattern with optional local cache.
+> Many built-in configuration systems read the data when the application starts up, and cache the data in memory to provide fast access and minimize the impact on application performance. Depending on the type of backing store used, and the latency of this store, it might be helpful to implement a caching mechanism within the external configuration store. For more information, see the [Caching guidance](/azure/architecture/best-practices/caching). The figure illustrates an overview of the External Configuration Store pattern with optional local cache.
 
 ![An overview of the External Configuration Store pattern with optional local cache](./_images/external-configuration-store-overview.png)
 
@@ -80,13 +80,9 @@ While building a custom configuration store might be necessary in some situation
 
 For resiliency, provision your store in a region that supports [availability zones](/azure/azure-app-configuration/howto-best-practices?tabs=dotnet#building-applications-with-high-resiliency) and enable [geo-replication](/azure/azure-app-configuration/concept-geo-replication) so that provider libraries can automatically fail over to a replica during a regional outage. Use [Key Vault references](/azure/azure-app-configuration/use-key-vault-references-dotnet-core) to keep secrets in Azure Key Vault and reference them from App Configuration, rather than storing credentials directly in the configuration store. Authenticate applications to App Configuration using [managed identity and Azure RBAC](/azure/azure-app-configuration/concept-enable-rbac) instead of connection strings. For workloads running in Azure Kubernetes Service, the [Azure App Configuration Kubernetes Provider](/azure/azure-app-configuration/quickstart-azure-kubernetes-service) can generate ConfigMaps and Secrets directly from your store without requiring code changes in your workload containers. You can also use App Configuration to manage [feature flags](/azure/azure-app-configuration/concept-feature-management), including targeted rollout and variant-based experimentation, as part of your [safe deployment practices](/azure/well-architected/operational-excellence/safe-deployments).
 
-<div align="center">
-
 ![Diagram showing Azure App Configuration at the center, connected to Azure Functions, Azure Container Apps Environment, AKS, Azure Virtual Machine, and App Service.](./_images/external-configuration-store.png)
 
-</div>
-
-##### Client libraries
+#### Client libraries
 
 Many of these features are exposed through client libraries which integrate with the application runtime to facilitate fetching and caching values, refreshing values on change, and even handling transient outages of App Configuration Service.
 
@@ -143,7 +139,7 @@ static void Main(string[] args)
 - See additional [App Configuration Samples](https://github.com/Azure/AppConfiguration/tree/main/examples)
 - Learn how to [integrate Azure App Configuration with Kubernetes deployments](/azure/azure-app-configuration/integrate-kubernetes-deployment-helm)
 - Learn how Azure App Configuration also can help [manage feature flags](/azure/azure-app-configuration/manage-feature-flags)
-- [Caching guidance](../best-practices/caching.yml): This guidance provides more information about how to cache data in a cloud solution, and problems to consider when you implement a cache.
+- [Caching guidance](/azure/architecture/best-practices/caching): This guidance provides more information about how to cache data in a cloud solution, and problems to consider when you implement a cache.
 - Review [Azure App Configuration best practices](/azure/azure-app-configuration/howto-best-practices)
 
 ## Related resources
