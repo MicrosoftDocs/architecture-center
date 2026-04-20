@@ -149,8 +149,6 @@ Vector search is typical for retrieval-augmented generation (RAG) but not always
 
 Consider client-managed conversation history when your workload meets one or more of the following conditions:
 
-- **Published agents.** [Published agents (Agent Applications)](/azure/foundry/agents/how-to/publish-responses) only support the stateless Responses API. The client must manage conversation state for multi-turn interactions.
-
 - **Zero data retention.** Compliance or regulatory requirements prohibit server-side persistence of conversation content.
 
 - **Custom context window control.** You need to selectively include, exclude, summarize, or locally [compact](/azure/foundry/openai/how-to/responses#compact-a-response) prior turns before sending them to the model.
@@ -612,7 +610,7 @@ In both approaches, you must manage state storage, like chat history and agent c
 
 Use [Microsoft Agent Framework](/agent-framework/overview/) as the runtime SDK in your client application for sending messages to agents, managing conversations, and processing responses. Agent Framework supports C# and Python. If your client application requires JavaScript or Java, use the Foundry SDK directly for these runtime interactions.
 
-Use the Foundry SDK for platform management operations regardless of your client SDK choice. Creating and versioning long-lived agents, publishing Agent Applications, and so on belong in CI/CD pipelines and IaC processes, not in client application code.
+Use the Foundry SDK for platform management operations regardless of your client SDK choice. Creating and versioning centrally managed agent definitions belong in CI/CD pipelines and IaC processes, not in client application code.
 
 For more information about integrating Agent Framework with Foundry, see [Microsoft Agent Framework Foundry provider](/agent-framework/agents/providers/microsoft-foundry).
 
@@ -648,16 +646,16 @@ To prevent service disruptions, ensure safe and controlled agent deployment by i
 
 - **Version and track agents.** Assign clear version identifiers to each agent. Maintain records of which agent versions are active, along with their dependencies like models, data sources, and tools. Deploy new agent versions alongside existing versions to support progressive rollout, rollback, and controlled migration of users or sessions.
 
-  When publishing agents using Agent Applications, each change to an agent creates an immutable agent version that you [reference in your published Agent Application](/azure/foundry/agents/how-to/publish-agent#update-a-published-agent-application). An Agent Application supports one active deployment, so updating the version atomically switches 100% of traffic to the new version.
+  Foundry natively supports immutable agent versions. Each time you make changes to an agent definition, Foundry creates a new version snapshot that preserves the prior configuration. Use this built-in version history for audit trails and rollback targets.
 
   Not every runtime variation requires a new version. [Structured inputs](/azure/foundry/agents/how-to/structured-inputs) parameterize agent definitions. The client supplies actual values at request time, so a single agent version can serve user-specific or context-specific configurations without redeployment.
 
   > [!NOTE]
   > Limit structured inputs to instruction text, like injecting a user name into the system prompt. Avoid templating tool-endpoint properties like MCP server URLs. Templated tool endpoints let the calling client redirect the agent to arbitrary external services at runtime, which undermines the static governance posture of this architecture. Your firewall FQDN allow list still blocks unapproved destinations, but the agent definition itself no longer documents which endpoints the agent is designed to reach.
 
-- **Publish and share agents.** After you author and validate agents in production Foundry instances, publish them to expose a dedicated endpoint that has its own identity and governance controls. Publishing creates a managed [Azure agent application resource](/azure/foundry/agents/how-to/publish-agent) that lets external clients access the agent without granting access to the production Foundry project itself.
+- **Enforce access control and user-level data isolation.** In this architecture, the chat UI application layer is the access boundary between end users and your agents. The Foundry project API sits behind private endpoints and isn't directly accessible to consumers. Your application code must authenticate end users through Microsoft Entra ID and scope each conversation and its associated data to the authenticated identity.
 
-  Before you publish, any user that has the Azure AI User RBAC role on the Foundry project can interact with all contained agents, and conversation context and state is shared across users. After you publish, an application deployment is created. It runs a specific agent version and enforces user-level data isolation by scoping interactions and associated data to the calling identity. You can start, stop, and update the deployment to reference a new agent version. The application endpoint remains stable across version updates, which avoids downstream client configuration changes.
+  When you use project-level APIs, any principal that has the Azure AI User role on the Foundry project can interact with all agents in that project. Your application's authentication and authorization layer, not Foundry's project RBAC, is what enforces which users can access which agents and conversations. Design your session management to prevent cross-user data access, and apply your workload's data governance and retention policies to the conversation data your application stores.
 
 - **Plan for progressive rollout and failback.** Foundry doesn't provide built-in support for blue-green or canary deployments of agents. If you require these deployment patterns or controlled migration of users between agent versions, implement a routing layer, like an API gateway or custom router, in front of the agent API. This routing layer lets you shift traffic incrementally between agent versions, monitor the effect, and perform a full switchover when ready.
 
