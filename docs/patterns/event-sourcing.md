@@ -31,11 +31,11 @@ The Event Sourcing pattern defines an approach to handling operations on data th
 
 The events persist in an event store that serves as the system of record, or the authoritative data source, about the current state of the data. Extra event handlers can listen for specific events and take action as needed. For example, consumers might initiate tasks that apply operations in the events to other systems or take other associated actions required to finish the operation. The application code that generates the events is decoupled from the systems that subscribe to the events.
 
-Each entity in an event-sourced system has its own event stream, which is the ordered sequence of events that records every change to that entity. At any point, applications can read the history of events. Applications derive the current state of an entity by replaying all the events in its stream. This process is known as *rehydration*. It can occur on demand when the application handles a request.
+Each entity in an event-sourced system has its own eventstream, which is the ordered sequence of events that records every change to that entity. At any point, applications can read the history of events. Applications derive the current state of an entity by replaying all the events in its stream. This process is known as *rehydration*. It can occur on demand when the application handles a request.
 
 Applications typically implement [materialized views](./materialized-view.yml) because it's costly to read and replay events. Materialized views are read-only projections of the event store that are optimized for querying. For example, a system can maintain a materialized view of all customer orders that it uses to populate the UI. When the application adds new orders, adds or removes items in the order, or adds shipping information, the application raises events and a handler updates the materialized view.
 
-The following diagram shows an overview of this pattern combined with the [Command Query Responsibility Segregation (CQRS) pattern](./cqrs.md). The presentation layer reads from a separate read-only store and writes commands to command handlers. The command handlers retrieve the entity's event stream from the event store, run business logic, and push new events to a queue. Event handlers consume events from the queue and write events to the event store, update the read-only store, or integrate with external systems.
+The following diagram shows an overview of this pattern combined with the [Command Query Responsibility Segregation (CQRS) pattern](./cqrs.md). The presentation layer reads from a separate read-only store and writes commands to command handlers. The command handlers retrieve the entity's eventstream from the event store, run business logic, and push new events to a queue. Event handlers consume events from the queue and write events to the event store, update the read-only store, or integrate with external systems.
 
   :::image type="complex" source="./_images/event-sourcing-overview.svg" border="false" lightbox="./_images/event-sourcing-overview.svg" alt-text="Diagram that shows an overview and example of the Event Sourcing pattern.":::
       At the top of the diagram, a box represents the presentation layer. In the upper right, an arrow labeled reads points from the presentation layer to a box labeled business object, which points to a read-only store. An arrow labeled writes points from the presentation layer to a box on the left that includes command handlers and business objects. From this box, an arrow labeled get cart events points to an event store. Another arrow points from the command handlers box to a box at the bottom labeled queue or topic that contains seven envelope icons. Alongside this arrow, envelope icons represent events like cart created, item 1 added, item 2 added, item 1 removed, and shipping information added. Three arrows point from the queue or topic box to separate event handlers. The leftmost event handler writes events to the event store. The middle event handler updates the read-only store. The rightmost event handler integrates with external systems.
@@ -51,7 +51,7 @@ The following workflow corresponds to the previous diagram:
 
 1. The presentation layer calls command handlers to perform actions like *create a cart* or *add an item to the cart*.
 
-1. The command handler loads the entity by retrieving its event stream from the event store. For example, it might retrieve all cart events. It replays those events against the entity to reconstruct its current state before any new action occurs.
+1. The command handler loads the entity by retrieving its eventstream from the event store. For example, it might retrieve all cart events. It replays those events against the entity to reconstruct its current state before any new action occurs.
 
 1. The business logic runs and events are raised. In most implementations, the events are pushed to a queue or topic to decouple the event producers and event consumers.
 
@@ -73,7 +73,7 @@ The Event Sourcing pattern provides the following advantages:
 
 - Events typically have meaning for a domain expert, whereas object-relational impedance mismatch can make complex database tables hard to understand. Tables are artificial constructs that represent the current state of the system, not the events that occur.
 
-- Event sourcing can help prevent concurrent updates from causing conflicts because it avoids the requirement to directly update objects in the data store. Command handlers rehydrate an entity from its event stream to enforce business rules before they append new events, so two handlers that load the same entity simultaneously can act on the same state.
+- Event sourcing can help prevent concurrent updates from causing conflicts because it avoids the requirement to directly update objects in the data store. Command handlers rehydrate an entity from its eventstream to enforce business rules before they append new events, so two handlers that load the same entity simultaneously can act on the same state.
 
    For example, each handler sees five remaining seats, and both handlers can accept a reservation. Event stores address this scenario by using optimistic concurrency control and reject an append if the stream changed since it was read. Upon rejection, the handler reloads the entity, reevaluates, and retries.
 
@@ -114,25 +114,25 @@ Consider the following points as you decide how to implement this pattern:
 
 - **Event querying:** There's no standard approach or existing mechanisms, such as SQL queries, for reading events to obtain information. The only data that you can extract is a stream of events by using an event identifier as the criteria. The event ID typically maps to individual entities. You can determine the current state of an entity only by replaying all of the events that relate to it against the original state of that entity.
 
-- **Event store options:** An event store can be a purpose-built database designed for append-only event streams or a general-purpose relational or document database with an append-only table.
+- **Event store options:** An event store can be a purpose-built database designed for append-only eventstreams or a general-purpose relational or document database with an append-only table.
 
   - Purpose-built event stores provide built-in support for tasks like reading a stream by entity, optimistic concurrency, and snapshots.
 
   - Relational databases are familiar and widely available but require you to build those behaviors yourself.
 
-  Because each entity has its own independent event stream, event stores partition naturally by entity ID, which simplifies horizontal scaling or sharding when needed.
+  Because each entity has its own independent eventstream, event stores partition naturally by entity ID, which simplifies horizontal scaling or sharding when needed.
 
   > [!IMPORTANT]
-  > Don't confuse an event store with an event stream message broker. Message brokers such as Apache Kafka typically lack per-entity stream queries and optimistic concurrency. They work well as a distribution layer to fan out events to projections and external consumers, but they aren't a substitute for an event store.
+  > Don't confuse an event store with an eventstream message broker. Message brokers such as Apache Kafka typically lack per-entity stream queries and optimistic concurrency. They work well as a distribution layer to fan out events to projections and external consumers, but they aren't a substitute for an event store.
 
-- **Entity state re-creation:** The length of each event stream affects how you manage and update the system. If the streams are large, replaying every event to rehydrate an entity becomes costly in both time and compute. To mitigate this cost, create snapshots at specific intervals, such as every *N* events. A snapshot is a serialized representation of the entity's state at a specific point in its event stream. To rehydrate the entity, load the most recent snapshot and replay only the events that occur after it, rather than replaying the entire stream from the beginning. When you choose a snapshot frequency, balance the storage cost of snapshots against the time saved during rehydration.
+- **Entity state re-creation:** The length of each eventstream affects how you manage and update the system. If the streams are large, replaying every event to rehydrate an entity becomes costly in both time and compute. To mitigate this cost, create snapshots at specific intervals, such as every *N* events. A snapshot is a serialized representation of the entity's state at a specific point in its eventstream. To rehydrate the entity, load the most recent snapshot and replay only the events that occur after it, rather than replaying the entire stream from the beginning. When you choose a snapshot frequency, balance the storage cost of snapshots against the time saved during rehydration.
 
   > [!NOTE]
-  > Snapshots are an optimization, not a replacement for the event stream. The event stream remains the source of truth, and you can regenerate snapshots from it at any time.
+  > Snapshots are an optimization, not a replacement for the eventstream. The eventstream remains the source of truth, and you can regenerate snapshots from it at any time.
 
-- **Conflict handling:** Optimistic concurrency control prevents conflicting writes to the same event stream, but the application must still handle conflicts that span multiple entities. For example, an event that indicates a reduction in stock inventory might arrive in the data store while a customer places an order for that item. Design the system to reconcile these situations, such as by advising the customer or by creating a back order.
+- **Conflict handling:** Optimistic concurrency control prevents conflicting writes to the same eventstream, but the application must still handle conflicts that span multiple entities. For example, an event that indicates a reduction in stock inventory might arrive in the data store while a customer places an order for that item. Design the system to reconcile these situations, such as by advising the customer or by creating a back order.
 
-- **Idempotency requirements:** Event delivery to consumers is typically *at least once*, so consumers can receive the same event more than once. Event handlers must be idempotent so processing a duplicate event doesn't change the outcome. For example, if multiple instances of a consumer process seat-reservation events to maintain an available-seat count, a duplicated reservation event must result in only one decrement. Without idempotency, projections drift from the event stream and side effects such as payments or notifications trigger more than once. Track the last processed event sequence number for each consumer and skip duplicates, or design state mutations that are inherently safe to repeat.
+- **Idempotency requirements:** Event delivery to consumers is typically *at least once*, so consumers can receive the same event more than once. Event handlers must be idempotent so processing a duplicate event doesn't change the outcome. For example, if multiple instances of a consumer process seat-reservation events to maintain an available-seat count, a duplicated reservation event must result in only one decrement. Without idempotency, projections drift from the eventstream and side effects such as payments or notifications trigger more than once. Track the last processed event sequence number for each consumer and skip duplicates, or design state mutations that are inherently safe to repeat.
 
 - **Circular logic:** Be mindful of scenarios in which the processing of one event requires the creation of one or more new events. This sequence can result in an infinite loop.
 
@@ -140,7 +140,7 @@ Consider the following points as you decide how to implement this pattern:
 
 - **Personal data and regulatory compliance:** The append-only, immutable nature of an event store conflicts with data protection regulations that require deletion of personal data, such as the *right to be forgotten* laws. Deleting events outright breaks stream integrity, so design for this tension from the start.
 
-  - A common approach is to store personal data outside the event store and reference it by identifier in events. This approach allows deletion to occur independently without affecting the event stream.
+  - A common approach is to store personal data outside the event store and reference it by identifier in events. This approach allows deletion to occur independently without affecting the eventstream.
 
   - When you can't separate personal data from events, use crypto-shredding. Encrypt personal data in events by using a per-subject key. Delete the key to render the data unrecoverable while leaving the event structure intact. This approach adds encryption overhead on every read and write and requires robust key management.
 
@@ -160,7 +160,7 @@ Use this pattern when:
 
 - You want the flexibility to change the format of materialized models and entity data if requirements change, or when you use CQRS and you need to adapt a read model or the views that expose the data.
 
-- You use CQRS and eventual consistency is acceptable while a read model is updated, or entity and data rehydration from an event stream results in acceptable performance reduction.
+- You use CQRS and eventual consistency is acceptable while a read model is updated, or entity and data rehydration from an eventstream results in acceptable performance reduction.
 
 This pattern might not be suitable when:
 
@@ -245,4 +245,4 @@ The following patterns and guidance might also be relevant when you implement th
 
 - [Compensating Transaction pattern](./compensating-transaction.md): The system doesn't update existing data in an event sourcing store. Instead, it adds new entries that transition the state of entities to the new values. To reverse a change, it uses compensating entries because it can't reverse the previous change. The Compensating Transaction pattern article describes how to undo the work that a previous operation performed.
 
-- [Domain analysis for microservices](../microservices/model/tactical-domain-driven-design.md): In systems that use domain-driven design (DDD), the entity that owns an event stream is typically an [aggregate](../microservices/model/tactical-domain-driven-design.md#aggregates), a consistency boundary that receives commands, enforces business rules, and emits events.
+- [Domain analysis for microservices](../microservices/model/tactical-domain-driven-design.md): In systems that use domain-driven design (DDD), the entity that owns an eventstream is typically an [aggregate](../microservices/model/tactical-domain-driven-design.md#aggregates), a consistency boundary that receives commands, enforces business rules, and emits events.
