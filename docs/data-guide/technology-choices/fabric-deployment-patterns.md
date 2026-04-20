@@ -277,7 +277,7 @@ The following table presents considerations that might influence your decision t
 | **Governance** | You have a high degree of governance and management, and you need independence for each workspace. You can manage usage per department or business unit. You can conform to data residency requirements. You can isolate data based on regulatory requirements. |
 | **Security: Data plane** | You can control data access at the department, team, or user level. You can isolate data based on Fabric item type. |
 | **Security: Control plane** | You can provide controlled access on Fabric items by role to avoid accidental corruption or actions by malicious users. |
-| **Administration** | Granular administrator capabilities are restricted to departments, teams, or users. You have access to detailed monitoring requirements on usage or patterns of workloads. |
+| **Administration** | You restrict granular administrator capabilities to departments, teams, or users. You have access to detailed monitoring requirements on usage or patterns of workloads. |
 | **DevOps** | You can isolate DTAP environments by using different capacities. Independent releases are based on department, team, or workload. |
 | **Usability: Administrators** | You get granular visibility into usage by department or team. You delegate capacity rights per department or team to support scaling and granular configuration. |
 | **Usability: Other roles** | Workspaces are available per medallion layer and capacity. Fabric items are isolated per workspace, which helps prevent accidental corruption. You have more options to prevent throttling caused by surges on shared capacity. |
