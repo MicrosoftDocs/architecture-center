@@ -124,6 +124,7 @@ For example, you can use the following capabilities and configurations that the 
 
   - Visual Studio Code preinstalled with Remote-SSH into a Linux jump box
 
+  - Azure Storage Explorer preinstalled
   - SQL Server Management Studio preinstalled
 
   - MySQL Workbench preinstalled
