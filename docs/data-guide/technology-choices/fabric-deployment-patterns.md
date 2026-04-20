@@ -201,11 +201,11 @@ You might implement this deployment pattern if:
 - Your organization doesn't need to deploy workloads across different geographical regions. All data must reside in one region.
 
 - Your organization might require separate workspaces because:
-  
+
   - Members of the team that's responsible for workloads are in different workspaces.
-  
+
   - You want to create separate workspaces for each type of workload. For example, you might create a workspace for data ingestion, like data pipelines, dataflows, or data engineering, and a separate workspace for consumption through a data warehouse. This design works well if separate teams are responsible for each workload.
-  
+
   - You want to implement a data mesh architecture that groups one or more workspaces together in a [Fabric domain](/fabric/governance/domains).
 
 - Your organization might deploy separate workspaces based on data classification.
