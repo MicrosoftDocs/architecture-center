@@ -3,7 +3,7 @@ title: Azure Sandbox
 description: Accelerate your Azure project by using a fully functional sandbox environment that includes virtual networks, virtual machines, and databases.
 author: doherty100
 ms.author: rdoherty
-ms.date: 04/20/2026
+ms.date: <REVERT_TO_PREVIOUS_VALUE>
 ms.topic: concept-article
 ms.subservice: architecture-guide
 ---
