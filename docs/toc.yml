@@ -424,7 +424,7 @@ items:
     href: patterns/claim-check.yml
   - name: Compensating Transaction
     displayName: rollback, undo, eventual consistency
-    href: patterns/compensating-transaction.yml
+    href: patterns/compensating-transaction.md
   - name: Competing Consumers
     displayName: Worker pool, parallel message processing
     href: patterns/competing-consumers.md
