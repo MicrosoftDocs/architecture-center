@@ -190,7 +190,7 @@ Also, consider the [Secure Futures Initiative](https://www.microsoft.com/microso
 
 - Disable public network access to Azure services like Key Vault, Azure Storage, and SQL Database.
 
-- Use [Azure Firewall threat intelligence-based filtering](/azure/firewall/threat-intel) for secure outbound access.
+- Configure an explicit outbound path for sandbox resources, for example by routing egress through Azure Firewall or by using NAT as appropriate for your scenario. If you use Azure Firewall for outbound traffic, enable [Azure Firewall threat intelligence-based filtering](/azure/firewall/threat-intel).
 
 ### Secure operations
 
