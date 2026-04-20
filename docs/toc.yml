@@ -424,7 +424,7 @@ items:
     href: patterns/claim-check.yml
   - name: Compensating Transaction
     displayName: rollback, undo, eventual consistency
-    href: patterns/compensating-transaction.yml
+    href: patterns/compensating-transaction.md
   - name: Competing Consumers
     displayName: Worker pool, parallel message processing
     href: patterns/competing-consumers.md
@@ -533,6 +533,9 @@ items:
         - name: Batch processing
           displayName: choose
           href: data-guide/technology-choices/batch-processing.md
+        - name: Choose a Microsoft Fabric deployment pattern
+          displayName: choose, fabric
+          href: data-guide/technology-choices/fabric-deployment-patterns.md
         - name: Choose an analytical data store in Microsoft Fabric
           href: data-guide/technology-choices/fabric-analytical-data-stores.md
       - name: Disaster recovery for Azure data platform
@@ -925,7 +928,7 @@ items:
       - name: Big data
         items:
         - name: Microsoft Fabric deployment patterns
-          href: analytics/architecture/fabric-deployment-patterns.yml
+          href: data-guide/technology-choices/fabric-deployment-patterns.md
     - name: Solution ideas
       items:
       - name: Relational

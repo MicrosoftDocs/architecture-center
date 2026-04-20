@@ -5,6 +5,7 @@ author: anaharris-ms
 ms.author: anaharris
 ms.date: 03/05/2026
 ms.topic: concept-article
+ms.custom: arb-data
 ms.subservice: architecture-guide
 ai-usage: ai-assisted
 ---
@@ -106,7 +107,7 @@ The following production-ready architectures demonstrate end-to-end database sol
 
 **Big data**
 
-- [Microsoft Fabric deployment patterns](../analytics/architecture/fabric-deployment-patterns.yml)
+- [Microsoft Fabric deployment patterns](../data-guide/technology-choices/fabric-deployment-patterns.md)
 
 ### Database solution ideas
 
