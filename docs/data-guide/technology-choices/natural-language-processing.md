@@ -300,7 +300,7 @@ The following tables summarize the key differences in capabilities between Spark
 | Date matcher | Yes | Limited <sup>[3](#note3)</sup> |
 | Chunker | Yes | No |
 
-<sup>2.</sup><span id="note2">Regular expression matching is embedded in the CLU feature rather than available as a standalone annotator.</span>
+<sup>2.</sup> <span id="note2">Regular expression matching is embedded in the CLU feature rather than available as a standalone annotator.</span>
 
 <sup>3.</sup> <span id="note3">CLU supports date matching through DateTime recognizers rather than as a dedicated annotator.</span>
 
