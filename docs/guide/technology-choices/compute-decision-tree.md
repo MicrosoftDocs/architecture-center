@@ -6,6 +6,10 @@ ms.author: pnp
 ms.date: 02/18/2026
 ms.reviewer: ssumner
 ms.topic: concept-article
+ms.custom:
+- arb-web
+- fcp
+- linux-related-content
 ms.subservice: architecture-guide
 ---
 
