@@ -30,9 +30,9 @@ This section clarifies the boundary between natural language processing and lang
 
 | Dimension | Natural language processing | Language models |
 | :--- | :--- | :--- |
-| Scope | A broad field that covers diverse text-processing techniques, including tokenization, stemming, entity recognition, sentiment analysis, and document classification | A deep-learning subset of natural language processing focused on high-level language understanding and generation tasks |
-| Examples | Rule-based parsers, term frequency-inverse document frequency (TF-IDF) classifiers, named entity recognizers, sentiment analyzers | GPT, BERT, and similar transformer-based models that generate humanlike, contextually aware text |
-| Output | Structured signals like labels, scores, extracted spans, and parsed syntax | Fluent natural language like generated text, summaries, answers, and completions |
+| Scope | A broad field that covers diverse text-processing techniques, including tokenization, stemming, entity recognition, sentiment analysis, and document classification. | A deep-learning subset of natural language processing focused on high-level language understanding and generation tasks. |
+| Examples | Rule-based parsers, term frequency-inverse document frequency (TF-IDF) classifiers, named entity recognizers, sentiment analyzers. | GPT, BERT, and similar transformer-based models that generate humanlike, contextually aware text. |
+| Output | Structured signals like labels, scores, extracted spans, and parsed syntax. | Fluent natural language like generated text, summaries, answers, and completions. |
 | Relationship | The parent domain. Natural language processing encompasses the full spectrum of text-processing methods. | A tool within natural language processing. Language models enhance natural language processing without replacing it. They handle broader cognitive tasks but aren't synonymous with natural language processing. |
 
 ### Natural language processing capabilities
