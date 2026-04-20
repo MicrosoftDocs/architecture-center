@@ -71,14 +71,12 @@ Analyze your existing EKS environment to understand the current architecture, re
 
 ### Prepare the Azure AKS environment
 
-The [Amazon Virtual Private Cloud (VPC) Container Networking Interface (CNI)](https://docs.aws.amazon.com/eks/latest/userguide/eks-networking.html) is the default networking plugin that EKS supports. An AKS cluster supports the following network plugins and methods to deploy a cluster in a virtual network:
+The [Amazon VPC Container Network Interface (CNI)](https://docs.aws.amazon.com/eks/latest/userguide/eks-networking.html) is the default networking plugin that EKS supports. AKS provides several CNI plugins across two networking models. For more information, see [AKS CNI networking overview](/azure/aks/concepts-network-cni-overview).
 
-- [Kubenet networking](/azure/aks/configure-kubenet) (default in AKS)
-- [Azure CNI networking](/azure/aks/configure-azure-cni)
-- [Azure CNI Overlay](/azure/aks/azure-cni-overlay)
-- [Azure CNI networking for dynamic allocation](/azure/aks/configure-azure-cni-dynamic-ip-allocation)
-- [Azure CNI with Cilium integration](/azure/aks/azure-cni-powered-by-cilium)
-- [Non-Microsoft CNIs](/azure/aks/use-byo-cni)
+- **Overlay model**: [Azure CNI Overlay](/azure/aks/azure-cni-overlay) (recommended for most clusters)
+- **Flat model**: [Azure CNI Pod Subnet](/azure/aks/configure-azure-cni-dynamic-ip-allocation) for workloads that require pods to be directly routable from the virtual network
+- **Overlay model with advanced dataplane**: [Azure CNI Powered by Cilium](/azure/aks/azure-cni-powered-by-cilium)
+- **Non-Microsoft CNIs**: [Bring your own CNI plugin](/azure/aks/use-byo-cni)
 
 To prepare your AKS cluster, follow these steps:
 
