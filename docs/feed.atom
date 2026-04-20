@@ -2,12 +2,36 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2026-04-13T18:01:31.754Z</updated>
+    <updated>2026-04-20T17:58:06.138Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Compensating Transaction Pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/compensating-transaction</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/compensating-transaction"/>
+        <updated>2026-04-20T17:12:08.000Z</updated>
+        <summary type="html"><![CDATA[Use the Compensating Transaction pattern to undo work when a step of an eventually consistent operation fails in distributed systems.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Choose a Microsoft Fabric Deployment Pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-guide/technology-choices/fabric-deployment-patterns</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-guide/technology-choices/fabric-deployment-patterns"/>
+        <updated>2026-04-20T16:32:48.000Z</updated>
+        <summary type="html"><![CDATA[Evaluate four Microsoft Fabric deployment patterns to structure capacities, workspaces, and items based on your requirements.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Managed Redis Considerations for Multitenancy]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/managed-redis</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/managed-redis"/>
+        <updated>2026-04-14T23:40:25.000Z</updated>
+        <summary type="html"><![CDATA[Learn about Azure Managed Redis features, like Microsoft Entra ID authentication, active geo-replication, and Redis modules, that you can use to improve the performance of multitenant systems.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Cross-tenant Secure Access to Apps by Using Private Endpoints]]></title>
         <id>https://learn.microsoft.com/azure/architecture/networking/guide/cross-tenant-secure-access-private-endpoints</id>
@@ -57,6 +81,30 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
+        <title type="html"><![CDATA[Event Sourcing Pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/event-sourcing</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/event-sourcing"/>
+        <updated>2026-04-20T17:12:08.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use an append-only store to record the full series of events that describe actions taken on data in a domain.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Basic Enterprise Integration on Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration"/>
+        <updated>2026-04-20T14:41:30.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to implement a basic enterprise integration architecture on Azure by using Azure Logic Apps and Azure API Management.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Hub-Spoke Network Topology in Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/networking/architecture/hub-spoke</id>
+        <link href="https://learn.microsoft.com/azure/architecture/networking/architecture/hub-spoke"/>
+        <updated>2026-04-14T16:13:27.000Z</updated>
+        <summary type="html"><![CDATA[Learn about hub-spoke topology in Azure, where the spoke virtual networks connect to the hub virtual network and can connect to each other.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Deploy Highly Available NVAs]]></title>
         <id>https://learn.microsoft.com/azure/architecture/networking/guide/network-virtual-appliance-high-availability</id>
         <link href="https://learn.microsoft.com/azure/architecture/networking/guide/network-virtual-appliance-high-availability"/>
@@ -78,6 +126,62 @@
         <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/analytics-service-bus"/>
         <updated>2026-04-02T16:10:14.000Z</updated>
         <summary type="html"><![CDATA[Learn how to use Microsoft Fabric with Azure Service Bus for near real-time solutions at enterprise scale in production environments.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Asynchronous Request-Reply Pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/asynchronous-request-reply</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/asynchronous-request-reply"/>
+        <updated>2026-04-20T12:32:11.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to decouple back-end processing from front-end hosts by using asynchronous operations and HTTP polling for long-running tasks.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Windows 365 Azure Network Connection]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/virtual-desktop/windows-365-azure-network-connection</id>
+        <link href="https://learn.microsoft.com/azure/architecture/virtual-desktop/windows-365-azure-network-connection"/>
+        <updated>2026-04-17T08:42:49.000Z</updated>
+        <summary type="html"><![CDATA[Design and implement Windows 365 Azure network connections to integrate Cloud PCs with your existing network infrastructure and on-premises resources.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Technology Choices for Azure Solutions]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/technology-choices/technology-choices-overview</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/technology-choices/technology-choices-overview"/>
+        <updated>2026-04-15T15:12:41.000Z</updated>
+        <summary type="html"><![CDATA[Learn where to find Azure technology guidance across compute, data, analytics, networking, and AI by using curated comparison and choice resources.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Migrate from Amazon Elastic Kubernetes Service to Azure Kubernetes Service]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/aws-professional/eks-to-aks/migrate</id>
+        <link href="https://learn.microsoft.com/azure/architecture/aws-professional/eks-to-aks/migrate"/>
+        <updated>2026-04-13T20:21:01.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to migrate stateless and stateful workloads from Amazon Elastic Kubernetes Service (EKS) to Azure Kubernetes Service (AKS).]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Baseline Architecture for an AKS Cluster]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks/baseline-aks</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks/baseline-aks"/>
+        <updated>2026-04-13T20:21:01.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the reference architecture for the recommended baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Conceptual planning for IPv6 networking]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/networking/guide/ipv6-ip-planning</id>
+        <link href="https://learn.microsoft.com/azure/architecture/networking/guide/ipv6-ip-planning"/>
+        <updated>2026-04-13T20:14:14.000Z</updated>
+        <summary type="html"><![CDATA[Learn strategies for transitioning an IPv4 network environment on Azure to IPv6. IPv6 provides a larger pool of internet addresses to accommodate growth.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Computer Forensics Chain of Custody in Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/forensics/index</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/forensics/index"/>
+        <updated>2026-04-13T18:14:59.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to create an infrastructure and workflow to help ensure a valid digital evidence chain of custody (CoC) for computer forensics in Azure.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -126,14 +230,6 @@
         <link href="https://learn.microsoft.com/azure/architecture/aws-professional/eks-to-aks"/>
         <updated>2026-04-08T15:02:22.000Z</updated>
         <summary type="html"><![CDATA[Learn about the AKS managed solution, configurations, best practices, and similarities and differences compared to Amazon EKS.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Migrate from Amazon Elastic Kubernetes Service to Azure Kubernetes Service]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/aws-professional/eks-to-aks/migrate</id>
-        <link href="https://learn.microsoft.com/azure/architecture/aws-professional/eks-to-aks/migrate"/>
-        <updated>2026-04-08T15:02:22.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to migrate stateless and stateful workloads from Amazon Elastic Kubernetes Service (EKS) to Azure Kubernetes Service (AKS).]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
