@@ -5,6 +5,7 @@ author: anaharris-ms
 ms.author: anaharris
 ms.date: 03/05/2026
 ms.topic: concept-article
+ms.custom: arb-data
 ms.subservice: architecture-guide
 ai-usage: ai-assisted
 ---
