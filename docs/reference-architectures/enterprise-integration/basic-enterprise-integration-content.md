@@ -99,7 +99,7 @@ Regularly [back up your API Management configuration][apim-backup]. The built-in
 
 - Keep a passive instance of the API Management service in another Azure region. Regularly restore backups to that instance to keep it synced with the active service. To restore the service during a DR event, you only need to repoint the DNS records. This approach incurs extra costs because you pay for the passive instance, but it reduces recovery time.
 
-For Logic Apps, we recommend a configuration as code (CAC) approach for backup and restore. Logic apps are serverless, so you can quickly re-create them from Azure Resource Manager templates (ARM templates). Save the templates in source control, and integrate the templates with your continuous integration and continuous deployment (CI/CD) process. In a DR event, deploy the template to a new region.
+For Logic Apps, we recommend a configuration as code (CAC) approach for backup and restore. Logic apps are serverless, so you can quickly re-create them from IaC templates. Save the templates in source control, and integrate the templates with your continuous integration and continuous deployment (CI/CD) process. In a DR event, deploy the template to a new region.
 
 If you deploy a logic app to a different region, update the configuration in API Management. You can update the API's `Backend` property by using a PowerShell script.
 
@@ -143,8 +143,6 @@ Azure charges for all API Management instances while they run. If you scale up a
 
 The Logic Apps Consumption plan uses a serverless billing model to calculate cost based on action and connector runs. If you use Logic Apps Standard (single-tenant), the hosting plan determines costs. For more information, see [Logic Apps pricing][logic-apps-pricing].
 
-For more information, see the [cost section in the Well-Architected Framework][waf-cost].
-
 ### Operational Excellence
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
@@ -173,7 +171,7 @@ Consider staging your workloads, which means that you deploy to various stages a
 
 ##### Workload isolation
 
-Put API Management and any individual logic apps in their own separate ARM templates. With separate templates, you can store the resources in source control systems. You can deploy the templates together or individually as part of a CI/CD process.
+Put API Management and any individual logic apps in their own separate IaC templates. With separate templates, you can store the resources in source control systems. You can deploy the templates together or individually as part of a CI/CD process.
 
 ##### Versions
 
@@ -292,5 +290,4 @@ Other contributor:
 [monitor]: /azure/azure-monitor/fundamentals/overview
 [rbac]: /azure/role-based-access-control/overview
 [sla]: https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services
-[waf-cost]: /azure/well-architected/cost-optimization
 [waf-sec-secret]: /azure/well-architected/security/application-secrets
