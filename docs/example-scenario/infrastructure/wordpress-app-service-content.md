@@ -91,7 +91,7 @@ Consider the following recommendations when you deploy this solution:
 
 - Enable [Application Insights](/azure/azure-monitor/app/app-insights-overview) to monitor application performance, availability, and usage patterns. Use the monitoring data to identify and resolve issues before they affect users.
 - Use [deployment slots](/azure/app-service/deploy-staging-slots) in App Service to stage WordPress core upgrades. Deploy the new version to a staging slot and validate theme and plugin compatibility before you swap into production. Back up the Azure Database for MySQL instance before the swap because WordPress automatically applies schema migrations against the shared database when an administrator signs in after an upgrade.
-- Automate your infrastructure deployments by using Azure Resource Manager templates or Bicep. Infrastructure as code helps you maintain consistency across environments and makes it possible to rebuild environments reliably.
+- Automate your infrastructure deployments by using Bicep or Terraform. Infrastructure as code helps you maintain consistency across environments and makes it possible to rebuild environments reliably.
 - Set up [Azure Monitor alerts](/azure/azure-monitor/alerts/alerts-overview) for key metrics, such as App Service CPU utilization, database connection counts, and response times. Alerts help you respond to operational issues before they affect users.
 
 ### Cost Optimization
