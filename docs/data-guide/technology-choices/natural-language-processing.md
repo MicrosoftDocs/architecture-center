@@ -228,7 +228,7 @@ Use the following criteria to determine which Azure natural language processing 
 
 - **Custom model training on large text datasets:** Use [Azure Databricks](/azure/databricks/introduction) or [Fabric](/fabric/data-engineering/spark-compute) with Spark NLP. These platforms provide the computational power and flexibility that you need for extensive model training on large text datasets. You can also download models through Spark NLP, including Llama 3.x and MPNet.
 
-- **Low-level natural language processing primitives:** Use Azure Databricks or Fabric with Spark NLP for tokenization, stemming, lemmatization, and TF-IDF. Alternatively, use an open-source library like spaCy or NLTK. Azure Language doesn't provide these low-level text-processing primitives.
+- **Low-level natural language processing primitives:** Use Azure Databricks or Fabric with Spark NLP for tokenization, stemming, lemmatization, and TF-IDF. Alternatively, use an open-source library like spaCy or NLTK. Azure Language in Foundry Tools uses tokenization internally as part of its model pipeline, but it doesn't expose these steps as standalone, controllable APIs.
 
 ## Build natural language processing pipelines by using Spark NLP
 
@@ -283,7 +283,7 @@ The following tables summarize the key differences in capabilities between Spark
 | :--- | :--- | :--- |
 | Sentence detector | Yes | No |
 | Deep sentence detector | Yes | No |
-| Tokenizer | Yes | Yes |
+| Tokenizer | Yes | Internal only (not exposed as a standalone API) |
 | N-gram generator | Yes | No |
 | Word segmentation | Yes | Yes |
 | Stemmer | Yes | No |
