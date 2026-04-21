@@ -1,6 +1,6 @@
 Organizations that use an internal or nonintegrated certificate authority (CA) often rely on manual processes to renew Transport Layer Security (TLS) and Secure Sockets Layer (SSL) certificates. Manual renewal can lead to expired certificates that cause service outages, like when a web server certificate expires unnoticed and disrupts customer-facing applications.
 
-Azure Key Vault supports [automatic certificate renewal](/azure/key-vault/certificates/overview-renew-certificate) for integrated CAs like *DigiCert* or *GlobalSign*, but nonintegrated CAs require a [manual approach](/azure/key-vault/certificates/overview-renew-certificate#renew-a-nonintegrated-ca-certificate). This article presents an architecture that automates certificate renewal for nonintegrated CAs by using Key Vault, Azure Event Grid, Azure Automation, and the Key Vault extension. The solution reduces human error, minimizes service interruptions, and enforces principle of least privilege (PoLP) across all identities in the renewal process.
+Azure Key Vault supports [automatic certificate renewal](/azure/key-vault/certificates/overview-renew-certificate) for integrated CAs like *DigiCert* or *GlobalSign*, but nonintegrated CAs require a [manual approach](/azure/key-vault/certificates/overview-renew-certificate#renew-a-nonintegrated-ca-certificate). This article presents an architecture that automates certificate renewal for nonintegrated CAs by using Key Vault, Azure Event Grid, Azure Automation, and the Key Vault extension. The solution reduces human error, minimizes service interruptions, and enforces principle of least privilege across all identities in the renewal process.
 
 ## Architecture
 
@@ -47,7 +47,7 @@ The following workflow corresponds to the previous diagram:
    We recommend that you use certificate tags to configure custom email notifications by tagging each certificate with the recipient's email address. This approach lets you notify specific admins for each certificate rather than applying the same recipient to all certificates.
    Use the *Recipient* tag and set its value to one or more email addresses separated by a comma or semicolon. Tag-based notifications ensure timely alerts when the certificate renewal completes on the internal CA and when the renewed certificate becomes available in Key Vault.
 
-    You can use [built-in Key Vault certificate notifications](/azure/key-vault/certificates/overview-renew-certificate#get-notified-about-certificate-expiration) in combination with this approach, but they serve a different purpose. Built-in notifications apply globally to all certificates in the key vault and are limited to upcoming certificate expiration alerts. They use the same recipient for all certificates.
+   You can use [built-in Key Vault certificate notifications](/azure/key-vault/certificates/overview-renew-certificate#get-notified-about-certificate-expiration) in combination with this approach, but they serve a different purpose. Built-in notifications apply globally to all certificates in the key vault and are limited to upcoming certificate expiration alerts. They use the same recipient for all certificates.
 
 1. **Key Vault extension configuration:** You must equip the servers that need to use the certificates with the Key Vault extension. The extension is compatible with [Windows](/azure/virtual-machines/extensions/key-vault-windows) and [Linux](/azure/virtual-machines/extensions/key-vault-linux) systems. It supports Azure infrastructure as a service (IaaS) servers and on-premises or other cloud servers that integrate through [Azure Arc](/azure/azure-arc/overview). Configure the Key Vault extension to periodically poll Key Vault for any updated certificates. The polling interval is customizable and flexible, so it can align with specific operational requirements.
 
@@ -72,7 +72,7 @@ The following workflow corresponds to the previous diagram:
 
 1. **Certificate merging and Key Vault update:** The script merges the renewed certificate back into the key vault. This step finalizes the update process and removes the message from the queue. Throughout the entire process, the private key of the certificate is never extracted from the key vault.
 
-1. **Monitoring and email notification:** To enable monitoring, the Azure Monitor Logs workspace logs all operations that various Azure components run, including the Automation account, Key Vault, the storage account queue, and Event Grid. After the certificate merges into the key vault, the script sends an email message to administrators to notify them of the outcome.
+1. **Monitoring and email notification:** All logs related to operations that run across various Azure components, including the Automation account, Key Vault, the storage account queue, and Event Grid, should be sent to the Azure Monitor Logs workspace. After the certificate merges into the key vault, the script sends an email message to administrators to notify them of the outcome.
 
 1. **Certificate retrieval:** The Key Vault extension on the server plays an important role during this phase. It automatically downloads the latest version of the certificate from the key vault into the local store of the server that uses the certificate. You can configure multiple servers with the Key Vault extension to retrieve the same certificate from the key vault, including wildcard or with multiple Subject Alternative Name (SAN) certificates.
 
@@ -88,7 +88,7 @@ The Key Vault extension is a tool installed on servers that provides automatic r
 
 - [Key Vault extension for Windows](/azure/virtual-machines/extensions/key-vault-windows)
 - [Key Vault extension for Linux](/azure/virtual-machines/extensions/key-vault-linux)
-- [Key Vault extension for Azure Arc-enabled servers](https://techcommunity.microsoft.com/t5/azure-arc-blog/in-preview-azure-key-vault-extension-for-arc-enabled-servers/ba-p/1888739)
+- [Key Vault extension for Azure Arc-enabled servers](/azure/azure-arc/servers/manage-vm-extensions)
 
 > [!NOTE]
 > The following scripts are samples that you can run from Azure Cloud Shell to configure the Key Vault extension:
@@ -110,7 +110,7 @@ The Key Vault extension configuration parameters include:
 
 - **pollingIntervalInS:** The polling interval for the Key Vault extension to check for certificate updates. The default value is `3600` seconds (1 hour).
 
-- **authenticationSetting:** The authentication setting for the Key Vault extension. For Azure servers, you can omit this setting so that the VM's system-assigned managed identity is used against the key vault. For on-premises servers, if you specify the setting `msiEndpoint = "http://localhost:40342/metadata/identity"`, the service principal associated with the computer object created during the Azure Arc onboarding is used.
+- **authenticationSetting:** The authentication setting for the Key Vault extension. For Azure servers, you can omit this setting so that the extension uses the VM's system-assigned managed identity to authenticate to the key vault. For on-premises servers, if you specify the setting `msiEndpoint = "http://localhost:40342/metadata/identity"`, the extension uses the service principal associated with the computer object created during Azure Arc onboarding.
 
 > [!NOTE]
 > Specify the Key Vault extension parameters only during the initial setup. This approach ensures that the parameters remain unchanged throughout the renewal process.
@@ -233,7 +233,7 @@ Throughout the certificate renewal process, the following components use identit
 
 - The Automation account, which uses its designated managed identity
 
-PoLP is rigorously enforced across all identities engaged in the certificate renewal procedure.
+Least privilege is rigorously enforced across all identities engaged in the certificate renewal procedure.
 
 The system account of the Hybrid Runbook Worker server must have the right to enroll certificates on one or more certificate templates that generate new certificates.
 
