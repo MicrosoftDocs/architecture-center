@@ -94,6 +94,8 @@ Other contributor:
 - [Adam Cerini](https://www.linkedin.com/in/adamcerini) | 
 Director, Partner Technology Strategist
 
+- [Juan Carlos Osorio](https://www.linkedin.com/in/juan-carlos-osorio-6252bba7/) | Sr. CSA AI & Apps 
+
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
