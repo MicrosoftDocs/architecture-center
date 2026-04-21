@@ -61,7 +61,16 @@ For more information, see [Transient fault handling](/azure/architecture/best-pr
 
 Provisioning is the process of enrolling a device into IoT Hub. Provisioning registers a device with IoT Hub and specifies the attestation mechanism that it uses. You can use the [IoT Hub device provisioning service (DPS)](/azure/iot-dps/) or provision directly via IoT Hub Registry Manager APIs. Using DPS provides the advantage of late binding, which allows the removal and reprovisioning of field devices to IoT Hub without changes to the device software.
 
-The following example shows how to implement a test-to-production environment transition workflow by using DPS.
+For production deployments that support large device fleets, use Azure IoT Hub in conjunction with DPS as a foundational onboarding pattern. DPS enables secure, zero-touch provisioning and late binding of devices to IoT Hub instances. Devices can be reprovisioned across environments or scaled horizontally without firmware updates. When you incorporate DPS from the outset, your solution can:
+
+- Distribute device populations across multiple hubs.
+- Support regional deployments.
+- Isolate customer environments.
+- Transition devices across deployment stamps without requiring device reprovisioning or manufacturing changes later in the lifecycle.
+
+For more information, see [Best practices for large-scale IoT device deployments](/azure/iot-dps/concepts-deploy-at-scale).
+
+DPS also simplifies moving devices between test and production environments. The following example shows how to implement a test-to-production environment transition workflow by using DPS.
 
 :::image type="complex" border="false" source="./media/late-binding-with-dps.png" alt-text="A diagram that shows how to implement a test-to-production environment transition workflow by using DPS." lightbox="./media/late-binding-with-dps.png":::
    The diagram contains several icons. An arrow points from the Operator process section to the IoT DPS section. A Device provisioning request is sent to IoT DPS from the Device requests hub. Two arrows extend from IoT DPS. One red arrow points to the test hub and one black arrow points to the production hub. Two arrows extend from the Device requests hub. One red arrow points to the test hub and one black arrow points to the production hub.
@@ -78,6 +87,19 @@ The following example shows how to implement a test-to-production environment tr
 1. The device connects and renegotiates the provisioning flow. DPS directs the device to the production environment and the device connects and authenticates there.
 
 For more information, see [Overview of IoT Hub device provisioning service](/azure/iot-dps/about-iot-dps#provisioning-process).
+
+## Prepare for upcoming identity and lifecycle management capabilities
+
+Azure IoT Hub is evolving to support device lifecycle and credential management capabilities through Azure Device Registry (ADR) integration and Microsoft-backed operational certificate issuance.
+
+Migration of existing IoT Hub deployments into these new identity and certificate lifecycle management models isn't currently supported in preview. However, you can prepare for adoption by implementing the following architectural practices today:
+
+- Use DPS for device onboarding instead of direct hub registry enrollment.
+- Co-locate IoT Hub and DPS resources within the same Azure region.
+- Separate onboarding credentials from runtime authentication where possible.
+- Avoid embedding IoT Hub-specific connection metadata in device firmware.
+
+These practices align device onboarding flows with ADR-based identity projection and certificate lifecycle workflows. They can reduce future onboarding or reprovisioning requirements when you adopt these capabilities.
 
 ## Contributors
 
