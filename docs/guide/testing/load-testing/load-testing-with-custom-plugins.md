@@ -149,7 +149,7 @@ To create a sample JMeter test script:
    {
        {% assign numberOfMachines = 36 %}
        {% assign machineId = dataGenerator.randomNaturalNumber | modulo: numberOfMachines %}
-    "MachineId": "{{machineId | prepend: '0000000000000000000000000000000000000000' | slice: -27, 27 }}",
+       "MachineId": "{{machineId | prepend: '0000000000000000000000000000000000000000' | slice: -27, 27 }}",
        "Temperature": {{dataGenerator.randomInt | modulo: 100 }},
        "Humidity": {{dataGenerator.randomInt | modulo: 100 }}
    }
