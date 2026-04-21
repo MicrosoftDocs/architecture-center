@@ -101,7 +101,7 @@ Prebuilt features require no model training and are ready to use:
 
 - **[Summarization](/azure/ai-services/language-service/summarization/overview?tabs=text-summarization):** Condenses documents and conversations by using extractive or abstractive approaches, which supports text, chat, and call center summarization.
 
-- **[Text analytics for health](/azure/ai-services/language-service/text-analytics-for-health/overview?tabs=ner):** Extracts and labels relevant health information from unstructured clinical text, including medical entities, relations, and assertions.
+- **[Text analytics for health](/azure/ai-services/language-service/text-analytics-for-health/overview):** Extracts and labels relevant health information from unstructured clinical text, including medical entities, relations, and assertions.
 
 - **[Entity linking](/azure/ai-services/language-service/entity-linking/overview):** Disambiguates entities found in unstructured text by linking them to a structured knowledge base.
 
@@ -158,9 +158,7 @@ The Azure Language MCP server supports multiple deployment options:
 Apache Spark with Spark NLP is a distributed, open-source approach to natural language processing that operates at cluster scale. The Spark NLP platform architecture, performance, and prebuilt model ecosystem make it a strong option for large-scale, customizable natural language processing workloads on [Azure Databricks](/azure/databricks/introduction/) or [Fabric](/fabric/data-engineering/spark-compute).
 
 ### Understand platform and architecture
-
-> [!IMPORTANT]
-> Azure HDInsight 4.0 and 5.0 were retired on March 31, 2025. HDInsight 5.1 remains on Standard support, but we recommend that you use [Fabric](/fabric/data-engineering/spark-compute) or [Azure Databricks](/azure/databricks/introduction) for new Apache Spark-based natural language processing workloads. For more information, see [HDInsight retirement](/azure/hdinsight/hdinsight-component-retirements-and-action-required).
+We recommend that you use [Fabric](/fabric/data-engineering/spark-compute) or [Azure Databricks](/azure/databricks/introduction) for Apache Spark-based natural language processing workloads.
 
 - **Apache Spark provides parallel, in-memory processing for big-data analytics.** Fabric and Azure Databricks give you access to Apache Spark processing capabilities for large-scale natural language processing workloads.
 
@@ -180,7 +178,7 @@ Apache Spark with Spark NLP is a distributed, open-source approach to natural la
 
 - **Optimized builds for CPUs, GPUs, and Intel Xeon chips fully use Apache Spark clusters.** These builds enable training and inference to scale efficiently across cluster nodes.
 
-- **MPNet embeddings and ONNX support enable precise, context-aware processing.** MPNet produces dense vector representations that capture semantic meaning, and [ONNX support](https://sparknlp.org/docs/en/concepts#onnx-support) lets you import and run optimized models for inference.
+- **MPNet embeddings and ONNX support enable precise, context-aware processing.** MPNet produces dense vector representations that capture semantic meaning, and [ONNX support](https://sparknlp.org/docs/en/transformers#compatibility) lets you import and run optimized models for inference.
 
 ### Use prebuilt models and pipelines
 
@@ -216,7 +214,7 @@ Real-world documents rarely follow a consistent structure. This inconsistency cr
 
 - **MPNet embeddings in Spark NLP provide enhanced contextual understanding.** MPNet embeddings capture contextual relationships between words and phrases, which helps Spark NLP pipelines handle nuanced text more effectively. These embeddings produce dense vector representations that preserve semantic meaning across different document formats.
 
-- **Custom models in Azure Language adapt to domain-specific text patterns.** With [CNER](/azure/ai-services/language-service/custom-named-entity-recognition/overview) and [custom text classification](/azure/ai-services/language-service/custom-text-classification/overview), you can train models on your own labeled data to recognize patterns specific to your domain. This approach improves reliability by teaching the model to recognize entities and categories that prebuilt models miss.
+- **Custom models in Azure Language adapt to domain-specific text patterns.** With [CNER](/azure/ai-services/language-service/custom-named-entity-recognition/overview) you can train models on your own labeled data to recognize patterns specific to your domain. This approach improves reliability by teaching the model to recognize entities and categories that prebuilt models miss.
 
 ## Apply key selection criteria
 
