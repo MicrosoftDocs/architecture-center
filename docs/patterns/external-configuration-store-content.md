@@ -48,17 +48,17 @@ Consider the following points as you decide how to implement this pattern:
 
 Use this pattern when:
 
-- Configuration settings that are shared between multiple applications and application instances, or where a standard configuration must be enforced across multiple applications and application instances.
+- You need to share configuration settings across multiple applications or instances, or enforce a standard configuration across them.
 
-- A standard configuration system that doesn't support all of the required configuration settings, such as storing images or complex data types.
+- Your standard configuration system doesn't support all required setting types, such as images or complex data structures.
 
-- As a complementary store for some of the settings for applications, perhaps allowing applications to override some or all of the centrally-stored settings.
+- You need a complementary store for some settings, while allowing applications to override some or all centrally stored values.
 
-- As a way to simplify administration of multiple applications, and optionally for monitoring use of configuration settings by logging some or all types of access to the configuration store.
+- You need to simplify administration across multiple applications and optionally monitor configuration usage by logging access to the configuration store.
 
 This pattern might not be suitable when:
 
-- Configuration is simple, local to one application, and changes only during normal release cycles. In that case, adding an external configuration store can introduce unnecessary operational complexity.
+- Your configuration is simple, local to one application, and changes only during normal release cycles. In this case, an external configuration store can add unnecessary operational complexity.
 
 ## Workload design
 
