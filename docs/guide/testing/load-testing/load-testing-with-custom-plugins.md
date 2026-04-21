@@ -3,7 +3,7 @@ title: Azure Load Testing with Custom Plugins for Event Hubs and IoT Hub to Simu
 description: Learn how to design KPIs and develop a dashboard for Azure Load Testing with custom JMeter plugins to simulate device behaviors.
 author: msetbar
 ms.author: msetayesh
-ms.date: 02/06/2025
+ms.date: 2026-04-20
 ms.topic: solution-idea
 ms.subservice: solution-idea
 ms.custom: arb-iot
@@ -124,7 +124,7 @@ To create a sample JMeter test script:
                <boolProp name="ThreadGroup.same_user_on_next_iteration">false</boolProp>
            </ThreadGroup>
            <hashTree>
-                <com.microsoft.eventhubplugin.EventHubPlugin guiclass="com.microsoft.eventhubplugin.EventHubPluginGui" estclass="com.microsoft.eventhubplugin.EventHubPlugin" testname="Azure Event Hubs Sampler" enabled="true">
+                <com.microsoft.eventhubplugin.EventHubPlugin guiclass="com.microsoft.eventhubplugin.EventHubPluginGui" testclass="com.microsoft.eventhubplugin.EventHubPlugin" testname="Azure Event Hubs Sampler" enabled="true">
                    <!-- Azure Event Hub connection configuration using Managed Identity (see repository for instructions) -->
                    <boolProp name="useManagedIdentity">true</boolProp>
                    <stringProp name="eventHubNamespace">telemetry-ehn.servicebus.windows.net</stringProp>
@@ -149,7 +149,7 @@ To create a sample JMeter test script:
    {
        {% assign numberOfMachines = 36 %}
        {% assign machineId = dataGenerator.randomNaturalNumber | modulo: numberOfMachines %}
-       "MachineId": "{{machineId | prepend: '0000000000000000000000000000000000000000' | slice: -27, 27 }}"
+    "MachineId": "{{machineId | prepend: '0000000000000000000000000000000000000000' | slice: -27, 27 }}",
        "Temperature": {{dataGenerator.randomInt | modulo: 100 }},
        "Humidity": {{dataGenerator.randomInt | modulo: 100 }}
    }
@@ -215,7 +215,7 @@ This example has the following business requirements:
 
 - The system can handle 1,000 requests per second.
 - The system reliability is higher than 0.99.
-- The system can handle 1,000 concurrent devices reporting their personal data information.
+- The system can handle 1,000 concurrent devices reporting telemetry data.
 - You can specify the maximum capacity of the system in terms of the number of devices that it can support. For example, the system can support 1,000 concurrent devices with three times the current capacity.
 
 To measure whether the system meets these requirements, you can use the following KPIs for performance testing:
