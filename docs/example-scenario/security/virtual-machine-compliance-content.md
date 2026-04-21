@@ -16,7 +16,7 @@ The following sections describe the two processes in this solution.
 
 The following data flow corresponds to the previous diagram:
 
-1. Each month, the golden image publishing process captures a base image from [Microsoft Marketplace](https://marketplace.microsoft.com).
+1. Each month, the golden image publishing process captures a base image from [Microsoft Marketplace](https://marketplace.microsoft.com). A golden image is the published version of a Marketplace image.
 
 1. VM Image Builder customizes the image.
 
@@ -74,7 +74,7 @@ This solution uses VM Image Builder, Compute Gallery, and Azure Policy to manage
 
 Use this solution if your organization uses Azure [landing zones][Azure landing zone overview] and you need to:
 
-- Supply golden images to DevOps teams. A golden image is the published version of a Marketplace image.
+- Supply golden images to DevOps teams.
 
 - Test and validate images before you make them available to DevOps teams.
 
