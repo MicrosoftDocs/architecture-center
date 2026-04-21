@@ -4,7 +4,7 @@ metadata:
   description: Manage virtual machine compliance without disrupting DevOps practices. Use Azure VM Image Builder and Azure Compute Gallery to minimize risk from system images.
   author: yemrea
   ms.author: yemrea
-  ms.date: 04/07/2026
+  ms.date: 04/21/2026
   ms.topic: example-scenario
   ms.subservice: example-scenario
   ai-usage: ai-assisted
