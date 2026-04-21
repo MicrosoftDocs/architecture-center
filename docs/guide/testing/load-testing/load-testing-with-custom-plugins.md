@@ -3,7 +3,7 @@ title: Azure Load Testing with Custom Plugins for Event Hubs and IoT Hub to Simu
 description: Learn how to design KPIs and develop a dashboard for Azure Load Testing with custom JMeter plugins to simulate device behaviors.
 author: msetbar
 ms.author: msetayesh
-ms.date: 2026-04-20
+ms.date: 4/21/2026
 ms.topic: solution-idea
 ms.subservice: solution-idea
 ms.custom: arb-iot
