@@ -3566,7 +3566,7 @@
     {
       "source_path": "docs/guide/technology-choices/service-for-java-comparison.yml",
       "redirect_url": "/azure/architecture/guide/technology-choices/compute-decision-tree",
-      "redirect_document_id": false      
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/reference-architectures/apis/protect-apis.yml",
