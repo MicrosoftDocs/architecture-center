@@ -1,11 +1,11 @@
 ---
 title: Compare AWS and Azure Accounts
 description: Learn the differences between Azure and AWS accounts and subscriptions. Understand the types of administrator accounts in Azure.
-author: splitfinity81
-ms.author: yubaijna
-ms.date: 01/02/2025
+author: juanosorioms
+ms.author: jcosorio
+ms.date: 04/21/2026
 ms.topic: concept-article
-ms.subservice: cloud-fundamentals
+ms.subservice: architecture-guide
 ms.collection: 
  - migration
  - aws-to-azure
@@ -75,7 +75,7 @@ An Azure account represents a billing relationship, and Azure subscriptions help
 - **Azure role-based access control (Azure RBAC)**, which manages access to Azure resources. Microsoft recommends Azure RBAC for all resource access management. Common built-in roles include Owner, Contributor, and Reader, which can be assigned at the management group, subscription, resource group, or resource scope.
 
 > [!IMPORTANT]
-> The classic subscription administrator roles (Service Administrator and Co-Administrator) were retired on August 31, 2024, along with Azure Service Manager and Azure classic resources. If any subscription still has active classic administrator assignments, convert them to Azure RBAC immediately. For more information, see [Azure classic subscription administrators](https://learn.microsoft.com/azure/role-based-access-control/classic-administrators).
+> The classic subscription administrator roles (Service Administrator and Co-Administrator) were retired on August 31, 2024, along with Azure Service Manager and Azure classic resources. If any subscription still has active classic administrator assignments, convert them to Azure RBAC immediately. For more information, see [Azure classic subscription administrators](/azure/role-based-access-control/classic-administrators).
 
 Under the subscription level, user roles and individual permissions can also be assigned to specific resources, similarly to how permissions are granted to IAM users and groups in AWS. In Azure, user accounts are either personal Microsoft accounts (such as Outlook.com, Hotmail, or Xbox identities) or work or school accounts managed through Microsoft Entra ID.
 
